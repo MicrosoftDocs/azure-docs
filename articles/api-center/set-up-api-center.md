@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Get started with Azure API Center (preview) | Microsoft Docs
-description: Follow this tutorial to set up your API center for API discovery, reuse, and governance. Register APIs, add versions and specifications, set metadata properties, and more.
+description: Follow this tutorial to set up your API center for API discovery, reuse, and governance. Register APIs, add versions and definitions, set metadata properties, and more.
 author: dlepow
 ms.service: api-center
 ms.topic: tutorial
@@ -32,7 +32,7 @@ For background information about APIs, deployments, and other entities that you 
 
 * At least a Contributor role assignment or equivalent permissions in the Azure subscription. 
 
-* One or more APIs that you want to register in your API center. Here are two examples, with links to their OpenAPI specifications for download:
+* One or more APIs that you want to register in your API center. Here are two examples, with links to their OpenAPI definitions for download:
 
     * [Swagger Petstore API](https://github.com/swagger-api/swagger-petstore/blob/master/src/main/resources/openapi.yaml)
     * [Azure Demo Conference API](https://conferenceapi.azurewebsites.net?format=json)
@@ -114,7 +114,7 @@ Here you define two example properties: *Line of business* and *Public-facing*; 
 Now add (register) APIs in your API center. Each API registration includes:
 * a name, type, and description
 * version information
-* optional API specification information
+* optional API definition information
 * optional links to documentation and contacts
 * optional deployment information
 * built-in and custom metadata properties that you defined
@@ -141,7 +141,7 @@ The following steps register two sample APIs: Swagger Petstore API and Demo Conf
     | **API specification** | | |
     | **Format** | For the Swagger Petstore API, select **OpenAPI**. | Specification format for the API.|
     | **Version** | Enter a version identifier of your choice, such as *1.0.1*. | Specification version. |
-    |**Document**        | Browse to the YAML file for Swagger Petstore API.      |  API specification file.     |
+    |**Document**        | Browse to the YAML file for Swagger Petstore API.      |  API definition file.     |
     |**External documentation**     | Optionally add one or more links to external documentation.       | Name, description, and URL of documentation for the API.      |  
     |**Contact**         |  Optionally add information for one or more contacts.       | Name, email, and URL of a contact for the API.      |  
     | **Line of business** | If you added this custom property, make a selection from the dropdown, such as **Marketing**. | Custom metadata property that identifies the business unit that owns the API. |
@@ -160,7 +160,7 @@ The APIs appear on the **APIs** page in the portal. When you've added a large nu
 
 ## Add an API version
 
-Throughout its lifecycle, an API could have multiple versions. You can add a version to an existing API in your API center, optionally with an updated specification file or files. 
+Throughout its lifecycle, an API could have multiple versions. You can add a version to an existing API in your API center, optionally with an updated definition file or files. 
 
 Here you add a version to one of your APIs:
 
@@ -182,13 +182,13 @@ Here you add a version to one of your APIs:
         |**Version identification**|After you enter the preceding title, API Center generates this identifier, which you can override.| Azure resource name for the version.|
         |**Version lifecycle**  | Make a selection from the dropdown, such as **Production**. | Lifecycle stage of the API version. |
     
-    1. Under **API definition**, optionally select **+ Add** to associate one or more specification files with the API version. For example, you might add a new OpenAPI specification file for the API version.  
+    1. Under **API definition**, optionally select **+ Add** to associate one or more definition files with the API version. For example, you might add a new OpenAPI definition file for the API version.  
 
         |Setting|Value|Description|
         |-------|-----|-----------|
         | **Format** | For the Demo Conference API, select **OpenAPI**. | Specification format for the API.|
         | **Version** | Enter a version identifier of your choice, such as *1.0.2*. | Specification version. |
-        |**Document**        | Browse to a specification file for the Demo Conference API.      |  API specification file.     |
+        |**Document**        | Browse to a definition file for the Demo Conference API.      |  API definition file.     |
     
 ## Add an environment
 
@@ -245,7 +245,7 @@ Here you add a deployment by associating one of your APIs with the environment y
     | **Environment** | Make a selection from the dropdown, such as *My Testing*, or optionally select **Create new**.| New or existing environment where the API version is deployed. |
     | **Runtime URL** | Enter a base URL such as `https://api.contoso.com/conference`. | Base runtime URL for the API in the environment.  |
     | **API version** | Make a selection from the dropdown, such as *v1*. | API version you added to your API center. |
-    | **Definition file** | Select or upload an API definition file for the Demo Conference API. | API specification file. |
+    | **Definition file** | Select or upload an API definition file for the Demo Conference API. | API definition file. |
 
 In this tutorial, you learned how to use the portal to:
 > [!div class="checklist"]

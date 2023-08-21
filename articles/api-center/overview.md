@@ -33,7 +33,7 @@ With API Center, stakeholders throughout your organization - including API progr
 In preview, create and use an API Center in the Azure portal for the following:
 
 * **API inventory management** - Register all of your organization's APIs for inclusion in a centralized inventory.
-* **Real-world API representation** - Add real-world information about each API including versions and definitions such as OpenAPI specifications. List API deployments and associate them with runtime environments, for example representing API management solutions.
+* **Real-world API representation** - Add real-world information about each API including versions and definitions such as OpenAPI definitions. List API deployments and associate them with runtime environments, for example representing API management solutions.
 * **Metadata properties** - Organize and filter APIs and related resources using built-in and custom metadata properties, to help with API governance and discoverability by API consumers.  
 * **Workspaces** - Enable multiple teams to work independently in API Center by creating workspaces with permissions based on role-based access control.
 

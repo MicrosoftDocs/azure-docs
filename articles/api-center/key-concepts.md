@@ -35,7 +35,7 @@ APIs typically have multiple versions across lifecycle stages. In API Center, as
 
 ## API definition
 
-Each API version may be defined with one or more definition files, such as an OpenAPI definition for a REST API. API Center allows any API definition file formatted as text (YAML, JSON, Markdown, and so on). You can upload OpenAPI, gRPC, GraphQL, AsyncAPI, WSDL, and WADL specifications, among others.
+Each API version may be defined with one or more definition files, such as an OpenAPI definition for a REST API. API Center allows any API definition file formatted as text (YAML, JSON, Markdown, and so on). You can upload OpenAPI, gRPC, GraphQL, AsyncAPI, WSDL, and WADL definitions, among others.
 
 ## Environment
 
