@@ -85,7 +85,6 @@ When you create a Blob Storage-triggered function using Visual Studio Code, you 
 1. At the prompts, provide the following information:
 
     ::: zone pivot="programming-language-csharp"
-    # [In-process](#tab/in-process) 
     |Prompt|Action|
     |--|--|
     |**Select a language**| Select `C#`. |
