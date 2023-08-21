@@ -1,16 +1,24 @@
 ---
-title: Manage sql server using Azure Automation
-description: This article tells how to use Azure SQL server using a system assinged managed identity
+title: Manage databases in Azure SQL databases using Azure Automation.
+description: This article explains on how to use Azure SQL server database using a system assinged managed identity in Azure Automation.
 services: automation
 ms.date: 06/26/2023
 ms.topic: conceptual
 ---
 
-# Manage Azure SQL server using an identity account
+# Manage databases in Azure SQL database using Azure Automation.
 
-This article describes the process to manage the SQL server using the Azure Automation account.
+This article describes the process to connect and manage databases in Azure SQL database using Azure Automation's [system-assigned managed identity](enable-managed-identity-for-automation.md). With Azure Automation, you can manage databases in Azure SQL Database by using the [latest Az PowerShell cmdlets](https://learn.microsoft.com/powershell/module/) that are available in [Azure Az PowerShell](https://learn.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-10.2.0).
 
-## Scenario: Manage SQL server using Azure Automation
+Azure Automation has these Azure Az PowerShell cmdlets available out of the box, so that you can perform all the SQL Database management tasks within the service. You can also pair these cmdlets in Azure Automation with the cmdlets for other Azure services to automate complex tasks across Azure services and across third-party systems.
+
+Azure Automation allows you to communicate with the SQL servers directly by issuing SQL commands using PowerShell.
+
+
+## Connect to Azure SQL database using System-assigned Managed identity
+
+
+
 
 ### Issue
 
