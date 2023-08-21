@@ -1,7 +1,7 @@
 ---
-title: AI Apps with Azure Cosmos DB vCore Vector Search
-titleSuffix: AI Apps with Azure Cosmos DB vCore Vector Search
-description: Enhance AI-powered Applications with Retrieval Augmented Generation (RAG) using Azure Cosmos DB vCore Vector Search.
+title: Build AI Apps with Azure Cosmos DB for MongoDB vCore Vector Search
+titleSuffix: Build AI Apps with Azure Cosmos DB for MongoDB vCore Vector Search
+description: Enhance AI-powered Applications with Retrieval Augmented Generation (RAG) using Azure Cosmos DB for MongoDB vCore Vector Search.
 ms.service: cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: tutorial
@@ -11,7 +11,7 @@ ms.reviewer: sandnair
 ms.date: 08/22/2023
 ---
 
-# AI Apps with Azure Cosmos DB vCore Vector Search
+# AI Apps with Azure Cosmos DB for MongoDB vCore Vector Search
 
 [!INCLUDE[MongoDB vCore](../../includes/appliesto-mongodb-vcore.md)]
 
@@ -34,7 +34,7 @@ Retrieval Augmented Generation harnesses external knowledge and models to effici
 
 RAG's power is truly harnessed through the native vector search capability within Azure Cosmos DB for MongoDB vCore. This enables a seamless fusion of AI-focused applications with stored data in Azure Cosmos DB. Vector search optimally stores, indexes, and searches high-dimensional vector data directly within Azure Cosmos DB for MongoDB vCore alongside other application data. This eliminates the need to migrate data to costlier alternatives for vector search functionality.
 
-Code Samples and Tutorials:
+## Code Samples and Tutorials
 
 1.	[**.NET Retail Chatbot Demo**](https://github.com/AzureCosmosDB/VectorSearchAiAssistant/tree/mongovcorev2): Learn how to build a chatbot using .NET that demonstrates RAG's potential in a retail context.
 2.	[**.NET Tutorial - Recipe Chatbot**](https://github.com/microsoft/AzureDataRetrievalAugmentedGenerationSamples/tree/main/C%23/CosmosDB-MongoDBvCore): Walk through creating a recipe chatbot using .NET, showcasing RAG's application in a culinary scenario.
