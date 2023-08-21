@@ -30,12 +30,12 @@ For specific information on Preview features, refer to the [AzAcSnap Preview](az
 
 AzAcSnap 9 is being released with the following fixes and improvements:
 
+- Features moved to GA (generally available):
+  - IBM Db2 Database support.
+  - [System Managed Identity](azacsnap-installation.md#azure-system-managed-identity) support for easier setup while improving security posture.
 - Fixes and Improvements:
   - Configure (`-c configure`) changes:
     - Allows for a blank value for `authFile` in the configuration file when using System Managed Identity.
-- Features moved to GA (generally available):
-  - IBM Db2 Database support.
-  - System Managed Identity support for easier setup while improving security posture.
 - Features added to [Preview](azacsnap-preview.md):
   - None.
 - Features removed:
