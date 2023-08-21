@@ -32,8 +32,8 @@ You use the control plane of the SAP on Azure Deployment Automation Framework to
 You can use the automation framework to deploy the following SAP architectures:
 
 - **Standalone**: For this architecture, all the SAP roles are installed on a single server.
-- **Distributed**: With this architecture, you can separate the database server and the application tier. The application tier can further be separated in two by having SAP Central Services on a VM and one or more application servers.
-- **Distributed (highly available)**: This architecture is similar to the distributed architecture. In this deployment, the database and/or SAP Central Services can both be configured by using a highly available configuration that uses two VMs, each with Pacemaker clusters.
+- **Distributed**: With this architecture, you can separate the database server and the application tier. The application tier can further be separated in two by having SAP central services on a VM and one or more application servers.
+- **Distributed (highly available)**: This architecture is similar to the distributed architecture. In this deployment, the database and/or SAP central services can both be configured by using a highly available configuration that uses two VMs, each with Pacemaker clusters.
 
 The dependency between the control plane and the application plane is illustrated in the following diagram. In a typical deployment, a single control plane is used to manage multiple SAP deployments.
 

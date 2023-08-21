@@ -29,7 +29,7 @@ To set the application server count, define the parameter `application_server_co
 
 ## Central services tier
 
-The SAP Central Services (SCS) tier deploys a customer-defined number of VMs. These VMs are size **Standard_D4s_v3** with a 30-GB OS disk and a 512-GB data disk. This tier also deploys a [Standard instance of Load Balancer](../../load-balancer/load-balancer-overview.md).
+The SAP central services (SCS) tier deploys a customer-defined number of VMs. These VMs are size **Standard_D4s_v3** with a 30-GB OS disk and a 512-GB data disk. This tier also deploys a [Standard instance of Load Balancer](../../load-balancer/load-balancer-overview.md).
 
 To set the SCS server count, define the parameter `scs_server_count` for this tier in your parameter file. For example, use `scs_server_count=1`.
 
