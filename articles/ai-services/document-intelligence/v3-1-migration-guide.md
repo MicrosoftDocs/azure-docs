@@ -1,5 +1,5 @@
 ---
-title: "How-to: Migrate your Document Intelligence to v3.1."
+title: "How-to: Migrate Document Intelligence (formerly Form Recognizer) applications to v3.1."
 titleSuffix: Azure AI services
 description: In this how-to guide, learn the differences between Document Intelligence API v3.0 and v3.1 and how to move to the newer version of the API.
 author: laujan
@@ -25,7 +25,7 @@ monikerRange: '<=doc-intel-3.1.0'
 
 ## Migrating from v3.1 preview API version
 
-Preview APIs are periodically deprecated. If you're using a preview API version, update your application to target the GA API version. To migrate from the 2023-02-28-preview API version to the `2023-07-31` (GA) API version using the SDK, update to the [current version of the language specific SDK](sdk-overview.md).
+Preview APIs are periodically deprecated. If you're using a preview API version, update your application to target the GA API version. To migrate from the 2023-02-28-preview API version to the `2023-07-31` (GA) API version using the SDK, update to the [current version of the language specific SDK](sdk-overview-v3-1.md).
 
 The `2023-07-31` (GA) API has a few updates and changes from the preview API version:
 

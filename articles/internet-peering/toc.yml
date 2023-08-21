@@ -12,6 +12,8 @@
     href: policy.md
   - name: Prerequisites to set up peering with Microsoft
     href: prerequisites.md
+  - name: Azure Peering Service partner overview
+    href: peering-service-partner-overview.md
   - name: Peering registered prefix requirements
     href: peering-registered-prefix-requirements.md
   - name: Internet peering FAQ
@@ -30,6 +32,10 @@
     href: walkthrough-exchange-route-server-partner.md
   - name: Peering maintenance notification walkthrough
     href: walkthrough-device-maintenance-notification.md
+  - name: Peering Service monitoring and telemetry walkthrough
+    href: walkthrough-monitoring-telemetry.md
+  - name: Direct peering type conversion request walkthrough
+    href: walkthrough-direct-peering-type-conversions.md
   - name: Associate peer ASN to Azure subscription
     items:
     - name: Portal

@@ -1,6 +1,6 @@
 ---
-title: Quickstart - deploy updates in using update management center in the Azure portal
-description: This quickstart helps you to deploy updates immediately and view results for supported machines in update management center (preview) using the Azure portal.
+title: Quickstart - deploy updates in using update manager in the Azure portal
+description: This quickstart helps you to deploy updates immediately and view results for supported machines in Azure Update Manager (preview) using the Azure portal.
 ms.service: update-management-center
 ms.date: 04/21/2022
 author: SnehaSudhirG
@@ -10,7 +10,7 @@ ms.topic: quickstart
 
 # Quickstart: Check and install on-demand updates
 
-Using the Update management center (preview) you can update automatically at scale with the help of built-in policies and schedule updates on a recurring basis or you can also take control by checking and installing updates manually. 
+Using the Update Manager (preview) you can update automatically at scale with the help of built-in policies and schedule updates on a recurring basis or you can also take control by checking and installing updates manually. 
 
 This quickstart details you how to perform manual assessment and apply updates on a selected Azure virtual machine(s) or Arc-enabled server on-premises or in cloud environments.
 
@@ -23,7 +23,7 @@ This quickstart details you how to perform manual assessment and apply updates o
 
 ## Check updates
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to Update management center (preview).
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to Update Manager (preview).
 
 1. Select **Getting started**, **On-demand assessment and updates**, select **Check for updates**.
 
@@ -40,7 +40,7 @@ For the assessed machines that are reporting updates, you can configure [hotpatc
 
 To configure the settings on your machines, follow these steps:
 
-1. In **Update management center (Preview)|Getting started**, in **On-demand assessment and updates**, select **Update settings**.
+1. In **Update Manager (preview)|Getting started**, in **On-demand assessment and updates**, select **Update settings**.
 
     In the **Change update settings** page, by default **Properties** is selected. 
 1. Select from the list of update settings to apply them to the selected machines.
@@ -57,7 +57,7 @@ To configure the settings on your machines, follow these steps:
 
 As per the last assessment performed on the selected machines, you can now select resources and machines to install the updates
 
-1. In the **Update management center(Preview)|Getting started** page, in **On-demand assessment and updates**, select **Install updates by machines**.
+1. In the **Update Manager (preview)|Getting started** page, in **On-demand assessment and updates**, select **Install updates by machines**.
 
 1. In the **Install one-time updates** page, select one or more machines from the list in the **Machines** tab and click **Next**.
 
@@ -72,7 +72,7 @@ As per the last assessment performed on the selected machines, you can now selec
 
 1. In **Review + install**, verify the update deployment options and select **Install**.
 
-A notification confirms that the installation of updates is in progress and after completion, you can view the results in the **Update management center**, **History** page.
+A notification confirms that the installation of updates is in progress and after completion, you can view the results in the **Update Manager**, **History** page.
 
 ## Next steps
 
