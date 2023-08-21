@@ -109,12 +109,12 @@ Once the issue in `eastus` is resolved and the region is back online, the heartb
 
 This failover and recovery process is **automatic** and requires no manual intervention.
 
-For those using **app servers**, the recovery works the same way as it does for clients.
+For those using **app servers**, the failoever and recovery work the same way as it does for clients.
 
 
 ## Impact on performance after adding replicas
 
-Post replica addition, your clients will be distributed across different locations based on their geographical locations. SignalR must synchronize data across these replicas. The cost for synchronization is negligible if your use case primarily involves sending to large groups (size >100) or broadcasting. However, the cost becomes more apparent when sending to smaller groups (size < 10) or a single user.
+After introducing replicas, clients will naturally distribute based on their geographical locations. While SignalR takes on the responsibility to synchronize data across these replicas, you'll be pleased to know that the associated overhead is minimal for most common use cases. Specifically, if your application typically broadcasts to larger groups (size >10) or a single connection, the synchronization cost is barely noticeable. Only in scenarios where communication is directed at smaller groups (size < 10) or individual users might the synchronization overhead become more discernible.
 
 To ensure effective failover management, it is recommended to set each replica's unit size to handle all traffic. Alternatively, you could enable [autoscaling](signalr-howto-scale-autoscale.md) to manage this.
 
