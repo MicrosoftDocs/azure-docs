@@ -91,13 +91,13 @@ items:
               - name: Sign in users
                 items:
                   - name: Prepare tenant
-                    href: how-to-single-page-app-vanillajs-prepare-tenant.md
+                    href: tutorial-single-page-app-vanillajs-prepare-tenant.md
                   - name: Prepare app
-                    href: how-to-single-page-app-vanillajs-prepare-app.md
+                    href: tutorial-single-page-app-vanillajs-prepare-app.md
                   - name: Configure app for authentication
-                    href: how-to-single-page-app-vanillajs-configure-authentication.md
+                    href: tutorial-single-page-app-vanillajs-configure-authentication.md
                   - name: Sign in and sign out
-                    href: how-to-single-page-app-vanillajs-sign-in-sign-out.md
+                    href: tutorial-single-page-app-vanillajs-sign-in-sign-out.md
           - name: React
             items:
               - name: Sign in users
