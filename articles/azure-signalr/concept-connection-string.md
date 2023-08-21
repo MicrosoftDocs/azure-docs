@@ -126,7 +126,7 @@ You can also use Azure CLI to get the connection string:
 az signalr key list -g <resource_group> -n <resource_name>
 ```
 
-## Connect with an Microsoft Entra application
+## Connect with a Microsoft Entra application
 
 You can use an [Microsoft Entra application](../active-directory/develop/app-objects-and-service-principals.md) to connect to your SignalR service. As long as the application has the right permission to access SignalR service, no access key is needed.
 

@@ -18,7 +18,7 @@ This article shows how to configure your SignalR resource and codes to authorize
 
 ## Register an application
 
-The first step is to register an Microsoft Entra application.
+The first step is to register a Microsoft Entra application.
 
 1. On the [Azure portal](https://portal.azure.com/), search for and select **Microsoft Entra ID**
 2. Under **Manage** section, select **App registrations**.
@@ -107,7 +107,7 @@ The best practice is to configure identity and credentials in your environment v
 | `AZURE_CLIENT_ID`               | The client(application) ID of an App Registration in the tenant.                                                |
 | `AZURE_CLIENT_SECRET`           | A client secret that was generated for the App Registration.                                                    |
 | `AZURE_CLIENT_CERTIFICATE_PATH` | A path to a certificate and private key pair in PEM or PFX format, which can authenticate the App Registration. |
-| `AZURE_USERNAME`                | The username, also known as upn, of an Microsoft Entra user account.                                            |
+| `AZURE_USERNAME`                | The username, also known as upn, of a Microsoft Entra user account.                                            |
 | `AZURE_PASSWORD`                | The password of the Microsoft Entra user account. Password isn't supported for accounts with MFA enabled.       |
 
 You can use either [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) or [EnvironmentCredential](/dotnet/api/azure.identity.environmentcredential) to configure your SignalR endpoints.
