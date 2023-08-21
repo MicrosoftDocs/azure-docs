@@ -92,7 +92,7 @@ Ensure that you have completed the [subscription prerequisites](prerequisites-su
 
    :::image type="content" source="./media/quickstart-create-cluster/create-cluster-pool-review-create-page.png" alt-text="Diagram showing cluster pool review and create tab." lightbox="./media/quickstart-create-cluster/create-cluster-review-create-page.png"::: 
 
-     If you navigate away from the page, you can check the status of the deployment by clicking Notifications :::icon type="content" source="./media/quickstart-create-cluster/notifications.png" alt-text="diagram showing notification icon."::: in the Azure portal.
+     If you navigate away from the page, you can check the status of the deployment by clicking Notifications icon.
     
      > [!TIP]
      > For troubleshooting any deployment errors, you can refer this [page](./create-cluster-error-dictionary.md).
@@ -186,8 +186,6 @@ For a quickstart, refer to the following steps.
    :::image type="content" source="./media/quickstart-create-cluster/create-cluster-review-create-page.png" alt-text="Diagram showing cluster review and create tab." lightbox="./media/quickstart-create-cluster/create-cluster-review-create-page.png"::: 
 
    The **Deployment is in process** page is displayed while the cluster is being created, and the **"Your deployment is complete"**  page is displayed once the cluster is fully deployed and ready for use.
-
-   :::icon type="content" source="./media/quickstart-create-cluster/custom-deployment-complete.png" alt-text="Screenshot showing custom deployment complete.":::
 
    > [!TIP]
    > For troubleshooting any deployment errors, you can refer to this [page](./create-cluster-error-dictionary.md).
