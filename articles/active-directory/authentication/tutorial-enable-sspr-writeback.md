@@ -47,7 +47,7 @@ To complete this tutorial, you need the following resources and privileges:
 * Azure AD configured for self-service password reset.
     * If needed, [complete the previous tutorial to enable Azure AD SSPR](tutorial-enable-sspr.md).
 * An existing on-premises AD DS environment configured with a current version of Azure AD Connect.
-    * If needed, configure Azure AD Connect using the [Express](../hybrid/how-to-connect-install-express.md) or [Custom](../hybrid/how-to-connect-install-custom.md) settings.
+    * If needed, configure Azure AD Connect using the [Express](../hybrid/connect/how-to-connect-install-express.md) or [Custom](../hybrid/connect/how-to-connect-install-custom.md) settings.
     * To use password writeback, domain controllers can run any supported version of Windows Server.
 
 ## Configure account permissions for Azure AD Connect

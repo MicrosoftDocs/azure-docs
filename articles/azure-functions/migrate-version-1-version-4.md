@@ -4,7 +4,7 @@ description: This article shows you how to upgrade your existing function apps r
 ms.service: azure-functions
 ms.topic: how-to 
 ms.date: 07/31/2023
-ms.custom: template-how-to-pattern, devx-track-extended-java, devx-track-js, devx-track-python
+ms.custom: template-how-to-pattern, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-dotnet
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -79,7 +79,7 @@ On version 1.x of the Functions runtime, your C# function app targets .NET Frame
 > [!TIP]
 > **Unless your app depends on a library or API only available to .NET Framework, we recommend upgrading to .NET 6 on the isolated worker model.** Many apps on version 1.x target .NET Framework only because that is what was available when they were created. Additional capabilities are available to more recent versions of .NET, and if your app is not forced to stay on .NET Framework due to a dependency, you should upgrade.
 >
-> Migrating to the isolated worker model will require additional code changes as part of this migration, but it will give your app [additional benefits](./dotnet-isolated-in-process-differences.md), including the ability to more easily target future versions of .NET. The [.NET Upgrade Assistant] can also handle many of the necessary code changes for you.
+> Migrating to the isolated worker model will require additional code changes as part of this migration, but it will give your app [additional benefits](./dotnet-isolated-in-process-differences.md), including the ability to more easily target future versions of .NET. If you are moving to an LTS or STS version of .NET using the isolated worker model, the [.NET Upgrade Assistant] can also handle many of the necessary code changes for you.
 
 ::: zone-end
 
@@ -120,7 +120,7 @@ Migrating a C# function app from version 1.x to version 4.x of the Functions run
 Choose the tab that matches your target version of .NET and the desired process model (in-process or isolated worker process).
 
 > [!TIP]
-> The [.NET Upgrade Assistant] can be used to automatically make many of the changes mentioned in the following sections.
+> If you are moving to an LTS or STS version of .NET using the isolated worker model, the [.NET Upgrade Assistant] can be used to automatically make many of the changes mentioned in the following sections.
 
 ### .csproj file
 

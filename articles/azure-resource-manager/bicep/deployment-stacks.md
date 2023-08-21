@@ -3,7 +3,7 @@ title: Create & deploy deployment stacks in Bicep
 description: Describes how to create deployment stacks in Bicep.
 ms.topic: conceptual
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-bicep
-ms.date: 08/01/2023
+ms.date: 08/07/2023
 ---
 
 # Deployment stacks (Preview)
@@ -600,7 +600,7 @@ The Azure PowerShell includes these parameters to customize the deny assignment:
 
 - `DenySettingsMode`: Defines the operations that are prohibited on the managed resources to safeguard against unauthorized security principals attempting to delete or update them. This restriction applies to everyone unless explicitly granted access. The values include: `None`, `DenyDelete`, and `DenyWriteAndDelete`.
 - `DenySettingsApplyToChildScopes`: Deny settings are applied to nested resources under managed resources.
-- `DenySettingsExcludedActions`: List of role-based management operations that are excluded from the deny settings. Up to 200 actions are permitted.
+- `DenySettingsExcludedAction`: List of role-based management operations that are excluded from the deny settings. Up to 200 actions are permitted.
 - `DenySettingsExcludedPrincipal`: List of Azure Active Directory (Azure AD) principal IDs excluded from the lock. Up to five principals are permitted.
 
 # [CLI](#tab/azure-cli)
@@ -628,7 +628,7 @@ New-AzResourceGroupDeploymentStack `
   -ResourceGroupName "<resource-group-name>" `
   -TemplateFile "<bicep-file-name>" `
   -DenySettingsMode "DenyDelete" `
-  -DenySettingsExcludedActions "Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete" `
+  -DenySettingsExcludedAction "Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete" `
   -DenySettingsExcludedPrincipal "<object-id>" "<object-id>"
 ```
 
@@ -660,7 +660,7 @@ New-AzSubscriptionDeploymentStack `
   -Location "<location>" `
   -TemplateFile "<bicep-file-name>" `
   -DenySettingsMode "DenyDelete" `
-  -DenySettingsExcludedActions "Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete" `
+  -DenySettingsExcludedAction "Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete" `
   -DenySettingsExcludedPrincipal "<object-id>" "<object-id>"
 ```
 

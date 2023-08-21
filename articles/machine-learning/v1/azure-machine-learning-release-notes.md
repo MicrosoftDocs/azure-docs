@@ -9,7 +9,7 @@ ms.custom: UpdateFrequency5, event-tier1-build-2022, devx-track-python
 ms.topic: reference
 ms.author: larryfr
 author: BlackMist
-ms.date: 06/26/2023
+ms.date: 08/21/2023
 ---
 
 # Azure Machine Learning Python SDK release notes
@@ -19,6 +19,25 @@ In this article, learn about Azure Machine Learning Python SDK releases.  For th
 __RSS feed__: Get notified when this page is updated by copying and pasting the following URL into your feed reader:
 `https://learn.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
 
+
+## 2023-08-21
+
+### Azure Machine Learning SDK for Python v1.53.0
+  + **azureml-automl-core**
+    + Support of features/regressors known at the time of forecast in AutoML forecasting TCN models.
+  + **azureml-automl-dnn-vision**
+    + Enable flags for log_training_metrics and log_validation_loss for automl object detection and instance segmentation
+  + **azureml-contrib-automl-dnn-forecasting**
+    + Support of features/regressors known at the time of forecast in AutoML forecasting TCN models.
+  + **azureml-core**
+    + Add appinsights location swap for qatarcentral to point to uaenorth
+  + **azureml-mlflow**
+    + Fix for loading models with MLflow load_model APIs when passing an AzureML URI
+  + **azureml-pipeline-core**
+    + Skip child run and log error when load child run failed (e.g. 404) using `PipelineRun.get_pipeline_runs`.
+    + `PipelineEndpoint.list` introduces a new int parameter `max_results`, which indicates the maximum size of the returned list. The default value of `max_results` is 100.
+  + **azureml-training-tabular**
+    + Support of features/regressors known at the time of forecast in AutoML forecasting TCN models.
 
 ## 2023-06-26
 

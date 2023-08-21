@@ -2,7 +2,7 @@
 title: Overview of Azure Disk Backup
 description: Learn about the Azure Disk backup solution.
 ms.topic: conceptual
-ms.date: 07/21/2023
+ms.date: 08/17/2023
 ms.service: backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -73,6 +73,15 @@ The retention period of snapshots is governed by the snapshot limit for a disk. 
 The retention period for a backup also follows the maximum limit of 450 snapshots with 50 snapshots kept aside for on-demand backups.
 
 For example, if the scheduling frequency for backups is set as Daily, then you can set the retention period for backups at a maximum value of 450 days. Similarly, if the scheduling frequency for backups is set as Hourly with a 1-hour frequency, then you can set the retention for backups at a maximum value of 18 days. 
+
+## Why do I see more snapshots than my retention policy?
+
+If a retention policy is set as *1*, you can find two snapshots. This configuration ensures that at least one latest recovery point is always present in the vault, if all subsequent backups fail due to any issue. This causes the presence of two snapshots.
+
+So, if the policy is for *n* snapshots, you can find *n+1* snapshots at times. Further, you can even find *n+1+2* snapshots if there is a delay in deletion of recovery points whose retention period is over (garbage collection). This can happen at rare times when:
+
+- You clean up snapshots, which are past retentions.
+- The garbage collector (GC) in the backend is under heavy load.
 
 ## Pricing
 
