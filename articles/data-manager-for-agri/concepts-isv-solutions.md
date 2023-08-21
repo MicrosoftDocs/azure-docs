@@ -33,7 +33,7 @@ The solution framework is built on top of Data Manager for Agriculture that prov
 
  Following are some of the examples of use cases on how an ISV partner could use the solution framework to build an industry specific solution.
 
-* Yield Prediction Model: An ISV partner can build a yield model using historical data for a specific boundary and track periodic progress. The ISV can then enable forecast of estimated yield for the upcoming season.
+* Yield Prediction Model: An ISV partner can build a yield model using historical data for a specific geometry and track periodic progress. The ISV can then enable forecast of estimated yield for the upcoming season.
 * Carbon Emission Model: An ISV partner can estimate the amount of carbon emitted from the field based upon the imagery, sensors data for a particular farm.
 * Crop Identification: Use imagery data to identify crop growing in an area of interest.
 

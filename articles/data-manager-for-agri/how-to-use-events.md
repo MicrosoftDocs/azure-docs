@@ -74,7 +74,6 @@ Applications that handle Data Manager for Agriculture events should follow a few
 |Microsoft.AgFoodPlatform.FarmChangedV2| Published when a farm is created /updated/deleted in an Azure Data Manager for Agriculture resource
 |Microsoft.AgFoodPlatform.FieldChangedV2|Published when a Field is created /updated/deleted in an Azure Data Manager for Agriculture resource
 |Microsoft.AgFoodPlatform.SeasonalFieldChangedV2|Published when a Seasonal Field is created /updated/deleted in an Azure Data Manager for Agriculture resource
-|Microsoft.AgFoodPlatform.BoundaryChangedV2|Published when a farm is created /updated/deleted in an Azure Data Manager for Agriculture resource
 |Microsoft.AgFoodPlatform.CropChanged|Published when a Crop is created /updated/deleted in an Azure Data Manager for Agriculture resource
 |Microsoft.AgFoodPlatform.CropProductChanged|Published when a Crop Product is created /updated/deleted in an Azure Data Manager for Agriculture resource
 |Microsoft.AgFoodPlatform.SeasonChanged|Published when a Season is created /updated/deleted in an Azure Data Manager for Agriculture resource
@@ -209,7 +208,6 @@ For sensor mapping events, the data object contains following properties:
 |:-----| :----| :----|
 sensorId| string| ID associated with the sensor.
 partyId| string| ID associated with the party.
-boundaryId| string| ID associated with the boundary.
 sensorPartnerId| string| ID associated with the sensorPartner.
 | ID |	string|	Unique ID of resource.
 actionType|	string|	Indicates the change that triggered publishing of the event. Applicable values are created, updated, deleted
@@ -238,22 +236,6 @@ eTag|	string|	Implements optimistic concurrency.
 description|	string|	Textual description of the resource.
 name|	string|	Name to identify resource.
 
-Boundary events have the following data object:
-
-|Property   |Type  |Description |
-|:---------|:---------|:---------|
-| ID      |     string    |  User defined ID of boundary       |
-|actionType    |  string       |   Indicates the change that triggered publishing of the event. Applicable values are created, updated, deleted.      |
-|modifiedDateTime    |   string      |   Indicates the time at which the event was last modified.      |
-|createdDateTime    |  string       |    Indicates the time at which the resource was created.     |
-|status    |   string      |    Contains the user defined status of the object.     |
-|eTag    |   string      |    Implements optimistic concurrency.    |
-|partyId   |   string      |    ID of the party it belongs to.     |
-|parentId    |   string      |    ID of the parent boundary belongs.     |
-|parentType   |   string      |    Type of the parent boundary belongs to. Applicable values are Field, SeasonalField, Zone, Prescription, PlantTissueAnalysis, ApplicationData, PlantingData, TillageData, HarvestData etc.    |
-|description    |   string      |    Textual description of the resource.    |
-|properties   |   string      |    It contains user defined key – value pair.    |
-
 Seasonal field events have the following data object:
 
 Property|	Type|	Description
@@ -277,8 +259,8 @@ Insight events have the following data object:
 Property|	Type|	Description
 |:-----| :----| :----|
 modelId| string| ID of the associated model.|
-resourceId| string| User-defined ID of the resource such as farm, field, boundary etc.|
-resourceType| string | Name of the resource type. Applicable values are Party, Farm, Field, SeasonalField, Boundary etc.|
+resourceId| string| User-defined ID of the resource such as farm, field etc.|
+resourceType| string | Name of the resource type. Applicable values are Party, Farm, Field, SeasonalField etc.|
 partyId| string| ID of the party it belongs to.|
 modelVersion| string| Version of the associated model.|
 ID |	string|	User defined ID of the resource.|
@@ -296,7 +278,7 @@ InsightAttachment events have the following data object:
 Property|	Type|	Description
 |:-----| :----| :----|
 modelId| string| ID of the associated model.
-resourceId| string| User-defined ID of the resource such as farm, field, boundary etc.
+resourceId| string| User-defined ID of the resource such as farm, field etc.
 resourceType| string | Name of the resource type.
 partyId| string| ID of the party it belongs to.
 insightId| string| ID associated with the insight resource.
@@ -378,7 +360,7 @@ AttachmentChanged event has the following data object
 
 Property|	Type|	Description
 |:-----| :----| :----|
-resourceId| string| User-defined ID of the resource such as farm, field, boundary etc.
+resourceId| string| User-defined ID of the resource such as farm, field etc.
 resourceType| string | Name of the resource type.
 partyId| string| ID of the party it belongs to.
 | ID |	string|	User defined ID of the resource.
