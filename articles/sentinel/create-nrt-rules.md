@@ -42,7 +42,7 @@ You create NRT rules the same way you create regular [scheduled-query analytics 
 
     The configuration of NRT rules is in most ways the same as that of scheduled analytics rules. 
 
-    - You can refer to [**watchlists**](watchlists.md) in your query logic.
+    - You can refer to multiple tables and [**watchlists**](watchlists.md) in your query logic.
 
     - You can use all of the alert enrichment methods: [**entity mapping**](map-data-fields-to-entities.md), [**custom details**](surface-custom-details-in-alerts.md), and [**alert details**](customize-alert-details.md).
 
