@@ -25,11 +25,14 @@ For example, let's say a user in your organization has created a separate accoun
 
 :::image type="content" source="media/tenant-restrictions-v2/authentication-flow.png" alt-text="Diagram illustrating tenant restrictions v2.":::
 
+
+|   |   |
 |---------|---------|
 |**1**     | Contoso configures **Tenant restrictions** in their cross-tenant access settings to block all external accounts and external apps. Contoso enforces the policy on each Windows device by updating the local computer configuration with Contoso's tenant ID and the tenant restrictions policy ID.       |
 |**2**     |  A user with a Contoso-managed Windows device tries to sign in to an external app using an account from an unknown tenant. The Windows device adds an HTTP header to the authentication request. The header contains Contoso's tenant ID and the tenant restrictions policy ID.        |
 |**3**     | *Authentication plane protection:* Azure AD uses the header in the authentication request to look up the tenant restrictions policy in the Azure AD cloud. Because Contoso's policy blocks external accounts from accessing external tenants, the request is blocked at the authentication level.        |
 |**4**     | *Data plane protection:* The user tries to access the external application by copying  an authentication response token they obtained outside of Contoso's network and pasting it into the Windows device. However, Azure AD compares the claim in the token to the HTTP header added by the Windows device. Because they don't match, Azure AD blocks the session so the user can't access the application.        |
+
 
 This article describes how to configure tenant restrictions V2 using the Azure portal. You can also use the [Microsoft Graph cross-tenant access API](/graph/api/resources/crosstenantaccesspolicy-overview?view=graph-rest-beta&preserve-view=true) to create these same tenant restrictions policies.
 
