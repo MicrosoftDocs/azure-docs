@@ -93,12 +93,12 @@ The diagram below provides a brief illustration of the SignalR Replicas' functio
 
 ## Resiliency and Disaster Recovery
 
-Azure SignalR Service uses a traffic manager to conduct health checks and handle dns resolution for all replica instances. Under normal circumstances, when all replicas are functioning properly, clients will be directed  to the closest replica. For instance:
+Azure SignalR Service utilizes a traffic manager for health checks and DNS resolution towards its replicas. Under normal circumstances, when all replicas are functioning properly, clients will be directed  to the closest replica. For instance:
 
 - Clients close to `eastus` will be directed to the replica located in `eastus`.
 - Similarly, clients close to `westus` will be directed to the replica in `westus`.
 
-In the event of a **regional outage** in eastus (illustrated below), the traffic manager will detect the heartbeat failure for that region. Consequently, this faulty replica's DNS will be excluded from the traffic manager's DNS resolution results. After a DNS Time-to-Live (TTL) duration, which is set to 90 seconds, clients in `eastus` will be redirected to connect with the replica in `westus`.
+In the event of a **regional outage** in eastus (illustrated below), the traffic manager will detect the health check failure for that region. Then, this faulty replica's DNS will be excluded from the traffic manager's DNS resolution results. After a DNS Time-to-Live (TTL) duration, which is set to 90 seconds, clients in `eastus` will be redirected to connect with the replica in `westus`.
 
 ![Screenshot of Azure SignalR replica failover. ](./media/howto-enable-geo-replication/signalr-replica-failover.png  "Replica Failover")
 
@@ -109,7 +109,7 @@ Once the issue in `eastus` is resolved and the region is back online, the health
 
 This failover and recovery process is **automatic** and requires no manual intervention.
 
-For those using **app servers**, the failoever and recovery work the same way as it does for clients.
+For those using **app servers**, the failover and recovery work the same way as it does for clients.
 
 
 ## Impact on performance after adding replicas
