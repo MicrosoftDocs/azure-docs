@@ -30,20 +30,33 @@ In the Prompt flow​​​​​​​ homepage, you can create a standard flow
 
 :::image type="content" source="./media/how-to-develop-a-standard-flow/flow-create-standard.png" alt-text="Screenshot of the Prompt flow home page showing create a new flow with standard flow highlighted. " lightbox = "./media/how-to-develop-a-standard-flow/flow-create-standard.png":::
 
-## Authoring page - flatten view and graph view
+After clicking **Create**, as shown in the right pannel, the new flow will be saved in a specific folder within your workspace file share storage. You can customize the folder name acccording to your preferences. 
+
+:::image type="content" source="./media/how-to-develop-a-standard-flow/specify-flow-folder-name.png" alt-text="Screenshot of specify the flow folder name when creating a flow. " lightbox = "./media/how-to-develop-a-standard-flow/specify-flow-folder-name.png":::
+
+## Authoring page
 
 After the creation, you'll enter the authoring page for flow developing.
 
-At the left, it's the flatten view, the main working area where you can author the flow, for example add tools in your flow, edit the prompt, set the flow input data, run your flow, view the output, etc.
+At the left, it's the flatten view, the main working area where you can author the flow, for example add a new node, edit the prompt, select the flow input data, etc.
 
-:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-flatten-view.png" alt-text="Screenshot of Web Classification highlighting the main working area. " lightbox = "./media/how-to-develop-a-standard-flow/flow-flatten-view.png":::
+:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-flatten-view.png" alt-text="Screenshot of web classification highlighting the main working area." lightbox = "./media/how-to-develop-a-standard-flow/flow-flatten-view.png":::
 
-At the right, it's the graph view for visualization only. It shows the flow structure you're developing, including the tools and their links. You can zoom in, zoom out, auto layout, etc.
+The top right corner shows the folder structure of the flow. Each flow has a folder that contains a flow.dag.yaml file, source code files, and system folders. You can export or import a flow easily for testing, deployment, or collaborative purposes.
+
+:::image type="content" source="./media/how-to-develop-a-standard-flow/folder-structure-view.png" alt-text="Screenshot of web classification highlighting the folder structure area." lightbox = "./media/how-to-develop-a-standard-flow/folder-structure-view.png":::
+
+In addition to inline editting the node in flatten view, you can also turn on the **Raw file mode** toggle and click the file name to edit the file in the openning file tab.
+
+:::image type="content" source="./media/how-to-develop-a-standard-flow/file-edit-tab.png" alt-text="Screenshot of the file edit tab under raw file mode." lightbox = "./media/how-to-develop-a-standard-flow/file-edit-tab.png":::
+
+In the bottom right corner, it's the graph view for visualization only. You can zoom in, zoom out, auto layout, etc.
 
 > [!NOTE]
 > You cannot edit the graph view. To edit one tool node, you can double-click the node to locate to the corresponding tool card in the flatten view, then do the inline edit.
 
-:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-graph-view.png" alt-text="Screenshot of Web Classification highlighting the graph view. " lightbox = "./media/how-to-develop-a-standard-flow/flow-graph-view.png":::
+:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-graph-view.png" alt-text="Screenshot of web classification highlighting graph view area." lightbox = "./media/how-to-develop-a-standard-flow/flow-graph-view.png":::
+
 
 ## Select runtime
 
