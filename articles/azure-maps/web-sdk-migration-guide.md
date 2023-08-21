@@ -61,7 +61,7 @@ By following these steps and considering best practices, you can successfully mi
 
 ## Next steps
 
-Learn more about the Azure Maps Power BI visual:
+Learn how to add maps to web and mobile applications using the Map Control client-side JavaScript library in Azure Maps:
 
 > [!div class="nextstepaction"]
 > [Use the Azure Maps map control]
