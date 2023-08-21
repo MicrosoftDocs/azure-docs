@@ -285,11 +285,11 @@ When prompted, enter the password you used when creating the VM.
 
     # [Generic model](#tab/model)
 
-    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-moe-vnet.sh" id="set_env_vars":::
+    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-moe-vnet-legacy.sh" id="set_env_vars":::
 
     # [MLflow model](#tab/mlflow)
 
-    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-moe-vnet-mlflow.sh" id="set_env_vars":::
+    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-moe-vnet-mlflow-legacy.sh" id="set_env_vars":::
 
     ---
 
@@ -332,11 +332,11 @@ When prompted, enter the password you used when creating the VM.
 
 To delete the endpoint, use the following command:
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-moe-vnet.sh" id="delete_endpoint":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-moe-vnet-legacy.sh" id="delete_endpoint":::
 
 To delete the VM, use the following command:
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-moe-vnet.sh" id="delete_vm":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-moe-vnet-legacy.sh" id="delete_vm":::
 
 To delete all the resources created in this article, use the following command. Replace `<resource-group-name>` with the name of the resource group used in this example:
 
