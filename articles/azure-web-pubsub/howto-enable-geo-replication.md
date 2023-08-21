@@ -54,12 +54,12 @@ After creation, you would be able to view/edit your replica on the portal by cli
 
 > [!NOTE]
 > * Geo-replication is a feature available in premium tier.
-> * A replica is considered a separate resource when it comes to billing. See [Pricing](concept-billing-model.md#how-replica-is-billed) for more details. 
+> * A replica is considered a separate resource when it comes to billing. See [Pricing and resource unit](#Pricing-and-resource-unit) for more details. 
 
 ## Pricing and resource unit
 Each replica has its **own** `unit` and `autoscale settings`.
 
-Replica is a feature of [Premium tier](https://azure.microsoft.com/pricing/details/web-pubsub-service/) of Azure Web Pubsub Service. Each replica is billed **separately** according to its own unit and outbound traffic. Free message quota is also calculated separately.
+Replica is a feature of [Premium tier](https://azure.microsoft.com/pricing/details/web-pubsub/) of Azure Web PubSub Service. Each replica is billed **separately** according to its own unit and outbound traffic. Free message quota is also calculated separately.
 
 In the preceding example, Contoso added one replica in Canada Central. Contoso would pay for the replica in Canada Central according to its unit and message in Premium Price.
 
@@ -104,7 +104,7 @@ Once the issue in `eastus` is resolved and the region is back online, the health
 This failover and recovery process is **automatic** and requires no manual intervention.
 
 ## Impact on performance after enabling geo-replication feature
-After introducing replicas, clients will naturally distribute based on their geographical locations. While Web PubSub takes on the responsibility to synchronize data across these replicas, you'll be pleased to know that the associated overhead is minimal for most common use cases. 
+After replicas are enabled, clients will naturally distribute based on their geographical locations. While Web PubSub takes on the responsibility to synchronize data across these replicas, you'll be pleased to know that the associated overhead is minimal for most common use cases. 
 
 Specifically, if your application typically broadcasts to larger groups (size >10) or a single connection, the synchronization cost is barely noticeable. If you're messaging small groups (size < 10), you might notice a bit more synchronization overhead.
 

@@ -58,7 +58,7 @@ To create a replica, Navigate to the SignalR **Replicas** blade on the Azure por
 
 > [!NOTE]
 > * Geo-replication is a feature available in premium tier.
-> * A replica is considered a separate resource when it comes to billing. See [Pricing](#pricing) for more details. 
+> * A replica is considered a separate resource when it comes to billing. See [Pricing and resource unit](#pricing-and-resource-unit) for more details. 
 
 After creation, you would be able to view/edit your replica on the portal by clicking the replica name.
 
@@ -117,7 +117,7 @@ For **server connections**, the failover and recovery work the same way as it do
 
 ## Impact on performance after adding replicas
 
-After introducing replicas, clients will naturally distribute based on their geographical locations. While SignalR takes on the responsibility to synchronize data across these replicas, you'll be pleased to know that the associated overhead is minimal for most common use cases. 
+After replicas are enabled, clients will naturally distribute based on their geographical locations. While SignalR takes on the responsibility to synchronize data across these replicas, you'll be pleased to know that the associated overhead is minimal for most common use cases. 
 
 Specifically, if your application typically broadcasts to larger groups (size >10) or a single connection, the synchronization cost is barely noticeable. If you're messaging small groups (size < 10) or individual users, you might notice a bit more synchronization overhead.
 

@@ -48,7 +48,7 @@ We haven't integrated the strategy into the SDK yet, so for now the application 
 In summary, what the application side needs to implement is:
 1. Health check. Application can either check if the service is healthy using [service health check API](/rest/api/webpubsub/dataplane/health-api/get-service-status) periodically in the background or on demand for every **negotiate** call.
 1. Negotiate logic. Application returns healthy **primary** endpoint by default. When **primary** endpoint is down, application returns healthy **secondary** endpoint.
-1. Broadcast logic. When sending messages to multiple clients, application needs to make sure it broadcasts messages to all the **healthy** endpoints.
+1. Broadcast logic. When messages are sent to multiple clients, application needs to make sure it broadcasts messages to all the **healthy** endpoints.
 
 Below is a diagram that illustrates such topology:
 
