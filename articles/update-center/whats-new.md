@@ -43,7 +43,7 @@ A new patch orchestration - **Customer Managed Schedules (Preview)** is introduc
 
 ### New region support
 
-Update management center (Preview) now supports new five regions for Azure Arc-enabled servers. [Learn more](support-matrix.md#supported-regions).
+Update Manager (preview) now supports new five regions for Azure Arc-enabled servers. [Learn more](support-matrix.md#supported-regions).
 
 ## October 2022
 
