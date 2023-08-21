@@ -41,9 +41,29 @@ You can always access your own sign-in history at [https://mysignins.microsoft.c
 1. Go to **Azure Active Directory** > **Monitoring and health**.
 1. Select the logs from the side menu.
 
+## Audit logs
+
+With the information in the Azure AD audit logs, you can access all records of system activities for compliance purposes. Audit logs can be accessed from the **Monitoring and health** section of Azure AD, where you can sort and filter on every category and activity. You can also access audit logs in the area of the portal for the service you're investigating.
+
+![Screenshot of the audit logs option on the side menu.](media/howto-customize-filter-logs/audit-logs-nav.png)
+
+For example, if you're looking into changes to Azure AD groups, you can access the Audit logs from **Azure AD** > **Groups**. When you access the audit logs from the service, the filter is automatically adjusted according to the service.
+
+![Screenshot of the audit logs option from the Groups menu.](media/howto-customize-filter-logs/audit-logs-groups.png)
+
+### Customize the layout of the audit logs
+
+Audit logs can be customized like the sign-in logs. There aren't as many column options, but it's just as important to make sure you're seeing the columns you need. The **Service**, **Category** and **Activity** columns are related to each other, so these should always be visible. 
+
+### Filter the audit logs
+
+When you filter the logs by **Service**, the **Category** and **Activity** details automatically change. In some cases, there may only be one Category or Activity. For a detailed table of all potential combinations of these details, see [Audit activities](reference-audit-activities.md).
+
+![Screenshot of the audit log activities filter with Conditional Access as the service.](media/howto-customize-filter-logs/audit-log-activities-filter.png)
+
 ## Sign-in logs
 
-On the sign-in logs page, you can switch between the following sign-in log types. For more information on the the logs, see [What are Azure AD sign-in logs?](concept-sign-ins.md).
+On the sign-in logs page, you can switch between four sign-in log types. For more information on the the logs, see [What are Azure AD sign-in logs?](concept-sign-ins.md).
 
 ![Screenshot of the sign-in log types.](./media/howto-customize-filter-logs/sign-in-logs-types.png)
 
@@ -110,25 +130,26 @@ Customizing the columns and adjusting the filter helps to look at logs with simi
 
 - **Multifactor authentication:** When a user signs in with MFA, several separate MFA events are actually taking place. For example, if a user enters the wrong validation code or doesn't respond in time, additional MFA events are sent to reflect the latest status of the sign-in attempt. These sign-in events appear as one line item in the Azure AD sign-in logs. That same sign-in event in Azure Monitor, however, appears as multiple line items. These events all have the same `correlationId`.
 
-## Audit logs
+- **Client app:** The **Client app** filter option has two sub-categories: **Modern authentication clients** and **Legacy authentication clients**.
+    - *Browser* and *Mobile apps and desktop clients* are the two options in the Modern authentication clients category.
+    - Review the following table for the *Legacy authentication client* details.
 
-With the information in the Azure AD audit logs, you can access all records of system activities for compliance purposes. Audit logs can be accessed from the **Monitoring and health** section of Azure AD, where you can sort and filter on every category and activity. You can also access audit logs in the area of the portal for the service you're investigating.
-
-![Screenshot of the audit logs option on the side menu.](media/howto-customize-filter-logs/audit-logs-nav.png)
-
-For example, if you're looking into changes to Azure AD groups, you can access the Audit logs from **Azure AD** > **Groups**. When you access the audit logs from the service, the filter is automatically adjusted according to the service.
-
-![Screenshot of the audit logs option from the Groups menu.](media/howto-customize-filter-logs/audit-logs-groups.png)
-
-### Customize the layout of the audit logs
-
-Audit logs can be customized like the sign-in logs. There aren't as many column options, but it's just as important to make sure you're seeing the columns you need. The **Service**, **Category** and **Activity** columns are related to each other, so these should always be visible. 
-
-### Filter the audit logs
-
-When you filter the logs by **Service**, the **Category** and **Activity** details automatically change. In some cases, there may only be one Category or Activity. For a detailed table of all potential combinations of these details, see [Audit activities](reference-audit-activities.md).
-
-![Screenshot of the audit log activities filter with Conditional Access as the service.](media/howto-customize-filter-logs/audit-log-activities-filter.png)
+|Name|Description|
+|---|---|
+|Authenticated SMTP|Used by POP and IMAP client's to send email messages.|
+|Autodiscover|Used by Outlook and EAS clients to find and connect to mailboxes in Exchange Online.|
+|Exchange ActiveSync|This filter shows all sign-in attempts where the EAS protocol has been attempted.|
+|Exchange ActiveSync| Shows all sign-in attempts from users with client apps using Exchange ActiveSync to connect to Exchange Online|
+|Exchange Online PowerShell|Used to connect to Exchange Online with remote PowerShell. If you block basic authentication for Exchange Online PowerShell, you need to use the Exchange Online PowerShell module to connect. For instructions, see [Connect to Exchange Online PowerShell using multi-factor authentication](/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).|
+|Exchange Web Services|A programming interface that's used by Outlook, Outlook for Mac, and third-party apps.|
+|IMAP4|A legacy mail client using IMAP to retrieve email.|
+|MAPI over HTTP|Used by Outlook 2010 and later.|
+|Offline Address Book|A copy of address list collections that are downloaded and used by Outlook.|
+|Outlook Anywhere (RPC over HTTP)|Used by Outlook 2016 and earlier.|
+|Outlook Service|Used by the Mail and Calendar app for Windows 10.|
+|POP3|A legacy mail client using POP3 to retrieve email.|
+|Reporting Web Services|Used to retrieve report data in Exchange Online.|
+|Other clients|Shows all sign-in attempts from users where the client app isn't included or unknown.|
 
 ## Next steps
 
