@@ -12,7 +12,7 @@ ms.workload: identity
 ms.date: 05/13/2022
 ms.author: rolyon
 ms.reviewer: anandy
-ms.custom: oldportal;it-pro;
+ms.custom: oldportal, it-pro, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 ---
 
@@ -124,7 +124,7 @@ For steps on how to edit your rule, see the following [Edit dynamic membership r
       "displayName": "Windows Devices",
       "description": "All Contoso devices running Windows",
       "membershipType": "Dynamic",
-      "membershipRule": "(device.deviceOSType -eq \"Windows\")",
+      "membershipRule": "(deviceOSType -eq 'Windows')",
       "membershipRuleProcessingState": "On"
     }
     ```

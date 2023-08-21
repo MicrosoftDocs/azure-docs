@@ -39,7 +39,7 @@ Using smart lockout doesn't guarantee that a genuine user is never locked out. W
 
 Smart lockout can be integrated with hybrid deployments that use password hash sync or pass-through authentication to protect on-premises Active Directory Domain Services (AD DS) accounts from being locked out by attackers. By setting smart lockout policies in Azure AD appropriately, attacks can be filtered out before they reach on-premises AD DS.
 
-When using [pass-through authentication](../hybrid/how-to-connect-pta.md), the following considerations apply:
+When using [pass-through authentication](../hybrid/connect/how-to-connect-pta.md), the following considerations apply:
 
 * The Azure AD lockout threshold is **less** than the AD DS account lockout threshold. Set the values so that the AD DS account lockout threshold is at least two or three times greater than the Azure AD lockout threshold.
 * The Azure AD lockout duration must be set longer than the AD DS account lockout duration. The Azure AD duration is set in seconds, while the AD duration is set in minutes.
@@ -66,7 +66,7 @@ Based on your organizational requirements, you can customize the Azure AD smart 
 
 To check or modify the smart lockout values for your organization, complete the following steps:
 
-1. Sign in to the [Entra portal](https://entra.microsoft.com/#home).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/#home).
 1. Search for and select *Azure Active Directory*, then select **Security** > **Authentication methods** > **Password protection**.
 1. Set the **Lockout threshold**, based on how many failed sign-ins are allowed on an account before its first lockout.
 

@@ -2,7 +2,7 @@
 title: Template functions - resources
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve values about resources.
 ms.topic: conceptual
-ms.date: 08/02/2023
+ms.date: 08/08/2023
 ms.custom: ignite-2022, devx-track-arm-template
 ---
 
@@ -414,7 +414,7 @@ The [providers operation](/rest/api/resources/providers) is still available thro
 
 `reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])`
 
-Returns an object representing a resource's runtime state.
+Returns an object representing a resource's runtime state. To return an array of objects representing a resource collections's runtime states, see [references](#references).
 
 Bicep provide the reference function, but in most cases, the reference function isn't required. It's recommended to use the symbolic name for the resource instead. See [reference](../bicep/bicep-functions-resource.md#reference).
 
@@ -609,7 +609,7 @@ The following example template references a storage account that isn't deployed 
 
 `references(symbolic name of a resource collection, ['Full', 'Properties])`
 
-The `references` function works similarly as [`reference`](#reference). Instead of returning an object presenting a resource's runtime state, the `references` function returns an array of objects representing a collection of resource's runtime states. This function requires ARM template language version `1.10-experimental` and with [symbolic name](../bicep/file.md#resources) enabled:
+The `references` function works similarly as [`reference`](#reference). Instead of returning an object presenting a resource's runtime state, the `references` function returns an array of objects representing a resource collection's runtime states. This function requires ARM template language version `1.10-experimental` and with [symbolic name](../bicep/file.md#resources) enabled:
 
 ```json
 {
@@ -620,7 +620,7 @@ The `references` function works similarly as [`reference`](#reference). Instead 
 }
 ```
 
-In Bicep, there is no explicit `references` function. Instead, symbolic collection usage is employed directly, and during code generation, Bicep translates it to an ARM template that utilizes the ARM template `references` function. The forthcoming release of Bicep will include the translation feature that converts symbolic collections to ARM templates using the `references` function.
+In Bicep, there is no explicit `references` function. Instead, symbolic collection usage is employed directly, and during code generation, Bicep translates it to an ARM template that utilizes the ARM template `references` function. For more information, see [Reference resource/module collections](../bicep/loops.md#reference-resourcemodule-collections).
 
 ### Parameters
 

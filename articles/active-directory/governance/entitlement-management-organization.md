@@ -161,7 +161,6 @@ This script below illustrates using the `v1.0` profile of Graph to retrieve all 
 
 ```powershell
 Connect-MgGraph -Scopes "EntitlementManagement.ReadWrite.All"
-Select-MgProfile -Name "v1.0"
 
 $co = Get-MgEntitlementManagementConnectedOrganization -all
 

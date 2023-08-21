@@ -35,9 +35,9 @@ In every query response, Azure Resource Graph adds two throttling headers:
 - `x-ms-user-quota-resets-after` (hh:mm:ss): The time duration until a user's quota consumption is
   reset.
 
-When a security principal has access to more than 5,000 subscriptions within the tenant or
+When a security principal has access to more than 10,000 subscriptions within the tenant or
 management group [query scope](./query-language.md#query-scope), the response is limited to the
-first 5,000 subscriptions and the `x-ms-tenant-subscription-limit-hit` header is returned as `true`.
+first 10,000 subscriptions and the `x-ms-tenant-subscription-limit-hit` header is returned as `true`.
 
 To illustrate how the headers work, let's look at a query response that has the header and values of
 `x-ms-user-quota-remaining: 10` and `x-ms-user-quota-resets-after: 00:00:03`.
