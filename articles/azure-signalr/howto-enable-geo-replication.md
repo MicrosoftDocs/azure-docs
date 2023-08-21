@@ -93,18 +93,24 @@ The diagram below provides a brief illustration of the SignalR Replicas' functio
 
 ## Resiliency and Disaster Recovery
 
-Azure SignalR Service employs a traffic manager to manage health check heartbeats for all replica instances. Under normal circumstances, if all replicas are functioning properly, clients will be routed to the closest replica. For instance:
+Azure SignalR Service uses a traffic manager to oversee health check heartbeats across all replica instances. Under normal circumstances, when all replicas are functioning properly, clients will be directed  to the closest replica. For instance:
 
 - Clients close to `eastus` will be directed to the replica located in `eastus`.
 - Similarly, clients close to `westus` will be directed to the replica in `westus`.
 
-If there is a regional outage in `eastus` like below, the traffic manager will identify the failure in heartbeat to this region. In response, this faulty replica's DNS will be excluded from the traffic manager's DNS resolution results. After a DNS Time-to-Live (TTL) duration, which is set to 90 seconds, clients in `eastus` will be rerouted to connect with the replica in `westus`.
+In the event of a **regional outage** in eastus (illustrated below), the traffic manager will detect the heartbeat failure for that region. Consequently, this faulty replica's DNS will be excluded from the traffic manager's DNS resolution results. After a DNS Time-to-Live (TTL) duration, which is set to 90 seconds, clients in `eastus` will be redirected to connect with the replica in `westus`.
 
 ![Screenshot of Azure SignalR replica failover. ](./media/howto-enable-geo-replication/signalr-replica-failover.png  "Replica Failover")
 
-Once the issue in `eastus` is resolved and the region is back online, the heartbeat will be restored. Clients in `eastus` will then, once again, be routed to the replica in their region. This transition is smooth as the connected clients will not be impacted until those existing connections are closed. 
+Once the issue in `eastus` is resolved and the region is back online, the heartbeat will succeed. Clients in `eastus` will then, once again, be directed to the replica in their region. This transition is smooth as the connected clients will not be impacted until those existing connections are closed. 
 
-If you have appservers, the recovery process is similar to clients.
+![Screenshot of Azure SignalR replica failover recovery. ](./media/howto-enable-geo-replication/signalr-replica-failover-recover.png  "Replica Failover Recover")
+
+
+This failover and recovery process is **automatic** and requires no manual intervention.
+
+For those using **app servers**, the recovery works the same way as it does for clients.
+
 
 ## Impact on performance after adding replicas
 
