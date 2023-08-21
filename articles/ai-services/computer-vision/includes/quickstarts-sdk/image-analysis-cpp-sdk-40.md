@@ -56,7 +56,7 @@ Follow the [SDK installation guide](../../sdk/install-sdk.md?pivots=programming-
 From the project directory, open the _ImageAnalysisQuickstart.cpp_ file that was created previously with [your new project](#set-up-application). Clear its contents and paste in the following code:
 
 > [!TIP]
-> You can also analyze a local image. See the [sample code](https://github.com/Azure-Samples/azure-ai-vision-sdk/blob/main/samples/cpp/image-analysis/samples.cpp) repository for scenarios involving local images.
+> The code shows analyzing an image URL. You can also analyze a local image file, or an image from a memory buffer. See the [Analyze Image how-to guide](../../how-to/call-analyze-image-40.md) for more details.
 
 [!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/2/2.cpp?name=snippet_single)]
 

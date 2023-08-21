@@ -85,7 +85,7 @@ dotnet add package  Azure.AI.Vision.ImageAnalysis --prerelease
 From the project directory, open the *Program.cs* file that was created previously with [your new project](#set-up-application). Paste in the following code:
 
 > [!TIP]
-> You can also analyze a local image. See the [sample code](https://github.com/Azure-Samples/azure-ai-vision-sdk/blob/main/samples/csharp/image-analysis/dotnetcore/Samples.cs) repository for scenarios involving local images.
+> The code shows analyzing an image URL. You can also analyze a local image file, or an image from a memory buffer. See the [Analyze Image how-to guide](../../how-to/call-analyze-image-40.md) for more details.
 
 [!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/2/Program.cs?name=snippet_single)]
 
