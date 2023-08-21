@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/21/2022
+ms.date: 08/21/2023
 ms.author: jeedes
 ---
 
@@ -138,13 +138,13 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In a different web browser window, sign in to Hive website as an administrator.
 
-1. Click on the **User Profile** and click **Your workspace**.
+1. Click on the **User Profile** and click click your workspace **Settings**.
 
     ![Screenshot shows the Hive website with Your workspace selected from the menu.](./media/hive-tutorial/profile.png)
 
-1. Click **Auth** and perform the following steps:
+1. Click **Enterprise Security** and perform the following steps:
 
-    ![Screenshot shows the Auth page where do the tasks described.](./media/hive-tutorial/authentication.png)
+    [![Screenshot shows the Auth page where do the tasks described.](./media/hive-tutorial/authentication.png)](./media/hive-tutorial/authentication.png#lightbox)
 
     a. Copy **Your Workspace ID** and append it to the **SignOn URL** and  **Reply URL** in the **Basic SAML Configuration Section** in the Azure portal.
 
