@@ -54,7 +54,7 @@ After creation, you would be able to view/edit your replica on the portal by cli
 
 > [!NOTE]
 > * Geo-replication is a feature available in premium tier.
-> * A replica is considered a separate resource when it comes to billing. See [Pricing and resource unit](#Pricing-and-resource-unit) for more details. 
+> * A replica is considered a separate resource when it comes to billing. See [Pricing and resource unit](#pricing-and-resource-unit) for more details. 
 
 ## Pricing and resource unit
 Each replica has its **own** `unit` and `autoscale settings`.
