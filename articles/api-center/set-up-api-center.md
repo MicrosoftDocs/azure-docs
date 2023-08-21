@@ -147,7 +147,7 @@ The following steps register two sample APIs: Swagger Petstore API and Demo Conf
     | **Line of business** | If you added this custom property, make a selection from the dropdown, such as **Marketing**. | Custom metadata property that identifies the business unit that owns the API. |
     | **Public-facing**  | If you added this custom property, select the checkbox.    |  Custom metadata property that identifies whether the API is public-facing or internal only.     |
 
-1. Select **Create**. 
+1. Select **Create**. <!-- Add something about Deployments? -->
 1. Repeat the preceding three steps to register another API, such as the Demo Conference API.
 
 The APIs appear on the **APIs** page in the portal. When you've added a large number of APIs to the API center, use the search box and filters on this page to find the APIs you want.

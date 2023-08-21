@@ -21,29 +21,41 @@ This article explains key concepts of [Azure API Center](overview.md). API Cente
 
 The following diagram shows the main entities in API Center and how they relate to each other. See the following sections for more information about each entity.
 
-:::image type="content" source="media/key-concepts/api-center-data-model.svg" alt-text="Diagram that shows the data model in API Center." border="false":::
+:::image type="content" source="media/key-concepts/api-center-data-model.png" alt-text="Diagram that shows the data model in API Center." border="false":::
+
+1. A workspace is a logical container that represents APIs and their environments.
+1. Each API can have multiple versions and multiple real-world deployments.
+1. Each API version can have multiple API definition files.
+1. Each API deployment is associated with a specific environment and a specific API definition file.
+
+## Workspace
+
+To enable multiple teams to work independently in a single API Center instance, API Center provides workspaces. Each workspace can have its own set of APIs and environments. Similar to API Management [workspaces](../api-management/workspaces-overview.md), workspaces in API Center allow separate teams to access and manage a part of the API inventory. Access is controlled through Azure role-based access control (RBAC).
+
+> [!NOTE]
+> In preview, API Center provides only a single workspace.
 
 ## API
 
-The top-level logical entity in API Center is an API, which represents any real-world API that you want to track. API Center supports APIs of any type, including REST, GraphQL, gRPC, SOAP, WebSocket, and Webhook.
+A top-level logical entity in API Center, an API represents any real-world API that you want to track. API Center supports APIs of any type, including REST, GraphQL, gRPC, SOAP, WebSocket, and Webhook.
 
 An API can be managed by any API management solution (such as Azure [API Management](../api-management/api-management-key-concepts.md) or solutions from other providers), or unmanaged.
 
+## Environment
+
+In API Center, an environment represents a location where an API runtime could be deployed, typically an API management platform, API gateway, or compute service. Each environment has a type (such as production or staging) and may include information about developer portal or management interfaces.
+
 ## API version
 
-APIs typically have multiple versions across lifecycle stages. In API Center, associate one or more versions with each API, aligned with specific API changes. Some versions may introduce major or breaking changes, while others add minor improvements. An API version can be at any lifecycle stage – from design, to preview, production, or deprecated. 
+An API can have multiple versions across lifecycle stages, each aligned with specific API changes. Some versions may introduce major or breaking changes, while others add minor improvements. An API version can be at any lifecycle stage – from design, to preview, production, or deprecated. 
 
 ## API definition
 
-Each API version may be defined with one or more definition files, such as an OpenAPI definition for a REST API. API Center allows any API definition file formatted as text (YAML, JSON, Markdown, and so on). You can upload OpenAPI, gRPC, GraphQL, AsyncAPI, WSDL, and WADL definitions, among others.
-
-## Environment
-
-Use API Center to maintain information about your APIs' environments. An environment represents a location where an API runtime could be deployed, typically an API management platform, API gateway, or compute service. Each environment has a type (such as production or staging) and may include information about developer portal or management interfaces.
+Each API version may be defined with one or more definition files, such as an OpenAPI definition for a REST API. API Center allows any API definition file formatted as text (YAML, JSON, Markdown, and so on). You can upload OpenAPI, gRPC, GraphQL, AsyncAPI, WSDL, and WADL definitions, among others. API Center also supports importing API definitions from a URL.
 
 ## Deployment
 
-In API Center, a deployment identifies a specific environment used for the runtime of an API. An API could have multiple deployments, for example, one deployment in a staging Azure API Management service and a second deployment in a production Azure API Management service.
+In API Center, a deployment identifies a specific environment used for an API runtime. An API could have multiple deployments, for example, one deployment in a staging Azure API Management service and a second deployment in a production Azure API Management service. Each deployment is associated with a specific API definition.
 
 ## Metadata properties
 
@@ -53,9 +65,7 @@ API Center supports properties of type array, boolean, number, object, predefine
 
 API Center's metadata schema is compatible with JSON and YAML schema specifications, to allow for schema validation in developer tooling and automated pipelines.
 
-## Workspace
 
-To enable multiple teams to work independently in a single API Center instance, API Center provides workspaces. Similar to API Management [workspaces](../api-management/workspaces-overview.md), workspaces in API Center allow separate teams to access and manage a part of the API inventory. Access is controlled through Azure role-based access control (RBAC).
 
 ## Next steps
 
