@@ -42,7 +42,7 @@ This article explains how to deploy and configure an elastic storage area networ
 
 # [PowerShell](#tab/azure-powershell)
 
-Replace all placeholder text with your own values when assigning values to variables and use the same variables in of all the examples in this article:
+Use one of these sets of sample code to create an Elastic SAN that uses locally redundant storage or zone-redundant storage. Replace all placeholder text with your own values and use the same variables in of all the examples in this article:
 
 | Placeholder                      | Description |
 |----------------------------------|-------------|
@@ -51,26 +51,40 @@ Replace all placeholder text with your own values when assigning values to varia
 | `<ElasticSanVolumeGroupName>`    | The name of the Elastic SAN Volume Group to be created. |
 | `<VolumeName>`                   | The name of the Elastic SAN Volume to be created. |
 | `<Location>`                     | The region where new resources will be created. |
+| `<Zone>`                         | The availability zone where the Elastic SAN will be created if it will use locally-redundant storage.<br> *Must be `1`, `2`, or `3`. Specify the same availability zone as the zone that will host your workload.* |
 
-The following command creates an Elastic SAN that uses locally redundant storage. To create one that uses zone-redundant storage, replace `Premium_LRS` with `Premium_ZRS`.
+The following command creates an Elastic SAN that uses locally-redundant storage.
 
 ```azurepowershell
-## Variables
-$RgName = "<ResourceGroupName>"
-## Select the same availability zone as where you plan to host your workload
-$Zone = 1
-## Select the same region as your Azure virtual network
-$Location = "<Location>"
-$EsanName = "<ElasticSanName>"
+# Define some variables.
+$RgName     = "<ResourceGroupName>"
+$EsanName   = "<ElasticSanName>"
 $EsanVgName = "<ElasticSanVolumeGroupName>"
 $VolumeName = "<VolumeName>"
+$Location   = "<Location>"
+$Zone       = <Zone>
 
-## Create the SAN, itself
+# Create the SAN.
 New-AzElasticSAN -ResourceGroupName $RgName -Name $EsanName -AvailabilityZone $Zone -Location $Location -BaseSizeTib 100 -ExtendedCapacitySizeTiB 20 -SkuName Premium_LRS
 ```
+
+The following command creates an Elastic SAN that uses zone-redundant storage.
+
+```azurepowershell
+# Define some variables.
+$RgName     = "<ResourceGroupName>"
+$EsanName   = "<ElasticSanName>"
+$EsanVgName = "<ElasticSanVolumeGroupName>"
+$VolumeName = "<VolumeName>"
+$Location   = "<Location>"
+
+# Create the SAN
+New-AzElasticSAN -ResourceGroupName $RgName -Name $EsanName -Location $Location -BaseSizeTib 100 -ExtendedCapacitySizeTiB 20 -SkuName Premium_ZRS
+```
+
 # [Azure CLI](#tab/azure-cli)
 
-Replace all placeholder text with your own values when assigning values to variables and use the same variables in of all the examples in this article:
+Use one of these sets of sample code to create an Elastic SAN that uses locally redundant storage or zone-redundant storage. Replace all placeholder text with your own values and use the same variables in of all the examples in this article:
 
 | Placeholder                      | Description |
 |----------------------------------|-------------|
@@ -79,18 +93,35 @@ Replace all placeholder text with your own values when assigning values to varia
 | `<ElasticSanVolumeGroupName>`    | The name of the Elastic SAN Volume Group to be created. |
 | `<VolumeName>`                   | The name of the Elastic SAN Volume to be created. |
 | `<Location>`                     | The region where new resources will be created. |
+| `<Zone>`                         | The availability zone where the Elastic SAN will be created if it will use locally-redundant storage.<br> *Must be `1`, `2`, or `3`. Specify the same availability zone as the zone that will host your workload.* |
 
-The following command creates an Elastic SAN that uses locally redundant storage. To create one that uses zone-redundant storage, replace `Premium_LRS` with `Premium_ZRS`.
+The following command creates an Elastic SAN that uses locally-redundant storage.
 
 ```azurecli
-## Variables
+# Define some variables.
 RgName="<ResourceGroupName>"
 EsanName="<ElasticSanName>"
 EsanVgName="<ElasticSanVolumeGroupName>"
+VolumeName="<VolumeName>"
+Location="<Location>"
+Zone=<Zone>
+
+az elastic-san create -n $EsanName -g $RgName -l $Location --base-size-tib 100 --extended-capacity-size-tib 20 --sku "{name:Premium_LRS,tier:Premium}" --availability-zones $Zone
+```
+
+The following command creates an Elastic SAN that uses zone-redundant storage.
+
+```azurecli
+# Define some variables.
+RgName="<ResourceGroupName>"
+EsanName="<ElasticSanName>"
+EsanVgName="<ElasticSanVolumeGroupName>"
+VolumeName="<VolumeName>"
 Location="<Location>"
 
-az elastic-san create -n $EsanName -g $RgName -l $Location --base-size-tib 100 --extended-capacity-size-tib 20 --sku "{name:Premium_LRS,tier:Premium}"
+az elastic-san create -n $EsanName -g $RgName -l $Location --base-size-tib 100 --extended-capacity-size-tib 20 --sku "{name:Premium_ZRS,tier:Premium}"
 ```
+
 ---
 
 ## Create volume groups
@@ -109,7 +140,7 @@ Now that you've configured the basic settings and provisioned your storage, you 
 The following sample command creates an Elastic SAN volume group in the Elastic SAN you created previously. Use the same variables and values you defined when you [created the Elastic SAN](#create-the-san).
 
 ```azurepowershell
-## Create the volume group, this script only creates one.
+# Create the volume group, this script only creates one.
 New-AzElasticSanVolumeGroup -ResourceGroupName $RgName -ElasticSANName $EsanName -Name $EsanVgName
 ```
 
@@ -147,7 +178,7 @@ The following sample command creates a single volume in the Elastic SAN volume g
 Use the same variables you set for , then run the following script:
 
 ```azurepowershell
-## Create the volume, this command only creates one.
+# Create the volume, this command only creates one.
 New-AzElasticSanVolume -ResourceGroupName $RgName -ElasticSanName $EsanName -VolumeGroupName $EsanVgName -Name $VolumeName -sizeGiB 2000
 ```
 
