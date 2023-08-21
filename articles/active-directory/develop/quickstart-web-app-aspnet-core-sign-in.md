@@ -138,25 +138,6 @@ To obtain the sample application, you can either clone it from GitHub or downloa
 1. A message appears indicating that you have signed out.
 1. Although you have signed out, the application is still running from your terminal. To stop the application in your terminal, press **Ctrl+C**. 
 
-## What problem did we solve?
-
-This quickstart showed you how to register a web app in the Microsoft Entra admin center. You downloaded a sample sign-in application that uses the Microsoft Authentication Library for .NET and Microsoft Identity Web to sign in users and call the Microsoft Graph API. You created and uploaded a self-signed certificate, and configured the project to use it for authentication using the app's registration details. You then ran the application, signed in with your Microsoft account, and signed out.
-
-## Clean up resources
-
-If you're not going to continue to use this application, delete your local and registered application with the following steps.
-
-### Delete the local application
-
-1. In your terminal, stop the application by pressing **Ctrl+C**.
-1. Delete the project folder.
-
-### Delete the registered application
-
-1. In the Microsoft Entra admin center, on your applications **Overview** page, select **Delete**.
-1. In the **Delete app registration** pane, check the box, and select **Delete**.
-1. The application has now been deleted. You may need to refresh the page to see the change.
-
 ## See also
 
 - [Quickstart: Protect an ASP.NET Core web API with the Microsoft identity platform](./quickstart-web-api-aspnet-core-protect-api.md)
