@@ -136,6 +136,8 @@ After created a `springboot` client type connection, Service Connector service w
 
 ---
 
+#### Sample codes
+
 Follow these steps and sample codes to connect to Azure Database for MySQL.
 [!INCLUDE [code sample for mysql secrets](./includes/code-mysql-secret.md)]
 
@@ -225,6 +227,9 @@ Follow these steps and sample codes to connect to Azure Database for MySQL.
 
 
 ---
+
+#### Sample codes
+
 Follow these steps and sample codes to connect to Azure Database for MySQL.
 [!INCLUDE [code sample for mysql system mi](./includes/code-mysql-aad.md)]
 
@@ -321,6 +326,8 @@ Follow these steps and sample codes to connect to Azure Database for MySQL.
 | `AZURE_MYSQL_CLIENTID`              | Your client ID    | `<identity-client-ID>`                     |
 
 ---
+
+#### Sample codes
 
 Follow these steps and sample codes to connect to Azure Database for MySQL.
 [!INCLUDE [code sample for mysql system mi](./includes/code-mysql-aad.md)]
@@ -435,6 +442,8 @@ Follow these steps and sample codes to connect to Azure Database for MySQL.
 | `AZURE_MYSQL_TENANTID`              | Your tenant ID    | `<tenant-ID>`                              |
 
 ---
+
+#### Sample codes
 
 Follow these steps and sample codes to connect to Azure Database for MySQL.
 [!INCLUDE [code sample for mysql system mi](./includes/code-mysql-aad.md)]
