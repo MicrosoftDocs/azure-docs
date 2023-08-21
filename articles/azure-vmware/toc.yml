@@ -241,6 +241,8 @@ items:
       href: enable-hcx-access-over-internet.md
     - name: Enable SQL Azure hybrid benefit for Azure VMware Solution
       href: enable-sql-azure-hybrid-benefit.md
+    - name: Configure VMware Cloud Director Service in Azure VMware Solution
+      href: configure-vmware-cds-with-azure.md
     - name: Enable VMware Cloud director service with Azure VMware solution (Preview)
       href: enable-vmware-cds-with-azure.md
     - name: Upgrade VMware HCX on Azure VMware Solution
