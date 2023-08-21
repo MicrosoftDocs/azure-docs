@@ -161,7 +161,7 @@ sections:
           
       - question: Can a guest user sign in to an Azure AD joined device?
         answer: |
-          No, currently, guest users can not sign in to an Azure AD joined device.
+          No, currently, guest users can't sign in to an Azure AD joined device.
         
           
           
