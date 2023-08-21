@@ -85,14 +85,11 @@ The following tables list the required outbound [Azure Service Tags](/azure/virt
 
 ### Managed online endpoint
 
-Azure Machine Learning managed online endpoint uses Azure Machine Learning managed VNet, instead of using your VNet. If you want to disallow public access to your endpoint, set the `public_network_access` flag to disabled. When this flag is disabled, your endpoint can be accessed via the private endpoint of your workspace, and it can't be reached from public networks. If you want to use a private storage account for your deployment, set the `egress_public_network_access` flag disabled. It automatically creates private endpoints to access your private resources. 
+Azure Machine Learning uses a private endpoint to secure inbound communication to a managed online endpoint and uses a workspace managed virtual network to provide secure communication between deployments and resources. To prevent public access to an endpoint, set its `public_network_access` flag to `disabled`. When this flag is disabled, your endpoint can be accessed via the private endpoint of your workspace, and it can't be reached from public networks. To secure outbound communication from a deployment to services, the deployment needs to be created in the workspace managed VNet. The deployment can then use the managed VNet's private endpoints for outbound communication.
 
-> [!TIP]
-> The workspace default storage account is the only private storage account supported by managed online endpoint. 
+For more information, see [Network isolation with managed online endpoints](concept-secure-online-endpoint.md).
 
-:::image type="content" source="media/how-to-secure-online-endpoint/endpoint-network-isolation-ingress-egress.png" alt-text="Diagram of managed online endpoint configuration in a VNet.":::
-
-For more information, see the [Network isolation of managed online endpoints](how-to-secure-online-endpoint.md) article.
+:::image type="content" source="media/concept-secure-online-endpoint/endpoint-network-isolation-with-workspace-managed-vnet.png" alt-text="Diagram showing inbound communication via a workspace private endpoint and outbound communication via private endpoints of a workspace managed VNet." lightbox="media/concept-secure-online-endpoint/endpoint-network-isolation-with-workspace-managed-vnet.png":::
 
 ### Private IP address shortage in your main network
 
