@@ -6,7 +6,7 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 08/09/2023
+ms.date: 08/21/2023
 ms.author: duau
 ms.custom: references_regions
 ---
@@ -92,15 +92,56 @@ Flow logs are collected at an interval of every 1 minute. All packets collected 
 
 ExpressRoute Traffic Collector is supported in the following regions:
 
+### North America
+- Canada East
+- Canada Central
 - Central US
-- East US
-- East US 2
+- Central US EUAP
 - North Central US 
 - South Central US 
-- West Central US 
+- West Central US
+- East US
+- East US 2
 - West US 
 - West US 2 
 - West US 3
+
+### South America
+- Brazil South
+- Brazil Southeast
+
+### Europe
+- West Europe
+- North Europe
+- UK South
+- UK West
+- France Central
+- France South
+- Germany North
+- Sweden Central
+- Sweden South
+- Switzerland North
+- Switzerland West
+- Norway East
+- Norway West
+
+### Asia
+- East Asia
+- Central India
+- South India
+- Japan West
+- Korea South
+- UAE North
+
+### Africa
+- South Africa North
+- South Africa West
+
+### Pacific
+- Australia Central
+- Australia Central 2
+- Australia East
+- Australia Southeast
 
 ## Next steps
 
