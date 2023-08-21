@@ -527,8 +527,6 @@
                   href: app-routing.md
                 - name: Monitor using Prometheus and Grafana
                   href: app-routing-nginx-prometheus.md
-            - name: Use Web Application Routing add-on
-              href: web-app-routing.md
             - name: Use Application Gateway Ingress Controller add-on
               href: ../application-gateway/tutorial-ingress-controller-add-on-existing.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
             - name: Use Istio gateway with Istio Service Mesh add-on
