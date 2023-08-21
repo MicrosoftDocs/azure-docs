@@ -1,16 +1,16 @@
 ---
-title: What's new in Update management center (Preview)
-description: Learn about what's new and recent updates in the Update management center (Preview) service.
-ms.service: update-management-center
+title: What's new in Azure Update Manager (preview)
+description: Learn about what's new and recent updates in the Azure Update Manager (preview) service.
+ms.service: update-manager
 ms.topic: overview
 author: SnehaSudhirG
 ms.author: sudhirsneha
 ms.date: 07/05/2023
 ---
 
-# What's new in Update management center (Preview)
+# What's new in Azure Update Manager (Preview)
 
-[Update management center (preview)](overview.md) helps you manage and govern updates for all your machines. You can monitor Windows and Linux update compliance across your deployments in Azure, on-premises, and on the other cloud platforms from a single dashboard. This article summarizes new releases and features in Update management center (Preview).
+[Azure Update Manager (preview)](overview.md) helps you manage and govern updates for all your machines. You can monitor Windows and Linux update compliance across your deployments in Azure, on-premises, and on the other cloud platforms from a single dashboard. This article summarizes new releases and features in Update Manager (preview).
 
 ## July 2023
 
@@ -23,11 +23,11 @@ Dynamic scope (preview) is an advanced capability of schedule patching. You can 
 
 ### Customized image support
 
-Update management center (preview) now supports [generalized](../virtual-machines/linux/imaging.md#generalized-images) custom images, and a combination of offer, publisher, and SKU for Marketplace/PIR images.See the [list of supported operating systems](support-matrix.md#supported-operating-systems). 
+Update Manager (preview) now supports [generalized](../virtual-machines/linux/imaging.md#generalized-images) custom images, and a combination of offer, publisher, and SKU for Marketplace/PIR images.See the [list of supported operating systems](support-matrix.md#supported-operating-systems). 
 
 ### Multi-subscription support
 
-The limit on the number of subscriptions that you can manage to use the Update management center (preview) portal has now been removed. You can now manage all your subscriptions using the update management center (preview) portal.
+The limit on the number of subscriptions that you can manage to use the Update Manager (preview) portal has now been removed. You can now manage all your subscriptions using the update Manager (preview) portal.
 
 ## April 2023
 

@@ -40,7 +40,7 @@ ms.reviewer: cmmdesai
 
 ## Verify processing of the bulk request payload
 
-1. Log in to [Microsoft Entra portal](https://entra.microsoft.com) with *global administrator* or *application administrator* login credentials.
+1. Log in to [Microsoft Entra admin center](https://entra.microsoft.com) with *global administrator* or *application administrator* login credentials.
 1. Browse to **Azure Active Directory -> Applications -> Enterprise applications**.
 1. Under all applications, use the search filter text box to find and open your API-driven provisioning application.
 1. Open the Provisioning blade. The landing page displays the status of the last run.

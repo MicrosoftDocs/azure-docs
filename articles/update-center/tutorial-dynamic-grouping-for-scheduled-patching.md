@@ -1,7 +1,7 @@
 ---
 title: Schedule updates on Dynamic scoping (preview).
 description: In this tutorial, you learn how to group machines, dynamically apply the updates at scale.
-ms.service: update-management-center
+ms.service: update-manager
 ms.date: 07/05/2023
 ms.topic: tutorial 
 author: SnehaSudhirG
@@ -30,7 +30,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 To create a dynamic scope, follow the steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to Update management center (preview).
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to Update Manager (preview).
 1. Select **Overview** > **Schedule updates** > **Create a maintenance configuration**.
 1. In the **Create a maintenance configuration** page, enter the details in the **Basics** tab and select **Maintenance scope** as *Guest* (Azure VM, Arc-enabled VMs/servers).
 1. Select **Dynamic Scopes** and follow the steps to [Add Dynamic scope](manage-dynamic-scoping.md#add-a-dynamic-scope-preview). 
