@@ -21,7 +21,7 @@ Speech Synthesis Markup Language (SSML) is an XML-based markup language that you
 
 ## Use case scenarios
 
-SSML is designed to give you flexibilty in how you want your speech output to sound, and it provides different properties for how you can customize that output. You can use SSML to:
+SSML is designed to give you flexibility in how you want your speech output to sound, and it provides different properties for how you can customize that output. You can use SSML to:
 
 - [Define the input text structure](speech-synthesis-markup-structure.md) that determines the structure, content, and other characteristics of your text to speech output. For example, you can use SSML to define a paragraph, a sentence, a break or a pause, or silence. You can wrap text with event tags, like a bookmark or viseme, that your application can process later. A viseme is the visual description of a phoneme, the individual speech sounds, in spoken language.
 - [Choose the voice](speech-synthesis-markup-voice.md), language, name, style, and role. You can use multiple voices in a single SSML document. You can also adjust the emphasis, speaking rate, pitch, and volume. SSML can also insert prerecorded audio, such as a sound effect or a musical note.
