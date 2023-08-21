@@ -29,10 +29,10 @@ The experiences and issues described in this article have the following scope.
 
 | Scope | Description |
 | --- | --- |
-| In scope | <ul><li>Azure AD administrator experiences and issues related to multi-tenant organizations to support seamless collaboration experiences in new Teams, with reciprocally provisioned B2B members.</li></ul> |
-| Related scope | <ul><li>Microsoft 365 admin center experiences and issues related to multi-tenant organizations</li><li>Microsoft 365 multi-tenant organization people search experiences and issues</li><li>Cross-tenant synchronization issues related to Microsoft 365</li></ul> |
-| Out of scope | <ul><li>Cross-tenant synchronization unrelated to Microsoft 365</li><li>End user experiences in new Teams</li><li>End user experiences in Power BI</li><li>Tenant migration or consolidation</li></ul> |
-| Unsupported scenarios | <ul><li>Seamless collaboration experience across multi-tenant organizations in classic Teams</li><li>Self-service for multi-tenant organizations larger than 5 tenants or 100,000 internal users per tenant</li><li>Using provisioning or synchronization engines other than Azure AD cross-tenant synchronization</li><li>Multi-tenant organizations in Azure Government or Microsoft Azure operated by 21Vianet</li><li>Cross-cloud multi-tenant organizations</li></ul> |
+| In scope | - Azure AD administrator experiences and issues related to multi-tenant organizations to support seamless collaboration experiences in new Teams, with reciprocally provisioned B2B members |
+| Related scope | - Microsoft 365 admin center experiences and issues related to multi-tenant organizations<br/>- Microsoft 365 multi-tenant organization people search experiences and issues<br/>- Cross-tenant synchronization issues related to Microsoft 365 |
+| Out of scope | - Cross-tenant synchronization unrelated to Microsoft 365<br/>- End user experiences in new Teams<br/>- End user experiences in Power BI<br/>- Tenant migration or consolidation |
+| Unsupported scenarios | - Seamless collaboration experience across multi-tenant organizations in classic Teams<br/>- Self-service for multi-tenant organizations larger than 5 tenants or 100,000 internal users per tenant<br/>- Using provisioning or synchronization engines other than Azure AD cross-tenant synchronization<br/>- Multi-tenant organizations in Azure Government or Microsoft Azure operated by 21Vianet<br/>- Cross-cloud multi-tenant organizations |
 
 ## Multi-tenant organization related issues
 
