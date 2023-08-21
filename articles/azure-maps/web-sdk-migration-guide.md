@@ -39,7 +39,7 @@ If you're using CDN ([content delivery network]), update the references to the s
 
 ### npm
 
-If you're using [npm], update the to the latest Azure Maps control by running the following command:
+If you're using [npm], update to the latest Azure Maps control by running the following command:
 
 ```shell
 npm install azure-maps-control@latest
@@ -61,7 +61,7 @@ By following these steps and considering best practices, you can successfully mi
 
 ## Next steps
 
-Learn more about the Azure Maps Power BI visual:
+Learn how to add maps to web and mobile applications using the Map Control client-side JavaScript library in Azure Maps:
 
 > [!div class="nextstepaction"]
 > [Use the Azure Maps map control]
