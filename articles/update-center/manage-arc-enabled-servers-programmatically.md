@@ -1,7 +1,7 @@
 ---
 title: Programmatically manage updates for Azure Arc-enabled servers in Azure Update Manager (preview)
 description: This article tells how to use Azure Update Manager (preview) using REST API with Azure Arc-enabled servers.
-ms.service: update-manager
+ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
 ms.date: 06/15/2023

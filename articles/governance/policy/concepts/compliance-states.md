@@ -55,7 +55,7 @@ An applicable resource has a compliance state of exempt for a policy assignment 
 > [!NOTE]
 > _Exempt_ is different than _excluded_. For more details, see [scope](./scope.md).
 
-### Unknown (preview)
+### Unknown
 
  Unknown is the default compliance state for definitions with `manual` effect, unless the default has been explicitly set to compliant or non-compliant. This state indicates that an [attestation](./attestation-structure.md) of compliance is warranted. This compliance state only occurs for policy assignments with `manual` effect.
 

@@ -1,7 +1,7 @@
 ---
 title: Azure Update Manager (preview) overview
 description: The article tells what Azure Update Manager (preview) in Azure is and the system updates for your Windows and Linux machines in Azure, on-premises, and other cloud environments.
-ms.service: update-manager
+ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
 ms.date: 07/05/2023
@@ -11,8 +11,8 @@ ms.topic: overview
 # About Azure Update Manager (preview)
 
 > [!Important]
-> - [Automation Update management](../automation/update-management/overview.md) relies on [Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md) (aka MMA agent), which is on a deprecation path and won’t be supported after **August 31, 2024**. Update management center (Preview) is the v2 version of Automation Update management and the future of Update management in Azure. UMC is a native service in Azure and does not rely on [Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md) or [Azure Monitor agent](../azure-monitor/agents/agents-overview.md).
-> - Guidance for migrating from Automation Update management to Update management center will be provided to customers once the latter is Generally Available. For customers using Automation Update management, we recommend continuing to use the Log Analytics agent and **NOT** migrate to Azure Monitoring agent until migration guidance is provided for Update management or else Automation Update management will not work. Also, the Log Analytics agent would not be deprecated before moving all Automation Update management customers to UMC.
+> - [Automation Update management](../automation/update-management/overview.md) relies on [Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md) (aka MMA agent), which is on a deprecation path and won’t be supported after **August 31, 2024**. Update manager (preview) is the v2 version of Automation Update management and the future of Update management in Azure. UMC is a native service in Azure and does not rely on [Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md) or [Azure Monitor agent](../azure-monitor/agents/agents-overview.md).
+> - Guidance for migrating from Automation Update management to Update manager (preview) will be provided to customers once the latter is Generally Available. For customers using Automation Update management, we recommend continuing to use the Log Analytics agent and **NOT** migrate to Azure Monitoring agent until migration guidance is provided for Update management or else Automation Update management will not work. Also, the Log Analytics agent would not be deprecated before moving all Automation Update management customers to UMC.
 
 Update Manager (preview) is a unified service to help manage and govern updates for all your machines. You can monitor Windows and Linux update compliance across your deployments in Azure, on-premises, and on the other cloud platforms from a single dashboard. In addition, you can use the Update Manager (preview) to make real-time updates or schedule them within a defined maintenance window.
 
@@ -42,7 +42,7 @@ Update Manager (preview) has been redesigned and doesn't depend on Azure Automat
     - Global availability in all Azure Compute and Azure Arc regions.
 - Works with Azure roles and identity.
     - Granular access control at per resource level instead of access control at Automation account and Log Analytics workspace level.
-    - Update management center now as Azure Resource Manager based operations. It allows RBAC and roles based of ARM in Azure.
+    - Azure Update Manager now as Azure Resource Manager based operations. It allows RBAC and roles based of ARM in Azure.
 - Enhanced flexibility
     - Ability to take immediate action either by installing updates immediately or schedule them for a later date.
     - Check updates automatically or on demand.
@@ -53,7 +53,7 @@ The following diagram illustrates how Update Manager (preview) assesses and appl
 
 ![Update Manager workflow](./media/overview/update-management-center-overview.png)
 
-To support management of your Azure VM or non-Azure machine, Update Manager (preview) relies on a new [Azure extension](../virtual-machines/extensions/overview.md) designed to provide all the functionality required to interact with the operating system to manage the assessment and application of updates. This extension is automatically installed when you initiate any update management center operations such as **check for updates**, **install one time update**, **periodic assessment** on your machine. The extension supports deployment to Azure VMs or Arc-enabled servers using the extension framework. The Update Manager (preview) extension is installed and managed using the following:
+To support management of your Azure VM or non-Azure machine, Update Manager (preview) relies on a new [Azure extension](../virtual-machines/extensions/overview.md) designed to provide all the functionality required to interact with the operating system to manage the assessment and application of updates. This extension is automatically installed when you initiate any Update manager (preview) operations such as **check for updates**, **install one time update**, **periodic assessment** on your machine. The extension supports deployment to Azure VMs or Arc-enabled servers using the extension framework. The Update Manager (preview) extension is installed and managed using the following:
 
 - [Azure virtual machine Windows agent](../virtual-machines/extensions/agent-windows.md) or [Azure virtual machine Linux agent](../virtual-machines/extensions/agent-linux.md) for Azure VMs.
 - [Azure arc-enabled servers agent](../azure-arc/servers/agent-overview.md) for non-Azure Linux and Windows machines or physical servers.
@@ -145,4 +145,4 @@ For Red Hat Linux machines, see [IPs for the RHUI content delivery servers](../v
 - [Deploy updates now (on-demand) for single machine](deploy-updates.md) 
 - [Schedule recurring updates](scheduled-patching.md)
 - [Manage update settings via Portal](manage-update-settings.md)
-- [Manage multiple machines using update management center](manage-multiple-machines.md)
+- [Manage multiple machines using Update manager](manage-multiple-machines.md)
