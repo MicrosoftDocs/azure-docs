@@ -37,3 +37,8 @@ If your Automates ML runs uses pipeline runs for trials, you can follow the foll
 4. These runs should have an error message in the "Status" section of the "Overview" tab indicating the reason for failure.
    Please click on "See more details" to get more details about the failure.
 5. You can look at "std_out.txt" in the "Outputs + Logs" tab to look at detailed logs and exception traces.
+
+## Next steps
+
++ [Train computer vision models with automated machine learning](how-to-auto-train-image-models.md).
++ [Train natural language processing models with automated machine learning](how-to-auto-train-nlp-models).
