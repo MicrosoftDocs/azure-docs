@@ -20,10 +20,10 @@ summary: |
 sections:
   - name: General FAQ
     questions:
-      - question: I registered the device recently. Why can't I see the device under my user info in the Azure portal? Or why is the device owner marked as N/A for hybrid Azure Active Directory (Azure AD) joined devices?
+      - question: I registered the device recently. Why can't I see the device under my user info? Or why is the device owner marked as N/A for hybrid Azure Active Directory (Azure AD) joined devices?
         answer: |
           Windows 10 or newer devices that are hybrid Azure AD joined don't show up under **USER devices**.
-          Use the **All devices** view in the Azure portal. You can also use a PowerShell [Get-MsolDevice](/powershell/module/msonline/get-msoldevice) cmdlet.
+          Use the **All devices** view. You can also use a PowerShell [Get-MsolDevice](/powershell/module/msonline/get-msoldevice) cmdlet.
           
           Only the following devices are listed under **USER devices**:
           
@@ -35,7 +35,7 @@ sections:
           
       - question: How do I know what the device registration state of the client is?
         answer: |
-          In the Azure portal, go to **All devices**. Search for the device by using the device ID. Check the value under the join type column. Sometimes, the device might be reset or reimaged. So it's essential to also check the device registration state on the device:
+          Go to **All devices**. Search for the device by using the device ID. Check the value under the join type column. Sometimes, the device might be reset or reimaged. So it's essential to also check the device registration state on the device:
           
           - For Windows 10 or newer and Windows Server 2016 or later devices, run `dsregcmd.exe /status`.
           - For down-level OS versions, run `%programFiles%\Microsoft Workplace Join\autoworkplace.exe`.
@@ -47,7 +47,7 @@ sections:
           
           
           
-      - question: I see the device record under the USER info in the Azure portal. And I see the state as registered on the device. Am I set up correctly to use Conditional Access?
+      - question: I see the device record under the USER info and I see the state as registered. Am I set up correctly to use Conditional Access?
         answer: |
           The device join state, shown by **deviceID**, must match the state on Azure AD and meet any evaluation criteria for Conditional Access. 
           For more information, see [Require managed devices for cloud app access with Conditional Access](../conditional-access/concept-conditional-access-grant.md).
@@ -59,15 +59,15 @@ sections:
           On Windows 10/11 devices joined or registered with Azure AD, users are issued a [Primary refresh token (PRT)](concept-primary-refresh-token.md) which enables single sign-on. The validity of the PRT is based on the validity of the device itself. Users see this message if the device is either deleted or disabled in Azure AD without initiating the action from the device itself. A device can be deleted or disabled in Azure AD one of the following scenarios: 
           
           - User disables the device from the My Apps portal. 
-          - An administrator (or user) deletes or disables the device in the Azure portal or by using PowerShell
-          - Hybrid Azure AD joined only: An administrator removes the devices OU out of sync scope resulting in the devices being deleted from Azure AD
-          - Hybrid Azure AD joined only: An administrator disables the computer account on premises, resulting in the device being disabled in Azure AD
+          - An administrator (or user) deletes or disables the device.
+          - Hybrid Azure AD joined only: An administrator removes the devices OU out of sync scope resulting in the devices being deleted from Azure AD.
+          - Hybrid Azure AD joined only: An administrator disables the computer account on premises, resulting in the device being disabled in Azure AD.
           - Upgrading Azure AD connect to the version 1.4.xx.x. [Understanding Azure AD Connect 1.4.xx.x and device disappearance](/troubleshoot/azure/active-directory/reference-connect-device-disappearance).
 
           
           
           
-      - question: I disabled or deleted my device in the Azure portal or by using Windows PowerShell. But the local state on the device says it's still registered. What should I do?
+      - question: I disabled or deleted my device, but the local state on the device says it's still registered. What should I do?
         answer: |
           This operation is by design. In this case, the device doesn't have access to resources in the cloud. Administrators can perform this action for stale, lost, or stolen devices to prevent unauthorized access. If this action was performed unintentionally, you need to re-enable or re-register the device using the steps that follow:
           
@@ -104,7 +104,7 @@ sections:
           
           
           
-      - question: Why do I see duplicate device entries in the Azure portal?
+      - question: Why do I see duplicate device entries?
         answer: |
           - For Windows 10 or newer and Windows Server 2016 or later, repeated tries to unjoin and rejoin the same device might cause duplicate entries. 
           - Each Windows user who uses **Add Work or School Account** creates a new device record with the same device name.
@@ -116,7 +116,7 @@ sections:
       - question: Does Windows 10/11 device registration in Azure AD support TPMs in FIPS mode?
         answer: Windows 10/11 device registration is only supported for FIPS-compliant TPM 2.0 and not supported for TPM 1.2. If your devices have FIPS-compliant TPM 1.2, you must disable them before proceeding with Azure AD join or Hybrid Azure AD join. Microsoft doesn't provide any tools for disabling FIPS mode for TPMs as it is dependent on the TPM manufacturer. Contact your hardware OEM for support. 
 
-      - question: Why can a user still access resources from a device I disabled in the Azure portal?
+      - question: Why can a user still access resources from a device I disabled?
         answer: |
           It takes up to an hour for a revoke to be applied from the time the Azure AD device is marked as disabled.
           
@@ -161,7 +161,7 @@ sections:
           
       - question: Can a guest user sign in to an Azure AD joined device?
         answer: |
-          No, currently, guest users can not sign in to an Azure AD joined device.
+          No, currently, guest users can't sign in to an Azure AD joined device.
         
           
           

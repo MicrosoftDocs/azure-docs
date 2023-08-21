@@ -57,5 +57,5 @@ Getting devices in to Azure AD can be done in a self-service manner or a control
 - Learn more about [Azure AD registered devices](concept-device-registration.md)
 - Learn more about [Azure AD joined devices](concept-directory-join.md)
 - Learn more about [hybrid Azure AD joined devices](concept-hybrid-join.md)
-- To get an overview of how to manage device identities in the Azure portal, see [Managing device identities using the Azure portal](manage-device-identities.md).
+- To get an overview of how to manage device identities, see [Managing device identities using the Azure portal](manage-device-identities.md).
 - To learn more about device-based Conditional Access, see [Configure Azure Active Directory device-based Conditional Access policies](../conditional-access/concept-conditional-access-grant.md).
