@@ -22,7 +22,7 @@ This article describes the customized image support, how to enable the subscript
 
 If you're using the Azure Compute Gallery (formerly known as Shared Image Gallery) to create customized images, you can use Update Manager (preview) operations such as Check for updates, One-time update, Schedule updates, or Periodic assessment to validate if the virtual machines are supported for guest patching and then initiate patching if the VMs are supported.
 
-Unlike marketplace images where support is validated even before Update management center operation is triggered. Here, there are no pre-existing validations in place and the Update management center operations are triggered and only their success or failure determines support. 
+Unlike marketplace images where support is validated even before Update Manager operation is triggered. Here, there are no pre-existing validations in place and the Update Manager operations are triggered and only their success or failure determines support. 
 
 For instance, assessment call, will attempt to fetch the latest patch that is available from the image's OS family to check support. It stores this support-related data in Azure Resource Graph (ARG) table, which you can query to see the support status for your Azure Compute Gallery image.
 
