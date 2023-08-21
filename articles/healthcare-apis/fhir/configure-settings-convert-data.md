@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 08/03/2022
+ms.date: 08/21/2022
 ms.author: jasteppe
 ---
 
@@ -108,7 +108,7 @@ We recommend that you host your own copy of templates in an Azure Container Regi
 
 1. [Create an Azure Container Registry instance](#step-1-create-an-azure-container-registry-instance)
 2. [Push the templates to your Azure Container Registry instance](#step-2-push-the-templates-to-your-azure-container-registry-instance)
-3. [Enable Azure Managed Identity in your FHIR service instance](#step-3-enable-azure-managed-identity-in-your-fhir-service-instance)
+3. [Enable Azure Managed identity in your FHIR service instance](#step-3-enable-azure-managed-identity-in-your-fhir-service-instance)
 4. [Provide Azure Container Registry access to the FHIR service managed identity](#step-4-provide-azure-container-registry-access-to-the-fhir-service-managed-identity)
 5. [Register the Azure Container Registry server in the FHIR service](#step-5-register-the-azure-container-registry-server-in-the-fhir-service)
 6. [Configure the Azure Container Registry firewall for secure access](#step-6-configure-the-azure-container-registry-firewall-for-secure-access)
@@ -127,13 +127,13 @@ To maintain different versions of custom templates in your ACR, you may push the
 
 To reference specific template versions in the API, be sure to use the exact image name and tag that contains the versioned template to be used. For the API parameter `templateCollectionReference`, use the appropriate **image name + tag** (for example: `<RegistryServer>/<imageName>:<imageTag>`).
 
-### Step 3: Enable Azure Managed Identity in your FHIR service instance
+### Step 3: Enable Azure Managed identity in your FHIR service instance
 
 1. Go to your instance of the FHIR service in the Azure portal, and then select the **Identity** option.
 
-2. Change the status to **On** to enable Managed Identity in the FHIR service.
+2. Change the **Status** to **On** and select **Save** to enable the system-managed identity in the FHIR service.
 
-   ![Screenshot of the FHIR pane for enabling the managed identity feature.](media/convert-data/fhir-mi-enabled.png#lightbox)
+:::image type="content" source="media/convert-data/configure-settings-convert-data/fhir-managed-identity-enabled.png" alt-text="Screenshot of the FHIR pane for enabling the managed identity feature." lightbox="media/convert-data/configure-settings-convert-data/fhir-managed-identity-enabled.png":::
 
 ### Step 4: Provide Azure Container Registry access to the FHIR service managed identity
 
@@ -169,7 +169,7 @@ To use the Azure portal:
 3. Select **Add** and then, in the dropdown list, select your registry server. 
 4. Select **Save**. 
 
-   ![Screenshot of the Artifacts screen for registering an Azure Container Registry with a FHIR service.](media/convert-data/fhir-acr-add-registry.png#lightbox)
+   :::image type="content" source="media/convert-data/configure-settings-convert-data/fhir-acr-add-registry.png" alt-text="Screenshot of the Artifacts screen for registering an Azure Container Registry with a FHIR service." lightbox="media/convert-data/configure-settings-convert-data/fhir-acr-add-registry.png":::
 
 You can register up to 20 Azure Container Registry servers in the FHIR service.
 
@@ -180,7 +180,7 @@ You can register up to 20 Azure Container Registry servers in the FHIR service.
 
 1. In the Azure portal, on the left pane, select **Networking** for the Azure Container Registry instance.
 
-   ![Screenshot of the Networking screen for configuring an Azure Container Registry firewall.](media/convert-data/networking-container-registry.png#lightbox)
+   :::image type="content" source="media/convert-data/configure-settings-convert-data/networking-container-registry.png" alt-text="Screenshot of the Networking screen for configuring an Azure Container Registry firewall." lightbox="media/convert-data/configure-settings-convert-data/networking-container-registry.png"::: 
 
 2. On the **Public access** tab, select **Selected networks**. 
 
@@ -224,7 +224,7 @@ You can also completely disable public access to your Azure Container Registry i
 1. In the Azure portal container registry, select **Networking**.
 2. Select the **Public access** tab, select **Disabled**, and then select **Allow trusted Microsoft services to access this container registry**.
 
-![Screenshot of the "Networking" pane for disabling public network access to an Azure Container Registry instance.](media/convert-data/configure-private-network-container-registry.png#lightbox)
+   :::image type="content" source="media/convert-data/configure-settings-convert-data/configure-private-network-container-registry.png" alt-text="Screenshot of the "Networking" pane for disabling public network access to an Azure Container Registry instance." lightbox="media/convert-data/configure-settings-convert-data/configure-private-network-container-registry.png"::: 
 
 ### Verify the $convert-data operation
 
