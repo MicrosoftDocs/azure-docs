@@ -37,7 +37,7 @@ This article describes the available sizes and options for the Azure virtual mac
 
 ## REST API
 
-For information on using the REST API to query for VM sizes, see the following:
+For information on using the REST API to query for VM sizes, see the following articles:
 
 - [List available virtual machine sizes for resizing](/rest/api/compute/virtualmachines/listavailablesizes)
 - [List available virtual machine sizes for a subscription](/rest/api/compute/resourceskus/list)
