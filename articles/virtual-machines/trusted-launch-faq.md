@@ -11,7 +11,7 @@ ms.date: 08/22/2023
 ms.custom: template-faq, devx-track-azurecli, devx-track-azurepowershell
 ---
 
-# FAQ
+# Trusted Launch FAQ
 
 Frequently asked questions about trusted launch.
 

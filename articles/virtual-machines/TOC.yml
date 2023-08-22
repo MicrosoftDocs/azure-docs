@@ -1659,7 +1659,7 @@
       DisplayName: Trusted Launch, shielded VM
     - name: Deploy Trusted Launch VM
       href: trusted-launch-portal.md
-    - name: Enable Trusted Launch for existing VM
+    - name: Enable Trusted Launch on existing VM
       href: trusted-launch-existing-vm.md
     - name: Boot integrity monitoring
       href: boot-integrity-monitoring-overview.md
