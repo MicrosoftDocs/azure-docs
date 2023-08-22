@@ -12,7 +12,7 @@ ms.author: kpunjabi
 ---
 
 ## Download code 
-Find the project for this sample on [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/pull/78). You can download this code and run it locally to try it for yourself. 
+Find the project for this sample on [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/CallAutomation_OpenAI_Sample). You can download this code and run it locally to try it for yourself. 
 
 ## Overview 
 
