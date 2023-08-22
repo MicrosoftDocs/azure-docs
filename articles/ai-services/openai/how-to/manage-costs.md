@@ -89,7 +89,7 @@ Here's an example of how to use the **Cost analysis tool** to see your accumulat
 1. On the left, select **Reporting + analytics** > **Cost analysis**.
 1. On the **All views** tab, select **Accumulated costs**.
 
-:::image type="content" source="../media/manage-costs/cost-analyzer.png" alt-text="Screenshot of cost analysis dashboard with scope set to subscription." lightbox="../media/manage-costs/subscription.png":::
+:::image type="content" source="../media/manage-costs/cost-analyzer.png" alt-text="Screenshot of cost analysis dashboard showing how to access accumulated costs." lightbox="../media/manage-costs/subscription.png":::
 
 The cost analysis dashboard shows the accumulated costs that are analyzed depending on what you've specified for **Scope**.
 
