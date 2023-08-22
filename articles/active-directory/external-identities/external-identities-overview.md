@@ -147,7 +147,7 @@ When you're considering B2B collaboration with a specific external Azure AD orga
 
 ### B2B collaboration branding changes
 
-Starting from September 30, 2023, when B2B collaboration end-users perform cross-tenant sign-ins, they'll notice a change in branding. Instead of seeing the resource tenant's branding, the branding will update to show their home tenant branding, even if there isn't custom branding specified. 
+Starting from September 30, 2023, when B2B collaboration end-users perform cross-tenant sign-ins, they'll notice a change in branding. Instead of seeing the resource tenant's branding, it will show their home tenant branding, even if there isn't custom branding specified. 
 We're making this change to highlight that the user is signing into their home account. No action is needed from you to enable this change.
 
 :::image type="content" source="media/external-identities-overview/placeholder.png" alt-text="Placeholder alt text."::: 

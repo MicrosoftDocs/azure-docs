@@ -96,9 +96,9 @@ Add-MsolRoleMember -RoleObjectId 95e79109-95c0-4d8e-aee3-d01accf2d47b -RoleMembe
 
 When a B2B user signs into a resource tenant to collaborate, a sign-in log is generated in both the home tenant and the resource tenant. These logs include information such as the application being used, email addresses, tenant name, and tenant ID for both the home tenant and the resource tenant. 
 
-### B2B collaboration branding changes
+## B2B collaboration branding changes
 
-Starting from September 30, 2023, when B2B collaboration end-users perform cross-tenant sign-ins, they'll notice a change in branding. Instead of seeing the resource tenant's branding, the branding will update to show their home tenant branding, even if there isn't custom branding specified. 
+Starting from September 30, 2023, when B2B collaboration end-users perform cross-tenant sign-ins, they'll notice a change in branding. Instead of seeing the resource tenant's branding, it will show their home tenant branding, even if there isn't custom branding specified. 
 We're making this change to highlight that the user is signing into their home account. No action is needed from you to enable this change.
 
 :::image type="content" source="media/external-identities-overview/placeholder.png" alt-text="Placeholder alt text."::: 
