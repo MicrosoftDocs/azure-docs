@@ -1,6 +1,6 @@
 ---
 title: Add company branding to your organization's sign-in page
-description: Instructions about how to add your organization's branding to the sign-in experience.
+description: Instructions about how to add your organization's custom branding to the Azure AD sign-in experience.
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 08/09/2023
+ms.date: 08/22/2023
 ms.author: sarahlipsey
 ms.reviewer: almars
 ---
@@ -22,7 +22,6 @@ The default sign-in experience is the global look and feel that applies across a
 
 > [!NOTE]
 > Instructions for how to manage the **'Stay signed in prompt?'** can be found in the **[Manage the 'Stay signed in?' prompt](how-to-manage-stay-signed-in-prompt.md)** article.
-
 
 ## License requirements
 
@@ -65,6 +64,9 @@ The branding elements are called out in the following example. Text descriptions
 
 There are some scenarios you to consider when you customize the sign-in pages for your organization's tenant-specific applications.
 
+> [!NOTE]
+> To manage the settings of the 'Stay signed in?' prompt, go to **Azure AD** > **Users** > **User settings**.
+
 For Microsoft, Software as a Service (SaaS), and multi-tenant applications such as <https://myapps.microsoft.com>, or <https://outlook.com>, the customized sign-in page appears only after the user types their **Email** or **Phone number** and selects the **Next** button. 
 
 Some Microsoft applications support [Home Realm Discovery](../manage-apps/home-realm-discovery-policy.md) for authentication. In these scenarios, when a customer signs in to an Azure AD common sign-in page, Azure AD can use the customer's user name to determine where they should sign in. 
@@ -78,8 +80,7 @@ In the following examples, replace the contoso.com with your own tenant name, or
 - For my app portal `https://myapps.microsoft.com/?whr=contoso.com` 
 - Self-service password reset `https://passwordreset.microsoftonline.com/?whr=contoso.com`
 
-> [!NOTE]
-> To manage the settings of the 'Stay signed in?' prompt, go to **Azure AD** > **Users** > **User settings**.
+Beginning September 30, 2023, when B2B collaboration end-users perform cross-tenant sign-ins, they'll notice a change in branding. Instead of seeing the resource tenant's branding, their home tenant branding will appear, even if there isn't custom branding specified. We're making this change to highlight that the user is signing into their home account. No action is needed from you to enable this change.
 
 ## How to navigate the company branding process
 
