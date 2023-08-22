@@ -409,7 +409,7 @@ The following script helps you with the creation of the issuance transform rules
 #### Remarks
 
 * This script appends the rules to the existing rules. Don't run the script twice, because the set of rules would be added twice. Make sure that no corresponding rules exist for these claims (under the corresponding conditions) before running the script again.
-* If you have multiple verified domain names (as shown in the Azure portal or via the **Get-MsolDomain** cmdlet), set the value of **$multipleVerifiedDomainNames** in the script to **$true**. Also make sure that you remove any existing **issuerid** claim that might have been created by Azure AD Connect or via other means. Here's an example for this rule:
+* If you have multiple verified domain names, set the value of **$multipleVerifiedDomainNames** in the script to **$true**. Also make sure that you remove any existing **issuerid** claim that might have been created by Azure AD Connect or via other means. Here's an example for this rule:
 
    ```
    c:[Type == "http://schemas.xmlsoap.org/claims/UPN"]

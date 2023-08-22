@@ -73,7 +73,10 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
     > [!NOTE]
     > These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [Tanium SSO support team](mailto:integrations@tanium.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
+    > [!NOTE]
+    > If deploying Tanium in an on-premises configuration, your values may look different than those shown above. The values to use can be retrieved from the **Administration > SAML Configuration** menu in the Tanium console. Details can be found in the [Tanium Console User Guide: Integrating with a SAML IdP](https://docs.tanium.com/platform_user/platform_user/console_using_saml.html?cloud=false "Integrating with a SAML IdP Guide").
+
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer. If deploying to Tanium in an on-premises configuration, click the edit button and set the **Response Signing Option** to "Sign response and assertion".
 
 	[ ![Screenshot shows the Certificate download link.](common/copy-metadataurl.png "Certificate") ](common/copy-metadataurl.png#lightbox)
 
