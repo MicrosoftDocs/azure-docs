@@ -87,6 +87,7 @@ This integration between Azure Communication Services and Azure AI services is o
 - southcentralus
 - westcentralus
 - westeu
+- uksouth
 
 ## Next Steps
 - Learn about [playing audio](../../concepts/call-automation/play-ai-action.md) to callers using Text-to-Speech.
