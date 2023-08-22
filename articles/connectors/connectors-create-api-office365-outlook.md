@@ -109,11 +109,14 @@ Based on whether you have a Consumption or Standard logic app workflow, follow t
 
 ---
 
-Now add an action that runs after the trigger fires. For example, you can add the Twilio **Send message** action, which sends a text when a calendar event starts in 15 minutes.
+You can now add any other actions that your workflow requires. For example, you can the Twilio **Send message** action, which sends a text when a calendar event starts in 15 minutes.
 
-## Add an action
+## Add an Office 365 Outlook action
+
+Based on whether you have a Consumption or Standard logic app workflow, follow the corresponding steps:
 
 An [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) is an operation that's run by the workflow in your logic app. This example logic app creates a new contact in Office 365 Outlook. You can use the output from another trigger or action to create the contact. For example, suppose your logic app uses the Salesforce trigger, **When a record is created**. You can add the Office 365 Outlook **Create contact** action and use the outputs from the trigger to create the new contact.
+
 
 ### [Consumption](#tab/consumption)
 
