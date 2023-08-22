@@ -516,7 +516,7 @@ Learn more about Azure Maps REST services:
 [manage authentication in Azure Maps]: how-to-manage-authentication.md
 [Map image render]: /rest/api/maps/render-v2/get-map-static-imagerytile
 [Map imagery tile]: /rest/api/maps/render-v2/get-map-static-imagerytile
-[Map tile]: /rest/api/maps/render/getmaptile
+[Map tile]: /rest/api/maps/render-v2/getmaptile
 [Nearby search]: /rest/api/maps/search/getsearchnearby
 [npm package]: https://www.npmjs.com/package/azure-maps-rest
 [NuGet package]: https://www.nuget.org/packages/AzureMapsRestToolkit

@@ -701,7 +701,7 @@ Learn more about the Azure Maps REST services.
 [manage authentication in Azure Maps]: how-to-manage-authentication.md
 [Map image render]: /rest/api/maps/render-v2/get-map-static-imagerytile
 [Map imagery tile]: /rest/api/maps/render-v2/get-map-static-imagerytile
-[Map Tiles]: /rest/api/maps/render/getmaptile
+[Map Tiles]: /rest/api/maps/render-v2/getmaptile
 [nearby search]: /rest/api/maps/search/getsearchnearby
 [NetTopologySuite]: https://github.com/NetTopologySuite/NetTopologySuite
 [POI category search]: /rest/api/maps/search/get-search-poi-category
