@@ -215,7 +215,7 @@ To enable chat history, deploy or redeploy your model as a web app using [Azure 
 
 Once you've enabled chat history, your users will be able to show and hide it in the top right corner of the app. When the history is shown, they can rename, or delete conversations. As they're logged into the app, conversations will be automatically ordered from newest to oldest, and named based on the first query in the conversation. 
 
-:::image type="content" source="../media/use-your-data/web-app-chat-history.png" alt-text="A screenshot of the chat history in the web app." lightbox="../media/use-your-data/web-app-chat-history.png":::
+:::image type="content" source="../media/use-your-data/web-app-chat-history.jpg" alt-text="A screenshot of the chat history in the web app." lightbox="../media/use-your-data/web-app-chat-history.jpg":::
 
 #### Deleting your CosmosDB instance
 
