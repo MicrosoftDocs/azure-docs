@@ -230,7 +230,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for MySQL](/az
 1. Install dependencies
    ```bash
    npm install --save @azure/identity
-   npm install --save mysql
+   npm install --save mysql2
    ```
 2. Get Azure MySQL database information from environment variables added by Service Connector service.
    ```javascript
