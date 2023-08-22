@@ -3,7 +3,7 @@ title: Manage a custom IP address prefix
 titleSuffix: Azure Virtual Network
 description: Learn about custom IP address prefixes and how to manage and delete them.
 services: virtual-network
-aauthor: mbender-ms
+author: mbender-ms
 ms.author: mbender
 ms.date: 08/24/2023
 ms.service: virtual-network
