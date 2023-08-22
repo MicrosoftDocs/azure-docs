@@ -124,7 +124,7 @@ In the **Archived snapshots** tab, select the ellipsis **...** on the right of a
 
 ## Use snapshots
 
-You can select any number of snapshots for a configuration. Selecting a snapshot will add each of the individual key-values. Once added to a configuration, the key-values from snapshots are treated the same as any other key-value.
+You can select any number of snapshots for a configuration. Selecting a snapshot adds each of the individual key-values. Once added to a configuration, the key-values from snapshots are treated the same as any other key-value.
 
 If you have an application using Azure App Configuration, you can update it with the following sample code to use snapshots. You only need to provide the name of the snapshot. If you don't have an application, you can reference any of the quickstart guides, like [creating an ASP.NET core app with Azure App Configuration](./quickstart-aspnet-core-app).
 
