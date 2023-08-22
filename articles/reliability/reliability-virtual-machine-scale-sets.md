@@ -11,7 +11,7 @@ ms.date: 06/12/2023
 
 # Reliability in Virtual Machine Scale Sets
 
-This article contains [specific reliability recommendations for Virtual Machine Scale Sets](#reliability-recommendations), and information on Virtual Machine Scale Sets regional resiliency with [availability zones](#availability-zone-support) and [cross-region resiliency with disaster recovery](#disaster-recovery-cross-region-failover). 
+This article contains [specific reliability recommendations for Virtual Machine Scale Sets](#reliability-recommendations), and information on Virtual Machine Scale Sets regional resiliency with [availability zones](#availability-zone-support). 
 
 For an architectural overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
 
