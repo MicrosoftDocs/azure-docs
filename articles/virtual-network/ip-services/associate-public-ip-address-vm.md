@@ -9,7 +9,7 @@ ms.subservice: ip-services
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 08/24/2023
-ms.author: mbender-ms
+ms.author: mbender
 ms.custom: template-how-to, engagement-fy23, devx-track-azurecli, devx-track-azurepowershell
 ---
 
