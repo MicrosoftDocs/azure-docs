@@ -40,7 +40,7 @@ ms.custom: include file
  :::image type="content" source="media/active-directory-cloud-sync-how-to-install/azure-ad-cloud-sync-sign-in-to-azure.png" alt-text="Screenshot of the Connect Azure AD screen."  lightbox="media/active-directory-cloud-sync-how-to-install/azure-ad-cloud-sync-sign-in-to-azure.png":::
 
 
- 11. On the **Configure Service Account** screen, select a group Managed Service Account (gMSA). This account is used to run the agent service. If a managed service account is already configured in your domain by another agent and you are installing a second agent, you should select **Create gMSA** as the system will detect the existing account and add the required permissions for the new agent to use the gMSA account. When prompted, choose either:
+ 11. On the **Configure Service Account** screen, select a group Managed Service Account (gMSA). This account is used to run the agent service. If a managed service account is already configured in your domain by another agent and you are installing a second agent, select **Create gMSA** because the system will detect the existing account and add the required permissions for the new agent to use the gMSA account. When prompted, choose either:
 
    - **Create gMSA** which lets the agent create the **provAgentgMSA$** managed service account for you. The group managed service account (for example, CONTOSO\provAgentgMSA$) will be created in the same Active Directory domain where the host server has joined. To use this option, enter the Active Directory domain administrator credentials (recommended).
   - **Use custom gMSA** and provide the name of the managed service account that you have manually created for this task.
@@ -53,7 +53,7 @@ ms.custom: include file
 
 
 
- 13. Sign in with your Active Directory domain administrator account.  The domain administrator account shouldn't have an expired password. In case the password is expired or changes during agent install, you'll need to reconfigure the agent with the new credentials. This operation will add your on-premises directory. Select **OK**, then select **Next** to continue. 
+ 13. Sign in with your Active Directory domain administrator account.  The domain administrator account shouldn't have an expired password. In case the password is expired or changes during the agent installation, you'll need to reconfigure the agent with the new credentials. This operation will add your on-premises directory. Select **OK**, then select **Next** to continue. 
 
  :::image type="content" source="media/active-directory-cloud-sync-how-to-install/azure-ad-cloud-sync-sign-in-to-active-directory.png" alt-text="Screenshot that shows how to enter the domain admin credentials."  lightbox="media/active-directory-cloud-sync-how-to-install/azure-ad-cloud-sync-sign-in-to-active-directory.png":::
 
