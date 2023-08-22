@@ -145,8 +145,9 @@ With [Azure virtual machine scale sets](../virtual-machine-scale-sets/flexible-v
 
 Virtual machine scale sets supports both zonal and zone-redundant deployments within a region:
 
-- **Zonal deployment.** When you create a scale set in a single zone, you control which zone all the VM VMs of that set run in. The scale set is managed and autoscales only within that zone. 
-- **Zone redundant deployment.**  A zone-redundant scale set lets you create a single scale set that spans multiple zones. By default, as VMs are created, they're evenly balanced across zones.
+- **Zonal deployment.** When you create a scale set in a single zone, you control which zone all the VMs of that set run in. The scale set is managed and autoscales only within that zone.
+
+- **Zone-redundant deployment.**  A zone-redundant scale set lets you create a single scale set that spans multiple zones. By default, as VMs are created, they're evenly balanced across zones.
 
 
 ### Prerequisites
@@ -156,7 +157,7 @@ Virtual machine scale sets supports both zonal and zone-redundant deployments wi
 1. All VMs -even single instance VMs - should be deployed into a scale set using [flexible orchestration](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#scale-sets-with-flexible-orchestration) mode to future-proof your application for scaling and availability. 
 
 
-### SLA improvements
+### SLA
 
 Because availability zones are physically separate and provide distinct power sources, network, and cooling - service-level agreements (SLAs) are increased. For more information, see the [SLA for Microsoft Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
 
@@ -330,11 +331,7 @@ For a complete example of a zone-redundant scale set and network resources, see 
 
 ### Zonal failover support
 
-### Fault tolerance
-
-### Zone down experience
-
-#### Zone outage preparation and recovery
+Virtual Machine Scale Sets are created with five fault domains by default in Azure regions with no zones. For the regions that support availability zone deployment of Virtual Machine Scale Sets and this option is selected, the default value of the fault domain count is 1 for each of the zones. FD=1 in this case implies that the VM instances belonging to the scale set are spread across many racks on a best effort basis. For more information, see [Choosing the right number of fault domains for Virtual Machine Scale Set](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-fault-domains).
 
 ### Low-latency design
 
@@ -345,56 +342,44 @@ It's recommended that you configure Virtual Machine Scale Sets with zone-redunda
 
 ### Safe deployment techniques
 
-To have more control over where your VMs are deployed, t's recommended that you deploy zonal, instead of regional, scale set VMs. However, zonal VMs only provide zone isolation and not zone redundancy. To achieve full zone redundancy with zonal VMs, there should be two or more VMs across different zones. 
+To have more control over where your VMs are deployed, it's recommended that you deploy zonal, instead of regional, scale set VMs. However, zonal VMs only provide zone isolation and not zone redundancy. To achieve full zone-redundancy with zonal VMs, there should be two or more VMs across different zones.
+
+It's also recommended that you use the max spreading deployment option for your zone-redundant VMs. For more information, see the [spreading options](#spreading-options).
 
 
 #### Spreading options
 
-When you deploy a regional (non-zonal) scale set into one or more zones as of API version *2017-12-01*, you have the following availability options:
+When you deploy a regional (non-zonal) scale set into one or more availability zones, you have the following spreading options (as of API version *2017-12-01*):
 
-- Max spreading (platformFaultDomainCount = 1)
-- Static fixed spreading (platformFaultDomainCount = 5)
-- Spreading aligned with storage disk fault domains (platformFaultDomainCount = 2 or 3)
+- **Max spreading (platformFaultDomainCount = 1)**. This is the recommended deployment option, as it provides the best spreading in most cases. If you to spread replicas across distinct hardware isolation units, we recommend spreading across availability zones and utilize max spreading within each zone.
 
-With max spreading, the scale set spreads your VMs across as many fault domains as possible within each zone. This spreading could be across greater or fewer than five fault domains per zone. With static fixed spreading, the scale set spreads your VMs across exactly five fault domains per zone. If the scale set can't find five distinct fault domains per zone to satisfy the allocation request, the request fails.
+With max spreading, the scale set spreads your VMs across as many fault domains as possible within each zone. This spreading could be across greater or fewer than five fault domains per zone. 
 
->[!NOTE]
-> The `zoneBalance` property can only be set if the zones property of the scale set contains more than one zone. If there are no zones or only one zone specified, then zoneBalance property should not be set.
+> [!NOTE]
+> With max spreading, regardless of how many fault domains the VMs are spread across, you can only see one fault domain in both the scale set VM instance view and the instance metadata. The spreading within each zone is implicit.
+
+- **Static fixed spreading (platformFaultDomainCount = 5)**. With static fixed spreading, the scale set spreads your VMs exactly across five fault domains per zone. If the scale set cannot find five distinct fault domains per zone to satisfy the allocation request, the request fails.
+
+- **Spreading aligned with managed disks fault domains (platformFaultDomainCount = 2 or 3)** You can consider aligning the number of scale set fault domains with the number of managed disks fault domains. This alignment can help prevent loss of quorum if an entire managed disks fault domain goes down. The fault domain count can be set to less than or equal to the number of managed disks fault domains available in each of the regions. To learn about the number of Managed Disks fault domains by region.
 
 #### Zone balancing
 
-For scale sets deployed across multiple zones, you also have the option of choosing "best effort zone balance" or "strict zone balance". A scale set is considered "balanced" if each zone has the same number of VMs (plus or minus 1 VM) as all other zones in the scale set. For example:
+For scale sets deployed across multiple zones (zone-redundant), you have the option of choosing "best effort zone balance" or "strict zone balance". A scale set is considered "balanced" if each zone has the same number of VMs (plus or minus 1 VM) as all other zones in the scale set. For example:
 
 - A scale set with 2 VMs in zone 1, 3 VMs in zone 2, and 3 VMs in zone 3 is considered balanced. There's only one zone with a different VM count and it's only 1 less than the other zones.
 - A scale set with 1 VM in zone 1, 3 VMs in zone 2, and 3 VMs in zone 3 is considered unbalanced. Zone 1 has 2 fewer VMs than zones 2 and 3.
 
-It's possible that VMs in the scale set are successfully created, but extensions on those VMs fail to deploy. These VMs with extension failures are still counted when determining if a scale set is balanced. For instance, a scale set with 3 VMs in zone 1, 3 VMs in zone 2, and 3 VMs in zone 3 is considered balanced even if all extensions failed in zone 1 and all extensions succeeded in zones 2 and 3.
+It's possible that VMs in the scale set are successfully created, but extensions on those VMs fail to deploy. The VMs with extension failures are still counted when determining if a scale set is balanced. For instance, a scale set with 3 VMs in zone 1, 3 VMs in zone 2, and 3 VMs in zone 3 is considered balanced even if all extensions failed in zone 1 and all extensions succeeded in zones 2 and 3.
 
 With best-effort zone balance, the scale set attempts to scale in and out while maintaining balance. However, if for some reason this isn't possible (for example, if one zone goes down, the scale set can't create a new VM in that zone), the scale set allows temporary imbalance to successfully scale in or out. On subsequent scale-out attempts, the scale set adds VMs to zones that need more VMs for the scale set to be balanced. Similarly, on subsequent scale in attempts, the scale set removes VMs from zones that need fewer VMs for the scale set to be balanced. With "strict zone balance", the scale set fails any attempts to scale in or out if doing so would cause unbalance.
 
 To use best-effort zone balance, set *zoneBalance* to *false*. This setting is the default in API version *2017-12-01*. To use strict zone balance, set *zoneBalance* to *true*.
 
 
-
-
-**We recommend deploying with max spreading for most workloads**, as this approach provides the best spreading in most cases. If you need replicas to be spread across distinct hardware isolation units, we recommend spreading across Availability Zones and utilize max spreading within each zone.
-
-> [!NOTE]
-> With max spreading, you only see one fault domain in the scale set VM instance view and in the instance metadata regardless of how many fault domains the VMs are spread across. The spreading within each zone is implicit.
-
-
 ### Availability zone redeployment and migration
 
-## Disaster recovery: cross-region failover
+To migrate a regional scale set to availability zone support, you'll first want to consider the [available spreading options](#spreading-options).
 
-### Cross-region disaster recovery in multi-region geography
-
-#### Outage detection, notification, and management
-#### Set up disaster recovery and outage detection 
-
-### Single-region geography disaster recovery
-
-### Capacity and proactive disaster recovery resiliency
 
 ## Additional guidance
 
