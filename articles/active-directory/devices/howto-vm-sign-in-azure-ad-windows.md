@@ -94,7 +94,7 @@ There are two ways to enable Azure AD login for your Windows VM:
 - Azure Cloud Shell, when you're creating a Windows VM or using an existing Windows VM.
 
 > [!NOTE]
-> If a device object with the same displayMame as the hostname of a VM where an extension is installed exists, the VM fails to join Azure AD with a hostname duplication error. Avoid duplication by [modifying the hostname](../../virtual-network/virtual-networks-viewing-and-modifying-hostnames.md#modify-a-hostname).
+> If a device object with the same displayName as the hostname of a VM where an extension is installed exists, the VM fails to join Azure AD with a hostname duplication error. Avoid duplication by [modifying the hostname](../../virtual-network/virtual-networks-viewing-and-modifying-hostnames.md#modify-a-hostname).
 
 ### Azure portal
 

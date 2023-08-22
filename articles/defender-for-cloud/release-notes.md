@@ -2,7 +2,7 @@
 title: Release notes
 description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 08/17/2023
+ms.date: 08/22/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -26,10 +26,25 @@ Updates in August include:
 
 |Date |Update  |
 |----------|----------|
+| August 22 | [Recommendation release: Microsoft Defender for Storage should be enabled with malware scanning and sensitive data threat detection](#recommendation-release-microsoft-defender-for-storage-should-be-enabled-with-malware-scanning-and-sensitive-data-threat-detection)
 | August 17 | [Extended properties in Defender for Cloud security alerts are masked from activity logs](#extended-properties-in-defender-for-cloud-security-alerts-are-masked-from-activity-logs)
 | August 15 | [Preview release of GCP support in Defender CSPM](#preview-release-of-gcp-support-in-defender-cspm)|
 | August 7 | [New security alerts in Defender for Servers Plan 2: Detecting potential attacks abusing Azure virtual machine extensions](#new-security-alerts-in-defender-for-servers-plan-2-detecting-potential-attacks-abusing-azure-virtual-machine-extensions)
 | August 1 | [Business model and pricing updates for Defender for Cloud plans](#business-model-and-pricing-updates-for-defender-for-cloud-plans) |
+
+### Recommendation release: Microsoft Defender for Storage should be enabled with malware scanning and sensitive data threat detection
+
+August 22, 2023
+
+A new recommendation in Defender for Storage has been released. This recommendation ensures that Defender for Storage is enabled at the subscription level with malware scanning and sensitive data threat detection capabilities.
+
+| Recommendation | Description  |
+|--|--|
+| Microsoft Defender for Storage should be enabled with malware scanning and sensitive data threat detection | Microsoft Defender for Storage detects potential threats to your storage accounts. It helps prevent the three major impacts on your data and workload: malicious file uploads, sensitive data exfiltration, and data corruption. The new Defender for Storage plan includes malware scanning and sensitive data threat detection. This plan also provides a predictable pricing structure (per storage account) for control over coverage and costs. With a simple agentless setup at scale, when enabled at the subscription level, all existing and newly created storage accounts under that subscription will be automatically protected. You can also exclude specific storage accounts from protected subscriptions.|
+
+This new recommendation will replace the current recommendation `Microsoft Defender for Storage should be enabled` (assessment key 1be22853-8ed1-4005-9907-ddad64cb1417). However, this recommendation will still be available in Azure Governance regions. 
+
+Learn more about [Microsoft Defender for Storage](defender-for-storage-introduction.md). 
 
 ### Extended properties in Defender for Cloud security alerts are masked from activity logs
 
@@ -99,27 +114,24 @@ Microsoft Defender for Cloud has three plans that offer service layer protection
 
 - Defender for Key Vault
 
-- Defender for Azure Resource Manager
-
+- Defender for Resource Manager
 - Defender for DNS
 
-These plans are transitioning to a new business model with different pricing and packaging to address customer feedback regarding spending predictability and simplifying the overall cost structure.
+These plans have transitioned to a new business model with different pricing and packaging to address customer feedback regarding spending predictability and simplifying the overall cost structure.
 
 **Business model and pricing changes summary**:
 
-Existing customers of Defender for Key-Vault, Defender for Azure Resource Manager, and Defender for DNS keep their current business model and pricing unless they actively choose to switch to the new business model and price.
+Existing customers of Defender for Key-Vault, Defender for Resource Manager, and Defender for DNS keep their current business model and pricing unless they actively choose to switch to the new business model and price.
 
-- **Defender for Azure Resource Manager**: This plan has a fixed price per subscription per month. Customers can switch to the new business model by selecting the Defender for Azure Resource Manager new per-subscription model.
+- **Defender for Resource Manager**: This plan has a fixed price per subscription per month. Customers can switch to the new business model by selecting the Defender for Resource Manager new per-subscription model.
 
-Existing customers of Defender for Key-Vault, Defender for Azure Resource Manager, and Defender for DNS keep their current business model and pricing unless they actively choose to switch to the new business model and price.
+Existing customers of Defender for Key-Vault, Defender for Resource Manager, and Defender for DNS keep their current business model and pricing unless they actively choose to switch to the new business model and price.
 
-- **Defender for Azure Resource Manager**: This plan has a fixed price per subscription per month. Customers can switch to the new business model by selecting the Defender for Azure Resource Manager new per-subscription model.
-
-- **Defender for Key Vault**: This plan has a fixed price per vault at per month with no overage charge. Customers can switch to the new business model by selecting the Defender for Key Vault new per-vault model
-
+- **Defender for Resource Manager**: This plan has a fixed price per subscription per month. Customers can switch to the new business model by selecting the Defender for Resource Manager new per-subscription model.
+- **Defender for Key Vault**: This plan has a fixed price per vault, per month with no overage charge. Customers can switch to the new business model by selecting the Defender for Key Vault new per-vault model
 - **Defender for DNS**: Defender for Servers Plan 2 customers gain access to Defender for DNS value as part of Defender for Servers Plan 2 at no extra cost. Customers that have both Defender for Server Plan 2 and Defender for DNS are no longer charged for Defender for DNS. Defender for DNS is no longer available as a standalone plan.
 
-For more information on all of these plans, check out the [Defender for Cloud pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/?v=17.23h)
+Learn more about the pricing for these plans in the [Defender for Cloud pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/?v=17.23h).
 
 ## July 2023
 
@@ -902,3 +914,4 @@ The related [policy definition](https://portal.azure.com/#view/Microsoft_Azure_P
 ## Next steps
 
 For past changes to Defender for Cloud, see [Archive for what's new in Defender for Cloud?](release-notes-archive.md).
+
