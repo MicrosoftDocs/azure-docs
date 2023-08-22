@@ -50,6 +50,7 @@ Numbers can be purchased on eligible Azure subscriptions and in geographies wher
 > - [Switzerland](../numbers/phone-number-management-for-switzerland.md)
 > - [Taiwan](../numbers/phone-number-management-for-taiwan.md)
 > - [Thailand](../numbers/phone-number-management-for-thailand.md)
+> - [United Arab Emirates](../numbers/phone-number-management-for-united-arab-emirates.md)
 > - [United Kingdom](../numbers/phone-number-management-for-united-kingdom.md)
 > - [United States](../numbers/phone-number-management-for-united-states.md)
 
