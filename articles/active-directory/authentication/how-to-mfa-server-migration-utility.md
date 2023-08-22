@@ -263,11 +263,11 @@ Once complete, a confirmation will inform you of the tasks completed:
 
 As mentioned in the confirmation message, it can take several minutes for the migrated data to appear on user objects within Azure AD. Users can view their migrated methods by navigating to [aka.ms/mfasetup](https://aka.ms/mfasetup).
 
-### View migration details 
+#### View migration details 
 
 You can use Audit logs or Log Analytics to view details of MFA Server to Azure MFA user migrations.
 
-#### Use Audit logs 
+##### Use Audit logs 
 To access the Audit logs in the Azure portal to view details of MFA Server to Azure MFA user migrations, follow these steps: 
 
 1. Click **Azure Active Directory** > **Audit logs**. To filter the logs, click **Add filters**.
@@ -302,7 +302,7 @@ To access the Audit logs in the Azure portal to view details of MFA Server to Az
    :::image type="content" border="true" source="./media/how-to-mfa-server-migration-utility/migrated-device.png" alt-text="Screenshot of a migrated device.":::
 
 
-#### Use Log Analytics 
+##### Use Log Analytics 
 
 The details of MFA Server to Azure MFA user migrations can also be queried using Log Analytics.
  
