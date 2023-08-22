@@ -20,7 +20,7 @@ For clarity of structure, a separate markdown file is used to describe how to de
 
 ## 3. Prepare the cloud environment
 
-[!INCLUDE [prepare-the-cloud-environment-event-driven](../../includes/quickstart-deploy-event-driven-app/prepare-the-cloud-environment-event-driven-comsuption.md)]
+[!INCLUDE [prepare-the-cloud-environment-event-driven](../../includes/quickstart-deploy-event-driven-app/prepare-the-cloud-environment-event-driven-consumption.md)]
 
 ## 4. Deploy the app to Azure Spring Apps
 

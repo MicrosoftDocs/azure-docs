@@ -10,7 +10,7 @@ ms.date: 08/31/2023
 <!-- 
 For clarity of structure, a separate markdown file is used to describe how to prepare event-driven project.
 
-[!INCLUDE [prepare-the-cloud-environment-event-driven-comsuption.md](../../includes/quickstart-deploy-event-driven-app/prepare-the-cloud-environment-event-driven-comsuption.md)]
+[!INCLUDE [prepare-the-cloud-environment-event-driven-consumption.md](../../includes/quickstart-deploy-event-driven-app/prepare-the-cloud-environment-event-driven-consumption.md)]
 
 -->
 
