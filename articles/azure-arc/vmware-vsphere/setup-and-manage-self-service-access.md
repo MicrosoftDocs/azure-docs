@@ -2,62 +2,76 @@
 title: Set up and manage self-service access to VMware resources through Azure RBAC
 description: Learn how to manage access to your on-premises VMware resources through Azure Role-Based Access Control (RBAC). 
 ms.topic: how-to
-ms.date: 08/18/2023
+ms.date: 08/21/2023
 # Customer intent: As a VI admin, I want to manage access to my vCenter resources in Azure so that I can keep environments secure
 ---
 
-# Manage access to VMware resources through Azure Role-Based Access Control
+# Set up and manage self-service access to VMware resources
 
-Once your VMware vCenter resources have been enabled in Azure, the final step in setting up a self-service experience for your teams is to provide them access. This article describes how to use built-in roles to manage granular access to VMware resources through Azure and allow your teams to deploy and manage VMs.
+Once your VMware vSphere resources are enabled in Azure, the final step in setting up a self-service experience for your teams is to provide them with access. This article describes how to use built-in roles to manage granular access to VMware resources through Azure Role-based Access Control (RBAC) and allow your teams to deploy and manage VMs.
 
-## Arc-enabled VMware vSphere built-in roles
+## Prerequisites
 
-There are three built-in roles to meet your access control requirements. You can apply these roles to a whole subscription, resource group, or a single resource.
+- Your vCenter must be connected to Azure Arc.
+- Your vCenter resources such as Resourcepools/clusters/hosts, networks, templates, and datastores must be Arc-enabled.
+- You must have User Access Administrator or Owner role at the scope (resource group/subscription) to assign roles to other users.
 
-- **Azure Arc VMware Administrator** role - used by administrators
 
-- **Azure Arc VMware Private Cloud User** role - used by anyone who needs to deploy and manage VMs
+## Provide access to use Arc-enabled vSphere resources
 
-- **Azure Arc VMware VM Contributor** role - used by anyone who needs to deploy and manage VMs
+To provision VMware VMs and change their size, add disks, change network interfaces, or delete them, your users need to have permissions on the compute, network, storage, and to the VM template resources that they will use. These permissions are provided by the built-in **Azure Arc VMware Private Cloud User** role. 
 
-### Azure Arc VMware Administrator role
+You must assign this role on individual resource pool (or cluster or host), network, datastore, and template that a user or a group needs to access.   
 
-The **Azure Arc VMware Administrator** role is a built-in role that provides permissions to perform all possible operations for the `Microsoft.ConnectedVMwarevSphere` resource provider. Assign this role to users or groups that are administrators managing Azure Arc-enabled VMware vSphere deployment.
+1. Go to the [**VMware vCenters (preview)** list in Arc center](https://portal.azure.com/#view/Microsoft_Azure_HybridCompute/AzureArcCenterBlade/~/vCenter).
 
-### Azure Arc VMware Private Cloud User role
+2. Search and select your vCenter. 
 
-The **Azure Arc VMware Private Cloud User** role is a built-in role that provides permissions to use the VMware vSphere resources made accessible through Azure. Assign this role to any users or groups that need to deploy, update, or delete VMs.
+3. Navigate to the **Resourcepools/clusters/hosts** in **vCenter inventory** section in the table of contents.
 
-We recommend assigning this role at the individual resource pool (or host or cluster), virtual network, or template with which you want the user to deploy VMs.
+3. Find and select resourcepool (or cluster or host). This will take you to the Arc resource representing the resourcepool.
 
-### Azure Arc VMware VM Contributor
+4. Select **Access control (IAM)** in the table of contents.
 
-The **Azure Arc VMware VM Contributor** role is a built-in role that provides permissions to conduct all VMware virtual machine operations. Assign this role to any users or groups that need to deploy, update, or delete VMs.
+5. Select **Add role assignments** on the **Grant access to this resource**.
 
-We recommend assigning this role for the subscription or resource group to which you want the user to deploy VMs.
+6. Select **Azure Arc VMware Private Cloud User** role and select **Next**.
 
-## Assigning the roles to users/groups
-
-1. Go to the [Azure portal](https://portal.azure.com).
-
-2. Search and navigate to the subscription, resource group, or the resource at which scope you want to provide this role.
-
-3. To find the Arc-enabled VMware vSphere resources like resource pools, clusters, hosts, datastores, networks, or virtual machine templates:
-     1. navigate to the resource group and select the **Show hidden types** checkbox.
-     2. search for *"VMware"*.
-
-4. Click on **Access control (IAM)** in the table of contents on the left.
-
-5. Click on **Add role assignments** on the **Grant access to this resource**.
-
-6. Select the custom role you want to assign (one of **Azure Arc VMware Administrator**, **Azure Arc VMware Private Cloud User**, or **Azure Arc VMware VM Contributor**).
-
-7. Search for the Azure Active Directory (Azure AD) user or group to which you want to assign this role.
+7. Select **Select members** and search for the Azure Active Directory (Azure AD) user or group that you want to provide access.
 
 8. Select the Azure AD user or group name. Repeat this for each user or group to which you want to grant this permission.
 
-9. Repeat the above steps for each scope and role.
+9. Select **Review + assign** to complete the role assignment. 
+
+10. Repeat steps 3-9 for each datastore, network, and VM template that you want to provide access to. 
+
+If you have organized your vSphere resources into a resource group, you can provide the same role at the resource group scope. 
+
+Your users now have access to VMware vSphere cloud resources. However, your users will also need to have permissions on the subscription/resource group where they would like to deploy and manage VMs. 
+
+## Provide access to subscription or resource group where VMs will be deployed
+
+In addition to having access to VMware vSphere resources through the **Azure Arc VMware Private Cloud User**, your users must have permissions on the subscription and resource group where they deploy and manage VMs. 
+
+The **Azure Arc VMware VM Contributor** role is a built-in role that provides permissions to conduct all VMware virtual machine operations. 
+
+1. Go to the [Azure portal](https://portal.azure.com/).
+
+2. Search and navigate to the subscription or resource group to which you want to provide access. 
+
+3. Select **Access control (IAM)** in the table of contents on the left.
+
+4. Select **Add role assignments** on the **Grant access to this resource**.
+
+5. Select **Azure Arc VMware VM Contributor** role and select **Next**.
+
+6. Select the option **Select members**, and search for the Azure Active Directory (Azure AD) user or group that you want to provide access.
+
+8. Select the Azure AD user or group name. Repeat this for each user or group to which you want to grant this permission.
+
+9. Select on **Review + assign** to complete the role assignment. 
+
 
 ## Next steps
 
-- [Create a VM using Azure Arc-enabled vSphere](quick-start-create-a-vm.md).
+[Create a VM using Azure Arc-enabled vSphere](quick-start-create-a-vm.md).

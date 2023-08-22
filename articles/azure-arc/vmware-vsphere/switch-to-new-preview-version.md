@@ -8,7 +8,7 @@ ms.date: 08/17/2023
 
 # Switch to the new preview version
 
-On August 21, 2023, we rolled out major changes to Azure Arc-enabled VMware vSphere preview, we are now announcing a new preview. By switching to the new preview version, you can use all the Azure management services that are available for Arc-enabled Servers.  
+On August 21, 2023, we rolled out major changes to Azure Arc-enabled VMware vSphere preview. We are now announcing a new preview. By switching to the new preview version, you can use all the Azure management services that are available for Arc-enabled Servers.  
 
 > [!NOTE]
 > If you're a new to Arc-enabled VMware vSphere (preview), you will be able to leverage the new capabilities by default. To get started with the preview, see [Quickstart: Connect VMware vCenter Server to Azure Arc by using the helper script](quick-start-connect-vcenter-to-arc-using-script.md). 
