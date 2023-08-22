@@ -239,7 +239,7 @@ Now configure the identity to access your container registry. First use the [az 
 resourceID=$(az acr show --resource-group myResourceGroup --name myContainerRegistry --query id --output tsv)
 ```
 
-Use the [az role assignment create][az-role-assignment-create] command to assign the AcrPull role to the identity. This role provides [pull permissions](container-registry-roles.md) to the registry. To provide both pull and push permissions, assign the AcrPush role.
+Use the [az role assignment create][az-role-assignment-create] command to assign the AcrPull role to the identity. This role provides [pull permissions](container-registry-roles.md) to the registry. To provide both pull and push permissions, assign the AcrPull role.
 
 ```azurecli-interactive
 az role assignment create --assignee $spID --scope $resourceID --role acrpull
@@ -253,7 +253,7 @@ Now configure the identity to access your container registry. First use the [Get
 $resourceID = (Get-AzContainerRegistry -ResourceGroupName myResourceGroup -Name myContainerRegistry).Id
 ```
 
-Use the [New-AzRoleAssignment][new-azroleassignment] cmdlet to assign the AcrPull role to the identity. This role provides [pull permissions](container-registry-roles.md) to the registry. To provide both pull and push permissions, assign the AcrPush role.
+Use the [New-AzRoleAssignment][new-azroleassignment] cmdlet to assign the AcrPull role to the identity. This role provides [pull permissions](container-registry-roles.md) to the registry. To provide both pull and push permissions, assign the AcrPull role.
 
 ```azurepowershell-interactive
 New-AzRoleAssignment -ObjectId $spID -Scope $resourceID -RoleDefinitionName AcrPull
@@ -355,7 +355,7 @@ Now configure the identity to access your container registry. First use the [az 
 resourceID=$(az acr show --resource-group myResourceGroup --name myContainerRegistry --query id --output tsv)
 ```
 
-Use the [az role assignment create][az-role-assignment-create] command to assign the AcrPull role to the identity. This role provides [pull permissions](container-registry-roles.md) to the registry. To provide both pull and push permissions, assign the AcrPush role.
+Use the [az role assignment create][az-role-assignment-create] command to assign the AcrPull role to the identity. This role provides [pull permissions](container-registry-roles.md) to the registry. To provide both pull and push permissions, assign the AcrPull role.
 
 ```azurecli-interactive
 az role assignment create --assignee $spID --scope $resourceID --role acrpull
@@ -369,7 +369,7 @@ Now configure the identity to access your container registry. First use the [[Ge
 $resourceID = (Get-AzContainerRegistry -ResourceGroupName myResourceGroup -Name myContainerRegistry).Id
 ```
 
-Use the [New-AzRoleAssignment][new-azroleassignment] cmdlet to assign the AcrPull role to the identity. This role provides [pull permissions](container-registry-roles.md) to the registry. To provide both pull and push permissions, assign the AcrPush role.
+Use the [New-AzRoleAssignment][new-azroleassignment] cmdlet to assign the AcrPull role to the identity. This role provides [pull permissions](container-registry-roles.md) to the registry. To provide both pull and push permissions, assign the AcrPull role.
 
 ```azurepowershell-interactive
 New-AzRoleAssignment -ObjectId $spID -Scope $resourceID -RoleDefinitionName AcrPull
