@@ -1,13 +1,13 @@
 ---
 title: 'Quickstart: Create a public IP - Azure CLI'
 titleSuffix: Azure Virtual Network
-description: Learn how to create a public IP using the Azure CLI
+description: Learn how to create a public IP address using the Azure CLI
 services: virtual-network
-author: asudbring
+author: mbender-ms
+ms.author: mbender
 ms.service: virtual-network
 ms.topic: quickstart
-ms.date: 10/01/2021
-ms.author: allensu
+ms.date: 08/24/2023
 ms.custom: mode-api, devx-track-azurecli 
 ms.devlang: azurecli
 ---

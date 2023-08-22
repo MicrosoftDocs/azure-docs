@@ -1,13 +1,13 @@
 ---
 title: Create a custom IPv6 address prefix - Azure portal
 titleSuffix: Azure Virtual Network
-description: Learn about how to onboard a custom IPv6 address prefix using the Azure portal
+description: Learn how to onboard a custom IPv6 address prefix using the Azure portal
 author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
-ms.date: 05/03/2022
+ms.date: 08/24/2023
 ---
 
 # Create a custom IPv6 address prefix using the Azure portal
