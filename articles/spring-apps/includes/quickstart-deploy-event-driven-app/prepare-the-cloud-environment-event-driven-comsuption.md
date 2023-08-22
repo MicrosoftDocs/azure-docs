@@ -102,7 +102,7 @@ Open your web browser and go to the [portal](https://portal.azure.com/). Enter y
     - **Please select an Azure Subscription to use**: Use arrows to move, type to filter, then press Enter.
     - **Please select an Azure location to use**: Use arrows to move, type to filter, then press Enter.
 
-   The console outputs messages similar to the ones below:
+   The console outputs messages similar to the following example:
 
    ```text
    SUCCESS: Your application was provisioned in Azure in xx minutes xx seconds.
