@@ -25,8 +25,6 @@ Because the Public IP allocation is set to 'Static' before detaching from the VM
 
 The module logs all upgrade activity to a file named `PublicIPUpgrade.log`, created in the same location where the module was executed (by default). 
 
-To see a list of the virtual machines in your environment which have Basic SKU Public IP Addresses attached, use this [Resource Graph query](../../governance/includes/resource-graph/query/virtual-machine-basic-sku-public-ip.md).
-
 ## Constraints/ Unsupported Scenarios
 
 * **VMs with NICs associated to a Load Balancer**: Because the Load Balancer and Public IP SKUs associated with a VM must match, it isn't possible to upgrade the instance-level Public IP addresses associated with a VM when the VM's NICs are also associated with a Load Balancer, either though Backend Pool or NAT Pool membership. Use the scripts for upgrading a basic load balancer used with [virtual machines](../../load-balancer/upgrade-basic-standard.md) or [virtual machine scale sets](../../load-balancer/upgrade-basic-standard-virtual-machine-scale-sets.md) to upgrade both the Load Balancer and Public IPs as the same time.
@@ -110,6 +108,10 @@ There is no way to evaluate upgrading a Public IP without completing the action.
 ### Does the script support Zonal Basic SKU Public IPs? 
 
 Yes, the process of upgrading a Zonal Basic SKU Public IP to a Zonal Standard SKU Public IP is identical and works in the script.
+
+## Use Resource Graph to list VMs with Public IPs requiring upgrade
+
+[!INCLUDE [../../governance/includes/resource-graph/query/virtual-machine-basic-sku-public-ip.md]]
 
 ## Next steps
 
