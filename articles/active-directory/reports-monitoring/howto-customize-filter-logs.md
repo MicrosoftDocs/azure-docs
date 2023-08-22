@@ -136,7 +136,7 @@ Customizing the columns and adjusting the filter helps to look at logs with simi
 
 |Name|Description|
 |---|---|
-|Authenticated SMTP|Used by POP and IMAP client's to send email messages.|
+|Authenticated SMTP|Used by POP and IMAP clients to send email messages.|
 |Autodiscover|Used by Outlook and EAS clients to find and connect to mailboxes in Exchange Online.|
 |Exchange ActiveSync|This filter shows all sign-in attempts where the EAS protocol has been attempted.|
 |Exchange ActiveSync| Shows all sign-in attempts from users with client apps using Exchange ActiveSync to connect to Exchange Online|
