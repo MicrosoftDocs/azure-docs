@@ -106,7 +106,7 @@ Azure AD workbooks provide several reports related to common scenarios involving
 
 * **Sign-ins Events**: This workbook shows the most relevant reports related to monitoring sign-in activity, such as sign-ins by application, user, device, and a summary view tracking the number of sign-ins over time.
 
-* **Conditional access insights**: The Conditional Access insights and reporting workbook enables you to understand the effect of Conditional Access policies in your organization over time. For more information, see [Conditional Access insights and reporting](../conditional-access/howto-conditional-access-insights-reporting.md).
+* **Conditional Access insights**: The Conditional Access insights and reporting workbook enables you to understand the effect of Conditional Access policies in your organization over time. For more information, see [Conditional Access insights and reporting](../conditional-access/howto-conditional-access-insights-reporting.md).
 
 ## Next steps
 

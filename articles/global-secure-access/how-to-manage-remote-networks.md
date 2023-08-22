@@ -29,7 +29,7 @@ This article explains how to manage your existing remote networks for Global Sec
 
 To update the details of your remote networks:
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Secure Access Administrator](../active-directory/roles/permissions-reference.md).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Secure Access Administrator](/azure/active-directory/roles/permissions-reference).
 1. Go to **Global Secure Access (preview)** > **Devices** > **Remote networks**.
 1. Select the remote network you need to update.
     - **Basics**: Select the pencil icon to edit the name of the remote network.

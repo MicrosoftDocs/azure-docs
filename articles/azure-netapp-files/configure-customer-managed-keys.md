@@ -145,10 +145,10 @@ For more information about Azure Key Vault and Azure Private Endpoint, refer to:
 
     If you've configured your Azure Key Vault to use Vault access policy, the Azure portal configures the NetApp account automatically with the following process: The user-assigned identity you select is added to your NetApp account. An access policy is created on your Azure Key Vault with the key permissions Get, Encrypt, Decrypt.
 
-    If you've configure your Azure Key Vault to use Azure role-based access control, then you need to make sure the selected user-assigned identity has a role assignment on the key vault with permissions for data actions:
-      * `Microsoft.KeyVault/vaults/keys/read`
-      * `Microsoft.KeyVault/vaults/keys/encrypt/action`
-      * `Microsoft.KeyVault/vaults/keys/decrypt/action`
+    If you've configure your Azure Key Vault to use Azure role-based access control, then you need to make sure the selected user-assigned identity has a role assignment on the key vault with permissions for actions:
+      * `Microsoft.KeyVault/vaults/keys/read` 
+      * `Microsoft.KeyVault/vaults/keys/encrypt/action` 
+      * `Microsoft.KeyVault/vaults/keys/decrypt/action` 
     The user-assigned identity you select is added to your NetApp account. Due to the customizable nature of role-based access control (RBAC), the Azure portal doesn't configure access to the key vault. See [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](../key-vault/general/rbac-guide.md) for details on configuring Azure Key Vault.
 
 1. After selecting **Save** button, you'll receive a notification communicating the status of the operation. If the operation was not successful, an error message displays. Refer to [error messages and troubleshooting](#error-messages-and-troubleshooting) for assistance in resolving the error.
@@ -157,13 +157,13 @@ For more information about Azure Key Vault and Azure Private Endpoint, refer to:
 
 You can use an Azure Key Vault that is configured to use Azure role-based access control. To configure customer-managed keys through Azure portal, you need to provide a user-assigned identity.
 
-1. In your Azure account, navigate to the **Access policies** menu.
+1. In your Azure account, navigate to **Key vaults** then **Access policies**.
 1. To create an access policy, under **Permission model**, select **Azure role-based access-control**.
     :::image type="content" source="../media/azure-netapp-files/rbac-permission.png" alt-text="Screenshot of access configuration menu." lightbox="../media/azure-netapp-files/rbac-permission.png":::
 1. When creating the user-assigned role, there are three permissions required for customer-managed keys:
-    1. `Microsoft.KeyVault/vaults/keys/read`
-    1. `Microsoft.KeyVault/vaults/keys/encrypt/action`
-    1. `Microsoft.KeyVault/vaults/keys/decrypt/action`
+    1. `Microsoft.KeyVault/vaults/keys/read` 
+    1. `Microsoft.KeyVault/vaults/keys/encrypt/action` 
+    1. `Microsoft.KeyVault/vaults/keys/decrypt/action` 
 
     Although there are predefined roles that include these permissions, those roles grant more privileges than are required. It's recommended that you create a custom role with only the minimum required permissions. For more information, see [Azure custom roles](../role-based-access-control/custom-roles.md).
 
@@ -178,10 +178,9 @@ You can use an Azure Key Vault that is configured to use Azure role-based access
             ],
             "permissions": [
               {
-                "actions": [],
+                "actions": ["Microsoft.KeyVault/vaults/keys/read"],
                 "notActions": [],
                 "dataActions": [
-                    "Microsoft.KeyVault/vaults/keys/read",
                     "Microsoft.KeyVault/vaults/keys/encrypt/action",
                     "Microsoft.KeyVault/vaults/keys/decrypt/action"
                 ],

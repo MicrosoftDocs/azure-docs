@@ -23,7 +23,7 @@ You must determine your environment separation architecture based on your needs.
 
 * **Resource separation**. If a resource can change directory objects such as user objects, and the change would interfere with other resources, the resource may need to be isolated in a multi-tenant architecture.
 
-* **Configuration separation**. Tenant-wide configurations affect all resources. The effect of some tenant-wide configurations can be scoped with conditional access (CA) policies and other methods. If you have a need for different tenant configurations that can't be scoped with CA policies, you may need a multi-tenant architecture.
+* **Configuration separation**. Tenant-wide configurations affect all resources. The effect of some tenant-wide configurations can be scoped with Conditional Access policies and other methods. If you have a need for different tenant configurations that can't be scoped with Conditional Access policies, you may need a multi-tenant architecture.
 
 * **Administrative separation**. You can delegate the administration of management groups, subscriptions, resource groups, resources, and some policies within a single tenant. A Global Administrator always has access to everything within the tenant. If you need to ensure that the environment doesn't share administrators with another environment, you need a multi-tenant architecture.
 
@@ -105,7 +105,7 @@ Some legacy scenarios required a human identity to be used in *non-human* scenar
 
 ## Azure AD functional areas
 
-These are the functional areas provided by Azure AD that are relevant to isolated environments. To learn more about the capabilities of Azure AD, see [What is Azure Active Directory?](../fundamentals/active-directory-whatis.md).
+These are the functional areas provided by Azure AD that are relevant to isolated environments. To learn more about the capabilities of Azure AD, see [What is Azure Active Directory?](../fundamentals/whatis.md).
 
 ### Authentication
 
@@ -131,7 +131,7 @@ Azure AD provides industry-leading strong authentication options that organizati
 
 ### Administration
 
-**Identity management**. Azure AD provides tools to manage the lifecycle of user, group, and device identities. [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md) enables organizations to extend current, on-premises identity management solution to the cloud. Azure AD Connect manages the provisioning, de-provisioning, and updates to these identities in Azure AD.
+**Identity management**. Azure AD provides tools to manage the lifecycle of user, group, and device identities. [Azure AD Connect](../hybrid/connect/whatis-azure-ad-connect.md) enables organizations to extend current, on-premises identity management solution to the cloud. Azure AD Connect manages the provisioning, de-provisioning, and updates to these identities in Azure AD.
 
 Azure AD also provides a portal and the Microsoft Graph API to allow organizations to manage identities or integrate Azure AD identity management into existing workflows or automation. To learn more about Microsoft Graph, see [Use the Microsoft Graph API](/graph/use-the-api).
 

@@ -24,7 +24,7 @@ With the information in the Azure AD sign-ins log, you can figure out what happe
 To complete the scenario in this quickstart, you need:
 
 - **Access to an Azure AD tenant** - If you don't have access to an Azure AD tenant, see [Create your Azure free account today](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
-- **A test account called Isabella Simonsen** - If you don't know how to create a test account, see [Add cloud-based users](../fundamentals/add-users-azure-active-directory.md#add-a-new-user).
+- **A test account called Isabella Simonsen** - If you don't know how to create a test account, see [Add cloud-based users](../fundamentals/add-users.md#add-a-new-user).
 
 ## Perform a failed sign-in
 
@@ -36,7 +36,7 @@ The goal of this step is to create a record of a failed sign-in in the Azure AD 
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as Isabella Simonsen using an incorrect password.
 
-2. Wait for 5 minutes to ensure that you can find a record of the sign-in in the sign-ins log. For more information, see [Activity reports](reference-reports-latencies.md#activity-reports).
+2. Wait for 5 minutes to ensure that you can find a record of the sign-in in the sign-ins log. For more information, see [Activity reports](./overview-reports.md#activity-reports).
 
 
 
@@ -97,7 +97,7 @@ Now, that you know how to find an entry in the sign-in log by name, you should a
 
 ## Clean up resources
 
-When no longer needed, delete the test user. If you don't know how to delete an Azure AD user, see [Delete users from Azure AD](../fundamentals/add-users-azure-active-directory.md#delete-a-user).
+When no longer needed, delete the test user. If you don't know how to delete an Azure AD user, see [Delete users from Azure AD](../fundamentals/add-users.md#delete-a-user).
 
 ## Next steps
 

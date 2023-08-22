@@ -17,7 +17,7 @@ ms.custom:
 
 [!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 
-This single-page app demonstrates how to retrieve, parse, and display search results from the Bing Web Search API. The tutorial uses boilerplate HTML and CSS, and focuses on the JavaScript code. HTML, CSS, and JS files are available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/Tutorials/bing-web-search) with quickstart instructions.
+This single-page app demonstrates how to retrieve, parse, and display search results from the Bing Web Search API. The tutorial uses boilerplate HTML and CSS, and focuses on the JavaScript code. HTML, CSS, and JS files are available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/Tutorials/Bing-Web-Search) with quickstart instructions.
 
 This sample app can:
 

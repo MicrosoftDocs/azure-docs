@@ -10,7 +10,7 @@ ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 04/19/2023
 ms.author: jricketts
-ms.custom: "it-pro, seodec18"
+ms.custom: it-pro, seodec18, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 ---
 
@@ -40,8 +40,8 @@ For example, a global professional services firm collaborates with subcontractor
 
 Here are the most widely used ways to invite end users to access tenant resources.
 
-- [**Application-based invitations.**](../external-identities/o365-external-user.md) Microsoft applications (such as Teams and SharePoint) can enable external user invitations. Configure B2B invitation settings in both Azure AD B2B and in the relevant applications.
-- [**MyApps.**](../manage-apps/my-apps-deployment-plan.md) Users can invite and assign external users to applications using MyApps. The user account must have [application self-service sign up](../manage-apps/manage-self-service-access.md) approver permissions. Group owners can invite external users to their groups.
+- [**Application-based invitations.**](../external-identities/what-is-b2b.md) Microsoft applications (such as Teams and SharePoint) can enable external user invitations. Configure B2B invitation settings in both Azure AD B2B and in the relevant applications.
+- [**MyApps.**](../manage-apps/myapps-overview.md) Users can invite and assign external users to applications using MyApps. The user account must have [application self-service sign up](../manage-apps/manage-self-service-access.md) approver permissions. Group owners can invite external users to their groups.
 - [**Entitlement management.**](../governance/entitlement-management-overview.md) Enable admins or resource owners to create access packages with resources, allowed external organizations, external user expiration, and access policies. Publish access packages to enable external user self-service sign-up for resource access.
 - [**Azure portal.**](../external-identities/add-users-administrator.md) End users with the [Guest Inviter role](../external-identities/external-collaboration-settings-configure.md) can sign in to the Azure portal and invite external users from the **Users** menu in Azure AD.
 - [**Programmatic (PowerShell, Graph API).**](../external-identities/customize-invitation-api.md) End users with the [Guest Inviter role](../external-identities/external-collaboration-settings-configure.md) can use PowerShell or Graph API to invite external users.
@@ -246,7 +246,7 @@ In a mesh topology, every user in each home tenant synchronizes to each of the o
 
 You can use the mesh topology in as few as two tenants, such as in the scenario for a DIB defense contractor straddling a cross-sovereign cloud solution. As with the mesh topology, each user in each home tenant synchronizes to the other tenant, which becomes a resource tenant. In the [Technique 3 section](#technique-3-provision-accounts-with-azure-ad-connect) diagram, the public Commercial tenant internal user synchronizes to the US sovereign GCC High tenant as an external user account. At the same time, the GCC High internal user synchronizes to Commercial as an external user account.
 
-The diagram also illustrates data storage locations. Data categorization and compliance is outside the scope of this article, but you can include entitlements and restrictions to applications and content. Content may include locations where an internal user's user-owned data resides (such as data stored in an Exchange Online mailbox or OneDrive for Business). The content may be in their home tenant and not in the resource tenant. Shared data may reside in either tenant. You can restrict access to the content through access control and conditional access policies.
+The diagram also illustrates data storage locations. Data categorization and compliance is outside the scope of this article, but you can include entitlements and restrictions to applications and content. Content may include locations where an internal user's user-owned data resides (such as data stored in an Exchange Online mailbox or OneDrive for Business). The content may be in their home tenant and not in the resource tenant. Shared data may reside in either tenant. You can restrict access to the content through access control and Conditional Access policies.
 
 #### Single resource tenant topology
 

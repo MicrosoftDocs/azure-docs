@@ -27,6 +27,8 @@
         href: onboard-enable-controller-after-onboarding.md
       - name: Add an account/ subscription/ project after onboarding is complete
         href: onboard-add-account-after-onboarding.md
+      - name: Create folders to organize your Authorization Systems
+        href: how-to-create-folders.md
     - name: View information about your Authorization Systems
       expanded: false
       items:

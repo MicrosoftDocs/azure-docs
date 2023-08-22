@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.date: 05/31/2023
 ms.author: owinfrey
 ms.reviewer: dhanyahk
-ms.custom: it-pro
+ms.custom: it-pro, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 ---
 
@@ -56,9 +56,9 @@ Learn more and get renaming details: [New name for Azure Active Directory](../fu
 **Service category:** Conditional Access                            
 **Product capability:** End User Experiences                  
 
-My Apps can now be targeted in conditional access policies. This solves a top customer blocker. The functionality is available in all clouds. GA also brings a new app launcher, which improves app launch performance for both SAML and other app types. 
+My Apps can now be targeted in Conditional Access policies. This solves a top customer blocker. The functionality is available in all clouds. GA also brings a new app launcher, which improves app launch performance for both SAML and other app types. 
 
-Learn More about setting up conditional access policies here: [Azure AD Conditional Access documentation](../conditional-access/index.yml).
+Learn More about setting up Conditional Access policies here: [Azure AD Conditional Access documentation](../conditional-access/index.yml).
 
 ---
 
@@ -195,7 +195,10 @@ Announcing API support (beta) for managing PIM security alerts for Azure AD role
 **Service category:** Other                            
 **Product capability:** End User Experiences                
 
-The Azure mobile app has been enhanced to empower admins with specific permissions to conveniently reset their users' passwords. Self Service Password Reset won't be supported at this time. However, users can still more efficiently control and streamline their authentication methods. For more information, see: [What authentication and verification methods are available in Azure Active Directory?](../authentication/concept-authentication-methods.md).
+The Azure mobile app has been enhanced to empower admins with specific permissions to conveniently reset their users' passwords. Self Service Password Reset will not be supported at this time. However, users can still more efficiently control and streamline their own sign-in and auth methods. The mobile app can be downloaded for each platform here:
+
+- Android: https://aka.ms/AzureAndroidWhatsNew
+- IOS: https://aka.ms/ReferAzureIOSWhatsNew
 
 ---
 
@@ -225,7 +228,7 @@ This feature enables admins to create dynamic group rules based on the user obje
 **Service category:** User Management                                  
 **Product capability:** User Management                      
 
-We have increased the number of properties admins are able to define when creating and inviting a user in the Entra admin portal, bringing our UX to parity with our Create User APIs. Additionally, admins can now add users to a group or administrative unit, and assign roles. For more information, see: [Add or delete users using Azure Active Directory](../fundamentals/add-users-azure-active-directory.md).
+We have increased the number of properties admins are able to define when creating and inviting a user in the Entra admin portal, bringing our UX to parity with our Create User APIs. Additionally, admins can now add users to a group or administrative unit, and assign roles. For more information, see: [Add or delete users using Azure Active Directory](./add-users.md).
 
 ---
 
@@ -247,7 +250,7 @@ The All Users list now features an infinite scroll, and admins can now modify mo
 
 “*When will you have MAM for Windows?*” is one of our most frequently asked customer questions. We’re happy to report that the answer is: “Now!” We’re excited to offer this new and long-awaited MAM Conditional Access capability in Public Preview for Microsoft Edge for Business on Windows.
 
-Using MAM Conditional Access, Microsoft Edge for Business provides users with secure access to organizational data on personal Windows devices with a customizable user experience. We’ve combined the familiar security features of app protection policies (APP), Windows Defender client threat defense, and conditional access, all anchored to Azure AD identity to ensure un-managed devices are healthy and protected before granting data access. This can help businesses to improve their security posture and protect sensitive data from unauthorized access, without requiring full mobile device enrollment.
+Using MAM Conditional Access, Microsoft Edge for Business provides users with secure access to organizational data on personal Windows devices with a customizable user experience. We’ve combined the familiar security features of app protection policies (APP), Windows Defender client threat defense, and Conditional Access, all anchored to Azure AD identity to ensure un-managed devices are healthy and protected before granting data access. This can help businesses to improve their security posture and protect sensitive data from unauthorized access, without requiring full mobile device enrollment.
 
 The new capability extends the benefits of app layer management to the Windows platform via Microsoft Edge for Business. Admins are empowered to configure the user experience and protect organizational data within Microsoft Edge for Business on un-managed Windows devices.
 
@@ -348,7 +351,7 @@ For more information about how to better secure your organization by using autom
 **Service category:** Entitlement Management                          
 **Product capability:** Entitlement Management                
 
-The Entitlement Management service can now be targeted in the conditional access policy for inclusion or exclusion of applications. To target the Entitlement Management service, select “Azure AD Identity Governance - Entitlement Management” in the cloud apps picker. The Entitlement Management app includes the entitlement management part of My Access, the Entitlement Management part of the Entra and Azure portals, and the Entitlement Management part of MS Graph. For more information, see:  [Review your Conditional Access policies](../governance/entitlement-management-external-users.md#review-your-conditional-access-policies).
+The Entitlement Management service can now be targeted in the Conditional Access policy for inclusion or exclusion of applications. To target the Entitlement Management service, select “Azure AD Identity Governance - Entitlement Management” in the cloud apps picker. The Entitlement Management app includes the entitlement management part of My Access, the Entitlement Management part of the Entra and Azure portals, and the Entitlement Management part of MS Graph. For more information, see:  [Review your Conditional Access policies](../governance/entitlement-management-external-users.md#review-your-conditional-access-policies).
 
 ---
 
@@ -640,7 +643,7 @@ The Azure AD on-premises application provisioning feature now supports both the 
 **Service category:** Identity Protection                          
 **Product capability:** Identity Security & Protection               
 
-Identity Protection has added a new detection, using the Microsoft Threat Intelligence database, to detect sign-ins performed from IP addresses of known nation state and cyber-crime actors and allow customers to block these sign-ins by using risk-based conditional access policies. For more information, see: [Sign-in risk](../identity-protection/concept-identity-protection-risks.md).
+Identity Protection has added a new detection, using the Microsoft Threat Intelligence database, to detect sign-ins performed from IP addresses of known nation state and cyber-crime actors and allow customers to block these sign-ins by using risk-based Conditional Access policies. For more information, see: [Sign-in risk](../identity-protection/concept-identity-protection-risks.md).
 
 ---
 
@@ -765,7 +768,7 @@ The protected actions public preview introduces the ability to apply Conditional
 **Service category:** Conditional Access                  
 **Product capability:** User Authentication          
 
-Token Protection for sign-in sessions is our first release on a road-map to combat attacks involving token theft and replay. It provides conditional access enforcement of token proof-of-possession for supported clients and services that ensure that access to specified resources is only from a device to which the user has signed in. For more information, see: [Conditional Access: Token protection (preview)](../conditional-access/concept-token-protection.md).
+Token Protection for sign-in sessions is our first release on a road-map to combat attacks involving token theft and replay. It provides Conditional Access enforcement of token proof-of-possession for supported clients and services that ensure that access to specified resources is only from a device to which the user has signed in. For more information, see: [Conditional Access: Token protection (preview)](../conditional-access/concept-token-protection.md).
 
 ---
 
@@ -1011,7 +1014,7 @@ If you utilize Conditional Access or Identity Protection, and have IPv6 enabled 
 Microsoft cloud settings let you collaborate with organizations from different Microsoft Azure clouds. With Microsoft cloud settings, you can establish mutual B2B collaboration between the following clouds:
 
 - Microsoft Azure commercial and Microsoft Azure Government
-- Microsoft Azure commercial and Microsoft Azure China 21Vianet
+- Microsoft Azure commercial and Microsoft Azure operated by 21Vianet
 
 For more information about Microsoft cloud settings for B2B collaboration, see [Microsoft cloud settings](../external-identities/cross-tenant-access-overview.md#microsoft-cloud-settings).
 
@@ -1028,106 +1031,5 @@ Starting July 2023, we're modernizing the following Terms of Use end user experi
 - Accept or decline terms of use as part of the sign-in flow.
 
 No functionalities are removed. The new PDF viewer adds functionality and the limited visual changes in the end-user experiences will be communicated in a future update. If your organization has allow-listed only certain domains, you must ensure your allowlist includes the domains ‘myaccount.microsoft.com’ and ‘*.myaccount.microsoft.com’ for Terms of Use to continue working as expected.
-
----
-
-## February 2023
-
-### General Availability - Expanding Privileged Identity Management Role Activation across the Azure portal
-
-**Type:** New feature   
-**Service category:** Privileged Identity Management                    
-**Product capability:** Privileged Identity Management           
-
-Privileged Identity Management (PIM) role activation has been expanded to the Billing and AD extensions in the Azure portal. Shortcuts have been added to Subscriptions (billing) and Access Control (AD) to allow users to activate PIM roles directly from these settings. From the Subscriptions settings, select **View eligible subscriptions** in the horizontal command menu to check your eligible, active, and expired assignments. From there, you can activate an eligible assignment in the same pane. In Access control (IAM) for a resource, you can now select **View my access** to see your currently active and eligible role assignments and activate directly. By integrating PIM capabilities into different Azure portal blades, this new feature allows users to gain temporary access to view or edit subscriptions and resources more easily.
-
-
-For more information Microsoft cloud settings, see: [Activate my Azure resource roles in Privileged Identity Management](../privileged-identity-management/pim-resource-roles-activate-your-roles.md).
-
----
-
-### General Availability - Follow Azure AD best practices with recommendations
-
-**Type:** New feature   
-**Service category:** Reporting                  
-**Product capability:** Monitoring & Reporting            
-
-Azure AD recommendations help you improve your tenant posture by surfacing opportunities to implement best practices. On a daily basis, Azure AD analyzes the configuration of your tenant. During this analysis, Azure AD compares the data of a recommendation with the actual configuration of your tenant. If a recommendation is flagged as applicable to your tenant, the recommendation appears in the Recommendations section of the Azure AD Overview. 
-
-This release includes our first 3 recommendations:
-
-- Convert from per-user MFA to Conditional Access MFA
-- Migration applications from AD FS to Azure AD
-- Minimize MFA prompts from known devices
-
-
-For more information, see: 
-
-- [What are Azure Active Directory recommendations?](../reports-monitoring/overview-recommendations.md)
-- [Use the Azure AD recommendations API to implement Azure AD best practices for your tenant](/graph/api/resources/recommendations-api-overview)
-
----
-
-### Public Preview - Azure AD PIM + Conditional Access integration
-
-**Type:** New feature   
-**Service category:** Privileged Identity Management                    
-**Product capability:** Privileged Identity Management               
-
-Now you can require users who are eligible for a role to satisfy Conditional Access policy requirements for activation: use specific authentication method enforced through Authentication Strengths, activate from Intune compliant device, comply with Terms of Use, and use 3rd party MFA and satisfy location requirements.
-
-For more information, see: [Configure Azure AD role settings in Privileged Identity Management](../privileged-identity-management/pim-how-to-change-default-settings.md).
-
-
----
-
-### General Availability - More information on why a sign-in was flagged as "unfamiliar"
-
-**Type:** Changed feature   
-**Service category:** Identity Protection                    
-**Product capability:** Identity Security & Protection           
-
-Unfamiliar sign-in properties risk detection now provides risk reasons as to which properties are unfamiliar for customers to better investigate that risk. 
-
-Identity Protection now surfaces the unfamiliar properties in the Azure portal on UX and in API as *Additional Info* with a user-friendly description explaining that *the following properties are unfamiliar for this sign-in of the given user*. 
-
-There's no additional work to enable this feature, the unfamiliar properties are shown by default. For more information, see: [Sign-in risk](../identity-protection/concept-identity-protection-risks.md).
-
-
----
-
-### General Availability - New Federated Apps available in Azure AD Application gallery - February 2023
-
-
-
-**Type:** New feature   
-**Service category:** Enterprise Apps                
-**Product capability:** 3rd Party Integration          
-
-In February 2023 we've added the following 10 new applications in our App gallery with Federation support:    
-
-[PROCAS](https://accounting.procas.com/), [Tanium Cloud SSO](../saas-apps/tanium-cloud-sso-tutorial.md), [LeanDNA](../saas-apps/leandna-tutorial.md), [CalendarAnything LWC](https://silverlinecrm.com/calendaranything/), [courses.work](../saas-apps/courseswork-tutorial.md), [Udemy Business SAML](../saas-apps/udemy-business-saml-tutorial.md), [Canva](../saas-apps/canva-tutorial.md), [Kno2fy](../saas-apps/kno2fy-tutorial.md), [IT-Conductor](../saas-apps/it-conductor-tutorial.md), [ナレッジワーク(Knowledge Work)](../saas-apps/knowledge-work-tutorial.md), [Valotalive Digital Signage Microsoft 365 integration](https://store.valotalive.com/#main), [Priority Matrix HIPAA](https://hipaa.prioritymatrix.com/), [Priority Matrix Government](https://hipaa.prioritymatrix.com/), [Beable](../saas-apps/beable-tutorial.md), [Grain](https://grain.com/app?dialog=integrations&integration=microsoft+teams), [DojoNavi](../saas-apps/dojonavi-tutorial.md), [Global Validity Access Manager](https://myaccessmanager.com/), [FieldEquip](https://app.fieldequip.com/), [Peoplevine](https://control.peoplevine.com/), [Respondent](../saas-apps/respondent-tutorial.md), [WebTMA](../saas-apps/webtma-tutorial.md), [ClearIP](https://clearip.com/login), [Pennylane](../saas-apps/pennylane-tutorial.md), [VsimpleSSO](https://app.vsimple.com/login), [Compliance Genie](../saas-apps/compliance-genie-tutorial.md), [Dataminr Corporate](https://dmcorp.okta.com/), [Talon](../saas-apps/talon-tutorial.md). 
-
-
-You can also find the documentation of all the applications from here https://aka.ms/AppsTutorial.
-
-For listing your application in the Azure AD app gallery, read the details here https://aka.ms/AzureADAppRequest
-
----
-
-### Public Preview - New provisioning connectors in the Azure AD Application Gallery - February 2023
-
-**Type:** New feature   
-**Service category:** App Provisioning               
-**Product capability:** 3rd Party Integration    
-      
-
-We've added the following new applications in our App gallery with Provisioning support. You can now automate creating, updating, and deleting of user accounts for these newly integrated apps:
-
-- [Atmos](../saas-apps/atmos-provisioning-tutorial.md)
-
-
-For more information about how to better secure your organization by using automated user account provisioning, see: [Automate user provisioning to SaaS applications with Azure AD](../app-provisioning/user-provisioning.md).
-
 
 ---

@@ -1,10 +1,13 @@
 ---
 title: "Tutorial: Add sign in to an application"
 description: Add sign in to an ASP.NET Core application using Visual Studio.
+services: active-directory
 author: cilwerner
+
+ms.service: active-directory
+ms.subservice: develop
 ms.author: cwerner
 manager: CelesteDG
-ms.service: active-directory
 ms.topic: tutorial
 ms.date: 02/09/2023
 #Customer intent: As an application developer, I want to install the NuGet packages necessary for authentication in my IDE, and implement authentication in my web app.

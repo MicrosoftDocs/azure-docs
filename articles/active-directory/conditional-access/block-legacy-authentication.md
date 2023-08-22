@@ -30,7 +30,7 @@ This article explains how you can configure Conditional Access policies that blo
 
 While rolling out legacy authentication blocking protection, we recommend a phased approach, rather than disabling it for all users all at once. Customers may choose to first begin disabling basic authentication on a per-protocol basis, by applying Exchange Online authentication policies, then (optionally) also blocking legacy authentication via Conditional Access policies when ready.
 
-Customers without licenses that include Conditional Access can make use of [security defaults](../fundamentals/concept-fundamentals-security-defaults.md) to block legacy authentication.
+Customers without licenses that include Conditional Access can make use of [security defaults](../fundamentals/security-defaults.md) to block legacy authentication.
 
 ## Prerequisites
 
@@ -41,7 +41,7 @@ This article assumes that you're familiar with the [basic concepts](overview.md)
 
 ## Scenario description
 
-Azure AD supports the most widely used authentication and authorization protocols including legacy authentication. Legacy authentication can't prompt users for second factor authentication or other authentication requirements needed to satisfy conditional access policies, directly. This authentication pattern includes basic authentication, a widely used industry-standard method for collecting user name and password information.  Examples of applications that commonly or only use legacy authentication are:
+Azure AD supports the most widely used authentication and authorization protocols including legacy authentication. Legacy authentication can't prompt users for second factor authentication or other authentication requirements needed to satisfy Conditional Access policies, directly. This authentication pattern includes basic authentication, a widely used industry-standard method for collecting user name and password information.  Examples of applications that commonly or only use legacy authentication are:
 
 - Microsoft Office 2013 or older.
 - Apps using mail protocols like POP, IMAP, and SMTP AUTH.
@@ -74,7 +74,7 @@ The following messaging protocols support legacy authentication:
 - Universal Outlook - Used by the Mail and Calendar app for Windows 10.
 - Other clients - Other protocols identified as utilizing legacy authentication.
 
-For more information about these authentication protocols and services, see [Sign-in activity reports in the Azure portal](../reports-monitoring/concept-sign-ins.md#filter-sign-in-activities).
+For more information about these authentication protocols and services, see [Sign-in activity reports](../reports-monitoring/concept-sign-ins.md#filter-sign-in-activities).
 
 ### Identify legacy authentication use
 
@@ -82,7 +82,8 @@ Before you can block legacy authentication in your directory, you need to first 
 
 #### Sign-in log indicators
 
-1. Navigate to the **Azure portal** > **Azure Active Directory** > **Sign-in logs**.
+1. Sign in to the [Azure portal](https://portal.azure.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Browse to **Azure Active Directory** > **Sign-in logs**.
 1. Add the **Client App** column if it isn't shown by clicking on **Columns** > **Client App**.
 1. Select **Add filters** > **Client App** > choose all of the legacy authentication protocols and select **Apply**.
 1. If you've activated the [new sign-in activity reports preview](../reports-monitoring/concept-all-sign-ins.md), repeat the above steps also on the **User sign-ins (non-interactive)** tab.

@@ -43,7 +43,7 @@ A BIG-IP in front of the application enables overlay of the service with Azure A
 The secure hybrid access (SHA) solution for this scenario has the following components:
 
 * **Application:** BIG-IP published service to be protected by Azure AD SHA. The application host is domain-joined, therefore is integrated with Active Directory (AD).
-* **Azure AD:** Security Assertion Markup Language (SAML) identity provider (IdP) that verifies user credentials, Conditional Access (CA), and SAML-based SSO to the BIG-IP. Through SSO, Azure AD provides BIG-IP with required session attributes.
+* **Azure AD:** Security Assertion Markup Language (SAML) identity provider (IdP) that verifies user credentials, Conditional Access, and SAML-based SSO to the BIG-IP. Through SSO, Azure AD provides BIG-IP with required session attributes.
 * **KDC:** Key Distribution Center (KDC) role on a Domain Controller (DC), issuing Kerberos tickets
 * **BIG-IP:** Reverse proxy and SAML service provider (SP) to the application, delegating authentication to the SAML IdP before performing Kerberos-based SSO to the back-end application.
 
@@ -70,7 +70,7 @@ Prior BIG-IP experience isn't necessary, but you need:
     * F5 BIG-IP APM standalone
     * F5 BIG-IP APM add-on license on a BIG-IP F5 BIG-IP&reg; Local Traffic Manager&trade; (LTM)
     * 90-day BIG-IP [Free Trial](https://www.f5.com/trial/big-ip-trial.php) license
-* User identities [synchronized](../hybrid/how-to-connect-sync-whatis.md) from an on-premises directory to Azure AD, or created in Azure AD and flowed back to your on-premises directory
+* User identities [synchronized](../hybrid/connect/how-to-connect-sync-whatis.md) from an on-premises directory to Azure AD, or created in Azure AD and flowed back to your on-premises directory
 * An account with Azure AD Application Admin [permissions](/azure/active-directory/users-groups-roles/directory-assign-admin-roles#application-administrator)
 * An [SSL Web certificate](./f5-bigip-deployment-guide.md) for publishing services over HTTPS, or use the default BIG-IP certificates while testing
 * A Kerberos application, or go to active-directory-wp.com to learn to configure [SSO with IIS on Windows](https://active-directory-wp.com/docs/Networking/Single_Sign_On/SSO_with_IIS_on_Windows.html).
@@ -213,9 +213,9 @@ The **Additional User Attributes** tab supports various distributed systems requ
 
 #### Conditional Access Policy
 
-CA policies are enforced after Azure AD pre-authentication to control access based on device, application, location, and risk signals.
+Conditional Access policies are enforced after Azure AD pre-authentication to control access based on device, application, location, and risk signals.
 
-The **Available Policies** view shows CA policies without user-based actions.
+The **Available Policies** view shows Conditional Access policies without user-based actions.
 
 The **Selected Policies** view shows policies targeting cloud apps. You can't deselect policies or move them to the Available Policies list because they're enforced at a tenant level.
 

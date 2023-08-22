@@ -73,7 +73,7 @@ The following failure reasons and details are common:
 If you need more specifics to research, you can use the **sign-in error code** for further research.
 
 - Enter the error code into the **[Error code lookup tool](https://login.microsoftonline.com/error)** to get the error code description and remediation information.
-- Search for an error code in the **[sign-ins error codes reference](../develop/reference-aadsts-error-codes.md)**. 
+- Search for an error code in the **[sign-ins error codes reference](../develop/reference-error-codes.md)**. 
 
 The following error codes are associated with sign-in events, but this list isn't exhaustive:
 

@@ -115,7 +115,7 @@ The following table shows the location for service logs for sovereign clouds.
 
 | Sovereign cloud                      | Sign-in logs                         | Multifactor authentication activity report | Multifactor authentication service logs |
 |--------------------------------------|--------------------------------------|--------------------------------------------|-----------------------------------------|
-| Azure China 21Vianet                 | China                                | United States                              | United States                           |
+| Microsoft Azure operated by 21Vianet                 | China                                | United States                              | United States                           |
 | Microsoft Government Cloud           | United States                        | United States                              | United States                           |
 
 ## Next steps
