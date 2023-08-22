@@ -76,19 +76,75 @@ Similarly, if the *Application gateway total time* has a spike but the *Backend 
 
 With layer 4 proxy feature now available with Application Gateway, there are some Common metrics (apply to both layer 7 as well as layer 4), and some layer 4 specific metrics. The following table describes all the metrics are the applicable for layer 4 usage.
 
-| Metric | Description | Type | Dimension |
-|:-------|:------------|:-----|:----------|
-|        |             |      |           |
+| Metric              | Description                                                                                                                            | Type   | Dimension |
+|:--------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:-------|:----------|
+| Current Connections | The number of active connections: reading, writing, or waiting. The count of current connections established with Application Gateway. | Common | None      |
+| New Connections per second | The average number of connections handled per second in last 1 minute. | Common | None      |
+| Throughput | The rate of data flow (inBytes+ outBytes) in the last 1 minute. | Common | None      |
+| Healthy host count | The number of healthy backend hosts. | Common | BackendSettingsPool  |
+| Unhealthy host | The number of unhealthy backend hosts. | Common | BackendSettingsPool  |
+| ClientRTT | Average round trip time between clients and Application Gateway. | Common | Listener  |
+| Backend Connect Time | Time spent establishing a connection with a backend server. | Common | Listener, BackendServer, BackendPool, BackendSetting |
+| Backend First Byte Response Time | Time interval between start of establishing a connection to backend server and receiving the first byte of data (approximating processing time of backend server). | Common | Listener, BackendServer, BackendPool, BackendHttpSetting`*`  |
+| Backend Session Duration | The total time of a backend connection. The average time duration from the start of a new connection to its termination. | L4 only | Listener, BackendServer, BackendPool, BackendHttpSetting`*` |
+| Connection Lifetime | The total time of a client connection to application gateway. The average time duration from the start of a new connection to its termination in milliseconds. | L4 only | Listener |
+`*` BackendHttpSetting dimension includes both layer 7 and layer 4 backend settings.
 
 ### Layer 4 logs
 
-| Category | Name | 
-|:-------|:------------|
-|        |             |
+Application Gateway’s Layer 4 proxy provides log data through access logs. These logs are only generated and published if they are configured in the diagnostic settings of your gateway.
+- Also see: [Supported categories for Azure Monitor resource logs](/azure-monitor/essentials/resource-logs-categories#microsoftnetworkapplicationgateways).
+
+| Category | Resource log category | 
+|:--------------|:----------------------------------------------------------------------|
+| ResourceGroup | The resource group to which the application gateway resource belongs. |
+| SubscriptionId |The subscription ID of the application gateway resource. |
+| ResourceProvider |This will be MICROSOFT.NETWORK for application gateway. |
+| Resource |The name of the application gateway resource. |
+| ResourceType |This will be APPLICATIONGATEWAYS. |
+| ruleName |The name of the routing rule that served the connection request. |
+| instanceId |Application Gateway instance that served the request. |
+| clientIP |Originating IP for the request. |
+| receivedBytes |Data received from client to gateway, in bytes. |
+| sentBytes |Data sent from gateway to client, in bytes. |
+| listenerName |The name of the listener that established the frontend connection with client. |
+| backendSettingName |The name of the backend setting used for the backend connection. |
+| backendPoolName |The name of the backend pool from which a target server was selected to establish the backend connection. |
+| protocol |TCP (Irrespective of it being TCP or TLS, the protocol value will always be TCP). |
+| sessionTime |session duration, in seconds (this is for the client->appgw session) |
+| upstreamSentBytes |Data sent to backend server, in bytes. |
+| upstreamReceivedBytes |Data received from backend server, in bytes. |
+| upstreamSessionTime |session duration, in seconds (this is for the appgw->backend session) |
+| sslCipher |Cipher suite being used for TLS communication (for TLS protocol listeners). |
+| sslProtocol |SSL/TLS protocol being used (for TLS protocol listeners). |
+| serverRouted |The backend server IP and port number to which the traffic was routed. |
+| serverStatus |200 - session completed successfully. 400 - client data could not be parsed. 500 - internal server error. 502 - bad gateway. For example, when an upstream server could not be reached. 503 - service unavailable. For example, if access is limited by the number of connections. |
+| ResourceId |Application Gateway resource URI |
 
 ### Layer 4 backend health
 
 Application Gateway’s layer 4 proxy provides the capability to monitor the health of individual members of the backend pools through the portal and REST API.
+
+![View of backend health](./media/monitor-application-gateway-reference/backend-health.png) 
+
+### REST API
+
+See [Application Gateways - Backend Health](/rest/api/application-gateway/application-gateways/backend-health?tabs=HTTP) for details of the API call to retrieve the backend health of an application gateway.
+
+Sample Request:
+``output
+POST
+https://management.azure.com/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Network/
+applicationGateways/appgw/backendhealth?api-version=2021-08-01
+After
+``
+
+After sending this POST request, you should see an HTTP 202 Accepted response. In the response headers, find the Location header and send a new GET request using that URL.
+
+``output
+GET
+https://management.azure.com/subscriptions/subid/providers/Microsoft.Network/locations/region-name/operationResults/GUID?api-version=2021-08-01
+``
 
 ## Application Gateway v1 metrics
 
