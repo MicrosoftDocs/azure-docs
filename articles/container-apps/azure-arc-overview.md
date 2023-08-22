@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 08/01/2023
+ms.date: 08/22/2023
 ms.author: cshoe
 ---
 
@@ -62,7 +62,6 @@ The following table describes the role of each revision created for you:
 | `<extensionName>-k8se-keda-cosmosdb-scaler` | Keda Cosmos DB Scaler | 1 | 10 m | 128 MB | ReplicaSet |
 | `<extensionName>-k8se-keda-metrics-apiserver` | Keda Metrics Server | 1 | 1 Core | 1000 MB | ReplicaSet |
 | `<extensionName>-k8se-keda-operator` | Manages component updated and service endpoints for Dapr | 1 | 100 millicpu | 500 MB | ReplicaSet |
-| `<extensionName>-k8se-local-envoy` | A front-end proxy layer for all data-plane tcp requests. It routes the inbound traffic to the correct apps. | 3 | 1 Core | 1536 MB | - |
 | `<extensionName>-k8se-log-processor` | Gathers logs from apps and other components and sends them to Log Analytics. | 2 | 200 millicpu | 500 MB | DaemonSet |
 | `<extensionName>-k8se-mdm` | Metrics and Logs Agent | 2 | 500 millicpu | 500 MB | ReplicaSet |
 | dapr-metrics | Dapr metrics pod | 1 | 100 millicpu | 500 MB | ReplicaSet |
@@ -159,11 +158,20 @@ ARM64 based clusters aren't supported at this time.
  - Fix Revisions List not returning init containers
  - Default allow headers added for cors policy
 
-### Container Apps extension v1.12.9 (August 2023)
+### Container Apps extension v1.12.9 (July 2023)
 
  - Minor updates to EasyAuth sidecar containers
  - Update of Extension Monitoring Agents
 
+### Container Apps extension v1.17.8 (August 2023)
+
+ - Update EasyAuth tp 1.6.16
+ - Update of Dapr to 1.10.8
+ - Update Envoy to 1.25.6
+ - Add volume mount support for Azure Container App jobs
+ - Added IP Restrictions for applications with TCP Ingress type
+ - Added support for Container Apps with multiple exposed ports
+ 
 ## Next steps
 
 [Create a Container Apps connected environment (Preview)](azure-arc-enable-cluster.md)
