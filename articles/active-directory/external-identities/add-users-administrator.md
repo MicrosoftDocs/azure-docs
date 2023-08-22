@@ -24,7 +24,7 @@ After you add a guest user to the directory, you can either send the guest user 
 > [!IMPORTANT]
 > You should follow the steps in [How-to: Add your organization's privacy info in Azure Active Directory](../fundamentals/properties-area.md) to add the URL of your organization's privacy statement. As part of the first time invitation redemption process, an invited user must consent to your privacy terms to continue. 
 
-The updated experience for creating new users covered in this article is available as an Azure AD preview feature. This feature is enabled by default, but you can opt out by going to **Azure AD** > **Preview features** and disabling the **Create user experience** feature. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+The updated experience for creating new users covered in this article is available as an Azure AD preview feature. This feature is enabled by default, but you can opt out by going to **Azure AD** > **Preview features** and disabling the **Create user experience** feature. For more information about previews, see [Universal License Terms for Online Services](https://aka.ms/EntraPreviewsTermsOfUse).
 
 Instructions for the legacy create user process can be found in the [Add or delete users](../fundamentals/add-users.md) article.
 
