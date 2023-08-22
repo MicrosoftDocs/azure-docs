@@ -4,7 +4,7 @@ description: This tutorial shows how to create a low-latency, event-driven trigg
 author: cachai2
 ms.topic: tutorial
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
-ms.date: 3/1/2021
+ms.date: 8/22/2023
 ms.author: cachai
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 #Customer intent: As an Azure Functions developer, I want learn how to create an Event Grid-based trigger on a Blob Storage container so that I can get a more rapid response to changes in the container.
