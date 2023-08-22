@@ -122,7 +122,7 @@ Komprise software is easy to set up in virtual environments for complete resourc
     Sign up at [https://www.komprise.com/azure-migration](https://www.komprise.com/azure-migration)
 2. After logging in with the Director, the wizard Install page will provide links to Download the Komprise Observer virtual appliance. Power up the Observer VM and configure it with static IP, general network and domain information. The last step in the setup script is to sign-in to the director to establish communication. 
 
-:::image type="content" source="./media/komprise-quick-start-guide-v2/screenshot-komprise-download-page.png" alt-text="Screenshot of the Komprise download page" lightbox="./media/komprise-quick-start-guide-v2/screenshot-komprise-download-page.png":::
+    :::image type="content" source="./media/komprise-quick-start-guide-v2/screenshot-komprise-download-page.png" alt-text="Screenshot of the Komprise download page" lightbox="./media/komprise-quick-start-guide-v2/screenshot-komprise-download-page.png":::
 
 3.  Add shares for analysis on the Specify Shares page. Use Discover shares to identify a NAS system and automatically import all share information.
     - Enter File System Information:
@@ -131,22 +131,22 @@ Komprise software is easy to set up in virtual environments for complete resourc
         - Display Name
         - Credentials (for SMB shares)
 
-:::image type="content" source="./media/komprise-quick-start-guide-v2/screenshot-enter-credentials.png" alt-text="Screenshot of the dialog box to enter credentials" lightbox="./media/komprise-quick-start-guide-v2/screenshot-enter-credentials.png":::
+    :::image type="content" source="./media/komprise-quick-start-guide-v2/screenshot-enter-credentials.png" alt-text="Screenshot of the dialog box to enter credentials" lightbox="./media/komprise-quick-start-guide-v2/screenshot-enter-credentials.png":::
 
-- Repeat these steps to add other source and destination systems. From Menu choose Shares > Sources > Add File Server
-- Once a File Server is added, drill down to the share level and Enable share to start an analysis. See the Plan page for analysis results
+    - Repeat these steps to add other source and destination systems. From Menu choose Shares > Sources > Add File Server
+    - Once a File Server is added, drill down to the share level and Enable share to start an analysis. See the Plan page for analysis results
 
-:::image type="content" source="./media/komprise-quick-start-guide-v2/screenshot-plan-page.png" alt-text="Screenshot of the Komprise Plan page" lightbox="./media/komprise-quick-start-guide-v2/screenshot-plan-page.png":::
+    :::image type="content" source="./media/komprise-quick-start-guide-v2/screenshot-plan-page.png" alt-text="Screenshot of the Komprise Plan page" lightbox="./media/komprise-quick-start-guide-v2/screenshot-plan-page.png":::
 
-- Pause to Analyze the newly added shares reviewing the Plan page, Usage graphs and Analysis Activities results to uncover any issues to address, size and select appropriate Azure Storage Services. See next section, Getting Started with Azure, to create the destination Azure storage services.
-- Use the Komprise ACE tool to identify and resolve any infrastructure network and storage performance issues before engaging Komprise migration engines. Once everything looks good continue to the next step with adding Azure Storage Services as destination sources for Komprise Migration.
-- Add Azure Files as a migration destination and configure it on the Sources Tab, not the Targets tab. Target systems are for Komprise Plan operations like seamless tiering with Komprise Transparent Movement Technology™ (TMT) and Deep Analytics Actions. 
+    - Pause to Analyze the newly added shares reviewing the Plan page, Usage graphs and Analysis Activities results to uncover any issues to address, size and select appropriate Azure Storage Services. See next section, Getting Started with Azure, to create the destination Azure storage services.
+    - Use the Komprise ACE tool to identify and resolve any infrastructure network and storage performance issues before engaging Komprise migration engines. Once everything looks good continue to the next step with adding Azure Storage Services as destination sources for Komprise Migration.
+    - Add Azure Files as a migration destination and configure it on the Sources Tab, not the Targets tab. Target systems are for Komprise Plan operations like seamless tiering with Komprise Transparent Movement Technology™ (TMT) and Deep Analytics Actions. 
 
-:::image type="content" source="./media/komprise-quick-start-guide-v2/screenshot-add-server-analysis.png" alt-text="Screenshot of the Add Server to Sources page" lightbox="./media/komprise-quick-start-guide-v2/screenshot-add-server-analysis.png":::
+    :::image type="content" source="./media/komprise-quick-start-guide-v2/screenshot-add-server-analysis.png" alt-text="Screenshot of the Add Server to Sources page" lightbox="./media/komprise-quick-start-guide-v2/screenshot-add-server-analysis.png":::
 
-Example of adding Azure Files as a migration destination on the Sources tab:
+    Example of adding Azure Files as a migration destination on the Sources tab:
 
-:::image type="content" source="./media/komprise-quick-start-guide-v2/screenshot-add-server-destination.png" alt-text="Screenshot of the Add Destination to Sources page" lightbox="./media/komprise-quick-start-guide-v2/screenshot-add-server-destination.png":::
+    :::image type="content" source="./media/komprise-quick-start-guide-v2/screenshot-add-server-destination.png" alt-text="Screenshot of the Add Destination to Sources page" lightbox="./media/komprise-quick-start-guide-v2/screenshot-add-server-destination.png":::
 
 ## Getting started with Azure
 Microsoft offers a framework to get you started with Azure. The [Cloud Adoption Framework](/azure/architecture/cloud-adoption/) (CAF) is a detailed approach to enterprise digital transformation and a comprehensive guide to planning a production-grade cloud adoption. The CAF includes a step-by-step [Azure setup guide](/azure/cloud-adoption-framework/ready/azure-setup-guide/) to help you get up and run quickly and securely. You can find an interactive version in the [Azure portal](https://portal.azure.com/?feature.quickstart=true#blade/Microsoft_Azure_Resources/QuickstartCenterBlade). You'll find sample architectures, specific best practices for deploying applications and free training resources to put you on the path to Azure expertise.
@@ -159,11 +159,11 @@ The Komprise Grid is deployed in a virtual environment (Hyper-V, VMware, KVM) fo
 
 1. Open the Azure portal and search for storage accounts
 
-:::image type="content" source="./media/komprise-quick-start-guide-v2/screenshot-portal-search.png" alt-text="Screenshot of the Azure Portal Search Dialog" lightbox="./media/komprise-quick-start-guide-v2/screenshot-portal-search.png":::
+    :::image type="content" source="./media/komprise-quick-start-guide-v2/screenshot-portal-search.png" alt-text="Screenshot of the Azure Portal Search Dialog" lightbox="./media/komprise-quick-start-guide-v2/screenshot-portal-search.png":::
 
-You can also click on the default Storage accounts icon
+    You can also click on the default Storage accounts icon
 
-:::image type="content" source="./media/komprise-quick-start-guide-v2/screenshot-storage-accounts.png" alt-text="Screenshot of the Azure Storage Account Dialog" lightbox="./media/komprise-quick-start-guide-v2/screenshot-storage-accounts.png":::
+    :::image type="content" source="./media/komprise-quick-start-guide-v2/screenshot-storage-accounts.png" alt-text="Screenshot of the Azure Storage Account Dialog" lightbox="./media/komprise-quick-start-guide-v2/screenshot-storage-accounts.png":::
 
 2.	Select Create to add an account:
     a. Select an existing resource group or Create New.
@@ -172,27 +172,28 @@ You can also click on the default Storage accounts icon
     d. Select Standard or Premium performance, depending on your needs. If you select Premium, select File shares under Premium account type.
     e. Choose the [Redundancy](/azure/storage/common/storage-redundancy) that meets your data protection requirements
 
-:::image type="content" source="./media/komprise-quick-start-guide-v2/screenshot-create-storage-account.png" alt-text="Screenshot of the Azure Create Storage Account Dialog" lightbox="./media/komprise-quick-start-guide-v2/screenshot-create-storage-account.png":::
+    :::image type="content" source="./media/komprise-quick-start-guide-v2/screenshot-create-storage-account.png" alt-text="Screenshot of the Azure Create Storage Account Dialog" lightbox="./media/komprise-quick-start-guide-v2/screenshot-create-storage-account.png":::
 
 3. Next, consider keeping the recommended default settings from the Advanced screen. If you're migrating to Azure Files, it's recommended to enable large file shares if available
 
-:::image type="content" source="./media/komprise-quick-start-guide-v2/screenshot-create-storage-account-advanced.png" alt-text="Screenshot of the Azure Create Storage Account Advanced Dialog" lightbox="./media/komprise-quick-start-guide-v2/screenshot-create-storage-account-advanced.png":::
+    :::image type="content" source="./media/komprise-quick-start-guide-v2/screenshot-create-storage-account-advanced.png" alt-text="Screenshot of the Azure Create Storage Account Advanced Dialog" lightbox="./media/komprise-quick-start-guide-v2/screenshot-create-storage-account-advanced.png":::
 
 4. Keep the default networking options for now and move on to data protection. You can choose to enable soft delete, which allows you to recover accidentally deleted data within the defined retention period. Soft delete offers protection against accidental or malicious deletion.
 
-:::image type="content" source="./media/komprise-quick-start-guide-v2/screenshot-create-storage-account-data-protection.png" alt-text="Screenshot of the Azure Create Storage Account Data Protection Dialog" lightbox="./media/komprise-quick-start-guide-v2/screenshot-create-storage-account-data-protection.png":::
+    :::image type="content" source="./media/komprise-quick-start-guide-v2/screenshot-create-storage-account-data-protection.png" alt-text="Screenshot of the Azure Create Storage Account Data Protection Dialog" lightbox="./media/komprise-quick-start-guide-v2/screenshot-create-storage-account-data-protection.png":::
 
 5.	Add tags for an organization if you use tagging and create your account
 
 6.	Two quick steps are all that is now required before you can add the account to your Komprise environment. Navigate to the account you created in the Azure portal and select File shares under the File Service menu. Add a File share providing a meaningful name. Then, navigate to the Access keys item under Settings and copy the Storage account name and one of the two access keys. If the keys aren't showing, select Show keys
 
-:::image type="content" source="./media/komprise-quick-start-guide-v2/screenshot-manage-access-keys.png" alt-text="Screenshot of the Manage Access Keys dialog" lightbox="./media/komprise-quick-start-guide-v2/screenshot-manage-access-keys.png":::
+    :::image type="content" source="./media/komprise-quick-start-guide-v2/screenshot-manage-access-keys.png" alt-text="Screenshot of the Manage Access Keys dialog" lightbox="./media/komprise-quick-start-guide-v2/screenshot-manage-access-keys.png":::
 
 7. Navigate to the Properties of the Azure File share. Write down the URL address, which is required to add the Azure connection into the Komprise target file share
 
     :::image type="content" source="./media/komprise-quick-start-guide-v2/screenshot-azure-file-share-properties.png" alt-text="Screenshot of Azure File Share Properties dialog" lightbox="./media/komprise-quick-start-guide-v2/screenshot-azure-file-share-properties.png":::
 
 8.	(Optional) You can add extra layers of security to your deployment
+    
     a. Configure role-based access to limit who can make changes to your storage account. For more information, see [Built-in roles for management operations](/azure/storage/common/authorization-resource-provider#built-in-roles-for-management-operations)
     
     b. Restrict access to the account to specific network segments with [storage firewall settings](/azure/storage/common/storage-network-security). Configure firewall settings to prevent access from outside of your corporate network
@@ -222,32 +223,32 @@ To configure and run a migration, follow these steps:
 1. Once you have completed your Analysis and confirmed that the Storage and Network performance are optimally configured you're ready to start with the Archive and Easy migration types. 
 2. Navigate to Migrate and select Add Migration
 
-:::image type="content" source="./media/komprise-quick-start-guide-v2/screenshot-add-migration-dialog.png" alt-text="Screenshot of Komprise Add Migration Task" lightbox="./media/komprise-quick-start-guide-v2/screenshot-add-migration-dialog.png":::
+    :::image type="content" source="./media/komprise-quick-start-guide-v2/screenshot-add-migration-dialog.png" alt-text="Screenshot of Komprise Add Migration Task" lightbox="./media/komprise-quick-start-guide-v2/screenshot-add-migration-dialog.png":::
 
 3. Add migration task by selecting proper source and destination shares. Provide a migration name. Once configured, select Start Migration. This step is slightly different for file and object data migrations as you're selecting data stores instead of shares. Review the following steps. 
 You may also choose to verify each data transfer using MD5 checksum. Depending in the position of Komprise data movement components, egress costs may occur  when cloud objects are retrieved to calculate the MD5 values.
 
-a. File Migration
+    File Migration
 
-:::image type="content" source="./media/komprise-quick-start-guide-v2/screenshot-file-migration-dialog.png" alt-text="Screenshot of Komprise Add File Migration Dialog" lightbox="./media/komprise-quick-start-guide-v2/screenshot-file-migration-dialog.png":::
+    :::image type="content" source="./media/komprise-quick-start-guide-v2/screenshot-file-migration-dialog.png" alt-text="Screenshot of Komprise Add File Migration Dialog" lightbox="./media/komprise-quick-start-guide-v2/screenshot-file-migration-dialog.png":::
 
-File migration provides options to preserve access time and SMB ACLs on the destination. This option depends on the selected source and destination file service and protocol.
+    File migration provides options to preserve access time and SMB ACLs on the destination. This option depends on the selected source and destination file service and protocol.
 
-b.  Object Migration
+    Object Migration
 
-:::image type="content" source="./media/komprise-quick-start-guide-v2/screenshot-object-migration-dialog.png" alt-text="Screenshot of Komprise Add Object Migration Dialog" lightbox="./media/komprise-quick-start-guide-v2/screenshot-object-migration-dialog.png":::
+    :::image type="content" source="./media/komprise-quick-start-guide-v2/screenshot-object-migration-dialog.png" alt-text="Screenshot of Komprise Add Object Migration Dialog" lightbox="./media/komprise-quick-start-guide-v2/screenshot-object-migration-dialog.png":::
 
-Object migration provides options to choose the destination Azure storage tier (Hot, Cool, Archive). 
+    Object migration provides options to choose the destination Azure storage tier (Hot, Cool, Archive). 
 
 4. Once the migration started, you can go to Migrate to monitor the progress.
 
-:::image type="content" source="./media/komprise-quick-start-guide-v2/screenshot-migration-management-dialog.png" alt-text="Screenshot of Komprise Migration Management Dialog" lightbox="./media/komprise-quick-start-guide-v2/screenshot-migration-management-dialog.png":::
+    :::image type="content" source="./media/komprise-quick-start-guide-v2/screenshot-migration-management-dialog.png" alt-text="Screenshot of Komprise Migration Management Dialog" lightbox="./media/komprise-quick-start-guide-v2/screenshot-migration-management-dialog.png":::
 
 5. Once all changes have been migrated, run one final migration by clicking on Actions and selecting Start final iteration. Before final migration, we recommend stopping access to source file shares or moving them to read-only mode (for users and applications). This step makes sure no changes happen on the source.
 
-:::image type="content" source="./media/komprise-quick-start-guide-v2/screenshot-migration-overview.png" alt-text="Screenshot of Komprise Migration Management Overview" lightbox="./media/komprise-quick-start-guide-v2/screenshot-migration-overview.png":::
+    :::image type="content" source="./media/komprise-quick-start-guide-v2/screenshot-migration-overview.png" alt-text="Screenshot of Komprise Migration Management Overview" lightbox="./media/komprise-quick-start-guide-v2/screenshot-migration-overview.png":::
 
-Once the final migration finishes, transition all users and applications to the destination share. Switching over to the new file service usually requires changing the configuration of DNS servers and DFS servers or changing the mount points to the new destination.
+    Once the final migration finishes, transition all users and applications to the destination share. Switching over to the new file service usually requires changing the configuration of DNS servers and DFS servers or changing the mount points to the new destination.
 
 6.	As the last step, mark the migration completed.
 
@@ -261,25 +262,22 @@ The flexibility of the Komprise architecture allows deploying the Observers wher
 To get started, sign-in to the director and do the following:
 1. Navigate to Data Stores and Add Object Store. Here you can choose the add systems by Add Account or by Add Bucket.
 
-:::image type="content" source="./media/komprise-quick-start-guide-v2/screenshot-add-object-store.png" alt-text="Screenshot of Komprise Add Object Store Dialog" lightbox="./media/komprise-quick-start-guide-v2/screenshot-add-object-store.png":::
+    :::image type="content" source="./media/komprise-quick-start-guide-v2/screenshot-add-object-store.png" alt-text="Screenshot of Komprise Add Object Store Dialog" lightbox="./media/komprise-quick-start-guide-v2/screenshot-add-object-store.png":::
 
 2. Continue adding Source data stores
 3. Enable buckets for Analysis. Reviewing the data stores to build a migration plan.
 4. Add Azure Blob Destination data stores, either by Account or Bucket.
 
-:::image type="content" source="./media/komprise-quick-start-guide-v2/screenshot-add-object-destination.png" alt-text="Screenshot of Komprise Add Object Destination Dialog" lightbox="./media/komprise-quick-start-guide-v2/screenshot-add-object-destination.png":::
+    :::image type="content" source="./media/komprise-quick-start-guide-v2/screenshot-add-object-destination.png" alt-text="Screenshot of Komprise Add Object Destination Dialog" lightbox="./media/komprise-quick-start-guide-v2/screenshot-add-object-destination.png":::
 
-a. With Add Account, discover all the containers by entering:
-
+    With Add Account, discover all the containers by entering:
     - Storage account name
-    
     - Primary access key
-    
     - Display Name
 
-Required information can be found in [Azure portal](https://portal.azure.com/) by navigating to the Access keys item under Settings for the storage account. If the keys aren't showing, select on the Show keys.
+    Required information can be found in [Azure portal](https://portal.azure.com/) by navigating to the Access keys item under Settings for the storage account. If the keys aren't showing, select on the Show keys.
 
-b. Or, specify a container by entering:
+    Or, specify a container by entering:
     - Container Name
     - Storage Account Name
     - Primary Access Key
