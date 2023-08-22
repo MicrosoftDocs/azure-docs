@@ -236,7 +236,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for MySQL](/az
    ```javascript
    import { DefaultAzureCredential,ClientSecretCredential } from "@azure/identity";
    
-   const mysql = require('mysql');
+   const mysql = require('mysql2');
    
    // for system assigned managed identity
    const credential = new DefaultAzureCredential();
