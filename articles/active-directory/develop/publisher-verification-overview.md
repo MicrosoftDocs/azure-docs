@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 08/11/2023
+ms.date: 08/17/2023
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: xurobert
@@ -18,7 +18,7 @@ ms.reviewer: xurobert
 
 Publisher verification gives app users and organization admins information about the authenticity of the developer's organization, who publishes an app that integrates with the Microsoft identity platform.
 
-When an app has a verified publisher, this means that the organization that publishes the app has been verified as authentic by Microsoft. Verifying an app includes using a Microsoft Cloud Partner Program (MCPP), formerly known as Microsoft Partner Network (MPN), account that's been [verified](/partner-center/verification-responses) and associating the verified PartnerID with an app registration.
+When an app has a verified publisher, this means that the organization that publishes the app has been verified as authentic by Microsoft. Verifying an app includes using a Microsoft Cloud Partner Program (CPP), formerly known as Microsoft Partner Network (MPN), account that's been [verified](/partner-center/verification-responses) and associating the verified PartnerID with an app registration.
 
 When the publisher of an app has been verified, a blue *verified* badge appears in the Azure Active Directory (Azure AD) consent prompt for the app and on other webpages:
 
@@ -47,24 +47,24 @@ Publisher verification for an app has the following benefits:
 
 App developers must meet a few requirements to complete the publisher verification process. Many Microsoft partners will have already satisfied these requirements.
 
-- The developer must have an MPN ID for a valid [Microsoft Cloud Partner Program](https://partner.microsoft.com/membership) account that has completed the [verification](/partner-center/verification-responses) process. The MPN account must be the [partner global account (PGA)](/partner-center/account-structure#the-top-level-is-the-partner-global-account-pga) for the developer's organization.
+- The developer must have an Partner One ID for a valid [Microsoft Cloud Partner Program](https://partner.microsoft.com/membership) account that has completed the [verification](/partner-center/verification-responses) process. The CPP account must be the [partner global account (PGA)](/partner-center/account-structure#the-top-level-is-the-partner-global-account-pga) for the developer's organization.
 
   > [!NOTE]
-  > The MPN account you use for publisher verification can't be your partner location MPN ID. Currently, location MPN IDs aren't supported for the publisher verification process.
+  > The CPP account you use for publisher verification can't be your partner location Partner One ID. Currently, location Partner One IDs aren't supported for the publisher verification process.
 
 - The app that's to be publisher verified must be registered by using an Azure AD work or school account. Apps that are registered by using a Microsoft account can't be publisher verified.
 
-- The Azure AD tenant where the app is registered must be associated with the PGA. If the tenant where the app is registered isn't the primary tenant associated with the PGA, complete the steps to [set up the MPN PGA as a multitenant account and associate the Azure AD tenant](/partner-center/multi-tenant-account#add-an-azure-ad-tenant-to-your-account).
+- The Azure AD tenant where the app is registered must be associated with the PGA. If the tenant where the app is registered isn't the primary tenant associated with the PGA, complete the steps to [set up the CPP PGA as a multitenant account and associate the Azure AD tenant](/partner-center/multi-tenant-account#add-an-azure-ad-tenant-to-your-account).
 
 - The app must be registered in an Azure AD tenant and have a [publisher domain](howto-configure-publisher-domain.md) set. The feature is not supported in Azure AD B2C tenant.
 
-- The domain of the email address that's used during MPN account verification must either match the publisher domain that's set for the app or be a DNS-verified [custom domain](../fundamentals/add-custom-domain.md) that's added to the Azure AD tenant. (**NOTE**__: the app's publisher domain can't be *.onmicrosoft.com to be publisher verified) 
+- The domain of the email address that's used during CPP account verification must either match the publisher domain that's set for the app or be a DNS-verified [custom domain](../fundamentals/add-custom-domain.md) that's added to the Azure AD tenant. (**NOTE**__: the app's publisher domain can't be *.onmicrosoft.com to be publisher verified) 
 
-- The user who initiates verification must be authorized to make changes both to the app registration in Azure AD and to the MPN account in Partner Center.  The user who initiates the verification must have one of the required roles in both Azure AD and Partner Center.
+- The user who initiates verification must be authorized to make changes both to the app registration in Azure AD and to the CPP account in Partner Center.  The user who initiates the verification must have one of the required roles in both Azure AD and Partner Center.
 
   - In Azure AD, this user must be a member of one of the following [roles](../roles/permissions-reference.md): Application Admin, Cloud Application Admin, or Global Administrator.
 
-  - In Partner Center, this user must have one of the following [roles](/partner-center/permissions-overview): MPN Partner Admin, Account Admin, or Global Administrator (a shared role that's mastered in Azure AD).
+  - In Partner Center, this user must have one of the following [roles](/partner-center/permissions-overview): CPP Partner Admin, Account Admin, or Global Administrator (a shared role that's mastered in Azure AD).
   
 - The user who initiates verification must sign in by using [Azure AD multifactor authentication](../authentication/howto-mfa-getstarted.md).
 

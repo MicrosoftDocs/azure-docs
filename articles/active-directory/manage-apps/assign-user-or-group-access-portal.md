@@ -11,9 +11,8 @@ ms.topic: how-to
 ms.date: 11/22/2022
 ms.author: jomondi
 ms.reviewer: ergreenl
-ms.custom: contperf-fy22q2, contperf-fy22q3, enterprise-apps
+ms.custom: contperf-fy22q2, contperf-fy22q3, enterprise-apps, has-azure-ad-ps-ref
 zone_pivot_groups: enterprise-apps-all
-
 #customer intent: As an admin, I want to manage user assignment for an app in Azure Active Directory using PowerShell
 ---
 

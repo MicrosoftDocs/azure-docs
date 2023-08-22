@@ -45,7 +45,7 @@ Use the following table to compare feature and functional differences between th
 
 <sup>3</sup> C# Script functions also run in-process and use the same libraries as in-process class library functions. For more information, see the [Azure Functions C# script (.csx) developer reference](functions-reference-csharp.md). 
 
-<sup>4</sup> Service SDK types include types from the [Azure SDK for .NET](/dotnet/azure/sdk/azure-sdk-for-dotnet) such as [BlobClient](/dotnet/api/azure.storage.blobs.blobclient). For the isolated process model, support from some extensions is currently in preview, and Service Bus triggers do not yet support message settlement scenarios.
+<sup>4</sup> Service SDK types include types from the [Azure SDK for .NET](/dotnet/azure/sdk/azure-sdk-for-dotnet) such as [BlobClient](/dotnet/api/azure.storage.blobs.blobclient). For the isolated process model, Service Bus triggers do not yet support message settlement scenarios.
 
 <sup>5</sup> ASP.NET Core types are not supported for .NET Framework.
 

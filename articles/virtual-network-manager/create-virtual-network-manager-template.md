@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Create a mesh network topology with Azure Virtual Network Manager using Azure Resource Manager template - ARM template'
-description: In this article, you create a mesh network topology with Azure Virtual Network Manager using Azure Resource Manager template, ARM template.
+title: 'Quickstart: Deploy a network topology with Azure Virtual Network Manager using Azure Resource Manager template - ARM template'
+description: In this article, you deploy various network topologies with Azure Virtual Network Manager using Azure Resource Manager template(ARM template).
 services: virtual-network-manager
 author: mbender-ms
 ms.author: mbender
@@ -10,7 +10,7 @@ ms.service: virtual-network-manager
 ms.custom: template-quickstart, subject-armqs, mode-arm, devx-track-arm-template
 ---
 
-# Quickstart: Create a mesh network topology with Azure Virtual Network Manager using Azure Resource Manager template -ARM template
+# Quickstart: Deploy a network topology with Azure Virtual Network Manager using Azure Resource Manager template - ARM template
 
 Get started with Azure Virtual Network Manager by using Azure Resource Manager templates to manage connectivity for all your virtual networks.
 

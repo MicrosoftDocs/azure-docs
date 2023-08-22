@@ -114,26 +114,23 @@ Run the following command to deploy the control plane:
 
 ```bash
 
-az logout
-cd ~/Azure_SAP_Automated_Deployment
-cp -Rp samples/Terraform/WORKSPACES config
-cd config/WORKSPACES
-
 export ARM_SUBSCRIPTION_ID="<subscriptionId>"
 export       ARM_CLIENT_ID="<appId>"
 export   ARM_CLIENT_SECRET="<password>"
 export       ARM_TENANT_ID="<tenantId>"
 export            env_code="MGMT"
 export         region_code="WEEU"
-export           vnet_code="WEEU"
+export           vnet_code="DEP01"
 
+export DEPLOYMENT_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
+export CONFIG_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES"
+export SAP_AUTOMATION_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
+
+az logout
 az login --service-principal -u "${ARM_CLIENT_ID}" -p="${ARM_CLIENT_SECRET}" --tenant "${ARM_TENANT_ID}"
 
 
-export DEPLOYMENT_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
-="${subscriptionId}"
-export CONFIG_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/config/WORKSPACES"
-export SAP_AUTOMATION_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
+cd ~/Azure_SAP_Automated_Deployment/WORKSPACES
 
 
 sudo ${SAP_AUTOMATION_REPO_PATH}/deploy/scripts/deploy_controlplane.sh                                                                                                            \
@@ -142,8 +139,7 @@ sudo ${SAP_AUTOMATION_REPO_PATH}/deploy/scripts/deploy_controlplane.sh          
     --subscription "${ARM_SUBSCRIPTION_ID}"                                                                                                                                       \
     --spn_id "${ARM_CLIENT_ID}"                                                                                                                                                   \
     --spn_secret "${ARM_CLIENT_SECRET}"                                                                                                                                           \
-    --tenant_id "${ARM_TENANT_ID}"                                                                                                                                                \
-    --auto-approve
+    --tenant_id "${ARM_TENANT_ID}"
 ```
 
 

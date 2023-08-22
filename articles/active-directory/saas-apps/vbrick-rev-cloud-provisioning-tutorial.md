@@ -42,7 +42,23 @@ The scenario outlined in this tutorial assumes that you already have the followi
 1. Determine what data to [map between Azure AD and Vbrick Rev Cloud](../app-provisioning/customize-application-attributes.md).
 
 ## Step 2. Configure Vbrick Rev Cloud to support provisioning with Azure AD
-Contact Vbrick Rev Cloud support to configure Vbrick Rev Cloud to support provisioning with Azure AD.
+
+1. Sign in to your **Rev Tenant**. Navigate to **Admin > Security Settings > User Security** in the navigation pane.
+
+	![Screenshot of Vbrick Rev User Security Settings.](./media/vbrick-rev-cloud-provisioning-tutorial/app-navigations.png)
+
+1. Navigate to **Microsoft Azure AD SCIM** section of the page. 
+
+	![Screenshot of the Vbrick Rev User Security Settings with the Microsoft AD SCIM section called out.](./media/vbrick-rev-cloud-provisioning-tutorial/enable-azure-ad-scim.png)
+
+1. Enable **Microsoft Azure AD SCIM** and click on **Generate Token** button. 
+    ![Screenshot of the Vbrick Rev User Security Settings with the Microsoft AD SCIM enable.](./media/vbrick-rev-cloud-provisioning-tutorial/rev-scim-manage.png)
+
+1. It will open a popup with the **URL** and the **JWT token**. Copy and save the **JWT token** and **URL** for next steps.
+
+	![Screenshot of the Vbrick Rev User Security Settings with the Scim Token section called out.](./media/vbrick-rev-cloud-provisioning-tutorial/copy-token.png)
+
+1. Once you have a copy of the **JWT token** and **URL**, click **OK** to close the popup and then click on the **Save** button at the bottom of the settings page to enable SCIM for your tenant.
 
 ## Step 3. Add Vbrick Rev Cloud from the Azure AD application gallery
 
