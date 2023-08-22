@@ -25,7 +25,9 @@ Microsoft Authenticator Lite is another surface for Azure Active Directory (Azur
 Users receive a notification in Outlook mobile to approve or deny sign-in, or they can copy a TOTP to use during sign-in. 
 
 >[!NOTE]
->This is an important security enhancement for users authenticating via telecom transports. On June 26, the Microsoft managed value of this feature changed from ‘disabled’ to ‘enabled’. If you no longer wish for this feature to be enabled, move the state from 'default' to‘disabled’ or set users to include and exclude groups. 
+>These are important security enhancements for users authenticating via telecom transports:
+>- On June 26, the Microsoft managed value of this feature changed from ‘disabled’ to ‘enabled’ in the Authentication methods policy. If you no longer wish for this feature to be enabled, move the state from 'default' to ‘disabled’ or scope it to only a group of users.
+>- Starting September 18, Authenticator Lite will be enabled as part of the *Notification through mobile app* verification option in the per-user MFA policy. If you don't want this feature enabled, you can disable it in the Authentication methods policy following the steps below.
 
 ## Prerequisites
 
@@ -45,7 +47,7 @@ Users receive a notification in Outlook mobile to approve or deny sign-in, or th
 
 ## Enable Authenticator Lite
 
-By default, Authenticator Lite is [Microsoft managed](concept-authentication-default-enablement.md#microsoft-managed-settings). On June 26, the Microsoft managed value of this feature changed from ‘disabled’ to ‘enabled’
+By default, Authenticator Lite is [Microsoft managed](concept-authentication-default-enablement.md#microsoft-managed-settings) in the Authentication methods policy. On June 26, the Microsoft managed value of this feature changed from ‘disabled’ to ‘enabled’. Authenticator Lite is also included as part of the *Notification through mobile app* verification option in the per-user MFA policy.
 
 ### Disabling Authenticator Lite in Azure portal UX
 
