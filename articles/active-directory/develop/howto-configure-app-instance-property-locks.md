@@ -28,7 +28,7 @@ The following property usage scenarios are considered as sensitive:
 - `TokenEncryptionKeyId` which specifies the keyId of a public key from the keyCredentials collection. When configured, Azure AD encrypts all the tokens it emits by using the key to which this property points. The application code that receives the encrypted token must use the matching private key to decrypt the token before it can be used for the signed-in user.
 
 > [!NOTE]
-> App instance lock is enabled by default for all new applications created via Entra portal. 
+> App instance lock is enabled by default for all new applications created using the Microsoft Entra portal. 
 > Going forward, when new apps are created programmatically (via MS Graph application API, PowerShell or CLI) or when an existing application changes their audience from `AzureADMyOrg` to `AzureADMultipleOrgs`, will have the flag enabled by default.
 
 ## Configure an app instance lock
