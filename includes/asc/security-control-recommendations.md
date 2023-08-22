@@ -2,7 +2,7 @@
 author: memildin
 ms.service: defender-for-cloud
 ms.topic: include
-ms.date: 08/24/2022
+ms.date: 08/22/2023
 ms.author: memildin
 ms.custom: generated
 ---
@@ -19,7 +19,7 @@ ms.custom: generated
   <tr>
     <td class="tg-lboi"><strong>10</strong></td>
     <td class="tg-lboi"><strong>Enable MFA</strong> - Defender for Cloud places a high value on multi-factor authentication (MFA). Use these recommendations to secure the users of your subscriptions. <br>There are three ways to enable MFA and be compliant with the recommendations: security defaults, per-user assignment, conditional access policy. Learn more about these options in <a href="/azure/defender-for-cloud/multi-factor-authentication-enforcement">Manage MFA enforcement on your subscriptions</a>.</td>
-    <td class="tg-lboi" width=55%>- Accounts with owner permissions on Azure resources should be MFA enabled<br />- Accounts with write permissions on Azure resources should be MFA enabled<br />- MFA should be enabled on accounts with owner permissions on subscriptions<br />- MFA should be enabled on accounts with write permissions on subscriptions</td>
+    <td class="tg-lboi" width=55%>- Accounts with owner permissions on Azure resources should be MFA enabled<br />- Accounts with write permissions on Azure resources should be MFA enabled
   </tr>
   <tr>
     <td class="tg-lboi"><strong>8</strong></td>
