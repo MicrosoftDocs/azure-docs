@@ -3,7 +3,7 @@ title: What's new in Azure Virtual Desktop? - Azure
 description: New features and product updates for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: release-notes
-ms.date: 08/16/2023
+ms.date: 08/22/2023
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: femila
@@ -36,10 +36,6 @@ Here's what changed in July 2023:
 Call redirection, which optimizes audio calls for WebRTC-based calling apps, is now in preview. Multimedia redirection redirects media content from Azure Virtual Desktop to your local machine for faster processing and rendering. Both Microsoft Edge and Google Chrome support this feature when using the Windows Desktop client.
 
 For more information about which sites are compatible with this feature, see [Call redirection](multimedia-redirection-intro.md#call-redirection).
-
-### Tamper protection support for Windows on Azure Virtual Desktop
-
-Intune now supports using endpoint security antivirus policy to manage [tamper protection](/mem/intune/protect/endpoint-security-antivirus-policy#prerequisites-for-tamper-protection) for Windows on Azure Virtual Desktop multi-session devices. Any devices you plan to use tamper protection on must onboard to Microsoft Defender for Endpoint before you apply the policy that enables tamper protection for Azure Virtual Desktop.
 
 ### Autoscale for personal host pools is currently in preview
 
