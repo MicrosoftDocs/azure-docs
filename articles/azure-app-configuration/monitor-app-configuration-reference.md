@@ -38,7 +38,7 @@ App Configuration has the following dimensions associated with its metr
 | Http Incoming Request Duration | The supported dimensions are the **HttpStatusCode**, **AuthenticationScheme**, and **Endpoint** of each request. **AuthenticationScheme** can be filtered by AAD or HMAC authentication. |
 | Throttled Http Request Count | The **Endpoint** of each request is included as a dimension.  |
 | Daily Storage Usage | This metric does not have any dimensions.  |
-| Replication Latency | The **Endpoint** of the replica.  |
+| Replication Latency | The **Endpoint** of the replica that data was replicated to is included as a dimension.  |
 
  For more information on what metric dimensions are, see [Multi-dimensional metrics](../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics).
 
