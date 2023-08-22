@@ -2,12 +2,12 @@
 title: 'Quickstart: Create a public IP - PowerShell'
 titleSuffix: Azure Virtual Network
 description: In this quickstart, learn how to create a public IP using Azure PowerShell
-author: asudbring
+author: mbender-ms
+ms.author: mbender
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: quickstart
-ms.date: 10/01/2021
-ms.author: allensu
+ms.date: 08/24/2023
 ms.custom: mode-api, devx-track-azurepowershell
 ---
 

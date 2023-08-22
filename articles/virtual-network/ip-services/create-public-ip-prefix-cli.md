@@ -3,12 +3,12 @@ title: 'Quickstart: Create a public IP address prefix - Azure CLI'
 titleSuffix: Azure Virtual Network
 description: Learn how to create a public IP address prefix using the Azure CLI.
 services: virtual-network
-author: asudbring
+author: mbender-ms
+ms.author: mbender
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: quickstart
-ms.date: 10/01/2021
-ms.author: allensu
+ms.date: 08/24/2023
 ms.custom: mode-api, devx-track-azurecli 
 ms.devlang: azurecli
 ---
