@@ -151,7 +151,7 @@ ARM64 based clusters aren't supported at this time.
 
 ### Container Apps extension v1.12.8 (June 2023)
 
- - Update OSS Fluentbit to 2.1.2
+ - Update OSS Fluent Bit to 2.1.2
  - Upgrade of Dapr to 1.10.6
  - Support for container registries exposed on custom port
  - Enable activate/deactivate revision when a container app is stopped
@@ -165,7 +165,7 @@ ARM64 based clusters aren't supported at this time.
 
 ### Container Apps extension v1.17.8 (August 2023)
 
- - Update EasyAuth tp 1.6.16
+ - Update EasyAuth to 1.6.16
  - Update of Dapr to 1.10.8
  - Update Envoy to 1.25.6
  - Add volume mount support for Azure Container App jobs
