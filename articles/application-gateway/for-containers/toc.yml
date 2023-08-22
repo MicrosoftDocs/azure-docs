@@ -16,6 +16,8 @@
   items:
   - name: Application Gateway for Containers components
     href: application-gateway-for-containers-components.md
+  - name: Custom health probe
+    href: custom-health-probe.md
   - name: TLS policy
     href: tls-policy.md
   - name: Frequently Asked Questions (FAQ)
@@ -44,6 +46,8 @@
        href: how-to-traffic-splitting-gateway-api.md
   - name: Ingress API
     items:
+    - name: Multiple site hosting
+      href: how-to-multiple-site-hosting-ingress-api.md
     - name: SSL Offloading
       href: how-to-ssl-offloading-ingress-api.md
   - name: Troubleshoot
