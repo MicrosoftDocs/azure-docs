@@ -135,7 +135,7 @@ ms.author: yungez
 
 1. Install dependencies.
    ```bash
-   npm install mysql
+   npm install mysql2
    ```
 1. In code, get MySQL connection information from environment variables added by Service Connector service.
    ```javascript
