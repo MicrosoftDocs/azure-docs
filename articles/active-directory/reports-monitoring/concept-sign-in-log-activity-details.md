@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/18/2023
+ms.date: 08/22/2023
 ms.author: sarahlipsey
 ms.reviewer: besiler
 ---
@@ -18,7 +18,7 @@ ms.reviewer: besiler
 Azure AD logs all sign-ins into an Azure tenant for compliance purposes. As an IT administrator, you need to know what the values in the sign-in logs mean, so that you can interpret the log values correctly.
 
 - [Learn about the sign-in logs](concept-sign-ins.md).
-- [Customize and filter the sign-in logs](howto-customize-filter-sign-in-logs.md)
+- [Customize and filter the sign-in logs](howto-customize-filter-logs.md)
 
 This article explains the values on the Basic info tab of the sign-ins log.
 
