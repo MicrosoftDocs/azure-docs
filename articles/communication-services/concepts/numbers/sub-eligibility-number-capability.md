@@ -43,6 +43,7 @@ Numbers can be purchased on eligible Azure subscriptions and in geographies wher
 > - [Norway](../numbers/phone-number-management-for-norway.md)
 > - [Poland](../numbers/phone-number-management-for-poland.md)
 > - [Portugal](../numbers/phone-number-management-for-portugal.md)
+> - [Saudi Arabia](../numbers/phone-number-management-for-saudi-arabia.md)
 > - [Singapore](../numbers/phone-number-management-for-singapore.md)
 > - [Slovakia](../numbers/phone-number-management-for-slovakia.md)
 > - [Spain](../numbers/phone-number-management-for-spain.md)
