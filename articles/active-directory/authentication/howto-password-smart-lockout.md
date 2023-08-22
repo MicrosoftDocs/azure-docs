@@ -66,7 +66,7 @@ Based on your organizational requirements, you can customize the Azure AD smart 
 
 To check or modify the smart lockout values for your organization, complete the following steps:
 
-1. Sign in to the [Entra portal](https://entra.microsoft.com/#home).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/#home).
 1. Search for and select *Azure Active Directory*, then select **Security** > **Authentication methods** > **Password protection**.
 1. Set the **Lockout threshold**, based on how many failed sign-ins are allowed on an account before its first lockout.
 
