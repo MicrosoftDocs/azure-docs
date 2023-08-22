@@ -24207,6 +24207,11 @@
             "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-single-page-app-vanillajs-sign-in-sign-out.md",
             "redirect_url": "/azure/active-directory/external-identities/customers/tutorial-single-page-app-vanillajs-sign-in-sign-out",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/image-builder-reliability.md",
+            "redirect_url": "/azure/reliability/reliability-image-builder.md",
+            "redirect_document_id": false
         }
 
 
