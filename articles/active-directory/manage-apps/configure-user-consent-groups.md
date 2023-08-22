@@ -11,8 +11,7 @@ ms.topic: how-to
 ms.date: 09/06/2022
 ms.author: jomondi
 ms.reviewer: phsignor, yuhko, ergreenl
-ms.custom: contperf-fy21q2, enterprise-apps
-
+ms.custom: contperf-fy21q2, enterprise-apps, has-azure-ad-ps-ref
 #customer intent: As an admin, I want to configure group owner consent to apps accessing group data using Azure AD
 ---
 
@@ -131,7 +130,7 @@ To learn more:
 * [Configure the admin consent workflow](configure-admin-consent-workflow.md)
 * [Learn how to manage consent to applications and evaluate consent requests](manage-consent-requests.md)
 * [Grant tenant-wide admin consent to an application](grant-admin-consent.md)
-* [Permissions and consent in the Microsoft identity platform](../develop/v2-permissions-and-consent.md)
+* [Permissions and consent in the Microsoft identity platform](../develop/permissions-consent-overview.md)
 
 To get help or find answers to your questions:
 

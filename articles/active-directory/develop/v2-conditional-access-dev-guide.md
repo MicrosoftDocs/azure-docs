@@ -88,7 +88,7 @@ Developers can take this challenge and append it onto a new request to Azure AD.
 
 ### Prerequisites
 
-Azure AD Conditional Access is a feature included in [Azure AD Premium](../fundamentals/active-directory-whatis.md). Customers with [Microsoft 365 Business licenses](/office365/servicedescriptions/office-365-service-descriptions-technet-library) also have access to Conditional Access features.
+Azure AD Conditional Access is a feature included in [Azure AD Premium](../fundamentals/whatis.md). Customers with [Microsoft 365 Business licenses](/office365/servicedescriptions/office-365-service-descriptions-technet-library) also have access to Conditional Access features.
 
 ### Considerations for specific scenarios
 

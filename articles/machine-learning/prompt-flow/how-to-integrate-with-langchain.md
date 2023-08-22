@@ -22,6 +22,13 @@ Prompt Flow can also be used together with the [LangChain](https://python.langch
 > Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+We introduce the following sections:
+* [Benefits of LangChain integration](#benefits-of-langchain-integration)
+* [How to convert LangChain code into flow](#how-to-convert-langchain-code-into-flow)
+    * [Prerequisites for environment and runtime](#prerequisites-for-environment-and-runtime)
+    * [Convert credentials to prompt flow connection](#convert-credentials-to-prompt-flow-connection)
+    * [LangChain code conversion to a runnable flow](#langchain-code-conversion-to-a-runnable-flow)
+
 ## Benefits of LangChain integration
 
 We consider the integration of LangChain and Prompt flow as a powerful combination that can help you to build and test your custom language models with ease, especially in the case where you may want to use LangChain modules to initially build your flow and then use our Prompt Flow to easily scale the experiments for bulk testing, evaluating then eventually deploying.
@@ -48,18 +55,22 @@ Then you can create a [Prompt flow runtime](./how-to-create-manage-runtime.md) b
 
 :::image type="content" source="./media/how-to-integrate-with-langchain/runtime-custom-env.png" alt-text="Screenshot of flows on the runtime tab with the add compute instance runtime popup. " lightbox = "./media/how-to-integrate-with-langchain/runtime-custom-env.png":::
 
-### Convert credentials to custom connection
+### Convert credentials to prompt flow connection
 
-Custom connection helps you to securely store and manage secret keys or other sensitive credentials required for interacting with LLM, rather than exposing them in environment variables hard code in your code and running on the cloud, protecting them from potential security breaches.
+When developing your LangChain code, you might have [defined environment variables to store your credentials, such as the AzureOpenAI API KEY](https://python.langchain.com/docs/integrations/llms/azure_openai_example), which is necessary for invoking the AzureOpenAI model.
 
-#### Create a custom connection
+:::image type="content" source="./media/how-to-integrate-with-langchain/langchain-env-variables.png" alt-text="Screenshot of Azure OpenAI example in LangChain. " lightbox = "./media/how-to-integrate-with-langchain/langchain-env-variables.png":::
 
-Create a custom connection that stores all your LLM API KEY or other required credentials.
+Instead of directly coding the credentials in your code and exposing them as environment variables when running LangChain code in the cloud, it is recommended to convert the credentials from environment variables into a connection in prompt flow. This allows you to securely store and manage the credentials separately from your code.
+
+#### Create a connection
+
+Create a connection that securely stores your credentials, such as your LLM API KEY or other required credentials.
 
 1. Go to Prompt flow in your workspace, then go to **connections** tab.
-2. Select **Create** and select **Custom**.
+2. Select **Create** and select a connection type to store your credentials. (Take custom connection as an example)
     :::image type="content" source="./media/how-to-integrate-with-langchain/custom-connection-1.png" alt-text="Screenshot of flows on the connections tab highlighting the custom button in the create drop-down menu. " lightbox = "./media/how-to-integrate-with-langchain/custom-connection-1.png":::
-1. In the right panel, you can define your connection name, and you can add multiple *Key-value pairs* to store your credentials and keys by selecting **Add key-value pairs**.
+3. In the right panel, you can define your connection name, and you can add multiple *Key-value pairs* to store your credentials and keys by selecting **Add key-value pairs**.
     :::image type="content" source="./media/how-to-integrate-with-langchain/custom-connection-2.png" alt-text="Screenshot of add custom connection point to the add key-value pairs button. " lightbox = "./media/how-to-integrate-with-langchain/custom-connection-2.png":::
 
 > [!NOTE]
@@ -68,11 +79,12 @@ Create a custom connection that stores all your LLM API KEY or other required cr
 
 Then this custom connection is used to replace the key and credential you explicitly defined in LangChain code, if you already have a LangChain integration Prompt flow, you can jump to​​​​​​​ [Configure connection, input and output](#configure-connection-input-and-output).
 
+
 ### LangChain code conversion to a runnable flow
 
 All LangChain code can directly run in the Python tools in your flow as long as your runtime environment contains the dependency packages, you can easily convert your LangChain code into a flow by following the steps below.
 
-#### Create a flow with Prompt tools and Python tools
+#### Convert LangChain code to flow structure
 
 > [!NOTE]
 > There are two ways to convert your LangChain code into a flow.
@@ -80,14 +92,12 @@ All LangChain code can directly run in the Python tools in your flow as long as 
 - To simplify the conversion process, you can directly initialize the LLM model for invocation in a Python node by utilizing the LangChain integrated LLM library.
 - Another approach is converting your LLM consuming from LangChain code to our LLM tools in the flow, for better further experimental management.
 
-:::image type="content" source="./media/how-to-integrate-with-langchain/code-consume-llm.png" alt-text="Screenshot of LangChain code in Prompt flow. " lightbox = "./media/how-to-integrate-with-langchain/code-consume-llm.png":::
-
 For quick conversion of LangChain code into a flow, we recommend two types of flow structures, based on the use case:
 
 || Types | Desc | Case |
 |-------| -------- | -------- | -------- |
-|**Type A**| A flow that includes both **prompt tools** and **python tools**| You can extract your prompt template from your code into a prompt node, then combine the remaining code in a single Python node or multiple Python tools. | This structure is ideal for who want to easily **tune the prompt** by running flow variants and then choose the optimal one based on evaluation results.|
-|**Type B**| A flow that includes **python tools** only| You can create a new flow with python tools only, all code including prompt definition will run in python tools.| This structure is suitable for who don't need to explicit tune the prompt in workspace, but require faster batch testing based on larger scale datasets. |
+|**Type A**| A flow that includes both **prompt nodes** and **python nodes**| You can extract your prompt template from your code into a prompt node, then combine the remaining code in a single Python node or multiple Python tools. | This structure is ideal for who want to easily **tune the prompt** by running flow variants and then choose the optimal one based on evaluation results.|
+|**Type B**| A flow that includes **python nodes** only| You can create a new flow with python nodes only, all code including prompt definition will run in python nodes.| This structure is suitable for who don't need to explicit tune the prompt in workspace, but require faster batch testing based on larger scale datasets. |
 
 For example the type A flow from the chart is like:
 
@@ -104,16 +114,31 @@ To create a flow in Azure Machine Learning, you can go to your workspace, then s
 
 #### Configure connection, input and output
 
-After you have a properly structured flow and are done moving the code to specific tools, you need to configure the input, output, and connection settings in your flow and code to replace your original definitions.
+After you have a properly structured flow and are done moving the code to specific tool nodes, you need to replace the original environment variables with the corresponding key in the connection, and configure the input and output of the flow.
 
-To utilize a [custom connection](#create-a-custom-connection) that stores all the required keys and credentials, follow these steps:
+**Configure connection**
 
-1. In the python tools, import custom connection library `from promptflow.connections import CustomConnection`, and define an input parameter of type `CustomConnection` in the tool function.
+To utilize a connection that replaces the environment variables you originally defined in LangChain code, you need to import promptflow connection library `promptflow.connections` in the python node. 
+
+For example:
+
+If you have a LangChain code that consumes the AzureOpenAI model, you can replace the environment variables with the corresponding key in the Azure OpenAI connection:
+
+Import library `from promptflow.connections import AzureOpenAIConnection`
+
+:::image type="content" source="./media/how-to-integrate-with-langchain/code-consume-aoai.png" alt-text="Screenshot of LangChain code in Prompt flow. " lightbox = "./media/how-to-integrate-with-langchain/code-consume-aoai.png":::
+
+
+For custom connection, you need to follow the steps:
+
+1. Import library `from promptflow.connections import CustomConnection`, and define an input parameter of type `CustomConnection` in the tool function.
     :::image type="content" source="./media/how-to-integrate-with-langchain/custom-connection-python-node-1.png" alt-text="Screenshot of doc search chain node highlighting the custom connection. " lightbox = "./media/how-to-integrate-with-langchain/custom-connection-python-node-1.png":::
 1. Parse the input to the input section, then select your target custom connection in the value dropdown.
     :::image type="content" source="./media/how-to-integrate-with-langchain/custom-connection-python-node-2.png" alt-text="Screenshot of the chain node highlighting the connection. " lightbox = "./media/how-to-integrate-with-langchain/custom-connection-python-node-2.png":::
 1. Replace the environment variables that originally defined the key and credential with the corresponding key added in the connection.
 1. Save and return to authoring page, and configure the connection parameter in the node input.
+
+**Configure input and output**
 
 Before running the flow, configure the **node input and output**, as well as the overall **flow input and output**. This step is crucial to ensure that all the required data is properly passed through the flow and that the desired results are obtained.
 

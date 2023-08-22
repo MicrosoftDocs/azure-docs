@@ -34,6 +34,8 @@
     items:
      - name: Backend MTLS
        href: how-to-backend-mtls-gateway-api.md
+     - name: Multiple site hosting
+       href: how-to-multiple-site-hosting-gateway-api.md
      - name: Path, header, and query string based routing
        href: how-to-path-header-query-string-routing-gateway-api.md
      - name: SSL Offloading

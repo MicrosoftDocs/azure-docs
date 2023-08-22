@@ -1,10 +1,8 @@
 ---
 title: Tutorial - Export template from the Azure portal
 description: Learn how to use an exported template to complete your template development.
-author: mumian
-ms.date: 08/17/2022
+ms.date: 07/28/2023
 ms.topic: tutorial
-ms.author: jgao
 ms.custom:
 ---
 
@@ -30,7 +28,7 @@ This template works well for deploying storage accounts, but you might want to a
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select **Create a resource**.
-1. In **Search services and Marketplace**, enter **App Service Plan**, and then select **App Service Plan**. 
+1. In **Search services and Marketplace**, enter **App Service Plan**, and then select **App Service Plan**.
 1. Select **Create**.
 1. On the **Create App Service Plan** page, enter the following:
 

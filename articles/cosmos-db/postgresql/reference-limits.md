@@ -6,7 +6,7 @@ author: niklarin
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
-ms.date: 06/07/2023
+ms.date: 08/07/2023
 ---
 
 # Azure Cosmos DB for PostgreSQL limits and limitations
@@ -16,9 +16,9 @@ ms.date: 06/07/2023
 The following section describes capacity and functional limits in the
 Azure Cosmos DB for PostgreSQL service.
 
-### Naming
+## Naming
 
-#### Cluster name
+### Cluster name
 
 A cluster must have a name that is 40 characters or
 shorter.
@@ -69,12 +69,9 @@ for various node and cluster sizes.
 
 ### Subscription vCore limits
 
-Azure enforces a vCore quota per subscription per region. There are two
-independently adjustable quotas: vCores for coordinator nodes, and vCores for
-worker nodes. The default quota should be more than enough to experiment with
-Azure Cosmos DB for PostgreSQL. If you do need more vCores for a region in your
-subscription, see how to [adjust compute
-quotas](howto-compute-quota.md).
+Azure enforces a vCore quota per subscription per region. There are three
+independently adjustable quotas: vCores for coordinator nodes, vCores for
+worker nodes, and vCores for burstable compute. The default quota should be more than enough to experiment with Azure Cosmos DB for PostgreSQL and run small to medium size production. If you do need more vCores for a region in your subscription, see how to [adjust compute quotas](./howto-compute-quota.md).
 
 ### Burstable compute
 
@@ -90,7 +87,14 @@ currently **not supported**:
 * High availability
 * The [azure_storage](howto-ingest-azure-blob-storage.md) extension
 
-## PostgreSQL
+## Authentication
+
+### Azure Active Directory authentication
+If [Azure Active Directory (Azure AD)](./concepts-authentication.md#azure-active-directory-authentication-preview) is enabled on an Azure Cosmos DB for PostgreSQL cluster, the following is currently **not supported**:
+
+* PostgreSQL 11, 12, and 13
+* PgBouncer
+* Azure AD groups
 
 ### Database creation
 

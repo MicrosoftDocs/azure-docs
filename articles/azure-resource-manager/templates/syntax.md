@@ -318,7 +318,7 @@ For inline comments, you can use either `//` or `/* ... */`. In Visual Studio Co
 
 In Visual Studio Code, the [Azure Resource Manager Tools extension](quickstart-create-templates-use-visual-studio-code.md) can automatically detect an ARM template and change the language mode. If you see **Azure Resource Manager Template** at the bottom-right corner of Visual Studio Code, you can use the inline comments. The inline comments are no longer marked as invalid.
 
-![Visual Studio Code Azure Resource Manager template mode](./media/template-syntax/resource-manager-template-editor-mode.png)
+:::image type="content" source="./media/template-syntax/resource-manager-template-editor-mode.png" alt-text="Screenshot of Visual Studio Code in Azure Resource Manager template mode.":::
 
 In Bicep, see [comments](../bicep/file.md#comments).
 
@@ -350,7 +350,7 @@ For `parameters`, add a `metadata` object with a `description` property.
 
 When deploying the template through the portal, the text you provide in the description is automatically used as a tip for that parameter.
 
-![Show parameter tip](./media/template-syntax/show-parameter-tip.png)
+:::image type="content" source="./media/template-syntax/show-parameter-tip.png" alt-text="Screenshot showing parameter tip in Azure portal.":::
 
 For `resources`, add a `comments` element or a `metadata` object. The following example shows both a `comments` element and a `metadata` object.
 

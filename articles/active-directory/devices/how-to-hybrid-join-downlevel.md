@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Enable older operating systems
 
-If some of your domain-joined devices are Windows [downlevel devices](hybrid-azuread-join-plan.md#windows-down-level-devices), you must complete the following steps to allow them to hybrid Azure AD join:
+If some of your domain-joined devices are Windows [downlevel devices](hybrid-join-plan.md#windows-down-level-devices), you must complete the following steps to allow them to hybrid Azure AD join:
 
 - Configure the local intranet settings for device registration
 - Install Microsoft Workplace Join for Windows downlevel computers

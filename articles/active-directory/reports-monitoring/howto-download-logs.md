@@ -16,7 +16,7 @@ ms.reviewer: besiler
 ms.collection: M365-identity-device-management
 ---
 
-# How to: Download logs in Azure Active Directory
+# How to download logs in Azure Active Directory
 
 The Azure Active Directory (Azure AD) portal gives you access to three types of activity logs:
 

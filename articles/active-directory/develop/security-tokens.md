@@ -73,7 +73,7 @@ Tokens issued using the implicit flow have a length limitation because they're p
 
 ## See also
 
-* [OAuth 2.0](active-directory-v2-protocols.md)
+* [OAuth 2.0](./v2-protocols.md)
 * [OpenID Connect](v2-protocols-oidc.md)
 
 ## Next steps

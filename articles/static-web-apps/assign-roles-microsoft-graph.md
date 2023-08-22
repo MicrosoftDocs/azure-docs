@@ -22,7 +22,7 @@ In this tutorial, you learn to:
 - Configure a [serverless function](authentication-custom.md#manage-roles) that queries the user's Active Directory group membership and returns a list of custom roles.
 
 > [!NOTE]
-> This tutorial requires you to [use a function to assign roles](authentication-custom.md#manage-roles). Function-based role management is currently in preview.
+> This tutorial requires you to [use a function to assign roles](authentication-custom.md#manage-roles). Function-based role management is currently in preview. The permission level required to complete this tutorial is "User.Read.All".
 
 There's a function named *GetRoles* in the app's API. This function uses the user's access token to query Active Directory from Microsoft Graph. If the user is a member of any groups defined in the app, then the corresponding custom roles are mapped to the user.
 

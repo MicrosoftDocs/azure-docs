@@ -37,7 +37,7 @@ There are two ways for applications using MSAL for Android to achieve SSO:
 - Through a [broker application](#sso-through-brokered-authentication)
 - Through the [system browser](#sso-through-system-browser)
 
-  It's recommended to use a broker application for benefits like device-wide SSO, account management, and conditional access. However, it requires your users to download additional applications.
+  It's recommended to use a broker application for benefits like device-wide SSO, account management, and Conditional Access. However, it requires your users to download additional applications.
 
 ## SSO through brokered authentication
 

@@ -36,7 +36,7 @@ Now we'll walk through each step:
    
    :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/sign-in.png" alt-text="Screenshot of the Sign-in for MyApps portal.":::
   
-1. Azure AD checks whether CBA is enabled for the tenant. If CBA is enabled, the user sees a link to **Use a certificate or smartcard** on the password page. If the user doesn't see the sign-in link, make sure CBA is enabled on the tenant. For more information, see [How do I enable Azure AD CBA?](certificate-based-authentication-faq.yml#how-can-an-administrator-enable-azure-ad-cba-).
+1. Azure AD checks whether CBA is enabled for the tenant. If CBA is enabled, the user sees a link to **Use a certificate or smartcard** on the password page. If the user doesn't see the sign-in link, make sure CBA is enabled on the tenant. For more information, see [How do I enable Azure AD CBA?](./certificate-based-authentication-faq.yml#how-can-an-administrator-enable-azure-ad-cba-).
    
    >[!NOTE]
    > If CBA is enabled on the tenant, all users will see the link to **Use a certificate or smart card** on the password page. However, only the users in scope for CBA will be able to authenticate successfully against an application that uses Azure AD as their Identity provider (IdP).
@@ -117,7 +117,7 @@ For passwordless sign-in to work, users should disable legacy notification throu
 1. Follow the steps at [Enable passwordless phone sign-in authentication](../authentication/howto-authentication-passwordless-phone.md#enable-passwordless-phone-sign-in-authentication-methods)
 
    >[!IMPORTANT]
-   >In the above configuration under step 4, please choose **Passwordless** option. Change the mode for each groups added for PSI for **Authentication mode**, choose      **Passwordless** for passwordless sign-in to work with CBA. If the admin configures "Any", the user can use either push or passwordless. If passwordless is preferred over push but still wants to allow push, admin can still choose "Any" but configure system preferred MFA or configure authentication strengths. 
+   >In the above configuration under step 4, please choose **Passwordless** option. Change the mode for each groups added for PSI for **Authentication mode**, choose **Passwordless** for passwordless sign-in to work with CBA. If the admin configures "Any", CBA + PSI will not work.
 
 1. Select **Azure Active Directory** > **Security** > **Multifactor authentication** > **Additional cloud-based multifactor authentication settings**.
 
@@ -230,7 +230,7 @@ Having both PrincipalName and SKI values from the user's certificate mapped to t
 
 ## Understanding the certificate revocation process
 
-The certificate revocation process allows the admin to revoke a previously issued certificate from being used for future authentication. The certificate revocation won't revoke already issued tokens of the user. Follow the steps to manually revoke tokens at [Configure revocation](active-directory-certificate-based-authentication-get-started.md#step-3-configure-revocation).
+The certificate revocation process allows the admin to revoke a previously issued certificate from being used for future authentication. The certificate revocation won't revoke already issued tokens of the user. Follow the steps to manually revoke tokens at [Configure revocation](./certificate-based-authentication-federation-get-started.md#step-3-configure-revocation).
 
 Azure AD downloads and caches the customers certificate revocation list (CRL) from their certificate authority to check if certificates are revoked during the authentication of the user.
 
@@ -282,7 +282,7 @@ Sign-in logs provide information about sign-ins and how your resources are used 
 
 Let's walk through two scenarios, one where the certificate satisfies single-factor authentication and another where the certificate satisfies MFA.
 
-For the test scenarios, choose a user with a conditional access policy that requires MFA. 
+For the test scenarios, choose a user with a Conditional Access policy that requires MFA. 
 Configure the user binding policy by mapping SAN Principal Name to UserPrincipalName.
 
 The user certificate should be configured like this screenshot:
@@ -392,4 +392,4 @@ For more information about how to enable **Trust multi-factor authentication fro
 - [Certificate user IDs](concept-certificate-based-authentication-certificateuserids.md)
 - [How to migrate federated users](concept-certificate-based-authentication-migration.md)
 - [FAQ](certificate-based-authentication-faq.yml)
-- [Troubleshoot Azure AD CBA](troubleshoot-certificate-based-authentication.md)
+- [Troubleshoot Azure AD CBA](./certificate-based-authentication-faq.yml)

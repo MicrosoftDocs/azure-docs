@@ -2,7 +2,7 @@
 title: Microsoft Defender for Storage - the benefits and features
 
 description: Learn about the benefits and features of Microsoft Defender for Storage.
-ms.date: 06/15/2023
+ms.date: 08/21/2023
 author: dcurwin
 ms.author: dacurwin
 ms.topic: overview
@@ -28,7 +28,7 @@ Defender for Storage includes:
 
 ## Getting started
 
-With a simple agentless setup at scale, you can [enable Defender for Storage](../storage/common/azure-defender-storage-configure.md) at the subscription or resource levels through the portal or programmatically. When enabled at the subscription level, all existing and newly created storage accounts under that subscription will be automatically protected. You can also exclude specific storage accounts from protected subscriptions.
+With a simple agentless setup at scale, you can [enable Defender for Storage](tutorial-enable-storage-plan.md) at the subscription or resource levels through the portal or programmatically. When enabled at the subscription level, all existing and newly created storage accounts under that subscription will be automatically protected. You can also exclude specific storage accounts from protected subscriptions.
 
 > [!NOTE]
 > If you already have the Defender for Storage (classic) enabled and want to access the new security features and pricing, you'll need to [migrate to the new pricing plan](defender-for-storage-classic-migrate.md).
@@ -42,7 +42,7 @@ With a simple agentless setup at scale, you can [enable Defender for Storage](..
 |Pricing:|- Defender for Storage: $10/storage accounts/month\*<br>- Malware Scanning (add-on): Free during public preview\*\* <br><br>Above pricing applies to commercial clouds. Visit the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/) to learn more.<br><br>\* Storage accounts that exceed 73 million monthly transactions will be charged $0.1492 for every 1 million transactions that exceed the threshold.<br>\*\* Malware Scanning is offered for free during the public preview but will **start being billed on September 1, 2023, at $0.15/GB (USD) of data ingested.** Customers are encouraged to use the “Monthly capping” feature to define the cap on GB scanned per month per storage account and control costs using this feature.|
 | Supported storage types:|[Blob Storage](https://azure.microsoft.com/products/storage/blobs/) (Standard/Premium StorageV2, including Data Lake Gen2): Activity monitoring, Malware Scanning, Sensitive Data Discovery<br>Azure Files (over REST API and SMB): Activity monitoring |
 |Required roles and permissions:|For Malware Scanning and sensitive data threat detection at subscription and storage account levels, you need Owner roles (subscription owner/storage account owner) or specific roles with corresponding data actions. To enable Activity Monitoring, you need 'Security Admin' permissions. Read more about the required permissions.|
-|Clouds:|:::image type="icon" source="../defender-for-cloud/media/icons/yes-icon.png"::: Commercial clouds\*<br>:::image type="icon" source="../defender-for-cloud/media/icons/no-icon.png"::: Azure Government (only activity monitoring support on the [classic plan](/azure/defender-for-cloud/defender-for-storage-classic))<br>:::image type="icon" source="../defender-for-cloud/media/icons/no-icon.png"::: Azure China 21Vianet<br>:::image type="icon" source="../defender-for-cloud/media/icons/no-icon.png"::: Connected AWS accounts|
+|Clouds:|:::image type="icon" source="../defender-for-cloud/media/icons/yes-icon.png"::: Commercial clouds\*<br>:::image type="icon" source="../defender-for-cloud/media/icons/no-icon.png"::: Azure Government (only activity monitoring support on the [classic plan](/azure/defender-for-cloud/defender-for-storage-classic))<br>:::image type="icon" source="../defender-for-cloud/media/icons/no-icon.png"::: Microsoft Azure operated by 21Vianet<br>:::image type="icon" source="../defender-for-cloud/media/icons/no-icon.png"::: Connected AWS accounts|
 
 \* Azure DNS Zone isn't supported for Malware Scanning and sensitive data threat detection.
 
@@ -124,6 +124,6 @@ In summary, Malware Scanning, which is only available on the new plan for Blob s
 
 In this article, you learned about Microsoft Defender for Storage.
 
-- [Enable Defender for Storage](enable-enhanced-security.md)
+- [Enable Defender for Storage](tutorial-enable-storage-plan.md)
 - Check out [common questions](faq-defender-for-storage.yml) about Defender for Storage.
 

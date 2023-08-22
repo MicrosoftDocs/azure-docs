@@ -21,7 +21,7 @@ This article explains how to create a new user, invite an external guest, and de
 
 The updated experience for creating new users covered in this article is available as an Azure AD preview feature. This feature is enabled by default, but you can opt out by going to **Azure AD** > **Preview features** and disabling the **Create user experience** feature. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Instructions for the legacy create user process can be found in the [Add or delete users](add-users-azure-active-directory.md) article.
+Instructions for the legacy create user process can be found in the [Add or delete users](./add-users.md) article.
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-hybrid-note.md)]
 
@@ -188,7 +188,7 @@ To delete a user, follow these steps:
 
     ![Screenshot of the All users page with a user selected and the Delete button highlighted.](media/how-to-create-delete-users/delete-existing-user.png)
 
-The user is deleted and no longer appears on the **Users - All users** page. The user can be seen on the **Deleted users** page for the next 30 days and can be restored during that time. For more information about restoring a user, see [Restore or remove a recently deleted user using Azure Active Directory](active-directory-users-restore.md).
+The user is deleted and no longer appears on the **Users - All users** page. The user can be seen on the **Deleted users** page for the next 30 days and can be restored during that time. For more information about restoring a user, see [Restore or remove a recently deleted user using Azure Active Directory](./users-restore.md).
 
 When a user is deleted, any licenses consumed by the user are made available for other users.
 

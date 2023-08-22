@@ -255,7 +255,7 @@ To learn about the other optional parameters for `AcquireTokenInteractive`, see 
 
 ### Acquire tokens via the protocol
 
-We don't recommend directly using the protocol to get tokens. If you do, then the app won't support some scenarios that involve single sign-on (SSO), device management, and conditional access.
+We don't recommend directly using the protocol to get tokens. If you do, then the app won't support some scenarios that involve single sign-on (SSO), device management, and Conditional Access.
 
 When you use the protocol to get tokens for mobile apps, make two requests:
 
