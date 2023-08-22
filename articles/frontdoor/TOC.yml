@@ -314,8 +314,8 @@
           href: standard-premium/how-to-reports.md
       - name: Integrations
         items:
-        - name: Azure Storage
-          href: afd-create-a-storage-account-with-afd.md
+        - name: Azure Storage Account
+          href: integrate-storage-account.md
     - name : Classic
       items:
       - name: Migrate to Standard or Premium tier
