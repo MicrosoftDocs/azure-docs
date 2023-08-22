@@ -6,6 +6,7 @@ author: asudbring
 ms.service: virtual-network
 ms.date: 08/21/2023
 ms.author: allensu
+ms.topic: tutorial
 ms.custom: template-tutorial
 # Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
 ---
@@ -390,7 +391,7 @@ Test routing of network traffic from **vm-public** to **vm-private**. Test routi
     tracepath vm-public
     ```
 
-The response is similar to the following example:
+    The response is similar to the following example:
 
     ```output
     azureuser@vm-private:~$ tracepath vm-public
