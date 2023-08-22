@@ -1,7 +1,7 @@
 ---
 title: "What's new in Azure Active Directory for customers"
 description: "New and updated documentation for the Azure Active Directory for customers documentation."
-ms.date: 08/01/2023
+ms.date: 08/17/2023
 ms.service: active-directory
 ms.subservice: ciam
 ms.topic: reference
@@ -61,10 +61,10 @@ Welcome to what's new in Azure Active Directory for customers documentation. Thi
 - [Add user attributes to token claims](how-to-add-attributes-to-token.md) - Added attributes to token claims: fixed steps for updating the app manifest
 - [Tutorial: Prepare a React single-page app (SPA) for authentication in a customer tenant](./tutorial-single-page-app-react-sign-in-prepare-app.md) - JavaScript tutorial edits, code sample updates and fixed SPA aligning content styling
 - [Tutorial: Add sign-in and sign-out to a React single-page app (SPA) for a customer tenant](./tutorial-single-page-app-react-sign-in-sign-out.md) - JavaScript tutorial edits and fixed SPA aligning content styling
-- [Tutorial: Handle authentication flows in a vanilla JavaScript single-page app](how-to-single-page-app-vanillajs-configure-authentication.md) - Fixed SPA aligning content styling
-- [Tutorial: Prepare a vanilla JavaScript single-page app for authentication in a customer tenant](how-to-single-page-app-vanillajs-prepare-app.md) - Fixed SPA aligning content styling
-- [Tutorial: Prepare your customer tenant to authenticate a vanilla JavaScript single-page app](how-to-single-page-app-vanillajs-prepare-tenant.md) - Fixed SPA aligning content styling
-- [Tutorial: Add sign-in and sign-out to a vanilla JavaScript single-page app for a customer tenant](how-to-single-page-app-vanillajs-sign-in-sign-out.md) - Fixed SPA aligning content styling
+- [Tutorial: Handle authentication flows in a Vanilla JavaScript single-page app](tutorial-single-page-app-vanillajs-configure-authentication.md) - Fixed SPA aligning content styling
+- [Tutorial: Prepare a Vanilla JavaScript single-page app for authentication in a customer tenant](tutorial-single-page-app-vanillajs-prepare-app.md) - Fixed SPA aligning content styling
+- [Tutorial: Prepare your customer tenant to authenticate a Vanilla JavaScript single-page app](tutorial-single-page-app-vanillajs-prepare-tenant.md) - Fixed SPA aligning content styling
+- [Tutorial: Add sign-in and sign-out to a Vanilla JavaScript single-page app for a customer tenant](tutorial-single-page-app-vanillajs-sign-in-sign-out.md) - Fixed SPA aligning content styling
 - [Tutorial: Prepare your customer tenant to authenticate users in a React single-page app (SPA)](tutorial-single-page-app-react-sign-in-prepare-tenant.md) - Fixed SPA aligning content styling
 - [Tutorial: Prepare an ASP.NET web app for authentication in a customer tenant](tutorial-web-app-dotnet-sign-in-prepare-app.md) - ASP.NET web app fixes
 - [Tutorial: Prepare your customer tenant to authenticate users in an ASP.NET web app](tutorial-web-app-dotnet-sign-in-prepare-tenant.md) - ASP.NET web app fixes

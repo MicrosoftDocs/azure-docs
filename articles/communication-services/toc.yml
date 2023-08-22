@@ -760,7 +760,7 @@ items:
         href: concepts/pstn-pricing.md
       - name: Phone number types
         href: concepts/numbers/number-types.md
-      - name: Subscription eligibility 
+      - name: Country availability 
         href: concepts/numbers/sub-eligibility-number-capability.md
       - name: Emergency calling
         href: concepts/telephony/emergency-calling-concept.md 
@@ -990,3 +990,67 @@ items:
       href: https://azure.github.io/azure-sdk-for-ios/AzureCommunicationUIChat
     - name: UI Library for Chat (Android)
       href: https://azure.github.io/azure-sdk-for-android/azure-communication-ui-chat/index.html
+  - name: Country phone number management
+    items:
+    - name: Phone number management for Australia
+      href: concepts/numbers/phone-number-management-for-australia.md
+    - name: Phone number management for Austria
+      href: concepts/numbers/phone-number-management-for-austria.md
+    - name: Phone number management for Belgium
+      href: concepts/numbers/phone-number-management-for-belgium.md
+    - name: Phone number management for Canada
+      href: concepts/numbers/phone-number-management-for-canada.md
+    - name: Phone number management for China
+      href: concepts/numbers/phone-number-management-for-china.md
+    - name: Phone number management for Denmark
+      href: concepts/numbers/phone-number-management-for-denmark.md
+    - name: Phone number management for Estonia
+      href: concepts/numbers/phone-number-management-for-estonia.md
+    - name: Phone number management for Finland
+      href: concepts/numbers/phone-number-management-for-finland.md
+    - name: Phone number management for France
+      href: concepts/numbers/phone-number-management-for-france.md
+    - name: Phone number management for Germany
+      href: concepts/numbers/phone-number-management-for-germany.md
+    - name: Phone number management for Hong Kong
+      href: concepts/numbers/phone-number-management-for-hong-kong.md
+    - name: Phone number management for Ireland
+      href: concepts/numbers/phone-number-management-for-ireland.md
+    - name: Phone number management for Israel
+      href: concepts/numbers/phone-number-management-for-israel.md
+    - name: Phone number management for Italy
+      href: concepts/numbers/phone-number-management-for-italy.md
+    - name: Phone number management for Latvia
+      href: concepts/numbers/phone-number-management-for-latvia.md
+    - name: Phone number management for Lithuania
+      href: concepts/numbers/phone-number-management-for-latvia.md      
+    - name: Phone number management for Luxembourg
+      href: concepts/numbers/phone-number-management-for-luxembourg.md
+    - name: Phone number management for Netherlands
+      href: concepts/numbers/phone-number-management-for-netherlands.md
+    - name: Phone number management for New Zealand
+      href: concepts/numbers/phone-number-management-for-new-zealand.md
+    - name: Phone number management for Norway
+      href: concepts/numbers/phone-number-management-for-norway.md
+    - name: Phone number management for Poland
+      href: concepts/numbers/phone-number-management-for-poland.md
+    - name: Phone number management for Portugal
+      href: concepts/numbers/phone-number-management-for-portugal.md
+    - name: Phone number management for Singapore
+      href: concepts/numbers/phone-number-management-for-singapore.md
+    - name: Phone number management for Slovakia
+      href: concepts/numbers/phone-number-management-for-slovakia.md
+    - name: Phone number management for Spain
+      href: concepts/numbers/phone-number-management-for-spain.md
+    - name: Phone number management for Sweden
+      href: concepts/numbers/phone-number-management-for-sweden.md
+    - name: Phone number management for Switzerland
+      href: concepts/numbers/phone-number-management-for-switzerland.md
+    - name: Phone number management for Taiwan
+      href: concepts/numbers/phone-number-management-for-taiwan.md
+    - name: Phone number management for Thailand
+      href: concepts/numbers/phone-number-management-for-thailand.md
+    - name: Phone number management for United Kingdom
+      href: concepts/numbers/phone-number-management-for-united-kingdom.md
+    - name: Phone number management for United States
+      href: concepts/numbers/phone-number-management-for-united-states.md

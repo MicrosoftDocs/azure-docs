@@ -5,7 +5,7 @@ keywords: app service, azure app service, authN, authZ, secure, security, multi-
 ms.devlang: javascript
 ms.topic: tutorial
 ms.date: 3/13/2023
-ms.custom: devx-track-js, seodec18, engagement-fy23
+ms.custom: devx-track-js, seodec18, engagement-fy23, AppServiceConnectivity
 zone_pivot_groups: app-service-platform-windows-linux
 # Requires non-internal subscription - internal subscriptions doesn't provide permission to correctly configure AAD apps
 ---

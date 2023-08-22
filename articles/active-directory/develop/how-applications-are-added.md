@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/26/2022
 ms.author: cwerner
-ms.custom: aaddev, engagement-fy23
+ms.custom: aaddev, engagement-fy23, has-azure-ad-ps-ref
 ms.reviewer: lenalepa, sureshja
 ---
 

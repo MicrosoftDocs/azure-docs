@@ -1,5 +1,5 @@
 ---
-title: Sign in with resource owner password credentials grant
+title: Microsoft identity platform and OAuth 2.0 Resource Owner Password Credentials
 description: Support browser-less authentication flows using the resource owner password credential (ROPC) grant.
 services: active-directory
 author: OwenRichards1
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/26/2022
+ms.date: 08/11/2023
 ms.author: owenrichards
 ms.reviewer: ludwignick
 ms.custom: aaddev
@@ -21,7 +21,6 @@ The Microsoft identity platform supports the [OAuth 2.0 Resource Owner Password 
 
 > [!WARNING]
 > Microsoft recommends you do _not_ use the ROPC flow. In most scenarios, more secure alternatives are available and recommended. This flow requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows aren't viable.
-
 
 > [!IMPORTANT]
 >

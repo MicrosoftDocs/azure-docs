@@ -6,7 +6,7 @@ author: kgremban
 ms.author: kgremban
 ms.service: iot-hub
 ms.topic: concept-article
-ms.date: 02/09/2023
+ms.date: 08/15/2023
 ms.custom: ['Role: Cloud Development', 'Role: Operations', 'Role: Technical Support', 'contperf-fy21q4']
 ---
 
@@ -96,7 +96,7 @@ IoT Hub enforces other operational limits:
 
 | Operation | Limit |
 | --------- | ----- |
-| Devices | The total number of devices plus modules that can be registered to a single IoT hub is capped at 1,000,000. The only way to increase this limit is to contact [Microsoft Support](https://azure.microsoft.com/support/options/).|
+| Devices | The total number of devices plus modules that can be registered to a single IoT hub is capped at 1,000,000. |
 | File uploads | 10 concurrent file uploads per device. |
 | Jobs<sup>1</sup> | Maximum concurrent jobs are 1 (for Free and S1), 5 (for S2), and 10 (for S3). However, the max concurrent [device import/export jobs](iot-hub-bulk-identity-mgmt.md) is 1 for all tiers. <br/>Job history is retained up to 30 days. |
 | Additional endpoints | Basic and standard SKU hubs may have 10 additional endpoints. Free SKU hubs may have one additional endpoint. |
