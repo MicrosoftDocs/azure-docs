@@ -560,4 +560,4 @@ If the VM is running, you will receive a message that the VM will be restarted. 
 
 ## Next steps
 
-Learn more about [trusted launch](trusted-launch.md) and [Boot integrity monitoring](trusted-launch-integrity-monitoring.md) VMs.
+Learn more about [trusted launch](trusted-launch.md) and [Boot integrity monitoring](boot-integrity-monitoring-overview.md) VMs.

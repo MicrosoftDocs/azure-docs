@@ -48,7 +48,7 @@ This section steps through using the Azure portal to enable Trusted Launch on ex
 
 :::image type="content" source="./media/trusted-launch/02-g2totl-stop-vm.png" alt-text="Screenshot of the Gen2 VM to be de-allocated":::
 
-1. On **Overview** tab in VM **Properties**, Select **Standard** under **Security type**. This will navigate to **Configuration** tab of VM.
+1. On **Overview** tab in VM **Properties**, Select **Standard** under **Security type**. This navigates to **Configuration** tab of VM.
 
 :::image type="content" source="./media/trusted-launch/03-g2totl-click-standard.png" alt-text="Screenshot of the Security type Standard":::
 
@@ -310,4 +310,4 @@ The required **Guest Attestation VM extension** is installed post which Integrit
 
 ## Next steps
 
-Learn more about [trusted launch](trusted-launch.md) and [Boot integrity monitoring](trusted-launch-integrity-monitoring.md) VMs.
+Learn more about [trusted launch](trusted-launch.md) and [Boot integrity monitoring](boot-integrity-monitoring-overview.md) VMs.
