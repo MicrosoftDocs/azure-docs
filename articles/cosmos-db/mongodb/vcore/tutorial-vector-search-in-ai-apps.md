@@ -3,7 +3,7 @@ title: Build AI apps with Azure Cosmos DB for MongoDB vCore vector search
 description: Enhance AI-powered applications with Retrieval Augmented Generation (RAG) by using vector search in Azure Cosmos DB for MongoDB vCore.
 ms.service: cosmos-db
 ms.subservice: mongodb-vcore
-ms.topic: tutorial
+ms.topic: overview
 author: sandnair
 ms.author: sandnair
 ms.reviewer: sandnair
@@ -16,7 +16,7 @@ ms.date: 08/22/2023
 
 Language models available in Azure OpenAI Service can elevate the capabilities of your AI-driven applications. To fully unleash the potential of language models, you must give them access to timely and relevant data from your application's data store. You can accomplish this process, known as Retrieval Augmented Generation (RAG), by using Azure Cosmos DB.
 
-This tutorial delves into the core concepts of RAG. It provides links to tutorials and sample code that exemplify RAG strategies by using vector search in Azure Cosmos DB for MongoDB vCore.
+This article delves into the core concepts of RAG. It provides links to tutorials and sample code that exemplify RAG strategies by using vector search in Azure Cosmos DB for MongoDB vCore.
 
 RAG elevates AI-powered applications by incorporating external knowledge and data into model inputs. With vector search in Azure Cosmos DB for MongoDB vCore, this process becomes seamless. You can use it to integrate the most pertinent information into your AI models with minimal effort.
 
