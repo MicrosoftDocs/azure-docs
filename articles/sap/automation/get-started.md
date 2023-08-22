@@ -16,6 +16,8 @@ Get started quickly with [SAP Deployment Automation Framework](deployment-framew
 
 ## Prerequisites
 
+To get started with SAP Deployment Automation Framework, you need:
+
 - An Azure subscription. If you don't have an Azure subscription, you can [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - The ability to [download the SAP software](software.md) in your Azure environment.
 - An [Azure CLI](/cli/azure/install-azure-cli) installation on your local computer.
