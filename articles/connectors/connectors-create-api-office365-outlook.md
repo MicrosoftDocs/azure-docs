@@ -1,78 +1,121 @@
 ---
 title: Connect to Office 365 Outlook
-description: Automate tasks and workflows that manage email, contacts, and calendars in Office 365 Outlook by using Azure Logic Apps.
+description: Connect to Office 365 Outlook from workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/11/2021
+ms.date: 08/23/2023
 tags: connectors
 ---
 
-# Connect to Office 365 Outlook using Azure Logic Apps
+# Connect to Office 365 Outlook from Azure Logic Apps
 
-With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the [Office 365 Outlook connector](/connectors/office365connector/), you can create automated tasks and workflows that manage your work or school account by building logic apps. For example, you can automate these tasks:
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
+
+To automate tasks for your Office 365 Outlook account in workflows using Azure Logic Apps, you can add operations from the [Office 365 Outlook connector](/connectors/office365connector/) to your workflow. For example, your workflow can perform the following tasks:
 
 * Get, send, and reply to email.
 * Schedule meetings on your calendar.
 * Add and edit contacts.
 
-You can use any trigger to start your workflow, for example, when a new email arrives, when a calendar item is updated, or when an event happens in a difference service, such as Salesforce. You can use actions that respond to the trigger event, for example, send an email or create a new calendar event.
+This guide shows how to add an Office 365 Outlook trigger or action to your workflow in Azure Logic Apps.
+
+> [!NOTE]
+>
+> The Office 365 Outlook connector works only with a [work or school account](https://support.microsoft.com/office/what-account-to-use-with-office-and-you-need-one-914e6610-2763-47ac-ab36-602a81068235#bkmk_msavsworkschool), for example, @fabrikam.onmicrosoft.com.  
+> If you have an @outlook.com or @hotmail.com account, use the [Outlook.com connector](../connectors/connectors-create-api-outlook.md). 
+> To connect to Outlook with a different user account, such as a service account, see [Connect using other accounts](#connect-using-other-accounts).
+
+## Connector technical reference
+
+For information about this connector's operations and any limits, based on the connector's Swagger file, see the [connector's reference page](/connectors/office365/).
 
 ## Prerequisites
 
-* Your Microsoft Office 365 account for Outlook where you sign in with a [work or school account](https://support.microsoft.com/office/what-account-to-use-with-office-and-you-need-one-914e6610-2763-47ac-ab36-602a81068235#bkmk_msavsworkschool).
-
-  You need these credentials so that you can authorize your workflow to access your Outlook account.
-
-  > [!NOTE]
-  > If you have an @outlook.com or @hotmail.com account, use the [Outlook.com connector](../connectors/connectors-create-api-outlook.md). 
-  > To connect to Outlook with a different user account, such as a service account, see [Connect using other accounts](#connect-using-other-accounts).
-  >
-  > If you're using [Microsoft Azure operated by 21Vianet](https://portal.azure.cn), Azure Active Directory (Azure AD) authentication 
-  > works only with an account for Microsoft Office 365 operated by 21Vianet (.cn), not .com accounts.
-
 * An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* The logic app where you want to access your Outlook account. To start your workflow with an Office 365 Outlook trigger, you need to have a blank logic app workflow. To add an Office 365 Outlook action to your workflow, your logic app workflow needs to already have a trigger.
+* Your Microsoft Office 365 account for Outlook where you sign in with a [work or school account](https://support.microsoft.com/office/what-account-to-use-with-office-and-you-need-one-914e6610-2763-47ac-ab36-602a81068235#bkmk_msavsworkschool).
 
-## Connector reference
+  > [!NOTE]
+  >
+  > If you're using [Microsoft Azure operated by 21Vianet](https://portal.azure.cn), 
+  > Azure Active Directory (Azure AD) authentication works only with an account for 
+  > Microsoft Office 365 operated by 21Vianet (.cn), not .com accounts.
 
-For technical details about this connector, such as triggers, actions, and limits, as described by the connector's Swagger file, see the [connector's reference page](/connectors/office365/).
+* The logic app workflow from where you want to access your Outlook account. To add an Office 365 Outlook trigger, you have to start with a blank workflow. To add an Office 365 Outlook action, your workflow can start with any trigger.
 
-## Add a trigger
+## Add an Office 365 Outlook trigger
 
-A [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) is an event that starts the workflow in your logic app. This example logic app uses a "polling" trigger that checks for any updated calendar event in your email account, based on the specified interval and frequency.
+Based on whether you have a Consumption or Standard logic app workflow, follow the corresponding steps:
 
-1. In the [Azure portal](https://portal.azure.com), open your blank logic app in the visual designer.
+### [Consumption](#tab/consumption)
 
-1. In the search box, enter `office 365 outlook` as your filter. This example selects **When an upcoming event is starting soon**.
+1. In the [Azure portal](https://portal.azure.com), open your blank logic app workflow in the designer.
 
-   ![Select trigger to start your logic app](./media/connectors-create-api-office365-outlook/office365-trigger.png)
+1. [Follow these general steps to add the Office 365 Outlook trigger](logic-apps/create-workflow-with-trigger-or-action?tabs=consumption#add-trigger) that you want to your workflow.
 
-1. If you don't have an active connection to your Outlook account, you're prompted to sign in and create that connection. To connect to Outlook with a different user account, such as a service account, see [Connect using other accounts](#connect-using-other-accounts). Otherwise, provide the information for the trigger's properties.
+   This example continues with the trigger named **When an upcoming event is starting soon**. This *polling* trigger regularly checks for any updated calendar event in your email account, based on the specified schedule.
+
+1. If prompted, sign in to your Office 365 Outlook account, which creates a connection. To connect with a different user account, such as a service account, see [Connect using other accounts](#connect-using-other-accounts).
 
    > [!NOTE]
+   >
    > Your connection doesn't expire until revoked, even if you change your sign-in credentials. 
    > For more information, see [Configurable token lifetimes in Azure Active Directory](../active-directory/develop/configurable-token-lifetimes.md).
 
-   This example selects the calendar that the trigger checks, for example:
+1. In the trigger information box, provide the required information, for example:
 
-   ![Configure the trigger's properties](./media/connectors-create-api-office365-outlook/select-calendar.png)
+   | Parameter | Required | Value | Description |
+   |-----------|----------|-------|-------------|
+   | **Calendar Id** | Yes | **Calendar** | The calendar to check |
+   | **Interval** | Yes | **15** | The number of intervals |
+   | **Frequency** | Yes | **Minute** | The unit of time |
 
-1. In the trigger, set the **Frequency** and **Interval** values. To add other available trigger properties, such as **Time zone**, select those properties from the **Add new parameter** list.
+   To add other available parameters, such as **Time zone**, open the **Add new parameter** list, and select the parameters that you want.
 
-   For example, if you want the trigger to check the calendar every 15 minutes, set **Frequency** to **Minute**, and set **Interval** to `15`.
+   ![Screenshot shows Azure portal, Consumption workflow, and trigger parameters.](./media/connectors-create-api-office365-outlook/calendar-settings-consumption.png)
 
-   ![Set frequency and interval for the trigger](./media/connectors-create-api-office365-outlook/calendar-settings.png)
+1. Save your workflow. On the designer toolbar, select **Save**.
 
-1. On the designer toolbar, select **Save**.
+### [Standard](#tab/standard)
+
+1. In the [Azure portal](https://portal.azure.com), open your blank logic app workflow in the designer.
+
+1. [Follow these general steps to add the Office 365 Outlook trigger](logic-apps/create-workflow-with-trigger-or-action?tabs=standard#add-trigger) that you want to your workflow.
+
+   This example continues with the trigger named **When an upcoming event is starting soon**. This *polling* trigger regularly checks for any updated calendar event in your email account, based on the specified schedule.
+
+1. If prompted, sign in to your Office 365 Outlook account, which creates a connection. To connect with a different user account, such as a service account, see [Connect using other accounts](#connect-using-other-accounts).
+
+   > [!NOTE]
+   >
+   > Your connection doesn't expire until revoked, even if you change your sign-in credentials. 
+   > For more information, see [Configurable token lifetimes in Azure Active Directory](../active-directory/develop/configurable-token-lifetimes.md).
+
+1. In the trigger information box, provide the required information, for example:
+
+   | Parameter | Required | Value | Description |
+   |-----------|----------|-------|-------------|
+   | **Calendar Id** | Yes | **Calendar** | The calendar to check |
+   | **Interval** | Yes | **15** | The number of intervals |
+   | **Frequency** | Yes | **Minute** | The unit of time |
+
+   To add other available parameters, such as **Time zone**, open the **Add new parameter** list, and select the parameters that you want.
+
+   ![Screenshot shows Azure portal, Standard workflow, and trigger parameters.](./media/connectors-create-api-office365-outlook/calendar-settings-standard.png)
+
+1. Save your workflow. On the designer toolbar, select **Save**.
+
+---
 
 Now add an action that runs after the trigger fires. For example, you can add the Twilio **Send message** action, which sends a text when a calendar event starts in 15 minutes.
 
 ## Add an action
 
 An [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) is an operation that's run by the workflow in your logic app. This example logic app creates a new contact in Office 365 Outlook. You can use the output from another trigger or action to create the contact. For example, suppose your logic app uses the Salesforce trigger, **When a record is created**. You can add the Office 365 Outlook **Create contact** action and use the outputs from the trigger to create the new contact.
+
+### [Consumption](#tab/consumption)
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app in the visual designer.
 
@@ -97,6 +140,10 @@ An [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) is an opera
    To add other available action properties, select those properties from the **Add new parameter** list.
 
 1. On the designer toolbar, select **Save**.
+
+### [Standard](#tab/standard)
+
+---
 
 <a name="connect-using-other-accounts"></a>
 
@@ -126,4 +173,3 @@ If you try connecting to Outlook by using a different account than the one curre
 
 * [Managed connectors for Azure Logic Apps](managed.md)
 * [Built-in connectors for Azure Logic Apps](built-in.md)
-* [What are connectors in Azure Logic Apps](introduction.md)
