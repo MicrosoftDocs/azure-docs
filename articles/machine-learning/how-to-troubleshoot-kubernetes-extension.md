@@ -86,7 +86,7 @@ This table shows how to troubleshoot the error codes returned by the HealthCheck
 |--|--|--|
 |E40001 | LOAD_BALANCER_NOT_SUPPORT | Load balancer isn't supported in your cluster. You need to configure the load balancer in your cluster or consider setting `inferenceRouterServiceType` to `nodePort` or `clusterIP`. |
 |E40002 | INSUFFICIENT_NODE | You have enabled `inferenceRouterHA` that requires at least three nodes in your cluster. Disable the HA if you have fewer than three nodes. |
-|E40003 | INTERNAL_LOAD_BALANCER_NOT_SUPPORT | Currently, only AKS support the internal load balancer. Don't set  `internalLoadBalancerProvider` if you don't have an AKS cluster.|
+|E40003 | INTERNAL_LOAD_BALANCER_NOT_SUPPORT | Currently, only AKS support the internal load balancer, and we only support the `azure` type. Don't set  `internalLoadBalancerProvider` if you don't have an AKS cluster. |
 |E40007 | INVALID_SSL_SETTING | The SSL key or certificate isn't valid. The CNAME should be compatible with the certificate. |
 |E45002 | PROMETHEUS_CONFLICT | The Prometheus Operator installed is conflict with your existing Prometheus Operator. For more information, see [Prometheus operator](#prometheus-operator) |
 |E45003 | BAD_NETWORK_CONNECTIVITY | You need to meet [network-requirements](./how-to-access-azureml-behind-firewall.md#scenario-use-kubernetes-compute).|
