@@ -141,8 +141,15 @@ The following are considerations for configuring access control.
 - Create dedicated Conditional Access policies for external accounts.
 
 ### Monitoring your multi-tenant environment
-- Monitor for changes to cross-tenant access policies using the audit logs UI, API, or Azure Monitor integration (for proactive alerts)
-- Monitor application access in your tenant using the "cross-tenant access activity" dashboard.
+- Monitor for changes to cross-tenant access policies using the [audit logs UI](../reports-monitoring/concept-audit-logs), [API](https://learn.microsoft.com/graph/api/resources/azure-ad-auditlog-overview?view=graph-rest-1.0), or [Azure Monitor integration](../reports-monitoring/tutorial-configure-log-analytics-workspace.md) (for proactive alerts). The audit events have the category "CrossTenantAccessSettings" and "CrossTenantIdentitySyncSettings." By monitoring for audit events for these cartegories, you can identify any cross-tenant access policy changes in your tenant and take action.  
+
+```
+AuditLogs
+| where Category contains "CrossTenant"
+```
+
+- Monitor application access in your tenant using the [cross-tenant access activity](../reports-monitoring/workbook-cross-tenant-access-activity.md) dashboard.
+
 
 ### Dynamic groups
 
