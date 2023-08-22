@@ -1,8 +1,8 @@
 ---
-title: Switch to the new previous version
+title: Switch to the new preview version
 description: Learn to switch to the new preview version and use its capabilities
 ms.topic: how-to 
-ms.date: 08/17/2023
+ms.date: 08/22/2023
 # Customer intent: As a VI admin, I want to switch to the new preview version of Arc-enabled VMware vSphere (preview) and leverage the associated capabilities
 ---
 
