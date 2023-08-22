@@ -1,6 +1,6 @@
 ---
 title: Enable Trusted Launch on existing VMs
-description: Enable Trusted Launch on existing Azure Generation 2 VMs.
+description: Enable Trusted Launch on existing Azure VMs.
 author: AjKundnani
 ms.author: ajkundna
 ms.reviewer: cynthn
@@ -11,7 +11,7 @@ ms.date: 08/13/2023
 ms.custom: template-how-to, devx-track-azurecli, devx-track-azurepowershell
 ---
 
-# Enable Trusted Launch on existing Azure Generation 2 VMs
+# Enable Trusted Launch on existing Azure VMs
 
 **Applies to:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: Generation 2 VM
 
@@ -20,7 +20,8 @@ Azure Virtual Machines supports enabling Trusted Launch on existing [Azure Gener
 [Trusted launch](trusted-launch.md) is a way to enable foundational compute security on [Azure Generation 2 VMs](generation-2.md). Trusted launch protects your Virtual Machines against advanced and persistent attack techniques like boot kits and rootkits by combining infrastructure technologies like Secure Boot, vTPM and Boot Integrity Monitoring on your VM.
 
 > [!IMPORTANT]
-> This article is applicable to existing [Azure Generation 2](generation-2.md) VMs only. Enabling Trusted Launch on existing Azure Generation 1 VMs is currently not supported.
+> - Enabling Trusted Launch on existing Azure Generation 1 VMs is currently not supported.
+> - Enabling Trusted Launch on existing Azure Virtual Machine Scale Sets (VMSS) is currently not supported.
 
 ## Prerequisites
 
@@ -43,9 +44,30 @@ Azure Virtual Machines supports enabling Trusted Launch on existing [Azure Gener
 This section steps through using the Azure portal to enable Trusted Launch on existing Azure Generation 2 VM.
 
 1. Log in to [Azure portal](https://portal.azure.com)
-1. **Deallocate** VM
-1. On **Overview** tab in VM **Properties**, Select **Standard** under **Security Type**.
-1. 
+1. Validate virtual machine generation is **V2** and **Deallocate** VM.
+
+:::image type="content" source="./media/trusted-launch/02-g2totl-stop-vm.png" alt-text="Screenshot of the Gen2 VM to be de-allocated":::
+
+1. On **Overview** tab in VM **Properties**, Select **Standard** under **Security type**. This will navigate to **Configuration** tab of VM.
+
+:::image type="content" source="./media/trusted-launch/03-g2totl-click-standard.png" alt-text="Screenshot of the Security type Standard":::
+
+1. Select drop-down **Security type** under **Security type** section of **Configuration** tab.
+
+:::image type="content" source="./media/trusted-launch/04-g2totl-select-dropdown.png" alt-text="Screenshot of the Security type drop-down.":::
+
+1. Select **Trusted Launch** under drop-down and select check-boxes to enable **Secure Boot** and **vTPM**. CLick **Save** after making required changes.
+> [!NOTE]
+> - **vTPM** is enabled by default.
+> - **Secure Boot** is disabled by default and recommended to be enabled if you are not using custom unsigned kernel or drivers. Secure Boot preserves boot integrity and enables foundational security for VM.
+
+:::image type="content" source="./media/trusted-launch/05-g2totl-select-uefi-settings.png" alt-text="Screenshot of the Secure boot and vTPM settings.":::
+
+1. Close the **Configuration** tab once the update is successfully complete and validate **Security type** under VM properties on **Overview** tab.
+
+:::image type="content" source="./media/trusted-launch/06-g2totl-validate-uefi.png" alt-text="Screenshot of the Trusted Launch upgraded VM.":::
+
+1. Start the upgraded Trusted Launch VM and ensure that it has started successfully and verify that you are able to log in to the VM using either RDP (for Windows VM) or SSH (for Linux VM).
 
 ### [CLI](#tab/cli)
 
@@ -101,7 +123,7 @@ az vm start \
     --resource-group myResourceGroup --name myVm
 ```
 
-6. Start the Azure Generation 2 VM and ensure that it has started successfully and verify that you are able to log in to the VM using either RDP (for Windows VM) or SSH (for Linux VM).
+6. Start the upgraded Trusted Launch VM and ensure that it has started successfully and verify that you are able to log in to the VM using either RDP (for Windows VM) or SSH (for Linux VM).
 
 ### [PowerShell](#tab/powershell)
 
@@ -152,7 +174,7 @@ Get-AzVM -ResourceGroupName myResourceGroup -VMName myVm `
 Start-AzVM -ResourceGroupName myResourceGroup -Name myVm
 ```
 
-6. Start the Azure Generation 2 VM and ensure that it has started successfully and verify that you are able to log in to the VM using either RDP (for Windows VM) or SSH (for Linux VM).
+6. Start the upgraded Trusted Launch VM and ensure that it has started successfully and verify that you are able to log in to the VM using either RDP (for Windows VM) or SSH (for Linux VM).
 
 ### [Template](#tab/template)
 
@@ -270,7 +292,7 @@ New-AzResourceGroupDeployment `
 
 :::image type="content" source="./media/trusted-launch/gen2-tvm-settings.png" alt-text="Screenshot of the Trusted Launch properties of the VM.":::
 
-6. Start the Azure Generation 2 VM and ensure that it has started successfully and verify that you are able to log in to the VM using either RDP (for Windows VM) or SSH (for Linux VM)
+6. Start the upgraded Trusted Launch VM and ensure that it has started successfully and verify that you are able to log in to the VM using either RDP (for Windows VM) or SSH (for Linux VM)
 
 ---
 
