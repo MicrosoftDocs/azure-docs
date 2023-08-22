@@ -15,8 +15,6 @@ ms.custom: template-tutorial
 
 Azure routes traffic between all subnets within a virtual network, by default. You can create your own routes to override Azure's default routing. Custom routes are helpful when, for example, you want to route traffic between subnets through a network virtual appliance (NVA).
 
-:::image type="content" source="./media/tutorial-create-route-table-portal/overview.png" alt-text="Diagram showing an overview of interaction of the public, private and NVA virtual machines used in this tutorial." border="true":::
-
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
@@ -57,6 +55,8 @@ A **DMZ** and **Private** subnet are needed for this tutorial. The **DMZ** subne
     | Name | Enter **subnet-private**. |
     | Subnet address range | Enter **10.0.2.0/24**. |
 
+    :::image type="content" source="./media/tutorial-create-route-table-portal/create-private-subnet.png" alt-text="Screenshot of private subnet creation in virtual network.":::
+
 1. Select **Save**.
 
 1. Select **+ Subnet**.
@@ -67,6 +67,8 @@ A **DMZ** and **Private** subnet are needed for this tutorial. The **DMZ** subne
     | ------- | ----- |
     | Name | Enter **subnet-dmz**. |
     | Subnet address range | Enter **10.0.3.0/24**. |
+
+    :::image type="content" source="./media/tutorial-create-route-table-portal/create-dmz-subnet.png" alt-text="Screenshot of DMZ subnet creation in virtual network.":::
 
 1. Select **Save**.
 
@@ -228,11 +230,15 @@ In this section, you turn on IP forwarding for the network interface of the **vm
 
 1. In **vm-nva**, select **Networking** from the **Settings** section.
 
-1. Select the name of the interface next to **Network Interface:**. The name begins with **vm-nva** and has a random number assigned to the interface. The name of the interface in this example is **vm-nva548**.
+1. Select the name of the interface next to **Network Interface:**. The name begins with **vm-nva** and has a random number assigned to the interface. The name of the interface in this example is **vm-nva124**.
+
+    :::image type="content" source="./media/tutorial-create-route-table-portal/nva-network-interface.png" alt-text="Screenshot of network interface of NVA virtual machine.":::
 
 1. In the network interface overview page, select **IP configurations** from the **Settings** section.
 
 1. In **IP configurations**, select the box next to **Enable IP forwarding**.
+
+    :::image type="content" source="./media/tutorial-create-route-table-portal/enable-ip-forwarding.png" alt-text="Screenshot of enablement of IP forwarding.":::
 
 1. Select **Apply**.
 
@@ -318,6 +324,8 @@ In this section, create a route in the route table that you created in the previ
     | Destination IP addresses/CIDR ranges | Enter **10.0.2.0/24**. |
     | Next hop type | Select **Virtual appliance**. |
     | Next hop address | Enter **10.0.3.4**. </br> **_This is the IP address you of vm-nva you created in the earlier steps._**. |
+
+    :::image type="content" source="./media/tutorial-create-route-table-portal/add-route.png" alt-text="Screenshot of route creation in route table.":::
 
 1. Select **Add**.
 
