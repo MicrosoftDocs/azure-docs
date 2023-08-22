@@ -3,7 +3,7 @@ title: Azure Kubernetes Service (AKS) backup using Azure Backup prerequisites
 description: This article explains the prerequisites for Azure Kubernetes Service (AKS) backup.
 ms.topic: conceptual
 ms.service: backup
-ms.date: 07/27/2023
+ms.date: 08/17/2023
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -30,10 +30,8 @@ Azure Backup now allows you to back up AKS clusters (cluster resources and persi
 
 - Extension agent and extension operator are the core platform components in AKS, which are installed when an extension of any type is installed for the first time in an AKS cluster. These provide capabilities to deploy *1P* and *3P* extensions. The backup extension also relies on these for installation and upgrades.
 
-- Both of these core components are deployed with aggressive hard limits on CPU and memory, with CPU *less than 0.5% of a core* and memory limit ranging from *50-200 MB*. So, the *COGS impact* of these components is very low. Because they are core platform components, there is no workaround available to remove them once installed in the cluster.
-
-
-
+  >[!Note]
+  >Both of these core components are deployed with aggressive hard limits on CPU and memory, with CPU *less than 0.5% of a core* and memory limit ranging from *50-200 MB*. So, the *COGS impact* of these components is very low. Because they are core platform components, there is no workaround available to remove them once installed in the cluster.
 
 Learn [how to manage the operation to install Backup Extension using Azure CLI](azure-kubernetes-service-cluster-manage-backups.md#backup-extension-related-operations).
 

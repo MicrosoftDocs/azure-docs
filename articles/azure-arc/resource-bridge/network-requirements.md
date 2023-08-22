@@ -46,7 +46,7 @@ In order to deploy Arc resource bridge, images need to be downloaded to the mana
 
 ## Exclusion list for no proxy
 
-The following table contains the list of addresses that must be excluded by using the `-noProxy` parameter in the `createconfig` command.
+If a proxy server is being used, the following table contains the list of addresses that should be excluded from proxy by configuring the `noProxy` settings.
 
 |      **IP Address**       |    **Reason for exclusion**    |  
 | ----------------------- | ------------------------------------ |
@@ -59,10 +59,13 @@ The following table contains the list of addresses that must be excluded by usin
 
 The default value for `noProxy` is `localhost,127.0.0.1,.svc,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16`. While these default values will work for many networks, you may need to add more subnet ranges and/or names to the exemption list. For example, you may want to exempt your enterprise namespace (.contoso.com) from being directed through the proxy. You can achieve that by specifying the values in the `noProxy` list.
 
+> [!IMPORTANT]
+> When listing multiple addresses for the noproxy settings, do not add a space after the commas to separate the addresses. The addresses must immediately follow the comma.
 ## Next steps
 
 - Review the [Azure Arc resource bridge (preview) overview](overview.md) to understand more about requirements and technical details.
 - Learn about [security configuration and considerations for Azure Arc resource bridge (preview)](security-overview.md).
+
 
 
 

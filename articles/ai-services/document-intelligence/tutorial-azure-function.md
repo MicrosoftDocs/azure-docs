@@ -231,7 +231,7 @@ Next, you'll add your own code to the Python script to call the Document Intelli
     The following code parses the returned Document Intelligence response, constructs a .csv file, and uploads it to the **output** container.
 
     > [!IMPORTANT]
-    > You will likely need to edit this code to match the structure of your own form documents.
+    > You will likely need to edit this code to match the structure of your own documents.
 
     ```python
         # The code below extracts the json format into tabular data.

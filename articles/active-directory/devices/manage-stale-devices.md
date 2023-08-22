@@ -5,6 +5,7 @@ description: Learn how to remove stale devices from your database of registered 
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
+ms.custom: has-azure-ad-ps-ref
 ms.topic: how-to
 ms.date: 09/27/2022
 
@@ -13,9 +14,8 @@ author: MicrosoftGuyJFlo
 manager: amycolannino
 ms.reviewer: spunukol
 
-#Customer intent: As an IT admin, I want to understand how I can get rid of stale devices, so that I can I can cleanup my device registration data.
-
 ms.collection: M365-identity-device-management
+#Customer intent: As an IT admin, I want to understand how I can get rid of stale devices, so that I can I can cleanup my device registration data.
 ---
 # How To: Manage stale devices in Azure AD
 
@@ -51,11 +51,11 @@ If the delta between the existing value of the activity timestamp and the curren
 
 You have two options to retrieve the value of the activity timestamp:
 
-- The **Activity** column on the [devices page](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices) in the Azure portal
+- The **Activity** column on the [devices page](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices).
 
-    :::image type="content" source="./media/manage-stale-devices/01.png" alt-text="Screenshot of a page in the Azure portal listing the name, owner, and other information on devices. One column lists the activity time stamp." border="false":::
+    :::image type="content" source="./media/manage-stale-devices/01.png" alt-text="Screenshot listing the name, owner, and other information of devices. One column lists the activity time stamp." border="false":::
 
-- The [Get-AzureADDevice](/powershell/module/azuread/Get-AzureADDevice) cmdlet
+- The [Get-AzureADDevice](/powershell/module/azuread/Get-AzureADDevice) cmdlet.
 
     :::image type="content" source="./media/manage-stale-devices/02.png" alt-text="Screenshot showing command-line output. One line is highlighted and lists a time stamp for the ApproximateLastLogonTimeStamp value." border="false":::
 
@@ -216,4 +216,4 @@ Any authentication where a device is being used to authenticate to Azure AD are 
 
 Devices managed with Intune can be retired or wiped, for more information see the article [Remove devices by using wipe, retire, or manually unenrolling the device](/mem/intune/remote-actions/devices-wipe).
 
-To get an overview of how to manage device in the Azure portal, see [managing devices using the Azure portal](manage-device-identities.md)
+To get an overview of how to manage devices, see [managing devices using the Azure portal](manage-device-identities.md)
