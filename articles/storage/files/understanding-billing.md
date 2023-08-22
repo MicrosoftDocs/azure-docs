@@ -13,7 +13,7 @@ Azure Files provides two distinct billing models: provisioned and pay-as-you-go.
 
 :::row:::
     :::column:::
-        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/m5_-GsKv4-o" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        > [!VIDEO https://www.youtube-nocookie.com/embed/m5_-GsKv4-o]
     :::column-end:::
     :::column:::
         This video is an interview that discusses the basics of the Azure Files billing model. It covers how to optimize Azure file shares to achieve the lowest costs possible, and how to compare Azure Files to other file storage offerings on-premises and in the cloud.
