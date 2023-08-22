@@ -107,7 +107,7 @@ This section describes networking services in Azure that help protect your netwo
 
 [Azure DDoS Protection](../../ddos-protection/manage-ddos-protection.md) provides countermeasures against the most sophisticated DDoS threats. The service provides enhanced DDoS mitigation capabilities for your application and resources deployed in your virtual networks. Additionally, customers using Azure DDoS Protection have access to DDoS Rapid Response support to engage DDoS experts during an active attack.
 
-:::image type="content" source="./media/networking-overview/ddos-protection.png" alt-text="DDoS Protection":::
+:::image type="content" source="./media/networking-overview/ddos-protection-overview-architecture.png" alt-text="Diagram of the reference architecture for a DDoS protected PaaS web application.":::
 
 ### <a name="privatelink"></a>Azure Private Link
 
