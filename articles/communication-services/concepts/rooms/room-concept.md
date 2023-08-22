@@ -116,9 +116,9 @@ The tables below provide detailed capabilities mapped to the roles. At a high le
 | - Set/Update video scaling mode | ✔️ | ✔️ | ✔️ <br>(Only Remote)</br> |
 | - Render remote video stream | ✔️ | ✔️ | ✔️ |
 | **Captions (Public Preview)** | | |
-| - Trigger initial processing of captions (on all unmuted speech) as a captioning feed | ✔️ | ❌ | ❌ |
-| - Toggle subscription to live captioning feed (ie. show captions for self) | ✔️ | ✔️ | ✔️ |
-| - Set (shared) spoken language of live captioning feed | ✔️ | ✔️ | ✔️ |
+| - Start captions | ✔️ | ❌ | ❌ |
+| - Toggle local captions | ✔️ | ✔️ | ✔️ |
+| - Set spoken language of live captions | ✔️ | ✔️ | ✔️ |
 
 *) Only available on the web calling SDK. Not available on iOS and Android calling SDKs
 
