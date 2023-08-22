@@ -51,7 +51,7 @@ func azure functionapp logstream <FunctionAppName>
 ```
 
 >[!NOTE] 
->Because built-in log streaming isn't yet enabled for function apps running on Linux in a Consumption plan, you need to instead enable the [Live Metrics Stream](../articles/azure-monitor/app/live-stream.md) to view the logs in near-real time. 
+>Because built-in log streaming isn't yet enabled for function apps running on Linux in a Consumption plan, you need to instead enable the [Live Metrics Stream](../azure-monitor/app/live-stream.md) to view the logs in near-real time. 
 
 Use this command to display the Live Metrics Stream in a new browser window.
 
