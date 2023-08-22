@@ -1,13 +1,7 @@
 ---
-<<<<<<< HEAD
-title: What's upcoming in Update management center
-description: Learn about what's upcoming and updates in the Update management center service.
-ms.service: update-management-center
-=======
 title: What's upcoming in Azure Update Manager (preview)
 description: Learn about what's upcoming and updates in the Update manager (preview) service.
 ms.service: azure-update-manager
->>>>>>> 506fc4ebaed28aeb4dc0dd428a72f8d0a661288f
 ms.topic: overview
 author: SnehaSudhirG
 ms.author: sudhirsneha
