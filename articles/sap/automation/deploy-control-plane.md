@@ -1,6 +1,6 @@
 ---
-title: Deploy the control plane for SAP on the Azure Deployment Automation Framework
-description: Overview of the control plane deployment process in the SAP on Azure Deployment Automation Framework.
+title: Deploy the control plane for SAP Deployment Automation Framework
+description: Overview of the control plane deployment process in SAP Deployment Automation Framework.
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
@@ -13,7 +13,7 @@ ms.custom: devx-track-azurecli
 
 # Deploy the control plane
 
-The control plane deployment for [SAP on the Azure Deployment Automation Framework](deployment-framework.md) consists of the:
+The control plane deployment for [SAP Deployment Automation Framework](deployment-framework.md) consists of the:
 
 - Deployer
 - SAP library
@@ -22,7 +22,7 @@ The control plane deployment for [SAP on the Azure Deployment Automation Framewo
 
 ## Prepare the deployment credentials
 
-SAP on the Azure Deployment Automation Framework uses service principals for deployments. To create a service principal for the control plane deployment, use an account that has permissions to create service principals:
+SAP Deployment Automation Framework uses service principals for deployments. To create a service principal for the control plane deployment, use an account that has permissions to create service principals:
 
 ```azurecli
 az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscriptionID>" --name="<environment>-Deployment-Account"
@@ -107,7 +107,7 @@ Run the following command to create the deployer and the SAP library. The comman
 
 # [Linux](#tab/linux)
 
-You can copy the sample configuration files to start testing the Azure Deployment Automation Framework.
+You can copy the sample configuration files to start testing the deployment automation framework.
 
 Run the following command to deploy the control plane:
 

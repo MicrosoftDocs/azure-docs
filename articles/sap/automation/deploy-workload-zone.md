@@ -1,6 +1,6 @@
 ---
 title: About workload zone deployment in automation framework
-description: Overview of the SAP workload zone deployment process within the SAP on Azure Deployment Automation Framework.
+description: Overview of the SAP workload zone deployment process within SAP Deployment Automation Framework.
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
@@ -12,7 +12,7 @@ ms.subservice: sap-automation
 
 # Workload zone deployment in the SAP automation framework
 
-An [SAP application](deployment-framework.md#sap-concepts) typically has multiple development tiers. For example, you might have development, quality assurance, and production tiers. The [SAP on Azure Deployment Automation Framework](deployment-framework.md) calls these tiers [workload zones](deployment-framework.md#deployment-components).
+An [SAP application](deployment-framework.md#sap-concepts) typically has multiple development tiers. For example, you might have development, quality assurance, and production tiers. [SAP Deployment Automation Framework](deployment-framework.md) calls these tiers [workload zones](deployment-framework.md#deployment-components).
 
 You can use workload zones in multiple Azure regions. Each workload zone then has its own instance of Azure Virtual Network.
 
@@ -64,7 +64,7 @@ automation_username="azureadm"
 
 ## Prepare the workload zone deployment credentials
 
-The SAP on Azure Deployment Automation Framework uses service principals when doing the deployment. To create the service principal for the workload zone deployment, use an account with permissions to create service principals.
+SAP Deployment Automation Framework uses service principals when doing the deployment. To create the service principal for the workload zone deployment, use an account with permissions to create service principals.
 
 ```azurecli-interactive
 az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscriptionID>" --name="<environment>-Deployment-Account"

@@ -1,6 +1,6 @@
 ---
-title: About SAP on Azure Deployment Automation Framework
-description: Overview of the framework and tooling for the SAP on Azure Deployment Automation Framework.
+title: About SAP Deployment Automation Framework
+description: Overview of the framework and tooling for SAP Deployment Automation Framework.
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
@@ -9,9 +9,9 @@ ms.service: sap-on-azure
 ms.subservice: sap-automation
 ms.topic: conceptual
 ---
-# SAP on Azure Deployment Automation Framework
+# SAP Deployment Automation Framework
 
-The [SAP on Azure Deployment Automation Framework](https://github.com/Azure/sap-automation) is an open-source orchestration tool that's used to deploy, install, and maintain SAP environments. You can create infrastructure for SAP landscapes based on SAP HANA and NetWeaver with AnyDB by using [Terraform](https://www.terraform.io/) and [Ansible](https://www.ansible.com/) for the operating system and application configuration. You can deploy the systems on any of the SAP-supported operating system versions and into any Azure region.
+[SAP Deployment Automation Framework](https://github.com/Azure/sap-automation) is an open-source orchestration tool that's used to deploy, install, and maintain SAP environments. You can create infrastructure for SAP landscapes based on SAP HANA and NetWeaver with AnyDB by using [Terraform](https://www.terraform.io/) and [Ansible](https://www.ansible.com/) for the operating system and application configuration. You can deploy the systems on any of the SAP-supported operating system versions and into any Azure region.
 
 [Terraform](https://www.terraform.io/) from Hashicorp is an open-source tool for provisioning and managing cloud infrastructure.
 
@@ -22,7 +22,7 @@ The [automation framework](https://github.com/Azure/sap-automation) has two main
 - Deployment infrastructure (control plane and hub component)
 - SAP infrastructure (SAP workload and spoke component)
 
-You use the control plane of the SAP on Azure Deployment Automation Framework to deploy the SAP infrastructure and the SAP application. The deployment uses Terraform templates to create the [infrastructure as a service (IaaS)](https://azure.microsoft.com/overview/what-is-iaas)-defined infrastructure to host the SAP applications.
+You use the control plane of SAP Deployment Automation Framework to deploy the SAP infrastructure and the SAP application. The deployment uses Terraform templates to create the [infrastructure as a service (IaaS)](https://azure.microsoft.com/overview/what-is-iaas)-defined infrastructure to host the SAP applications.
 
 > [!NOTE]
 > This automation framework is based on Microsoft best practices and principles for SAP on Azure. To understand how to use certified virtual machines (VMs) and storage solutions for stability, reliability, and performance, see [Get started with SAP automation framework on Azure](get-started.md).
@@ -37,7 +37,7 @@ You can use the automation framework to deploy the following SAP architectures:
 
 The dependency between the control plane and the application plane is illustrated in the following diagram. In a typical deployment, a single control plane is used to manage multiple SAP deployments.
 
-:::image type="content" source="./media/deployment-framework/control-plane-sap-infrastructure.png" alt-text="Diagram that shows the dependency between the control plane and the application plane for the SAP on Azure Deployment Automation Framework.":::
+:::image type="content" source="./media/deployment-framework/control-plane-sap-infrastructure.png" alt-text="Diagram that shows the dependency between the control plane and the application plane for SAP Deployment Automation Framework.":::
 
 ## About the control plane
 
@@ -58,7 +58,7 @@ The control plane is typically a regional resource deployed into the hub subscri
 
 The following diagram shows the key components of the control plane and the workload zone.
 
-:::image type="content" source="./media/deployment-framework/automation-diagram-full.png" alt-text="Diagram that shows the SAP on Azure Deployment Automation Framework environment.":::
+:::image type="content" source="./media/deployment-framework/automation-diagram-full.png" alt-text="Diagram that shows the SAP Deployment Automation Framework environment.":::
 
 The application configuration is performed from the deployment agents in the control plane by using a set of predefined playbooks. These playbooks will:
 

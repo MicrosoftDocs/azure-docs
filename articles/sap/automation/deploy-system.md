@@ -1,6 +1,6 @@
 ---
 title: SAP system deployment for the automation framework
-description: Overview of the SAP system deployment process in SAP on the Azure Deployment Automation Framework.
+description: Overview of the SAP system deployment process in SAP Deployment Automation Framework.
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
@@ -12,7 +12,7 @@ ms.subservice: sap-automation
 
 # SAP system deployment for the automation framework
 
-The creation of the [SAP system](deployment-framework.md#sap-concepts) is part of the [SAP on Azure Deployment Automation Framework](deployment-framework.md) process. The SAP system creates your virtual machines (VMs) and supporting components for your [SAP application](deployment-framework.md#sap-concepts).
+The creation of the [SAP system](deployment-framework.md#sap-concepts) is part of the [SAP Deployment Automation Framework](deployment-framework.md) process. The SAP system deployment creates your virtual machines (VMs) and supporting components for your [SAP application](deployment-framework.md#sap-concepts).
 
 The SAP system deploys:
 

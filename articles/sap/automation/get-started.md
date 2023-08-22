@@ -1,6 +1,6 @@
 ---
-title: Get started with the SAP on Azure Deployment Automation Framework
-description: Quickly get started with the SAP on Azure Deployment Automation Framework. Deploy an example configuration by using sample parameter files.
+title: Get started with SAP Deployment Automation Framework
+description: Quickly get started with SAP Deployment Automation Framework. Deploy an example configuration by using sample parameter files.
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
@@ -10,9 +10,9 @@ ms.service: sap-on-azure
 ms.subservice: sap-automation
 ---
 
-# Get started with the SAP on Azure Deployment Automation Framework
+# Get started with SAP Deployment Automation Framework
 
-Get started quickly with the [SAP on Azure Deployment Automation Framework](deployment-framework.md).
+Get started quickly with [SAP Deployment Automation Framework](deployment-framework.md).
 
 ## Prerequisites
 
@@ -25,7 +25,7 @@ Get started quickly with the [SAP on Azure Deployment Automation Framework](depl
 
 Some of the prerequisites might already be installed in your deployment environment. Both Azure Cloud Shell and the deployer have Terraform and the Azure CLI installed.
 
-## Use the SAP on Azure Deployment Automation Framework from Azure DevOps Services
+## Use SAP Deployment Automation Framework from Azure DevOps Services
 
 Using Azure DevOps streamlines the deployment process. Azure DevOps provides pipelines that you can run to perform the infrastructure deployment and the configuration and SAP installation activities.
 
@@ -35,11 +35,11 @@ You can use Azure Repos to store your configuration files. Use Azure Pipelines t
 
 To use Azure DevOps Services, you need an Azure DevOps organization. An organization is used to connect groups of related projects. Use your work or school account to automatically connect your organization to your Azure Active Directory. To create an account, open [Azure DevOps](https://azure.microsoft.com/services/devops/) and either sign in or create a new account.
 
-To configure Azure DevOps for the SAP on Azure Deployment Automation Framework, see [Configure Azure DevOps for SDAF](configure-devops.md).
+To configure Azure DevOps for SAP Deployment Automation Framework, see [Configure Azure DevOps for SDAF](configure-devops.md).
 
-## Create the SAP on Azure Deployment Automation Framework environment without Azure DevOps
+## Create the SAP Deployment Automation Framework environment without Azure DevOps
 
-You can run the SAP on Azure Deployment Automation Framework from a virtual machine in Azure. The following steps describe how to create the environment.
+You can run SAP Deployment Automation Framework from a virtual machine in Azure. The following steps describe how to create the environment.
 
 > [!IMPORTANT]
 > Ensure that the virtual machine is using either a system-assigned or user-assigned identity with permissions on the subscription to create resources.
