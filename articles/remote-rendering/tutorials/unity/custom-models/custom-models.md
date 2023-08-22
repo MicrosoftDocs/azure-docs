@@ -27,20 +27,20 @@ In this tutorial, you learn how to:
 
 The Mixed Reality Toolkit (MRTK) is a cross-platform toolkit for building mixed reality experiences. We use MRTK 2.8.3 for its interaction and visualization features.
 
-The [official guide](https://learn.microsoft.com/training/modules/learn-mrtk-tutorials/1-5-exercise-configure-resources?tabs=openxr) to import MRTK contains some steps we don't need to do. Only these three steps are necessary:
- - Importing the 'Mixed Reality Toolkit/Mixed Reality Toolkit Foundation' version 2.8.3 to your project through the Mixed Reality Feature Tool ([see](https://learn.microsoft.com/training/modules/learn-mrtk-tutorials/1-5-exercise-configure-resources?tabs=openxr#import-the-mrtk-unity-foundation-package)).
- - Run the configuration wizard of MRTK ([see](https://learn.microsoft.com/training/modules/learn-mrtk-tutorials/1-5-exercise-configure-resources?tabs=openxr#configure-the-unity-project)).
- - Add MRTK to the current scene ([see](https://learn.microsoft.com/training/modules/learn-mrtk-tutorials/1-5-exercise-configure-resources?tabs=openxr#create-the-scene-and-configure-mrtk)). Use the *ARRMixedRealityToolkitConfigurationProfile* here instead of the suggested profile in the tutorial.
+The [official guide](../../../../../../training/modules/learn-mrtk-tutorials/1-5-exercise-configure-resources?tabs=openxr) to import MRTK contains some steps we don't need to do. Only these three steps are necessary:
+ - Importing the 'Mixed Reality Toolkit/Mixed Reality Toolkit Foundation' version 2.8.3 to your project through the Mixed Reality Feature Tool ([see](../../../../../../training/modules/learn-mrtk-tutorials/1-5-exercise-configure-resources?tabs=openxr#import-the-mrtk-unity-foundation-package)).
+ - Run the configuration wizard of MRTK ([see](../../../../../../training/modules/learn-mrtk-tutorials/1-5-exercise-configure-resources?tabs=openxr#configure-the-unity-project)).
+ - Add MRTK to the current scene ([see](../../../../../../training/modules/learn-mrtk-tutorials/1-5-exercise-configure-resources?tabs=openxr#create-the-scene-and-configure-mrtk)). Use the *ARRMixedRealityToolkitConfigurationProfile* here instead of the suggested profile in the tutorial.
 
 ## Import assets used by this tutorial
 
 Starting in this chapter, we'll implement a basic [model-view-controller pattern](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller) for much of the material covered. The *model* part of the pattern is the Azure Remote Rendering specific code and the state management related to Azure Remote Rendering. The *view* and *controller* parts of the pattern are implemented using MRTK assets and some custom scripts. It's possible to use the *model* in this tutorial without the *view-controller* implemented here. This separation allows you to easily integrate the code found in this tutorial into your own application where it takes over the *view-controller* part of the design pattern.
 
-With the introduction of MRTK, there are many scripts, prefabs, and assets that can now be added to the project to support interactions and visual feedback. These assets referred to as the **Tutorial Assets**, are bundled into a [Unity Asset Package](https://docs.unity3d.com/Manual/AssetPackages.html), which is included in the [Azure Remote Rendering GitHub](https://github.com/Azure/azure-remote-rendering) in '\Unity\TutorialAssets\TutorialAssets.unitypackage'.
+With the introduction of MRTK, there are multiple scripts, prefabs, and assets that can now be added to the project to support interactions and visual feedback. These assets referred to as the **Tutorial Assets**, are bundled into a [Unity Asset Package](https://docs.unity3d.com/Manual/AssetPackages.html), which is included in the [Azure Remote Rendering GitHub](https://github.com/Azure/azure-remote-rendering) in '\Unity\TutorialAssets\TutorialAssets.unitypackage'.
 
 1. Clone or download the git repository [Azure Remote Rendering](https://github.com/Azure/azure-remote-rendering), if downloading extract the zip to a known location.
 2. In your Unity project, choose *Assets -> Import Package -> Custom Package*.
-3. In the file explorer, navigate to the directory where you cloned or unzipped the Azure Remote Rendering repository, then select the *.unitypackage* found in **Unity -> TutorialAssets -> TutorialAssets.unitypackage**
+3. In the file explorer, navigate to the directory where you cloned or unzipped the Azure Remote Rendering repository, then select the `.unitypackage` found in **Unity -> TutorialAssets -> TutorialAssets.unitypackage**
 4. Select the **Import** button to import the contents of the package into your project.
 5. In the Unity Editor, select *Mixed Reality Toolkit -> Utilities -> Upgrade MRTK Standard Shader for Lightweight Render Pipeline* from the top menu bar and follow the prompts to upgrade the shader.
 
@@ -50,7 +50,7 @@ Once MRTK and the Tutorial Assets double check, that the correct profile is sele
 1. In the Inspector, under the **MixedRealityToolkit** component, switch the configuration profile to *ARRMixedRealityToolkitConfigurationProfile*.
 1. Press *Ctrl+S* to save your changes.
 
-This configures MRTK, primarily, with the default HoloLens 2 profiles. The provided profiles are preconfigured in the following ways:
+This step configures MRTK, primarily, with the default HoloLens 2 profiles. The provided profiles are preconfigured in the following ways:
  - Turn off the profiler (Press 9 to toggle it on/off, or say "Show/Hide Profiler" on device).
  - Turn off the eye gaze cursor.
  - Enable Unity mouse clicks, so you can click MRTK UI elements with the mouse instead of the simulated hand.
@@ -245,11 +245,11 @@ Notice that the **RemoteRenderedModel** script implements **BaseRemoteRenderedMo
     }
     ```
 
-In the most basic terms, **RemoteRenderedModel** holds the data needed to load a model (in this case the SAS or *builtin://* URI) and tracks the remote model state. When it's time to load model, the `LoadModel` method is called on **RemoteRenderingCoordinator**, and the Entity containing the model is returned for reference and unloading.
+In the most basic terms, **RemoteRenderedModel** holds the data needed to load a model (in this case the SAS or *builtin://* URI) and tracks the remote model state. When it's time to load the model, the `LoadModel` method is called on **RemoteRenderingCoordinator**, and the Entity containing the model is returned for reference and unloading.
 
 ## Load the Test Model
 
-Let's test the new script by loading the test model again. For this, we need a Game Object to contain the script and be a parent to the test model, and we also need a virtual stage that contains the model. The stage stays fixed relative to the real world using a [WorldAnchor](/windows/mixed-reality/develop/unity/spatial-anchors-in-unity?tabs=worldanchor). We use a fixed stage so that the model itself can still be moved around later on.
+Let's test the new script by loading the test model again. For this test, we need a Game Object to contain the script and be a parent to the test model, and we also need a virtual stage that contains the model. The stage stays fixed relative to the real world using a [WorldAnchor](/windows/mixed-reality/develop/unity/spatial-anchors-in-unity?tabs=worldanchor). We use a fixed stage so that the model itself can still be moved around later on.
 
 1. Create a new empty Game Object in the scene and name it **ModelStage**.
 2. Add a World Anchor component to **ModelStage**
