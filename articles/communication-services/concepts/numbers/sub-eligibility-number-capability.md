@@ -41,6 +41,7 @@ Numbers can be purchased on eligible Azure subscriptions and in geographies wher
 > - [Netherlands](../numbers/phone-number-management-for-netherlands.md)
 > - [New Zealand](../numbers/phone-number-management-for-new-zealand.md)
 > - [Norway](../numbers/phone-number-management-for-norway.md)
+> - [Philippines](../numbers/phone-number-management-for-philippines.md)
 > - [Poland](../numbers/phone-number-management-for-poland.md)
 > - [Portugal](../numbers/phone-number-management-for-portugal.md)
 > - [Singapore](../numbers/phone-number-management-for-singapore.md)
