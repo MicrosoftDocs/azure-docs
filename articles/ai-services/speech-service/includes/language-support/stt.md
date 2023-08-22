@@ -38,7 +38,7 @@ ms.author: eur
 | `cy-GB` | Welsh (United Kingdom) | Plain text |
 | `da-DK` | Danish (Denmark) | Audio + human-labeled transcript<br/><br/>Plain text<br/><br/>Pronunciation |
 | `de-AT` | German (Austria) | Audio + human-labeled transcript<br/><br/>Plain text<br/><br/>Structured text<br/><br/>Pronunciation |
-| `de-CH` | German (Switzerland) | Audio + human-labeled transcript<br/><br/>Plain text<br/><br/>Pronunciation |
+| `de-CH` | German (Switzerland) | Plain text<br/><br/>Pronunciation |
 | `de-DE` | German (Germany) | Audio + human-labeled transcript<br/><br/>Plain text<br/><br/>Structured text<br/><br/>Pronunciation<br/><br/>Phrase list |
 | `el-GR` | Greek (Greece) | Plain text |
 | `en-AU` | English (Australia) | Audio + human-labeled transcript<br/><br/>Audio<br/><br/>Plain text<br/><br/>Structured text<br/><br/>Pronunciation<br/><br/>Phrase list |
@@ -120,7 +120,7 @@ ms.author: eur
 | `ne-NP` | Nepali (Nepal) | Plain text |
 | `nl-BE` | Dutch (Belgium) | Plain text |
 | `nl-NL` | Dutch (Netherlands) | Audio + human-labeled transcript<br/><br/>Plain text<br/><br/>Pronunciation |
-| `pa-IN` | Punjabi (India) | |
+| `pa-IN` | Punjabi (India) | Audio + human-labeled transcript |
 | `pl-PL` | Polish (Poland) | Audio + human-labeled transcript<br/><br/>Plain text<br/><br/>Pronunciation |
 | `ps-AF` | Pashto (Afghanistan) | Plain text |
 | `pt-BR` | Portuguese (Brazil) | Audio + human-labeled transcript<br/><br/>Plain text<br/><br/>Structured text<br/><br/>Pronunciation<br/><br/>Phrase list |
@@ -141,7 +141,7 @@ ms.author: eur
 | `th-TH` | Thai (Thailand) | Audio + human-labeled transcript<br/><br/>Plain text |
 | `tr-TR` | Turkish (Turkey) | Audio + human-labeled transcript<br/><br/>Plain text<br/><br/>Structured text |
 | `uk-UA` | Ukrainian (Ukraine) | Plain text |
-| `ur-IN` | Urdu (India) | |
+| `ur-IN` | Urdu (India) | Audio + human-labeled transcript |
 | `uz-UZ` | Uzbek (Latin, Uzbekistan) | Plain text |
 | `vi-VN` | Vietnamese (Vietnam) | Audio + human-labeled transcript<br/><br/>Plain text |
 | `wuu-CN` | Chinese (Wu, Simplified) | Audio + human-labeled transcript<br/><br/>Plain text |

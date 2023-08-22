@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/19/2023
+ms.date: 08/16/2023
 ms.author: jeedes
 ---
 # Tutorial: Azure AD SSO integration with Hornbill
@@ -76,15 +76,26 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 4. On the **Basic SAML Configuration** section, perform the following steps:
 
 	a. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
-    `https://sso.hornbill.com/<INSTANCE_NAME>/<SUBDOMAIN>`
-
-	b. In the **Sign on URL** text box, type a URL using the following pattern:
-    `https://<SUBDOMAIN>.hornbill.com/<INSTANCE_NAME>/`
+`https://sso.hornbill.com/<INSTANCE_NAME>/live`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier and Sign on URL. Contact [Hornbill Client support team](https://www.hornbill.com/support/?request/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> If you are deploying the Hornbill Mobile Catalog to your organization, you will need to add an additional identifier URL, as so:
+`https://sso.hornbill.com/hornbill/mcatalog`
+    
+	b. In the **Reply URL (Assertion Consumer Service URL)** section, add the following:
+`https://<API_SUBDOMAIN>.hornbill.com/<INSTANCE_NAME>/xmlmc/sso/saml2/authorize/user/live`
 
-5. On the **Set up Single Sign-On with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
+	> [!NOTE]
+	> If you are deploying the Hornbill Mobile Catalog to your organization, you will need to add an additional Reply URL, as so:
+`https://<API_SUBDOMAIN>.hornbill.com/hornbill/xmlmc/sso/saml2/authorize/user/mcatalog`
+   
+	c. In the **Sign on URL** text box, type a URL using the following pattern:
+`https://live.hornbill.com/<INSTANCE_NAME>/`
+
+	> [!NOTE]
+	> These values are not real. Update the <INSTANCE_NAME> and <API_SUBDOMAIN> values with the actual values in the Identifier(s), Reply URL(s) and Sign on URL. These values can be retrieved from the Hornbill Solution Center in your Hornbill instance, under **_Your usage > Support_**.  Contact [Hornbill Support](https://www.hornbill.com/support) for assistance in getting these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+
+6. On the **Set up Single Sign-On with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
 	![The Certificate download link](common/copy-metadataurl.png)
 
