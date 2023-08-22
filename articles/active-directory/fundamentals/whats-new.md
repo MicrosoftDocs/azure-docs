@@ -32,6 +32,92 @@ Azure AD receives improvements on an ongoing basis. To stay up to date with the 
 This page updates monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [Archive for What's new in Azure Active Directory](whats-new-archive.md).
 
 
+## August 2023
+
+### General Availability - Tenant Restrictions V2
+
+**Type:** New feature         
+**Service category:** Authentications (Logins)                              
+**Product capability:** Identity Security & Protection                    
+
+**Tenant Restrictions V2 (TRv2)** is now generally available for authentication plane via proxy.  
+
+TRv2 allows organizations to enable safe and productive cross-company collaboration while containing data exfiltration risk. With TRv2, you can control what external tenants your users can access from your devices or network using externally issued identities and provide granular access control on a per org, user, group, and application basis.    
+
+TRv2 uses the cross-tenant access policy and offers both authentication and data plane protection. It enforces policies during user authentication, and on data plane access with Exchange Online, SharePoint Online, Teams, and MSGraph.  While the data plane support with Windows GPO and Global Secure Access is still in public preview, authentication plane support with proxy is now generally available. 
+
+Visit https://aka.ms/tenant-restrictions-enforcement for more information on tenant restriction V2 and Global Secure Access client-side tagging for TRv2 at [Universal tenant restrictions](/azure/global-secure-access/how-to-universal-tenant-restrictions).   
+
+---
+
+### Public Preview - Cross-tenant access settings supports custom RBAC roles
+
+**Type:** New feature         
+**Service category:** B2B                               
+**Product capability:** B2B/B2C                    
+
+Cross-tenant access settings can be managed with custom roles defined by your organization. This enables you to define your own finely-scoped roles to manage cross-tenant access settings instead of using one of the built-in roles for management. Your organization can define custom roles to manage cross-tenant access settings. This allows you to create your own finely-scoped roles to manage cross-tenant access settings instead of using built-in roles for management. [Learn more about creating your own custom roles](../external-identities/cross-tenant-access-overview.md#custom-roles-for-managing-cross-tenant-access-settings).
+
+---
+
+### Public Preview - Setting for guest losing access
+
+**Type:** Changed feature          
+**Service category:** Entitlement Management                             
+**Product capability:** Entitlement Management                    
+
+An administrator can configure that when a guest brought in through entitlement management has lost their last access package assignment, they're deleted after a specified number of days. For more information, see: [Govern access for external users in entitlement management](../governance/entitlement-management-external-users.md).
+
+---
+
+### Public Preview - Real-Time Strict Location Enforcement
+
+**Type:** New feature         
+**Service category:** Continuous Access Evaluation                              
+**Product capability:** Access Control                    
+
+Strictly enforce Conditional Access policies in real-time using Continuous Access Evaluation.  Enable services like Microsoft Graph, Exchange Online, and SharePoint Online to block access requests from disallowed locations as part of a layered defense against token replay and other unauthorized access. For more information, see blog: [Public Preview: Strictly Enforce Location Policies with Continuous Access Evaluation](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/public-preview-strictly-enforce-location-policies-with/ba-p/3773133) and documentation:
+[Strictly enforce location policies using continuous access evaluation (preview)](../conditional-access/concept-continuous-access-evaluation-strict-enforcement.md).
+
+---
+
+### Public Preview - New provisioning connectors in the Azure AD Application Gallery - August 2023
+
+**Type:** New feature   
+**Service category:** App Provisioning               
+**Product capability:** 3rd Party Integration    
+      
+
+We've added the following new applications in our App gallery with Provisioning support. You can now automate creating, updating, and deleting of user accounts for these newly integrated apps:
+
+- [Airbase](../saas-apps/airbase-provisioning-tutorial.md)
+- [Airtable](../saas-apps/airtable-provisioning-tutorial.md)
+- [Cleanmail Swiss](../saas-apps/cleanmail-swiss-provisioning-tutorial.md)
+- [Informacast](../saas-apps/informacast-provisioning-tutorial.md)
+- [Kintone](../saas-apps/kintone-provisioning-tutorial.md)
+- [O'reilly learning platform](../saas-apps/oreilly-learning-platform-provisioning-tutorial.md)
+- [Tailscale](../saas-apps/tailscale-provisioning-tutorial.md)
+- [Tanium SSO](../saas-apps/tanium-sso-provisioning-tutorial.md)
+- [Vbrick Rev Cloud](../saas-apps/vbrick-rev-cloud-provisioning-tutorial.md)
+- [Xledger](../saas-apps/xledger-provisioning-tutorial.md)
+
+
+For more information about how to better secure your organization by using automated user account provisioning, see: [Automate user provisioning to SaaS applications with Azure AD](../app-provisioning/user-provisioning.md).
+
+
+---
+
+### General Availability - Continuous Access Evaluation for Workload Identities available in Public and Gov clouds
+
+**Type:** New feature         
+**Service category:** Continuous Access Evaluation                              
+**Product capability:** Identity Security & Protection                    
+
+Real-time enforcement of risk events, revocation events, and Conditional Access location policies is now generally available for workload identities.
+Service principals on line of business (LOB) applications are now protected on access requests to Microsoft Graph. For more information, see: [Continuous access evaluation for workload identities (preview)](../conditional-access/concept-continuous-access-evaluation-workload.md).
+
+---
+
 ## July 2023
 
 ### General Availability: Azure Active Directory (Azure AD) is being renamed.
