@@ -86,7 +86,7 @@ Next, create an environment for your container app.
 
 ::: zone-end
 
-1. Select the **Next: Container** button at the bottom of the page.
+2. Select the **Next: Container** button at the bottom of the page.
 
 1. In the *Container* tab, enter the following values:
 
