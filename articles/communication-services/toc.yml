@@ -1026,6 +1026,8 @@ items:
       href: concepts/numbers/phone-number-management-for-latvia.md      
     - name: Phone number management for Luxembourg
       href: concepts/numbers/phone-number-management-for-luxembourg.md
+    - name: Phone number management for Malaysia
+      href: concepts/numbers/phone-number-management-for-malaysia.md
     - name: Phone number management for Netherlands
       href: concepts/numbers/phone-number-management-for-netherlands.md
     - name: Phone number management for New Zealand
