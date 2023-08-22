@@ -6,8 +6,8 @@ services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: quickstart
-ms.date: 08/19/2023
-ms.author: duau, hmb
+ms.date: 08/22/2023
+ms.author: duau
 ms.custom: mvc, mode-other
 ---
 
@@ -124,5 +124,5 @@ In the preceding steps, you created an Azure Front Door profile and an endpoint 
 ## Next steps
 
 * Learn how to use [Azure Front Door with Azure Storage blobs](scenario-storage-blobs.md)
-* Learn how to [enable Azure Front Door Private Link with Azure Blob Storage](how-to-enable-private-link-storage-account.md)
+* Learn how to [enable Azure Front Door Private Link with Azure Blob Storage](standard-premium/how-to-enable-private-link-storage-account.md)
 * Learn how to [enable Azure Front Door Private Link with Storage Static Website](how-to-enable-private-link-storage-static-website.md)
