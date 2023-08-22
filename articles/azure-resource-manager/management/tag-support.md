@@ -316,6 +316,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | SqlManagedInstances | Yes | No |
 > | SqlServerInstances | Yes | No |
 > | SqlServerInstances / Databases | Yes | No |
+> | SqlServerInstances / AvailabilityGroups | Yes | No |
 
 ## Microsoft.AzureCIS
 
