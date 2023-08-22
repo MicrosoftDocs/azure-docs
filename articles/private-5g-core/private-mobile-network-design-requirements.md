@@ -79,7 +79,11 @@ There are multiple ways to set up your network for use with AP5GC. The exact set
   - For example, you could configure separate VLANs for management, access and data traffic, or a separate VLAN for each attached data network.
   - VLANs must be configured on the local layer 2 or layer 3 network equipment. Multiple VLANs will be carried on a single link from ASE port 5 (access network) and/or 6 (core network), so you must configure each of those links as a VLAN trunk.
   :::image type="content" source="media/private-mobile-network-design-requirements/layer-3-network-with-vlans.png" alt-text="Diagram of layer 3 network topology with V L A N s." lightbox="media/private-mobile-network-design-requirements/layer-3-network-with-vlans.png":::
+
+- Layer 3 network with 7-10 data networks
   - If you want to deploy more than six VLAN-separated data networks, the additional (up to four) data networks must be deployed on ASE port 5. This requires one shared switch or router that carries both access and core traffic. VLAN tags can be assigned as required to N2, N3 and each of the N6 data networks.
+  - No more than six data networks can be configured on the same port.
+  - For optimal performance, the data networks with the highest expected load should be configured on port 6.
   :::image type="content" source="media/private-mobile-network-design-requirements/layer-3-network-with-additional-dns.png" alt-text="Diagram of layer 3 network topology with 10 data networks." lightbox="media/private-mobile-network-design-requirements/layer-3-network-with-vlans.png":::
 
 ### Subnets and IP addresses
