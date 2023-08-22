@@ -15,7 +15,7 @@ You can run cross-service queries by using any client tools that support Kusto Q
 
 ## Permissions required
 
-To perform a cross-service query, you need:
+To run a cross-service query, you need:
 
 - `Microsoft.OperationalInsights/workspaces/query/*/read` permissions to the Log Analytics workspaces you query, as provided by the [Log Analytics Reader built-in role](../logs/manage-access.md#log-analytics-reader), for example.
 - Reader permissions to the resources you query in Azure Resource Graph.
@@ -38,13 +38,6 @@ Enter the identifier for an Azure Data Explorer cluster in a query within the `a
 ```kusto
 adx('https://help.kusto.windows.net/Samples').StormEvents
 ```
-> [!NOTE]
->* Database names are case sensitive.
->* Cross-resource query as an alert isn't supported.
->* Identifying the Timestamp column in the cluster isn't supported. The Log Analytics Query API won't pass along the time filter.
-> * The cross-service query ability is used for data retrieval only. For more information, see [Function supportability](#function-supportability).
-> * Private Link is not supported with this feature.
-
 ### Combine Azure Data Explorer cluster tables with a Log Analytics workspace
 
 Use the `union` command to combine cluster tables with a Log Analytics workspace.
@@ -126,6 +119,13 @@ Perf | where ObjectName == "Memory" and (CounterName == "Available MBytes Memory
 ## Create an alert based on a cross-service query
 
 To create a new alert rule based on a cross-service query, follow the steps in [Create a new alert rule](../alerts/alerts-create-new-alert-rule.md), selecting your Log Analytics workspace on the Scope tab.
+
+## Limitations
+
+* Database names are case sensitive.
+* Identifying the Timestamp column in the cluster isn't supported. The Log Analytics Query API won't pass along the time filter.
+* The cross-service query ability is used for data retrieval only. 
+* [Private Link](../logs/private-link-security) does not support cross-service queries.
 
 ## Next steps
 * [Write queries](/azure/data-explorer/write-queries)
