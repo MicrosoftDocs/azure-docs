@@ -18,7 +18,8 @@ ms.custom: template-concept; references_regions
 Azure offers trusted launch as a seamless way to improve the security of [generation 2](generation-2.md) VMs. Trusted launch protects against advanced and persistent attack techniques. Trusted launch is composed of several, coordinated infrastructure technologies that can be enabled independently. Each technology provides another layer of defense against sophisticated threats.
 
 > [!IMPORTANT]
-> Trusted launch requires the creation of new virtual machines. You can't enable trusted launch on existing virtual machines that were initially created without it.
+> - You can now enable Trusted Launch on existing [Azure Generation 2 VM](generation-2.md). For more information, see **[Enable Trusted Launch on existing VMs](trusted-launch-existing-vm.md)**
+> - Trusted launch requires the creation of new virtual machine scale set (VMSS). You cannot enable trusted launch on existing VMSS that were initially created without it.
 
 ## Benefits
 
@@ -27,21 +28,22 @@ Azure offers trusted launch as a seamless way to improve the security of [genera
 - Gain insights and confidence of the entire boot chain's integrity.
 - Ensure workloads are trusted and verifiable.
 
-## Virtual machines sizes
+## Virtual Machines sizes
 
-| Type | Virtual machines sizes supported | Sizes not supported yet.
-|:--- |:--- |:--- |
-| [General Purpose](sizes-general.md) |B-series, DCsv2-series, DCsv3-series, DCdsv3-series, Dv4-series, Dsv4-series, Dsv3-series, Dsv2-series, Dav4-series, Dasv4-series, Ddv4-series, Ddsv4-series, Dv5-series, Dsv5-series, Ddv5-series, Ddsv5-series, Dasv5-series, Dadsv5-series, Dlsv5-series, Dldsv5-series | Dpsv5-series, Dpdsv5-series, Dplsv5-series, Dpldsv5-series
-| [Compute optimized](sizes-compute.md) |FX-series, Fsv2-series | All sizes supported.
-| [Memory optimized](sizes-memory.md) |Dsv2-series, Esv3-series, Ev4-series, Esv4-series, Edv4-series, Edsv4-series, Eav4-series, Easv4-series, Easv5-series, Eadsv5-series, Ebsv5-series, Edv5-series, Edsv5-series, Ebdsv5-series | Epsv5-series, Epdsv5-series, M-series, Msv2-series and Mdsv2 Medium Memory series, Mv2-series
-| [Storage optimized](sizes-storage.md) |Ls-series, Lsv2-series, Lsv3-series, Lasv3-series | All sizes supported.
-| [GPU](sizes-gpu.md) |NCv2-series, NCv3-series, NCasT4_v3-series, NVv3-series, NVv4-series, NDv2-series, NC_A100_v4-series, NCadsA10 v4-series, NVadsA10 v5-series | NDasrA100_v4-series, NDm_A100_v4-series, ND-series
-| [High Performance Compute](sizes-hpc.md) |HB-series, HBv2-series, HBv3-series, HC-series, HBv4-series, HX-series | All sizes supported.
+| Type | Supported size families | Currently not supported size families | Not supported size families
+|:--- |:--- |:--- |:--- |
+| [General Purpose](sizes-general.md) |[B-series](sizes-b-series-burstable.md), [DCsv2-series](dcv2-series.md), [DCsv3-series](dcv3-series.md#dcsv3-series), [DCdsv3-series](dcv3-series.md#dcdsv3-series), [Dv4-series](dv4-dsv4-series.md#dv4-series), [Dsv4-series](dv4-dsv4-series.md#dsv4-series), [Dsv3-series](dv3-dsv3-series.md#dsv3-series), [Dsv2-series](dv2-dsv2-series.md#dsv2-series), [Dav4-series](dav4-dasv4-series.md#dav4-series), [Dasv4-series](dav4-dasv4-series.md#dasv4-series), [Ddv4-series](ddv4-ddsv4-series.md#ddv4-series), [Ddsv4-series](ddv4-ddsv4-series.md#ddsv4-series), [Dv5-series](dv5-dsv5-series.md#dv5-series), [Dsv5-series](dv5-dsv5-series.md#dsv5-series), [Ddv5-series](ddv5-ddsv5-series.md#ddv5-series), [Ddsv5-series](ddv5-ddsv5-series.md#ddsv5-series), [Dasv5-series](dasv5-dadsv5-series.md#dasv5-series), [Dadsv5-series](dasv5-dadsv5-series.md#dadsv5-series), [Dlsv5-series](dlsv5-dldsv5-series.md#dlsv5-series), [Dldsv5-series](dlsv5-dldsv5-series.md#dldsv5-series) | [Dpsv5-series](dpsv5-dpdsv5-series.md#dpsv5-series), [Dpdsv5-series](dpsv5-dpdsv5-series.md#dpdsv5-series), [Dplsv5-series](dplsv5-dpldsv5-series.md#dplsv5-series), [Dpldsv5-series](dplsv5-dpldsv5-series.md#dpldsv5-series) | [Av2-series](av2-series.md), [Dv2-series](dv2-dsv2-series.md#dv2-series), [Dv3-series](dv3-dsv3-series.md#dv3-series)
+| [Compute optimized](sizes-compute.md) |[FX-series](fx-series.md), [Fsv2-series](fsv2-series.md) | All sizes supported. | No Gen1-Only Size Family.
+| [Memory optimized](sizes-memory.md) |[Dsv2-series](dv2-dsv2-series.md#dsv2-series), [Esv3-series](ev3-esv3-series.md#esv3-series), [Ev4-series](ev4-esv4-series.md#ev4-series), [Esv4-series](ev4-esv4-series.md#esv4-series), [Edv4-series](edv4-edsv4-series.md#edv4-series), [Edsv4-series](edv4-edsv4-series.md#edsv4-series), [Eav4-series](eav4-easv4-series.md#eav4-series), [Easv4-series](eav4-easv4-series.md#easv4-series), [Easv5-series](easv5-eadsv5-series.md#easv5-series), [Eadsv5-series](easv5-eadsv5-series.md#eadsv5-series), [Ebsv5-series](ebdsv5-ebsv5-series.md#ebsv5-series),[Ebdsv5-series](ebdsv5-ebsv5-series.md#ebdsv5-series) ,[Edv5-series](edv5-edsv5-series.md#edv5-series), [Edsv5-series](edv5-edsv5-series.md#edsv5-series)  | [Epsv5-series](epsv5-epdsv5-series.md#epsv5-series), [Epdsv5-series](epsv5-epdsv5-series.md#epdsv5-series), [M-series](m-series.md), [Msv2-series](msv2-mdsv2-series.md#msv2-medium-memory-diskless), [Mdsv2 Medium Memory series](msv2-mdsv2-series.md#mdsv2-medium-memory-with-disk), [Mv2-series](mv2-series.md) |[Ev3-series](ev3-esv3-series.md#ev3-series)
+| [Storage optimized](sizes-storage.md) | [Lsv2-series](lsv2-series.md), [Lsv3-series](lsv3-series.md), [Lasv3-series](lasv3-series.md) | All sizes supported. | No Gen1-Only Size Family.
+| [GPU](sizes-gpu.md) |[NCv2-series](ncv2-series.md), [NCv3-series](ncv3-series.md), [NCasT4_v3-series](nct4-v3-series.md#ncast4_v3-series), [NVv3-series](nvv3-series.md), [NVv4-series](nvv4-series.md), [NDv2-series](ndv2-series.md), [NC_A100_v4-series](nc-a100-v4-series.md#nc-a100-v4-series), [NVadsA10 v5-series](nva10v5-series.md#nvadsa10-v5-series) | [NDasrA100_v4-series](nda100-v4-series.md), [NDm_A100_v4-series](ndm-a100-v4-series.md), [ND-series](nd-series.md) | [NC-series](nc-series.md), [NV-series](nv-series.md), [NP-series](np-series.md)
+| [High Performance Compute](sizes-hpc.md) |[HB-series](hb-series.md), [HBv2-series](hbv2-series.md), [HBv3-series](hbv3-series.md), [HBv4-series](hbv4-series.md), [HC-series](hc-series.md), [HX-series](hx-series.md) | All sizes supported. | No Gen1-Only Size Family.
 
 > [!NOTE]
 > - Installation of the **CUDA & GRID drivers on Secure Boot enabled Windows VMs** does not require any additional steps.
 > - Installation of the **CUDA driver on Secure Boot enabled Ubuntu VMs** requires additional steps documented at [Install NVIDIA GPU drivers on N-series VMs running Linux](./linux/n-series-driver-setup.md#install-cuda-driver-on-ubuntu-with-secure-boot-enabled). Secure Boot should be disabled for installing CUDA Drivers on other Linux VMs.
 > - Installation of the  **GRID driver** requires secure boot to be disabled for Linux VMs.
+> - **Not Supported** size families do not support [generation 2](generation-2.md) VMs.
 
 ## Operating systems supported
 
@@ -71,11 +73,16 @@ Azure offers trusted launch as a seamless way to improve the security of [genera
 No additional cost to existing VM pricing.
 
 ## Unsupported features
-- Azure Site Recovery
-- Azure Automanage
-- Ultra disk, Premium SSD v2
-- Managed Image
-- Nested Virtualization (most v5 VM sizes supported)
+
+> [!NOTE]
+> The following Virtual Machine features are currently not  supported with Trusted Launch.
+
+- [Azure Site Recovery](../site-recovery/site-recovery-overview.md)
+- [Azure Automanage](../automanage/overview-about.md)
+- [Ultra disk](disks-enable-ultra-ssd.md)
+- [Premium SSD v2](disks-deploy-premium-v2.md)
+- [Managed Image](capture-image-resource.md) (Customers are encouraged to use [Azure Compute Gallery](trusted-launch-portal.md#trusted-launch-vm-supported-images))
+- Nested Virtualization (most v5 VM size families supported)
 
 ## Secure boot
 
