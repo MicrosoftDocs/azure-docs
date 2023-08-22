@@ -25,7 +25,7 @@ Learn more: [What is Conditional Access?](../conditional-access/overview.md)
 * An Azure AD subscription
   * If you don't have one, get an [Azure free account](https://azure.microsoft.com/free/)
 * An Azure AD tenant linked to the Azure AD subscription
-  * See, [Quickstart: Create a new tenant in Azure AD](../fundamentals/active-directory-access-create-new-tenant.md)
+  * See, [Quickstart: Create a new tenant in Azure AD](../fundamentals/create-new-tenant.md)
 * Global Administrator permissions
 * Configured users in the Azure AD subscription  
 * A Cloudflare account

@@ -31,7 +31,7 @@ The following short video provides an excellent overview of the Azure AD custom 
 Use a custom claims provider for the following scenarios:
 
 - **Migration of legacy systems** - You may have legacy identity systems such as Active Directory Federation Services (AD FS) or data stores (such as LDAP directory) that hold information about users. You'd like to migrate these applications, but can't fully migrate the identity data into Azure AD. Your apps may depend on certain information on the token, and can't be rearchitected.
-- **Integration with other data stores that can't be synced to the directory** - You may have third-party systems, or your own systems that store user data. Ideally this information could be consolidated, either through [synchronization](../cloud-sync/what-is-cloud-sync.md) or direct migration, in the Azure AD directory. However, that isn't always feasible. The restriction may be because of data residency, regulations, or other requirements.
+- **Integration with other data stores that can't be synced to the directory** - You may have third-party systems, or your own systems that store user data. Ideally this information could be consolidated, either through [synchronization](../hybrid/cloud-sync/what-is-cloud-sync.md) or direct migration, in the Azure AD directory. However, that isn't always feasible. The restriction may be because of data residency, regulations, or other requirements.
 
 ## Token issuance start event listener
 
@@ -44,5 +44,3 @@ For an example using a custom claims provider with the **token issuance start** 
 - Learn how to [create and register a custom claims provider](custom-extension-get-started.md) with a sample Open ID Connect application.
 - If you already have a custom claims provider registered, you can configure a [SAML application](custom-extension-configure-saml-app.md) to receive tokens with claims sourced from an external store.
 - Learn more about custom claims providers with the [custom claims provider reference](custom-claims-provider-reference.md) article.
-
-

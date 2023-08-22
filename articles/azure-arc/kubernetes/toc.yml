@@ -97,7 +97,8 @@
     href: agent-upgrade.md
   - name: Use Private Link Scope
     href: private-link.md
-  - name: Azure portal Kubernetes resource view
+  - name: View resources in Azure portal
+    displayName: kubernetes, yaml, workload
     href: kubernetes-resource-view.md
   - name: Deploy applications consistently
     displayName: GitOps, flux, configuration, policy

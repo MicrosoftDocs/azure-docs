@@ -130,7 +130,7 @@ In the target tenant: Cross-tenant sync relies on the Azure AD External Identiti
 Which clouds can cross-tenant synchronization be used in?
 
 - Cross-tenant synchronization is supported within the commercial cloud and Azure Government. 
-- Cross-tenant synchronization isn't supported within the Azure China cloud. 
+- Cross-tenant synchronization isn't supported within the Microsoft Azure operated by 21Vianet cloud. 
 - Synchronization is only supported between two tenants in the same cloud.
 - Cross-cloud (such as public cloud to Azure Government) isn't currently supported.
 
@@ -258,12 +258,12 @@ What federation options are supported for users in the target tenant back to the
 
 Does cross-tenant synchronization use System for Cross-Domain Identity Management (SCIM)?
 
-- No. Currently, Azure AD supports a SCIM client, but not a SCIM server. For more information, see [SCIM synchronization with Azure Active Directory](../fundamentals/sync-scim.md).
+- No. Currently, Azure AD supports a SCIM client, but not a SCIM server. For more information, see [SCIM synchronization with Azure Active Directory](../architecture/sync-scim.md).
 
 #### Deprovisioning
 Does cross-tenant synchronization support deprovisioning users?
 
-- Yes, when the below actions occur in the source tenant, the user will be [soft deleted](../fundamentals/recover-from-deletions.md#soft-deletions) in the target tenant. 
+- Yes, when the below actions occur in the source tenant, the user will be [soft deleted](../architecture/recover-from-deletions.md#soft-deletions) in the target tenant. 
 
   - Delete the user in the source tenant
   - Unassign the user from the cross-tenant synchronization configuration

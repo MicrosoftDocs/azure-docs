@@ -70,7 +70,7 @@ For the specific details around limits and sizing for these address ranges, see 
 
 ### Kubenet networking
 
-Although kubenet doesn't require you to set up the virtual networks before deploying the cluster, there are disadvantages to waiting, such as:
+Although kubenet doesn't require you to configure the virtual networks before deploying the cluster, there are disadvantages to waiting, such as:
 
 * Since nodes and pods are placed on different IP subnets, User Defined Routing (UDR) and IP forwarding routes traffic between pods and nodes. This extra routing may reduce network performance.
 * Connections to existing on-premises networks or peering to other Azure virtual networks can be complex.
@@ -215,7 +215,7 @@ To get started with policies, see [Secure traffic between pods using network pol
 >
 > Don't expose remote connectivity to your AKS nodes. Create a bastion host, or jump box, in a management virtual network. Use the bastion host to securely route traffic into your AKS cluster to remote management tasks.
 
-You can complete most operations in AKS using the Azure management tools or through the Kubernetes API server. AKS nodes are only available on a private network and aren't connected to the public internet. To connect to nodes and provide maintenance and support, route your connections through a bastion host, or jump box. Verify this host lives in a separate, securely-peered management virtual network to the AKS cluster virtual network.
+You can complete most operations in AKS using the Azure management tools or through the Kubernetes API server. AKS nodes are only available on a private network and aren't connected to the public internet. To connect to nodes and provide maintenance and support, route your connections through a bastion host, or jump box. Verify this host lives in a separate, securely peered management virtual network to the AKS cluster virtual network.
 
 ![Connect to AKS nodes using a bastion host, or jump box](media/operator-best-practices-network/connect-using-bastion-host-simplified.png)
 
@@ -250,4 +250,4 @@ This article focused on network connectivity and security. For more information 
 [advanced-networking]: configure-azure-cni.md
 [aks-configure-kubenet-networking]: configure-kubenet.md
 [concepts-node-selectors]: concepts-clusters-workloads.md#node-selectors
-[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
+[nodepool-upgrade]: manage-node-pools.md#upgrade-a-single-node-pool

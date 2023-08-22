@@ -100,7 +100,7 @@ Create a process of predefined communications to make others aware of the issue 
 Document the state of your tenant and its objects regularly. Then if a hard delete or misconfiguration occurs, you have a roadmap to recovery. The following tools can help you document your current state:
 
 - [Microsoft Graph APIs](/graph/overview) can be used to export the current state of many Azure AD configurations.
-- [Azure AD Exporter](https://github.com/microsoft/azureadexporter) is a tool you can use to export your configuration settings.
+- [Entra Exporter](https://github.com/microsoft/entraexporter) is a tool you can use to export your configuration settings.
 - [Microsoft 365 Desired State Configuration](https://github.com/microsoft/Microsoft365DSC/wiki/What-is-Microsoft365DSC) is a module of the PowerShell Desired State Configuration framework. You can use it to export configurations for reference and application of the prior state of many settings.
 - [Conditional Access APIs](https://github.com/Azure-Samples/azure-ad-conditional-access-apis) can be used to manage your Conditional Access policies as code.
 

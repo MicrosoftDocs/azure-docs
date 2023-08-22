@@ -73,6 +73,7 @@ In February 2023, we published the following changes:
   - [Create a host pool](create-host-pool.md).
   - [Create an application group, a workspace, and assign users](create-application-group-workspace.md).
   - [Add session hosts to a host pool](add-session-hosts-host-pool.md).
+- Published an article providing guidance to [Apply Zero Trust principles to an Azure Virtual Desktop deployment](/security/zero-trust/azure-infrastructure-avd).
 
 ## January 2023
 

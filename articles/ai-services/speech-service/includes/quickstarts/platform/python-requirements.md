@@ -19,7 +19,7 @@ You must install the [Microsoft Visual C++ Redistributable for Visual Studio 201
 
 # [Linux](#tab/linux)
 
-The Speech SDK for Python only supports **Ubuntu 18.04/20.04/22.04**, **Debian 9/10/11**, **Red Hat Enterprise Linux (RHEL) 8**, and **CentOS 8** on the x64 and ARM64 architectures when used with Linux.
+The Speech SDK for Python only supports **Ubuntu 18.04/20.04/22.04**, **Debian 10/11**, **Red Hat Enterprise Linux (RHEL) 8**, and **CentOS 8** on the x64 and ARM64 architectures when used with Linux.
 
 [!INCLUDE [Linux distributions](linux-distributions.md)]
 

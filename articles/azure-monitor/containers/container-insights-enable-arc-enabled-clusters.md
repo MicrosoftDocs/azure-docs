@@ -72,7 +72,7 @@ ms.reviewer: aul
 
 ### Identify workspace resource ID
 
-Run the following commands to locate the full Azure Resource Manager identifier of the Log Analytics workspace. 
+Run the following commands to locate the full Azure Resource Manager identifier of the Log Analytics workspace.
 
 1. List all the subscriptions that you have access to using the following command:
 

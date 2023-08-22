@@ -107,7 +107,7 @@ The **Real-time employee change** template is designed to configure tasks that a
 
 :::image type="content" source="media/lifecycle-workflow-templates/on-demand-change-template.png" alt-text="Screenshot of a Lifecycle Workflow real time employee change template.":::
 
-The default specific parameters for the **Real-time employee termination** template are as follows:
+The default specific parameters for the **Real-time employee change** template are as follows:
 
 |Parameter  |Description  |Customizable  |
 |---------|---------|---------|

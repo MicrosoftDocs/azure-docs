@@ -377,7 +377,7 @@ Analyzing the SSO extension logs is an excellent way to troubleshoot the authent
    - Native MSAL
    - Non MSAL/Browser SSO
 - Interaction with the macOS Keychain for credential retrival/storage operations
-- Correlation IDs for Azure AD Sign-In events
+- Correlation IDs for Azure AD sign-in events
    - PRT acquisition
    - Device Registration
 

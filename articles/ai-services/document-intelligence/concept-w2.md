@@ -1,5 +1,5 @@
 ---
-title: Automated W-2 form processing - Document Intelligence
+title: Automated W-2 form processing - Document Intelligence (formerly Form Recognizer)
 titleSuffix: Azure AI services
 description: Use the Document Intelligence prebuilt W-2 model to automate extraction of W2 form data.
 author: laujan
@@ -114,9 +114,9 @@ Try extracting data from W-2 forms using the Document Intelligence Studio. You n
 
 * | W2FormVariant |  | String | The variants of W-2 forms, including *W-2*, *W-2AS*, *W-2CM*, *W-2GU*, *W-2VI* | W-2 |
 
-### Migration guide and REST API v3.0
+### Migration guide and REST API v3.1
 
-* Follow our [**Document Intelligence v3.0 migration guide**](v3-migration-guide.md) to learn how to use the v3.0 version in your applications and workflows.
+* Follow our [**Document Intelligence v3.1 migration guide**](v3-1-migration-guide.md) to learn how to use the v3.0 version in your applications and workflows.
 
 * Explore our [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument) to learn more about the v3.0 version and new capabilities.
 

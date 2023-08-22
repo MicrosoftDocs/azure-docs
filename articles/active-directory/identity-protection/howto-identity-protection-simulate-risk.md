@@ -75,10 +75,10 @@ Simulating the atypical travel condition is difficult because the algorithm uses
 **To simulate an atypical travel risk detection, perform the following steps**:
 
 1. Using your standard browser, navigate to [https://myapps.microsoft.com](https://myapps.microsoft.com).  
-2. Enter the credentials of the account you want to generate an atypical travel risk detection for.
-3. Change your user agent. You can change user agent in Microsoft Edge from Developer Tools (F12).
-4. Change your IP address. You can change your IP address by using a VPN, a Tor add-on, or creating a new virtual machine in Azure in a different data center.
-5. Sign-in to [https://myapps.microsoft.com](https://myapps.microsoft.com) using the same credentials as before and within a few minutes after the previous sign-in.
+1. Enter the credentials of the account you want to generate an atypical travel risk detection for.
+1. Change your user agent. You can change user agent in Microsoft Edge from Developer Tools (F12).
+1. Change your IP address. You can change your IP address by using a VPN, a Tor add-on, or creating a new virtual machine in Azure in a different data center.
+1. Sign-in to [https://myapps.microsoft.com](https://myapps.microsoft.com) using the same credentials as before and within a few minutes after the previous sign-in.
 
 The sign-in shows up in the Identity Protection dashboard within 2-4 hours.
 
@@ -88,25 +88,26 @@ The sign-in shows up in the Identity Protection dashboard within 2-4 hours.
 
 This risk detection indicates that the application's valid credentials have been leaked. This leak can occur when someone checks in the credentials in a public code artifact on GitHub. Therefore, to simulate this detection, you need a GitHub account and can [sign up a GitHub account](https://docs.github.com/get-started/signing-up-for-github) if you don't have one already.
 
-**To simulate Leaked Credentials in GitHub for Workload Identities, perform the following steps**:
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Browse to **Azure Active Directory** > **App registrations**.
-3. Select **New registration** to register a new application or reuse an existing stale application.
-4. Select **Certificates & Secrets** > **New client Secret** , add a description of your client secret and set an expiration for the secret or specify a custom lifetime and select **Add**. Record the secret's value for later use for your GitHub Commit.
+### Simulate Leaked Credentials in GitHub for Workload Identities
+
+1. Sign in to the [Azure portal](https://portal.azure.com) as at least a [Security Administrator](../roles/permissions-reference.md#security-administrator).
+1. Browse to **Azure Active Directory** > **App registrations**.
+1. Select **New registration** to register a new application or reuse an existing stale application.
+1. Select **Certificates & Secrets** > **New client Secret** , add a description of your client secret and set an expiration for the secret or specify a custom lifetime and select **Add**. Record the secret's value for later use for your GitHub Commit.
 
    > [!Note]
    > **You can not retrieve the secret again after you leave this page**.
    
-5. Get the TenantID and Application(Client)ID in the **Overview** page.
-6. Ensure you disable the application via **Azure Active Directory** > **Enterprise Application** > **Properties** > Set **Enabled for users to sign-in** to **No**.
-7. Create a **public** GitHub Repository, add the following config and commit the change as a file with the .txt extension.
+1. Get the TenantID and Application(Client)ID in the **Overview** page.
+1. Ensure you disable the application via **Azure Active Directory** > **Enterprise Application** > **Properties** > Set **Enabled for users to sign-in** to **No**.
+1. Create a **public** GitHub Repository, add the following config and commit the change as a file with the .txt extension.
    ```GitHub file
      "AadClientId": "XXXX-2dd4-4645-98c2-960cf76a4357",
      "AadSecret": "p3n7Q~XXXX",
      "AadTenantDomain": "XXXX.onmicrosoft.com",
      "AadTenantId": "99d4947b-XXX-XXXX-9ace-abceab54bcd4",
    ```
-7. In about 8 hours, you'll be able to view a leaked credential detection under **Azure Active Directory** > **Security** > **Risk Detection** > **Workload identity detections** where the additional info will contain the URL of your GitHub commit.
+1. In about 8 hours, you'll be able to view a leaked credential detection under **Azure Active Directory** > **Security** > **Risk Detection** > **Workload identity detections** where the additional info will contain the URL of your GitHub commit.
 
 ## Testing risk policies
 
@@ -116,7 +117,7 @@ This section provides you with steps for testing the user and the sign-in risk p
 
 To test a user risk security policy, perform the following steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com) as at least a [Security Administrator](../roles/permissions-reference.md#security-administrator).
 1. Browse to **Azure Active Directory** > **Security** > **Identity Protection** > **Overview**.
 1. Select **Configure user risk policy**.
    1. Under **Assignments**
@@ -136,7 +137,7 @@ To test a user risk security policy, perform the following steps:
 
 To test a sign-in risk policy, perform the following steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com) as at least a [Security Administrator](../roles/permissions-reference.md#security-administrator).
 1. Browse to **Azure Active Directory** > **Security** > **Identity Protection** > **Overview**.
 1. Select **Configure sign-in risk policy**.
    1. Under **Assignments**
