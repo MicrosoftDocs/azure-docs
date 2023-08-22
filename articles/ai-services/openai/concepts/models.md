@@ -80,8 +80,8 @@ These models can only be used with the Chat Completion API.
 |  --- |  --- | --- | --- | --- |
 | `gpt-4` <sup>1,</sup><sup>2</sup> (0314)     |   |  N/A                | 8,192                | September 2021         |
 | `gpt-4-32k` <sup>1,</sup><sup>2</sup> (0314)  |   |  N/A                | 32,768               | September 2021         |
-| `gpt-4` <sup>1</sup><sup>3</sup> (0613)     |  Australia East, Canada East, East US, East US 2, France Central, Japan East, North Central US, UK South |  N/A                | 8,192                | September 2021         |
-| `gpt-4-32k` <sup>1</sup><sup>3</sup> (0613)  |  Australia East, Canada East, East US, East US 2, France Central, Japan East, North Central US, UK South |  N/A                | 32,768               | September 2021         |
+| `gpt-4` <sup>1</sup><sup>3</sup> (0613)     |  Australia East, Canada East, East US, East US 2, France Central, Japan East, UK South |  N/A                | 8,192                | September 2021         |
+| `gpt-4-32k` <sup>1</sup><sup>3</sup> (0613)  |  Australia East, Canada East, East US, East US 2, France Central, Japan East, UK South |  N/A                | 32,768               | September 2021         |
 
 <sup>1</sup> The model is [only available by request](https://aka.ms/oai/get-gpt4).<br>
 <sup>2</sup> Version `0314` of gpt-4 and gpt-4-32k will be retired no earlier than July 5, 2024. See [model updates](#model-updates) for model upgrade behavior.<br>
