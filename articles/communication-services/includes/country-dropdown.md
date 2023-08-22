@@ -39,5 +39,6 @@ ms.custom: references_regions
 > - [Switzerland](../concepts/numbers/phone-number-management-for-switzerland.md)
 > - [Taiwan](../concepts/numbers/phone-number-management-for-taiwan.md)
 > - [Thailand](../concepts/numbers/phone-number-management-for-thailand.md)
+> - [United Arab Emirates](../concepts/numbers/phone-number-management-for-united-arab-emirates.md)
 > - [United Kingdom](../concepts/numbers/phone-number-management-for-united-kingdom.md)
 > - [United States](../concepts/numbers/phone-number-management-for-united-states.md)
