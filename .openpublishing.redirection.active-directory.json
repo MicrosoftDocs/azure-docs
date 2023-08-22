@@ -101,6 +101,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/saas-apps/gainsight-saml-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/gainsight-tutorial",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/saas-apps/iauditor-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/safety-culture-tutorial",
       "redirect_document_id": false
@@ -1613,17 +1618,17 @@
     {
       "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-protect-web-api-dotnet-core-prepare-api.md",
       "redirect_url": "/azure/active-directory/external-identities/customers/tutorial-protect-web-api-dotnet-core-build-app",
-      "redirect_document_id": false 
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-protect-web-api-dotnet-core-protect-endpoints.md",
       "redirect_url": "/azure/active-directory/external-identities/customers/tutorial-protect-web-api-dotnet-core-build-app",
-      "redirect_document_id": false 
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-protect-web-api-dotnet-core-test-api.md",
       "redirect_url": "/azure/active-directory/external-identities/customers/tutorial-protect-web-api-dotnet-core-test-api",
-      "redirect_document_id": false 
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-browserless-app-dotnet-sign-in-overview.md",
@@ -1633,17 +1638,17 @@
     {
       "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-browserless-app-dotnet-sign-in-prepare-app.md",
       "redirect_url": "/azure/active-directory/external-identities/customers/tutorial-browserless-app-dotnet-sign-in-build-app",
-      "redirect_document_id": false 
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-browserless-app-dotnet-sign-in-prepare-tenant.md",
       "redirect_url": "/azure/active-directory/external-identities/customers/tutorial-browserless-app-dotnet-sign-in-prepare-tenant",
-      "redirect_document_id": false 
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-browserless-app-dotnet-sign-in-sign-in.md",
       "redirect_url": "/azure/active-directory/external-identities/customers/tutorial-browserless-app-dotnet-sign-in-build-app",
-      "redirect_document_id": false 
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/external-identities/delegate-invitations.md",
@@ -1678,17 +1683,17 @@
     {
       "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-web-app-node-sign-in-overview.md",
       "redirect_url": "/azure/active-directory/external-identities/customers/tutorial-web-app-node-sign-in-prepare-tenant",
-      "redirect_document_id": true 
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-web-app-node-sign-in-prepare-tenant.md",
       "redirect_url": "/azure/active-directory/external-identities/customers/tutorial-web-app-node-sign-in-prepare-tenant",
-      "redirect_document_id": false 
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-web-app-node-sign-in-prepare-app.md",
       "redirect_url": "/azure/active-directory/external-identities/customers/tutorial-web-app-node-sign-in-prepare-tenant",
-      "redirect_document_id": false 
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-web-app-node-sign-in-sign-in-out.md",
@@ -1703,32 +1708,32 @@
     {
       "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-daemon-node-call-api-prepare-app.md",
       "redirect_url": "/azure/active-directory/external-identities/customers/tutorial-daemon-node-call-api-prepare-tenant",
-      "redirect_document_id": false 
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-daemon-node-call-api-prepare-tenant.md",
       "redirect_url": "/azure/active-directory/external-identities/customers/tutorial-daemon-node-call-api-prepare-tenant",
-      "redirect_document_id": false 
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-daemon-node-call-api-call-api.md",
       "redirect_url": "/azure/active-directory/external-identities/customers/tutorial-daemon-node-call-api-prepare-tenant",
-      "redirect_document_id": false 
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-web-app-dotnet-sign-in-prepare-tenant.md",
       "redirect_url": "/azure/active-directory/external-identities/customers/tutorial-web-app-dotnet-sign-in-prepare-tenant",
-      "redirect_document_id": false 
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-web-app-dotnet-sign-in-prepare-app.md",
       "redirect_url": "/azure/active-directory/external-identities/customers/tutorial-web-app-dotnet-sign-in-prepare-app",
-      "redirect_document_id": false 
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-web-app-dotnet-sign-in-sign-out.md",
       "redirect_url": "/azure/active-directory/external-identities/customers/tutorial-web-app-dotnet-sign-in-sign-out",
-      "redirect_document_id": false 
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/external-identities/conditional-access.md",
@@ -13511,7 +13516,7 @@
       "redirect_document_id": false
     },
     {
-     "source_path_from_root": "/articles/active-directory/external-identities/customers/sample-single-page-application-angular.md",
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/sample-single-page-application-angular.md",
       "redirect_url": "/azure/active-directory/external-identities/customers/sample-single-page-app-angular-sign-in",
       "redirect_document_id": false
     },
@@ -13540,7 +13545,8 @@
       "redirect_url": "/azure/active-directory/external-identities/customers/tutorial-single-page-app-react-sign-in-sign-out",
       "redirect_document_id": false
     },
-    { "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-whatis.md",
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-whatis.md",
       "redirect_url": "/azure/active-directory/fundamentals/whatis",
       "redirect_document_id": false
     },
@@ -13637,6 +13643,6 @@
       "redirect_url": "/azure/active-directory/governance/licensing-fundamentals",
       "redirect_document_id": false
     }
-   
+
   ]
 }
