@@ -102,7 +102,7 @@ For example, say your workspace's managed virtual network contains two deploymen
 - The Azure Storage blob that is associated with the workspace
 - The Azure Container Registry for the workspace
 - The Azure Key Vault
-- (Optional) private endpoints for communicating with private resources.
+- (Optional) additional private resources that support private endpoints.
 
 To learn more about configurations for the workspace managed virtual network, see [Managed virtual network architecture](how-to-managed-network.md#managed-virtual-network-architecture).
 
