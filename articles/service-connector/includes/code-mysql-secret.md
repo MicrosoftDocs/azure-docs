@@ -139,7 +139,7 @@ ms.author: yungez
    ```
 1. In code, get MySQL connection information from environment variables added by Service Connector service.
    ```javascript
-   const mysql = require('mysql')
+   const mysql = require('mysql2')
    
    const connection = mysql.createConnection({
      host: process.env.AZURE_MYSQL_HOST,
