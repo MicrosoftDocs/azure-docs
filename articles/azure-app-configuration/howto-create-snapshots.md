@@ -122,9 +122,13 @@ In the **Archived snapshots** tab, select the ellipsis **...** on the right of a
 
    :::image type="content" source="./media/howto-create-snapshots/recover-snapshots.png" alt-text="Screenshot of the recover option in the archived snapshots.":::
 
+## Use snapshots
+
+
+
 ### [.NET](#tab/dotnet)
 
-Edit the call to the `AddAzureAppConfiguration` method, which is often found in the `program.cs` file of your application.
+Edit the call to the `AddAzureAppConfiguration` method, which is often found in the `program.cs` file of your application. If you do not have an application, see [](./quickstart)
 
 **Add snapshots to your configuration**
 
