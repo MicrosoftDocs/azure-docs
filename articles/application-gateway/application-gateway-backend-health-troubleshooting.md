@@ -361,7 +361,7 @@ OR </br>
 
 **Message:** The backend health status could not be retrieved. This happens when an NSG/UDR/Firewall on the application gateway subnet is blocking traffic on ports 65503-65534 in case of v1 SKU, and ports 65200-65535 in case of the v2 SKU or if the FQDN configured in the backend pool could not be resolved to an IP address. To learn more visit - https://aka.ms/UnknownBackendHealth.
 
-**Cause:** Application Gateway caches and uses the last-known-good IP address if it fails to get a response for the subsequent DNS lookup. A PUT operation on a gateway in this state would clear its DNS cache altogether. As a result, there will not be any destination address to which the gateway can reach.
+**Cause:** For FQDN (Fully Qualified Domain Name)-based backend targets, the Application Gateway caches and uses the last-known-good IP address if it fails to get a response for the subsequent DNS lookup. A PUT operation on a gateway in this state would clear its DNS cache altogether. As a result, there will not be any destination address to which the gateway can reach.
 
 **Resolution:**
 Check and fix the DNS servers to ensure it is serving a response for the given FDQN's DNS lookup. You must also check if the DNS servers are reachable through your application gateway's Virtual Network.
