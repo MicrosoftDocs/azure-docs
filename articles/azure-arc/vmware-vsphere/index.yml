@@ -33,6 +33,8 @@ landingContent:
         links:  
         - text: Enable VMware vCenter resources in Azure
           url: browse-and-enable-vcenter-resources-in-azure.md
+        - text: Install Arc agent at scale for your VMware VMs
+          url: enable-guest-management-at-scale.md
         - text: Manage access to VMware resources through Azure RBAC
           url: setup-and-manage-self-service-access.md
         - text: Create a virtual machine on VMware vCenter
