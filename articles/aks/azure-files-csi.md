@@ -461,7 +461,7 @@ The output of the commands resembles the following example:
 [kubectl-exec]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#exec
 [csi-specification]: https://github.com/container-storage-interface/spec/blob/master/spec.md
 [data-plane-api]: https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/azcore/internal/shared/shared.go
-[kubectl apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 
 
 <!-- LINKS - internal -->
