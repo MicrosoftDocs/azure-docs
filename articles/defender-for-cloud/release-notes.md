@@ -26,13 +26,13 @@ Updates in August include:
 
 |Date |Update  |
 |----------|----------|
-| August 22 | [Recommendation released for GA: Microsoft Defender for Storage should be enabled with malware scanning and sensitive data threat detection](#recommendation-released-for-ga-microsoft-defender-for-storage-should-be-enabled-with-malware-scanning-and-sensitive-data-threat-detection)
+| August 22 | [Recommendation release: Microsoft Defender for Storage should be enabled with malware scanning and sensitive data threat detection](#recommendation-release-microsoft-defender-for-storage-should-be-enabled-with-malware-scanning-and-sensitive-data-threat-detection)
 | August 17 | [Extended properties in Defender for Cloud security alerts are masked from activity logs](#extended-properties-in-defender-for-cloud-security-alerts-are-masked-from-activity-logs)
 | August 15 | [Preview release of GCP support in Defender CSPM](#preview-release-of-gcp-support-in-defender-cspm)|
 | August 7 | [New security alerts in Defender for Servers Plan 2: Detecting potential attacks abusing Azure virtual machine extensions](#new-security-alerts-in-defender-for-servers-plan-2-detecting-potential-attacks-abusing-azure-virtual-machine-extensions)
 | August 1 | [Business model and pricing updates for Defender for Cloud plans](#business-model-and-pricing-updates-for-defender-for-cloud-plans) |
 
-### Recommendation released for GA: Microsoft Defender for Storage should be enabled with malware scanning and sensitive data threat detection
+### Recommendation release: Microsoft Defender for Storage should be enabled with malware scanning and sensitive data threat detection
 
 August 22, 2023
 
