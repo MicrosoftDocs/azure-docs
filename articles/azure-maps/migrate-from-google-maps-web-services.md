@@ -514,8 +514,8 @@ Learn more about Azure Maps REST services:
 [GitHub project]: https://github.com/perfahlen/AzureMapsRestServices
 [Localization support in Azure Maps]: supported-languages.md
 [manage authentication in Azure Maps]: how-to-manage-authentication.md
-[Map image render]: /rest/api/maps/render-v2/get-map-static-imagerytile
-[Map imagery tile]: /rest/api/maps/render-v2/get-map-static-imagerytile
+[Map image render]: /rest/api/maps/render/getmapimagerytile
+[Map imagery tile]: /rest/api/maps/render/getmapimagerytile
 [Map tile]: /rest/api/maps/render-v2/getmaptile
 [Nearby search]: /rest/api/maps/search/getsearchnearby
 [npm package]: https://www.npmjs.com/package/azure-maps-rest
