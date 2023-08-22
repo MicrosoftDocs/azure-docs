@@ -51,7 +51,7 @@ The MARS agent supports the following recovery scenarios:
 ## Backup process
 
 1. From the Azure portal, create a [Recovery Services vault](install-mars-agent.md#create-a-recovery-services-vault), and choose files, folders, and the system state from the **Backup goals**.
-2. [Configure your Recovery Services vault to securely save the backup passphrase to Azure Key vault]().
+2. [Configure your Recovery Services vault to securely save the backup passphrase to Azure Key vault](save-backup-passphrase-securely-in-azure-key-vault.md).
 3. [Download the Recovery Services vault credentials and agent installer](./install-mars-agent.md#download-the-mars-agent) to an on-premises machine.
 4. [Install the agent](./install-mars-agent.md#install-and-register-the-agent) and use the downloaded vault credentials to register the machine to the Recovery Services vault.
 5. From the agent console on the client, [configure the backup](./backup-windows-with-mars-agent.md#create-a-backup-policy) to specify what to back up, when to back up (the schedule), how long the backups should be retained in Azure (the retention policy) and start protecting.

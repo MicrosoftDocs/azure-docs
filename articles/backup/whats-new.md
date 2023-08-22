@@ -70,7 +70,7 @@ Azure Backup now enables you to save the MARS passphrase to Azure Key Vault auto
 
 The MARS agent from Azure Backup requires a passphrase provided by the user to encrypt the backups sent to and stored on Azure Recovery Services Vault. This passphrase is not shared with Microsoft and needs to be saved in a secure location to ensure that the backups can be retrieved if the server backed up with MARS goes down. 
 
-For more information, see [Save and manage MARS agent passphrase securely in Azure Key Vault](save-manage-mars-agent-passphrase-securely-in-azure-key-vault.md).
+For more information, see [Save and manage MARS agent passphrase securely in Azure Key Vault](save-backup-passphrase-securely-in-azure-key-vault.md).
 
 ## SAP HANA System Replication database backup support is now generally available
 
