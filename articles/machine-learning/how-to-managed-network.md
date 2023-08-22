@@ -8,7 +8,7 @@ ms.subservice: enterprise-readiness
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 07/19/2023
+ms.date: 08/22/2023
 ms.topic: how-to
 ms.custom: build-2023, devx-track-azurecli
 ---
@@ -322,7 +322,7 @@ To configure a managed VNet that allows internet outbound communications, use th
 
             :::image type="content" source="./media/how-to-managed-network/outbound-rule-private-endpoint.png" alt-text="Screenshot of updating a managed network by adding a private endpoint." lightbox="./media/how-to-managed-network/outbound-rule-private-endpoint.png":::
 
-        * To __delete__ an outbound rule, select select __delete__ for the rule.
+        * To __delete__ an outbound rule, select __delete__ for the rule.
 
             :::image type="content" source="./media/how-to-managed-network/delete-outbound-rule.png" alt-text="Screenshot of the delete rule icon for an approved outbound managed network.":::
 
@@ -663,7 +663,7 @@ To configure a managed VNet that allows only approved outbound communications, u
 
             Select __Save__ to save the rule. You can continue using __Add user-defined outbound rules__ to add rules.
 
-        * To __delete__ an outbound rule, select select __delete__ for the rule.
+        * To __delete__ an outbound rule, select __delete__ for the rule.
 
             :::image type="content" source="./media/how-to-managed-network/delete-outbound-rule.png" alt-text="Screenshot of the delete rule icon for an approved outbound managed network.":::
 
@@ -841,7 +841,7 @@ ml_client._workspace_outbound_rules.begin_remove(resource_group, ws_name, rule_n
 
 * To __enable__ or __disable__ a rule, use the toggle in the __Active__ column.
 
-* To __delete__ an outbound rule, select select __delete__ for the rule.
+* To __delete__ an outbound rule, select __delete__ for the rule.
 
 ---
 

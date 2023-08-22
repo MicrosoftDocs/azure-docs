@@ -8,7 +8,7 @@ ms.subservice: enterprise-readiness
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 08/11/2023
+ms.date: 08/22/2023
 ms.topic: how-to
 ms.custom: subject-rbac-steps, cliv2, event-tier1-build-2022, ignite-2022, build-2023
 monikerRange: 'azureml-api-2 || azureml-api-1'
@@ -66,13 +66,13 @@ To create a virtual network, use the following steps:
 1. In the [Azure portal](https://portal.azure.com), select the portal menu in the upper left corner. From the menu, select __+ Create a resource__ and then enter __Virtual Network__ in the search field. Select the __Virtual Network__ entry, and then select __Create__.
 
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/create-resource-search-vnet.png" alt-text="The create resource UI search":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/create-resource-search-vnet.png" alt-text="Screenshot of the create resource search form with virtual network selected.":::
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/create-resource-vnet.png" alt-text="Virtual network create":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/create-resource-vnet.png" alt-text="Screenshot of the virtual network create form.":::
 
 1. From the __Basics__ tab, select the Azure __subscription__ to use for this resource and then select or create a new __resource group__. Under __Instance details__, enter a friendly __name__ for your virtual network and select the __region__ to create it in.
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/create-vnet-basics.png" alt-text="Image of the basic virtual network config":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/create-vnet-basics.png" alt-text="Screenshot of the basic virtual network configuration form.":::
 
 1. Select __Security__. Select to __Enable Azure Bastion__. [Azure Bastion](../bastion/bastion-overview.md) provides a secure way to access the VM jump box you'll create inside the VNet in a later step. Use the following values for the remaining fields:
 
@@ -85,7 +85,7 @@ To create a virtual network, use the following steps:
 
 1. Select __IP Addresses__. The default settings should be similar to the following image:
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/create-vnet-ip-address-default.png" alt-text="Default IP Address screen.":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/create-vnet-ip-address-default.png" alt-text="Screenshot of the default IP Address form.":::
 
     Use the following steps to configure the IP address and configure a subnet for training and scoring resources:
 
@@ -126,22 +126,22 @@ To create a virtual network, use the following steps:
 
 1. Select __Review + create__.
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/create-vnet-ip-address-final.png" alt-text="Screenshot showing the review + create button":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/create-vnet-ip-address-final.png" alt-text="Screenshot of the review + create button.":::
 
 1. Verify that the information is correct, and then select __Create__.
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/create-vnet-review.png" alt-text="Screenshot of the review page":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/create-vnet-review.png" alt-text="Screenshot of the virtual network review + create page.":::
 
 ## Create a storage account
 
 1. In the [Azure portal](https://portal.azure.com), select the portal menu in the upper left corner. From the menu, select __+ Create a resource__ and then enter __Storage account__. Select the __Storage Account__ entry, and then select __Create__.
 1. From the __Basics__ tab, select the __subscription__, __resource group__, and __region__ you previously used for the virtual network. Enter a unique __Storage account name__, and set __Redundancy__ to __Locally-redundant storage (LRS)__.
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/create-storage.png" alt-text="Image of storage account basic config":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/create-storage.png" alt-text="Screenshot of storage account basic config.":::
 
 1. From the __Networking__ tab, select __Private endpoint__ and then select __+ Add private endpoint__.
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/storage-enable-private-endpoint.png" alt-text="UI to add the blob private network":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/storage-enable-private-endpoint.png" alt-text="Screenshot of the form to add the blob private network.":::
 
 1. On the __Create private endpoint__ form, use the following values:
     * __Subscription__: The same Azure subscription that contains the previous resources you've created.
@@ -160,22 +160,22 @@ To create a virtual network, use the following steps:
 
 1. Once the Storage Account has been created, select __Go to resource__:
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/storage-go-to-resource.png" alt-text="Go to new storage resource":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/storage-go-to-resource.png" alt-text="Screenshot of the go to new storage resource button.":::
 
 1. From the left navigation, select __Networking__ the __Private endpoint connections__ tab, and then select __+ Private endpoint__:
 
     > [!NOTE]
     > While you created a private endpoint for Blob storage in the previous steps, you must also create one for File storage.
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/storage-file-networking.png" alt-text="UI for storage account networking":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/storage-file-networking.png" alt-text="Screenshot of the storage account networking form.":::
 
 1. On the __Create a private endpoint__ form, use the same __subscription__, __resource group__, and __Region__ that you've used for previous resources. Enter a unique __Name__.
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/storage-file-private-endpoint.png" alt-text="UI to add the file private endpoint":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/storage-file-private-endpoint.png" alt-text="Screenshot of the basics form when adding the file private endpoint.":::
 
 1. Select __Next : Resource__, and then set __Target sub-resource__ to __file__.
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/storage-file-private-endpoint-resource.png" alt-text="Add the subresource of 'file'":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/storage-file-private-endpoint-resource.png" alt-text="Screenshot of the resource form when selecting a sub-resource of 'file'.":::
 
 1. Select __Next : Configuration__, and then use the following values:
     * __Virtual network__: The network you created previously
@@ -183,7 +183,7 @@ To create a virtual network, use the following steps:
     * __Integrate with private DNS zone__: Yes
     * __Private DNS zone__: privatelink.file.core.windows.net
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/storage-file-private-endpoint-config.png" alt-text="UI to configure the file private endpoint":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/storage-file-private-endpoint-config.png" alt-text="Screenshot of the configuration form when adding the file private endpoint.":::
 
 1. Select __Review + Create__. Verify that the information is correct, and then select __Create__.
 
@@ -195,11 +195,11 @@ To create a virtual network, use the following steps:
 1. In the [Azure portal](https://portal.azure.com), select the portal menu in the upper left corner. From the menu, select __+ Create a resource__ and then enter __Key Vault__. Select the __Key Vault__ entry, and then select __Create__.
 1. From the __Basics__ tab, select the __subscription__, __resource group__, and __region__ you previously used for the virtual network. Enter a unique __Key vault name__. Leave the other fields at the default value.
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/create-key-vault.png" alt-text="Create a new key vault":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/create-key-vault.png" alt-text="Screenshot of the basics form when creating a new key vault.":::
 
 1. From the __Networking__ tab, select __Private endpoint__ and then select __+ Add__.
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/key-vault-networking.png" alt-text="Key vault networking":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/key-vault-networking.png" alt-text="Screenshot of the networking form when adding a private endpoint for the key vault.":::
 
 1. On the __Create private endpoint__ form, use the following values:
     * __Subscription__: The same Azure subscription that contains the previous resources you've created.
@@ -214,7 +214,7 @@ To create a virtual network, use the following steps:
 
     Select __OK__ to create the private endpoint.
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/key-vault-private-endpoint.png" alt-text="Configure a key vault private endpoint":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/key-vault-private-endpoint.png" alt-text="Screenshot of the key vault private endpoint configuration form.":::
 
 1. Select __Review + create__. Verify that the information is correct, and then select __Create__.
 
@@ -223,11 +223,11 @@ To create a virtual network, use the following steps:
 1. In the [Azure portal](https://portal.azure.com), select the portal menu in the upper left corner. From the menu, select __+ Create a resource__ and then enter __Container Registry__. Select the __Container Registry__ entry, and then select __Create__.
 1. From the __Basics__ tab, select the __subscription__, __resource group__, and __location__ you previously used for the virtual network. Enter a unique __Registry name__ and set the __SKU__ to __Premium__.
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/create-container-registry.png" alt-text="Create a container registry":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/create-container-registry.png" alt-text="Screenshot of the basics form when creating a container registry.":::
 
 1. From the __Networking__ tab, select __Private endpoint__ and then select __+ Add__.
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/container-registry-networking.png" alt-text="Container registry networking":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/container-registry-networking.png" alt-text="Screenshot of the networking form when adding a container registry private endpoint.":::
 
 1. On the __Create private endpoint__ form, use the following values:
     * __Subscription__: The same Azure subscription that contains the previous resources you've created.
@@ -242,22 +242,22 @@ To create a virtual network, use the following steps:
 
     Select __OK__ to create the private endpoint.
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/container-registry-private-endpoint.png" alt-text="Configure container registry private endpoint":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/container-registry-private-endpoint.png" alt-text="Screenshot of the configuration form for the container registry private endpoint.":::
 
 1. Select __Review + create__. Verify that the information is correct, and then select __Create__.
 1. After the container registry has been created, select __Go to resource__.
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/container-registry-go-to-resource.png" alt-text="Select 'go to resource'":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/container-registry-go-to-resource.png" alt-text="Screenshot of the 'go to resource' button.":::
 
 1. From the left of the page, select __Access keys__, and then enable __Admin user__. This setting is required when using Azure Container Registry inside a virtual network with Azure Machine Learning.
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/container-registry-admin-user.png" alt-text="Screenshot of admin user toggle":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/container-registry-admin-user.png" alt-text="Screenshot of the container registry access keys form, with the 'admin user' option enabled.":::
 
 ## Create a workspace
 
 1. In the [Azure portal](https://portal.azure.com), select the portal menu in the upper left corner. From the menu, select __+ Create a resource__ and then enter __Machine Learning__. Select the __Machine Learning__ entry, and then select __Create__.
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/machine-learning-create.png" alt-text="{alt-text}":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/machine-learning-create.png" alt-text="Screenshot of the create page for Azure Machine Learning.":::
 
 1. From the __Basics__ tab, select the __subscription__, __resource group__, and __Region__ you previously used for the virtual network. Use the following values for the other fields:
     * __Workspace name__: A unique name for your workspace.
@@ -266,7 +266,7 @@ To create a virtual network, use the following steps:
     * __Application insights__: Use the default value.
     * __Container registry__: Use the container registry you created previously.
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/create-machine-learning-workspace.png" alt-text="Basic workspace configuration":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/create-machine-learning-workspace.png" alt-text="Screenshot of the basic workspace configuration form.":::
 
 1. From the __Networking__ tab, select __Private with Internet Outbound__. In the __Workspace inbound access__ section, select __+ add__.
 
@@ -283,18 +283,18 @@ To create a virtual network, use the following steps:
 
     Select __OK__ to create the private endpoint.
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/machine-learning-workspace-private-endpoint.png" alt-text="Screenshot of workspace private network config":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/machine-learning-workspace-private-endpoint.png" alt-text="Screenshot of the workspace private network configuration form.":::
 
 1. From the __Networking__ tab, in the __Workspace outbound access__ section, select __Use my own virtual network__.
 1. Select __Review + create__. Verify that the information is correct, and then select __Create__.
 1. Once the workspace has been created, select __Go to resource__.
 1. From the __Settings__ section on the left, select __Private endpoint connections__ and then select the link in the __Private endpoint__ column:
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/workspace-private-endpoint-connections.png" alt-text="Screenshot of workspace private endpoint connections":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/workspace-private-endpoint-connections.png" alt-text="Screenshot of the private endpoint connections for the workspace.":::
 
 1. Once the private endpoint information appears, select __DNS configuration__ from the left of the page. Save the IP address and fully qualified domain name (FQDN) information on this page, as it will be used later.
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/workspace-private-endpoint-dns.png" alt-text="screenshot of IP and FQDN entries":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/workspace-private-endpoint-dns.png" alt-text="screenshot of the IP and FQDN entries for the workspace.":::
 
 > [!IMPORTANT]
 > There are still some configuration steps needed before you can fully use the workspace. However, these require you to connect to the workspace.
@@ -305,13 +305,13 @@ Azure Machine Learning studio is a web-based application that lets you easily ma
 
 1. When using an Azure Storage Account that has a private endpoint, add the service principal for the workspace as a __Reader__ for the storage private endpoint(s). From the Azure portal, select your storage account and then select __Networking__. Next, select __Private endpoint connections__.
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/storage-private-endpoint-select.png" alt-text="Screenshot of storage private endpoints":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/storage-private-endpoint-select.png" alt-text="Screenshot of storage private endpoint connections.":::
 
 1. For __each private endpoint listed__, use the following steps:
 
     1. Select the link in the __Private endpoint__ column.
     
-        :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/storage-private-endpoint-selected.png" alt-text="Screenshot of endpoints to select":::
+        :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/storage-private-endpoint-selected.png" alt-text="Screenshot of the endpoint links in the private endpoint column.":::
 
     1. Select __Access control (IAM)__ from the left side.
     1. Select __+ Add__, and then __Add role assignment (Preview)__.
@@ -403,7 +403,7 @@ Use the following steps to create an Azure Virtual Machine to use as a jump box.
 
     You can leave other fields at the default values.
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/create-virtual-machine-basic.png" alt-text="Image of VM basic configuration":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/create-virtual-machine-basic.png" alt-text="Screenshot of the virtual machine basics configuration.":::
 
 1. Select __Networking__, and then select the __Virtual network__ you created earlier. Use the following information to set the remaining fields:
 
@@ -411,7 +411,7 @@ Use the following steps to create an Azure Virtual Machine to use as a jump box.
     * Set the __Public IP__ to __None__.
     * Leave the other fields at the default value.
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/create-virtual-machine-network.png" alt-text="Image of VM network configuration":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/create-virtual-machine-network.png" alt-text="Screenshot of the virtual machine network configuration.":::
 
 1. Select __Review + create__. Verify that the information is correct, and then select __Create__.
 
@@ -421,11 +421,11 @@ Use the following steps to create an Azure Virtual Machine to use as a jump box.
 1. Once the virtual machine has been created, select __Go to resource__.
 1. From the top of the page, select __Connect__ and then __Bastion__.
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/virtual-machine-connect.png" alt-text="Image of the connect/bastion UI":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/virtual-machine-connect.png" alt-text="Screenshot of the 'connect' list, with 'Bastion' selected.":::
 
 1. Select __Use Bastion__, and then provide your authentication information for the virtual machine, and a connection will be established in your browser.
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/use-bastion.png" alt-text="Image of use bastion dialog":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/use-bastion.png" alt-text="Screenshot of the Use Bastion button.":::
 
 ## Create a compute cluster and compute instance
 
@@ -438,34 +438,34 @@ A compute cluster is used by your training jobs. A compute instance provides a J
     > [!TIP]
     > If your Azure AD account has access to multiple subscriptions or directories, use the __Directory and Subscription__ dropdown to select the one that contains the workspace.
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/studio-select-workspace.png" alt-text="Screenshot of the select workspace dialog":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/studio-select-workspace.png" alt-text="Screenshot of the select Machine Learning workspace form.":::
 
 1. From studio, select __Compute__, __Compute clusters__, and then __+ New__.
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/studio-new-compute-cluster.png" alt-text="Screenshot of new compute cluster workflow":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/studio-new-compute-cluster.png" alt-text="Screenshot of the compute clusters page, with the 'new' button selected.":::
 
 1. From the __Virtual Machine__ dialog, select __Next__ to accept the default virtual machine configuration.
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/studio-new-compute-vm.png" alt-text="Screenshot of compute cluster vm settings":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/studio-new-compute-vm.png" alt-text="Screenshot of the compute cluster virtual machine configuration.":::
     
 1. From the __Configure Settings__ dialog, enter __cpu-cluster__ as the __Compute name__. Set the __Subnet__ to __Training__ and then select __Create__ to create the cluster.
 
     > [!TIP]
     > Compute clusters dynamically scale the nodes in the cluster as needed. We recommend leaving the minimum number of nodes at 0 to reduce costs when the cluster is not in use.
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/studio-new-compute-settings.png" alt-text="Screenshot of new compute cluster settings":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/studio-new-compute-settings.png" alt-text="Screenshot of the configure settings form.":::
 
 1. From studio, select __Compute__, __Compute instance__, and then __+ New__.
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/create-compute-instance.png" alt-text="Screenshot of new compute instance workflow":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/create-compute-instance.png" alt-text="Screenshot of the compute instances page, with the 'new' button selected.":::
 
 1. From the __Virtual Machine__ dialog, enter a unique __Computer name__ and select __Next: Advanced Settings__.
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/create-compute-instance-vm.png" alt-text="Screenshot of compute instance vm settings":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/create-compute-instance-vm.png" alt-text="Screenshot of compute instance virtual machine configuration.":::
 
 1. From the __Advanced Settings__ dialog, set the __Subnet__ to __Training__, and then select __Create__.
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/create-compute-instance-settings.png" alt-text="Screenshot of compute instance settings":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/create-compute-instance-settings.png" alt-text="Screenshot of the advanced settings.":::
 
 > [!TIP]
 > When you create a compute cluster or compute instance, Azure Machine Learning dynamically adds a Network Security Group (NSG). This NSG contains the following rules, which are specific to compute cluster and compute instance:
@@ -526,16 +526,17 @@ The compute cluster dynamically scales between the minimum and maximum node coun
 
 From studio, select __Compute__, __Compute clusters__, and then select the compute instance. Finally, select __Stop__ from the top of the page.
 
-:::image type="content" source="./media/tutorial-create-secure-workspace-vnet/compute-instance-stop.png" alt-text="Screenshot of stop button for compute instance":::
+:::image type="content" source="./media/tutorial-create-secure-workspace-vnet/compute-instance-stop.png" alt-text="Screenshot of the stop button for the compute instance.":::
+
 ### Stop the jump box
 
 Once it has been created, select the virtual machine in the Azure portal and then use the __Stop__ button. When you're ready to use it again, use the __Start__ button to start it.
 
-:::image type="content" source="./media/tutorial-create-secure-workspace-vnet/virtual-machine-stop.png" alt-text="Screenshot of stop button for the VM":::
+:::image type="content" source="./media/tutorial-create-secure-workspace-vnet/virtual-machine-stop.png" alt-text="Screenshot of the stop button for the jump box virtual machine.":::
 
 You can also configure the jump box to automatically shut down at a specific time. To do so, select __Auto-shutdown__, __Enable__, set a time, and then select __Save__.
 
-:::image type="content" source="./media/tutorial-create-secure-workspace-vnet/virtual-machine-auto-shutdown.png" alt-text="Screenshot of auto-shutdown option":::
+:::image type="content" source="./media/tutorial-create-secure-workspace-vnet/virtual-machine-auto-shutdown.png" alt-text="Screenshot of the auto-shutdown option.":::
 
 ## Clean up resources
 
@@ -547,7 +548,7 @@ To delete all resources created in this tutorial, use the following steps:
 1. From the list, select the resource group that you created in this tutorial.
 1. Select __Delete resource group__.
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/delete-resources.png" alt-text="Screenshot of delete resource group button":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/delete-resources.png" alt-text="Screenshot of the delete resource group link.":::
 
 1. Enter the resource group name, then select __Delete__.
 ## Next steps

@@ -70,7 +70,7 @@ These prerequisites cover the submission of a Spark job from Azure Machine Learn
 
 ### Attach user assigned managed identity using `ARMClient`
 
-1. Install [ARMClient](https://github.com/projectkudu/ARMClient), a simple command line tool that invokes the Azure Resource Manager API.
+1. Install [`ARMClient`](https://github.com/projectkudu/ARMClient), a simple command line tool that invokes the Azure Resource Manager API.
 1. Create a JSON file that defines the user-assigned managed identity that should be attached to the workspace:
     ```json
     {
