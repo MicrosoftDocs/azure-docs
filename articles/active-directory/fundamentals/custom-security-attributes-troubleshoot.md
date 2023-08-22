@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 > [!IMPORTANT]
 > Custom security attributes are currently in PREVIEW.
-> For more information about previews, see [Universal License Terms For Online Services](https://www.microsoft.com/licensing/terms/product/ForOnlineServices/EAEAS).
+> For more information about previews, see [Universal License Terms For Online Services](https://www.microsoft.com/licensing/terms/product/ForOnlineServices/all).
 
 ## Symptom - Custom security attributes page is disabled
 

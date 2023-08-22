@@ -354,7 +354,7 @@ Microsoft 365 groups are created and managed in the cloud. The writeback capabil
 
 For more details, please refer to documentation for the [Azure AD Connect sync service](../hybrid/connect/how-to-connect-syncservice-features.md).
 
-Microsoft 365 group writeback is a public preview feature of Azure Active Directory (Azure AD) and is available with any paid Azure AD license plan. For more information about previews, see [Universal License Terms For Online Services](https://www.microsoft.com/licensing/terms/product/ForOnlineServices/EAEAS).
+Microsoft 365 group writeback is a public preview feature of Azure Active Directory (Azure AD) and is available with any paid Azure AD license plan. For more information about previews, see [Universal License Terms For Online Services](https://www.microsoft.com/licensing/terms/product/ForOnlineServices/all).
 
 ## Next steps
 
