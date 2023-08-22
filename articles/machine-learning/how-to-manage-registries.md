@@ -28,7 +28,7 @@ Azure Machine Learning registries enable you to create and use those assets in d
 
 ## Prerequisites
 
-[!INCLUDE [CLI v2 preres](../../includes/machine-learning-cli-prereqs.md)]
+[!INCLUDE [CLI v2 preres](includes/machine-learning-cli-prereqs.md)]
 
 [!INCLUDE [CLI v2 update](./includes/new-feature-cli.md)]
 
@@ -150,7 +150,7 @@ The response should provide an access token good for one hour. Make note of the 
 To create a registry, use the following command. You can edit the JSON to change the inputs as needed. Replace the `<YOUR-ACCESS-TOKEN>` value with the access token retrieved previously:
  
 ```bash
-curl -X PUT https://management.azure.com/subscriptions/<your-subscription-id>/resourceGroups/<your-resource-group>/providers/Microsoft.MachineLearningServices/registries/reg-from-rest?api-version=2022-12-01-preview -H "Authorization:Bearer <YOUR-ACCESS-TOKEN>" -H 'Content-Type: application/json' -d ' 
+curl -X PUT https://management.azure.com/subscriptions/<your-subscription-id>/resourceGroups/<your-resource-group>/providers/Microsoft.MachineLearningServices/registries/reg-from-rest?api-version=2023-04-01 -H "Authorization:Bearer <YOUR-ACCESS-TOKEN>" -H 'Content-Type: application/json' -d ' 
 {
     "properties":
     {

@@ -43,6 +43,7 @@ New portal functionality has been added for Azure Image Builder. Search “Image
 - VHDs can now be distributed to a custom blob or container in a custom storage account
 - `targetRegions` array added and applied only to "SharedImage" type distribute. For more information on `targetRegions`, see [Azure Compute Gallery](../../articles/virtual-machines/azure-compute-gallery.md)
 - Added support for using a [Direct Shared Gallery](/azure/virtual-machines/shared-image-galleries?tabs=azure-cli#sharing) image as the source for the image template. Direct Shared Gallery is currently in preview.
+- Triggers are now available in public preview to set up automatic image builds. For more information, see [How to use AIB triggers](./image-builder-triggers-how-to.md)
 
 
 

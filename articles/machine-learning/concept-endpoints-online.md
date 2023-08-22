@@ -16,7 +16,7 @@ ms.date: 04/01/2023
 
 # Online endpoints
 
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 After you train a machine learning model, you need to deploy it so that others can consume its predictions. Such execution mode of a model is called *inference*. Azure Machine Learning uses the concept of [endpoints and deployments](concept-endpoints.md) for machine learning models inference.
 

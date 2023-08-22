@@ -11,7 +11,7 @@ ms.date: 05/09/2023
 
 This article explains how (and why) to take your existing playbooks built on the alert trigger and migrate them from being invoked by **analytics rules** to being invoked by **automation rules**.
 
-## Why to migrate
+## Why migrate
 
 If you have already created and built playbooks to respond to alerts (rather than incidents), and attached them to analytics rules, we strongly encourage you to move these playbooks to automation rules. Doing so will give you the following advantages:
 - Manage all your automations from a single display, regardless of type<br>(“single pane of glass”).

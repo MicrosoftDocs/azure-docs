@@ -22,6 +22,8 @@ You use a workflow that features three branches: main, dev, and test.
 
 This workflow is a small example for the purposes of this tutorial. Real world workflows may be more complex.
 
+Before beginning this tutorial, you can familiarize yourself with Deployment Environments resources and concepts by reviewing [Key concepts for Azure Deployment Environments](/azure/deployment-environments/concept-environments-key-concepts).
+
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
@@ -204,7 +206,7 @@ az role assignment create \
 
 ### 1.6 Create project environment types
 
-At the project level, dev infra admins specify which environment types are appropriate for the development team.
+At the project level, platform engineers specify which environment types are appropriate for the development team.
 
 Create a new Project Environment Type for each of the Environment Types we created on the dev center
 
@@ -407,7 +409,7 @@ az keyvault secret set \
 
 ## 4. Connect the catalog to your dev center
 
-A catalog is a repository that contains a set of catalog items. Catalog items consist of an IaC template and a manifest file. The template defines the environment, and the manifest provides metadata about the template. Development teams use catalog items from the catalog to create environments.                                                         
+A catalog is a repository that contains a set of environment definitions. Catalog items consist of an IaC template and a manifest file. The template defines the environment, and the manifest provides metadata about the template. Development teams use environment definitions from the catalog to create environments.                                                         
 
 The template you used to create your GitHub repository contains a catalog in the _Environments_ folder.
 

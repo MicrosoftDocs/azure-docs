@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: multi-tenant-organizations
 ms.topic: overview
-ms.date: 05/31/2023
+ms.date: 06/16/2023
 ms.author: rolyon
 ms.custom: it-pro
 
@@ -130,9 +130,16 @@ In the target tenant: Cross-tenant sync relies on the Azure AD External Identiti
 Which clouds can cross-tenant synchronization be used in?
 
 - Cross-tenant synchronization is supported within the commercial cloud and Azure Government. 
-- Cross-tenant synchronization isn't supported within the Azure China cloud. 
+- Cross-tenant synchronization isn't supported within the Microsoft Azure operated by 21Vianet cloud. 
 - Synchronization is only supported between two tenants in the same cloud.
 - Cross-cloud (such as public cloud to Azure Government) isn't currently supported.
+
+#### Existing B2B users
+
+Will cross-tenant synchronization manage existing B2B users?
+
+- Yes. Cross-tenant synchronization uses an internal attribute called the alternativeSecurityIdentifier to uniquely match an internal user in the source tenant with an external / B2B user in the target tenant. Cross-tenant synchronization can update existing B2B users, ensuring that each user has only one account.
+- Cross-tenant synchronization cannot match an internal user in the source tenant with an internal user in the target tenant (both type member and type guest).
 
 #### Synchronization frequency
 
@@ -251,12 +258,12 @@ What federation options are supported for users in the target tenant back to the
 
 Does cross-tenant synchronization use System for Cross-Domain Identity Management (SCIM)?
 
-- No. Currently, Azure AD supports a SCIM client, but not a SCIM server. For more information, see [SCIM synchronization with Azure Active Directory](../fundamentals/sync-scim.md).
+- No. Currently, Azure AD supports a SCIM client, but not a SCIM server. For more information, see [SCIM synchronization with Azure Active Directory](../architecture/sync-scim.md).
 
 #### Deprovisioning
 Does cross-tenant synchronization support deprovisioning users?
 
-- Yes, when the below actions occur in the source tenant, the user will be [soft deleted](../fundamentals/recover-from-deletions.md#soft-deletions) in the target tenant. 
+- Yes, when the below actions occur in the source tenant, the user will be [soft deleted](../architecture/recover-from-deletions.md#soft-deletions) in the target tenant. 
 
   - Delete the user in the source tenant
   - Unassign the user from the cross-tenant synchronization configuration
@@ -270,8 +277,7 @@ Does cross-tenant synchronization support deprovisioning users?
 Does cross-tenant synchronization support restoring users? 
 
 - If the user in the source tenant is restored, reassigned to the app, meets the scoping condition again within 30 days of soft deletion, it will be restored in the target tenant.
-- IT admins can also manually [restore](/azure/active-directory/fundamentals/active-directory-users-restore
-../fundamentals/active-directory-users-restore.md) the user directly in the target tenant.
+- IT admins can also manually [restore](/azure/active-directory/fundamentals/active-directory-users-restore) the user directly in the target tenant.
 
 How can I deprovision all the users that are currently in scope of cross-tenant synchronization? 
 

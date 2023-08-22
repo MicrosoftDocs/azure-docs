@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 ---
 
 # Install Azure AD Connect using an existing ADSync database
-Azure AD Connect requires a SQL Server database to store data. You can either use the default SQL Server 2012 Express LocalDB installed with Azure AD Connect or use your own full version of SQL. Previously, when you installed Azure AD Connect, a new database named ADSync was always created. With Azure AD Connect version 1.1.613.0 (or after), you have the option to install Azure AD Connect by pointing it to an existing ADSync database.
+Azure AD Connect requires a SQL Server database to store data. You can either use the default SQL Server 2019 Express LocalDB installed with Azure AD Connect or use your own full version of SQL. Previously, when you installed Azure AD Connect, a new database named ADSync was always created. With Azure AD Connect version 1.1.613.0 (or after), you have the option to install Azure AD Connect by pointing it to an existing ADSync database.
 
 ## Benefits of using an existing ADSync database
 By pointing to an existing ADSync database:
@@ -50,10 +50,10 @@ Important notes to take note of before you proceed:
 - You cannot have multiple Azure AD Connect servers share the same ADSync database. The “use existing database” method allows you to reuse an existing ADSync database with a new Azure AD Connect server. It does not support sharing.
 
 ## Steps to install Azure AD Connect with “use existing database” mode
-1.	Download Azure AD Connect installer (AzureADConnect.MSI) to the Windows server. Double-click the Azure AD Connect installer to start installing Azure AD Connect.
-2.	Once the MSI installation completes, the Azure AD Connect wizard starts with the Express mode setup. Close the screen by clicking the Exit icon.
+1. Download Azure AD Connect installer (AzureADConnect.MSI) to the Windows server. Double-click the Azure AD Connect installer to start installing Azure AD Connect.
+2. Once the MSI installation completes, the Azure AD Connect wizard starts with the Express mode setup. Close the screen by clicking the Exit icon.
 ![Screenshot that shows the "Welcome to Azure A D Connect" page, with "Express Settings" in the left-side menu highlighted.](./media/how-to-connect-install-existing-database/db1.png)
-3.	Start a new command prompt or PowerShell session. Navigate to folder "C:\Program Files\Microsoft Azure Active Directory Connect". Run command .\AzureADConnect.exe /useexistingdatabase to start the Azure AD Connect wizard in “Use existing database” setup mode.
+3. Start a new command prompt or PowerShell session. Navigate to folder "C:\Program Files\Microsoft Azure Active Directory Connect". Run command .\AzureADConnect.exe /useexistingdatabase to start the Azure AD Connect wizard in “Use existing database” setup mode.
 
 > [!NOTE]
 > Use the switch **/UseExistingDatabase** only when the database already contains data from an earlier Azure AD Connect installation. For instance, when you are moving from a local database to a full SQL Server database or when the Azure AD Connect server was rebuilt and you restored a SQL backup of the ADSync database from an earlier installation of Azure AD Connect. If the database is empty, that is, it doesn't contain any data from a previous Azure AD Connect installation, skip this step.

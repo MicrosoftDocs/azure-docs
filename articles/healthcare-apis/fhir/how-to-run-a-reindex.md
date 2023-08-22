@@ -103,9 +103,10 @@ content-type: application/fhir+json
 "resourceType": "Parameters",  
 
 "parameter": [
+    {
       "name": "targetSearchParameterTypes",
       "valueString": "{url of custom search parameter. In case of multiple custom search parameters, url list can be comma seperated.}"
-
+    }
 ] 
 
 }
@@ -179,7 +180,7 @@ An example response:
         },
         {
             "name": "searchParams",
-            "valueString": "{{LIST_OF_SEARCHPARAM_URLS}}h"
+            "valueString": "{{LIST_OF_SEARCHPARAM_URLS}}"
         },
         {
             "name": "queryDelayIntervalInMilliseconds",

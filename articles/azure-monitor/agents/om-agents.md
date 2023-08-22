@@ -2,7 +2,7 @@
 title: Connect Operations Manager to Azure Monitor | Microsoft Docs
 description: To maintain your investment in System Center Operations Manager and use extended capabilities with Log Analytics, you can integrate Operations Manager with your workspace.
 ms.topic: conceptual
-ms.date: 01/30/2023
+ms.date: 06/15/2023
 ms.reviewer: JeffWo
 
 ---
@@ -18,6 +18,10 @@ To maintain your existing investment in [System Center Operations Manager](/syst
 Integrating with System Center Operations Manager adds value to your service operations strategy by using the speed and efficiency of Azure Monitor in collecting, storing, and analyzing log data from Operations Manager. Azure Monitor log queries help correlate and work toward identifying the faults of problems and surfacing recurrences in support of your existing problem management process. The flexibility of the query engine to examine performance, event, and alert data with rich dashboards and reporting capabilities to expose this data in meaningful ways demonstrates the strength Azure Monitor brings in complementing Operations Manager.
 
 The agents reporting to the Operations Manager management group collect data from your servers based on the [Log Analytics data sources](../agents/agent-data-sources.md) and solutions you've enabled in your workspace. Depending on the solutions enabled:
+
+>[!Note]
+>Newer integrations and reconfiguration of the existing integration between Operations Manager management server and Log Analytics will no longer work as this connection will be retired soon.
+
 - The data is sent directly from an Operations Manager management server to the service, or
 - The data is sent directly from the agent to a Log Analytics workspace because of the volume of data collected on the agent-managed system.
 
@@ -103,7 +107,11 @@ To ensure the security of data in transit to Azure Monitor, configure the agent 
 Perform the following series of steps to configure your Operations Manager management group to connect to one of your Log Analytics workspaces.
 
 > [!NOTE]
-> If Log Analytics data stops coming in from a specific agent or management server, reset the Winsock Catalog by using `netsh winsock reset`. Then reboot the server. Resetting the Winsock Catalog allows network connections that were broken to be reestablished.
+> - If Log Analytics data stops coming in from a specific agent or management server, reset the Winsock Catalog by using `netsh winsock reset`. Then reboot the server. Resetting the Winsock Catalog allows network connections that were broken to be reestablished.
+> - Newer integrations and reconfiguration of the existing integration between Operations Manager management server and Log Analytics will no longer workas this connection will be retired soon. However, you can still connect your monitored System Center Operations Manager agents to Log Analytics using the following methods based on your scenario.
+>     1.	Use a Log Analytics Gateway and point the agent to that server. Learn more about [Connect computers without internet access by using the Log Analytics gateway in Azure Monitor](/azure/azure-monitor/agents/gateway).
+>     2.	Use the AMA (Azure Monitoring Agent) agent side-by-side to connect the agent to Log Analytics. Learn more about [Migrate to Azure Monitor Agent from Log Analytics agent](/azure/azure-monitor/agents/azure-monitor-agent-migration). 
+>     3.	Configure a direct connection to Log Analytics in the Microsoft Monitoring Agent. (Dual-Home with System Center Operations Manager).
 
 During initial registration of your Operations Manager management group with a Log Analytics workspace, the option to specify the proxy configuration for the management group isn't available in the Operations console. The management group has to be successfully registered with the service before this option is available. To work around this situation, update the system proxy configuration by using `netsh` on the system you're running the Operations console from to configure integration, and all management servers in the management group.
 

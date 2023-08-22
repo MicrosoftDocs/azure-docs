@@ -208,7 +208,7 @@ To deploy the template, follow the instructions for [Azure Resource Manager][lnk
 > If there are no IP and virtual network rules, all the traffic flows into the namespace even if you set the `defaultAction` to `deny`.  The namespace can be accessed over the public internet (using the access key). Specify at least one IP rule or virtual network rule for the namespace to allow traffic only from the specified IP addresses or subnet of a virtual network.  
 
 ## Use Azure CLI
-Use [`az servicebus namespace network-rule`](/cli/azure/servicebus/namespace/network-rule) add, list, update, and remove commands to manage virtual network rules for a Service Bus namespace.
+Use [`az servicebus namespace network-rule-set`](/cli/azure/servicebus/namespace/network-rule-set) add, list, update, and remove commands to manage virtual network rules for a Service Bus namespace.
 
 ## Use Azure PowerShell
 Use the following Azure PowerShell commands to add, list, remove, update, and delete network rules for a Service Bus namespace. 

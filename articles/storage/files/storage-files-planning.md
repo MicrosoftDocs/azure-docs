@@ -2,11 +2,10 @@
 title: Planning for an Azure Files deployment
 description: Understand how to plan for an Azure Files deployment. You can either direct mount an Azure file share, or cache Azure file shares on-premises with Azure File Sync.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 06/07/2023
+ms.date: 07/31/2023
 ms.author: kendownie
-ms.subservice: files
 ms.custom: references_regions
 ---
 
@@ -67,7 +66,7 @@ When deploying Azure file shares into storage accounts, we recommend:
 
 - Paying attention to a storage account's IOPS limitations when deploying Azure file shares. Ideally, you would map file shares 1:1 with storage accounts. However, this may not always be possible due to various limits and restrictions, both from your organization and from Azure. When it is not possible to have only one file share deployed in one storage account, consider which shares will be highly active and which shares will be less active to ensure that the hottest file shares don't get put in the same storage account together.
 
-- Only deploying GPv2 and FileStorage accounts and upgrading GPv1 and classic storage accounts when you find them in your environment. 
+- Only deploying GPv2 and FileStorage accounts, and upgrading GPv1 and classic storage accounts when you find them in your environment. 
 
 ## Identity
 To access an Azure file share, the user of the file share must be authenticated and authorized to access the share. This is done based on the identity of the user accessing the file share. Azure Files supports the following methods of authentication:
@@ -86,13 +85,13 @@ Directly mounting your Azure file share often requires some thought about networ
 - The port that SMB file shares use for communication, port 445, is frequently blocked by many organizations and internet service providers (ISPs) for outbound (internet) traffic.
 - NFS file shares rely on network-level authentication and are therefore only accessible via restricted networks. Using an NFS file share always requires some level of networking configuration.
 
-To configure networking, Azure Files provides an internet accessible public endpoint and integration with Azure networking features like *service endpoints*, which help restrict the public endpoint to specified virtual networks, and *private endpoints*, which give your storage account a private IP address from within a virtual network IP address space.  
+To configure networking, Azure Files provides an internet accessible public endpoint and integration with Azure networking features like *service endpoints*, which help restrict the public endpoint to specified virtual networks, and *private endpoints*, which give your storage account a private IP address from within a virtual network IP address space. While there's no extra charge for using public endpoints or service endpoints, standard data processing rates apply for private endpoints.
 
 From a practical perspective, this means you'll need to consider the following network configurations:
 
-- If the required protocol is SMB, and all access over SMB is from clients in Azure, no special networking configuration is required.
-- If the required protocol is SMB, and the access is from clients on-premises, a VPN or ExpressRoute connection from on-premises to your Azure network is required, with Azure Files exposed on your internal network using private endpoints.
-- If the required protocol is NFS, you can use either service endpoints or private endpoints to restrict the network to specified virtual networks.
+- If the required protocol is SMB and all access over SMB is from clients in Azure, no special networking configuration is required.
+- If the required protocol is SMB and the access is from clients on-premises, then a VPN or ExpressRoute connection from on-premises to your Azure network is required, with Azure Files exposed on your internal network using private endpoints.
+- If the required protocol is NFS, you can use either service endpoints or private endpoints to restrict the network to specified virtual networks. If you need a static IP address and/or your workload requires high availability, use a private endpoint.
 
 To learn more about how to configure networking for Azure Files, see [Azure Files networking considerations](storage-files-networking-overview.md).
 
@@ -101,8 +100,8 @@ In addition to directly connecting to the file share using the public endpoint o
 ## Encryption
 Azure Files supports two different types of encryption: 
 
-- Encryption in transit, which relates to the encryption used when mounting/accessing the Azure file share
-- Encryption at rest, which relates to how the data is encrypted when it's stored on disk
+- **Encryption in transit**, which relates to the encryption used when mounting/accessing the Azure file share
+- **Encryption at rest**, which relates to how the data is encrypted when it's stored on disk
 
 ### Encryption in transit
 
@@ -121,7 +120,7 @@ For more information about encryption in transit, see [requiring secure transfer
 [!INCLUDE [storage-files-encryption-at-rest](../../../includes/storage-files-encryption-at-rest.md)]
 
 ## Data protection
-Azure Files has a multi-layered approach to ensuring your data is backed up, recoverable, and protected from security threats.
+Azure Files has a multi-layered approach to ensuring your data is backed up, recoverable, and protected from security threats. See [Azure Files data protection overview](files-data-protection-overview.md).
 
 ### Soft delete
 Soft delete is a storage-account level setting for SMB file shares that allows you to recover your file share when it's accidentally deleted. When a file share is deleted, it transitions to a soft deleted state instead of being permanently erased. You can configure the amount of time soft deleted shares are recoverable before they're permanently deleted, and undelete the share anytime during this retention period. 
@@ -155,15 +154,23 @@ Defender for Storage doesn't access the storage account data and doesn't impact 
 ## Redundancy
 [!INCLUDE [storage-files-redundancy-overview](../../../includes/storage-files-redundancy-overview.md)]
 
+For more information about redundancy, see [Azure Files data redundancy](files-redundancy.md).
 
 ### Standard ZRS availability
-[!INCLUDE [storage-redundancy-standard-zrs](../../../includes/storage-redundancy-standard-zrs.md)]
+
+ZRS for standard general-purpose v2 storage accounts is available for a [subset of Azure regions](../common/redundancy-regions-zrs.md).
 
 ### Premium ZRS availability
-[!INCLUDE [storage-files-redundancy-premium-zrs](../../../includes/storage-files-redundancy-premium-zrs.md)]
+
+ZRS for premium file shares is available for a [subset of Azure regions](redundancy-premium-file-shares.md#premium-file-share-accounts).
 
 ### Standard GZRS availability
-[!INCLUDE [storage-redundancy-standard-gzrs](../../../includes/storage-redundancy-standard-gzrs.md)]
+
+GZRS is available for a [subset of Azure regions](../common/redundancy-regions-gzrs.md).
+
+## Disaster recovery and failover
+
+In the case of an unplanned regional service outage, you should have a disaster recovery (DR) plan in place for your Azure file shares. To understand the concepts and processes involved with DR and storage account failover, see [Disaster recovery and failover for Azure Files](files-disaster-recovery.md).
 
 ## Migration
 In many cases, you won't be establishing a net new file share for your organization, but instead migrating an existing file share from an on-premises file server or NAS device to Azure Files. Picking the right migration strategy and tool for your scenario is important for the success of your migration. 

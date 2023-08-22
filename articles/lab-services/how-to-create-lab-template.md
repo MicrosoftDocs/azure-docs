@@ -10,7 +10,7 @@ ms.date: 05/10/2022
 
 # Create a lab in Azure Lab Services using an ARM template
 
-In this article, you learn how to use an Azure Resource Manager (ARM) template to create a lab.  You learn how to create a lab with Windows 11 Pro image.  Once a lab is created, an educator [configures the template](how-to-create-manage-template.md), [adds lab users](how-to-configure-student-usage.md), and [publishes the lab](tutorial-setup-lab.md#publish-lab).  For an overview of Azure Lab Services, see [An introduction to Azure Lab Services](lab-services-overview.md).
+In this article, you learn how to use an Azure Resource Manager (ARM) template to create a lab.  You learn how to create a lab with Windows 11 Pro image.  Once a lab is created, an educator [configures the template](how-to-create-manage-template.md), [adds lab users](how-to-manage-lab-users.md), and [publishes the lab](tutorial-setup-lab.md#publish-lab).  For an overview of Azure Lab Services, see [An introduction to Azure Lab Services](lab-services-overview.md).
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 

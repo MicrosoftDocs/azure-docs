@@ -11,8 +11,7 @@ ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
 ms.date: 05/22/2023
-ms.custom: developer
-
+ms.custom: developer, devx-track-js
 #Customer intent: As a dev, devops, I want to learn Learn how to use client certificate instead of secrets for authentication in my Node.js web app
 ---
 
@@ -169,7 +168,7 @@ Once you associate your app registration with the certificate, you need to updat
     });
     //...
     ```
-1. Use the steps in [Run and test the web app](how-to-web-app-node-sign-in-sign-in-out.md#run-and-test-the-web-app) to test your app.
+1. Use the steps in [Run and test the web app](tutorial-web-app-node-sign-in-sign-out.md#run-and-test-the-web-app) to test your app.
 
 ## Use a self-signed certificate directly from Azure Key Vault
 
@@ -262,7 +261,7 @@ You can use your existing certificate directly from Azure Key Vault:
     }
     ``` 
 
-1. Use the steps in [Run and test the web app](how-to-web-app-node-sign-in-sign-in-out.md#run-and-test-the-web-app) to test your app.
+1. Use the steps in [Run and test the web app](tutorial-web-app-node-sign-in-sign-out.md#run-and-test-the-web-app) to test your app.
 
 ## Next steps
 

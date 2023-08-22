@@ -51,8 +51,8 @@ landingContent:
             url: quickstart-azure-cli.md
           - text: ARM template
             url: quickstart-azure-resource-manager-template.md
-          #- text: Terraform
-          #  url: quickstart-terraform.md
+          - text: Terraform
+            url: quickstart-terraform.md
 
   # Card
   - title: Deploy, manage, and update applications

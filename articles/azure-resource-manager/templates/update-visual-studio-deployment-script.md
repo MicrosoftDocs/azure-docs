@@ -1,11 +1,10 @@
 ---
 title: Update Visual Studio's template deployment script to use Az PowerShell
 description: Update the Visual Studio template deployment script from AzureRM to Az PowerShell
-author: cweining
 ms.topic: conceptual
-ms.date: 01/31/2020
-ms.author: cweining
+ms.date: 06/23/2023
 ---
+
 # Update Visual Studio template deployment script to use Az PowerShell module
 
 Visual Studio 16.4 supports using the Az PowerShell module in the template deployment script. However, Visual Studio doesn't automatically install that module. To use the Az module, you need to take four steps:

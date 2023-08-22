@@ -27,7 +27,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Install HDInsight modules
 
-1. Sign in to the the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select your Azure Automation Accounts.
 1. Select **Modules gallery** under **Shared Resources**.
 1. Type **AzureRM.Profile** in the box and hit enter to search. Select the available search result.

@@ -14,9 +14,6 @@ ms.date: 09/06/2022
 
 # Secure an Azure Machine Learning inferencing environment with virtual networks
 
-> [!div class="op_single_selector" title1="Select the Azure Machine Learning SDK or CLI version you are using:"]
-> * [SDK/CLI v1](v1/how-to-secure-inferencing-vnet.md?view=azureml-api-1&preserve-view=true)
-> * [SDK/CLI v2 (current version)](how-to-secure-inferencing-vnet.md)
 
 In this article, you learn how to secure inferencing environments (online endpoints) with a virtual network in Azure Machine Learning. There are two inference options that can be secured using a VNet:
 
@@ -41,12 +38,7 @@ In this article, you learn how to secure inferencing environments (online endpoi
 
 + An existing virtual network and subnet, that is used to secure the Azure Machine Learning workspace.
 
-+ To deploy resources into a virtual network or subnet, your user account must have permissions to the following actions in Azure role-based access control (Azure RBAC):
-
-    - "Microsoft.Network/virtualNetworks/join/action" on the virtual network resource.
-    - "Microsoft.Network/virtualNetworks/subnet/join/action" on the subnet resource.
-
-    For more information on Azure RBAC with networking, see the [Networking built-in roles](../role-based-access-control/built-in-roles.md#networking).
+[!INCLUDE [network-rbac](includes/network-rbac.md)]
 
 + If using Azure Kubernetes Service (AKS), you must have an existing AKS cluster secured as described in the [Secure Azure Kubernetes Service inference environment](how-to-secure-kubernetes-inferencing-environment.md) article.
 

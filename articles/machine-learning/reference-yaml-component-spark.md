@@ -15,14 +15,11 @@ ms.reviewer: franksolomon
 
 # CLI (v2) Spark component YAML schema
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
-
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
-> * [v2 (current version)](./reference-yaml-component-spark.md)
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 <!--- The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/sparkComponent.schema.json. --->
 
-[!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
+[!INCLUDE [schema note](includes/machine-learning-preview-old-json-schema-note.md)]
 
 ## YAML syntax
 
@@ -88,11 +85,11 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 
 ## YAML: A sample Spark component
 
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/spark/spark-job-component.yaml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/spark/spark-job-component.yml":::
 
 ## YAML: A sample pipeline job with a Spark component
 
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/spark/attached-spark-pipeline-user-identity.yaml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/spark/attached-spark-pipeline-user-identity.yml":::
 
 ## Next steps
 

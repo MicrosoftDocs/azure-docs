@@ -3,7 +3,7 @@ title: Perform an access review of Azure resource and Azure AD roles in PIM
 description: Learn how to review access of Azure resource and Azure AD roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: amsliu
+author: billmath
 manager: amycolannino
 editor: ''
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: pim
 ms.date: 5/11/2023
-ms.author: amsliu
+ms.author: billmath
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
@@ -23,9 +23,11 @@ Privileged Identity Management (PIM) simplifies how enterprises manage privilege
 
 If you are assigned to an administrative role, your organization's privileged role administrator may ask you to regularly confirm that you still need that role for your job. You might get an email that includes a link, or you can go straight to the [Azure portal](https://portal.azure.com) and begin.
 
-If you're a privileged role administrator or global administrator interested in access reviews, get more details at [How to start an access review](pim-create-azure-ad-roles-and-resource-roles-review.md).
+If you're a privileged role administrator or global administrator interested in access reviews, get more details at [How to start an access review](./pim-create-roles-and-resource-roles-review.md).
 
 ## Approve or deny access
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 You can approve or deny access based on whether the user still needs access to the role. Choose **Approve** if you want them to stay in the role, or **Deny** if they do not need the access anymore. The users' assignment status will not change until the review closes and the administrator applies the results. Common scenarios in which certain denied users cannot have results applied to them may include the following:
 
@@ -35,7 +37,7 @@ You can approve or deny access based on whether the user still needs access to t
 
 Follow these steps to find and complete the access review:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select **Azure Active Directory** and open **Privileged Identity Management**.
 1. Select **Review access**. If you have any pending access reviews, they will appear in the access reviews page.
 
@@ -48,5 +50,5 @@ Follow these steps to find and complete the access review:
 
 ## Next steps
 
-- [Create an access review of Azure resource and Azure AD roles in PIM](pim-create-azure-ad-roles-and-resource-roles-review.md)
-- [Complete an access review of Azure resource and Azure AD roles in PIM](pim-complete-azure-ad-roles-and-resource-roles-review.md)
+- [Create an access review of Azure resource and Azure AD roles in PIM](./pim-create-roles-and-resource-roles-review.md)
+- [Complete an access review of Azure resource and Azure AD roles in PIM](./pim-complete-roles-and-resource-roles-review.md)

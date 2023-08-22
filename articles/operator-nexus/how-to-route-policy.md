@@ -97,7 +97,7 @@ IP prefixes specify only the match conditions of route policies. They don't spec
 This command creates an IP prefix resource with IPv4 prefix rules:
 
 ```azurecli
-az nf ipprefix create \
+az networkfabric ipprefix create \
 --resource-group "ResourceGroupName" \
 --resource-name "ipprefixv4-1204-cn1" \
 --location "eastus" \
@@ -139,7 +139,7 @@ Expected output:
 This command creates an IP prefix resource with IPv6 prefix rules,
 
 ```azurecli
-az nf ipprefix create \
+az networkfabric ipprefix create \
 --resource-group "ResourceGroupName" \
 --resource-name "ipprefixv6-2701-cn1" \
 --location "eastus" \
@@ -202,7 +202,7 @@ IP community resource allows operators to manipulate routes based on Community v
 This command creates an IP community resource:
 
 ```azurecli
-az nf ipcommunity create \
+az networkfabric ipcommunity create \
 --resource-group "ResourceGroupName" \
 --resource-name "ipcommunity-2701" \
 --location "eastus" \
@@ -248,7 +248,7 @@ Expected output:
 This command displays an IP community resource:
 
 ```azurecli
-az nf ipcommunity show --resource-group "ResourceGroupName" --resource-name "ipcommunity-2701"
+az networkfabric ipcommunity show --resource-group "ResourceGroupName" --resource-name "ipcommunity-2701"
 
 ```
 
@@ -303,7 +303,7 @@ The `IPExtendedCommunity`resource allows operators to manipulate routes  based o
 This command creates an IP extended community resource:
 
 ```azurecli
-az nf ipextendedcommunity create \
+az networkfabric ipextendedcommunity create \
 --resource-group "ResourceGroupName" \
 --resource-name "ipextcommunity-2701" \
 --location "eastus"  \
@@ -343,7 +343,7 @@ Expected output:
 This command displays an IP extended community resource:
 
 ```azurecli
-az nf ipextendedcommunity show --resource-group "ResourceGroupName" --resource-name "ipextcommunity-2701"
+az networkfabric ipextendedcommunity show --resource-group "ResourceGroupName" --resource-name "ipextcommunity-2701"
 ```
 
 Expected output:
@@ -409,7 +409,7 @@ Route policy resource enables an operator to specify conditions and actions base
 This command creates  route policies:
 
 ```azurecli
-az nf routepolicy create \
+az networkfabric routepolicy create \
 --resource-group "ResourceGroupName"  \
 --resource-name "rcf-Fab3-l3domain-v6-connsubnet-ext-policy" \
 --location "eastus" \
@@ -498,7 +498,7 @@ Expected output:
 This command displays route policies:
 
 ```Azurecli
-az nf routepolicy show --resource-group "ResourceGroupName" --resource-name "rcf-Fab3-l3domain-v6-connsubnet-ext-policy"
+az networkfabric routepolicy show --resource-group "ResourceGroupName" --resource-name "rcf-Fab3-l3domain-v6-connsubnet-ext-policy"
 ```
 
 Expected output:

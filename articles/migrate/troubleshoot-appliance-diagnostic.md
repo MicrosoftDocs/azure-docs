@@ -4,6 +4,7 @@ description: Get help to diagnose and troubleshoot problems that might occur wit
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
+ms.service: azure-migrate
 ms.topic: troubleshooting
 ms.date: 08/11/2021
 ---
@@ -38,7 +39,7 @@ You can run **Diagnose and solve** at any time from the appliance configuration 
 **Appliance-specific checks** | Key Vault certificate availability* | Checks if the certificate downloaded from Key Vault during appliance registration is still available on the appliance server. <br> *If not, appliance will auto-resolve by downloading the certificate again, provided the Key Vault is available and accessible*.
 || Credential store availability | Checks if the Credential store resources on the appliance server have not been moved/deleted/edited.
 || Replication appliance/ASR components | Checks if the same server has also been used to install any ASR/replication appliance components. *It is currently not supported to install both Azure Migrate and replication appliance (for agent-based migration) on the same server.*
-|| OS license availability | Checks if the evaluation license on the appliance server created from OVA/VHD is still valid. *The Windows Server 2016 evaluation license is valid for 180 days.*
+|| OS license availability | Checks if the evaluation license on the appliance server created from OVA/VHD is still valid. *The Windows Server 2022 evaluation license is valid for 180 days.*
 || CPU & memory utilization | Checks the CPU and memory utilized by the Migrate agents on the appliance server.  
 
 **checked and reported only if the appliance has already been registered. These checks are run in the context of the current Azure user logged in the appliance*.

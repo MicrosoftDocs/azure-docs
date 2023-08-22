@@ -16,7 +16,7 @@ ms.date: 11/04/2022
 
 # How Azure Machine Learning works: resources and assets
 
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 This article applies to the second version of the [Azure Machine Learning CLI & Python SDK (v2)](concept-v2.md). For version one (v1), see [How Azure Machine Learning works: Architecture and concepts (v1)](v1/concept-azure-machine-learning-architecture.md?view=azureml-api-1&preserve-view=true)
 
@@ -44,7 +44,7 @@ The workspace is the top-level resource for Azure Machine Learning, providing a 
 
 To create a workspace using CLI v2, use the following command:
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 ```bash
 az ml workspace create --file my_workspace.yml
@@ -56,7 +56,7 @@ For more information, see [workspace YAML schema](reference-yaml-workspace.md).
 
 To create a workspace using Python SDK v2, you can use the following code:
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 ```python
 ws_basic = Workspace(
@@ -89,7 +89,7 @@ A compute is a designated compute resource where you run your job or host your e
 
 To create a compute using CLI v2, use the following command:
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 ```bash
 az ml compute --file my_compute.yml
@@ -102,7 +102,7 @@ For more information, see [compute YAML schema](reference-yaml-overview.md#compu
 
 To create a compute using Python SDK v2, you can use the following code:
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 ```python
 cluster_basic = AmlCompute(
@@ -134,7 +134,7 @@ Azure Machine Learning datastores securely keep the connection information to yo
 
 To create a datastore using CLI v2, use the following command:
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 ```bash
 az ml datastore create --file my_datastore.yml
@@ -146,7 +146,7 @@ For more information, see [datastore YAML schema](reference-yaml-overview.md#dat
 
 To create a datastore using Python SDK v2, you can use the following code:
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 ```python
 blob_datastore1 = AzureBlobDatastore(
@@ -179,7 +179,7 @@ Azure machine learning models consist of the binary file(s) that represent a mac
 
 To create a model using CLI v2, use the following command:
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 ```bash
 az ml model create --file my_model.yml
@@ -192,7 +192,7 @@ For more information, see [model YAML schema](reference-yaml-model.md).
 
 To create a model using Python SDK v2, you can use the following code:
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 ```python
 my_model = Model(
@@ -229,7 +229,7 @@ In custom environments, you're responsible for setting up your environment and i
 
 To create an environment using CLI v2, use the following command:
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 ```bash
 az ml environment create --file my_environment.yml
@@ -242,7 +242,7 @@ For more information, see [environment YAML schema](reference-yaml-environment.m
 
 To create an environment using Python SDK v2, you can use the following code:
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 ```python
 my_env = Environment(

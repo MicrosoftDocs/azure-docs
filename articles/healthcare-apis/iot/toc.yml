@@ -19,7 +19,7 @@ items:
     - name: Choose a deployment method
       href: deploy-choose-method.md
     - name: ARM template
-      href: deploy-new-arm.md
+      href: deploy-arm-template.md
     - name: Azure PowerShell or the Azure CLI
       href: deploy-json-powershell-cli.md
     - name: Bicep
@@ -54,7 +54,7 @@ items:
       expanded: false
       items:
       - name: Overview of the FHIR destination mapping
-        href: overview-of-fhir-destination-mapping.md
+        href: overview-of-fhir-destination-mapping.md    
   - name: Monitor
     expanded: false
     items:
@@ -69,16 +69,19 @@ items:
     items:
     - name: Deployment errors
       href: troubleshoot-errors-deployment.md
-    - name: Error logs
-      href: troubleshoot-errors-logs.md   
+    - name: Service log errors
+      href: troubleshoot-errors-logs.md
+- name: Samples
+  expanded: false
+  href: overview-of-samples.md     
 - name: Concepts
   expanded: false
   items:
-  - name: The MedTech service and Azure Machine Learning Service
+  - name: MedTech service and Azure Machine Learning Service
     href: concepts-machine-learning.md
-  - name: The MedTech service and Microsoft Power BI
+  - name: MedTech service and Microsoft Power BI
     href: concepts-power-bi.md
-  - name: The MedTech service and Microsoft Teams notifications
+  - name: MedTech service and Microsoft Teams notifications
     href: concepts-teams.md
 - name: Resources
   expanded: false

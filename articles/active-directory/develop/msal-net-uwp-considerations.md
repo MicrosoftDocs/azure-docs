@@ -31,7 +31,7 @@ On the Windows Runtime (WinRT) platform, `PublicClientApplication` has the Boole
 
 IWA isn't enabled by default because Microsoft Store requires a high level of verification before it accepts applications that request the capabilities of enterprise authentication or shared user certificates. Not all developers want to do this level of verification.
 
-On the UWP platform, the underlying WAB implementation doesn't work correctly in enterprise scenarios where conditional access is enabled. Users see symptoms of this problem when they try to sign in by using Windows Hello. When the user is asked to choose a certificate:
+On the UWP platform, the underlying WAB implementation doesn't work correctly in enterprise scenarios where Conditional Access is enabled. Users see symptoms of this problem when they try to sign in by using Windows Hello. When the user is asked to choose a certificate:
 
 - The certificate for the PIN isn't found.
 - After the user chooses a certificate, they aren't prompted for the PIN.

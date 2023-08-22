@@ -41,6 +41,8 @@ Front Door is a large scaled, globally distributed service. We have many custome
 * You can create [custom WAF rules](../web-application-firewall/afds/waf-front-door-custom-rules.md) to automatically block and rate limit HTTP or HTTPS attacks that have known signatures.
 * Using the bot protection managed rule set provides protection against known bad bots. For more information, see [Configuring bot protection](../web-application-firewall/afds/waf-front-door-policy-configure-bot-protection.md).
 
+Refer to [Application DDoS protection](../web-application-firewall/shared/application-ddos-protection.md) for guidance on how to use Azure WAF to protect against DDoS attacks.
+
 ## Protect VNet origins
 
 Enable [Azure DDoS Protection](../ddos-protection/ddos-protection-overview.md) on the origin VNet to protect your public IPs against DDoS attacks. DDoS Protection customers receive extra benefits including cost protection, SLA guarantee, and access to experts from the DDoS Rapid Response Team for immediate help during an attack.

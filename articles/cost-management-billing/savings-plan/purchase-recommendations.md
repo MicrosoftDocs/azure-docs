@@ -18,7 +18,7 @@ Azure savings plan purchase recommendations are provided through [Azure Advisor]
 
 ## How hourly commitment recommendations are generated
 
-The goal of our savings plan recommendation is to help you make the most cost-effective commitment. Calculations are based on your actual on-demand costs, and don't include usage covered by existing reservations or savings plans is excluded.
+The goal of our savings plan recommendation is to help you make the most cost-effective commitment. Calculations are based on your actual on-demand costs, and don't include usage covered by existing reservations or savings plans.
 
 We start by looking at your hourly and total on-demand usage costs incurred from savings plan-eligible resources in the last 7, 30, and 60 days. These costs are inclusive of any negotiated discounts that you have. We then run hundreds of simulations of what your total cost would have been if you had purchased either a one or three-year savings plan with an hourly commitment equivalent to your hourly costs.
 

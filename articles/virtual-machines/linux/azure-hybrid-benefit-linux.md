@@ -2,7 +2,7 @@
 title: Azure Hybrid Benefit for Linux virtual machines
 description: Learn how Azure Hybrid Benefit can save you money on Linux virtual machines.
 services: virtual-machines
-author: mathapli
+author: Dhiraj3030
 manager: gachandw
 ms.service: virtual-machines
 ms.subservice: billing
@@ -10,8 +10,8 @@ ms.collection: linux
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 05/02/2023
-ms.author: mattmcinnes
-ms.custom: kr2b-contr-experiment
+ms.author: dkulkarni
+ms.custom: kr2b-contr-experiment, devx-track-linux
 ---
 
 # Azure Hybrid Benefit for Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES) virtual machines
@@ -122,12 +122,14 @@ az vm update -g myResourceGroup -n myVmName --license-type SLES_BYOS
 
 #### Convert to PAYG using the Azure CLI
 
-To return a VM to a PAYG model, use a `--license-type` value of `None`:
+If the system was originally a PAYG image and you want to return the VM to a PAYG model, use a `--license-type` value of `None`. For example:
 
 ```azurecli
 # This will enable PAYG on a virtual machine using Azure Hybrid Benefit
 az vm update -g myResourceGroup -n myVmName --license-type None
 ```
+
+If you have a BYOS and want to convert the VM to PAYG, use a `--license-type` value that covers the VM needs as described futher in this article. For example, for RHEL systems you can use any of the following:  RHEL_BASE, RHEL_EUS, RHEL_SAPAPPS, RHEL_SAPHA, RHEL_BASEAPAPPS or RHEL_BASESAPHA. 
 
 #### Convert multiple VM license models simultaneously using the Azure CLI
 
@@ -238,7 +240,7 @@ To start using Azure Hybrid Benefit for SLES virtual machines:
 
 1. If you want to switch back to the bring-your-own-subscription model,  just change the license type to `None` and run the extension. This action removes all repositories from your virtual machine and stops the billing.
 
-After you successfully install the `AHBForRHEL` extension, you can use the `az vm update` command to update the existing license type on your running virtual machines. For SLES virtual machines, run the command and set the `--license-type` parameter to one of the following license types: `RHEL_BASE`, `RHEL_EUS`, `RHEL_SAPHA`, `RHEL_SAPAPPS`, `RHEL_BASESAPAPPS`, or `RHEL_BASESAPHA`.
+After you successfully install the `AHBForSLES` extension, you can use the `az vm update` command to update the existing license type on your running virtual machines. For SLES virtual machines, run the command and set the `--license-type` parameter to one of the following license types: `SLES`, `SLES_SAP`, or `SLES_HPC`.
 
 ---
 
@@ -328,7 +330,7 @@ After you successfully install the `AHBForRHEL` extension, you can use the `az v
 
 ## SUSE (SLES) VMs with Azure Hybrid Benefit
 
-After you successfully install the `AHBForSLES` extension, you can use the `az vm update` command to update the existing license type on your running virtual machines. For SLES virtual machines, run the command and set the `--license-type` parameter to one of the following license types: `SLES_STANDARD`, `SLES_SAP`, or `SLES_HPC`.
+After you successfully install the `AHBForSLES` extension, you can use the `az vm update` command to update the existing license type on your running virtual machines. For SLES virtual machines, run the command and set the `--license-type` parameter to one of the following license types: `SLES`, `SLES_SAP`, or `SLES_HPC`.
 
 ### Enable PAYG using the Azure CLI
 
@@ -351,7 +353,8 @@ After you successfully install the `AHBForSLES` extension, you can use the `az v
 
 1. Look for a `licenseType` field in the response. If the `licenseType` field exists and the value is one of the following, your virtual machine has Azure Hybrid Benefit enabled:
 
-    `RHEL_BASE`, `RHEL_EUS`, `RHEL_BASESAPAPPS`, `RHEL_SAPHA`, `RHEL_BASESAPAPPS`, `RHEL_BASESAPHA`, `SLES`, `SLES_SAP`, `SLES_HPC`
+- For RHEL: `RHEL_BASE`, `RHEL_EUS`, `RHEL_SAPAPPS`, `RHEL_SAPHA`, `RHEL_BASESAPAPPS`, or `RHEL_BASESAPHA`.
+- For SLES: `SLES`, `SLES_SAP`, or `SLES_HPC`
 
 ## Compliance
 

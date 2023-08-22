@@ -58,6 +58,9 @@ A virtual network contains the virtual machine used in this article. In this sec
 
 11. Select **Enable** in **BastionHost**.
 
+    >[!NOTE]
+    >[!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+
 12. Enter or select the following information:
 
     | Setting | Value |

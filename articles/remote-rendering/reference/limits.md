@@ -43,13 +43,3 @@ The allowable number of primitives for all loaded models depends on the size of 
 |premium| no limit |
 
 For detailed information on this limitation, see the [server size](../reference/vm-sizes.md) chapter.
-
-## Platform limitations
-
-**Windows 10/11 desktop**
-
-* Win32/x64 is the only supported Win32 platform. Win32/x86 isn't supported.
-
-**HoloLens 2**
-
-* The [render from PV camera](/windows/mixed-reality/mixed-reality-capture-for-developers#render-from-the-pv-camera-opt-in) feature isn't supported.

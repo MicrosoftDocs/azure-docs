@@ -631,7 +631,7 @@ In this section, you'll configure sample code to use the [Advanced Message Queui
 
 ## Confirm your device provisioning registration
 
-1. Go to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. On the left-hand menu or on the portal page, select **All resources**.
 

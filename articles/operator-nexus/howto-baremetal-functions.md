@@ -3,10 +3,10 @@ title: "Azure Operator Nexus: Platform Functions for Bare Metal Machines"
 description: Learn how to manage Bare Metal Machines (BMM).
 author: harish6724
 ms.author: harishrao
-ms.service: azure-operator-nexus 
+ms.service: azure-operator-nexus
 ms.topic: how-to
 ms.date: 05/26/2023
-ms.custom: template-how-to
+ms.custom: template-how-to, devx-track-azurecli
 ---
 
 # Manage lifecycle of Bare Metal Machines
@@ -17,18 +17,20 @@ This article describes how to perform lifecycle management operations on Bare Me
 - Start the BMM
 - Restart the BMM
 - Make the BMM unschedulable or schedulable
-- Reimage the BMM 
+- Reimage the BMM
 - Replace the BMM
 
 ## Prerequisites
 
 1. Install the latest version of the
-  [appropriate CLI extensions](./howto-install-cli-extensions.md)
+   [appropriate CLI extensions](./howto-install-cli-extensions.md)
 1. Get the name of the resource group for the BMM
-1. Get the name of the bare metal machine  that requires a lifecycle management operation
+1. Get the name of the bare metal machine that requires a lifecycle management operation
 1. Ensure that the target bare metal machine `poweredState` set to `On` and `readyState` set to `True`
-    1. This prerequisite is not applicable for the `start` command
+   1. This prerequisite is not applicable for the `start` command
 
+> [!CAUTION]
+> Actions against management servers should not be run without consultation with Microsoft support personnel. Doing so could affect the integrity of the Operator Nexus Cluster.
 
 ## Power off the BMM
 
@@ -96,6 +98,12 @@ You can restore the runtime version on a BMM by executing `reimage` command. Thi
 As a best practice, make sure the BMM's workloads are drained using the [`cordon`](#make-a-bmm-unschedulable-cordon)
 command, with `evacuate "True"`, prior to executing the `reimage` command.
 
+> [!Warning]
+> Running more than one baremetalmachine replace or reimage command at the same time, or running a replace
+> at the same time as a reimage, will leave servers in a nonworking state. Make sure one replace / reimage
+> has fully completed before starting another one. In a future release, we plan to either add the ability
+> to replace multiple servers at once or have the command return an error when attempting to do so.
+
 ```azurecli
 az networkcloud baremetalmachine reimage \
   –-name "bareMetalMachineName"  \
@@ -105,6 +113,12 @@ az networkcloud baremetalmachine reimage \
 ## Replace BMM
 
 Use `Replace BMM` command when a server has encountered hardware issues requiring a complete or partial hardware replacement. After replacement of components such as motherboard or NIC replacement, the MAC address of BMM will change, however the IDrac IP address and hostname will remain the same.
+
+> [!Warning]
+> Running more than one baremetalmachine replace or reimage command at the same time, or running a replace
+> at the same time as a reimage, will leave servers in a nonworking state. Make sure one replace / reimage
+> has fully completed before starting another one. In a future release, we plan to either add the ability
+> to replace multiple servers at once or have the command return an error when attempting to do so.
 
 ```azurecli
 az networkcloud baremetalmachine replace \

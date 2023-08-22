@@ -3,9 +3,9 @@ title: Private endpoints for Azure Backup - Overview
 description: This article explains about the concept of private endpoints for Azure Backup that helps to perform backups while maintaining the security of your resources.
 ms.topic: conceptual
 ms.service: backup
-ms.date: 05/24/2023
-author: jyothisuri
-ms.author: jsuri
+ms.date: 08/14/2023
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Overview and concepts of private endpoints (v2 experience) for Azure Backup
@@ -26,7 +26,7 @@ This article describes how the [enhanced capabilities of private endpoints](#key
 
 - While a Recovery Services vault is used by (both) Azure Backup and Azure Site Recovery, this article discusses the use of private endpoints for Azure Backup only.
 
-- You can create private endpoints for new Recovery Services vaults that don't have any items registered/protected to the vault, only.
+- You can create private endpoints for new Recovery Services vaults that don't have any items registered/protected to the vault, only. However, private endpoints are currently not supported for Backup vaults.
 
   >[!Note]
   >You can't create private endpoints using static IP.

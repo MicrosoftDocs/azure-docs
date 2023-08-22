@@ -8,8 +8,7 @@ author: tamram
 ms.author: tamram
 ms.date: 01/25/2023
 ms.topic: quickstart
-ms.service: storage
-ms.subservice: tables
+ms.service: azure-table-storage
 ms.custom: mode-ui, engagement-fy23
 ---
 

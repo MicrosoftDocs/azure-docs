@@ -14,13 +14,10 @@ ms.date: 10/13/2021
 
 # Data schemas to train computer vision models with automated machine learning (v1)
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
     
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
-> * [v1](reference-automl-images-schema.md)
-> * [v2 (current version)](../reference-automl-images-schema.md?view=azureml-api-2&preserve-view=true)
     
-[!INCLUDE [cli-version-info](../../../includes/machine-learning-cli-version-1-only.md)]
+[!INCLUDE [cli-version-info](../includes/machine-learning-cli-version-1-only.md)]
 
 > [!IMPORTANT]
 > This feature is currently in public preview. This preview version is provided without a service-level agreement. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).

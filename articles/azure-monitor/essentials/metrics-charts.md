@@ -2,8 +2,10 @@
 title: Advanced features of Metrics Explorer
 description: Metrics are a series of measured values and counts that Azure collects. Learn to use Metrics Explorer to investigate the health and usage of resources.
 services: azure-monitor
+author: EdB-MSFT
+ms.author: edbaynash
 ms.topic: conceptual
-ms.date: 06/09/2022
+ms.date: 07/20/2023
 ms.reviewer: vitalyg
 ms.custom: kr2b-contr-experiment
 ---
@@ -95,72 +97,59 @@ Most metrics support 93 days of retention but only let you view 30 days at a tim
 
 ### Zoom
 
-You can click and drag on the chart to zoom into a section of a chart. Zooming updates the chart's time range to span your selection. If the time grain is set to Automatic, zooming selects a smaller time grain. The new time range applies to all charts in Metrics.
+You can select and drag on the chart to zoom into a section of a chart. Zooming updates the chart's time range to span your selection. If the time grain is set to Automatic, zooming selects a smaller time grain. The new time range applies to all charts in Metrics.
 
 ![Animated gif showing the metrics zoom feature.](./media/metrics-charts/metrics-zoom-control.gif)
 
 ## Aggregation
 
-When you add a metric to a chart, Metrics Explorer applies a default aggregation. The default makes sense in basic scenarios. But you can use a different aggregation to gain more insights about the metric.
+When you add a metric to a chart, Metrics Explorer applies a default aggregation. The default makes sense in basic scenarios, but you can use a different aggregation to gain more insights about the metric.
 
-Before you use different aggregations on a chart, you should understand how Metrics Explorer handles them. Metrics are a series of measurements (or "metric values") that are captured over a time period. When you plot a chart, the values of the selected metric are separately aggregated over the *time grain*.
+Before you use different aggregations on a chart, you should understand how Metrics Explorer handles them. Metrics are a series of measurements (or "metric values") that are captured over a time period. When you plot a chart, the values of the selected metric are separately aggregated over the *time granularity*.
 
-You select the size of the time grain by using Metrics Explorer's [time picker panel](./metrics-getting-started.md#select-a-time-range). If you don't explicitly select the time grain, the currently selected time range is used by default. After the time grain is determined, the metric values that were captured during each time grain are aggregated on the chart, one data point per time grain.
+You select the size of the time grain by using Metrics Explorer's time picker panel. If you don't explicitly select the time grain, the currently selected time range is used by default. After the time grain is determined, the metric values that were captured during each time grain are aggregated on the chart, one data point per time grain.
+
+:::image type="content" source="media/metrics-charts/time-granularity.png" alt-text="A screenshot showing the time range and granularity selector.":::  
 
 For example, suppose a chart shows the *Server response time* metric. It uses the *average* aggregation over time span of the *last 24 hours*. In this example:
 
-- If the time granularity is set to 30 minutes, the chart is drawn from 48 aggregated data points. The line chart connects 48 dots in the chart plot area (24 hours x 2 data points per hour). Each data point represents the *average* of all captured response times for server requests that occurred during each of the relevant 30-minute time periods.
-- If you switch the time granularity to 15 minutes, you get 96 aggregated data points.  That is, you get 24 hours x 4 data points per hour.
+- If the time granularity is set to 30 minutes, the chart is drawn from 48 aggregated data points. That is, 2 data points per hour for 24 hours. The line chart connects 48 dots in the chart plot area. Each data point represents the *average* of all captured response times for server requests that occurred during each of the relevant 30-minute time periods.
+- If you switch the time granularity to 15 minutes, you get 96 aggregated data points.  That is, 4 data points per hour for 24 hours.
 
-Metrics Explorer has five basic statistical aggregation types: sum, count, min, max, and average. The *sum* aggregation is sometimes called the *total* aggregation. For many metrics, Metrics Explorer hides the aggregations that are irrelevant and can't be used. 
+Metrics Explorer has five aggregation types:
+- **Sum**: The sum of all values captured during the aggregation interval. The *sum* aggregation is sometimes called the *total* aggregation.
+- **Count**: The number of measurements captured during the aggregation interval.
+  When the metric is always captured with the value of 1, the count aggregation is equal to the sum aggregation. This scenario is common when the metric tracks the count of distinct events and each measurement represents one event. The code emits a metric record every time a new request arrives.
+- **Average**: The average of the metric values captured during the aggregation interval.
+- **Min**: The smallest value captured during the aggregation interval.
+- **Max**: The largest value captured during the aggregation interval.
+
+  :::image type="content" source="media/metrics-charts/aggregations.png" alt-text="A screenshot showing the aggregation dropdown." lightbox="media/metrics-charts/aggregations.png":::
+
+Metrics Explorer hides the aggregations that are irrelevant and can't be used. 
 
 For a deeper discussion of how metric aggregation works, see [Azure Monitor metrics aggregation and display explained](metrics-aggregation-explained.md).
 
-- **Sum**: The sum of all values captured during the aggregation interval.
-
-  ![Screenshot of a sum request.](./media/metrics-charts/request-sum.png)
-
-- **Count**: The number of measurements captured during the aggregation interval.
-
-  When the metric is always captured with the value of 1, the count aggregation is equal to the sum aggregation. This scenario is common when the metric tracks the count of distinct events and each measurement represents one event. The code emits a metric record every time a new request arrives.
-
-  ![Screenshot of a count request.](./media/metrics-charts/request-count.png)
-
-- **Average**: The average of the metric values captured during the aggregation interval.
-
-  ![Screenshot of an average request.](./media/metrics-charts/request-avg.png)
-
-- **Min**: The smallest value captured during the aggregation interval.
-
-  ![Screenshot of a minimum request.](./media/metrics-charts/request-min.png)
-
-- **Max**: The largest value captured during the aggregation interval.
-
-  ![Screenshot of a maximum request.](./media/metrics-charts/request-max.png)
-
 ## Filters
 
-You can apply filters to charts whose metrics have dimensions. For example, imagine a *Transaction count* metric that has a *Response type* dimension. This dimension indicates whether the response from transactions succeeded or failed. If you filter on this dimension, you'll see a chart line for only successful or only failed transactions.
+You can apply filters to charts whose metrics have dimensions. For example, imagine a *Transaction count* metric that has a *Response type* dimension. This dimension indicates whether the response from transactions succeeded or failed. If you filter on this dimension, a chart line is displayed for only successful or only failed transactions.
 
 ### Add a filter
 
 1. Above the chart, select **Add filter**.
 
-1. Select a dimension (property) to filter.
+1. Select a dimension from the **Property** dropdown to filter.
 
-   ![Screenshot that shows the dimensions (properties) you can filter.](./media/metrics-charts/028.png)
+   :::image type="content" source="./media/metrics-charts/filter-property.png" alt-text="Screenshot that shows the filter properties dropdown." lightbox="./media/metrics-charts/filter-property.png":::
 
 1. Select the operator you want to apply against the dimension (property). The default operator is = (equals)
-
-   ![Screenshot that shows the operator you can use with the filter.](./media/metrics-charts/filter-operator.png)
+  :::image type="content" source="./media/metrics-charts/filter-operator.png" alt-text="Screenshot that shows the operator you can use with the filter." lightbox="./media/metrics-charts/filter-operator.png":::
 
 1. Select which dimension values you want to apply to the filter when plotting the chart. This example shows filtering out the successful storage transactions.
+    :::image type="content" source="./media/metrics-charts/filter-values.png" alt-text="Screenshot that shows the filter values dropdown." lightbox="./media/metrics-charts/filter-values.png":::  
 
-   ![Screenshot that shows the successful filtered storage transactions.](./media/metrics-charts/029.png)
-
-1. After selecting the filter values, click away from the filter selector to close it. Now the chart shows how many storage transactions have failed:
-
-   ![Screenshot that shows how many storage transactions have failed.](./media/metrics-charts/030.png)
+1. After selecting the filter values, click away from the filter selector to close it. The chart shows how many storage transactions have failed:
+    :::image type="content" source="./media/metrics-charts/filtered-chart.png" alt-text="Screenshot that shows the successful filtered storage transactions." lightbox="./media/metrics-charts/filtered-chart.png":::
 
 1. Repeat these steps to apply multiple filters to the same charts.
 
@@ -172,29 +161,27 @@ You can split a metric by dimension to visualize how different segments of the m
 
 1. Above the chart, select **Apply splitting**.
    
-1. Choose dimension(s) on which to segment your chart:
+1. Choose dimensions on which to segment your chart:
+    :::image type="content" source="./media/metrics-charts/apply-splitting.png" alt-text="Screenshot that shows the selected dimension on which to segment the chart." lightbox="./media/metrics-charts/apply-splitting.png":::
 
-   ![Screenshot that shows the selected dimension on which to segment the chart.](./media/metrics-charts/031.png)
+   The chart shows multiple lines, one for each dimension segment:
+    :::image type="content" source="./media/metrics-charts/segment-dimension.png" alt-text="Screenshot that shows multiple lines, one for each segment of dimension." lightbox="./media/metrics-charts/segment-dimension.png":::
 
-   The chart now shows multiple lines, one for each dimension segment:
-
-   ![Screenshot that shows multiple lines, one for each segment of dimension.](./media/metrics-charts/segment-dimension.png)
 
 1. Choose a limit on the number of values to be displayed after splitting by selected dimension. The default limit is 10 as shown in the above chart. The range of limit is 1 - 50.
-
-   ![Screenshot that shows split limit, which restricts the number of values after splitting.](./media/metrics-charts/segment-dimension-limit.png)
+       :::image type="content" source="./media/metrics-charts/segment-dimension-limit.png" alt-text="Screenshot that shows split limit, which restricts the number of values after splitting." lightbox="./media/metrics-charts/segment-dimension-limit.png":::
 
 1. Choose the sort order on segments: **Ascending** or **Descending**. The default selection is **Descending**.
 
-   ![Screenshot that shows sort order on split values.](./media/metrics-charts/segment-dimension-sort.png)
+ 
+    :::image type="content" source="./media/metrics-charts/segment-dimension-sort.png" alt-text="Screenshot that shows sort order on split values." lightbox="./media/metrics-charts/segment-dimension-sort.png":::
 
-1. If you like to segment by multiple segments select multiple dimensions from the values dropdown. The legends will show a comma-separated list of dimension values for each segment
-
-   ![Screenshot that shows multiple segments selected, and the corresponding chart below.](./media/metrics-charts/segment-dimension-multiple.png)
+1. Segment by multiple segments by selecting multiple dimensions from the values dropdown. The legends shows a comma-separated list of dimension values for each segment
+    :::image type="content" source="./media/metrics-charts/segment-dimension-multiple.png" alt-text="Screenshot that shows multiple segments selected, and the corresponding chart." lightbox="./media/metrics-charts/segment-dimension-multiple.png":::
    
-3. Click away from the grouping selector to close it.
+1. Click away from the grouping selector to close it.
 
-   > [!NOTE]
+   > [!TIP]
    > To hide segments that are irrelevant for your scenario and to make your charts easier to read, use both filtering and splitting on the same dimension.
 
 ## Locking the range of the y-axis
@@ -205,74 +192,81 @@ For example, a drop in the volume of successful requests from 99.99 percent to 9
 
 Another example is a fluctuation in the available memory. In this scenario, the value technically never reaches 0. Fixing the range to a higher value might make drops in available memory easier to spot. 
 
-To control the y-axis range, open the chart menu (**...**). Then select **Chart settings** to access advanced chart settings.
+1. To control the y-axis range, open the chart menu **...**. Then select **Chart settings** to access advanced chart settings.
+  :::image source="./media/metrics-charts/select-chart-settings.png" alt-text="Screenshot that highlights the chart settings selection." lightbox="./media/metrics-charts/select-chart-settings.png":::
 
-![Screenshot that highlights the chart settings selection.](./media/metrics-charts/033.png)
+1. Modify the values in the **Y-axis range** section, or select **Auto** to revert to the default values.
+  :::image type="content" source="./media/metrics-charts/chart-settings.png" alt-text="Screenshot that shows the Y-axis range section." lightbox="./media/metrics-charts/chart-settings.png"::: 
+ 
 
-Modify the values in the **Y-axis range** section, or select **Auto** to revert to the default values.
-
- ![Screenshot that highlights the Y-axis range section.](./media/metrics-charts/034.png)
-
-> [!WARNING]
-> If you need to lock the boundaries of the y-axis for charts that track counts or sums over a period of time (by using count, sum, min, or max aggregations), you should usually specify a fixed time granularity. In this case, you shouldn't rely on the automatic defaults. 
+> [!NOTE]
+> If you lock the boundaries of the y-axis for charts that tracks count, sum, min, or max aggregations over a period of time, specify a fixed time granularity. Don't rely on the automatic defaults.  
 >
-> You choose a fixed time granularity because chart values change when the time granularity is automatically modified after a user resizes a browser window or changes screen resolution. The resulting change in time granularity affects the look of the chart, invalidating the current selection of the y-axis range.
+> A fixed time granularity is chosen because chart values change when the time granularity is automatically modified when a user resizes a browser window or changes screen resolution. The resulting change in time granularity affects the appearance of the chart, invalidating the selection of the y-axis range.
 
 ## Line colors
 
-After you configure the charts, the chart lines are automatically assigned a color from a default palette. You can change those colors.
+Chart lines are automatically assigned a color from a default palette.  
 
-To change the color of a chart line, select the colored bar in the legend that corresponds to the chart. The color picker dialog opens. Use the color picker to configure the line color.
+To change the color of a chart line, select the colored bar in the legend that corresponds to the line on the chart. Use the color picker to select the line color.
 
-![Screenshot that shows how to change color.](./media/metrics-charts/035.png)
+:::image source="./media/metrics-charts/line-colors.png" alt-text="Screenshot that shows how to change color." lightbox="./media/metrics-charts/line-colors.png":::
 
-Your customized colors are preserved when you pin the chart to a dashboard. The following section shows how to pin a chart.
+Customized colors are preserved when you pin the chart to a dashboard. The following section shows how to pin a chart.
 
 ## Saving to dashboards or workbooks
 
-After you configure a chart, you might want to add it to a dashboard or workbook. By adding a chart to a dashboard or workbook, you can make it accessible to your team.  You can also gain insights by viewing it in the context of other monitoring information.
+After you configure a chart, you can add it to a dashboard or workbook. By adding a chart to a dashboard or workbook, you can make it accessible to your team.  You can also gain insights by viewing it in the context of other monitoring information.
 
 - To pin a configured chart to a dashboard, in the upper-right corner of the chart, select **Save to dashboard** and then **Pin to dashboard**.
 - To save a configured chart to a workbook, in the upper-right corner of the chart, select **Save to dashboard** and then **Save to workbook**.
 
-:::image type="content" source="media/metrics-charts/save-to-dashboard.png" alt-text="Screenshot showing how to pin a chart to a dashboard.":::
+:::image type="content" source="media/metrics-charts/save-to-dashboard.png" alt-text="Screenshot showing how to pin a chart to a dashboard." lightbox="media/metrics-charts/save-to-dashboard.png":::
 
 ## Alert rules
 
 You can use your visualization criteria to create a metric-based alert rule. The new alert rule includes your chart's target resource, metric, splitting, and filter dimensions. You can modify these settings by using the alert rule creation pane.
 
-To begin, select **New alert rule**.
+To create an alert rule,
+1. Select **New alert rule** in the upper-right corner of the chart
+:::image source="./media/metrics-charts/new-alert.png" alt-text="Screenshot that shows the New alert rule button." lightbox="./media/metrics-charts/new-alert.png":::
 
-![Screenshot that shows the New alert rule button highlighted in red.](./media/metrics-charts/042.png)
+1. On the **Condition** tab, the **Signal name** is defaulted to the metric from your chart. You can choose a different metric.
 
-The alert rule creation pane opens. In the pane, you see the chart's metric dimensions. The fields in the pane are prepopulated to help you customize the rule.
+1. Enter a **Threshold value**. The threshold value is the value that triggers the alert. The Preview chart shows the threshold value as a horizontal line over the metric values.
 
-![Screenshot showing the rule creation pane.](./media/metrics-charts/041.png)
+1. Select the **Details** tab.
+:::image source="./media/metrics-charts/alert-rule-condition.png" alt-text="Screenshot that shows the condition tab on the rule creation page." lightbox="./media/metrics-charts/alert-rule-condition.png":::
+
+1. On the **Details** tab, enter a **Name** and **Description** for the alert rule.
+
+1. Select a **Severity** level for the alert rule. Severities include Critical, Error Warning, Informational, and Verbose.  
+
+1. Select **Review + create** to review the alert rule, then select **Create** to create the alert rule.
+:::image source="./media/metrics-charts/alert-rule-details.png" alt-text="Screenshot that shows the details tab on the rule creation page." lightbox="./media/metrics-charts/alert-rule-details.png":::
 
 For more information, see [Create, view, and manage metric alerts](../alerts/alerts-metric.md).
 
 ## Correlate metrics to logs
 
-To help customers diagnose the root cause of anomalies in their metrics chart, we created the *Drill into Logs* feature. Drill into Logs allows customers to correlate spikes in their metrics chart to logs and queries.
+**Drill into Logs** helps you diagnose the root cause of anomalies in your metrics chart. Drilling into logs allows you to correlate spikes in your metrics chart to logs and queries.
 
-This table summarizes the types of logs and queries provided:
+The following table summarizes the types of logs and queries provided:
 
 | Term             | Definition  | 
 |------------------|-------------|
 | Activity logs    | Provides insight into the operations on each Azure resource in the subscription from the outside (the management plane) in addition to updates on Service Health events. Use the Activity log to determine the what, who, and when for any write operations (PUT, POST, DELETE) taken on the resources in your subscription. There's a single Activity log for each Azure subscription.  |
-| Diagnostic log   | Provides insight into operations that were performed within an Azure resource (the data plane), for example getting a secret from a Key Vault or making a request to a database. The content of resource logs varies by the Azure service and resource type. **Note:** Must be provided by service and enabled by customer.  | 
-| Recommended log | Scenario-based queries that customer can use to investigate anomalies in their Metrics Explorer.  |
+| Diagnostic log   | Provides insight into operations that were performed within an Azure resource (the data plane). For example, getting a secret from a Key Vault or making a request to a database. The content of resource logs varies by the Azure service and resource type. You must enable logs for the resource. |  
+| Recommended log | Scenario-based queries that you can use to investigate anomalies in Metrics Explorer.  |
 
-Currently, Drill into Logs is available for select resource providers. The resource providers that have the complete Drill into Logs experience are:
+Currently, Drill into Logs is available for select resource providers. The following resource providers offer the complete Drill into Logs experience:
 
 - Application Insights
 - Autoscale
 - App Services
 - Storage
 
-This screenshot shows a sample for the Application Insights resource provider.
-
-![Screenshot shows a spike in failures in app insights metrics pane.](./media/metrics-charts/drill-into-log-ai.png)
+    :::image source="./media/metrics-charts/drill-into-log-ai.png" alt-text="Screenshot that shows a spike in failures in app insights metrics pane." lightbox="./media/metrics-charts/drill-into-log-ai.png":::
 
 1. To diagnose the spike in failed requests, select **Drill into Logs**.
 

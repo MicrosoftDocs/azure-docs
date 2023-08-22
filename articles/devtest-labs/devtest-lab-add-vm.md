@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 05/22/2023
+ms.custom: UpdateFrequency2
 ---
 
 # Create lab virtual machines in Azure DevTest Labs

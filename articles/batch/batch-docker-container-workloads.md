@@ -2,9 +2,9 @@
 title: Container workloads on Azure Batch
 description: Learn how to run and scale apps from container images on Azure Batch. Create a pool of compute nodes that support running container tasks.
 ms.topic: how-to
-ms.date: 05/01/2023
+ms.date: 07/14/2023
 ms.devlang: csharp, python
-ms.custom: "seodec18, devx-track-csharp"
+ms.custom: seodec18, devx-track-csharp, devx-track-linux
 ---
 
 # Use Azure Batch to run container workloads
@@ -31,6 +31,14 @@ You should be familiar with container concepts and how to create a Batch pool an
 - **Accounts**: In your Azure subscription, you need to create a [Batch account](accounts.md) and optionally an Azure Storage account.
 
 - **A supported virtual machine (VM) image**: Containers are only supported in pools created with the Virtual Machine Configuration, from a supported image (listed in the next section). If you provide a custom image, see the considerations in the following section and the requirements in [Use a managed image to create a custom image pool](batch-custom-images.md).
+
+> [!NOTE]
+> From Batch SDK versions:
+> - Batch .NET SDK version 16.0.0
+> - Batch Python SDK version 14.0.0
+> - Batch Java SDK version 11.0.0
+> - Batch Node.js SDK version 11.0.0
+> the `containerConfiguration` requires `Type` property to be passed and the supported values are: `ContainerType.DockerCompatible` and `ContainerType.CriCompatible`.
 
 Keep in mind the following limitations:
 

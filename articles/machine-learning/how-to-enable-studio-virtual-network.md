@@ -45,19 +45,22 @@ In this article, you learn how to:
 > [!TIP]
 > This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
 >
-> * [Virtual network overview](how-to-network-security-overview.md)
 :::moniker range="azureml-api-2"
+> * [Virtual network overview](how-to-network-security-overview.md)
 > * [Secure the workspace resources](how-to-secure-workspace-vnet.md)
 > * [Secure the training environment](how-to-secure-training-vnet.md)
 > * [Secure the inference environment](how-to-secure-inferencing-vnet.md)
+> * [Use custom DNS](how-to-custom-dns.md)
+> * [Use a firewall](how-to-access-azureml-behind-firewall.md)
 :::moniker-end
 :::moniker range="azureml-api-1"
+> * [Virtual network overview](how-to-network-security-overview.md)
 > * [Secure the workspace resources](./v1/how-to-secure-workspace-vnet.md)
 > * [Secure the training environment](./v1/how-to-secure-training-vnet.md)
 > * [Secure the inference environment](./v1/how-to-secure-inferencing-vnet.md)
-:::moniker-end
 > * [Use custom DNS](how-to-custom-dns.md)
 > * [Use a firewall](how-to-access-azureml-behind-firewall.md)
+:::moniker-end
 >
 > For a tutorial on creating a secure workspace, see [Tutorial: Create a secure workspace](tutorial-create-secure-workspace.md) or [Tutorial: Create a secure workspace using a template](tutorial-create-secure-workspace-template.md).
 
@@ -186,16 +189,20 @@ Some storage services, such as Azure Storage Account, have firewall settings tha
 
 This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
 
-* [Virtual network overview](how-to-network-security-overview.md)
 :::moniker range="azureml-api-2"
+* [Virtual network overview](how-to-network-security-overview.md)
 * [Secure the workspace resources](how-to-secure-workspace-vnet.md)
 * [Secure the training environment](how-to-secure-training-vnet.md)
 * [Secure the inference environment](how-to-secure-inferencing-vnet.md)
+* [Use custom DNS](how-to-custom-dns.md)
+* [Use a firewall](how-to-access-azureml-behind-firewall.md)
 :::moniker-end
 :::moniker range="azureml-api-1"
+* [Virtual network overview](how-to-network-security-overview.md)
 * [Secure the workspace resources](./v1/how-to-secure-workspace-vnet.md)
 * [Secure the training environment](./v1/how-to-secure-training-vnet.md)
 * [Secure the inference environment](./v1/how-to-secure-inferencing-vnet.md)
-:::moniker-end
 * [Use custom DNS](how-to-custom-dns.md)
 * [Use a firewall](how-to-access-azureml-behind-firewall.md)
+:::moniker-end
+

@@ -6,7 +6,7 @@ author: kgaddam10
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 01/25/2023
+ms.date: 08/03/2023
 ms.author: kavitagaddam 
 ms.custom: references_regions
 ---
@@ -19,12 +19,31 @@ ms.custom: references_regions
 
 Azure Health Data Services is a set of managed API services based on open standards and frameworks for the healthcare industry. They enable you to build scalable and secure healthcare solutions by bringing protected health information (PHI) datasets together and connecting them end-to-end with tools for machine learning, analytics, and AI. This document provides details about the features and enhancements made to Azure Health Data Services including the different service types (FHIR service, DICOM service, and MedTech service) that seamlessly work with one another.
 
+## July 2023
+#### Azure Health Data Services
+
+#### FHIR Service
+**Continous retry on Import operation**
+
+We observed an issue where $import kept on retrying when NDJSON file size is greater than 2GB. The issue is fixed, for details visit [3342](https://github.com/microsoft/fhir-server/pull/3342).
+
+**Patient and Group level export job restart**
+
+Patient and Group level exports on interruption would restart from the beginning. Bug is fixed to restart the export jobs from the last sucessfully completed page of results. For more details visit [3205](https://github.com/microsoft/fhir-server/pull/3205).
+
+#### DICOM Service
+**API Version 2 is Generally Available (GA)**
+
+The DICOM service API v2 is now Generally Available (GA) and introduces [several changes and new features](dicom/dicom-service-v2-api-changes.md).  Most notable is the change to validation of DICOM attributes during store (STOW) operations - beginning with v2, the request fails only if **required attributes** fail validation.  See the [DICOM Conformance Statement v2](dicom/dicom-services-conformance-statement-v2.md) for full details.  
+
+
 ## June 2023
 #### Azure Health Data Services
 
 #### FHIR Service 
 
-**Feature Enhancement: Incremental Import**
+**Introducing Incremental Import**
+
 $Import operation now supports new capability of "Incremental Load" mode, which is optimized for periodically loading data into the FHIR service. 
 
 With Incremental Load mode, customers can:
@@ -35,20 +54,41 @@ With Incremental Load mode, customers can:
 > [!IMPORTANT]
 > Incremental import mode is currently in public preview
 > Preview APIs and SDKs are provided without a service-level agreement. We recommend that you don't use them for production workloads. Some features might not be supported, or they might have constrained capabilities.
-> 
 > For more information, review [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 For details on Incremental Import, visit [Import Documentation](./../healthcare-apis/fhir/configure-import-data.md).
 
-**Feature Enhancement: Reindex operation provides job status at resource level**
+**Reindex operation provides job status at resource level**
+
 Reindex operation supports determining the status of the reindex operation with help of API call `GET {{FHIR_URL}}/_operations/reindex/{{reindexJobId}}`.
 Details per resource, on the number of completed reindexed resources can be obtained with help of the new field, added in the response- "resourceReindexProgressByResource". For details, visit [3286](https://github.com/microsoft/fhir-server/pull/3286).
 
-**Bug Fix: FHIR Search Query optimization of complex queries**
-We have seen issues where complex FHIR queries with Reference Search Parameters would time out. Issue is fixed by updating the SQL query generatior to use an INNER JOIN for Reference Search Parameters. For details, visit [#3295](https://github.com/microsoft/fhir-server/pull/3295).
+**FHIR Search Query optimization of complex queries**
 
-**Bug Fix: Metadata endpoint URL in capability statement is relative URL**
+We have seen issues where complex FHIR queries with Reference Search Parameters would time out. Issue is fixed by updating the SQL query generator to use an INNER JOIN for Reference Search Parameters. For details, visit [#3295](https://github.com/microsoft/fhir-server/pull/3295).
+
+**Metadata endpoint URL in capability statement is relative URL**
+
 Per FHIR specification, metadata endpoint URL in capability statement needs to be an absolute URL. For details on the FHIR specification, visit [Capability Statement](https://www.hl7.org/fhir/capabilitystatement-definitions.html#CapabilityStatement.url). This fix addresses the issue, for details visit [3265](https://github.com/microsoft/fhir-server/pull/3265).
+
+
+#### DICOM Service
+
+**Retrieve rendered image is GA**
+
+[Rendered images](dicom/dicom-services-conformance-statement.md#retrieve-rendered-image-for-instance-or-frame) can now be retrieved from the DICOM service by using the new rendered endpoint.  This API allows a DICOM instance or frame to be accessed in a consumer format (`jpeg` or `png`), a capability that can simplify scenarios such as a client application displaying an image preview.  
+
+
+**Fixed issue where DICOM events and Change Feed may miss changes**
+
+The DICOM Change Feed API could previously return results that incorrectly skipped pending changes when the DICOM server was under load. Identical calls to the Change Feed resource could have resulted in new change events appearing in the middle of the result set. For example, if the first call returned sequence numbers `1`, `2`, `3`, and `5`, then the second identical call could have incorrectly returned `1`, `2`, `3`, `4`, and `5`. This behavior also impacted the DICOM events sent to Azure Event Grid System Topics, and could have resulted in missing events in downstream event handlers. For more details, see [#2611](https://github.com/microsoft/dicom-server/pull/2611).
+
+#### MedTech service 
+
+**Encounter identifiers included in the device message**
+
+Customers can now include encounter identifiers in the device message so that they can look up the corresponding FHIR encounter and link it to the observation created in the FHIR transformation. This look up feature is supported in OSS and was an ask from customers for the PaaS MedTech service.
+
 
 ## May 2023
 #### Azure Health Data Services

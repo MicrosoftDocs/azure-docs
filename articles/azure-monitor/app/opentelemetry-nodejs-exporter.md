@@ -4,6 +4,7 @@ description: This article provides guidance on how to enable the Azure Monitor O
 ms.topic: conceptual
 ms.date: 05/10/2023
 ms.devlang: javascript
+ms.custom: devx-track-js
 ms.reviewer: mmcc
 ---
 

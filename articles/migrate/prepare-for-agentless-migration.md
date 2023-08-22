@@ -4,8 +4,9 @@ description: Learn how to prepare on-premises machines for agentless migration w
 author: vijain
 ms.author: vijain
 ms.topic: conceptual
+ms.service: azure-migrate
 ms.date: 12/12/2022
-ms.custom: engagement-fy23
+ms.custom: engagement-fy23, devx-track-linux
 ---
 
 # Prepare for VMware agentless migration

@@ -361,3 +361,5 @@ Now that you've learned how to use the Mosquitto MQTT library to communicate wit
 
 > [!div class="nextstepaction"]
 > [Communicate with your IoT hub using the MQTT protocol](../iot/iot-mqtt-connect-to-iot-hub.md)
+> [!div class="nextstepaction"]
+> [MQTT Application samples](https://github.com/Azure-Samples/MqttApplicationSamples)

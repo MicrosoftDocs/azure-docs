@@ -113,7 +113,7 @@ To increase the timeout value, follow these steps:
 2. If you can resolve the IP address, there might be something wrong with the DNS configuration in the virtual network.
 3. Check whether the virtual network is configured with a custom DNS server. If it is, check the DNS server about why it can't resolve to the IP address of the specified FQDN.
 4. If you're using Azure default DNS, check with your domain name registrar about whether proper A record or CNAME record mapping has been completed.
-5. If the domain is private or internal, try to resolve it from a VM in the same virtual network. If you can resolve it, restart Application Gateway and check again. To restart Application Gateway, you need to [stop](/powershell/module/azurerm.network/stop-azurermapplicationgateway) and [start](/powershell/module/azurerm.network/start-azurermapplicationgateway) by using the PowerShell commands described in these linked resources.
+5. If the domain is private or internal, try to resolve it from a VM in the same virtual network. If you can resolve it, restart Application Gateway and check again. To restart Application Gateway, you need to [stop](/powershell/module/az.network/stop-azapplicationgateway) and [start](/powershell/module/az.network/start-azapplicationgateway) by using the PowerShell commands described in these linked resources.
 
 ### Updates to the DNS entries of the backend pool
 

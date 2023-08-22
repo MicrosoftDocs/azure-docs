@@ -1,6 +1,6 @@
 ---
-title: Cognitive Services on Azure Government
-description: Guidance for developing Cognitive Services applications for Azure Government
+title: Azure AI services on Azure Government
+description: Guidance for developing Azure AI services applications for Azure Government
 services: azure-government
 cloud: gov
 documentationcenter: ''
@@ -13,9 +13,9 @@ ms.date: 08/30/2021
 ms.custom: references_regions, devx-track-azurepowershell
 ---
 
-# Cognitive Services on Azure Government
+# Azure AI services on Azure Government
 
-This article provides developer guidance for using Computer Vision, Face API, Text Analytics, and Translator cognitive services. For feature variations and limitations, see [Compare Azure Government and global Azure](./compare-azure-government-global-azure.md).
+This article provides developer guidance for using Computer Vision, Face API, Text Analytics, and Translator Azure AI services. For feature variations and limitations, see [Compare Azure Government and global Azure](./compare-azure-government-global-azure.md).
 
 ## Prerequisites
 
@@ -24,9 +24,11 @@ This article provides developer guidance for using Computer Vision, Face API, Te
 - Install and Configure [Azure PowerShell](/powershell/azure/install-azure-powershell)
 - Connect [PowerShell with Azure Government](documentation-government-get-started-connect-with-ps.md)
 
-## Part 1: Provision Cognitive Services accounts
+<a name='part-1-provision-cognitive-services-accounts'></a>
 
-In order to access any of the Cognitive Services APIs, you must first provision a Cognitive Services account for each of the APIs you want to access. You can create cognitive services in the [Azure Government portal](https://portal.azure.us/), or you can use Azure PowerShell to access the APIs and services as described in this article.
+## Part 1: Provision Azure AI services accounts
+
+In order to access any of the Azure AI services APIs, you must first provision an Azure AI services account for each of the APIs you want to access. You can create Azure AI services in the [Azure Government portal](https://portal.azure.us/), or you can use Azure PowerShell to access the APIs and services as described in this article.
 
 > [!NOTE]
 > You must go through the process of creating an account and retrieving account key (explained below) **for each** of the APIs you want to access.
@@ -89,7 +91,7 @@ Now you are ready to make calls to the APIs.
 
 ## Part 2: API Quickstarts
 
-The Quickstarts below will help you to get started with the APIs available through Cognitive Services in Azure Government.
+The Quickstarts below will help you to get started with the APIs available through Azure AI services in Azure Government.
 
 
 ## Computer Vision
@@ -119,7 +121,7 @@ With the [Analyze Image method](https://westcentralus.dev.cognitive.microsoft.co
 - The coordinates, gender, and age of any faces contained in the image.
 - The ImageType (clip art or a line drawing).
 - The dominant color, the accent color, or whether an image is black & white.
-- The category defined in this [taxonomy](../cognitive-services/computer-vision/category-taxonomy.md).
+- The category defined in this [taxonomy](../ai-services/computer-vision/category-taxonomy.md).
 - Does the image contain adult or sexually suggestive content?
 
 ### Analyze an image C# example request
@@ -359,7 +361,7 @@ A successful response is returned in JSON. Shown below is an example of a succes
    }
 }
 ```
-For more information, see [public documentation](../cognitive-services/computer-vision/index.yml) and [public API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa) for Computer Vision.
+For more information, see [public documentation](../ai-services/computer-vision/index.yml) and [public API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa) for Computer Vision.
 
 ## Face API
 
@@ -605,12 +607,12 @@ Response:
    }
 ]
 ```
-For more information, see [public documentation](../cognitive-services/computer-vision/index-identity.yml), and [public API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for Face API.
+For more information, see [public documentation](../ai-services/computer-vision/overview-identity.md), and [public API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for Face API.
 
 
 ## Text Analytics
 
-For instructions on how to use Text Analytics, see [Quickstart: Use the Text Analytics client library and REST API](../cognitive-services/text-analytics/quickstarts/client-libraries-rest-api.md?tabs=version-3-1&pivots=programming-language-csharp).
+For instructions on how to use Text Analytics, see [Quickstart: Use the Text Analytics client library and REST API](../ai-services/language-service/language-detection/overview.md?tabs=version-3-1&pivots=programming-language-csharp).
 
 ### Variations
 
@@ -632,7 +634,7 @@ For instructions on how to use Text Analytics, see [Quickstart: Use the Text Ana
 ### Variations
 
 - The URI for accessing Translator in Azure Government is different than in Azure. For a list of Azure Government endpoints, see [Compare Azure Government and global Azure](./compare-azure-government-global-azure.md#guidance-for-developers).
-- [Virtual Network support](../cognitive-services/cognitive-services-virtual-networks.md) for Translator service is limited to only `US Gov Virginia` region. 
+- [Virtual Network support](../ai-services/cognitive-services-virtual-networks.md) for Translator service is limited to only `US Gov Virginia` region. 
   The URI for accessing the API is:
   - `https://<your-custom-domain>.cognitiveservices.azure.us/translator/text/v3.0`
   - You can find your custom domain endpoint in the overview blade on the Azure Government portal once the resource is created. 
@@ -640,7 +642,7 @@ For instructions on how to use Text Analytics, see [Quickstart: Use the Text Ana
 
 ### Text translation method
 
-The below example uses [Text Translation - Translate method](../cognitive-services/translator/reference/v3-0-translate.md) to translate a string of text from a language into another specified language. There are multiple [language codes](https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation) that can be used with Translator. 
+The below example uses [Text Translation - Translate method](../ai-services/translator/reference/v3-0-translate.md) to translate a string of text from a language into another specified language. There are multiple [language codes](https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation) that can be used with Translator. 
 
 ### Text translation C# example request
 
@@ -718,7 +720,7 @@ namespace TextTranslator
     }
 }
 ```
-For more information, see [public documentation](../cognitive-services/translator/translator-overview.md) and [public API documentation](../cognitive-services/translator/reference/v3-0-reference.md) for Translator.
+For more information, see [public documentation](../ai-services/translator/translator-overview.md) and [public API documentation](../ai-services/translator/reference/v3-0-reference.md) for Translator.
 
 
 ### Next Steps

@@ -2,11 +2,10 @@
 title: Azure Files scalability and performance targets
 description: Learn about the capacity, IOPS, and throughput rates for Azure file shares.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: conceptual
 ms.date: 11/2/2022
 ms.author: kendownie
-ms.subservice: files
 ---
 
 # Azure Files scalability and performance targets

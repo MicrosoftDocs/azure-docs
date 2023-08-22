@@ -5,7 +5,7 @@ author: nabhishek
 ms.service: data-factory
 ms.subservice: security
 ms.topic: conceptual
-ms.date: 09/22/2022
+ms.date: 08/10/2023
 ms.author: abnarain
 ---
 
@@ -28,7 +28,7 @@ To reference a credential stored in Azure Key Vault, you need to:
 1. **Retrieve data factory managed identity** by copying the value of "Managed Identity Object ID" generated along with your factory. If you use ADF authoring UI, the managed identity object ID will be shown on the Azure Key Vault linked service creation window; you can also retrieve it from Azure portal, refer to [Retrieve data factory managed identity](data-factory-service-identity.md#retrieve-managed-identity).
 2. **Grant the managed identity access to your Azure Key Vault.** In your key vault -> Access policies -> Add Access Policy, search this managed identity to grant **Get** and **List** permissions in the Secret permissions dropdown. It allows this designated factory to access secret in key vault.
 3. **Create a linked service pointing to your Azure Key Vault.** Refer to [Azure Key Vault linked service](#azure-key-vault-linked-service).
-4. **Create data store linked service, inside which reference the corresponding secret stored in key vault.** Refer to [reference secret stored in key vault](#reference-secret-stored-in-key-vault).
+4. **Create the data store linked service. In its configuration, reference the corresponding secret stored in Azure Key Vault.** Refer to [Reference a secret stored in Azure Key Vault](#reference-secret-stored-in-key-vault).
 
 ## Azure Key Vault linked service
 

@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 06/02/2023
+ms.date: 06/08/2023
 
 ms.author: justinha
 author: justinha
@@ -18,9 +18,6 @@ ms.collection: M365-identity-device-management
 # Enable combined security information registration in Azure Active Directory
 
 Before combined registration, users registered authentication methods for Azure AD Multi-Factor Authentication and self-service password reset (SSPR) separately. Users were confused that similar methods were used for Azure AD Multi-Factor Authentication and SSPR but they had to register for both features. Now, with combined registration, users can register once and get the benefits of both Azure AD Multi-Factor Authentication and SSPR.
-
-> [!NOTE]
-> Effective Mar. 14th, 2023 combined registration is now the default MFA and SSPR registration experience for all organizations. 
 
 To help you understand the functionality and effects of the new experience, see the [Combined security information registration concepts](concept-registration-mfa-sspr-combined.md).
 
@@ -51,7 +48,7 @@ Complete the following steps to create a policy that applies to all selected use
 
 1. Under **Cloud apps or actions**, select **User actions**. Check **Register security information**, then select **Done**.
 
-    ![Create a conditional access policy to control security info registration](media/howto-registration-mfa-sspr-combined/require-registration-from-trusted-location.png)
+    ![Create a Conditional Access policy to control security info registration](media/howto-registration-mfa-sspr-combined/require-registration-from-trusted-location.png)
 
 1. Under **Conditions** > **Locations**, configure the following options:
    1. Configure **Yes**.

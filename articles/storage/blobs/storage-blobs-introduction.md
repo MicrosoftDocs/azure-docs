@@ -5,11 +5,10 @@ description: Use Azure Blob Storage to store massive amounts of unstructured obj
 services: storage
 author: tamram
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: overview
 ms.date: 03/28/2023
 ms.author: tamram
-ms.subservice: blobs
 ms.custom: engagement-fy23
 ---
 

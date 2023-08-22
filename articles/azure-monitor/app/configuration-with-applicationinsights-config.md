@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 03/22/2023
 ms.devlang: csharp
 ms.custom: devx-track-csharp
-ms.reviewer: casocha
+ms.reviewer: mmcc
 
 ---
 
@@ -313,6 +313,6 @@ Configure a [snapshot collection for ASP.NET applications](snapshot-debugger-vm.
 [diagnostic]: ./diagnostic-search.md
 [exceptions]: ./asp-net-exceptions.md
 [netlogs]: ./asp-net-trace-logs.md
-[new]: ./create-new-resource.md
+[new]: ./create-workspace-resource.md
 [redfield]: ./application-insights-asp-net-agent.md
 [start]: ./app-insights-overview.md

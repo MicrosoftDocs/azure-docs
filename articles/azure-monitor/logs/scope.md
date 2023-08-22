@@ -11,6 +11,7 @@ ms.date: 10/20/2021
 # Log query scope and time range in Azure Monitor Log Analytics
 When you run a [log query](../logs/log-query-overview.md) in [Log Analytics in the Azure portal](../logs/log-analytics-tutorial.md), the set of data evaluated by the query depends on the scope and the time range that you select. This article describes the scope and time range and how you can set each depending on your requirements. It also describes the behavior of different types of scopes.
 
+[!INCLUDE [log-analytics-query-permissions](../../../includes/log-analytics-query-permissions.md)]
 
 ## Query scope
 The query scope defines the records that are evaluated by the query. This will usually include all records in a single Log Analytics workspace or Application Insights application. Log Analytics also allows you to set a scope for a particular monitored Azure resource. This allows a resource owner to focus only on their data, even if that resource writes to multiple workspaces.

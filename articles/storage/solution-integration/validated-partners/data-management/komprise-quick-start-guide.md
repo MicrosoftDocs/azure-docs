@@ -6,8 +6,8 @@ author: dukicn
 ms.author: nikoduki
 ms.date: 05/20/2021
 ms.topic: conceptual
-ms.service: storage
-ms.subservice: partner
+ms.service: azure-storage
+ms.subservice: storage-partner-integration
 ---
 
 # Analyze and migrate to Azure with Komprise

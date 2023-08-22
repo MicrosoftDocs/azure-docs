@@ -50,6 +50,15 @@ cd NumberLookupQuickstart
 dotnet build
 ```
 
+### Connect to dev package feed
+The private preview version of the SDK is published to a dev package feed. You can add the dev feed using the [NuGet CLI](https://docs.microsoft.com/nuget/reference/nuget-exe-cli-reference), which will add it to the NuGet.Config file.
+
+```console
+nuget sources add -Name "Azure SDK for .NET Dev Feed" -Source "https://pkgs.dev.azure.com/azure-sdk/public/_packaging/azure-sdk-for-net/nuget/v3/index.json"
+```
+
+More detailed information and other options for connecting to the dev feed can be found in the [contributing guide](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md#nuget-package-dev-feed).
+
 ### Install the package
 
 While still in the application directory, install the Azure Communication Services PhoneNumbers client library for .NET package by using the following command.
@@ -82,7 +91,7 @@ internal class Program
 
 ### Authenticate the client
 
-Phone Number clients can be authenticated using connection string acquired from an Azure Communication Services resource in the [Azure portal][azure_portal].
+Phone Number clients can be authenticated using connection string acquired from an Azure Communication Services resource in the [Azure portal](https://portal.azure.com).
 It's recommended to use a `COMMUNICATION_SERVICES_CONNECTION_STRING` environment variable to avoid putting your connection string in plain text within your code.
 
 ```csharp

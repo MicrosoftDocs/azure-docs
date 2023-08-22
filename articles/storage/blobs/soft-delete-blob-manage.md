@@ -8,7 +8,6 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 02/16/2023
 ms.author: normesta
-ms.subservice: blobs
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-azurecli
 ---

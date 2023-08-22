@@ -170,7 +170,7 @@ At runtime API Management can't fetch new tokens, and an error occurs.
 
 ### Is this feature supported using API Management running inside a VNet?
 
-Yes, as long as outbound connectivity on port 443 is enabled to the **ServiceConnectors** service tag. For more information, see [Virtual network configuration reference](virtual-network-reference.md#required-ports).
+Yes, as long as outbound connectivity on port 443 is enabled to the **AzureConnectors** service tag. For more information, see [Virtual network configuration reference](virtual-network-reference.md#required-ports).
 
 ### What happens when an authorization provider is deleted?
 
@@ -178,8 +178,7 @@ All underlying authorizations and access policies are also deleted.
 
 ### Are the access tokens cached by API Management?
 
-The access token is cached by the API management until 3 minutes before the token expiration time.
-
+In the dedicated service tiers, the access token is cached by the API management until 3 minutes before the token expiration time. Access tokens aren't cached in the Consumption tier.
 
 ## Next steps
 
@@ -187,3 +186,4 @@ Learn how to:
 - Configure [identity providers](authorizations-configure-common-providers.md) for authorizations
 - Configure and use an authorization for the [Microsoft Graph API](authorizations-how-to-azure-ad.md) or the [GitHub API](authorizations-how-to-github.md)
 - Configure [multiple authorization connections](configure-authorization-connection.md) for a provider
+

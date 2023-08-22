@@ -68,7 +68,7 @@ Creating a production cluster to meet your application needs involves some plann
 
 ### Search for the Service Fabric cluster resource
 
-Sign in to the [Azure portal][azure-portal].
+Sign in to the [Azure portal](https://portal.azure.com).
 Click **Create a resource** to add a new resource template. Search for the Service Fabric Cluster template in the **Marketplace** under **Everything**.
 Select **Service Fabric Cluster** from the list.
 
@@ -203,7 +203,6 @@ At this point, you have a secure cluster using certificates for management authe
 
 <!-- Links -->
 [azure-powershell]: /powershell/azure/
-[azure-portal]: https://portal.azure.com/
 [key-vault-get-started]: ../key-vault/general/overview.md
 [create-cluster-arm]: service-fabric-cluster-creation-via-arm.md
 [service-fabric-cluster-security]: service-fabric-cluster-security.md

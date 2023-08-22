@@ -3,7 +3,7 @@ title: View audit report for Azure resource roles in Privileged Identity Managem
 description: View activity and audit history for Azure resource roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: amsliu
+author: billmath
 manager: amycolannino
 editor: ''
 
@@ -12,7 +12,7 @@ ms.subservice: pim
 ms.topic: how-to
 ms.workload: identity
 ms.date: 06/24/2022
-ms.author: amsliu
+ms.author: billmath
 ms.reviewer: shaunliu
 ms.collection: M365-identity-device-management
 ---
@@ -110,6 +110,8 @@ My audit enables you to view your personal role activity.
 > Access to audit history requires either a Global Administrator or Privileged Role Administrator role.
 
 ## Get reason, approver, and ticket number for approval events
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with Privileged Role administrator role permissions, and open Azure AD.
 1. Select **Audit logs**.

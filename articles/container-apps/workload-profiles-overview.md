@@ -33,15 +33,6 @@ For each Dedicated workload profile in your environment, you can:
 
 You can configure each of your apps to run on any of the workload profiles defined in your Container Apps environment. This configuration is ideal for deploying a microservice solution where each app can run on the appropriate compute infrastructure.
 
-## Supported regions
-
-The following regions support workload profiles during preview:
-
-- North Central US
-- North Europe
-- West Europe
-- East US
-
 ## Profile types
 
 There are different types and sizes of workload profiles available by region. By default each Consumption + Dedicated plan structure includes a Consumption profile, but you can also add any of the following profiles:
@@ -52,9 +43,11 @@ There are different types and sizes of workload profiles available by region. By
 | Dedicated-D4 | D4 | 4 | 16 | General purpose | per node |
 | Dedicated-D8 | D8 | 8 | 32 | General purpose | per node |
 | Dedicated-D16 | D16 | 16 | 64 | General purpose | per node |
+| Dedicated-D32 | D32 | 32 | 128 | General purpose | per node |
 | Dedicated-E4 | E4 | 4 | 32 | Memory optimized | per node |
 | Dedicated-E8 | E8 | 8 | 64 | Memory optimized | per node |
 | Dedicated-E16 | E16 | 16 | 128 | Memory optimized | per node |
+| Dedicated-E32 | E32 | 32 | 256 | Memory optimized | per node |
 
 Select a workload profile and use the *Name* field when you run `az containerapp env workload-profile set` for the `--workload-profile-type` option.
 

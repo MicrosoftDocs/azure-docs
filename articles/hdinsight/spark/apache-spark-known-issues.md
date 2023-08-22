@@ -4,7 +4,7 @@ description: Learn about issues related to Apache Spark clusters in Azure HDInsi
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
-ms.date: 05/10/2022
+ms.date: 06/26/2023
 ---
 
 # Known issues for Apache Spark cluster on HDInsight

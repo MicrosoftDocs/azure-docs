@@ -31,16 +31,20 @@ highlightedContent:
       url: ../virtual-machines/set-up-hpc-vms.md?context=/azure/virtual-machines/context/context
     # Card
     - title: HPC Architecture
-      itemType: architecture
+      itemType: reference
       url: /azure/architecture/browse/?terms=HPC
     # Card
     - title: Run HPC applications on Azure
       itemType: learn
       url: /training/paths/run-high-performance-computing-applications-azure/
     # Card
-    - title: Azure HPC Blog
+    - title: Azure HPC Technical Blog
       itemType: whats-new
       url: https://techcommunity.microsoft.com/t5/azure-high-performance-computing/bg-p/AzureHighPerformanceComputingBlog
+    # Card
+    - title: Azure.com Blogs
+      itemType: architecture
+      url: https://azure.microsoft.com/en-us/blog/tag/high-performance-computing/?s=HPC
 
 # Azure Services
 productDirectory:
@@ -87,17 +91,24 @@ productDirectory:
           text: What is Azure HPC Cache?
         - url: ../hpc-cache/hpc-cache-create.md?tabs=azure-portal%2f
           text: Create an Azure HPC Cache
+    # Card
+    - title: Azure Managed Lustre
+      imageSrc: ../high-performance-computing/media/azure-managed-lustre.svg
+      links:
+        - url: /azure/azure-managed-lustre/amlfs-overview
+          text: What is Azure Managed Lustre?
+        - url: /azure/azure-managed-lustre/create-file-system-portal
+          text: Create an Azure Managed Lustre File System
 
 #Additional Content (No Title)
 conceptualContent:
-# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
   # Supports up to 3 subsections
   sections:
-      #title: # < 60 chars (optional)
-      #summary: # < 160 chars (optional)
-    - items:
+    - title: HPC Documentation # < 60 chars (Optional; Remove if not applicable.)
+      #summary: Learn more about Azure HPC with various video content and events # < 160 chars (Optional; Remove if not applicable.)
+      items:
         # Card
-        - title: Compute
+        - title: HPC Compute
           links:
             - url: ../virtual-machines/sizes-hpc.md
               itemType: concept
@@ -108,9 +119,19 @@ conceptualContent:
             - url: ../virtual-machines/hx-series.md
               itemType: concept
               text: Memory Optimized VMs
+            - url: ../virtual-machines/whats-new.md
+              itemType: whats-new
+              text: What is new for Azure VMs             
             - url: ../virtual-machines/configure.md#ubuntu-hpc-vm-images
               itemType: concept
-              text: HPC VM Images      
+              text: HPC VM Images
+            - url: ../virtual-machines/extensions/enable-infiniband.md
+              itemType: concept
+              text: Enable Infiniband
+            - url: /azure/expressroute/
+              itemType: overview
+              text: Azure ExpressRoute
+              
         # Card
         - title: Storage
           links:
@@ -123,6 +144,10 @@ conceptualContent:
             - url: /training/modules/accelerate-storage-with-hpc-cache/
               itemType: tutorial
               text: Accelerating storage with HPC Cache
+            - url: /azure/azure-managed-lustre/blob-integration
+              itemType: concept
+              text: Use Azure Blob storage with an Azure Managed Lustre file system
+              
         # Card
         - title: Scenarios & Frameworks 
           links:
@@ -138,6 +163,12 @@ conceptualContent:
             - url: /azure/cloud-adoption-framework/scenarios/azure-hpc/
               itemType: overview
               text: Cloud Adoption Framework
+            - url: /azure/architecture/guide/hpc/hpc-deployments/
+              itemType: overview
+              text: HPC Deployments
+            - url: /azure/architecture/browse/?terms=HPC
+              itemType: overview
+              text: HPC Architectures                    
 
 
 # Video Playlists and other links
@@ -145,7 +176,7 @@ additionalContent:
   # Supports up to 4 subsections
   sections:
     - title: HPC Video Content # < 60 chars (Optional; Remove if not applicable.)
-      summary: Learn more about Azure HPC with a variety of video content and events # < 160 chars (Optional; Remove if not applicable.)
+      summary: Learn more about Azure HPC with various video content and events # < 160 chars (Optional; Remove if not applicable.)
       items:
         # Card
         - title: HPC Business Strategy
@@ -195,8 +226,10 @@ additionalContent:
               url: https://www.youtube.com/watch?v=tXLnV6MDsVc
             - text: "Want to learn more? Check out the 'HPC Events' playlist!"
               url: https://aka.ms/HPCEvents
+
+              
     - title: HPC Conferences # < 60 chars (optional)
-      summary: See where you can find HPC at a variety of tech conferences. # < 160 chars (optional)
+      summary: See where you can find HPC at various tech conferences. # < 160 chars (optional)
       items:
         # Card
         - title: SC22 (Supercomputing) 
@@ -212,3 +245,12 @@ additionalContent:
               url: https://techcommunity.microsoft.com/t5/azure-high-performance-computing/we-ll-see-you-at-nvidia-s-spring-gtc-conference/ba-p/3194882
             - text: GTC Website
               url: https://www.nvidia.com/gtc/
+        # Card
+        - title: ISC23 (ISC High Performance Event) 
+          links:
+            - text: Microsoft at ISC!
+              url: https://www.aka.ms/ISC
+            - text: Microsoft at ISC23 Blog
+              url: https://www.aka.ms/ISC23
+            - text: ISC High Performance Event Website!
+              url: https://www.isc-hpc.com/

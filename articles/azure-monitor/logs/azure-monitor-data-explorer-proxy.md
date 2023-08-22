@@ -4,7 +4,7 @@ description: Query data in Azure Data Explorer and Azure Resource Graph from Azu
 author: guywi-ms
 ms.author: guywild
 ms.topic: conceptual
-ms.date: 06/05/2023
+ms.date: 08/22/2023
 ms.reviewer: osalzberg
 
 ---

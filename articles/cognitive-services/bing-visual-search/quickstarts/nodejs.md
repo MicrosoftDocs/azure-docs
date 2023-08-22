@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Get image insights using the REST API and Node.js - Bing Visual Search"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn how to upload an image using the Bing Visual Search API and Node.js, and then get insights about the image.
 services: cognitive-services
 manager: nitinme
@@ -14,7 +14,7 @@ ms.custom: devx-track-js, mode-api
 
 # Quickstart: Get image insights using the Bing Visual Search REST API and Node.js
 
-[!INCLUDE [Bing move notice](../../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../../bing-web-search/includes/bing-move-notice.md)]
 
 Use this quickstart to make your first call to the Bing Visual Search API. This simple JavaScript application uploads an image to the API, and displays the information returned about it. Although this application is written in JavaScript, the API is a RESTful Web service compatible with most programming languages.
 
@@ -36,7 +36,7 @@ Use this quickstart to make your first call to the Bing Visual Search API. This 
     var fs = require('fs');
     ```
 
-2. Create variables for your API endpoint, subscription key, and the path to your image. For the `baseUri` value, you can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+2. Create variables for your API endpoint, subscription key, and the path to your image. For the `baseUri` value, you can use the global endpoint in the following code, or use the [custom subdomain](../../../ai-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```javascript
     var baseUri = 'https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch';

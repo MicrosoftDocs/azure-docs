@@ -10,14 +10,14 @@ ms.date: 05/17/2023
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.custom: "it-pro"
+ms.custom: it-pro, devx-track-dotnet
 ms.collection: M365-identity-device-management
 ---
 
 # Set up tenant restrictions V2 (Preview)
 
 > [!NOTE]
-> The **Tenant restrictions** settings, which are included with cross-tenant access settings, are preview features of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> The **Tenant restrictions** settings, which are included with cross-tenant access settings, are preview features of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://www.microsoft.com/licensing/terms/product/ForOnlineServices/EAEAS).
 
 For increased security, you can limit what your users can access when they use an external account to sign in from your networks or devices. With the **Tenant restrictions** settings included with [cross-tenant access settings](cross-tenant-access-overview.md), you can control the external apps that your Windows device users can access when they're using external accounts.
 
@@ -25,13 +25,14 @@ For example, let's say a user in your organization has created a separate accoun
 
 :::image type="content" source="media/tenant-restrictions-v2/authentication-flow.png" alt-text="Diagram illustrating tenant restrictions v2.":::
 
-|  |  |
+
+| Steps  | Description  |
 |---------|---------|
 |**1**     | Contoso configures **Tenant restrictions** in their cross-tenant access settings to block all external accounts and external apps. Contoso enforces the policy on each Windows device by updating the local computer configuration with Contoso's tenant ID and the tenant restrictions policy ID.       |
 |**2**     |  A user with a Contoso-managed Windows device tries to sign in to an external app using an account from an unknown tenant. The Windows device adds an HTTP header to the authentication request. The header contains Contoso's tenant ID and the tenant restrictions policy ID.        |
 |**3**     | *Authentication plane protection:* Azure AD uses the header in the authentication request to look up the tenant restrictions policy in the Azure AD cloud. Because Contoso's policy blocks external accounts from accessing external tenants, the request is blocked at the authentication level.        |
 |**4**     | *Data plane protection:* The user tries to access the external application by copying  an authentication response token they obtained outside of Contoso's network and pasting it into the Windows device. However, Azure AD compares the claim in the token to the HTTP header added by the Windows device. Because they don't match, Azure AD blocks the session so the user can't access the application.        |
-|||
+
 
 This article describes how to configure tenant restrictions V2 using the Azure portal. You can also use the [Microsoft Graph cross-tenant access API](/graph/api/resources/crosstenantaccesspolicy-overview?view=graph-rest-beta&preserve-view=true) to create these same tenant restrictions policies.
 
@@ -102,11 +103,26 @@ When your users need access to external organizations and apps, we recommend ena
 
 ### Tenant restrictions and Microsoft Teams
 
-For greater control over access to Teams meetings, you can use [Federation Controls](/microsoftteams/manage-external-access) in Teams to allow or block specific tenants, along with tenant restrictions V2 to block anonymous access to Teams meetings. Tenant restrictions prevent users from using an externally issued identity to join Teams meetings.
+Teams by default has open federation, which means we do not block anyone joining a meeting hosted by an external tenant. For greater control over access to Teams meetings, you can use [Federation Controls](/microsoftteams/manage-external-access) in Teams to allow or block specific tenants, along with tenant restrictions V2 to block anonymous access to Teams meetings. To enforce tenant restrictions for Teams, you need to configure tenant restrictions V2 in your Azure AD cross-tenant access settings. You also need to set up Federation Controls in the Teams Admin portal and restart Teams. Tenant restrictions implemented on the corporate proxy won't block anonymous access to Teams meetings, SharePoint files, and other resources that don't require authentication.
 
+- Teams currently allows users to join <i>any</i> externally hosted meeting using their corporate/home provided identity. You can use outbound cross-tenant access settings to control users with corporate/home provided identity to join externally hosted Teams meetings.
+- Tenant restrictions prevent users from using an externally issued identity to join Teams meetings.
+
+#### Pure Anonymous Meeting join
+
+Tenant restrictions V2 automatically block all unauthenticated and externally-issued identity access to externally-hosted Teams meetings.
 For example, suppose Contoso uses Teams Federation Controls to block the Fabrikam tenant. If someone with a Contoso device uses a Fabrikam account to join a Contoso Teams meeting, they're allowed into the meeting as an anonymous user. Now, if Contoso also enables tenant restrictions V2, Teams blocks anonymous access, and the user isn't able to join the meeting.
 
-To enforce tenant restrictions for Teams, you need to configure tenant restrictions V2 in your Azure AD cross-tenant access settings. You also need to set up Federation Controls in the Teams Admin portal and restart Teams. Tenant restrictions implemented on the corporate proxy won't block anonymous access to Teams meetings, SharePoint files, and other resources that don't require authentication.
+#### Meeting join using an externally issued identity
+
+You can configure the tenant restrictions V2 policy to allow specific users or groups with externally issued identities to join specific externally hosted Teams meetings. With this configuration, users can sign in to Teams with their externally issued identities and join the specified tenant's externally hosted Teams meetings.
+
+There is currently a known issue where, if Teams federation is off, Teams blocks a home identity authenticated session from joining externally hosted Teams meetings.
+
+| Auth identity | Authenticated session  | Result |
+|----------------------|---------|---------|
+|Anonymous (no authenticated session) <br></br> Example: A user tries to use an unauthenticated session, for example in an InPrivate browser window, to access a Teams meeting. | Not authenticated |  Access to the Teams meeting is blocked by Tenant restrictions V2 |
+|Externally issued identity (authenticated session)<br></br> Example: A user uses any identity other than their home identity (for example, user@externaltenant.com) | Authenticated as an externally-issued identity |  Allow or block access to the Teams meeting per Tenant restrictions V2 policy. If allowed by the policy, the user can join the meeting. Otherwise access is blocked. <br></br> Note: There is currently a known issue where, if Teams is not explicitly federated with the external tenant, Teams and Tenant restrictions V2 block users using a home identity authenticated session from joining externally hosted Teams meetings.  
 
 ### Tenant restrictions V2 and SharePoint Online
 
@@ -147,13 +163,15 @@ To configure tenant restrictions, you'll need the following:
 
 - Azure AD Premium P1 or P2
 - Account with a role of Global administrator or Security administrator
-- Windows devices running Windows 10, Windows 11, or Windows Server 2022 with the latest updates
+- Windows devices running Windows 10, Windows 11 with the latest updates
 
 ## Step 1: Configure default tenant restrictions V2
 
 Settings for tenant restrictions V2 are located in the Azure portal under **Cross-tenant access settings**. First, configure the default tenant restrictions you want to apply to all users, groups, apps, and organizations. Then, if you need partner-specific configurations, you can add a partner's organization and customize any settings that differ from your defaults.
 
 ### To configure default tenant restrictions
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator, Security administrator, or Conditional Access administrator account. Then open the **Azure Active Directory** service.
 
@@ -197,7 +215,7 @@ Settings for tenant restrictions V2 are located in the Azure portal under **Cros
 1. Under **Applies to**, select one of the following:
 
    - **All external applications**: Applies the action you chose under **Access status** to all external applications. If you block access to all external applications, you also need to block access for all of your users and groups (on the **Users and groups** tab).
-   - **Select external applications**: Lets you choose the external applications you want the action under **Access status** to apply to. To select applications, choose **Add Microsoft applications** or **Add other applications**. Then search by the application name or the application ID (either the *client app ID* or the *resource app ID*) and select the app. ([See a list of IDs for commonly used Microsoft applications.](https://learn.microsoft.com/troubleshoot/azure/active-directory/verify-first-party-apps-sign-in)) If you want to add more apps, use the **Add** button. When you're done, select **Submit**. 
+   - **Select external applications**: Lets you choose the external applications you want the action under **Access status** to apply to. To select applications, choose **Add Microsoft applications** or **Add other applications**. Then search by the application name or the application ID (either the *client app ID* or the *resource app ID*) and select the app. ([See a list of IDs for commonly used Microsoft applications.](/troubleshoot/azure/active-directory/verify-first-party-apps-sign-in)) If you want to add more apps, use the **Add** button. When you're done, select **Submit**. 
 
    :::image type="content" source="media/tenant-restrictions-v2/tenant-restrictions-default-applications-applies-to.png" alt-text="Screenshot showing selecting the external applications tab.":::
 
@@ -243,7 +261,7 @@ Suppose you use tenant restrictions to block access by default, but you want to 
 
    :::image type="content" source="media/tenant-restrictions-v2/tenant-restrictions-external-users-organizational.png" alt-text="Screenshot showing selecting the external users allow access selections.":::
 
-1. Under **Applies to**, choose either **All &lt;your tenant&gt; users and groups** or **Select &lt;your tenant&gt; users and groups**. If you choose **Select &lt;your tenant&gt; users and groups**, perform these steps for each user or group you want to add:
+1. Under **Applies to**, choose either **All &lt;organization&gt; users and groups** or **Select &lt;organization&gt; users and groups**. If you choose **Select &lt;organization&gt; users and groups**, perform these steps for each user or group you want to add:
 
       - Select **Add external users and groups**.
       - In the **Select** pane, type the user name or group name in the search box.
@@ -251,7 +269,7 @@ Suppose you use tenant restrictions to block access by default, but you want to 
       - If you want to add more, select **Add** and repeat these steps. When you're done selecting the users and groups you want to add, select **Submit**.
 
    > [!NOTE]
-   > For our Microsoft Accounts example, we select **All Contoso users and groups**.
+   > For our Microsoft Accounts example, we select **All Microsoft Accounts users and groups**.
 
    :::image type="content" source="media/tenant-restrictions-v2/tenant-restrictions-external-users-organizational-applies-to.png" alt-text="Screenshot showing selecting the external users and groups selections.":::
 
@@ -280,7 +298,7 @@ Suppose you use tenant restrictions to block access by default, but you want to 
 1. If you chose **Select external applications**, do the following for each application you want to add:
 
    - Select **Add Microsoft applications** or **Add other applications**. For our Microsoft Learn example, we choose **Add other applications**.
-   - In the search box, type the application name or the application ID (either the *client app ID* or the *resource app ID*). ([See a list of IDs for commonly used Microsoft applications.](https://learn.microsoft.com/troubleshoot/azure/active-directory/verify-first-party-apps-sign-in)) For our Microsoft Learn example, we enter the application ID `18fbca16-2224-45f6-85b0-f7bf2b39b3f3`.
+   - In the search box, type the application name or the application ID (either the *client app ID* or the *resource app ID*). ([See a list of IDs for commonly used Microsoft applications.](/troubleshoot/azure/active-directory/verify-first-party-apps-sign-in)) For our Microsoft Learn example, we enter the application ID `18fbca16-2224-45f6-85b0-f7bf2b39b3f3`.
    - Select the application in the search results, and then select **Add**.
    - Repeat for each application you want to add.
    - When you're done selecting applications, select **Submit**.
@@ -290,6 +308,13 @@ Suppose you use tenant restrictions to block access by default, but you want to 
 1. The applications you selected are listed on the **External applications** tab. Select **Save**.
 
    :::image type="content" source="media/tenant-restrictions-v2/add-app-save.png" alt-text="Screenshot showing the selected application.":::
+
+> [!NOTE]
+   >
+   > Blocking MSA tenant will not block 
+   > - user-less traffic for devices. This includes traffic for Autopilot, Windows Update, and organizational telemetry.
+   > - B2B authentication of consumer accounts.
+   > - "Passthrough" authentication, used by many Azure apps and Office.com, where apps use Azure AD to sign in consumer users in a consumer context.
 
 ## Step 3: Enable tenant restrictions on Windows managed devices
 

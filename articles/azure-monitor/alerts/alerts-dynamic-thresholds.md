@@ -89,7 +89,7 @@ We recommend configuring alert rules with dynamic thresholds on these metrics:
 - Virtual machine CPU percentage
 - Application Insights HTTP request execution time
 
-When configuring alert rules in the [Azure portal](https://portal.azure.com), follow the procedure to [Create a new alert rule in the Azure portal](alerts-create-new-alert-rule.md#create-a-new-alert-rule-in-the-azure-portal), with these settings
+When configuring alert rules in the [Azure portal](https://portal.azure.com), follow the procedure to [Create a new alert rule in the Azure portal](alerts-create-new-alert-rule.md#create-or-edit-an-alert-rule-in-the-azure-portal), with these settings
 1. In the **Conditions** tab, 
     1. In the **Thresholds** field, select **Dynamic**.
     1. In the **Aggregation type**, we recommend that you don't select **Maximum**.

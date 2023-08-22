@@ -21,9 +21,9 @@ You can control who has read and update access to your data in [Application Insi
 First, let's define some terms:
 
 * **Resource**: An instance of an Azure service. Your Application Insights resource collects, analyzes, and displays the telemetry data sent from your application. Other types of Azure resources include web apps, databases, and VMs.
-  
-    To see your resources, open the [Azure portal][portal], sign in, and select **All resources**. To find a resource, enter part of its name in the filter field.
-  
+
+    To see your resources, open the [Azure portal](https://portal.azure.com), sign in, and select **All resources**. To find a resource, enter part of its name in the filter field.
+
     :::image type="content" source="./media/resources-roles-access-control/10-browse.png" lightbox="./media/resources-roles-access-control/10-browse.png" alt-text="Screenshot that shows a list of Azure resources.":::
 
 <a name="resource-group"></a>
@@ -117,5 +117,4 @@ $resourceGroup = "RGNAME"
 
 [account]: https://account.microsoft.com
 [group]: ../../azure-resource-manager/management/overview.md
-[portal]: https://portal.azure.com/
 [start]: ./app-insights-overview.md

@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 06/06/2023
+ms.date: 07/12/2023
 ms.author: mimart
 ms.custom: it-pro
 
@@ -54,7 +54,7 @@ Follow these steps to add sign-up attributes to a user flow you've already creat
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
 
-1. If you have access to multiple tenants, use the **Directories + subscriptions** filter in the top menu to switch to your customer tenant.
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to your customer tenant.
 
 1. In the left pane, select **Azure Active Directory** > **External Identities** > **User flows**.
 
@@ -78,7 +78,7 @@ You can choose the order in which the attributes are displayed on the sign-up pa
 
 1. Under **Customize**, select **Page layouts**. The attributes you chose to collect appear.
 
-   - To change the properties of an attribute, select a value under the **Label**, **Required**, or **Attribute type** columns, and then type or select a new value.
+   - To change the properties of an attribute, select a value under the **Label**, **Required**, or **Attribute type** columns, and then type or select a new value. (For security reasons, **Email Address** properties can't be changed).
 
    - To change the order of display, select an attribute, and then select **Move up**, **Move down**, **Move to the top**, or **Move to the bottom**.
 

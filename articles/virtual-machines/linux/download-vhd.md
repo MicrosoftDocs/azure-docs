@@ -3,8 +3,7 @@ title: Download a Linux VHD from Azure
 description: Download a Linux VHD using the Azure CLI and the Azure portal.
 author: roygara
 ms.author: rogarana
-ms.service: storage
-ms.subservice: disks
+ms.service: azure-disk-storage
 ms.custom: devx-track-azurecli
 ms.collection: linux
 ms.topic: how-to

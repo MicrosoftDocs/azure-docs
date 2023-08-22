@@ -16,7 +16,7 @@ ms.custom: aaddev, devx-track-js
 ---
 # Logging in MSAL.js
 
-[!INCLUDE [MSAL logging introduction](../../../includes/active-directory-develop-error-logging-introduction.md)]
+[!INCLUDE [MSAL logging introduction](./includes/error-handling-and-tips/error-logging-introduction.md)]
 
 ## Configure logging in MSAL.js
 

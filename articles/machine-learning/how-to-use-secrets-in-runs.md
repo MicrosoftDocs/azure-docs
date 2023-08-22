@@ -15,10 +15,7 @@ ms.custom: sdkv2, ignite-2022
 
 # Use authentication credential secrets in Azure Machine Learning jobs
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
-> [!div class="op_single_selector" title1="Select the version of the Azure Machine Learning Python SDK you are using:"]
-> * [v1](v1/how-to-use-secrets-in-runs.md?view=azureml-api-1&preserve-view=true)
-> * [v2 (current version)](how-to-use-secrets-in-runs.md)
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 Authentication information such as your user name and password are secrets. For example, if you connect to an external database in order to query training data, you would need to pass your username and password to the remote job context. Coding such values into training scripts in clear text is insecure as it would potentially expose the secret.
 

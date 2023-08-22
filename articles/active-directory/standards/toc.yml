@@ -63,7 +63,7 @@
   expanded: true
   items:
   - name: Overview
-    href: hipaa-configure-azure-active-directory-for-compliance.md
+    href: hipaa-configure-for-compliance.md
   - name: Access Controls Safeguard compliance
     href: hipaa-access-controls.md
   - name: Audit Controls Safeguard compliance
@@ -74,7 +74,7 @@
   expanded: true
   items:
   - name: Azure AD PCI-DSS guidance
-    href: azure-ad-pci-dss-guidance.md
+    href: pci-dss-guidance.md
   - name: PCI-DSS Requirement 1
     href: pci-requirement-1.md
   - name: PCI-DSS Requirement 2
@@ -92,4 +92,4 @@
   - name: PCI-DSS Requirement 11
     href: pci-requirement-11.md
   - name: Azure Active Directory PCI-DSS MFA guidance
-    href: azure-ad-pci-dss-mfa.md
+    href: pci-dss-mfa.md

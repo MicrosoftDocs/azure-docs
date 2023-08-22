@@ -19,7 +19,7 @@ The Azure Functions runtime provides flexibility in hosting where and how you wa
 
 The Azure Functions service is made up of two key components: a runtime and a scale controller.  The Functions runtime runs and executes your code.  The runtime includes logic on how to trigger, log, and manage function executions.  The Azure Functions runtime can run *anywhere*.  The other component is a scale controller.  The scale controller monitors the rate of events that are targeting your function, and proactively scales the number of instances running your app.  To learn more, see [Azure Functions scale and hosting](functions-scale.md).
 
-Kubernetes-based Functions provides the Functions runtime in a [Docker container](functions-create-function-linux-custom-image.md) with event-driven scaling through KEDA.  KEDA can scale in to 0 instances (when no events are occurring) and out to *n* instances. It does this by exposing custom metrics for the Kubernetes autoscaler (Horizontal Pod Autoscaler).  Using Functions containers with KEDA makes it possible to replicate serverless function capabilities in any Kubernetes cluster.  These functions can also be deployed using [Azure Kubernetes Services (AKS) virtual nodes](../aks/virtual-nodes-cli.md) feature for serverless infrastructure.
+Kubernetes-based Functions provides the Functions runtime in a [Docker container](functions-create-container-registry.md) with event-driven scaling through KEDA. KEDA can scale in to 0 instances (when no events are occurring) and out to *n* instances. It does this by exposing custom metrics for the Kubernetes autoscaler (Horizontal Pod Autoscaler).  Using Functions containers with KEDA makes it possible to replicate serverless function capabilities in any Kubernetes cluster.  These functions can also be deployed using [Azure Kubernetes Services (AKS) virtual nodes](../aks/virtual-nodes-cli.md) feature for serverless infrastructure.
 
 ## Managing KEDA and functions in Kubernetes
 
@@ -27,7 +27,7 @@ To run Functions on your Kubernetes cluster, you must install the KEDA component
 
 + Azure Functions Core Tools: using the [`func kubernetes install` command](functions-core-tools-reference.md#func-kubernetes-install).
 
-+ Helm: there are various ways to install KEDA in any Kubernetes cluster, including Helm.  Deployment options are documented on the [KEDA site](https://keda.sh/docs/deploy/).
++ Helm: there are various ways to install KEDA in any Kubernetes cluster, including Helm. Deployment options are documented on the [KEDA site](https://keda.sh/docs/deploy/).
 
 ## Deploying a function app to Kubernetes
 
@@ -94,7 +94,7 @@ You can use Azure Functions that expose HTTP triggers, but KEDA doesn't directly
 ## Next Steps
 For more information, see the following resources:
 
-* [Create a function using a custom image](functions-create-function-linux-custom-image.md)
+* [Working with containers and Azure Functions](./functions-how-to-custom-container.md) 
 * [Code and test Azure Functions locally](functions-develop-local.md)
 * [How the Azure Function Consumption plan works](functions-scale.md)
 

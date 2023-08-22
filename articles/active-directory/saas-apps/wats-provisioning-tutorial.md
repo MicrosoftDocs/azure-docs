@@ -40,13 +40,9 @@ The scenario outlined in this tutorial assumes that you already have the followi
 1. Determine what data to [map between Azure AD and WATS](../app-provisioning/customize-application-attributes.md).
 
 ## Step 2. Configure WATS to support provisioning with Azure AD
-Contact WATS support to configure WATS to support provisioning with Azure AD.
+Please refer to the [WATS Provisioning](https://support.virinco.com/hc/en-us/articles/7978299009948-WATS-Provisioning-SCIM-) article to set up any necessary requirements for provisioning through Azure AD. 
 
-## Step 3. Add WATS from the Azure AD application gallery
-
-Add WATS from the Azure AD application gallery to start managing provisioning to WATS. If you have previously setup WATS for SSO you can use the same application. However it's recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
-
-## Step 4. Define who will be in scope for provisioning 
+## Step 3. Define who will be in scope for provisioning 
 
 The Azure AD provisioning service allows you to scope who will be provisioned based on assignment to the application and or based on attributes of the user. If you choose to scope who will be provisioned to your app based on assignment, you can use the following [steps](../manage-apps/assign-user-or-group-access-portal.md) to assign users to the application. If you choose to scope who will be provisioned based solely on attributes of the user, you can use a scoping filter as described [here](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
@@ -55,7 +51,7 @@ The Azure AD provisioning service allows you to scope who will be provisioned ba
 * If you need more roles, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add new roles.
 
 
-## Step 5. Configure automatic user provisioning to WATS 
+## Step 4. Configure automatic user provisioning to WATS 
 
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users in TestApp based on user assignments in Azure AD.
 
@@ -116,7 +112,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 This operation starts the initial synchronization cycle of all users defined in **Scope** in the **Settings** section. The initial cycle takes longer to perform than subsequent cycles, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. 
 
-## Step 6. Monitor your deployment
+## Step 5. Monitor your deployment
 Once you've configured provisioning, use the following resources to monitor your deployment:
 
 * Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users have been provisioned successfully or unsuccessfully

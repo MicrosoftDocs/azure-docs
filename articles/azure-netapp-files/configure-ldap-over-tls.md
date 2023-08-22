@@ -77,4 +77,4 @@ Disabling LDAP over TLS stops encrypting LDAP queries to Active Directory (LDAP 
 * [Create an SMB volume for Azure NetApp Files](azure-netapp-files-create-volumes-smb.md) 
 * [Create a dual-protocol volume for Azure NetApp Files](create-volumes-dual-protocol.md)
 * [Modify Active Directory connections for Azure NetApp Files](modify-active-directory-connections.md)
-
+* [Understand the use of LDAP with Azure NetApp Files](lightweight-directory-access-protocol.md)

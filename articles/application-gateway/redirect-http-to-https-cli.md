@@ -5,7 +5,7 @@ description: Learn how to create an HTTP to HTTPS redirection and add a certific
 services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-linux
 ms.topic: how-to
 ms.date: 04/27/2023
 ms.author: greglin

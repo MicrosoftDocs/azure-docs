@@ -34,9 +34,11 @@ To configure SSO, you need:
 
 ## Enable single sign-on
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 To enable SSO for an application:
 
-1. Go to the [Azure portal](https://portal.azure.com) and sign in using one of the roles listed in the prerequisites.
+1. Sign in to the [Azure portal](https://portal.azure.com) and sign in using one of the roles listed in the prerequisites.
 1. Browse to **Azure Active Directory** > **Enterprise applications**. The **All applications** pane opens and displays a list of the applications in your Azure AD tenant. Search for and select the application that you want to use. For example, **Azure AD SAML Toolkit 1**.
 1. In the **Manage** section of the left menu, select **Single sign-on** to open the **Single sign-on** pane for editing.
 1. Select **SAML** to open the SSO configuration page. After the application is configured, users can sign in to it by using their credentials from the Azure AD tenant.

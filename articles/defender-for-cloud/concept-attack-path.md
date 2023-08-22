@@ -1,7 +1,7 @@
 ---
 title: Identify and analyze risks across your environment
 description: Learn how to prioritize remediation of cloud misconfigurations and vulnerabilities based on risk. 
-titleSuffix: Defender for Cloud attack path.
+ attack path.
 ms.topic: conceptual
 ms.custom: ignite-2022
 ms.date: 05/07/2023

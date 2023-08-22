@@ -1,7 +1,7 @@
 ---
 title: List of built-in policy definitions
 description: List built-in policy definitions for Azure Policy. Categories include Tags, Regulatory Compliance, Key Vault, Kubernetes, Guest Configuration, and more.
-ms.date: 06/01/2023
+ms.date: 08/08/2023
 ms.topic: sample
 ms.custom: generated
 ---
@@ -12,8 +12,7 @@ This page is an index of Azure Policy built-in policy definitions.
 The name of each built-in links to the policy definition in the Azure portal. Use the link in the
 **Source** column to view the source on the
 [Azure Policy GitHub repo](https://github.com/Azure/azure-policy). The built-ins are grouped by the
-**category** property in **metadata**. To jump to a specific **category**, use the menu on the right
-side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browser's search feature.
+**category** property in **metadata**. To go to a specific **category**, use <kbd>Ctrl</kbd>-<kbd>F</kbd> for your browser's search feature.
 
 ## API for FHIR
 
@@ -147,10 +146,6 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 
 [!INCLUDE [azure-policy-reference-policies-data-lake](../../../../includes/policy/reference/bycat/policies-data-lake.md)]
 
-## Databricks
-
-[!INCLUDE [azure-policy-reference-policies-databricks](../../../../includes/policy/reference/bycat/policies-databricks.md)]
-
 ## Desktop Virtualization
 
 [!INCLUDE [azure-policy-reference-policies-desktop-virtualization](../../../../includes/policy/reference/bycat/policies-desktop-virtualization.md)]
@@ -282,6 +277,10 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 ## SQL
 
 [!INCLUDE [azure-policy-reference-policies-sql](../../../../includes/policy/reference/bycat/policies-sql.md)]
+
+## SQL Managed Instance
+
+[!INCLUDE [azure-policy-reference-policies-sql-managed-instance](../../../../includes/policy/reference/bycat/policies-sql-managed-instance.md)]
 
 ## SQL Server
 

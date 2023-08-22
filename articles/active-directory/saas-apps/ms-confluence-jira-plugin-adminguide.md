@@ -59,12 +59,12 @@ Note the following information before you install the plug-in:
 
 The plug-in supports the following versions of Jira and Confluence:
 
-* Jira Core and Software: 6.0 to 9.8.1
+* Jira Core and Software: 6.0 to 9.10.0
 * Jira Service Desk: 3.0.0 to 4.22.1.
 * JIRA also supports 5.2. For more details, click [Microsoft Azure Active Directory single sign-on for JIRA 5.2](./jira52microsoft-tutorial.md).
 * Confluence: 5.0 to 5.10.
 * Confluence: 6.0.1 to 6.15.9.
-* Confluence: 7.0.1 to 8.3.0.
+* Confluence: 7.0.1 to 8.0.4.
 
 ## Installation
 
@@ -129,7 +129,7 @@ JIRA:
 |Plugin Version   |                                   Release Notes                                           |       Supported JIRA versions       |
 |-----------------|-------------------------------------------------------------------------------------------|-------------------------------------|
 |  1.0.20         |   Bug Fixes:                                                                              | Jira Core and Software:             |
-|                 |   JIRA SAML SSO add-on redirects to incorrect URL from mobile browser.                 |  7.0.0 to 9.8.1                    |
+|                 |   JIRA SAML SSO add-on redirects to incorrect URL from mobile browser.                 |  7.0.0 to 9.10.0                    |
 |                 |   The mark log section after enabling the JIRA plugin.                                 |                                     |
 |                 |   The last login date for a user doesn't update when user signs in via SSO.           |                                     |
 |                 |                                                                                           |                                     |
@@ -148,7 +148,7 @@ Confluence:
 
 |Plugin Version   |                                   Release Notes                                           |       Supported JIRA versions       |
 |-----------------|-------------------------------------------------------------------------------------------|-------------------------------------|
-|  6.3.9          |   Bug Fixes:                                                                              | Confluence Server: 7.20.3 to 8.3.0  |
+|  6.3.9          |   Bug Fixes:                                                                              | Confluence Server: 7.20.3 to 8.0.4  |
 |                 |   System Error: Metadata link cannot be configured on SSO plugins.                        |                                     |
 |                 |                                                                                           |                                     |
 |  6.3.8          |   New Feature:                                                                            | Confluence Server: 5.0 to 7.20.1    |
@@ -207,12 +207,12 @@ No. The plug-in supports only on-premises versions of Jira and Confluence.
 
 The plug-in supports these versions:
 
-* Jira Core and Software: 6.0 to 9.8.1.
+* Jira Core and Software: 6.0 to 9.10.0
 * Jira Service Desk: 3.0.0 to 4.22.1.
 * JIRA also supports 5.2. For more details, click [Microsoft Azure Active Directory single sign-on for JIRA 5.2](./jira52microsoft-tutorial.md).
 * Confluence: 5.0 to 5.10.
 * Confluence: 6.0.1 to 6.15.9.
-* Confluence: 7.0.1 to 8.3.0.
+* Confluence: 7.0.1 to 8.0.4.
 
 ### Is the plug-in free or paid?
 

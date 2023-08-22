@@ -293,9 +293,9 @@ ml_client_registry.components.create_or_update(train_model)
 > [!TIP]
 > If you get an error that the name of the component already exists in the registry, you can either update the version with `train_model.version=<unique_version_number>` before creating the component. 
 
-Note down the `name` and `version` of the component from the output and pass them to the `ml_client_registry.component.get()` method to fetch the component from registry. 
+Note down the `name` and `version` of the component from the output and pass them to the `ml_client_registry.components.get()` method to fetch the component from registry. 
 
-You can also use `ml_client_registry.component.list()` to list all components in the registry or browse all components in the Azure Machine Learning studio UI. Make sure you navigate to the global UI and look for the Registries hub.
+You can also use `ml_client_registry.components.list()` to list all components in the registry or browse all components in the Azure Machine Learning studio UI. Make sure you navigate to the global UI and look for the Registries hub.
 
 ---
 

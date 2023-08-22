@@ -2,11 +2,11 @@
 title: About SAP HANA database backup on Azure VMs
 description: In this article, you'll learn about backing up SAP HANA databases that are running on Azure virtual machines.
 ms.topic: conceptual
-ms.date: 10/06/2022
+ms.date: 06/25/2023
 ms.service: backup
 ms.custom: ignite-2022
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # About SAP HANA database backup on Azure VMs
@@ -75,14 +75,11 @@ You can use [an Azure VM backup](backup-azure-vms-introduction.md) to back up th
 
 1. Restore the database into the VM from the [Azure SAP HANA database backup](sap-hana-db-restore.md#restore-to-a-point-in-time-or-to-a-recovery-point) to your intended point in time.
 
-## Back up a HANA system with replication enabled (preview)
+## Back up a HANA system with replication enabled
 
-Azure Backup now supports backing up databases that have HSR enabled (preview). This means that backups are managed automatically when a failover occurs, which eliminates the necessity for manual intervention. Backup also offers immediate protection with no remedial full backups, so you can protect HANA instances or HSR setup nodes as a single HSR container. 
+Azure Backup now supports backing up databases that have HSR enabled. This means that backups are managed automatically when a failover occurs, which eliminates the necessity for manual intervention. Backup also offers immediate protection with no remedial full backups, so you can protect HANA instances or HSR setup nodes as a single HSR container. 
 
 Although there are multiple physical nodes (primary and secondary), the backup service now considers them a single HSR container.
-
->[!Note]
->Because the feature is in preview, there are no Protected Instance charges for a logical HSR container. However, you are charged for the underlying storage of the backups.
 
 ## Back up database instance snapshots (preview)
 
@@ -107,7 +104,7 @@ As per SAP recommendation, it's mandatory to have weekly full snapshots for all 
 Learn how to:
 
 - [Back up SAP HANA databases on Azure VMs](backup-azure-sap-hana-database.md).
-- [Back up SAP HANA System Replication databases on Azure VMs](sap-hana-database-with-hana-system-replication-backup.md).
-- [Back up SAP HANA database snapshot instances on Azure VMs](sap-hana-database-instances-backup.md).
+- [Back up SAP HANA System Replication databases on Azure VMs (preview)](sap-hana-database-with-hana-system-replication-backup.md).
+- [Back up SAP HANA database snapshot instances on Azure VMs (preview)](sap-hana-database-instances-backup.md).
 - [Restore SAP HANA databases on Azure VMs](./sap-hana-db-restore.md).
 - [Manage SAP HANA databases that are backed up by using Azure Backup](./sap-hana-db-manage.md).

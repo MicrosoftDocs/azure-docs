@@ -13,7 +13,7 @@ ms.author: mmitrik
 
 ## Overview
 
-By default, the DICOM service supports querying on the DICOM tags specified in the [conformance statement](dicom-services-conformance-statement.md#searchable-attributes). By enabling extended query tags, the list of tags can easily be expanded based on the application's needs. 
+By default, the DICOM service supports querying on the DICOM tags specified in the [conformance statement](dicom-services-conformance-statement-v2.md#searchable-attributes). By enabling extended query tags, the list of tags can easily be expanded based on the application's needs. 
 
 Using the APIs listed below, users can index their DICOM studies, series, and instances on both standard and private DICOM tags such that they can be specified in QIDO-RS queries.
 
@@ -230,7 +230,7 @@ GET .../operations/{operationId}
 
 ### Tag status
 
-The [Status](#extended-query-tag-status) of extended query tag indicates current status. When an extended query tag is first added, its status is set to `Adding`, and a long-running operation is kicked off to reindex existing DICOM instances. After the operation is completed, the tag status is updated to `Ready`. The extended query tag can now be used in [QIDO](dicom-services-conformance-statement.md#search-qido-rs). 
+The [Status](#extended-query-tag-status) of extended query tag indicates current status. When an extended query tag is first added, its status is set to `Adding`, and a long-running operation is kicked off to reindex existing DICOM instances. After the operation is completed, the tag status is updated to `Ready`. The extended query tag can now be used in [QIDO](dicom-services-conformance-statement-v2.md#search-qido-rs). 
 
 For example, if the tag Manufacturer Model Name (0008,1090) is added, and in `Ready` status, hereafter the following queries can be used to filter stored instances by the Manufacturer Model Name.
 

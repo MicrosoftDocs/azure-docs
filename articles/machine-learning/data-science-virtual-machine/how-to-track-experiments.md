@@ -176,7 +176,7 @@ You should see that the deployment state goes from __transitioning__ to __health
 
 You can test the endpoint using [Postman](https://www.postman.com/), or you can use the Azure Machine Learning SDK:
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 ```python
 from azureml.core import Webservice

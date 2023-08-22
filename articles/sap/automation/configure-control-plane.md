@@ -40,12 +40,12 @@ This table shows the Terraform parameters, these parameters need to be entered 
 This table shows the parameters that define the resource naming.
 
 > [!div class="mx-tdCol2BreakAll "]
-> | Variable                | Description                                       | Type       | Notes                                                                                       |
-> | ----------------------- | ------------------------------------------------- | ---------- | ------------------------------------------------------------------------------------------- |
-> | `environment`           | Identifier for the control plane (max 5 chars)    | Mandatory  | For example, `PROD` for a production environment and `NP` for a non-production environment. |
-> | `location`              | The Azure region in which to deploy.              | Required   | Use lower case                                                                              |
-> | 'name_override_file'    | Name override file                                | Optional   | see [Custom naming](naming-module.md)                                            |
-
+> | Variable                        | Description                                       | Type       | Notes                                                                                       |
+> | ------------------------------- | ------------------------------------------------- | ---------- | ------------------------------------------------------------------------------------------- |
+> | `environment`                   | Identifier for the control plane (max 5 chars)    | Mandatory  | For example, `PROD` for a production environment and `NP` for a non-production environment. |
+> | `location`                      | The Azure region in which to deploy.              | Required   | Use lower case                                                                              |
+> | 'name_override_file'            | Name override file                                | Optional   | see [Custom naming](naming-module.md)                                            |
+> | 'place_delete_lock_on_resources | Place a delete lock on the key resources          | Optional   |
 ### Resource Group
 
 This table shows the parameters that define the resource group.
@@ -165,7 +165,7 @@ The table below defines the parameters used for defining the Key Vault informati
 > | `deployer_username_secret_name`	                 | The Azure Key Vault secret name for the deployer username                         | Optional	  |
 > | `deployer_password_secret_name`	                 | The Azure Key Vault secret name for the deployer password                         | Optional	  |
 > | `additional_users_to_add_to_keyvault_policies`	 | A list of user object IDs to add to the deployment KeyVault access policies       | Optional	  |
-
+> | `set_secret_expiry`	                             | Set expiry of 12 months for key vault secrets                                     | Optional	  |
 
 ### DNS Support
 
@@ -279,10 +279,10 @@ This table shows the parameters that define the resource group.
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                            | Description                                                          | Type     |
 > | ----------------------------------- | -------------------------------------------------------------------- | -------- |
+> | `dns_label`	                        | DNS name of the private DNS zone                                     | Optional |
 > | `use_custom_dns_a_registration`	    | Use an existing Private DNS zone                                     | Optional |
 > | `management_dns_subscription_id`	  | Subscription ID for the subscription containing the Private DNS Zone | Optional |
 > | `management_dns_resourcegroup_name`	| Resource group containing the Private DNS Zone                       | Optional |
-> | `dns_label`	                        | DNS name of the private DNS zone                                     | Optional |
 
 
 ### Extra parameters

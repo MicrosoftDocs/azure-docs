@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to use batch deployments to process text with large language models.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: inferencing
 ms.topic: how-to
 author: santiagxf
 ms.author: fasantia
@@ -15,7 +15,7 @@ ms.custom: devplatv2
 
 # Deploy language models in batch endpoints
 
-[!INCLUDE [cli v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-dev-v2.md)]
 
 Batch Endpoints can be used to deploy expensive models, like language models, over text data. In this tutorial, you learn how to deploy a model that can perform text summarization of long sequences of text using a model from HuggingFace. It also shows how to do inference optimization using HuggingFace `optimum` and `accelerate` libraries.
 
@@ -27,7 +27,7 @@ The model we are going to work with was built using the popular library transfor
 * It is trained for summarization of text in English.
 * We are going to use Torch as a backend.
 
-[!INCLUDE [machine-learning-batch-clone](../../includes/machine-learning/azureml-batch-clone-samples.md)]
+[!INCLUDE [machine-learning-batch-clone](includes/azureml-batch-clone-samples.md)]
 
 The files for this example are in:
 
@@ -41,7 +41,7 @@ You can follow along this sample in a Jupyter Notebook. In the cloned repository
 
 ## Prerequisites
 
-[!INCLUDE [machine-learning-batch-prereqs](../../includes/machine-learning/azureml-batch-prereqs.md)]
+[!INCLUDE [machine-learning-batch-prereqs](includes/azureml-batch-prereqs.md)]
 
 ### Registering the model
 

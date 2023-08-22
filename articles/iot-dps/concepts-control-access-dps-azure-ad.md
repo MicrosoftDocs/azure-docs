@@ -91,9 +91,8 @@ For more information, see the [Azure IoT extension for Azure CLI release page](h
 - [Azure IoT SDKs for Node.js Provisioning Service](https://aka.ms/IoTDPSNodeJSSDKRBAC)
     - [Sample](https://aka.ms/IoTDPSNodeJSSDKRBACSample)
 - [Azure IoT SDK for Java Preview Release ](https://aka.ms/IoTDPSJavaSDKRBAC)
-    - [Sample](https://aka.ms/IoTDPSJavaSDKRBACSample)
+    - [Sample](https://github.com/Azure/azure-iot-sdk-java/tree/preview/provisioning/provisioning-service-client-samples)
 - [•	Microsoft Azure IoT SDKs for .NET Preview Release](https://aka.ms/IoTDPScsharpSDKRBAC)
-    - [Sample](https://aka.ms/IoTDPScsharpSDKRBACSample)
 
 ## Azure AD access from the Azure portal
 
@@ -102,5 +101,5 @@ For more information, see the [Azure IoT extension for Azure CLI release page](h
 
 ## Next steps
 
-- For more information on the advantages of using Azure AD in your application, see [Integrating with Azure Active Directory](../active-directory/develop/active-directory-how-to-integrate.md).
+- For more information on the advantages of using Azure AD in your application, see [Integrating with Azure Active Directory](../active-directory/develop/how-to-integrate.md).
 - For more information on requesting access tokens from Azure AD for users and service principals, see [Authentication scenarios for Azure AD](../active-directory/develop/authentication-vs-authorization.md).

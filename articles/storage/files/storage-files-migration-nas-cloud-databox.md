@@ -2,11 +2,10 @@
 title: On-premises NAS migration to Azure file shares
 description: Learn how to migrate files from an on-premises Network Attached Storage (NAS) location to Azure file shares with Azure DataBox.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 12/15/2022
 ms.author: kendownie
-ms.subservice: files
 recommendations: false
 ---
 
@@ -64,9 +63,9 @@ As a general rule, you can pool multiple Azure file shares into the same storage
 > [!NOTE]
 > There's a limit of 250 storage accounts per subscription per Azure region. With a quota increase, you can create up to 500 storage accounts per region. For more information, see [Increase Azure Storage account quotas](../../quotas/storage-account-quota-requests.md).
 
-Another consideration when you're deploying a storage account is the redundancy of Azure Storage. See [Azure Storage redundancy options](../common/storage-redundancy.md).
+Another consideration when you're deploying a storage account is redundancy. See [Azure Files redundancy](files-redundancy.md).
 
-Azure file shares are created with a 5 TiB limit by default. If you need more capacity, you can create a large file share (100 TiB). However, that share can use only locally redundant storage or zone-redundant storage redundancy options. Consider your storage redundancy needs before using 100 TiB file shares.
+Azure file shares are created with a 5 TiB limit by default. If you need more capacity, you can create a large file share (up to 100 TiB). However, that share can use only locally redundant storage or zone-redundant storage redundancy options. Consider your storage redundancy needs before using 100 TiB file shares.
 
 If you've made a list of your shares, you should map each share to the storage account it will be created in.
 

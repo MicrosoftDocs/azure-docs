@@ -3,7 +3,7 @@ title: Manage an Azure support request
 description: Learn about viewing support requests and how to send messages, upload files, and manage options.
 tags: billing
 ms.topic: how-to
-ms.date: 03/21/2023
+ms.date: 08/23/2023
 ---
 
 # Manage an Azure support request
@@ -95,6 +95,10 @@ To reopen a closed support request, select **Reopen request** near the top of th
 ## Cancel a support plan
 
 To cancel a support plan, see [Cancel a support plan](../../cost-management-billing/manage/cancel-azure-subscription.md#cancel-a-subscription-in-the-azure-portal).
+
+## Get help with a support request
+
+If you need assistance managing a support request, [create another support request](how-to-create-azure-support-request.md) to get help. For the **Issue type**, select **Technical**, then select **All Services**. For **Service type**, select **Portal** and for **Problem type** select **Issue with Support Ticket Experience**.
 
 ## Next steps
 

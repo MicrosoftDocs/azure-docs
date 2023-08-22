@@ -59,6 +59,8 @@ items:
         href: get-quality-checks-insights.md
       - name: View cost analysis for SAP system
         href: view-cost-analysis.md
+      - name: Configure and monitor Backup for SAP system
+        href: acss-backup-integration.md
     - name: Monitoring
       items:
       - name: Monitor SAP system in Azure portal
