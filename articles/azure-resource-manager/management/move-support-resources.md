@@ -1077,7 +1077,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | loadtests | No | No | No |
+> | loadtests | Yes | Yes | No |
 
 ## Microsoft.LocationBasedServices
 
