@@ -46,9 +46,9 @@ Each replica created will add extra charges. Reference the [App Configuration pr
 
 ## Monitoring
 
-When we talk about monitoring geo-replication in Azure App Configuration, we're interested in replication latency, which is the time it takes for changes made in one region to synchronize with replicas in other regions.
+To offer insights into the characteristics of the geo-replication feature, App Configuration provides a metric named **Replication Latency**. The replication latency metric describes how long it takes for data to replicate from one region to another.
 
-To leverage replication latency metric, see the [Monitoring App Configuration data reference](./monitor-app-configuration-reference.md) for detailed information.
+For more information on the replication latency metric and other App Configuration metrics see [Monitoring App Configuration data reference](./monitor-app-configuration-reference.md).
 
 ## Next steps
 
