@@ -31,7 +31,7 @@ Here's what changed in July 2023:
 
 [Watermarking](watermarking.md), when used with [screen capture protection](#screen-capture-protection), helps protect your sensitive information from capture on client endpoints. When you enable watermarking, QR code watermarks appear as part of remote desktops. The QR code contains the connection ID of a remote session that admins can use to trace the session. You can configure watermarking on session hosts and enforce it with the Remote Desktop client.
 
-### Audio call redirection for Azure Virtual Desktop in public preview
+### Audio call redirection for Azure Virtual Desktop in preview
 
 Call redirection (preview), which optimizes audio calls for WebRTC-based calling apps, is now in public preview. Multimedia redirection redirects media content from Azure Virtual Desktop to your local machine for faster processing and rendering. Both Microsoft Edge and Google Chrome support this feature when using the Windows Desktop client.
 
