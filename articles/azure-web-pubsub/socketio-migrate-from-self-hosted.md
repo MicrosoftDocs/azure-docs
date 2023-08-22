@@ -46,7 +46,7 @@ For the migration process in this guide, you use a sample chat app provided on [
     const { useAzureSocketIO } = require("@azure/web-pubsub-socket.io");
     ```
 
-4. Locate in your server-side code where you created the Socket.IO server, and wrap it with `useAzureSocketIO()`:
+4. Locate in your server-side code where you created the Socket.IO server, and append useAzureSocketIO(...):
 
     ```javascript
     const io = require("socket.io")();
