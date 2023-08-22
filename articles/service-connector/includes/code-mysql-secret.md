@@ -59,7 +59,7 @@ ms.author: yungez
       </dependencies>
     </dependencyManagement>
     ```
-1. Setup normal Spring App application, more detail in this [section](/azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-mysql).
+1. Setup normal Spring App application, more detail in this [section](/azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-mysql?tabs=password%2Cservice-connector).
 
 ### [Python](#tab/python)
 
