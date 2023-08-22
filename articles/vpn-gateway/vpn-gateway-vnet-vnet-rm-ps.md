@@ -6,12 +6,12 @@ author: cherylmc
 ms.service: vpn-gateway
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 08/21/2023
+ms.date: 08/22/2023
 ms.author: cherylmc
 ---
 # Configure a VNet-to-VNet VPN gateway connection using PowerShell
 
-This article helps you connect virtual networks by using the VNet-to-VNet connection type. The virtual networks can be in the same or different regions, and from the same or different subscriptions. When connecting virtual networks from different subscriptions, the subscriptions don't need to be associated with the same Active Directory tenant.
+This article helps you connect virtual networks by using the VNet-to-VNet connection type. The virtual networks can be in the same or different regions, and from the same or different subscriptions. When you connect virtual networks from different subscriptions, the subscriptions don't need to be associated with the same Active Directory tenant.
 
 The steps in this article apply to the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md) and use PowerShell. You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:
 
@@ -139,7 +139,7 @@ For the following steps, you can either use Azure Cloud Shell, or you can run Po
 
 1. Create the subnet configurations for TestVNet1. This example creates a virtual network named TestVNet1 and two subnets, one called GatewaySubnet, and one called FrontEnd. When substituting values, it's important that you always name your gateway subnet specifically GatewaySubnet. If you name it something else, your gateway creation fails. For this reason, it isn't assigned via variable in the example.
 
-   The following example uses the variables that you set earlier. In this example, the gateway subnet is using a /27. While it's possible to create a gateway subnet as small as /29, we recommend that you create a larger subnet that includes more addresses by selecting at least /27. This will allow for enough addresses to accommodate possible additional configurations that you may want in the future.
+   The following example uses the variables that you set earlier. In this example, the gateway subnet is using a /27. While it's possible to create a gateway subnet using /28 for this configuration, we recommend that you create a larger subnet that includes more addresses by selecting at least /27. This will allow for enough addresses to accommodate possible additional configurations that you may want in the future.
 
    ```azurepowershell-interactive
    $fesub1 = New-AzVirtualNetworkSubnetConfig -Name $FESubName1 -AddressPrefix $FESubPrefix1
@@ -261,7 +261,7 @@ Wait until both gateways are completed. Restart your Azure Cloud Shell session a
    -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
    ```
 
-1. Create the TestVNet4 to TestVNet1 connection. This step is similar to the one above, except you're creating the connection from TestVNet4 to TestVNet1. Make sure the shared keys match. The connection will be established after a few minutes.
+1. Create the TestVNet4 to TestVNet1 connection. This step is similar to previous step, except you're creating the connection from TestVNet4 to TestVNet1. Make sure the shared keys match. The connection will be established after a few minutes.
 
    ```azurepowershell-interactive
    New-AzVirtualNetworkGatewayConnection -Name $Connection41 -ResourceGroupName $RG4 `
@@ -281,7 +281,7 @@ Due to changing subscription context in this exercise, you may find it easier to
 
 ### Step 5 - Create and configure TestVNet1
 
-You must complete [Step 1](#Step1) and [Step 2](#Step2) from the previous section to create and configure TestVNet1 and the VPN Gateway for TestVNet1. For this configuration, you aren't required to create TestVNet4 from the previous section, although if you do create it, it will not conflict with these steps. Once you complete Step 1 and Step 2, continue with Step 6 to create TestVNet5.
+You must complete [Step 1](#Step1) and [Step 2](#Step2) from the previous section to create and configure TestVNet1 and the VPN Gateway for TestVNet1. For this configuration, you aren't required to create TestVNet4 from the previous section, although if you do create it, it won't conflict with these steps. Once you complete Step 1 and Step 2, continue with Step 6 to create TestVNet5.
 
 ### Step 6 - Verify the IP address ranges
 
@@ -463,7 +463,7 @@ In this example, because the gateways are in the different subscriptions, we've 
 
 ## <a name="faq"></a>VNet-to-VNet FAQ
 
-For additional information about VNet-to-VNet connections, see the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md#V2VMulti).
+For more information about VNet-to-VNet connections, see the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md#V2VMulti).
 
 ## Next steps
 
