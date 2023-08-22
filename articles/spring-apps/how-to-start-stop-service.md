@@ -20,17 +20,19 @@ This article shows you how to start or stop your Azure Spring Apps service insta
 
 Your applications running in Azure Spring Apps may not need to run continuously. For example, an application may not need to run continuously if you have a service instance that's used only during business hours. There may be times when Azure Spring Apps is idle and running only the system components.
 
-You can reduce the active footprint of Azure Spring Apps by reducing the running instances, which will reduce costs for compute resources, see [how to start stop your apps](./how-to-start-stop-delete.md) and [how to scale your apps](./how-to-scale-manual.md)
+You can reduce the active footprint of Azure Spring Apps by reducing the running instances, which reduces costs for compute resources. For more information, see [Start, stop, and delete an application in Azure Spring Apps](./how-to-start-stop-delete.md) and [Scale an application in Azure Spring Apps](./how-to-scale-manual.md).
 
-To reduce your costs further, you can completely stop your Azure Spring Apps service instance. All user apps and system components will be stopped. However, all your objects and network settings will be saved so you can restart your service instance and pick up right where you left off.
+To reduce your costs further, you can completely stop your Azure Spring Apps service instance. All user apps and system components are stopped. However, all your objects and network settings are saved so you can restart your service instance and pick up right where you left off.
 
 ## Limitations
 
-- You can stop and start your Azure Spring Apps service instance to help you save costs, but you shouldn't stop and start a running instance for service recovery, for example, recover from an invalid virtual network configuration.
+The ability to stop and start your Azure Spring Apps service instance has the following limitations:
+
+- You can stop and start your Azure Spring Apps service instance to help you save costs. However, you shouldn't stop and start a running instance for service recovery - for example, to recover from an invalid virtual network configuration.
 - The state of a stopped Azure Spring Apps service instance is preserved for up to 90 days. If your cluster is stopped for more than 90 days, you can't recover the cluster state.
 - You can only start, view, or delete a stopped Azure Spring Apps service instance. You must start your service instance before performing any update operation, such as creating or scaling an app.
-- If an Azure Spring Apps service instance has been stopped or started successfully, you have to wait for at least 30 minutes to start or stop the instance again, but you can retry to start or stop without wait if your last operation was failed.
-- For VNet instances, the start operation may fail due to invalid virtual network configurations, your virtual network needs to follow the requirements, see [Customer responsibilities for running Azure Spring Apps in a virtual network](./vnet-customer-responsibilities.md).
+- If an Azure Spring Apps service instance has been stopped or started successfully, you have to wait for at least 30 minutes to start or stop the instance again. However, if your last operation failed, you can try again to start or stop without having to wait.
+- For virtual network instances, the start operation may fail due to invalid virtual network configurations. For more information, see [Customer responsibilities for running Azure Spring Apps in a virtual network](./vnet-customer-responsibilities.md).
 
 ## Prerequisites
 
@@ -49,7 +51,7 @@ In the Azure portal, use the following steps to stop a running Azure Spring Apps
 
    :::image type="content" source="media/how-to-start-stop-service/spring-cloud-stop-service.png" alt-text="Screenshot of Azure portal showing the Azure Spring Apps Overview page with the Stop button and Status value highlighted.":::
 
-1. After the instance stops, the status will show **Succeeded (Stopped)**.
+1. After the instance stops, the status shows **Succeeded (Stopped)**.
 
 ## Start a stopped instance
 
@@ -61,7 +63,7 @@ In the Azure portal, use the following steps to start a stopped Azure Spring App
 
    :::image type="content" source="media/how-to-start-stop-service/spring-cloud-start-service.png" alt-text="Screenshot of Azure portal showing the Azure Spring Apps Overview page with the Start button and Status value highlighted.":::
 
-1. After the instance starts, the status will show **Succeeded (Running)**.
+1. After the instance starts, the status shows **Succeeded (Running)**.
 
 ## [Azure CLI](#tab/azure-cli)
 
