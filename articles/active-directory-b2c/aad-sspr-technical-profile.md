@@ -46,7 +46,7 @@ The following example shows an Azure AD SSPR technical profile:
 
 ## Send email
 
-The first mode of this technical profile is to generate a code and send it. The following options can be configured for this mode.
+The first mode of this technical profile is to generate a code and send it. The following options can be configured for this mode. 
 
 ### Input claims
 
