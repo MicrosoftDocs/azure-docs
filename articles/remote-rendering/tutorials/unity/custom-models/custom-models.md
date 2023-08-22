@@ -28,9 +28,9 @@ In this tutorial, you learn how to:
 The Mixed Reality Toolkit (MRTK) is a cross-platform toolkit for building mixed reality experiences. We use MRTK 2.8.3 for its interaction and visualization features.
 
 The [official guide](/training/modules/learn-mrtk-tutorials/1-5-exercise-configure-resources?tabs=openxr) to import MRTK contains some steps we don't need to do. Only these three steps are necessary:
- - Importing the 'Mixed Reality Toolkit/Mixed Reality Toolkit Foundation' version 2.8.3 to your project through the Mixed Reality Feature Tool ([see](/training/modules/learn-mrtk-tutorials/1-5-exercise-configure-resources?tabs=openxr#import-the-mrtk-unity-foundation-package)).
- - Run the configuration wizard of MRTK ([see](/training/modules/learn-mrtk-tutorials/1-5-exercise-configure-resources?tabs=openxr#configure-the-unity-project)).
- - Add MRTK to the current scene ([see](/training/modules/learn-mrtk-tutorials/1-5-exercise-configure-resources?tabs=openxr#create-the-scene-and-configure-mrtk)). Use the *ARRMixedRealityToolkitConfigurationProfile* here instead of the suggested profile in the tutorial.
+ - Importing the 'Mixed Reality Toolkit/Mixed Reality Toolkit Foundation' version 2.8.3 to your project through the Mixed Reality Feature Tool ([Import MRTK](/training/modules/learn-mrtk-tutorials/1-5-exercise-configure-resources?tabs=openxr#import-the-mrtk-unity-foundation-package)).
+ - Run the configuration wizard of MRTK ([Configure MRTK](/training/modules/learn-mrtk-tutorials/1-5-exercise-configure-resources?tabs=openxr#configure-the-unity-project)).
+ - Add MRTK to the current scene ([Add to scene](/training/modules/learn-mrtk-tutorials/1-5-exercise-configure-resources?tabs=openxr#create-the-scene-and-configure-mrtk)). Use the *ARRMixedRealityToolkitConfigurationProfile* here instead of the suggested profile in the tutorial.
 
 ## Import assets used by this tutorial
 
@@ -44,7 +44,7 @@ With the introduction of MRTK, there are multiple scripts, prefabs, and assets t
 1. Select the **Import** button to import the contents of the package into your project.
 1. In the Unity Editor, select *Mixed Reality Toolkit -> Utilities -> Upgrade MRTK Standard Shader for Lightweight Render Pipeline* from the top menu bar and follow the prompts to upgrade the shader.
 
-Once MRTK and the Tutorial Assets double check, that the correct profile is selected.
+Once MRTK and the Tutorial Assets are setup double check, that the correct profile is selected.
 
 1. Select the **MixedRealityToolkit** GameObject in the scene hierarchy.
 1. In the Inspector, under the **MixedRealityToolkit** component, switch the configuration profile to *ARRMixedRealityToolkitConfigurationProfile*.
