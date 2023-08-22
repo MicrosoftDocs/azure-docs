@@ -206,7 +206,7 @@ The `deploy` action supports the following options:
 | ------------ | -------------------------------------- |
 | **`--browser`** | Open Azure Application Insights Live Stream for the function app in the default browser. |
 
-To learn more, see [Enable streaming logs](functions-run-local.md#enable-streaming-logs).
+For more information, see [Enable streaming execution logs in Azure Functions](streaming-logs.md).
 
 ## func azure functionapp publish 
 

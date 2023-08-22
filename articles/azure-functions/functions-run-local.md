@@ -246,18 +246,18 @@ Keep in mind the following considerations when running your functions locally:
 
 + While there's local storage emulation available, it's often best to validate your triggers and bindings against live services in Azure. You can maintain the connections to these services in the local.settings.json project file. For more information, see [Local settings file](functions-develop-local.md#local-settings-file). Make sure to keep test and production data separate when testing against live Azure services. 
 
-+ You can trigger non-HTTP functions locally without connecting to a live service. For more information, see [Non-HTTP triggered functions](#non-http-triggered-functions).
++ You can trigger non-HTTP functions locally without connecting to a live service. For more information, see [Pass data to local functions](./functions-run-local?tabs=non-http-trigger#pass-data-to-local-functions).
 
 + When you include your Application Insights connection information in the local.settings.json file, local log data is written to the specific Application Insights instance. To keep local telemetry data separate from production data, consider using a separate Application Insights instance for development and testing.
 
 ## Pass data to local functions
 
-To test your functions locally, you [start the Functions host](#start) and call endpoints on the local server using HTTP requests. The endpoint you call depends on the type of function.
+To test your functions locally, you [start the Functions host](#start) and call endpoints on the local server using HTTP requests. The endpoint you call depends on your type of function trigger.
 
->[!NOTE]
+> [!NOTE]  
 > Examples in this topic use the cURL tool to send HTTP requests from the terminal or a command prompt. You can use a tool of your choice to send HTTP requests to the local server. The cURL tool is available by default on Linux-based systems and Windows 10 build 17063 and later. On older Windows, you must first download and install the [cURL tool](https://curl.haxx.se/).
 
-### [HTTP triggers](#tab/http-trigger)
+### [HTTP trigger](#tab/http-trigger)
 
 You call this endpoint to start an HTTP triggered function:
 
@@ -327,9 +327,11 @@ The following considerations apply when using the administrator endpoint for loc
 
 + Access keys are valuable shared secrets. When used locally, they must be securely stored outside of source control. Because authentication and authorization aren't required by Functions when running locally, you should avoid using and storing access keys unless your scenarios require it.
 
-+ Event Grid triggers have other requirements for local testing. For more information, see [Local testing with viewer web app](event-grid-how-tos.md#local-testing-with-viewer-web-app).
-
 + Calling an administrator endpoint and passing test data is similar to using the **Test** tab in the Azure portal.
+
+### [Event Grid trigger](#tab/non-http-trigger)
+
+Event Grid triggers have spcific requirements to enable local testing. For more information, see [Local testing with viewer web app](event-grid-how-tos.md#local-testing-with-viewer-web-app).
 
 ---
 

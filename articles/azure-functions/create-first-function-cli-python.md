@@ -304,7 +304,7 @@ In the previous example, replace `<FUNCTION_APP_NAME>` and `<RESOURCE_GROUP_NAME
 
 ## Verify in Azure
 
-Run the following command to view near real-time [streaming logs](functions-run-local.md#enable-streaming-logs) in Application Insights in the Azure portal.
+Run the following command to view near real-time streaming logs in Application Insights in the Azure portal.
 
 ```console
 func azure functionapp logstream <APP_NAME> --browser
