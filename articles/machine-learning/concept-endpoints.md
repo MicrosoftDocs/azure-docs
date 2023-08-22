@@ -92,7 +92,7 @@ The following table shows a summary of the different features available to onlin
 | Customer-managed keys                 | Yes                                             | No                                            |
 | Cost basis                            | None                                            | None                                          |
 
-<sup>1</sup> [*Managed network isolation*](how-to-secure-online-endpoint.md) allows you to manage the networking configuration of the endpoint independently of the configuration of the Azure Machine Learning workspace.
+<sup>1</sup> [*Managed network isolation*](concept-secure-online-endpoint.md) allows you to manage the networking configuration of the endpoint independently of the configuration of the Azure Machine Learning workspace.
 
 #### Deployments
 

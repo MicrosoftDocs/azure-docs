@@ -52,7 +52,7 @@ As your needs change or requirements for automation increase you can also manage
 
 [!INCLUDE [register-namespace](includes/machine-learning-register-namespace.md)]
 
-* If you're using Azure Container Registry (ACR), Storage Account, Key Vault, or Application Insights in the different subscription than the workspace, you can't use network isolation with managed online endpoints. If you want to use network isolation with managed online endpoints, you must have ACR, Storage Account, Key Vault, and Application Insights in the same subscription with the workspace. For limitations that apply to network isolation with managed online endpoints, see [How to secure online endpoint](how-to-secure-online-endpoint.md#limitations).
+* When you use network isolation with a deployment, you can use resources (Azure Container Registry (ACR), Storage account, Key Vault, and Application Insights) from a different resource group or subscription than that of your workspace. However, these resources must belong to the same tenant as your workspace. For limitations that apply to securing managed online endpoints, see [Network isolation with managed online endpoints](concept-secure-online-endpoint.md#limitations).
 
 * By default, creating a workspace also creates an Azure Container Registry (ACR).  Since ACR doesn't currently support unicode characters in resource group names, use a resource group that doesn't contain these characters.
 
