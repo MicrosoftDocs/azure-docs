@@ -17,7 +17,7 @@ ms.custom: event-tier1-build-2022, devx-track-azurecli
 
 [!INCLUDE [machine-learning-dev-v2](includes/machine-learning-dev-v2.md)]
 
-In this article, you'll secure a managed online endpoint, using a workspace configured for network isolation. The workspace uses a **managed virtual network** that **allows only approved outbound** communication. You'll create a managed online endpoint that uses the workspace's private endpoint for secure inbound communication. You'll also create a deployment that uses the private endpoints of the managed virtual network (VNet) for outbound communication.
+In this article, you'll secure a managed online endpoint, using a workspace configured for network isolation. The workspace uses a **managed virtual network** that **allows only approved outbound** communication. You'll create a managed online endpoint that uses the workspace's private endpoint for secure inbound communication. You'll also create a deployment that uses the private endpoints of the managed virtual network for outbound communication.
 
 > [!NOTE]
 > This article uses the recommended [network isolation method](concept-secure-online-endpoint.md) that is based on the workspace managed VNet. For examples that use the legacy method for network isolation, see the deployment files [deploy-moe-vnet-legacy.sh](https://github.com/Azure/azureml-examples/blob/main/cli/deploy-moe-vnet-legacy.sh) (for deployment using a generic model) and [deploy-moe-vnet-mlflow-legacy.sh](https://github.com/Azure/azureml-examples/blob/main/cli/deploy-moe-vnet-mlflow-legacy.sh) (for deployment using an MLflow model) in the azureml-examples GitHub repo.
@@ -57,7 +57,7 @@ To begin, you need an Azure subscription, CLI or SDK to interact with Azure Mach
     export WORKSPACE_NAME="<YOUR_WORKSPACE_NAME>"
     ```
 
-1. Create your workspace. The `-m allow_only_approved_outbound` parameter configures a managed VNet for the workspace and blocks outbound traffic except to approved destinations.
+1. Create your workspace. The `-m allow_only_approved_outbound` parameter configures a managed virtual network for the workspace and blocks outbound traffic except to approved destinations.
 
     :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-workspacevnet.sh" ID="create_workspace_allow_only_approved_outbound" :::
 
@@ -86,9 +86,9 @@ The commands in this tutorial are in the file `deploy-managed-online-endpoint-wo
 
 ## Create a secured managed online endpoint
 
-To create a secured managed online endpoint, create the endpoint in your workspace and set the endpoint's `public_network_access` to disabled to control inbound communication. The endpoint will then have to use the the workspace's private endpoint for inbound communication.
+To create a secured managed online endpoint, create the endpoint in your workspace and set the endpoint's `public_network_access` to `disabled` to control inbound communication. The endpoint will then have to use the workspace's private endpoint for inbound communication.
 
-Any deployments of the endpoint will use the private endpoints of the managed VNet for outbound communication.
+Any deployments of the endpoint will use the private endpoints of the managed virtual network for outbound communication.
 
 1. Set the endpoint's name.
 
@@ -102,7 +102,7 @@ Any deployments of the endpoint will use the private endpoints of the managed VN
 
     :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-workspacevnet.sh" ID="create_endpoint_inbound_allowed" :::
 
-1. Create a deployment in the workspace managed VNet.
+1. Create a deployment in the workspace managed virtual network.
 
     :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-workspacevnet.sh" ID="create_deployment" :::
 
