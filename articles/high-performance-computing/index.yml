@@ -83,7 +83,7 @@ productDirectory:
           text: Azure VM Sizes          
 
 #Additional Content (No Title)
-ConceptualContent:
+conceptualContent:
   # Supports up to 3 subsections
   sections:
     - title: HPC Documentation # < 60 chars (Optional; Remove if not applicable.)
