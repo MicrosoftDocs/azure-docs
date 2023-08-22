@@ -1,7 +1,7 @@
 ---
-title: Configure schedule patching on Azure VMs to ensure business continuity in update management center (preview).
-description: The article describes the new prerequisites to configure scheduled patching to ensure business continuity in Update management center (preview).
-ms.service: update-management-center
+title: Configure schedule patching on Azure VMs to ensure business continuity in Azure Update Manager (preview).
+description: The article describes the new prerequisites to configure scheduled patching to ensure business continuity in Azure Update Manager (preview).
+ms.service: azure-update-manager
 ms.date: 05/09/2023
 ms.topic: conceptual
 author: snehasudhirG
@@ -32,7 +32,7 @@ Additionally, in some instances, when you remove the schedule from a VM, there i
 
 To identify the list of VMs with the associated schedules for which you have to enable new VM property, follow these steps:
 
-1. Go to **Update management center (Preview)** home page and select **Machines** tab.
+1. Go to **Update Manager (preview)** home page and select **Machines** tab.
 1. In **Patch orchestration** filter, select **Azure Managed - Safe Deployment**.
 1. Use the **Select all** option to select the machines and then select **Export to CSV**.
 1. Open the CSV file and in the column **Associated schedules**,  select the rows that have an entry. 
@@ -80,7 +80,7 @@ You can update the patch orchestration option for existing VMs that either alrea
 To update the patch mode, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Go to **Update management center (Preview)**, select **Update Settings**.    
+1. Go to **Update Manager (preview)**, select **Update Settings**.    
 1. In **Change update settings**, select **+Add machine**.
 1. In **Select resources**, select your VMs and then select **Add**.
 1. In **Change update settings**, under **Patch orchestration**, select *Customer Managed Schedules* and then select **Save**.
@@ -182,7 +182,7 @@ To update the patch mode, follow these steps:
 To update the patch mode, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Go to **Update management center (Preview)**, select **Update Settings**. 
+1. Go to **Update Manager (preview)**, select **Update Settings**. 
 1. In **Change update settings**, select **+Add machine**.
 1. In **Select resources**, select your VMs and then select **Add**.
 1. In **Change update settings**, under **Patch orchestration**, select ***Azure Managed - Safe Deployment*** and then select **Save**.
@@ -264,4 +264,4 @@ Scenario 8 | No | False | No | Neither the autopatch nor the schedule patch will
 
 ## Next steps
 
-* To troubleshoot issues, see the [Troubleshoot](troubleshoot.md) update management center (preview).
+* To troubleshoot issues, see the [Troubleshoot](troubleshoot.md) Update Manager (preview).

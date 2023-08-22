@@ -17,7 +17,7 @@ ms.reviewer: jogro
 
 If you have a Windows 11 or Windows 10 device that isn't working with Azure Active Directory (Azure AD) correctly, start your troubleshooting here.
 
-1. Sign in to the **Azure portal**.
+1. Sign in to the [Azure portal](https://portal.azure.com) as at least a [Global Reader](../roles/permissions-reference.md#global-reader).
 1. Browse to **Azure Active Directory** > **Devices** > **Diagnose and solve problems**.
 1. Select **Troubleshoot** under the **Windows 10+ related issue** troubleshooter.
    :::image type="content" source="media/troubleshoot-device-windows-joined/devices-troubleshoot-windows.png" alt-text="A screenshot showing the Windows troubleshooter located in the diagnose and solve pane of the Azure portal." lightbox="media/troubleshoot-device-windows-joined/devices-troubleshoot-windows.png":::

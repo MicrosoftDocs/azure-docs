@@ -4,6 +4,7 @@ description: Your app service may need to connect to other Azure services such a
 
 ms.topic: tutorial
 ms.date: 02/16/2022
+ms.custom: AppServiceConnectivity
 ---
 # Securely connect to Azure services and databases from Azure App Service
 

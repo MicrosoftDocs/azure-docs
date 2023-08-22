@@ -31,8 +31,6 @@ The Python v1 programming model requires you to define bindings in a separate *f
 
 This article supports both programming models.
 
-> [!IMPORTANT]
-> The Python v2 programming model is currently in preview.
 ::: zone-end
 
 ## Example
@@ -66,7 +64,7 @@ public static void Run(
 
 The following example shows a [C# function](dotnet-isolated-process-guide.md) that receives a Service Bus queue message, logs the message, and sends a message to different Service Bus queue:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/ServiceBus/ServiceBusFunction.cs" range="10-25":::
+
 
 ---
 
