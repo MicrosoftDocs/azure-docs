@@ -141,13 +141,11 @@ To reference specific template versions in the API, be sure to use the exact ima
 
 2. Select **Add** > **Add role assignment**. If the **Add role assignment** option is unavailable, ask your Azure administrator to grant you the permissions for performing this task.
 
-   ![Screenshot of the "Access control" pane and the "Add role assignment" menu.](../../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png)
-
-   :::image type="content" source="../../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot of the 'Access control' pane and the 'Add role assignment' menu.":::
+   :::image type="content" source="../../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot of the Access control pane and the 'Add role assignment' menu.":::
 
 3. On the **Role** pane, select the [AcrPull](../../role-based-access-control/built-in-roles.md#acrpull) role.
 
-   [![Screenshot showing the "Add role assignment" pane.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)](../../../includes/role-based-access-control/media/add-role-assignment-page.png#lightbox)
+   :::image type="content" source="../../../includes/role-based-access-control/media/add-role-assignment-page.png" alt-text="Screenshot showing the Add role assignment pane." lightbox="../../../includes/role-based-access-control/media/add-role-assignment-page.png"::: 
 
 4. On the **Members** tab, select **Managed identity**, and then select **Select members**.
 
@@ -224,7 +222,7 @@ You can also completely disable public access to your Azure Container Registry i
 1. In the Azure portal container registry, select **Networking**.
 2. Select the **Public access** tab, select **Disabled**, and then select **Allow trusted Microsoft services to access this container registry**.
 
-   :::image type="content" source="media/convert-data/configure-settings-convert-data/configure-private-network-container-registry.png" alt-text="Screenshot of the "Networking" pane for disabling public network access to an Azure Container Registry instance." lightbox="media/convert-data/configure-settings-convert-data/configure-private-network-container-registry.png"::: 
+   :::image type="content" source="media/convert-data/configure-settings-convert-data/configure-private-network-container-registry.png" alt-text="Screenshot of the Networking option for disabling public network access to an Azure Container Registry instance." lightbox="media/convert-data/configure-settings-convert-data/configure-private-network-container-registry.png"::: 
 
 ### Verify the $convert-data operation
 
