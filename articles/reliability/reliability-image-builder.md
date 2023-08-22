@@ -23,9 +23,9 @@ For an architectural overview of reliability in Azure, see [Azure reliability](/
 
 ## Disaster recovery: cross-region failover
 
-In the event of a region-wide disaster, Azure can provide protection from regional or large geography disasters with disaster recovery by making use of another region. For more information on Azure disaster recovery architecture, see [Azure to Azure disaster recovery architecture](../site-recovery/azure-to-azure-architecture.md).
+If a region-wide disaster occurs, Azure can provide protection from regional or large geography disasters with disaster recovery by making use of another region. For more information on Azure disaster recovery architecture, see [Azure to Azure disaster recovery architecture](../site-recovery/azure-to-azure-architecture.md).
 
-To ensure fast and easy recovery for Azure Image Builder (AIB), it's recommended that you run an image template in region pairs or multiple regions when designing your AIB solution. You'll also want to replicate resources from the start when you're setting up your image templates.
+To ensure fast and easy recovery for Azure Image Builder (AIB), it's recommended that you run an image template in region pairs or multiple regions when designing your AIB solution. You should also replicate resources from the start when you're setting up your image templates.
 
 
 ### Cross-region disaster recovery in multi-region geography
@@ -40,28 +40,28 @@ Microsoft sends a notification if there's an outage in the Azure Image Builder (
 
 #### Set up disaster recovery and outage detection
 
-You are responsible for setting up disaster recovery for your Azure Image Builder (AIB) environment, as there isn't a region failover at the AIB service side. You will need to configure both the control plane (service side) and data plane.
+You are responsible for setting up disaster recovery for your Azure Image Builder (AIB) environment, as there isn't a region failover at the AIB service side. You'll need to configure both the control plane (service side) and data plane.
 
 It's recommended that you create an AIB resource in another nearby region, into which you can replicate your resources. For more information, see the [supported regions](../virtual-machines/image-builder-overview.md#regions) and what resources are are included in an [AIB creation](/azure/virtual-machines/image-builder-overview#how-it-works).
 
 ### Single-region geography disaster recovery
 
-In the case of single-region geography for Azure Image Builder, the challenge is to get the image template resource when the region isn't available. In that case, you can either maintain a copy of an image template locally or can use [Azure Resource Graph](../governance/resource-graph/index.yml) from the Azure portal or Azure CLI to get an Image template resource.
+In the case of a diaster for single-region, you still need to get an image template resource from that region even when that region isn't available. Tou can either maintain a copy of an image template locally or can use [Azure Resource Graph](../governance/resource-graph/index.yml) from the Azure portal to get an image template resource.
 
-Below are instructions on how to get an image template resource using Resource Graph from the Azure portal:
+To get an image template resource using Resource Graph from the Azure portal:
 
 1. Go to the search bar in Azure portal and search for *resource graph explorer*.
 
     ![Screenshot of Azure Resource Graph Explorer in the portal](../virtual-machines//media/image-builder-reliability/resource-graph-explorer-portal.png#lightbox)
 
-1. Use the search bar on the far left to search resource by type and name to see how the details will give you properties of the image template. The *See details* option on the bottom right will show the image template's properties attribute and tags separately. Template name, location, ID, and tenant ID can be used to get the correct image template resource.
+1. Use the search bar on the far left to search resource by type and name to see how the details give you properties of the image template. The *See details* option on the bottom right shows the image template's properties attribute and tags separately. Template name, location, ID, and tenant ID can be used to get the correct image template resource.
 
     ![Screenshot of using Azure Resource Graph Explorer search](../virtual-machines//media/image-builder-reliability/resource-graph-explorer-search.png#lightbox)
 
 
 ### Capacity and proactive disaster recovery resiliency
 
-Microsoft and its customers operate under the Shared responsibility model. This means that for customer-enabled DR (customer-responsible services), you are responsible for addressing DR for any service you deploy and control. To ensure that recovery is proactive, you should always pre-deploy secondaries because there's no guarantee of capacity at time of impact for those who haven't pre-allocated.
+Microsoft and its customers operate under the [shared responsibility model](./business-continuity-management-program.md#shared-responsibility-model). In customer-enabled DR (customer-responsible services), you're responsible for addressing DR for any service you deploy and control. To ensure that recovery is proactive, you should always pre-deploy secondaries. Without pre-deployed secondaries, there's no guarantee of capacity at time of impact.
 
 When planning where to replicate a template, consider:
 
