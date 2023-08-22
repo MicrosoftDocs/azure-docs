@@ -30,6 +30,7 @@ ms.custom: references_regions
 > - [Netherlands](../concepts/numbers/phone-number-management-for-netherlands.md)
 > - [New Zealand](../concepts/numbers/phone-number-management-for-new-zealand.md)
 > - [Norway](../concepts/numbers/phone-number-management-for-norway.md)
+> - [Philippines](../concepts/numbers/phone-number-management-for-philippines.md)
 > - [Poland](../concepts/numbers/phone-number-management-for-poland.md)
 > - [Portugal](../concepts/numbers/phone-number-management-for-portugal.md)
 > - [Singapore](../concepts/numbers/phone-number-management-for-singapore.md)
