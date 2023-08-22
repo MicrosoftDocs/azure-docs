@@ -108,7 +108,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 1. In the **User Management** page, navigate to **Authentication** tab and click **Add Authentication** > **SAML**.
 
-    ![Screenshot shows the Gainsight User Management Authentication Page.](media/gainsight-tutorial/authentication.png "Authentication Page")
+    [ ![Screenshot shows the Gainsight User Management Authentication Page.](media/gainsight-tutorial/authentication.png "Authentication Page") ](media/gainsight-tutorial/authentication.png#lightbox)
 
 1. In the **SAML Mechanism** page, perform the following steps:
 
@@ -130,7 +130,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 1. In the **User Management** page, navigate to **Users** > **Add User**.
     
-    ![Screenshot shows how to add users in Gainsight.](media/gainsight-tutorial/user.png "Add Users")
+    [ ![Screenshot shows how to add users in Gainsight.](media/gainsight-tutorial/user.png "Add Users") ](media/gainsight-tutorial/user.png#lightbox)
 
 1. Fill required fields and click **Save**. Users must be created and activated before you use single sign-on.
 
