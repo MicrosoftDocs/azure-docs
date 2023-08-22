@@ -3,7 +3,7 @@ title: Configure VMware Cloud Director Service in Azure VMware Solution
 description: How to configure VMware Cloud Director Service in Azure VMware Solution
 author: jjaygbay1
 ms.author: jacobjaygbay
-ms.service: virtual-machine
+ms.service: azure-vmware
 ms.subservice: cloud-services
 ms.topic: article
 ms.date: 06/12/2023
@@ -25,7 +25,7 @@ In this article, learn how to implement VMware Cloud director service in Azure V
  - Plan and deploy Azure VMware solution private cloud using the following links.
     - [Plan Azure VMware solution private cloud SDDC.](plan-private-cloud-deployment.md)
     - [Deploy and configure Azure VMware Solution - Azure VMware Solution.](deploy-azure-vmware-solution?tabs=azure-portal.md) 
--	Once you're able to access both VMware cloud director instance and Azure VMware solution SDDC, then proceed with the following steps.
+-	After you access both the VMware cloud director instance and the Azure VMware solution SDDC, then proceed with the following steps.
 
 ## Plan and prepare Azure VMware solution private cloud for VMware Reverse proxy
 
@@ -36,14 +36,14 @@ In this article, learn how to implement VMware Cloud director service in Azure V
 - Log in to Azure private cloud and Navigate to Internet connectivity under workload networking.
 - Click **+Add** to configure public IP.
 - Provide name, and address space. In this example /29 is being used but a different address space can also be used. 
-- Click on the configure.
+- Click **Configure**.
 
  :::image type="content" source="media/vmware-cds-avs/pic1.png" alt-text="Diagram showing how to configure public IP using Azure portal." border="false" lightbox="media/vmware-cds-avs/pic1.png":::
 
 
  ![Figure: Diagram showing how to configure public IP using Azure portal](media/vmware-cds-avs/pic1.png)
 
-- Click on the checkbox for "I confirm statement" and then click on **Save**.  
+- Click the checkbox for "I confirm statement" , and then click **Save**.  
 
 - Once successful, you see public IP address CIDR and range information. Note this process takes a few minutes.
  
@@ -66,6 +66,8 @@ In this article, learn how to implement VMware Cloud director service in Azure V
 
 -	Optionally configure DHCP configuration on the segment and provide an address range. You can skip this step if you use static IPs. Reverse proxy VM will be deployed on this segment in next section and will obtain IP address using DHCP.
     ![Configure DHCP profile](./media/vmware-cds-avs/pic4.png)
+
+
     ![Set DHCP config](./media/vmware-cds-avs/pic5.png)
 
 - Add NAT rules for outbound configuration as follows. 
@@ -168,7 +170,7 @@ Use new lines to separate list entries.
 5. Select a proxy network for the reverse proxy appliance to use. Ensure correct NSX-T segment is selected where reverse proxy VM is deployed.
 ![Review proxy network information](./media/vmware-cds-avs/pic14.png)
 
-6. In the Data center name text box, enter a name for the SDDC that you want to associate.
+6. In the **Data center** name textbox, enter a name for the SDDC that you want to associate.
 This name is only used to identify the data center in the VMware Cloud Director inventory, so it doesn't need to match the SDDC name that you entered when you generated the reverse proxy appliance OVA.
 7.	Enter the FQDN for your vCenter Server instance.
 8.	Enter the URL for the NSX Manager instance and wait for a connection to establish.
@@ -195,7 +197,7 @@ This name is only used to identify the data center in the VMware Cloud Director 
 19.	In your Azure VMware solution private cloud, when login in vCenter you'll see that a Resource Pool is created as a result of the above association.
 ![Azure vmwaresolution sddc shows Resource pools is created for CDs](./media/vmware-cds-avs/pic19.png)
  
-20.	You can use your VMware cloud director instance provider portal to configure tenants such as organizations and virtual data center etc.
+20.	You can use your VMware cloud director instance provider portal to configure tenants such as organizations and virtual data center.
 
 
 ## What’s next
