@@ -80,9 +80,9 @@ With Image Cleaner, you can choose between manual and automatic mode and the fol
 
 After you enable the feature, the `eraser-controller-manager-xxx` pod and `collector-aks-xxx` pod are deployed. The `eraser-aks-xxx` pod contains *three* containers:
 
-  1. **Scanner container**: Performs vulnerability image scans
-  2. **Collector container**: Collects nonrunning and unused images
-  3. **Remover container**: Removes these images from cluster nodes
+  - **Scanner container**: Performs vulnerability image scans
+  - **Collector container**: Collects nonrunning and unused images
+  - **Remover container**: Removes these images from cluster nodes
 
 Image Cleaner generates an `ImageList` containing nonrunning and vulnerable images at the desired interval based on your configuration. Image Cleaner automatically removes these images from cluster nodes.
 
