@@ -89,7 +89,7 @@ Use the following steps to create a new VM.
    Get-AzVmSize -Location dbelocal
    ```
 
-   In Azure portal, the VM size dropdown should also update with the new VM options that you just created. 
+   In Azure portal, the VM size dropdown will update after five minutes with the new VM options you just created. 
 
 ## Next steps
 
