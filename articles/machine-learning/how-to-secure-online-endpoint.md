@@ -19,8 +19,10 @@ ms.custom: event-tier1-build-2022, devx-track-azurecli, moe-wsvnet
 
 In this article, you'll use network isolation to secure a managed online endpoint. You'll create a managed online endpoint that uses an Azure Machine Learning workspace's private endpoint for secure inbound communication. You'll also configure the workspace with a **managed virtual network** that **allows only approved outbound** communication for deployments (preview). Finally, you'll create a deployment that uses the private endpoints of the workspace's managed virtual network for outbound communication.
 
-> [!NOTE]
-> This article uses the recommended [network isolation method](concept-secure-online-endpoint.md) that is based on the workspace managed virtual network. For examples that use the legacy method for network isolation, see the deployment files [deploy-moe-vnet-legacy.sh](https://github.com/Azure/azureml-examples/blob/main/cli/deploy-moe-vnet-legacy.sh) (for deployment using a generic model) and [deploy-moe-vnet-mlflow-legacy.sh](https://github.com/Azure/azureml-examples/blob/main/cli/deploy-moe-vnet-mlflow-legacy.sh) (for deployment using an MLflow model) in the azureml-examples GitHub repo.
+> [!IMPORTANT]
+> This article uses the recommended [network isolation method](concept-secure-online-endpoint.md) that's based on the workspace managed virtual network. Application of this network isolation method to managed online endpoints is currently in public preview and provided without a service-level agreement. We don't recommend using it for production workloads, as certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+For examples that use the legacy method for network isolation, see the deployment files [deploy-moe-vnet-legacy.sh](https://github.com/Azure/azureml-examples/blob/main/cli/deploy-moe-vnet-legacy.sh) (for deployment using a generic model) and [deploy-moe-vnet-mlflow-legacy.sh](https://github.com/Azure/azureml-examples/blob/main/cli/deploy-moe-vnet-mlflow-legacy.sh) (for deployment using an MLflow model) in the azureml-examples GitHub repo.
 
 ## Prerequisites
 
