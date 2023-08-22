@@ -298,7 +298,7 @@ Similarly, you can change, add, and remove other style modifiers.
 [Data Upload]: /rest/api/maps/data-v2/upload
 [path parameter]: /rest/api/maps/render-v2/get-map-static-image#uri-parameters
 [Postman]: https://www.postman.com/
-[Render service]: /rest/api/maps/render/get-map-image
+[Render service]: /rest/api/maps/render-v2/get-map-image
 [static image service path parameters]: /rest/api/maps/render-v2/get-map-static-image#uri-parameters
 [static image service]: /rest/api/maps/render-v2/get-map-static-image
 [Subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
