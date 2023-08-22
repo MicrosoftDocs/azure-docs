@@ -30,7 +30,7 @@ This Azure Communication Services Call Automation AI sample demonstrates how to 
 - An Azure OpenAI Resource and Deployed Model. See [instructions](https://learn.microsoft.com/azure/cognitive-services/openai/how-to/create-resource?pivots=web-portal).
 
 
-## Setup Instructions
+## Setup instructions
 
 Before running this sample, you need to set up the resources mentioned in the 'Prerequisites' section with the following configuration updates:
 
@@ -58,7 +58,7 @@ Open the appsettings.json file to configure the following settings:
 - `AzureOpenAIDeploymentModelName`: Open AI's Model name
 
 
-## Running the application
+## Run the application
 
 1. Azure DevTunnel: Ensure your AzureDevTunnel URI is active and points to the correct port of your localhost application
 2. Run `dotnet run` to build and run the sample application
