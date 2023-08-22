@@ -8,7 +8,7 @@ ms.date: 08/21/2023
 
 # Set up and manage self-service access to VMware resources
 
-Once your VMware vSphere resources are enabled in Azure, the final step in setting up a self-service experience for your teams is to provide them with access. This article describes how to use built-in roles to manage granular access to VMware resources through Azure Role-based Access Control and allow your teams to deploy and manage VMs.
+Once your VMware vSphere resources are enabled in Azure, the final step in setting up a self-service experience for your teams is to provide them with access. This article describes how to use built-in roles to manage granular access to VMware resources through Azure Role-based Access Control (RBAC) and allow your teams to deploy and manage VMs.
 
 ## Prerequisites
 
@@ -31,7 +31,7 @@ You must assign this role on individual resource pool (or cluster or host), netw
 
 3. Find and select resourcepool (or cluster or host). This will take you to the Arc resource representing the resourcepool.
 
-4. Select **Access control (IAM)** in the table of contents on the left.
+4. Select **Access control (IAM)** in the table of contents.
 
 5. Select **Add role assignments** on the **Grant access to this resource**.
 
