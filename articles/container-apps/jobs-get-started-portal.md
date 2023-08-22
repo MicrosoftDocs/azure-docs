@@ -80,8 +80,8 @@ Next, create an environment for your container app.
 
 1. In *Job details*, select **Schedule** for the *Trigger type*.
 
-1. In the *Cron expression* field, enter `*/1 * * * *`.
-
+    In the *Cron expression* field, enter `*/1 * * * *`.
+    
     This expression starts the job every minute.
 
 ::: zone-end
@@ -112,13 +112,23 @@ Next, create an environment for your container app.
 
 ### Verify deployment
 
+::: zone pivot="container-apps-job-manual"
+
 1. Select **Go to resource** to view your new Container Apps job.
 
-1. In the *Overview* page, select the **Start** button.
+    In the *Overview* page, select the **Start** button.
 
     An execution of the job is started.
 
-1. Select the **Execution history** tab.
+::: zone-end
+
+::: zone pivot="container-apps-job-scheduled"
+
+1. Select **Go to resource** to view your new Container Apps job.
+
+::: zone-end
+
+2. Select the **Execution history** tab.
 
     The *Execution history* tab displays the status of the job execution. Select the **Refresh** button to update the list. The job's status changes from *Pending* to *Running* to *Succeeded*.
 
