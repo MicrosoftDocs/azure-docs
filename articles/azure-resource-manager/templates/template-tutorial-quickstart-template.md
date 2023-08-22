@@ -3,7 +3,7 @@ title: Tutorial - Use quickstart templates
 description: Learn how to use Azure Quickstart Templates to complete your template development.
 ms.date: 07/28/2023
 ms.topic: tutorial
-ms.custom: devx-track-arm-template
+ms.custom:
 ---
 
 # Tutorial: Use Azure Quickstart Templates

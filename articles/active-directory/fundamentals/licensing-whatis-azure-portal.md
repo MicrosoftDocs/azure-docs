@@ -39,7 +39,7 @@ For any groups assigned a license, you must also have a license for each unique 
 
 Here are the main features of group-based licensing:
 
-- Licenses can be assigned to any security group in Azure AD. Security groups can be synced from on-premises, by using [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md). You can also create security groups directly in Azure AD (also called cloud-only groups), or automatically via the [Azure AD dynamic group feature](../enterprise-users/groups-create-rule.md).
+- Licenses can be assigned to any security group in Azure AD. Security groups can be synced from on-premises, by using [Azure AD Connect](../hybrid/connect/whatis-azure-ad-connect.md). You can also create security groups directly in Azure AD (also called cloud-only groups), or automatically via the [Azure AD dynamic group feature](../enterprise-users/groups-create-rule.md).
 
 - When a product license is assigned to a group, the administrator can disable one or more service plans in the product. Typically, this assignment is done when the organization is not yet ready to start using a service included in a product. For example, the administrator might assign Microsoft 365 to a department, but temporarily disable the Yammer service.
 

@@ -101,7 +101,7 @@ Both policies can enforce the same or different requirements depending on your n
 
 Another option is to scope Conditional Access policies that enforce certain requirements to eligible users directly. For example, you can require users who are eligible for certain roles to always use Intune-compliant devices.
 
-To learn more about Conditional Access authentication context, see [Conditional access: Cloud apps, actions, and authentication context](../conditional-access/concept-conditional-access-cloud-apps.md#authentication-context).
+To learn more about Conditional Access authentication context, see [Conditional Access: Cloud apps, actions, and authentication context](../conditional-access/concept-conditional-access-cloud-apps.md#authentication-context).
 
 ### Require justification on activation
 
@@ -115,7 +115,7 @@ You can require users to enter a support ticket number when they activate the el
 
 You can require approval for activation of an eligible assignment. The approver doesn't have to have any roles. When you use this option, you must select at least one approver. We recommend that you select at least two approvers. There are no default approvers.
 
-To learn more about approvals, see [Approve or deny requests for Azure AD roles in Privileged Identity Management](azure-ad-pim-approval-workflow.md).
+To learn more about approvals, see [Approve or deny requests for Azure AD roles in Privileged Identity Management](./pim-approval-workflow.md).
 
 ### Assignment duration
 

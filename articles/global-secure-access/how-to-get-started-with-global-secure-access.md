@@ -17,7 +17,7 @@ This guide helps you get started configuring both services for the first time.
 
 ## Prerequisites
 
-Administrators who interact with **Global Secure Access preview** features must have the [Global Secure Access Administrator role](/azure/active-directory/roles/permissions-reference). Some features may also require additional roles.
+Administrators who interact with **Global Secure Access preview** features must have the [Global Secure Access Administrator role](/azure/active-directory/roles/permissions-reference). Some features may also require other roles.
 
 To follow the [Zero Trust principle of least privilege](/security/zero-trust/), consider using [Privileged Identity Management (PIM)](/azure/active-directory/privileged-identity-management/pim-configure) to activate just-in-time privileged role assignments.
 
@@ -44,10 +44,9 @@ Microsoft Entra Internet Access isolates the traffic for Microsoft 365 applicati
 1. [Enable the Microsoft 365 traffic forwarding profile](how-to-manage-microsoft-365-profile.md).
 1. [Install and configure the Global Secure Access Client on end-user devices](how-to-install-windows-client.md).
 1. [Enable universal tenant restrictions](how-to-universal-tenant-restrictions.md).
-1. [Enable enhanced Global Secure Access signaling](how-to-source-ip-restoration.md#enable-global-secure-access-signaling-for-conditional-access).
+1. [Enable enhanced Global Secure Access signaling and Conditional Access](how-to-compliant-network.md).
 
-After you complete these four steps, users with the Global Secure Access Client installed on their Windows device can securely access Microsoft 365 resources from anywhere. The user's source IP address appears in the traffic logs for Microsoft Entra Internet Access.
-
+After you complete these four steps, users with the Global Secure Access client installed on their Windows device can securely access Microsoft 365 resources from anywhere. Conditional Access policy requires users to use the Global Secure Access client or a configured remote network, when they access Exchange Online and SharePoint Online.
 
 ###  Create a remote network, apply Conditional Access, and review the logs
 

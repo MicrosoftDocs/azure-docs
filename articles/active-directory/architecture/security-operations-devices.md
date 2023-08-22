@@ -20,9 +20,9 @@ Devices aren't commonly targeted in identity-based attacks, but *can* be used to
 
 * Unregistered
 
-* [Azure Active Directory (Azure AD) registered](../devices/concept-azure-ad-register.md)
+* [Azure Active Directory (Azure AD) registered](../devices/concept-device-registration.md)
 
-* [Azure AD joined](../devices/concept-azure-ad-join.md)
+* [Azure AD joined](../devices/concept-directory-join.md)
 
 * [Hybrid Azure AD joined](../devices/concept-hybrid-join.md)
 

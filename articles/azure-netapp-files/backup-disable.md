@@ -49,4 +49,3 @@ If a volume is deleted but the backup policy wasn’t disabled before the volume
 * [Delete backups of a volume](backup-delete.md)
 * [Volume backup metrics](azure-netapp-files-metrics.md#volume-backup-metrics)
 * [Azure NetApp Files backup FAQs](faq-backup.md)
-

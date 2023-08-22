@@ -89,7 +89,7 @@ Sending a high volume of messages has a set of limitations on the number of emai
 |Total email request size (including attachments) |10 MB |
 
 ### Action to take
-This sandbox setup is to help developers start building the application. You can gradually request to increase the sending volume once the application is ready to go live. Submit a support request to raise your desired sending limit if you require sending a volume of messages exceeding the rate limits.
+This sandbox setup is designed to help developers begin building the application. Once the application is ready for production, you can gradually request to increase the sending volume. If you need to send more messages than the rate limits allow, submit a support request to raise your desired email sending limit. The reviewing team will consider your overall sender reputation, which includes factors such as your email delivery failure rates, your domain reputation, and reports of spam and abuse, when determining approval status.
 
 ## Chat
 

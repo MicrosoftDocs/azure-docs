@@ -84,7 +84,7 @@ If you'd like to learn how to expose the permissions by adding a link, go to the
 ## Next steps
  
 - [Create a sign-up and sign-in user flow](how-to-user-flow-sign-up-sign-in-customers.md)
-- [Sign in users in a sample vanilla JavaScript single-page app](how-to-single-page-app-vanillajs-sample-sign-in.md) 
+- [Sign in users in a sample vanilla JavaScript single-page app](./sample-single-page-app-vanillajs-sign-in.md) 
 
 # [Web app](#tab/webapp)
 ## Register your Web app
@@ -138,7 +138,7 @@ If your web app needs to call an API, you must grant your web app API permission
 ## Next steps
  
 - [Create a sign-up and sign-in user flow](how-to-user-flow-sign-up-sign-in-customers.md)
-- [Sign in users in a sample Node.js web app](how-to-web-app-node-sample-sign-in.md) 
+- [Sign in users in a sample Node.js web app](./sample-web-app-node-sign-in.md) 
 
 # [Web API](#tab/webapi)
 ## Register your Web API

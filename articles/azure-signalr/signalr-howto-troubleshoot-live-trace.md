@@ -14,7 +14,7 @@ Live trace tool is a single web application for capturing and displaying live tr
 
 > [!NOTE]
 > Note that the live traces will be counted as outbound messages.
-> Azure Active Directory access to live trace tool is not supported. You will need to enable **Access Key** in **Keys** settings.
+> Using Microsoft Entra ID to access the live trace tool is not supported. You have to enable **Access Key** in **Keys** settings.
 
 ## Launch the live trace tool
 

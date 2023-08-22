@@ -5,6 +5,7 @@ services: active-directory
 author: martincoetzer
 manager: travisgr
 tags: azuread
+ms.custom: has-azure-ad-ps-ref
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
@@ -227,7 +228,7 @@ User lockout can also occur if the following conditions are true:
 - Your organization uses a hybrid identity solution with pass-through authentication or federation.
 - Your on-premises identity systems (such as Active Directory, AD FS, or a dependent component) are unavailable. 
  
-To be more resilient, your organization should [enable password hash sync](../hybrid/choose-ad-authn.md), because it enables you to [switch to using password hash sync](../hybrid/plan-connect-user-signin.md) if your on-premises identity systems are down.
+To be more resilient, your organization should [enable password hash sync](../hybrid/connect/choose-ad-authn.md), because it enables you to [switch to using password hash sync](../hybrid/connect/plan-connect-user-signin.md) if your on-premises identity systems are down.
 
 #### Microsoft recommendations
  Enable password hash sync using the Azure AD Connect wizard, regardless whether your organization uses federation or pass-through authentication.
@@ -282,7 +283,7 @@ Undo the changes you made as part of the activated contingency plan once the ser
 * [Manage emergency-access administrative accounts in Azure AD](../roles/security-emergency-access.md)
 * [Configure named locations in Azure Active Directory](../conditional-access/location-condition.md)
   * [Set-MsolDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings)
-* [How to configure hybrid Azure Active Directory joined devices](../devices/hybrid-azuread-join-plan.md)
+* [How to configure hybrid Azure Active Directory joined devices](../devices/hybrid-join-plan.md)
 * [Windows Hello for Business Deployment Guide](/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
   * [Password Guidance - Microsoft Research](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf)
 * [What are conditions in Azure Active Directory Conditional Access?](../conditional-access/concept-conditional-access-conditions.md)

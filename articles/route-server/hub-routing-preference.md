@@ -6,10 +6,10 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: route-server
 ms.topic: concept-article
-ms.date: 07/28/2023
+ms.date: 07/31/2023
 ---
 
-# Azure Route Server routing preference (preview)
+# Routing preference (preview)
 
 Azure Route Server enables dynamic routing between network virtual appliances (NVAs) and virtual networks (VNets). In addition to supporting third-party NVAs, Route Server also seamlessly integrates with ExpressRoute and VPN gateways. Route Server uses built-in route selection algorithms to make routing decisions to set connection preferences.
 

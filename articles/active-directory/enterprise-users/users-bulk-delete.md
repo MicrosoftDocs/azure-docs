@@ -71,7 +71,7 @@ Next, you can check to see that the users you deleted exist in the Azure AD orga
 Run the following command:
 
 ``` PowerShell
-Get-AzureADUser -Filter "UserType eq 'Member'"
+Get-MgUser -Filter "UserType eq 'Member'"
 ```
 
 Verify that the users that you deleted are no longer listed.

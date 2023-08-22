@@ -5,7 +5,7 @@ author: normesta
 
 ms.author: normesta
 ms.date: 08/24/2022
-ms.service: azure-storage
+ms.service: storage
 ms.topic: conceptual
 ms.reviewer: fryu
 ---
