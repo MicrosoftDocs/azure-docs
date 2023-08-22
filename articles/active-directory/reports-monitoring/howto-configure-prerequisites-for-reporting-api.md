@@ -43,9 +43,9 @@ To enable your application to access Microsoft Graph without user intervention, 
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com) using the appropriate least privilege role.
 
-1. Go to **Azure Active Directory** > **App registrations**.
+1. Browse to **Azure Active Directory** > **App registrations**.
 
 1. Select **New registration**.
 
@@ -63,7 +63,7 @@ To enable your application to access Microsoft Graph without user intervention, 
 
 To access the Azure AD reporting API, you must grant your app *Read directory data* and *Read all audit log data* permissions for the Microsoft Graph API.
 
-1. **Azure Active Directory** > **App Registrations**> **API permissions** and select **Add a permission**.
+1. Browse to **Azure Active Directory** > **App Registrations**> **API permissions** and select **Add a permission**.
 
     ![Screenshot of the API permissions menu option and Add permissions button.](./media/howto-configure-prerequisites-for-reporting-api/api-permissions-new-permission.png)
 
@@ -100,7 +100,7 @@ To use PowerShell to access the Azure AD reporting API, you'll need to gather a 
 
 You need these values when configuring calls to the reporting API. We recommend using a certificate because it's more secure.
 
-1. Go to **Azure Active Directory** > **App Registrations**.
+1. Browse to **Azure Active Directory** > **App Registrations**.
 1. Copy the **Directory (tenant) ID**.
 1. Copy the **Application (client) ID**.
 1. Go to **App Registration** > Select your application > **Certificates & secrets** > **Certificates** > **Upload certificate** and upload your certificate's public key file.

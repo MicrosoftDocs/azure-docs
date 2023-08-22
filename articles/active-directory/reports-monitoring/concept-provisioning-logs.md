@@ -1,6 +1,6 @@
 ---
 title: Provisioning logs in Azure Active Directory
-description: Overview of the provisioning logs in Azure Active Directory.
+description: Learn about the information included in the provisioning logs in Azure Active Directory.
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -8,10 +8,9 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 06/16/2023
+ms.date: 08/22/2023
 ms.author: sarahlipsey
 ms.reviewer: arvinh
-ms.collection: M365-identity-device-management
 ---
 # Provisioning logs in Azure Active Directory
 
@@ -50,15 +49,18 @@ Application owners can view logs for their own applications. The following roles
 - Global Administrator
 - Users in a custom role with the [provisioningLogs permission](../roles/custom-enterprise-app-permissions.md#full-list-of-permissions)
 
-To access the provisioning log data, you have the following options:
+There are several ways to view or analyze the Provisioning logs:
 
-- Select **Provisioning logs** from the **Monitoring** section of Azure AD.
+- View in the Azure portal.
+- Stream logs to [Azure Monitor](../app-provisioning/application-provisioning-log-analytics.md) through Diagnostic settings.
+- Analyze logs through [Workbook](howto-use-workbooks.md) templates.
+- Access logs programmatically through the [Microsoft Graph API](/graph/api/resources/provisioningobjectsummary).
+- [Download the logs](howto-download-logs.md) as a CSV or JSON file.
 
-- Stream the provisioning logs into [Azure Monitor](../app-provisioning/application-provisioning-log-analytics.md). This method allows for extended data retention and building custom dashboards, alerts, and queries.
+To access the logs in the Azure portal:
 
-- Query the [Microsoft Graph API](/graph/api/resources/provisioningobjectsummary) for the provisioning logs.
-
-- Download the provisioning logs as a CSV or JSON file.
+1. Sign in to the [Azure portal](https://portal.azure.com) using the Reports Reader role.
+1. Browse to **Azure Active Directory** > **Monitoring** > **Provisioning logs**.
 
 ## View the provisioning logs
 
