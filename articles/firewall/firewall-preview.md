@@ -39,6 +39,17 @@ With the Azure Firewall Resource Health check, you can now diagnose and get supp
 Starting in August 2023, this preview will be automatically enabled on all firewalls and no action will be required to enable this functionality.
 For more information, see [Resource Health overview](../service-health/resource-health-overview.md).
 
+### Top flows (preview) and Flow trace logs (preview)
+
+- The Top flows log shows the top connections that contribute to the highest throughput through the firewall.
+-  Flow trace logs show the full journey of a packet in the TCP handshake.
+
+For more information, see [Enable Top flows (preview) and Flow trace logs (preview) in Azure Firewall](enable-top-ten-and-flow-trace.md).
+
+### Auto-learn SNAT routes (preview)
+
+You can configure Azure Firewall to auto-learn both registered and private ranges every 30 minutes. For information, see [Azure Firewall SNAT private IP address ranges](snat-private-range.md#auto-learn-snat-routes-preview).
+
 ## Next steps
 
 To learn more about Azure Firewall, see [What is Azure Firewall?](overview.md).
