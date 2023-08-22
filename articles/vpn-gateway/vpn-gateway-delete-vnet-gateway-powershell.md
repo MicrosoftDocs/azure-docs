@@ -22,15 +22,13 @@ There are a couple of different approaches you can take when you want to delete 
 
 * If you want to keep some of the resources in your resource group, deleting a virtual network gateway becomes slightly more complicated. Before you can delete the virtual network gateway, you must first delete any resources that are dependent on the gateway. The steps you follow depend on the type of connections that you created and the dependent resources for each connection.
 
-## <a name="S2S"></a>Delete a Site-to-Site VPN gateway
+## <a name="S2S"></a>Delete a site-to-site VPN gateway
 
 To delete a virtual network gateway for a S2S configuration, you must first delete each resource that pertains to the virtual network gateway. Resources must be deleted in a certain order due to dependencies. In the following examples, some of the values must be specified, while other values are an output result. We use the following specific values in the examples for demonstration purposes:
 
 VNet name: VNet1<br>
 Resource Group name: TestRG1<br>
 Virtual network gateway name: VNet1GW<br>
-
-The following steps apply to the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md).
 
 1. Get the virtual network gateway that you want to delete.
 
@@ -104,8 +102,6 @@ VNet name: VNet1<br>
 Resource Group name: TestRG1<br>
 Virtual network gateway name: VNet1GW<br>
 
-The following steps apply to the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md).
-
 1. Get the virtual network gateway that you want to delete.
 
    ```azurepowershell-interactive
@@ -176,15 +172,13 @@ The following steps apply to the [Resource Manager deployment model](../azure-re
    Set-AzVirtualNetwork -VirtualNetwork $GWSub
    ```
 
-## <a name="deletep2s"></a>Delete a Point-to-Site VPN gateway
+## <a name="deletep2s"></a>Delete a point-to-site VPN gateway
 
 To delete a virtual network gateway for a P2S configuration, you must first delete each resource that pertains to the virtual network gateway. Resources must be deleted in a certain order due to dependencies. When you work with the examples below, some of the values must be specified, while other values are an output result. We use the following specific values in the examples for demonstration purposes:
 
 VNet name: VNet1<br>
 Resource Group name: TestRG1<br>
 Virtual network gateway name: VNet1GW<br>
-
-The following steps apply to the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md).
 
 >[!NOTE]
 > When you delete the VPN gateway, all connected clients will be disconnected from the VNet without warning.
@@ -230,7 +224,7 @@ The following steps apply to the [Resource Manager deployment model](../azure-re
 
 ## <a name="delete"></a>Delete a VPN gateway by deleting the resource group
 
-If you aren't concerned about keeping any of your resources in the resource group and you just want to start over, you can delete an entire resource group. This is a quick way to remove everything. The following steps apply only to the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md).
+If you aren't concerned about keeping any of your resources in the resource group and you just want to start over, you can delete an entire resource group. This is a quick way to remove everything.
 
 1. Get a list of all the resource groups in your subscription.
 
