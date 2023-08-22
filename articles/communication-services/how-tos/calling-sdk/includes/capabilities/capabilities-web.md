@@ -29,7 +29,7 @@ Capabilities object has the capabilities of the local participants and is of typ
 
 **Subscribe to `capabilitiesChanged` event:**
 >```js
->this.capabilitiesFeature.on('capabilitiesChanged', (capabilitiesChangeInfo) => {
+>capabilitiesFeature.on('capabilitiesChanged', (capabilitiesChangeInfo) => {
 >    for (const [key, value] of Object.entries(capabilitiesChangeInfo.newValue)) {
 >        if(key === 'turnVideoOn' && value.reason != 'FeatureNotSupported') {
 >             (value.isPresent) ? this.setState({ canOnVideo: true }) : this.setState({ canOnVideo: false });
@@ -66,8 +66,8 @@ Capabilities object has the capabilities of the local participants and is of typ
 > - *addPhoneNumber*: Ability to add phone number
 > - *pstnDialOut*: Ability to do pstn dial out
 > - *manageLobby*: Ability to manage lobby (beta only)
-> - spotlightParticipant*: Ability to spotlight Participant (beta only)
-> - removeParticipantsSpotlight*: Ability to remove Participant spotlight (beta only)
-> - startLiveCaptions*: Ability to start live captions (beta only)
-> - stopLiveCaptions*: Ability to stop live captions (beta only)
-> - raiseHand*: Ability to raise hand (beta only)
+> - *spotlightParticipant*: Ability to spotlight Participant (beta only)
+> - *removeParticipantsSpotlight*: Ability to remove Participant spotlight (beta only)
+> - *startLiveCaptions*: Ability to start live captions (beta only)
+> - *stopLiveCaptions*: Ability to stop live captions (beta only)
+> - *raiseHand*: Ability to raise hand (beta only)
