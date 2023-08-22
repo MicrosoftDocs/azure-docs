@@ -4,7 +4,7 @@ titleSuffix: Azure VPN Gateway
 description: Learn how to delete a virtual network gateway using PowerShell.
 author: cherylmc
 ms.service: vpn-gateway
-ms.date: 04/29/2021
+ms.date: 08/21/2023
 ms.author: cherylmc
 ms.topic: how-to 
 ms.custom: devx-track-azurepowershell
@@ -114,7 +114,7 @@ Get the IP configurations of the virtual network gateway.
 $GWIpConfigs = $Gateway.IpConfigurations
 ```
 
-Get the list of Public IP address resources used for this virtual network gateway. If the virtual network gateway was active-active, you will see two Public IP addresses.
+Get the list of Public IP address resources used for this virtual network gateway. If the virtual network gateway was active-active, you'll see two Public IP addresses.
 
 ```powershell
 $PubIP=Get-AzPublicIpAddress | where-object {$_.Id -In $GWIpConfigs.PublicIpAddress.Id}
@@ -169,7 +169,7 @@ Because this is a VNet-to-VNet configuration, you need the list of connections i
 $ConnsL=get-Azvirtualnetworkgatewayconnection -ResourceGroupName "RG1" | where-object {$_.VirtualNetworkGateway1.Id -eq $GW.Id}
 ```
  
-In this example, we are checking for connections from RG2. Run this for each resource group that you have which may have a connection to the virtual network gateway.
+In this example, we're checking for connections from RG2. Run this for each resource group that you have which may have a connection to the virtual network gateway.
 
 ```powershell
  $ConnsR=get-Azvirtualnetworkgatewayconnection -ResourceGroupName "<NameOfResourceGroup2>" | where-object {$_.VirtualNetworkGateway2.Id -eq $GW.Id}
@@ -261,7 +261,7 @@ Get the IP configurations of the virtual network gateway.
 $GWIpConfigs = $Gateway.IpConfigurations
 ```
 
-Get the list of Public IP addresses used for this virtual network gateway. If the virtual network gateway was active-active, you will see two Public IP addresses.
+Get the list of Public IP addresses used for this virtual network gateway. If the virtual network gateway was active-active, you'll see two Public IP addresses.
 
 ```powershell
 $PubIP=Get-AzPublicIpAddress | where-object {$_.Id -In $GWIpConfigs.PublicIpAddress.Id}
@@ -282,7 +282,7 @@ Set-AzVirtualNetwork -VirtualNetwork $GWSub
 
 ## <a name="delete"></a>Delete a VPN gateway by deleting the resource group
 
-If you are not concerned about keeping any of your resources in the resource group and you just want to start over, you can delete an entire resource group. This is a quick way to remove everything. The following steps apply only to the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md).
+If you aren't concerned about keeping any of your resources in the resource group and you just want to start over, you can delete an entire resource group. This is a quick way to remove everything. The following steps apply only to the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md).
 
 ### 1. Get a list of all the resource groups in your subscription.
 
@@ -300,7 +300,7 @@ Find-AzResource -ResourceGroupNameContains RG1
 
 ### 3. Verify the resources in the list.
 
-When the list is returned, review it to verify that you want to delete all the resources in the resource group, as well as the resource group itself. If you want to keep some of the resources in the resource group, use the steps in the earlier sections of this article to delete your gateway.
+When the list is returned, review it to verify that you want to delete all the resources in the resource group, and the resource group itself. If you want to keep some of the resources in the resource group, use the steps in the earlier sections of this article to delete your gateway.
 
 ### 4. Delete the resource group and resources.
 
