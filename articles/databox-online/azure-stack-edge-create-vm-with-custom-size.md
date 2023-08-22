@@ -66,6 +66,10 @@ Use the following steps to create a new VM.
    |-------|-----|------------ |-------------|--------------|-----|-----|-----|----|
    |Custom_NonGPU |8 |14 |64 |2000 |64000 |2300 |64 |8 |
 
+   | Size | vCPU | Memory (GiB) | Temp storage | Max OS disk | Max temp storage | Max data disk throughput | Max data disk | Max NICs | GPU | GPU memory |
+   |-------|-----|------------ |-------------|--------------|-----|-----|-----|----|-----|-----|
+   |Custom_GPU_T4_v3 |8 |28 |352 |2000 |48000 |2300 |16 |8 |1 |16 |
+   |Custom_GPU_A2    |8 |28 |352 |2000 |48000 |2300 |16 |8 |1 |16 |
 
       ```azurepowershell
       Set-HcsVMCustomSizes -CustomVMSizesJson <string> [-JsonFormat]
