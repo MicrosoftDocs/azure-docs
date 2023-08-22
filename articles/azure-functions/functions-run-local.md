@@ -497,7 +497,7 @@ func settings decrypt
 
 When the settings file is encrypted and decrypted, the file's `IsEncrypted` setting also gets updated.
 
-## Configure with binding extensions
+## Configure binding extensions
 
 [Functions triggers and bindings](functions-triggers-bindings.md) are implemented as .NET extension (NuGet) packages. To be able to use a specific binding extension, that extension must be installed in the project.
 
