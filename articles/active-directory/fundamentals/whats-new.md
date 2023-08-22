@@ -576,7 +576,7 @@ SAML/Ws-Fed based identity providers for authentication in Azure AD B2B are gene
 **Service category:** Provisioning                          
 **Product capability:** Identity Lifecycle Management              
 
-Cross-tenant synchronization allows you to set up a scalable and automated solution for users to access applications across tenants in your organization. It builds upon the Azure Active Directory B2B functionality and automates creating, updating, and deleting B2B users within tenants in your organization.  For more information, see: [What is cross-tenant synchronization?](../multi-tenant-organizations/cross-tenant-synchronization-overview.md).
+Cross-tenant synchronization allows you to set up a scalable and automated solution for users to access applications across tenants in your organization. It builds upon the Azure Active Directory B2B functionality and automates creating, updating, and deleting B2B users within tenants in your organization. For more information, see: [What is cross-tenant synchronization?](../multi-tenant-organizations/cross-tenant-synchronization-overview.md).
 
 ---
 
