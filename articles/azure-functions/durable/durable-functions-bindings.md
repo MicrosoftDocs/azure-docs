@@ -18,7 +18,6 @@ Make sure to choose your Durable Functions development language at the top of th
 
 > [!IMPORTANT]   
 > This article supports both Python v1 and Python v2 programming models for Durable Functions.  
-> The Python v2 programming model is currently in preview. 
 
 ## Python v2 programming model
 
