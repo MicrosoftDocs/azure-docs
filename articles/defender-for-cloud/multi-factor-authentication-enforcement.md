@@ -2,7 +2,7 @@
 title: Security recommendations for multi-factor authentication
 description: Learn how to enforce multi-factor authentication for your Azure subscriptions using Microsoft Defender for Cloud
 ms.topic: conceptual
-ms.date: 08/14/2023
+ms.date: 08/22/2023
 ---
 
 # Manage multi-factor authentication (MFA) on your subscriptions
@@ -87,8 +87,9 @@ To see which accounts don't have MFA enabled, use the following Azure Resource G
 
 ## Limitations
 
-- Conditional Access feature to enforce MFA on external users/tenants is not supported yet.
-- Conditional Access policy applied to Azure AD roles (such as all global admins, external users, external domain, etc..) are not supported yet.
+- Conditional Access feature to enforce MFA on external users/tenants isn't supported yet.
+- Conditional Access policy applied to Azure AD roles (such as all global admins, external users, external domain, etc.) isn't supported yet.
+- External MFA solutions such as Okta, Ping, Duo, and more aren't supported within the identity MFA recommendations.
 
 
 ## Next steps
