@@ -45,7 +45,7 @@ You can always access your own sign-in history at [https://mysignins.microsoft.c
 
 With the information in the Azure AD audit logs, you can access all records of system activities for compliance purposes. Audit logs can be accessed from the **Monitoring and health** section of Azure AD, where you can sort and filter on every category and activity. You can also access audit logs in the area of the portal for the service you're investigating.
 
-![Screenshot of the audit logs option on the side menu.](media/howto-customize-filter-logs/audit-logs-nav.png)
+![Screenshot of the audit logs option on the side menu.](media/howto-customize-filter-logs/audit-logs-navigation.png)
 
 For example, if you're looking into changes to Azure AD groups, you can access the Audit logs from **Azure AD** > **Groups**. When you access the audit logs from the service, the filter is automatically adjusted according to the service.
 
@@ -53,19 +53,19 @@ For example, if you're looking into changes to Azure AD groups, you can access t
 
 ### Customize the layout of the audit logs
 
-Audit logs can be customized like the sign-in logs. There aren't as many column options, but it's just as important to make sure you're seeing the columns you need. The **Service**, **Category** and **Activity** columns are related to each other, so these should always be visible. 
+Audit logs can be customized like the sign-in logs. There aren't as many column options, but it's as important to make sure you're seeing the columns you need. The **Service**, **Category** and **Activity** columns are related to each other, so these columns should always be visible. 
 
 ### Filter the audit logs
 
 When you filter the logs by **Service**, the **Category** and **Activity** details automatically change. In some cases, there may only be one Category or Activity. For a detailed table of all potential combinations of these details, see [Audit activities](reference-audit-activities.md).
 
-![Screenshot of the audit log activities filter with Conditional Access as the service.](media/howto-customize-filter-logs/audit-log-activities-filter.png)
+:::image type="content" source="media/howto-customize-filter-logs/audit-log-activities-filter.png" alt-text="Screenshot of the audit log activities filter with Conditional Access as the service." lightbox="media/howto-customize-filter-logs/audit-log-activities-filter-expanded.png":::
 
 ## Sign-in logs
 
-On the sign-in logs page, you can switch between four sign-in log types. For more information on the the logs, see [What are Azure AD sign-in logs?](concept-sign-ins.md).
+On the sign-in logs page, you can switch between four sign-in log types. For more information on the logs, see [What are Azure AD sign-in logs?](concept-sign-ins.md).
 
-![Screenshot of the sign-in log types.](./media/howto-customize-filter-logs/sign-in-logs-types.png)
+:::image type="content" source="media/howto-customize-filter-logs/sign-in-logs-types.png" alt-text="Screenshot of the sign-in log types." lightbox="media/howto-customize-filter-logs/sign-in-logs-types-expanded.png":::
 
 - **Interactive user sign-ins:** Sign-ins where a user provides an authentication factor, such as a password, a response through an MFA app, a biometric factor, or a QR code.
 
@@ -94,7 +94,7 @@ Select the **Add filters** option from the top of the table to get started.
 
 ![Screenshot of the sign-in logs page with the Add filters option highlighted.](./media/howto-customize-filter-logs/sign-in-logs-add-filters.png)
 
-Once you apply a filter, you may to either enter a specific detail - such as a Request ID - or select another filter option. 
+Once you apply a filter, you may either enter a specific detail - such as a Request ID - or select another filter option. 
 
 ![Screenshot of the filter options with a field to enter filter details open.](./media/howto-customize-filter-logs/sign-in-logs-filter-options.png)
 
@@ -113,7 +113,7 @@ You can filter on several details. The following table describes some commonly u
 
 Now that your sign-in logs table is formatted for your needs, you can more effectively analyze the data. Further analysis and retention of sign-in data can be accomplished by exporting the logs to other tools. 
 
-Customizing the columns and adjusting the filter helps to look at logs with similar characteristics. To look at the details of a sign-in select a row in the table to open the **Activity Details** panel. There are several tabs in the panel to explore. For more information, see [Sign-in log activity details](concept-sign-in-log-activity-details.md).
+Customizing the columns and adjusting the filter helps to look at logs with similar characteristics. To look at the details of a sign-in, select a row in the table to open the **Activity Details** panel. There are several tabs in the panel to explore. For more information, see [Sign-in log activity details](concept-sign-in-log-activity-details.md).
 
 :::image type="content" source="media/howto-customize-filter-logs/sign-in-activity-details.png" alt-text="Screenshot of the sign-in activity details." lightbox="media/howto-customize-filter-logs/sign-in-activity-details-expanded.png":::
 
@@ -123,14 +123,14 @@ Customizing the columns and adjusting the filter helps to look at logs with simi
 
 - **Conditional Access:** 
     - *Not applied:* No policy applied to the user and application during sign-in.
-    - *Success:* One or more Conditional Access policies applied to or were evaluated for the user and application (but not necessarily the other conditions) during sign-in. Even though a Conditional Access policy might not apply, if it was evaluated, the Conditional Access status will show 'Success'.
+    - *Success:* One or more Conditional Access policies applied to or were evaluated for the user and application (but not necessarily the other conditions) during sign-in. Even though a Conditional Access policy might not apply, if it was evaluated, the Conditional Access status shows *Success*.
     - *Failure:* The sign-in satisfied the user and application condition of at least one Conditional Access policy and grant controls are either not satisfied or set to block access. 
 
-- **Home tenant name:** Due to privacy commitments, Azure AD does not populate the home tenant name field in the case of a cross-tenant scenario.
+- **Home tenant name:** Due to privacy commitments, Azure AD doesn't populate the home tenant name field during cross-tenant scenarios.
 
 - **Multifactor authentication:** When a user signs in with MFA, several separate MFA events are actually taking place. For example, if a user enters the wrong validation code or doesn't respond in time, additional MFA events are sent to reflect the latest status of the sign-in attempt. These sign-in events appear as one line item in the Azure AD sign-in logs. That same sign-in event in Azure Monitor, however, appears as multiple line items. These events all have the same `correlationId`.
 
-- **Client app:** The **Client app** filter option has two sub-categories: **Modern authentication clients** and **Legacy authentication clients**.
+- **Client app:** The **Client app** filter option has two subcategories: **Modern authentication clients** and **Legacy authentication clients**.
     - *Browser* and *Mobile apps and desktop clients* are the two options in the Modern authentication clients category.
     - Review the following table for the *Legacy authentication client* details.
 

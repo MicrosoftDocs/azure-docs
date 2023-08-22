@@ -18,7 +18,7 @@ ms.reviewer: besiler
 Azure AD logs all sign-ins into an Azure tenant for compliance purposes. As an IT administrator, you need to know what the values in the sign-in logs mean, so that you can interpret the log values correctly.
 
 - [Learn about the sign-in logs](concept-sign-ins.md).
-- [Customize and filter the sign-in logs](howto-customize-filter-logs.md)
+- [Customize and filter the sign-in logs](howto-customize-filter-sign-in-logs.md)
 
 This article explains the values on the Basic info tab of the sign-ins log.
 
@@ -60,7 +60,7 @@ When analyzing authentication details, take note of the following details:
     - A **satisfied by claim in the token** message is incorrectly displayed when sign-in events are initially logged. 
     - The **Primary authentication** row isn't initially logged.
 - If you're unsure of a detail in the logs, gather the **Request ID** and **Correlation ID** to use for further analyzing or troubleshooting.
-- If Conditional Access policies for authentication or session lifetime are applied, they are listed above the sign-in attempts. If you don't see either of these, those policies aren't currently applied. For more information, see [Conditional Access session controls](../conditional-access/concept-conditional-access-session.md).
+- If Conditional Access policies for authentication or session lifetime are applied, they're listed above the sign-in attempts. If you don't see either of these, those policies aren't currently applied. For more information, see [Conditional Access session controls](../conditional-access/concept-conditional-access-session.md).
 
 
 ## Unique identifiers 
@@ -71,7 +71,7 @@ In Azure AD, a resource access has three relevant components:
 - **How** – The client (Application) used for the access.  
 - **What** – The target (Resource) accessed by the identity.
 
-Each component has an associated unique identifier (ID). Below is an example of user using the Microsoft Azure classic deployment model to access the Azure portal.
+Each component has an associated unique identifier (ID).
 
 ### Tenant
 
@@ -85,12 +85,12 @@ For the home tenant, Azure AD tracks the ID and the name.
 
 ### Request ID
 
-The request ID is an identifier that corresponds to an issued token. If you are looking for sign-ins with a specific token, you need to extract the request ID from the token, first.
+The request ID is an identifier that corresponds to an issued token. If you're looking for sign-ins with a specific token, you need to extract the request ID from the token, first.
 
 
 ### Correlation ID
 
-The correlation ID groups sign-ins from the same sign-in session. The identifier was implemented for convenience. Its accuracy is not guaranteed because the value is based on parameters passed by a client. 
+The correlation ID groups sign-ins from the same sign-in session. The identifier was implemented for convenience. Its accuracy isn't guaranteed because the value is based on parameters passed by a client. 
 
 ### Sign-in
 
@@ -121,14 +121,14 @@ The type of a user. Examples include `member`, `guest`, or `external`.
 
 This attribute describes the type of cross-tenant access used by the actor to access the resource. Possible values are: 
 
-- `none` - A sign-in event that did not cross an Azure AD tenant's boundaries.
+- `none` - A sign-in event that didn't cross an Azure AD tenant's boundaries.
 - `b2bCollaboration`- A cross tenant sign-in performed by a guest user using B2B Collaboration.
 - `b2bDirectConnect` - A cross tenant sign-in performed by a B2B.
 - `microsoftSupport`- A cross tenant sign-in performed by a Microsoft support agent in a Microsoft customer tenant.
 - `serviceProvider` - A cross-tenant sign-in performed by a Cloud Service Provider (CSP) or similar admin on behalf of that CSP's customer in a tenant
 - `unknownFutureValue` - A sentinel value used by MS Graph to help clients handle changes in enum lists. For more information, see [Best practices for working with Microsoft Graph](/graph/best-practices-concept).
 
-If the sign-in did not the pass the boundaries of a tenant, the value is `none`.
+If the sign-in didn't the pass the boundaries of a tenant, the value is `none`.
 
 ### Conditional Access evaluation 
 

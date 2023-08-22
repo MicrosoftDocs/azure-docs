@@ -29,7 +29,7 @@ Azure AD sign-in events are critical to understanding what went right or wrong w
 
 Flagged Sign-ins is a feature intended to increase the signal to noise ratio for user sign-ins requiring help. The functionality is intended to empower users to raise awareness about sign-in errors they want help with. Admins and help desk workers also benefit from finding the right events more efficiently. Flagged Sign-in events contain the same information as other sign-in events contain with one addition: they also indicate that a user flagged the event for review by admins.
  
-Flagged sign-ins gives the user the ability to enable flagging when an error is seen on a sign-in page and then reproduce that error. The error event will then appear as “Flagged for Review” in the Azure AD sign-ins log.
+Flagged sign-ins give the user the ability to enable flagging when an error is seen on a sign-in page and then reproduce that error. The error event then appears as “Flagged for Review” in the Azure AD sign-ins log.
 
 In summary, you can use flagged sign-ins to:
 
@@ -52,7 +52,7 @@ Flagged sign-ins gives you the ability to enable flagging when signing in using 
 5. Open a new browser window (in the same browser application) and attempt the same sign-in that failed. 
 6. Reproduce the sign-in error that was seen before.
 
-With flagging enabled, the same browser application and client must be used or the events won't be flagged.
+With flagging enabled, the same browser application and client must be used or the events aren't flagged.
 
 
 ### Admin: Find flagged events in reports

@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/16/2023
+ms.date: 08/22/2023
 ms.author: sarahlipsey
 ms.reviewer: besiler
 ---
@@ -16,9 +16,9 @@ ms.reviewer: besiler
 
 Azure Active Directory (Azure AD) logs all sign-ins into an Azure tenant, which includes your internal apps and resources. As an IT administrator, you need to know what the values in the sign-in logs mean, so that you can interpret the log values correctly.
 
-Reviewing sign-in errors and patterns provides valuable insight into how your users access applications and services. The sign-in logs provided by Azure Azure AD are a powerful type of [activity log](overview-reports.md) that you can analyze. This article explains how to access and utilize the sign-in logs.
+Reviewing sign-in errors and patterns provides valuable insight into how your users access applications and services. The sign-in logs provided by Azure AD are a powerful type of [activity log](overview-reports.md) that you can analyze. This article explains how to access and utilize the sign-in logs.
 
-The preview view of the sign-in logs include interactive and non-interactive user sign-ins as well as service principle and managed identity sign-ins. You can still view the classic sign-in logs, which only include interactive sign-ins. 
+The preview view of the sign-in logs includes interactive and non-interactive user sign-ins as well as service principal and managed identity sign-ins. You can still view the classic sign-in logs, which only include interactive sign-ins. 
 
 Two other activity logs are also available to help monitor the health of your tenant:
 - **[Audit](concept-audit-logs.md)** – Information about changes applied to your tenant, such as users and group management or updates applied to your tenant’s resources.
@@ -26,7 +26,7 @@ Two other activity logs are also available to help monitor the health of your te
 
 ## What can you do with sign-in logs?
 
-You can use the sing-in logs to answer questions such as:
+You can use the sign-in logs to answer questions such as:
 
 - How many users have signed into a particular application this week?
 - How many failed sign-in attempts have occurred in the last 24 hours?
@@ -54,10 +54,10 @@ The classic sign-in logs only include interactive user sign-ins.
 
 Interactive user sign-ins provide an authentication factor to Azure AD. That authentication factor could also interact with a helper app, such as the Microsoft Authenticator app. Users can provide passwords, responses to MFA challenges, biometric factors, or QR codes to Azure AD or to a helper app. This log also includes federated sign-ins from identity providers that are federated to Azure AD.  
 
-![Screenshot of the interactive user sign-ins log.](media/concept-sign-ins/sign-in-logs-user-interactive.png)
+:::image type="content" source="media/concept-sign-ins/sign-in-logs-user-interactive.png" alt-text="Screenshot of the interactive user sign-ins log." lightbox="media/concept-sign-ins/sign-in-logs-user-interactive-expanded.png":::
 
 > [!NOTE] 
-> The interactive user sign-in log previously contained some non-interactive sign-ins from Microsoft Exchange clients. Although those sign-ins were non-interactive, they were included in the interactive user sign-in log for additional visibility. Once the non-interactive user sign-in log entered public preview in November 2020, those non-interactive sign-in logs were moved to the non-interactive user sign in log for increased accuracy. 
+> The interactive user sign-in log previously contained some non-interactive sign-ins from Microsoft Exchange clients. Although those sign-ins were non-interactive, they were included in the interactive user sign-in log for additional visibility. Once the non-interactive user sign-in log entered public preview in November 2020, those non-interactive sign-in logs were moved to the non-interactive user sign-in log for increased accuracy. 
 
 **Report size:** small </br>
 **Examples:**
@@ -97,7 +97,7 @@ To make it easier to digest the data, non-interactive sign-in events are grouped
 
 :::image type="content" source="media/concept-sign-ins/aggregate-sign-in.png" alt-text="Screenshot of an aggregate sign-in expanded to show all rows." lightbox="media/concept-sign-ins/aggregate-sign-in-expanded.png":::
 
-When Azure AD logs multiple sign-ins that are identical other than time and date, those sign-ins are from the same entity and are aggregated into a single row. A row with multiple identical sign-ins (except for date and time issued) have a value greater than 1 in the *# sign-ins* column. These aggregated sign-ins may also appear to have the same time stamps. The **Time aggregate** filter can set to 1 hour, 6 hours, or 24 hours. You can expand the row to see all the different sign-ins and their different time stamps. 
+When Azure AD logs multiple sign-ins that are identical other than time and date, those sign-ins are from the same entity and are aggregated into a single row. A row with multiple identical sign-ins (except for date and time issued) has a value greater than 1 in the *# sign-ins* column. These aggregated sign-ins may also appear to have the same time stamps. The **Time aggregate** filter can set to 1 hour, 6 hours, or 24 hours. You can expand the row to see all the different sign-ins and their different time stamps. 
 
 Sign-ins are aggregated in the non-interactive users when the following data matches:
 
@@ -142,7 +142,7 @@ Managed identities for Azure resources sign-ins are sign-ins that were performed
 
  You can't customize the fields shown in this report.
 
-To make it easier to digest the data, managed identities for Azure resources sign in logs, non-interactive sign-in events are grouped. Sign-ins from the same entity are aggregated into a single row. You can expand the row to see all the different sign-ins and their different time stamps. Sign-ins are aggregated in the managed identities report when all of the following data matches:
+To make it easier to digest the data, managed identities for Azure resources sign-in logs, non-interactive sign-in events are grouped. Sign-ins from the same entity are aggregated into a single row. You can expand the row to see all the different sign-ins and their different time stamps. Sign-ins are aggregated in the managed identities report when all of the following data matches:
 
 - Managed identity name or ID
 - Status

@@ -44,7 +44,7 @@ The goal of this step is to create a record of a failed sign-in in the Azure AD 
 This section provides you with the steps to analyze a failed sign-in:
 
 - **Filter sign-ins**: Remove all records that aren't relevant to your analysis. For example, set a filter to display only the records of a specific user.
-- **Lookup additional error information**: In addition to the information you can find in the sign-ins log, you can also look up the error using the [sign-in error lookup tool](https://login.microsoftonline.com/error). This tool might provide you with additional information for a sign-in error. 
+- **Lookup additional error information**: In addition to the information, you can find in the sign-ins log, you can also look up the error using the [sign-in error lookup tool](https://login.microsoftonline.com/error). This tool might provide you with additional information for a sign-in error. 
 
 
 **To review the failed sign-in:**
