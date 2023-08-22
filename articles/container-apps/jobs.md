@@ -1,16 +1,16 @@
 ---
-title: Jobs in Azure Container Apps (preview)
-description: Learn about jobs in Azure Container Apps (preview)
+title: Jobs in Azure Container Apps
+description: Learn about jobs in Azure Container Apps
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.custom: build-2023
 ms.topic: conceptual
-ms.date: 05/08/2023
+ms.date: 08/17/2023
 ms.author: cshoe
 ---
 
-# Jobs in Azure Container Apps (preview)
+# Jobs in Azure Container Apps
 
 Azure Container Apps jobs enable you to run containerized tasks that execute for a finite duration and exit. You can use jobs to perform tasks such as data processing, machine learning, or any scenario where on-demand processing is required.
 
