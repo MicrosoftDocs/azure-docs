@@ -59,7 +59,7 @@ The Application Gateway retains this cached information for the period equivalen
 
 > [!IMPORTANT]
 >  * When using custom DNS servers with Application Gateway's Virtual Network, it is crucial that all servers are identical and respond consistently with the same DNS values.
->  * Users of on-premises custom DNS servers must ensure connectivity to Azure DNS through [Azure DNS Private Resolver](../../architecture-center/docs/example-scenario/networking/azure-dns-private-resolver.yml#use-dns-private-resolver) (recommended) or DNS forwarder VM when using a Private DNS zone for Private endpoint.
+>  * Users of on-premises custom DNS servers must ensure connectivity to Azure DNS through [Azure DNS Private Resolver](../dns/private-resolver-hybrid-dns.md) (recommended) or DNS forwarder VM when using a Private DNS zone for Private endpoint.
 
 ### Modifications to the request
 
