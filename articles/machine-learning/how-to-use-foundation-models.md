@@ -47,7 +47,7 @@ You can quickly test out any pre-trained model using the Sample Inference widget
 > * When `egress_public_network_access` is set to `disabled`, the deployment can only access the workspace-associated resources secured in the virtual network. 
 > * When `egress_public_network_access` is set to `enabled` for a managed online endpoint deployment, the deployment can only access the resources with public access. Which means that it cannot access resources secured in the virtual network.
 >
-> For more information, see [Network isolation with managed online endpoints](concept-secure-online-endpoint.md#secure-outbound-access-with-managed-workspace-vnet).
+> For more information, see [Secure outbound access with legacy network isolation method](concept-secure-online-endpoint.md#secure-outbound-access-with-legacy-network-isolation-method).
 
 ## How to evaluate foundation models using your own test data
 

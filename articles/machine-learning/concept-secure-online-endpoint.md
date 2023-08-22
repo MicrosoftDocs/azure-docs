@@ -78,7 +78,7 @@ When `public_network_access` is `disabled`, inbound scoring requests are receive
 
 Alternatively, if you set the `public_network_access` to `enabled`, the endpoint can receive inbound scoring requests from the internet.
 
-## Secure outbound access with managed workspace virtual network
+## Secure outbound access with workspace managed virtual network
 
 To secure outbound communication from a deployment to services, you need to enable managed virtual network isolation for your Azure Machine Learning workspace so that Azure Machine Learning can create a managed virtual network for the workspace.
 All managed online endpoints in the workspace (and managed compute resources for the workspace, such as compute clusters and compute instances) automatically use this workspace managed virtual network, and the deployments under the endpoints share the managed virtual network's private endpoints for communication with the workspace's resources.
@@ -114,7 +114,7 @@ Suppose a managed online endpoint has a deployment that uses an AI model, and yo
 
 If the app is publicly available on the internet, then you need to **enable** `public_network_access` for the endpoint so that it can receive inbound scoring requests from the app.
 
-However, say the app is private—an internal app within your organization. In this scenario, you want the AI model to be used only within your organization rather than expose it to the internet. Therefore, you need to **disable** the endpoint's `public_network_access` so that it can receive inbound scoring requests only through its workspace's private endpoint.
+However, say the app is private, such as an internal app within your organization. In this scenario, you want the AI model to be used only within your organization rather than expose it to the internet. Therefore, you need to **disable** the endpoint's `public_network_access` so that it can receive inbound scoring requests only through its workspace's private endpoint.
 
 **For outbound communication (deployment)**:
 
