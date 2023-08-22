@@ -24231,7 +24231,7 @@
         {
             "source_path_from_root": "/articles/virtual-machines/image-builder-reliability.md",
             "redirect_url": "/azure/reliability/reliability-image-builder.md",
-            "redirect_document_id": false
+            "redirect_document_id": false 
         },
         {
             "source_path_from_root": "/articles/bastion/bastion-connect-vm-rdp-linux.md",
