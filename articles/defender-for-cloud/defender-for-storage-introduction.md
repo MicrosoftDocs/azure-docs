@@ -2,7 +2,7 @@
 title: Microsoft Defender for Storage - the benefits and features
 
 description: Learn about the benefits and features of Microsoft Defender for Storage.
-ms.date: 06/15/2023
+ms.date: 08/21/2023
 author: dcurwin
 ms.author: dacurwin
 ms.topic: overview
@@ -28,7 +28,7 @@ Defender for Storage includes:
 
 ## Getting started
 
-With a simple agentless setup at scale, you can [enable Defender for Storage](../storage/common/azure-defender-storage-configure.md) at the subscription or resource levels through the portal or programmatically. When enabled at the subscription level, all existing and newly created storage accounts under that subscription will be automatically protected. You can also exclude specific storage accounts from protected subscriptions.
+With a simple agentless setup at scale, you can [enable Defender for Storage](tutorial-enable-storage-plan.md) at the subscription or resource levels through the portal or programmatically. When enabled at the subscription level, all existing and newly created storage accounts under that subscription will be automatically protected. You can also exclude specific storage accounts from protected subscriptions.
 
 > [!NOTE]
 > If you already have the Defender for Storage (classic) enabled and want to access the new security features and pricing, you'll need to [migrate to the new pricing plan](defender-for-storage-classic-migrate.md).
@@ -124,6 +124,6 @@ In summary, Malware Scanning, which is only available on the new plan for Blob s
 
 In this article, you learned about Microsoft Defender for Storage.
 
-- [Enable Defender for Storage](enable-enhanced-security.md)
+- [Enable Defender for Storage](tutorial-enable-storage-plan.md)
 - Check out [common questions](faq-defender-for-storage.yml) about Defender for Storage.
 

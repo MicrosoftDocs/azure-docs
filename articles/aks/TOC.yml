@@ -485,8 +485,6 @@
               href: azure-cni-overlay.md
             - name: Use Azure CNI Powered by Cilium
               href: azure-cni-powered-by-cilium.md
-            - name: Deploy Isovalent Cilium Enterprise
-              href: cilium-enterprise-marketplace.md
             - name: Use Azure CNI for dynamic IP allocation and enhanced subnet support
               href: configure-azure-cni-dynamic-ip-allocation.md
             - name: Bring your own CNI
@@ -527,8 +525,6 @@
                   href: app-routing.md
                 - name: Monitor using Prometheus and Grafana
                   href: app-routing-nginx-prometheus.md
-            - name: Use Web Application Routing add-on
-              href: web-app-routing.md
             - name: Use Application Gateway Ingress Controller add-on
               href: ../application-gateway/tutorial-ingress-controller-add-on-existing.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
             - name: Use Istio gateway with Istio Service Mesh add-on
