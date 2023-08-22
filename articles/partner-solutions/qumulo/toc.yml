@@ -16,8 +16,21 @@ items:
     href: qumulo-how-to-manage.md
   - name: Troubleshoot Azure Native Qumulo Scalable File Service
     href: qumulo-troubleshoot.md
-- name: Reference
+  - name: Setting up Azure Native Qumulo Scalable File Service
+    href: qumulo-how-to-setup-features.md
+- name: SDKs and command-lines
   items:
+  - name: Python
+    href: /python/api/overview/azure/qumulo
+  - name: JavaScript
+    href: /javascript/api/overview/azure/qumulo
   - name: .NET
     href: /dotnet/api/overview/azure/qumulo
-
+  - name: Java
+    href: /java/api/overview/azure/qumulo
+  - name: CLI
+    href: /cli/azure/service-page/qumulo
+  - name: Azure PowerShell
+    href: /powershell/module/az.qumulo
+  - name: Qumulo Developer tools 
+    href: qumulo-how-to-setup-features.md#developer-tools 

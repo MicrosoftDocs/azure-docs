@@ -21,7 +21,7 @@ If you have questions about cross-tenant customer-managed keys with managed disk
 
 - Managed Disks and the customer's Key Vault must be in the same Azure region, but they can be in different subscriptions.
 - This feature doesn't support Ultra Disks or Azure Premium SSD v2 managed disks.
-- This feature isn't available in Azure China or Government clouds.
+- This feature isn't available in Microsoft Azure operated by 21Vianet or Government clouds.
 
 [!INCLUDE [active-directory-msi-cross-tenant-cmk-overview](../../includes/active-directory-msi-cross-tenant-cmk-overview.md)]
 

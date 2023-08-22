@@ -6,7 +6,7 @@ ms.topic: include
 ms.date: 12/10/2021
 ---
 
-The form requests information about you, your company, and the user scenario for which you'll use the container. After you submit the form, the Azure Cognitive Services team reviews it and emails you with a decision within 10 business days.
+The form requests information about you, your company, and the user scenario for which you'll use the container. After you submit the form, the Azure AI services team reviews it and emails you with a decision within 10 business days.
 
 > [!IMPORTANT]
 > * On the form, you must use an email address associated with an Azure subscription ID.

@@ -141,7 +141,7 @@ public static async Task Run(
 
 Besides data processing, Azure Functions can be used to infer on models. 
 
-For example, a function that calls a TensorFlow model or submits it to Azure AI Cognitive Services can process and classify a stream of images.
+For example, a function that calls a TensorFlow model or submits it to Azure AI services can process and classify a stream of images.
 
 Functions can also connect to other services to help process data and perform other AI-related tasks, like [text summarization](https://github.com/Azure-Samples/function-csharp-ai-textsummarize).
 

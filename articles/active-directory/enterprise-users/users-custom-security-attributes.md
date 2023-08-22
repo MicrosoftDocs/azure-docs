@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
-ms.custom: it-pro
+ms.custom: it-pro, has-azure-ad-ps-ref
 ms.reviewer: 
 ms.collection: M365-identity-device-management
 ---
@@ -36,6 +36,8 @@ To assign or remove custom security attributes for a user in your Azure AD tenan
 > By default, [Global Administrator](../roles/permissions-reference.md#global-administrator) and other administrator roles do not have permissions to read, define, or assign custom security attributes.
     
 ## Assign custom security attributes to a user
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 

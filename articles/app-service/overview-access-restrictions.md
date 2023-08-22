@@ -14,17 +14,21 @@ Access restrictions in App Service are equivalent to a firewall allowing you to 
 
 ## How it works
 
-When traffic reaches App Service, it first evaluates if the traffic originates from a private endpoint or is coming through the default endpoint. If the traffic is sent through a private endpoint, it will be sent directly to the site without any restrictions. Restrictions to private endpoints are configured using network security groups.
+When traffic reaches App Service, it first evaluates if the traffic originates from a private endpoint or is coming through the default endpoint. If the traffic is sent through a private endpoint, it's sent directly to the site without any restrictions. Restrictions to private endpoints are configured using network security groups.
 
-If you send traffic through the default endpoint (often a public endpoint), the traffic is first evaluated at the site access level. Here you can either enable or disable access. If you enable site access, the traffic will be evaluated at the app access level. For any app, you have both the main site and the advanced tools site (also known as scm or kudu site). You have the option of configuring a set of access restriction rules for each site. You can also specify the behavior if no rules are matched. The following sections go into details. 
+If you send traffic through the default endpoint (often a public endpoint), the traffic is first evaluated at the app access level. Here you can either enable or disable access. If you enable app access, the traffic is evaluated at the site access level. For any app, you have both the main site and the advanced tools site (also known as scm or kudu site).
+
+You have the option of configuring a set of access restriction rules for each site. Access restriction rules are evaluated in priority order. If some rules have the same priority, they're evaluated in the order they're listed when returned from the Azure Resource Manager API and in Azure portal before sorting. You can also specify the behavior if no rules are matched. The following sections go into details.
 
 :::image type="content" source="media/overview-access-restrictions/access-restriction-diagram.png" alt-text="Diagram of access restrictions high-level flow.":::
 
 ## App access
 
-App access allows you to configure if access is available through the default (public) endpoint. If you've never configured the setting, the default behavior is to enable access unless a private endpoint exists after which it will be implicitly disabled. You have the ability to explicitly configure this behavior to either enabled or disabled even if private endpoints exist.
+App access allows you to configure if access is available through the default (public) endpoint. If you've never configured the setting, the default behavior is to enable access unless a private endpoint exists after which it's implicitly disabled. You have the ability to explicitly configure this behavior to either enabled or disabled even if private endpoints exist.
 
 :::image type="content" source="media/overview-access-restrictions/app-access-portal.png" alt-text="Screenshot of app access option in Azure portal.":::
+
+In the Azure Resource Manager API, app access is called `publicNetworkAccess`. For ILB App Service Environment, the default entry point for apps is always internal to the virtual network. Enabling app access (`publicNetworkAccess`) doesn't grant direct public access to the web application; instead, it allows access from the default entry point, which corresponds to the internal IP address of the App Service Environment. If you disable app access on an ILB App Service Environment, you can only access the apps through private endpoints added to the individual apps.
 
 ## Site access
 
@@ -36,7 +40,7 @@ Site access restriction has several types of rules that you can apply:
 
 ### Unmatched rule
 
-You can configure the behavior when no rules are matched (the default action). It's a special rule that always appears as the last rule of the rules collection. If the setting has never been configured, the unmatched rule behavior is to allow all access unless one or more rules exists after which it will be implicitly changed to deny all access. You can explicitly configure this behavior to either allow or deny access regardless of defined rules.
+You can configure the behavior when no rules are matched (the default action). It's a special rule that always appears as the last rule of the rules collection. If the setting has never been configured, the unmatched rule behavior is to allow all access unless one or more rules exists after which it's implicitly changed to deny all access. You can explicitly configure this behavior to either allow or deny access regardless of defined rules.
 
 ### IP-based access restriction rules
 
@@ -67,12 +71,13 @@ For testing or in specific scenarios, you may want to allow traffic from any ser
 
 [Azure service tags](../virtual-network/service-tags-overview.md) are well defined sets of IP addresses for Azure services. Service tags group the IP ranges used in various Azure services and is often also further scoped to specific regions. This type of rule allows you to filter *inbound* traffic from specific Azure services. 
 
-For a full list of tags and more information, visit the service tag link above. 
+For a full list of tags and more information, visit the service tag link.
+
 To learn how to enable this feature, see [Configuring access restrictions](./app-service-ip-restrictions.md).
 
 ### Multi-source rules
 
-Multi-source rules allow you to combine up to eight IP ranges or eight Service Tags in a single rule. You might use this if you've more than 512 IP ranges or you want to create logical rules where multiple IP ranges are combined with a single http header filter.
+Multi-source rules allow you to combine up to eight IP ranges or eight Service Tags in a single rule. You might use multi-source rules if you have more than 512 IP ranges. You can also use multi-source rules if you want to create logical rules where multiple IP ranges are combined with a single http header filter.
 
 Multi-source rules are defined the same way you define single-source rules, but with each range separated with comma.
 
@@ -84,8 +89,8 @@ For any rule, regardless of type, you can add http header filtering. Http header
 
 * **X-Forwarded-For**. [Standard header](https://developer.mozilla.org/docs/Web/HTTP/Headers/X-Forwarded-For) for identifying the originating IP address of a client connecting through a proxy server. Accepts valid CIDR values.
 * **X-Forwarded-Host**. [Standard header](https://developer.mozilla.org/docs/Web/HTTP/Headers/X-Forwarded-Host) for identifying the original host requested by the client. Accepts any string up to 64 characters in length.
-* **X-Azure-FDID**. [Custom header](../frontdoor/front-door-http-headers-protocol.md#from-the-front-door-to-the-backend) for identifying the reverse proxy instance. Azure Front Door will send a guid identifying the instance, but it can also be used by third party proxies to identify the specific instance. Accepts any string up to 64 characters in length.
-* **X-FD-HealthProbe**. [Custom header](../frontdoor/front-door-http-headers-protocol.md#from-the-front-door-to-the-backend) for identifying the health probe of the reverse proxy. Azure Front Door will send "1" to uniquely identify a health probe request. The header can also be used by third party proxies to identify health probes. Accepts any string up to 64 characters in length.
+* **X-Azure-FDID**. [Custom header](../frontdoor/front-door-http-headers-protocol.md#from-the-front-door-to-the-backend) for identifying the reverse proxy instance. Azure Front Door sends a guid identifying the instance, but it can for third party proxies be used to identify the specific instance. Accepts any string up to 64 characters in length.
+* **X-FD-HealthProbe**. [Custom header](../frontdoor/front-door-http-headers-protocol.md#from-the-front-door-to-the-backend) for identifying the health probe of the reverse proxy. Azure Front Door sends "1" to uniquely identify a health probe request. The header can for third party proxies be used to identify health probes. Accepts any string up to 64 characters in length.
 
 Some use cases for http header filtering are:
 * Restrict access to traffic from proxy servers forwarding the host name
@@ -101,7 +106,7 @@ If you want to deny/block one or more specific IP addresses, you can add the IP 
 
 ### Restrict access to the advanced tools site
 
-The advanced tools site, which is also known as scm or kudu, has an individual rules collection that you can configure. You can also configure the unmatched rule for this site. A setting will also allow you to use the rules configured for the main site.
+The advanced tools site, which is also known as scm or kudu, has an individual rules collection that you can configure. You can also configure the unmatched rule for this site. A setting allows you to use the rules configured for the main site.
 
 ### Deploy through a private endpoint
 

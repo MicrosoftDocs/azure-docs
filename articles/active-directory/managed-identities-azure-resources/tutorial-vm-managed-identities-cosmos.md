@@ -416,9 +416,13 @@ Then read and write data as described in [these samples](../../cosmos-db/sql/sql
 
 ## Clean up steps
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 # [Portal](#tab/azure-portal)
 
-1. In the [Azure portal](https://portal.azure.com), select the resource you want to delete.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. Select the resource you want to delete.
 
 1. Select **Delete**.
 

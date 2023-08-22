@@ -58,5 +58,5 @@ The example shows how to use the function as a filter to return items within a s
 
 ## Next steps
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`ST_INTERSECTS`](st-intersects.md)

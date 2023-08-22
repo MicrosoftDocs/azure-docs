@@ -2,7 +2,7 @@
 title: Enable Azure Monitor OpenTelemetry for .NET, Java, Node.js, and Python applications
 description: This article provides guidance on how to enable Azure Monitor on applications by using OpenTelemetry.
 ms.topic: conceptual
-ms.date: 07/20/2023
+ms.date: 08/11/2023
 ms.devlang: csharp, javascript, typescript, python
 ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-python
 ms.reviewer: mmcc
@@ -143,6 +143,8 @@ To enable Azure Monitor Application Insights, you make a minor modification to y
 Add `UseAzureMonitor()` to your application startup. Depending on your version of .NET, it is in either your `startup.cs` or `program.cs` class.
 
 ```csharp
+using Azure.Monitor.OpenTelemetry.AspNetCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddOpenTelemetry().UseAzureMonitor();

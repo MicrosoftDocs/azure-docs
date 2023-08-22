@@ -106,7 +106,9 @@ Pricing tiers determine the capacity and limits of your search service. Tiers in
 
 To learn more about limits on a more granular level, such as document size, queries per second, keys, requests, and responses, see [Service limits in Azure Cognitive Search](../../search/search-limits-quotas-capacity.md).
 
-## Azure Cognitive Services limits
+<a name='azure-cognitive-services-limits'></a>
+
+## Azure AI services limits
 
 [!INCLUDE [azure-cognitive-services-limits](../../../includes/azure-cognitive-services-limits.md)]
 
@@ -507,6 +509,10 @@ The maximum number of private endpoints per Azure SQL Database logical server is
 [!INCLUDE [azure-storage-limits-vm-disks](../../../includes/azure-storage-limits-vm-disks.md)]
 
 For more information, see [Virtual machine sizes](../../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+
+[!INCLUDE [azure-storage-limits-vm-apps](../../../includes/azure-storage-limits-vm-apps.md)]
+
+For more information see [VM Applications](../../virtual-machines/vm-applications.md).
 
 #### Disk encryption sets
 

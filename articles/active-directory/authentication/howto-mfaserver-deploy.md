@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 10/10/2022
+ms.date: 08/08/2023
 
 ms.author: justinha
 author: justinha
@@ -48,13 +48,15 @@ When a master Azure MFA Server goes offline, the subordinate servers can still p
 
 ### Prepare your environment
 
-Make sure the server  that you're using for Azure Multi-Factor Authentication meets the following requirements:
+Make sure the server that you're using for Azure Multi-Factor Authentication meets the following requirements. 
 
 | Azure Multi-Factor Authentication Server Requirements | Description |
 |:--- |:--- |
 | Hardware |<li>200 MB of hard disk space</li><li>x32 or x64 capable processor</li><li>1 GB or greater RAM</li> |
-| Software |<li>Windows Server 2019</li><li>Windows Server 2016</li><li>Windows Server 2012 R2</li><li>Windows Server 2012</li><li>Windows Server 2008/R2 (with [ESU](/lifecycle/faq/extended-security-updates) only)</li><li>Windows 10</li><li>Windows 8.1, all editions</li><li>Windows 8, all editions</li><li>Windows 7, all editions (with [ESU](/lifecycle/faq/extended-security-updates) only)</li><li>Microsoft .NET 4.0 Framework</li><li>IIS 7.0 or greater if installing the user portal or web service SDK</li> |
+| Software |<li>Windows Server 2022<sup>1</sup><li>Windows Server 2019<sup>1</sup></li><li>Windows Server 2016</li><li>Windows Server 2012 R2</li><li>Windows Server 2012</li><li>Windows Server 2008/R2 (with [ESU](/lifecycle/faq/extended-security-updates) only)</li><li>Windows 10</li><li>Windows 8.1, all editions</li><li>Windows 8, all editions</li><li>Windows 7, all editions (with [ESU](/lifecycle/faq/extended-security-updates) only)</li><li>Microsoft .NET 4.0 Framework</li><li>IIS 7.0 or greater if installing the user portal or web service SDK</li> |
 | Permissions | Domain Administrator or Enterprise Administrator account to register with Active Directory |
+
+<sup>1</sup>If Azure MFA Server fails to activate on an Azure VM that runs Windows Server 2019 or later, try using an earlier version of Windows Server.
 
 ### Azure MFA Server Components
 
@@ -103,6 +105,8 @@ If you aren't using the Event Confirmation feature, and your users aren't using 
 | 52.250.85.96/28  | 255.255.255.240 | 52.250.85.96 - 52.250.85.111  |
 
 ## Download the MFA Server
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 Follow these steps to download the Azure AD Multi-Factor Authentication Server from the Azure portal:
 

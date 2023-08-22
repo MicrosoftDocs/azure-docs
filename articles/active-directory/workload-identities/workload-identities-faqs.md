@@ -40,8 +40,8 @@ pricing](https://www.microsoft.com/security/business/identity-access/microsoft-e
 | Workload identities sign-in activity and audit trail |   Monitor and track workload identity behavior  |  Yes |  Yes |
 | **Managed identities**| Use Azure AD identities in Azure without handling credentials |  Yes| Yes |
 | Workload identity federation | Use workloads tested by external Identity Providers (IdPs) to access Azure AD protected resources | Yes | Yes |
-|  **Conditional Access (CA)**     |   |   |    
-| CA policies for workload identities |Define the condition in which a workload can access a resource, such as an IP range | |  Yes | 
+|  **Conditional Access**     |   |   |    
+| Conditional Access policies for workload identities |Define the condition in which a workload can access a resource, such as an IP range | |  Yes | 
 |**Lifecycle Management**|    |    |   |
 |Access reviews for service provider-assigned privileged roles  |   Closely monitor workload identities with impactful permissions |    |  Yes |
 |**Identity Protection**  |  | |

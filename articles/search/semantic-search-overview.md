@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/07/2023
+ms.date: 07/31/2023
 ms.custom: references_regions
 ---
 
@@ -17,7 +17,7 @@ ms.custom: references_regions
 > [!IMPORTANT]
 > Semantic search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and beta SDKs. These features are billable (see [Availability and pricing](semantic-search-overview.md#availability-and-pricing)).
 
-Currently in Azure Cognitive Search, "semantic search" is a collection of query-related capabilities that bring semantic relevance and language understanding to textual search results. This article is a high-level introduction to semantic search. The embedded video describes the feature, and the section at the end covers availability and pricing.
+Currently in Azure Cognitive Search, "semantic search" is a collection of query-related capabilities that returns more relevant results by applying language understanding to an initial search result. This article is a high-level introduction to semantic search. The [embedded video](#how-semantic-ranking-works) describes the technology, and the section at the end covers availability and pricing.
 
 Semantic search is a premium feature that's billed by usage. We recommend this article for background, but if you'd rather get started, follow these steps:
 
@@ -32,25 +32,25 @@ Semantic search is a premium feature that's billed by usage. We recommend this a
 
 ## What is semantic search?
 
-Semantic search is a collection of features that improve the quality of initial search results for text-based queries. When you enable it on your search service, semantic search extends the query execution pipeline in two ways: 
+Semantic search is a collection of features that improve the quality of an initial BM25-ranked search result for text-based queries. When you enable it on your search service, semantic search extends the query execution pipeline in two ways: 
 
-* First, it adds secondary ranking over an initial result set, promoting the most semantically relevant results to the top of the list. 
+* First, it adds secondary ranking over an initial result set that was scored using the BM25 algorithm, promoting the most semantically relevant results to the top of the list. 
 
 * Second, it extracts and returns captions and answers in the response, which you can render on a search page to improve the user's search experience.
 
-Although semantic search and vector search are closely related, this particular feature doesn't provide vector search.
+Although semantic search and vector search are closely related, this particular feature in Cognitive Search doesn't perform similarity search.
 
 | Feature | Description |
 |---------|-------------|
 | [Semantic re-ranking](semantic-ranking.md) | Uses the context or semantic meaning of a query to compute a new relevance score over existing results. |
-| [Semantic captions and highlights](semantic-how-to-query-request.md) | Extracts sentences and phrases from a document that best summarize the content, with highlights over key passages for easy scanning. Captions that summarize a result are useful when individual content fields are too dense for the results page. Highlighted text elevates the most relevant terms and phrases so that users can quickly determine why a match was considered relevant. |
+| [Semantic captions and highlights](semantic-how-to-query-request.md) | Extracts verbatim sentences and phrases from a document that best summarize the content, with highlights over key passages for easy scanning. Captions that summarize a result are useful when individual content fields are too dense for the search results page. Highlighted text elevates the most relevant terms and phrases so that users can quickly determine why a match was considered relevant. |
 | [Semantic answers](semantic-answers.md) | An optional and extra substructure returned from a semantic query. It provides a direct answer to a query that looks like a question. It requires that a document has text with the characteristics of an answer. |
 
 ## How semantic ranking works
 
 *Semantic ranking* looks for context and relatedness among terms, elevating matches that make more sense given the query. Language understanding finds summarizations or *captions* and *answers* within your content and includes them in the response, which can then be rendered on a search results page for a more productive search experience.
 
-State-of-the-art pretrained models are used for summarization and ranking. To maintain the fast performance that users expect from search, semantic summarization and ranking are applied to just the top 50 results, as scored by the [default scoring algorithm](index-similarity-and-scoring.md). Using those results as the document corpus, semantic ranking re-scores those results based on the semantic strength of the match.
+State-of-the-art pretrained models are used for summarization and ranking. To maintain the fast performance that users expect from search, semantic summarization and ranking are applied to just the top 50 results, as scored by the [default scoring algorithm](index-similarity-and-scoring.md). Using those results as the corpus, semantic ranking re-scores those results based on the semantic strength of the match.
 
 The underlying technology is from Bing and Microsoft Research, and integrated into the Cognitive Search infrastructure as an add-on feature. For more information about the research and AI investments backing semantic search, see [How AI from Bing is powering Azure Cognitive Search (Microsoft Research Blog)](https://www.microsoft.com/research/blog/the-science-behind-semantic-search-how-ai-from-bing-is-powering-azure-cognitive-search/).
 
@@ -99,7 +99,7 @@ Semantic search and spell check are available on services that meet the criteria
 
 <sup>2</sup> Due to the provisioning mechanisms and lifespan of shared (free) search services, a few services happen to have spell check on the free tier. However, spell check availability on free tier services isn't guaranteed and shouldn't be expected.
 
-Charges for semantic search are levied when query requests include "queryType=semantic" and the search string isn't empty (for example, "search=pet friendly hotels in New York". If your search string is empty ("search=*"), you won't be charged, even if the queryType is set to "semantic".
+Charges for semantic search are levied when query requests include "queryType=semantic" and the search string isn't empty (for example, "search=pet friendly hotels in New York"). If your search string is empty ("search=*"), you won't be charged, even if the queryType is set to "semantic".
 
 ## Enable semantic search
 
@@ -115,23 +115,35 @@ By default, semantic search is disabled on all services. To enable semantic sear
 
 Semantic Search's free plan is capped at 1,000 queries per month. After the first 1,000 queries in the free plan, you'll receive an error message letting you know you've exhausted your quota whenever you issue a semantic query. When this happens, you need to upgrade to the standard plan to continue using semantic search.
 
-Alternatively, you can also enable semantic search using the [Create or Update Service API](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#searchsemanticsearch) that's described in the next section.
+Alternatively, you can also enable semantic search using the REST API that's described in the next section.
 
-## Disable semantic search
+## Enable semantic search using the REST API
+
+To enable Semantic Search using the REST API, you can use the [Create or Update Service API](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#searchsemanticsearch).
+
+> [!NOTE]
+> Create or Update supports two HTTP methods: PUT and PATCH. Both PUT and PATCH can be used to update existing services, but only PUT can be used to create a new service. If PUT is used to update an existing service, it replaces all properties in the service with their defaults if they are not specified in the request. When PATCH is used to update an existing service, it only replaces properties that are specified in the request. When using PUT to update an existing service, it's possible to accidentally introduce an unexpected scaling or configuration change. When enabling semantic search on an existing service, it's recommended to use PATCH instead of PUT.
+
+* Management REST API version 2021-04-01-Preview provides the semantic search property
+
+* Owner or Contributor permissions are required to enable or disable features
+
+```
+PATCH https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-Preview
+    {
+      "properties": {
+        "semanticSearch": "standard"
+      }
+    }
+```
+
+## Disable semantic search using the REST API
 
 To reverse feature enablement, or for full protection against accidental usage and charges, you can [disable semantic search](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#searchsemanticsearch) using the Create or Update Service API on your search service. After the feature is disabled, any requests that include the semantic query type will be rejected.
 
-* Management REST API version 2021-04-01-Preview provides this option
-
-* Owner or Contributor permissions are required to disable features
-
 ```http
-PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-Preview
+PATCH https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-Preview
     {
-      "location": "{{region}}",
-      "sku": {
-        "name": "standard"
-      },
       "properties": {
         "semanticSearch": "disabled"
       }

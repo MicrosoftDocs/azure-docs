@@ -108,7 +108,6 @@ Follow these steps to restore your flexible server using an existing full backup
 1. Provide a new server name in the **Name** field in the Server details section.
 
 1. When primary region is down, one can't create geo-redundant servers in the respective geo-paired region as storage can't be provisioned in the primary region. One must wait for the primary region to be up to provision geo-redundant servers in the geo-paired region. With the primary region down one can still geo-restore the source server to the geo-paired region by disabling the geo-redundancy option in the Compute + Storage Configure Server settings in the restore portal experience and restore as a locally redundant server to ensure business continuity.
-
    :::image type="content" source="./media/how-to-restore-server-portal/georestore-region-down-1.png" alt-text="Sreenshot of Compute + Storage window" lightbox="./media/how-to-restore-server-portal/georestore-region-down-1.png":::
 
    :::image type="content" source="./media/how-to-restore-server-portal/georestore-region-down-2.png" alt-text="Sreenshot of Disabling Geo-Redundancy" lightbox="./media/how-to-restore-server-portal/georestore-region-down-2.png":::

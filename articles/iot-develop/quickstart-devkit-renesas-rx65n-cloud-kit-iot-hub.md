@@ -6,8 +6,7 @@ ms.author: timlt
 ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
-ms.date: 05/22/2023
-ms.custom:  
+ms.date: 06/27/2023
 ---
 
 # Quickstart: Connect a Renesas RX65N Cloud Kit to IoT Hub
@@ -28,7 +27,7 @@ You complete the following tasks:
 
 ## Prerequisites
 
-* A PC running Windows 10 or Windows 11
+* A PC running Windows 10 or Windows 11.
 * An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 * [Git](https://git-scm.com/downloads) for cloning the repository
 * Azure CLI. You have two options for running Azure CLI commands in this quickstart:
@@ -78,10 +77,10 @@ To install the tools:
 1. After the installation, open a new console window to recognize the configuration changes made by the setup script. Use this console to complete the remaining programming tasks in the quickstart. You can use Windows CMD, PowerShell, or Git Bash for Windows.
 1. Run the following commands to confirm that CMake version 3.14 or later is installed. Make certain that the RX compiler path is set up correctly.
 
-    ```shell
-    cmake --version
-    rx-elf-gcc --version
-    ```
+   ```shell
+   cmake --version
+   rx-elf-gcc --version
+   ```
 To install the remaining tools:
 
 * Install [Renesas Flash Programmer](https://www.renesas.com/software-tool/renesas-flash-programmer-programming-gui) for Windows. The Renesas Flash Programmer development environment includes drivers and tools needed to flash the Renesas RX65N.
@@ -107,16 +106,16 @@ To connect the Renesas RX65N to Azure, you modify a configuration file for Wi-Fi
 
 1. Comment out the following line near the top of the file as shown:
 
-    ```c
-    // #define ENABLE_DPS 
-    ```
+   ```c
+   // #define ENABLE_DPS
+   ```
 
 1. Uncomment the following two lines near the end of the file as shown:
 
-    ```c
-    #define IOT_HUB_HOSTNAME  ""
-    #define IOT_HUB_DEVICE_ID ""
-    ```
+   ```c
+   #define IOT_HUB_HOSTNAME  ""
+   #define IOT_HUB_DEVICE_ID ""
+   ```
 
 1. Set the Azure IoT device information constants to the values that you saved after you created Azure resources.
 
@@ -144,11 +143,11 @@ To connect the Renesas RX65N to Azure, you modify a configuration file for Wi-Fi
 > For more information about setting up and getting started with the Renesas RX65N, see [Renesas RX65N Cloud Kit Quick Start](https://www.renesas.com/document/man/quick-start-guide-renesas-rx65n-cloud-kit).
 
 1. Complete the following steps using the following image as a reference.
-    
+
     :::image type="content" source="media/quickstart-devkit-renesas-rx65n-cloud-kit-iot-hub/renesas-rx65n.jpg" alt-text="Photo of the Renesas RX65N board that shows the reset, USB, and E1/E2Lite.":::
 
 1. Remove the **EJ2** link from the board to enable the E2 Lite debugger. The link is located underneath the **USER SW** button.
-    > [!WARNING] 
+    > [!WARNING]
     > Failure to remove this link will result in being unable to flash the device.
 
 1. Connect the **WiFi module** to the **Cloud Option Board**
@@ -179,14 +178,14 @@ To connect the Renesas RX65N to Azure, you modify a configuration file for Wi-Fi
 
     :::image type="content" source="media/quickstart-devkit-renesas-rx65n-cloud-kit-iot-hub/rfp-auth.png" alt-text="Screenshot of Renesas Flash Programmer, Authentication.":::
 
-6. Select the *Connect Settings* tab, select the *Speed* dropdown, and set the speed to 1,000,000 bps.  
+6. Select the *Connect Settings* tab, select the *Speed* dropdown, and set the speed to 1,000,000 bps.
     > [!IMPORTANT]
-    > If there are errors when you try to flash the board, you might need to lower the speed in this setting to 750,000 bps or lower. 
+    > If there are errors when you try to flash the board, you might need to lower the speed in this setting to 750,000 bps or lower.
 
 
 6. Select the *Operation* tab, then select the *Browse...* button and locate the *rx65n_azure_iot.hex* file created in the previous section.
 
-7. Press *Start* to begin flashing. This process takes less than a minute. 
+7. Press *Start* to begin flashing. This process takes less than a minute.
 
 ### Confirm device connection details
 
@@ -206,59 +205,59 @@ You can use the **Termite** app to monitor communication and confirm that your d
 1. Press the **Reset** button on the device.
 1. In the **Termite** app, check the following checkpoint values to confirm that the device is initialized and connected to Azure IoT.
 
-    ```output
+   ```output
     Starting Azure thread
-    
-    
+
+
     Initializing WiFi
-    	MAC address: ****************
-    	Firmware version 0.14
+        MAC address: ****************
+        Firmware version 0.14
     SUCCESS: WiFi initialized
-    
+
     Connecting WiFi
-    	Connecting to SSID '*********'
-    	Attempt 1...
+        Connecting to SSID '*********'
+        Attempt 1...
     SUCCESS: WiFi connected
-    
+
     Initializing DHCP
-    	IP address: 192.168.0.31
-    	Mask: 255.255.255.0
-    	Gateway: 192.168.0.1
+        IP address: 192.168.0.31
+        Mask: 255.255.255.0
+        Gateway: 192.168.0.1
     SUCCESS: DHCP initialized
-    
+
     Initializing DNS client
-    	DNS address: 192.168.0.1
+        DNS address: 192.168.0.1
     SUCCESS: DNS client initialized
-    
+
     Initializing SNTP time sync
-    	SNTP server 0.pool.ntp.org
-    	SNTP server 1.pool.ntp.org
-    	SNTP time update: May 19, 2023 20:40:56.472 UTC 
+        SNTP server 0.pool.ntp.org
+        SNTP server 1.pool.ntp.org
+        SNTP time update: May 19, 2023 20:40:56.472 UTC
     SUCCESS: SNTP initialized
-    
+
     Initializing Azure IoT Hub client
-    	Hub hostname: ******.azure-devices.net
-    	Device id: mydevice
-    	Model id: dtmi:azurertos:devkit:gsgrx65ncloud;1
+        Hub hostname: ******.azure-devices.net
+        Device id: mydevice
+        Model id: dtmi:azurertos:devkit:gsgrx65ncloud;1
     SUCCESS: Connected to IoT Hub
-    
+
     Receive properties: {"desired":{"$version":1},"reported":{"$version":1}}
     Sending property: $iothub/twin/PATCH/properties/reported/?$rid=3{"deviceInformation":{"__t":"c","manufacturer":"Renesas","model":"RX65N Cloud Kit","swVersion":"1.0.0","osName":"Azure RTOS","processorArchitecture":"RX65N","processorManufacturer":"Renesas","totalStorage":2048,"totalMemory":640}}
     Sending property: $iothub/twin/PATCH/properties/reported/?$rid=5{"ledState":false}
     Sending property: $iothub/twin/PATCH/properties/reported/?$rid=7{"telemetryInterval":{"ac":200,"av":1,"value":10}}
-    
+
     Starting Main loop
     Telemetry message sent: {"humidity":0,"temperature":0,"pressure":0,"gasResistance":0}.
     Telemetry message sent: {"accelerometerX":-632,"accelerometerY":62,"accelerometerZ":8283}.
     Telemetry message sent: {"gyroscopeX":2,"gyroscopeY":0,"gyroscopeZ":8}.
     Telemetry message sent: {"illuminance":107.17}.
-    ```
+   ```
 
 Keep Termite open to monitor device output in the following steps.
 
 ## View device properties
 
-You can use Azure IoT Explorer to view and manage the properties of your devices. In the following sections, you use the Plug and Play capabilities that are visible in IoT Explorer to manage and interact with the Renesas RX65N. These capabilities rely on the device model published for the Renesas RX65N in the public model repository. You configured IoT Explorer to search this repository for device models earlier in this quickstart. In many cases, you can perform the same action without using plug and play by selecting IoT Explorer menu options. However, using plug and play often provides an enhanced experience. IoT Explorer can read the device model specified by a plug and play device and present information specific to that device.  
+You can use Azure IoT Explorer to view and manage the properties of your devices. In the following sections, you use the Plug and Play capabilities that are visible in IoT Explorer to manage and interact with the Renesas RX65N. These capabilities rely on the device model published for the Renesas RX65N in the public model repository. You configured IoT Explorer to search this repository for device models earlier in this quickstart. In many cases, you can perform the same action without using plug and play by selecting IoT Explorer menu options. However, using plug and play often provides an enhanced experience. IoT Explorer can read the device model specified by a plug and play device and present information specific to that device.
 
 To access IoT Plug and Play components for the device in IoT Explorer:
 
@@ -285,7 +284,7 @@ To access IoT Plug and Play components for the device in IoT Explorer:
 
 To view device properties using Azure IoT Explorer:
 
-1. Select the **Properties (read-only)** tab. There's a single read-only property to indicate whether the led is on or off. 
+1. Select the **Properties (read-only)** tab. There's a single read-only property to indicate whether the led is on or off.
 1. Select the **Properties (writable)** tab. It displays the interval that telemetry is sent.
 1. Change the `telemetryInterval` to *5*, and then select **Update desired value**. Your device now uses this interval to send telemetry.
 
@@ -293,14 +292,14 @@ To view device properties using Azure IoT Explorer:
 
 1. IoT Explorer responds with a notification. You can also observe the update in Termite.
 1. Set the telemetry interval back to 10.
- 
+
 To use Azure CLI to view device properties:
 
 1. Run the [az iot hub device-twin show](/cli/azure/iot/hub/device-twin#az-iot-hub-device-twin-show) command.
 
-    ```azurecli
-    az iot hub device-twin show --device-id mydevice --hub-name {YourIoTHubName}
-    ```
+   ```azurecli
+   az iot hub device-twin show --device-id mydevice --hub-name {YourIoTHubName}
+   ```
 
 1. Inspect the properties for your device in the console output.
 
@@ -329,13 +328,13 @@ To use Azure CLI to view device telemetry:
 
 1. Run the [az iot hub monitor-events](/cli/azure/iot/hub#az-iot-hub-monitor-events) command. Use the names that you created previously in Azure IoT for your device and IoT hub.
 
-    ```azurecli
-    az iot hub monitor-events --device-id mydevice --hub-name {YourIoTHubName}
-    ```
+   ```azurecli
+   az iot hub monitor-events --device-id mydevice --hub-name {YourIoTHubName}
+   ```
 
 1. View the JSON output in the console.
 
-    ```json
+   ```json
     {
         "event": {
             "origin": "mydevice",
@@ -349,7 +348,7 @@ To use Azure CLI to view device telemetry:
             }
         }
     }
-    ```
+   ```
 
 1. Select CTRL+C to end monitoring.
 
@@ -373,29 +372,29 @@ To use Azure CLI to call a method:
 
 1. Run the [az iot hub invoke-device-method](/cli/azure/iot/hub#az-iot-hub-invoke-device-method) command, and specify the method name and payload. For this method, setting `method-payload` to `true` turns on the LED, and setting it to `false` turns it off.
 
-    ```azurecli
-    az iot hub invoke-device-method --device-id mydevice --method-name setLedState --method-payload true --hub-name {YourIoTHubName}
-    ```
+   ```azurecli
+   az iot hub invoke-device-method --device-id mydevice --method-name setLedState --method-payload true --hub-name {YourIoTHubName}
+   ```
 
-    The CLI console shows the status of your method call on the device, where `200` indicates success.
+   The CLI console shows the status of your method call on the device, where `200` indicates success.
 
-    ```json
-    {
-        "payload": {},
-        "status": 200
-    }    
-    ```
+   ```json
+   {
+     "payload": {},
+     "status": 200
+   }
+   ```
 
 1. Check your device to confirm the LED state.
 
 1. View the Termite terminal to confirm the output messages:
 
-    ```output
+   ```output
     Received command: setLedState
-    	Payload: true
-    	LED is turned ON
+        Payload: true
+        LED is turned ON
     Sending property: $iothub/twin/PATCH/properties/reported/?$rid=23{"ledState":true}
-    ```
+   ```
 
 ## Troubleshoot and debug
 
@@ -403,33 +402,13 @@ If you experience issues building the device code, flashing the device, or conne
 
 For debugging the application, see [Debugging with Visual Studio Code](https://github.com/azure-rtos/getting-started/blob/master/docs/debugging.md).
 
-## Clean up resources
-
-If you no longer need the Azure resources created in this quickstart, you can use the Azure CLI to delete the resource group and all of its resources.
-
-> [!IMPORTANT] 
-> Deleting a resource group is irreversible. The resource group and all the resources contained in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources.
-
-To delete a resource group by name:
-
-1. Run the [az group delete](/cli/azure/group#az-group-delete) command. This command removes the resource group, the IoT Hub, and the device registration you created.
-
-    ```azurecli-interactive
-    az group delete --name MyResourceGroup
-    ```
-
-1. Run the [az group list](/cli/azure/group#az-group-list) command to confirm the resource group is deleted.  
-
-    ```azurecli-interactive
-    az group list
-    ```
-
+[!INCLUDE [iot-develop-cleanup-resources](../../includes/iot-develop-cleanup-resources.md)]
 
 ## Next steps
 
 In this quickstart, you built a custom image that contains Azure RTOS sample code, and then flashed the image to the Renesas RX65N device. You connected the Renesas RX65N to Azure, and carried out tasks such as viewing telemetry and calling a method on the device.
 
-As a next step, explore the following articles to learn more about using the IoT device SDKs, or Azure RTOS to connect devices to Azure IoT. 
+As a next step, explore the following articles to learn more about using the IoT device SDKs, or Azure RTOS to connect devices to Azure IoT.
 
 > [!div class="nextstepaction"]
 > [Connect a general simulated device to IoT Hub](quickstart-send-telemetry-iot-hub.md)

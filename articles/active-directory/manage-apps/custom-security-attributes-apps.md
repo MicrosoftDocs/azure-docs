@@ -23,8 +23,6 @@ ms.custom: not-enterprise-apps
 
 [Custom security attributes](../fundamentals/custom-security-attributes-overview.md) in Azure Active Directory (Azure AD) are business-specific attributes (key-value pairs) that you can define and assign to Azure AD objects. For example, you can assign custom security attribute to filter your applications or to help determine who gets access. This article describes how to assign, update, list, or remove custom security attributes for Azure AD enterprise applications.
 
-[!INCLUDE [portal updates](../includes/portal-update.md)]
-
 ## Prerequisites
 
 To assign or remove custom security attributes for an application in your Azure AD tenant, you need:
@@ -41,6 +39,8 @@ To assign or remove custom security attributes for an application in your Azure 
 
 Learn how to work with custom attributes for applications in Azure AD.
 ### Assign custom security attributes to an application
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 
 :::zone pivot="portal"

@@ -8,6 +8,7 @@ manager: amycolannino
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
+ms.custom: has-azure-ad-ps-ref
 ms.topic: how-to
 ms.date: 06/29/2023
 ms.collection: M365-identity-device-management
@@ -112,6 +113,8 @@ To grant access to the appropriate people, follow these steps to assign one of t
 
 ### Assign roles at attribute set scope
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 The following examples show how to assign a custom security attribute role to a principal at an attribute set scope named Engineering.
 
 # [Portal](#tab/azure-portal)
@@ -135,7 +138,7 @@ The following examples show how to assign a custom security attribute role to a 
 
 # [PowerShell](#tab/ms-powershell)
 
-[New-MgRoleManagementDirectoryRoleAssignment](/powershell/module/microsoft.graph.devicemanagement.enrolment/new-mgrolemanagementdirectoryroleassignment)
+[New-MgRoleManagementDirectoryRoleAssignment](/powershell/module/microsoft.graph.identity.governance/new-mgrolemanagementdirectoryroleassignment?view=graph-powershell-1.0)
 
 ```powershell
 $roleDefinitionId = "58a13ea3-c632-46ae-9ee0-9c0d43cd7f3d"
@@ -191,7 +194,7 @@ The following examples show how to assign a custom security attribute role to a 
 
 # [PowerShell](#tab/ms-powershell)
 
-[New-MgRoleManagementDirectoryRoleAssignment](/powershell/module/microsoft.graph.devicemanagement.enrolment/new-mgrolemanagementdirectoryroleassignment)
+[New-MgRoleManagementDirectoryRoleAssignment](/powershell/module/microsoft.graph.identity.governance/new-mgrolemanagementdirectoryroleassignment?view=graph-powershell-1.0)
 
 ```powershell
 $roleDefinitionId = "58a13ea3-c632-46ae-9ee0-9c0d43cd7f3d"

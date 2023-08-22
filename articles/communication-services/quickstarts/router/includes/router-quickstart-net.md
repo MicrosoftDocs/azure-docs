@@ -19,6 +19,10 @@ ms.author: williamzhao
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md#access-your-connection-strings-and-service-endpoints).
 - The latest version [.NET client library](https://dotnet.microsoft.com/download/dotnet) for your operating system.
 
+## Sample code
+
+You can review and download the sample code for this quick start on [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/JobRouterQuickStart).
+
 ## Setting up
 
 ### Create a new C# application
@@ -115,7 +119,7 @@ Now, we create a worker to receive work from that queue, with a label of `Some-S
 var worker = await routerClient.CreateWorkerAsync(
     new CreateWorkerOptions(workerId: "worker-1", totalCapacity: 1)
     {
-        QueueIds = { [queue.Value.Id] = new RouterQueueAssignment() },
+        QueueAssignments = { [queue.Value.Id] = new RouterQueueAssignment() },
         Labels = { ["Some-Skill"] = new LabelValue(11) },
         ChannelConfigurations = { ["voice"] = new ChannelConfiguration(capacityCostPerJob: 1) },
         AvailableForOffers = true
@@ -194,7 +198,7 @@ Deleting job job-1
 
 ## Reference documentation
 
-Read about the full set of capabilities of Azure Communication Services Job Router from the [.NET SDK reference](/dotnet/api/overview/azure/communication.jobrouter-readme) or [REST API reference](/rest/api/communication/jobrouter/job-router).
+Read about the full set of capabilities of Azure Communication Services Job Router from the [.NET SDK reference](/dotnet/api/overview/azure/communication.jobrouter-readme?view=azure-dotnet-preview) or [REST API reference](/rest/api/communication/jobrouter/job-router).
 
 <!-- LINKS -->
 

@@ -8,7 +8,7 @@ manager: liamca
 
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 06/13/2023
+ms.date: 08/07/2023
 ---
 
 # Index data from SharePoint document libraries
@@ -252,7 +252,7 @@ There are a few steps to creating the indexer:
     }
     ```
 
-1. When creating the indexer for the first time, the [Create Indexer](/rest/api/searchservice/preview-api/create-or-update-indexer) request will remaing waiting until your complete the next steps. You must call [Get Indexer Status](/rest/api/searchservice/get-indexer-status) to get the link and enter your new device code. 
+1. When creating the indexer for the first time, the [Create Indexer](/rest/api/searchservice/preview-api/create-or-update-indexer) request will remain waiting until your complete the next steps. You must call [Get Indexer Status](/rest/api/searchservice/get-indexer-status) to get the link and enter your new device code. 
 
     ```http
     GET https://[service name].search.windows.net/indexers/sharepoint-indexer/status?api-version=2020-06-30-Preview

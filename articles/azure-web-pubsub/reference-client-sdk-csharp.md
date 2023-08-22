@@ -4,7 +4,7 @@ description: This reference describes the C# client-side SDK for Azure Web PubSu
 author: kevinguo-ed
 ms.author: kevinguo
 ms.service: azure-web-pubsub
-ms.custom: devx-track-js
+ms.custom: devx-track-dotnet
 ms.topic: conceptual 
 ms.date: 07/17/2023
 ---

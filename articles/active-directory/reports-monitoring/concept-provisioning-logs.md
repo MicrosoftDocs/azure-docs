@@ -37,7 +37,7 @@ You can use the provisioning logs to find answers to questions like:
 
 ## How do you access the provisioning logs?
 
-To view the provisioning logs, your tenant must have an Azure AD Premium license associated with it. To upgrade your Azure AD edition, see [Getting started with Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md). 
+To view the provisioning logs, your tenant must have an Azure AD Premium license associated with it. To upgrade your Azure AD edition, see [Getting started with Azure Active Directory Premium](../fundamentals/get-started-premium.md). 
 
 Application owners can view logs for their own applications. The following roles are required to view provisioning logs:
 

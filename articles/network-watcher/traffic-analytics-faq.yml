@@ -7,9 +7,8 @@ metadata:
   author: halkazwini
   ms.service: network-watcher
   ms.topic: faq
-  ms.date: 04/19/2023
+  ms.date: 07/31/2023
   ms.author: halkazwini
-  ms.custom: engagement-fy23
 title: Traffic analytics frequently asked questions (FAQ)
 summary: |
   This article provides answers to the most frequently asked questions about traffic analytics in Azure Network Watcher.  
@@ -24,25 +23,29 @@ sections:
           
           - A Network Watcher enabled subscription.
           - NSG flow logs enabled for the network security groups you want to monitor.
-          - An Azure storage account, to store raw flow logs.
           - An Azure Log Analytics workspace, with read and write access.
           
           Your account must meet one of the following to enable traffic analytics:
           
           - Your account must have any one of the following Azure roles at the subscription scope: owner, contributor, or network contributor.
+          
+          > [!IMPORTANT]
+          > [Network contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#network-contributor) doesn't cover `Microsoft.OperationalInsights/workspaces/*` actions.
+          
           - If your account isn't assigned to one of the previously listed roles, it must be assigned to a custom role that is assigned the following actions, at the subscription level.
                       
-              - Microsoft.Network/applicationGateways/read
-              - Microsoft.Network/connections/read
-              - Microsoft.Network/loadBalancers/read 
-              - Microsoft.Network/localNetworkGateways/read 
-              - Microsoft.Network/networkInterfaces/read 
-              - Microsoft.Network/networkSecurityGroups/read 
-              - Microsoft.Network/publicIPAddresses/read
-              - Microsoft.Network/routeTables/read
-              - Microsoft.Network/virtualNetworkGateways/read 
-              - Microsoft.Network/virtualNetworks/read
-                  
+              - `Microsoft.Network/applicationGateways/read`
+              - `Microsoft.Network/connections/read`
+              - `Microsoft.Network/loadBalancers/read`
+              - `Microsoft.Network/localNetworkGateways/read`
+              - `Microsoft.Network/networkInterfaces/read`
+              - `Microsoft.Network/networkSecurityGroups/read`
+              - `Microsoft.Network/publicIPAddresses/read`
+              - `Microsoft.Network/routeTables/read`
+              - `Microsoft.Network/virtualNetworkGateways/read`
+              - `Microsoft.Network/virtualNetworks/read`
+              - `Microsoft.OperationalInsights/workspaces/*`
+    
           To learn how to check roles assigned to a user for a subscription, see [List Azure role assignments using the Azure portal](../role-based-access-control/role-assignments-list-portal.md):
           
           If you aren't able to see the role assignments, contact the respective subscription admin. For more information, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).

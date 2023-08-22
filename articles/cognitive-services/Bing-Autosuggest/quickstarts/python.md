@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Suggest search queries with the Bing Autosuggest REST API and Python"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn how to quickly start suggesting search terms in real time with the Bing Autosuggest API and Python.
 services: cognitive-services
 author: aahill

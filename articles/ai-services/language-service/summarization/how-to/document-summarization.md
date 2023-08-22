@@ -28,9 +28,9 @@ The AI models used by the API are provided by the service, you just have to send
 > [!TIP]
 > If you want to start using these features, you can follow the [quickstart article](../quickstart.md) to get started. You can also make example requests using [Language Studio](../../language-studio.md) without needing to write code.
 
-The document summarization API uses natural language processing techniques to locate key sentences in an unstructured text document. These sentences collectively convey the main idea of the document.
+The extractive summarization API uses natural language processing techniques to locate key sentences in an unstructured text document. These sentences collectively convey the main idea of the document.
 
-Document summarization returns a rank score as a part of the system response along with extracted sentences and their position in the original documents. A rank score is an indicator of how relevant a sentence is determined to be, to the main idea of a document. The model gives a score between 0 and 1 (inclusive) to each sentence and returns the highest scored sentences per request. For example, if you request a three-sentence summary, the service returns the three highest scored sentences.
+Extractive summarization returns a rank score as a part of the system response along with extracted sentences and their position in the original documents. A rank score is an indicator of how relevant a sentence is determined to be, to the main idea of a document. The model gives a score between 0 and 1 (inclusive) to each sentence and returns the highest scored sentences per request. For example, if you request a three-sentence summary, the service returns the three highest scored sentences.
 
 There is another feature in Azure AI Language, [key phrases extraction](./../../key-phrase-extraction/how-to/call-api.md), that can extract key information. When deciding between key phrase extraction and extractive summarization, consider the following:
 * Key phrase extraction returns phrases while extractive summarization returns sentences.
@@ -72,7 +72,7 @@ Using the above example, the API might return the following summarized sentences
 
 You can use document extractive summarization to get summaries of articles, papers, or documents. To see an example, see the [quickstart article](../quickstart.md).
 
-You can use the `sentenceCount` parameter to specify how many sentences will be returned, with `3` being the default. The range is from 1 to 20.
+You can use the `sentenceCount` parameter to guide how many sentences will be returned, with `3` being the default. The range is from 1 to 20.
 
 You can also use the `sortby` parameter to specify in what order the extracted sentences will be returned - either `Offset` or `Rank`, with `Offset` being the default. 
 

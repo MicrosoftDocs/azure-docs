@@ -98,7 +98,7 @@ The SIP peers in Azure Communications Gateway provide OPTIONS polling to allow y
 
 ### Disaster recovery: cross-region failover for management regions
 
-Voice traffic and the API Bridge are unaffected by failures in the management region, because the corresponding Azure resources are hosted in service regions. Users of the API Bridge Number Management Portal might need to sign in again.
+Voice traffic and provisioning through the Number Management Portal are unaffected by failures in the management region, because the corresponding Azure resources are hosted in service regions. Users of the Number Management Portal might need to sign in again.
 
 Monitoring services might be temporarily unavailable until service has been restored. If the management region experiences extended downtime, we'll migrate the impacted resources to another available region.
 

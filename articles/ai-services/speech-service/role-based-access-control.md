@@ -27,11 +27,11 @@ A role definition is a collection of permissions. When you create a Speech resou
 | ---| ---| ---| 
 |**Owner** |Yes |View, create, edit, and delete |
 |**Contributor** |Yes |View, create, edit, and delete |
-|**Azure AI services Contributor** |Yes |View, create, edit, and delete |
-|**Azure AI services User** |Yes |View, create, edit, and delete |
-|**Azure AI Speech Contributor** |No | View, create, edit, and delete |
-|**Azure AI Speech User** |No |View only |
-|**Azure AI services Data Reader (Preview)** |No |View only |
+|**Cognitive Services Contributor** |Yes |View, create, edit, and delete |
+|**Cognitive Services User** |Yes |View, create, edit, and delete |
+|**Cognitive Services Speech Contributor** |No | View, create, edit, and delete |
+|**Cognitive Services Speech User** |No |View only |
+|**Cognitive Services Data Reader (Preview)** |No |View only |
 
 > [!IMPORTANT]
 > Whether a role can list resource keys is important for [Speech Studio authentication](#speech-studio-authentication). To list resource keys, a role must have permission to run the `Microsoft.CognitiveServices/accounts/listKeys/action` operation. Please note that if key authentication is disabled in the Azure Portal, then none of the roles can list keys.

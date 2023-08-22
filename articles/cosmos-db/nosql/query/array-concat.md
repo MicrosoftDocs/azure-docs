@@ -53,6 +53,6 @@ The following example shows how to concatenate two arrays.
 
 ## Next steps
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [Introduction to Azure Cosmos DB](../../introduction.md)
 - [`ARRAY_SLICE`](array-slice.md)

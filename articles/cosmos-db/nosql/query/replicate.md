@@ -52,5 +52,5 @@ The following example shows how to use this function to build a repeating string
 
 ## Next steps
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`REPLACE`](replace.md)

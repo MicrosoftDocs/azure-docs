@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
-ms.custom: it-pro
+ms.custom: it-pro, has-azure-ad-ps-ref
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ---
@@ -41,6 +41,8 @@ The rows in a downloaded CSV template are as follows:
 - We recommend that you download the latest version of the CSV template as often as possible.
 
 ## To bulk restore users
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with an account that is a User Administrator in the Azure AD organization.
 1. Browse to **Azure Active Directory** > **Users** > **Deleted**.
@@ -79,7 +81,7 @@ Next, you can check to see that the users you restored exist in the Azure AD org
 Run the following command:
 
 ``` PowerShell
-Get-AzureADUser -Filter "UserType eq 'Member'"
+Get-MgUser -Filter "UserType eq 'Member'"
 ```
 
 You should see that the users that you restored are listed.
