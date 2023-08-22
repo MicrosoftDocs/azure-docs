@@ -378,7 +378,7 @@ To use best-effort zone balance, set *zoneBalance* to *false*. This setting is t
 
 ### Availability zone redeployment and migration
 
-To migrate a regional scale set to availability zone support, you'll first want to consider the [available spreading options](#spreading-options).
+To learn how to redeploy a regional scale set to availability zone support, see [Migrate Virtual Machines and Virtual Machine Scale Sets to availability zone support](./migrate-vm.md).
 
 
 ## Additional guidance
