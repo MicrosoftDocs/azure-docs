@@ -73,7 +73,7 @@ Binding code for C# depends on the [specific process model](../articles/azure-fu
 | Timer | [Trigger](../articles/azure-functions/functions-bindings-timer.md?pivots=programming-language-java#example) | [Link](https://www.serverlesslibrary.net/?language=Java&filtertext=timer) |
 | Twilio | [Output](../articles/azure-functions/functions-bindings-twilio.md?pivots=programming-language-java#example) | [Link](https://www.serverlesslibrary.net/?language=Java&filtertext=twilio) |
 ::: zone-end   
-::: zone pivot="programming-language-javascript"  
+::: zone pivot="programming-language-javascript,programming-language-typescript"  
 | Service | Examples | Samples |
 | ---- | ----- | ------ | 
 | Blob storage | [Trigger](../articles/azure-functions/functions-bindings-storage-blob-trigger.md?pivots=programming-language-javascript#example)<br/>[Input](../articles/azure-functions/functions-bindings-storage-blob-input.md?pivots=programming-language-javascript#example)<br/>[Output](../articles/azure-functions/functions-bindings-storage-blob-output.md?pivots=programming-language-javascript#example) | [Link](https://www.serverlesslibrary.net/?technology=Blob%20Storage&language=JavaScript) |

@@ -3,7 +3,7 @@ title: Develop Azure Functions locally using Core Tools
 description: Learn how to code and test Azure Functions from the command prompt or terminal on your local computer before you deploy them to run them on Azure Functions.
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
-ms.date: 08/16/2023
+ms.date: 08/21/2023
 ms.custom: devx-track-csharp, 80e4ff38-5174-43, devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: programming-languages-set-functions
 ---
@@ -42,11 +42,6 @@ You're viewing the TypeScript version of this article. Make sure to select your 
  
 If you want to get started right away, complete the [Core Tools quickstart article](create-first-function-cli-typescript.md).
 ::: zone-end
-
-The current release [version of Core Tools](#v2) is:
-```
-4.0.5198
-```
 
 [!INCLUDE [functions-install-core-tools](../../includes/functions-install-core-tools.md)]
 
@@ -165,10 +160,12 @@ To learn more, see the [`func new`](functions-core-tools-reference.md#func-new) 
 
 ## Add a binding to your function
 
-While Functions provides templates that make it easy to create functions, adding input or output bindings to an existing function requires you to manually update the function definition. 
+Adding input or output bindings to an existing function requires you to manually update the function definition. 
 [!INCLUDE [functions-add-output-binding-example-all-langs](../../includes/functions-add-output-binding-example-all-langs.md)]
 The following considerations apply when adding bindings to a function:
-
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell"
++ For languages that define functions using the _function.json_ configuration file, Visual Studio Code simplifies the process of  adding bindings to an existing function definition. For more information, see [Connect functions to Azure services using bindings](add-bindings-existing-function.md#visual-studio-code). 
+::: zone-end 
 + When you add bindings that connect to a service, you must also add an application setting that references a connection string or managed identity to the local.settings.json file. For more information, see [Work with app settings locally](#local-settings).  
 ::: zone pivot="programming-language-java,programming-language-javascript,programming-language-typescript,programming-language-powershell"
 + When you add a supported binding, the extension should already be installed when your app uses extension bundle. For more information, see [extension bundles](functions-bindings-register.md#extension-bundles).
@@ -198,7 +195,7 @@ For more information, including links to example binding code that you can refer
 
 ## <a name="start"></a>Run functions locally
 
-To run a Functions project, you run the Functions host from the root directory of your project. The host enables triggers for all functions in the project. Use the following command to run your functions locally:
+To run your project, you run the Functions host from the root directory of your project. The host enables triggers for all functions in the project. Use this command to run your functions locally:
 
 ::: zone pivot="programming-language-java"  
 ```
@@ -233,7 +230,7 @@ npm start
 This command must be [run in a virtual environment](./create-first-function-cli-python.md).
 ::: zone-end  
 
-When the Functions host starts, it outputs the URL of HTTP-triggered functions, like in the following example:
+When the Functions host starts, it outputs the URL of HTTP-triggered functions, like in this example:
 
 <pre>
 Found the following functions:
@@ -260,11 +257,9 @@ To test your functions locally, you [start the Functions host](#start) and call 
 >[!NOTE]
 > Examples in this topic use the cURL tool to send HTTP requests from the terminal or a command prompt. You can use a tool of your choice to send HTTP requests to the local server. The cURL tool is available by default on Linux-based systems and Windows 10 build 17063 and later. On older Windows, you must first download and install the [cURL tool](https://curl.haxx.se/).
 
-For more general information on testing functions, see [Strategies for testing your code in Azure Functions](functions-test-a-function.md).
+### [HTTP triggers](#tab/http-trigger)
 
-### HTTP triggered functions
-
-To start an HTTP triggered function, you call the following endpoint:
+You call this endpoint to start an HTTP triggered function:
 
 ```
 http://localhost:<PORT>/api/<FUNCTION_NAME>
@@ -272,67 +267,70 @@ http://localhost:<PORT>/api/<FUNCTION_NAME>
 
 In this URL template, `<FUNCTION_NAME>` is the name of the function or route and `<PORT>` is the local port on which func.exe is listening.  
 
-For example, the following cURL command triggers the `MyHttpTrigger` quickstart function from a GET request with the _name_ parameter passed in the query string.
+For example, this cURL command triggers the `MyHttpTrigger` quickstart function from a GET request with the _name_ parameter passed in the query string:
 
 ```
 curl --get http://localhost:7071/api/MyHttpTrigger?name=Azure%20Rocks
 ```
 
-The following example is the same function called from a POST request passing _name_ in the request body:
+This example is the same function called from a POST request passing _name_ in the request body, shown for both Bash shell and Windows command line:
 
- ##### [Bash](#tab/bash)
 ```bash
 curl --request POST http://localhost:7071/api/MyHttpTrigger --data '{"name":"Azure Rocks"}'
 ```
-##### [Cmd](#tab/cmd)
+
 ```cmd
 curl --request POST http://localhost:7071/api/MyHttpTrigger --data "{'name':'Azure Rocks'}"
 ```
----
 
-Considerations when calling HTTP endpoints locally:
+The following considerations apply when calling HTTP endpoints locally:
 
 + You can make GET requests from a browser passing data in the query string. For all other HTTP methods, you must use cURL, Fiddler, Postman, or a similar HTTP testing tool that supports POST requests.
 
 + Make sure to use the same server name and port that the Functions host is listening on. You see an endpoint like this in the output generated when starting the Function host. You can call this URL using any HTTP method supported by the trigger.
 
-### Non-HTTP triggered functions
+### [Non-HTTP trigger](#tab/non-http-trigger)
 
-For all functions other than HTTP and Event Grid triggers, you can test your functions locally using REST by calling a special endpoint called an _administration endpoint_. Calling this endpoint with an HTTP POST request on the local server triggers the function. You can call the `functions` administrator endpoint (`http://localhost:{port}/admin/functions/`) to get URLs for all available functions, both HTTP triggered and non-HTTP triggered.
-
-When you run your functions locally using Core Tools, authentication and authorization are bypassed. However, when you try to call the same administrator endpoints on your function app in Azure, you must provide an access key. To learn more, see [Function access keys](functions-bindings-http-webhook-trigger.md#authorization-keys). 
-
->[!IMPORTANT]
->Access keys are valuable shared secrets. When used locally, they must be securely stored outside of source control. Because authentication and authorization isn't required by Functions when running locally, you should avoid using and storing access keys unless your scenarios require it.
-
-To test Event Grid triggered functions locally, see [Local testing with viewer web app](event-grid-how-tos.md#local-testing-with-viewer-web-app).
-
-You can optionally pass test data to the execution in the body of the POST request. This functionality is similar to the **Test** tab in the Azure portal.
-
-You call the following administrator endpoint to trigger non-HTTP functions:
+For all functions other than HTTP and Event Grid triggers, you can test your functions locally using REST by calling a special endpoint called an _administration endpoint_. Use this format to call the `admin` endpoint and trigger a specific non-HTTP function:
 
 ```
-http://localhost:{port}/admin/functions/{function_name}
+http://localhost:<PORT>/admin/functions/<FUNCTION_NAME>
 ```
 
-To pass test data to the administrator endpoint of a function, you must supply the data in the body of a POST request message. The message body is required to have the following JSON format:
+In this URL template, `<FUNCTION_NAME>` is the name of the function or route and `<PORT>` is the local port on which func.exe is listening.
+
+You can optionally pass test data to the execution in the body of the POST request. To pass test data, you must supply the data in the body of a POST request message, which has this JSON format:
 
 ```JSON
 {
-    "input": "<trigger_input>"
+    "input": "<TRIGGER_INPUT>"
 }
 ```
 
-The `<trigger_input>` value contains data in a format expected by the function. The following cURL example is a POST to a `QueueTriggerJS` function. In this case, the input is a string that is equivalent to the message expected to be found in the queue.
+The `<TRIGGER_INPUT>` value contains data in a format expected by the function. This cURL example is shown for both Bash shell and Windows command line: 
 
-##### [Bash](#tab/bash)
 ```bash
 curl --request POST -H "Content-Type:application/json" --data '{"input":"sample queue data"}' http://localhost:7071/admin/functions/QueueTrigger
 ```
-##### [Cmd](#tab/cmd)
-```bash
+
+```cmd
 curl --request POST -H "Content-Type:application/json" --data "{'input':'sample queue data'}" http://localhost:7071/admin/functions/QueueTrigger
 ```
+
+The previous examples generate a POST request that passes a string `sample queue data` to a function named `QueueTrigger` function, which simulates data arriving in the queue and triggering the function
+
+The following considerations apply when using the administrator endpoint for local testing:
+
++ You can call the `functions` administrator endpoint (`http://localhost:{port}/admin/functions/`) to return a list of administrator URLs for all available functions, both HTTP triggered and non-HTTP triggered.
+
++ Authentication and authorization are bypassed when running locally. The same APIs exist in Azure, but when you try to call the same administrator endpoints in Azure, you must provide an access key. To learn more, see [Function access keys](functions-bindings-http-webhook-trigger.md#authorization-keys). 
+
++ Access keys are valuable shared secrets. When used locally, they must be securely stored outside of source control. Because authentication and authorization aren't required by Functions when running locally, you should avoid using and storing access keys unless your scenarios require it.
+
++ Event Grid triggers have other requirements for local testing. For more information, see [Local testing with viewer web app](event-grid-how-tos.md#local-testing-with-viewer-web-app).
+
++ Calling an administrator endpoint and passing test data is similar to using the **Test** tab in the Azure portal.
+
 ---
 
 ## <a name="publish"></a>Publish to Azure
@@ -428,7 +426,7 @@ The following considerations apply when working with the local settings file:
 
 + Because the local.settings.json may contain secrets, such as connection strings, you should never store it in a remote repository. Core Tools helps you encrypt this local settings file for improved security. For more information, see [Local settings file](functions-develop-local.md#local-settings-file). You can also [encrypt the local.settings.json file](#encrypt-the-local-settings-file) for added security. 
 
-+ By default, local settings aren't migrated automatically when the project is published to Azure. Use the [`--publish-local-settings`][func azure functionapp publish] option when you publish to make sure these settings are added to the function app in Azure. Values in the `ConnectionStrings` section are never published. You can also upload[ settings from the local.settings.json file](#upload-local-settings-to-azure) at any time. 
++ By default, local settings aren't migrated automatically when the project is published to Azure. Use the [`--publish-local-settings`][func azure functionapp publish] option when you publish your project files to make sure these settings are added to the function app in Azure. Values in the `ConnectionStrings` section are never published. You can also [upload settings from the local.settings.json file](#upload-local-settings-to-azure) at any time. 
 
 + You can download and overwrite settings in your local.settings.json file with settings from your function app in Azure. For more information, see [Download application settings](#download-application-settings).   
 ::: zone pivot="programming-language-csharp"
@@ -461,7 +459,7 @@ This command overwrites any existing settings in the local.settings.json file wi
 
 ### Download a storage connection string
 
-Core Tools also makes it easy to get the connection string of any storage account to which you have access. From the project root, use the following command to download the connection string from a storage account named `mystorage12345`.   
+Core Tools also make it easy to get the connection string of any storage account to which you have access. From the project root, use the following command to download the connection string from a storage account named `mystorage12345`.   
 
 ```command
 func azure storage fetch-connection-string mystorage12345
@@ -499,7 +497,7 @@ func settings decrypt
 
 When the settings file is encrypted and decrypted, the file's `IsEncrypted` setting also gets updated.
 
-## Working with binding extensions
+## Configure with binding extensions
 
 [Functions triggers and bindings](functions-triggers-bindings.md) are implemented as .NET extension (NuGet) packages. To be able to use a specific binding extension, that extension must be installed in the project.
 
@@ -516,33 +514,9 @@ Functions provides _extension bundles_ to make is easy to work with binding exte
 If you must use a binding extension or an extension version not in a supported bundle, you need to manually install extensions. For such rare scenarios, see the [`func extensions install`](./functions-core-tools-reference.md#func-extensions-install) command.
 ::: zone-end
 
-## Monitoring functions
-
-The recommended way to monitor the execution of your functions is by integrating with Azure Application Insights. You can also stream execution logs to your local computer. To learn more, see [Monitor Azure Functions](functions-monitoring.md).
-
-### Application Insights integration
-
-Application Insights integration should be enabled when you create your function app in Azure. If for some reason your function app isn't connected to an Application Insights instance, it's easy to do this integration in the Azure portal. To learn more, see [Enable Application Insights integration](configure-monitoring.md#enable-application-insights-integration).
-
-### Enable streaming logs
-
-In a command-line session on your local computer, you can view a stream of the logs generated by your local function executions. 
-
-[!INCLUDE [functions-streaming-logs-core-tools](../../includes/functions-streaming-logs-core-tools.md)]
-
-This type of streaming logs requires that Application Insights integration be enabled for your function app.  
-
-[!INCLUDE [functions-x86-emulation-on-arm64](../../includes/functions-x86-emulation-on-arm64.md)]
-
-If you're using Visual Studio Code, you can integrate Rosetta with the built-in Terminal. For more information, see [Enable emulation in Visual Studio Code](./functions-develop-vs-code.md#enable-emulation-in-visual-studio-code). 
-
 ## <a name="v2"></a>Core Tools versions
 
-Major versions of Azure Functions Core Tools are linked to specific major versions of the Azure Functions runtime. For example, version 4.x of Core Tools supports version 4.x of the Functions runtime. This is the recommended major version of both the Functions runtime and Core Tools. The following is the [latest released version](https://github.com/Azure/azure-functions-core-tools/releases/latest) of Core Tools:
-
-```
-4.0.5198
-```
+Major versions of Azure Functions Core Tools are linked to specific major versions of the Azure Functions runtime. For example, version 4.x of Core Tools supports version 4.x of the Functions runtime. This version is the recommended major version of both the Functions runtime and Core Tools. You can determine the latest release version of Core Tools in the [Azure Functions Core Tools repository](https://github.com/Azure/azure-functions-core-tools/releases/latest).
 
 Run the following command to determine the version of your current Core Tools installation:
 
@@ -560,6 +534,10 @@ The following considerations apply to Core Tools installations:
 ::: zone pivot="programming-language-csharp,programming-language-javascript"  
 + Version 1.x of Core Tools is required when using version 1.x of the Functions Runtime, which is still supported. This version of Core Tools can only be run locally on Windows computers. If you're currently running on version 1.x, you should consider [migrating your app to version 4.x](migrate-version-1-version-4.md) today.
 ::: zone-end  
+
+[!INCLUDE [functions-x86-emulation-on-arm64](../../includes/functions-x86-emulation-on-arm64.md)]
+
+If you're using Visual Studio Code, you can integrate Rosetta with the built-in Terminal. For more information, see [Enable emulation in Visual Studio Code](./functions-develop-vs-code.md#enable-emulation-in-visual-studio-code). 
 
 ## Next steps
 

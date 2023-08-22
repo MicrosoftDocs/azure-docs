@@ -6,10 +6,8 @@ ms.date: 08/18/2023
 ms.author: glenga
 ---
 
-The following example shows the function definition after adding a Queue Storage output binding to an HTTP triggered function:  
+The following example shows the function definition after adding a [Queue Storage output binding](../articles/azure-functions/functions-bindings-storage-queue-output.md) to an [HTTP triggered function](../articles/azure-functions/functions-bindings-http-webhook-trigger.md):  
 ::: zone pivot="programming-language-csharp" 
-The way you define the output binding depends on your process model: 
-
 ### [In-process](#tab/in-process)
 :::code language="csharp" source="~/functions-docs-csharp/functions-add-output-binding-storage-queue-cli/HttpExample.cs" range="14-18" highlight="4":::
 
@@ -23,8 +21,7 @@ The following is the definition of the `MultiResponse` object that includes the 
 :::code language="csharp" source="~/functions-docs-csharp/functions-add-output-binding-storage-queue-isolated/HttpExample.cs" range="33-38" highlight="3":::
 
 ---
-
-For more information, including links to example binding code that you can refer to, see [Add bindings to a function](../articles/azure-functions/add-bindings-existing-function.md?tabs=csharp#manually-add-bindings-based-on-examples).  
+The way you define the output binding depends on your process model. For more information, including links to example binding code that you can refer to, see [Add bindings to a function](../articles/azure-functions/add-bindings-existing-function.md?tabs=csharp#manually-add-bindings-based-on-examples).  
 ::: zone-end  
 ::: zone pivot="programming-language-java"
 
@@ -33,8 +30,6 @@ For more information, including links to example binding code that you can refer
 For more information, including links to example binding code that you can refer to, see [Add bindings to a function](../articles/azure-functions/add-bindings-existing-function.md?tabs=java#manually-add-bindings-based-on-examples).  
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"
-The way you define the output binding depends on the version of your Node.js model:
-
 ### [v3](#tab/node-v3)
 :::code language="json" source="~/functions-docs-javascript/functions-add-output-binding-storage-queue-cli/HttpExample/function.json" highlight="18-24" :::
 
@@ -44,7 +39,7 @@ Example binding for Node.js v4 (preview) not yet available.
 
 --- 
 
-For more information, including links to example binding code that you can refer to, see [Add bindings to a function](../articles/azure-functions/add-bindings-existing-function.md?tabs=javascript#manually-add-bindings-based-on-examples).   
+The way you define the output binding depends on the version of your Node.js model. For more information, including links to example binding code that you can refer to, see [Add bindings to a function](../articles/azure-functions/add-bindings-existing-function.md?tabs=javascript#manually-add-bindings-based-on-examples).   
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
 :::code language="powershell" range="18-19" source="~/functions-docs-powershell/functions-add-output-binding-storage-queue-cli/HttpExample/run.ps1" highlight="18-24":::
@@ -52,8 +47,6 @@ For more information, including links to example binding code that you can refer
 For more information, including links to example binding code that you can refer to, see [Add bindings to a function](../articles/azure-functions/add-bindings-existing-function.md?tabs=powershell#manually-add-bindings-based-on-examples).   
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
-The way you define the output binding depends on the version of your Python model:
-
 ### [v2](#tab/python-v2)
 
 :::code language="python" source="~/functions-docs-python-v2/function_app.py" range="6-9" highlight="2":::
@@ -64,11 +57,9 @@ The way you define the output binding depends on the version of your Python mode
 
 ---
 
-For more information, including links to example binding code that you can refer to, see [Add bindings to a function](../articles/azure-functions/add-bindings-existing-function.md?tabs=python#manually-add-bindings-based-on-examples).   
+The way you define the output binding depends on the version of your Python model. For more information, including links to example binding code that you can refer to, see [Add bindings to a function](../articles/azure-functions/add-bindings-existing-function.md?tabs=python#manually-add-bindings-based-on-examples).   
 ::: zone-end
 ::: zone pivot="programming-language-typescript"
-The way you define the output binding depends on the version of your Node.js model:
-
 ### [v3](#tab/node-v3)
 :::code language="json" source="~/functions-docs-javascript/functions-add-output-binding-storage-queue-cli/HttpExample/function.json" highlight="18-24":::
 
@@ -77,5 +68,5 @@ The way you define the output binding depends on the version of your Node.js mod
 Example binding for Node.js v4 (preview) not yet available.
 
 --- 
-
+The way you define the output binding depends on the version of your Node.js model. For more information, including links to example binding code that you can refer to, see [Add bindings to a function](../articles/azure-functions/add-bindings-existing-function.md?tabs=typescript#manually-add-bindings-based-on-examples).
 ::: zone-end
