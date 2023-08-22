@@ -131,7 +131,7 @@ Alternatively, you can configure the virtual network to **allow only approved ou
 For managed online endpoints, you can also secure outbound communication between deployments and resources by using an Azure Machine Learning managed virtual network for each deployment in the endpoint. The secure outbound communication is also handled by using private endpoints to those service instances.
 
 > [!NOTE]
-> We strongly recommend that you use the approach described in [Secure outbound access with managed workspace VNet](#secure-outbound-access-with-managed-workspace-vnet) instead of this legacy method.
+> We strongly recommend that you use the approach described in [Secure outbound access with workspace managed virtual network](#secure-outbound-access-with-workspace-managed-virtual-network) instead of this legacy method.
 
 To restrict communication between a deployment and external resources, including the Azure resources it uses, you should ensure that:
 

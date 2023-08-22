@@ -13,14 +13,14 @@ ms.date: 08/18/2023
 ms.custom: event-tier1-build-2022, devx-track-azurecli, moe-wsvnet
 ---
 
-# How to secure managed online endpoints with network isolation
+# Secure your managed online endpoints with network isolation
 
 [!INCLUDE [machine-learning-dev-v2](includes/machine-learning-dev-v2.md)]
 
-In this article, you'll secure a managed online endpoint, using a workspace configured for network isolation. The workspace uses a **managed virtual network** that **allows only approved outbound** communication. You'll create a managed online endpoint that uses the workspace's private endpoint for secure inbound communication. You'll also create a deployment that uses the private endpoints of the managed virtual network for outbound communication.
+In this article, you'll use network isolation to secure a managed online endpoint. You'll create a managed online endpoint that uses an Azure Machine Learning workspace's private endpoint for secure inbound communication. You'll also configure the workspace with a **managed virtual network** that **allows only approved outbound** communication for deployments (preview). Finally, you'll create a deployment that uses the private endpoints of the workspace's managed virtual network for outbound communication.
 
 > [!NOTE]
-> This article uses the recommended [network isolation method](concept-secure-online-endpoint.md) that is based on the workspace managed VNet. For examples that use the legacy method for network isolation, see the deployment files [deploy-moe-vnet-legacy.sh](https://github.com/Azure/azureml-examples/blob/main/cli/deploy-moe-vnet-legacy.sh) (for deployment using a generic model) and [deploy-moe-vnet-mlflow-legacy.sh](https://github.com/Azure/azureml-examples/blob/main/cli/deploy-moe-vnet-mlflow-legacy.sh) (for deployment using an MLflow model) in the azureml-examples GitHub repo.
+> This article uses the recommended [network isolation method](concept-secure-online-endpoint.md) that is based on the workspace managed virtual network. For examples that use the legacy method for network isolation, see the deployment files [deploy-moe-vnet-legacy.sh](https://github.com/Azure/azureml-examples/blob/main/cli/deploy-moe-vnet-legacy.sh) (for deployment using a generic model) and [deploy-moe-vnet-mlflow-legacy.sh](https://github.com/Azure/azureml-examples/blob/main/cli/deploy-moe-vnet-mlflow-legacy.sh) (for deployment using an MLflow model) in the azureml-examples GitHub repo.
 
 ## Prerequisites
 
@@ -88,7 +88,7 @@ The commands in this tutorial are in the file `deploy-managed-online-endpoint-wo
 
 To create a secured managed online endpoint, create the endpoint in your workspace and set the endpoint's `public_network_access` to `disabled` to control inbound communication. The endpoint will then have to use the workspace's private endpoint for inbound communication.
 
-Any deployments of the endpoint will use the private endpoints of the managed virtual network for outbound communication.
+Because the workspace is configured to have a managed virtual network, any deployments of the endpoint will use the private endpoints of the managed virtual network for outbound communication (preview).
 
 1. Set the endpoint's name.
 
