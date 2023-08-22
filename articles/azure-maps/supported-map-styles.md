@@ -168,6 +168,6 @@ Learn about how to set a map style in Azure Maps:
 
 [Choose the right pricing tier in Azure Maps]: choose-pricing-tier.md
 [Map image]: /rest/api/maps/render-v2/get-map-static-image
-[Map tile]: /rest/api/maps/render-v2/getmaptile
+[Map tile]: /rest/api/maps/render-v2/get-map-tile
 [Satellite tile]: /rest/api/maps/render/getmapimagerytilepreview
 [Choose a map style]: choose-map-style.md
