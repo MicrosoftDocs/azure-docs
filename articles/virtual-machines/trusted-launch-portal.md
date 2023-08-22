@@ -163,7 +163,7 @@ You can deploy trusted launch VMs using a quickstart template:
 [Azure trusted launch virtual machines](trusted-launch.md) supports the creation and sharing of custom images using Azure Compute Gallery. There are two types of images that you can create, based on the security types of the image:
 
 - **Recommended** [Trusted launch VM Supported (`TrustedLaunchSupported`) images](#trusted-launch-vm-supported-images) are images where the source does not have VM Guest state information and can be used to create either [Generation 2 VMs](generation-2.md) or [Trusted Launch VMs](trusted-launch.md).
-- [Trusted launch VM (`TrustedLaunch`) images](#trusted-launch-vm-images) are images where the source usually has [VM Guest state information](trusted-launch.md#what-is-vm-guest-state-vmgs) and can be used to create only [Trusted Launch VMs](trusted-launch.md).
+- [Trusted launch VM (`TrustedLaunch`) images](#trusted-launch-vm-images) are images where the source usually has [VM Guest state information](trusted-launch-faq.md#what-is-vm-guest-state-vmgs) and can be used to create only [Trusted Launch VMs](trusted-launch.md).
 
 ### Trusted launch VM Supported Images
 
