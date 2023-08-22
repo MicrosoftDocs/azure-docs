@@ -44,30 +44,30 @@ Azure Virtual Machines supports enabling Trusted Launch on existing [Azure Gener
 This section steps through using the Azure portal to enable Trusted Launch on existing Azure Generation 2 VM.
 
 1. Log in to [Azure portal](https://portal.azure.com)
-1. Validate virtual machine generation is **V2** and **Deallocate** VM.
+2. Validate virtual machine generation is **V2** and **Deallocate** VM.
 
 :::image type="content" source="./media/trusted-launch/02-g2totl-stop-vm.png" alt-text="Screenshot of the Gen2 VM to be de-allocated":::
 
-1. On **Overview** tab in VM **Properties**, Select **Standard** under **Security type**. This navigates to **Configuration** tab of VM.
+3. On **Overview** tab in VM **Properties**, Select **Standard** under **Security type**. This navigates to **Configuration** tab of VM.
 
 :::image type="content" source="./media/trusted-launch/03-g2totl-click-standard.png" alt-text="Screenshot of the Security type Standard":::
 
-1. Select drop-down **Security type** under **Security type** section of **Configuration** tab.
+4. Select drop-down **Security type** under **Security type** section of **Configuration** tab.
 
 :::image type="content" source="./media/trusted-launch/04-g2totl-select-dropdown.png" alt-text="Screenshot of the Security type drop-down.":::
 
-1. Select **Trusted Launch** under drop-down and select check-boxes to enable **Secure Boot** and **vTPM**. CLick **Save** after making required changes.
+5. Select **Trusted Launch** under drop-down and select check-boxes to enable **Secure Boot** and **vTPM**. CLick **Save** after making required changes.
 > [!NOTE]
 > - **vTPM** is enabled by default.
 > - **Secure Boot** is disabled by default and recommended to be enabled if you are not using custom unsigned kernel or drivers. Secure Boot preserves boot integrity and enables foundational security for VM.
 
 :::image type="content" source="./media/trusted-launch/05-g2totl-select-uefi-settings.png" alt-text="Screenshot of the Secure boot and vTPM settings.":::
 
-1. Close the **Configuration** tab once the update is successfully complete and validate **Security type** under VM properties on **Overview** tab.
+6. Close the **Configuration** tab once the update is successfully complete and validate **Security type** under VM properties on **Overview** tab.
 
 :::image type="content" source="./media/trusted-launch/06-g2totl-validate-uefi.png" alt-text="Screenshot of the Trusted Launch upgraded VM.":::
 
-1. Start the upgraded Trusted Launch VM and ensure that it has started successfully and verify that you are able to log in to the VM using either RDP (for Windows VM) or SSH (for Linux VM).
+7. Start the upgraded Trusted Launch VM and ensure that it has started successfully and verify that you are able to log in to the VM using either RDP (for Windows VM) or SSH (for Linux VM).
 
 ### [CLI](#tab/cli)
 
