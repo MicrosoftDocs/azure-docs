@@ -18,6 +18,8 @@ keywords: content moderator, Azure AI Content Moderator, online moderator, conte
 
 # Quickstart: Use the Content Moderator client library
 
+[!INCLUDE [deprecation notice](includes/tool-deprecation.md)]
+
 ::: zone pivot="programming-language-csharp"
 
 [!INCLUDE [C# quickstart](includes/quickstarts/csharp-sdk.md)]
