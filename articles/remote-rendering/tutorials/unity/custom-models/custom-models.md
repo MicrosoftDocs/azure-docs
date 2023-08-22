@@ -27,10 +27,10 @@ In this tutorial, you learn how to:
 
 The Mixed Reality Toolkit (MRTK) is a cross-platform toolkit for building mixed reality experiences. We use MRTK 2.8.3 for its interaction and visualization features.
 
-The [official guide](../../../../../../training/modules/learn-mrtk-tutorials/1-5-exercise-configure-resources?tabs=openxr) to import MRTK contains some steps we don't need to do. Only these three steps are necessary:
- - Importing the 'Mixed Reality Toolkit/Mixed Reality Toolkit Foundation' version 2.8.3 to your project through the Mixed Reality Feature Tool ([see](../../../../../../training/modules/learn-mrtk-tutorials/1-5-exercise-configure-resources?tabs=openxr#import-the-mrtk-unity-foundation-package)).
- - Run the configuration wizard of MRTK ([see](../../../../../../training/modules/learn-mrtk-tutorials/1-5-exercise-configure-resources?tabs=openxr#configure-the-unity-project)).
- - Add MRTK to the current scene ([see](../../../../../../training/modules/learn-mrtk-tutorials/1-5-exercise-configure-resources?tabs=openxr#create-the-scene-and-configure-mrtk)). Use the *ARRMixedRealityToolkitConfigurationProfile* here instead of the suggested profile in the tutorial.
+The [official guide](/training/modules/learn-mrtk-tutorials/1-5-exercise-configure-resources?tabs=openxr) to import MRTK contains some steps we don't need to do. Only these three steps are necessary:
+ - Importing the 'Mixed Reality Toolkit/Mixed Reality Toolkit Foundation' version 2.8.3 to your project through the Mixed Reality Feature Tool ([see](/training/modules/learn-mrtk-tutorials/1-5-exercise-configure-resources?tabs=openxr#import-the-mrtk-unity-foundation-package)).
+ - Run the configuration wizard of MRTK ([see](/training/modules/learn-mrtk-tutorials/1-5-exercise-configure-resources?tabs=openxr#configure-the-unity-project)).
+ - Add MRTK to the current scene ([see](/training/modules/learn-mrtk-tutorials/1-5-exercise-configure-resources?tabs=openxr#create-the-scene-and-configure-mrtk)). Use the *ARRMixedRealityToolkitConfigurationProfile* here instead of the suggested profile in the tutorial.
 
 ## Import assets used by this tutorial
 
