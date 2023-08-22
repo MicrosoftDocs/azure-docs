@@ -59,6 +59,8 @@ additionalContent:
               url: ../../firewall/overview.md
             - text: Protect my inbound web application connections
               url: ../../web-application-firewall/overview.md
+            - text: Implement the Zero Trust model
+              url: https://techcommunity.microsoft.com/t5/azure-network-security-blog/zero-trust-with-azure-network-security/ba-p/3668280
             - text: Manage my network firewall
               url: ../../firewall-manager/overview.md
             - text: Learn more about Azure Firewall
