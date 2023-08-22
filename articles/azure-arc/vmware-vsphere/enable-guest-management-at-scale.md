@@ -24,9 +24,7 @@ Ensure the following before you install Arc agents at scale for VMware VMs:
     - Able to connect through the firewall to communicate over the internet, and [these URLs](../servers/network-requirements.md#urls) aren't blocked.
 
       > [!NOTE]
-      > If you're using a Linux VM, the account must not prompt for login on sudo commands. To override the prompt, from a terminal, run `sudo visudo`, and add `<username> ALL=(ALL) NOPASSWD:ALL` at the end of the file. Ensure you replace `<username>`. 
-
-      > If your VM template has these changes incorporated, you won't need to do this for the VM created from that template.
+      > If you're using a Linux VM, the account must not prompt for login on sudo commands. To override the prompt, from a terminal, run `sudo visudo`, and add `<username> ALL=(ALL) NOPASSWD:ALL` at the end of the file. Ensure you replace `<username>`. <br>If your VM template has these changes incorporated, you won't need to do this for the VM created from that template.
 
 ## Install Arc agents at scale from portal
 
