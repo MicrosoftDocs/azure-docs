@@ -21,10 +21,8 @@ items:
       href: concept-audit-logs.md
     - name: Sign-in logs
       href: concept-sign-ins.md
-    - name: Sign-in logs (preview)
-      href: concept-all-sign-ins.md
-    - name: Basic info in the sign-in logs
-      href: reference-basic-info-sign-in-logs.md
+    - name: Sign-in log activity details
+      href: concept-sign-in-log-activity-details.md
     - name: Provisioning logs
       href: concept-provisioning-logs.md
   - name: How-to guides 
@@ -34,8 +32,8 @@ items:
       href: howto-access-activity-logs.md
     - name: Access logs with Microsoft Graph  
       href: quickstart-access-log-with-graph-api.md
-    - name: Filter audit logs
-      href: quickstart-filter-audit-log.md
+    - name: Customize and filter activity logs
+      href: howto-customize-filter-logs.md
     - name: Analyze sign-ins 
       href: quickstart-analyze-sign-in.md
     - name: Download logs
@@ -47,7 +45,7 @@ items:
   - name: Concepts
     expanded: false
     items:
-    - name: Usage and Insights report
+    - name: Usage and insights report
       href: concept-usage-insights-report.md
   - name: How-to guides 
     expanded: true
