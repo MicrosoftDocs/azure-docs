@@ -106,7 +106,7 @@ To view a list of users with outdated clients:
 
    :::image type="content" source="media/insights-use-cases/insights-client-version-usage-2.png" alt-text="A screenshot showing a table of users with outdated clients." :::
 
-You should periodically review the versions of clients in use to ensure that users are getting the best experience.
+You should periodically review the versions of clients in use to ensure your users are getting the best experience.
 
 ## Cost saving opportunities
 
