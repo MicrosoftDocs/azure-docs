@@ -280,7 +280,7 @@ In addition to developing the application, the *developer* maintains the applica
 
 ### Azure services for developer
 
-The following table lists the services that are commonly used by the network engineer to monitor the health and performance of the Kubernetes cluster and its components.  
+The following table lists the services that are commonly used by the developer to monitor the health and performance of the Kubernetes cluster and its components.  
 
 
 | Service | Description |
