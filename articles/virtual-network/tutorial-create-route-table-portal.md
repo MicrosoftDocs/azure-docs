@@ -71,7 +71,7 @@ A **DMZ** and **Private** subnet are needed for this tutorial. The **DMZ** subne
 
 ## Create an NVA virtual machine
 
-Network virtual appliances (NVAs) are virtual machines that help with network functions, such as routing and firewall optimization. In this section, create an NVA using a **Ubuntu 22.04** virtual machine.
+Network virtual appliances (NVAs) are virtual machines that help with network functions, such as routing and firewall optimization. In this section, create an NVA using an Ubuntu 22.04** virtual machine.
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
@@ -215,11 +215,11 @@ The public virtual machine is used to simulate a machine in the public internet.
 
 ## Enable IP forwarding
 
-To route traffic through the NVA, turn on IP forwarding in Azure and in the operating system of the **vm-nva** virtual machine. When IP forwarding is enabled, any traffic received by **vm-nva** VM that's destined for a different IP address, won't be dropped and will be forwarded to the correct destination.
+To route traffic through the NVA, turn on IP forwarding in Azure and in the operating system of **vm-nva**. When IP forwarding is enabled, any traffic received by **vm-nva** that's destined for a different IP address, isn't dropped and is forwarded to the correct destination.
 
 ### Enable IP forwarding in Azure
 
-In this section, you'll turn on IP forwarding for the network interface of the **vm-nva** virtual machine.
+In this section, you turn on IP forwarding for the network interface of the **vm-nva** virtual machine.
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
@@ -227,7 +227,7 @@ In this section, you'll turn on IP forwarding for the network interface of the *
 
 1. In **vm-nva**, select **Networking** from the **Settings** section.
 
-1. Select the name of the interface next to **Network Interface:**. The name will begin with **vm-nva** and have a random number assigned to the interface. The name of the interface in this example is **vm-nva548**.
+1. Select the name of the interface next to **Network Interface:**. The name begins with **vm-nva** and has a random number assigned to the interface. The name of the interface in this example is **vm-nva548**.
 
 1. In the network interface overview page, select **IP configurations** from the **Settings** section.
 
@@ -366,7 +366,7 @@ Test routing of network traffic from **vm-public** to **vm-private**. Test routi
      Resume: pmtu 1500 hops 2 back 1 
     ```
     
-    You can see that there are two hops in the above response for **tracepath** ICMP traffic from **vm-public** to **vm-private**. The first hop is **vm-nva**. The second hop is the destination **vm-private**.
+    You can see that there are two hops in the above response for **`tracepath`** ICMP traffic from **vm-public** to **vm-private**. The first hop is **vm-nva**. The second hop is the destination **vm-private**.
 
     Azure sent the traffic from **subnet-1** through the NVA and not directly to **subnet-private** because you previously added the **to-private-subnet** route to **route-table-public** and associated it to **subnet-1**.
 
@@ -416,7 +416,7 @@ In this tutorial, you:
 
 * Created a simple NVA that routed traffic from a public subnet to a private subnet. 
 
-You can deploy different pre-configured NVAs from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking), which provide many useful network functions. 
+You can deploy different preconfigured NVAs from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking), which provide many useful network functions. 
 
 To learn more about routing, see [Routing overview](virtual-networks-udr-overview.md) and [Manage a route table](manage-route-table.md).
 
