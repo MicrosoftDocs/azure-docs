@@ -407,8 +407,8 @@ To learn more about Azure Notebooks, see
 [Azure Notebooks]: https://notebooks.azure.com
 [Data Upload API]: /rest/api/maps/data-v2/upload
 [Data Upload]: /rest/api/maps/data-v2/upload
-[Get Map Image API]: /rest/api/maps/render/getmapimage
-[Get Map Image service]: /rest/api/maps/render/getmapimage
+[Get Map Image API]: /rest/api/maps/render-v2/get-map-static-image
+[Get Map Image service]: /rest/api/maps/render-v2/get-map-static-image
 [Get Route Directions API]: /rest/api/maps/route/getroutedirections
 [Get Route Directions]: /rest/api/maps/route/getroutedirections
 [Get Route Range API]: /rest/api/maps/route/getrouterange
@@ -420,7 +420,7 @@ To learn more about Azure Notebooks, see
 [Post Search Inside Geometry API]: /rest/api/maps/search/postsearchinsidegeometry
 [Post Search Inside Geometry]: /rest/api/maps/search/postsearchinsidegeometry
 [Quickstart: Sign in and set a user ID]: https://notebooks.azure.com
-[Render - Get Map Image]: /rest/api/maps/render/getmapimage
+[Render - Get Map Image]: /rest/api/maps/render-v2/get-map-static-image
 [*requirements.txt*]: https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/requirements.txt
 [routing APIs]: /rest/api/maps/route
 [subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account

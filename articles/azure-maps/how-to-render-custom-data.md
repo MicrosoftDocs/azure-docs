@@ -293,12 +293,12 @@ Similarly, you can change, add, and remove other style modifiers.
 
 
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
-[Render - Get Map Image]: /rest/api/maps/render/getmapimage
+[Render - Get Map Image]: /rest/api/maps/render-v2/get-map-static-image
 [Data service]: /rest/api/maps/data
 [Data Upload]: /rest/api/maps/data-v2/upload
-[path parameter]: /rest/api/maps/render/getmapimage#uri-parameters
+[path parameter]: /rest/api/maps/render-v2/get-map-static-image#uri-parameters
 [Postman]: https://www.postman.com/
 [Render service]: /rest/api/maps/render/get-map-image
-[static image service path parameters]: /rest/api/maps/render/getmapimage#uri-parameters
-[static image service]: /rest/api/maps/render/getmapimage
+[static image service path parameters]: /rest/api/maps/render-v2/get-map-static-image#uri-parameters
+[static image service]: /rest/api/maps/render-v2/get-map-static-image
 [Subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
