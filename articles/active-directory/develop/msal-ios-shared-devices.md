@@ -250,7 +250,7 @@ These Microsoft applications support Azure AD's shared device mode:
 - [Microsoft Teams](/microsoftteams/platform/) (in Public Preview)
 
 > [!IMPORTANT]
-> Public preview is provided without a service-level agreement and isn't recommended for production workloads. Some features might be unsupported or have constrained capabilities. For more information, see [Universal License Terms for Online Services](https://aka.ms/EntraPreviewsTermsOfUse).
+> Public preview is provided without a service-level agreement and isn't recommended for production workloads. Some features might be unsupported or have constrained capabilities. For more information, see [Universal License Terms for Online Services](https://www.microsoft.com/licensing/terms/product/ForOnlineServices/all).
 
 ## Next steps
 
