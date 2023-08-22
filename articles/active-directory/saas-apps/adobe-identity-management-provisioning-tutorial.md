@@ -129,7 +129,8 @@ This section guides you through the steps to configure the Azure AD provisioning
    |urn:ietf:params:scim:schemas:extension:Adobe:2.0:User:emailAliases|String||
    |urn:ietf:params:scim:schemas:extension:Adobe:2.0:User:eduRole|String||
 
-    >[!NOTE] The **eduRole** field accepts values like `Teacher or Student`, anything else will be ignored.
+    > [!NOTE]
+    > The **eduRole** field accepts values like `Teacher or Student`, anything else will be ignored.
 
 10. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Adobe Identity Management**.
 

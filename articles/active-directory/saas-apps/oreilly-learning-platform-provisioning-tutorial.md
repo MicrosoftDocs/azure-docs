@@ -51,7 +51,7 @@ Before you begin to configure the O'Reilly learning platform to support provisio
 
 ## Step 3. Add O'Reilly learning platform from the Azure AD application gallery
 
-Add O'Reilly learning platform from the Azure AD application gallery to start managing provisioning to O'Reilly learning platform. If you have previously [set up O'Reilly learning platform for SSO](https://learn.microsoft.com/azure/active-directory/saas-apps/oreilly-learning-platform-tutorial), you can use the same application. However it's recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md).
+Add O'Reilly learning platform from the Azure AD application gallery to start managing provisioning to O'Reilly learning platform. If you have previously [set up O'Reilly learning platform for SSO](oreilly-learning-platform-tutorial.md), you can use the same application. However it's recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md).
 
 ## Step 4. Define who will be in scope for provisioning
 
