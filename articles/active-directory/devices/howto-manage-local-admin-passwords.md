@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 > [!IMPORTANT]
 > Azure AD support for Windows Local Administrator Password Solution is currently in preview.
-> For more information about previews, see [Universal License Terms For Online Services](https://www.microsoft.com/licensing/terms/product/ForOnlineServices/EAEAS).
+> For more information about previews, see [Universal License Terms For Online Services](https://www.microsoft.com/licensing/terms/product/ForOnlineServices/all).
 
 Every Windows device comes with a built-in local administrator account that you must secure and protect to mitigate any Pass-the-Hash (PtH) and lateral traversal attacks. Many customers have been using our standalone, on-premises [Local Administrator Password Solution (LAPS)](https://www.microsoft.com/download/details.aspx?id=46899) product for local administrator password management of their domain joined Windows machines. With Azure AD support for Windows LAPS, we're providing a consistent experience for both Azure AD joined and hybrid Azure AD joined devices.
 
