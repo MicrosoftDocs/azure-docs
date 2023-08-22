@@ -10,7 +10,7 @@ author: dem108
 ms.author: sehan
 ms.reviewer: mopeakande
 reviewer: msakande
-ms.custom: devplatv2
+ms.custom: devplatv2, moe-wsvnet
 ms.date: 08/15/2023
 ---
 

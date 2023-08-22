@@ -10,7 +10,7 @@ ms.author: jhirono
 author: jhirono
 ms.date: 02/14/2023
 ms.topic: how-to
-ms.custom: build-2023
+ms.custom: build-2023, moe-wsvnet
 ---
 
 # Plan for network isolation
@@ -85,11 +85,23 @@ The following tables list the required outbound [Azure Service Tags](/azure/virt
 
 ### Managed online endpoint
 
-Azure Machine Learning uses a private endpoint to secure inbound communication to a managed online endpoint and uses a workspace managed virtual network to provide secure communication between deployments and resources. To prevent public access to an endpoint, set its `public_network_access` flag to `disabled`. When this flag is disabled, your endpoint can be accessed via the private endpoint of your workspace, and it can't be reached from public networks. To secure outbound communication from a deployment to services, the deployment needs to be created in the workspace managed VNet. The deployment can then use the managed VNet's private endpoints for outbound communication.
+Security for inbound and outbound communication are configured separately for managed online endpoints.
 
-For more information, see [Network isolation with managed online endpoints](concept-secure-online-endpoint.md).
+#### Inbound communication
+
+Azure Machine Learning uses a private endpoint to secure inbound communication to a managed online endpoint. Set the endpoint's `public_network_access` flag to `disabled` to prevent public access to it. When this flag is disabled, your endpoint can be accessed only via the private endpoint of your Azure Machine Learning workspace, and it can't be reached from public networks.
+
+#### Outbound communication
+
+[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
+
+To secure outbound communication from a deployment to resources, Azure Machine Learning uses a workspace managed virtual network (preview).  The deployment needs to be created in the workspace managed VNet so that it can use the private endpoints of the workspace managed virtual network for outbound communication.
+
+The following architecture diagram shows how communications flow through private endpoints to the managed online endpoint. Incoming scoring requests from a client's virtual network flow through the workspace's private endpoint to the managed online endpoint. Outbound communication from deployments to services is handled through private endpoints from the workspace's managed virtual network to those service instances.
 
 :::image type="content" source="media/concept-secure-online-endpoint/endpoint-network-isolation-with-workspace-managed-vnet.png" alt-text="Diagram showing inbound communication via a workspace private endpoint and outbound communication via private endpoints of a workspace managed VNet." lightbox="media/concept-secure-online-endpoint/endpoint-network-isolation-with-workspace-managed-vnet.png":::
+
+For more information, see [Network isolation with managed online endpoints](concept-secure-online-endpoint.md).
 
 ### Private IP address shortage in your main network
 
