@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory SSO integration with Document360
-description: Learn how to configure Single Sign-On (SSO) between Azure Active Directory (AD) and Document360.
+description: Learn how to configure single sign-on (SSO) between Azure Active Directory (AD) and Document360.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -104,7 +104,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 1. To configure SSO on the **Document360** portal, you need to navigate to **Settings** → **Users & Security** → **SAML/OpenID** → **SAML** and perform the following steps:
 
-    [![Screenshot shows to Document360 configuration.](./media/document360-tutorial/configuration.png "Document360")](./media/document360-tutorial/configuration.png#lightbox)
+    [![Screenshot shows the Document360 configuration.](./media/document360-tutorial/configuration.png "Document360")](./media/document360-tutorial/configuration.png#lightbox)
 
 1. Click on the Edit icon in **SAML basic configuration** on the Document360 portal side and paste the values from Azure AD portal based on the below mentioned field associations.
 
@@ -125,7 +125,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 1. From the Document360 portal, go to **Settings → Users & Security → Team accounts & groups  → Team account**. Click the **New team account** button and type in the required details, specify the roles, and follow the module steps to add a user to Document360. 
 
-    [![Screenshot shows to Document360 test user.](./media/document360-tutorial/add-user.png "Document360")](./media/document360-tutorial/add-user.png#lightbox)
+    [![Screenshot shows the Document360 test user.](./media/document360-tutorial/add-user.png "Document360")](./media/document360-tutorial/add-user.png#lightbox)
 
 ## Test SSO 
 
@@ -133,7 +133,7 @@ In this section, you test your Azure AD single sign-on configuration with the fo
 
 #### SP initiated:
 
-* Click on **Test this application** in Azure portal. This will redirect to the Document360 Sign on URL, where you can initiate the login flow.  
+* Click on **Test this application** in Azure portal. This will redirect to the Document360 Sign-on URL, where you can initiate the login flow.  
 
 * Go to Document360 Sign-on URL directly and initiate the login flow.
 
