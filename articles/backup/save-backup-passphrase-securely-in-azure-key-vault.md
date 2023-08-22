@@ -107,6 +107,70 @@ Type        : SystemAssigned
 
 Now, you need to assign permissions to the Recovery Services vault to save the passphrase as a Secret in Azure Key Vault. This is done by allowing the Recovery Services vault's managed identity to access the Key Vault.
 
+#### Enable permissions using role-based access permission model for Key Vault
+
+**Choose a client:**
+
+# [Azure portal](#tab/azure-portal)
+
+To assign the permissions, follow these steps:
+
+1. Go to your *Azure Key Vault* > **Settings** > **Access Configuration** to ensure that the permission model is **RBAC**.
+ 
+2. Select **Access control (IAM)** > **+Add** to add role assignment.
+
+3. The Recovery Services vault identity required the **Set permission on Secret** to create and add the passphrase as a Secret to the Key Vault. 
+
+   You can select a *built-in role* such as **Key Vault Secrets Officer** that has the permission (along with other permissions not required for this feature) or create a custom role with only Set permission on Secret. 
+
+  Select **Details** to view the permissions granted by the role and ensure Set permission on Secret is available.
+ 
+4. Select **Next** to proceed to select Members for assignment. 
+
+5. Select **Managed identity** and then **+ Select members**. choose the **Subscription** of the target Recovery Services vault, select Recovery Services vault under **System-assigned managed identity**.
+
+   Seach and select the *name of the Recovery Services vault*.
+ 
+6. Select **Next**, review the assignment, and select **Review + assign**.
+ 
+7.	Go to **Access control (IAM)** in the Key Vault, select **Role assignments** and ensure that the Recovery Services vault is listed.
+ 
+
+# [PowerShell](#tab/powershell)
+
+To assign the permissions, run the following cmdlet:
+
+```azurepowershell
+#Find the application id for your recovery services vault
+Get-AzADServicePrincipal -SearchString <principalName>
+#Identify a role with Set permission on Secret, like Key Vault Secret Office
+Get-AzRoleDefinition | Format-Table -Property Name, IsCustom, Id
+#Assign role to Recovery Services Vault identity 
+Get-AzRoleDefinition -Name <roleName>
+#Assign by Service Principal ApplicationId
+New-AzRoleAssignment -RoleDefinitionName 'Key Vault Secrets Officer' -ApplicationId {i.e 8ee5237a-816b-4a72-b605-446970e5f156} -Scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}/providers/Microsoft.KeyVault/vaults/{key-vault-name}
+
+```
+
+# [CLI](#tab/cli)
+
+To assign the permissions, run the following command:
+
+```azurecli
+#Find the application id for your recovery services vault
+az ad sp list --all --filter "displayname eq '<my recovery vault name>' and servicePrincipalType eq 'ManagedIdentity'"
+#Identify a role with Set permission on Secret, like Key Vault Secret Office
+az role definition list --query "[].{name:name, roleType:roleType, roleName:roleName}" --output tsv
+az role definition list --name "{roleName}"
+#Assign role to Recovery Services Vault identity 
+az role assignment create --role "Key Vault Secrets Officer" --assignee "<application id>" {i.e "55555555-5555-5555-5555-555555555555"} --scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}/providers/Microsoft.KeyVault/vaults/{key-vault-name}
+
+```
+
+---
+
+#### Enable permissions using Access Policy permission model for Key Vault
+
 **Choose a client**:
 
 # [Azure portal](#tab/azure-portal)
