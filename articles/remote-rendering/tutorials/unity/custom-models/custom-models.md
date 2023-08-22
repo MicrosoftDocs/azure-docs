@@ -39,10 +39,10 @@ Starting in this chapter, we'll implement a basic [model-view-controller pattern
 With the introduction of MRTK, there are multiple scripts, prefabs, and assets that can now be added to the project to support interactions and visual feedback. These assets referred to as the **Tutorial Assets**, are bundled into a [Unity Asset Package](https://docs.unity3d.com/Manual/AssetPackages.html), which is included in the [Azure Remote Rendering GitHub](https://github.com/Azure/azure-remote-rendering) in '\Unity\TutorialAssets\TutorialAssets.unitypackage'.
 
 1. Clone or download the git repository [Azure Remote Rendering](https://github.com/Azure/azure-remote-rendering), if downloading extract the zip to a known location.
-2. In your Unity project, choose *Assets -> Import Package -> Custom Package*.
-3. In the file explorer, navigate to the directory where you cloned or unzipped the Azure Remote Rendering repository, then select the `.unitypackage` found in **Unity -> TutorialAssets -> TutorialAssets.unitypackage**
-4. Select the **Import** button to import the contents of the package into your project.
-5. In the Unity Editor, select *Mixed Reality Toolkit -> Utilities -> Upgrade MRTK Standard Shader for Lightweight Render Pipeline* from the top menu bar and follow the prompts to upgrade the shader.
+1. In your Unity project, choose *Assets -> Import Package -> Custom Package*.
+1. In the file explorer, navigate to the directory where you cloned or unzipped the Azure Remote Rendering repository, then select the `.unitypackage` found in **Unity -> TutorialAssets -> TutorialAssets.unitypackage**
+1. Select the **Import** button to import the contents of the package into your project.
+1. In the Unity Editor, select *Mixed Reality Toolkit -> Utilities -> Upgrade MRTK Standard Shader for Lightweight Render Pipeline* from the top menu bar and follow the prompts to upgrade the shader.
 
 Once MRTK and the Tutorial Assets double check, that the correct profile is selected.
 
@@ -62,21 +62,21 @@ Most of the view controllers in this tutorial operate against abstract base clas
 You can now add the prefab **AppMenu** to the scene, for visual feedback of the current session state. The **AppMenu** also present the modal panel that the user uses to authorize the application to connect to ARR.
 
 1. Locate the **AppMenu** prefab in *Assets/RemoteRenderingTutorial/Prefabs/AppMenu*
-2. Drag the **AppMenu** prefab into the scene.
-3. If you see a dialog for **TMP Importer**, follow the prompts to **Import TMP Essentials**. Then close the importer dialog, as the examples and extras aren't needed.
-4. The **AppMenu** is configured to automatically hook up and provide the modal for consenting to connecting to a Session, so we can remove the bypass placed earlier. On the **RemoteRenderingCoordinator** GameObject, remove the bypass for authorization we implemented previously, by pressing the '-' button on the **On Requesting Authorization** event.
+1. Drag the **AppMenu** prefab into the scene.
+1. If you see a dialog for **TMP Importer**, follow the prompts to **Import TMP Essentials**. Then close the importer dialog, as the examples and extras aren't needed.
+1. The **AppMenu** is configured to automatically hook up and provide the modal for consenting to connecting to a Session, so we can remove the bypass placed earlier. On the **RemoteRenderingCoordinator** GameObject, remove the bypass for authorization we implemented previously, by pressing the '-' button on the **On Requesting Authorization** event.
 
     ![Remove bypass](./media/remove-bypass-event.png).
 
-5. Test the view controller by pressing **Play** in the Unity Editor.
-6. In the Editor, now that MRTK is configured, you can use the WASD keys to change the position your view and holding the right mouse button + moving the mouse to change your view direction. Try "driving" around the scene a bit to get a feel for the controls.
-7. On device, you can raise your palm up to summon the **AppMenu**, in the Unity Editor, use the hotkey 'M'.
-8. If you've lost sight of the menu, press the 'M' key to summon the menu. The menu is placed near the camera for easy interaction.
-9. The **AppMenu** presents a UI element for authorization to the right of the **AppMenu**. From now on, you should use this UI element to authorize the app to manage remote rendering sessions.
+1. Test the view controller by pressing **Play** in the Unity Editor.
+1. In the Editor, now that MRTK is configured, you can use the WASD keys to change the position your view and holding the right mouse button + moving the mouse to change your view direction. Try "driving" around the scene a bit to get a feel for the controls.
+1. On device, you can raise your palm up to summon the **AppMenu**, in the Unity Editor, use the hotkey 'M'.
+1. If you've lost sight of the menu, press the 'M' key to summon the menu. The menu is placed near the camera for easy interaction.
+1. The **AppMenu** presents a UI element for authorization to the right of the **AppMenu**. From now on, you should use this UI element to authorize the app to manage remote rendering sessions.
 
     ![UI authorize](./media/authorize-request-ui.png)
 
-10. Stop Unity from playing to continue with the tutorial.
+1. Stop Unity from playing to continue with the tutorial.
 
 ## Manage model state
 
@@ -252,26 +252,26 @@ In the most basic terms, **RemoteRenderedModel** holds the data needed to load a
 Let's test the new script by loading the test model again. For this test, we need a Game Object to contain the script and be a parent to the test model, and we also need a virtual stage that contains the model. The stage stays fixed relative to the real world using a [WorldAnchor](/windows/mixed-reality/develop/unity/spatial-anchors-in-unity?tabs=worldanchor). We use a fixed stage so that the model itself can still be moved around later on.
 
 1. Create a new empty Game Object in the scene and name it **ModelStage**.
-2. Add a World Anchor component to **ModelStage**
+1. Add a World Anchor component to **ModelStage**
 
     ![Add WorldAnchor component](./media/add-world-anchor-component.png)
 
-3. Create a new empty Game Object as a child of **ModelStage** and name it **TestModel**.
-4. Add the *RemoteRenderedModel* script to **TestModel**.
+1. Create a new empty Game Object as a child of **ModelStage** and name it **TestModel**.
+1. Add the *RemoteRenderedModel* script to **TestModel**.
 
     ![Add RemoteRenderedModel component](./media/add-remote-rendered-model-script.png)
 
-5. Fill in the `Model Display Name` and the `Model Path` with "*TestModel*" and "*builtin://Engine*" respectively.
+1. Fill in the `Model Display Name` and the `Model Path` with "*TestModel*" and "*builtin://Engine*" respectively.
 
     ![Specify model details](./media/add-model-script.png)
 
-6. Position the **TestModel** object in front of the camera, at position **x = 0, y = 0, z = 3**.
+1. Position the **TestModel** object in front of the camera, at position **x = 0, y = 0, z = 3**.
 
     ![Position object](./media/test-model-position.png)
 
-7. Ensure **AutomaticallyLoad** is turned on.
-8. Press **Play** in the Unity Editor to test the application.
-9. Grant authorization by clicking the *Connect* button to allow the app to create a session, connect to it, and automatically load the model.
+1. Ensure **AutomaticallyLoad** is turned on.
+1. Press **Play** in the Unity Editor to test the application.
+1. Grant authorization by clicking the *Connect* button to allow the app to create a session, connect to it, and automatically load the model.
 
 Watch the Console as the application progresses through its states. Keep in mind, some states may take some time to complete, and there might be no progress updates for a while. Eventually, you see logs from the model loading and then shortly after the rendered test model in the scene.
 
@@ -293,14 +293,14 @@ Follow the steps specified in the [Quickstart: Convert a model for rendering](..
     ![Add RemoteRenderedModel component](./media/add-remote-rendered-model-script.png)
 
 1. Fill in the `Model Display Name` with an appropriate name for your model.
-2. Fill in the `Model Path` with the model's *Shared Access Signature (SAS)* URI you created in the [Provision Blob Storage in Azure and custom model ingestion](#provision-blob-storage-in-azure-and-custom-model-ingestion) step.
-3. Position the GameObject in front of the camera, at position **x = 0, y = 0, z = 3.**
-4. Ensure **AutomaticallyLoad** is turned on.
-5. Press **Play** in the Unity Editor to test the application.
+1. Fill in the `Model Path` with the model's *Shared Access Signature (SAS)* URI you created in the [Provision Blob Storage in Azure and custom model ingestion](#provision-blob-storage-in-azure-and-custom-model-ingestion) step.
+1. Position the GameObject in front of the camera, at position **x = 0, y = 0, z = 3.**
+1. Ensure **AutomaticallyLoad** is turned on.
+1. Press **Play** in the Unity Editor to test the application.
 
     The console shows the current session state and also the model loading progress messages, once the session is connected.
 
-6. Remove your custom model object from the scene. The best experience for this tutorial is with the test model. While multiple models are supported in ARR, this tutorial was written to best support a single remote model at a time.
+1. Remove your custom model object from the scene. The best experience for this tutorial is with the test model. While multiple models are supported in ARR, this tutorial was written to best support a single remote model at a time.
 
 ## Next steps
 

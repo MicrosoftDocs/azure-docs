@@ -158,12 +158,12 @@ This tutorial is using MRTK for object interaction. Most of the MRTK specific im
 The **AppMenu** has a sub menu **Model Tools** that implements a view controller for binding with the model. When the GameObject contains a **RemoteBounds** component, the view controller will add a [**BoundingBox**](https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/README_BoundingBox.html) component, which is an MRTK component that renders a bounding box around an object with a **BoxCollider**. A [**ObjectManipulator**](/windows/mixed-reality/mrtk-unity/mrtk2/features/ux-building-blocks/object-manipulator), which is responsible for hand interactions. These scripts combined will allow us to move, rotate, and scale the remotely rendered model.
 
 1. Move your mouse to the Game panel and click inside it to give it focus.
-2. Using [MRTK's hand simulation](https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/InputSimulation/InputSimulationService.html#hand-simulation), press and hold the left Shift key.
-3. Steer the simulated hand so the hand ray is pointing to the test model.
+1. Using [MRTK's hand simulation](https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/InputSimulation/InputSimulationService.html#hand-simulation), press and hold the left Shift key.
+1. Steer the simulated hand so the hand ray is pointing to the test model.
 
     ![Pointed hand ray](./media/handray-engine.png)
 
-4. Hold left click and drag the model to move it.
+1. Hold left click and drag the model to move it.
 
 You should see the remotely rendered content move along with the bounding box. You might notice some delay or lag between the bounding box and the remote content. This delay will depend on your internet latency and bandwidth.
 
