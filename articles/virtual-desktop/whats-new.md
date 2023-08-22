@@ -33,7 +33,7 @@ Here's what changed in July 2023:
 
 ### Audio call redirection for Azure Virtual Desktop in preview
 
-Call redirection (preview), which optimizes audio calls for WebRTC-based calling apps, is now in public preview. Multimedia redirection redirects media content from Azure Virtual Desktop to your local machine for faster processing and rendering. Both Microsoft Edge and Google Chrome support this feature when using the Windows Desktop client.
+Call redirection, which optimizes audio calls for WebRTC-based calling apps, is now in preview. Multimedia redirection redirects media content from Azure Virtual Desktop to your local machine for faster processing and rendering. Both Microsoft Edge and Google Chrome support this feature when using the Windows Desktop client.
 
 For more information about which sites are compatible with this feature, see [Call redirection](multimedia-redirection-intro.md#call-redirection).
 
