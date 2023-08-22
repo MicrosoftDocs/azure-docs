@@ -20,7 +20,7 @@ An Azure Confidential Ledger node executes on top of a Trusted Execution Environ
 
 ## Verify node quote
 
-The node quote can be downloaded from `https://<ledgername>.confidential-ledger.azure.com` and verified by using the `oeverify` tool that ships with the [Open Enclave SDK](https://github.com/openenclave/openenclave/blob/master/tools/oeverify/README.md) or with the `verify_quote.sh` script. It is installed with the CCF installation or the CCF Python package. For complete details about the script and the supported parameters, refer to [verify_quote.sh](https://microsoft.github.io/CCF/main/use_apps/verify_quote.html) at Github.
+The node quote can be downloaded from `https://<ledgername>.confidential-ledger.azure.com` and verified by using the `oeverify` tool that ships with the [Open Enclave SDK](https://github.com/openenclave/openenclave/blob/master/tools/oeverify/README.md) or with the `verify_quote.sh` script. It is installed with the CCF installation or the CCF Python package. For complete details about the script and the supported parameters, refer to [verify_quote.sh](https://microsoft.github.io/CCF/main/use_apps/verify_quote.html).
 
 ```bash
 verify_quote.sh https://<ledgername>.confidential-ledger.azure.com:443
