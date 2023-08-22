@@ -144,6 +144,10 @@ When calling an API requiring Conditional Access, you can receive a claims chall
 
 See [How to use Continuous Access Evaluation enabled APIs in your applications](./app-resilience-continuous-access-evaluation.md) for more detail.
 
+### Using other frameworks
+
+Using toolkits like Tauri for regisitered single page applications (SPAs) with the identity platform are not recognized for production apps. This is because SPAs only support URLs that start with `https` for production apps and `http://localhost` for local development. Prefixes like `tauri://localhost` cannot be used for browser apps. This format can only be supported for mobile or web apps as they have a confidential component unlike browser apps.
+
 [!INCLUDE [Active directory error handling retries](./includes/error-handling-and-tips/error-handling-retries.md)]
 
 ## Next steps
