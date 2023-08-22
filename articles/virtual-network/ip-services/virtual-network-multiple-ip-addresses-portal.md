@@ -8,7 +8,6 @@ author: mbender-ms
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
-ms.author: allensu
 ms.custom: template-how-to, engagement-fy23
 ---
 # Assign multiple IP addresses to virtual machines using the Azure portal
