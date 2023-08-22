@@ -26,7 +26,11 @@
     - name: Visual Studio Code
       href: deploy-visual-studio-code.md
   - name: Run a job
-    href: jobs-get-started-cli.md
+    items:
+    - name: Azure portal
+      href: jobs-get-started-portal.md
+    - name: Command line
+      href: jobs-get-started-cli.md
 - name: Concepts
   items:
     - name: Plans
