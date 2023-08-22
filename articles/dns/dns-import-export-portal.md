@@ -6,7 +6,7 @@ services: dns
 author: greg-lindsay
 ms.service: dns
 ms.custom: devx-track-azurecli
-ms.date: 08/01/2023
+ms.date: 08/22/2023
 ms.author: greglin
 ms.topic: how-to
 ---
@@ -61,6 +61,8 @@ The following notes provide more technical details about the zone import process
 
 1. If you don't have a resource group in Azure, create a resource group using Azure portal or Azure CLI. For example: **myresourcegroup**. 
 2. To import the zone contoso.com from the file contoso.com.txt into your new DNS zone newDNSzone.com in the resource group myresourcegroup, you need to perform the following actions. 
+
+[Link to use](https://ms.portal.azure.com/?feature.zoneimportexport=true)
 
 ## Next steps
 
