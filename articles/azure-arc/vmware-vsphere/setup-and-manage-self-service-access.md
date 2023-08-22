@@ -57,7 +57,7 @@ The **Azure Arc VMware VM Contributor** role is a built-in role that provides pe
 
 1. Go to the [Azure portal](https://portal.azure.com/).
 
-2. Search and navigate to the subscription or resource group to which you want to provide access to. 
+2. Search and navigate to the subscription or resource group to which you want to provide access. 
 
 3. Select **Access control (IAM)** in the table of contents on the left.
 
@@ -65,7 +65,7 @@ The **Azure Arc VMware VM Contributor** role is a built-in role that provides pe
 
 5. Select **Azure Arc VMware VM Contributor** role and select **Next**.
 
-6. Select the option **Select members**, and search for the Azure Active Directory (Azure AD) user or group that you want to provide access to.
+6. Select the option **Select members**, and search for the Azure Active Directory (Azure AD) user or group that you want to provide access.
 
 8. Select the Azure AD user or group name. Repeat this for each user or group to which you want to grant this permission.
 
