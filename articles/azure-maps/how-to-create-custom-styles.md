@@ -47,7 +47,7 @@ Select the **Get map configuration list** button to get a list of every map conf
 > If the map configuration was created as part of a custom style and has a user provided alias, that alias appears in the map configuration drop-down list, otherwise the `mapConfigurationId` appears. The default map configuration ID for any given tileset can be found by using the [tileset get] HTTP request and passing in the tileset ID:
 >
 > ```http
-> https://{geography}.atlas.microsoft.com/tilesets/{tilesetId}?2022-09-01-preview
+> https://{geography}.atlas.microsoft.com/tilesets/{tilesetId}?2023-03-01-preview
 > ```
 >
 > The `mapConfigurationId` is returned in the body of the response, for example:
@@ -243,8 +243,8 @@ Now when you select that unit in the map, the pop-up menu has the new layer ID, 
 [map configuration]: creator-indoor-maps.md#map-configuration
 [style editor]: https://azure.github.io/Azure-Maps-Style-Editor
 [subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
-[tileset get]: /rest/api/maps/v20220901preview/tileset/get
-[tileset]: /rest/api/maps/v20220901preview/tileset
+[tileset get]: /rest/api/maps/2023-03-01-preview/tileset/get
+[tileset]: /rest/api/maps/2023-03-01-preview/tileset
 [unitProperties]: drawing-requirements.md#unitproperties
 [Use Creator to create indoor maps]: tutorial-creator-indoor-maps.md
 [Use the Azure Maps Indoor Maps module]: how-to-use-indoor-module.md

@@ -209,7 +209,7 @@ To configure role assignments for your Azure AD-enabled Linux VMs:
     | Role | **Virtual Machine Administrator Login** or **Virtual Machine User Login** |
     | Assign access to | User, group, service principal, or managed identity |
 
-    ![Screenshot that shows the page for adding a role assignment in the Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
+    ![Screenshot that shows the page for adding a role assignment.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
 After a few moments, the security principal is assigned the role at the selected scope.
 
@@ -267,7 +267,7 @@ The application that appears in the Conditional Access policy is called *Azure L
 
 If the Azure Linux VM Sign-In application is missing from Conditional Access, make sure the application isn't in the tenant:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Azure Active Directory** > **Enterprise applications**.
 1. Remove the filters to see all applications, and search for **Virtual Machine**. If you don't see Microsoft Azure Linux Virtual Machine Sign-In as a result, the service principal is missing from the tenant.
 
