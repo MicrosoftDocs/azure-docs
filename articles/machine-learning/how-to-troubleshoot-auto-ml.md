@@ -29,14 +29,14 @@ In case of failures in runs for Automated ML for Images and NLP, you can use the
    Please click on "See more details" to get more details about the failure.
 6. You can look at "std_out.txt" in the "Outputs + Logs" tab to look at detailed logs and exception traces.
 
-If your Automates ML runs uses pipeline runs for trials, you can follow the following steps to understand the error.
+If your Automated ML runs uses pipeline runs for trials, you can follow the following steps to understand the error.
 1. Please follow the steps 1-4 above to identify the failed trial run.
 2. This run should show you the pipeline run and the failed nodes in the pipeline are marked with Red color.
 :::image type="content" source="./media/how-to-troubleshoot-auto-ml/pipeline_graph_sample.jpg" alt-text="Diagram that shows an image being divided into a grid of overlapping tiles.":::
-3. Go to the failed node in the pipeline.
+3. Double click the failed node in the pipeline.
 4. These runs should have an error message in the "Status" section of the "Overview" tab indicating the reason for failure.
    Please click on "See more details" to get more details about the failure.
-5. You can look at "std_out.txt" in the "Outputs + Logs" tab to look at detailed logs and exception traces.
+5. You can look at "std_log.txt" in the "Outputs + Logs" tab to look at detailed logs and exception traces.
 
 ## Next steps
 
