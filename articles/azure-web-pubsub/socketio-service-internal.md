@@ -10,7 +10,7 @@ ms.topic: conceptual
 
 # How does Azure Web PubSub support the Socket.IO library?
 
-This article provides an engineering perspective on how you can migrate self-hosted Socket.IO apps to Azure by using Azure Web PubSub for Socket.IO with minimal code changes. You can then take advantage of simplified app architecture and deployment, while achieving 100,000 concurrent connections. You don't need to understand everything in this article to use Web PubSub for Socket.IO effectively.
+This article provides an engineering perspective on how you can migrate self-hosted Socket.IO apps to Azure by using Web PubSub for Socket.IO with minimal code changes. You can then take advantage of simplified app architecture and deployment, while achieving 100,000 concurrent connections. You don't need to understand everything in this article to use Web PubSub for Socket.IO effectively.
 
 ## Architecture of a self-hosted Socket.IO app
 

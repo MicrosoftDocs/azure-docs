@@ -9,7 +9,7 @@ ms.topic: how-to
 ---
 # Troubleshoot Socket.IO common problems
 
-Azure Web PubSub for Socket.IO builds on the Socket.IO library. When you're using the Azure service, problems might lie with the service or with the library.
+Web PubSub for Socket.IO builds on the Socket.IO library. When you're using the Azure service, problems might lie with the service or with the library.
 
 To find the origin of problems, you can isolate the Socket.IO library by temporarily removing Web PubSub for Socket.IO from your application. If the application works as expected after the removal, the root cause is probably with the Azure service.
 

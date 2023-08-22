@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Incorporate Azure Web PubSub for Socket.IO in your app'
-description: In this quickstart, you learn how to use Azure Web PubSub for Socket.IO on an existing Socket.IO app.
+title: 'Quickstart: Incorporate Web PubSub for Socket.IO in your app'
+description: In this quickstart, you learn how to use Web PubSub for Socket.IO on an existing Socket.IO app.
 author: xingsy97
 ms.author: siyuanxing
 ms.date: 08/01/2023
@@ -8,9 +8,9 @@ ms.service: azure-web-pubsub
 ms.topic: quickstart
 ---
 
-# Quickstart: Incorporate Azure Web PubSub for Socket.IO in your app
+# Quickstart: Incorporate Web PubSub for Socket.IO in your app
 
-This quickstart is for existing Socket.IO users. It demonstrates how quickly you can incorporate Azure Web PubSub for Socket.IO in your app to simplify development, speed up deployment, and achieve scalability without complexity.
+This quickstart is for existing Socket.IO users. It demonstrates how quickly you can incorporate Web PubSub for Socket.IO in your app to simplify development, speed up deployment, and achieve scalability without complexity.
 
 Code shown in this quickstart is in CommonJS. If you want to use an ECMAScript module, see the [chat demo for Socket.IO with Azure Web PubSub](https://github.com/Azure/azure-webpubsub/tree/main/experimental/sdk/webpubsub-socketio-extension/examples/chat).
 

@@ -1,6 +1,6 @@
 ---
 title: Build a real-time code-streaming app by using Socket.IO and host it on Azure
-description: Learn how to build an app that allows coders to share coding activities with their audience in real time by using Azure Web PubSub for Socket.IO. 
+description: Learn how to build an app that allows coders to share coding activities with their audience in real time by using Web PubSub for Socket.IO. 
 author: xingsy97
 ms.author: siyuanxing
 ms.date: 08/01/2023
@@ -12,7 +12,7 @@ ms.topic: how-to
 
 Building a real-time experience like the co-creation feature from [Microsoft Word](https://www.microsoft.com/microsoft-365/word) can be challenging.
 
-Through its easy-to-use APIs, [Socket.IO](https://socket.io/) has proven itself as a library for real-time communication between clients and a server. However, Socket.IO users often report difficulty around scaling Socket.IO's connections. With Azure Web PubSub for Socket.IO, developers no longer need to worry about managing persistent connections.
+Through its easy-to-use APIs, [Socket.IO](https://socket.io/) has proven itself as a library for real-time communication between clients and a server. However, Socket.IO users often report difficulty around scaling Socket.IO's connections. With Web PubSub for Socket.IO, developers no longer need to worry about managing persistent connections.
 
 ## Overview
 

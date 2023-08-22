@@ -10,7 +10,7 @@ ms.topic: how-to
 
 # Migrate a self-hosted Socket.IO app to be fully managed on Azure
 
-In this article, you migrate a Socket.IO chat app to Azure by using Azure Web PubSub for Socket.IO.
+In this article, you migrate a Socket.IO chat app to Azure by using Web PubSub for Socket.IO.
 
 ## Prerequisites
 
