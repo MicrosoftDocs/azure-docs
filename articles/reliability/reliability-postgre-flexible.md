@@ -3,6 +3,7 @@ title: Reliability and high availability in Azure Database for PostgreSQL - Flex
 description: Find out about reliability and high availability in Azure Database for PostgreSQL - Flexible Server
 author: anaharris-ms
 ms.author: anaharris
+ms.reviewer: sunila
 ms.topic: conceptual
 ms.service: postgresql
 ms.custom: references_regions, subject-reliability
