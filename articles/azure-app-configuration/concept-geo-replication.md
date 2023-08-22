@@ -44,6 +44,12 @@ To add once these links become available:
 
 Each replica created will add extra charges. Reference the [App Configuration pricing page](https://azure.microsoft.com/pricing/details/app-configuration/) for details. As an example, if your origin is a standard tier configuration store and you have five replicas, you would be charged the rate of six standard tier configuration stores for your system, but each of your replica's isolated quota and requests are included in this charge.
 
+## Monitoring
+
+In Azure App Configuration, effective monitoring involves tracking replication latency, which measures the time it takes for changes in one region to sync with replicas in other regions. 
+
+To leverage replication latency metric, see the [Monitoring App Configuration data reference](./monitor-app-configuration-reference.md) for detailed information.
+
 ## Next steps
 
 > [!div class="nextstepaction"]
