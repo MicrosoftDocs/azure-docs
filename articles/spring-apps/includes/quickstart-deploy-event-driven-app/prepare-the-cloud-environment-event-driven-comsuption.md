@@ -73,7 +73,7 @@ Open your web browser and go to the [portal](https://portal.azure.com/). Enter y
 1. Select **Configuration** from the navigation pane and configure the following properties at the **Environment variables** tab.
     - **SERVICE_BUS_CONNECTION_STRING**: Enter the Service Bus primary connection string.
 
-   :::image type="content" source="../../media/quickstart-deploy-event-driven-app/app-configuration-environment-variables-consumption.png" alt-text="Screenshot of the Azure portal showing the Environment variables tab of the App Configuration page for consumption plan." lightbox="../../media/quickstart-deploy-event-driven-app/app-configuration-environment-variables-consumption.png":::
+   :::image type="content" source="../../media/quickstart-deploy-event-driven-app/app-configuration-environment-variables-consumption.png" alt-text="Screenshot of the Azure portal that shows the Environment variables tab of the App Configuration page for consumption plan." lightbox="../../media/quickstart-deploy-event-driven-app/app-configuration-environment-variables-consumption.png":::
 
 1. Select **Save** to save the connection properties.
 
