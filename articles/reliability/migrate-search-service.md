@@ -47,8 +47,7 @@ If you created your search service in a region that supports availability zones 
 1. Add at [least two replicas to your new search service](../search/search-capacity-planning.md#add-or-reduce-replicas-and-partitions). Once the search service has at least two replicas, it automatically takes advantage of availability zone support.
 1. Migrate your data from your old search service to your new search service by rebuilding of all your search indexes from your old service.
 
-To rebuild all of your search indexes, choose one of the following two options:
-   - [Move individual indexes from your old search service to your new one](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/index-backup-restore)
+To rebuild all of your search indexes:
    - Rebuild indexes from an external data source if one is available.
 1. Redirect traffic from your old search service to your new search service. This may require updates to your application that uses the old search service.
 >[!TIP]

@@ -84,16 +84,16 @@ This feature allows users to enable or disable echo cancellation on outgoing aud
 To apply any precall audio filters, begin by creating a `PrecallOutgoingAudioFilters` and passing it into as shown in the following code:
 ```csharp
 var options = GetStartCallOptions();
-var outgoingAudioOptions = options.GetOugoingAudioOptions();
+var outgoingAudioOptions = options.OutgoingAudioOptions;
 var precallOutgoingAudioFilter = new PrecallOutgoingAudioFilters()
 {
-    EnableAGC = true;   // setting automatic gain control
-    NoiseSuppressionMode = NoiseSuppressionMode.High;   // setting noise suppression
-}
+    EnableAGC = true,   // setting automatic gain control
+    NoiseSuppressionMode = NoiseSuppressionMode.High   // setting noise suppression
+};
 
-outgoingAudioOptions.SetPrecallOutgoingAudioFilters(precallOutgoingAudioFilter);
+outgoingAudioOptions.AudioFilters = precallOutgoingAudioFilter;
 
-var call = await this.callAgent.StartCallAsync( new [] { new UserCallIdentifier(acsCallee) }, options);
+var call = await this.callAgent.StartCallAsync(new[] { new UserCallIdentifier(acsCallee) }, options);
 return call;
 ```
 ### Noise suppression

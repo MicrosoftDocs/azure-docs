@@ -65,12 +65,11 @@ You can create a catalog by using Microsoft Graph. A user in an appropriate role
 
 ### Create a catalog with PowerShell
 
-You can also create a catalog in PowerShell with the `New-MgEntitlementManagementAccessPackageCatalog` cmdlet from the [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) module version 1.6.0 or later.
+You can also create a catalog in PowerShell with the `New-MgEntitlementManagementCatalog` cmdlet from the [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) module version 2.2.0 or later.
 
 ```powershell
 Connect-MgGraph -Scopes "EntitlementManagement.ReadWrite.All"
-Select-MgProfile -Name "beta"
-$catalog = New-MgEntitlementManagementAccessPackageCatalog -DisplayName "Marketing"
+$catalog = New-MgEntitlementManagementCatalog -DisplayName "Marketing"
 ```
 
 ## Add resources to a catalog
@@ -79,7 +78,7 @@ To include resources in an access package, the resources must exist in a catalog
 
 * Groups can be cloud-created Microsoft 365 Groups or cloud-created Azure AD security groups.
 
-  * Groups that originate in an on-premises Active Directory can't be assigned as resources because their owner or member attributes can't be changed in Azure AD. To give a user access to an application that uses AD security group memberships, create a new security group in Azure AD, configure [group writeback to AD](../hybrid/how-to-connect-group-writeback-v2.md), and [enable that group to be written to AD](../enterprise-users/groups-write-back-portal.md), so that the cloud-created group can be used by an AD-based application.
+  * Groups that originate in an on-premises Active Directory can't be assigned as resources because their owner or member attributes can't be changed in Azure AD. To give a user access to an application that uses AD security group memberships, create a new security group in Azure AD, configure [group writeback to AD](../hybrid/connect/how-to-connect-group-writeback-v2.md), and [enable that group to be written to AD](../enterprise-users/groups-write-back-portal.md), so that the cloud-created group can be used by an AD-based application.
 
   * Groups that originate in Exchange Online as Distribution groups can't be modified in Azure AD either, so cannot be added to catalogs.
 
@@ -180,7 +179,7 @@ You can also add a resource to a catalog by using Microsoft Graph. A user in an 
 
 ### Add a resource to a catalog with PowerShell
 
-You can also add a resource to a catalog in PowerShell with the `New-MgEntitlementManagementAccessPackageResourceRequest` cmdlet from the [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) module version 1.6.0 or later.  The following example shows how to add a group to a catalog as a resource.
+You can also add a resource to a catalog in PowerShell with the `New-MgEntitlementManagementAccessPackageResourceRequest` cmdlet from the [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) module version 1.6.0 or a later 1.x.x module version, or Microsoft Graph PowerShell cmdlets beta module version 2.1.x or later beta module version.  The following example shows how to add a group to a catalog as a resource using Microsoft Graph beta and Microsoft Graph PowerShell cmdlets module version 1.x.x.
 
 ```powershell
 Connect-MgGraph -Scopes "EntitlementManagement.ReadWrite.All,Group.ReadWrite.All"

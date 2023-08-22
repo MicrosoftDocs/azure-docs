@@ -71,6 +71,7 @@ This document helps set up an example application that uses the following resour
     EOF
     ```
 
+[!INCLUDE [application-gateway-for-containers-frontend-naming](../../../includes/application-gateway-for-containers-frontend-naming.md)]
 
 # [Bring your own (BYO) deployment](#tab/byo)
 

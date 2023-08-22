@@ -36,7 +36,7 @@ If you haven't integrated Azure AD logs with Azure Monitor logs, you need to tak
 
 To access the insights and reporting workbook:  
 
-1. Sign in to the **Azure portal**.
+1. Sign in to the [Azure portal](https://portal.azure.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access** > **Insights and reporting**.
 
 ### Get started: Select parameters 
@@ -90,7 +90,7 @@ You can also investigate the sign-ins of a specific user by searching for sign-i
 
 To configure a Conditional Access policy in report-only mode:
 
-1. Sign into the **Azure portal** as a Conditional Access Administrator, security administrator, or Global Administrator.
+1. Sign in to the [Azure portal](https://portal.azure.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
 1. Select an existing policy or create a new policy.
 1. Under **Enable policy** set the toggle to **Report-only** mode.
@@ -103,9 +103,9 @@ To configure a Conditional Access policy in report-only mode:
 
 ### Why are queries failing due to a permissions error?
 
-In order to access the workbook, you need the proper Azure AD permissions and Log Analytics workspace permissions. To test whether you have the proper workspace permissions by running a sample log analytics query:
+In order to access the workbook, you need the proper permissions in Azure AD and Log Analytics. To test whether you have the proper workspace permissions by running a sample log analytics query:
 
-1. Sign in to the **Azure portal**.
+1. Sign in to the [Azure portal](https://portal.azure.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
 1. Browse to **Azure Active Directory** > **Log Analytics**.
 1. Type `SigninLogs` into the query box and select **Run**.
 1. If the query doesn't return any results, your workspace may not have been configured correctly. 

@@ -28,7 +28,7 @@ landingContent:
           - text: What is a device identity?
             url: overview.md
           - text: What is enterprise state roaming?
-            url: enterprise-state-roaming-overview.md
+            url: ./enterprise-state-roaming-enable.md
           - text: Plan your Azure AD device deployment
             url: plan-device-deployment.md
       - linkListType: concept

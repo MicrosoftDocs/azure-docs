@@ -61,9 +61,9 @@ To translate the `*.servicebus.usgovcloudapi.net` wildcard into specific endpoin
 
 [!INCLUDE [arc-region-note](../../includes/arc-region-note.md)]
 
-#### [Azure China](#tab/azure-china)
+#### [Microsoft Azure operated by 21Vianet](#tab/azure-china)
 
 > [!NOTE]
-> Azure Arc-enabled Kubernetes is not available in Azure China regions at this time.
+> Azure Arc-enabled Kubernetes is not available in Microsoft Azure operated by 21Vianet regions at this time.
 
 ---

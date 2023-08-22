@@ -97,4 +97,4 @@ This value shows whether continuous access evaluation (CAE) was applied to the s
 ## Next steps
 
 * [Learn about exporting Azure AD sign-in logs](concept-activity-logs-azure-monitor.md)
-* [Explore the sign-in diagnostic in Azure AD](overview-sign-in-diagnostics.md)
+* [Explore the sign-in diagnostic in Azure AD](./howto-use-sign-in-diagnostics.md)

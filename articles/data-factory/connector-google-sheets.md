@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/30/2022
+ms.date: 08/10/2023
 ---
 
 #  Transform data in Google Sheets (Preview) using Azure Data Factory or Synapse Analytics

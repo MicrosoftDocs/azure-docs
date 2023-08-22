@@ -4,7 +4,7 @@ description: Learn how to install Azure Container Storage Preview on an Azure Ku
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: quickstart
-ms.date: 08/02/2023
+ms.date: 08/18/2023
 ms.author: kendownie
 ms.custom: devx-track-azurecli
 ---
@@ -16,13 +16,13 @@ ms.custom: devx-track-azurecli
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-- Sign up for the public preview by completing the [onboarding survey](https://aka.ms/AzureContainerStoragePreviewSignUp).
-
 - This quickstart requires version 2.0.64 or later of the Azure CLI. See [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
 - You'll need an AKS cluster with an appropriate [virtual machine type](install-container-storage-aks.md#vm-types). If you don't have one, see [Create an AKS cluster](install-container-storage-aks.md#create-aks-cluster).
 
 - You'll need the Kubernetes command-line client, `kubectl`. You can install it locally by running the `az aks install-cli` command.
+
+- Optional: We'd like input on how you plan to use Azure Container Storage. Please complete this [short survey](https://aka.ms/AzureContainerStoragePreviewSignUp).
 
 ## Install Azure Container Storage
 
@@ -40,23 +40,17 @@ Follow these instructions to install Azure Container Storage on your AKS cluster
    chmod +x acstor-install.sh 
    ```
 
-1. Run the installation script. Only the resource group name is required. All other parameters are optional and will default to the values from your configuration.
+1. Run the installation script and specify the parameters.
    
    | **Flag** | **Parameter**      | **Description** |
    |----------|----------------|-------------|
    | -s   | --subscription | The subscription identifier. Defaults to the current subscription.|
-   | -g   | --resource-group | The resource group name (required).|
+   | -g   | --resource-group | The resource group name.|
    | -c   | --cluster-name | The name of the cluster where Azure Container Storage is to be installed.|
    | -n   | --nodepool-name | The name of the nodepool. Defaults to the first nodepool in the cluster.|
-   | -r   | --release-train | The release train for the installation. Defaults to prod.|
+   | -r   | --release-train | The release train for the installation. Defaults to stable.|
    
-   If you want to use default values, the command looks like this:
-
-   ```bash
-   bash ./acstor-install.sh -g <resource-group-name>
-   ```
-
-   If you prefer to specify the values, the command looks like this:
+   For example:
 
    ```bash
    bash ./acstor-install.sh -g <resource-group-name> -s <subscription-id> -c <cluster-name> -n <nodepool-name> -r <release-train-name>

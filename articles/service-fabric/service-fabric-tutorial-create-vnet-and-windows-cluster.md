@@ -180,7 +180,7 @@ $Configobj = .\SetupApplications.ps1 -TenantId '<MyTenantID>' -ClusterName 'mysf
 ```
 
 > [!NOTE]
-> For national clouds (for example Azure Government, Azure China, Azure Germany), specify the `-Location` parameter.
+> For national clouds (for example Azure Government, Microsoft Azure operated by 21Vianet, Azure Germany), specify the `-Location` parameter.
 
 You can find your *TenantId*, or directory ID, in the [Azure portal](https://portal.azure.com). Select **Azure Active Directory** > **Properties** and copy the **Directory ID** value.
 

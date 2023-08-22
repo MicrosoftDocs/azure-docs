@@ -17,7 +17,7 @@ ms.reviewer: mjbrown
 Azure Cosmos DB is available in all Azure regions. Microsoft makes the following Azure cloud environments available to customers:
 
 - **Azure** is available globally. It is sometimes referred to as Azure commercial, Azure public, or Azure global.
-- **Azure China** is available through a unique partnership between Microsoft and 21Vianet, one of the country’s largest Internet providers.
+- **Microsoft Azure operated by 21Vianet** is available through a unique partnership between Microsoft and 21Vianet, one of the country’s largest Internet providers.
 - **Azure Government** is available from five regions in the United States to US government agencies and their partners. Two regions (US DoD Central and US DoD East) are reserved for exclusive use by the US Department of Defense.
 - **Azure Government Secret** is available from three regions exclusively for the needs of US Government and designed to accommodate classified Secret workloads and native connectivity to classified networks.
 - **Azure Government Top Secret** serves America's security mission and empowers leaders across the Intelligence Community (IC), Department of Defense (DoD), and Federal Civilian agencies to process security workloads classified at the US Top Secret level.

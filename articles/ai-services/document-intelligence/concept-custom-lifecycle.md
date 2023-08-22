@@ -1,5 +1,5 @@
 ---
-title: Custom model lifecycle- Document Intelligence
+title: Custom model lifecycle- Document Intelligence (formerly Form Recognizer)
 titleSuffix: Azure AI services
 description: Document Intelligence custom model lifecycle and management guide.
 author: laujan

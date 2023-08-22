@@ -30,10 +30,12 @@ The following limits apply to MQTT in Azure Event Grid namespace resource.
 
 | Limit description                            | Limit                                                                             |
 |----------------------------------------------|-----------------------------------------------------------------------------------|
-| MQTT clients                                 | 10,000 per TU                                                                     |
-| MQTT inbound publish requests                | Up to 1,000 messages per second or 1 MB per second per TU (whichever comes first) |
-| MQTT outbound publish requests               | Up to 1,000 messages per second or 1 MB per second per TU                         |
-| Clients                                      | 10,000 clients per TU                                                             |
+| MQTT connections                             | 10,000 per TU                                                                     |
+| MQTT inbound publish requests per namespace  | Up to 1,000 messages per second or 1 MB per second per TU (whichever comes first) |
+| MQTT inbound publish requests per client     | 100 messages per second                                                           |
+| MQTT outbound publish requests per namespace | Up to 1,000 messages per second or 1 MB per second per TU (whichever comes first) |
+| MQTT outbound publish requests per client    | 100 messages per second                                                           |
+| Registered client resources                  | 10,000 clients per TU                                                             |
 | CA certificates                              | 2                                                                                 |
 | Client groups                                | 10                                                                                |
 | Topic spaces                                 | 10                                                                                |

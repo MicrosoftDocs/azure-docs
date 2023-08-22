@@ -29,7 +29,7 @@ This quickstart walks you through the query modifications that invoke semantic s
 
 + Azure Cognitive Search, at Basic tier or higher, with [semantic search enabled](semantic-search-overview.md#enable-semantic-search).
 
-+ An API key and search endpoint:
++ An API key and service endpoint:
 
   Sign in to the [Azure portal](https://portal.azure.com) and [find your search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
 
