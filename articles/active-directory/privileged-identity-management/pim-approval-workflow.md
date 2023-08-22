@@ -21,21 +21,21 @@ ms.collection: M365-identity-device-management
 
 With Privileged Identity Management (PIM) in Azure Active Directory (Azure AD), part of Microsoft Entra, you can configure roles to require approval for activation, and choose one or multiple users or groups as delegated approvers. Delegated approvers have 24 hours to approve requests. If a request is not approved within 24 hours, then the eligible user must re-submit a new request. The 24 hour approval time window is not configurable.
 
+>[!NOTE]
+> Approval for **extend and renew** requests is currently not supported by the Microsoft Graph API
+
 ## View pending requests
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 As a delegated approver, you'll receive an email notification when an Azure AD role request is pending your approval. You can view these pending requests in Privileged Identity Management.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. Open **Azure AD Privileged Identity Management**.
-
-1. Select **Approve requests**.
-
-    ![Approve requests - page showing request to review Azure AD roles](./media/azure-ad-pim-approval-workflow/resources-approve-pane.png)
-
-    In the **Requests for role activations** section, you'll see a list of requests pending your approval.
+ 1. Sign in to the [Azure portal](https://portal.azure.com).
+ 2. Open **Azure AD Privileged Identity Management**.
+ 3. Select **Approve requests**.
+     :::image type="content" source="media/azure-ad-pim-approval-workflow/approve-1.png" alt-text="Screenshot of approving a reqeust." lightbox="media/azure-ad-pim-approval-workflow/approve-1.png":::
+ 
+ 4. In the **Requests for role activations** section, you'll see a list of requests pending your approval.
 
 ## View pending requests using Microsoft Graph API
 
@@ -98,15 +98,14 @@ GET https://graph.microsoft.com/v1.0/roleManagement/directory/roleAssignmentSche
 >[!NOTE]
 >Approvers are not able to approve their own role activation requests.
 
-1. Find and select the request that you want to approve. An approve or deny page appears.
+ 1. Find and select the request that you want to approve. An approve or deny page appears.
+     :::image type="content" source="media/azure-ad-pim-approval-workflow/approve-1.png" alt-text="Screenshot of approve and deny." lightbox="media/azure-ad-pim-approval-workflow/approve-1.png":::
 
-    ![Screenshot that shows the "Approve requests - Azure AD roles" page.](./media/azure-ad-pim-approval-workflow/resources-approve-pane.png)
+ 2. In the **Justification** box, enter the business justification.
+     :::image type="content" source="media/azure-ad-pim-approval-workflow/approve-2.png" alt-text="Screenshot of justification." lightbox="media/azure-ad-pim-approval-workflow/approve-2.png":::
 
-1. In the **Justification** box, enter the business justification.
-
-1. Select **Approve**. You will receive an Azure notification of your approval.
-
-    ![Approve notification showing request was approved](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
+ 3. Select **Submit**. You will receive an Azure notification of your approval.
+     :::image type="content" source="media/azure-ad-pim-approval-workflow/approve-3.png" alt-text="Screenshot of approving." lightbox="media/azure-ad-pim-approval-workflow/approve-3.png":::
 
 ## Approve pending requests using Microsoft Graph API
 
@@ -150,8 +149,8 @@ GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignmentAppr
 PATCH 
 https://graph.microsoft.com/beta/roleManagement/directory/roleAssignmentApprovals/<request-ID-GUID>/steps/<approval-step-ID-GUID> 
 { 
-    "reviewResult": "Approve", 
-    "justification": "abcdefg" 
+    "reviewResult": "Approve", // or "Deny"
+    "justification": "Trusted User" 
 } 
  ````
 
@@ -161,13 +160,13 @@ Successful PATCH calls generate an empty response.
 
 ## Deny requests
 
-1. Find and select the request that you want to deny. An approve or deny page appears.
+ 1. Find and select the request that you want to approve. An approve or deny page appears.
+     :::image type="content" source="media/azure-ad-pim-approval-workflow/approve-1.png" alt-text="Screenshot of deny." lightbox="media/azure-ad-pim-approval-workflow/approve-1.png":::
 
-    ![Approve requests - approve or deny pane with details and Justification box](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
-
-1. In the **Justification** box, enter the business justification.
-
-1. Select **Deny**. A notification appears with your denial.
+ 2. In the **Justification** box, enter the business justification.
+     :::image type="content" source="media/azure-ad-pim-approval-workflow/deny-1.png" alt-text="Screenshot of deny justification." lightbox="media/azure-ad-pim-approval-workflow/deny-1.png":::
+ 
+ 3. Select **Deny**. A notification appears with your denial.
 
 ## Workflow notifications
 

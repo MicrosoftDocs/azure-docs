@@ -23,43 +23,38 @@ With Privileged Identity Management (PIM) in Azure Active Directory (Azure AD), 
 
 Follow the steps in this article to approve or deny requests for Azure resource roles.
 
+>[!NOTE]
+> Approval for **extend and renew** requests is currently not supported by the Microsoft Graph API
+
 ## View pending requests
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 As a delegated approver, you'll receive an email notification when an Azure resource role request is pending your approval. You can view these pending requests in Privileged Identity Management.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+ 1. Sign in to the [portal](https://portal.azure.com).
+ 2. Open **Azure AD Privileged Identity Management**.
+ 3. Select **Approve requests**.
+     :::image type="content" source="media/pim-resource-roles-approval-workflow/approve-1.png" alt-text="Screenshot of pending resource reqeusts." lightbox="media/pim-resource-roles-approval-workflow/approve-1.png":::
 
-1. Open **Azure AD Privileged Identity Management**.
-
-1. Select **Approve requests**.
-
-    ![Approve requests - Azure resources page showing request to review](./media/pim-resource-roles-approval-workflow/resources-approve-requests.png)
-
-    In the **Requests for role activations** section, you'll see a list of requests pending your approval.
+ 4. In the **Requests for role activations** section, you'll see a list of requests pending your approval.
 
 ## Approve requests
 
-1. Find and select the request that you want to approve. An approve or deny page appears.
-
-    ![Approve requests - approve or deny pane with details and Justification box](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
-
-1. In the **Justification** box, enter the business justification.
-
-1. Select **Approve**. You will receive an Azure notification of your approval.
-
-    ![Approve notification showing request was approved](./media/pim-resource-roles-approval-workflow/resources-approve-notification.png)
+ 1. Find and select the request that you want to approve. An approve or deny page appears.     
+     :::image type="content" source="media/pim-resource-roles-approval-workflow/approve-1.png" alt-text="Screenshot of approve resource reqeusts." lightbox="media/pim-resource-roles-approval-workflow/approve-1.png":::
+ 
+ 2. In the **Justification** box, enter the business justification.
+ 3. Select **Approve**. You will receive an Azure notification of your approval.
+      :::image type="content" source="media/azure-ad-pim-approval-workflow/approve-3.png" alt-text="Screenshot of resource approving." lightbox="media/azure-ad-pim-approval-workflow/approve-3.png":::
 
 ## Deny requests
 
-1. Find and select the request that you want to deny. An approve or deny page appears.
-
-    ![Approve requests - approve or deny pane with details and Justification box](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
-
-1. In the **Justification** box, enter the business justification.
-
-1. Select **Deny**. A notification appears with your denial.
+ 1. Find and select the request that you want to approve. An approve or deny page appears.     
+     :::image type="content" source="media/pim-resource-roles-approval-workflow/approve-1.png" alt-text="Screenshot of deny resource reqeusts." lightbox="media/pim-resource-roles-approval-workflow/approve-1.png":::
+ 
+ 2. In the **Justification** box, enter the business justification.
+ 3. Select **Deny**. A notification appears with your denial.
 
 ## Workflow notifications
 
