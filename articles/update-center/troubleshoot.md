@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot known issues with Azure Update Manager (preview)
 description: The article provides details on the known issues and troubleshooting any problems with Azure Update Manager (preview).
-ms.service: update-manager
+ms.service: azure-update-manager
 ms.date: 05/30/2023
 ms.topic: conceptual
 ms.author: sudhirsneha
@@ -58,7 +58,7 @@ If you don't want any patch installation to be orchestrated by Azure or aren't u
 
 ### Cause
 
-The Update Agent (Windows Update Agent on Windows; the package manager for a Linux distribution) isn't configured correctly. Update Management relies on the machine's Update Agent to provide the updates that are needed, the status of the patch, and the results of deployed patches. Without this information, Update Management can't properly report on the patches that are needed or installed.
+The Update Agent (Windows Update Agent on Windows; the package manager for a Linux distribution) isn't configured correctly. Update Manager relies on the machine's Update Agent to provide the updates that are needed, the status of the patch, and the results of deployed patches. Without this information, Update Manager can't properly report on the patches that are needed or installed.
 
 ### Resolution
 
@@ -108,7 +108,7 @@ To review the logs related to all actions performed by the extension, on Windows
 
 - For concurrent/conflicting schedule, only one schedule will be triggered. The other schedule will be triggered once a schedule is finished.
 - If a machine is newly created, the schedule might have 15 minutes of schedule trigger delay in case of Azure VMs.
-- Policy definition *[Preview]: Schedule recurring updates using Update Management Center* with version 1.0.0-preview successfully remediates resources however, it will always show them as non-compliant. The current value of the existence condition is a placeholder that will always evaluate to false.
+- Policy definition *[Preview]: Schedule recurring updates using Update Manager* with version 1.0.0-preview successfully remediates resources however, it will always show them as non-compliant. The current value of the existence condition is a placeholder that will always evaluate to false.
 
 ### Scenario: Unable to apply patches for the shutdown machines 
 
