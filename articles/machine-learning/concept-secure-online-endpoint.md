@@ -137,7 +137,9 @@ To restrict communication between a deployment and external resources, including
 
 - The deployment's `egress_public_network_access` flag is `disabled`. This flag ensures that the download of the model, code, and images needed by the deployment are secured with a private endpoint. Once you've created the deployment, you can't update (enable or disable) the `egress_public_network_access` flag. Attempting to change the flag while updating the deployment fails with an error.
 
-- The workspace has a private link that allows access to Azure resources via a private endpoint. Because the workspace has a `public_network_access` flag that can be either enabled or disabled, if you plan on using a managed online deployment that uses __public outbound__, then you must also [configure the workspace to allow public access](how-to-configure-private-link.md#enable-public-access). This is because outbound communication from the online deployment is to the _workspace API_. When the deployment is configured to use __public outbound__, then the workspace must be able to accept that public communication (allow public access).
+- The workspace has a private link that allows access to Azure resources via a private endpoint.
+
+- The workspace has a `public_network_access` flag that can be enabled or disabled, if you plan on using a managed online deployment that uses __public outbound__, then you must also [configure the workspace to allow public access](how-to-configure-private-link.md#enable-public-access). This is because outbound communication from the online deployment is to the _workspace API_. When the deployment is configured to use __public outbound__, then the workspace must be able to accept that public communication (allow public access).
 
 When you have multiple deployments, and you configure the `egress_public_network_access` to `disabled` for each deployment in a managed online endpoint, each deployment has its own independent Azure Machine Learning managed VNet. For each VNet, Azure Machine Learning creates three private endpoints for communication to the following services:
 
