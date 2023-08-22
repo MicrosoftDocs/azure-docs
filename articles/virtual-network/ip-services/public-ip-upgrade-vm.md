@@ -2,12 +2,12 @@
 title: 'Upgrade public IP addresses attached to a VM from Basic to Standard'
 titleSuffix: Azure Virtual Network
 description: This article shows you how to upgrade a public IP address attached to a VM to a standard public IP address
-author: mbender-ms
+author: mbender-ms-ms
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 06/01/2023
-ms.author: mbender
+ms.author: mbender-ms
 ---
 
 # Upgrade public IP addresses attached to VM from Basic to Standard

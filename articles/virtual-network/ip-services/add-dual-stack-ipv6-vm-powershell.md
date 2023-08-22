@@ -2,12 +2,12 @@
 title: Add a dual-stack network to an existing virtual machine - Azure PowerShell
 titleSuffix: Azure Virtual Network
 description: Learn how to add a dual-stack network to an existing virtual machine using Azure PowerShell.
-author: mbender
+author: mbender-ms
 ms.author: mbender-ms
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
-ms.date: 08/24/2022
+ms.date: 08/24/2023
 ms.custom: template-how-to, devx-track-azurepowershell
 ---
 

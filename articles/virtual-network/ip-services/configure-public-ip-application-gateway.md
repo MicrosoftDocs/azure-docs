@@ -2,12 +2,12 @@
 title: Manage a public IP address with an Azure Application Gateway
 titleSuffix: Azure Virtual Network
 description: Learn about the ways a public IP address is used with an Azure Application Gateway and how to change and manage the configuration.
-author: mbender
+author: mbender-ms
 ms.author: mbender-ms
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to 
-ms.date: 06/28/2021
+ms.date: 08/24/2023
 ms.custom: template-how-to 
 ---
 

@@ -2,12 +2,12 @@
 title: Manage a public IP address with a NAT gateway
 titleSuffix: Azure Virtual Network
 description: Learn about the ways a public IP address is used with an Azure Virtual Network NAT gateway and how to change the configuration.
-author: mbender
+author: mbender-ms
 ms.author: mbender-ms
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to 
-ms.date: 12/15/2022
+ms.date: 08/24/2023
 ms.custom: template-how-to, engagement-fy23
 ---
 
