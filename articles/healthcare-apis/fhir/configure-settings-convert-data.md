@@ -179,20 +179,14 @@ You can register up to 20 ACR servers in the FHIR service.
 
 ### Step 6: Configure the Azure Container Registry firewall for secure access
 
-There are many methods for securing ACR using the built-in firewall based on your particular use case.
+There are many methods for securing ACR using the built-in firewall depending on your particular use case.
 
 * [Connect privately to an Azure container registry using Azure Private Link](../../container-registry/container-registry-private-link.md)
-
 * [Configure public IP network rules](../../container-registry/container-registry-access-selected-networks.md)
-
 * [Azure Container Registry mitigating data exfiltration with dedicated data endpoints](../../container-registry/container-registry-dedicated-data-endpoints.md)
-
 * [Restrict access to a container registry using a service endpoint in an Azure virtual network](../../container-registry/container-registry-vnet.md)
-
 * [Allow trusted services to securely access a network-restricted container registry](../../container-registry/allow-access-trusted-services.md)
-
 * [Configure rules to access an Azure container registry behind a firewall](../../container-registry/container-registry-firewall-access-rules.md)
-
 * [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519)
 
 > [!NOTE]
