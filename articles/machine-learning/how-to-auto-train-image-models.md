@@ -369,7 +369,7 @@ Instance segmentation | **MaskRCNN ResNet FPN**| `maskrcnn_resnet18_fpn` <br> `m
 
 #### Supported model architectures - HuggingFace and MMDetection (preview)
 
-With the new backend that runs on [AzureML Pipelines](concept-ml-pipelines.md), you can additionally use any image classification model from the [HuggingFace Hub](https://huggingface.co/models?pipeline_tag=image-classification&library=transformers) which is part of the transformers library (such as microsoft/beit-base-patch16-224), as well as any object detection or instance segmentation model from the [MMDetection Version 2.28.2 Model Zoo](https://mmdetection.readthedocs.io/en/v2.28.2/model_zoo.html) (such as atss_r50_fpn_1x_coco). 
+With the new backend that runs on [Azure Machine Learning pipelines](concept-ml-pipelines.md), you can additionally use any image classification model from the [HuggingFace Hub](https://huggingface.co/models?pipeline_tag=image-classification&library=transformers) which is part of the transformers library (such as microsoft/beit-base-patch16-224), as well as any object detection or instance segmentation model from the [MMDetection Version 2.28.2 Model Zoo](https://mmdetection.readthedocs.io/en/v2.28.2/model_zoo.html) (such as atss_r50_fpn_1x_coco). 
 
 In addition to supporting any model from HuggingFace Transfomers and MMDetection 2.28.2, we also offer a list of curated models from these libraries in the azureml-staging registry. These curated models have been tested thoroughly and use default hyperparameters selected from extensive benchmarking to ensure effective training. The table below summarizes these curated models.
 
@@ -379,7 +379,7 @@ Image classification<br> (multi-class and multi-label)| **BEiT** <br> **ViT** <b
 Object Detection | **Sparse R-CNN** <br> **Deformable DETR** <br> **VFNet** <br> **YOLOF** <br> **Swin** | [`sparse_rcnn_r50_fpn_300_proposals_crop_mstrain_480-800_3x_coco`](https://ml.azure.com/registries/azureml/models/sparse_rcnn_r50_fpn_300_proposals_crop_mstrain_480-800_3x_coco/version/3)<br> [`sparse_rcnn_r101_fpn_300_proposals_crop_mstrain_480-800_3x_coco`](https://ml.azure.com/registries/azureml/models/sparse_rcnn_r101_fpn_300_proposals_crop_mstrain_480-800_3x_coco/version/3) <br> [`deformable_detr_twostage_refine_r50_16x2_50e_coco`](https://ml.azure.com/registries/azureml/models/deformable_detr_twostage_refine_r50_16x2_50e_coco/version/3) <br> [`vfnet_r50_fpn_mdconv_c3-c5_mstrain_2x_coco`](https://ml.azure.com/registries/azureml/models/vfnet_r50_fpn_mdconv_c3-c5_mstrain_2x_coco/version/3) <br> [`vfnet_x101_64x4d_fpn_mdconv_c3-c5_mstrain_2x_coco`](https://ml.azure.com/registries/azureml/models/vfnet_x101_64x4d_fpn_mdconv_c3-c5_mstrain_2x_coco/version/3) <br> [`yolof_r50_c5_8x8_1x_coco`](https://ml.azure.com/registries/azureml/models/yolof_r50_c5_8x8_1x_coco/version/3)
 Instance Segmentation | **Swin** | [`mask_rcnn_swin-t-p4-w7_fpn_1x_coco`](https://ml.azure.com/registries/azureml/models/mask_rcnn_swin-t-p4-w7_fpn_1x_coco/version/3)
 
-We constantly update the list of curated models. You can get the most up to date list of the curated models for a given task using the Python SDK:
+We constantly update the list of curated models. You can get the most up-to-date list of the curated models for a given task using the Python SDK:
 ```
 credential = DefaultAzureCredential()
 ml_client = MLClient(credential, registry_name="azureml-staging")
@@ -393,7 +393,7 @@ for model in models:
 
 classification_models
 ```
-output:
+Output:
 ```
 ['google-vit-base-patch16-224',
  'microsoft-swinv2-base-patch4-window12-192-22k',
