@@ -159,9 +159,9 @@ Below are common scenarios for linking nodes together.
 2. Edit the prompt box, add an input by `{{url}}`, click **Validate and parse input**, then you'll see an input called URL is created in inputs section.
 3. In the value drop-down, select ${inputs.url}, then you'll see in the graph view that the newly created LLM node is linked to the flow input. When running the flow, the URL input of the node will be replaced by flow input on the fly.
 
-:::image type="content" source="./media/how-to-develop-a-standard-flow/link-llm-node-input-1-1.png" alt-text="Gif of scenario one showing the LLM tool and editing the prompt. " lightbox = "./media/how-to-develop-a-standard-flow/link-llm-node-input-1-1.png":::
+:::image type="content" source="./media/how-to-develop-a-standard-flow/link-llm-node-input-1-1.png" alt-text="picture of scenario one showing the LLM tool and editing the prompt (step1). " lightbox = "./media/how-to-develop-a-standard-flow/link-llm-node-input-1-1.png":::
 
-:::image type="content" source="./media/how-to-develop-a-standard-flow/link-llm-node-input-1-2.png" alt-text="Gif of scenario one showing the LLM tool and editing the prompt. " lightbox = "./media/how-to-develop-a-standard-flow/link-llm-node-input-1-2.png":::
+:::image type="content" source="./media/how-to-develop-a-standard-flow/link-llm-node-input-1-2.png" alt-text="picture of scenario one showing the LLM tool and editing the prompt (step2). " lightbox = "./media/how-to-develop-a-standard-flow/link-llm-node-input-1-2.png":::
 
 ### Scenario 2 - Link LLM node with single-output upstream node
 
