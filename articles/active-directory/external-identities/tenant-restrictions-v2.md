@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 # Set up tenant restrictions V2 (Preview)
 
 > [!NOTE]
-> The **Tenant restrictions** settings, which are included with cross-tenant access settings, are preview features of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://www.microsoft.com/licensing/terms/product/ForOnlineServices/EAEAS).
+> The **Tenant restrictions** settings, which are included with cross-tenant access settings, are preview features of Azure Active Directory. For more information about previews, see [Universal License Terms for Online Services](https://aka.ms/EntraPreviewsTermsOfUse).
 
 For increased security, you can limit what your users can access when they use an external account to sign in from your networks or devices. With the **Tenant restrictions** settings included with [cross-tenant access settings](cross-tenant-access-overview.md), you can control the external apps that your Windows device users can access when they're using external accounts.
 
