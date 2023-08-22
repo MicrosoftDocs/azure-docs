@@ -47,6 +47,8 @@ For more information about the information you can manage and the capabilities i
    * East US
    * UK South
    * West Europe 
+
+* In preview, API Center provides only a single workspace.
                
 ## Frequently asked questions
 
@@ -59,10 +61,6 @@ A: API Center is a stand-alone Azure service that's complementary to Azure API M
 A: Yes, all data in API Center is encrypted at rest.
 
 ## Next steps
-
-> [!div class="nextstepaction"]
-> [Get access to the preview](https://aka.ms/apicenter/joinpreview)
-
 
 > [!div class="nextstepaction"]
 > [Set up your API center](set-up-api-center.md)

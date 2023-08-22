@@ -23,10 +23,12 @@ The following diagram shows the main entities in API Center and how they relate 
 
 :::image type="content" source="media/key-concepts/api-center-data-model.png" alt-text="Diagram that shows the data model in API Center." border="false":::
 
-1. A workspace is a logical container that represents APIs and their environments.
-1. Each API can have multiple versions and multiple real-world deployments.
-1. Each API version can have multiple API definition files.
-1. Each API deployment is associated with a specific environment and a specific API definition file.
+### Highlighted relationships
+
+1. A **workspace** is a logical container to inventory **APIs** and their **environments**.
+1. Each **API** can have multiple **versions** and multiple real-world **deployments**.
+1. Each API **version** can have multiple API **definitions**.
+1. Each API **deployment** is associated with a specific **environment** and a specific API **definition** file.
 
 ## Workspace
 
@@ -64,7 +66,6 @@ In API Center, you organize your APIs, deployments, and other entities by settin
 API Center supports properties of type array, boolean, number, object, predefined choices, and string. 
 
 API Center's metadata schema is compatible with JSON and YAML schema specifications, to allow for schema validation in developer tooling and automated pipelines.
-
 
 
 ## Next steps
