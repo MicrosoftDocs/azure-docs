@@ -72,7 +72,7 @@ A **DMZ** and **Private** subnet are needed for this tutorial. The **DMZ** subne
 
 ## Create an NVA virtual machine
 
-Network virtual appliances (NVAs) are virtual machines that help with network functions, such as routing and firewall optimization. In this section, create an NVA using an Ubuntu 22.04** virtual machine.
+Network virtual appliances (NVAs) are virtual machines that help with network functions, such as routing and firewall optimization. In this section, create an NVA using an **Ubuntu 22.04** virtual machine.
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
