@@ -2,7 +2,7 @@
 title: Link templates for deployment
 description: Describes how to use linked templates in an Azure Resource Manager template (ARM template) to create a modular template solution. Shows how to pass parameters values, specify a parameter file, and dynamically created URLs.
 ms.topic: conceptual
-ms.date: 08/10/2023
+ms.date: 08/22/2023
 ms.custom: devx-track-azurepowershell, devx-track-arm-template
 ---
 
@@ -156,6 +156,9 @@ The following example deploys a storage account through a nested template.
 When using a nested template, you can specify whether template expressions are evaluated within the scope of the parent template or the nested template. The scope determines how parameters, variables, and functions like [resourceGroup](template-functions-resource.md#resourcegroup) and [subscription](template-functions-resource.md#subscription) are resolved.
 
 You set the scope through the `expressionEvaluationOptions` property. By default, the `expressionEvaluationOptions` property is set to `outer`, which means it uses the parent template scope. Set the value to `inner` to cause expressions to be evaluated within the scope of the nested template.
+
+> [!IMPORTANT]
+> For [`languageVersion 2.0`](./syntax.md#template-format), the default value for the `expressionEvaluationOptions` property is `inner`. The value `outer` is blocked.
 
 ```json
 {
