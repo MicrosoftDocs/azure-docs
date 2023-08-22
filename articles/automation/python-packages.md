@@ -3,7 +3,7 @@ title: Manage Python 2 packages in Azure Automation
 description: This article tells how to manage Python 2 packages in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 08/21/2021
+ms.date: 08/21/2023
 ms.topic: conceptual
 ms.custom: devx-track-python
 ---
@@ -32,7 +32,7 @@ After a package has been imported, it's listed on the **Python packages** page i
 
 ## Import packages with dependencies
 
-Azure automation doesn't resolve dependencies for Python packages during the import process. There are two ways to import a package with all its dependencies. Only one of the following steps needs to be used to import the packages into your Automation account.
+Azure Automation doesn't resolve dependencies for Python packages during the import process. There are two ways to import a package with all its dependencies. Only one of the following steps needs to be used to import the packages into your Automation account.
 
 ### Manually download
 
