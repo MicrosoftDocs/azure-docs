@@ -42,7 +42,7 @@ Microsoft sends a notification if there's an outage in the Azure Image Builder (
 
 You are responsible for setting up disaster recovery for your Azure Image Builder (AIB) environment, as there isn't a region failover at the AIB service side. You will need to configure both the control plane (service side) and data plane.
 
-It's recommended that you create an AIB resource in another nearby region, into which you can replicate your resources. For more information, see the [supported regions](./image-builder-overview.md#regions) and what resources are are included in an [AIB creation](/azure/virtual-machines/image-builder-overview#how-it-works).
+It's recommended that you create an AIB resource in another nearby region, into which you can replicate your resources. For more information, see the [supported regions](../virtual-machines/image-builder-overview.md#regions) and what resources are are included in an [AIB creation](/azure/virtual-machines/image-builder-overview#how-it-works).
 
 ### Single-region geography disaster recovery
 
@@ -52,11 +52,11 @@ Below are instructions on how to get an image template resource using Resource G
 
 1. Go to the search bar in Azure portal and search for *resource graph explorer*.
 
-    ![Screenshot of Azure Resource Graph Explorer in the portal](./media/image-builder-reliability/resource-graph-explorer-portal.png#lightbox)
+    ![Screenshot of Azure Resource Graph Explorer in the portal](../virtual-machines//media/image-builder-reliability/resource-graph-explorer-portal.png#lightbox)
 
 1. Use the search bar on the far left to search resource by type and name to see how the details will give you properties of the image template. The *See details* option on the bottom right will show the image template's properties attribute and tags separately. Template name, location, ID, and tenant ID can be used to get the correct image template resource.
 
-    ![Screenshot of using Azure Resource Graph Explorer search](./media/image-builder-reliability/resource-graph-explorer-search.png#lightbox)
+    ![Screenshot of using Azure Resource Graph Explorer search](../virtual-machines//media/image-builder-reliability/resource-graph-explorer-search.png#lightbox)
 
 
 ### Capacity and proactive disaster recovery resiliency
@@ -66,7 +66,7 @@ Microsoft and its customers operate under the Shared responsibility model. This 
 When planning where to replicate a template, consider:
 
 - AIB region availability:
-    - Choose [AIB supported regions](./image-builder-overview.md#regions) close to your users.
+    - Choose [AIB supported regions](../virtual-machines//image-builder-overview.md#regions) close to your users.
     - AIB continually expands into new regions.
 - Azure paired regions:
     - For your geographic area, choose two regions paired together.
@@ -74,7 +74,7 @@ When planning where to replicate a template, consider:
 
 ## Additional guidance
 
-In regards to your data processing information, refer to the Azure Image Builder [data residency](./linux/image-builder-json.md#data-residency) details.
+In regards to your data processing information, refer to the Azure Image Builder [data residency](../virtual-machines//linux/image-builder-json.md#data-residency) details.
 
 
 ## Next steps
@@ -82,4 +82,4 @@ In regards to your data processing information, refer to the Azure Image Builder
 > [!div class="nextstepaction"]
 > [Reliability in Azure](../reliability/overview.md)
 > [Enable Azure VM disaster recovery between availability zones](../site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md)
-> [Azure Image Builder overview](./image-builder-overview.md)
+> [Azure Image Builder overview](../virtual-machines//image-builder-overview.md)
