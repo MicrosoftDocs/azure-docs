@@ -2,13 +2,13 @@
 title: Create a custom IP address prefix - Azure PowerShell
 titleSuffix: Azure Virtual Network
 description: Learn about how to create a custom IPv4 address prefix using Azure PowerShell
-author: asudbring
+author: mbender-ms
+ms.author: mbender
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 03/31/2022
-ms.author: allensu
 ---
 
 # Create a custom IPv4 address prefix using Azure PowerShell
