@@ -310,12 +310,12 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > [!div class="mx-tableFixed"]
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
-> | DataControllers | Yes | Yes |
+> | DataControllers | Yes | No |
 > | DataControllers / ActiveDirectoryConnectors | No | No |
-> | PostgresInstances | Yes | Yes |
-> | SqlManagedInstances | Yes | Yes |
-> | SqlServerInstances | Yes | Yes |
-> | SqlServerInstances / Databases | Yes | Yes |
+> | PostgresInstances | Yes | No |
+> | SqlManagedInstances | Yes | No |
+> | SqlServerInstances | Yes | No |
+> | SqlServerInstances / Databases | Yes | No |
 
 ## Microsoft.AzureCIS
 
@@ -325,14 +325,6 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | autopilotEnvironments | Yes | Yes |
 > | dstsServiceAccounts | Yes | Yes |
 > | dstsServiceClientIdentities | Yes | Yes |
-
-## Microsoft.AzureData
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Supports tags | Tag in cost report |
-> | ------------- | ----------- | ----------- |
-> | sqlServerRegistrations | Yes | Yes |
-> | sqlServerRegistrations / sqlServers | No | No |
 
 ## Microsoft.AzureScan
 
@@ -3449,3 +3441,4 @@ To get the same data as a file of comma-separated values, download [tag-support.
 ## Next steps
 
 To learn how to apply tags to resources, see [Use tags to organize your Azure resources](tag-resources.md).
+
