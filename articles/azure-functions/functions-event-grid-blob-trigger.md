@@ -88,7 +88,7 @@ When you create a Blob Storage-triggered function using Visual Studio Code, you 
     |Prompt|Action|
     |--|--|
     |**Select a language**| Select `C#`. |
-    |**Select a .NET runtime**| Select `.NET 6.0 Isolated LTS` for running in an isolated worker process or `.NET 6.0 LTS` for in-process. |
+    |**Select a .NET runtime**| Select `.NET 6.0 Isolated LTS` for running in an [isolated worker process](dotnet-isolated-process-guide.md) or `.NET 6.0 LTS` for [in-process](functions-dotnet-class-library.md). |
     |**Select a template for your project's first function**| Select `Azure Blob Storage trigger`. |
     |**Provide a function name**| Enter `BlobTriggerEventGrid`. |
     |**Provide a namespace** | Enter `My.Functions`. |
