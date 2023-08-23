@@ -34,7 +34,7 @@ Companies seeking local presence or requiring a robust failover system often cho
 ## Example use case
 Contoso is a social media company with its customer base spread across the US and Canada. To serve those customers and let them communicate with each other, Contoso runs its services in Central US. Azure SignalR Service is used to handle user connections and facilitate communication among users. Contoso's end users are mostly phone users. Due to the long geographical distances, end-users in Canada might experience high latency and poor network quality.
 
-![Screenshot of using one Azure SignalR instance to handle traffic from two countries. ](./media/howto-enable-geo-replication/signalr-single.png  "Single SignalR Example")
+![Diagram of using one Azure SignalR instance to handle traffic from two countries. ](./media/howto-enable-geo-replication/signalr-single.png  "Single SignalR Example")
 
 Before the advent of the geo-replication feature, Contoso could set up another Azure SignalR Service in Canada Central to serve its Canadian users. By setting up a geographically closer Azure SignalR Service, end users now have better network quality and lower latency. 
 
@@ -43,12 +43,12 @@ However, managing multiple Azure SignalR Services brings some challenges:
 2. The development team would need to manage two separate Azure SignalR Services, each with distinct domain and connection string.
 3. If a regional outage happens, the traffic needs to be switched to another region.
 
-![Screenshot of using two Azure SignalR instances to handle traffic from two countries. ](./media/howto-enable-geo-replication/signalr-multiple.png  "Mutiple SignalR Example")
+![Diagram of using two Azure SignalR instances to handle traffic from two countries. ](./media/howto-enable-geo-replication/signalr-multiple.png  "Mutiple SignalR Example")
 
 ## Harnessing geo-replication
 With the new geo-replication feature, Contoso can now establish a replica in Canada Central, effectively overcoming the above-mentioned hurdles.
 
-![Screenshot of using one Azure SignalR instance with replica to handle traffic from two countries.](./media/howto-enable-geo-replication/signalr-replica.png  "Replica Example")
+![Diagram of using one Azure SignalR instance with replica to handle traffic from two countries.](./media/howto-enable-geo-replication/signalr-replica.png  "Replica Example")
 
 ## Create a SignalR replica
 
@@ -83,7 +83,7 @@ To delete a replica in the Azure portal:
 
 The diagram below provides a brief illustration of the SignalR Replicas' functionality:
 
-![Screenshot of the arch of Azure SignalR replica. ](./media/howto-enable-geo-replication/signalr-replica-arch.png  "Replica Arch")
+![Diagram of the arch of Azure SignalR replica. ](./media/howto-enable-geo-replication/signalr-replica-arch.png  "Replica Arch")
 
 1. The client negotiates with the app server and receives a redirection to the Azure SignalR service. It then resolves the SignalR service's Fully Qualified Domain Name (FQDN) — `contoso.service.signalr.net`. This FQDN points to a Traffic Manager, which returns the Canonical Name (CNAME) of the nearest regional SignalR instance.
 2. With this CNAME, the client establishes a connection to the regional instance (Replica).
@@ -93,7 +93,7 @@ The diagram below provides a brief illustration of the SignalR Replicas' functio
 > [!NOTE]
 > * In the data plane, a primary Azure SignalR resource functions identically to its replicas
 
-## Resiliency and Disaster Recovery
+## Resiliency and disaster recovery
 
 Azure SignalR Service utilizes a traffic manager for health checks and DNS resolution towards its replicas. Under normal circumstances, when all replicas are functioning properly, clients will be directed to the closest replica. For instance:
 
@@ -102,11 +102,11 @@ Azure SignalR Service utilizes a traffic manager for health checks and DNS resol
 
 In the event of a **regional outage** in eastus (illustrated below), the traffic manager will detect the health check failure for that region. Then, this faulty replica's DNS will be excluded from the traffic manager's DNS resolution results. After a DNS Time-to-Live (TTL) duration, which is set to 90 seconds, clients in `eastus` will be redirected to connect with the replica in `westus`.
 
-![Screenshot of Azure SignalR replica failover. ](./media/howto-enable-geo-replication/signalr-replica-failover.png  "Replica Failover")
+![Diagram of Azure SignalR replica failover. ](./media/howto-enable-geo-replication/signalr-replica-failover.png  "Replica Failover")
 
 Once the issue in `eastus` is resolved and the region is back online, the health check will succeed. Clients in `eastus` will then, once again, be directed to the replica in their region. This transition is smooth as the connected clients will not be impacted until those existing connections are closed. 
 
-![Screenshot of Azure SignalR replica failover recovery. ](./media/howto-enable-geo-replication/signalr-replica-failover-recovery.png  "Replica Failover Recover")
+![Diagram of Azure SignalR replica failover recovery. ](./media/howto-enable-geo-replication/signalr-replica-failover-recovery.png  "Replica Failover Recover")
 
 
 This failover and recovery process is **automatic** and requires no manual intervention.
@@ -117,9 +117,9 @@ For **server connections**, the failover and recovery work the same way as it do
 
 ## Impact on performance after adding replicas
 
-After replicas are enabled, clients will naturally distribute based on their geographical locations. While SignalR takes on the responsibility to synchronize data across these replicas, you'll be pleased to know that the associated overhead is minimal for most common use cases. 
+After replicas are enabled, clients will naturally distribute based on their geographical locations. While SignalR takes on the responsibility to synchronize data across these replicas, you'll be pleased to know that the associated overhead on [Serverload](signalr-concept-performance.md#quick-evaluation-using-metrics) is minimal for most common use cases. 
 
-Specifically, if your application typically broadcasts to larger groups (size >10) or a single connection, the synchronization cost is barely noticeable. If you're messaging small groups (size < 10) or individual users, you might notice a bit more synchronization overhead.
+Specifically, if your application typically broadcasts to larger groups (size >10) or a single connection, the performance impact of synchronization is barely noticeable. If you're messaging small groups (size < 10) or individual users, you might notice a bit more synchronization overhead.
 
 To ensure effective failover management, it is recommended to set each replica's unit size to handle all traffic. Alternatively, you could enable [autoscaling](signalr-howto-scale-autoscale.md) to manage this.
 

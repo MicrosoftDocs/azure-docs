@@ -16,8 +16,8 @@ Your service instance is always running in one region and doesn't fail over to a
 
 For regional disaster recovery, we recommend the following two approaches:
 
-1. **Enable Geo-Replication**(Easy way). This feature will handle regional failover for you automatically. When enabled, there remains just one Azure SignalR instance and no code changes are introduced. Check [geo-replication](howto-enable-geo-replication.md) for details.
-2. **Utilize Multiple Endpoints in Service SDK**. Our service SDK provides a functionality to support multiple SignalR service instances and automatically switch to other instances when some of them aren't available. With this feature, you're able to recover when a disaster takes place, but you need to set up the right system topology by yourself. You learn how to do so **in this document**.
+- **Enable Geo-Replication** (Easy way). This feature will handle regional failover for you automatically. When enabled, there remains just one Azure SignalR instance and no code changes are introduced. Check [geo-replication](howto-enable-geo-replication.md) for details.
+- **Utilize Multiple Endpoints in Service SDK**. Our service SDK provides a functionality to support multiple SignalR service instances and automatically switch to other instances when some of them aren't available. With this feature, you're able to recover when a disaster takes place, but you need to set up the right system topology by yourself. You learn how to do so **in this document**.
 
 
 ## High available architecture for SignalR service

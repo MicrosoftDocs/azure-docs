@@ -13,8 +13,8 @@ Resiliency and disaster recovery is a common need for online systems. Azure Web 
 
 For regional disaster recovery, we recommend the following two approaches:
 
-1. **Enable Geo-Replication**(Easy). This feature will handle regional failover for you automatically. When enabled, there remains just one Azure SignalR instance and no code changes are introduced. Check [geo-replication](howto-enable-geo-replication.md) for details.
-2. **Utilize Multiple Endpoints**. You learn how to do so **in this document**
+- **Enable Geo-Replication** (Easy way). This feature will handle regional failover for you automatically. When enabled, there remains just one Azure SignalR instance and no code changes are introduced. Check [geo-replication](howto-enable-geo-replication.md) for details.
+- **Utilize Multiple Endpoints**. You learn how to do so **in this document**
 
 ## High available architecture for Web PubSub service
 
