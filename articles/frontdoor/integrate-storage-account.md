@@ -53,19 +53,19 @@ A storage account gives access to the Azure Storage services. The storage accoun
 	
 1. In the **New endpoint** section, enter the following information:
 
-1. | Setting  | Value |
-| -------- | ----- |
-| Service type | Select **Azure Front Door**. |
-| Create new/use existing profile | You can create a new Front Door profile or select an existing one. |
-| Profile name | Enter a name for the Front Door profile. You have a list of available Front Door profiles if you selected **Use existing**.|
-| Endpoint name | Enter your endpoint hostname, such as *contoso1234*. This name is used to access your cached resources at the URL _&lt;endpoint-name + hash value&gt;_.z01.azurefd.net. |
-| Origin hostname | By default, a new Front Door endpoint uses the hostname of your storage account as the origin server. |
-| Pricing tier | Select **Standard** if you want to do content delivery or select **Premium** if you want to do content delivery and use security features. |
-| Caching | *Optional* - Toggle on if you want to [enable caching](front-door-caching.md) for your static content. Choose an appropriate query string behavior. Enable compression if required.|
-| WAF | *Optional* - Toggle on if you want to protect your endpoint from common vulnerabilities, malicious actor and bots with [Web Application Firewall](web-application-firewall.md). You can use an existing policy from the WAF policy dropdown or create a new one. |
-| Private link | *Optional* - Toggle on if you want to keep your storage account private that is, not exposed to public internet. Select the region that is the same region as your storage account or closest to your origin. Select target sub resource as **blob**. </br>|
+    | Setting  | Value |
+    | -------- | ----- |
+    | Service type | Select **Azure Front Door**. |
+    | Create new/use existing profile | You can create a new Front Door profile or select an existing one. |
+    | Profile name | Enter a name for the Front Door profile. You have a list of available Front Door profiles if you selected **Use existing**.|
+    | Endpoint name | Enter your endpoint hostname, such as *contoso1234*. This name is used to access your cached resources at the URL _&lt;endpoint-name + hash value&gt;_.z01.azurefd.net. |
+    | Origin hostname | By default, a new Front Door endpoint uses the hostname of your storage account as the origin server. |
+    | Pricing tier | Select **Standard** if you want to do content delivery or select **Premium** if you want to do content delivery and use security features. |
+    | Caching | *Optional* - Toggle on if you want to [enable caching](front-door-caching.md) for your static content. Choose an appropriate query string behavior. Enable compression if required.|
+    | WAF | *Optional* - Toggle on if you want to protect your endpoint from common vulnerabilities, malicious actor and bots with [Web Application Firewall](web-application-firewall.md). You can use an existing policy from the WAF policy dropdown or create a new one. |
+    | Private link | *Optional* - Toggle on if you want to keep your storage account private that is, not exposed to public internet. Select the region that is the same region as your storage account or closest to your origin. Select target sub resource as **blob**. |
 
-:::image type="content" source="./media/integrate-storage-account/image.png" alt-text="Screenshot of the caching, WAF and private link settings for an endpoint.":::
+    :::image type="content" source="./media/integrate-storage-account/security-settings.png" alt-text="Screenshot of the caching, WAF and private link settings for an endpoint.":::
 
     > [!NOTE]
     > * With Standard tier, you can only use custom rules with WAF.To deploy managed rules and bot protection, choose Premium tier. For detailed comparison, see [Azure Front Door tier comparison](./standard-premium/tier-comparison.md).
@@ -80,6 +80,7 @@ A storage account gives access to the Azure Storage services. The storage accoun
 From the storage account **Front Door and CDN** page, select the endpoint from the list to open the Front Door endpoint configuration page. You can enable more Front Door features for your delivery, such as [rules engine](front-door-rules-engine.md) and configure how traffic gets [load balanced](routing-methods.md).
 
 For best practices, refer to [Use Azure Front Door with Azure Storage blobs](scenario-storage-blobs.md).
+
 ## Enable SAS
 
 If you want to grant limited access to private storage containers, you can use the Shared Access Signature (SAS) feature of your Azure Storage account. A SAS is a URI that grants restricted access rights to your Azure Storage resources without exposing your account key. 
