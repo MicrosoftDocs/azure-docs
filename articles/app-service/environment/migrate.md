@@ -3,7 +3,7 @@ title: Migrate to App Service Environment v3 by using the migration feature
 description: Overview of the migration feature for migration to App Service Environment v3
 author: seligj95
 ms.topic: article
-ms.date: 08/07/2023
+ms.date: 08/23/2023
 ms.author: jordanselig
 ms.custom: references_regions
 ---
@@ -143,6 +143,17 @@ Migration requires a three to six hour service window for App Service Environmen
 - All of the apps that are on your App Service Environment are temporarily down. **You should expect about one hour of downtime during this period**.
   - If you can't support downtime, see [migration-alternatives](migration-alternatives.md#guidance-for-manual-migration).
 - The public addresses that are used by the App Service Environment change to the IPs generated during the IP generation step.
+
+The following statuses are available during the migration process:
+
+|Status      |Description  |
+|------------|-------------|
+|Validating and preparing the migration.     |The platform is validating migration support and performing necessary checks.     |
+|Deploying App Service Environment v3 infrastructure.    |Your new App Service Environment v3 infrastructure is provisioning.          |
+|Waiting for infrastructure to complete.  |The platform is validating your new infrastructure and performing necessary checks.         |
+|Setting up networking. Migration downtime period has started. Applications are not accessible.  |The platform is deleting your old infrastructure and moving all of your apps to your new App Service Environment v3. Your apps are down and aren't accepting traffic.         |
+|Running post migration validations.  |The platform is performing necessary checks to ensure the migration succeeded.         |
+|Finalizing migration.  |The platform is finalizing the migration.         |
 
 As in the IP generation step, you can't scale, modify your App Service Environment, or deploy apps to it during this process. When migration is complete, the apps that were on the old App Service Environment are running on the new App Service Environment v3.
 

@@ -4,7 +4,7 @@ description: Learn how to migrate your App Service Environment to App Service En
 author: seligj95
 ms.topic: tutorial
 ms.custom: devx-track-azurecli
-ms.date: 8/07/2023
+ms.date: 8/23/2023
 ms.author: jordanselig
 zone_pivot_groups: app-service-cli-portal
 ---
@@ -174,10 +174,12 @@ Only include the "body" parameter in the command if you're enabling zone redunda
 az rest --method post --uri "${ASE_ID}/migrate?api-version=2021-02-01&phase=fullmigration" --body @parameters.json
 ```
 
-Run the following command to check the status of your migration. The status shows as "Migrating" while in progress.
+Note the "operationId" that's returned after running the previous command. You need this ID to check the status of your migration.
+
+Run the following command to check the status of your migration. Replace the placeholder for operation ID with the ID you copied. For details on the statuses, see the [migration status descriptions](migrate.md#migrate-to-app-service-environment-v3).
 
 ```azurecli
-az rest --method get --uri "${ASE_ID}?api-version=2021-02-01" --query properties.status
+az rest --method get --uri "${ASE_ID}/operations/<operation-id>/details/default?api-version=2022-09-01"
 ```
 
 Once you get a status of "Ready", migration is done, and you have an App Service Environment v3. Your apps are now running in your new environment.
