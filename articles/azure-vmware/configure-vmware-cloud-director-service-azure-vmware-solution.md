@@ -15,8 +15,8 @@ In this article, learn how to configure [VMware Cloud Director](https://docs.vmw
 ## Prerequisites
 -	Plan and deploy a VMware Cloud Director Service Instance in your preferred region using the process described here. [How Do I Create a VMware Cloud Director Instance](https://docs.vmware.com/en/VMware-Cloud-Director-service/services/using-vmware-cloud-director-service/GUID-26D98BA1-CF4B-4A57-971E-E58A0B482EBB.html#GUID-26D98BA1-CF4B-4A57-971E-E58A0B482EBB)
 
-  >[!Note] 
-  > VMware Cloud Director Instances can establish connections to AVS SDDC in regions where latency remains under 150 ms.
+   >[!Note] 
+   > VMware Cloud Director Instances can establish connections to AVS SDDC in regions where latency remains under 150 ms.
 
  - Plan and deploy Azure VMware solution private cloud using the following links:
     - [Plan Azure VMware solution private cloud SDDC.](plan-private-cloud-deployment.md)
@@ -27,24 +27,24 @@ In this article, learn how to configure [VMware Cloud Director](https://docs.vmw
 
 - VMware Reverse proxy VM is deployed within the Azure VMware solution SDDC and requires outbound connectivity to your VMware Cloud director Service Instance. [Plan how you would provide this internet connectivity.](concepts-design-public-internet-access.md) 
 
-1. Public IP on NSX-T edge can be used to provide outbound access for the VMware Reverse proxy VM as shown in this article. Learn more on, [How to configure a public IP in the Azure portal](enable-public-ip-nsx-edge.md#configure-a-public-ip-in-the-azure-portal) and [Outbound Internet access for VMs](enable-public-ip-nsx-edge.md#outbound-internet-access-for-vms)
+- Public IP on NSX-T edge can be used to provide outbound access for the VMware Reverse proxy VM as shown in this article. Learn more on, [How to configure a public IP in the Azure portal](enable-public-ip-nsx-edge.md#configure-a-public-ip-in-the-azure-portal) and [Outbound Internet access for VMs](enable-public-ip-nsx-edge.md#outbound-internet-access-for-vms)
  
-1. VMware Reverse proxy can acquire an IP address through either DHCP or manual IP configuration.
-1. Optionally create a dedicated Tier-1 router for the reverse proxy VM segment.
+- VMware Reverse proxy can acquire an IP address through either DHCP or manual IP configuration.
+- Optionally create a dedicated Tier-1 router for the reverse proxy VM segment.
 
 ### Prepare your Azure VMware Solution SDDC for deploying VMware Reverse proxy VM OVA
 
 1.  Obtain NSX-T cloud admin credentials from Azure portal under VMware credentials. Then, Log in to NSX-T manager.
 1.  Create a dedicated Tier-1 router (optional) for VMware Reverse proxy VM.
-    - Log in to Azure VMware solution NSX-T manage and select **ADD Tier-1 Gateway**
-    - Provide name, Linked Tier-0 gateway and then select save.
-    - Configure appropriate settings under Route Advertisements.
+    1. Log in to Azure VMware solution NSX-T manage and select **ADD Tier-1 Gateway**
+    1. Provide name, Linked Tier-0 gateway and then select save.
+    1. Configure appropriate settings under Route Advertisements.
     
         :::image type="content" source="./media/vmware-cloud-director-service/pic-create-gateway.png" alt-text="Screenshot showing how to create a Tier-1 Gateway." lightbox="./media/vmware-cloud-director-service/pic-create-gateway.png":::
  
 1. Create a segment for VMware Reverse proxy VM. 
-    - Log in to Azure VMware solution NSX-T manage and under segments, select **ADD SEGMENT**
-    - Provide name, Connected Gateway, Transport Zone and Subnet information and then select save.
+    1. Log in to Azure VMware solution NSX-T manage and under segments, select **ADD SEGMENT**
+    1. Provide name, Connected Gateway, Transport Zone and Subnet information and then select save.
     
     :::image type="content" source="./media/vmware-cloud-director-service/pic-create-reverse-proxy.png" alt-text="Screenshot showing how to create a NSX-T segment for reverse proxy VM." lightbox="./media/vmware-cloud-director-service/pic-create-reverse-proxy.png":::
     
