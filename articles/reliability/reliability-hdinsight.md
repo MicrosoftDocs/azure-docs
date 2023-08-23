@@ -151,7 +151,7 @@ A basic HDInsight system has the following components. All components have their
 
 There are other optional services that can be used, such as Azure Key Vault and Azure Data Factory.
 
-:::image type="content" source="media/hdinsight-business-continuity/hdinsight-components.png" alt-text="HDInsight components":::
+:::image type="content" source="../hdinsight/media/hdinsight-business-continuity/hdinsight-components.png" alt-text="HDInsight components":::
 
 ### Azure HDInsight cluster (compute)
 
