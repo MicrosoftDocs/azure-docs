@@ -273,7 +273,7 @@ Learn more about [workspaces with Microsoft Defender for Cloud](../azure-monitor
 
 **Estimated date for change: September 2023**
 
-The recommendation `Microsoft Defender for Storage plan should be enabled` will be deprecated on public clouds and will remain available on Azure Government regions. This recommendation will be replaced by a new recommendation: `Microsoft Defender for Storage plan should be enabled with Malware Scanning and Sensitive Data Threat Detection`. This recommendation ensures that Defender for Storage is enabled at the subscription level with malware scanning and sensitive data threat detection capabilities.
+The recommendation `Microsoft Defender for Storage plan should be enabled` will be deprecated on public clouds and will remain available on Azure Government cloud. This recommendation will be replaced by a new recommendation: `Microsoft Defender for Storage plan should be enabled with Malware Scanning and Sensitive Data Threat Detection`. This recommendation ensures that Defender for Storage is enabled at the subscription level with malware scanning and sensitive data threat detection capabilities.
 
 | Policy Name | Description | Policy Effect | Version |
 |--|--|--|--|
@@ -284,4 +284,5 @@ Learn more about [Microsoft Defender for Storage](defender-for-storage-introduct
 ## Next steps
 
 For all recent changes to Defender for Cloud, see [What's new in Microsoft Defender for Cloud?](release-notes.md).
+
 
