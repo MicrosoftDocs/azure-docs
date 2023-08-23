@@ -51,17 +51,15 @@ Final result caching can also be controlled through the following session parame
 
 > [!NOTE]
 > Session parameters can be set for a session (for example, if Trino CLI is used) or can be set in multi-statement before query text.
-
-For example,
-
-```
-set session query_cache_enabled=true;
-select cust.name, *
-from tpch.tiny.orders 
-join tpch.tiny.customer as cust on cust.custkey = orders.custkey
-order by cust.name
-limit 10;
-```
+>For example,
+>```
+>set session query_cache_enabled=true;
+>select cust.name, *
+>from tpch.tiny.orders 
+>join tpch.tiny.customer as cust on cust.custkey = orders.custkey
+>order by cust.name
+>limit 10;
+>```
 
 ### Using Azure portal
 
