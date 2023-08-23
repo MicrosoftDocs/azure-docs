@@ -120,7 +120,7 @@ IP packets from UEs are tunneled through from the RAN, which adds overhead from 
 
 RANs typically come pre-configured with an MTU of 1500. The packet core’s default UE MTU is 1440 bytes to allow for encapsulation overhead. These values maximize RAN interoperability, but risk that certain UEs will not observe the default MTU and will generate larger packets that require IPv4 fragmentation and that may be dropped by the network. If you are affected by this issue, it is strongly recommended to configure the RAN to use an MTU of 1560 or higher, which allows a sufficient overhead for the encapsulation and avoids fragmentation with a UE using a standard MTU of 1500.
 
-You can also change the MTU signaled by the packet core. Note that:
+You can also change the MTU signaled by the packet core. We recommend setting the MTU to a value within the range supported by your UEs and 60 bytes below the MTU signaled by the RAN. Note that:
 
 - The data network (N6) is automatically updated to match the UE MTU.
 - The access network (N3) is automatically updated to match the UE MTU plus 60.
