@@ -83,27 +83,25 @@ In this article, learn how to configure [VMware Cloud Director](https://docs.vmw
 1. Enter Network Name
     - Network name is the name of the NSX-T segment you created in previous section for reverse proxy VM.
 1. Enter the required information such as vCenter FQDN, Management IP for vCenter, NSX FQDN or IP and more hosts within the SDDC to proxy. 
-1. vCenter and NSX-T IP address of your Azure VMware solution private cloud can be found under **Azure portal** -> **manage**-> **VMware credentials**.
-![Obtain VMware credentials using Azure portal](./media/vmware-cds-avs/pic7.png)
+1. vCenter and NSX-T IP address of your Azure VMware solution private cloud can be found under **Azure portal** -> **manage**-> **VMware credentials**
+
+    :::image type="content" source="./media/vmware-cds-avs/pic7.png" alt-text="Screenshot showing how to obtain VMware credentials using Azure portal." lightbox="./media/vmware-cds-avs/pic7.png":::
+
 1. To find FQDN of vCenter of your Azure VMware solution private cloud, login to the vCenter using VMware credential provided on Azure portal.
 1. In vSphere Client, select vCenter, which displays FQDN of the vCenter server. 
 1. To obtain FQDN of NSX-T, replace vc with nsx. NSX-T FQDN in this example would be,  “nsx.f31ca07da35f4b42abe08e.uksouth.avs.azure.com”
  
     :::image type="content" source="./media/vmware-cds-avs/pic8.png" alt-text="Screenshot showing how to obtain vCenter and NSX-T FQDN in Azure VMware solution private cloud." lightbox="./media/vmware-cds-avs/pic8.png":::
 
- 
-
 1. Obtain ESXi management IP addresses and CIDR for adding IP addresses in allowlist when generating reverse proxy VM OVA.
 
     :::image type="content" source="./media/vmware-cds-avs/pic9.png" alt-text="Screenshot showing how to obtain management IP address and CIDR for ESXi hosts in Azure VMware solution private cloud." lightbox="./media/vmware-cds-avs/pic9.png":::
 
 
+1. Enter a list of any other IP addresses that VMware Cloud Director must be able to access through the proxy, such as ESXi hosts to use for console proxy connection. Use new lines to separate list entries.
 
-1. Enter a list of any other IP addresses that VMware Cloud Director must be able to access through the proxy, such as ESXi hosts to use for console proxy connection.
-Use new lines to separate list entries.
-
->[!TIP] 
-> To ensure that future additions of ESXi hosts don't require updates to the allowed targets, use a CIDR notation to enter the ESXi hosts in the allow list. This way, you can provide any new host with an IP address that is already allocated as part of the CIDR block.
+     > [!TIP] 
+     > To ensure that future additions of ESXi hosts don't require updates to the allowed targets, use a CIDR notation to enter the ESXi hosts in the allow list. This way, you can provide any new host with an IP address that is already allocated as part of the CIDR block.
 
 1. Once you have gathered all the required information, add the information in the VMware Reverse proxy OVA generation wizard in the following diagram.
 
