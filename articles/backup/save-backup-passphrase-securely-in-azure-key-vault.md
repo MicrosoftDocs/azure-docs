@@ -105,7 +105,7 @@ Type        : SystemAssigned
 
 ### Assign permissions to save the passphrase in Azure Key Vault
 
-You need to follow the of the following sections based on the Key Vault permission model (either role-based access permissions or access policy-based permission model) configured for Key Vault.
+Based on the Key Vault permission model (either role-based access permissions or access policy-based permission model) configured for Key Vault, refer to the following sections .
 
 #### Enable permissions using role-based access permission model for Key Vault
 
@@ -129,7 +129,7 @@ To assign the permissions, follow these steps:
 
 5. Select **Managed identity** and then **+ Select members**. choose the **Subscription** of the target Recovery Services vault, select Recovery Services vault under **System-assigned managed identity**.
 
-   Seach and select the *name of the Recovery Services vault*.
+   Search and select the *name of the Recovery Services vault*.
  
 6. Select **Next**, review the assignment, and select **Review + assign**.
  
