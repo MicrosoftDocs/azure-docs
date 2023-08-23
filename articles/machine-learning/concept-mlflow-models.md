@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.date: 11/04/2022
 ms.topic: conceptual
-ms.custom: devx-track-python, cliv2, sdkv2
+ms.custom: cliv2, sdkv2
 ---
 
 # From artifacts to models in MLflow
@@ -184,4 +184,3 @@ There are two workflows available for loading models:
 ## Start logging models
 
 We recommend starting taking advantage of MLflow models in Azure Machine Learning. There are different ways to start using the model's concept with MLflow. Read [How to log MLFlow models](how-to-log-mlflow-models.md) to a comprehensive guide.
-

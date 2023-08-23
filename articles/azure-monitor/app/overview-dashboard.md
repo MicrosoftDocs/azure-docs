@@ -2,7 +2,7 @@
 title: Application Insights Overview dashboard | Microsoft Docs
 description: Monitor applications with Application Insights and Overview dashboard functionality.
 ms.topic: conceptual
-ms.date: 11/15/2022
+ms.date: 03/22/2023
 ---
 
 # Application Insights Overview dashboard
@@ -13,17 +13,17 @@ Application Insights has always provided a summary overview pane to allow quick,
 
 The new **Overview** dashboard now launches by default.
 
-![Screenshot that shows the Overview preview pane.](./media/overview-dashboard/overview.png)
+:::image type="content" source="./media/overview-dashboard/overview.png" lightbox="./media/overview-dashboard/overview.png" alt-text="Screenshot that shows the Overview preview pane.":::
 
 ## Better performance
 
 Time range selection has been simplified to a simple one-click interface.
 
-![Screenshot that shows the time range.](./media/overview-dashboard/app-insights-overview-dashboard-03.png)
+:::image type="content" source="./media/overview-dashboard/app-insights-overview-dashboard-03.png" lightbox="./media/overview-dashboard/app-insights-overview-dashboard-03.png" alt-text="Screenshot that shows the time range.":::
 
 Overall performance has been greatly increased. You have one-click access to popular features like **Search** and **Analytics**. Each default dynamically updating KPI tile provides insight into corresponding Application Insights features. To learn more about failed requests, under **Investigate**, select **Failures**.
 
-![Screenshot that shows failures.](./media/overview-dashboard/app-insights-overview-dashboard-04.png)
+:::image type="content" source="./media/overview-dashboard/app-insights-overview-dashboard-04.png" lightbox="./media/overview-dashboard/app-insights-overview-dashboard-04.png" alt-text="Screenshot that shows failures.":::
 
 ## Application dashboard
 
@@ -31,11 +31,11 @@ The application dashboard uses the existing dashboard technology within Azure to
 
 To access the default dashboard, select **Application Dashboard** in the upper-left corner.
 
-![Screenshot that shows the Application Dashboard button.](./media/overview-dashboard/app-insights-overview-dashboard-05.png)
+:::image type="content" source="./media/overview-dashboard/app-insights-overview-dashboard-05.png" lightbox="./media/overview-dashboard/app-insights-overview-dashboard-05.png" alt-text="Screenshot that shows the Application Dashboard button.":::
 
 If this is your first time accessing the dashboard, it opens a default view.
 
-![Screenshot that shows the Dashboard view.](./media/overview-dashboard/0001-dashboard.png)
+:::image type="content" source="./media/overview-dashboard/0001-dashboard.png" lightbox="./media/overview-dashboard/0001-dashboard.png" alt-text="Screenshot that shows the Dashboard view.":::
 
 You can keep the default view if you like it. Or you can also add and delete from the dashboard to best fit the needs of your team.
 
@@ -44,7 +44,7 @@ You can keep the default view if you like it. Or you can also add and delete fro
 
 To go back to the overview experience, select the **Overview** button.
 
-![Screenshot that shows the Overview button.](./media/overview-dashboard/app-insights-overview-dashboard-07.png)
+:::image type="content" source="./media/overview-dashboard/app-insights-overview-dashboard-07.png" lightbox="./media/overview-dashboard/app-insights-overview-dashboard-07.png" alt-text="Screenshot that shows the Overview button.":::
 
 ## Troubleshooting
 

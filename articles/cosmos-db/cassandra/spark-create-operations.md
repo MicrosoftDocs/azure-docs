@@ -90,9 +90,6 @@ booksDF.write
   .save()
 ```
 
-> [!NOTE]
-> Column-level TTL is not supported yet.
-
 #### Validate in cqlsh
 
 ```sql

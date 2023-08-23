@@ -6,9 +6,8 @@ services: storage
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.date: 11/30/2022
-ms.service: storage
-ms.subservice: blobs
+ms.date: 04/21/2023
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: javascript
 ms.custom: devx-track-js, devguide-js
@@ -16,14 +15,21 @@ ms.custom: devx-track-js, devguide-js
 
 # Download a blob with JavaScript
 
-This article shows how to download a blob using the [Azure Storage client library for JavaScript](https://www.npmjs.com/package/@azure/storage-blob). You can download a blob by using any of the following methods:
+This article shows how to download a blob using the [Azure Storage client library for JavaScript](https://www.npmjs.com/package/@azure/storage-blob). You can download blob data to various destinations, including a local file path, stream, or text string.
+
+## Prerequisites
+
+- The examples in this article assume you already have a project set up to work with the Azure Blob Storage client library for JavaScript. To learn about setting up your project, including package installation, importing modules, and creating an authorized client object to work with data resources, see [Get started with Azure Blob Storage and JavaScript](storage-blob-javascript-get-started.md).
+- The [authorization mechanism](../common/authorize-data-access.md) must have permissions to perform a download operation. To learn more, see the authorization guidance for the following REST API operation:
+    - [Get Blob](/rest/api/storageservices/get-blob#authorization)
+
+## Download a blob
+
+You can use any of the following methods to download a blob: 
 
 - [BlobClient.download](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-download)
 - [BlobClient.downloadToBuffer](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-downloadtobuffer-1) (only available in Node.js runtime)
 - [BlobClient.downloadToFile](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-downloadtofile) (only available in Node.js runtime)
-
-> [!NOTE]
-> The examples in this article assume that you've created a [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) object by using the guidance in the [Get started with Azure Blob Storage and JavaScript](storage-blob-javascript-get-started.md) article. Blobs in Azure Storage are organized into containers. Before you can upload a blob, you must first create a container. To learn how to create a container, see [Create a container in Azure Storage with JavaScript](storage-blob-container-create.md). 
  
 ## Download to a file path
 
@@ -32,7 +38,7 @@ The following example downloads a blob by using a file path with the [BlobClient
 ```javascript
 async function downloadBlobToFile(containerClient, blobName, fileNameWithPath) {
 
-    const blobClient = await containerClient.getBlobClient(blobName);
+    const blobClient = containerClient.getBlobClient(blobName);
     
     await blobClient.downloadToFile(fileNameWithPath);
     console.log(`download of ${blobName} success`);
@@ -46,7 +52,7 @@ The following example downloads a blob by creating a Node.js writable stream obj
 ```javascript
 async function downloadBlobAsStream(containerClient, blobName, writableStream) {
 
-    const blobClient = await containerClient.getBlobClient(blobName);
+    const blobClient = containerClient.getBlobClient(blobName);
 
     const downloadResponse = await blobClient.download();
 
@@ -63,7 +69,7 @@ The following Node.js example downloads a blob to a string with [BlobClient.down
 
 async function downloadBlobToString(containerClient, blobName) {
 
-    const blobClient = await containerClient.getBlobClient(blobName);
+    const blobClient = containerClient.getBlobClient(blobName);
 
     const downloadResponse = await blobClient.download();
 

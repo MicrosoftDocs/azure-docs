@@ -1,17 +1,17 @@
 ---
-title: Optimize query performance using job diagram simulator (preview)
-description: This article provides guidance for evaluating query parallelism and optimizing query execution using a job diagram simulator in Visual Studio Code. 
+title: Optimize query performance using the Job Simulation feature
+description: This article provides guidance for evaluating query parallelism and optimizing query execution using the Job Simulation.
 author: alexlzx
 ms.author: zhenxilin
 ms.service: stream-analytics
-ms.custom: ignite-2022
+ms.custom: ignite-2022, build-2023
 ms.topic: how-to
-ms.date: 12/27/2022
+ms.date: 05/09/2023
 ---
 
-# Optimize query using job diagram simulator
+# Optimize query using job simulation
 
-One way to improve the performance of an Azure Stream Analytics job is to apply parallelism in query. This article demonstrates how to use the Job Diagram Simulator in Visual Studio Code (VS Code) and evaluate the query parallelism for a Stream Analytics job. You learn to visualize a query execution with different number of streaming units and improve query parallelism based on the edit suggestions. 
+One way to improve the performance of an Azure Stream Analytics (ASA) job is to apply parallelism in query. This article demonstrates how to use the Job Simulation in the Azure portal and Visual Studio Code (VS Code) to evaluate the query parallelism for a Stream Analytics job. You learn to visualize a query execution with different number of streaming units and improve query parallelism based on the edit suggestions. 
 
 ## What is parallel query?
 
@@ -21,9 +21,10 @@ For a job to be parallel, all inputs, outputs and query steps must be aligned an
 
 If you want to learn more about query parallelization, see [Leverage query parallelization in Azure Stream Analytics](stream-analytics-parallelization.md).
 
-## How to use job diagram simulator?
 
-The **Job diagram simulator** feature simulates the job running topology in Azure and provides suggestions for adjusting Streaming Units. Therefore, you must configure live inputs and outputs for your Stream Analytics job and use them in the query. 
+## Use job simulation in VS Code
+
+The **Job simulation** feature simulates how the job would be running topology in Azure. In this tutorial, you learn to improve query performance based on edit suggestions and make it executed in parallel. As an example, we're using a nonparallel job that takes the input data from an event hub and sends the results to another event hub.
 
 Prerequisites: 
 * ASA Tools extension for VS Code. If you haven't installed it yet, follow [this guide](quick-create-visual-studio-code.md) to install. 
@@ -31,37 +32,45 @@ Prerequisites:
 * You must include live input and output in the query.
 
 > [!NOTE]
-> The Job diagram simulator can't simulate job running topology for local inputs and outputs. It doesn't send results to the output destination.
+> The Job Simulation can't simulate job running topology for local inputs and outputs. No data would be sent to the output destination during the simulation.
 
-In this tutorial, you learn to improve query performance based on edit suggestions and make it executed in parallel. As an example, we're using a nonparallel job that takes the input data from an event hub and sends the results to another event hub.
-
-1. Open the Azure Stream Analytics project in VS Code after you finish your query authoring, go to the query file **\*.asaql** and select **Simulate job** to start the job diagram simulation.
+1. Open the ASA project in VS Code. Go to the query file **\*.asaql** and select **Simulate job** to start Job Simulation.
 
     :::image type="content" source="./media/job-diagram-simulator/query-file-simulate-job.png" alt-text="Screenshot of the VS Code opening job diagram simulator in query file." lightbox= "./media/job-diagram-simulator/query-file-simulate-job.png" :::
 
-1. Under the **Diagram** tab, you can see the topology of the Azure Stream Analytics job. It shows the number of streaming nodes allocated to the job and the number of partitions in each streaming node. The below job diagram shows this job isn't in parallel since there's data interaction between the two nodes.
+2. Under the **Diagram** tab, it shows the number of streaming nodes allocated to the job and the number of partitions in each streaming node. The following screenshot is an example of a nonparallel job where the data is flowing between nodes.
 
     :::image type="content" source="./media/job-diagram-simulator/diagram-tab.png" alt-text="Screenshot of the VS Code using job diagram simulator and showing job topology." lightbox= "./media/job-diagram-simulator/diagram-tab.png" :::
 
-1. Since this query is **NOT** in parallel, you can select **Enhancements** tab and view suggestions about optimizing query parallelism.
+3. Since this query is **NOT** in parallel, you can select **Enhancements** tab to view suggestions about improving the query.
     
     :::image type="content" source="./media/job-diagram-simulator/edit-suggestions.png" alt-text="Screenshot of the VS Code using job diagram simulator and showing the query edit suggestions." lightbox= "./media/job-diagram-simulator/edit-suggestions.png" :::
 
-1. Select query step in the enhancements list, you see the corresponding lines are highlighted and you can edit the query based on the suggestions.
+4. Select query step in the enhancements list, you see the corresponding lines are highlighted and you can edit the query based on the suggestions.
 
     :::image type="content" source="./media/job-diagram-simulator/query-highlight.png" alt-text="Screenshot of the VS Code using job diagram simulator and highlighting the query step." lightbox= "./media/job-diagram-simulator/query-highlight.png" :::
 
     > [!NOTE] 
-    > These are edit suggestions for improving your query parallelism. However, if you are using aggregate function among all partitions, having a parallel query might not be applicable to your business scenarios. 
+    > These are edit suggestions for improving your query parallelism. However, if you are using aggregate function among all partitions, having a parallel query might not be applicable for your scenarios. 
 
-1. For this example, you add the **PartitionId** to line#22 and save your change. Then you can use **Refresh simulation** to get the new diagram. 
+5. For this example, you add the **PartitionId** to line#22 and save your change. Then you can use **Refresh simulation** to get the new diagram. 
 
     :::image type="content" source="./media/job-diagram-simulator/refresh-simulation-after-update-query.png" alt-text="Screenshot that shows the refresh diagram after updating query." lightbox= "./media/job-diagram-simulator/refresh-simulation-after-update-query.png" :::
 
 
-1. You can also adjust **Streaming Units** to stimulate how streaming nodes are allocated with different SUs. It gives you an idea of how many SUs you need to maximize the query performance. 
+6. You can also adjust **Streaming Units** to stimulate how streaming nodes are allocated with different SUs. It gives you an idea of how many SUs you need to handle your workload.
     
     :::image type="content" source="./media/job-diagram-simulator/job-diagram-simulator-adjust-su.png" alt-text="Screenshot of the VS Code using SU adjuster." lightbox= "./media/job-diagram-simulator/job-diagram-simulator-adjust-su.png" :::
+
+## Use job simulation in the Azure portal
+
+1. Go to your query editor in Azure portal and select **Job simulation** on the bottom pane. It simulates the job running topology based on your query and predefined streaming units. 
+    :::image type="content" source="./media/job-diagram-simulator/job-simulation-in-portal.png" alt-text="A screenshot shows opening job simulation in the portal." lightbox= "./media/job-diagram-simulator/job-simulation-in-portal.png" :::
+2. Select Enhancements to view the suggestions for improving the query parallelism. 
+    :::image type="content" source="./media/job-diagram-simulator/enhancement-tab-in-portal.png" alt-text="A screenshot shows open job simulation enhancements in the portal." lightbox= "./media/job-diagram-simulator/enhancement-tab-in-portal.png" :::
+5. Adjust the streaming units to see how many SUs you needed for handling the workload.
+    :::image type="content" source="./media/job-diagram-simulator/portal-adjust-su.png" alt-text="A screenshot showing how to adjust su in the portal." lightbox= "./media/job-diagram-simulator/portal-adjust-su.png" ::: 
+
 
 ## Processor-level diagram
 
@@ -73,6 +82,10 @@ The processor-level diagram allows you to:
 * observe how the input partitions are allocated and being processed at each streaming node.
 * find out what the **Time shift** is for each computing processor.
 * provide information on whether the Input and Output processors are aligned in parallel.
+
+To map the processor with the query step, double select on the diagram. This feature helps you locate the query steps doing the aggregating. 
+
+:::image type="content" source="./media/job-diagram-simulator/processor-mapping.png" alt-text="A screenshot shows the job simulation mapping feature in VS Code." lightbox= "./media/job-diagram-simulator/processor-mapping.png" :::
 
 ## Enhancement suggestions
 
@@ -89,7 +102,6 @@ Here are the explanations for Enhancements:
 | Output partition key not found | You need to use specified partition key for the output. |
 | Customized partition not supported | You can only use predefined partition keys.  |
 | Query step not using partition | Your query isn't using any PARTITION BY clause. |
-
 
 ## Next steps
 If you want to learn more about query parallelization and job diagram, check out these tutorials: 

@@ -2,6 +2,7 @@
 title: Linter rule - no hardcoded locations
 description: Linter rule - no hardcoded locations
 ms.topic: conceptual
+ms.custom: devx-track-bicep
 ms.date: 02/10/2023
 ---
 

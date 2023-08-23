@@ -4,7 +4,7 @@ titleSuffix: Azure Database Migration Service
 description: Known issues, limitations and troubleshooting guide for Azure SQL Migration extension for Azure Data Studio
 author: croblesm
 ms.author: roblescarlos
-ms.date: 03/14/2023
+ms.date: 04/21/2023
 ms.service: dms
 ms.topic: troubleshooting
 ms.custom: seo-lt-2019
@@ -14,9 +14,8 @@ ms.custom: seo-lt-2019
 
 Known issues and troubleshooting steps associated with the Azure SQL Migration extension for Azure Data Studio.
 
-> [!NOTE]
-> When checking migration details using the Azure Portal, Azure Data Studio or PowerShell / Azure CLI you might see the following error: *Operation Id {your operation id} was not found*. This can either be because you provided an operationId as part of an api parameter in your get call that does not exist, or the migration details of your migration were deleted as part of a cleanup operation.
-
+> [!IMPORTANT]
+> The latest version of Integration Runtime (5.28.8488) prevents access to a network file share on a local host. This security measure will lead to failures when performing migrations to Azure SQL using DMS. Please ensure you run Integration Runtime on a different machine than the network share hosting.
 
 ## Error code: 2007 - CutoverFailedOrCancelled 
 
@@ -216,6 +215,18 @@ WHERE STEP in (3,4,6);
 
 - **Recommendation**: For more troubleshooting steps, see [Troubleshoot Azure Data Factory and Synapse pipelines](../data-factory/data-factory-troubleshoot-guide.md#error-code-2108). 
 
+
+## Error code: 2049 - FileShareTestConnectionFailed
+
+- **Message**: `The value of the property '' is invalid: 'Access to <share path> is denied, resolved IP address is <IP address>, network type is OnPremise'.`
+
+- **Cause**: The network share where the database backups are stored is in the same machine as the self-hosted Integration Runtime (SHIR).
+
+- **Recommendation**: The latest version of Integration Runtime (**5.28.8488**) prevents access to a network file share on a local host. Ensure you run Integration Runtime on a different machine than the network share hosting. If hosting the self-hosted Integration Runtime and the network share on different machines isn't possible with your current migration setup, you can use the option to opt out using ```DisableLocalFolderPathValidation```. 
+    > [!NOTE]
+    > For more information, see [Set up an existing self-hosted IR via local PowerShell](../data-factory/create-self-hosted-integration-runtime.md#set-up-an-existing-self-hosted-ir-via-local-powershell). Use the disabling option with discretion as this is less secure.
+
+
 ## Error code: 2056 - SqlInfoValidationFailed
 
 - **Message**: CollationMismatch: `Source database collation <CollationOptionSource> is not the same as the target database <CollationOptionTarget>. Source database: <SourceDatabaseName> Target database: <TargetDatabaseName>.`
@@ -259,7 +270,7 @@ WHERE STEP in (3,4,6);
 
 ## Error code: Ext_RestoreSettingsError
 
-- **Message**: Unable to read blobs in storage container, exception: The remote server returned an error: (403) Forbidden.;The remote server returned an error: (403) Forbidden
+- **Message**: Unable to read blobs in storage container, exception: The remote server returned an error: (403) Forbidden.; The remote server returned an error: (403) Forbidden
 
 - **Cause**: The Azure SQL target is unable to connect to blob storage.
 
@@ -303,6 +314,14 @@ Migrating to Azure SQL Managed Instance by using the Azure SQL extension for Azu
 Migrating to SQL Server on Azure VMs by using the Azure SQL extension for Azure Data Studio has the following limitations: 
 
 [!INCLUDE [sql-vm-limitations](includes/sql-virtual-machines-limitations.md)]
+
+## Azure Data Studio Limitations
+
+### Failed to start Sql Migration Service: Error: Request error: 
+
+- **Message**: `Error at ClientRequest.<anonymous> (c:\Users\MyUser\.azuredatastudio\extensions\microsoft.sql-migration-1.4.2\dist\main.js:2:7448) at ClientRequest.emit (node:events:538:35) at TLSSocket.socketOnEnd (node:_http_client:466:9) at TLSSocket.emit (node:events:538:35) at endReadableNT (node:internal/streams/readable:1345:12) at process.processTicksAndRejections (node:internal/process/task_queues:83:21)`
+- **Cause**: This issue occurs when Azure Data Studio isn't able to download the MigrationService package from https://github.com/microsoft/sqltoolsservice/releases. The download failure can be due to disconnected network work or unresolved proxy settings. 
+- **Recommendation**: The sure fire way of solving this issue is by downloading the package manually. Follow the mitigation steps outlined in this link: https://github.com/microsoft/azuredatastudio/issues/22558#issuecomment-1496307891
 
 ## Next steps
 

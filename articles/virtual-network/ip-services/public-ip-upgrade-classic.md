@@ -2,13 +2,13 @@
 title: Migrate a classic reserved IP address to a public IP address
 titleSuffix: Azure Virtual Network
 description: In this article, learn how to upgrade a classic deployment model reserved IP to an Azure Resource Manager public IP address.
-author: asudbring
-ms.author: allensu
+author: mbender-ms
+ms.author: mbender
+ms.date: 08/24/2023
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
-ms.date: 05/20/2021
-ms.custom: template-how-to 
+ms.custom: template-how-to, devx-track-azurepowershell, devx-track-arm-template
 ---
 
 # Migrate a classic reserved IP address to a public IP address

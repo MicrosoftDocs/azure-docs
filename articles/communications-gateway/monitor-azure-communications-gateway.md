@@ -46,8 +46,6 @@ You can analyze metrics for Azure Communications Gateway, along with metrics fro
 
 For a list of the metrics collected, see [Monitoring Azure Communications Gateway data reference](monitoring-azure-communications-gateway-data-reference.md).
 
-For reference, you can see a list of [all resource metrics supported in Azure Monitor](../azure-monitor/essentials/metrics-supported.md).
-
 ## Filtering and splitting
 
 All Azure Communications Gateway metrics support the **Region** dimension, allowing you to filter any metric by the Service Locations defined in your Azure Communications Gateway resource. 
@@ -58,10 +56,10 @@ For more information of filtering and splitting, see [Advanced features of Azure
 
 ## Alerts
 
-Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. 
-
-Azure Communications Gateway doesn't currently support alerts.
+Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](/azure/azure-monitor/alerts/alerts-metric-overview) and the [activity log](/azure/azure-monitor/alerts/activity-log-alerts). Different types of alerts have benefits and drawbacks.
 
 ## Next steps
+
+- See [Monitoring Azure Communications Gateway data reference](monitoring-azure-communications-gateway-data-reference.md) for a reference of the metrics, logs, and other important values created by Azure Communications Gateway.
 
 - See [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.

@@ -55,7 +55,7 @@ Install the agent on the Server where the Zscaler Private Access logs are forwar
 
 2. Configure the logs to be collected
 
-Follow the configuration steps below to get Zscaler Private Access logs into Microsoft Sentinel. Refer to the [Azure Monitor Documentation](https://learn.microsoft.com/azure/azure-monitor/agents/data-sources-json) for more details on these steps.
+Follow the configuration steps below to get Zscaler Private Access logs into Microsoft Sentinel. Refer to the [Azure Monitor Documentation](/azure/azure-monitor/agents/data-sources-json) for more details on these steps.
 Zscaler Private Access logs are delivered via Log Streaming Service (LSS). Refer to [LSS documentation](https://help.zscaler.com/zpa/about-log-streaming-service) for detailed information
 1. Configure [Log Receivers](https://help.zscaler.com/zpa/configuring-log-receiver). While configuring a Log Receiver, choose **JSON** as **Log Template**.
 2. Download config file [zpa.conf](https://aka.ms/sentinel-ZscalerPrivateAccess-conf) 

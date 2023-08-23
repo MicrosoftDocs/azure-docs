@@ -29,10 +29,10 @@ Use the `check-header` policy  to enforce that a request has a specified HTTP he
 
 | Attribute                       | Description                                                                                                                                                            | Required | Default |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| name                | The name of the HTTP header to check.                                                                                                                                  | Yes      | N/A     |
-| failed-check-httpcode      | HTTP status code to return if the header doesn't exist or has an invalid value.                                                                                        | Yes      | N/A     |
-| failed-check-error-message | Error message to return in the HTTP response body if the header doesn't exist or has an invalid value. This message must have any special characters properly escaped. | Yes      | N/A     |
-| ignore-case                | Boolean. If set to `true`, case is ignored when the header value is compared against the set of acceptable values.                                    | Yes      | N/A     |
+| name                | The name of the HTTP header to check. Policy expressions are allowed.                                                                                                                                  | Yes      | N/A     |
+| failed-check-httpcode      | HTTP status code to return if the header doesn't exist or has an invalid value. Policy expressions are allowed.                                                                                       | Yes      | N/A     |
+| failed-check-error-message | Error message to return in the HTTP response body if the header doesn't exist or has an invalid value. This message must have any special characters properly escaped. Policy expressions are allowed. | Yes      | N/A     |
+| ignore-case                | Boolean. If set to `true`, case is ignored when the header value is compared against the set of acceptable values. Policy expressions are allowed.                                   | Yes      | N/A     |
 
 ## Elements
 
@@ -41,10 +41,13 @@ Use the `check-header` policy  to enforce that a request has a specified HTTP he
 | value        | Add one or more of these elements to specify allowed HTTP header values. When multiple `value` elements are specified, the check is considered a success if any one of the values is a match. | No       |
 
 
+
+
+
 ## Usage
 
-- [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound
-- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
+- **[Policy sections:](./api-management-howto-policies.md#sections)** inbound
+- **[Policy scopes:](./api-management-howto-policies.md#scopes)** global, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
 
 ## Example

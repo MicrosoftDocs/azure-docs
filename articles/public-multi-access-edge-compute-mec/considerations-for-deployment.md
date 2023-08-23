@@ -83,6 +83,9 @@ A trade-off exists between availability and latency. Although failing over the a
 
 Architect your edge applications by utilizing the Azure Region for the  components that are less latency sensitive, need to be persistent or need to be shared between public MEC sites. This will allow for the applications to be more resilient and cost effective. The public MEC can host the latency sensitive components.
 
+## Data residency
+> [!IMPORTANT]
+Azure public MEC doesn't store or process customer data outside the region you deploy the service instance in.
 
 ## Next steps
 

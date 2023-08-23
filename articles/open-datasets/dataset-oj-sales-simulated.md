@@ -2,6 +2,7 @@
 title: OJ Sales Simulated 
 description: Learn how to use the OJ Sales Simulated  dataset in Azure Open Datasets.
 ms.service: open-datasets
+ms.custom: devx-track-python
 ms.topic: sample
 ms.date: 04/16/2021
 ---

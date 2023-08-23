@@ -7,38 +7,33 @@ author: mrm9084
 ms.service: azure-app-configuration
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 05/02/2022
-ms.custom: devx-track-java
+ms.date: 04/11/2023
+ms.custom: devx-track-java, devx-track-extended-java
 ms.author: mametcal
-
 #Customer intent: As a Java Spring developer, I want to dynamically update my app to use the latest configuration data in App Configuration.
 ---
 # Tutorial: Use dynamic configuration in a Java Spring app
 
 App Configuration has two libraries for Spring. 
 
-* `azure-spring-cloud-appconfiguration-config` requires Spring Boot and takes a dependency on `spring-cloud-context`.
-* `azure-spring-cloud-appconfiguration-config-web` requires Spring Web along with Spring Boot, and also adds support for automatic checking of configuration refresh.
+* `spring-cloud-azure-appconfiguration-config` requires Spring Boot and takes a dependency on `spring-cloud-context`.
+* `spring-cloud-azure-appconfiguration-config-web` requires Spring Web along with Spring Boot, and also adds support for automatic checking of configuration refresh.
 
 Both libraries support manual triggering to check for refreshed configuration values.
 
-Refresh allows you to update your configuration values without having to restart your application, though it will cause all beans in the `@RefreshScope` to be recreated. It checks for any changes to configured triggers, including metadata. By default, the minimum amount of time between checks for changes, refresh interval, is set to 30 seconds.
+Refresh allows you to update your configuration values without having to restart your application, though it causes all beans in the `@RefreshScope` to be recreated. It checks for any changes to configured triggers, including metadata. By default, the minimum amount of time between checks for changes, refresh interval, is set to 30 seconds.
 
-`azure-spring-cloud-appconfiguration-config-web`'s automated refresh is triggered based on activity, specifically Spring Web's `ServletRequestHandledEvent`. If a `ServletRequestHandledEvent` is not triggered, `azure-spring-cloud-appconfiguration-config-web`'s automated refresh will not trigger a refresh even if the cache expiration time has expired.
+`spring-cloud-azure-appconfiguration-config-web`'s automated refresh is triggered based on activity, specifically Spring Web's `ServletRequestHandledEvent`. If a `ServletRequestHandledEvent` is not triggered, `spring-cloud-azure-appconfiguration-config-web`'s automated refresh does not trigger a refresh even if the cache expiration time has expired.
 
 ## Use manual refresh
 
 To use manual refresh, start with a Spring Boot app that uses App Configuration, such as the app you create by following the [Spring Boot quickstart for App Configuration](quickstart-java-spring-app.md).
 
-App Configuration exposes `AppConfigurationRefresh` which can be used to check if the cache is expired and if it is expired trigger a refresh.
+App Configuration exposes `AppConfigurationRefresh`, which can be used to check if the cache is expired and if it is expired a refresh is triggered.
 
 1. Update HelloController to use `AppConfigurationRefresh`.
 
     ```java
-    import com.azure.spring.cloud.config.AppConfigurationRefresh;
-
-    ...
-    
     import com.azure.spring.cloud.config.AppConfigurationRefresh;
     
     @RestController
@@ -62,7 +57,7 @@ App Configuration exposes `AppConfigurationRefresh` which can be used to check i
     }
     ```
 
-    `AppConfigurationRefresh`'s `refreshConfigurations()` returns a `Future` that is true if a refresh has been triggered, and false if not. False means either the cache expiration time hasn't expired, there was no change, or another thread is currently checking for a refresh.
+    `AppConfigurationRefresh`'s `refreshConfigurations()` returns a `Mono` that is true if a refresh has been triggered, and false if not. False means either the cache expiration time hasn't expired, there was no change, or another thread is currently checking for a refresh.
 
 1. Update `bootstrap.properties` to enable refresh
 
@@ -103,7 +98,7 @@ App Configuration exposes `AppConfigurationRefresh` which can be used to check i
     |---|---|
     | /application/config.message | Hello - Updated |
 
-1. Update the sentinel key you created earlier to a new value. This change will trigger the application to refresh all configuration keys once the refresh interval has passed.
+1. Update the sentinel key you created earlier to a new value. This change triggers the application to refresh all configuration keys once the refresh interval has passed.
 
     | Key | Value |
     |---|---|
@@ -118,20 +113,31 @@ App Configuration exposes `AppConfigurationRefresh` which can be used to check i
 
 To use automated refresh, start with a Spring Boot app that uses App Configuration, such as the app you create by following the [Spring Boot quickstart for App Configuration](quickstart-java-spring-app.md).
 
-Then, open the *pom.xml* file in a text editor and add a `<dependency>` for `azure-spring-cloud-appconfiguration-config-web` using the following code.
+Then, open the *pom.xml* file in a text editor and add a `<dependency>` for `spring-cloud-azure-appconfiguration-config-web` using the following code.
 
 **Spring Boot**
+
+### [Spring Boot 3](#tab/spring-boot-3)
 
 ```xml
 <dependency>
     <groupId>com.azure.spring</groupId>
-    <artifactId>azure-spring-cloud-appconfiguration-config-web</artifactId>
-    <version>2.6.0</version>
+    <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
+    <version>5.4.0</version>
 </dependency>
 ```
 
-> [!NOTE]
-> If you need support for older dependencies see our [previous library](https://github.com/Azure/azure-sdk-for-java/blob/spring-cloud-starter-azure-appconfiguration-config_1.2.9/sdk/appconfiguration/spring-cloud-starter-azure-appconfiguration-config/README.md).
+### [Spring Boot 2](#tab/spring-boot-2)
+
+```xml
+<dependency>
+    <groupId>com.azure.spring</groupId>
+    <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
+    <version>4.10.0</version>
+</dependency>
+```
+
+---
 
 1. Update `bootstrap.properties` to enable refresh
 
@@ -172,7 +178,7 @@ Then, open the *pom.xml* file in a text editor and add a `<dependency>` for `azu
     |---|---|
     | /application/config.message | Hello - Updated |
 
-1. Update the sentinel key you created earlier to a new value. This change will trigger the application to refresh all configuration keys once the refresh interval has passed.
+1. Update the sentinel key you created earlier to a new value. This change triggers the application to refresh all configuration keys once the refresh interval has passed.
 
     | Key | Value |
     |---|---|

@@ -7,7 +7,7 @@ ms.author: greglin
 ms.service: application-gateway
 ms.topic: how-to 
 ms.date: 10/01/2021
-ms.custom: template-how-to #Required; leave this attribute/value as-is.
+ms.custom: template-how-to
 ---
 
 # Configure TLS termination with Key Vault certificates using Azure portal

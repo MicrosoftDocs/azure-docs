@@ -6,8 +6,9 @@ ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: v1
+ms.custom: devx-track-dotnet
 ms.topic: conceptual
-ms.date: 10/22/2021
+ms.date: 04/12/2023
 ---
 
 # Transform data in Azure Data Factory version 1
@@ -94,4 +95,3 @@ Azure Data Factory supports the following data transformation activities and the
 | [Stored Procedure](data-factory-stored-proc-activity.md) |Azure SQL, Azure Synapse Analytics, or SQL Server |
 | [Data Lake Analytics U-SQL](data-factory-usql-activity.md) |Azure Data Lake Analytics |
 | [DotNet](data-factory-use-custom-activities.md) |HDInsight [Hadoop] or Azure Batch |
-

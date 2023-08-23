@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.date: 02/28/2023
 ms.author: jomondi
 ms.reviewer: phsignor, yuhko
-ms.custom: contperf-fy21q2
+ms.custom: contperf-fy21q2, enterprise-apps
 zone_pivot_groups: enterprise-apps-minus-portal-aad
 
 #customer intent: As an admin, I want to manage app consent policies for enterprise applications in Azure AD
@@ -222,8 +222,7 @@ The following table provides the list of supported conditions for app consent po
 | ClientApplicationPublisherIds | A list of Microsoft Partner Network (MPN) IDs for [verified publishers](../develop/publisher-verification-overview.md) of the client application, or a list with the single value "all" to match with client apps from any publisher. Default is the single value "all". |
 | ClientApplicationsFromVerifiedPublisherOnly | Set this switch to only match on client applications with a [verified publishers](../develop/publisher-verification-overview.md). Disable this switch (`-ClientApplicationsFromVerifiedPublisherOnly:$false`) to match on any client app, even if it doesn't have a verified publisher. Default is `$false`. |
 
-> [!WARNING]
-> Deleted app consent policies cannot be restored. If you accidentally delete a custom app consent policy, you will need to re-create the policy.
+
 ## Next steps
 
 To learn more:
@@ -233,7 +232,7 @@ To learn more:
 * [Configure the admin consent workflow](configure-admin-consent-workflow.md)
 * [Learn how to manage consent to applications and evaluate consent requests](manage-consent-requests.md)
 * [Grant tenant-wide admin consent to an application](grant-admin-consent.md)
-* [Permissions and consent in the Microsoft identity platform](../develop/v2-permissions-and-consent.md)
+* [Permissions and consent in the Microsoft identity platform](../develop/permissions-consent-overview.md)
 
 To get help or find answers to your questions:
 

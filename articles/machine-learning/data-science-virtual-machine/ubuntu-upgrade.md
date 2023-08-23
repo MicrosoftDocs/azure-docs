@@ -5,10 +5,12 @@ description: Learn how to upgrade from CentOS and Ubuntu 18.04 to the latest Ubu
 keywords: deep learning, AI, data science tools, data science virtual machine, team data science process
 services: machine-learning
 ms.service: data-science-vm
+ms.custom: devx-track-linux
 author: jesscioffi
 ms.author: jcioffi
 ms.topic: conceptual
-ms.date: 10/04/2022
+ms.reviewer: mattmcinnes
+ms.date: 04/19/2023
 ---
 
 # Upgrade your Data Science Virtual Machine to Ubuntu 20.04

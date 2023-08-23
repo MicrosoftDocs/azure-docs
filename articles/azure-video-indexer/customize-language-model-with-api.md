@@ -1,6 +1,6 @@
 ---
-title: Customize a Language model with Azure Video Indexer API
-description: Learn how to customize a Language model with the Azure Video Indexer API.
+title: Customize a Language model with Azure AI Video Indexer API
+description: Learn how to customize a Language model with the Azure AI Video Indexer API.
 author: anikaz
 manager: johndeu
 ms.topic: article
@@ -8,13 +8,13 @@ ms.date: 02/04/2020
 ms.author: kumud
 ---
 
-# Customize a Language model with the Azure Video Indexer API
+# Customize a Language model with the Azure AI Video Indexer API
 
-Azure Video Indexer lets you create custom Language models to customize speech recognition by uploading adaptation text, namely text from the domain whose vocabulary you'd like the engine to adapt to. Once you train your model, new words appearing in the adaptation text will be recognized.
+Azure AI Video Indexer lets you create custom Language models to customize speech recognition by uploading adaptation text, namely text from the domain whose vocabulary you'd like the engine to adapt to. Once you train your model, new words appearing in the adaptation text will be recognized.
 
-For a detailed overview and best practices for custom Language models, see [Customize a Language model with Azure Video Indexer](customize-language-model-overview.md).
+For a detailed overview and best practices for custom Language models, see [Customize a Language model with Azure AI Video Indexer](customize-language-model-overview.md).
 
-You can use the Azure Video Indexer APIs to create and edit custom Language models in your account, as described in this topic. You can also use the website, as described in [Customize Language model using the Azure Video Indexer website](customize-language-model-with-api.md).
+You can use the Azure AI Video Indexer APIs to create and edit custom Language models in your account, as described in this topic. You can also use the website, as described in [Customize Language model using the Azure AI Video Indexer website](customize-language-model-with-api.md).
 
 ## Create a Language model
 
@@ -96,11 +96,11 @@ The response provides metadata on the newly trained Language model along with me
 }
 ```
 
-The returned `id` is a unique ID used to distinguish between language models, while `languageModelId` is used both for [uploading a video to index](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) and [reindexing a video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Re-Index-Video) APIs (also known as `linguisticModelId` in Azure Video Indexer upload/reindex APIs).
+The returned `id` is a unique ID used to distinguish between language models, while `languageModelId` is used both for [uploading a video to index](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) and [reindexing a video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Re-Index-Video) APIs (also known as `linguisticModelId` in Azure AI Video Indexer upload/reindex APIs).
 
 ## Delete a Language model
 
-The [delete a language model](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Delete-Language-Model) API deletes a custom Language model from the specified account. Any video that was using the deleted Language model will keep the same index until you reindex the video. If you reindex the video, you can assign a new Language model to the video. Otherwise, Azure Video Indexer will use its default model to reindex the video.
+The [delete a language model](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Delete-Language-Model) API deletes a custom Language model from the specified account. Any video that was using the deleted Language model will keep the same index until you reindex the video. If you reindex the video, you can assign a new Language model to the video. Otherwise, Azure AI Video Indexer will use its default model to reindex the video.
 
 ### Response
 

@@ -8,9 +8,9 @@ manager: mtillman
 ms.service: virtual-network
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 10/14/2019
+ms.date: 6/27/2023
 ms.author: mbender
-ms.custom: devx-track-azurepowershell, template-how-to
+ms.custom: devx-track-azurepowershell, template-how-to, engagement-fy23
 ---
 
 # Deploy an IPv6 dual stack application using Standard Internal Load Balancer in Azure using PowerShell
@@ -34,7 +34,7 @@ The changes that make the above an internal load balancer front-end configuratio
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 6.9.0 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 6.9.0 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 ## Create a resource group
 
@@ -63,7 +63,7 @@ $RdpPublicIP_2 = New-AzPublicIpAddress `
   -ResourceGroupName $rg.ResourceGroupName `
   -Location $rg.Location  `
   -AllocationMethod Static `
-  -IpAddressVersion IPv4  `
+  -IpAddressVersion IPv6  `
   -sku Standard
 ```
 ## Create the virtual network and the subnet

@@ -12,7 +12,7 @@ ms.custom: references_regions, subject-reliability
 
 # Availability of services for Microsoft Azure operated by 21Vianet
 
-Microsoft Azure operated by 21Vianet (Azure China) is a physically separated instance of cloud services located in China. It's independently operated and transacted by Shanghai Blue Cloud Technology Co., Ltd. ("21Vianet"), a wholly owned subsidiary of Beijing 21Vianet Broadband Data Center Co., Ltd..
+Azure operated by 21Vianet is a physically separated instance of cloud services located in China. It's independently operated and transacted by Shanghai Blue Cloud Technology Co., Ltd. ("21Vianet"), a wholly owned subsidiary of Beijing 21Vianet Broadband Data Center Co., Ltd..
 
 
 ## Service availability
@@ -21,13 +21,13 @@ Microsoft's goal for Azure in China is to match service availability in Azure. F
 
 ### AI + machine learning
 
-This section outlines variations and considerations when using Azure Bot Service, Azure Machine Learning, and Cognitive Services.
+This section outlines variations and considerations when using Azure Bot Service, Azure Machine Learning, and Azure AI services.
 
 | Product | Unsupported, limited, and/or modified features | Notes |
 |---------|--------|------------|
-|Azure Machine learning| See [Azure Machine Learning feature availability across Azure in China cloud regions](../machine-learning/reference-machine-learning-cloud-parity.md#azure-china-21vianet). | |
-| Cognitive Services: Speech| See [Cognitive Services: Azure in China - Speech service](../cognitive-services/speech-service/sovereign-clouds.md?tabs=c-sharp.md#azure-china)  ||
-| Cognitive Services: Speech|For feature variations and limitations, including API endpoints, see [Translator in sovereign clouds](../cognitive-services/translator/sovereign-clouds.md?tabs=china).|
+|Azure Machine Learning| See [Azure Machine Learning feature availability across Azure in China cloud regions](../machine-learning/reference-machine-learning-cloud-parity.md#azure-operated-by-21vianet). | |
+| Azure AI Speech| See [Azure AI services: Azure in China - Speech service](../ai-services/speech-service/sovereign-clouds.md?tabs=c-sharp.md#microsoft-azure-operated-by-21vianet)  ||
+| Azure AI Speech|For feature variations and limitations, including API endpoints, see [Translator in sovereign clouds](../ai-services/translator/sovereign-clouds.md?tabs=china).|
 
 ### Azure AD External Identities
 
@@ -61,10 +61,52 @@ This section outlines variations and considerations when using Networking servic
 |---------|--------|------------|
 | Private Link| <li>For Private Link services availability, see [Azure Private Link availability](../private-link/availability.md).<li>For Private DNS zone names, see [Azure Private Endpoint DNS configuration](../private-link/private-endpoint-dns.md#government). |
 
+### Security
+
+This section outlines variations and considerations when using Security services. 
+
+| Product | Unsupported, limited, and/or modified features | Notes |
+|---------|--------|------------|
+| Microsoft Sentinel| For Microsoft Sentinel availability, see [Microsoft Sentinel availability](../sentinel/feature-availability.md). |
+
+### Azure Container Apps
+
+This section outlines variations and considerations when using Azure Container Apps services. 
+
+| Product | Unsupported, limited, and/or modified features | Notes |
+|---------|--------|------------|
+| Azure Monitor| The Azure Monitor integration is not supported in Azure China |
+
+### Azure China Commercial Marketplace operated by 21Vianet
+ 
+To learn which commercial marketplace features are available in Azure China Commercial Marketplace operated by 21Vianet, as compared to the Azure global commercial marketplace, see [Feature availability for Azure China Commercial Marketplace operated by 21Vianet](/partner-center/marketplace/azure-in-china-feature-availability).
+### Microsoft Cost Management + Billing
+
+This section outlines variations and considerations when using Microsoft Cost Management + Billing features and APIs.
+
+
+#### Azure Retail Rates API for China
+
+The [Azure Retail Prices API for China](/rest/api/cost-management/retail-prices/azure-retail-prices-china) article is applicable only to Azure in China and isn't available in Azure Global.
+
+#### Markup - China
+
+The [Markup - China](../cost-management-billing/manage/markup-china.md) article is applicable only to Azure operated by 21Vianet and isn't available in Azure Global.
+
+## Azure in China Account Sign in
+
+The table below lists ways to connect to your Azure account in Azure Global vs. Azure in China.
+
+
+| Sign in description | Azure Global | Azure in China |
+|--------------|-----------|------| 
+| Sign into Azure with an authenticated account for use with Azure Resource Manager| Connect-AzureAccount | Connect-AzureAccount -Environment AzureChinaCloud|
+| Sign into Azure Active Directory with Microsoft Graph PowerShell | Connect-MgGraph | Connect-MgGraph -AzureEnvironment China|
+| Sign into your Azure classic portal account | Add-AzureAccount | Add-AzureAccount -Environment AzureChinaCloud |
 
 ## Azure in China REST endpoints
 
-The table below lists API endpoints in Azure vs. Azure in China for accessing and managing some of the more common services. 
+The table below lists API endpoints in Azure Global vs. Azure in China for accessing and managing some of the more common services. 
 
 For IP rangers for Azure in China, download [Azure Datacenter IP Ranges in China](https://www.microsoft.com/download/confirmation.aspx?id=57062).
 
@@ -94,10 +136,11 @@ For IP rangers for Azure in China, download [Azure Datacenter IP Ranges in China
 | Azure Active Directory (Azure AD) | \*.onmicrosoft.com | \*.partner.onmschina.cn |
 | Azure AD logon | [https://login.microsoftonline.com](https://login.windows.net/) | [https://login.partner.microsoftonline.cn](https://login.chinacloudapi.cn/) |
 | Microsoft Graph | [https://graph.microsoft.com](https://graph.microsoft.com/) | [https://microsoftgraph.chinacloudapi.cn](https://microsoftgraph.chinacloudapi.cn/) |
-| Azure Cognitive Services | `https://api.projectoxford.ai/face/v1.0` | `https://api.cognitive.azure.cn/face/v1.0` |
+| Azure AI services | `https://api.projectoxford.ai/face/v1.0` | `https://api.cognitive.azure.cn/face/v1.0` |
 | Azure Bot Services | <\*.botframework.com> | <\*.botframework.azure.cn> |
 | Azure Key Vault API | \*.vault.azure.net | \*.vault.azure.cn |
-| Sign in with PowerShell: <br>- Azure classic portal <br>- Azure Resource Manager <br>- Azure AD| - Add-AzureAccount<br>- Connect-AzureRmAccount <br> - Connect-msolservice |  - Add-AzureAccount -Environment AzureChinaCloud <br> - Connect-AzureRmAccount -Environment AzureChinaCloud <br>- Connect-msolservice -AzureEnvironment AzureChinaCloud |
+| Azure Container Apps Default Domain | \*.azurecontainerapps.io | No default domain is provided for external environment. The [custom domain](/azure/container-apps/custom-domains-certificates) is required.  |
+| Azure Container Apps Event Stream Endpoint | \<region\>.azurecontainerapps.dev | \<region\>.chinanorth3.azurecontainerapps-dev.cn  |
 
 ### Application Insights
 
@@ -232,7 +275,7 @@ window[aiName]=aisdk,aisdk.queue&&0===aisdk.queue.length&&aisdk.trackPageView({}
 
 ### Azure portal
 
-You can sign in to the [Azure portal](https://portal.azure.cn/?l=en.en-us) to manage workloads in Azure China anywhere globally.
+You can sign in to the [Azure portal](https://portal.azure.cn/?l=en.en-us) to manage workloads in Azure operated by 21Vianet anywhere globally.
 
 ### Work with administrator roles
 
@@ -247,4 +290,3 @@ One service administrator role is created per Azure account, and is authorized t
 ### Create a co-administrator
 
 Account administrators can create up to 199 co-administrator roles per subscription. This role has the same access privileges as the service administrator, but can't change the association of subscriptions to Azure directories.
-

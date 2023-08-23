@@ -7,6 +7,7 @@ manager: KumudD
 ms.service: frontdoor
 ms.topic: how-to
 ms.workload: infrastructure-services
+ms.custom: devx-track-azurecli
 ms.date: 09/20/2022
 ms.author: duau
 ---

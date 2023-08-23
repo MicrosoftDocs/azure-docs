@@ -60,11 +60,17 @@ If you need to assign administrator roles in Azure Active Directory, see [Assign
 
 ## Step 3: Select the appropriate role
 
-1. On the **Roles** tab, select a role that you want to use.
+1. On the **Role** tab, select a role that you want to use.
 
     You can search for a role by name or by description. You can also filter roles by type and category.
 
-   ![Screenshot of Add role assignment page with Roles tab.](./media/shared/roles.png)
+   ![Screenshot of Add role assignment page with Role tab.](./media/shared/roles.png)
+
+1. If you want to assign a privileged administrator role, select the **Privileged administrator roles** tab to select the role.
+
+    Privileged administrator roles are roles that grant privileged administrator access, such as the ability to manage Azure resources or assign roles to other users. You should avoid assigning a privileged administrator role when a job function role can be assigned instead. If you must assign a privileged administrator role, use a narrow scope, such as resource group or resource. For more information, see [Privileged administrator roles](./role-assignments-steps.md#privileged-administrator-roles).
+
+   ![Screenshot of Add role assignment page with Privileged administrator roles tab selected.](./media/shared/privileged-administrator-roles.png)
 
 1. In the **Details** column, click **View** to get more details about a role.
 

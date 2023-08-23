@@ -8,23 +8,26 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/14/2022
+ms.date: 04/14/2023
 ms.author: jomondi
 ms.reviewer: ergreenl
+ms.custom: enterprise-apps
 ---
 
 # Add an OpenID Connect-based single sign-on application
 
-Add an application that supports [OpenID Connect (OIDC)](../develop/active-directory-v2-protocols.md) based single sign-on (SSO) to your Azure Active Directory (Azure AD) tenant.
+Add an application that supports [OpenID Connect (OIDC)](../develop/v2-protocols.md) based single sign-on (SSO) to your Azure Active Directory (Azure AD) tenant.
 
 It is recommended that you use a non-production environment to test the steps in this page.
+
+[!INCLUDE [portal updates](../includes/portal-update.md)]
 
 ## Prerequisites
 
 To configure OIDC-based SSO, you need:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
+- One of the following roles: Global Administrator, or owner of the service principal.
 
 ## Add the application
 
@@ -32,7 +35,7 @@ When you add an enterprise application that uses the OIDC standard for SSO, you 
 
 To configure OIDC-based SSO for an application:
 
-1. Go to the [Azure portal](https://portal.azure.com) and sign in using one of the roles listed in the prerequisites.
+1. Sign in to the [Azure portal](https://portal.azure.com) and sign in using one of the roles listed in the prerequisites.
 1. Browse to **Azure Active Directory** > **Enterprise applications**. The **All applications** pane opens and displays a list of the applications in your Azure AD tenant. 
 1. In the **Enterprise applications** pane, select **New application**.
 1. The **Browse Azure AD Gallery** pane opens and displays tiles for cloud platforms, on-premises applications, and featured applications. Applications listed in the **Featured applications** section have icons indicating whether they support federated SSO and provisioning. Search for and select the application. In this example, **SmartSheet** is being used.

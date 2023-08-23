@@ -54,7 +54,7 @@ Install the agent on the Server to which the Ubiquiti logs are forwarder from Ub
 
 2. Configure the logs to be collected
 
-Follow the configuration steps below to get Ubiquiti logs into Microsoft Sentinel. Refer to the [Azure Monitor Documentation](https://learn.microsoft.com/azure/azure-monitor/agents/data-sources-json) for more details on these steps.
+Follow the configuration steps below to get Ubiquiti logs into Microsoft Sentinel. Refer to the [Azure Monitor Documentation](/azure/azure-monitor/agents/data-sources-json) for more details on these steps.
 1. Configure log forwarding on your Ubiquiti controller: 
 
 	 i. Go to Settings > System Setting > Controller Configuration > Remote Logging and enable the Syslog and Debugging (optional) logs (Refer to [User Guide](https://dl.ui.com/guides/UniFi/UniFi_Controller_V5_UG.pdf) for detailed instructions).

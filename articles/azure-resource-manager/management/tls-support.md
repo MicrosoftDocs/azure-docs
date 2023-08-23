@@ -2,6 +2,7 @@
 title: TLS version supported by Azure Resource Manager
 description: Describes the deprecation of TLS versions prior to 1.2 in Azure Resource Manager
 ms.topic: conceptual
+ms.custom: devx-track-arm-template
 ms.date: 09/26/2022
 ---
 # Migrating to TLS 1.2 for Azure Resource Manager

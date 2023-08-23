@@ -12,13 +12,15 @@ manager: femila
 
 In addition to the Azure portal, you can also set up MSIX app attach manually with PowerShell. This article will walk you through how to use PowerShell to set up MSIX app attach.
 
+Learn more about MSIX app attach at [What is MSIX app attach?](what-is-app-attach.md)
+
 ## Requirements
 
 Here's what you need to configure MSIX app attach:
 
 - A functioning Azure Virtual Desktop deployment. To learn how to deploy Azure Virtual Desktop (classic), see [Create a tenant in Azure Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md). To learn how to deploy Azure Virtual Desktop with Azure Resource Manager integration, see [Create a host pool with the Azure portal](./create-host-pools-azure-marketplace.md).
-- A Azure Virtual Desktop host pool with at least one active session host.
-- A Desktop remote app group.
+- An Azure Virtual Desktop host pool with at least one active session host.
+- A Desktop or RemoteApp application group.
 - The MSIX packaging tool.
 - An MSIX-packaged application expanded into an MSIX image that's uploaded into a file share.
 - A file share in your Azure Virtual Desktop deployment where the MSIX package will be stored.
@@ -190,21 +192,21 @@ To remove the package, run this cmdlet:
 Remove-AzWvdMsixPackage -FullName $obj.PackageFullName -HostPoolName $hp -ResourceGroupName $rg
 ```
 
-## Publish MSIX apps to an app group
+## Publish MSIX apps to an application group
 
-You can only follow the instructions in this section if you've finished following the instructions in the previous sections. If you have a host pool with an active session host, at least one Desktop app group, and have added an MSIX package to the host pool, you're ready to go.
+You can only follow the instructions in this section if you've finished following the instructions in the previous sections. If you have a host pool with an active session host, at least one Desktop application group, and have added an MSIX package to the host pool, you're ready to go.
 
-To publish an app from the MSIX package to an app group, you'll need to find its name, then use that name in the publishing cmdlet.
+To publish an app from the MSIX package to an application group, you'll need to find its name, then use that name in the publishing cmdlet.
 
 To publish an app:
 
-Run this cmdlet to list all available app groups:
+Run this cmdlet to list all available application groups:
 
 ```powershell
 Get-AzWvdApplicationGroup -ResourceGroupName $rg -SubscriptionId $subId
 ```
 
-When you've found the name of the app group you want to publish apps to, use its name in this cmdlet:
+When you've found the name of the application group you want to publish apps to, use its name in this cmdlet:
 
 ```powershell
 $grName = "<AppGroupName>"
@@ -212,20 +214,20 @@ $grName = "<AppGroupName>"
 
 Finally, you'll need to publish the app.
 
-- To publish MSIX application to a desktop app group, run this cmdlet:
+- To publish MSIX application to a desktop application group, run this cmdlet:
 
    ```powershell
    New-AzWvdApplication -ResourceGroupName $rg -SubscriptionId $subId -Name PowerBi -ApplicationType MsixApplication -ApplicationGroupName $grName -MsixPackageFamilyName $obj.PackageFamilyName -CommandLineSetting 0
    ```
 
-- To publish the app to a remote app group, run this cmdlet instead:
+- To publish the app to a RemoteApp application group, run this cmdlet instead:
 
    ```powershell
    New-AzWvdApplication -ResourceGroupName $rg -SubscriptionId $subId -Name PowerBi -ApplicationType MsixApplication -ApplicationGroupName $grName -MsixPackageFamilyName $obj.PackageFamilyName -CommandLineSetting 0 -MsixPackageApplicationId $obj.PackageApplication.AppId
    ```
 
 >[!NOTE]
->If a user is assigned to both a remote app group and a desktop app group in the same host pool, when the user connects to their remote desktop, they will see MSIX apps from both groups.
+>If a user is assigned to both a RemoteApp application group and a desktop application group in the same host pool, when the user connects to their remote desktop, they will see MSIX apps from both groups.
 
 ## Next steps
 
@@ -235,5 +237,5 @@ You can also leave feedback for Azure Virtual Desktop at the [Azure Virtual Desk
 
 Here are some other articles you might find helpful:
 
-- [MSIX app attach glossary](app-attach-glossary.md)
+- [What is MSIX app attach?](what-is-app-attach.md)
 - [MSIX app attach FAQ](app-attach-faq.yml)

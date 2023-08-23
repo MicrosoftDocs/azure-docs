@@ -2,13 +2,13 @@
 title: Using Azure App Configuration in Python apps with the Azure SDK for Python | Microsoft Learn
 description: This document shows examples of how to use the Azure SDK for Python to access your data in Azure App Configuration.
 services: azure-app-configuration
-author: maud-lv
+author: mcleanbyron
 ms.service: azure-app-configuration
 ms.devlang: python
 ms.topic: sample
 ms.custom: devx-track-python, mode-other, engagement-fy23, py-fresh-zinc
 ms.date: 11/17/2022
-ms.author: malev
+ms.author: mcleans
 #Customer intent: As a Python developer, I want to use the Azure SDK for Python to access my data in Azure App Configuration.
 ---
 # Create a Python app with the Azure SDK for Python
@@ -22,19 +22,16 @@ This document shows examples of how to use the [Azure SDK for Python](https://gi
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 - Python 3.6 or later - for information on setting up Python on Windows, see the [Python on Windows documentation](/windows/python/)
-- An Azure App Configuration store
+- An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 
 ## Create a key-value
 
-1. In the Azure portal, open your App Configuration store and select **Configuration Explorer** > **Create** > **Key-value** to add the following key-value:
+Add the following key-value to the App Configuration store and leave **Label** and **Content Type** with their default values. For more information about how to add key-values to a store using the Azure portal or the CLI, go to [Create a key-value](./quickstart-azure-app-configuration-create.md#create-a-key-value).
 
-    | Key                        | Value                               |
-    |----------------------------|-------------------------------------|
-    | *TestApp:Settings:Message* | *Data from Azure App Configuration* |
+| Key                        | Value                               |
+|----------------------------|-------------------------------------|
+| *TestApp:Settings:Message* | *Data from Azure App Configuration* |
 
-    Leave **Label** and **Content Type** empty for now.
-
-1. Select **Apply**.
 
 ## Set up the Python app
 

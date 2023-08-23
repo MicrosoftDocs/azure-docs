@@ -5,8 +5,8 @@ titleSuffix: Service Connector
 ms.service: service-connector
 ms.topic: troubleshooting
 ms.date: 03/02/2023
-ms.author: malev
-author: maud-lv
+ms.author: mcleans
+author: mcleanbyron
 ---
 
 # Known limitations of Service Connector

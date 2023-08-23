@@ -560,12 +560,6 @@ Remove a user from all groups.
 
 ### Models
 
-#### CodeLevel
-
-| Name | Type | Description | Required |
-| ---- | ---- | ----------- | -------- |
-| CodeLevel | integer |  |  |
-
 #### ErrorDetail
 
 The error object.
@@ -577,18 +571,6 @@ The error object.
 | target | string | The target of the error. | No |
 | details | [ [ErrorDetail](#errordetail) ] | An array of details about specific errors that led to this reported error. | No |
 | inner | [InnerError](#innererror) |  | No |
-
-#### ErrorKind
-
-| Name | Type | Description | Required |
-| ---- | ---- | ----------- | -------- |
-| ErrorKind | integer |  |  |
-
-#### ErrorScope
-
-| Name | Type | Description | Required |
-| ---- | ---- | ----------- | -------- |
-| ErrorScope | integer |  |  |
 
 #### InnerError
 
@@ -609,9 +591,9 @@ The error object.
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
 | code | string |  | No |
-| level | [CodeLevel](#codelevel) |  | No |
-| scope | [ErrorScope](#errorscope) |  | No |
-| errorKind | [ErrorKind](#errorkind) |  | No |
+| level | string | _Enum:_ `"Info"`, `"Warning"`, `"Error"` | No |
+| scope | string | _Enum:_ `"Unknown"`, `"Request"`, `"Connection"`, `"User"`, `"Group"` | No |
+| errorKind | string | _Enum:_ `"Unknown"`, `"NotExisted"`, `"NotInGroup"`, `"Invalid"` | No |
 | message | string |  | No |
 | jsonObject |  |  | No |
 | isSuccess | boolean |  | No |

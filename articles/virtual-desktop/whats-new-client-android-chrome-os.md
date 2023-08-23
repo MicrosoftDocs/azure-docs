@@ -1,10 +1,10 @@
 ---
 title: What's new in the Remote Desktop client for Android and Chrome OS - Azure Virtual Desktop
 description: Learn about recent changes to the Remote Desktop client for Android and Chrome OS
-ms.topic: conceptual
+ms.topic: release-notes
 author: heidilohr
 ms.author: helohr
-ms.date: 01/04/2023
+ms.date: 08/21/2023
 ---
 
 # What's new in the Remote Desktop client for Android and Chrome OS

@@ -15,7 +15,7 @@ ms.workload: identity
 ms.date: 05/12/2022
 ms.author: jodowns
 ms.collection: M365-identity-device-management 
-ms.custom: devx-track-azurepowershell
+ms.custom: has-azure-ad-ps-ref
 ---
 
 # Assign a managed identity access to an application role using PowerShell
@@ -33,7 +33,7 @@ In this article, you learn how to assign a managed identity to an application ro
 - If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before continuing.
 - To run the example scripts, you have two options:
     - Use the [Azure Cloud Shell](../../cloud-shell/overview.md), which you can open using the **Try It** button on the top-right corner of code blocks.
-    - Run scripts locally by installing the latest version of [the Az PowerShell module](/powershell/azure/install-az-ps). You can also use the [Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/get-started).
+    - Run scripts locally by installing the latest version of [the Az PowerShell module](/powershell/azure/install-azure-powershell). You can also use the [Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/get-started).
 
 ## Assign a managed identity access to another application's app role
 
@@ -76,7 +76,7 @@ In this article, you learn how to assign a managed identity to an application ro
     > [!NOTE]
     > Display names for applications are not unique, so you should verify that you obtain the correct application's service principal.
 
-1. Add an [app role](../develop/howto-add-app-roles-in-azure-ad-apps.md) to the application you created in step 3. You can create the role using the Azure portal or by using Microsoft Graph. For example, you could add an app role by running the following query on Graph explorer:
+1. Add an [app role](../develop/howto-add-app-roles-in-apps.md) to the application you created in step 3. You can create the role using the Azure portal or by using Microsoft Graph. For example, you could add an app role by running the following query on Graph explorer:
 
     ```http
     PATCH /applications/{id}/

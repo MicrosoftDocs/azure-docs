@@ -10,7 +10,7 @@ ms.author: jhirono
 author: jhirono
 ms.date: 02/14/2023
 ms.topic: how-to
-ms.custom: 
+ms.custom: build-2023
 ---
 
 # Plan for network isolation
@@ -18,6 +18,21 @@ ms.custom:
 In this article, you learn how to plan your network isolation for Azure Machine Learning and our recommendations. This is a document for IT administrators who want to design network architecture.
 
 ## Key considerations
+
+### Azure Machine Learning managed virtual network and Azure Virtual Network
+
+Azure Machine Learning can use a managed virtual network (preview) or Azure Virtual Network to enable network isolation.
+
+> [!IMPORTANT]
+> Azure Machine Learning managed virtual network is currently in preview. This preview version is provided without a service-level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Using a Managed virtual network provides an easier configuration for network isolation. It automatically secures your workspace and managed compute resources in a managed virtual network. You can add private endpoint connections for other Azure services that the workspace relies on, such as Azure Storage Accounts. Depending on your needs, you can allow all outbound traffic to the public network or allow only the outbound traffic you approve. Outbound traffic required by the Azure Machine Learning service is automatically enabled for the managed virtual network.
+
+Using Azure Virtual Networks provides a more customizable network isolation solution, with the caveat that you are responsible for configuration and management. An Azure Virtual Network can be used to connect unmanaged resources to your workspace. For example, an Azure Virtual Network might be used to enable clients to connect to the workspace through a Virtual Private Network (VPN) gateway, or to allow you to [attach on-premises kubernetes](how-to-attach-kubernetes-anywhere.md) as a compute resource.
+
+> [!TIP]
+> The information in this article is primarily about using Azure Virtual Networks. For more information on Azure Machine Learning managed virtual networks, see the [Managed virtual network](how-to-managed-network.md) article.
 
 ### Azure Machine Learning has both IaaS and PaaS resources
 

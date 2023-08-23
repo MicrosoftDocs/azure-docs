@@ -44,6 +44,6 @@ The agent update normally lasts 2-3 minutes on a new VM and shouldn't cause your
 Now that you have a better understanding of the Azure Virtual Desktop agent, here are some resources that might help you:
 
 - If you're experiencing agent or connectivity-related issues, check out the [Azure Virtual Desktop Agent issues troubleshooting guide](troubleshoot-agent.md).
-- To schedule agent updates, see the [Scheduled Agent Updates (preview) document](scheduled-agent-updates.md).
+- To schedule agent updates, see the [Scheduled Agent Updates document](scheduled-agent-updates.md).
 - To set up diagnostics for this feature, see the [Scheduled Agent Updates Diagnostics guide](agent-updates-diagnostics.md).
 - To find information about the latest and previous agent versions, see the [Agent Updates version notes](whats-new-agent.md).

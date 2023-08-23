@@ -7,7 +7,7 @@ ms.reviewer: gahllevy
 ms.service: cosmos-db
 ms.subservice: mongodb
 ms.topic: release-notes
-ms.date: 01/18/2023
+ms.date: 03/28/2023
 ms.custom: ignite-2022
 ---
 
@@ -17,11 +17,11 @@ The Change log for the API for MongoDB is meant to inform you about our feature 
 
 ## Azure Cosmos DB for MongoDB updates
 
-### Azure Cosmos DB for MongoDB 5.0 (Limited Preview)
+### Azure Cosmos DB for MongoDB vCore (with 5.0 support) (Preview)
 
-The 5.0 version supports many new features such as distributed ACID transactions, higher limits for unsharded collections and for shards themselves, improved performance for aggregation pipelines and complex queries, and more.
+Azure Cosmos DB for MongoDB vCore supports many new features such as distributed ACID transactions, higher limits for unsharded collections and for shards themselves, improved performance for aggregation pipelines and complex queries, and more.
 
-[Request access today to try out this Limited Preview!](../access-previews.md)
+[Get started now!](./vcore/quickstart-portal.md)
 
 ### Role-based access control (RBAC) (GA)
 

@@ -3,10 +3,12 @@ title: 'Quickstart: Create an Azure DNS zone and record using Terraform'
 description: 'In this article, you create an Azure DNS zone and record using Terraform'
 ms.topic: quickstart
 ms.service: dns
-ms.date: 3/17/2023
+ms.date: 4/14/2023
 ms.custom: devx-track-terraform
 author: TomArcherMsft
 ms.author: tarcher
+content_well_notification: 
+  - AI-contribution
 ---
 
 # Quickstart: Create an Azure DNS zone and record using Terraform
@@ -23,8 +25,6 @@ In this article, you learn how to:
 > * Create a random value using [random_string](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string)
 > * Create an Azure DNS zone using [azurerm_dns_zone](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/dns_zone)
 > * Create an Azure DNS A record using [azurerm_dns_a_record](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/dns_a_record)
-
-[!INCLUDE [AI attribution](../../includes/ai-generated-attribution.md)]
 
 ## Prerequisites
 

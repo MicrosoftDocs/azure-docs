@@ -3,7 +3,7 @@ title: Request limits and throttling
 description: Describes how to use throttling with Azure Resource Manager requests when subscription limits have been reached.
 ms.topic: conceptual
 ms.date: 03/02/2023
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-arm-template
 ---
 # Throttling Resource Manager requests
 
@@ -13,7 +13,7 @@ Throttling happens at two levels. Azure Resource Manager throttles requests for 
 
 The following image shows how throttling is applied as a request goes from the user to Azure Resource Manager and the resource provider. The image shows that requests are initially throttled per principal ID and per Azure Resource Manager instance in the region of the user sending the request. The requests are throttled per hour. When the request is forwarded to the resource provider, requests are throttled per region of the resource rather than per Azure Resource Manager instance in region of the user. The resource provider requests are also throttled per principal user ID and per hour.
 
-![Request throttling](./media/request-limits-and-throttling/request-throttling.svg)
+:::image type="content" source="./media/request-limits-and-throttling/request-throttling.svg" alt-text="Diagram that shows how throttling is applied as a request goes from the user to Azure Resource Manager and the resource provider.":::
 
 ## Subscription and tenant limits
 

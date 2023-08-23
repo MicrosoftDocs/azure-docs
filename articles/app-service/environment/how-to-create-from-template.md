@@ -3,6 +3,7 @@ title: Create an App Service Environment (ASE) v3 with Azure Resource Manager
 description: Learn how to create an external or ILB App Service Environment v3 by using an Azure Resource Manager template.
 author: madsd
 ms.topic: how-to
+ms.custom: devx-track-arm-template
 ms.date: 03/09/2023
 ms.author: madsd
 ---
@@ -78,7 +79,7 @@ parameterPath="PATH/azuredeploy.parameters.json"
 az deployment group create --resource-group "YOUR-RG-NAME-HERE" --template-file $templatePath --parameters $parameterPath
 ```
 
-It can take more than one hour for the App Service Environment to be created.
+Creating the App Service Environment usually takes about an hour, but if it is a zone redundant App Service Environment or we are experiencing unexpected demand in a region, the creation process can take several hours to complete.
 
 ## Next steps
 

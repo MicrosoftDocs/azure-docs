@@ -2,7 +2,8 @@
 title: Linter rule - max resources
 description: Linter rule - max resources.
 ms.topic: conceptual
-ms.date: 02/03/2022
+ms.custom: devx-track-bicep
+ms.date: 06/23/2023
 ---
 
 # Linter rule - max resources

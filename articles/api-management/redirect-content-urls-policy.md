@@ -27,8 +27,13 @@ The `redirect-content-urls` policy rewrites (masks) links in the response body s
 ## Usage
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound
-- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
+- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
+
+### Usage notes
+
+- This policy can only be used once in a policy section.
+
 
 ## Example
 

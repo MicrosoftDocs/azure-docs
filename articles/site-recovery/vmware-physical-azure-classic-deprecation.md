@@ -25,7 +25,7 @@ Classic experience to protect VMware and physical machines to Azure using Site R
 
 - Starting March 15, 2023, you can only use the modernized experience to enable Azure Site Recovery for all newly created Recovery Services vaults.
 
-- Existing VMware and physical machines can remain on the classic management experience until March 30, 2026. However, changes to any configurations of the replication on these existing VMware and physical machines will require upgrade to the new modernized experience, starting 15 April 2023. 
+- Existing VMware and physical machines can remain on the classic management experience until March 30, 2026. After 30 March 2026, changes to any configurations of the replication on these existing VMware and physical machines will require upgrade to the new modernized experience. 
 
 - Support for new features or improvements, along with mobility agent support for new Linux distros, will only be available on the modernized experience.
 

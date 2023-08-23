@@ -11,7 +11,7 @@ ms.custom: include file
 ms.author: dbasantes
 ---
 
-### Using Azure blob storage for external storage
+## Using Azure blob storage for external storage
 
 ```csharp
 StartRecordingOptions recordingOptions = new StartRecordingOptions(new ServerCallLocator("<serverCallId>"))

@@ -2,7 +2,7 @@
 title: Azure Data Manager for Agriculture
 description: Describes the properties that are provided for Azure Data Manager for Agriculture events with Azure Event Grid.
 ms.topic: conceptual
-ms.date: 03/02/2023
+ms.date: 04/17/2023
 ---
 
 # Azure Data Manager for Agriculture (Preview) as Event Grid source
@@ -11,75 +11,75 @@ This article provides the properties and schema for Azure Data Manager for Agric
 
 ## Available event types
 
-### Farm management related event types
+### Farm management related event types (Preview)
 
 |Event Name | Description|
 |:-----:|:----:|
 |Microsoft.AgFoodPlatform.PartyChanged|Published when a `Party` is created/updated/deleted.|
-|Microsoft.AgFoodPlatform.FarmChangedV2| Published when a `Farm` is created/updated/deleted.|
-|Microsoft.AgFoodPlatform.FieldChangedV2|Published when a `Field` is created/updated/deleted.|
+|Microsoft.AgFoodPlatform.FarmChanged.V2| Published when a `Farm` is created/updated/deleted.|
+|Microsoft.AgFoodPlatform.FieldChanged.V2|Published when a `Field` is created/updated/deleted.|
 |Microsoft.AgFoodPlatform.SeasonChanged|Published when a `Season` is created/updated/deleted.|
-|Microsoft.AgFoodPlatform.SeasonalFieldChangedV2|Published when a `Seasonal Field` is created/updated/deleted.|
-|Microsoft.AgFoodPlatform.BoundaryChangedV2|Published when a `Boundary` is created/updated/deleted.|
+|Microsoft.AgFoodPlatform.SeasonalFieldChanged.V2|Published when a `Seasonal Field` is created/updated/deleted.|
+|Microsoft.AgFoodPlatform.BoundaryChanged.V2|Published when a `Boundary` is created/updated/deleted.|
 |Microsoft.AgFoodPlatform.CropChanged|Published when a `Crop` is created/updated/deleted.|
 |Microsoft.AgFoodPlatform.CropProductChanged|Published when a `Crop Product` is created /updated/deleted.|
-|Microsoft.AgFoodPlatform.AttachmentChangedV2|Published when an `Attachment` is created/updated/deleted.
-|Microsoft.AgFoodPlatform.ManagementZoneChangedV2|Published when a `Management Zone` is created/updated/deleted.|
-|Microsoft.AgFoodPlatform.ZoneChangedV2|Published when an `Zone` is created/updated/deleted.|
+|Microsoft.AgFoodPlatform.AttachmentChanged.V2|Published when an `Attachment` is created/updated/deleted.
+|Microsoft.AgFoodPlatform.ManagementZoneChanged.V2|Published when a `Management Zone` is created/updated/deleted.|
+|Microsoft.AgFoodPlatform.ZoneChanged.V2|Published when an `Zone` is created/updated/deleted.|
 
-### Satellite data related event types
-
-|Event Name | Description|
-|:-----:|:----:|
-|Microsoft.AgFoodPlatform.SatelliteDataIngestionJobStatusChangedV2| Published when a satellite data ingestion job's status is changed, for example, job is created, has progressed or completed.|
-
-### Weather data related event types
+### Satellite data related event types (Preview)
 
 |Event Name | Description|
 |:-----:|:----:|
-|Microsoft.AgFoodPlatform.WeatherDataIngestionJobStatusChangedV2|Published when a weather data ingestion job's status is changed, for example, job is created, has progressed or completed.|
-|Microsoft.AgFoodPlatform.WeatherDataRefresherJobStatusChangedV2| Published when a weather data refresher job status is changed, for example, job is created, has progressed or completed.|
+|Microsoft.AgFoodPlatform.SatelliteDataIngestionJobStatusChanged.V2| Published when a satellite data ingestion job's status is changed, for example, job is created, has progressed or completed.|
 
-### Farm activities data related event types
-
-|Event Name | Description|
-|:-----:|:----:|
-|Microsoft.AgFoodPlatform.ApplicationDataChangedV2|Published when an `Application Data` is created/updated/deleted.|
-|Microsoft.AgFoodPlatform.HarvestDataChangedV2|Published when a `Harvesting Data` is created/updated/deleted.|
-|Microsoft.AgFoodPlatform.TillageDataChangedV2|Published when a `Tillage Data` is created/updated/deleted.|
-|Microsoft.AgFoodPlatform.PlantingDataChangedV2|Published when a `Planting Data` is created/updated/deleted.|
-|Microsoft.AgFoodPlatform.ImageProcessingRasterizeJobStatusChangedV2|Published when an image-processing rasterizes job's status is changed, for example, job is created, has progressed or completed.|
-|Microsoft.AgFoodPlatform.FarmOperationDataIngestionJobStatusChangedV2| Published when a farm operations data ingestion job's status is changed, for example, job is created, has progressed or completed.|
-
-### Sensor data related event types
+### Weather data related event types (Preview)
 
 |Event Name | Description|
 |:-----:|:----:|
-|Microsoft.AgFoodPlatform.SensorMappingChangedV2|Published when a `Sensor Mapping` is created/updated/deleted.|
-|Microsoft.AgFoodPlatform.SensorPartnerIntegrationChangedV2|Published when a `Sensor Partner Integration` is created/updated/deleted.|
+|Microsoft.AgFoodPlatform.WeatherDataIngestionJobStatusChanged.V2|Published when a weather data ingestion job's status is changed, for example, job is created, has progressed or completed.|
+|Microsoft.AgFoodPlatform.WeatherDataRefresherJobStatusChanged.V2| Published when a weather data refresher job status is changed, for example, job is created, has progressed or completed.|
+
+### Farm activities data related event types (Preview)
+
+|Event Name | Description|
+|:-----:|:----:|
+|Microsoft.AgFoodPlatform.ApplicationDataChanged.V2|Published when an `Application Data` is created/updated/deleted.|
+|Microsoft.AgFoodPlatform.HarvestDataChanged.V2|Published when a `Harvesting Data` is created/updated/deleted.|
+|Microsoft.AgFoodPlatform.TillageDataChanged.V2|Published when a `Tillage Data` is created/updated/deleted.|
+|Microsoft.AgFoodPlatform.PlantingDataChanged.V2|Published when a `Planting Data` is created/updated/deleted.|
+|Microsoft.AgFoodPlatform.ImageProcessingRasterizeJobStatusChanged.V2|Published when an image-processing rasterizes job's status is changed, for example, job is created, has progressed or completed.|
+|Microsoft.AgFoodPlatform.FarmOperationDataIngestionJobStatusChanged.V2| Published when a farm operations data ingestion job's status is changed, for example, job is created, has progressed or completed.|
+
+### Sensor data related event types (Preview)
+
+|Event Name | Description|
+|:-----:|:----:|
+|Microsoft.AgFoodPlatform.SensorMappingChanged.V2|Published when a `Sensor Mapping` is created/updated/deleted.|
+|Microsoft.AgFoodPlatform.SensorPartnerIntegrationChanged.V2|Published when a `Sensor Partner Integration` is created/updated/deleted.|
 |Microsoft.AgFoodPlatform.DeviceDataModelChanged|Published when `Device Data Model` is created/updated/deleted.|
 |Microsoft.AgFoodPlatform.DeviceChanged|Published when a `Device` is created/updated/deleted.|
-|Microsoft.AgFoodPlatform.SensorDataModelChanged|Published when a `Sensor Data Model` is created/updated/deleted.|
+|Microsoft.AgFoodPlatform.SensorDataModelChanged |Published when a `Sensor Data Model` is created/updated/deleted.|
 |Microsoft.AgFoodPlatform.SensorChanged|Published when a `Sensor` is created/updated/deleted.|
 
-### Insight and observations related event types
+### Insight and observations related event types (Preview)
 
 |Event Name | Description|
 |:-----:|:----:|
-|Microsoft.AgFoodPlatform.PrescriptionChangedV2|Published when a `Prescription` is created/updated/deleted.|
-|Microsoft.AgFoodPlatform.PrescriptionMapChangedV2|Published when a `Prescription Map` is created/updated/deleted.|
-|Microsoft.AgFoodPlatform.PlantTissueAnalysisChangedV2|Published when a `Plant Tissue Analysis` data is created/updated/deleted.|
-|Microsoft.AgFoodPlatform.NutrientAnalysisChangedV2|Published when a `Nutrient Analysis` data is created/updated/deleted.|
-|Microsoft.AgFoodPlatform.InsightChangedV2| Published when an `Insight` is created/updated/deleted.|
-|Microsoft.AgFoodPlatform.InsightAttachmentChangedV2| Published when an `Insight Attachment` is created/updated/deleted.|
+|Microsoft.AgFoodPlatform.PrescriptionChanged.V2|Published when a `Prescription` is created/updated/deleted.|
+|Microsoft.AgFoodPlatform.PrescriptionMapChanged.V2|Published when a `Prescription Map` is created/updated/deleted.|
+|Microsoft.AgFoodPlatform.PlantTissueAnalysisChanged.V2|Published when a `Plant Tissue Analysis` data is created/updated/deleted.|
+|Microsoft.AgFoodPlatform.NutrientAnalysisChanged.V2|Published when a `Nutrient Analysis` data is created/updated/deleted.|
+|Microsoft.AgFoodPlatform.InsightChanged.V2| Published when an `Insight` is created/updated/deleted.|
+|Microsoft.AgFoodPlatform.InsightAttachmentChanged.V2| Published when an `Insight Attachment` is created/updated/deleted.|
 
-### Model inference jobs related event types
+### Model inference jobs related event types (Preview)
 
 |Event Name | Description|
 |:-----:|:----:|
-|Microsoft.AgFoodPlatform.BiomassModelJobStatusChangedV2|Published when a Biomass Model job's status is changed, for example, job is created, has progressed or completed.|
-|Microsoft.AgFoodPlatform.SoilMoistureModelJobStatusChangedV2|Published when a Soil Moisture Model job's status is changed, for example, job is created, has progressed or completed.|
-|Microsoft.AgFoodPlatform.SensorPlacementModelJobStatusChangedV2|Published when a Sensor Placement Model job's status is changed, for example, job is created, has progressed or completed.|
+|Microsoft.AgFoodPlatform.BiomassModelJobStatusChanged.V2|Published when a Biomass Model job's status is changed, for example, job is created, has progressed or completed.|
+|Microsoft.AgFoodPlatform.SoilMoistureModelJobStatusChanged.V2|Published when a Soil Moisture Model job's status is changed, for example, job is created, has progressed or completed.|
+|Microsoft.AgFoodPlatform.SensorPlacementModelJobStatusChanged.V2|Published when a Sensor Placement Model job's status is changed, for example, job is created, has progressed or completed.|
 
 ## Example events
 

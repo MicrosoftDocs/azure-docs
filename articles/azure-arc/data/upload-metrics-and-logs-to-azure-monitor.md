@@ -16,9 +16,6 @@ ms.topic: how-to
 
 Periodically, you can export out usage information for billing purposes, monitoring metrics, and logs and then upload it to Azure. The export and upload of any of these three types of data will also create and update the data controller, and SQL managed instance resources in Azure.
 
-> [!NOTE]
-> At this time, you can't upload usage data, metrics, or logs for Azure Arc-enabled PostgreSQL server preview.
-
 Before you can upload usage data, metrics, or logs you need to:
 
 * Install tools 

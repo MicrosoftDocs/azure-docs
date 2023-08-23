@@ -7,17 +7,17 @@ ms.author: anfdocs
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
-ms.date: 02/23/2023
+ms.date: 03/28/2023
 ---
 # Manage default and individual user and group quotas for a volume 
 
 This article explains the considerations and steps for managing user and group quotas on Azure NetApp Files volumes. To understand the use cases for this feature, see [Understand default and individual user and group quotas](default-individual-user-group-quotas-introduction.md).
 
-## Quotas in cross-region replication relationships
+## Quotas in cross-region or cross-zone replication relationships
 
-Quota rules are synced from cross-region replication (CRR) source to destination volumes. Quota rules that you create, delete, or update on a CRR source volume automatically applies to the CRR destination volume.
+Quota rules are synced from cross-region replication (CRR) or cross-zone replication (CZR) source to destination volumes. Quota rules that you create, delete, or update on a CRR or CZR source volume automatically applies to the destination volume.
 
-Quota rules only come into effect on the CRR destination volume after the replication relationship is deleted because the destination volume is read-only. To learn how to break the replication relationship, see [Delete volume replications](cross-region-replication-delete.md#delete-volume-replications). If source volumes have quota rules and you create the CRR destination volume at the same time as the source volume, all the quota rules are created on destination volume.
+Quota rules only come into effect on the CRR/CZR destination volume after the replication relationship is deleted because the destination volume is read-only. To learn how to break the replication relationship, see [Delete volume replications](cross-region-replication-delete.md#delete-volume-replications). If source volumes have quota rules and you create a replication relationship later, all the quota rules are synced to the destination volume.
 
 ## Considerations 
 
@@ -27,14 +27,9 @@ Quota rules only come into effect on the CRR destination volume after the replic
 * Azure NetApp Files doesn't support individual group quota and default group quota for SMB and dual protocol volumes.
 * Group quotas track the consumption of disk space for files owned by a particular group. A file can only be owned by exactly one group. 
 * Auxiliary groups only help in permission checks. You can't use auxiliary groups to restrict the quota (disk space) for a file.
-* In a cross-region replication setting:
-    * Currently, Azure NetApp Files doesn't support syncing quota rules to the destination (data protection) volume. 
-    * You can’t create quota rules on the destination volume until you [delete the replication](cross-region-replication-delete.md).  
-    * You need to manually create quota rules on the destination volume if you want them for the volume, and you can do so only after you delete the replication.
+* In a CRR/CZR setting:
+    * You can't create, update, or delete quota rules on the destination volume until you [delete the replication](cross-region-replication-delete.md).  
     * If a quota rule is in the error state after you delete the replication relationship, you need to delete and re-create the quota rule on the destination volume. 
-    * During sync or reverse resync operations:
-        * If you create, update, or delete a rule on a source volume, you must perform the same operation on the destination volume. 
-        * If you create, update, or delete a rule on a destination volume after the deletion of the replication relationship, the rule will be reverted to keep the source and destination volumes in sync.
 * If you're using [large volumes](large-volumes-requirements-considerations.md) (volumes larger than 100 TiB):    
     * The space and file usage in a large volume might exceed as much as five percent more than the configured hard limit before the quota limit is enforced and rejects traffic.   
     * To provide optimal performance, the space consumption may exceed configured hard limit before the quota is enforced. The additional space consumption won't exceed either the lower of 1 GB or five percent of the configured hard limit.    

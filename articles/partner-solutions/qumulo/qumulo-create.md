@@ -1,5 +1,5 @@
 ---
-title: Get started with Azure Native Qumulo Scalable File Service Preview
+title: Get started with Azure Native Qumulo Scalable File Service
 description: In this quickstart, learn how to create an instance of Azure Native Qumulo Scalable File Service.
 
 ms.topic: quickstart 
@@ -8,9 +8,9 @@ ms.date: 01/18/2023
 
 ---
 
-# Quickstart: Get started with Azure Native Qumulo Scalable File Service Preview
+# Quickstart: Get started with Azure Native Qumulo Scalable File Service
 
-In this quickstart, you create an instance of Azure Native Qumulo Scalable File Service Preview. When you create the service instance, the following entities are also created and mapped to a Qumulo file system namespace:
+In this quickstart, you create an instance of Azure Native Qumulo Scalable File Service. When you create the service instance, the following entities are also created and mapped to a Qumulo file system namespace:
 
 - A delegated subnet that enables the Qumulo service to inject service endpoints (eNICs) into your virtual network.
 - A managed resource group that has internal networking and other resources required for the Qumulo service. 
@@ -82,3 +82,13 @@ In this quickstart, you create an instance of Azure Native Qumulo Scalable File 
     Only virtual networks in the specified region with subnets delegated to `Qumulo.Storage/fileSystems` appear on this page. If an expected virtual network is not listed, verify that it's in the chosen region and that the virtual network includes a subnet delegated to Qumulo.
 
 1. Select **Review + Create** to create the resource.
+
+## Next steps
+
+- Get started with Azure Native Qumulo Scalable File Service on
+
+    > [!div class="nextstepaction"]
+    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Qumulo.Storage%2FfileSystems)
+
+    > [!div class="nextstepaction"]
+    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/qumulo1584033880660.qumulo-saas-mpp?tab=Overview)

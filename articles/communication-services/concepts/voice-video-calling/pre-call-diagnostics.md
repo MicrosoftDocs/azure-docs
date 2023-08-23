@@ -2,11 +2,10 @@
 title: Azure Communication Services Pre-Call diagnostics
 titleSuffix: An Azure Communication Services concept document
 description: Overview of Pre-Call Diagnostic APIs
-author: ddematheu2
+author: tophpalmer
 manager: chpalm
 services: azure-communication-services
-
-ms.author: dademath
+ms.author: chpalm
 ms.date: 04/01/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
@@ -164,4 +163,4 @@ When the Pre-Call diagnostic test runs, behind the scenes it uses calling minute
 - [Check your network condition with the diagnostics tool](../developer-tools/network-diagnostic.md)
 - [Explore User-Facing Diagnostic APIs](../voice-video-calling/user-facing-diagnostics.md)
 - [Enable Media Quality Statistics in your application](../voice-video-calling/media-quality-sdk.md)
-- [Consume call logs with Azure Monitor](../analytics/call-logs-azure-monitor.md)
+- [Consume call logs with Azure Monitor](../analytics/logs/voice-and-video-logs.md)

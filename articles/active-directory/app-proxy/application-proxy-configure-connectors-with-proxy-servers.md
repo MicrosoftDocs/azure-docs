@@ -146,10 +146,10 @@ To enable this, please follow the next steps:
 `UseDefaultProxyForBackendRequests = 1` to the Connector configuration registry key located in "HKEY_LOCAL_MACHINE\Software\Microsoft\Microsoft AAD App Proxy Connector".
 
 ### Step 2: Configure the proxy server manually using netsh command
-1.	Enable the group policy Make proxy settings per-machine. This is found in: Computer Configuration\Policies\Administrative Templates\Windows Components\Internet Explorer. This needs to be set rather than having this policy set to per-user.
-2.	Run `gpupdate /force` on the server or reboot the server to ensure it uses the updated group policy settings.
-3.	Launch an elevated command prompt with admin rights and enter `control inetcpl.cpl`.
-4.	Configure the required proxy settings. 
+1. Enable the group policy Make proxy settings per-machine. This is found in: Computer Configuration\Policies\Administrative Templates\Windows Components\Internet Explorer. This needs to be set rather than having this policy set to per-user.
+2. Run `gpupdate /force` on the server or reboot the server to ensure it uses the updated group policy settings.
+3. Launch an elevated command prompt with admin rights and enter `control inetcpl.cpl`.
+4. Configure the required proxy settings. 
 
 These settings make the connector use the same forward proxy for the communication to Azure and to the backend application. If the connector to Azure communication requires no forward proxy or a different forward proxy, you can set this up with modifying the file ApplicationProxyConnectorService.exe.config as described in the sections Bypass outbound proxies or Use the outbound proxy server.
 

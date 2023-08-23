@@ -38,7 +38,7 @@ A user can start Remote Desktop clients and is able to authenticate, however the
 
 This error usually appears after a user moved their subscription from one Azure Active Directory tenant to another. As a result, the service loses track of their user assignments, since those are still tied to the old Azure Active Directory tenant.
 
-To resolve this, all you need to do is reassign the users to their app groups.
+To resolve this, all you need to do is reassign the users to their application groups.
 
 This could also happen if a CSP Provider created the subscription and then transferred to the customer. To resolve this re-register the Resource Provider.
 

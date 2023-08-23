@@ -1,6 +1,6 @@
 ---
 title: Error message appears on app page after you sign in
-description: How to resolve issues with Azure AD sign in when the app returns an error message.
+description: How to resolve issues with Azure AD sign-in when the app returns an error message.
 services: active-directory
 author: omondiatieno
 manager: CelesteDG
@@ -12,6 +12,7 @@ ms.date: 09/06/2022
 ms.author: jomondi
 ms.reviewer: ergreenl
 ms.collection: M365-identity-device-management
+ms.custom: enterprise-apps
 ---
 
 # An app page shows an error message after the user signs in
@@ -20,7 +21,7 @@ In this scenario, Azure Active Directory (Azure AD) signs the user in. But the a
 
 There are several possible reasons why the app didn't accept the response from Azure AD. If there's an error message or code displayed, use the following resources to diagnose the error:
 
-* [Azure AD Authentication and authorization error codes](../develop/reference-aadsts-error-codes.md)
+* [Azure AD Authentication and authorization error codes](../develop/reference-error-codes.md)
 
 * [Troubleshooting consent prompt errors](application-sign-in-unexpected-user-consent-error.md)
 
@@ -32,6 +33,8 @@ If the error message doesn't clearly identify what's missing from the response, 
 - Use a tool like [Fiddler](https://www.telerik.com/fiddler) to capture the SAML request, response, and token.
 
 - Send the SAML response to the app vendor and ask them what's missing.
+
+[!INCLUDE [portal updates](../includes/portal-update.md)]
 
 ## Attributes are missing from the SAML response
 
@@ -97,7 +100,7 @@ To change the User Identifier value, follow these steps:
 
 ### Change the NameID format
 
-If the application expects another format for the **NameID** (User Identifier) attribute, see the [Edit nameID](../develop/active-directory-saml-claims-customization.md#edit-nameid) section to change the NameID format.
+If the application expects another format for the **NameID** (User Identifier) attribute, see the [Edit nameID](../develop/saml-claims-customization.md#edit-nameid) section to change the NameID format.
 
 Azure AD selects the format for the **NameID** attribute (User Identifier) based on the value that's selected or the format that's requested by the app in the SAML AuthRequest. For more information, see the "NameIDPolicy" section of [Single sign-on SAML protocol](../develop/single-sign-on-saml-protocol.md#nameidpolicy).
 
@@ -105,7 +108,7 @@ Azure AD selects the format for the **NameID** attribute (User Identifier) based
 
 To change which parts of the SAML token are digitally signed by Azure AD, follow these steps:
 
-1. Open the [Azure portal](https://portal.azure.com/) and sign in as a global administrator or co-admin.
+1. Sign in to the [Azure portal](https://portal.azure.com/) and sign in as a global administrator or co-admin.
 
 2. Select **All services** at the top of the navigation pane on the left side to open the Azure AD extension.
 
@@ -138,7 +141,7 @@ By default, Azure AD signs the SAML token by using the most-secure algorithm. We
 
 To change the signing algorithm, follow these steps:
 
-1. Open the [Azure portal](https://portal.azure.com/) and sign in as a global administrator or co-admin.
+1. Sign in to the [Azure portal](https://portal.azure.com/) and sign in as a global administrator or co-admin.
 
 2. Select **All services** at the top of the navigation pane on the left side to open the Azure AD extension.
 
@@ -165,6 +168,6 @@ To change the signing algorithm, follow these steps:
 
 * [How to debug SAML-based single sign-on to applications in Azure AD](./debug-saml-sso-issues.md).
 
-* [Azure AD Authentication and authorization error codes](../develop/reference-aadsts-error-codes.md)
+* [Azure AD Authentication and authorization error codes](../develop/reference-error-codes.md)
 
 * [Troubleshooting consent prompt errors](application-sign-in-unexpected-user-consent-error.md)

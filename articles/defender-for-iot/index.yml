@@ -43,28 +43,28 @@ conceptualContent:
       links:
         - url: organizations/architecture.md
           itemType: concept
-          text: OT monitoring system architecture
-        - url: organizations/how-to-manage-subscriptions.md
-          itemType: how-to-guide
-          text: Manage Defender for IoT plans for OT network monitoring
-        - url: organizations/best-practices/traffic-mirroring-methods.md
+          text: Microsoft Defender for IoT components
+        - url: organizations/billing.md
           itemType: concept
-          text: Configure traffic mirroring
-        - url: organizations/ot-appliance-sizing.md
+          text: Subscription billing
+        - url: organizations/manage-users-overview.md
           itemType: concept
-          text: Which appliances do I need?
-        - url: organizations/onboard-sensors.md
-          itemType: how-to-guide
-          text: Onboard OT network sensors
-        - url: organizations/how-to-install-software.md
-          itemType: how-to-guide
-          text: Install monitoring software
-        - url: organizations/how-to-activate-and-set-up-your-sensor.md
-          itemType: how-to-guide
-          text: Activate and set up your OT network sensor
-        - url: organizations/roles-on-premises.md
+          text: User roles and permissions
+        - url: organizations/device-inventory.md
           itemType: concept
-          text: On-premises users and roles for OT monitoring
+          text: Device inventories
+        - url: organizations/alerts.md
+          itemType: concept
+          text: Alerts
+        - url: organizations/concept-zero-trust.md
+          itemType: concept
+          text: Zero Trust and your OT networks
+        - url: organizations/concept-sentinel-integration.md
+          itemType: concept
+          text: OT threat monitoring in your SOC
+        - url: organizations/ot-deploy/ot-deploy-path.md
+          itemType: deploy
+          text: Deploy Defender for IoT for OT monitoring
       footerLink:
         url: organizations/index.yml
         text: See more

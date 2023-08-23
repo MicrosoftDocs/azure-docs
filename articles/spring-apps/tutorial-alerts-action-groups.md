@@ -1,11 +1,11 @@
 ---
-title: "Tutorial: Monitor Azure Spring Apps resources using alerts and action groups | Microsoft Docs"
-description: Learn how to use Spring app alerts.
-author: karlerickson
+title: "Tutorial: Monitor Azure Spring Apps resources using alerts and action groups"
+description: Learn how to to monitor Spring app resources using alerts and action groups in Azure Spring Apps.
+author: KarlErickson
 ms.author: karler
 ms.service: spring-apps
 ms.topic: tutorial
-ms.date: 12/29/2019
+ms.date: 6/15/2023
 ms.custom: devx-track-java, event-tier1-build-2022
 ---
 
@@ -16,105 +16,95 @@ ms.custom: devx-track-java, event-tier1-build-2022
 
 **This article applies to:** ✔️ Java ✔️ C#
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
-Azure Spring Apps alerts support monitoring resources based on conditions such as available storage, rate of requests, or data usage. An alert sends notification when rates or conditions meet the defined specifications.
+This article describes how to monitor Spring app resources using alerts and action groups in Azure Spring Apps.
+
+Azure Spring Apps alerts support monitoring resources based on conditions such as available storage, rate of requests, and data usage. An alert sends a notification when rates or conditions meet the defined specifications.
 
 There are two steps to set up an alert pipeline:
 
-1. Set up an Action Group with the actions to be taken when an alert is triggered, such as email, SMS, Runbook, or Webhook. Action Groups can be re-used among different alerts.
-2. Set up Alert rules. The rules bind metric patterns with the action groups based on target resource, metric, condition, time aggregation, etc.
+1. Set up an action group.
+
+   Action groups define actions to be taken when an alert is triggered, such as with an email, SMS, Runbook, or Webhook. You can use and reuse action groups among different alerts.
+
+1. Set up alert rules.
+
+   Rules bind metrics with action groups based on the target resource, condition, time aggregation, and other factors.
 
 ## Prerequisites
 
-In addition to the Azure Spring Apps requirements, the procedures in this tutorial work with a deployed Azure Spring Apps instance. Follow a [quickstart](./quickstart.md) to get started.
+- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- A deployed Azure Spring Apps instance. For more information, see [Quickstart: Deploy your first application to Azure Spring Apps](./quickstart.md) to get started.
 
-The following procedures initialize both **Action Group** and **Alert** starting from the **Alerts** option in the left navigation pane of an Azure Spring Apps instance. (The procedure can also start from the **Monitor Overview** page of the Azure portal.)
+## Set up an action group
 
-Navigate from a resource group to your Azure Spring Apps instance. Select **Alerts** in the left pane, then select **Manage actions**:
+In the Azure portal, use the following steps:
 
-![Screenshot portal resource group page](media/alerts-action-groups/action-1-a.png)
+1. Go to your Azure Spring Apps instance.
+1. Select **Alerts** in the navigation pane, and then select **Action groups**.
 
-## Set up Action Group
+   :::image type="content" source="media/tutorial-alerts-action-groups/alerts-page-action-groups.png" alt-text="Screenshot of the Azure portal showing the Alerts page with the Action groups button highlighted." lightbox="media/tutorial-alerts-action-groups/alerts-page-action-groups.png":::
 
-To begin the procedure to initialize a new **Action Group**, select **Add action group**.
+1. On the **Action groups** page, select **Create**.
 
-![Screenshot portal Add action group](media/alerts-action-groups/action-1.png)
+   :::image type="content" source="media/tutorial-alerts-action-groups/alerts-action-groups.png" alt-text="Screenshot of the Azure portal showing the Action groups page with the Create button highlighted." lightbox="media/tutorial-alerts-action-groups/alerts-action-groups.png":::
 
-On the **Add action group** page:
+1. On the **Create action group** page on the **Basics** tab, make any needed changes in **Project details**. In **Instance details**, specify settings for **Action group name** and **Display name**.
 
-1. Specify an **Action group name** and **Short name**.
+   :::image type="content" source="media/tutorial-alerts-action-groups/alerts-create-action-group.png" alt-text="Screenshot of the Azure portal showing the Create action group page with the Basics tab selected." lightbox="media/tutorial-alerts-action-groups/alerts-create-action-group.png":::
 
-1. Specify **Subscription** and **Resource group**.
+1. Select the **Notifications** tab and then select a **Notification type** from the dropdown menu. This action opens a pane to define the action that is taken upon activation. This example shows an email and messaging type. Complete the form and select **OK**.
 
-1. Specify **Action Name**.
+   :::image type="content" source="media/tutorial-alerts-action-groups/alerts-create-action-group-notifications.png" alt-text="Screenshot of the Azure portal showing the Create action group page on the Notifications tab with the pane open that defines the notification type." lightbox="media/tutorial-alerts-action-groups/alerts-create-action-group-notifications.png":::
 
-1. Select **Action Type**.  This will open another pane on the right to define the action that will be taken on activation.
+1. Set **Name** to name the action group.
 
-1. Define the action using the options in the right pane.  This case uses email notification.
+1. Select **Review + create** to finish creating the action group.
 
-1. Select **OK** in the right action pane.
+## Set up an alert
 
-1. Select **OK** in the **Add action group** dialog.
+Use the following steps configure an alert:
 
-   ![Screenshot Portal define action](media/alerts-action-groups/action-2.png)
+1. Select **Alerts** in the navigation pane, and then select **Alert rules**.
 
-## Set up Alert
+   :::image type="content" source="media/tutorial-alerts-action-groups/alerts-page-rules.png" alt-text="Screenshot of the Azure portal showing the Alerts page with the Alert rule button highlighted." lightbox="media/tutorial-alerts-action-groups/alerts-page-rules.png":::
 
-The previous steps created an **Action Group** that uses email. You could also use phone notification, webhooks, Azure functions, and so forth. The following steps configure an **Alert**.
+1. Select **Create**.
 
-1. Navigate back to the **Alerts** page and then select **Manage Alert Rules**.
+   :::image type="content" source="media/tutorial-alerts-action-groups/alerts-rules-page.png" alt-text="Screenshot of the Azure portal showing the Alert rules page with the Create button highlighted." lightbox="media/tutorial-alerts-action-groups/alerts-rules-page.png":::
 
-   ![Screenshot Portal define alert](media/alerts-action-groups/alerts-2.png)
+1. On the **Create an alert rule** page on the **Condition**  tab, you must select a signal to trigger the alert rule. Select **See all signals**. On the **Select a signal** pane, select **CPU Usage** and then select **Apply**.
 
-1. Select the **Resource** for the alert.
+   :::image type="content" source="media/tutorial-alerts-action-groups/create-alert-rule.png" alt-text="Screenshot of the Azure portal showing the Create an Alert rule page with the select a signal pane open and App CPU Usage highlighted." lightbox="media/tutorial-alerts-action-groups/create-alert-rule.png":::
 
-1. Select **New alert rule**.
+1. The signal selection determines the alert logic settings to configure. Set **Threshold value** to 75.
 
-   ![Screenshot Portal new alert rule](media/alerts-action-groups/alerts-3.png)
+   :::image type="content" source="media/tutorial-alerts-action-groups/rule-value.png" alt-text="Screenshot of the Azure portal showing the Create an Alert rule page with the alert logic setting for Threshold value highlighted." lightbox="media/tutorial-alerts-action-groups/rule-value.png":::
 
-1. On the **Create rule** page, specify the **RESOURCE**.
+   For details of the conditions available to monitor, see the [User metrics options](./concept-metrics.md#user-metrics-options) section of [Metrics for Azure Spring Apps](./concept-metrics.md).
 
-1. The **CONDITION** setting provides many options for monitoring your **Spring Cloud** resources.  Select **Add** to open the **Configure signal logic** pane.
+1. Select the **Actions** tab and then select **Select action group**. On the **Select action groups** pane, select the action group that should be triggered by the rule such as the action group you defined previously.
 
-1. Select a condition. This example uses **System CPU Usage Percentage**.
+   :::image type="content" source="media/tutorial-alerts-action-groups/select-action-group.png" alt-text="Screenshot of the Azure portal showing the Select an action group to attach to this alert rule pane with an Action group name highlighted." lightbox="media/tutorial-alerts-action-groups/select-action-group.png":::
 
-   ![Screenshot Portal new alert rule 2](media/alerts-action-groups/alerts-3-1.png)
+1. Select **Select**.
+1. Select the **Details** tab and set **Severity** and make any other needed changes.
 
-1. Scroll down the **Configure signal logic** pane to set the **Threshold value** to monitor.
+   :::image type="content" source="media/tutorial-alerts-action-groups/create-rule-details.png" alt-text="Screenshot of the Azure portal showing the Create rule page with Severity in Alert Details highlighted." lightbox="media/tutorial-alerts-action-groups/create-rule-details.png":::
 
-   ![Screenshot Portal new alert rule 3](media/alerts-action-groups/alerts-3-2.png)
+   > [!TIP]
+   > Select the **Scope** tab to change the resource for the scope of the rule. By default the scope is current Azure Spring Apps instance.
 
-1. Select **Done**.
+1. Select **Review + create** to finish creating the alert rule.
 
-   For details of the conditions available to monitor, see [User portal metrics options](./concept-metrics.md#user-metrics-options).
+1. On the **Alert rules** page, verify that the new alert rule is enabled.
 
-1. Under **ACTIONS**, select **Select action group**. From the **ACTIONS** pane select the previously defined **Action Group**.
-
-   ![Screenshot Portal new alert rule 4](media/alerts-action-groups/alerts-3-3.png)
-
-1. Scroll down, and under **ALERT DETAILS**, name the alert rule.
-
-1. Set the **Severity**.
-
-1. Select **Create alert rule**.
-
-   ![Screenshot Portal new alert rule 5](media/alerts-action-groups/alerts-3-4.png)
-
-1. Verify that the new alert rule is enabled.
-
-   ![Screenshot Portal new alert rule 6](media/alerts-action-groups/alerts-4.png)
-
-A rule can also be created using the **Metrics** page:
-
-![Screenshot Portal new alert rule 7](media/alerts-action-groups/alerts-5.png)
+   :::image type="content" source="media/tutorial-alerts-action-groups/alert-rule-enabled.png" alt-text="Screenshot of the Azure portal showing the Alert rules page with the rule that was just created enabled." lightbox="media/tutorial-alerts-action-groups/alert-rule-enabled.png":::
 
 ## Next steps
 
-In this tutorial you learned how to set up alerts and action groups for an application in Azure Spring Apps. To learn more about action groups, see:
+In this article, you learned how to set up alerts and action groups for an application in Azure Spring Apps. To learn more about action groups, see:
 
 > [!div class="nextstepaction"]
-> [Create and manage action groups in the Azure portal](../azure-monitor/alerts/action-groups.md)
-
-> [!div class="nextstepaction"]
-> [SMS Alert Behavior in Action Groups](../azure-monitor/alerts/alerts-sms-behavior.md)
+> [Action groups](../azure-monitor/alerts/action-groups.md)

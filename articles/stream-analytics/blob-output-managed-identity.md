@@ -6,7 +6,7 @@ ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/16/2022
-ms.custom: subject-rbac-steps
+ms.custom: subject-rbac-steps, devx-track-arm-template
 ---
 
 # Use Managed Identity to authenticate your Azure Stream Analytics job to Azure Blob Storage

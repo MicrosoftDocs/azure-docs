@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # NIST authenticator assurance level 3 by using Azure Active Directory
 
-Use the information in this article for National Institute of Standards and Technology (NIST) authenticator assurance level 3 (AAL3). 
+Use the information in this article for National Institute of Standards and Technology (NIST) authenticator assurance level 3 (AAL3).
 
 Before obtaining AAL2, you can review the following resources:
 
@@ -28,22 +28,19 @@ Before obtaining AAL2, you can review the following resources:
 
 ## Permitted authenticator types
 
-Use Microsoft authentication methods to meet required NIST authenticator types. 
+Use Microsoft authentication methods to meet required NIST authenticator types.
 
 | Azure AD authentication methods| NIST authenticator type |
 | - | -|
 | **Recommended methods**|    |
-| FIDO 2 security key, or <br> Smart card (Active Directory Federation Services), or <br> Windows Hello for Business with hardware TPM| Multi-factor cryptographic hardware |
-| **Additional methods**|   |
-| Password and <br> Hybrid Azure AD joined with hardware TPM or, <br> Azure AD joined with hardware TPM)| Memorized secret and <br> single-factor cryptographic hardware |
-| Password and <br> single-factor one-time password OTP hardware, from an OTP manufacturer and <br> Hybrid Azure AD joined with software TPM or <br> Azure AD joined with software TPM or <br> [Compliant managed device](/mem/intune/protect/device-compliance-get-started))| Memorized secret and <br> single-factor OTP hardware and <br> single-factor cryptographic software |
+| Hardware protected certificate (smartcard/security key/TPM) <br> FIDO 2 security key<br>Windows Hello for Business with hardware TPM| Multi-factor cryptographic hardware |
+| **Additional methods**||
+|Password<br>**AND**<br>- Azure AD joined with hardware TPM <br>- **OR**<br>- Hybrid Azure AD joined with hardware TPM|Memorized secret <br>**AND**<br>Single-factor cryptographic hardware|
+|Password<br>**AND**<br>OATH hardware tokens (Preview) <br>**AND**<br>- Single-factor software certificate<br>- **OR**<br>- Hybrid Azure AD Joined or compliant device with software TPM |Memorized secret<br>**AND**<br>Single-factor OTP hardware <br>**AND**<br>Single-factor cryptographic software|
 
-### Recommendations 
+### Recommendations
 
-For AAL3, we recommend using a multi-factor cryptographic hardware authenticator. Passwordless authentication eliminates the greatest attack surface, the password. Users have a streamlined authentication method. If your organization is cloud based, we recommend you use FIDO 2 security keys.
-
-> [!NOTE]
-> Windows Hello for Business is not validated at the required FIPS 140 Security Level. Federal customers should conduct risk assessments and evaluation before accepting this service as AAL3.
+For AAL3, we recommend using a multi-factor cryptographic hardware authenticator that provides passwordless authentication eliminating the greatest attack surface, the password.
 
 For guidance, see [Plan a passwordless authentication deployment in Azure Active Directory](../authentication/howto-authentication-passwordless-deployment.md). See also [Windows Hello for Business deployment guide](/windows/security/identity-protection/hello-for-business/hello-deployment-guide).
 
@@ -55,7 +52,7 @@ Azure AD uses the Windows FIPS 140 Level 1 overall validated cryptographic modul
 
 ### Authenticator requirements
 
-Single-factor and multi-factor cryptographic hardware authenticator requirements. 
+Single-factor and multi-factor cryptographic hardware authenticator requirements.
 
 #### Single-factor cryptographic hardware
 
@@ -65,7 +62,7 @@ Authenticators are required to be:
 
 * FIPS 140 Level 3 Physical Security, or higher
 
-Azure AD joined and Hybrid Azure AD joined devices meet this requirement when: 
+Azure AD joined and Hybrid Azure AD joined devices meet this requirement when:
 
 * You run [Windows in a FIPS-140 approved mode](/windows/security/threat-protection/fips-140-validation)
 
@@ -77,7 +74,7 @@ Consult your mobile device vendor to learn about their adherence with FIPS 140.
 
 #### Multi-factor cryptographic hardware
 
-Authenticators are required to be: 
+Authenticators are required to be:
 
 * FIPS 140 Level 2 Overall, or higher
 
@@ -93,31 +90,29 @@ FIDO 2 security keys, smart cards, and Windows Hello for Business can help you m
 
 **Windows Hello for Business**
 
-FIPS 140 requires the cryptographic boundary, including software, firmware, and hardware, to be in scope for evaluation. Windows operating systems can be paired with thousands of combinations of hardware. Microsoft can't maintain FIPS certifications for each combination. 
+FIPS 140 requires the cryptographic boundary, including software, firmware, and hardware, to be in scope for evaluation. Windows operating systems can be paired with thousands of these combinations. As such, it is not feasible for Microsoft to have Windows Hello for Business validated at FIPS 140 Security Level 2. Federal customers should conduct risk assessments and evaluate each of the following component certifications as part of their risk acceptance before accepting this service as AAL3:
 
-Evaluate the following component certifications in your risk assessment of using Windows Hello for Business as an AAL3 authenticator:
+* **Windows 10 and Windows Server** use the [US Government Approved Protection Profile for General Purpose Operating Systems Version 4.2.1](https://www.niap-ccevs.org/Profile/Info.cfm?PPID=442&id=442) from the National Information Assurance Partnership (NIAP). This organization oversees a national program to evaluate commercial off-the-shelf (COTS) information technology products for conformance with the international Common Criteria.
 
-* **Windows 10 and Windows Server** use the [US Government Approved Protection Profile for General Purpose Operating Systems Version 4.2.1](https://www.niap-ccevs.org/Profile/Info.cfm?PPID=442&id=442) from the National Information Assurance Partnership (NIAP). This organization oversees a national program to evaluate commercial off-the-shelf (COTS) information technology products for conformance with the international Common Criteria. 
+* **Windows Cryptographic Library** [has FIPS Level 1 Overall in the NIST Cryptographic Module Validation Program](https://csrc.nist.gov/Projects/cryptographic-module-validation-program/Certificate/3544) (CMVP), a joint effort between NIST and the Canadian Center for Cyber Security. This organization validates cryptographic modules against FIPS standards.
 
-* **Windows Cryptographic Library** [has FIPS Level 1 Overall in the NIST Cryptographic Module Validation Program](https://csrc.nist.gov/Projects/cryptographic-module-validation-program/Certificate/3544) (CMVP), a joint effort between NIST and the Canadian Center for Cyber Security. This organization validates cryptographic modules against FIPS standards. 
-
-* Choose a **Trusted Platform Module (TPM)** that's FIPS 140 Level 2 Overall, and FIPS 140 Level 3 Physical Security. Your organization ensures hardware TPM meets the AAL level requirements you want.   
+* Choose a **Trusted Platform Module (TPM)** that's FIPS 140 Level 2 Overall, and FIPS 140 Level 3 Physical Security. Your organization ensures hardware TPM meets the AAL level requirements you want.
 
 To determine the TPMs that meet current standards, go to [NIST Computer Security Resource Center Cryptographic Module Validation Program](https://csrc.nist.gov/Projects/cryptographic-module-validation-program/validated-modules/Search). In the **Module Name** box, enter **Trusted Platform Module** for a list of hardware TPMs that meet standards.
 
-## Reauthentication 
+## Reauthentication
 
 For AAL3, NIST requirements are reauthentication every 12 hours, regardless of user activity. Reauthentication is required after a period of inactivity 15 minutes or longer. Presenting both factors is required.
 
-To meet the requirement for reauthentication, regardless of user activity, Microsoft recommends configuring [user sign-in frequency](../conditional-access/howto-conditional-access-session-lifetime.md) to 12 hours. 
+To meet the requirement for reauthentication, regardless of user activity, Microsoft recommends configuring [user sign-in frequency](../conditional-access/howto-conditional-access-session-lifetime.md) to 12 hours.
 
-Use NIST for compensating controls to confirm subscriber presence:
+NIST allows for compensating controls to confirm subscriber presence:
 
 * Set a session inactivity time out of 15 minutes: Lock the device at the OS level by using Microsoft Configuration Manager, Group Policy Object (GPO), or Intune. For the subscriber to unlock it, require local authentication.
 
 * Set timeout, regardless of activity, by running a scheduled task using Configuration Manager, GPO, or Intune. Lock the machine after 12 hours, regardless of activity.
 
-## Man-in-the-middle resistance 
+## Man-in-the-middle resistance
 
 Communications between the claimant and Azure AD are over an authenticated, protected channel for resistance to man-in-the-middle (MitM) attacks. This configuration satisfies the MitM resistance requirements for AAL1, AAL2, and AAL3.
 
@@ -129,8 +124,8 @@ Azure AD authentication methods that meet AAL3 use cryptographic authenticators 
 
 All Azure AD authentication methods that meet AAL3:
 
-- Use a cryptographic authenticator that requires the verifier store a public key corresponding to a private key held by the authenticator
-- Store the expected authenticator output by using FIPS-140 validated hash algorithms
+* Use a cryptographic authenticator that requires the verifier store a public key corresponding to a private key held by the authenticator
+* Store the expected authenticator output by using FIPS-140 validated hash algorithms
 
 For more information, see [Azure AD Data Security Considerations](https://aka.ms/AADDataWhitepaper).
 
@@ -140,11 +135,9 @@ Azure AD authentication methods that meet AAL3 use nonce or challenges. These me
 
 ## Authentication intent
 
-Authentication makes it more difficult for directly connected physical authenticators, like multi-factor cryptographic devices, to be used without the subject's knowledge. For example, by malware on the endpoint.
+Requiring authentication intent makes it more difficult for directly connected physical authenticators, like multi-factor cryptographic hardware, to be used without the subject's knowledge (for example, by malware on the endpoint). Azure AD methods that meet AAL3 require user entry of pin or biometric, demonstrating authentication intent.
 
-Use NIST compensating controls for mitigating malware risk. Any Intune-compliant device that runs Windows Defender System Guard and Windows Defender ATP meets this mitigation requirement.
-
-## Next steps 
+## Next steps
 
 [NIST overview](nist-overview.md)
 

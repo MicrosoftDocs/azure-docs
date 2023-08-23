@@ -19,7 +19,7 @@ This script creates an Application Gateway Web Application Firewall that uses cu
 
 If you choose to install and use Azure PowerShell locally, this script requires the Azure PowerShell module version 2.1.0 or later.
 
-1. To find the version, run `Get-Module -ListAvailable Az`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps).
+1. To find the version, run `Get-Module -ListAvailable Az`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell).
 2. To create a connection with Azure, run `Connect-AzAccount`.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]

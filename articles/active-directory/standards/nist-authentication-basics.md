@@ -30,7 +30,7 @@ Use the following table to understand NIST terminology.
 |Authentication factor|Something you are, know, or have. Every *authenticator* has one or more authentication factors|
 |Authenticator|Something the *claimant* possesses and controls to authenticate the *claimant* identity|
 |Claimant|A *subject* identity to be verified with one or more *authentication* protocols|
-|Credential|An object or data structure that authoritatively binds an identity to at least one *subscriber authenticator* that a *subscriber* posseses and controls|
+|Credential|An object or data structure that authoritatively binds an identity to at least one *subscriber authenticator* that a *subscriber* possesses and controls|
 |Credential service provider (CSP)|A trusted entity that issues or registers *subscriber authenticators* and issues electronic *credentials* to *subscribers*|
 |Relying party|An entity that relies on a *verifier assertion* or a *claimant authenticators* and *credentials*, usually to grant access to a system|
 |Subject|A person, organization, device, hardware, network, software, or service|

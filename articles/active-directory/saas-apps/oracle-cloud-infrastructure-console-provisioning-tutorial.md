@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Configure Oracle Cloud Infrastructure Console for automatic user provisioning with Azure Active Directory'
-description: Learn how to automatically provision and de-provision user accounts from Azure AD to Oracle Cloud Infrastructure Console.
+description: Learn how to automatically provision and deprovision user accounts from Azure AD to Oracle Cloud Infrastructure Console.
 services: active-directory
 author: twimmers
 writer: twimmers
@@ -17,7 +17,7 @@ ms.author: thwimmer
 > [!NOTE]
 > Integrating with Oracle Cloud Infrastructure Console or Oracle IDCS with a custom / BYOA application is not supported. Using the gallery application as described in this tutorial is supported. The gallery application has been customized to work with the Oracle SCIM server. 
 
-This tutorial describes the steps you need to perform in both Oracle Cloud Infrastructure Console and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [Oracle Cloud Infrastructure Console](https://www.oracle.com/cloud/free/?source=:ow:o:p:nav:0916BCButton&intcmp=:ow:o:p:nav:0916BCButton) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
+This tutorial describes the steps you need to perform in both Oracle Cloud Infrastructure Console and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and deprovisions users and groups to [Oracle Cloud Infrastructure Console](https://www.oracle.com/cloud/free/?source=:ow:o:p:nav:0916BCButton&intcmp=:ow:o:p:nav:0916BCButton) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 
 ## Capabilities supported
@@ -33,9 +33,12 @@ This tutorial describes the steps you need to perform in both Oracle Cloud Infra
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md) 
-* A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (e.g. Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
+* A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
 * An Oracle Cloud Infrastructure Console [tenant](https://www.oracle.com/cloud/sign-in.html?intcmp=OcomFreeTier&source=:ow:o:p:nav:0916BCButton).
 * A user account in Oracle Cloud Infrastructure Console with Admin permissions.
+
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud
 
 ## Step 1. Plan your provisioning deployment
 1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
@@ -44,7 +47,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure Oracle Cloud Infrastructure Console to support provisioning with Azure AD
 
-1. Login to Oracle Cloud Infrastructure Console's admin portal. On the top left corner of the screen navigate to **Identity > Federation**.
+1. Log on to the Oracle Cloud Infrastructure Console admin portal. On the top left corner of the screen navigate to **Identity > Federation**.
 
 	![Oracle Admin](./media/oracle-cloud-infratstructure-console-provisioning-tutorial/identity.png)
 
@@ -52,11 +55,11 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 	![Oracle URL](./media/oracle-cloud-infratstructure-console-provisioning-tutorial/url.png)
 
-3. Click on **Add Identity Provider** to create a new identity provider. Save the IdP id to be used as a part of tenant URL.Click on plus icon beside the **Applications** tab to create an OAuth Client and Grant IDCS Identity Domain Administrator AppRole.
+3. Click on **Add Identity Provider** to create a new identity provider. Save the IdP ID to be used as a part of tenant URL. Select the plus icon beside the **Applications** tab to create an OAuth Client and Grant IDCS Identity Domain Administrator AppRole.
 
 	![Oracle Cloud Icon](./media/oracle-cloud-infratstructure-console-provisioning-tutorial/add.png)
 
-4. Follow the screenshots below to configure your application. Once the configuration is done click on **Save**.
+4. Follow the screenshots below to configure your application. When the configuration is done, select **Save**.
 
 	![Oracle Configuration](./media/oracle-cloud-infratstructure-console-provisioning-tutorial/configuration.png)
 
@@ -143,7 +146,7 @@ This section guides you through the steps to configure the Azure AD provisioning
     |urn:ietf:params:scim:schemas:oracle:idcs:extension:user:User:isFederatedUser|Boolean|
 
 > [!NOTE]
-> Additional extension attributes must begin with "urn:ietf:params:scim:api:"
+> The extension attributes "urn:ietf:params:scim:schemas:oracle:idcs:extension:user:User:bypassNotification" and "urn:ietf:params:scim:schemas:oracle:idcs:extension:user:User:isFederatedUser" are the only custom extension attributes supported.
 
 10. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Oracle Cloud Infrastructure Console**.
 
@@ -178,7 +181,10 @@ Once you've configured provisioning, use the following resources to monitor your
 * Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle and how close it is to completion
 * If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).
 
-## Additional resources
+## Change log
+08/15/2023 - The app was added to Gov Cloud.
+
+## More resources
 
 * [Managing user account provisioning for Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

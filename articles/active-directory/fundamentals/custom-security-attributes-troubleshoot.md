@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/20/2023
+ms.date: 06/29/2023
 ms.collection: M365-identity-device-management
 ---
 
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 > [!IMPORTANT]
 > Custom security attributes are currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> For more information about previews, see [Universal License Terms For Online Services](https://www.microsoft.com/licensing/terms/product/ForOnlineServices/all).
 
 ## Symptom - Custom security attributes page is disabled
 
@@ -27,7 +27,7 @@ When signed in to the Azure portal as Global Administrator and you try to access
 
 **Cause**
 
-Custom security attributes requires an Azure AD Premium P1 or P2 license.
+Custom security attributes require an Azure AD Premium P1 or P2 license.
 
 **Solution**
 
@@ -91,7 +91,7 @@ There are no custom security attributes defined and assigned yet for your tenant
 
 **Solution 3**
 
-Add and assign custom security attributes to users or enterprise applications. For more information, see [Add or deactivate custom security attributes in Azure AD](custom-security-attributes-add.md), [Assign, update, list, or remove custom security attributes for a user](../enterprise-users/users-custom-security-attributes.md), or [Assign, update, list, or remove custom security attributes for an application](../manage-apps/custom-security-attributes-apps.md).
+Add and assign custom security attributes to users or enterprise applications. For more information, see [Add or deactivate custom security attribute definitions in Azure AD](custom-security-attributes-add.md), [Assign, update, list, or remove custom security attributes for a user](../enterprise-users/users-custom-security-attributes.md), or [Assign, update, list, or remove custom security attributes for an application](../manage-apps/custom-security-attributes-apps.md).
 
 ## Symptom - Custom security attributes cannot be deleted
 
@@ -101,7 +101,7 @@ Currently, you can only activate and deactivate custom security attribute defini
 
 **Solution**
 
-Deactivate the custom security attributes you no longer need. For more information, see [Add or deactivate custom security attributes in Azure AD](custom-security-attributes-add.md).
+Deactivate the custom security attributes you no longer need. For more information, see [Add or deactivate custom security attribute definitions in Azure AD](custom-security-attributes-add.md).
 
 ## Symptom - Cannot add a role assignment at an attribute set scope using PIM
 

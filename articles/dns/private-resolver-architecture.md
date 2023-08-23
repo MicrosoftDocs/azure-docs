@@ -6,7 +6,7 @@ services: dns
 author: greg-lindsay
 ms.service: dns
 ms.topic: how-to
-ms.date: 03/07/2023
+ms.date: 03/28/2023
 ms.author: greglin
 #Customer intent: As an administrator, I want to optimize the DNS resolver configuration in my network.
 ---
@@ -24,7 +24,7 @@ Consider the following hub and spoke VNet topology in Azure with a private resol
 
 ![Hub and spoke with ruleset diagram.](./media/private-resolver-architecture/hub-and-spoke-ruleset.png)
 
-**Figure 1**: Distributed DNS architecture using ruleset links
+**Figure 1: Distributed DNS architecture using ruleset links**
 
 - A hub VNet is configured with address space 10.10.0.0/16.
 - A spoke VNet is configured with address space 10.11.0.0/16.
@@ -48,7 +48,7 @@ Consider the following hub and spoke VNet topology with an inbound endpoint prov
 
 ![Hub and spoke with custom DNS diagram.](./media/private-resolver-architecture/hub-and-spoke-custom-dns.png)
 
-**Figure 2**: Centralized DNS architecture using custom DNS
+**Figure 2: Centralized DNS architecture using custom DNS**
 
 - A hub VNet is configured with address space 10.10.0.0/16.
 - A spoke VNet is configured with address space 10.11.0.0/16.

@@ -28,6 +28,7 @@ Limitations:
 
 * A policy fragment can't include a policy section identifier (`<inbound>`, `<outbound>`, etc.) or the `<base/>` element.
 * Currently, a policy fragment can't nest another policy fragment. 
+* The maximum size of a policy fragment is 32 KB.
 
 ## Prerequisites
 
@@ -116,4 +117,4 @@ For more information about working with policies, see:
 + [Tutorial: Transform and protect APIs](transform-api.md)
 + [Set or edit policies](set-edit-policies.md)
 + [Policy reference](./api-management-policies.md) for a full list of policy statements
-+ [Policy samples](./policies/index.md)	
++ [Policy snippets repo](https://github.com/Azure/api-management-policy-snippets)	

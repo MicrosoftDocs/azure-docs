@@ -5,6 +5,7 @@ services: virtual-network
 author: asudbring
 manager: mtillman
 tags: azure-resource-manager
+ms.custom: devx-track-azurecli
 ms.service: virtual-network
 ms.topic: how-to
 ms.workload: infrastructure-services

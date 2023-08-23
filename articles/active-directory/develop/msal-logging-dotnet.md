@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/21/2022
 ms.author: dmwendia
 ms.reviewer: saeeda, jmprieur
-ms.custom: aaddev
+ms.custom: aaddev, devx-track-dotnet
 ---
 
 # Logging in MSAL.NET
 
-[!INCLUDE [MSAL logging introduction](../../../includes/active-directory-develop-error-logging-introduction.md)]
+[!INCLUDE [MSAL logging introduction](./includes/error-handling-and-tips/error-logging-introduction.md)]
 
 ## Configure logging in MSAL.NET
 
@@ -80,7 +80,7 @@ Example:
     {
         public EventLogLevel MinLogLevel { get; }
 
-        public TestIdentityLogger()
+        public MyIdentityLogger()
         {
             //Try to pull the log level from an environment variable
             var msalEnvLogLevel = Environment.GetEnvironmentVariable("MSAL_LOG_LEVEL");

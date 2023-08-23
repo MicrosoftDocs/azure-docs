@@ -4,7 +4,7 @@ description: How to configure the Azure Monitor Application Insights for Java Pr
 ms.topic: conceptual
 ms.date: 11/15/2022
 ms.devlang: java
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Java Profiler for Azure Monitor Application Insights

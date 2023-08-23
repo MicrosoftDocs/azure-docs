@@ -19,34 +19,61 @@ Get started quickly with the [SAP on Azure Deployment Automation Framework](depl
 
 - An Azure subscription. If you don't have an Azure subscription, you can [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Ability to [download of the SAP software](software.md) in your Azure environment.
-- A [Terraform](https://www.terraform.io/) installation. For more information, also see the [Terraform on Azure documentation](/azure/developer/terraform/).
 - An [Azure CLI](/cli/azure/install-azure-cli) installation on your local computer.
+- An [Azure PowerShell](/powershell/azure/install-az-ps#update-the-azure-powershell-module) installation on your local computer.
 - A Service Principal to use for the control plane deployment
-- Optionally, if you want to use PowerShell:
-    - An [Azure PowerShell](/powershell/azure/install-az-ps#update-the-azure-powershell-module) installation on your local computer.
-    - The latest PowerShell modules. [Update the PowerShell module](/powershell/azure/install-az-ps#update-the-azure-powershell-module) if needed.
+- Ability to create an Azure Devops project if you want to use Azure DevOps for deployment.
 
 Some of the prerequisites may already be installed in your deployment environment. Both Cloud Shell and the deployer have Terraform and the Azure CLI installed.
-## Clone the repository
 
-Clone the repository and prepare the execution environment by using the following steps:
+## Use SAP on Azure Deployment Automation Framework from Azure DevOps Services
 
-- Create a directory called `Azure_SAP_Automated_Deployment` for your automation framework deployment. 
+Using Azure DevOps streamlines the deployment process by providing pipelines that can be executed to perform both the infrastructure deployment and the configuration and SAP installation activities.
+You can use Azure Repos to store your configuration files and Azure Pipelines to deploy and configure the infrastructure and the SAP application.
+
+### Sign up for Azure DevOps Services
+
+To use Azure DevOps Services, you need an Azure DevOps organization. An organization is used to connect groups of related projects. Use your work or school account to automatically connect your organization to your Azure Active Directory (Azure AD). To create an account, open [Azure DevOps](https://azure.microsoft.com/services/devops/) and either _sign-in_ or create a new account.
+
+Follow the guidance here [Configure Azure DevOps for SDAF](configure-devops.md) to configure Azure DevOps for the SAP on Azure Deployment Automation Framework.
+
+## Creating the SAP on Azure Deployment Automation Framework environment without Azure DevOps
+
+You can run the SAP on Azure Deployment Automation Framework from a virtual machine in Azure. The following steps describe how to create the environment.
+
+> [!IMPORTANT]
+> Ensure that the virtual machine is using either a system assigned or user assigned identity with permissions on the subscription to create resources.
+
+
+Ensure the Virtual Machine has the following prerequisites installed:
+
+ - git
+ - jq
+ - unzip
+ - virtualenv (if running on Ubuntu)
+ 
+
+You can install the prerequisites on an Ubuntu Virtual Machine by using the following command:
 
 ```bash
-mkdir ~/Azure_SAP_Automated_Deployment/config; cd $_
-git clone https://github.com/Azure/sap-automation-bootstrap.git 
+sudo apt-get install -y git jq unzip virtualenv
 
-mkdir ~/Azure_SAP_Automated_Deployment/sap-automation; cd $_
-git clone https://github.com/Azure/sap-automation.git 
-
-mkdir ~/Azure_SAP_Automated_Deployment/samples; cd $_
-git clone https://github.com/Azure/sap-automation-samples.git 
 ```
 
+You can then install the deployer components using the following commands:
 
-> [!TIP]
-> The deployer already clones the required repositories. 
+```bash
+
+wget https://raw.githubusercontent.com/Azure/sap-automation/main/deploy/scripts/configure_deployer.sh -O configure_deployer.sh	
+chmod +x ./configure_deployer.sh
+./configure_deployer.sh
+
+# Source the new variables
+
+. /etc/profile.d/deploy_server.sh
+
+```
+
 
 ## Samples
 
@@ -56,7 +83,7 @@ The ~/Azure_SAP_Automated_Deployment/samples folder contains a set of sample con
 ```bash
 cd ~/Azure_SAP_Automated_Deployment
 
-cp -Rp samples/Terraform/WORKSPACES config/WORKSPACES
+cp -Rp samples/Terraform/WORKSPACES ~/Azure_SAP_Automated_Deployment
 ```
 
 

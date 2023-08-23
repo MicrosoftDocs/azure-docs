@@ -3,10 +3,9 @@ title: "Quickstart: Azure Blob Storage library - Java"
 description: In this quickstart, you learn how to use the Azure Blob Storage client library for Java to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
 author: pauljewellmsft
 ms.author: pauljewell
-ms.custom: devx-track-java, mode-api, passwordless-java
+ms.custom: devx-track-java, mode-api, passwordless-java, devx-track-extended-java
 ms.date: 10/24/2022
-ms.service: storage
-ms.subservice: blobs
+ms.service: azure-blob-storage
 ms.topic: quickstart
 ms.devlang: java
 ---
@@ -314,7 +313,7 @@ Add this code to the end of the `Main` method:
 String connectStr = System.getenv("AZURE_STORAGE_CONNECTION_STRING");
 
 // Create a BlobServiceClient object using a connection string
-BlobServiceClient client = new BlobServiceClientBuilder()
+BlobServiceClient blobServiceClient = new BlobServiceClientBuilder()
     .connectionString(connectStr)
     .buildClient();
 

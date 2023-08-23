@@ -17,7 +17,7 @@ An image gallery is the primary resource used for enabling image sharing. Allowe
 
 The following example creates a gallery named *myGallery* in the *myGalleryRG* resource group.
 
-1. Sign in to the Azure portal at https://portal.azure.com.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Use the type **Shared image gallery** in the search box and select **Shared image gallery** in the results.
 1. In the **Shared image gallery** page, click **Add**.
 1. On the **Create shared image gallery** page, select the correct subscription.

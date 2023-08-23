@@ -45,12 +45,6 @@ To complete this tutorial, make sure you have:
 * [Apache Kafka distribution](https://kafka.apache.org/downloads)
     * Download the preferred Apache Kafka distribution (which should contain the Mirror Maker 2 distribution.)
 
-> [!NOTE]
-> Apache Kafka Mirror Maker 2 requires log compaction support which is currently available only in Premium and Dedicated SKUs of Azure Event Hubs. Therefore to replicate data using Mirror Maker 2, you need to use either Premium of Dedicated SKU. 
-
-> [!WARNING]
-> Use of the Apache Mirror Maker 2 **not eligible for product support through Microsoft Azure**.
->
 
 ## Create an Event Hubs namespace
 

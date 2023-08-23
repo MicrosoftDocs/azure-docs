@@ -104,6 +104,12 @@ Controls can be scored in two ways. Some are scored in a binary fashion - you ge
 
 Actions labeled as [Not Scored] are ones you can perform in your organization but won't be scored because they aren't hooked up in the tool (yet!). So, you can still improve your security, but you won't get credit for those actions right now.
 
+In addition, the recommended actions:
+* Protect all users with a user risk policy
+* Protect all users with a sign-in risk policy
+
+Also won't give you credits when configured using Conditional Access Policies, yet, for the same reason as above. For now, these actions give credits only when configured through Identity Protection policies.
+
 ### How often is my score updated?
 
 The score is calculated once per day (around 1:00 AM PST). If you make a change to a measured action, the score will automatically update the next day. It takes up to 48 hours for a change to be reflected in your score.

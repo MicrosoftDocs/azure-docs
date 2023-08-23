@@ -3,7 +3,7 @@ title: Tutorial - Network planning checklist
 description: Learn about the network requirements for network connectivity and network ports on Azure VMware Solution.
 ms.topic: tutorial
 ms.service: azure-vmware
-ms.date: 3/10/2023
+ms.date: 5/1/2023
 ---
 
 # Networking planning checklist for Azure VMware Solution 
@@ -80,7 +80,7 @@ The subnets:
 
 | Source | Destination | Protocol | Port | Description  | 
 | ------ | ----------- | :------: | :---:| ------------ | 
-| Private Cloud DNS server | On-Premises DNS Server | UDP | 53 | DNS Client - Forward requests from Private Cloud vCenter Server for any on-premises DNS queries (check DNS section below) |  
+| Private Cloud DNS server | On-premises DNS Server | UDP | 53 | DNS Client - Forward requests from Private Cloud vCenter Server for any on-premises DNS queries (check DNS section below) |  
 | On-premises DNS Server   | Private Cloud DNS server | UDP | 53 | DNS Client - Forward requests from on-premises services to Private Cloud DNS servers (check DNS section below) |  
 | On-premises network  | Private Cloud vCenter Server  | TCP (HTTP)  | 80 | vCenter Server requires port 80 for direct HTTP connections. Port 80 redirects requests to HTTPS port 443. This redirection helps if you use `http://server` instead of `https://server`.  |  
 | Private Cloud management network | On-premises Active Directory  | TCP  | 389/636 | These ports are open to allow communications for Azure VMware Solutions vCenter Server to communicate to any on-premises Active Directory/LDAP server(s).  These port(s) are optional - for configuring on-premises AD as an identity source on the Private Cloud vCenter. Port 636 is recommended for security purposes. |  
@@ -89,7 +89,7 @@ The subnets:
 | On-premises network  | HCX Cloud Manager  | TCP (HTTPS) | 9443 | HCX Cloud Manager virtual appliance management interface for HCX system configuration. |
 | On-premises Admin Network  | HCX Cloud Manager | SSH | 22 | Administrator SSH access to HCX Cloud Manager virtual appliance. |
 | HCX Manager | Interconnect (HCX-IX) | TCP (HTTPS) | 8123 | HCX Bulk Migration Control |
-| HCX Manager | Interconnect (HCX-IX), Network Extension (HCX-NE) | HTTP  TCP (HTTPS) | 9443 | Send management instructions to the local HCX Interconnect using the REST API. |
+| HCX Manager | Interconnect (HCX-IX), Network Extension (HCX-NE) | TCP (HTTPS) | 9443 | Send management instructions to the local HCX Interconnect using the REST API. |
 | Interconnect (HCX-IX)| L2C | TCP (HTTPS) | 443 | Send management instructions from Interconnect to L2C when L2C uses the same path as the Interconnect. |
 | HCX Manager, Interconnect (HCX-IX) | ESXi Hosts | TCP | 80,443,902 | Management and OVF deployment. |
 | Interconnect (HCX-IX), Network Extension (HCX-NE) at Source| Interconnect (HCX-IX), Network Extension (HCX-NE) at Destination| UDP | 4500 | Required for IPSEC<br>   Internet key exchange (IKEv2) to encapsulate workloads for the bidirectional tunnel. Network Address Translation-Traversal (NAT-T) is also supported. |
@@ -99,7 +99,7 @@ The subnets:
 
 There can be more items to consider when it comes to firewall rules, this is intended to give common rules for common scenarios. Note that when source and destination say "on-premises," this is only important if you have a firewall that inspects flows within your datacenter. If you do not have a firewall that inspects between on-premises components, you can ignore those rules as they would not be needed.
 
-[Full list of HCX port requirements](https://ports.esp.vmware.com/home/VMware-HCX)
+[Full list of VMware HCX port requirements](https://ports.esp.vmware.com/home/VMware-HCX)
 
 ## DHCP and DNS resolution considerations
 

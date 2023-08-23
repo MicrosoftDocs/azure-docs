@@ -5,6 +5,7 @@ services: databox
 author: v-dalc
 ms.service: databox
 ms.subservice: edge
+ms.custom: devx-track-arm-template
 ms.topic: article
 ms.date: 05/17/2021
 ms.author: alkohli

@@ -2,8 +2,9 @@
 title: OutOfMemoryError exceptions for Apache Spark in Azure HDInsight
 description: Various OutOfMemoryError exceptions for Apache Spark cluster in Azure HDInsight
 ms.service: hdinsight
+ms.custom: devx-track-extended-java
 ms.topic: troubleshooting
-ms.date: 03/31/2022
+ms.date: 05/24/2023
 ---
 
 # OutOfMemoryError exceptions for Apache Spark in Azure HDInsight
@@ -50,13 +51,13 @@ The most likely cause of this exception is that not enough heap memory is alloca
 
 ### Resolution
 
-1. Determine the maximum size of the data the Spark application will handle. Make an estimate of the size based on the maximum of the size of input data, the intermediate data produced by transforming the input data and the output data produced further transforming the intermediate data. If the initial estimate is not sufficient, increase the size slightly, and iterate until the memory errors subside.
+1. Determine the maximum size of the data the Spark application handles. Make an estimate of the size based on the maximum of the size of input data, the intermediate data produced by transforming the input data and the output data produced further transforming the intermediate data. If the initial estimate isn't sufficient, increase the size slightly, and iterate until the memory errors subside.
 
 1. Make sure that the HDInsight cluster to be used has enough resources in terms of memory and also cores to accommodate the Spark application. This can be determined by viewing the Cluster Metrics section of the YARN UI of the cluster for the values of **Memory Used** vs. **Memory Total** and **VCores Used** vs. **VCores Total**.
 
     :::image type="content" source="./media/apache-spark-ts-outofmemory/yarn-core-memory-view.png" alt-text="yarn core memory view" border="true":::
 
-1. Set the following Spark configurations to appropriate values. Balance the application requirements with the available resources in the cluster. These values should not exceed 90% of the available memory and cores as viewed by YARN, and should also meet the minimum memory requirement of the Spark application:
+1. Set the following Spark configurations to appropriate values. Balance the application requirements with the available resources in the cluster. These values shouldn't exceed 90% of the available memory and cores as viewed by YARN, and should also meet the minimum memory requirement of the Spark application:
 
     ```
     spark.executor.instances (Example: 8 for 8 executor count)
@@ -96,7 +97,7 @@ scala.MatchError: java.lang.OutOfMemoryError: Java heap space (of class java.lan
 
 This issue is often caused by a lack of resources when opening large spark-event files. The Spark heap size is set to 1 GB by default, but large Spark event files may require more than this.
 
-If you would like to verify the size of the files that you are trying to load, you can perform the following commands:
+If you would like to verify the size of the files that your'e trying to load, you can perform the following commands:
 
 ```bash
 hadoop fs -du -s -h wasb:///hdp/spark2-events/application_1503957839788_0274_1/
@@ -126,7 +127,7 @@ Make sure to restart all affected services from Ambari.
 
 ### Issue
 
-Livy Server cannot be started on an Apache Spark [(Spark 2.1 on Linux (HDI 3.6)]. Attempting to restart results in the following error stack, from the Livy logs:
+Livy Server can't be started on an Apache Spark [(Spark 2.1 on Linux (HDI 3.6)]. Attempting to restart results in the following error stack, from the Livy logs:
 
 ```log
 17/07/27 17:52:50 INFO CuratorFrameworkImpl: Starting
@@ -186,15 +187,15 @@ Exception in thread "main" java.lang.OutOfMemoryError: unable to create new nati
 
 ### Cause
 
-`java.lang.OutOfMemoryError: unable to create new native thread` highlights OS cannot assign more native threads to JVMs. Confirmed that this Exception is caused by the violation of per-process thread count limit.
+`java.lang.OutOfMemoryError: unable to create new native thread` highlights OS can't assign more native threads to JVMs. Confirmed that this Exception is caused by the violation of per-process thread count limit.
 
-When Livy Server terminates unexpectedly, all the connections to Spark Clusters are also terminated, which means that all the jobs and related data will be lost. In HDP 2.6 session recovery mechanism was introduced, Livy stores the session details in Zookeeper to be recovered after the Livy Server is back.
+When Livy Server terminates unexpectedly, all the connections to Spark Clusters are also terminated, which means that all the jobs and related data are lost. In HDP 2.6 session recovery mechanism was introduced, Livy stores the session details in Zookeeper to be recovered after the Livy Server is back.
 
-When large number of jobs are submitted via Livy, as part of High Availability for Livy Server stores these session states in ZK (on HDInsight clusters) and recover those sessions when the Livy service is restarted. On restart after unexpected termination, Livy creates one thread per session and this accumulates a certain number of to-be-recovered sessions causing too many threads being created.
+When so many number of jobs are submitted via Livy, as part of High Availability for Livy Server stores these session states in ZK (on HDInsight clusters) and recover those sessions when the Livy service is restarted. On restart after unexpected termination, Livy creates one thread per session and this accumulates some to-be-recovered sessions causing too many threads being created.
 
 ### Resolution
 
-Delete all entries using steps detailed below.
+Delete all entries using the following steps.
 
 1. Get the IP address of the zookeeper Nodes using
 
@@ -202,19 +203,19 @@ Delete all entries using steps detailed below.
     grep -R zk /etc/hadoop/conf  
     ```
 
-1. Above command listed all the zookeepers for my cluster
+1. Above command listed all the zookeepers for a cluster
 
     ```bash
     /etc/hadoop/conf/core-site.xml:      <value><zookeepername1>.lnuwp5akw5ie1j2gi2amtuuimc.dx.internal.cloudapp.net:2181,<zookeepername2>.lnuwp5akw5ie1j2gi2amtuuimc.dx.internal.cloudapp.net:2181,<zookeepername3>.lnuwp5akw5ie1j2gi2amtuuimc.dx.internal.cloudapp.net:2181</value>
     ```
 
-1. Get all the IP address of the zookeeper nodes using ping Or you can also connect to zookeeper from headnode using zk name
+1. Get all the IP address of the zookeeper nodes using ping Or you can also connect to zookeeper from headnode using zookeeper name
 
     ```bash
     /usr/hdp/current/zookeeper-client/bin/zkCli.sh -server <zookeepername1>:2181
     ```
 
-1. Once you are connected to zookeeper execute the following command to list all the sessions that are attempted to restart.
+1. Once your'e connected, to zookeeper execute the following command to list all the sessions that are attempted to restart.
 
     1. Most of the cases this could be a list more than 8000 sessions ####
 

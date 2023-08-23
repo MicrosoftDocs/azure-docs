@@ -4,15 +4,16 @@ description: Define the SAP system properties for the SAP on Azure Deployment Au
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
-ms.date: 05/03/2022
+ms.date: 05/04/2023
 ms.topic: conceptual
 ms.service: sap-on-azure
 ms.subservice: sap-automation
+ms.custom: devx-track-terraform
 ---
 
 # Configure SAP system parameters
 
-Configuration for the [SAP on Azure Deployment Automation Framework](deployment-framework.md)] happens through parameters files. You provide information about your SAP system properties in a tfvars file, which the automation framework uses for deployment. You can find examples of the variable file in the 'samples/WORKSPACES/SYSTEM' folder.
+Configuration for the [SAP on Azure Deployment Automation Framework](deployment-framework.md)] happens through parameters files. You provide information about your SAP system infrastructure in a tfvars file, which the automation framework uses for deployment. You can find examples of the variable file in the 'samples' repository.
 
 The automation supports both creating resources (green field deployment) or using existing resources (brownfield deployment).
 
@@ -42,7 +43,7 @@ To configure this topology, define the database tier values and define `scs_serv
 
 ### High Availability
 
-The Distributed (Highly Available) deployment is similar to the Distributed architecture. In this deployment, the database and/or SAP Central Services can both be configured using a highly available configuration using two virtual machines each with Pacemaker clusters.
+The Distributed (Highly Available) deployment is similar to the Distributed architecture. In this deployment, the database and/or SAP Central Services can both be configured using a highly available configuration using two virtual machines each with Pacemaker clusters or in case of Windows with Windows Failover clustering.
 
 To configure this topology, define the database tier values and set `database_high_availability` to true. Set `scs_server_count = 1` and `scs_high_availability` = true and 
 `application_server_count` >= 1
@@ -114,9 +115,9 @@ The database tier defines the infrastructure for the database tier, supported da
 > | `database_vm_admin_nic_ips`        | Defines the IP addresses for the database servers (admin subnet).                   | Optional     |                    |
 > | `database_vm_image`	               | Defines the Virtual machine image to use, see below.                                | Optional	    |                    |
 > | `database_vm_authentication_type`  | Defines the authentication type (key/password).                                     | Optional	    |                    |
-> | `database_no_avset`                | Controls if the database virtual machines are deployed without availability sets.   | Optional	    | default is false   |
-> | `database_no_ppg`                  | Controls if the database servers will not be placed in a proximity placement group. | Optional	    | default is false   |
-> | `database_vm_avset_arm_ids`        | Defines the existing availability sets Azure resource IDs.                          | Optional	    | Primarily used together with ANF pinning|
+> | `database_use_avset`               | Controls if the database servers are placed in availability sets.                   | Optional	    | default is false   |
+> | `database_use_ppg`                 | Controls if the database servers will be placed in proximity placement groups.      | Optional	    | default is true    |
+> | `database_vm_avset_arm_ids`        | Defines the existing availability sets Azure resource IDs.                          | Optional	    | Primarily used with ANF pinning |
 > | `hana_dual_nics`                   | Controls if the HANA database servers will have dual network interfaces.            | Optional	    | default is true   |
 
 The Virtual Machine and the operating system image is defined using the following structure:
@@ -124,6 +125,7 @@ The Virtual Machine and the operating system image is defined using the followin
 ```python
 {
   os_type="linux"
+  type="marketplace"
   source_image_id=""
   publisher="SUSE"
   offer="sles-sap-15-sp3"
@@ -152,22 +154,22 @@ The application tier defines the infrastructure for the application tier, which 
 
 
 > [!div class="mx-tdCol2BreakAll "]
-> | Variable                               | Description                                                          | Type      | Notes  |
-> | -------------------------------------- | -------------------------------------------------------------------- | ----------| ------ |
-> | `scs_server_count`	                   | Defines the number of SCS servers.                                   | Required	|        |
-> | `scs_high_availability`	               | Defines if the Central Services is highly available.                 | Optional	| See [High availability configuration](configure-system.md#high-availability-configuration) |
-> | `scs_instance_number`	                 | The instance number of SCS.                                          | Optional  |        |
-> | `ers_instance_number`	                 | The instance number of ERS.                                          | Optional	|        |
-> | `scs_server_sku`	                     | Defines the Virtual machine SKU to use.                              | Optional  |        |
-> | `scs_server_image`	                   | Defines the Virtual machine image to use.                            | Required  |        |
-> | `scs_server_zones`	                   | Defines the availability zones of the SCS servers.                   | Optional  |        |
-> | `scs_server_app_nic_ips`               | List of IP addresses for the SCS servers (app subnet).               | Optional  |  |
-> | `scs_server_app_nic_secondary_ips[]`   | List of secondary IP addresses for the SCS servers (app subnet).     | Optional   |  |
-> | `scs_server_app_admin_nic_ips`         | List of IP addresses for the SCS servers (admin subnet).             | Optional  |  |
-> | `scs_server_loadbalancer_ips`          | List of IP addresses for the scs load balancer (app subnet).         | Optional  |  |
-> | `scs_server_no_ppg`                    | Controls SCS server proximity placement group.                       | Optional  |         |
-> | `scs_server_no_avset`	                 | Controls SCS server availability set placement.                      | Optional  |         |
-> | `scs_server_tags`	                     | Defines a list of tags to be applied to the SCS servers.             | Optional  |         |
+> | Variable                               | Description                                                              | Type      | Notes  |
+> | -------------------------------------- | ------------------------------------------------------------------------ | ----------| ------ |
+> | `scs_server_count`	                   | Defines the number of SCS servers.                                       | Required	|        |
+> | `scs_high_availability`	               | Defines if the Central Services is highly available.                     | Optional	| See [High availability configuration](configure-system.md#high-availability-configuration) |
+> | `scs_instance_number`	                 | The instance number of SCS.                                              | Optional  |        |
+> | `ers_instance_number`	                 | The instance number of ERS.                                              | Optional	|        |
+> | `scs_server_sku`	                     | Defines the Virtual machine SKU to use.                                  | Optional  |        |
+> | `scs_server_image`	                   | Defines the Virtual machine image to use.                                | Required  |        |
+> | `scs_server_zones`	                   | Defines the availability zones of the SCS servers.                       | Optional  |        |
+> | `scs_server_app_nic_ips`               | List of IP addresses for the SCS servers (app subnet).                   | Optional  |  |
+> | `scs_server_app_nic_secondary_ips[]`   | List of secondary IP addresses for the SCS servers (app subnet).         | Optional   |  |
+> | `scs_server_app_admin_nic_ips`         | List of IP addresses for the SCS servers (admin subnet).                 | Optional  |  |
+> | `scs_server_loadbalancer_ips`          | List of IP addresses for the scs load balancer (app subnet).             | Optional  |  |
+> | `scs_server_use_ppg`                   | Controls if the SCS servers are placed in availability sets.             | Optional  |         |
+> | `scs_server_use_avset`	               | Controls if the SCS servers will be placed in proximity placement groups.| Optional  |         |
+> | `scs_server_tags`	                     | Defines a list of tags to be applied to the SCS servers.                 | Optional  |         |
 
 ### Application server parameters
 
@@ -178,13 +180,13 @@ The application tier defines the infrastructure for the application tier, which 
 > | `application_server_count`	              | Defines the number of application servers.                                   | Required	 | |
 > | `application_server_sku`	                | Defines the Virtual machine SKU to use.                                      | Optional   | |
 > | `application_server_image`	              | Defines the Virtual machine image to use.                                    | Required   | |
-> | `application_server_zones`	              | Defines the availability zones to which the application servers are deployed. | Optional   | |
-> | `application_server_app_nic_ips[]`        | List of IP addresses for the application servers (app subnet).                 | Optional   | |
-> | `application_server_nic_secondary_ips[]`  | List of secondary IP addresses for the application servers (app subnet).                 | Optional   |  |
-> | `application_server_app_admin_nic_ips`    | List of IP addresses for the application server (admin subnet).               | Optional   |  |
-> | `application_server_no_ppg`               | Controls application server proximity placement group.                        | Optional   | |
-> | `application_server_no_avset`             | Controls application server availability set placement.                       | Optional   | |
-> | `application_server_tags`	                | Defines a list of tags to be applied to the application servers.              | Optional   | |
+> | `application_server_zones`	              | Defines the availability zones to which the application servers are deployed.| Optional   | |
+> | `application_server_app_nic_ips[]`        | List of IP addresses for the application servers (app subnet).               | Optional   | |
+> | `application_server_nic_secondary_ips[]`  | List of secondary IP addresses for the application servers (app subnet).     | Optional   |  |
+> | `application_server_app_admin_nic_ips`    | List of IP addresses for the application server (admin subnet).              | Optional   |  |
+> | `application_server_use_ppg`              | Controls if application servers are placed in availability sets.             | Optional   | |
+> | `application_server_use_avset`            | Controls if application servers will be placed in proximity placement        | Optional   | |
+> | `application_server_tags`	                | Defines a list of tags to be applied to the application servers.             | Optional   | |
 
 ### Web dispatcher parameters
 
@@ -199,8 +201,8 @@ The application tier defines the infrastructure for the application tier, which 
 > | `webdispatcher_server_app_nic_ips[]`       | List of IP addresses for the web dispatcher server (app/web subnet).           | Optional  |  |
 > | `webdispatcher_server_nic_secondary_ips[]` | List of secondary IP addresses for the web dispatcher server (app/web subnet). | Optional  |  |
 > | `webdispatcher_server_app_admin_nic_ips`   | List of IP addresses for the web dispatcher server (admin subnet).             | Optional  |  |
-> | `webdispatcher_server_no_ppg`              | Controls web proximity placement group placement.                              | Optional  | |
-> | `webdispatcher_server_no_avset`	           | Defines web dispatcher availability set placement.                             | Optional  | |
+> | `webdispatcher_server_use_ppg`             | Controls if web dispatchers are placed in availability sets.                   | Optional   | |
+> | `webdispatcher_server_use_avset`           | Controls if web dispatchers will be placed in proximity placement              | Optional   | |
 > | `webdispatcher_server_tags`	               | Defines a list of tags to be applied to the web dispatcher servers.            | Optional  | |
 
 ## Network parameters
@@ -220,7 +222,7 @@ The table below contains the networking parameters.
 > | Variable                         | Description                                                          | Type      | Notes                        |
 > | -------------------------------- | -------------------------------------------------------------------- | --------- | ---------------------------- |
 > | `network_logical_name`           | The logical name of the network.                                     | Required  |                              |
-> |                                  |                                                                      | Optional  |                              |
+> |                                  |                                                                      |           |                              |
 > | `admin_subnet_name`              | The name of the 'admin' subnet.                                      | Optional  |                              |
 > | `admin_subnet_address_prefix`    | The address range for the 'admin' subnet.                            | Mandatory | For green field deployments. |
 > | `admin_subnet_arm_id`  	  *      | The Azure resource identifier for the 'admin' subnet.                | Mandatory | For brown field deployments. |
@@ -281,12 +283,13 @@ The table below contains the parameters related to the anchor virtual machine.
 The Virtual Machine and the operating system image is defined using the following structure:
 ```python
 {
-  os_type="linux"
-  source_image_id=""
-  publisher="SUSE"
-  offer="sles-sap-15-sp3"
-  sku="gen2"
-  version="latest"
+  os_type         = "linux"
+  type            = "marketplace"
+  source_image_id = ""
+  publisher       = "SUSE"
+  offer           = "sles-sap-15-sp3"
+  sku             = "gen2"
+  version=        " latest"
 }
 ```
 
@@ -333,7 +336,7 @@ By default the SAP System deployment uses the credentials from the SAP Workload 
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                           | Description                                                            | Type         |
 > | ---------------------------------- | ----------------------------------------------------------------------- | ----------- |
-> | `azure_files_storage_account_id`   | If provided the Azure resource ID of the storage account for Azure Files | Optional    |
+> | `azure_files_storage_account_id`   | If provided the Azure resource ID of the storage account used for sapmnt | Optional    |
 
 ### Azure NetApp Files Support
 
@@ -400,9 +403,23 @@ The table below contains the Terraform parameters, these parameters need to be 
 
 ## High availability configuration
 
-The high availability configuration for the database tier and the SCS tier is configured using the `database_high_availability` and `scs_high_availability`	flags.
+The high availability configuration for the database tier and the SCS tier is configured using the `database_high_availability` and `scs_high_availability`	flags. For Red Hat and SUSE should use the appropriate 'HA' version of the virtual machine images (RHEL-SAP-HA, sles-sap-15-sp?). 
 
-High availability configurations use Pacemaker with Azure fencing agents. The fencing agents should be configured to use a unique service principal with permissions to stop and start virtual machines. For more information, see [Create Fencing Agent](../../virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker.md#create-an-azure-fence-agent-device)
+High availability configurations use Pacemaker with Azure fencing agents. 
+
+> [!NOTE]
+> The highly available Central Services deployment requires using a shared file system for sap_mnt. This can be achieved by using Azure Files or Azure NetApp Files, using the NFS_provider attribute. The default is Azure Files. To use Azure NetApp Files, set the NFS_provider attribute to ANF.
+   
+
+### Fencing agent configuration 
+
+SDAF supports using either managed identities or service principals for fencing agents. The following section describe how to configure each option.
+
+By defining the variable 'use_msi_for_clusters' to true the fencing agent will use managed identities. This is the recommended option.
+
+If you want to use a service principal for the fencing agent set that variable to false.
+
+The fencing agents should be configured to use a unique service principal with permissions to stop and start virtual machines. For more information, see [Create Fencing Agent](../../virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker.md#create-an-azure-fence-agent-device)
 
 ```azurecli-interactive
 az ad sp create-for-rbac --role="Linux Fence Agent Role" --scopes="/subscriptions/<subscriptionID>" --name="<prefix>-Fencing-Agent"
@@ -431,4 +448,3 @@ az keyvault secret set --name "<prefix>-fencing-spn-tenant" --vault-name "<workl
 
 > [!div class="nextstepaction"]
 > [Deploy SAP system](deploy-system.md)
-

@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 
 ms.service: cognitive-search
-ms.custom: ignite-2022
+ms.custom: 
 ms.topic: how-to
 ms.date: 12/06/2022
 ---
@@ -156,7 +156,7 @@ When you're ready to create an indexer on a remote search service, you'll need a
 
 ### [**Azure portal**](#tab/portal)
 
-1. [Sign in to Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. On the search service Overview page, choose from two options: 
 
@@ -170,7 +170,7 @@ When you're ready to create an indexer on a remote search service, you'll need a
 
 ### [**REST**](#tab/indexer-rest)
 
-The Postman desktop app can function as an indexer client. Using the app, you can connect to your search service and send [Create Indexer (REST)](/rest/api/searchservice/create-indexer) or [Update indexer](/rest/api/searchservice/update-indexer) requests. 
+The Postman app can function as an indexer client. Using the app, you can connect to your search service and send [Create Indexer (REST)](/rest/api/searchservice/create-indexer) or [Update indexer](/rest/api/searchservice/update-indexer) requests. 
 
 ```http
 POST /indexers?api-version=[api-version]

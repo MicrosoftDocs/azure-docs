@@ -177,8 +177,8 @@ In the `ContosoCustomPolicy.XML` file, locate the `SignInUser` technical profile
             <Item Key="SignUpTarget">AccountTypeInputCollectorClaimsExchange</Item>
         </Metadata>
         <DisplayClaims>
-            <OutputClaim ClaimTypeReferenceId="email" Required="true" />
-            <OutputClaim ClaimTypeReferenceId="password" Required="true" />
+            <DisplayClaim ClaimTypeReferenceId="email" Required="true" />
+            <DisplayClaim ClaimTypeReferenceId="password" Required="true" />
         </DisplayClaims>
         <OutputClaims>
             <OutputClaim ClaimTypeReferenceId="email" />

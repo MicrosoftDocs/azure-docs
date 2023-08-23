@@ -4,8 +4,7 @@ titleSuffix: Azure Storage
 description: Use query acceleration to retrieve a subset of data from your storage account.
 author: normesta
 
-ms.subservice: data-lake-storage-gen2
-ms.service: storage
+ms.service: azure-data-lake-storage
 ms.topic: how-to
 ms.date: 06/09/2022
 ms.author: normesta

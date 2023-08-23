@@ -1,0 +1,109 @@
+### YamlMime:Hub
+
+title: FastTrack for Azure
+summary: Expertise and custom technical guidance you can trust, directly from Azure engineers to help accelerate your Azure deployments securely.
+brand: azure 
+
+metadata:
+  title: FastTrack for Azure
+  description: Expertise and custom technical guidance you can trust, directly from Azure engineers to help accelerate your Azure deployments securely.
+  ms.prod: azure 
+  ms.topic: hub-page
+  author: kmurphy1000
+  ms.author: kimberlm
+  ms.date: 04/22/2023
+
+# productDirectory section
+productDirectory:
+  items:
+    # Card
+    - title: Watch Live
+      imageSrc: ./media/azure-cloud.png
+      summary: Register on Reactor to join upcoming interactive live sessions and webcasts to get your questions answered real time by Azure engineers
+      url: https://developer.microsoft.com/en-us/reactor/?search=fasttrack
+    # Card
+    - title: Watch on-demand recordings
+      imageSrc: ./media/productivity.png
+      summary: Catch up on past sessions at your own pace
+      url: https://learn.microsoft.com/shows/learn-live/?terms=fasttrack
+    # Card
+    - title: Ask an Azure Engineer
+      imageSrc: ./media/interact.png
+      summary: Get your technical questions answered directly from an Azure engineer
+      url: https://learn.microsoft.com/answers/tags/351/azure-fasttrack
+      
+# conceptualContent section
+conceptualContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+  # Supports up to 3 subsections
+  sections:
+    - title: Key Resources
+      items:
+        # Card
+        - title: Infrastructure
+          links:
+            - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-2-ep05-learn-how-azure-migrate-can-help-migrate-your-servers-to-azure-part-1
+              itemType: video
+              text: Learn how Azure Migrate can help migrate your servers to Azure - Part 1
+            - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-2-ep06-learn-how-azure-migrate-can-help-migrate-servers-azure-part-2
+              itemType: video
+              text: Learn how Azure Migrate can help migrate your servers to Azure - Part 2
+            - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-2-ep07-apply-well-architected-framework-to-your-solution-design
+              itemType: video
+              text: Apply Well-Architected Framework to your solution design
+            - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-2-ep08-how-to-get-started-fast-azure-virtual-desktop-for-beginners
+              itemType: video
+              text: How To Get Started FAST Azure Virtual Desktop for Beginners 
+        # Card
+        - title: "Data & AI"
+          links:
+            - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-2-ep02-azure-openai-introduction-to-language-models-and-applications
+              itemType: video
+              text: "Azure OpenAI: Introduction to Language Models and Applications"
+            - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-2-ep09-azure-ml-fundamentals
+              itemType: video
+              text: Azure ML Fundamentals
+            - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-2-ep03-azure-ml-developer-experience
+              itemType: video
+              text: Azure ML Developer Experience
+            - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-2-ep01-azure-ml-enterprise-deployment
+              itemType: video
+              text: Azure ML Enterprise Deployment
+            - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-2-ep04-azure-ml-operations
+              itemType: video
+              text: Azure ML Operations
+        # Card
+        - title: Application Development
+          links:
+            - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-2-ep17-azure-container-options-aks-vs-aca-vs-aci
+              itemType: video
+              text: Azure Container Options (AKS vs ACA vs ACI)
+            - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-1-ep01-aks-security-best-practices
+              itemType: video
+              text: AKS Security Best Practices
+            - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-1-ep08-aks-operations-best-practices
+              itemType: video
+              text: AKS Operations Best Practices
+            - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-1-ep09-microsoft-identity-platform
+              itemType: video
+              text: Microsoft Identity Platform
+              
+# additionalContent section
+# Card with summary style
+additionalContent:
+  # Supports up to 4 subsections
+  sections:
+    - title: Related communities and links
+      items:
+        # Card
+        - title: FastTrack for Azure Program Overview
+          summary: Learn how to get expert help with FastTrack for Azure to accelerate your cloud deployments and minimize risk at the same time.
+          url: https://azure.microsoft.com/pricing/offers/azure-fasttrack/
+        # Card
+        - title: FastTrack for Azure Blog
+          summary: Learn how to get expert help with FastTrack for Azure to accelerate your cloud deployments and minimize risk at the same time.
+          url: https://techcommunity.microsoft.com/t5/fasttrack-for-azure/bg-p/FastTrackforAzureBlog
+        # Card
+        - title: FastTrack for Azure TechCommunity Discussion
+          summary: Your community for best practices and the latest news on Microsoft FastTrack
+          url: https://techcommunity.microsoft.com/t5/fasttrack-for-azure/bd-p/FastTrack-for-Azure

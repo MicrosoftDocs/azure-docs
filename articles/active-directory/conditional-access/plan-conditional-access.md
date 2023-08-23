@@ -25,7 +25,7 @@ With this evaluation and enforcement, Conditional Access defines the basis of [M
 
 ![Diagram showing a high level Conditional Access overview](./media/plan-conditional-access/conditional-access-overview-how-it-works.png)
 
-Microsoft provides [security defaults](../fundamentals/concept-fundamentals-security-defaults.md) that ensure a basic level of security enabled in tenants that don't have Azure AD Premium. With Conditional Access, you can create policies that provide the same protection as security defaults, but with granularity. Conditional Access and security defaults aren't meant to be combined as creating Conditional Access policies will prevent you from enabling security defaults.
+Microsoft provides [security defaults](../fundamentals/security-defaults.md) that ensure a basic level of security enabled in tenants that don't have Azure AD Premium. With Conditional Access, you can create policies that provide the same protection as security defaults, but with granularity. Conditional Access and security defaults aren't meant to be combined as creating Conditional Access policies will prevent you from enabling security defaults.
 
 ## Prerequisites
 
@@ -38,8 +38,8 @@ Microsoft provides [security defaults](../fundamentals/concept-fundamentals-secu
    * Create or modify Conditional Access policies 
       * [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator)
       * [Security Administrator](../roles/permissions-reference.md#security-administrator)
-* A test user (non-administrator) that allows you to verify policies work as expected before deploying to real users. If you need to create a user, see [Quickstart: Add new users to Azure Active Directory](../fundamentals/add-users-azure-active-directory.md).
-* A group that the non-administrator user is a member of. If you need to create a group, see [Create a group and add members in Azure Active Directory](../fundamentals/active-directory-groups-create-azure-portal.md).
+* A test user (non-administrator) that allows you to verify policies work as expected before deploying to real users. If you need to create a user, see [Quickstart: Add new users to Azure Active Directory](../fundamentals/add-users.md).
+* A group that the non-administrator user is a member of. If you need to create a group, see [Create a group and add members in Azure Active Directory](../fundamentals/how-to-manage-groups.md).
 
 ### Communicating change
 
@@ -140,8 +140,6 @@ Access control: Block access <br>
 
 Now when User B attempts to access the **PAYROLL APP** they're blocked.
 
-![Diagram showing access token issuance](media/plan-conditional-access/CA-policy-token-issuance.png)
-
 ## Recommendations
 
 Taking into account our learnings in the use of Conditional Access and supporting other customers, here are a few recommendations based on our learnings.
@@ -151,7 +149,7 @@ Taking into account our learnings in the use of Conditional Access and supportin
 **Ensure that every app has at least one Conditional Access policy applied**. From a security perspective it's better to create a policy that encompasses **All cloud apps**, and then exclude applications that you don't want the policy to apply to. This practice ensures you don't need to update Conditional Access policies every time you onboard a new application.
 
 > [!TIP]
-> Be very careful in using block and all apps in a single policy. This could lock admins out of the Azure portal, and exclusions cannot be configured for important endpoints such as Microsoft Graph.
+> Be very careful in using block and all apps in a single policy. This could lock admins out, and exclusions cannot be configured for important endpoints such as Microsoft Graph.
 
 ### Minimize the number of Conditional Access policies
 
@@ -201,9 +199,9 @@ In addition to your active policies, implement disabled policies that act as sec
 
 * EM01 - ENABLE IN EMERGENCY: MFA Disruption [1/4] - Exchange SharePoint: Require hybrid Azure AD join For VIP users.
 
-### Block countries from which you never expect a sign-in.
+### Block countries/regions from which you never expect a sign-in.
 
-Azure active directory allows you to create [named locations](location-condition.md). Create the list of countries that are allowed, and then create a network block policy with these "allowed countries" as an exclusion. This is less overhead for customers who are based in smaller geographic locations. **Be sure to exempt your emergency access accounts from this policy**.
+Azure active directory allows you to create [named locations](location-condition.md). Create the list of countries/regions that are allowed, and then create a network block policy with these "allowed countries/regions" as an exclusion. This is less overhead for customers who are based in smaller geographic locations. **Be sure to exempt your emergency access accounts from this policy**.
 
 ## Deploy Conditional Access policies
 
@@ -229,8 +227,8 @@ Perform each test in your test plan with test users. The test plan is important 
 | Policy | Scenario | Expected Result |
 |---|---|---|
 | [Risky sign-ins](../identity-protection/howto-identity-protection-configure-risk-policies.md) | User signs into App using an unapproved browser | Calculates a risk score based on the probability that the sign-in wasn't performed by the user. Requires user to self-remediate using MFA |
-| [Device management](require-managed-devices.md) | Authorized user attempts to sign in from an authorized device | Access granted |
-| [Device management](require-managed-devices.md) | Authorized user attempts to sign in from an unauthorized device | Access blocked |
+| [Device management](./concept-conditional-access-grant.md) | Authorized user attempts to sign in from an authorized device | Access granted |
+| [Device management](./concept-conditional-access-grant.md) | Authorized user attempts to sign in from an unauthorized device | Access blocked |
 | [Password change for risky users](../identity-protection/howto-identity-protection-configure-risk-policies.md) | Authorized user attempts to sign in with compromised credentials (high risk sign-in) | User is prompted to change password or access is blocked based on your policy |
 
 ### Deploy in production

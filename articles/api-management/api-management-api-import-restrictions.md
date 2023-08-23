@@ -25,12 +25,10 @@ When importing an API, you might encounter some restrictions or need to identify
 During OpenAPI import, API Management:
 
 * Checks specifically for query string parameters marked as required.
-* Converts the query string parameters to template parameters. 
+* By default, converts the required query string parameters to required template parameters. 
 
-If you prefer a different behavior, you can either: 
+If you prefer that required query parameters in the specification are translated to query parameters in API Management, disable the **Include query parameters in operation templates** setting when creating the API in the portal. You can also accomplish this by using the [APIs - Create or Update](/rest/api/apimanagement/current-ga/apis/create-or-update) REST API to set the API's `translateRequiredQueryParameters` property to `query`.
 
-* Manually change via form-based editor, or 
-* Remove the "required" attribute from the OpenAPI definition, thus not converting them to template parameters.
 
 For GET, HEAD, and OPTIONS operations, API Management discards a request body parameter if defined in the OpenAPI specification. 
 

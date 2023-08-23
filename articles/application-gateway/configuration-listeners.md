@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 02/27/2023
+ms.date: 07/19/2023
 ms.author: greglin 
 ---
 
@@ -81,17 +81,18 @@ $gw.EnableHttp2 = $true
 Set-AzApplicationGateway -ApplicationGateway $gw
 ```
 
+You can also enable HTTP2 support using the Azure portal by selecting **Enabled** under **HTTP2** in Application gateway > Configuration. 
+
 ### WebSocket support
 
 WebSocket support is enabled by default. There's no user-configurable setting to enable or disable it. You can use WebSockets with both HTTP and HTTPS listeners.
 
 ## Custom error pages
 
-You can define custom error at the global level or the listener level, however creating global-level custom error pages from the Azure portal is currently not supported. You can configure a custom error page for a 403 web application firewall error or a 502 maintenance page at the listener level. You must specify a publicly accessible blob URL for the given error status code. For more information, see [Create Application Gateway custom error pages](./custom-error.md).
+You can define customized error pages for different response codes returned by the Application Gateway. The response codes for which you can configure error pages are 400, 403, 405, 408, 500, 502, 503, and 504. You can use global-level or listener-specific error page configuration to set them granularly for each listener. For more information, see [Create Application Gateway custom error pages](./custom-error.md).
 
-![Application Gateway error codes](/azure/application-gateway/media/custom-error/ag-error-codes.png)
-
-To configure a global custom error page, see [Azure PowerShell configuration](./custom-error.md#azure-powershell-configuration).
+> [!NOTE]
+> An error originating from the backend server is passed along unmodified by the Application Gateway to the client. 
 
 ## TLS policy
 

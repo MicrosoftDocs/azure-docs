@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 04/12/2021
+ms.date: 04/12/2023
 ms.author: alkohli
 ---
 # Azure Stack Edge Pro FPGA technical specifications
@@ -23,9 +23,9 @@ The Azure Stack Edge Pro FPGA device has the following specifications for comput
 | CPU type                | Dual Intel Xeon Silver 4114 2.2 G |
 | CPU: raw                | 20 total cores, 40 total vCPUs    |
 | CPU: usable             | 32 vCPUs                          |
-| Memory type             | 8 x 16 GB RDIMM                   |
-| Memory: raw             | 128 GB RAM (8 x 16 GB)           |
-| Memory: usable          | 102 GB RAM                        |
+| Memory type             | 8 x 16 GiB RDIMM                   |
+| Memory: raw             | 128 GiB RAM (8 x 16 GiB)           |
+| Memory: usable          | 102 GiB RAM                        |
 
 
 ## FPGA specifications
@@ -58,11 +58,11 @@ The following table lists the typical power consumption data (actual values may 
 
 ## Network interface specifications
 
-Your Azure Stack Edge Pro FPGA device has 6 network interfaces, PORT1- PORT6.
+Your Azure Stack Edge Pro FPGA device has six network interfaces, PORT1- PORT6.
 
 | Specification           | Description                 |
 |-------------------------|----------------------------|
-|  Network interfaces    | 2 X 1 GbE interfaces – 1 management, not user configurable, used for initial setup. The other interface is user configurable, can be used for data transfer, and is DHCP by default. <br>2 X 25 GbE interfaces – These can also operate as 10 GbE interfaces. These data interfaces can be configured by user as DHCP (default) or static. <br> 2 X 25 GbE interfaces - These data interfaces can be configured by user as DHCP (default) or static.                  |
+|  Network interfaces    | 2 X 1 GbE interfaces – 1 management, not user configurable, used for initial setup. The other interface is user configurable, can be used for data transfer, and is DHCP by default. <br>2 X 25-GbE interfaces – These can also operate as 10-GbE interfaces. These data interfaces can be configured by user as DHCP (default) or static. <br> 2 X 25-GbE interfaces - These data interfaces can be configured by user as DHCP (default) or static.                  |
 
 The Network Adapters used are:
 
@@ -71,7 +71,7 @@ The Network Adapters used are:
 |Network Daughter Card (rNDC) |QLogic FastLinQ 41264 Dual Port 25GbE SFP+, Dual Port 1GbE, rNDC|
 |PCI Network Adapter |QLogic FastLinQ 41262 zwei Ports 25Gbit/s SFP28 Adapter|
 
-Please consult the Hardware Compatibility List from Intel QLogic for compatible Gigabit Interface Converter (GBIC). Gigabit Interface Converter (GBIC) are not included in the delivery of Azure Stack Edge. 
+Consult the Hardware Compatibility List from Intel QLogic for compatible Gigabit Interface Converter (GBIC). Gigabit Interface Converter (GBIC) aren't included in the delivery of Azure Stack Edge. 
 
 ## Storage specifications
 
@@ -125,29 +125,29 @@ This section lists the specifications related to the enclosure environment such 
 
 |     Enclosure         |     Ambient    temperature range     |     Ambient relative    humidity     |     Maximum dew point     |
 |-----------------------|--------------------------------------|--------------------------------------|---------------------------|
-|    Operational        |    10°C - 35°C (50°F - 86°F)         |    10% - 80% non-condensing.         |    29°C (84°F)            |
-|    Non-operational    |    -40°C to 65°C (-40°F - 149°F)     |    5% - 95% non-condensing.          |    33°C (91°F)            |
+|    Operational        |    10°C - 35°C (50°F - 86°F)         |    10% - 80% noncondensing.         |    29°C (84°F)            |
+|    Non-operational    |    -40°C to 65°C (-40°F - 149°F)     |    5% - 95% noncondensing.          |    33°C (91°F)            |
 
 ### Airflow, altitude, shock, vibration, orientation, safety, and EMC
 
 |     Enclosure                           |     Operational specifications                                                                                                                                                                                         |
 |-----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |    Airflow                              |    System airflow is front to rear. System must be operated with a low-pressure, rear-exhaust installation. <!--Back pressure created by rack doors and obstacles should not exceed 5 pascals (0.5 mm water gauge).-->    |
-|    Maximum altitude, operational        |    3048 meters (10,000 feet) with maximum operating temperature   de-rated determined by [Operating temperature de-rating specifications](#operating-temperature-de-rating-specifications).                                                                                |
-|    Maximum altitude, non-operational    |    12,000 meters (39,370 feet)                                                                                                                                                                                         |
-|    Shock, operational                   |    6 G for 11 milliseconds in 6   orientations                                                                                                                                                                         |
-|    Shock, non-operational               |    71 G for 2 milliseconds in 6 orientations                                                                                                                                                                           |
+|    Maximum altitude, operational        |    3048 meters (10,000 feet) with maximum operating temperature   de-rated determined by [Operating temperature derating specifications](#operating-temperature-derating-specifications).                                                                                |
+|    Maximum altitude, nonoperational    |    12,000 meters (39,370 feet)                                                                                                                                                                                         |
+|    Shock, operational                   |    6 G for 11 milliseconds in six   orientations                                                                                                                                                                         |
+|    Shock, nonoperational               |    71 G for 2 milliseconds in six orientations                                                                                                                                                                           |
 |    Vibration, operational               |    0.26 G<sub>RMS</sub> 5 Hz to 350 Hz random                                                                                                                                                                                     |
-|    Vibration, non-operational           |    1.88 G<sub>RMS</sub> 10 Hz to 500 Hz for 15   minutes (all six sides tested.)                                                                                                                                                  |
+|    Vibration, nonoperational           |    1.88 G<sub>RMS</sub> 10 Hz to 500 Hz for 15   minutes (all six sides tested.)                                                                                                                                                  |
 |    Orientation and mounting             |    19" rack mount                                                                                                                                                                                        |
 |    Safety and approvals                 |    EN 60950-1:2006 +A1:2010 +A2:2013 +A11:2009 +A12:2011/IEC 60950-1:2005 ed2 +A1:2009 +A2:2013 EN 62311:2008                                                                                                                                                                       |
 |    EMC                                  |    FCC A, ICES-003 <br>EN 55032:2012/CISPR 32:2012  <br>EN 55032:2015/CISPR 32:2015  <br>EN 55024:2010 +A1:2015/CISPR 24:2010 +A1:2015  <br>EN 61000-3-2:2014/IEC 61000-3-2:2014 (Class D)   <br>EN 61000-3-3:2013/IEC 61000-3-3:2013                                                                                                                                                                                         |
 |    Energy             |    Commission Regulation (EU) No. 617/2013                                                                                                                                                                                        |
 |    RoHS           |    EN 50581:2012                                                                                                                                                                                        |
 
-### Operating temperature de-rating specifications
+### Operating temperature derating specifications
 
-|     Operating    temperature de-rating     |     Ambient    temperature range                                                         |
+|     Operating    temperature derating     |     Ambient    temperature range                                                         |
 |--------------------------------------------|------------------------------------------------------------------------------------------|
 |    Up to 35°C (95°F)                       |    Maximum temperature is reduced by   1°C/300 m (1°F/547 ft) above 950 m (3,117 ft).    |
 |    35°C to 40°C (95°F to 104°F)            |    Maximum temperature is reduced by   1°C/175 m (1°F/319 ft) above 950 m (3,117 ft).    |

@@ -13,8 +13,7 @@ ms.devlang: csharp
 ms.topic: how-to
 ms.date: 02/27/2023
 ms.author: duau
-ms.custom: devx-track-azurepowershell
-
+ms.custom: devx-track-azurepowershell, devx-track-dotnet
 ---
 # Manage expiration of Azure Blob storage in Azure CDN
 > [!div class="op_single_selector"]

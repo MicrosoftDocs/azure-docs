@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 03/17/2022
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, UpdateFrequency2
 ---
 
 # Create DevTest Labs VMs by using Azure PowerShell
@@ -17,7 +17,7 @@ This article shows you how to create an Azure DevTest Labs virtual machine (VM) 
 You need the following prerequisites to work through this article:
 
 - Access to a lab in DevTest Labs. [Create a lab](devtest-lab-create-lab.md), or use an existing lab.
-- Azure PowerShell. [Install Azure PowerShell](/powershell/azure/install-az-ps), or [use Azure Cloud Shell](/azure/cloud-shell/quickstart?tabs=powershell) in the Azure portal.
+- Azure PowerShell. [Install Azure PowerShell](/powershell/azure/install-azure-powershell), or [use Azure Cloud Shell](/azure/cloud-shell/quickstart?tabs=powershell) in the Azure portal.
 
 ## PowerShell VM creation script
 

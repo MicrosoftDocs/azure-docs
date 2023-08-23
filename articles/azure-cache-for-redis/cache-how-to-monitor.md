@@ -5,7 +5,7 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 02/06/2022
+ms.date: 06/06/2023
 
 ---
 # Monitor Azure Cache for Redis
@@ -131,6 +131,10 @@ In contrast, for clustered caches, we recommend using the metrics with the suffi
 
 ## List of metrics
 
+- 99th Percentile Latency (preview)
+  - Depicts the worst-case (99th percentile) latency of server-side commands. Measured by issuing `PING` commands from the load balancer to the Redis server and tracking the time to respond. 
+  - Useful for tracking the health of your Redis instance. Latency will increase if the cache is under heavy load or if there are long running commands that delay the execution of the `PING` command.
+  - This metric is only available in Standard and Premium tier caches
 - Cache Latency (preview)
   - The latency of the cache calculated using the internode latency of the cache. This metric is measured in microseconds, and has three dimensions: `Avg`, `Min`, and `Max`. The dimensions represent the average, minimum, and maximum latency of the cache during the specified reporting interval.
 - Cache Misses
@@ -143,6 +147,8 @@ In contrast, for clustered caches, we recommend using the metrics with the suffi
   - The amount of data written to the cache in Megabytes per second (MB/s) during the specified reporting interval. This value is derived from the network interface cards that support the virtual machine that hosts the cache and isn't Redis specific. This value corresponds to the network bandwidth of data sent to the cache from the client.
 - Connected Clients
   - The number of client connections to the cache during the specified reporting interval. This number maps to `connected_clients` from the Redis INFO command. Once the [connection limit](cache-configure.md#default-redis-server-configuration) is reached, later attempts to connect to the cache fail. Even if there are no active client applications, there may still be a few instances of connected clients because of internal processes and connections.
+- Connected Clients Using AAD Token (preview)
+   - The number of client connections to the cache authenticated using Azure AD token during the specified reporting interval.
 - Connections Created Per Second
   - The number of instantaneous connections created per second on the cache via port 6379 or 6380 (SSL). This metric can help identify whether clients are frequently disconnecting and reconnecting, which can cause higher CPU usage and Redis Server Load. This metric isn't available in Enterprise or Enterprise Flash tier caches.
 - Connections Closed Per Second
@@ -158,6 +164,8 @@ In contrast, for clustered caches, we recommend using the metrics with the suffi
     - **RDB** – when there's an issue related to RDB persistence
     - **Import** – when there's an issue related to Import RDB
     - **Export** – when there's an issue related to Export RDB
+    - **AADAuthenticationFailure** (preview) - when there's an authentication failure using Azure AD Access token
+    - **AADTokenExpired** (preview) - when an Azure AD access token used for authentication is not renewed and it expires.
 - Evicted Keys
   - The number of items evicted from the cache during the specified reporting interval because of the `maxmemory` limit.
   - This number maps to `evicted_keys` from the Redis INFO command.
@@ -208,6 +216,10 @@ In contrast, for clustered caches, we recommend using the metrics with the suffi
   - The total number of commands processed per second by the cache server during the specified reporting interval.  This value maps to "instantaneous_ops_per_sec" from the Redis INFO command.
 - Server Load
   - The percentage of cycles in which the Redis server is busy processing and not waiting idle for messages. If this counter reaches 100, the Redis server has hit a performance ceiling, and the CPU can't process work any faster. If you're seeing high Redis Server Load, then you see timeout exceptions in the client. In this case, you should consider scaling up or partitioning your data into multiple caches.
+  
+> [!CAUTION]
+> The Server Load metric can present incorrect data for Enterprise and Enterprise Flash tier caches. Sometimes Server Load is represented as being over 100. We are investigating this issue. We recommend using the CPU metric instead in the meantime.
+
 - Sets
   - The number of set operations to the cache during the specified reporting interval. This value is the sum of the following values from the Redis INFO all command: `cmdstat_set`, `cmdstat_hset`, `cmdstat_hmset`, `cmdstat_hsetnx`, `cmdstat_lset`, `cmdstat_mset`, `cmdstat_msetnx`, `cmdstat_setbit`, `cmdstat_setex`, `cmdstat_setrange`, and `cmdstat_setnx`.
 - Total Keys  
@@ -217,9 +229,9 @@ In contrast, for clustered caches, we recommend using the metrics with the suffi
 - Used Memory
   - The amount of cache memory in MB that is used for key/value pairs in the cache during the specified reporting interval. This value maps to `used_memory` from the Redis INFO command. This value doesn't include metadata or fragmentation.
 - Used Memory Percentage
-  - The percent of total memory that is being used during the specified reporting interval.  This value references the `used_memory` value from the Redis INFO command to calculate the percentage.
+  - The percent of total memory that is being used during the specified reporting interval.  This value references the `used_memory` value from the Redis INFO command to calculate the percentage. This value doesn't include fragmentation.
 - Used Memory RSS
-  - The amount of cache memory used in MB during the specified reporting interval, including fragmentation and metadata. This value maps to `used_memory_rss` from the Redis INFO command. This metric isn't available in Enterprise or Enterprise Flash tier caches.
+  - The amount of cache memory used in MB during the specified reporting interval, including fragmentation. This value maps to `used_memory_rss` from the Redis INFO command. This metric isn't available in Enterprise or Enterprise Flash tier caches.
 
 ## Create alerts
 

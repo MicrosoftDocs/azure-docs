@@ -3,9 +3,9 @@ title: Bicep functions - lambda
 description: Describes the lambda functions to use in a Bicep file.
 author: mumian
 ms.topic: conceptual
+ms.custom: devx-track-bicep
 ms.author: jgao
 ms.date: 03/15/2023
-
 ---
 # Lambda functions for Bicep
 
@@ -22,7 +22,7 @@ This article describes the lambda functions to use in Bicep. [Lambda expressions
 
 Bicep lambda function has these limitations:
 
-- Lambda expression can only be specified directly as function arguments in these functions: [`filter()`](#filter), [`map()`](#map), [`reduce()`](#reduce), [`sort()`](#sort), and [`toOrder()`](#toobject).
+- Lambda expression can only be specified directly as function arguments in these functions: [`filter()`](#filter), [`map()`](#map), [`reduce()`](#reduce), [`sort()`](#sort), and [`toObject()`](#toobject).
 - Using lambda variables (the temporary variables used in the lambda expressions) inside resource or module array access isn't currently supported.
 - Using lambda variables inside the [`listKeys`](./bicep-functions-resource.md#list) function isn't currently supported.
 - Using lambda variables inside the [reference](./bicep-functions-resource.md#reference) function isn't currently supported.
@@ -40,7 +40,7 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
 | inputArray |Yes |array |The array to filter.|
-| lambda expression |Yes |expression |The lambda expression applied to each input array element. If false, the item will be filtered out of the output array.|
+| lambda expression |Yes |expression |The lambda expression is applied to each input array element. If the result is true, the item will be included in the output array; otherwise, the item is discarded.|
 
 ### Return value
 

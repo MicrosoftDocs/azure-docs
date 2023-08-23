@@ -1,17 +1,17 @@
 ---
 title: Manage a dev center
-titleSuffix: Microsoft Dev Box Preview
-description: This article describes how to create, delete, and manage Microsoft Dev Box Preview dev centers.
+titleSuffix: Microsoft Dev Box
+description: Microsoft Dev Box dev centers help you manage dev box resources, grouping projects with similar settings. Learn how to create, delete, and manage dev centers.
 services: dev-box
 ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 10/12/2022
+ms.date: 04/25/2023
 ms.topic: how-to
-#Customer intent: As a dev infrastructure manager, I want to be able to manage dev centers so that I can manage my Microsoft Dev Box Preview implementation.
+#Customer intent: As a platform engineer, I want to be able to manage dev centers so that I can manage my Microsoft Dev Box implementation.
 ---
 
-# Manage a dev center
+# Manage a Microsoft Dev Box dev center
 
 Development teams vary in the way they function and might have different needs. A dev center helps you manage these scenarios by enabling you to group similar sets of projects together and apply similar settings.
 
@@ -29,7 +29,7 @@ To manage a dev center, you need the following permissions:
 
 Your development teams' requirements change over time. You can create a new dev center to support organizational changes like a new business requirement or a new regional center. You can create as many or as few dev centers as you need, depending on how you organize and manage your development teams.
 
-To create a dev center:  
+To create a dev center: 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -99,7 +99,7 @@ You can attach existing network connections to a dev center. You must attach a n
 
 1. Select the dev center that you want to attach the network connection to, and then select **Networking**.
 
-1. Select  **+ Add**.
+1. Select **+ Add**.
 
 1. On the **Add network connection** pane, select the network connection that you created earlier, and then select **Add**.
 
@@ -150,5 +150,5 @@ To make role assignments:
 ## Next steps
 
 - [Provide access to projects for project admins](./how-to-project-admin.md)
-- [Create dev box definitions](./quickstart-configure-dev-box-service.md#create-a-dev-box-definition)
+- [3. Create a dev box definition](quickstart-configure-dev-box-service.md#3-create-a-dev-box-definition)
 - [Configure Azure Compute Gallery](./how-to-configure-azure-compute-gallery.md)

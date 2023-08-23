@@ -41,6 +41,9 @@ If Maven isn't your preferred development tool, check out our similar tutorials 
 
 Clone the [sample project](https://github.com/Azure-Samples/app-service-java-quickstart) and check out the source code that runs with this version of the article.
 
+> [!TIP]
+> Though App Service supports older versions of Java, the `booty-duke-app-service` sample project uses Java records and requires **Java 17**. For more information about Java records, see [JEP 395](https://openjdk.org/jeps/395).
+
 ```azurecli-interactive
 git clone https://github.com/Azure-Samples/app-service-java-quickstart
 ```
@@ -54,7 +57,7 @@ mvn clean install
 cd booty-duke-app-service
 ```
 
-
+If you see a message about being in **detached HEAD** state, this message is safe to ignore. Because you will not be making any commits, detached HEAD state is appropriate.
 
 # [Tomcat](#tab/tomcat)
 
@@ -80,12 +83,17 @@ git clone https://github.com/Azure-Samples/app-service-java-quickstart
 
 Change directory to the completed project and build from the top level. Then `cd` to the subdirectory for petstore.
 
+> [!TIP]
+> The `petstore-ee7` sample requires **Java 11 or newer**. The `booty-duke-app-service` sample project requires **Java 17**. If your installed version of Java is less than 17, run the build from within the `petstore-ee7` directory, rather than at the top level.
+
 ```azurecli-interactive
 cd app-service-java-quickstart
 git checkout 20230308
-mvn clean install
 cd petstore-ee7
+mvn clean install
 ```
+
+If you see a message about being in **detached HEAD** state, this message is safe to ignore. Because you will not be making any commits, detached HEAD state is appropriate.
 
 ---
 
@@ -94,13 +102,12 @@ cd petstore-ee7
 > [!TIP]
 > The Maven plugin supports **Java 17** and **Tomcat 10.0**. For more information about latest support, see [Java 17 and Tomcat 10.0 are available on Azure App Service](https://devblogs.microsoft.com/java/java-17-and-tomcat-10-0-available-on-azure-app-service/).
 
-
 The deployment process to Azure App Service uses your Azure credentials from the Azure CLI automatically. If the Azure CLI isn't installed locally, then the Maven plugin authenticates with Oauth or device login. For more information, see [authentication with Maven plugins](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication).
 
 Run the Maven command shown next to configure the deployment. This command helps you to set up the App Service operating system, Java version, and Tomcat version.
 
 ```azurecli-interactive
-mvn com.microsoft.azure:azure-webapp-maven-plugin:2.9.0:config
+mvn com.microsoft.azure:azure-webapp-maven-plugin:2.11.0:config
 ```
 
 # [Java SE](#tab/javase)
@@ -198,6 +205,27 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:2.9.0:config
 
 ---
 
+After you've confirmed your choices, the plugin adds the above plugin element and requisite settings to your project's `pom.xml` file that configure your web app to run in Azure App Service.
+
+The relevant portion of the `pom.xml` file should look similar to the following example.
+
+```xml-interactive
+<build>
+    <plugins>
+        <plugin>
+            <groupId>com.microsoft.azure</groupId>
+            <artifactId>>azure-webapp-maven-plugin</artifactId>
+            <version>x.xx.x</version>
+            <configuration>
+                <schemaVersion>v2</schemaVersion>
+                <resourceGroup>your-resourcegroup-name</resourceGroup>
+                <appName>your-app-name</appName>
+            ...
+            </configuration>
+        </plugin>
+    </plugins>
+</build>           
+```
 
 You can modify the configurations for App Service directly in your `pom.xml`. Some common configurations are listed below:
 

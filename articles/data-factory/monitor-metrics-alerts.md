@@ -68,7 +68,7 @@ Sign in to the Azure portal, and select **Monitor** > **Alerts** to create alert
 
 1. Select **+ New Alert Rule** to create a new alert.
 
-    :::image type="content" source="media/monitor-using-azure-monitor/alerts_image4.png" alt-text="Screenshot that shows creating a new alert rule.":::
+    :::image type="content" source="media/monitor-using-azure-monitor/alerts_image4.png" lightbox="media/monitor-using-azure-monitor/alerts_image4.png" alt-text="Screenshot that shows creating a new alert rule.":::
 
 1. Define the alert condition.
 
@@ -77,13 +77,13 @@ Sign in to the Azure portal, and select **Monitor** > **Alerts** to create alert
 
     :::image type="content" source="media/monitor-using-azure-monitor/alerts_image5.png" alt-text="Screenshot that shows the selections for opening the pane for choosing a resource.":::
 
-    :::image type="content" source="media/monitor-using-azure-monitor/alerts_image6.png" alt-text="Screenshot that shows the selections for opening the pane for configuring signal logic.":::
+    :::image type="content" source="media/monitor-using-azure-monitor/alerts_image6.png" lightbox="media/monitor-using-azure-monitor/alerts_image6.png" alt-text="Screenshot that shows the selections for opening the pane for configuring signal logic.":::
 
-    :::image type="content" source="media/monitor-using-azure-monitor/alerts_image7.png" alt-text="Screenshot that shows configuring the signal logic.":::
+    :::image type="content" source="media/monitor-using-azure-monitor/alerts_image7.png" lightbox="media/monitor-using-azure-monitor/alerts_image7.png" alt-text="Screenshot that shows configuring the signal logic.":::
 
 1. Define the alert details.
 
-    :::image type="content" source="media/monitor-using-azure-monitor/alerts_image8.png" alt-text="Screenshot that shows alert details.":::
+    :::image type="content" source="media/monitor-using-azure-monitor/alerts_image8.png" lightbox="media/monitor-using-azure-monitor/alerts_image8.png" alt-text="Screenshot that shows alert details.":::
 
 1. Define the action group.
 
@@ -96,7 +96,7 @@ Sign in to the Azure portal, and select **Monitor** > **Alerts** to create alert
 
     :::image type="content" source="media/monitor-using-azure-monitor/alerts_image11.png" alt-text="Screenshot that shows configuring email, SMS, push, and voice.":::
 
-    :::image type="content" source="media/monitor-using-azure-monitor/alerts_image12.png" alt-text="Screenshot that shows defining an action group.":::
+    :::image type="content" source="media/monitor-using-azure-monitor/alerts_image12.png" lightbox="media/monitor-using-azure-monitor/alerts_image12.png" alt-text="Screenshot that shows defining an action group.":::
 
 ## Next steps
 

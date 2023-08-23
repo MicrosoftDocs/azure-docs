@@ -1,15 +1,15 @@
 ---
-title: Tutorial - Improve website response with Azure Traffic Manager
+title: 'Tutorial: Improve website response with Azure Traffic Manager'
 description: This tutorial article describes how to create a Traffic Manager profile to build a highly responsive website.
 services: traffic-manager
 author: greg-lindsay
-# Customer intent: As an IT Admin, I want to route traffic so I can improve website response by choosing the endpoint with lowest latency.
 ms.service: traffic-manager
 ms.topic: tutorial
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/06/2023
 ms.author: greglin
+ms.custom: template-tutorial
+# Customer intent: As an IT Admin, I want to route traffic so I can improve website response by choosing the endpoint with lowest latency.
 ---
 
 # Tutorial: Improve website response using Traffic Manager
@@ -37,7 +37,7 @@ In order to see the Traffic Manager in action, this tutorial requires that you d
 
 ### Sign in to Azure
 
-Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ### Create websites
 
@@ -98,7 +98,7 @@ In this section, you connect to the two VMs *myIISVMEastUS* and *myIISVMWestEuro
 
     :::image type="content" source="./media/tutorial-traffic-manager-improve-website-response/connect-to-bastion-password.png" alt-text="Screenshot of connecting to virtual machine using bastion.":::
 
-To learn more about Azure Bastion, see [What is Azure Bastion?](/articles/bastion/bastion-overview.md)
+To learn more about Azure Bastion, see [What is Azure Bastion?](../bastion/bastion-overview.md)
 #### Install IIS and customize the default web page 
 
 In this section, you install the IIS server on the two VMs *myIISVMEastUS* and *myIISVMWestEurope*, and then update the default website page. The customized website page shows the name of the VM that you're connecting to when you visit the website from a web browser.

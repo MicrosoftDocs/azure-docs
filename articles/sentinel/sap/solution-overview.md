@@ -1,10 +1,10 @@
 ---
 title: Microsoft Sentinel solution for SAP® applications overview
 description: This article introduces Microsoft Sentinel solution for SAP® applications
-author: MSFTandrelom
-ms.author: andrelom
-ms.topic: how-to
-ms.date: 06/21/2022
+author: limwainstein
+ms.author: lwainstein
+ms.topic: conceptual
+ms.date: 03/22/2023
 ---
 
 # Microsoft Sentinel solution for SAP® applications overview
@@ -17,14 +17,11 @@ To help close this gap, Microsoft Sentinel offers the Microsoft Sentinel solutio
 
 ## What Microsoft Sentinel solution for SAP® applications does
 
-The Microsoft Sentinel solution for SAP® applications continuously monitors SAP systems for threats at all layers - business logic, application, database, and OS.
+- The Microsoft Sentinel solution for SAP® applications continuously monitors SAP systems for threats at all layers - business logic, application, database, and OS.
 
-It analyzes SAP system data to detect threats such as privilege escalation, unapproved changes, and unauthorized access. It allows you to correlate SAP monitoring with other signals across your organization, and to build your own detections to monitor sensitive transactions and other business risks.
-    - Privilege escalation
-    - Unapproved changes
-    - Unauthorized access
-- Correlate SAP monitoring with other signals across your organization
-- Build your own detections to monitor sensitive transactions and other business risks
+- It allows you to correlate SAP monitoring with other signals across your organization, and to use detections provided by the solution&mdash;or build your own detections&mdash;to monitor sensitive transactions and other business risks such as privilege escalation, unapproved changes, and unauthorized access.
+
+- It also allows you to build automated response processes to interact with your SAP systems to stop active security threats.
 
 ## Solution details
 
@@ -81,7 +78,21 @@ The solution's data connector retrieves a wide variety of SAP Log Sources:
   – Brute force
   - Multiple logons from the same IP
   - Privileged user logons from unexpected networks
-  - SPNego Replay Attack 
+  - SPNego Replay Attack
+
+## Certification
+
+Microsoft Sentinel solution for SAP® applications is certified for SAP S/4HANA® Cloud, Private Edition RISE with SAP and SAP S/4 on-premises. 
+
+- The integration scenarios include S/4-BC-XAL 1.0/S/4 EXTERNAL ALERT AND MONITORING 1.0 (for S/4). 
+- Our certification includes S/4 and SAP Rise S/4 HANA® Cloud Private Edition running in any cloud and on-premises.  
+- We support hybrid deployments that can cover the entire customer estate. 
+
+See the certification on the [SAP Certified Solutions Directory](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/solutions?id=s:33db1376-91ae-4f36-a435-aafa892a88d8).
+
+## Trademark attribution
+
+SAP S/4HANA and SAP are trademarks or registered trademarks of SAP SE or its affiliates in Germany and in other countries/regions. 
   
 ## Next steps
 
@@ -90,8 +101,9 @@ Learn more about the Microsoft Sentinel solution for SAP® applications:
 - [Deploy Microsoft Sentinel solution for SAP® applications](deployment-overview.md)
 - [Prerequisites for deploying Microsoft Sentinel solution for SAP® applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
 - [Deploy SAP Change Requests (CRs) and configure authorization](preparing-sap.md)
+- [Deploy the solution content from the content hub](deploy-sap-security-content.md)
 - [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md)
-- [Deploy SAP security content](deploy-sap-security-content.md)
+- [Monitor the health of your SAP system](../monitor-sap-system-health.md)
 - [Deploy the Microsoft Sentinel for SAP data connector with SNC](configure-snc.md)
 - [Enable and configure SAP auditing](configure-audit.md)
 - [Collect SAP HANA audit logs](collect-sap-hana-audit-logs.md)
@@ -99,8 +111,6 @@ Learn more about the Microsoft Sentinel solution for SAP® applications:
 Troubleshooting:
 
 - [Troubleshoot your Microsoft Sentinel solution for SAP® applications deployment](sap-deploy-troubleshoot.md)
-- [Configure SAP Transport Management System](configure-transport.md)
-- [Monitor the health and role of your SAP systems](../monitor-sap-system-health.md)
 
 Reference files:
 

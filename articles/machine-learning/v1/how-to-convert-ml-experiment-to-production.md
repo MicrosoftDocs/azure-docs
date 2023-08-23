@@ -13,7 +13,7 @@ ms.custom: UpdateFrequency5, devx-track-python, sdkv1, event-tier1-build-2022
 
 # Convert ML experiments to production Python code
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 In this tutorial, you learn how to convert Jupyter notebooks into Python scripts to make it testing and automation friendly using the MLOpsPython code template and Azure Machine Learning. Typically, this process is used to take experimentation / training code from a Jupyter notebook and convert it into Python scripts. Those scripts can then be used testing and CI/CD automation in your production environment. 
 
@@ -436,7 +436,7 @@ The `train_aml.py` file found in the `diabetes_regression/training` directory in
 
 ### Create Python file for the Diabetes Ridge Regression Scoring notebook
 
-Covert your notebook to an executable script by running the following statement in a command prompt that which uses the `nbconvert` package and the path of `experimentation/Diabetes Ridge Regression Scoring.ipynb`:
+Convert your notebook to an executable script by running the following statement in a command prompt that which uses the `nbconvert` package and the path of `experimentation/Diabetes Ridge Regression Scoring.ipynb`:
 
 ```
 jupyter nbconvert "Diabetes Ridge Regression Scoring.ipynb" --to script --output score

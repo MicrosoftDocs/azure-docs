@@ -7,8 +7,7 @@ ms.assetid: 091decb6-b0de-42a1-9f2f-c18d9b2e67df
 ms.topic: article
 ms.date: 03/29/2022
 ms.author: madsd
-ms.custom: seodec18
-
+ms.custom: seodec18, devx-track-arm-template
 ---
 # How To Create an ILB ASEv1 Using Azure Resource Manager Templates
 
@@ -140,4 +139,3 @@ To get started with App Service Environments, see [Introduction to App Service E
 [quickstartilbasecreate]: https://azure.microsoft.com/resources/templates/web-app-ase-ilb-create/
 [examplebase64encoding]: https://powershellscripts.blogspot.com/2007/02/base64-encode-file.html 
 [configuringDefaultSSLCertificate]: https://azure.microsoft.com/resources/templates/web-app-ase-ilb-configure-default-ssl/
-

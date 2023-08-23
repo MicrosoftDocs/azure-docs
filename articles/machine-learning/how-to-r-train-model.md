@@ -3,6 +3,7 @@ title: Train R models
 titleSuffix: Azure Machine Learning
 description: 'Learn how to train your machine learning model with R for use in Azure Machine Learning.'
 ms.service: machine-learning
+ms.subservice: core
 ms.date: 01/12/2023
 ms.topic: how-to
 author: wahalulu
@@ -13,7 +14,7 @@ ms.devlang: r
 
 # Run an R job to train a model
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 This article explains how to take the R script that you [adapted to run in production](how-to-r-modify-script-for-production.md) and set it up to run as an R job using the Azure Machine Learning CLI V2.
 
@@ -24,8 +25,8 @@ This article explains how to take the R script that you [adapted to run in produ
 
 - An [Azure Machine Learning workspace](quickstart-create-resources.md).
 - [A registered data asset](how-to-create-data-assets.md) that your training job will use.
-- Azure [CLI and ml extension installed](how-to-configure-cli.md).  Or use a [compute instance in your workspace](quickstart-create-resources.md), which has the CLI pre-installed.
-- [A compute cluster](how-to-create-attach-compute-cluster.md) or [compute instance](quickstart-create-resources.md#create-compute-instance) to run your training job.
+- Azure [CLI and ml extension installed](how-to-configure-cli.md).  Or use a [compute instance in your workspace](quickstart-create-resources.md), which has the CLI preinstalled.
+- [A compute cluster](how-to-create-attach-compute-cluster.md) or [compute instance](quickstart-create-resources.md#create-a-compute-instance) to run your training job.
 - [An R environment](how-to-r-modify-script-for-production.md#create-an-environment) for the compute cluster to use to run the job.
 
 ## Create a folder with this structure
@@ -113,7 +114,7 @@ To submit the job, run the following commands in a terminal window:
     cd r-job-azureml
     ```
 
-1. Sign in to Azure.  If you're doing this from an [Azure Machine Learning compute instance](quickstart-create-resources.md#create-compute-instance), use:
+1. Sign in to Azure.  If you're doing this from an [Azure Machine Learning compute instance](quickstart-create-resources.md#create-a-compute-instance), use:
 
     ```azurecli
     az login --identity
@@ -133,7 +134,7 @@ To submit the job, run the following commands in a terminal window:
     az account set --subscription "<SUBSCRIPTION-NAME>"
     ```
 
-1. Now use CLI to submit the job. If you are doing this on a compute instance in your workspace, you can use environment variables for the workspace name and resource group as show in the following code.  If you are not on a compute instance, replace these values with your workspace name and resource group.
+1. Now use CLI to submit the job. If you're doing this on a compute instance in your workspace, you can use environment variables for the workspace name and resource group as show in the following code.  If you aren't on a compute instance, replace these values with your workspace name and resource group.
 
     ```azurecli
     az ml job create -f job.yml  --workspace-name $CI_WORKSPACE --resource-group $CI_RESOURCE_GROUP
@@ -152,16 +153,25 @@ Once you've submitted the job, you can check the status and results in studio:
 
 Finally, once the training job is complete, register your model if you want to deploy it.  Start in the studio from the page showing your job details.
 
+1. Once your job completes, select **Outputs + logs** to view outputs of the job.
+1. Open the **models** folder to verify that **crate.bin** and **MLmodel** are present.  If not, check the logs to see if there was an error.
 1. On the toolbar at the top, select **+ Register model**.
-1. Select **MLflow** for the **Model type**.
-1. Select the folder which contains the model.
+
+    :::image type="content" source="media/how-to-r-train-model/register-model.png" alt-text="Screenshot shows the Job section of studio with the Outputs section open.":::
+
+1. For **Model type**, change the default from **MLflow** to **Unspecified type**.
+1. For **Job output**, select **models**, the folder that contains the model.
 1. Select **Next**.
 1. Supply the name you wish to use for your model.  Add **Description**, **Version**, and **Tags** if you wish.
 1. Select **Next**.
 1. Review the information.
 1. Select **Register**.
 
-You'll see a confirmation that the model is registered. 
+At the top of the page, you'll see a confirmation that the model is registered.  The confirmation looks similar to this:
+
+:::image type="content" source="media/how-to-r-train-model/registered.png" alt-text="Screenshot shows example of successful registration.":::
+
+Select **Click here to go to this model.** if you wish to view the registered model details.
 
 ## Next steps
  

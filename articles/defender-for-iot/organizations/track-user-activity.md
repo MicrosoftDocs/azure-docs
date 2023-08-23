@@ -21,7 +21,7 @@ Use Azure Active Directory user auditing resources to audit Azure user activity 
 Audit and track user activity on a sensor's **Event timeline**. The **Event timeline** displays events that occurred on the sensor, affected devices for each event, and the time and date that the event occurred.
 
 > [!NOTE]
-> This procedure is supported for users with an **Admin** role, and the *cyberx*, *support*, and *cyberx_host* users.
+> This procedure is supported for users with an **Admin** role, and the *support*, *cyberx*, and *cyberx_host* users.
 >
 
 **To use the sensor's Event Timeline**:
@@ -29,7 +29,7 @@ Audit and track user activity on a sensor's **Event timeline**. The **Event time
 1. Sign into the sensor console as one of the following users:
 
     - Any **Admin** user
-    - The *cyberx*, *support*, or *cyberx_host* user
+    - The *support*, *cyberx*, or *cyberx_host* user
 
 1. On the sensor, select **Event Timeline** from the left-hand menu. Make sure that the filter is set to show **User Operations**.
 
@@ -75,7 +75,7 @@ Audit logs include the following data:
 
 
 > [!TIP]
-> You may also want to export your audit logs to send them to the support team for extra troubleshooting. For more information, see [Export logs from the on-premises management console for troubleshooting](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md#export-logs-from-the-on-premises-management-console-for-troubleshooting).
+> You may also want to export your audit logs to send them to the support team for extra troubleshooting. For more information, see [Export logs from the on-premises management console for troubleshooting](how-to-troubleshoot-on-premises-management-console.md#export-logs-from-the-on-premises-management-console-for-troubleshooting).
 >
 
 ## Next steps

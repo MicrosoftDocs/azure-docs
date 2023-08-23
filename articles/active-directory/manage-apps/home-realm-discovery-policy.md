@@ -11,7 +11,7 @@ ms.workload: identity
 ms.date: 01/02/2023
 ms.author: jomondi
 ms.reviewer: sreyanth, ludwignick
-
+ms.custom: enterprise-apps, has-azure-ad-ps-ref
 ---
 # Home Realm Discovery for an application
 
@@ -109,7 +109,7 @@ The json object is an example HRD policy definition:
     {  
       "AccelerateToFederatedDomain":true,
       "PreferredDomain":"federated.example.edu",
-      "AllowCloudPasswordValidation":false,    
+      "AllowCloudPasswordValidation":false
     }
   }
   ```

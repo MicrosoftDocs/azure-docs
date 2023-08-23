@@ -8,7 +8,7 @@ ms.service: azure-communication-services
 ms.subservice: identity
 ms.date: 07/20/2022
 ms.topic: include
-ms.custom: mode-other
+ms.custom: mode-other, devx-track-azurecli
 ms.author: dademath
 ---
 
@@ -197,4 +197,3 @@ Make this replacement in the code:
 
 - Replace `<yourConnectionString>` with your connection string.
 - Replace `<userId>` with your userId.
-

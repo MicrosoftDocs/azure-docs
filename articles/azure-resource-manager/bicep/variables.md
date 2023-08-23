@@ -4,6 +4,7 @@ description: Describes how to define variables in Bicep
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
+ms.custom: devx-track-bicep
 ms.date: 09/28/2022
 ---
 

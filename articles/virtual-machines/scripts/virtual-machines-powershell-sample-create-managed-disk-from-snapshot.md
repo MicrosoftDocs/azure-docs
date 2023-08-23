@@ -9,6 +9,7 @@ ms.service: virtual-machines
 ms.subservice: disks
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows
+ms.custom: devx-track-azurepowershell
 ms.workload: infrastructure
 ms.date: 06/05/2017
 ms.author: ramankum

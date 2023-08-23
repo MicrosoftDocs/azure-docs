@@ -24,7 +24,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * A Cerner Central tenant
 
 > [!NOTE]
-> Azure Active Directory integrates with Cerner Central using the [SCIM](http://www.simplecloud.info/) protocol.
+> Azure Active Directory integrates with Cerner Central using the SCIM protocol.
 
 ## Assigning users to Cerner Central
 
@@ -47,7 +47,7 @@ Before configuring and enabling the provisioning service, you should decide what
 This section guides you through connecting your Azure AD to Cerner Central’s User Roster using Cerner's SCIM user account provisioning API, and configuring the provisioning service to create, update, and disable assigned user accounts in Cerner Central based on user and group assignment in Azure AD.
 
 > [!TIP]
-> You may also choose to enable SAML-based single sign-on for Cerner Central, following the instructions provided in [Azure portal](https://portal.azure.com). Single sign-on can be configured independently of automatic provisioning, though these two features complement each other. For more information, see the [Cerner Central single sign-on tutorial](cernercentral-tutorial.md).
+> You may also choose to enable SAML-based single sign-on for Cerner Central, following the instructions provided in the [Azure portal](https://portal.azure.com). Single sign-on can be configured independently of automatic provisioning, though these two features complement each other. For more information, see the [Cerner Central single sign-on tutorial](cernercentral-tutorial.md).
 
 ### To configure automatic user account provisioning to Cerner Central in Azure AD:
 

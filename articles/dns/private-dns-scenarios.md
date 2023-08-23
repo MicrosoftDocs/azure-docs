@@ -5,7 +5,7 @@ services: dns
 author: greg-lindsay
 ms.service: dns
 ms.topic: article
-ms.date: 09/27/2022
+ms.date: 04/25/2023
 ms.author: greglin
 ---
 
@@ -21,6 +21,9 @@ This scenario is shown below. We have a virtual network named "A" containing two
 You can also do a reverse DNS query (PTR) for the private IP of VNETA-VM1 (10.0.0.1) from VNETA-VM2. The DNS response will contain the name VNETA-VM1, as expected. 
 
 ![Single Virtual network resolution](./media/private-dns-scenarios/single-vnet-resolution.png)
+
+> [!NOTE]
+> The IP addresses 10.0.0.1 and 10.0.0.2 are examples only. Since Azure reserves the first four addresses in a subnet, the .1 and .2 addresses are not normally assigned to a VM. 
 
 ## Scenario: Name Resolution across virtual networks
 

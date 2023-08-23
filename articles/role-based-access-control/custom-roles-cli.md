@@ -10,17 +10,13 @@ ms.assetid: 3483ee01-8177-49e7-b337-4d5cb14f5e32
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.tgt_pltfrm: na
+ms.custom: devx-track-azurecli
 ms.workload: identity
-ms.date: 07/28/2022
+ms.date: 04/05/2023
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
 # Create or update Azure custom roles using Azure CLI
-
-> [!IMPORTANT]
-> Adding a management group to `AssignableScopes` is currently in preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 If the [Azure built-in roles](built-in-roles.md) don't meet the specific needs of your organization, you can create your own custom roles. This article describes how to list, create, update, or delete custom roles using Azure CLI.
 
@@ -60,7 +56,7 @@ az role definition list --custom-role-only true --output json --query '[].{roleN
 
 ## List a custom role definition
 
-To list a custom role definition, use [az role definition list](/cli/azure/role/definition#az-role-definition-list). This is the same command you would use for a built-in role.
+To list a custom role definition, use [az role definition list](/cli/azure/role/definition#az-role-definition-list). This command is the same command you would use for a built-in role.
 
 ```azurecli
 az role definition list --name {roleName}
@@ -183,7 +179,7 @@ To update a custom role, first use [az role definition list](/cli/azure/role/def
 az role definition update --role-definition {roleDefinition}
 ```
 
-The following example adds the *Microsoft.Insights/diagnosticSettings/* action to `Actions` and adds a management group to `AssignableScopes` for the *Virtual Machine Operator* custom role. Adding a management group to `AssignableScopes` is currently in preview.
+The following example adds the *Microsoft.Insights/diagnosticSettings/* action to `Actions` and adds a management group to `AssignableScopes` for the *Virtual Machine Operator* custom role.
 
 vmoperator.json
 

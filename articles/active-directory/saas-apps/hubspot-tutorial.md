@@ -169,7 +169,7 @@ To provision a user account in HubSpot:
 
 	![The Create user option in HubSpot](./media/hubspot-tutorial/teams.png)
 
-1. In the **Add email addess(es)** box, enter the email address of the user in the format brittasimon\@contoso.com, and then select **Next**.
+1. In the **Add email address(es)** box, enter the email address of the user in the format brittasimon\@contoso.com, and then select **Next**.
 
 	![The Add email address(es) box in the Create users section in HubSpot](./media/hubspot-tutorial/add-user.png)
 

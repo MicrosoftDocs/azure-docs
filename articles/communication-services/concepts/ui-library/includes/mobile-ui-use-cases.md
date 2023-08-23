@@ -77,6 +77,10 @@ Use the UI Library for mobile native platforms to give local and remote particip
 
 :::image type="content" source="../../media/mobile-ui/ios-composite.gif" alt-text="GIF animation that shows the pre-meeting experience and joining experience on iOS.":::
 
+### Skip Setup Screen
+
+UI Library provides the capability to join a call skipping the setup screen of the call join experience. By default, user goes through a setup screen to join a call. Here, user sets the call configuration such as camera turn on or off, microphone turn on or off and audio device selection before joining a call. This screen requires user interaction to join a call, which might be unnecessary for some users. So we provide the capability to join a call by skipping the setup screen and providing the call configuration APIs. For more information, see [How to use Skip Setup Screen Feature](../../../how-tos/ui-library-sdk/skip-setup-screen.md)
+
 ## Chat use cases
 
 [!INCLUDE [Public Preview Notice](../../../includes/public-preview-include.md)]

@@ -27,7 +27,9 @@ RDP Shortpath can be used in two ways:
 The transport used for RDP Shortpath is based on the [Universal Rate Control Protocol (URCP)](https://www.microsoft.com/research/publication/urcp-universal-rate-control-protocol-for-real-time-communication-applications/). URCP enhances UDP with active monitoring of the network conditions and provides fair and full link utilization. URCP operates at low delay and loss levels as needed.
 
 > [!IMPORTANT]
-> During the preview, TURN is only available for connections to session hosts in a validation host pool. To configure your host pool as a validation environment, see [Define your host pool as a validation environment](create-validation-host-pool.md#define-your-host-pool-as-a-validation-host-pool).
+> - During the preview, TURN is only available for connections to session hosts in a validation host pool. To configure your host pool as a validation environment, see [Define your host pool as a validation environment](create-validation-host-pool.md#define-your-host-pool-as-a-validation-host-pool).
+>
+> - RDP Shortpath for public networks with TURN is only available in the Azure public cloud.
 
 ## Key benefits
 
@@ -96,7 +98,7 @@ To provide the best chance of a UDP connection being successful when using a pub
 
 When a connection is being established, Interactive Connectivity Establishment (ICE) coordinates the management of STUN and TURN to optimize the likelihood of a connection being established, and ensure that precedence is given to preferred network communication protocols.
 
-Each RDP session uses a dynamically assigned UDP port from an ephemeral port range (**49152** to **65535** by default) that accepts the RDP Shortpath traffic. You can also use a smaller, predictable port range. For more information, see [Limit the port range used by clients for public networks](configure-rdp-shortpath-limit-ports-public-networks.md).
+Each RDP session uses a dynamically assigned UDP port from an ephemeral port range (**49152** to **65535** by default) that accepts the RDP Shortpath traffic. Port 65330 is ignored from this range as it is reserved for use internally by Azure. You can also use a smaller, predictable port range. For more information, see [Limit the port range used by clients for public networks](configure-rdp-shortpath-limit-ports-public-networks.md).
 
 > [!TIP]
 > RDP Shortpath for public networks will work automatically without any additional configuration, providing networks and firewalls allow the traffic through and RDP transport settings in the Windows operating system for session hosts and clients are using their default values.

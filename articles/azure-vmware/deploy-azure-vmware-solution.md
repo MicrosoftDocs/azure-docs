@@ -4,17 +4,13 @@ description: Learn how to use the information gathered in the planning stage to 
 ms.topic: tutorial
 ms.custom: "engagement-fy23, devx-track-azurecli"
 ms.service: azure-vmware
-ms.date: 12/05/2022
+ms.date: 7/13/2023
 
 ---
 
 # Deploy and configure Azure VMware Solution
 
 Once you've [planned your deployment](plan-private-cloud-deployment.md), you'll deploy and configure your Azure VMware Solution private cloud. 
-
-The diagram shows the deployment workflow of Azure VMware Solution. 
-
-:::image type="content" source="media/deploy-azure-vmware-solution-workflow.png" alt-text="Diagram showing the Azure VMware Solution deployment workflow." lightbox="media/deploy-azure-vmware-solution-workflow.png" border="false":::
 
 In this how-to, you'll:
 
@@ -36,8 +32,6 @@ After you're finished, follow the recommended next steps at the end to continue 
 ## Connect to Azure Virtual Network with ExpressRoute
 
 In the planning phase, you defined whether to use an *existing* or *new* ExpressRoute virtual network gateway.  
-
-:::image type="content" source="media/connect-expressroute-vnet-workflow.png" alt-text="Diagram showing the workflow for connecting Azure Virtual Network to ExpressRoute in Azure VMware Solution." border="false":::
 
 >[!IMPORTANT]
 >[!INCLUDE [disk-pool-planning-note](includes/disk-pool-planning-note.md)] 
@@ -74,7 +68,7 @@ You should have connectivity between the Azure Virtual Network where the Express
 
 1. If you want to log into both vCenter Server and NSX-T Manager, open a web browser and log into the same virtual machine used for network route validation.  
 
-   You can identify the vCenter Server and NSX-T Manager console's IP addresses and credentials in the Azure portal.  Select your private cloud and then **Manage** > **Identity**.
+   You can identify the vCenter Server and NSX-T Manager console's IP addresses and credentials in the Azure portal.  Select your private cloud and then **Manage** > **VMware credentials**.
 
    :::image type="content" source="media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="Screenshot showing the private cloud vCenter and NSX Manager URLs and credentials." border="true":::
 

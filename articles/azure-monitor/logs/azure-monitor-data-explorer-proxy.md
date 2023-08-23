@@ -4,7 +4,7 @@ description: Use Azure Monitor to perform cross-product queries between Azure Da
 author: guywi-ms
 ms.author: guywild
 ms.topic: conceptual
-ms.date: 03/28/2022
+ms.date: 07/25/2023
 ms.reviewer: osalzberg
 
 ---
@@ -31,6 +31,7 @@ adx('https://help.kusto.windows.net/Samples').StormEvents
 >* Cross-resource query as an alert isn't supported.
 >* Identifying the Timestamp column in the cluster isn't supported. The Log Analytics Query API won't pass along the time filter.
 > * The cross-service query ability is used for data retrieval only. For more information, see [Function supportability](#function-supportability).
+> * Private Link is not supported with this feature.
 
 ## Function supportability
 

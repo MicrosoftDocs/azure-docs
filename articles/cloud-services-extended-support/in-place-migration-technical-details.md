@@ -36,7 +36,7 @@ This article discusses the technical details regarding the migration tool as per
 - Each Cloud Services (extended support) deployment is an independent Cloud Service. Deployment are no longer grouped into a cloud service using slots.
 - If you have two slots in your Cloud Service (classic), you need to delete one slot (staging) and use the migration tool to move the other (production) slot to Azure Resource Manager. 
 - The public IP address on the Cloud Service deployment remains the same after migration to Azure Resource Manager and is exposed as a Basic SKU IP (dynamic or static) resource. 
-- The DNS name and domain (cloudapp.azure.net) for the migrated cloud service remains the same. 
+- The DNS name and domain (cloudapp.net) for the migrated cloud service remains the same. 
 
 ### Virtual network migration
 - If a Cloud Services deployment is in a virtual network, then during migration all Cloud Services and associated virtual network resources are migrated together. 

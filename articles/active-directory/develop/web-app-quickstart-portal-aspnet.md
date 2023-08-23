@@ -6,7 +6,7 @@ author: Dickson-Mwendia
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: portal
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/16/2022
 ROBOTS: NOINDEX
@@ -20,7 +20,7 @@ ms.custom: devx-track-csharp, aaddev, identityplatformtop40, "scenarios:getting-
 > [!div renderon="docs"]
 > Welcome! This probably isn't the page you were expecting. While we work on a fix, this link should take you to the right article:
 >
-> > [Quickstart: ASP.NET web app that signs in users](web-app-quickstart.md?pivots=devlang-aspnet)
+> > [Quickstart: Add sign-in with Microsoft to an ASP.NET web app](quickstart-web-app-aspnet-sign-in.md)
 > 
 > We apologize for the inconvenience and appreciate your patience while we work to get this resolved.
 
@@ -43,9 +43,8 @@ ms.custom: devx-track-csharp, aaddev, identityplatformtop40, "scenarios:getting-
 > > [!div class="nextstepaction"]
 > > <button id="downloadsample" class="download-sample-button">Download the code sample</button>
 > 
-> [!INCLUDE [active-directory-develop-path-length-tip](../../../includes/active-directory-develop-path-length-tip.md)]
-> 
-> 
+> [!INCLUDE [active-directory-develop-path-length-tip](./includes/error-handling-and-tips/path-length-tip.md)]
+>
 > #### Step 3: Your app is configured and ready to run
 > We've configured your project with values of your app's properties.
 > 
@@ -155,11 +154,11 @@ ms.custom: devx-track-csharp, aaddev, identityplatformtop40, "scenarios:getting-
 > 
 > You can protect a controller or controller actions by using the `[Authorize]` attribute. This attribute restricts access to the controller or actions by allowing only authenticated users to access the actions in the controller. An authentication challenge will then happen automatically when an unauthenticated user tries to access one of the actions or controllers decorated by the `[Authorize]` attribute.
 > 
-> [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+> [!INCLUDE [Help and support](./includes/error-handling-and-tips/help-support-include.md)]
 > 
 > ## Next steps
 > 
 > For a complete step-by-step guide on building applications and new features, including a full explanation of this quickstart, try out the ASP.NET tutorial.
 > 
 > > [!div class="nextstepaction"]
-> > [Add sign-in to an ASP.NET web app](tutorial-v2-asp-webapp.md)
+> > [Add sign-in to an ASP.NET web app](./web-app-tutorial-01-register-application.md)

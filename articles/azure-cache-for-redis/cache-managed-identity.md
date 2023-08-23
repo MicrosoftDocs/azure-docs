@@ -5,6 +5,7 @@ description: Learn to Azure Cache for Redis
 author: flang-msft
 
 ms.service: cache
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.topic: conceptual
 ms.date: 08/29/2022
 ms.author: franlanglois
@@ -40,7 +41,13 @@ Each type of managed identity has advantages, but in Azure Cache for Redis, the 
 
 Managed identity can be enabled either when you create a cache instance or after the cache has been created. During the creation of a cache, only a system-assigned identity can be assigned. Either identity type can be added to an existing cache.
 
-### Prerequisites and limitations
+## Scope of availability
+
+|Tier     | Basic, Standard  | Premium  |Enterprise, Enterprise Flash  |
+|---------|---------|---------|---------|
+|Available  | No         | Yes        |  No  |
+
+## Prerequisites and limitations
 
 Managed identity for storage is only used with the import/export feature and persistence feature now, which limits its use to the Premium tier of Azure Cache for Redis.
 
@@ -48,9 +55,9 @@ Managed identity for storage isn't supported on caches that have a dependency on
 
 ## Create a new cache with managed identity using the portal
 
-1. Sign into the [Azure portal](https://portal.azure.com/)
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Create a new Azure Cache for Redis resource with a **Cache type** of any of the premium tiers. Complete **Basics** tab with all the required  information.
+1. Create a new Azure Cache for Redis resource with a **Cache type** of any of the premium tiers. Complete **Basics** tab with all the required information.
 
    :::image type="content" source="media/cache-managed-identity/basics.png" alt-text="Screenshot of showing how to create a premium cache.":::
 

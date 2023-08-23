@@ -7,7 +7,7 @@ ms.service: load-testing
 ms.topic: reference
 ms.author: nicktrog
 author: ntrogh
-ms.date: 05/03/2022
+ms.date: 05/08/2023
 adobe-target: true
 ---
 
@@ -30,6 +30,9 @@ A test configuration uses the following keys:
 | `description` | string |  | Short description of the test. description must have a maximum length of 100 characters |
 | `subnetId` | string |  | Resource ID of the subnet for testing privately hosted endpoints (VNET injection). This subnet will host the injected test engine VMs. For more information, see [how to load test privately hosted endpoints](./how-to-test-private-endpoint.md). |
 | `failureCriteria` | object |  | Criteria that indicate when a test should fail. The structure of a fail criterion is: `Request: Aggregate_function (client_metric) condition threshold`. For more information on the supported values, see [Define load test fail criteria](./how-to-define-test-criteria.md#load-test-fail-criteria). |
+| `autoStop` | object |  | Enable or disable the auto-stop functionality when the error percentage passes a given threshold. For more information, see [Configure auto stop for a load test](./how-to-define-test-criteria.md#auto-stop-configuration).<br/><br/>Values:<br/>- *disable*: don't stop a load test automatically.<br/>- Empty value: auto stop is enabled. Provide the *errorPercentage* and *timeWindow* values. |
+| `autoStop.errorPercentage` | integer | 90 | Threshold for the error percentage, during the *autoStop.timeWindow*. If the error percentage exceeds this percentage during any given time window, the load test run stops automatically. |
+| `autoStop.timeWindow` | integer | 60 | Time window in seconds for calculating the *autoStop.errorPercentage*. |
 | `properties` | object |  | List of properties to configure the load test. |
 | `properties.userPropertyFile` | string |  | File to use as an Apache JMeter [user properties file](https://jmeter.apache.org/usermanual/test_plan.html#properties). The file will be uploaded to the Azure Load Testing resource alongside the JMeter test script and other configuration files. If the file is in a subfolder on your local machine, use a path relative to the location of the test script. |
 | `splitAllCSVs` | boolean | False | Split the input CSV files evenly across all test engine instances. For more information, see [Read a CSV file in load tests](./how-to-read-csv-data.md#split-csv-input-data-across-test-engines). |
@@ -61,7 +64,10 @@ configurationFiles:
 failureCriteria:
   - avg(response_time_ms) > 300
   - percentage(error) > 50
-  - GetCustomerDetails: avg(latency_ms) >200
+  - GetCustomerDetails: avg(latency) >200
+autoStop:
+  errorPercentage: 80
+  timeWindow: 60
 splitAllCSVs: True
 env:
   - name: my-variable

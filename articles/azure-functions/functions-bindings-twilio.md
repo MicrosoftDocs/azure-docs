@@ -4,7 +4,7 @@ description: Understand how to use Twilio bindings with Azure Functions.
 ms.topic: reference
 ms.date: 03/04/2022
 ms.devlang: csharp, java, javascript, python
-ms.custom: "devx-track-csharp, H1Hack27Feb2017"
+ms.custom: devx-track-csharp, H1Hack27Feb2017, devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
@@ -81,16 +81,12 @@ You can add the extension to your project by explicitly installing the [NuGet pa
 
 ::: zone-end
 
----
-
-::: zone-end
-
 ## Example
 
 Unless otherwise noted, these examples are specific to version 2.x and later version of the Functions runtime.
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
+[!INCLUDE [functions-bindings-csharp-intro-with-csx](../../includes/functions-bindings-csharp-intro-with-csx.md)]
 
 # [In-process](#tab/in-process)    
 
@@ -218,7 +214,6 @@ public static async Task Run(string myQueueItem, IAsyncCollector<CreateMessageOp
 ```
 
 ---
-
 
 ::: zone-end
 ::: zone pivot="programming-language-javascript"

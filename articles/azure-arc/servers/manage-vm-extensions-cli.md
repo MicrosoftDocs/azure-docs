@@ -53,6 +53,12 @@ The following example enables the Microsoft Antimalware extension on an Azure Ar
 az connectedmachine extension create --resource-group "resourceGroupName" --machine-name "myMachineName" --location "regionName" --publisher "Microsoft.Azure.Security" --type "IaaSAntimalware" --name "IaaSAntimalware" --settings '"{\"AntimalwareEnabled\": \"true\"}"'
 ```
 
+The following example enables the Datadog extension on an Azure Arc-enabled Windows server:
+
+```azurecli
+az connectedmachine extension create --resource-group "resourceGroupName" --machine-name "myMachineName" --location "regionName" --publisher "Datadog.Agent" --type "DatadogWindowsAgent" --settings '{"site": "us3.datadoghq.com"}' --protected-settings '{"api_key": "YourDatadogAPIKey" }'
+```
+
 ## List extensions installed
 
 To get a list of the VM extensions on your Azure Arc-enabled server, use [az connectedmachine extension list](/cli/azure/connectedmachine/extension#az-connectedmachine-extension-list) with the `--machine-name` and `--resource-group` parameters.

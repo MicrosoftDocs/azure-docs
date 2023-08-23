@@ -6,6 +6,7 @@ author: alkohli
 
 ms.service: databox
 ms.subservice: disk
+ms.custom: devx-track-python
 ms.topic: troubleshooting
 ms.date: 01/25/2021
 ms.author: alkohli

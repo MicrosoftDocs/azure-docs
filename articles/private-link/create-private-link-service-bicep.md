@@ -8,7 +8,7 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 04/29/2022
 ms.author: allensu
-ms.custom: subject-armqs, mode-arm, template-quickstart
+ms.custom: subject-armqs, mode-arm, template-quickstart, devx-track-bicep
 ---
 
 # Quickstart: Create a private link service using Bicep

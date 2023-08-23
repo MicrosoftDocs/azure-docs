@@ -37,6 +37,9 @@ This article provides an overview of various optimization features and when you 
 
 **Azure CDN Standard from Akamai** profiles support the following optimizations:
 
+> [!IMPORTANT]
+> Azure CDN from Akamai is scheduled to be retired on October 31, 2023. For more information, see [**Migrate CDN provider**](cdn-change-provider.md) for guidance on migrating to another Azure CDN provider.
+
 * [General web delivery](#general-web-delivery) 
 
 * [General media streaming](#general-media-streaming)

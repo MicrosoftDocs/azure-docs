@@ -1,8 +1,8 @@
 ---
 title: Integrate Azure Cosmos DB for MongoDB with Service Connector
 description: Integrate Azure Cosmos DB for MongoDB into your application with Service Connector
-author: maud-lv
-ms.author: malev
+author: mcleanbyron
+ms.author: mcleans
 ms.service: service-connector
 ms.topic: how-to
 ms.date: 09/19/2022

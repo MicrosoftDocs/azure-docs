@@ -155,7 +155,7 @@ Languages supported by a culture code:
 | zh-tw	| Chinese (Traditional, Taiwan) |
 | cs-cz	| Czech (Czech Republic) |
 | pl-pl | Polish (Poland) |
-| tr-tr	| Turkish (Turkey) |
+| tr-tr	| Turkish (Türkiye) |
 | da-dk	| Danish (Denmark) |
 | en-gb	| English (United Kingdom) |
 | hu-hu	| Hungarian (Hungary) |
@@ -166,7 +166,7 @@ Languages supported by a culture code:
 
 ## Configure cost-based orchestration for budget alerts
 
-You can configure budgets to start automated actions using Azure Action Groups. To learn more about automating actions using budgets, see [Automation with Azure Budgets](../manage/cost-management-budget-scenario.md).
+You can configure budgets to start automated actions using Azure Action Groups. To learn more about automating actions using budgets, see [Automation with budgets](../manage/cost-management-budget-scenario.md).
 
 ## Next steps
 

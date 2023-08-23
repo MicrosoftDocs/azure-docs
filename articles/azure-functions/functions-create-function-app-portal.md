@@ -2,7 +2,7 @@
 title: Create your first function in the Azure portal
 description: Learn how to create your first Azure Function for serverless execution using the Azure portal.
 ms.topic: how-to
-ms.date: 06/10/2022
+ms.date: 06/10/2023
 ms.custom: "devx-track-csharp, mvc, devcenter, cc996988-fb4f-47, devdivchpfy22"
 ---
 
@@ -48,17 +48,11 @@ Next, create a function in the new function app.
 1. Under **Template details** use `HttpExample` for **New Function**, select **Anonymous** from the **[Authorization level](functions-bindings-http-webhook-trigger.md#authorization-keys)** drop-down list, and then select **Create**.
 
     Azure creates the HTTP trigger function. Now, you can run the new function by sending an HTTP request.
-    
-    >[!NOTE] 
-    > When your function app has [private endpoints](functions-create-vnet.md) enabled, you must add the following [CORS origins](security-concepts.md?#restrict-cors-access).
-    >
-    >- `https://functions-next.azure.com`
-    >- `https://functions-staging.azure.com`
-    >- `https://functions.azure.com`
-    >- `https://portal.azure.com`
-
 
 ## Test the function
+
+> [!TIP]
+> The **Code + Test** functionality in the portal works even for functions that are read-only and can't be edited in the portal.
 
 1. In your new HTTP trigger function, select **Code + Test** from the left menu, and then select **Get function URL** from the top menu.
 
