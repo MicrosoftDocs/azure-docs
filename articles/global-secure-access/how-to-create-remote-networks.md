@@ -104,8 +104,6 @@ The final tab in the process is to review all of the settings that you provided.
 
 Global Secure Access remote networks can be viewed and managed using Microsoft Graph on the `/beta` endpoint. Creating a remote network and assigning a traffic forwarding profile are separate API calls.
 
-### Create a remote network
-
 1. Sign in to [Graph Explorer](https://aka.ms/ge).
 1. Select POST as the HTTP method. 
 1. Select BETA as the API version. 
