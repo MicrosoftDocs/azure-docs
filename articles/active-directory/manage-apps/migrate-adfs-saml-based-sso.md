@@ -78,7 +78,7 @@ Apps that you can move easily today include SAML 2.0 apps that use the standard 
 The following require more configuration steps to migrate to Azure AD:
 
 * Custom authorization or multi-factor authentication (MFA) rules in AD FS. You configure them using the [Azure AD Conditional Access](../conditional-access/overview.md) feature.
-* Apps with multiple Reply URL endpoints. You configure them in Azure AD using PowerShell or the Entra portal interface.
+* Apps with multiple Reply URL endpoints. You configure them in Azure AD using PowerShell or the Microsoft Entra admin center interface.
 * WS-Federation apps such as SharePoint apps that require SAML version 1.1 tokens. You can configure them manually using PowerShell. You can also add a preintegrated generic template for SharePoint and SAML 1.1 applications from the gallery. We support the SAML 2.0 protocol.
 * Complex claims issuance transforms rules. For information about supported claims mappings, see:
   * [Claims mapping in Azure Active Directory](../develop/saml-claims-customization.md).
@@ -104,7 +104,7 @@ Migration requires assessing how the application is configured on-premises, and 
 The following table describes some of the most common mapping of settings between an AD FS Relying Party Trust to Azure AD Enterprise Application:
 
 * AD FS—Find the setting in the AD FS Relying Party Trust for the app. Right-click the relying party and select Properties.
-* Azure AD—The setting is configured within [Entra portal](https://entra.microsoft.com/#home) in each application's SSO properties.
+* Azure AD—The setting is configured within [Microsoft Entra admin center](https://entra.microsoft.com/#home) in each application's SSO properties.
 
 | Configuration setting| AD FS| How to configure in Azure AD| SAML Token |
 | - | - | - | - |
@@ -121,7 +121,7 @@ The following table describes some of the most common mapping of settings betwee
 Configure your applications to point to Azure AD versus AD FS for SSO. Here, we're focusing on SaaS apps that use the SAML protocol. However, this concept extends to custom line-of-business apps as well.
 
 > [!NOTE]
-> The configuration values for Azure AD follows the pattern where your Azure Tenant ID replaces {tenant-id} and the Application ID replaces {application-id}. You find this information in the [Entra portal](https://entra.microsoft.com/#home) under **Azure Active Directory > Properties**:
+> The configuration values for Azure AD follows the pattern where your Azure Tenant ID replaces {tenant-id} and the Application ID replaces {application-id}. You find this information in the [Microsoft Entra admin center](https://entra.microsoft.com/#home) under **Azure Active Directory > Properties**:
 
 * Select Directory ID to see your Tenant ID.
 * Select Application ID to see your Application ID.
@@ -143,7 +143,7 @@ SaaS apps need to know where to send authentication requests and how to validate
 | - | - | - |
 | **IdP Sign-on URL** <p>Sign-on URL of the IdP from the app's perspective (where the user is redirected for sign-in).| The AD FS sign-on URL is the AD FS federation service name followed by "/adfs/ls/." <p>For example: `https://fs.contoso.com/adfs/ls/`| Replace {tenant-id} with your tenant ID. <p> ‎For apps that use the SAML-P protocol: [https://login.microsoftonline.com/{tenant-id}/saml2](https://login.microsoftonline.com/{tenant-id}/saml2) <p>‎For apps that use the WS-Federation protocol: [https://login.microsoftonline.com/{tenant-id}/wsfed](https://login.microsoftonline.com/{tenant-id}/wsfed) |
 | **IdP sign-out URL**<p>Sign-out URL of the IdP from the app's perspective (where the user is redirected when they choose to sign out of the app).| The sign-out URL is either the same as the sign-on URL, or the same URL with "wa=wsignout1.0" appended. For example: `https://fs.contoso.com/adfs/ls/?wa=wsignout1.0`| Replace {tenant-id} with your tenant ID.<p>For apps that use the SAML-P protocol:<p>[https://login.microsoftonline.com/{tenant-id}/saml2](https://login.microsoftonline.com/{tenant-id}/saml2) <p> ‎For apps that use the WS-Federation protocol: [https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0](https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0) |
-| **Token signing certificate**<p>The IdP uses the private key of the certificate to sign issued tokens. It verifies that the token came from the same IdP that the app is configured to trust.| Find the AD FS token signing certificate in AD FS Management under **Certificates**.| Find it in the Entra portal in the application's **Single sign-on properties** under the header **SAML Signing Certificate**. There, you can download the certificate for upload to the app.  <p>‎If the application has more than one certificate, you can find all certificates in the federation metadata XML file. |
+| **Token signing certificate**<p>The IdP uses the private key of the certificate to sign issued tokens. It verifies that the token came from the same IdP that the app is configured to trust.| Find the AD FS token signing certificate in AD FS Management under **Certificates**.| Find it in the Microsoft Entra admin center in the application's **Single sign-on properties** under the header **SAML Signing Certificate**. There, you can download the certificate for upload to the app.  <p>‎If the application has more than one certificate, you can find all certificates in the federation metadata XML file. |
 | **Identifier/ "issuer"**<p>Identifier of the IdP from the app's perspective (sometimes called the "issuer ID").<p>‎In the SAML token, the value appears as the Issuer element.| The identifier for AD FS is usually the federation service identifier in AD FS Management under **Service > Edit Federation Service Properties**. For example: `http://fs.contoso.com/adfs/services/trust`| Replace {tenant-id} with your tenant ID.<p>https:\//sts.windows.net/{tenant-id}/ |
 | **IdP federation metadata**<p>Location of the IdP's publicly available federation metadata. (Some apps use federation metadata as an alternative to the administrator configuring URLs, identifier, and token signing certificate individually.)| Find the AD FS federation metadata URL in AD FS Management under **Service > Endpoints > Metadata > Type: Federation Metadata**. For example: `https://fs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`| The corresponding value for Azure AD follows the pattern [https://login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml](https://login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml). Replace {TenantDomainName} with your tenant's name in the format "contoso.onmicrosoft.com."   <p>For more information, see [Federation metadata](../azuread-dev/azure-ad-federation-metadata.md). |
 

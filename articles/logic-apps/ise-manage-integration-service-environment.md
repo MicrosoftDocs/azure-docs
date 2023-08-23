@@ -201,8 +201,6 @@ If you change your DNS server or DNS server settings, you have to restart your I
 
 1. On the ISE menu, select **Overview**. On the Overview toolbar, **Restart**.
 
-   ![Restart integration service environment](./media/connect-virtual-network-vnet-isolated-environment/restart-integration-service-environment.png)
-
 <a name="delete-ise"></a>
 
 ## Delete ISE
