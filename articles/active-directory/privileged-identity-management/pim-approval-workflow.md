@@ -21,8 +21,7 @@ ms.collection: M365-identity-device-management
 
 With Privileged Identity Management (PIM) in Azure Active Directory (Azure AD), part of Microsoft Entra, you can configure roles to require approval for activation, and choose one or multiple users or groups as delegated approvers. Delegated approvers have 24 hours to approve requests. If a request is not approved within 24 hours, then the eligible user must re-submit a new request. The 24 hour approval time window is not configurable.
 
->[!NOTE]
-> Approval for **extend and renew** requests is currently not supported by the Microsoft Graph API
+
 
 ## View pending requests
 
@@ -108,6 +107,9 @@ GET https://graph.microsoft.com/v1.0/roleManagement/directory/roleAssignmentSche
      :::image type="content" source="media/azure-ad-pim-approval-workflow/approve-3.png" alt-text="Screenshot of approving." lightbox="media/azure-ad-pim-approval-workflow/approve-3.png":::
 
 ## Approve pending requests using Microsoft Graph API
+
+>[!NOTE]
+> Approval for **extend and renew** requests is currently not supported by the Microsoft Graph API
 
 ### Get IDs for the steps that require approval
 

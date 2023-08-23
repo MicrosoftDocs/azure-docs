@@ -48,6 +48,41 @@ As a delegated approver, you'll receive an email notification when an Azure reso
  3. Select **Approve**. You will receive an Azure notification of your approval.
       :::image type="content" source="media/azure-ad-pim-approval-workflow/approve-3.png" alt-text="Screenshot of resource approving." lightbox="media/azure-ad-pim-approval-workflow/approve-3.png":::
 
+## Approve pending requests using Microsoft ARM API
+
+>[!NOTE]
+> Approval for **extend and renew** requests is currently not supported by the Microsoft ARM API
+
+### Get IDs for the steps that require approval
+
+To get the details of any stage of a role assignment approval, you can use [Role Assignment Approval Step - Get By ID](/rest/api/authorization/role-assignment-approval-step/get-by-id?tabs=HTTP) REST API.
+
+#### HTTP request
+
+````HTTP
+GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignmentApprovals/{approvalId}/stages/{stageId}?api-version=2021-01-01-preview
+````
+
+
+### Approve the activation request step
+
+#### HTTP request
+
+````HTTP
+PATCH 
+PATCH https://management.azure.com/providers/Microsoft.Authorization/roleAssignmentApprovals/{approvalId}/stages/{stageId}?api-version=2021-01-01-preview 
+{ 
+    "reviewResult": "Approve", // or "Deny"
+    "justification": "Trusted User" 
+} 
+ ````
+
+#### HTTP response
+
+Successful PATCH calls generate an empty response.
+
+For more information, see[Use Role Assignment Approvals to approve PIM role activation requests with REST API](/rest/api/authorization/privileged-approval-sample)
+
 ## Deny requests
 
  1. Find and select the request that you want to approve. An approve or deny page appears.     
