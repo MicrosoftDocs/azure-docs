@@ -81,7 +81,7 @@ PATCH https://management.azure.com/providers/Microsoft.Authorization/roleAssignm
 
 Successful PATCH calls generate an empty response.
 
-For more information, see[Use Role Assignment Approvals to approve PIM role activation requests with REST API](/rest/api/authorization/privileged-approval-sample)
+For more information, see [Use Role Assignment Approvals to approve PIM role activation requests with REST API](/rest/api/authorization/privileged-approval-sample)
 
 ## Deny requests
 
