@@ -38,7 +38,7 @@ You'll need to have attributes populated on the users who will be in scope for b
 
 ## Create an automatic assignment policy
 
-To create a policy for an access package, you need to start from the access package's policy tab. Follow these steps to create a new policy for an access package.
+To create a policy for an access package, you need to start from the access package's policy tab. Follow these steps to create a new automatic assignment policy for an access package.
 
 **Prerequisite role:** Global administrator or Identity Governance administrator
 
@@ -57,7 +57,10 @@ To create a policy for an access package, you need to start from the access pack
 
     ![Screenshot of an access package automatic assignment policy rule configuration.](./media/entitlement-management-access-package-auto-assignment-policy/auto-assignment-rule-configuration.png)
 
-1. Click **Save** to close the dynamic membership rule editor, then click **Next** to open the **Custom Extensions** tab.
+1. Click **Save** to close the dynamic membership rule editor.
+1. By default, the checkboxes to automatically create and remove assignments should remain checked.
+1. If you wish users to retain access for a limited time after they go out of scope, you can specify a duration in hours or days. For example, when an employee leaves the sales department, you may wish to allow them to continue to retain access for 7 days to allow them to use sales apps and transfer ownership of their resources in those apps to another employee.
+1. Click **Next** to open the **Custom Extensions** tab.
 
 1. If you have [custom extensions](entitlement-management-logic-apps-integration.md) in your catalog you wish to have run when the policy assigns or removes access, you can add them to this policy.  Then click next to open the **Review** tab.
 

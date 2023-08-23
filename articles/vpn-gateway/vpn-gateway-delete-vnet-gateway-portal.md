@@ -59,3 +59,7 @@ If you aren't concerned about keeping any of your resources in the resource grou
 1. In **All resources**, locate the resource group and click to open the blade.
 1. Click **Delete**. On the Delete blade, view the affected resources. Make sure that you want to delete all of these resources. If not, use the steps in Delete a VPN gateway at the top of this article.
 1. To proceed, type the name of the resource group that you want to delete, then click **Delete**.
+
+## Next steps
+
+For FAQ information, see the [Azure VPN Gateway FAQ](vpn-gateway-vpn-faq.md).
