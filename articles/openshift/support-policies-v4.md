@@ -5,7 +5,7 @@ author: johnmarco
 ms.author: johnmarc
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
-ms.date: 06/22/2023
+ms.date: 08/23/2023
 #Customer intent: I need to understand the Azure Red Hat OpenShift support policies for OpenShift 4.0.
 ---
 
@@ -37,6 +37,31 @@ Certain configurations for Azure Red Hat OpenShift 4 clusters can affect your cl
 * Do not run extra workloads on the control plane nodes. While they can be scheduled on the control plane nodes, it will cause extra resource usage and stability issues that can affect the entire cluster.
 * Don't circumvent the deny assignment that is configured as part of the service, or perform administrative tasks that are normally prohibited by the deny assignment.
 * If you are making use of infrastructure nodes, do not run any undesignated workloads on them as this may affect the Service Level Agreement and cluster stability. Also, it is strongly recommended to have at least 3 infrastructure nodes; one in each availability zone. See [Deploy infrastructure nodes in an Azure Red Hat OpenShift (ARO) cluster](howto-infrastructure-nodes.md) for more information.
+
+
+## Incident management
+
+An incident is an event that results in a degradation or outage Azure Red Hat OpenShift services. An incident can be raised by a customer or Customer Experience and Engagement (CEE) member through a [support case](openshift-service-definitions.md#support), directly by the centralized monitoring and alerting system, or directly by a member of the ARO Site Reliability Engineer (SRE) team.
+
+Depending on the impact on the service and customer, the incident is categorized in terms of severity.
+
+The general workflow of how a new incident is managed is described below:
+
+1. An SRE first responder is alerted to a new incident and begins an initial investigation.
+
+1. After the initial investigation, the incident is assigned an incident lead, who coordinates the recovery efforts.
+
+1. The incident lead manages all communication and coordination around recovery, including any relevant notifications or support case updates.
+
+1. The incident is recovered.
+
+1. The incident is documented and a root cause analysis (RCA) is performed within 5 business days of the incident.
+
+1. An RCA draft document is shared with the customer within 7 business days of the incident.
+
+When necessary, support cases can be escalated by following the [Red Hat Support Case Escalation](https://access.redhat.com/support/escalation) procedure. Red Hat support recognizes various levels of severity for issues, [defined here](https://access.redhat.com/support/policy/severity).
+
+For Red Hat server level agreement details, see [Production Support Terms of Service](https://access.redhat.com/support/offerings/production/sla).
 
 ## Supported virtual machine sizes
 
@@ -232,15 +257,3 @@ Azure Red Hat OpenShift 4 supports node instances on the following virtual machi
 |NC24sV3|Standard_NC24s_v3|24|448|
 |NC24rsV3|Standard_NC24rs_v3|24|448|
 |NC64asT4v3|Standard_NC64as_T4_v3|64|440|
-
-<!--
-### Memory and storage optimized
-
-|Series|Size|vCPU|Memory: GiB|
-|-|-|-|-|
-|G*|Standard_G5|32|448|
-|G|Standard_GS5|32|448|
-
-
-\*Does not support Premium_LRS OS Disk, StandardSSD_LRS is used instead
--->
