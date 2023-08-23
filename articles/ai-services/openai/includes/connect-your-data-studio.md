@@ -38,7 +38,7 @@ Navigate to [Azure OpenAI Studio](https://oai.azure.com/) and sign-in with crede
 
 1. On the **Data management** pane, you can choose whether to enable [semantic search](../concepts/use-your-data.md#semantic-search) for your index. If you don't want semantic search enabled, select **Simple** as the search type.
     
-    [!INCLUDE [Semantic search note](./includes/use-your-data-semantic-search.md)]
+    [!INCLUDE [Semantic search note](./use-your-data-semantic-search.md)]
 
 1. Review the details you entered, and select **Save and close**. You can now chat with the model and it will use information from your data to construct the response.
 

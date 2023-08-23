@@ -80,6 +80,56 @@ To add a new data source to your Azure OpenAI resource, you need the following A
 |[Search Index Data Contributor](/azure/role-based-access-control/built-in-roles#search-index-data-contributor)     | You have an existing Azure Cognitive Search index that you want to use, instead of creating a new one.        |
 |[Storage Blob Data Contributor](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor)     | You have an existing Blob storage container that you want to use, instead of creating a new one.        |
 
+## Restrict access to sensitive documents
+
+Azure OpenAI on your data lets you restrict the documents that can be returned in responses using Azure Cognitive Search [security filters](/search/search-security-trimming-for-azure-search-with-aad). When you enable document level access, the search results returned from Azure Cognitive Search and used to generate a response will be trimmed based on user Azure Active Directory (AD) group membership. You can only enable document level access on existing Azure Cognitive search indices. To enable document level access:
+
+1. Follow the steps in the [Azure Cognitive Search documentation](/azure/search/search-security-trimming-for-azure-search-with-aad) to register your application and create users and groups.
+1. [Index your documents with their permitted groups](/azure/search/search-security-trimming-for-azure-search-with-aad#index-document-with-their-permitted-groups). Be sure that your new [security fields](/azure/search/search-security-trimming-for-azure-search#create-security-field) have the schema below:
+        
+    ```json
+    {"name": "group_ids", "type": "Collection(Edm.String)", "filterable": true }
+    ```
+
+    `group_ids` is the default field name. If you use a different field name like `my_group_ids`, you can map the field in [index field mapping](#index-field-mapping).
+
+1. Make sure each sensitive document in the index has the value set correctly on this security field to indicate the permitted groups of the document.
+1. in [Azure OpenAI Studio](https://oai.azure.com/portal), add your data source. in the [index field mapping](#index-field-mapping) section, you can map zero or one values to the **permitted groups** field, as long as the schema is compatible. If the **Permitted groups** field is not mapped, document level access will not be enabled. 
+
+**Accessing sensitive documents using Azure OpenAI Studio**
+
+Once the Azure Cognitive Search index is connected, your responses in the studio will have document level access based on the Azure AD permissions of the logged in user.
+
+**Accessing sensitive documents using the Web app**
+
+If you are using a published [web app](#using-the-web-app), you need to republish it to upgrade to the latest version. The latest version of the web app includes the ability to retrieve the groups of the logged in user's Azure AD account, cache it, and include the group IDs in each API request.
+
+**Accessing sensitive documents using the API**
+
+When using the API, pass the `filter` parameter in each API request. For example:
+
+```json
+{
+    "messages": [
+        {
+            "role": "user",
+            "content": "who is my manager?"
+        }
+    ],
+    "dataSources": [
+        {
+            "type": "AzureCognitiveSearch",
+            "parameters": {
+                "endpoint": "'$SearchEndpoint'",
+                "key": "'$SearchKey'",
+                "indexName": "'$SearchIndex'",
+                "filter": "my_group_ids/any(g:search.in(g, 'group_id1, group_id2'))"
+            }
+        }
+    ]
+}
+```
+
 ## Recommended settings
 
 Use the following sections to help you configure Azure OpenAI on your data for optimal results.
