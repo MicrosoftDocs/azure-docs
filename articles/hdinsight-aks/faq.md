@@ -6,7 +6,7 @@ ms.topic: faq
 ms.date: 08/07/2023
 ---
 
-# Frequently asked questions
+# HDInsight on AKS - Frequently asked questions
 
 This article addresses some common questions about Azure HDInsight on AKS.
 
