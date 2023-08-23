@@ -189,11 +189,24 @@ Set a limit on the number of tokens per model response. The upper limit for Azur
 
 This option encourages the model to respond using your data only, and is selected by default. If you unselect this option, the model may more readily apply its internal knowledge to respond. Determine the correct selection based on your use case and scenario. 
 
-### Semantic search 
+### Search types
+#### Semantic search 
 
 [!INCLUDE [Semantic search note](../includes/use-your-data-semantic-search.md)]
 
 If [semantic search](/azure/search/semantic-search-overview) is enabled for your Azure Cognitive Search service, you are more likely to produce better retrieval of your data, which can improve response and citation quality.
+
+#### Vector search
+
+[Vector search](/azure/search/vector-search-overview) with Ada embeddings is supported. To enable vector search, you will need a deployment of `text-embedding-ada-002` on your Azure OpenAI resource. Select your embedding deployment when connecting your data, then select one of the vector search types in the Data Management stage. 
+
+- The Vector search type will use only vectors for retrieval.
+- The Vector + Simple search type will use a hybrid of vector search and simple keyword search for retrieval.
+- The Vector + Semantic search type will use a hybrid of vector search and semantic search for retrieval.
+
+> [!IMPORTANT]
+> * Vector search will incur additional usage to your Azure OpenAI account from calling the embedding model while building or using the search index.
+> * If Vector + Semantic is selected, semantic search is subject to [additional pricing](/azure/search/semantic-search-overview#availability-and-pricing)
 
 ### Index field mapping 
 

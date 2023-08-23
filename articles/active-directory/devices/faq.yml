@@ -6,6 +6,7 @@ metadata:
   services: active-directory
   ms.service: active-directory
   ms.subservice: devices
+  ms.custom: has-azure-ad-ps-ref
   ms.topic: faq
   ms.date: 02/27/2023
   ms.author: joflore

@@ -5,6 +5,7 @@ description: Customize Azure AD authentication session configuration including u
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
+ms.custom: has-azure-ad-ps-ref
 ms.topic: how-to
 ms.date: 07/18/2023
 

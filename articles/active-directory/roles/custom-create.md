@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.date: 12/09/2022
 ms.author: rolyon
 ms.reviewer: vincesm
-ms.custom: it-pro
+ms.custom: it-pro, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 ---
 # Create and assign a custom role in Azure Active Directory

@@ -1,6 +1,16 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/logic-apps/logic-apps-enterprise-integration-x12-encode.md",
+            "redirect_url": "/azure/logic-apps/logic-apps-enterprise-integration-x12",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/logic-apps/logic-apps-enterprise-integration-x12-decode.md",
+            "redirect_url": "/azure/logic-apps/logic-apps-enterprise-integration-x12",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/logic-apps/update-consumption-workflow-schema.md",
             "redirect_url": "/azure/logic-apps/update-workflow-definition-language-schema",
             "redirect_document_id": false
@@ -262,12 +272,12 @@
         },
         {
             "source_path_from_root": "/articles/app-service-logic/app-service-logic-enterprise-integration-x12-decode.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-enterprise-integration-x12-decode",
+            "redirect_url": "/azure/logic-apps/logic-apps-enterprise-integration-x12",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/app-service-logic/app-service-logic-enterprise-integration-x12-encode.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-enterprise-integration-x12-encode",
+            "redirect_url": "/azure/logic-apps/logic-apps-enterprise-integration-x12",
             "redirect_document_id": false
         },
         {

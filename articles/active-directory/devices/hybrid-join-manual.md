@@ -5,6 +5,7 @@ description: Learn how to manually configure hybrid Azure Active Directory join 
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
+ms.custom: has-azure-ad-ps-ref
 ms.topic: tutorial
 ms.date: 07/05/2022
 

@@ -10,7 +10,7 @@ ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 1/3/2023
 ms.author: jricketts
-ms.custom: "it-pro, seodec18"
+ms.custom: it-pro, seodec18, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 ---
 

@@ -6,6 +6,7 @@ ms.date: 09/06/2022
 ms.service: app-service
 ms.role: developer
 ms.devlang: javascript
+ms.author: msangapu
 ms.custom: "scenarios:getting-started, languages:javascript, devx-track-js, devdivchpfy22, ignite-2022"
 ---
 

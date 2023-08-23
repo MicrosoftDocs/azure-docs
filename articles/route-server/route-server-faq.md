@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: route-server
 ms.topic: faq
-ms.date: 08/14/2023
+ms.date: 08/16/2023
 ---
 
 # Azure Route Server frequently asked questions (FAQ)
@@ -83,6 +83,10 @@ No, Azure Route Server supports only 16-bit (2 bytes) ASNs.
 ### If Azure Route Server receives the same route from more than one NVA, how does it handle them?
 
 If the route has the same AS path length, Azure Route Server will program multiple copies of the route, each with a different next hop, to the virtual machines (VMs) in the virtual network. When a VM sends traffic to the destination of this route, the VM host uses Equal-Cost Multi-Path (ECMP) routing. However, if one NVA sends the route with a shorter AS path length than other NVAs, Azure Route Server will only program the route that has the next hop set to this NVA to the VMs in the virtual network.
+
+### Does creating a Route Server affect the operation of existing virtual network gateways (VPN or ExpressRoute)?
+
+Yes. When you create or delete a Route Server in a virtual network that contains a virtual network gateway (ExpressRoute or VPN), expect downtime until the operation is complete. If you have an ExpressRoute circuit connected to the virtual network where you're creating or deleting the Route Server, the downtime doesn't affect the ExpressRoute circuit or its connections to other virtual networks.
 
 ### Does Azure Route Server exchange routes by default between NVAs and the virtual network gateways (VPN or ExpressRoute)?
 

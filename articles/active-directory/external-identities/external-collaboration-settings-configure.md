@@ -5,6 +5,7 @@ description: Learn how to enable Active Directory B2B external collaboration and
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
+ms.custom: has-azure-ad-ps-ref
 ms.topic: how-to
 ms.date: 10/24/2022
 

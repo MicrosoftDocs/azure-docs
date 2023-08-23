@@ -190,6 +190,15 @@ sections:
         answer:
           When you select "Azure Cognitive Search" as the data source, you can choose to apply semantic search. 
           If you select "Azure Blob Container" or "Upload files" as the data source, you can create the index as usual. Afterwards you would re-ingest the data using the "Azure Cognitive Search" option to select the same index and apply Semantic Search. You will then be ready to chat on your data with semantic search applied.
+      - question: |
+          How can I add vector embeddings when indexing my data?
+        answer:
+          When you select "Azure Blob Container" or "Upload files" as the data source, you can also select an Ada embedding model deployment to use when ingesting your data. This will create an Azure Cognitive Search index with vector embeddings.
+      - question: |
+          Why is index creation failing after I added an embedding model?
+        answer:
+          Index creation may fail when adding embeddings to your index if the rate limit on your Ada embedding model deployment is too low, or if you have a very large set of documents. You can use this [script provided on GitHub](https://go.microsoft.com/fwlink/?linkid=2244395) to create the index with embeddings manually.
+
 additionalContent: |
 
   ## Next steps

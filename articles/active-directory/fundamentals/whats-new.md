@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.date: 05/31/2023
 ms.author: owinfrey
 ms.reviewer: dhanyahk
-ms.custom: it-pro
+ms.custom: it-pro, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 ---
 
