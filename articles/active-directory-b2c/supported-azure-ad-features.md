@@ -27,7 +27,7 @@ An Azure Active Directory B2C (Azure AD B2C) tenant is different than an Azure A
 | [Administrative Units](../active-directory/roles/administrative-units.md) | Fully supported with Azure AD premium P1 licensing | Azure AD B2C tenants do not support Administrative Units. |
 | [Dynamic Groups](../active-directory/enterprise-users/groups-dynamic-membership.md) | Fully supported with Azure AD premium P1 licensing | Azure AD B2C tenants do not support Dynamic Groups. |
 | [Privileged Identity Management](../active-directory/privileged-identity-management/pim-getting-started.md) | Fully supported with Azure AD premium P2 licensing | Azure AD B2C tenants do not support Privileged Identity Management. |
-| [Entitlement Management](../acctive-directory/governance/entitlement-management-overview.md) | Fully supported with Azure AD premium P2 licensing | Azure AD B2C tenants do not support Entitlement Management. |
+| [Entitlement Management](../active-directory/governance/entitlement-management-overview.md) | Fully supported with Azure AD premium P2 licensing | Azure AD B2C tenants do not support Entitlement Management. |
 | [Access Reviews](../active-directory/governance/access-reviews-overview.md) | Fully supported with Azure AD premium P2 licensing | Azure AD B2C tenants do not support Access Reviews. |
 | [Lifecycle Workflows](../active-directory/governance/what-are-lifecycle-workflows.md) | Fully supported with Azure AD premium P2 licensing | Azure AD B2C tenants do not support Lifecycle Workflows. |
 | [HR App Provisioning](../active-directory/governance/what-is-provisioning.md) | Fully supported with Azure AD premium P1 licensing | Azure AD B2C tenants do not support HR app provisioning. |
