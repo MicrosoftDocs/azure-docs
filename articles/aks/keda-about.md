@@ -58,6 +58,15 @@ The KEDA AKS add-on has the following limitations:
 
 For general KEDA questions, we recommend [visiting the FAQ overview][keda-faq].
 
+## Supported Kubernetes and KEDA versions
+
+AKS supports specific KEDA versions depending on the Kubernetes version of your cluster. To determine which versions are in support, see [AKS components supported versions and breaking changes](./supported-kubernetes-versions.md#aks-components-breaking-changes-by-version).
+
+For GA Kubernetes versions, AKS offers full support of the corresponding KEDA minor version in the table. Kubernetes preview versions and the latest KEDA patch are partially covered by customer support on a best-effort basis. As such, these features aren't meant for production use. For more information, see the following support articles:
+
+- AKS support policies
+- Azure support FAQ
+
 ## Next steps
 
 * [Enable the KEDA add-on with an ARM template][keda-arm]
