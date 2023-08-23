@@ -154,10 +154,10 @@ If you want to change your selected enrollment, select the **Selected agreement*
 
 :::image type="content" source="./media/pricing-calculator/selected-agreement-ea-change.png" alt-text="Screenshot showing the Selected Agreement option." lightbox="./media/pricing-calculator/selected-agreement-ea-change.png" :::
 
-If you're a Cloud Solution Provider (CSP), you can view your estimate with your Partner Earned Credit (PEC) applied. Select the **New Commerce CSP (MPA)**.
+If you're a Cloud Solution Provider (CSP) partner who has transitioned to the new commerce experience, you can view your estimate by selecting the Microsoft Customer Agreement (MCA) option in the licensing program.
 
 >[!NOTE]
->PEC estimation isn't available in the calculator, so you need to manually apply your anticipated PEC to a monthly estimate.
+> Partner Earned Credit (PEC) estimation isn't available in the calculator, so you need to manually apply your anticipated PEC to the monthly estimate.
 
 If you don't have access to log in to the calculator to see negotiated prices, contact your administrator or Azure Account Manager.
 
