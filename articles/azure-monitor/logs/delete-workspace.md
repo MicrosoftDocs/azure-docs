@@ -44,8 +44,6 @@ The workspace delete operation removes the workspace Azure Resource Manager reso
 > [!NOTE]
 > Installed solutions and linked services like your Azure Automation account are permanently removed from the workspace at deletion time and can't be recovered. These resources should be reconfigured after the recovery operation to bring the workspace back to its previously configured state.
 
-You can delete a workspace by using [PowerShell](/powershell/module/azurerm.operationalinsights/remove-azurermoperationalinsightsworkspace), the [REST API](/rest/api/loganalytics/workspaces/delete), or the [Azure portal](https://portal.azure.com).
-
 ### [Azure portal](#tab/azure-portal)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -74,7 +72,7 @@ PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-
 
 ### [CLI](#tab/cli)
 
-To delete a workspace into a soft-delete state, run the [az monitor log-analytics workspace delete](/cli/azure/monitor/log-analytics/workspace##az-monitor-log-analytics-workspace-delete) command.
+To delete a workspace into a soft-delete state, run the [az monitor log-analytics workspace delete](/cli/azure/monitor/log-analytics/workspace#az-monitor-log-analytics-workspace-delete) command.
 
 ```azurecli
 az monitor log-analytics workspace delete --resource-group MyResourceGroup --workspace-name MyWorkspace
@@ -84,7 +82,7 @@ az monitor log-analytics workspace delete --resource-group MyResourceGroup --wor
 
 ## Recover a workspace in a soft-delete state
 
-When you delete a Log Analytics workspace accidentally or intentionally, the service places the workspace in a soft-delete state and makes it inaccessible to any operation. The name of the deleted workspace is preserved during the soft-delete period. It can't be used to create a new workspace. After the soft-delete period, the workspace is nonrecoverable, it's scheduled for permanent deletion, and its name is released and can be used to create a new workspace.
+When you delete a Log Analytics workspace accidentally or intentionally, the service places the workspace in a soft-delete state and makes it inaccessible to any operation. The name of the deleted workspace is preserved during the soft-delete period. It can't be used to create a new workspace. After the soft-delete period, the workspace is nonrecoverable and scheduled for permanent deletion, and its name is released and can be used when creating a new workspace.
 
 You can recover your workspace during the soft-delete period, including its data, configuration, and connected agents. The workspace recovery is performed by re-creating the Log Analytics workspace with the details of the deleted workspace, including:
 
@@ -197,10 +195,10 @@ If you aren't sure if a deleted workspace is in a soft-delete state and can be r
 If you receive one of these error messages when you create a workspace, it could be because:
 
 * The workspace name isn't available because it's being used by someone in your organization or another customer.
-* The workspace was deleted in the last 14 days and its name was kept reserved for the soft-delete period. To resolve, follow these steps to override the soft-delete and then create a new workspace:
+* The workspace was deleted in the last 14 days and its name was kept reserved for the soft-delete period. To resolve, follow these steps:
 
-  1. [Recover](#recover-a-workspace-in-a-soft-delete-state) your workspace in a soft-delete state, which allows you to override the soft-delete period by deleting the workspace permanently.
-  1. [Permanently delete](#delete-a-workspace-permanently) the workspace you recovered.
+  1. [Recover](#recover-a-workspace-in-a-soft-delete-state) your workspace in a soft-delete state, which allows you to delete it permanently.
+  1. [Permanently delete](#delete-a-workspace-permanently) the workspace you recovered. When you delete a workspace permanently, its name is no longer reserved.
   1. [Create a new workspace](./quick-create-workspace.md) by using the same workspace name.
 
   After the deletion call is successfully completed on the back end, you can restore the workspace and finish the permanent delete operation by using one of the methods suggested earlier.
@@ -211,7 +209,7 @@ If you get a 204 response code with "Resource not found" when you delete a works
 
 ### I'm receiving error code 404 when attempting to recover my workspace 
 
-If you deleted your resource group and your workspace was included, you can see the deleted workspace on the [Open recycle bin](?tabs=azure-portal#recover-a-workspace-in-a-soft-delete-state) page in the Azure portal. The recovery operation will fail with the error code 404 because the resource group doesn't exist. Re-create your resource group and try the recovery again.
+If you deleted your resource group and your workspace was included, you can see the deleted workspace on the [Open recycle bin](?tabs=azure-portal#recover-a-workspace-in-a-soft-delete-state) page in the Azure portal. The recovery operation will fail with the error code 404 because the resource group doesn't exist. [Re-create your resource group](../../azure-resource-manager/management/manage-resource-groups-portal.md) and try the recovery again.
 
 ## Next steps
 
