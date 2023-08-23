@@ -18,10 +18,10 @@ ms.author: eur
 
 The Speech SDK for Python is available as a [Python Package Index (PyPI) module](https://pypi.org/project/azure-cognitiveservices-speech/). The Speech SDK for Python is compatible with Windows, Linux, and macOS.
 
-- You must install the [Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017, 2019, and 2022](/cpp/windows/latest-supported-vc-redist?view=msvc-170&preserve-view=true) for your platform. Installing this package for the first time might require a restart.
+- For Windows, install the [Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017, 2019, and 2022](/cpp/windows/latest-supported-vc-redist?view=msvc-170&preserve-view=true) for your platform. Installing this package for the first time might require a restart.
 - On Linux, you must use the x64 target architecture.
 
-Install a version of [Python from 3.7 or later](https://www.python.org/downloads/). For any other requirements, see [Install the Speech SDK](../../../quickstarts/setup-platform.md?pivots=programming-language-python).
+Install a version of [Python from 3.7 or later](https://www.python.org/downloads/). For other requirements, see [Install the Speech SDK](../../../quickstarts/setup-platform.md?pivots=programming-language-python).
 
 ### Set environment variables
 
@@ -29,7 +29,7 @@ Install a version of [Python from 3.7 or later](https://www.python.org/downloads
 
 ## Recognize speech from a microphone
 
-Follow these steps to create a new console application.
+Follow these steps to create a console application.
 
 1. Open a command prompt where you want the new project, and create a new file named *speech_recognition.py*.
 1. Run this command to install the Speech SDK:  
@@ -80,9 +80,9 @@ Follow these steps to create a new console application.
    > [!IMPORTANT]
    > Make sure that you set the `SPEECH_KEY` and `SPEECH_REGION` environment variables as described in [Set environment variables](#set-environment-variables). If you don't set these variables, the sample fails with an error message.
 
-1. Speak into your microphone when prompted. What you speak should be output as text:
+1. Speak into your microphone when prompted. What you speak should appear as text:
 
-   ```console
+   ```output
    Speak into your microphone.
    RECOGNIZED: Text=I'm excited to try speech to text.
    ```

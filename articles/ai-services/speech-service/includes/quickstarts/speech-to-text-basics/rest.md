@@ -14,7 +14,7 @@ ms.author: eur
 
 [!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
 
-You also need a *.wav* audio file on your local machine. You can use your own *.wav* file (up to 60 seconds) or download the [https://crbn.us/whatstheweatherlike.wav](https://crbn.us/whatstheweatherlike.wav) sample file.
+You also need a *.wav* audio file on your local machine. You can use your own *.wav* file up to 60 seconds or download the [https://crbn.us/whatstheweatherlike.wav](https://crbn.us/whatstheweatherlike.wav) sample file.
 
 ### Set environment variables
 
@@ -22,7 +22,7 @@ You also need a *.wav* audio file on your local machine. You can use your own *.
 
 ## Recognize speech from a file
 
-At a command prompt, run the following cURL command. Replace *YourAudioFile.wav* with the path and name of your audio file.  
+Open a console window and run the following cURL command. Replace *YourAudioFile.wav* with the path and name of your audio file.  
 
 # [Windows](#tab/windows)
 

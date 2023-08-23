@@ -24,7 +24,7 @@ Install the [Speech SDK for Go](../../../quickstarts/setup-platform.md?pivots=pr
 
 ## Recognize speech from a microphone
 
-Follow these steps to create a new GO module.
+Follow these steps to create a GO module.
 
 1. Open a command prompt where you want the new module, and create a new file named *speech-recognition.go*.
 1. Copy the following code into *speech-recognition.go*:
@@ -111,7 +111,7 @@ Follow these steps to create a new GO module.
    > [!IMPORTANT]
    > Make sure that you set the `SPEECH_KEY` and `SPEECH_REGION` environment variables as described in [Set environment variables](#set-environment-variables). If you don't set these variables, the sample fails with an error message.
 
-1. Now build and run the code:
+1. Build and run the code:
 
    ```cmd
    go build

@@ -18,7 +18,7 @@ You also need a *.wav* audio file on your local machine. You can use your own *.
 
 ## Set up the environment
 
-Before you can do anything, you need to install the Speech SDK for JavaScript. If you just want the package name to install, run `npm install microsoft-cognitiveservices-speech-sdk`. For guided installation instructions, see the [Install the Speech SDK](../../../quickstarts/setup-platform.md?pivots=programming-language-javascript).
+Before you can do anything, you need to install the Speech SDK for JavaScript. Run this command: `npm install microsoft-cognitiveservices-speech-sdk`. For guided installation instructions, see the [Install the Speech SDK](../../../quickstarts/setup-platform.md?pivots=programming-language-javascript).
 
 ### Set environment variables
 
@@ -88,7 +88,7 @@ Follow these steps to create a Node.js console application for speech recognitio
 
    The speech from the audio file should be output as text:
 
-   ```console
+   ```output
    RECOGNIZED: Text=I'm excited to try speech to text.
    ```
 

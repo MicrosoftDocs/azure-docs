@@ -24,7 +24,7 @@ The Speech SDK is available as a [NuGet package](https://www.nuget.org/packages/
 
 ## Recognize speech from a microphone
 
-Follow these steps to create a new console application and install the Speech SDK.
+Follow these steps to create a console application and install the Speech SDK.
 
 1. Open a command prompt where you want the new project. Create a console application with the .NET CLI, which creates the *Program.cs* file in the project directory.
 
@@ -103,7 +103,7 @@ Follow these steps to create a new console application and install the Speech SD
    > [!IMPORTANT]
    > Make sure that you set the `SPEECH_KEY` and `SPEECH_REGION` environment variables as described in [Set environment variables](#set-environment-variables). If you don't set these variables, the sample fails with an error message.
 
-1. Speak into your microphone when prompted. What you speak should be output as text: 
+1. Speak into your microphone when prompted. What you speak should appear as text:
 
    ```output
    Speak into your microphone.

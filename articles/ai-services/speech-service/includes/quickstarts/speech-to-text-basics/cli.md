@@ -24,7 +24,7 @@ ms.author: eur
    spx recognize --microphone --source en-US
    ```
 
-1. Speak into the microphone, and you see transcription of your words into text in real-time. The Speech CLI stops after a period of silence, 30 seconds, or when you press Ctrl+C.
+1. Speak into the microphone, and you see transcription of your words into text in real-time. The Speech CLI stops after a period of silence, 30 seconds, or when you select **Ctrl**+**C**.
 
    ```output
    Connection CONNECTED...

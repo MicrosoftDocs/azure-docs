@@ -29,8 +29,8 @@ The Speech SDK can be used in Xcode projects as a [CocoaPod](https://cocoapods.o
 Follow these steps to recognize speech in a macOS application.
 
 1. Clone the [Azure-Samples/cognitive-services-speech-sdk](https://github.com/Azure-Samples/cognitive-services-speech-sdk) repository to get the [Recognize speech from a microphone in Objective-C on macOS](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/objectivec/macos/from-microphone) sample project. The repository also has iOS samples.
-1. Navigate to the directory of the downloaded sample app (`helloworld`) in a terminal. 
-1. Run the command `pod install`. This command generates a `helloworld.xcworkspace` Xcode workspace containing both the sample app and the Speech SDK as a dependency. 
+1. In a console window, navigate to the directory of the downloaded sample app, *helloworld*.
+1. Run the command `pod install`. This command generates a `helloworld.xcworkspace` Xcode workspace that contains both the sample app and the Speech SDK as a dependency.
 1. Open the `helloworld.xcworkspace` workspace in Xcode.
 1. Open the file named *AppDelegate.m* and locate the `buttonPressed` method as shown here.
 

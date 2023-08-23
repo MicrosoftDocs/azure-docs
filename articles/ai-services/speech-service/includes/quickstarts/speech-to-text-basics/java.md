@@ -19,7 +19,7 @@ ms.author: eur
 Before you can do anything, you need to install the Speech SDK. The sample in this quickstart works with the [Java Runtime](~/articles/ai-services/speech-service/quickstarts/setup-platform.md?pivots=programming-language-java&tabs=jre).
 
 1. Install [Apache Maven](https://maven.apache.org/install.html). Then run `mvn -v` to confirm successful installation.
-1. Create a new `pom.xml` file in the root of your project, and copy the following into it:
+1. Create a new `pom.xml` file in the root of your project, and copy the following code into it:
 
    ```xml
    <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -62,7 +62,7 @@ Before you can do anything, you need to install the Speech SDK. The sample in th
 
 ## Recognize speech from a microphone
 
-Follow these steps to create a new console application for speech recognition.
+Follow these steps to create a console application for speech recognition.
 
 1. Create a new file named *SpeechRecognition.java* in the same project root directory.
 1. Copy the following code into *SpeechRecognition.java*:
@@ -117,7 +117,7 @@ Follow these steps to create a new console application for speech recognition.
 
 1. To change the speech recognition language, replace `en-US` with another [supported language](~/articles/ai-services/speech-service/language-support.md). For example, `es-ES` for Spanish (Spain). If you don't specify a language, the default is `en-US`. For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/ai-services/speech-service/language-identification.md).
 
-   Run your new console application to start speech recognition from a microphone:
+1. Run your new console application to start speech recognition from a microphone:
 
    ```console
    javac SpeechRecognition.java -cp ".;target\dependency\*"
@@ -127,9 +127,9 @@ Follow these steps to create a new console application for speech recognition.
    > [!IMPORTANT]
    > Make sure that you set the `SPEECH_KEY` and `SPEECH_REGION` environment variables as described in [Set environment variables](#set-environment-variables). If you don't set these variables, the sample fails with an error message.
 
-1. Speak into your microphone when prompted. What you speak should be output as text: 
+1. Speak into your microphone when prompted. What you speak should appear as text:
 
-   ```console
+   ```output
    Speak into your microphone.
    RECOGNIZED: Text=I'm excited to try speech to text.
    ```

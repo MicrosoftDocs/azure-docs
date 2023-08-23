@@ -136,7 +136,6 @@ After you select the button in the app and say a few words, you should see the t
 
 ## Remarks
 
-
 This example uses the `recognizeOnce` operation to transcribe utterances of up to 30 seconds, or until silence is detected. For information about continuous recognition for longer audio, including multi-lingual conversations, see [How to recognize speech](~/articles/ai-services/speech-service/how-to-recognize-speech.md).
 
 ## Clean up resources
