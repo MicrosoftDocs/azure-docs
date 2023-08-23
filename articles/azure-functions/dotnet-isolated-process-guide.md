@@ -436,7 +436,7 @@ You can configure your isolated process application to emit logs directly [Appli
 
 ```dotnetcli
 dotnet add package Microsoft.ApplicationInsights.WorkerService
-dotnet add package Microsoft.Azure.Functions.Worker.ApplicationInsights --prerelease
+dotnet add package Microsoft.Azure.Functions.Worker.ApplicationInsights
 ```
 
 You then need to call to `AddApplicationInsightsTelemetryWorkerService()` and `ConfigureFunctionsApplicationInsights()` during service configuration in your `Program.cs` file:

@@ -1426,7 +1426,7 @@ When running on Windows, the Node.js version is set by the [`WEBSITE_NODE_DEFAUL
 
 # [Linux](#tab/linux)
 
-When running on Windows, the Node.js version is set by the [linuxfxversion](./functions-app-settings.md#linuxfxversion) site setting. This setting can be updated using the Azure CLI.
+When running on Linux, the Node.js version is set by the [linuxfxversion](./functions-app-settings.md#linuxfxversion) site setting. This setting can be updated using the Azure CLI.
 
 ---
 

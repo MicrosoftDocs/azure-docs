@@ -8,6 +8,15 @@ ms.author: eur
 
 ### August 2023 release
 
+#### New Speech to text-locales:
+
+Speech to text supports two new locales as shown in the following table. Refer to the complete language list [here](../../language-support.md?tabs=stt).
+
+| Locale  | Language                          |
+|---------|-----------------------------------|
+| `pa-IN`         | Punjabi (India) |
+| `ur-IN`        | Urdu (India)  |
+
 #### Pronunciation Assessment
 
 - Speech [Pronunciation Assessment](../../how-to-pronunciation-assessment.md) now supports 3 additional languages generally available in English (Canada), English (India), and French (Canada), with 3 additional languages available in preview. For more information, see the full [language list for Pronunciation Assessment](../../language-support.md?tabs=pronunciation-assessment).

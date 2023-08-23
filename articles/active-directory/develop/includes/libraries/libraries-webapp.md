@@ -17,7 +17,7 @@
 | Ruby | [OmniAuth](https://github.com/omniauth/omniauth) | [omniauth 1.3.1](https://github.com/omniauth/omniauth/releases/tag/v1.3.1)<br/>[omniauth-oauth2 1.4.0](https://github.com/intridea/omniauth-oauth2) | ![X indicating no.][n] | ![X indicating no.][n] | ![Green check mark.][y] | -- |
 -->
 
-<sup>(1)</sup> [Supplemental terms of use for Microsoft Azure Previews][preview-tos] apply to libraries in *Public preview*.
+<sup>(1)</sup> [Universal License Terms for Online Services][preview-tos] apply to libraries in *Public preview*.
 
 <sup>(2)</sup> The [Microsoft.IdentityModel](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) library only _validates_ tokens - it can't request ID or access tokens.
 
@@ -28,4 +28,4 @@
 
 <!--Reference-style links -->
 
-[preview-tos]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
+[preview-tos]: https://www.microsoft.com/licensing/terms/product/ForOnlineServices/all

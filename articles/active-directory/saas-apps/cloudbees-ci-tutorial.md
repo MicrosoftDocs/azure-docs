@@ -71,9 +71,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
     | `https://cjoc.<CustomerDomain>/securityRealm/finishLogin` |
     | `https://<Environment>.<CustomerDomain>/securityRealm/finishLogin` |
 
-1. Perform the following step, if you wish to configure the application in **SP** initiated mode:
-
-	In the **Sign on URL** textbox, type the URL using one of the following patterns:
+	c. In the **Sign on URL** textbox, type the URL using one of the following patterns:
 
 	| **Sign on URL** |
     |------------|

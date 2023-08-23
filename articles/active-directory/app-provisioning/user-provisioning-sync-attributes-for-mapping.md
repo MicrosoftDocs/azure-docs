@@ -7,6 +7,7 @@ manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
+ms.custom: has-azure-ad-ps-ref
 ms.topic: troubleshooting
 ms.date: 10/20/2022
 ms.author: kenwith
