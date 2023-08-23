@@ -9,6 +9,7 @@ ms.date: 08/22/2023
 
 > [!IMPORTANT]
 > The information on this page relates to pre-release products or features, which may be substantially modified before they are commercially released, if ever. Microsoft makes no commitments or warranties, express or implied, with respect to the information provided here.
+
 [Defender for Servers](#defender-for-servers)
 On this page, you can learn about changes that are planned for Defender for Cloud. It describes planned modifications to the product that might affect things like your secure score or workflows.
 
@@ -272,7 +273,7 @@ Learn more about [workspaces with Microsoft Defender for Cloud](../azure-monitor
 
 **Estimated date for change: September 2023**
 
-The recommendation `Microsoft Defender for Storage plan should be enabled` will be deprecated on public clouds and will remain available on Azure Governance regions. This recommendation will be replaced by a new recommendation: `Microsoft Defender for Storage plan should be enabled with Malware Scanning and Sensitive Data Threat Detection`. This recommendation ensures that Defender for Storage is enabled at the subscription level with malware scanning and sensitive data threat detection capabilities.
+The recommendation `Microsoft Defender for Storage plan should be enabled` will be deprecated on public clouds and will remain available on Azure Government cloud. This recommendation will be replaced by a new recommendation: `Microsoft Defender for Storage plan should be enabled with Malware Scanning and Sensitive Data Threat Detection`. This recommendation ensures that Defender for Storage is enabled at the subscription level with malware scanning and sensitive data threat detection capabilities.
 
 | Policy Name | Description | Policy Effect | Version |
 |--|--|--|--|
@@ -283,3 +284,5 @@ Learn more about [Microsoft Defender for Storage](defender-for-storage-introduct
 ## Next steps
 
 For all recent changes to Defender for Cloud, see [What's new in Microsoft Defender for Cloud?](release-notes.md).
+
+
