@@ -247,7 +247,7 @@ The following steps provide details about the specific network and application r
 > [!TIP]
 > If you want to allow more traffic, you can configure it over the firewall.
 
-## How to Debug
+## How to debug
 
 If you find the cluster works unexpectedly, you can check the firewall logs to find which traffic is blocked.
 
