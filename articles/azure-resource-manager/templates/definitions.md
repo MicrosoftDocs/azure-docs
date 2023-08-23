@@ -8,7 +8,7 @@ ms.date: 08/22/2023
 
 # Type definitions in ARM templates
 
-This article describes how to create and use definitions in your Azure Resource Manager template (ARM template). By defining your own types, you can reuse these types. Type definitions can only be used with [languageVersion 2.0](#template-format).
+This article describes how to create and use definitions in your Azure Resource Manager template (ARM template). By defining your own types, you can reuse these types. Type definitions can only be used with [languageVersion 2.0](./syntax.md#template-format).
 
 > [!TIP]
 > We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [definitions](../bicep/definitions.md).
@@ -144,9 +144,9 @@ All properties are required unless the property’s type definition has the ["nu
 
 ### additionalProperties
 
-The value of `additionalProperties` is a type definition or a boolean value.
+The value of `additionalProperties` is a type definition or a boolean value. If no `additionalProperties` constraint is defined, the default value is `true`.
 
-If value is a type definition, the value describes the schema that will be applied to all properties not mentioned in the [`properties`](#properties) constraint. The following example would accept `{"fizz": "buzz", "foo": "bar"}` but reject `{"property": 1}`.
+If value is a type definition, the value describes the schema that is applied to all properties not mentioned in the [`properties`](#properties) constraint. The following example would accept `{"fizz": "buzz", "foo": "bar"}` but reject `{"property": 1}`.
 
 ```json
 "definitions": {
@@ -192,7 +192,7 @@ If the value is `false`, no properties beyond those defined in the [`properties`
 }
 ```
 
-If the value is `true`, any property not defined in the [`properties`](#properties) constraint will accept any value. This is the default behavior if no `additionalProperties` constraint is defined. The following example would accept `{"foo": "string", "bar": 1, "fizz": "buzz"}`.
+If the value is `true`, any property not defined in the [`properties`](#properties) constraint accepts any value. The following example would accept `{"foo": "string", "bar": 1, "fizz": "buzz"}`.
 
 ```json
 "definitions": {
@@ -263,7 +263,7 @@ The value of `prefixItems` is an array of type definitions. Each type definition
 
 ### items
 
-The value of `items` is a type definition or a boolean.
+The value of `items` is a type definition or a boolean. If no `items` constraint is defined, the default value is `true`.
 
 If value is a type definition, the value describes the schema that is applied to all elements of the array whose index is greater than the largest index of the [`prefixItems`](#prefixitems) constraint. The following example would accept `[1, true, 1]` or `[1, true, 1, 1]` but reject `[1, true, "foo"]`:
 
@@ -316,7 +316,7 @@ If the value is `false`, the validated array must be the exact same length as th
 }
 ```
 
-If the value is true, elements of the array whose index is greater than the largest index of the [`prefixItems`](#prefixitems) constraint will accept any value. This is the default behavior if no "items" constraint is defined. The following examples would accept `[1, true]` as well as `[1, true, 1]` and `[1, true, false, "foo", "bar"]`.
+If the value is true, elements of the array whose index is greater than the largest index of the [`prefixItems`](#prefixitems) constraint accept any value. The following examples would accept `[1, true]`, `[1, true, 1]` and `[1, true, false, "foo", "bar"]`.
 
 ```json
 "definitions": {

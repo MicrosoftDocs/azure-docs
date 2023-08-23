@@ -21,7 +21,7 @@ You are limited to 256 parameters in a template. For more information, see [Temp
 
 For parameter best practices, see [Parameters](./best-practices.md#parameters).
 
-In addition to minValue, maxValue, minLength, maxLength, and allowedValues, [languageVersion 2.0](#template-format) introduces some aggregate type validation constraints to be used in [parameters](#parameters) and [outputs](#outputs) definitions. These constraints include:
+In addition to minValue, maxValue, minLength, maxLength, and allowedValues, [languageVersion 2.0](./syntax.md#template-format) introduces some aggregate type validation constraints to be used in [definitions](./syntax.md#definitions), [parameters](./syntax.md#parameters) and [outputs](./syntax.md#outputs) definitions. These constraints include:
 
 - [additionalProperties](#additionalproperties)
 - [discriminator](#discriminator)
@@ -183,7 +183,7 @@ You can set minimum and maximum values for integer parameters. You can set one o
 
 ## Object constraints
 
-The object constraints are only allowed on [objects](./data-types.md#objects), and can only be used with [languageVersion 2.0](#template-format).
+The object constraints are only allowed on [objects](./data-types.md#objects), and can only be used with [languageVersion 2.0](./syntax.md#template-format).
 
 ### Properties
 
@@ -233,7 +233,7 @@ All properties are required unless the property’s [type definition](./definiti
 
 ### additionalProperties
 
-The value of `additionalProperties` is a [type definition](./definitions.md) or a boolean value.
+The value of `additionalProperties` is a [type definition](./definitions.md) or a boolean value. If no `additionalProperties` constraint is defined, the default value is `true`.
 
 If value is a type definition, the value describes the schema that is applied to all properties not mentioned in the [`properties`](#properties) constraint. The following example would accept `{"fizz": "buzz", "foo": "bar"}` but reject `{"property": 1}`.
 
@@ -281,7 +281,7 @@ If the value is `false`, no properties beyond those defined in the [`properties`
 }
 ```
 
-If the value is `true`, any property not defined in the [`properties`](#properties) constraint will accept any value. This is the default behavior if no `additionalProperties` constraint is defined. The following example would accept `{"foo": "string", "bar": 1, "fizz": "buzz"}`.
+If the value is `true`, any property not defined in the [`properties`](#properties) constraint accepts any value. The following example would accept `{"foo": "string", "bar": 1, "fizz": "buzz"}`.
 
 ```json
 "parameters": {
@@ -329,7 +329,7 @@ The value `discriminator` defines what schema to apply based on a discriminator 
 
 ## Array constraints
 
-The array constraints are only allowed on [arrays](./data-types.md#arrays), and can only be used with [languageVersion 2.0](#template-format).
+The array constraints are only allowed on [arrays](./data-types.md#arrays), and can only be used with [languageVersion 2.0](./syntax.md#template-format).
 
 ### prefixItems
 
@@ -349,7 +349,7 @@ The value of `prefixItems` is an array of [type definitions](./definitions.md). 
 
 ### items
 
-The value of `items` is a [type definition](./definitions.md) or a boolean.
+The value of `items` is a [type definition](./definitions.md) or a boolean. If no `items` constraint is defined, the default value is `true`.
 
 If value is a type definition, the value describes the schema that is applied to all elements of the array whose index is greater than the largest index of the [`prefixItems`](#prefixitems) constraint. The following example would accept `[1, true, 1]` or `[1, true, 1, 1]` but reject `[1, true, "foo"]`:
 
@@ -393,7 +393,7 @@ If the value is `false`, the validated array must be the exact same length as th
 }
 ```
 
-If the value is true, elements of the array whose index is greater than the largest index of the [`prefixItems`](#prefixitems) constraint will accept any value. This is the default behavior if no "items" constraint is defined. The following examples would accept `[1, true]` as well as `[1, true, 1]` and `[1, true, false, "foo", "bar"]`.
+If the value is true, elements of the array whose index is greater than the largest index of the [`prefixItems`](#prefixitems) constraint accept any value. The following examples would accept `[1, true]`, `[1, true, 1]` and `[1, true, false, "foo", "bar"]`.
 
 ```json
 "parameters": {
@@ -423,7 +423,7 @@ If the value is true, elements of the array whose index is greater than the larg
 
 ## nullable constraint
 
-The nullable constraint can only be used with [languageVersion 2.0](#template-format). It indicates that the value may be `null` or omitted. See [Properties](#properties) for an example.
+The nullable constraint can only be used with [languageVersion 2.0](./syntax.md#template-format). It indicates that the value may be `null` or omitted. See [Properties](#properties) for an example.
 
 ## Description
 

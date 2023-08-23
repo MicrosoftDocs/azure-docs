@@ -156,7 +156,7 @@ The following example creates one storage account for each name provided in the 
 
 If you want to return values from the deployed resources, you can use [copy in the outputs section](copy-outputs.md).
 
-### Symbolic name usage
+### Use symbolic name
 
 [Symbolic name](./syntax.md#use-symbolic-name) can be assigned to resource copy loops. The loop index is zero-based. In the following example, `myStorages[1]` references the second resource in the resource loop.
 

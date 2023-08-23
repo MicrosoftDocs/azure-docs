@@ -35,7 +35,7 @@ To pass a string value as a parameter to a function, use single quotes.
 "name": "[concat('storage', uniqueString(resourceGroup().id))]"
 ```
 
-Most functions work the same whether deployed to a resource group, subscription, management group, or tenant. The following functions have restrictions based on the scope:
+Most functions work the same whether they are deployed to a resource group, subscription, management group, or tenant. The following functions have restrictions based on the scope:
 
 * [resourceGroup](template-functions-resource.md#resourcegroup) - can only be used in deployments to a resource group.
 * [resourceId](template-functions-resource.md#resourceid) - can be used at any scope, but the valid parameters change depending on the scope.
@@ -67,7 +67,7 @@ To escape double quotes in an expression, such as adding a JSON object in the te
 },
 ```
 
-To escape single quotes in an ARM expression output, double up the single quotes. The output of the following template will result in JSON value `{"abc":"'quoted'"}`.
+To escape single quotes in an ARM expression output, double up the single quotes. The output of the following template results in JSON value `{"abc":"'quoted'"}`.
 
 ```json
 {

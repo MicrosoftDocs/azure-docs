@@ -10,6 +10,8 @@ ms.date: 09/28/2022
 
 To deploy a resource through an Azure Resource Manager template (ARM template), you add a resource declaration. Use the `resources` array in a JSON template.
 
+languageVersion 2.0 makes a list of enhancements to ARM JSON templates, such as use symbolic names for resources and change the resource definition from an array to an object. The majority of the samples shown in this article still use `resources` array.  For languageVersion 2.0 specific information, see [Use symbolic name](#use-symbolic-name).
+
 > [!TIP]
 > We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [resource declaration](../bicep/resource-declaration.md).
 
@@ -126,6 +128,82 @@ Use intellisense or [template reference](/azure/templates/) to determine which p
   ]
 }
 ```
+
+## Use symbolic name
+
+In [Bicep](../bicep/overview.md), each resource definition has a symbolic name. The symbolic name is used to reference the resource from the other parts of your Bicep file. To support symbolic name in ARM JSON templates, add `languageVersion` with the version `2.0`, and change the resource definition from an array to an object. When `languageVersion` is specified for a template, symbolic name must be specified for root level resources. For example:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+    {
+      "type": "Microsoft.ContainerService/managedClusters",
+      ...
+    }
+  ]
+}
+```
+
+The preceding JSON can be written into the following JSON:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "languageVersion": "2.0",
+  "contentVersion": "1.0.0.0",
+  "resources": {
+    "aks": {
+      "type": "Microsoft.ContainerService/managedClusters",
+      ...
+    }
+  }
+}
+```
+
+Symbolic names are case-sensitive. The allowed characters for symbolic names are letters, numbers, and _. Symbolic names must be unique in a template, but can overlap with variable names, parameter names, and output names in a template.  In the following example, the symbolic name of the storage account resource has the same name as the output.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "languageVersion": "2.0",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageAccountName": {
+      "type": "string",
+      "defaultValue": "[format('storage{0}', uniqueString(resourceGroup().id))]"
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
+    }
+  },
+  "resources": {
+    "myStorage": {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2022-09-01",
+      "name": "[parameters('storageAccountName')]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "Storage",
+      "properties": {}
+    }
+  },
+  "outputs": {
+    "myStorage":{
+      "type": "object",
+      "value": "[reference('myStorage')]"
+    }
+  }
+}
+```
+
+The [reference](./template-functions-resource.md#reference) function can use a resource's symbolic name, as shown in the preceding example. The reference function can no longer use a resource's name, for example, `reference(parameters('storageAccountName'))` is not allowed.
+
+If [Deployments resource](/azure/templates/microsoft.resources/deployments?tabs=json) is used in a symbolic-name deployment, use apiVersion `2020-09-01` or later.
 
 ## Next steps
 

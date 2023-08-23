@@ -129,7 +129,8 @@ When you deploy to an Azure subscription, management group, or tenant, the retur
 }
 ```
 
-When deploying a [languageVersion 2.0](./syntax.md) template, the format is:
+When deploying a [languageVersion 2.0](./syntax.md) template, the `deployment` function returns a limited subset of properties:
+
 
 ```json
 {

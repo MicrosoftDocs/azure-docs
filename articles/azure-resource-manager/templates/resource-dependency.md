@@ -204,7 +204,7 @@ The following example shows how to deploy three storage accounts before deployin
 }
 ```
 
-[Symbolic names](./syntax.md#use-symbolic-name) can be used in dependsOn arrays. If a symbolic name is for a copy loop, all resources in the loop are added as dependencies. The preceding sample can be written as the following JSON. In the sample, **myVM** depends on all of the storage accounts in the **myStorages** loop.
+[Symbolic names](./syntax.md#use-symbolic-name) can be used in `dependsOn`` arrays. If a symbolic name is for a copy loop, all resources in the loop are added as dependencies. The preceding sample can be written as the following JSON. In the sample, **myVM** depends on all of the storage accounts in the **myStorages** loop.
 
 ```json
 {
