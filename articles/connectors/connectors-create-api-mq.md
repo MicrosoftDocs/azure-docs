@@ -148,7 +148,7 @@ These steps use the Azure portal, but with the appropriate Azure Logic Apps exte
 
 1. [Follow these general steps to add the MQ built-in trigger that you want](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger). For more information, see [MQ built-in connector triggers](/azure/logic-apps/connectors/built-in/reference/mq/#triggers).
 
-1. Provide the [requirerd information to authenticate your connection](/azure/logic-apps/connectors/built-in/reference/mq/#authentication). When you're done, select **Create**.
+1. Provide the [required information to authenticate your connection](/azure/logic-apps/connectors/built-in/reference/mq/#authentication). When you're done, select **Create**.
 
 1. When the trigger information box appears, provide the required [information for your trigger](/azure/logic-apps/connectors/built-in/reference/mq/#triggers).
 
@@ -176,7 +176,7 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
 
 1. [Follow these general steps to add the MQ action that you want](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=consumption#add-action). For more information, see [MQ connector actions](/connectors/mq/#actions).
 
-1. Provide the [information to authenticate your connection](/connectors/mq/#creating-a-connection). When you're done, select **Create**.
+1. Provide the [required information to authenticate your connection](/connectors/mq/#creating-a-connection). When you're done, select **Create**.
 
 1. When the action information box appears, provide the required [information for your action](/connectors/mq/#actions).
 
@@ -198,7 +198,7 @@ The steps to add and use an MQ action differ based on whether your workflow uses
 
 1. [Follow these general steps to add the MQ built-in action that you want](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-action). For more information, see [MQ built-in connector actions](/azure/logic-apps/connectors/built-in/reference/mq/#actions).
 
-1. Provide the [information to authenticate your connection](/azure/logic-apps/connectors/built-in/reference/mq/#authentication). When you're done, select **Create**.
+1. Provide the [required information to authenticate your connection](/azure/logic-apps/connectors/built-in/reference/mq/#authentication). When you're done, select **Create**.
 
 1. When the action information box appears, provide the required [information for your action](/azure/logic-apps/connectors/built-in/reference/mq/#actions).
 
@@ -212,7 +212,7 @@ The steps to add and use an MQ action differ based on whether your workflow uses
 
 1. [Follow these general steps to add the MQ action that you want](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-action). For more information, see [MQ connector actions](/connectors/mq/#actions).
 
-1. Provide the [information to authenticate your connection](/connectors/mq/#creating-a-connection). When you're done, select **Create**.
+1. Provide the [required information to authenticate your connection](/connectors/mq/#creating-a-connection). When you're done, select **Create**.
 
 1. When the action information box appears, provide the required [information for your action](/connectors/mq/#actions).
 
