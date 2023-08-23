@@ -24239,8 +24239,13 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/app-service/functions-geo-disaster-recovery.md",
+            "source_path_from_root": "/articles/functions/functions-geo-disaster-recovery.md",
             "redirect_url": "/azure/reliability/reliability-functions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/hdinsight/hdinsight-business-continuity.md",
+            "redirect_url": "/azure/reliability/reliability-hdinsight",
             "redirect_document_id": false
         }
     ]
