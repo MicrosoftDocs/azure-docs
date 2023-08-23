@@ -10,7 +10,7 @@ ms.custom: playwright-testing-preview
 
 In this article, you create, view, and delete Microsoft Playwright Testing Preview workspaces, using the Azure portal.
 
-You can also [manage workspaces in the Playwright dashboard](./how-to-manage-workspace-in-azure-portal.md).
+You can also [manage workspaces in the Playwright dashboard](./how-to-manage-playwright-workspace.md).
 
 > [!IMPORTANT]
 > Microsoft Playwright Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).

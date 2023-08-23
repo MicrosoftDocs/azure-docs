@@ -73,4 +73,4 @@ To enable testing privately hosted endpoints, update the Playwright configuratio
 
 - Learn more about [running cross-platform tests](./how-to-cross-platform-tests.md).
 - Learn more about [automating end-to-end tests with GitHub Actions](./quickstart-automate-end-to-end-testing.md).
-- Learn more about [managing workspaces in the Azure portal](./how-to-manage-workspace-in-azure-portal.md).
+- Learn more about [managing workspaces in the Azure portal](./how-to-manage-playwright-workspace.md).

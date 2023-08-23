@@ -10,7 +10,7 @@ ms.custom: playwright-testing-preview
 
 In this article, you learn how to manage Microsoft Playwright Testing Preview workspaces by using the Playwright dashboard. You use a workspace to run and analyze your Playwright tests in the cloud.
 
-You can also [manage Microsoft Playwright Testing workspaces by using the Azure portal](./how-to-manage-workspace-in-azure-portal.md).
+You can also [manage Microsoft Playwright Testing workspaces by using the Azure portal](./how-to-manage-playwright-workspace.md).
 
 > [!IMPORTANT]
 > Microsoft Playwright Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -72,7 +72,7 @@ To select another workspace in the Playwright dashboard:
 
 ## Delete a workspace
 
-To remove a workspace, follow these steps to [delete a workspace by using the Azure portal](./how-to-manage-workspace-in-azure-portal.md#delete-a-workspace).
+To remove a workspace, follow these steps to [delete a workspace by using the Azure portal](./how-to-manage-playwright-workspace.md#delete-a-workspace).
 
 > [!WARNING]
 > Once a Microsoft Playwright Testing workspace is deleted, it cannot be recovered.

@@ -227,4 +227,4 @@ Update the CI workflow definition to run your Playwright tests with the Playwrig
 
 You've successfully set up a continuous end-to-end testing workflow to run your Playwright tests at scale on cloud-hosted browsers.
 
-- Learn more about [managing workspaces in the Azure portal](./how-to-manage-workspace-in-azure-portal.md).
+- Learn more about [managing workspaces in the Azure portal](./how-to-manage-playwright-workspace.md).

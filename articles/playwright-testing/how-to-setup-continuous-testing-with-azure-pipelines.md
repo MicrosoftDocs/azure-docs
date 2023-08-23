@@ -19,7 +19,7 @@ If you're using GitHub Actions for your CI/CD pipelines, see the tutorial [Autom
 
 * An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.  
 * An Azure DevOps organization and project. If you don't have an Azure DevOps organization, you can [create one for free](/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops&preserve-view=true). If you need help with getting started with Azure Pipelines, see [Create your first pipeline](/azure/devops/pipelines/create-first-pipeline?preserve-view=true&view=azure-devops&tabs=java%2Ctfs-2018-2%2Cbrowser).
-* A Microsoft Playwright Testing workspace. If you need to create a Microsoft Playwright Testing workspace, see [Manage Microsoft Playwright Testing workspaces in the Azure portal](./how-to-manage-workspace-in-azure-portal.md).
+* A Microsoft Playwright Testing workspace. If you need to create a Microsoft Playwright Testing workspace, see [Manage Microsoft Playwright Testing workspaces in the Azure portal](./how-to-manage-playwright-workspace.md).
 
 ## Update Playwright configuration
 
@@ -126,4 +126,4 @@ steps:
 
 - Learn more about [running cross-platform tests](./how-to-cross-platform-tests.md).
 - Learn more about [testing privately hosted applications](./how-to-test-private-endpoints.md).
-- Learn more about [managing workspaces and permissions in the Azure portal](./how-to-manage-workspace-in-azure-portal.md).
+- Learn more about [managing workspaces and permissions in the Azure portal](./how-to-manage-playwright-workspace.md).
