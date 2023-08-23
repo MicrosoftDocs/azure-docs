@@ -88,5 +88,5 @@ To access your tenant-level SLA performance:
 ## Next steps
 
 * [Azure AD reports overview](overview-reports.md)
-* [Programmatic access to Azure AD reports](concept-reporting-api.md)
+* [Programmatic access to Azure AD reports](./howto-configure-prerequisites-for-reporting-api.md)
 * [Azure Active Directory risk detections](../identity-protection/overview-identity-protection.md)

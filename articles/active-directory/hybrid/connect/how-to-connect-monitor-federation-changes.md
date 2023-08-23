@@ -30,7 +30,7 @@ To monitor the trust relationship, we recommend you set up alerts to be notified
 Follow these steps to set up alerts to monitor the trust relationship:
 
 1. [Configure Azure AD audit logs](../../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) to flow to an Azure Log Analytics Workspace. 
-2. [Create an alert rule](../../../azure-monitor/alerts/alerts-log.md) that triggers based on Azure AD log query. 
+2. [Create an alert rule](../../../azure-monitor/alerts/alerts-create-new-alert-rule.md) that triggers based on Azure AD log query. 
 3. [Add an action group](../../../azure-monitor/alerts/action-groups.md) to the alert rule that gets notified when the alert condition is met.  
 
 After the environment is configured, the data flows as follows: 
@@ -57,6 +57,6 @@ After the environment is configured, the data flows as follows:
 ## Next steps
 
 - [Integrate Azure AD logs with Azure Monitor logs](../../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
-- [Create, view, and manage log alerts using Azure Monitor](../../../azure-monitor/alerts/alerts-log.md)
+- [Create, view, and manage log alerts using Azure Monitor](../../../azure-monitor/alerts/alerts-create-new-alert-rule.md)
 - [Manage AD FS trust with Azure AD using Azure AD Connect](how-to-connect-azure-ad-trust.md)
 - [Best practices for securing Active Directory Federation Services](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs)

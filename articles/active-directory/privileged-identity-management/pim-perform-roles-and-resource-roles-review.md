@@ -23,7 +23,7 @@ Privileged Identity Management (PIM) simplifies how enterprises manage privilege
 
 If you are assigned to an administrative role, your organization's privileged role administrator may ask you to regularly confirm that you still need that role for your job. You might get an email that includes a link, or you can go straight to the [Azure portal](https://portal.azure.com) and begin.
 
-If you're a privileged role administrator or global administrator interested in access reviews, get more details at [How to start an access review](pim-create-azure-ad-roles-and-resource-roles-review.md).
+If you're a privileged role administrator or global administrator interested in access reviews, get more details at [How to start an access review](./pim-create-roles-and-resource-roles-review.md).
 
 ## Approve or deny access
 
@@ -50,5 +50,5 @@ Follow these steps to find and complete the access review:
 
 ## Next steps
 
-- [Create an access review of Azure resource and Azure AD roles in PIM](pim-create-azure-ad-roles-and-resource-roles-review.md)
-- [Complete an access review of Azure resource and Azure AD roles in PIM](pim-complete-azure-ad-roles-and-resource-roles-review.md)
+- [Create an access review of Azure resource and Azure AD roles in PIM](./pim-create-roles-and-resource-roles-review.md)
+- [Complete an access review of Azure resource and Azure AD roles in PIM](./pim-complete-roles-and-resource-roles-review.md)

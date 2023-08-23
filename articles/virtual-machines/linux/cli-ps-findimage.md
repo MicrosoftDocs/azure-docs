@@ -86,6 +86,11 @@ For example, the following command displays all Debian offers:
 az vm image list --offer Debian --all --output table 
 ```
 
+You can limit your results to a single architecture by adding the `--architecture` parameter. For example, to display all Arm64 images available from Canonical:
+
+```azurecli-interactive
+az vm image list --architecture Arm64 --publisher Canonical --all --output table
+```
 
 ## Look at all available images
  

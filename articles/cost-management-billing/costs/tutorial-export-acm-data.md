@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article shows you how you can create and manage exported Cost Management data so that you can use it in external systems.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/08/2023
+ms.date: 08/14/2023
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -280,9 +280,13 @@ Each export creates a new file, so older exports aren't overwritten.
 
 #### Create an export for multiple subscriptions
 
-If you have an Enterprise Agreement, then you can use a management group to aggregate subscription cost information in a single container. Then you can export cost management data for the management group. When you create an export in the Azure portal, select the **Actual Costs** option. When you create a management group export using the API, create a *usage export*. Currently, exports at the management group scope only support usage charges. Purchases including reservations and savings plans aren't present in your exports file.
+If you have an Enterprise Agreement, then you can use a management group to aggregate subscription cost information in a single container. Then you can export cost management data for the management group. When you create an export in the Azure portal, select the **Actual Costs** option. When you create a management group export using the API, create a *usage export*. 
+
+Currently, exports at the management group scope only support usage charges. Purchases including reservations and savings plans aren't present in your exports file.
 
 Exports for management groups of other subscription types aren't supported.
+
+Multiple currencies are not supported in management group exports.
 
 1. If you haven't already created a management group, create one group and assign subscriptions to it.
 1. In cost analysis, set the scope to your management group and select **Select this management group**.
@@ -379,6 +383,9 @@ Select an export to view the run history.
 ### Export runs twice a day for the first five days of the month
 
 If you've created a daily export, you have two runs per day for the first five days of each month. One run executes and creates a file with the current month’s cost data. It's the run that's available for you to see in the run history. A second run also executes to create a file with all the costs from the prior month. The second run isn't currently visible in the run history. Azure executes the second run to ensure that your latest file for the past month contains all charges exactly as seen on your invoice. It runs because there are cases where latent usage and charges are included in the invoice up to 72 hours after the calendar month has closed. To learn more about Cost Management usage data updates, see [Cost and usage data updates and retention](understand-cost-mgt-data.md#cost-and-usage-data-updates-and-retention). 
+
+>[!NOTE]
+  > Daily export created between 1st to 5th of the current month would not generate data for the previous month as the export schedule starts from the date of creation. 
 
 ## Access exported data from other systems
 

@@ -201,7 +201,7 @@ Applications that receive tokens rely on claim values that are authoritatively i
 - [Configure a custom signing key](#configure-a-custom-signing-key)
 - [update the application manifest to accept mapped claims](#update-the-application-manifest).  
 
-Without this, Azure AD returns an [AADSTS50146 error code](reference-aadsts-error-codes.md#aadsts-error-codes).
+Without this, Azure AD returns an [AADSTS50146 error code](./reference-error-codes.md#aadsts-error-codes).
 
 ## Configure a custom signing key
 For multi-tenant apps, a custom signing key should be used. Don't set `acceptMappedClaims` in the app manifest. when setting up an app in the Azure portal, you get an app registration object and a service principal in your tenant. That app is using the Azure global sign-in key, which can't be used for customizing claims in tokens. To get custom claims in tokens, create a custom sign-in key from a certificate and add it to service principal. For testing purposes, you can use a self-signed certificate. After configuring the custom signing key, your application code needs to validate the token signing key.

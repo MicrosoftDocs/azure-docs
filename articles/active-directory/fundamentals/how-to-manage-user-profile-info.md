@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 # Add or update a user's profile information and settings
 A user's profile information and settings can be managed on an individual basis and for all users in your directory. When you look at these settings together, you can see how permissions, restrictions, and other connections work together.
 
-This article covers how to add user profile information, such as a profile picture and job-specific information. You can also choose to allow users to connect their LinkedIn accounts or restrict access to the Azure AD administration portal. Some settings may be managed in more than one area of Azure AD. For more information about adding new users, see [How to add or delete users in Azure Active Directory](add-users-azure-active-directory.md). 
+This article covers how to add user profile information, such as a profile picture and job-specific information. You can also choose to allow users to connect their LinkedIn accounts or restrict access to the Azure AD administration portal. Some settings may be managed in more than one area of Azure AD. For more information about adding new users, see [How to add or delete users in Azure Active Directory](./add-users.md). 
 
 ## Add or change profile information
 
@@ -107,10 +107,10 @@ The following settings can be managed from Azure AD **User settings**.
 
 ## Next steps
 
-- [Add or delete users](add-users-azure-active-directory.md)
+- [Add or delete users](./add-users.md)
 
-- [Assign roles to users](active-directory-users-assign-role-azure-portal.md)
+- [Assign roles to users](./how-subscriptions-associated-directory.md)
 
-- [Create a basic group and add members](active-directory-groups-create-azure-portal.md)
+- [Create a basic group and add members](./how-to-manage-groups.md)
 
 - [View Azure AD enterprise user management documentation](../enterprise-users/index.yml).

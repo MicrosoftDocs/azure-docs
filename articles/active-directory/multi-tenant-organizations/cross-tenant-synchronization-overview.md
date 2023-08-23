@@ -258,12 +258,12 @@ What federation options are supported for users in the target tenant back to the
 
 Does cross-tenant synchronization use System for Cross-Domain Identity Management (SCIM)?
 
-- No. Currently, Azure AD supports a SCIM client, but not a SCIM server. For more information, see [SCIM synchronization with Azure Active Directory](../fundamentals/sync-scim.md).
+- No. Currently, Azure AD supports a SCIM client, but not a SCIM server. For more information, see [SCIM synchronization with Azure Active Directory](../architecture/sync-scim.md).
 
 #### Deprovisioning
 Does cross-tenant synchronization support deprovisioning users?
 
-- Yes, when the below actions occur in the source tenant, the user will be [soft deleted](../fundamentals/recover-from-deletions.md#soft-deletions) in the target tenant. 
+- Yes, when the below actions occur in the source tenant, the user will be [soft deleted](../architecture/recover-from-deletions.md#soft-deletions) in the target tenant. 
 
   - Delete the user in the source tenant
   - Unassign the user from the cross-tenant synchronization configuration

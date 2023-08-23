@@ -92,7 +92,7 @@ You need to add references to the URLs for your training and testing data.
 * Use the sample form and receipt images included in the samples (also available on [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms) or you can use the above steps to get the SAS URL of an individual document in blob storage.
 
 > [!NOTE]
-> The code snippets in this project use remote forms accessed by URLs. If you want to process local form documents instead, see the related methods in the [reference documentation](/python/api/azure-ai-formrecognizer) and [samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples).
+> The code snippets in this project use remote forms accessed by URLs. If you want to process local documents instead, see the related methods in the [reference documentation](/python/api/azure-ai-formrecognizer) and [samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples).
 
 ## Analyze layout
 
@@ -194,7 +194,7 @@ To analyze ID documents from a URL, use the `begin_recognize_id_documents_from_u
 
 ## Train a custom model
 
-This section demonstrates how to train a model with your own data. A trained model can output structured data that includes the key/value relationships in the original form document. After you train the model, you can test, retrain, and eventually use it to reliably extract data from more forms according to your needs.
+This section demonstrates how to train a model with your own data. A trained model can output structured data that includes the key/value relationships in the original document. After you train the model, you can test, retrain, and eventually use it to reliably extract data from more forms according to your needs.
 
 > [!NOTE]
 > You can also train models with a graphical user interface such as the [Document Intelligence Sample Labeling tool](../../../label-tool.md).
