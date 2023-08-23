@@ -53,9 +53,8 @@ Four Azure resources are defined in the template.
 
     [![Deploy to Azure.](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.mobilenetwork%2Fmobilenetwork-create-new-site%2Fazuredeploy.json)
 
-2. Select or enter the following values, using the information you retrieved in [Prerequisites](#prerequisites).
-
 :::zone pivot="ase-pro-gpu"
+2. Select or enter the following values, using the information you retrieved in [Prerequisites](#prerequisites).
 
     | Field | Value |
     |--|--|
@@ -80,6 +79,7 @@ Four Azure resources are defined in the template.
 
 :::zone-end
 :::zone pivot="ase-pro-2"
+2. Select or enter the following values, using the information you retrieved in [Prerequisites](#prerequisites).
 
     | Field | Value |
     |--|--|
