@@ -307,7 +307,7 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
 ::: zone-end
 
 ::: zone pivot="python-mode-decorators"
-5. Use your browser, or a tool like [Postman](https://www.getpostman.com/) or [cURL](https://curl.haxx.se/), send an HTTP request to the URL endpoint. Replace the last segment with the name of the orchestrator function (`HelloOrchestrator`). The URL must be similar to `http://localhost:7071/api/orchestrators/hello_orchestrator`.
+5. Use your browser, or a tool like [Postman](https://www.getpostman.com/) or [cURL](https://curl.haxx.se/), send an HTTP request to the URL endpoint. Replace the last segment with the name of the orchestrator function (`hello_orchestrator`). The URL must be similar to `http://localhost:7071/api/orchestrators/hello_orchestrator`.
 
    The response is the initial result from the HTTP function letting you know the durable orchestration has started successfully. It isn't yet the end result of the orchestration. The response includes a few useful URLs. For now, let's query the status of the orchestration.
 ::: zone-end
