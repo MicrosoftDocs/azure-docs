@@ -8,35 +8,35 @@ ms.topic: conceptual
 
 # Manage databases in Azure SQL database using Azure Automation.
 
-This article describes the process to connect and manage databases in Azure SQL database using Azure Automation's [system-assigned managed identity](enable-managed-identity-for-automation.md). With Azure Automation, you can manage databases in Azure SQL Database by using the [latest Az PowerShell cmdlets](https://learn.microsoft.com/powershell/module/) that are available in [Azure Az PowerShell](https://learn.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-10.2.0).
+This article describes the procedure to connect and manage databases in Azure SQL database using Azure Automation's [system-assigned managed identity](enable-managed-identity-for-automation.md). With Azure Automation, you can manage databases in Azure SQL Database by using the [latest Az PowerShell cmdlets](https://learn.microsoft.com/powershell/module/) that are available in [Azure Az PowerShell](https://learn.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-10.2.0).
 
-Azure Automation has these Azure Az PowerShell cmdlets available out of the box, so that you can perform all the SQL Database management tasks within the service. You can also pair these cmdlets in Azure Automation with the cmdlets for other Azure services to automate complex tasks across Azure services and across third-party systems.
+Azure Automation has these Azure Az PowerShell cmdlets available out of the box, so that you can perform all the SQL database management tasks within the service. You can also pair these cmdlets in Azure Automation with the cmdlets of other Azure services to automate complex tasks across Azure services and across third-party systems.
 
 Azure Automation can also issue T-SQL (Transact SQL) commands against the SQL servers using PowerShell.
 
-To run the commands against the database, you need to do the following actions:
-- Ensure that Automation account has a system assigned managed identity.
+To run the commands against the database, you need to do the following:
+- Ensure that Automation account has a system-assigned managed identity.
 - Provide the appropriate permissions to the Automation managed identity.
 - Configure the SQL server to utilize Azure Active Directory authentication.
 - Create a user on the SQL server that maps to the Automation account managed identity.
 - Create a runbook to connect and execute the commands.
-- (Optional) If the SQL server is protected by a firewall, create a Hybrid Runbook Worker (HRW), install the SQL modules on that server, and add the HRW IP address to the allowed list on the firewall.
+- (Optional) If the SQL server is protected by a firewall, create a Hybrid Runbook Worker (HRW), install the SQL modules on that server, and add the HRW IP address to the allowlist on the firewall.
 
 
 ## Connect to Azure SQL database using System-assigned Managed identity
 
 To allow access from the Automation system managed identity to the Azure SQL database, follow these steps:
 
-1. If the Automation system managed identity is **OFF**
+1. If the Automation system managed identity is **OFF**, do the following:
    1. Sign in to the [Azure portal](https://portal.azure.com).
    1. Go to your Automation account.
    1. In the Automation account page, under **Account Settings**, select **Identity**.
-   1. Under the **System assigned** tab, select the status as **ON**.
+   1. Under the **System assigned** tab, select the **Status** as **ON**.
    
       :::image type="content" source="./media/manage-sql-server-using-automation/system-assigned-managed-identity-status-on-inline.png" alt-text="Screenshot of setting the status to ON of System assigned managed identity." lightbox="./media/manage-sql-server-using-automation/system-assigned-managed-identity-status-on-expanded.png":::
 
-1. After the System Managed Identity is **ON**, you must provide the account the required access by by using these steps:
-    1. In the Automation account | Identity page, System assigned tab, under permissions, select **Azure role assignments**.
+1. After the System Managed Identity is **ON**, you must provide the account the required access using these steps:
+    1. In the **Automation account | Identity** page, **System assigned** tab, under permissions, select **Azure role assignments**.
     1. In the Azure role assignments page, select **+Add role assignment (preview)**.
     1. In the **Add role assignment (preview)**, select the **Scope** as *SQL*, select the **Subscription**, **Resource** from the drop-down and **Role** as *Owner*. Select **Save**.
       
@@ -50,10 +50,10 @@ To allow access from the Automation system managed identity to the Azure SQL dat
 1. Add authentication on the SQL side by using these steps:
     1. Go to [Azure portal](https://portal.azure.com) home page and select **SQL servers**.
     1. In the **SQL server** page, under **Settings**, select **SQL Databases**.
-    1. Select your database to go to the SQL database page and select **Query editor (preview) and execute the following two queries:
-      - CREATE USER "AutomationAccount"
-      - FROM EXTERNAL PROVIDER WITH OBJECT_ID= `ObjectID`
-      - EXEC sp_addrolemember `dbowner`, "AutomationAccount"
+    1. Select your database to go to the SQL database page and select **Query editor (preview)** and execute the following two queries:
+       - CREATE USER "AutomationAccount"
+       - FROM EXTERNAL PROVIDER WITH OBJECT_ID= `ObjectID`
+       - EXEC sp_addrolemember `dbowner`, "AutomationAccount"
         Automation account - replace with your Automation account's name
         Object ID - replace with object (principal) ID for your system managed identity principal from step 1.
 
@@ -82,10 +82,11 @@ roles.[name], members.[name]
 > [!NOTE]
 > When a SQL server is running behind a firewall, you must run the Azure Automation runbook on a machine in your own network. Ensure that you configure this machine as a Hybrid Runbook Worker so that the IP address or network is not blocked by the firewall. For more information on how to configure a machine as a Hybrid Worker, see [create a hybrid worker](extension-based-hybrid-runbook-worker-install.md).
 
+### Using a Hybrid worker
 When you use a Hybrid worker, the modules that your runbook uses, must be installed locally from an elevated PowerShell prompt. For example, `- Install-module Az.Accounts and Install-module SqlServer`. To find the required module names, run a command on each cmdlet and then check the source. For example, to check module name for cmdlet `Connect-AzAccounts` which is part of the Az.Account module, run the command: `get-command Connect-AzAccount`
 
 > [!NOTE]
-> We recommend that you add the following code on the top of any runbook that's intended to run on a Hybrid worker: `if ($($env:computerName) -eq "CLIENT") {"Runbook running on Azure CLIENT"} else {"Runbook running on " + $env:computerName}`. The code allows you to see the node it's running on and in case you accidentally run it on Azure cloud instead of the Hybrid worker, then it helps to determine the reason for a runbook that didn't work.
+> We recommend that you add the following code on the top of any runbook that's intended to run on a Hybrid worker: `if ($($env:computerName) -eq "CLIENT") {"Runbook running on Azure CLIENT"} else {"Runbook running on " + $env:computerName}`. The code allows you to see the node it's running on and in case you accidentally run it on Azure cloud instead of the Hybrid worker, then it helps to determine the reason a runbook didn't work.
 
 
 ## Next steps
