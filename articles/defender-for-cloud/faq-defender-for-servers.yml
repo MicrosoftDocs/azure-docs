@@ -90,7 +90,7 @@ sections:
             - For the Azure Monitor agent, billing and feature coverage for Defender for Servers depends only on the plan being enabled in the subscription.
           
       - question: |
-          What happens if I enabled defender for server plan at the workspace level only (not at subscription)?
+          What happens if I enabled the Defender for Servers plan at the workspace level only (not at subscription)?
         answer: |
           You can enable Microsoft Defender for Servers at the Log Analytics workspace level, but only servers reporting to that workspace will be protected and billed, and those servers won't receive some benefits, such as Microsoft Defender for Endpoint, vulnerability assessment, and just-in-time VM access.       
       
