@@ -45,27 +45,6 @@ landingContent:
           - text: Azure portal how-to video series
             url: azure-portal-video-series.md
 
-
-  # Card
-  - title: Create and manage support requests
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Create an Azure support request
-            url: supportability/how-to-create-azure-support-request.md
-          - text: Manage an Azure support request
-            url: supportability/how-to-manage-azure-support-request.md
-
-  # Card
-  - title: Manage access to the Azure portal
-    linkLists:
-      - linkListType: reference
-        links:
-          - text: Safelist the Azure portal URLs
-            url: azure-portal-safelist-urls.md
-          - text: Azure role-based access control for dashboards
-            url: azure-portal-dashboard-share-access.md
-                        
   # Card
   - title: Customize the Azure portal
     linkLists:
@@ -80,6 +59,15 @@ landingContent:
           - text: Add, remove, and sort favorites
             url: azure-portal-add-remove-sort-favorites.md
 
+  # Card
+  - title: Manage access to the Azure portal
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Safelist the Azure portal URLs
+            url: azure-portal-safelist-urls.md
+          - text: Azure role-based access control for dashboards
+            url: azure-portal-dashboard-share-access.md
            
   # Card
   - title: Reference
@@ -90,3 +78,14 @@ landingContent:
             url: /cli/azure/portal
           - text: Azure PowerShell
             url: /powershell/module/az.portal
+
+
+  # Card
+  - title: Create and manage support requests
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Create an Azure support request
+            url: supportability/how-to-create-azure-support-request.md
+          - text: Manage an Azure support request
+            url: supportability/how-to-manage-azure-support-request.md
