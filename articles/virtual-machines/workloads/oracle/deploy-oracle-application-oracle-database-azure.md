@@ -10,4 +10,4 @@ ms.topic: article
 ms.date: 08/23/2023
 ---
 
-#Architectures to deploy Oracle applications with Oracle database on Azure IaaS 
+# Architectures to deploy Oracle applications with Oracle database on Azure IaaS 
