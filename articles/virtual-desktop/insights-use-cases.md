@@ -13,7 +13,9 @@ Using Azure Virtual Desktop Insights can help you understand your deployments of
 
 ## Prerequisites
 
-- An existing host pool with session hosts, and a workspace [configured to use Azure Virtual Desktop Insights](insights.md). You need to have had active sessions for a period of time before you can make informed decisions.
+- An existing host pool with session hosts, and a workspace [configured to use Azure Virtual Desktop Insights](insights.md).
+
+- You need to have had active sessions for a period of time before you can make informed decisions.
 
 ## Connectivity
 
