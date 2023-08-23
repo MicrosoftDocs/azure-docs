@@ -23,7 +23,7 @@ Typically you can refer to the [region support](https://azure.microsoft.com/expl
 > [!NOTE]
 > Language service doesn't store or process customer data outside the region you deploy the service instance in.
 
-## Conversational language understanding, orchestration workflow, and custom sentiment analysis
+## Conversational language understanding and orchestration workflow
 
 Conversational language understanding, orchestration workflow, and custom sentiment analysis are only available in some Azure regions. Some regions are available for **both authoring and prediction**, while other regions are **prediction only**. Language resources in authoring regions allow you to create, edit, train, and deploy your projects. Language resources in prediction regions allow you to get [predictions from a deployment](./custom-features/multi-region-deployment.md).
 
@@ -61,6 +61,44 @@ Conversational language understanding, orchestration workflow, and custom sentim
 | West US 2          | ✓         | ✓           |
 | West US 3          | ✓         | ✓           |
 
+
+## Custom sentiment analysis
+
+Custom sentiment analysis is only available in some Azure regions. Some regions are available for **both authoring and prediction**, while other regions are **prediction only**. Language resources in authoring regions allow you to create, edit, train, and deploy your projects. Language resources in prediction regions allow you to get [predictions from a deployment](./custom-features/multi-region-deployment.md).
+
+| Region             | Authoring | Prediction  |
+|--------------------|-----------|-------------|
+| Australia East     | ✓         | ✓           |
+| Brazil South       |           | ✓           |
+| Canada Central     |           | ✓           |
+| Central India      | ✓         | ✓           |
+| Central US         |           | ✓           |
+| China East 2       | ✓         | ✓           |
+| China North 2      |           | ✓           |
+| East Asia          |           | ✓           |
+| East US            | ✓         | ✓           |
+| East US 2          | ✓         | ✓           |
+| France Central     |           | ✓           |
+| Japan East         |           | ✓           |
+| Japan West         |           | ✓           |
+| Jio India West     |           | ✓           |
+| Korea Central      |           | ✓           |
+| North Central US   |           | ✓           |
+| North Europe       | ✓         | ✓           |
+| Norway East        |           | ✓           |
+| Qatar Central      |           | ✓           |
+| South Africa North |           | ✓           |
+| South Central US   | ✓         | ✓           |
+| Southeast Asia     |           | ✓           |
+| Sweden Central     |           | ✓           |
+| Switzerland North  | ✓         | ✓           |
+| UAE North          |           | ✓           |
+| UK South           | ✓         | ✓           |
+| West Central US    |           | ✓           |
+| West Europe        | ✓         | ✓           |
+| West US            |            | ✓           |
+| West US 2          | ✓         | ✓           |
+| West US 3          | ✓         | ✓           |
 
 ## Custom named entity recognition 
 

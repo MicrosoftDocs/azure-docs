@@ -35,7 +35,7 @@ See [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/lan
 
 ### Regional availability
 
-See [Language service regional availability](../concepts/regional-support.md#conversational-language-understanding-orchestration-workflow-and-custom-sentiment-analysis).
+See [Language service regional availability](../concepts/regional-support.md#conversational-language-understanding-and-orchestration-workflow).
 
 ## API limits
 
