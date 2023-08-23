@@ -5,13 +5,13 @@ items:
   expanded: true
   items: 
     - name: What is Microsoft Playwright Testing?
-      displayName: Playwright, MPT, overview
+      displayName: Playwright, MPT, overview, introduction
       href: overview-what-is-microsoft-playwright-testing.md
 - name: Quickstarts
   expanded: true
   items: 
     - name: Run end-to-end tests at scale
-      displayName: getting started, quickstart, cli, command-line
+      displayName: getting started, quickstart, cli, command-line, playwright
       href: quickstart-run-end-to-end-tests.md
     - name: Set up continuous end-to-end testing
       displayName: getting started, quickstart, github actions, azure pipelines, azure devops, ci/cd, CICD, continuous integration, continuous delivery
@@ -19,20 +19,16 @@ items:
 - name: How-to guides
   expanded: true
   items:
-    - name: Manage workspaces in Azure portal
-      href: how-to-manage-workspace-in-azure-portal.md
-    - name: Manage workspaces in Playwright dashboard
-      href: how-to-manage-workspace-with-playwright-dashboard.md
-    - name: Run existing Playwright tests in the cloud
-      href: how-to-run-with-playwright-testing.md
-    - name: Run tests across multiple operating systems
-      href: how-to-cross-platform-tests.md
-    - name: Test private endpoints
-      href: how-to-test-private-endpoints.md
-    - name: Authenticate requests
+    - name: Configure region affinity
+      displayName: region, location, workspace, location preference
+      href: how-to-configure-region-affinity.md
+    - name: Manage workspaces
+      href: how-to-manage-playwright-workspace.md
+    - name: Manage access keys
+      displayName: permissions, access, security, authentication, authorization, keys, secrets, revoke
       href: how-to-manage-access-keys.md
     - name: Manage workspace access
-      displayName: RBAC, permissions, access, manage, role-based access control, users, roles
+      displayName: RBAC, permissions, access, role-based access control, users, roles, security, authorization, authentication, grant, revoke
       href: how-to-assign-roles.md
 - name: Resources
   items: 
