@@ -126,7 +126,7 @@ To run an on-demand backup, follow these steps:
 
     [ ![Screenshot shows the Back up now option in Windows Server.](./media/backup-configure-vault/backup-now.png) ](./media/backup-configure-vault/backup-now.png#lightbox)
 
-1. If the MARS agent version is *2.0.9269.0 or newer*, select a *subset of the volumes backed up periodically* for on-demand backup. Only the files/folders configured for periodic backup can be backed up on demand.
+1. If the MARS agent version is *2.0.9254.0 or newer*, select a *subset of the volumes backed up periodically* for on-demand backup. Only the files/folders configured for periodic backup can be backed up on demand.
 
    :::image type="content" source="./media/backup-configure-vault/select-subset-of-volumes-backed-up-periodically-for-mars-on-demand-backup.png" alt-text="Screenshot shows how to select a subset of volumes backed up periodically for on-demand backup.":::
 

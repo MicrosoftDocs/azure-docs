@@ -126,7 +126,7 @@ If you've already installed the agent on any machines, ensure you're running the
     * Save the passphrase in a secure location. You need it to restore a backup.
     * If you lose or forget the passphrase, Microsoft can't help you recover the backup data.
 
-   The MARS agent can automatically save the passphrase securely to Azure Key Vault. So, we recommend you create a Key Vault and grant permissions to your Recovery Services vault to save the passphrase to the Key Vault before registering your first MARS agent to the vault.
+   The MARS agent can automatically save the passphrase securely to Azure Key Vault. So, we recommend you create a Key Vault and grant permissions to your Recovery Services vault to save the passphrase to the Key Vault before registering your first MARS agent to the vault. [Learn more](save-backup-passphrase-securely-in-azure-key-vault.md).
 
    After granting the required permissions, you can save the passphrase to the Key Vault by copying the *Key Vault URI* from the Azure portal and to the Register Server Wizard.
 
