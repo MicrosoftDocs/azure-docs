@@ -3,7 +3,7 @@ title: Vertical Pod Autoscaling in Azure Kubernetes Service (AKS)
 description: Learn how to vertically autoscale your pod on an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 08/18/2023
+ms.date: 08/22/2023
 ---
 
 # Vertical Pod Autoscaling in Azure Kubernetes Service (AKS)
@@ -398,7 +398,7 @@ Vertical Pod autoscaling uses the `VerticalPodAutoscaler` object to automaticall
 
 ## Customized Recommender for Vertical Pod Autoscaler
 
-In the VPA, one of the core components is the Recommender. It provides recommendations for resource usage based on real time resource consumption. AKS deploys a recommender when a cluster enables VPA. You can deploy a customized recommender and configure the VPA object to use the customized recommender.
+In the VPA, one of the core components is the Recommender. It provides recommendations for resource usage based on real time resource consumption. AKS deploys a recommender when a cluster enables VPA. You can deploy a customized recommender and configure the VPA object to use it.
 
 The following example is a customized recommender that you apply to your existing AKS cluster. You then configure the VPA object to use the customized recommender.
 
@@ -506,6 +506,12 @@ The following example is a customized recommender that you apply to your existin
                 - "-c" 
                 - "while true; do timeout 0.5s yes >/dev/null; sleep 0.5s; done" 
     ```
+
+   If `memory` is not specified in `controlledResources`, the Recommender won't respond to Out of Memory (OOM) events. In this case, you are only setting CPU in `controlledValues`. `controlledValues` allows you to choose whether to update the containers's resource requests by `RequestsOnly` option, or both resource requests and limits using the `RequestsAndLimits` option. The default value is `RequestsAndLimits`. If you use the `RequestsAndLimits` option, **requests** are computed based on actual usage, and **limits** are calculated based on the current pod's request and limit ratio.
+
+   For example, if you start with a pod that requests 2 CPUs and limits to 4 CPUs, VPA always sets the limit to be twice as much as requests. The same principle applies to memory. So when using the `RequestsAndLimits` mode, this can serve as a blueprint for your initial application resource requests and limits.
+
+You can simplify VPA object by using Auto mode and computing recommendations for both CPU and Memory. 
 
 4. Deploy the `hamster_customized-recomender.yaml` example using the [kubectl apply][kubectl-apply] command and specify the name of your YAML manifest.
 
