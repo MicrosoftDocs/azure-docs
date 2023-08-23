@@ -93,7 +93,7 @@ In addition to resource consumption, Azure Container Apps also charges based on 
 - The first 2 million requests in each subscription per calendar month are free.
 - [Health probe](./health-probes.md) requests aren't billable.
 
-Request charges don't apply to Azure Container Apps jobs.
+Request charges don't apply to Azure Container Apps jobs because they don't support ingress.
 
 <a id="consumption-dedicated"></a>
 
