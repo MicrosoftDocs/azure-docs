@@ -161,7 +161,7 @@ To learn more, see the [`func new`](functions-core-tools-reference.md#func-new) 
 ## Add a binding to your function
 
 Adding input or output bindings to an existing function requires you to manually update the function definition. 
-[!INCLUDE [functions-add-output-binding-example-all-langs](../../includes/functions-add-output-binding-example-all-langs.md)]
+[!INCLUDE [functions-add-output-binding-example-all-langs](../../includes/functions-add-output-binding-example-all-languages.md)]
 The following considerations apply when adding bindings to a function:
 ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell"
 + For languages that define functions using the _function.json_ configuration file, Visual Studio Code simplifies the process of  adding bindings to an existing function definition. For more information, see [Connect functions to Azure services using bindings](add-bindings-existing-function.md#visual-studio-code). 
@@ -331,7 +331,7 @@ The following considerations apply when using the administrator endpoint for loc
 
 ### [Event Grid trigger](#tab/event-grid-trigger)
 
-Event Grid triggers have spcific requirements to enable local testing. For more information, see [Local testing with viewer web app](event-grid-how-tos.md#local-testing-with-viewer-web-app).
+Event Grid triggers have specific requirements to enable local testing. For more information, see [Local testing with viewer web app](event-grid-how-tos.md#local-testing-with-viewer-web-app).
 
 ---
 
