@@ -38,7 +38,7 @@ To allow access from the Automation system managed identity to the Azure SQL dat
 1. After the System Managed Identity is **ON**, you must provide the account the required access using these steps:
     1. In the **Automation account | Identity** page, **System assigned** tab, under permissions, select **Azure role assignments**.
     1. In the Azure role assignments page, select **+Add role assignment (preview)**.
-    1. In the **Add role assignment (preview)**, select the **Scope** as *SQL*, select the **Subscription**, **Resource** from the drop-down and **Role** as *Owner*. Select **Save**.
+    1. In the **Add role assignment (preview)**, select the **Scope** as *SQL*, select the **Subscription**, **Resource** from the drop-down and **Role** according to minimum required permissions. and then select **Save**.
       
       :::image type="content" source="./media/manage-sql-server-using-automation/add-role-assignement-inline.png" alt-text="Screenshot of adding role assignment." lightbox="./media/manage-sql-server-using-automation/add-role-assignement-expanded.png":::
 
