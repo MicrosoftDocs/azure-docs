@@ -33,14 +33,14 @@ To allow access from the Automation system managed identity to the Azure SQL dat
    1. In the Automation account page, under **Account Settings**, select **Identity**.
    1. Under the **System assigned** tab, select the **Status** as **ON**.
    
-      :::image type="content" source="./media/manage-sql-server-using-automation/system-assigned-managed-identity-status-on-inline.png" alt-text="Screenshot of setting the status to ON of System assigned managed identity." lightbox="./media/manage-sql-server-using-automation/system-assigned-managed-identity-status-on-expanded.png":::
+      :::image type="content" source="./media/manage-sql-server-using-automation/system-assigned-managed-identity-status-on-inline.png" alt-text="Screenshot of setting the status to ON for System assigned managed identity." lightbox="./media/manage-sql-server-using-automation/system-assigned-managed-identity-status-on-expanded.png":::
 
 1. After the System Managed Identity is **ON**, you must provide the account the required access using these steps:
     1. In the **Automation account | Identity** page, **System assigned** tab, under permissions, select **Azure role assignments**.
     1. In the Azure role assignments page, select **+Add role assignment (preview)**.
-    1. In the **Add role assignment (preview)**, select the **Scope** as *SQL*, select the **Subscription**, **Resource** from the drop-down and **Role** according to minimum required permissions. and then select **Save**.
+    1. In the **Add role assignment (preview)**, select the **Scope** as *SQL*, select the **Subscription**, **Resource** from the drop-down and **Role** according to minimum required permissions, and then select **Save**.
       
-      :::image type="content" source="./media/manage-sql-server-using-automation/add-role-assignement-inline.png" alt-text="Screenshot of adding role assignment." lightbox="./media/manage-sql-server-using-automation/add-role-assignement-expanded.png":::
+      :::image type="content" source="./media/manage-sql-server-using-automation/add-role-assignment-inline.png" alt-text="Screenshot of adding role assignment when the system assigned managed identity's status is set to ON." lightbox="./media/manage-sql-server-using-automation/add-role-assignment-expanded.png":::
 
 1. Configure the SQL server for Active Directory authentication by using these steps:
     1. Go to [Azure portal](https://portal.azure.com) home page and select **SQL servers**.
