@@ -1,19 +1,18 @@
 ---
-title: Troubleshoot common outbound connectivity issues with Azure Load Balancer 
-titleSuffix: Azure Load Balancer
-description: In this article, learn to troubleshoot for common problems with outbound connectivity with Azure Load Balancer. This includes most common issues of SNAT exhaustion and connection timeouts.
+title: Troubleshoot Azure Load Balancer outbound connectivity issues  
+description: Learn troubleshooting guidance for outbound connections in Azure Load Balancer. This includes issues of SNAT exhaustion and connection timeouts.
 services: load-balancer
 author: mbender-ms
 ms.service: load-balancer
 ms.custom: ignite-2022
 ms.topic: troubleshooting
-ms.date: 05/22/2023
+ms.date: 08/24/2023
 ms.author: mbender
 ---
 
-# Troubleshoot common outbound connectivity issues with Azure Load Balancer
+# Troubleshoot Azure Load Balancer outbound connectivity issues
 
-This article provides troubleshooting guidance for common problems that can occur with outbound connections from an Azure Load Balancer. Most problems with outbound connectivity that customers experience is due to source network address translation (SNAT) port exhaustion and connection timeouts leading to dropped packets. 
+Learn troubleshooting guidance for outbound connections in Azure Load Balancer. This includes understanding source network address translation (SNAT) and it's impact on connections, using individual public IPs on VMs, and designing applications for connection efficiency to avoid SNAT port exhaustion. Most problems with outbound connectivity that customers experience is due to SNAT port exhaustion and connection timeouts leading to dropped packets. 
 
 To learn more about SNAT ports, see [Source Network Address Translation for outbound connections](load-balancer-outbound-connections.md).
 
@@ -25,7 +24,7 @@ Follow [Standard load balancer diagnostics with metrics, alerts, and resource he
 
 It's important to optimize your Azure deployments for outbound connectivity. Optimization can prevent or alleviate issues with outbound connectivity.
 
-### Use a NAT gateway for outbound connectivity to the Internet
+### Deploy NAT gateway for outbound Internet connectivity
 
 Azure NAT Gateway is a highly resilient and scalable Azure service that provides outbound connectivity to the internet from your virtual network. A NAT gateway’s unique method of consuming SNAT ports helps resolve common SNAT exhaustion and connection issues. For more information about Azure NAT Gateway, see [What is Azure NAT Gateway?](../virtual-network/nat-gateway/nat-overview.md).
 
@@ -66,7 +65,7 @@ We highly recommend considering utilizing NAT gateway instead, as assigning indi
 >
 >Private Link is the recommended option over service endpoints for private access to Azure hosted services. For more information on the difference between Private Link and service endpoints, see [Compare Private Endpoints and Service Endpoints](../virtual-network/vnet-integration-for-azure-services.md#compare-private-endpoints-and-service-endpoints).
 
-## Design your applications to use connections efficiently
+## Design connection-efficient applications
 
 When you design your applications, ensure they use connections efficiently. Connection efficiency can reduce or eliminate SNAT port exhaustion in your deployed applications.
 
