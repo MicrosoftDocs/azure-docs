@@ -4,7 +4,7 @@ titleSuffix: Azure VPN Gateway
 description: Learn how to delete a virtual network gateway using PowerShell.
 author: cherylmc
 ms.service: vpn-gateway
-ms.date: 08/21/2023
+ms.date: 08/23/2023
 ms.author: cherylmc
 ms.topic: how-to 
 ms.custom: devx-track-azurepowershell
@@ -26,9 +26,9 @@ There are a couple of different approaches you can take when you want to delete 
 
 To delete a virtual network gateway for a S2S configuration, you must first delete each resource that pertains to the virtual network gateway. Resources must be deleted in a certain order due to dependencies. In the following examples, some of the values must be specified, while other values are an output result. We use the following specific values in the examples for demonstration purposes:
 
-VNet name: VNet1<br>
-Resource Group name: TestRG1<br>
-Virtual network gateway name: VNet1GW<br>
+* VNet name: VNet1
+* Resource Group name: TestRG1
+* Virtual network gateway name: VNet1GW
 
 1. Get the virtual network gateway that you want to delete.
 
@@ -98,9 +98,9 @@ Virtual network gateway name: VNet1GW<br>
 
 To delete a virtual network gateway for a V2V configuration, you must first delete each resource that pertains to the virtual network gateway. Resources must be deleted in a certain order due to dependencies. In the following examples, some of the values must be specified, while other values are an output result. We use the following specific values in the examples for demonstration purposes:
 
-VNet name: VNet1<br>
-Resource Group name: TestRG1<br>
-Virtual network gateway name: VNet1GW<br>
+* VNet name: VNet1
+* Resource Group name: TestRG1
+* Virtual network gateway name: VNet1GW
 
 1. Get the virtual network gateway that you want to delete.
 
@@ -176,9 +176,9 @@ Virtual network gateway name: VNet1GW<br>
 
 To delete a virtual network gateway for a P2S configuration, you must first delete each resource that pertains to the virtual network gateway. Resources must be deleted in a certain order due to dependencies. When you work with the examples below, some of the values must be specified, while other values are an output result. We use the following specific values in the examples for demonstration purposes:
 
-VNet name: VNet1<br>
-Resource Group name: TestRG1<br>
-Virtual network gateway name: VNet1GW<br>
+* VNet name: VNet1
+* Resource Group name: TestRG1
+* Virtual network gateway name: VNet1GW
 
 >[!NOTE]
 > When you delete the VPN gateway, all connected clients will be disconnected from the VNet without warning.
