@@ -10,6 +10,7 @@ ms.subservice: language-service
 ms.topic: conceptual
 ms.date: 08/23/2023
 ms.author: aahi
+ms.custom: references_regions 
 ---
 
 # Language service supported regions
