@@ -103,9 +103,9 @@ C:\Program Files\Microsoft Azure Recovery Services Agent <br>
 C:\Program Files\Microsoft Azure Server Discovery Service <br>
 C:\Program Files\Microsoft Azure Site Recovery Process Server <br>
 C:\Program Files\Microsoft Azure Site Recovery Provider <br>
-C:\Program Files\Microsoft Azure to On-Premises Reprotect agent <br>
+C:\Program Files\Microsoft Azure to on-Premises Reprotect agent <br>
 C:\Program Files\Microsoft Azure VMware Discovery Service <br>
-C:\Program Files\Microsoft On-Premise to Azure Replication agent <br>
+C:\Program Files\Microsoft on-Premise to Azure Replication agent <br>
 E:\ <br>
 
 #### If Antivirus software is active on source machine

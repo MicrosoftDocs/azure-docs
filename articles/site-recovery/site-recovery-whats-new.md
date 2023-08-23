@@ -54,7 +54,7 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 **Providers and agents** | Updates to Site Recovery agents and providers as detailed in the rollup KB article.
 **Issue fixes/improvements** | Many fixes and improvement as detailed in the rollup KB article.
 **Azure VM disaster recovery** | Added support for Oracle Linux 8.7 with UEK7 kernel, RHEL 9 and Cent OS 9 Linux distros.
-**VMware VM/physical disaster recovery to Azure** | Added support for Oracle Linux 8.7 with UEK7 kernel, RHEL 9, Cent OS 9 and Oracle Linux 9 Linux distros. <br> <br/> Added support for Windows Server 2019 as the ASR replication appliance. <br> <br/> Added support for Microsoft Edge to be the default browser in Appliance Configuration Manager. <br> <br/> Added support to select an Availability set or a Proximity Placement group, after enabling replication using modernized VMware/Physical machine replication scenario.
+**VMware VM/physical disaster recovery to Azure** | Added support for Oracle Linux 8.7 with UEK7 kernel, RHEL 9, Cent OS 9 and Oracle Linux 9 Linux distros. <br> <br/> Added support for Windows Server 2019 as the Azure Site Recovery replication appliance. <br> <br/> Added support for Microsoft Edge to be the default browser in Appliance Configuration Manager. <br> <br/> Added support to select an Availability set or a Proximity Placement group, after enabling replication using modernized VMware/Physical machine replication scenario.
 
 
 ## Updates (February 2023)

@@ -3,12 +3,23 @@ title: Deploy Azure Site Recovery replication appliance - Modernized
 description: This article describes how to replicate appliance for VMware disaster recovery to Azure with Azure Site Recovery - Modernized
 ms.service: site-recovery
 ms.topic: article
-ms.date: 08/01/2023
+ms.date: 08/23/2023
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ---
 
 # Deploy Azure Site Recovery replication appliance - Modernized
+
+>[!NOTE]
+> The information in this article applies to Azure Site Recovery - Modernized. For information about configuration server requirements in Classic releases, [see this article](vmware-azure-configuration-server-requirements.md).
+
+>[!NOTE]
+> Ensure you create a new and exclusive Recovery Services vault for setting up the ASR replication appliance. Don't use an existing vault.
+
+You deploy an on-premises replication appliance when you use [Azure Site Recovery](site-recovery-overview.md) for disaster recovery of VMware VMs or physical servers to Azure.
+
+- The replication appliance coordinates communications between on-premises VMware and Azure. It also manages data replication.
+- [Learn more](vmware-azure-architecture-modernized.md) about the Azure Site Recovery replication appliance components and processes.
 
 ## Prepare Azure account
 
@@ -85,7 +96,7 @@ The OVF template spins up a machine with the required specifications.
 
 ### Set up the appliance through PowerShell
 
-If there is any organizational restrictions, you can manually set up the Site Recovery replication appliance through PowerShell. Follow these steps:
+If there are any organizational restrictions, you can manually set up the Site Recovery replication appliance through PowerShell. Follow these steps:
 
 1. Download the installers from [here](https://aka.ms/V2ARcmApplianceCreationPowershellZip) and place this folder on the Azure Site Recovery replication appliance.
 2. After successfully copying the zip folder, unzip and extract the components of the folder.
@@ -136,9 +147,9 @@ If there is any organizational restrictions, you can manually set up the Site Re
 
   - **Azure Site Recovery replication appliance key**: Copy the key from the portal by navigating to **Recovery Services vault** > **Getting started** > **Site Recovery** > **VMware to Azure: Prepare Infrastructure**.
 
-  - After pasting the key, select **Login.** You'll be redirected to a new authentication tab.
+  - After pasting the key, select **Login.** You're redirected to a new authentication tab.
 
-      By default, an authentication code will be generated as highlighted below, in the **Appliance configuration manager** page. Use this code in the authentication tab.
+      By default, an authentication code is generated as highlighted below, in the **Appliance configuration manager** page. Use this code in the authentication tab.
 
   - Enter your Microsoft Azure credentials to complete registration.
 
@@ -158,7 +169,7 @@ If there is any organizational restrictions, you can manually set up the Site Re
 
     :::image type="Configuration of vCenter" source="./media/deploy-vmware-azure-replication-appliance-modernized/vcenter-information.png" alt-text="Screenshot showing configuration of vCenter.":::
 
-7. Select **Add vCenter Server** to add vCenter information. Enter the server name or IP address of the vCenter and port information. Post that, provide username, password, and friendly name. This is used to fetch details of [virtual machine managed through the vCenter](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery). The user account details will be encrypted and stored locally in the machine.
+7. Select **Add vCenter Server** to add vCenter information. Enter the server name or IP address of the vCenter and port information. Post that, provide username, password, and friendly name. This is used to fetch details of [virtual machine managed through the vCenter](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery). The user account details are encrypted and stored locally in the machine.
 
     >[!NOTE]
     >If  you're trying to add the same vCenter Server to multiple appliances, then ensure that the same friendly name is used in all the appliances.
