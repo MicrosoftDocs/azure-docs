@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: decentralized-identity
 ms.subservice: verifiable-credentials
 ms.topic: how-to
-ms.date: 07/20/2023
+ms.date: 08/23/2023
 ms.author: barclayn
 # Customer intent: As a developer, I'm looking for information about the open standards that are supported by Microsoft Entra Verified ID.
 ---
@@ -33,13 +33,7 @@ Before you can continue with the steps in this article, you need to meet the fol
 
 ## Scenario description
 
-Users of Microsoft Azure AD verifiable credentials can in association with IDEMIA Identity Proofing solution: 
-
-- Secure access to high-value applications and sensitive resources. 
-- Have faster remote onboarding of employees, partners and customers thanks to a trustworthy self-service enrollment by digitally validating information. 
-- Reduce support phone calls and security questions with a simpler, more secure process to verify identity. 
-
-This provides a safer, faster and easier way to verify users: 
+In this tutorial we will integrate Microsoft Azure AD verifiable credentials with IDEMIA Identity Proofing solution:
 
 - More protection against breaches.
 - Credentials verified by IDEMIA’s industry-leading ID verification platform.
