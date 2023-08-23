@@ -28,7 +28,7 @@ If you're new to Azure Policy, here are some helpful resources that you can use 
 - One or more on-premises AKS clusters that are Arc-connected to Azure.
 
     > [!NOTE]
-> Operator Nexus does not require you to install the Azure Policy add-on for AKS in your clusters since the extension is automatically installed during AKS cluster deployment.
+    > Operator Nexus does not require you to install the Azure Policy add-on for AKS in your clusters since the extension is automatically installed during AKS cluster deployment.
 
 - A user account in your subscription with the appropriate role:
     * A [Resource Policy Contributor](../role-based-access-control/built-in-roles.md#resource-policy-contributor) or Owner can view, create, assign, and disable policies.
