@@ -17,7 +17,7 @@ ms.reviewer: guptashi
 
 ms.collection: M365-identity-device-management
 ---
-## What is an identity secure score?
+# What is identity secure score?
 
 The identity secure score is shown as a percentage that functions as an indicator for how aligned you are with Microsoft's recommendations for security. Each improvement action in identity secure score is tailored to your configuration.  
 
