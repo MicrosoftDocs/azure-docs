@@ -64,7 +64,6 @@ Capabilities object has the capabilities of the local participants and is of typ
 > - *addCommunicationUser*: Ability to add a communication user
 > - *addTeamsUser*: Ability to add Teams User
 > - *addPhoneNumber*: Ability to add phone number
-> - *pstnDialOut*: Ability to do pstn dial out
 > - *manageLobby*: Ability to manage lobby (beta only)
 > - *spotlightParticipant*: Ability to spotlight Participant (beta only)
 > - *removeParticipantsSpotlight*: Ability to remove Participant spotlight (beta only)
