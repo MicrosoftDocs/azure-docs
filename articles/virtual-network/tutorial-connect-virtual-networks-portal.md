@@ -101,7 +101,7 @@ Use `ping` to test the communication between the virtual machines.
 
 1. Close the Bastion connection to **vm-1**.
 
-1. Repeat the steps in [Connect to a virtual machine](#connect-to-a-virtual-machine) to connect to VM2.
+1. Repeat the steps in [Connect to a virtual machine](#connect-to-a-virtual-machine) to connect to **vm-2**.
 
 1. At the bash prompt for **vm-2**, enter `ping -c 4 vm-1`.
 
