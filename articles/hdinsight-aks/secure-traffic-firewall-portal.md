@@ -13,7 +13,7 @@ This article provides the steps to secure outbound traffic from your HDInsight o
 
 The following diagram illustrates the example used in this article to simulate an enterprise scenario:
 
-:::image type="content" source="./media/secure-traffic-by-firewall/network-flow.png" alt-text="Diagram showing the network flow." border="true" lightbox="./media/secure-traffic-by-firewall/network-flow.png":::
+:::image type="content" source="./media/secure-traffic-by-firewall-azure-portal/network-flow.png" alt-text="Diagram showing the network flow." border="true" lightbox="./media/secure-traffic-by-firewall-azure-portal/network-flow.png":::
 
 
 ## Create a virtual network and subnets
@@ -36,23 +36,23 @@ The following diagram illustrates the example used in this article to simulate a
 
   1. Create a cluster pool.
     
-     :::image type="content" source="./media/secure-traffic-by-firewall-azure-portal/create-clusterpool-step5.png" alt-text="Diagram showing creating a HDInsight on AKS cluster pool using Azure portal in step number five." border="true" lightbox="./media/secure-traffic-by-firewall-azure-portal/create-clusterpool-step5.png":::
+     :::image type="content" source="./media/secure-traffic-by-firewall-azure-portal/create-cluster-pool-step5.png" alt-text="Diagram showing creating a HDInsight on AKS cluster pool using Azure portal in step number five." border="true" lightbox="./media/secure-traffic-by-firewall-azure-portal/create-cluster-pool-step5.png":::
     
-     :::image type="content" source="./media/secure-traffic-by-firewall-azure-portal/create-clusterpool-networking-step6.png" alt-text="Diagram showing creating a HDInsight on AKS cluster pool networking using Azure portal step 6." border="true" lightbox="./media/secure-traffic-by-firewall-azure-portal/create-clusterpool-networking-step6.png":::
+     :::image type="content" source="./media/secure-traffic-by-firewall-azure-portal/create-cluster-pool-networking-step6.png" alt-text="Diagram showing creating a HDInsight on AKS cluster pool networking using Azure portal step 6." border="true" lightbox="./media/secure-traffic-by-firewall-azure-portal/create-cluster-pool-networking-step6.png":::
     
   2. When HDInsight on AKS cluster pool is created, you can find a route table in subnet `hdiaks-egress-subnet`.
     
-     :::image type="content" source="./media/secure-traffic-by-firewall-azure-portal/create-clusterpool-networking-step7.png" alt-text="Diagram showing creating a HDInsight on AKS cluster pool networking using Azure portal step 7." border="true" lightbox="./media/secure-traffic-by-firewall-azure-portal/create-clusterpool-networking-step7.png":::
+     :::image type="content" source="./media/secure-traffic-by-firewall-azure-portal/create-cluster-pool-networking-step7.png" alt-text="Diagram showing creating a HDInsight on AKS cluster pool networking using Azure portal step 7." border="true" lightbox="./media/secure-traffic-by-firewall-azure-portal/create-cluster-pool-networking-step7.png":::
 
 ### Get AKS cluster details created behind the cluster pool
 
 You can search your cluster pool name in portal, and go to AKS cluster. For example,
 
-:::image type="content" source="./media/secure-traffic-by-firewall-azure-portal/create-clusterpool-networking-step8.png" alt-text="Diagram showing creating a HDInsight on AKS cluster pool kubernetes networking using Azure portal step 8." border="true" lightbox="./media/secure-traffic-by-firewall-azure-portal/create-clusterpool-networking-step8.png":::
+:::image type="content" source="./media/secure-traffic-by-firewall-azure-portal/create-cluster-pool-networking-step8.png" alt-text="Diagram showing creating a HDInsight on AKS cluster pool kubernetes networking using Azure portal step 8." border="true" lightbox="./media/secure-traffic-by-firewall-azure-portal/create-cluster-pool-networking-step8.png":::
 
 Get AKS API Server details.
 
-:::image type="content" source="./media/secure-traffic-by-firewall-azure-portal/create-clusterpool-networking-aks-step9.png" alt-text="Diagram showing creating a HDInsight on AKS cluster pool kubernetes networking using Azure portal  step 9." border="true" lightbox="./media/secure-traffic-by-firewall-azure-portal/create-clusterpool-networking-aks-step9.png":::
+:::image type="content" source="./media/secure-traffic-by-firewall-azure-portal/create-cluster-pool-networking-aks-step9.png" alt-text="Diagram showing creating a HDInsight on AKS cluster pool kubernetes networking using Azure portal  step 9." border="true" lightbox="./media/secure-traffic-by-firewall-azure-portal/create-cluster-pool-networking-aks-step9.png":::
 
 ## Create firewall
 
@@ -82,9 +82,9 @@ Get AKS API Server details.
 
 Add new routes to route table to redirect the traffic to the firewall.
 
-:::image type="content" source="./media/secure-traffic-by-firewall-azure-portal/create-firewall-rules-routetable-step15.png" alt-text="Diagram showing adding route table entries using Azure portal step 15." border="true" lightbox="./media/secure-traffic-by-firewall-azure-portal/create-firewall-rules-routetable-step15.png":::
+:::image type="content" source="./media/secure-traffic-by-firewall-azure-portal/create-firewall-rules-route-table-step15.png" alt-text="Diagram showing adding route table entries using Azure portal step 15." border="true" lightbox="./media/secure-traffic-by-firewall-azure-portal/create-firewall-rules-route-table-step15.png":::
 
-:::image type="content" source="./media/secure-traffic-by-firewall-azure-portal/create-firewall-rules-routetable-entry-step15.png" alt-text="Diagram showing how to add route table entries using Azure portal step 15." border="true" lightbox="./media/secure-traffic-by-firewall-azure-portal/create-firewall-rules-routetable-entry-step15.png":::
+:::image type="content" source="./media/secure-traffic-by-firewall-azure-portal/create-firewall-rules-routetable-entry-step15.png" alt-text="Diagram showing how to add route table entries using Azure portal step 15." border="true" lightbox="./media/secure-traffic-by-firewall-azure-portal/create-firewall-rules-route-table-entry-step15.png":::
 
 ## Create cluster
 
