@@ -19,7 +19,7 @@ metadata:
 # Main Items (Icons)
 # Maximum of 8 items
 highlightedContent:
-# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new | thought-leadership
   items:
     # Card
     - title: What is Azure HPC?
@@ -31,7 +31,7 @@ highlightedContent:
       url: ../virtual-machines/set-up-hpc-vms.md?context=/azure/virtual-machines/context/context
     # Card
     - title: HPC Architecture
-      itemType: reference
+      itemType: architecture
       url: /azure/architecture/browse/?terms=HPC
     # Card
     - title: Run HPC applications on Azure
@@ -43,7 +43,7 @@ highlightedContent:
       url: https://techcommunity.microsoft.com/t5/azure-high-performance-computing/bg-p/AzureHighPerformanceComputingBlog
     # Card
     - title: Azure.com Blogs
-      itemType: architecture
+      itemType: thought-leadership
       url: https://azure.microsoft.com/en-us/blog/tag/high-performance-computing/?s=HPC
 
 # Azure Services
@@ -168,8 +168,8 @@ additionalContent:
 
 
 # HPC Resourcess
-    - title: HPC Resources # < 60 chars (optional)
-      summary: Explore our marketplace, innovate with our partners to accelerate your HPC workloads with cloud flexibility, capability, and scalability. # < 160 chars (optional)
+    - title: HPC Community, Support and Resources # < 60 chars (optional)
+      summary: Explore our marketplace, innovate with our partners to accelerate your HPC workloads with cloud flexibility, capability, and scalability. Find related links to community, support and resources. # < 160 chars (optional)
       items:
         # Card
         - title: Microsoft HPC Channels
@@ -258,7 +258,7 @@ additionalContent:
               url: https://aka.ms/HPCEvents
 
               
-    - title: HPC Conferences# < 60 chars (optional)
+    - title: HPC Conferences # < 60 chars (optional)
       summary: Learn more about product updates, event information and technology offers and more. # < 160 chars (optional)
       items:
         # Card
