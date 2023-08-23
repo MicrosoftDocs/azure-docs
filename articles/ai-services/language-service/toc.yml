@@ -10,6 +10,8 @@ items:
     href: https://aka.ms/unifiedLanguagePricing
   - name: Language support
     href: concepts/language-support.md
+  - name: Region support
+    href: ./concepts/regional-support.md
   - name: Quotas and limits
     href: concepts/data-limits.md
   - name: What's new
