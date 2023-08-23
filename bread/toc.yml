@@ -665,9 +665,9 @@
     - name: Azure API for FHIR
       tocHref: /azure/healthcare-apis/azure-api-for-fhir/
       topicHref: /azure/healthcare-apis/azure-api-for-fhir/index
-  - name: Azure for Industry
-    tocHref: /azure/industry
-    topicHref: /azure/industry
+    - name: Azure for Industry
+      tocHref: /azure/industry
+      topicHref: /azure/industry
     items:
       - name: Azure FarmBeats
         tocHref: /azure/industry
