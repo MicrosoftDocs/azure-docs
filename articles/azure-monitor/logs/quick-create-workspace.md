@@ -20,6 +20,14 @@ You need a Log Analytics workspace if you collect data from:
 * Device collections from Configuration Manager.
 * Diagnostics or log data from Azure Storage.
 
+## Prerequisites
+
+To create a Log Analytics workspace, you need an Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free).
+
+## Permissions required
+
+You need `Microsoft.OperationalInsights/workspaces/write` permissions to the resource group where you want to create the Log Analytics workspace, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example.
+
 ## Create a workspace
 
 ## [Portal](#tab/azure-portal)
