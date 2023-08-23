@@ -21,25 +21,25 @@ This article describes how to generate an ARM template for your cluster automati
 
 2. In the Azure portal search bar, type "HDInsight on AKS cluster" and select "Azure HDInsight on AKS clusters" from the drop-down list.
   
-   :::image type="content" source="./media/Manage-Cluster/Getstarted-PortalSearch-Step1.png" alt-text="Screenshot showing search option for getting started with HDInsight on AKS Cluster." border="true" lightbox="./media/Manage-Cluster/Getstarted-PortalSearch-Step1.png":::
+   :::image type="content" source="./media/create-cluster-using-arm-template-script/cloud-portal-search.png" alt-text="Screenshot showing search option for getting started with HDInsight on AKS Cluster." border="true" lightbox="./media/create-cluster-using-arm-template-script/cloud-portal-search.png":::
   
 6. Select your cluster name from the list page.
   
-   :::image type="content" source="./media/Manage-Cluster/Getstarted-Portallistview-Step2.png" alt-text="Screenshot showing selecting the HDInsight on AKS Cluster you require from the list." border="true" lightbox="./media/Manage-Cluster/Getstarted-Portallistview-Step2.png":::
+   :::image type="content" source="./media/create-cluster-using-arm-template-script/cloud-portal-list-view.png" alt-text="Screenshot showing selecting the HDInsight on AKS Cluster you require from the list." border="true" lightbox="./media/create-cluster-using-arm-template-script/cloud-portal-list-view.png":::
   
 2. Navigate to the overview blade of your cluster and click on *JSON View* at the top right.
   
-   :::image type="content" source="./media/manage-cluster/view-cost-json-view.png" alt-text="Screenshot showing how to view cost and JSON View buttons from the Azure portal." border="true" lightbox="./media/Manage-Cluster/view-cost-json-view.png":::
+   :::image type="content" source="./media/create-cluster-using-arm-template-script/view-cost-json-view.png" alt-text="Screenshot showing how to view cost and JSON View buttons from the Azure portal." border="true" lightbox="./media/create-cluster-using-arm-template-script/view-cost-json-view.png":::
   
 2. Copy the "Resource JSON" and save it to a local JSON file. For example, `template.json`.
 
 3. Click the following button at the top right in the Azure portal to launch Azure Cloud Shell.
 
-   :::image type="content" source="./media/portal-elements/cloud-shell.png" alt-text="Screenshot screenshot showing Cloud Shell icon.":::
+   :::image type="content" source="./media/create-cluster-using-arm-template-script/cloud-shell.png" alt-text="Screenshot screenshot showing Cloud Shell icon.":::
   
 5. Make sure Cloud Shell is set to "Bash" on the top left and upload your `template.json` file.
 
-   :::image type="content" source="./media/export-arm-template/azure-cloud-shell-template-upload.png" alt-text="Screenshot showing how to upload your template.json file." border="true" lightbox="./media/export-arm-template/azure-cloud-shell-template-upload.png":::
+   :::image type="content" source="./media/create-cluster-using-arm-template-script/azure-cloud-shell-template-upload.png" alt-text="Screenshot showing how to upload your template.json file." border="true" lightbox="./media/create-cluster-using-arm-template-script/azure-cloud-shell-template-upload.png":::
    
 2. Execute the following command to generate the ARM template.
 
@@ -49,7 +49,7 @@ This article describes how to generate an ARM template for your cluster automati
       python arm_transform.py template.json
    ```
    
-    :::image type="content" source="./media/export-arm-template/azure-cloud-shell-script-output.png" alt-text="Screenshot showing results after running the script."  border="true" lightbox="./media/export-arm-template/azure-cloud-shell-script-output.png":::
+    :::image type="content" source="./media/create-cluster-using-arm-template-script/azure-cloud-shell-script-output.png" alt-text="Screenshot showing results after running the script."  border="true" lightbox="./media/create-cluster-using-arm-template-script/azure-cloud-shell-script-output.png":::
 
 This script creates an ARM template with name `template-modified.json` for your cluster and generates a command to deploy the ARM template.
 
