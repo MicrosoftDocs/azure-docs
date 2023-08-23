@@ -105,7 +105,7 @@ Smart cropping aspect rations only applies when you're using the standard model.
 
 Set the [CroppingAspectRatios](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisoptions.croppingaspectratios) property of your **ImageAnalysisOptions** to a list of aspect ratios. For example, to set aspect ratios of 0.9 and 1.33:
 
-[!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/how-to/program.cs?name=cropping_aspect_rations)]
+[!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/how-to/program.cs?name=cropping_aspect_ratios)]
 
 
 ## Get results from the service

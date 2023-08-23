@@ -104,7 +104,7 @@ Smart cropping aspect rations only applies when you're using the standard model.
 
 Call the [SetCroppingAspectRatios](/cpp/cognitive-services/vision/imageanalysis-imageanalysisoptions#setcroppingaspectratios) method of your **ImageAnalysisOptions** with an `std::vector` of aspect ratios. For example, to set aspect ratios of 0.9 and 1.33:
 
-[!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/how-to/how-to.cpp?name=cropping_aspect_rations)]
+[!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/how-to/how-to.cpp?name=cropping_aspect_ratios)]
 
 
 ## Get results from the service

@@ -100,7 +100,7 @@ Smart cropping aspect rations only applies when you're using the standard model.
 
 Set the [cropping_aspect_ratios](/python/api/azure-ai-vision/azure.ai.vision.imageanalysisoptions#azure-ai-vision-imageanalysisoptions-cropping-aspect-ratios) property of your **ImageAnalysisOptions** to a list of aspect ratios. For example, to set aspect ration of 0.9 and 1.33:
 
-[!code-python[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/how-to/main.py?name=cropping_aspect_rations)]
+[!code-python[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/how-to/main.py?name=cropping_aspect_ratios)]
 
 
 ## Get results from the service

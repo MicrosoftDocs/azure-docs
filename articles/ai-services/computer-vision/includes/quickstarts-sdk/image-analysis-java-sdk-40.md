@@ -87,7 +87,7 @@ From the project directory, open the *Program.cs* file that was created previous
 > [!TIP]
 > The code shows analyzing an image URL. You can also analyze a local image file, or an image from a memory buffer. See the [Analyze Image how-to guide](../../how-to/call-analyze-image-40.md) for more details.
 
-[!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/custom-model/program.cs?name=snippet_single)]
+[!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/quick-start/ImageAnalysis.java?name=snippet_single)]
 
 
 Then, build and run the application. You should see output similar to the one shown here.
