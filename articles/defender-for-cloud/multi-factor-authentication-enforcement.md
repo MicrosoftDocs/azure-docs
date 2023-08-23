@@ -17,9 +17,9 @@ Defender for Cloud places a high value on MFA. The security control that contrib
 
 The following recommendations in the Enable MFA control ensure you're meeting the recommended practices for users of your subscriptions:
 
-- MFA should be enabled on accounts with owner permissions on your subscription
-- MFA should be enabled on accounts with write permissions on your subscription
-- MFA should be enabled on accounts with read permissions on your subscription
+- Accounts with owner permissions on Azure resources should be MFA enabled
+- Accounts with write permissions on Azure resources should be MFA enabled
+- Accounts with read permissions on Azure resources should be MFA enabled
 
 
 There are three ways to enable MFA and be compliant with the two recommendations in Defender for Cloud: security defaults, per-user assignment, and conditional access (CA) policy.
