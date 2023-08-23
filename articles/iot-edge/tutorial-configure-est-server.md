@@ -186,7 +186,7 @@ Using Device Provisioning Service allows you to automatically issue and renew ce
 1. Select **Add enrollment group** then complete the following steps to configure the enrollment.
 1. On the **Registration + provisioning** tab, choose the following settings:
 
-    :::image type="content" source="./media/tutorial-configure-est-server/dps-add-enrollment-latest.png" alt-text="A screenshot adding DPS enrollment group using the Azure portal.":::
+    :::image type="content" source="./media/tutorial-configure-est-server/device-provisioning-service-add-enrollment-latest.png" alt-text="A screenshot adding DPS enrollment group using the Azure portal.":::
 
     |Setting | Value |
     |--------|---------|
