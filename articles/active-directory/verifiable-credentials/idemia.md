@@ -14,20 +14,16 @@ ms.author: barclayn
 
 # Configure Verified ID by IDEMIA as your Identity Verification Partner
 
-In this article, we cover the steps needed to integrate Microsoft Entra Verified ID with [IDEMIA](https://www.idemia.com/). IDEMIA is a global leader in identity technologies building future-proof solutions that secure billions of frictionless interactions in the physical and digital world. 
-
-Users of Microsoft Azure AD verifiable credentials can be verified by IDEMIA’s Identity Proofing platform, which offers a powerful and robust identity verification solution for enterprises that need to know, trust, and verify the identities of their customers and end users. It enables service providers to digitize the user registration process across various channels, while ensuring total security. 
-
-Identity proofing is completed using biometric and document capture through customer smartphones. Once a user submits their data, biometric and document data is extracted and verified against one another, or against an authoritative data source such as a national identity database or a trusted system of record. Counter-fraud and high-risk profile verifications may also be performed for additional assurance. 
+In this article, we cover the steps needed to integrate Microsoft Entra Verified ID with [IDEMIA](https://www.idemia.com/). Users of Microsoft Azure AD verifiable credentials can be verified by IDEMIA’s Identity Proofing platform. Identity proofing is completed using biometric and document capture through user's smartphones. Once a user submits their data, biometric and document data is extracted and verified against one another, or against an authoritative data source such as a national identity database or a trusted system of record. Counter-fraud and high-risk profile verifications may also be performed for additional assurance. 
 
 The result is a trusted customer identity that gives service providers the assurance they need to proceed with customer onboarding. 
 
 ## Prerequisites
 
-Before you can continue with the steps below you need to meet the following requirements: 
+Before you can continue with the steps in this article, you need to meet the following requirements: 
 
 - A tenant configured for Entra Verified ID service on your Azure account. 
-  - If you do not have an existing tenant, you can create an Azure account for free. 
+  - If you don't have an existing tenant, you can create an Azure account for free.
 - You need to have completed the onboarding process with IDEMIA. 
   - Register on the IDEMIA Experience Portal where you can easily create your own Microsoft VC Entra Application with a few steps low code integration. 
 
@@ -59,9 +55,10 @@ This provides a safer, faster and easier way to verify users:
 
 To configure IDEMIA as your identity verification proofing solution, follow these steps:
 
-1. Go to Quickstart in the Azure portal and select **Verified ID**.
-2. Choose select issuer.
-3. Look for IDEMIA in the search/select issuers drop down.
+1. Navigate to the [Azure portal](https://portal.azure.com/).
+1. In the search box enter **Verified ID** and choose **Verified ID** from the results.
+1. Choose select issuer.
+1. Look for IDEMIA in the search/select issuers drop down.
 
 /media/idemia/search-seclect-issuers.pngsearch-seclect-issuers.png
 
