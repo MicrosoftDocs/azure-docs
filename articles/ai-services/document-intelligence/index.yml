@@ -38,7 +38,7 @@ landingContent:
            - text: 🆕 SDK overview
              url: sdk-overview-v3-1.md
            - text: SDK overview (GA)
-             url: sdk-overview.md
+             url: sdk-overview-v3-0.md
            - text: Help and support
              url: ../../ai-services/cognitive-services-support-options.md?context=/azure/ai-services/document-intelligence/context/context
 

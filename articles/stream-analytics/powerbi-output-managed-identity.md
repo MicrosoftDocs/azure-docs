@@ -15,6 +15,9 @@ ms.date: 08/16/2023
 
 This article shows you how to enable Managed Identity for the Power BI output(s) of a Stream Analytics job through the Azure portal and through an Azure Resource Manager deployment.
 
+> [!NOTE]
+> Only **system-assigned** managed identities are supported with the Power BI output. Currently, using user-assigned managed identities with the Power BI output isn't supported. 
+
 ## Prerequisites
 
 You must have the following prerequisites before you use this feature:
@@ -28,7 +31,7 @@ You must have the following prerequisites before you use this feature:
 1. From the menu bar located on the left side of the screen, select **Managed Identity** located under **Settings**. 
 
     :::image type="content" source="./media/stream-analytics-powerbi-output-managed-identity/managed-identity-select-button.png" alt-text="Screenshot showing the Managed Identity page with Select identity button selected." lightbox="./media/stream-analytics-powerbi-output-managed-identity/managed-identity-select-button.png":::
-1. On the **Select identity** page, select **System assigned identity*** or **User assigned identity**. If you select the latter option, specify the managed identity you want to use. Then, select **Save**.
+1. On the **Select identity** page, select **System assigned identity***. If you select the latter option, specify the managed identity you want to use. Then, select **Save**.
 
     :::image type="content" source="./media/stream-analytics-powerbi-output-managed-identity/system-assigned-identity.png" alt-text="Screenshot showing the Select identity page with System assigned identity selected." lightbox="./media/stream-analytics-powerbi-output-managed-identity/system-assigned-identity.png":::
 1. On the **Managed identity** page, confirm that you see the **Principal ID** and **Principal name** assigned to your Stream Analytics job. The principal name should be same as your Stream Analytics job name. 
