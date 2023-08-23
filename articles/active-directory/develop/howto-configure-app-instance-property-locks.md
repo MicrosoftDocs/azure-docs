@@ -29,7 +29,6 @@ The following property usage scenarios are considered as sensitive:
 
 > [!NOTE]
 > App instance lock is enabled by default for all new applications created using the Microsoft Entra portal. 
-> Going forward, when new apps are created programmatically (via MS Graph application API, PowerShell or CLI) or when an existing application changes their audience from `AzureADMyOrg` to `AzureADMultipleOrgs`, will have the flag enabled by default.
 
 ## Configure an app instance lock
 
