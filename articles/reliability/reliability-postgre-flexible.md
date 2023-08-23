@@ -149,7 +149,6 @@ The health of primary and standby servers are continuously monitored, and approp
 | **Removing Standby** | In the process of deleting standby server. | 
 | **Not Enabled** | Zone redundant high availability is not enabled.  |
 
- 
 >[!NOTE]
 > You can enable high availability during server creation or at a later time as well. If you are enabling or disabling high availability during the post-create stage, operating when the primary server activity is low is recommended.
 
@@ -205,7 +204,7 @@ Application downtime starts at step #3 and can resume operation post step #5. Th
 
 >[!TIP]
 >With flexible server, you can optionally schedule Azure-initiated maintenance activities by choosing a 60-minute window on a day of your preference where the activities on the databases are expected to be low. Azure maintenance tasks such as patching or minor version upgrades would happen during that window. If you don't choose a custom window, a system allocated 1-hr window between 11 pm - 7 am local time is selected for your server. 
- 
+
 >These Azure-initiated maintenance activities are also performed on the standby replica for flexible servers that are configured with availability zones.
 
 
@@ -262,8 +261,7 @@ Application downtime is expected to start after step #1 and persists until step 
 
 **Zonal**. To recover from a zone-level failure, you can [perform point-in-time restore](#point-in-time-restore-of-high-availability-servers) using the backup. You can choose a custom restore point with the latest time to restore the latest data. A new flexible server is deployed in another non-impacted zone. The time taken to restore depends on the previous backup and the volume of transaction logs to recover.
 
-For more information on point-in-time restore see [Backup and restore in Azure Database for PostgreSQL-Flexible Server]
-(/azure/postgresql/flexible-server/concepts-backup-restore).
+For more information on point-in-time restore see [Backup and restore in Azure Database for PostgreSQL-Flexible Server](/azure/postgresql/flexible-server/concepts-backup-restore).
 
 **Zone-redundant**. Flexible server is automatically failed over to the standby server within 60-120s with zero data loss.
 
