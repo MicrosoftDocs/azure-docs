@@ -1075,14 +1075,14 @@ groups:
     title: Azure Sphere
 - id: app-service-java-hosting
   title: App Service Java hosting
-  prompt: Choose how you want to host your Java app
+  prompt: Choose how you want to deploy your Java app
   pivots:
-  - id: java-maven-tomcat
-    title: Tomcat
   - id: java-maven-quarkus
-    title: Quarkus
+    title: Embed your own server
+  - id: java-maven-tomcat
+    title: To a Tomcat server
   - id: java-maven-jboss
-    title: JBoss EAP
+    title: To a JBoss server
 - id: app-service-containers-windows-linux
   title: App Service with custom containers
   prompt: Choose a custom container platform

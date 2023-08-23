@@ -3,13 +3,18 @@ author: cephalin
 ms.service: app-service
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 07/30/2023
+ms.date: 08/30/2023
 ms.author: cephalin
 ---
 
-In this quickstart, you'll use the [Maven Plugin for Azure App Service Web Apps](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md) to deploy a Quarkus application to [Azure App Service](/azure/app-service/). App Service provides a highly scalable, self-patching web app hosting service. Use the tabs to switch between Quarkus, Tomcat, and JBoss EAP instructions.
+In this quickstart, you'll use the [Maven Plugin for Azure App Service Web Apps](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md) to deploy a Java web application with an embedded server to [Azure App Service](/azure/app-service/). App Service provides a highly scalable, self-patching web app hosting service. Use the tabs to switch between Tomcat, JBoss, or embedded server (Java SE) instructions.
 
-![Screenshot of Maven Hello World web app running in Azure App Service in introduction.](../../media/quickstart-java/jboss-sample-in-app-service.png)
+The quickstart uses a [Quarkus](https://quarkus.io) sample, which comes with a bundled web server. You can deploy your own application and server bundle in a single JAR file to App Service instead of the using the Tomcat or JBoss hosting options. If you want, you can also embed a Tomcat server in the JAR file and run that in App Service.
+
+> [!NOTE]
+> To deploy a Spring app to Azure, try [Azure Spring Apps](../../../spring-apps/quickstart.md) instead.
+
+![Screenshot of Maven Hello World web app running in Azure App Service in introduction.](../../media/quickstart-java/quarkus-hello-world-in-browser-azure-app-service.png)
 
 ---
 
