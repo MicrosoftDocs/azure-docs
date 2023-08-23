@@ -1,23 +1,10 @@
----
----
-title: What's happening to Azure Database for MariaDB?
-description: The Azure Database for MariaDB is being deprecated.
-ms.service: mariadb
-ms.topic: overview
-author: karla-escobar
-ms.author: karlaescobar
-ms.reviewer: maghan
-ms.date: 09/14/2023
----
----
-
 # __What's happening to Azure Database for MariaDB?__
 
  
 
-Hello! We have news to share - __Azure Database for MariaDB is on the retirement path__ and Azure Database for MySQL - Single Server is scheduled for retirement by __September 16, 2024__.
+Hello! We have news to share - __Azure Database for MariaDB is on the retirement path__ and Azure Database for MariaDB is scheduled for retirement by __September 19, 2025__.
 
-As part of this retirement, we will no longer support creating new Single Server instances from the Azure portal beginning __January 16, 2023__. If you still need to create Single Server instances to meet business continuity needs, you can leverage [Azure CLI](/azure/mysql/single-server/quickstart-create-mysql-server-database-using-azure-cli). Additionally, you can still use your Terraform template to create single server instances. You will still be able to create read replicas for your existing single server instance from the __Replication blade__ and this will continue to be supported till the sunset date of __September 16, 2024__.
+As part of this retirement, we will no longer support creating new MariaDB server instances from the Azure portal beginning __December 19, 2023__. If you still need to create MariaDB instances to meet business continuity needs, you can leverage [Azure CLI](/azure/mysql/single-server/quickstart-create-mysql-server-database-using-azure-cli) until **March 19, 2024**.
 
 After years of evolving the Azure Database for MySQL - Single Server service, it can no longer handle all the new features, functions, and security needs. We recommend upgrading to Azure Database for MySQL - Flexible Server.
 
@@ -193,5 +180,6 @@ __Next steps__
  
 
  iaDB?
+
 
 
