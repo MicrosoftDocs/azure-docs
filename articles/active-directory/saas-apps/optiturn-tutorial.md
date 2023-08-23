@@ -79,12 +79,12 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 	c. In the **Sign on URL** textbox, type one of the following:
 
 	| **Sign on URL** |
-	| ---------- |
+	|----------|
    | `https://optiturn.com/session/new` - production |
 	| `https://sandbox.optiturn.com/session/new` - testing |
 
 	> [!NOTE]
-        > <Customer_Name> should be replaced with a lowercased and underscored version of your company’s name. For example, Fake Corp. would become fake_corp. The [OptiTurn support team](mailto:support@optoro.com) can help choose this value.
+   > <Customer_Name> should be replaced with a lowercased and underscored version of your company’s name. For example, Fake Corp. would become fake_corp. The [OptiTurn support team](mailto:support@optoro.com) can help choose this value.
 
 1. OptiTurn application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
