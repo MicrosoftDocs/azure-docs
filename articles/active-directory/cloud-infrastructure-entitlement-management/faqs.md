@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: faq
-ms.date: 06/16/2023
+ms.date: 08/23/2023
 ms.author: jfields
 ---
 
@@ -20,10 +20,21 @@ This article answers frequently asked questions (FAQs) about Microsoft Entra Per
 
 Microsoft Entra Permissions Management (Permissions Management) is a cloud infrastructure entitlement management (CIEM) solution that provides comprehensive visibility into permissions assigned to all identities. For example, over-privileged workload and user identities, actions, and resources across multicloud infrastructures in Microsoft Azure, Amazon Web Services (AWS), and Google Cloud Platform (GCP). Permissions Management detects, automatically right-sizes, and continuously monitors unused and excessive permissions. It deepens the Zero Trust security strategy by augmenting the least privilege access principle.
 
-
 ## What are the prerequisites to use Permissions Management?
 
 Permissions Management supports data collection from AWS, GCP, and/or Microsoft Azure. For data collection and analysis, customers are required to have an Azure Active Directory (Azure AD) account to use Permissions Management.
+
+## Is Permissions Management General Data Protection Regulation (GDPR)-compliant? 
+
+Yes, as of July 1, 2022, Permissions Management is GDPR compliant.
+
+## How do customers request a Data Subject Request to export or delete data?
+
+If you are an enterprise customer, you can contact your Microsoft representative, account team, or tenant admin to file a high-priority IcM support ticket requesting a Data Subject Request. Please do not include details or any personally identifiable information in the IcM request. We'll reach out to you for these details only after an IcM is filed.
+
+If you are a self-service customer (you set up a trial or paid license in the M365 Admin center) you can contact the Permissions Management privacy team by selecting your profile drop-down menu, then **Account Settings** in Permissions Management.
+
+Learn more about [Azure Data Subject Requests](https://go.microsoft.com/fwlink/?linkid=2245178). 
 
 ## Can a customer use Permissions Management if they have other identities with access to their IaaS platform that aren't yet in Azure AD?
 
