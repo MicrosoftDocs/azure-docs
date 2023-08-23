@@ -1,6 +1,6 @@
 ---
 title: FAQ for Trusted Launch
-description: Get answers to the most frequently asked questions about Trusted Launch Virtual Machines and VM Scale Sets in Azure.
+description: Get answers to the most frequently asked questions about Azure Trusted Launch virtual machines and virtual machine scale sets.
 author: AjKundnani
 ms.author: ajkundna
 ms.reviewer: cynthn
@@ -108,7 +108,7 @@ Trusted launch now allows images to be created and shared through the [Azure Com
 - an existing managed disk or a snapshot OR,
 - a VHD or an image version from another gallery.
 
-To deploy a Trusted Launch VM from an Azure Compute Gallery image version see [trusted launch VM](trusted-launch-portal.md#deploy-a-trusted-launch-vm-from-an-azure-compute-gallery-image).
+For more information about deploying Trusted Launch VM using Azure Compute Gallery, see [deploy Trusted Launch VMs](trusted-launch-portal.md#deploy-a-trusted-launch-vm-from-an-azure-compute-gallery-image).
 
 ### Does trusted launch support Azure Backup?
 
@@ -127,6 +127,6 @@ Trusted launch supports ephemeral OS disks. For more information, see [Trusted L
 Trusted launch for Azure virtual machines is monitored for advanced threats. If such threats are detected, an alert is triggered. Alerts are only available if [Defender for Cloud's enhanced security features](../security-center/enable-enhanced-security.md) are enabled.
 
 Microsoft Defender for Cloud periodically performs attestation. If the attestation fails, a medium severity alert is triggered. Trusted launch attestation can fail for the following reasons:
-- The attested information, which includes a log of the Trusted Computing Base (TCB), deviates from a trusted baseline (like when Secure Boot is enabled). This can indicate that untrusted modules have been loaded and the OS may be compromised.
-- The attestation quote could not be verified to originate from the vTPM of the attested VM. This indicates that malware is present and may be intercepting traffic to the TPM.
-- The attestation extension on the VM is not responding. This indicates a denial-of-service attack by malware, or an OS admin.
+- The attested information, which includes a log of the Trusted Computing Base (TCB), deviates from a trusted baseline (like when Secure Boot is enabled). This deviation indicates an untrusted module(s) have been loaded and the OS may be compromised.
+- The attestation quote could not be verified to originate from the vTPM of the attested VM. This verification failure indicates a malware is present and may be intercepting traffic to the TPM.
+- The attestation extension on the VM is not responding. This unresponsive extension indicates a denial-of-service attack by malware or an OS admin.
