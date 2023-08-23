@@ -274,7 +274,7 @@ Below is a complete list of all the checks executed through resource health by r
 ## Microsoft.web/serverFarms
 |Executed Checks|
 |---|
-|<ul><li>Is the host server up and running?</li><li>Is Internet Information Services running?</li><li>Is the Load balancer running?</li><li>Can the App Service Plan be reached from within the datacenter?</li><li>Is the storage account hosting the sites content for the serverFarm  available??</li></ul>|
+|<ul><li>Is the host server up and running?</li><li>Is Internet Information Services running?</li><li>Is the Load balancer running?</li><li>Can the App Service Plan be reached from within the datacenter?</li><li>Is the storage account hosting the sites content for the serverFarm  available?</li></ul>|
 
 ## Microsoft.web/sites
 |Executed Checks|
@@ -286,6 +286,12 @@ Below is a complete list of all the checks executed through resource health by r
 | Executed Checks |
 | --- |
 |<ul><li>Are any Backup operations on Backup Items configured in this vault failing due to causes beyond user control?</li><li>Are any Restore operations on Backup Items configured in this vault failing due to causes beyond user control?</li></ul> |
+
+## Microsoft.VoiceServices/communicationsgateway
+
+| Executed Checks |
+| --- |
+|<ul><li>Are traffic-carrying instances running?</li><li>Can the service handle calls?</li></ul>|
 
 ## Next Steps
 -  See [Introduction to Azure Service Health dashboard](service-health-overview.md) and [Introduction to Azure Resource Health](resource-health-overview.md) to understand more about them.
