@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Use the Content Moderator client library'
 titleSuffix: Azure AI services
-description: The Content Moderator API offers client libraries that makes it easy to integrate Content Moderator into your applications.
+description: The Content Moderator API offers client libraries that make it easy to integrate Content Moderator into your applications.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
