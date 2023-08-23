@@ -168,13 +168,13 @@ and any user skipped machines, a determination is done on whether sufficient nod
 passed and/or are available to meet the thresholds necessary for deployment to continue.
 
 > [!IMPORTANT]
-> As of NC 3.4.0, the hardware validation process will write the results to the specified `analyticsWorkspaceId` at Cluster Creation.
+> The hardware validation process will write the results to the specified `analyticsWorkspaceId` at Cluster Creation.
 > Additionally, the provided Service Principal in the Cluster object is used for authentication against the Log Analytics Workspace Data Collection API.
 > This capability is only visible during a new deployment (Green Field); existing cluster will not have the logs available retroactively.
 
 By default, the hardware validation process writes the results to the configured Cluster `analyticsWorkspaceId`.
 However, due to the nature of Log Analytics Workspace data collection and schema evaluation, there can be ingestion delay that can take several minutes or more.
-For this reason, the Cluster Deployment proceeds even if there was a failure to write the results to the Log Analytics Workspace.
+For this reason, the Cluster deployment proceeds even if there was a failure to write the results to the Log Analytics Workspace.
 To help address this possible event, the results, for redundancy, are also logged within the Cluster Manager.
 
 In the provided Cluster object's Log Analytics Workspace, a new custom table with the Cluster's name as prefix and the suffix `*_CL` should appear.
