@@ -42,7 +42,7 @@ This article describes how to generate an ARM template from resource JSON of you
 
       :::image type="content" source="./media/manage-cluster/change-cluster-name.png" alt-text="Screenshot showing how to change cluster name.":::
       
-    * Add "apiversion": "2021-09-15-preview" in the same section with name, location etc.
+    * Add "apiversion": "2023-06-01-preview" in the same section with name, location etc.
 
          :::image type="content" source="./media/manage-cluster/api-version.png" alt-text="Screenshot showing how to modify the API version.":::
 
