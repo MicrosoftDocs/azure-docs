@@ -104,12 +104,11 @@ In this article, learn how to configure [VMware Cloud Director](https://docs.vmw
      > To ensure that future additions of ESXi hosts don't require updates to the allowed targets, use a CIDR notation to enter the ESXi hosts in the allow list. This way, you can provide any new host with an IP address that is already allocated as part of the CIDR block.
 
 1. Once you have gathered all the required information, add the information in the VMware Reverse proxy OVA generation wizard in the following diagram.
+1. Click **Generate VMware Reverse Proxy OVА**.
 
     :::image type="content" source="./media/vmware-cds-avs/pic10.png" alt-text="Screenshot showing how to generate a reverse proxy VM OVA." lightbox="./media/vmware-cds-avs/pic10.png":::
 
-1. Click Generate VMware Reverse Proxy OVА.
-1. On the Activity Log tab, locate the task for generating an OVА and check its status.
-1. Once the status of the task is displayed as Success, click the vertical ellipsis icon and select View files.
+1. On the **Activity log** tab, locate the task for generating an OVА and check its status. If the status of the task is **Success**, click the vertical ellipsis icon and select **View files**.
 1. Download the reverse proxy OVA.
 
 ## Deploy VMware Reverse proxy VM
@@ -131,7 +130,7 @@ In this article, learn how to configure [VMware Cloud Director](https://docs.vmw
 This process pools all the resources from Azure private solution SDDC and creates a provider virtual datacenter (PVDC) in CDs. 
 
 1.	Log in to VMware Cloud Director service.
-1.	Click Cloud Director Instances.
+1.	Click **Cloud Director Instances**.
 1. In the card of the VMware Cloud Director instance for which you want to associate your Azure VMware solution SDDC, select **Actions** and then click 
 **Associate datacenter via VMware reverse proxy**.
 1. Review datacenter information. 
@@ -143,11 +142,11 @@ This process pools all the resources from Azure private solution SDDC and create
 This name is only used to identify the data center in the VMware Cloud Director inventory, so it doesn't need to match the SDDC name  entered when you generated the reverse proxy appliance OVA.
 7.	Enter the FQDN for your vCenter Server instance.
 8.	Enter the URL for the NSX Manager instance and wait for a connection to establish.
-9.	Click Next.
-10.	Under Credentials, enter your user name and password for the vCenter Server endpoint.
+9.	Click **Next**.
+10.	Under **Credentials**, enter your user name and password for the vCenter Server endpoint.
 11.	Enter your user name and password for NSX Manager.
-12.	To create infrastructure resources for your VMware Cloud Director instance, such as a network pool, an external network and a provider VDC, select Create Infrastructure.
-13.	Click Validate Credentials. Ensure that validation is successful.
+12.	To create infrastructure resources for your VMware Cloud Director instance, such as a network pool, an external network and a provider VDC, select **Create Infrastructure**.
+13.	Click **Validate Credentials**. Ensure that validation is successful.
 14.	Confirm that you acknowledge the costs associated with your instance, and click Submit.
 15.	Check activity log to note the progress.
 16.	Once this process is completed, you should see that your VMware Azure solution SDDC is securely associated with your VMware Cloud Director instance. 
@@ -160,7 +159,7 @@ This name is only used to identify the data center in the VMware Cloud Director 
 
     :::image type="content" source="./media/vmware-cds-avs/pic19.png" alt-text="Screenshot showing how resource pools are created for CDs." lightbox="./media/vmware-cds-avs/pic19.png":::
 
-20.	You can use your VMware cloud director instance provider portal to configure tenants such as organizations and virtual data center.
+You can use your VMware cloud director instance provider portal to configure tenants such as organizations and virtual data center.
 
 ## What’s next
 
