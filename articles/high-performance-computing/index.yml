@@ -168,8 +168,8 @@ additionalContent:
 
 
 # HPC Resourcess
-    - title: HPC Community, Support and Resources # < 60 chars (optional)
-      summary: Explore our marketplace, innovate with our partners to accelerate your HPC workloads with cloud flexibility, capability, and scalability. Find related links to community, support and resources. # < 160 chars (optional)
+    - title: HPC Community and Support # < 60 chars (optional)
+      summary: Explore our marketplace, innovate with our partners to accelerate your HPC workloads with cloud flexibility, capability, and scalability. Find related links to community and support. # < 160 chars (optional)
       items:
         # Card
         - title: Microsoft HPC Channels
