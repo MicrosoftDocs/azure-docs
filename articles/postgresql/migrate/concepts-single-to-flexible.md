@@ -249,9 +249,11 @@ The changes to this server parameter would require a server restart to come into
 
 Use the **Save and Restart** option and wait for the postgresql server to restart.
 
-> [!NOTE]  
-> The following pre-requisite is applicable only for flexible servers on which the migration of users/roles functionality is enabled.
+
 ##### Create AAD users on target server
+> [!NOTE]  
+> This pre-requisite is applicable only for flexible servers on which the migration of users/roles functionality is enabled.
+
 Execute the following query on your source server to get the list of AAD users.
 ```sql
 SELECT r.rolname
