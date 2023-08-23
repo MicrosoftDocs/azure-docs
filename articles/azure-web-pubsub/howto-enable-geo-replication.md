@@ -104,7 +104,7 @@ Once the issue in `eastus` is resolved and the region is back online, the health
 This failover and recovery process is **automatic** and requires no manual intervention.
 
 ## Impact on performance after enabling geo-replication feature
-After replicas are enabled, clients will naturally distribute based on their geographical locations. While Web PubSub takes on the responsibility to synchronize data across these replicas, you'll be pleased to know that the associated overhead on [Serverload](concept-performance.md#quick-evaluation-using-metrics) is minimal for most common use cases. 
+After replicas are enabled, clients will naturally distribute based on their geographical locations. While Web PubSub takes on the responsibility to synchronize data across these replicas, you'll be pleased to know that the associated overhead on [Server Load](concept-performance.md#quick-evaluation-using-metrics) is minimal for most common use cases. 
 
 Specifically, if your application typically broadcasts to larger groups (size >10) or a single connection, the performance impact of synchronization is barely noticeable. If you're messaging small groups (size < 10), you might notice a bit more synchronization overhead.
 
