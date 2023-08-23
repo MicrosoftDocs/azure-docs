@@ -29,44 +29,44 @@ Capabilities object has the capabilities of the local participants and is of typ
 
 **Subscribe to `capabilitiesChanged` event:**
 >```js
->capabilitiesFeature.on('capabilitiesChanged', (capabilitiesChangeInfo) => {
->    for (const [key, value] of Object.entries(capabilitiesChangeInfo.newValue)) {
->        if(key === 'turnVideoOn' && value.reason != 'FeatureNotSupported') {
->             (value.isPresent) ? this.setState({ canOnVideo: true }) : this.setState({ canOnVideo: false });
->             continue;
->        }
->        if(key === 'unmuteMic' && value.reason != 'FeatureNotSupported') {
->            (value.isPresent) ? this.setState({ canUnMuteMic: true }) : this.setState({ canUnMuteMic: false });
->            continue;
->        }
->        if(key === 'shareScreen' && value.reason != 'FeatureNotSupported') {
->            (value.isPresent) ? this.setState({ canShareScreen: true }) : this.setState({ canShareScreen: false });
->            continue;
->        }
->        if(key === 'spotlightParticipant' && value.reason != 'FeatureNotSupported') {
->            (value.isPresent) ? this.setState({ canSpotlight: true }) : this.setState({ canSpotlight: false });
->            continue;
->        }
->        if(key === 'raiseHand' && value.reason != 'FeatureNotSupported') {
->            (value.isPresent) ? this.setState({ canRaiseHands: true }) : this.setState({ canRaiseHands: false });
->            continue;
->        }
->    }
->});
->```
+capabilitiesFeature.on('capabilitiesChanged', (capabilitiesChangeInfo) => {
+    for (const [key, value] of Object.entries(capabilitiesChangeInfo.newValue)) {
+        if(key === 'turnVideoOn' && value.reason != 'FeatureNotSupported') {
+             (value.isPresent) ? this.setState({ canOnVideo: true }) : this.setState({ canOnVideo: false });
+             continue;
+        }
+        if(key === 'unmuteMic' && value.reason != 'FeatureNotSupported') {
+            (value.isPresent) ? this.setState({ canUnMuteMic: true }) : this.setState({ canUnMuteMic: false });
+            continue;
+        }
+        if(key === 'shareScreen' && value.reason != 'FeatureNotSupported') {
+            (value.isPresent) ? this.setState({ canShareScreen: true }) : this.setState({ canShareScreen: false });
+            continue;
+        }
+        if(key === 'spotlightParticipant' && value.reason != 'FeatureNotSupported') {
+            (value.isPresent) ? this.setState({ canSpotlight: true }) : this.setState({ canSpotlight: false });
+            continue;
+        }
+        if(key === 'raiseHand' && value.reason != 'FeatureNotSupported') {
+            (value.isPresent) ? this.setState({ canRaiseHands: true }) : this.setState({ canRaiseHands: false });
+            continue;
+        }
+    }
+});
+```
 
 **Capabilities Exposed**
-> - *turnVideoOn*: Ability to turn video on
-> - *unmuteMic*: Ability to turn mic on
-> - *shareScreen*: Ability to share screen
-> - *removeParticipant*: Ability to remove a participant
-> - *hangUpForEveryOne*: Ability to hang up for everyone
-> - *addCommunicationUser*: Ability to add a communication user
-> - *addTeamsUser*: Ability to add Teams User
-> - *addPhoneNumber*: Ability to add phone number
-> - *manageLobby*: Ability to manage lobby (beta only)
-> - *spotlightParticipant*: Ability to spotlight Participant (beta only)
-> - *removeParticipantsSpotlight*: Ability to remove Participant spotlight (beta only)
-> - *startLiveCaptions*: Ability to start live captions (beta only)
-> - *stopLiveCaptions*: Ability to stop live captions (beta only)
-> - *raiseHand*: Ability to raise hand (beta only)
+- *turnVideoOn*: Ability to turn video on
+- *unmuteMic*: Ability to turn mic on
+- *shareScreen*: Ability to share screen
+- *removeParticipant*: Ability to remove a participant
+- *hangUpForEveryOne*: Ability to hang up for everyone
+- *addCommunicationUser*: Ability to add a communication user
+- *addTeamsUser*: Ability to add Teams User
+- *addPhoneNumber*: Ability to add phone number
+- *manageLobby*: Ability to manage lobby (beta only)
+- *spotlightParticipant*: Ability to spotlight Participant (beta only)
+- *removeParticipantsSpotlight*: Ability to remove Participant spotlight (beta only)
+- *startLiveCaptions*: Ability to start live captions (beta only)
+- *stopLiveCaptions*: Ability to stop live captions (beta only)
+- *raiseHand*: Ability to raise hand (beta only)
