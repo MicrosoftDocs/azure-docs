@@ -161,7 +161,7 @@ If you're a Cloud Solution Provider (CSP), you can view your estimate with your 
 
 If you don't have access to log in to the calculator to see negotiated prices, contact your administrator or Azure Account Manager.
 
-## Feedback
+## Help us improve the calculator
 
 If you want to provide feedback about the Pricing Calculator, there's a link at the bottom of the page. We welcome your feedback.
 
