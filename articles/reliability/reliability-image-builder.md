@@ -30,7 +30,7 @@ To ensure fast and easy recovery for Azure Image Builder (AIB), it's recommended
 
 ### Cross-region disaster recovery in multi-region geography
 
-For AIB, Microsoft is responsible for outage detection, notifications, and support in the event of a disaster. However, you're responsible for setting up disaster recovery for the control (service side) and data planes.
+When a regional disaster occurs, Microsoft is responsible for outage detection, notifications, and support for AIB. However, you're responsible for setting up disaster recovery for the control (service side) and data planes.
 
 
 #### Outage detection, notification, and management
@@ -40,13 +40,13 @@ Microsoft sends a notification if there's an outage in the Azure Image Builder (
 
 #### Set up disaster recovery and outage detection
 
-You are responsible for setting up disaster recovery for your Azure Image Builder (AIB) environment, as there isn't a region failover at the AIB service side. You'll need to configure both the control plane (service side) and data plane.
+You're responsible for setting up disaster recovery for your Azure Image Builder (AIB) environment, as there isn't a region failover at the AIB service side. You need to configure both the control plane (service side) and data plane.
 
-It's recommended that you create an AIB resource in another nearby region, into which you can replicate your resources. For more information, see the [supported regions](../virtual-machines/image-builder-overview.md#regions) and what resources are are included in an [AIB creation](/azure/virtual-machines/image-builder-overview#how-it-works).
+It's recommended that you create an AIB resource in another nearby region, into which you can replicate your resources. For more information, see the [supported regions](../virtual-machines/image-builder-overview.md#regions) and what resources are included in an [AIB creation](/azure/virtual-machines/image-builder-overview#how-it-works).
 
 ### Single-region geography disaster recovery
 
-In the case of a diaster for single-region, you still need to get an image template resource from that region even when that region isn't available. Tou can either maintain a copy of an image template locally or can use [Azure Resource Graph](../governance/resource-graph/index.yml) from the Azure portal to get an image template resource.
+In the case of a diaster for single-region, you still need to get an image template resource from that region even when that region isn't available. You can either maintain a copy of an image template locally or can use [Azure Resource Graph](../governance/resource-graph/index.yml) from the Azure portal to get an image template resource.
 
 To get an image template resource using Resource Graph from the Azure portal:
 
