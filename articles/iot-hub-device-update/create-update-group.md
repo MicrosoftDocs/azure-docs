@@ -52,6 +52,10 @@ To create a device group, the first step is to add a tag to the target set of de
 Device Update tags use the following format:
 
 ```json
+"etag": "",
+"deviceId": "",
+"deviceEtag": "",
+"version": <version>,
 "tags": {
    "ADUGroup": "<CustomTagValue>"
 }
