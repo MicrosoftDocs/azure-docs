@@ -119,7 +119,7 @@ Based on whether you have a Consumption or Standard logic app workflow, follow t
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app and workflow in the designer.
 
-   This example continues with the Office 365 Outlook trigger named **When a a new email arrives**.
+   This example continues with the Office 365 Outlook trigger named **When a new email arrives**.
 
 1. [Follow these general steps to add the Office 365 Outlook action](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=consumption#add-action) that you want to your workflow.
 
@@ -152,7 +152,7 @@ Based on whether you have a Consumption or Standard logic app workflow, follow t
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app and workflow in the designer.
 
-   This example continues with the Office 365 Outlook trigger named **When a a new email arrives**.
+   This example continues with the Office 365 Outlook trigger named **When a new email arrives**.
 
 1. [Follow these general steps to add the Office 365 Outlook action](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-action) that you want to your workflow.
 
