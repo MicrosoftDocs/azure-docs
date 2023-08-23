@@ -231,7 +231,7 @@ The following section will show you how to use advanced features for call redire
 
 #### Enable call redirection for all sites
 
-Call redirection is currently limited to the web apps listed in [Websites that work with multimedia redirection](multimedia-redirection-intro.md#websites-that-work-with-multimedia-redirection) by default. If you're using a listed calling app with an internal URL, you must turn the **Enable WebRTC for all sites** setting to use call redirection. You can also enable call redirection for all sites to test the feature with web apps that aren't officially supported yet.
+Call redirection is currently limited to the web apps listed in [Websites that work with multimedia redirection](multimedia-redirection-intro.md#websites-that-work-with-multimedia-redirection) by default. If you're using one of the calling apps listed in [Call redirection](multimedia-redirection-intro.md#call-redirection) with an internal URL, you must turn the **Enable WebRTC for all sites** setting to use call redirection. You can also enable call redirection for all sites to test the feature with web apps that aren't officially supported yet.
 
 To enable call redirection for all sites:
 
