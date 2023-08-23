@@ -49,9 +49,9 @@ If you want to turn off the on-upload malware scanning or sensitive data threat 
 
 **Disabling the entire Defender for Storage plan**
 
-To disable the entire Defender for Storage plan, set the `tier` property value to **"Free"** and remove the **subPlan** and **extension** properties.
+To disable the entire Defender for Storage plan, set the `tier` property value to **"Free"** and remove the `subPlan` and `extension` properties.
 
-Learn more about the `azurerm_security_center_subscription_pricing` resource by referring to the [azurerm_security_center_subscription_pricing documentation](/registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/security_center_subscription_pricing). Additionally, you can find comprehensive details on the Terraform provider for Azure in the [Terraform AzureRM Provider documentation](/registry.terraform.io/providers/hashicorp/azurerm/latest/docs).
+Learn more about the `azurerm_security_center_subscription_pricing` resource by referring to the [azurerm_security_center_subscription_pricing documentation](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/security_center_subscription_pricing). Additionally, you can find comprehensive details on the Terraform provider for Azure in the [Terraform AzureRM Provider documentation](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs).
 
 ### Bicep template
 
@@ -141,8 +141,7 @@ Learn more about the ARM template in the Microsoft.Security/Pricings documentati
 
 ### Terraform template - storage account
 
-To enable and configure Microsoft Defender for Storage at the storage account level using Terraform, import the AzAPI provider and use the following code snippet:
-
+To enable and configure Microsoft Defender for Storage at the storage account level using Terraform, import the [AzAPI provider](https://registry.terraform.io/providers/Azure/azapi/latest/docs) and use the following code snippet:
 
 ```
 resource "azurerm_storage_account" "example" { ... }
@@ -182,10 +181,9 @@ To modify the monthly threshold for malware scanning in your storage accounts, s
 If you want to turn off the on-upload malware scanning or sensitive data threat detection features, you can change the `isEnabled` value to **False** under the `malwareScanning` or `sensitiveDataDiscovery` properties sections.
 
 **Disabling the entire Defender for Storage plan**
+To disable the entire Defender for Storage plan for the storage account, you can use the following code snippet:
 
-To enable and configure Microsoft Defender for Storage at the storage account level using Terraform, import the [AzAPI provider](/registry.terraform.io/providers/Azure/azapi/latest/docs) and use the following code snippet:
-
-```javascript
+```
 resource "azurerm_storage_account" "example" { ... }
 
 resource "azapi_resource_action" "disable_defender_for_Storage" {
@@ -200,11 +198,10 @@ resource "azapi_resource_action" "disable_defender_for_Storage" {
     }
   })
 }
-
 ```
 
 You can change the value of `overrideSubscriptionLevelSettings` to **True** to disable Defender for Storage plan for the storage account under subscriptions with Defender for Storage enabled at the subscription level. If you want to keep some features enabled, you can modify the properties accordingly.
-Learn more about the __[Microsoft.Security/defenderForStorageSettings](/rest/api/defenderforcloud/defender-for-storage/create)__ API documentation for further customization and control over your storage account's security settings. Additionally, you can find comprehensive details on the Terraform provider for Azure in the [Terraform AzureRM Provider documentation](/registry.terraform.io/providers/hashicorp/azurerm/latest/docs).
+Learn more about the __[Microsoft.Security/defenderForStorageSettings](/rest/api/defenderforcloud/defender-for-storage/create)__ API documentation for further customization and control over your storage account's security settings. Additionally, you can find comprehensive details on the Terraform provider for Azure in the [Terraform AzureRM Provider documentation](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs).
 
 ### Bicep template - storage account
 
