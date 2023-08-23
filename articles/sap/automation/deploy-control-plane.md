@@ -224,7 +224,7 @@ To connect to the deployer:
 
 1. Open a plain text editor. Copy the secret value.
 
-1. Save the file where you keep SSH keys. An example is *C:\\Users\\<your-username>\\.ssh*.
+1. Save the file where you keep SSH keys. An example is `C:\Users\<your-username>\.ssh`.
 
 1. Save the file. If you're prompted to **Save as type**, select **All files** if **SSH** isn't an option. For example, use `deployer.ssh`.
 
