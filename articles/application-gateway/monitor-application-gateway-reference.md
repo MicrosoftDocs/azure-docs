@@ -88,12 +88,13 @@ With layer 4 proxy feature now available with Application Gateway, there are som
 | Backend First Byte Response Time | Time interval between start of establishing a connection to backend server and receiving the first byte of data (approximating processing time of backend server). | Common | Listener, BackendServer, BackendPool, BackendHttpSetting`*`  |
 | Backend Session Duration | The total time of a backend connection. The average time duration from the start of a new connection to its termination. | L4 only | Listener, BackendServer, BackendPool, BackendHttpSetting`*` |
 | Connection Lifetime | The total time of a client connection to application gateway. The average time duration from the start of a new connection to its termination in milliseconds. | L4 only | Listener |
+
 `*` BackendHttpSetting dimension includes both layer 7 and layer 4 backend settings.
 
 ### Layer 4 logs
 
 Application Gateway’s Layer 4 proxy provides log data through access logs. These logs are only generated and published if they are configured in the diagnostic settings of your gateway.
-- Also see: [Supported categories for Azure Monitor resource logs](/azure-monitor/essentials/resource-logs-categories#microsoftnetworkapplicationgateways).
+- Also see: [Supported categories for Azure Monitor resource logs](/azure/azure-monitor/essentials/resource-logs-categories#microsoftnetworkapplicationgateways).
 
 | Category | Resource log category | 
 |:--------------|:----------------------------------------------------------------------|
