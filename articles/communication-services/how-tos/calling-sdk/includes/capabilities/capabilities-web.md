@@ -20,15 +20,15 @@ The feature allows you to register for an event listener, to listen to capabilit
 **Get the capabilities of the local participant:**
 Capabilities object has the capabilities of the local participants and is of type `ParticipantCapabilities`. Properties of Capabilities include:
 
-- `isPresent` represent if a capability is present.
-- `reason` capability resolution reason.
+- *isPresent* indicates if a capability is present.
+- *reason* indicates capability resolution reason.
 
->```js
->const capabilities =  capabilitiesFeature.capabilities;
->```
+```js
+const capabilities =  capabilitiesFeature.capabilities;
+```
 
 **Subscribe to `capabilitiesChanged` event:**
->```js
+```js
 capabilitiesFeature.on('capabilitiesChanged', (capabilitiesChangeInfo) => {
     for (const [key, value] of Object.entries(capabilitiesChangeInfo.newValue)) {
         if(key === 'turnVideoOn' && value.reason != 'FeatureNotSupported') {
