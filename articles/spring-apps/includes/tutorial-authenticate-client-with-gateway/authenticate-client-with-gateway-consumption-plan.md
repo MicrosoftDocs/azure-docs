@@ -42,13 +42,13 @@ The main resources required to run this sample are an Azure Spring Apps instance
 
 ### 3.1. Sign in to the Azure portal
 
-Open your web browser and go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
+Open your web browser and go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the Azure portal. The default view is your service dashboard.
 
 ### 3.2. Create an Azure Spring Apps instance
 
 Use the following steps to create a service instance:
 
-1. Select **Create a resource** in the corner of the portal.
+1. Select **Create a resource** in the corner of the Azure portal.
 
 1. Select **Compute** > **Azure Spring Apps**.
 
@@ -63,7 +63,7 @@ Use the following steps to create a service instance:
    | Subscription               | Your subscription name                       | The Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you'd like to be billed for the resource.                                                                                                                        |
    | Resource group             | *myresourcegroup*                            | A new resource group name or an existing one from your subscription.                                                                                                                                                                                                                               |
    | Name                       | *myasa*                                      | A unique name that identifies your Azure Spring Apps service. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number. |
-   | Plan                       | *Standard consumption & dedicated (preview)* | Pricing Tier determines the resource and cost associated with your instance.                                                                                                                                                                                                                       |
+   | Plan                       | *Standard consumption & dedicated (preview)* | The pricing plan determines the resources and cost associated with your instance.                                                                                                                                                                                                                       |
    | Region                     | The region closest to your users             | The location that is closest to your users.                                                                                                                                                                                                                                                        |
    | Container Apps Environment | *myacaenv*                                   | Select which Container Apps environment instance to share the same virtual network with other services and resources.                                                                                                                                                                              |
 
@@ -74,7 +74,7 @@ Use the following steps to create a service instance:
    | Setting              | Suggested value   | Description                                                                               |
    |----------------------|-------------------|-------------------------------------------------------------------------------------------|
    | Environment name     | *myacaenv*        | A unique name that identifies your Azure Container Apps Environment service.              |
-   | Plan                 | *Consumption*     | Pricing Tier determines the resource and cost associated with your instance.              |
+   | Plan                 | *Consumption*     | The pricing plan determines the resources and cost associated with your instance.              |
    | Zone Redundant       | *Disabled*        | Whether to create your Container Apps Environment service in an Azure availability zone.  |
 
    :::image type="content" source="../../media/tutorial-authenticate-client-with-gateway/create-apps-container-env-basics.png" alt-text="Screenshot of the Azure portal that shows the Create Azure Container Apps page." lightbox="../../media/tutorial-authenticate-client-with-gateway/create-apps-container-env-basics.png":::
@@ -84,11 +84,11 @@ Use the following steps to create a service instance:
 
 1. Select **Review and Create** to review your selections. Select **Create** to provision the Azure Spring Apps instance.
 
-1. On the toolbar, select the **Notifications** icon (a bell) to monitor the deployment process. Once the deployment is done, you can select **Pin to dashboard**, which creates a tile for this service on your Azure portal dashboard as a shortcut to the service's **Overview** page. Select **Go to resource** to open the service's **Overview** page.
+1. On the toolbar, select the **Notifications** icon (a bell) to monitor the deployment process. After the deployment is done, you can select **Pin to dashboard**, which creates a tile for this service on your Azure portal dashboard as a shortcut to the service's **Overview** page. Select **Go to resource** to open the service's **Overview** page.
 
    :::image type="content" source="../../media/tutorial-authenticate-client-with-gateway/notifications.png" alt-text="Screenshot of the Azure portal that shows the Overview page with the Notifications pane open." lightbox="../../media/tutorial-authenticate-client-with-gateway/notifications.png":::
 
-1. Use the following command to enable Eureka server. Be sure to replace the placeholders with your own values you created in the previous step.
+1. Use the following command to enable the Eureka server. Be sure to replace the placeholders with your own values you created in the previous step.
 
    ```azurecli
    az spring eureka-server enable \
@@ -116,7 +116,7 @@ This section provides the steps to register an application to add app roles in A
 
 1. On the app **Overview** page, look for the **Application (client) ID** value, and then record it for later use. You need it to configure the YAML configuration file for this project.
 
-1. Under **Manage**, select **Expose an API**, find the **Application ID URI** at the beginning of the page, select **Add**.
+1. Under **Manage**, select **Expose an API**, find the **Application ID URI** at the beginning of the page, and then select **Add**.
 
 1. On the **Edit application ID URI** page, accept the proposed Application ID URI (`api://{client ID}`) or use a meaningful name instead of the client ID, such as `api://books`, and then select **Save**.
 
@@ -147,14 +147,15 @@ The Books RESTful API app acts as a resource server, which is protected by Azure
 
 1. On the app **Overview** page, look for the **Application (client) ID** value, and then record it for later use. You need it to acquire access token.
 
-1. Select **API permissions** > **Add a permission** > **APIs my organization uses**. Select the `Books` application that you registered earlier,
-   then select the Permissions **Books.Read** and **Books.Write**, and select **Add permissions**.
+1. Select **API permissions** > **Add a permission** > **APIs my organization uses**. Select the `Books` application that you registered earlier, select the Permissions **Books.Read** and **Books.Write**, and then select **Add permissions**.
 
 1. Select **Grant admin consent for {your-tenant-name}** to grant admin consent for the permissions you added.
 
    :::image type="content" source="../../media/tutorial-authenticate-client-with-gateway/api-permissions.png" alt-text="Screenshot of the SPA API permissions page that shows the API permissions of a web application." lightbox="../../media/tutorial-authenticate-client-with-gateway/api-permissions.png":::
 
-1. Navigate to **Certificates & secrets** and select **New client secret**. On the **Add a client secret** page, enter a description for the secret, select an expiration date, and then select **Add**.
+1. Navigate to **Certificates & secrets**, and then select **New client secret**. 
+
+1. On the **Add a client secret** page, enter a description for the secret, select an expiration date, and then select **Add**.
 
 1. Look for the **Value** of the secret, and then record it for later use. You need it to acquire access token.
 
@@ -192,7 +193,7 @@ Use the [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-
    ./mvnw com.microsoft.azure:azure-spring-apps-maven-plugin:1.18.0:config
    ```
 
-   Command interaction description:
+   The following list describes the command interactions:
 
    - **Select child modules to configure(input numbers separated by comma, eg: [1-2,4,6], ENTER to select ALL)**: Press <kbd>Enter</kbd> to select all.
    - **OAuth2 login**: Authorize the login to Azure based on the OAuth2 protocol.
@@ -207,13 +208,13 @@ Use the [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-
    ./mvnw azure-spring-apps:deploy
    ```
 
-   Command interaction description:
+   The following list describes the command interactions:
 
    - **OAuth2 login**: You need to authorize the login to Azure based on the OAuth2 protocol.
 
    After the command is executed, you can see the following log signs that the deployment was successful.
 
-   ```text
+   ```output
    [INFO] Getting public url of app(gateway-service)...
    [INFO] Application url: https://gateway-service.xxxxxxxxxxxxxx-xxxxxxxx.eastasia.azurecontainerapps.io
 
@@ -226,7 +227,7 @@ Use the [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-
 
    The output **Application url** is the base endpoint to access the ToDo RESTful API application.
 
-### 4.2. Run SPA app locally
+### 4.2. Deploy the SPA app locally
 
 Update the configuration in the `SPA` application script file `spa/server.js`. Be sure to replace the placeholders with your own values you created in the previous step.
 
