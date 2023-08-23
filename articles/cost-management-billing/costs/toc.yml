@@ -34,7 +34,7 @@
   - name: Resources
     items:
     - name: Calculate pricing
-      href: costs/pricing-calculator.md
+      href: pricing-calculator.md
     - name: Cost Management for AWS pricing
       href: https://azure.microsoft.com/pricing/details/cost-management
     - name: Build your skills with Microsoft Learn training
