@@ -82,7 +82,7 @@ To add a new data source to your Azure OpenAI resource, you need the following A
 
 ## Restrict access to sensitive documents
 
-Azure OpenAI on your data lets you restrict the documents that can be returned in responses using Azure Cognitive Search [security filters](/search/search-security-trimming-for-azure-search-with-aad). When you enable document level access, the search results returned from Azure Cognitive Search and used to generate a response will be trimmed based on user Azure Active Directory (AD) group membership. You can only enable document level access on existing Azure Cognitive search indices. To enable document level access:
+Azure OpenAI on your data lets you restrict the documents that can be returned in responses using Azure Cognitive Search [security filters](/search/search-security-trimming-for-azure-search-with-aad). When you enable document level access, the search results returned from Azure Cognitive Search and used to generate a response will be trimmed based on user Azure Active Directory (AD) group membership. You can only enable document level access on existing Azure Cognitive search indexes. To enable document level access:
 
 1. Follow the steps in the [Azure Cognitive Search documentation](/azure/search/search-security-trimming-for-azure-search-with-aad) to register your application and create users and groups.
 1. [Index your documents with their permitted groups](/azure/search/search-security-trimming-for-azure-search-with-aad#index-document-with-their-permitted-groups). Be sure that your new [security fields](/azure/search/search-security-trimming-for-azure-search#create-security-field) have the schema below:
@@ -94,11 +94,11 @@ Azure OpenAI on your data lets you restrict the documents that can be returned i
     `group_ids` is the default field name. If you use a different field name like `my_group_ids`, you can map the field in [index field mapping](#index-field-mapping).
 
 1. Make sure each sensitive document in the index has the value set correctly on this security field to indicate the permitted groups of the document.
-1. in [Azure OpenAI Studio](https://oai.azure.com/portal), add your data source. in the [index field mapping](#index-field-mapping) section, you can map zero or one values to the **permitted groups** field, as long as the schema is compatible. If the **Permitted groups** field is not mapped, document level access will not be enabled. 
+1. in [Azure OpenAI Studio](https://oai.azure.com/portal), add your data source. in the [index field mapping](#index-field-mapping) section, you can map zero or one value to the **permitted groups** field, as long as the schema is compatible. If the **Permitted groups** field isn't mapped, document level access won't be enabled. 
 
 **Accessing sensitive documents using Azure OpenAI Studio**
 
-Once the Azure Cognitive Search index is connected, your responses in the studio will have document level access based on the Azure AD permissions of the logged in user.
+Once the Azure Cognitive Search index is connected, your responses in the studio will have document access based on the Azure AD permissions of the logged in user.
 
 **Accessing sensitive documents using the Web app**
 
@@ -129,6 +129,37 @@ When using the API, pass the `filter` parameter in each API request. For example
     ]
 }
 ```
+
+## Schedule automatic index refreshes
+
+To keep your Azure Cognitive Search index up-to-date with your latest data, you can schedule a refresh for it that runs automatically rather than manually updating it every time your data is updated. to enable an automatic index refresh:
+
+1. [Add a data source](../quickstart.md) using Azure OpenAI studio.
+1. Under **Select or add data source** select **Indexer schedule** and choose the refresh cadence you would like to apply.
+
+    :::image type="content" source="../media/use-your-data/indexer-schedule.png" alt-text="A screenshot of the indexer schedule in Azure OpenAI Studio." lightbox="../media/use-your-data/indexer-schedule.png":::
+
+After the data ingestion is set to a cadence other than once, Azure Cognitive Search indexers will be created with a schedule equivalent to `0.5 * the cadence specified`. This means that at the specified cadence, the indexers will pull the documents that were added, modified, or deleted from the storage container, reprocess and index them. This ensures that the updated data gets preprocessed and indexed in the final index at the desired cadence automatically. The intermediate assets created in the Azure Cognitive Search resource will not be cleaned up after ingestion to allow for future runs. These assets are:
+   - `{Index Name}-index`
+   - `{Index Name}-indexer`
+   - `{Index Name}-indexer-chunk`
+   - `{Index Name}-datasource`
+   - `{Index Name}-skillset`
+
+To modify the schedule, you can use the [Azure portal](https://portal.azure.com/).
+
+1. Open your search resource page in the Azure portal
+1. Select **Indexers** from the left pane 
+    
+    :::image type="content" source="../media/use-your-data/indexers-azure-portal.png" alt-text="A screenshot of the indexers tab in the Azure portal." lightbox="../media/use-your-data/indexers-azure-portal.png":::
+
+1. Perform the following steps on the two indexers that have your index name as a prefix.
+    1. Select the indexer to open it. Then select the **settings** tab.
+    1. Update the schedule to the desired cadence from "Schedule" or specify a custom cadence from "Interval (minutes)"
+        
+        :::image type="content" source="../media/use-your-data/indexer-schedule-azure-portal.png" alt-text="A screenshot of the settings page for an individual indexer." lightbox="../media/use-your-data/indexer-schedule-azure-portal.png":::
+
+    1. Select **Save**.
 
 ## Recommended settings
 
