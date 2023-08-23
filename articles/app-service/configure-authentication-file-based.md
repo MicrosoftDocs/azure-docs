@@ -3,6 +3,7 @@ title: File-based configuration of AuthN/AuthZ
 description: Configure authentication and authorization in App Service using a configuration file to enable certain preview capabilities. 
 ms.topic: article
 ms.date: 07/15/2021
+ms.custom: AppServiceIdentity
 ---
 
 # File-based configuration in Azure App Service authentication

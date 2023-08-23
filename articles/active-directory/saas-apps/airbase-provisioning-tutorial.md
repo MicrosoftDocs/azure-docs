@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Configure Airbase for automatic user provisioning with Azure Active Directory'
-description: Learn how to automatically provision and de-provision user accounts from Azure AD to Airbase.
+description: Learn how to automatically provision and deprovision user accounts from Azure AD to Airbase.
 services: active-directory
 author: twimmers
 writer: twimmers
@@ -16,7 +16,7 @@ ms.author: thwimmer
 
 # Tutorial: Configure Airbase for automatic user provisioning
 
-This tutorial describes the steps you need to perform in both Airbase and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users to [Airbase](https://www.airbase.com/) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
+This tutorial describes the steps you need to perform in both Airbase and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and deprovisions users to [Airbase](https://www.airbase.com/) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 
 ## Supported capabilities
@@ -40,7 +40,19 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * Determine what data to [map between Azure AD and Airbase](../app-provisioning/customize-application-attributes.md).
 
 ## Step 2. Configure Airbase to support provisioning with Azure AD
-Contact Airbase support to configure Airbase to support provisioning with Azure AD.
+
+1. Log in to Airbase portal.
+1. Navigate to the Users section.
+1. Click Sync with HRIS.
+
+   ![Screenshot of choosing Azure from People - Users page.](media/airbase-provisioning-tutorial/connect-hris.png)
+
+1. Select Azure AD from the list of HRIS.
+1. Make a note of the Base URL and API Token.
+
+   ![Screenshot of tenant url and token.](media/airbase-provisioning-tutorial/generate-token.png)
+   
+1. Use these values in Step 5.5.
 
 ## Step 3. Add Airbase from the Azure AD application gallery
 

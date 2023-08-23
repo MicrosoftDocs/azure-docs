@@ -451,7 +451,7 @@ curl --request POST -H "Content-Type:application/json" --data "{'input':'sample 
 
 ## <a name="publish"></a>Publish to Azure
 
-The Azure Functions Core Tools supports two types of deployment:
+The Azure Functions Core Tools supports three types of deployment:
 
 | Deployment type | Command | Description |
 | ----- | ----- | ----- |

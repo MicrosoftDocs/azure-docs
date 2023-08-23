@@ -16,16 +16,16 @@ The [data registry] service enables you to register data content in an Azure Sto
 
 ## Prerequisites
 
-- [Azure Maps account]
-- [Subscription key]
-- An [Azure storage account][create storage account]
+- An [Azure Maps account]
+- A [Subscription key]
+- An [Azure storage account]
 
 >[!IMPORTANT]
 >
-> - This article uses the `us.atlas.microsoft.com` geographical URL. If your account wasn't created in the United States, you must use a different geographical URL.  For more information, see [Access to Creator services](how-to-manage-creator.md#access-to-creator-services).
+> - This article uses the `us.atlas.microsoft.com` geographical URL. If your account wasn't created in the United States, you must use a different geographical URL.  For more information, see [Access to Creator services].
 > - In the URL examples in this article you will need to replace:
 >   - `{Azure-Maps-Subscription-key}` with your Azure Maps [subscription key].
->   - `{udid}` with the user data ID of your data registry. For more information, see [The user data ID](#the-user-data-id).
+>   - `{udid}` with the user data ID of your data registry. For more information, see [The user data ID].
 
 ## Prepare to register data in Azure Maps
 
@@ -33,7 +33,7 @@ Before you can register data in Azure Maps, you need to create an environment co
 
 ### Create managed identities
 
-There are two types of managed identities: **system-assigned** and **user-assigned**. System-assigned managed identities have their lifecycle tied to the resource that created them. User-assigned managed identities can be used on multiple resources. For more information, see [managed identities for Azure resources][managed identity].
+There are two types of managed identities: **system-assigned** and **user-assigned**. System-assigned managed identities have their lifecycle tied to the resource that created them. User-assigned managed identities can be used on multiple resources. For more information, see [managed identities for Azure resources].
 
 Use the following steps to create a managed identity, add it to your Azure Maps account.
 
@@ -68,7 +68,7 @@ The user defined managed identity should now be added to your Azure Maps account
 
 ---
 
-For more information, see [managed identities for Azure resources][managed identity].
+For more information, see [managed identities for Azure resources].
 
 ### Create a container and upload data files
 
@@ -98,9 +98,10 @@ To create a container in the [Azure portal], follow these steps:
 Once you've created an Azure storage account with files uploaded into one or more containers, you're ready to create the datastore that links the storage accounts to your Azure Maps account.
 
 > [!IMPORTANT]
-> All storage accounts linked to an Azure Maps account must be in the same geographic location. For more information, see [Azure Maps service geographic scope][geographic scope].
+> All storage accounts linked to an Azure Maps account must be in the same geographic location. For more information, see [Azure Maps service geographic scope].
+
 > [!NOTE]
-> If you do not have a storage account see [Create a storage account][create storage account].
+> If you do not have a storage account see [Create a storage account].
 
 1. Select **Datastore** from the left menu in your Azure Maps account.
 1. Select the **Add** button. An **Add datastore** screen appears on the right side.
@@ -132,7 +133,7 @@ To assign roles to your managed identities and associate them with a datastore:
 
 With a datastore created in your Azure Maps account, you're ready to gather the properties required to create the data registry.
 
-There are the AzureBlob properties that you pass in the body of the HTTP request, and [The user data ID](#the-user-data-id) passed in the URL.
+There are the AzureBlob properties that you pass in the body of the HTTP request, and [The user data ID] passed in the URL.
 
 ### The AzureBlob
 
@@ -146,11 +147,11 @@ The `AzureBlob` is a JSON object that defines properties required to create the 
 |`linkedResource`| The ID of the datastore registered in the Azure Maps account.<BR>The datastore contains a link to the file being registered. |
 | `blobUrl`      | A URL pointing to the Location of the AzurebBlob, the file imported into your container. |
 
-The following two sections provide you with details how to get the values to use for the [msiClientId](#the-msiclientid-property), [blobUrl](#the-bloburl-property) properties.
+The following two sections provide you with details how to get the values to use for the [msiClientId], [blobUrl] properties.
 
 #### The msiClientId property
 
-The `msiClientId` property is the ID of the managed identity used to create the data registry. There are two types of managed identities: **system-assigned** and **user-assigned**. System-assigned managed identities have their lifecycle tied to the resource that created them. User-assigned managed identities can be used on multiple resources. For more information, see [What are managed identities for Azure resources?][managed identity].
+The `msiClientId` property is the ID of the managed identity used to create the data registry. There are two types of managed identities: **system-assigned** and **user-assigned**. System-assigned managed identities have their lifecycle tied to the resource that created them. User-assigned managed identities can be used on multiple resources. For more information, see [managed identities for Azure resources].
 
 # [system-assigned](#tab/System-assigned)
 
@@ -192,7 +193,7 @@ The user data ID (`udid`) of the data registry is a user-defined GUID that must 
 ```
 
 > [!TIP]
-> The `udid` is a user-defined GUID that must be supplied when creating a data registry. If you want to be certain you have a globally unique identifier (GUID), consider creating it by running a GUID generating tool such as the Guidgen.exe command line program (Available with [Visual Studio][Visual Studio]).
+> The `udid` is a user-defined GUID that must be supplied when creating a data registry. If you want to be certain you have a globally unique identifier (GUID), consider creating it by running a GUID generating tool such as the Guidgen.exe command line program (Available with [Visual Studio]).
 
 ## Create a data registry
 
@@ -221,7 +222,7 @@ To create a data registry:
     > [!NOTE]
     > When using System-assigned managed identities, you will get an error if you provide a value for the msiClientId property in your HTTP request.
 
-    For more information on the properties required in the HTTP request body, see [Data registry properties](#data-registry-properties).
+    For more information on the properties required in the HTTP request body, see [Data registry properties].
 
 1. Once you have the body of your HTTP request ready, execute the following **HTTP PUT request**:
 
@@ -230,7 +231,7 @@ To create a data registry:
     
     ```
 
-   For more information on the `udid` property, see [The user data ID](#the-user-data-id).
+   For more information on the `udid` property, see [The user data ID].
 
 1. Copy the value of the **Operation-Location** key from the response header.
 
@@ -253,7 +254,7 @@ To create a data registry:
     > [!NOTE]
     > When using User-assigned managed identities, you will get an error if you don't provide a value for the msiClientId property in your HTTP request.
 
-    For more information on the properties required in the HTTP request body, see [Data registry properties](#data-registry-properties).
+    For more information on the properties required in the HTTP request body, see [Data registry properties].
 
 1. Once you have the body of your HTTP request ready, execute the following **HTTP PUT request**:
 
@@ -262,22 +263,22 @@ To create a data registry:
     
     ```
 
-   For more information on the `udid` property, see [The user data ID](#the-user-data-id).
+   For more information on the `udid` property, see [The user data ID].
 
 1. Copy the value of the **Operation-Location** key from the response header.
 
 ---
 
 > [!TIP]
-> If the contents of a previously registered file is modified, it will fail its [data validation](#data-validation) and won't be usable in Azure Maps until it's re-registered. To re-register a file, rerun the register request, passing in the same [AzureBlob](#the-azureblob) used to create the original registration.
-The value of the **Operation-Location** key is the status URL that you'll use to check the status of the data registry creation in the next section, it contains the operation ID used by the [Get operation][Get operation] API.
+> If the contents of a previously registered file is modified, it will fail its [data validation] and won't be usable in Azure Maps until it's re-registered. To re-register a file, rerun the register request, passing in the same [AzureBlob] used to create the original registration.
+The value of the **Operation-Location** key is the status URL that you'll use to check the status of the data registry creation in the next section, it contains the operation ID used by the [Get operation] API.
 
 > [!NOTE]
 > The value of the **Operation-Location** key will not contain the `subscription-key`, you will need to add that to the request URL when using it to check the data registry creation status.
 
 ### Check the data registry creation status
 
-To (optionally) check the status of the data registry creation process, enter the status URL you copied in the [Create a data registry](#create-a-data-registry) section, and add your subscription key as a query string parameter. The request should look similar to the following URL:
+To (optionally) check the status of the data registry creation process, enter the status URL you copied in the [Create a data registry] section, and add your subscription key as a query string parameter. The request should look similar to the following URL:
 
 ```http
 https://us.atlas.microsoft.com/dataRegistries/operations/{udid}?api-version=2023-06-01&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
@@ -285,7 +286,7 @@ https://us.atlas.microsoft.com/dataRegistries/operations/{udid}?api-version=2023
 
 ## Get a list of all files in the data registry
 
-Use the [List][list] request to get a list of all files registered in an Azure Maps account:
+Use the [List] request to get a list of all files registered in an Azure Maps account:
 
 ```http
 https://us.atlas.microsoft.com/dataRegistries?api-version=2023-06-01&subscription-key={Azure-Maps-Subscription-key}
@@ -347,28 +348,35 @@ The data returned when running the list request is similar to the data provided 
 
 | property    | description                       |
 |-------------|-----------------------------------|
-| contentMD5  | MD5 hash created from the contents of the file being registered. For more information, see [Data validation](#data-validation)  |
+| contentMD5  | MD5 hash created from the contents of the file being registered. For more information, see [Data validation]  |
 | sizeInBytes | The size of the content in bytes. |
 
 ## Replace a data registry
 
-If you need to replace a previously registered file with another file, rerun the register request, passing in the same [AzureBlob](#the-azureblob) used to create the original registration, except for the [blobUrl](#the-bloburl-property). The `BlobUrl` needs to be modified to point to the new file.
+If you need to replace a previously registered file with another file, rerun the register request, passing in the same [AzureBlob] used to create the original registration, except for the [blobUrl]. The `BlobUrl` needs to be modified to point to the new file.
 
 ## Data validation
 
 When you register a file in Azure Maps using the data registry API, an MD5 hash is created from the contents of the file, encoding it into a 128-bit fingerprint and saving it in the `AzureBlob` as the `contentMD5` property. The MD5 hash stored in the `contentMD5` property is used to ensure the data integrity of the file. Since the MD5 hash algorithm always produces the same output given the same input, the data validation process can compare the `contentMD5` property of the file when it was registered against a hash of the file in the Azure storage account to check that it's intact and unmodified. If the hash isn't the same, the validation fails. If the file in the underlying storage account changes, the validation fails. If you need to modify the contents of a file that has been registered in Azure Maps, you need to register it again.
 
 <!-------------   end-style links    ---------------------->
+[Access to Creator services]: how-to-manage-creator.md#access-to-creator-services
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
+[Azure Maps service geographic scope]: geographic-scope.md
 [Azure portal]: https://portal.azure.com/
-[create storage account]: /azure/storage/common/storage-account-create?tabs=azure-portal
-[geographic scope]: geographic-scope.md
-[managed identity]: /azure/active-directory/managed-identities-azure-resources/overview
-[storage account overview]: /azure/storage/common/storage-account-overview
-[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
-[Visual Studio]: https://visualstudio.microsoft.com/downloads/
-<!-------------   REST API Links     ------------------>
+[Azure storage account]: /azure/storage/common/storage-account-create?tabs=azure-portal
+[AzureBlob]: #the-azureblob
+[blobUrl]: #the-bloburl-property
+[Create a data registry]: #create-a-data-registry
+[Create a storage account]: /azure/storage/common/storage-account-create?tabs=azure-portal
+[Data registry properties]: #data-registry-properties
 [data registry]: /rest/api/maps/data-registry
+[Data validation]: #data-validation
 [Get operation]: /rest/api/maps/data-registry/get-operation
 [list]: /rest/api/maps/data-registry/list
-[Register]: /rest/api/maps/data-registry/register-or-replace
+[managed identities for Azure resources]: /azure/active-directory/managed-identities-azure-resources/overview
+[msiClientId]: #the-msiclientid-property
+[storage account overview]: /azure/storage/common/storage-account-overview
+[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
+[The user data ID]: #the-user-data-id
+[Visual Studio]: https://visualstudio.microsoft.com/downloads/

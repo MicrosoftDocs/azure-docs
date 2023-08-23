@@ -278,6 +278,8 @@
         href: msv2-mdsv2-series.md
       - name: Mv2-series
         href: mv2-series.md
+      - name: Msv3 and Mdsv3 Medium Memory Series
+        href: msv3-mdsv3-medium-series.md
       - name: Constrained vCPUs
         href: constrained-vcpu.md
     - name: Storage optimized

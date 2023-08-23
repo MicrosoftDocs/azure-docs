@@ -5,6 +5,9 @@ ms.topic: include
 ms.date: 10/29/2022
 ms.author: glenga
 ---
+
+These steps assume a local C# project, and if your app is instead using C# script (`.csx` files), you should [convert to the project model](../articles/azure-functions/functions-reference-csharp.md#convert-a-c-script-app-to-a-c-project) before continuing.
+
 The following changes are required in the .csproj XML project file: 
 
 1. Set the value of `PropertyGroup`.`TargetFramework` to `net6.0`.

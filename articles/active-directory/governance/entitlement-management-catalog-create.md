@@ -78,7 +78,7 @@ To include resources in an access package, the resources must exist in a catalog
 
 * Groups can be cloud-created Microsoft 365 Groups or cloud-created Azure AD security groups.
 
-  * Groups that originate in an on-premises Active Directory can't be assigned as resources because their owner or member attributes can't be changed in Azure AD. To give a user access to an application that uses AD security group memberships, create a new security group in Azure AD, configure [group writeback to AD](../hybrid/how-to-connect-group-writeback-v2.md), and [enable that group to be written to AD](../enterprise-users/groups-write-back-portal.md), so that the cloud-created group can be used by an AD-based application.
+  * Groups that originate in an on-premises Active Directory can't be assigned as resources because their owner or member attributes can't be changed in Azure AD. To give a user access to an application that uses AD security group memberships, create a new security group in Azure AD, configure [group writeback to AD](../hybrid/connect/how-to-connect-group-writeback-v2.md), and [enable that group to be written to AD](../enterprise-users/groups-write-back-portal.md), so that the cloud-created group can be used by an AD-based application.
 
   * Groups that originate in Exchange Online as Distribution groups can't be modified in Azure AD either, so cannot be added to catalogs.
 

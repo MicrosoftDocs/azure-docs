@@ -477,16 +477,15 @@ For migrating existing virtual machine resources to a zone redundant configurati
 
 In the case of a region-wide disaster, Azure can provide protection from regional or large geography disasters with disaster recovery by making use of another region. For more information on Azure disaster recovery architecture, see [Azure to Azure disaster recovery architecture](../site-recovery/azure-to-azure-architecture.md).
 
-Customers can use Cross Region to restore Azure VMs via paired regions. You can restore all the Azure VMs for the selected recovery point if the backup is done in the secondary region. For more details on Cross Region restore, refer to the Cross Region table row entry in our [restore options](../backup/backup-azure-arm-restore-vms.md#restore-options).
-
+You can use Cross Region restore to restore Azure VMs via paired regions. With Cross Region restore, you can restore all the Azure VMs for the selected recovery point if the backup is done in the secondary region. For more details on Cross Region restore, refer to the Cross Region table row entry in our [restore options](../backup/backup-azure-arm-restore-vms.md#restore-options).
 
 ### Cross-region disaster recovery in multi-region geography
 
-While Microsoft is working diligently to restore the virtual machine service for region-wide service disruptions, customers will have to rely on other application-specific backup strategies to achieve the highest level of availability. For more information, see the section on [Data strategies for disaster recovery](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan).
+In the case of a region-wide service disruption, Microsoft works diligently to restore the virtual machine service. However, you will still have to rely on other application-specific backup strategies to achieve the highest level of availability. For more information, see the section on [Data strategies for disaster recovery](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan).
 
 #### Outage detection, notification, and management
 
-When the hardware or the physical infrastructure for the virtual machine fails unexpectedly. This can include local network failures, local disk failures, or other rack level failures. When detected, the Azure platform automatically migrates (heals) your virtual machine to a healthy physical machine in the same data center. During the healing procedure, virtual machines experience downtime (reboot) and in some cases loss of the temporary drive. The attached OS and data disks are always preserved.
+Hardware or physical infrastructure for the virtual machine may fail unexpectedly. Unexpected failures can include local network failures, local disk failures, or other rack level failures. When detected, the Azure platform automatically migrates (heals) your virtual machine to a healthy physical machine in the same data center. During the healing procedure, virtual machines experience downtime (reboot) and in some cases loss of the temporary drive. The attached OS and data disks are always preserved.
 
 For more detailed information on virtual machine service disruptions, see [disaster recovery guidance](/azure/virtual-machines/virtual-machines-disaster-recovery-guidance).
 
@@ -505,7 +504,7 @@ When setting up disaster recovery for virtual machines, understand what [Azure S
 
 ### Single-region geography disaster recovery
 
-With disaster recovery set up, Azure VMs will continuously replicate to a different target region. If an outage occurs, you can fail over VMs to the secondary region, and access them from there.
+With disaster recovery set up, Azure VMs continuously replicate to a different target region. If an outage occurs, you can fail over VMs to the secondary region, and access them from there.
 
 When you replicate Azure VMs using [Site Recovery](../site-recovery/site-recovery-overview.md), all the VM disks are continuously replicated to the target region asynchronously. The recovery points are created every few minutes. This gives you a Recovery Point Objective (RPO) in the order of minutes. You can conduct disaster recovery drills as many times as you want, without affecting the production application or the ongoing replication. For more information, see [Run a disaster recovery drill to Azure](../site-recovery/tutorial-dr-drill-azure.md).
 
@@ -528,3 +527,5 @@ For deploying virtual machines, customers can use [flexible orchestration](../vi
 ## Next steps
 > [!div class="nextstepaction"]
 > [Resiliency in Azure](/azure/reliability/availability-zones-overview)
+
+

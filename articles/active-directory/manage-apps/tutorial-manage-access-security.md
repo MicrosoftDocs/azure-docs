@@ -36,7 +36,7 @@ Using the information in this tutorial, an administrator learns how to:
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-For the application that the administrator added to their tenant, they want to set it up so that all users in the organization can use it and not have to individually request consent to use it. To avoid the need for user consent, they can grant consent for the application on behalf of all users in the organization. For more information, see [Consent and permissions overview](consent-and-permissions-overview.md).
+For the application that the administrator added to their tenant, they want to set it up so that all users in the organization can use it and not have to individually request consent to use it. To avoid the need for user consent, they can grant consent for the application on behalf of all users in the organization. For more information, see [Consent and permissions overview](./user-admin-consent-overview.md).
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with one of the roles listed in the prerequisites.
 2. Search for and select **Azure Active Directory**.

@@ -160,7 +160,7 @@ As organizations start a migration of IAM to Azure AD, they must determine the p
 
 :::image type="content" source="media/road-to-cloud-posture/road-to-the-cloud-migration.png" alt-text="Chart that shows three major milestones in migrating from Active Directory to Azure AD: establish Azure AD capabilities, implement a cloud-first approach, and move workloads to the cloud." border="false":::
 
-* **Establish an Azure AD footprint**: Initialize your new Azure AD tenant to support the vision for your end-state deployment. Adopt a [Zero Trust](https://www.microsoft.com/security/blog/2020/04/30/zero-trust-deployment-guide-azure-active-directory/) approach and a security model that [helps protect your tenant from on-premises compromise](../fundamentals/protect-m365-from-on-premises-attacks.md) early in your journey.
+* **Establish an Azure AD footprint**: Initialize your new Azure AD tenant to support the vision for your end-state deployment. Adopt a [Zero Trust](https://www.microsoft.com/security/blog/2020/04/30/zero-trust-deployment-guide-azure-active-directory/) approach and a security model that [helps protect your tenant from on-premises compromise](./protect-m365-from-on-premises-attacks.md) early in your journey.
 
 * **Implement a cloud-first approach**: Establish a policy that all new devices, apps, and services should be cloud-first. New applications and services that use legacy protocols (for example, NTLM, Kerberos, or LDAP) should be by exception only.
 

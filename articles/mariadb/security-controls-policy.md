@@ -4,8 +4,8 @@ description: Lists Azure Policy Regulatory Compliance controls available for Azu
 ms.date: 08/03/2023
 ms.topic: sample
 ms.service: mariadb
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.custom: subject-policy-compliancecontrols
 ---
 # Azure Policy Regulatory Compliance controls for Azure Database for MariaDB
