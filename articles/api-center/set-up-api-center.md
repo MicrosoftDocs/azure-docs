@@ -4,7 +4,7 @@ description: Follow this tutorial to set up your API center for API discovery, r
 author: dlepow
 ms.service: api-center
 ms.topic: tutorial
-ms.date: 08/18/2023
+ms.date: 08/23/2023
 ms.author: danlep
 ms.custom: 
 ---
@@ -21,14 +21,12 @@ In this tutorial, you learn how to use the portal to:
 > * Add a version to an API
 > * Add information about API environments and deployments
 
-For background information about APIs, deployments, and other entities that you can organize in API Center, see [Key concepts](key-concepts.md).
+For background information about APIs, deployments, and other entities that you can inventory in API Center, see [Key concepts](key-concepts.md).
 
 [!INCLUDE [api-center-preview-feedback](includes/api-center-preview-feedback.md)]
 
 
 ## Prerequisites
-
-* Access to the API Center preview. 
 
 * At least a Contributor role assignment or equivalent permissions in the Azure subscription. 
 
@@ -152,9 +150,9 @@ The following steps register two sample APIs: Swagger Petstore API and Demo Conf
 
 The APIs appear on the **APIs** page in the portal. When you've added a large number of APIs to the API center, use the search box and filters on this page to find the APIs you want.
 
-<!-- Update screenshot
+<!-- Update screenshot -->
 :::image type="content" source="media/set-up-api-center/apis-page.png" alt-text="Screenshot of the APIs page in the portal.":::
--->
+
 > [!TIP]
 > After registering an API, you can view or edit the API's properties. On the **APIs** page, select the API to see options to manage the API registration. 
 
@@ -170,9 +168,9 @@ Here you add a version to one of your APIs:
 
 1. On the Demo Conference API page, select **Versions** > **+ Add version**.
 
-<!-- Update screenshot>
+    <!-- Update screenshot -->
     :::image type="content" source="media/set-up-api-center/add-version.png" alt-text="Screenshot of adding an API version in the portal.":::
--->
+
 1. In the **Add version** page: 
     1. Enter or select the following information:
 
