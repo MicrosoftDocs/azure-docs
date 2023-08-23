@@ -105,7 +105,7 @@ Follow these steps to restore your flexible server using an existing full backup
 
    :::image type="content" source="./media/how-to-restore-server-portal/georestore-enabled-flex.png" alt-text="Sreenshot of  enabling Geo-Restore" lightbox="./media/how-to-restore-server-portal/georestore-enabled-flex.png":::
 
-    :::image type="content" source="./media/how-to-restore-server-portal/georestore-flex-locationdropdown.png" alt-text="Sreenshot of location dropdown" lightbox="./media/how-to-restore-server-portal/georestore-flex-locationdropdown.png":::
+    :::image type="content" source="./media/how-to-restore-server-portal/georestore-flex-locationdropdown.png" alt-text="Screenshot of location dropdown" lightbox="./media/how-to-restore-server-portal/georestore-flex-locationdropdown.png":::
 
 1. Provide a new server name in the **Name** field in the Server details section.
 
@@ -140,7 +140,7 @@ Follow these steps to restore your flexible server using an earliest existing ba
 
 1. Go to the **Networking** tab to configure networking settings.
 
-1. In the **Connectivity method**, select **Private access (VNet Integration)**. Go to **Virtual Network** section, you can either select an already existing *virtual network* and *Subnet* that is delegated to *Microsoft.DBforMySQL/flexibleServers* or create a new one by selecting the *create virtual network* link.
+1. In the **Connectivity method**, select **Private access (VNet Integration)**. Go to **Virtual Network** section, you can either select an already existing *virtual network* and *Subnet* that is delegated to *Microsoft.DBforMySQL/flexibleServers* or Create a new one by selecting the *create virtual network* link.
     > [!NOTE]  
     > Only virtual networks and subnets in the same region and subscription is listed in the dropdown list. </br>
     > The chosen subnet is delegated to *Microsoft.DBforMySQL/flexibleServers*. It means that only Azure Database for MySQL - Flexible Servers can use that subnet.</br>
