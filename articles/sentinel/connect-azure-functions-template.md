@@ -68,7 +68,7 @@ This method provides an automated deployment of your Azure Function-based connec
 1. The **Custom deployment** screen will appear.
     - Select a **subscription**, **resource group**, and **region** in which to deploy your Function App.
 
-    - Enter your API credentials / authorization keys / tokens that you saved in [Step 1](#step-1---get-your-source-systems-api-credentials) above.
+    - Enter your API credentials / authorization keys / tokens that you saved in [Step 1](#step-1-get-your-source-systems-api-credentials) above.
 
     - Enter your Microsoft Sentinel **Workspace ID** and **Workspace Key** (primary key) that you copied and put aside.
 

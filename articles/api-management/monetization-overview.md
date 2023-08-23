@@ -105,7 +105,7 @@ Maximize the lifetime value (LTV) you generate from each customer by designing a
 
 Identify the range of required pricing models. A *pricing model* describes a specific set of rules for the API provider to turn consumption by the API consumer into revenue.
 
-For example, to support the [customer stages above](#step-1---understand-your-customer), we would need six types of subscription:
+For example, to support the [customer stages above](#step-1-understand-your-customer), we would need six types of subscription:
 
 | Subscription type | Description |
 | ----- | ----- |
