@@ -7699,6 +7699,26 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-arc/vmware-vsphere/disaster-recovery.md",
+            "redirect_url": "/azure/azure-arc/vmware-vsphere/recover-from-resource-bridge-deletion",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-arc/vmware-vsphere/day2-operations-resource-bridge.md",
+            "redirect_url": "/azure/azure-arc/vmware-vsphere/administer-arc-vmware",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-arc/vmware-vsphere/manage-access-to-arc-vmware-resources.md",
+            "redirect_url": "/azure/azure-arc/vmware-vsphere/setup-and-manage-self-service-access",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-arc/vmware-vsphere/manage-vmware-vms-in-azure.md",
+            "redirect_url": "/azure/azure-arc/vmware-vsphere/perform-vm-ops-through-azure",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/redis-cache/index.md",
             "redirect_url": "/azure/azure-cache-for-redis/",
             "redirect_document_id": false
@@ -24207,9 +24227,11 @@
             "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-single-page-app-vanillajs-sign-in-sign-out.md",
             "redirect_url": "/azure/active-directory/external-identities/customers/tutorial-single-page-app-vanillajs-sign-in-sign-out",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/bastion/bastion-connect-vm-rdp-linux.md",
+            "redirect_url": "/azure/bastion/bastion-connect-vm-ssh-linux",
+            "redirect_document_id": false
         }
-
-
-        
     ]
 }
