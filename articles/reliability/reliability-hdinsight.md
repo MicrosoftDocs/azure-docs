@@ -123,7 +123,7 @@ This section discusses a few best practices for you to consider during business 
 
 * Determine the minimal business functionality you will need if there is a disaster and why. For example, evaluate if you need failover capabilities for the data transformation layer (shown in yellow) *and* the data serving layer (shown in blue), or if you only need failover for the data service layer.
 
-   :::image type="content" source="media/hdinsight-business-continuity/data-layers.png" alt-text="data transformation and data serving layers":::
+   :::image type="content" source="../hdinsightmedia/hdinsight-business-continuity/data-layers.png" alt-text="data transformation and data serving layers":::
 
 * Segment your clusters based on workload, development lifecycle, and departments. Having more clusters reduces the chances of a single large failure affecting multiple different business processes.
 
@@ -135,7 +135,7 @@ This section discusses a few best practices for you to consider during business 
 
 * Use automation during cluster deployments and ensure cluster configuration settings are scripted as far as possible to ensure rapid and fully automated deployment if there is a disaster.
 
-* Use Azure monitoring tools on HDInsight to detect abnormal behavior in the cluster and set corresponding alert notifications. You can deploy the pre-configured HDInsight cluster-specific management solutions that collect important performance metrics of the specific cluster type. For more information, see [Azure Monitoring for HDInsight](./hdinsight-hadoop-oms-log-analytics-tutorial.md).  
+* Use Azure monitoring tools on HDInsight to detect abnormal behavior in the cluster and set corresponding alert notifications. You can deploy the pre-configured HDInsight cluster-specific management solutions that collect important performance metrics of the specific cluster type. For more information, see [Azure Monitoring for HDInsight](../hdinsight/hdinsight-hadoop-oms-log-analytics-tutorial.md).  
 
 * Subscribe to Azure health alerts to be notified about service issues, planned maintenance, health and security advisories for a subscription, service, or region. Health notifications that include the issue cause and resolute ETA help you to better execute failover and failbacks. For more information, see [Azure Service Health documentation](../service-health/index.yml).
 
