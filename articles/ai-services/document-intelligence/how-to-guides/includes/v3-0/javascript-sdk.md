@@ -43,7 +43,7 @@ ms.custom: devx-track-csharp
 
 - A document file at a URL. For this project, you can use the sample forms provided in the following table for each feature:
 
-  | Feature   | {modelID}   | {document-url} |
+  | Feature   | modelID   | document-url |
   | --- | --- |--|
   | **Read model** | prebuilt-read | [Sample brochure](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/read.png) |
   | **Layout model** | prebuilt-layout | [Sample booking confirmation](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/layout.png) |
@@ -79,7 +79,7 @@ Create a Node.js Express application.
 1. Specify your project's attributes using the prompts presented in the terminal.
 
    - The most important attributes are name, version number, and entry point.
-   - We recommend keeping `index.js` for the entry point name. The description, test command, GitHub repository, keywords, author, and license information are optional attributes. You can skip them for this project.
+   - We recommend that you keep `index.js` for the entry point name. The description, test command, GitHub repository, keywords, author, and license information are optional attributes. You can skip them for this project.
    - Select **Enter** to accept the suggestions in parentheses.
 
    After you complete the prompts, the command creates a `package.json` file in your *form-recognizer-app* directory.

@@ -26,14 +26,16 @@ ms.author: lajanuar
 - An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/).
 - The current version of the [Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html).
 - The [Gradle build tool](https://gradle.org/install/), or another dependency manager.
-- A Document Intelligence resource. Create a <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer" title="Create a Document Intelligence resource." target="_blank">single-service</a>. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+- <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer" title="Create a Document Intelligence resource." target="_blank">A Document Intelligence resource</a>. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 - The key and endpoint from the resource you create to connect your application to the Azure Document Intelligence service.
 
   1. After your resource deploys, select **Go to resource**.
   1. In the left navigation menu, select **Keys and Endpoint**.
   1. Copy one of the keys and the **Endpoint** for use later in this article.
 
-- An Azure Storage blob that contains a set of training data. See [Build a training data set for a custom model](../../build-a-custom-model.md?view=doc-intel-2.1.0&preserve-view=true) for tips and options for putting together your training data set. For this project, you can use the files in the *Train* folder of the [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451). Download and extract *sample_data.zip*.
+  :::image type="content" source="../../../media/containers/keys-and-endpoint.png" alt-text="Screenshot of keys and endpoint location in the Azure portal.":::
+
+- An Azure Storage blob that contains a set of training data. See [Build and train a custom model](../../build-a-custom-model.md?view=doc-intel-2.1.0&preserve-view=true) for tips and options for putting together your training data set. For this project, you can use the files in the *Train* folder of the [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451). Download and extract *sample_data.zip*.
 
 ## Set up your programming environment
 
@@ -54,7 +56,7 @@ Run the `gradle init` command from your working directory. This command creates 
 gradle init --type basic
 ```
 
-When prompted to choose a **DSL**, select *Kotlin*.
+When prompted to choose a **DSL**, select Kotlin.
 
 ### Install the client library
 
@@ -128,7 +130,7 @@ With Document Intelligence, you can create two different client types. The first
 - Recognize form content, including tables, lines, and words, without the need to train a model. Form content is returned in a collection of `FormPage` objects. See [Analyze layout](#analyze-layout).
 - Recognize common fields from US receipts, business cards, invoices, and ID documents using a pretrained model on the Document Intelligence service.
 
-`FormTrainingClient` provides operations for:
+`FormTrainingClient` provides operations to:
 
 - Train custom models to analyze all fields and values found in your custom forms.  A `CustomFormModel` is returned that indicate the form types the model analyzes and the fields it extracts for each form type.
 - Train custom models to analyze specific fields and values you specify by labeling your custom forms. A `CustomFormModel` is returned that indicates the fields the model extracts and the estimated accuracy for each field.
@@ -136,7 +138,7 @@ With Document Intelligence, you can create two different client types. The first
 - Copy a custom model from one Document Intelligence resource to another.
 
 > [!NOTE]
-> Models can also be trained using a graphical user interface such as the [Document Intelligence Labeling Tool](../../../label-tool.md).
+> Models can also be trained using a graphical user interface such as the [Sample Labeling Tool](../../../label-tool.md).
 
 ## Authenticate the client
 
@@ -304,7 +306,7 @@ The model found field 'field-6' with label: VAT ID
 
 ### Train a model with labels
 
-You can also train custom models by manually labeling the training documents. Training with labels leads to better performance in some scenarios. To train with labels, you need to have special label information files (*\<filename>.pdf.labels.json*) in your blob storage container alongside the training documents. The [Document Intelligence Sample Labeling tool](../../../label-tool.md) provides a UI to help you create these label files. After you get them, you can call the `beginTraining` method with the `useTrainingLabels` parameter set to `true`.
+You can also train custom models by manually labeling the training documents. Training with labels leads to better performance in some scenarios. To train with labels, you need to have special label information files (*\<filename>.pdf.labels.json*) in your blob storage container alongside the training documents. The [Document Intelligence Sample Labeling tool](../../../label-tool.md) provides a user interface to help you create these label files. After you get them, you can call the `beginTraining` method with the `useTrainingLabels` parameter set to `true`.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_trainlabels_call)]
 
@@ -337,7 +339,7 @@ The model found field 'field-6' with label: VAT ID
 This section demonstrates how to extract key/value information and other content from your custom template types, using models you trained with your own forms.
 
 > [!IMPORTANT]
-> In order to implement this scenario, you must have already trained a model so you can pass its ID into the method operation. See the [Train a model](#train-a-model-without-labels) section.
+> In order to implement this scenario, you must have already trained a model so you can pass its ID into the method operation. See [Train a model with labels](#train-a-model-without-labels).
 
 Use the `beginRecognizeCustomFormsFromUrl` method.
 
@@ -438,7 +440,7 @@ If you want to clean up and remove an Azure AI services subscription, you can de
 
 ## Troubleshooting
 
-Document Intelligence clients raise `ErrorResponseException` exceptions. For example, if you try to provide an invalid file source URL an `ErrorResponseException` would be raised with an error that indicates the failure cause. In the following code snippet, the error is handled gracefully by catching the exception and displaying the additional information about the error.
+Document Intelligence clients raise `ErrorResponseException` exceptions. For example, if you try to provide an invalid file source URL, an `ErrorResponseException` would be raised with an error that indicates the failure cause. In the following code snippet, the error is handled gracefully by catching the exception and displaying the additional information about the error.
 
 ```java Snippet:FormRecognizerBadRequest
 try {
@@ -450,15 +452,15 @@ try {
 
 ### Enable client logging
 
-Azure SDKs for Java offer a consistent logging story to help aid in troubleshooting application errors and speeding up their resolution. The logs produced capture the flow of an application before reaching the terminal state to help locate the root issue. View the [logging wiki](https://github.com/Azure/azure-sdk-for-java/wiki/Logging-with-Azure-SDK) for guidance about enabling logging.
+Azure SDKs for Java offer a consistent logging story to help aid in troubleshooting application errors and speeding up their resolution. The logs produced capture the flow of an application before reaching the terminal state to help locate the root issue. For more information about enabling logging, see the [logging wiki](https://github.com/Azure/azure-sdk-for-java/wiki/Logging-with-Azure-SDK).
 
 ## Next steps
 
 For this project, you used the Document Intelligence Java client library to train models and analyze forms in different ways. Next, learn tips to create a better training data set and produce more accurate models.
 
 > [!div class="nextstepaction"]
-> [Build a training data set](../../build-a-custom-model.md?view=doc-intel-2.1.0&preserve-view=true)
+> [Build and train a custom model](../../build-a-custom-model.md?view=doc-intel-2.1.0&preserve-view=true)
 
 - [What is Document Intelligence?](../../../overview.md)
 
-- The sample code for this project (and more) can be found on [GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples).
+- The sample code for this project can be found on [GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples).

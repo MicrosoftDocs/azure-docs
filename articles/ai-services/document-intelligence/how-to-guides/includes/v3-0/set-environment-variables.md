@@ -21,7 +21,7 @@ To interact with the Document Intelligence service, you need to create an instan
 >
 > Don't include your key directly in the code and never post it publicly. For production, use a secure way to store and access your credentials, such as [Azure Key Vault](../../../../../ai-services/use-key-vault.md). For more information, see [Azure AI services security](../../../../../ai-services/security-features.md).
 
-To set the environment variable for your Document Intelligence resource key, open a console window, and follow the instructions for your operating system and development environment. Replace `{yourKey}` and `{yourEndpoint}` with the values from your resource in the Azure portal.
+To set the environment variable for your Document Intelligence resource key, open a console window, and follow the instructions for your operating system and development environment. Replace *\<yourKey>* and *\<yourEndpoint>* with the values from your resource in the Azure portal.
 
 #### [Windows](#tab/windows)
 
@@ -30,13 +30,13 @@ Environment variables in Windows aren't case-sensitive. They're typically declar
 1. Set your key variable:
 
    ```console
-   setx FR_KEY {yourKey}
+   setx FR_KEY <yourKey>
    ```
 
 1. Set your endpoint variable
 
    ```console
-   setx FR_ENDPOINT {yourEndpoint}
+   setx FR_ENDPOINT <yourEndpoint>
    ```
 
 1. After you set your environment variables, close the Command Prompt window. The values remain modified until you change them again.
@@ -51,8 +51,8 @@ Here are a few more helpful commands to use with environment variables:
 | Command | Action | Example |
 |---------|--------|---------|
 | `setx VARIABLE_NAME=` | Delete the environment variable by setting the value to an empty string.| `setx FR_KEY=` |
-| `setx VARIABLE_NAME=value` | Set or change the value of an environment variable| `setx FR_KEY={yourKey}`|
-| `set VARIABLE_NAME` | Display the value of a specific environment variable| `set  FR_KEY` |
+| `setx VARIABLE_NAME=value` | Set or change the value of an environment variable.| `setx FR_KEY=<yourKey>`|
+| `set VARIABLE_NAME` | Display the value of a specific environment variable.| `set  FR_KEY` |
 | `set`| Display all environment variables.| `set`|
 
 #### [macOS](#tab/macOS)
@@ -64,24 +64,24 @@ The `export` command sets the variable and exports it to the global environment,
 1. Set your key variable:
 
    ```bash
-   export key={yourKey}
+   export key=<yourKey>
    ```
 
 1. Set your endpoint variable:
 
    ```bash
-   export endpoint={yourEndpoint}
+   export endpoint=<yourEndpoint>
    ```
 
 To set an environment variable permanently, place an export command in your Bash  `~/.bash_profile` startup script:
 
-  1. Use a text editor to open the *~/.bash_profile* and add the following command to create a permanent environment variable:
+  1. Use a text editor to open the *~/.bash_profile* file and add the following command to create a permanent environment variable:
 
      ```bash
-     export FR_KEY={yourKey} FR_ENDPOINT={yourEndpoint}
+     export FR_KEY=<yourKey> FR_ENDPOINT=<yourEndpoint>
      ```
 
-     Example: `export FR_KEY="{yourKey}"`
+     Example: `export FR_KEY="<yourKey>"`
 
   1. Save your changes to the *.bash_profile* file.
 
@@ -99,7 +99,7 @@ Here are a few more helpful commands to use with environment variables:
 | Command | Action | Example |
 |---------|--------|---------|
 | `unset VARIABLE_NAME` | Delete an environment variable.| `unset FR_KEY` |
-| `export VARIABLE_NAME=value` | Set or change the value of a temporary environment variable.| `export FR_KEY={yourKey}` |
+| `export VARIABLE_NAME=value` | Set or change the value of a temporary environment variable.| `export FR_KEY=<yourKey>` |
 | `printenv VARIABLE_NAME`</br>`echo $VARIABLE_NAME`| Display the value of a specific environment variable. With the `echo` command, precede the variable with `$`.| `printenv FR_KEY` </br>`echo $FR_KEY`|
 | `printenv` | Display all environment variables.| `printenv` |
 
@@ -112,24 +112,24 @@ The `export` command sets the variable and exports it to the global environment,
 1. Set your key variable:
 
    ```bash
-   export FR_KEY={yourKey}
+   export FR_KEY=<yourKey>
    ```
 
 1. Set your endpoint variable:
 
    ```bash
-   export FR_ENDPOINT={yourEndpoint}
+   export FR_ENDPOINT=<yourEndpoint>
    ```
 
 To set an environment variable permanently, place an export command in your Bash `~/.bashrc` startup script:
 
-  1. Use a text editor to open the *~/.bash_profile* and add the following command to create a permanent environment variable:
+  1. Use a text editor to open the *~/.bashrc* file and add the following command to create a permanent environment variable:
 
      ```bash
      export <VARIABLE>=<value>
      ```
 
-     Example: `export FR_KEY={yourKey}`
+     Example: `export FR_KEY=<yourKey>`
 
   1. Save your changes to the *.bashrc* file.
 

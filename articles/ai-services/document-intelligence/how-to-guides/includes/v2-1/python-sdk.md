@@ -24,12 +24,14 @@ ms.custom: devx-track-python
 
 - An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/).
 - [Python 3.x](https://www.python.org/). Your Python installation should include [pip](https://pip.pypa.io/en/stable/). You can check whether you have pip installed by running `pip --version` on the command line. Get pip by installing the latest version of Python.
-- An Azure Storage blob that contains a set of training data. See [Build a training data set for a custom model](../../build-a-custom-model.md?view=doc-intel-2.1.0&preserve-view=true) for tips and options for putting together your training data set. For this project, you can use the files under the *Train* folder of the [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451). Download and extract *sample_data.zip*.
+- An Azure Storage blob that contains a set of training data. See [Build and train a custom model](../../build-a-custom-model.md?view=doc-intel-2.1.0&preserve-view=true) for tips and options for putting together your training data set. For this project, you can use the files under the *Train* folder of the [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451). Download and extract *sample_data.zip*.
 - A Document Intelligence resource. <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Create a Document Intelligence resource."  target="_blank">Create a Document Intelligence resource </a> in the Azure portal. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
   1. After your resource deploys, select **Go to resource**.
   1. In the left navigation menu, select **Keys and Endpoint**.
   1. Copy one of the keys and the **Endpoint** for use later in this article.
+
+  :::image type="content" source="../../../media/containers/keys-and-endpoint.png" alt-text="Screenshot of keys and endpoint location in the Azure portal.":::
 
 ## Set up your programming environment
 
@@ -421,7 +423,7 @@ Similarly, `logging_enable` can enable detailed logging for a single operation, 
 For this project, you used the Document Intelligence Python client library to train models and analyze forms in different ways. Next, learn tips to create a better training data set and produce more accurate models.
 
 > [!div class="nextstepaction"]
-> [Build a training data set](../../build-a-custom-model.md?view=doc-intel-2.1.0&preserve-view=true)
+> [Build and train a custom model](../../build-a-custom-model.md?view=doc-intel-2.1.0&preserve-view=true)
 
 - [What is Document Intelligence?](../../../overview.md)
 

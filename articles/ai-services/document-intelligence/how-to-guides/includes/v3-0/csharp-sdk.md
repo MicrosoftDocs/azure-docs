@@ -37,7 +37,7 @@ ms.custom: devx-track-csharp
 
 - A document file at a URL location. For this project, you can use the sample forms provided in the following table for each feature:
 
-  | Feature   | {modelID}   | {document-url} |
+  | Feature   | modelID   | document-url |
   | --- | --- |--|
   | **Read model** | prebuilt-read | [Sample brochure](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/read.png) |
   | **Layout model** | prebuilt-layout | [Sample booking confirmation](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/layout.png) |
@@ -86,7 +86,7 @@ ms.custom: devx-track-csharp
 
     :::image type="content" source="../../../media/quickstarts/azure-nuget-package.png" alt-text="Screenshot of select prerelease NuGet package in Visual Studio.":::
 
- 1. Select version **4.0.0** from the dropdown menu and install the package in your project.
+ 1. Select a version from the dropdown menu and install the package in your project.
 <!-- --- -->
 
 <!-- > [!div class="nextstepaction"]
@@ -96,7 +96,9 @@ ms.custom: devx-track-csharp
 
 > [!NOTE]
 >
-> Starting with .NET 6, new projects using the `console` template generate a new program style that differs from previous versions. The new output uses recent C# features that simplify the code you need to write. When you use the newer version, you only need to write the body of the `Main` method. You don't need to include top-level statements, global using directives, or implicit using directives. For more information, see [**New C# templates generate top-level statements**](/dotnet/core/tutorials/top-level-templates).
+> Starting with .NET 6, new projects using the `console` template generate a new program style that differs from previous versions. The new output uses recent C# features that simplify the code you need to write.
+>
+> When you use the newer version, you only need to write the body of the `Main` method. You don't need to include top-level statements, global using directives, or implicit using directives. For more information, see [C# console app template generates top-level statements](/dotnet/core/tutorials/top-level-templates).
 
 1. Open the *Program.cs* file.
 

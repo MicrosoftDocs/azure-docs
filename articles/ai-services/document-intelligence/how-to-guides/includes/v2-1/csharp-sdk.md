@@ -26,13 +26,15 @@ ms.custom: devx-track-csharp
 
 - An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/).
 - The [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) or current version of [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
-- An Azure Storage blob that contains a set of training data. See [Build a training data set for a custom model](../../build-a-custom-model.md?view=doc-intel-2.1.0&preserve-view=true) for tips and options for putting together your training data set. For this project, you can use the files under the *Train* folder of the [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451). Download and extract *sample_data.zip*.
+- An Azure Storage blob that contains a set of training data. See [Build and train a custom model](../../build-a-custom-model.md?view=doc-intel-2.1.0&preserve-view=true) for tips and options for putting together your training data set. For this project, you can use the files under the *Train* folder of the [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451). Download and extract *sample_data.zip*.
 - <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer" title="Create a Document Intelligence resource."  target="_blank">An Intelligence resource</a>. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 - The key and endpoint from the resource you create to connect your application to the Azure Document Intelligence service.
 
   1. After your resource deploys, select **Go to resource**.
   1. In the left navigation menu, select **Keys and Endpoint**.
   1. Copy one of the keys and the **Endpoint** for use later in this article.
+
+  :::image type="content" source="../../../media/containers/keys-and-endpoint.png" alt-text="Screenshot of keys and endpoint location in the Azure portal.":::
 
 ## Set up your programming environment
 
@@ -50,7 +52,7 @@ dotnet build
 
 The build output should contain no warnings or errors.
 
-```console
+```output
 ...
 Build succeeded.
  0 Warning(s)
@@ -73,7 +75,7 @@ From the project directory, open the *Program.cs* file in an editor or IDE. Add 
 In the application's `Program` class, create variables for your resource's key and endpoint.
 
 > [!IMPORTANT]
-> Go to the Azure portal. If the Document Intelligence resource you created in the Prerequisites section deployed successfully, select the **Go to Resource** button under **Next Steps**. You can find your key and endpoint under **Resource Management**. Select **Key and Endpoint** page.
+> Go to the Azure portal. If the Document Intelligence resource you created in the Prerequisites section deployed successfully, select the **Go to Resource** button under **Next Steps**. In the left navigation menu, under **Resource Management**, select **Keys and Endpoint**.
 >
 > Remember to remove the key from your code when you're done. Never post it publicly. For production, use secure methods to store and access your credentials. For more information, see [Azure AI services security](../../../../../ai-services/security-features.md).
 
@@ -89,21 +91,21 @@ With Document Intelligence, you can create two different client types. The first
 
 `FormRecognizerClient` provides the following operations:
 
-- Recognize form fields and content by using custom models trained to analyze your custom forms. These values are returned in a collection of `RecognizedForm` objects. See [Analyze custom forms](#analyze-forms-with-a-custom-model).
+- Recognize form fields and content by using custom models trained to analyze your custom forms. These values are returned in a collection of `RecognizedForm` objects. See [Analyze forms with a custom model](#analyze-forms-with-a-custom-model).
 - Recognize form content, including tables, lines, and words, without the need to train a model.  Form content is returned in a collection of `FormPage` objects. See [Analyze layout](#analyze-layout).
 - Recognize common fields from US receipts, business cards, invoices, and ID documents using a pretrained model on the Document Intelligence service.
 
-`FormTrainingClient` provides operations for:
+`FormTrainingClient` provides operations to:
 
 - Train custom models to analyze all fields and values found in your custom forms.  A `CustomFormModel` is returned that indicates the form types the model analyzes and the fields it extracts for each form type.
 - Train custom models to analyze specific fields and values you specify by labeling your custom forms. A `CustomFormModel` is returned that indicates the fields that the model extracts and the estimated accuracy for each field.
 - Manage models created in your account.
 - Copy a custom model from one Document Intelligence resource to another.
 
-See examples for [Train a Model](#train-a-custom-model) and [Manage Custom Models](#manage-custom-models).
+For examples, see [Train a Model](#train-a-custom-model) and [Manage Custom Models](#manage-custom-models).
 
 > [!NOTE]
-> Models can also be trained using a graphical user interface such as the [Document Intelligence Labeling Tool](../../../label-tool.md).
+> Models can also be trained using a graphical user interface such as the [Sample Labeling Tool](../../../label-tool.md).
 
 ## Authenticate the client
 
@@ -127,7 +129,7 @@ You also need to add references to the URLs for your training and testing data. 
 1. Make sure the **Read**, **Write**, **Delete**, and **List** permissions are selected, and select **Generate SAS token and URL**.
 1. Copy the value in the **URL** section to a temporary location. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 
-Repeat the previous steps to get the SAS URL of an individual document in blob storage container. Save that SAS URL to a temporary location as well.
+Repeat the previous steps to get the SAS URL of an individual document in the blob storage container. Save that SAS URL to a temporary location as well.
 
 Save the URL of the included sample image. That image is also available on [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms)).
 
@@ -200,7 +202,7 @@ The returned value is a collection of `RecognizedForm` objects. There's one obje
 
 The result looks like the following output.
 
-```console
+```output
 Form Page 1 has 18 lines.
     Line 0 has 1 word, and text: 'Contoso'.
     Line 1 has 1 word, and text: 'Address:'.
@@ -364,7 +366,7 @@ Submodel Form Type: form-0
 
 ### Train a model with labels
 
-You can also train custom models by manually labeling the training documents. Training with labels leads to better performance in some scenarios. To train with labels, you need to have special label information files (*\<filename>.pdf.labels.json*) in your blob storage container alongside the training documents. The [Document Intelligence Sample Labeling tool](../../../label-tool.md) provides a UI to help you create these label files. After you get them, you can call the `StartTrainingAsync` method with the `uselabels` parameter set to `true`.
+You can also train custom models by manually labeling the training documents. Training with labels leads to better performance in some scenarios. To train with labels, you need to have special label information files (*\<filename>.pdf.labels.json*) in your blob storage container alongside the training documents. The [Document Intelligence Sample Labeling tool](../../../label-tool.md) provides a user interface to help you create these label files. After you get them, you can call the `StartTrainingAsync` method with the `uselabels` parameter set to `true`.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_trainlabels)]
 
@@ -432,7 +434,7 @@ The returned value is a collection of `RecognizedForm` objects. There's one obje
 
 This output response has been truncated for readability.
 
-```console
+```output
 Custom Model Info:
     Model Id: 9b0108ee-65c8-450e-b527-bb309d054fc4
     Model Status: Ready
@@ -503,7 +505,7 @@ The following code block checks how many models you've saved in your Document In
 
 ### Output
 
-```console
+```output
 Account has 20 models.
 It can have at most 5000 models.
 ```
@@ -536,7 +538,7 @@ Custom Model Info:
 
 ### Get a specific model using the model's ID
 
-The following code block trains a new model, just like in the [Train a model](#train-a-model-without-labels) section, and then retrieves a second reference to it using its ID.
+The following code block trains a new model, just like in [Train a model without labels](#train-a-model-without-labels) and then retrieves a second reference to it using its ID.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_manage_model_get)]
 
@@ -577,7 +579,7 @@ You can also delete a model from your account by referencing its ID. This step a
 
 Run the application from your application directory with the `dotnet run` command.
 
-```dotnet
+```dotnetcli
 dotnet run
 ```
 
@@ -607,7 +609,7 @@ catch (RequestFailedException e)
 
 You notice that additional information, like the client request ID of the operation, is logged.
 
-```console
+```output
 
 Message:
     Azure.RequestFailedException: Service request failed.
@@ -633,7 +635,7 @@ Headers:
 For this project, you used the Document Intelligence .NET client library to train models and analyze forms in different ways. Next, learn tips to create a better training data set and produce more accurate models.
 
 > [!div class="nextstepaction"]
-> [Build a training data set](../../build-a-custom-model.md?view=doc-intel-2.1.0&preserve-view=true)
+> [Build and train a custom model](../../build-a-custom-model.md?view=doc-intel-2.1.0&preserve-view=true)
 
 - [What is Document Intelligence?](../../../overview.md)
 

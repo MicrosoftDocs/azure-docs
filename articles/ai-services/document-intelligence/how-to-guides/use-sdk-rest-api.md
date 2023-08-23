@@ -98,10 +98,10 @@ Choose from the following Document Intelligence models to analyze and extract da
 Congratulations! You've learned to use Document Intelligence models to analyze various documents in different ways. Next, explore the Document Intelligence Studio and reference documentation.
 
 >[!div class="nextstepaction"]
-> [**Try the Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio)
+> [Try the Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
 
 > [!div class="nextstepaction"]
-> [**Explore the Document Intelligence REST API v3.0**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)
+> [Explore the Document Intelligence REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)
 ::: moniker-end
 
 ::: moniker range="doc-intel-2.1.0"

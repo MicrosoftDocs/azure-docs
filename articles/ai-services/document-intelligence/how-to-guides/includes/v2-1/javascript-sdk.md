@@ -26,13 +26,15 @@ ms.custom: devx-track-js
 - An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/).
 - The latest version of [Visual Studio Code](https://code.visualstudio.com/).
 - The latest LTS version of [Node.js](https://nodejs.org/).
-- An Azure Storage blob that contains a set of training data. See [Build a training data set for a custom model](../../build-a-custom-model.md?view=doc-intel-2.1.0&preserve-view=true) for tips and options for putting together your training data set. For this project, you can use the files under the *Train* folder of the [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451). Download and extract *sample_data.zip*.
+- An Azure Storage blob that contains a set of training data. See [Build and train a custom model](../../build-a-custom-model.md?view=doc-intel-2.1.0&preserve-view=true) for tips and options for putting together your training data set. For this project, you can use the files under the *Train* folder of the [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451). Download and extract *sample_data.zip*.
 - An Azure AI services or Document Intelligence resource. <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Create a Document Intelligence resource" target="_blank">Create a Document Intelligence resource.</a> You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 - The key and endpoint from the resource you create to connect your application to the Azure Document Intelligence service.
 
   1. After your resource deploys, select **Go to resource**.
   1. In the left navigation menu, select **Keys and Endpoint**.
   1. Copy one of the keys and the **Endpoint** for use later in this article.
+
+  :::image type="content" source="../../../media/containers/keys-and-endpoint.png" alt-text="Screenshot of keys and endpoint location in the Azure portal.":::
 
 ## Set up your programming environment
 
@@ -74,7 +76,7 @@ Create an application and install the client library.
 > [!IMPORTANT]
 > Go to the Azure portal. If the Document Intelligence resource you created in the Prerequisites section deployed successfully, under **Next Steps** select **Go to Resource**. You can find your key and endpoint in **Resource management** under **Keys and Endpoint**.
 >
-> Remember to remove the key from your code when you're done. Never post it publicly. For production, use secure methods to store and access your credentials. For more information, see Azure AI services [security](../../../../../ai-services/security-features.md).
+> Remember to remove the key from your code when you're done. Never post it publicly. For production, use secure methods to store and access your credentials. For more information, see [Azure AI services security](../../../../../ai-services/security-features.md).
 
 ## Use the Object model
 
@@ -86,7 +88,7 @@ With Document Intelligence, you can create two different client types. The first
 - Recognize form content, including tables, lines and words, without the need to train a model. Form content is returned in a collection of `FormPage` objects.
 - Recognize common fields from US receipts, business cards, invoices, and ID documents by using a pretrained model on the Document Intelligence service.
 
-`FormTrainingClient` provides operations for:
+`FormTrainingClient` provides operations to:
 
 - Train custom models to analyze all fields and values found in your custom forms. A `CustomFormModel` is returned that indicates the form types the model analyzes and the fields that it extracts for each form type. For more information, see the [service's documentation on unlabeled model training](#train-a-model-without-labels).
 - Train custom models to analyze specific fields and values you specify by labeling your custom forms. A `CustomFormModel` is returned that indicates the fields the model extracts and the estimated accuracy for each field. For more information, see [Train a model with labels](#train-a-model-with-labels) in this article.
@@ -94,7 +96,7 @@ With Document Intelligence, you can create two different client types. The first
 - Copy a custom model from one Document Intelligence resource to another.
 
 > [!NOTE]
-> Models can also be trained by using a graphical user interface such as the [Document Intelligence Labeling Tool](../../../label-tool.md).
+> Models can also be trained by using a graphical user interface such as the [Sample Labeling Tool](../../../label-tool.md).
 
 ## Authenticate the client
 
@@ -439,7 +441,7 @@ For more detailed instructions on how to enable logs, see the [@azure/logger pac
 For this project, you used the Document Intelligence JavaScript client library to train models and analyze forms in different ways. Next, learn tips to create a better training data set and produce more accurate models.
 
 > [!div class="nextstepaction"]
-> [Build a training data set](../../build-a-custom-model.md?view=doc-intel-2.1.0&preserve-view=true)
+> [Build and train a custom model](../../build-a-custom-model.md?view=doc-intel-2.1.0&preserve-view=true)
 
 - [What is Document Intelligence?](../../../overview.md)
 

@@ -28,7 +28,7 @@ ms.author: lajanuar
   If cURL isn't installed, you can get it here:
 
   - [Windows](https://curl.haxx.se/windows/)
-  - [Mac or Linux](https://learn2torials.com/thread/how-to-install-curl-on-mac-or-linux-(ubuntu)-or-windows)
+  - [Mac or Linux](https://curl.se/)
 
 - An Azure AI services or Document Intelligence resource. Create a <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer" title="Create a Document Intelligence resource." target="_blank">single-service</a> or <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne" title="Create a multiple Document Intelligence resource." target="_blank">multi-service</a>. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 - The key and endpoint from the resource you create to connect your application to the Azure Document Intelligence service.
@@ -48,9 +48,9 @@ ms.author: lajanuar
 
 A POST request is used to analyze documents with a prebuilt or custom model. A GET request is used to retrieve the result of a document analysis call. The `modelId` is used with POST and `resultId` with GET operations.
 
-Use the following table as a reference. Replace `{modelID}` and `{document-url}` with your desired values:
+Use the following table as a reference. Replace *\<modelId>* and *\<document-url>* with your desired values:
 
-| Model   | {modelID}   | description | {document-url} |
+| Model   | modelId   | description | document-url |
 | --- | --- |--|--|
 | **Read model** | prebuilt-read |Sample brochure|`https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/read.png`|
 | **Layout model** | prebuilt-layout |Sample booking confirmation|`https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/layout.png` |
@@ -63,30 +63,30 @@ Use the following table as a reference. Replace `{modelID}` and `{document-url}`
 
 ## POST request
 
-Open a command prompt and run the following cURL command. The commands include the endpoint and key environment variables previously created in the set environment variables section. Replace those variables if your variable names differ. Remember to replace the `{modelID}` and `{document-url}` parameters.
+Open a console window and run the following cURL command. The commands include the endpoint and key environment variables previously created in the set environment variables section. Replace those variables if your variable names differ. Remember to replace the *\<modelId>* and *\<document-url>* parameters.
 
 ```console
-curl -i -X POST "%FR_ENDPOINT%formrecognizer/documentModels/{modelID}:analyze?api-version=2023-07-31" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: %FR_KEY%" --data-ascii "{'urlSource': '{document-url}'}"
+curl -i -X POST "%FR_ENDPOINT%formrecognizer/documentModels/<modelId>:analyze?api-version=2023-07-31" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: %FR_KEY%" --data-ascii "{'urlSource': '<document-url>'}"
 ```
 
 To enable add-on capabilities, use the `features` query parameter in the POST request. There are four add-on capabilities available with the 2023-07-31 (GA) release: *ocr.highResolution*, *ocr.formula*, *ocr.font*, and *queryFields.premium*. To learn more about each of the capabilities, see [Custom models](../../../concept-accuracy-confidence.md).
 
-You can only call the highResolution, formula, and font capabilities for the Read and Layout model, and the queryFields capability for the General Documents model. The following example shows how to call the highResolution, formula, and font capabilities for the Layout model.
+You can only call the *highResolution*, *formula*, and *font* capabilities for the Read and Layout model, and the *queryFields* capability for the General Documents model. The following example shows how to call the *highResolution*, *formula*, and *font* capabilities for the Layout model.
 
 ```bash
-curl -i -X POST "%FR_ENDPOINT%formrecognizer/documentModels/prebuilt-layout:analyze?features=ocr.highResolution,ocr.formula,ocr.font?api-version=2023-07-31" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: %FR_KEY%" --data-ascii "{'urlSource': '{document-url}'}"
+curl -i -X POST "%FR_ENDPOINT%formrecognizer/documentModels/prebuilt-layout:analyze?features=ocr.highResolution,ocr.formula,ocr.font?api-version=2023-07-31" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: %FR_KEY%" --data-ascii "{'urlSource': '<document-url>'}"
 ```
 
 ### POST response
 
 You receive a `202 (Success)` response that includes an `Operation-location` header. Use the value of this header to retrieve the response results.
 
-:::image type="content" source="../../../media/how-to/rest-get-response.png" alt-text="{alt-text}":::
+:::image type="content" source="../../../media/how-to/rest-get-response.png" alt-text="Screenshot shows a POST response with the operation location highlighted.":::
 
 <!-- > [!div class="nextstepaction"]
 > [I &#8203;ran into an issue with the POST request.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=rest&Product=FormRecognizer&Page=how-to&Section=post-request-analyze) -->
 
-### Get analyze results (GET Request)
+### Get analyze result (GET Request)
 
 After you call the [Analyze document](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument) API, call the [Get analyze result](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/GetAnalyzeDocumentResult) API to get the status of the operation and the extracted data.
 
@@ -98,7 +98,7 @@ The cURL command line tool doesn't format API responses that contain JSON conten
 
 Use the NodeJS *json tool* as a JSON formatter for cURL. If you don't have [Node.js](https://nodejs.org/) installed, download and install the latest version.
 
-1. Open a new command prompt and install the json tool by using the following command:
+1. Open a console window and install the json tool by using the following command:
 
    ```console
    npm install -g jsontool
@@ -107,7 +107,7 @@ Use the NodeJS *json tool* as a JSON formatter for cURL. If you don't have [Node
 1. Pretty print the JSON output by including the pipe character `| json` with your GET requests.
 
    ```console
-   curl -i -X GET "{endpoint}formrecognizer/documentModels/prebuilt-read/analyzeResults/6f000000-a2xx-4dxx-95xx-869xyxyxyxyx?api-version=2023-07-31"-H "Ocp-Apim-Subscription-Key: {subscription key}" | json
+   curl -i -X GET "<endpoint>formrecognizer/documentModels/prebuilt-read/analyzeResults/0e49604a-2d8e-4b15-b6b8-bb456e5d3e0a?api-version=2023-07-31"-H "Ocp-Apim-Subscription-Key: <subscription key>" | json
    ```
 
 <!-- > [!div class="nextstepaction"]
@@ -120,7 +120,7 @@ The *json_pp* command tool ships with macOS and can be used as a JSON formatter 
 - Pretty print the JSON output by including `| json_pp` with your GET requests.
 
   ```console
-  curl -i -X GET "{endpoint}formrecognizer/documentModels/prebuilt-read/analyzeResults/6f000000-a2xx-4dxx-95xx-869xyxyxyxyx?api-version=2023-07-31"-H "Ocp-Apim-Subscription-Key: {subscription key}" | json_pp
+  curl -i -X GET "{endpoint}formrecognizer/documentModels/prebuilt-read/analyzeResults/0e49604a-2d8e-4b15-b6b8-bb456e5d3e0a?api-version=2023-07-31"-H "Ocp-Apim-Subscription-Key: <subscription key>" | json_pp
   ```
 
 <!-- > [!div class="nextstepaction"]
@@ -128,12 +128,12 @@ The *json_pp* command tool ships with macOS and can be used as a JSON formatter 
 
 #### [Linux](#tab/linux)
 
-The **json_pp** command line tool is preinstalled in most Linux distributions. If it's not included, you can use your distribution's package manager to install it.
+The *json_pp* command line tool is preinstalled in most Linux distributions. If it's not included, you can use your distribution's package manager to install it.
 
 - Pretty print the JSON output by including `| json_pp` with your GET requests.
 
   ```console
-  curl -i -X GET "{endpoint}formrecognizer/documentModels/prebuilt-read/analyzeResults/6f000000-a2xx-4dxx-95xx-869xyxyxyxyx?api-version=2023-07-31"-H "Ocp-Apim-Subscription-Key: {subscription key}" | json_pp
+  curl -i -X GET "<endpoint>formrecognizer/documentModels/prebuilt-read/analyzeResults/0e49604a-2d8e-4b15-b6b8-bb456e5d3e0a?api-version=2023-07-31"-H "Ocp-Apim-Subscription-Key: <subscription key>" | json_pp
   ```
 
 <!-- > [!div class="nextstepaction"]
@@ -145,12 +145,12 @@ The **json_pp** command line tool is preinstalled in most Linux distributions. I
 
 Before you run the following command, make these changes:
 
-- Replace `{POST response}` with the `Operation-location` header from the [POST response](#post-response).
-- Replace `FR_KEY` with the variable for your environment variable if it differs from the name in the code.
-- Replace `{json-tool}` with your JSON formatting tool.
+- Replace *\<POST response>* with the `Operation-location` header from the [POST response](#post-response).
+- Replace *\<FR_KEY* with the variable for your environment variable if it differs from the name in the code.
+- Replace *\<json-tool> with your JSON formatting tool.
 
 ```console
-curl -i -X GET "{POST response}" -H "Ocp-Apim-Subscription-Key: %FR_KEY%" | `{json-tool}`
+curl -i -X GET "<POST response>" -H "Ocp-Apim-Subscription-Key: %FR_KEY%" | `<json-tool>`
 ```
 
 <!-- > [!div class="nextstepaction"]
@@ -158,7 +158,7 @@ curl -i -X GET "{POST response}" -H "Ocp-Apim-Subscription-Key: %FR_KEY%" | `{js
 
 ### Examine the response
 
-You receive a `200 (Success)` response with JSON output. The first field, `"status"`, indicates the status of the operation. If the operation isn't complete, the value of `"status"` is `"running"` or `"notStarted"`. Call the API again, either manually or through a script. We recommend an interval of one second or more between calls.
+You receive a `200 (Success)` response with JSON output. The first field, `status`, indicates the status of the operation. If the operation isn't complete, the value of `status` is `running` or `notStarted`. Call the API again, either manually or through a script. We recommend an interval of one second or more between calls.
 
 Visit the Azure samples repository on GitHub to view the GET response for each of the Document Intelligence models:
 

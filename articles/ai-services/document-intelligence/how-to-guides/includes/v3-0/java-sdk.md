@@ -50,7 +50,7 @@ ms.custom: devx-track-csharp
 
 - A document file at a URL. For this project, you can use the sample forms provided in the following table for each feature:
 
-  | Feature   | {modelID}   | {document-url} |
+  | Feature   | modelID   | document-url |
   | --- | --- |--|
   | **Read model** | prebuilt-read | [Sample brochure](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/read.png) |
   | **Layout model** | prebuilt-layout | [Sample booking confirmation](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/layout.png) |
@@ -72,7 +72,7 @@ To set up your programming environment, create a Gradle project and install the 
 
 ### Create a Gradle project
 
-1. In console window, create a directory for your app called *form-recognizer-app* and navigate to it.
+1. In a console window, create a directory for your app called *form-recognizer-app* and navigate to it.
 
    ```console
    mkdir form-recognizer-app
@@ -146,7 +146,7 @@ To interact with the Document Intelligence service, create an instance of the `D
    - The [prebuilt-layout](#use-the-layout-model) model extracts text and text locations, tables, selection marks, and structure information from documents and images.
    - The [prebuilt-document](#use-the-general-document-model) model extracts key-value pairs, tables, and selection marks from documents and can be used as an alternative to training a custom model without labels.
    - The [prebuilt-tax.us.w2](#use-the-w-2-tax-model) model extracts information reported on US Internal Revenue Service (IRS) tax forms.
-   - The [prebuilt-invoice](#use-the-invoice-model) model extracts information reported on US Internal Revenue Service (IRS) tax forms.
+   - The [prebuilt-invoice](#use-the-invoice-model) model extracts key fields and line items from sales invoices in various formats.
    - The [prebuilt-receipt](#use-the-receipt-model) model extracts key information from printed and handwritten sales receipts.
    - The [prebuilt-idDocument](#use-the-id-document-model) model extracts key information from US Drivers Licenses, international passport biographical pages, US state IDs, social security cards, and permanent resident cards or *green cards*.
    -The [prebuilt-businessCard](#use-the-business-card-model) model extracts key information from business cards.
