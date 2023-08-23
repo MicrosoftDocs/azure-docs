@@ -47,13 +47,11 @@ By default, Azure Storage uses Microsoft-managed keys to encrypt your data. Azur
 
 * To support customer-managed keys, your ISE requires that you enable either the [system-assigned or user-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types). This identity lets your ISE authenticate access to secured resources, such as virtual machines and other systems or services, that are in or connected to an Azure virtual network. That way, you don't have to sign in with your credentials.
 
-* Currently, to create an ISE that supports customer-managed keys and has either managed identity type enabled, you have to call the Logic Apps REST API by using an HTTPS PUT request.
+* You must give your key vault access to your ISE's managed identity, but the timing depends on which managed identity that you use.
 
-* You must [give key vault access to your ISE's managed identity](#identity-access-to-key-vault), but the timing depends on which managed identity that you use.
+  * **System-assigned managed identity**: Within *30 minutes after* you send the HTTPS PUT request that creates your ISE. Otherwise, ISE creation fails, and you get a permissions error.
 
-  * **System-assigned managed identity**: Within *30 minutes after* you send the HTTPS PUT request that creates your ISE, you must [give key vault access to your ISE's managed identity](#identity-access-to-key-vault). Otherwise, ISE creation fails, and you get a permissions error.
-
-  * **User-assigned managed identity**: Before you send the HTTPS PUT request that creates your ISE, [give key vault access to your ISE's managed identity](#identity-access-to-key-vault).
+  * **User-assigned managed identity**: Before you send the HTTPS PUT request that creates your ISE
 
 ## Next steps
 

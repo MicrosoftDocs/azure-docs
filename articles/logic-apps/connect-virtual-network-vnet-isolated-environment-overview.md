@@ -149,14 +149,14 @@ When you create your ISE, you can choose to use either internal or external acce
   > * SAP (multi-tenant version)
   > 
   > Also, make sure that you have network connectivity between the private endpoints and the computer from 
-  > where you want to access the run history. Otherwise, when you try to view your logic app's run history, 
+  > where you want to access the run history. Otherwise, when you try to view your workflow's run history, 
   > you get an error that says "Unexpected error. Failed to fetch".
   >
   > ![Azure Storage action error resulting from inability to send traffic through firewall](./media/connect-virtual-network-vnet-isolated-environment-overview/integration-service-environment-error.png)
   >
   > For example, your client computer can exist inside the ISE's virtual network or inside a virtual network that's connected to the ISE's virtual network through peering or a virtual private network. 
 
-* **External**: Public endpoints permit calls to logic apps in your ISE where you can view and access inputs and outputs from logic apps' runs history *from outside your virtual network*. If you use network security groups (NSGs), make sure they're set up with inbound rules to allow access to the run history's inputs and outputs. For more information, see [Enable access for ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access).
+* **External**: Public endpoints permit calls to logic app workflows in your ISE where you can view and access inputs and outputs from logic apps' runs history *from outside your virtual network*. If you use network security groups (NSGs), make sure they're set up with inbound rules to allow access to the run history's inputs and outputs.
 
 To determine whether your ISE uses an internal or external access endpoint, on your ISE's menu, under **Settings**, select **Properties**, and find the **Access endpoint** property:
 
