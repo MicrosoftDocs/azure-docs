@@ -316,7 +316,7 @@ The following rule groups and rules are available when you use Azure Web Applica
 |941150|XSS Filter - Category 5: Disallowed HTML Attributes|
 |941160|NoScript XSS InjectionChecker: HTML Injection|
 |941170|NoScript XSS InjectionChecker: Attribute Injection|
-|941180|Node-Validator Blacklist Keywords|
+|941180|Node-Validator Blocklist Keywords|
 |941190|XSS using style sheets|
 |941200|XSS using VML frames|
 |941210|XSS using obfuscated JavaScript|
@@ -337,9 +337,6 @@ The following rule groups and rules are available when you use Azure Web Applica
 |941360|JavaScript obfuscation detected|
 |941370|JavaScript global variable found|
 |941380|AngularJS client side template injection detected|
-
->[!NOTE]
-> This article contains references to the term *blacklist*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
 ### <a name="drs942-21"></a> SQLI: SQL injection
 |RuleId|Description|
@@ -584,7 +581,7 @@ The following rule groups and rules are available when you use Azure Web Applica
 |941150|XSS Filter - Category 5: Disallowed HTML Attributes.|
 |941160|NoScript XSS InjectionChecker: HTML Injection.|
 |941170|NoScript XSS InjectionChecker: Attribute Injection.|
-|941180|Node-Validator Blacklist Keywords.|
+|941180|Node-Validator Blocklist Keywords.|
 |941190|XSS Using style sheets.|
 |941200|XSS using VML frames.|
 |941210|IE XSS Filters - Attack Detected or Text4Shell ([CVE-2022-42889](https://nvd.nist.gov/vuln/detail/CVE-2022-42889)).|
@@ -605,9 +602,6 @@ The following rule groups and rules are available when you use Azure Web Applica
 |941360|JavaScript obfuscation detected.|
 |941370|JavaScript global variable found.|
 |941380|AngularJS client side template injection detected.|
-
->[!NOTE]
-> This article contains references to the term *blacklist*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
 ### <a name="drs942-20"></a> SQLI: SQL injection
 |RuleId|Description|
@@ -780,7 +774,7 @@ The following rule groups and rules are available when you use Azure Web Applica
 |941150|XSS Filter - Category 5: Disallowed HTML Attributes.|
 |941160|NoScript XSS InjectionChecker: HTML Injection.|
 |941170|NoScript XSS InjectionChecker: Attribute Injection.|
-|941180|Node-Validator Blacklist Keywords.|
+|941180|Node-Validator Blocklist Keywords.|
 |941190|IE XSS Filters - Attack Detected.|
 |941200|IE XSS Filters - Attack Detected.|
 |941210|IE XSS Filters - Attack Detected or Text4Shell ([CVE-2022-42889](https://nvd.nist.gov/vuln/detail/CVE-2022-42889)) found.|
@@ -798,9 +792,6 @@ The following rule groups and rules are available when you use Azure Web Applica
 |941330|IE XSS Filters - Attack Detected.|
 |941340|IE XSS Filters - Attack Detected.|
 |941350|UTF-7 Encoding IE XSS - Attack Detected.|
-
->[!NOTE]
-> This article contains references to the term *blacklist*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
 ### <a name="drs942-11"></a> SQLI: SQL injection
 |RuleId|Description|
@@ -963,7 +954,7 @@ The following rule groups and rules are available when you use Azure Web Applica
 |941150|XSS Filter - Category 5: Disallowed HTML Attributes.|
 |941160|NoScript XSS InjectionChecker: HTML Injection.|
 |941170|NoScript XSS InjectionChecker: Attribute Injection.|
-|941180|Node-Validator Blacklist Keywords.|
+|941180|Node-Validator Blocklist Keywords.|
 |941190|XSS Using style sheets.|
 |941200|XSS using VML frames.|
 |941210|IE XSS Filters - Attack Detected or Text4Shell ([CVE-2022-42889](https://nvd.nist.gov/vuln/detail/CVE-2022-42889)).|
@@ -981,9 +972,6 @@ The following rule groups and rules are available when you use Azure Web Applica
 |941330|IE XSS Filters - Attack Detected.|
 |941340|IE XSS Filters - Attack Detected.|
 |941350|UTF-7 Encoding IE XSS - Attack Detected.|
-
->[!NOTE]
-> This article contains references to the term *blacklist*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
 ### <a name="drs942-10"></a> SQLI: SQL injection
 |RuleId|Description|

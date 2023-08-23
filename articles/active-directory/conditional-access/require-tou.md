@@ -24,7 +24,7 @@ In this quickstart, you'll configure a Conditional Access policy in Azure Active
 To complete the scenario in this quickstart, you need:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Azure AD Premium P1 or P2 - Azure AD Conditional Access is an Azure AD Premium capability. You can sign up for a trial in the Azure portal.
+- Azure AD Premium P1 or P2 - Azure AD Conditional Access is an Azure AD Premium capability.
 - A test account to sign-in with - If you don't know how to create a test account, see [Add cloud-based users](../fundamentals/add-users.md#add-a-new-user).
 
 ## Sign-in without terms of use
@@ -42,15 +42,15 @@ This section provides you with the steps to create a sample ToU. When you create
 
 1. In Microsoft Word, create a new document.
 1. Type **My terms of use**, and then save the document on your computer as **mytou.pdf**.
-1. Sign in to the [Azure portal](https://portal.azure.com) as a Conditional Access Administrator, Security Administrator, or a Global Administrator.
+1. Sign in to the [Azure portal](https://portal.azure.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access** > **Terms of use**.
 
 
-   :::image type="content" source="media/require-tou/terms-of-use-azure-ad-conditional-access.png" alt-text="Screenshot of terms of use shown in the Azure portal highlighting the new terms button." lightbox="media/require-tou/terms-of-use-azure-ad-conditional-access.png":::
+   :::image type="content" source="media/require-tou/terms-of-use-azure-ad-conditional-access.png" alt-text="Screenshot of terms of use highlighting the new terms button." lightbox="media/require-tou/terms-of-use-azure-ad-conditional-access.png":::
 
 1. In the menu on the top, select **New terms**.
 
-   :::image type="content" source="media/require-tou/new-terms-of-use-creation.png" alt-text="Screenshot that shows creating a new terms of use policy in the Azure portal." lightbox="media/require-tou/new-terms-of-use-creation.png":::
+   :::image type="content" source="media/require-tou/new-terms-of-use-creation.png" alt-text="Screenshot that shows creating a new terms of use policy." lightbox="media/require-tou/new-terms-of-use-creation.png":::
 
 1. In the **Name** textbox, type **My TOU**.
 1. Upload your terms of use PDF file.

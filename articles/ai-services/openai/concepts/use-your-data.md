@@ -9,7 +9,7 @@ ms.subservice: openai
 ms.topic: quickstart
 author: aahill
 ms.author: aahi
-ms.date: 08/17/2023
+ms.date: 08/22/2023
 recommendations: false
 ---
 
@@ -43,7 +43,7 @@ For documents and datasets with long text, you should use the available [data pr
 
 ## Data formats and file types
 
-Azure OpenAI on your data supports the following filetypes (16 MB size limit per file):
+Azure OpenAI on your data supports the following filetypes:
 
 * `.txt`
 * `.md`
@@ -52,7 +52,7 @@ Azure OpenAI on your data supports the following filetypes (16 MB size limit per
 * Microsoft PowerPoint files
 * PDF
 
-There are some caveats about document structure and how it might affect the quality of responses from the model: 
+There is an [upload limit](../quotas-limits.md), and there are some caveats about document structure and how it might affect the quality of responses from the model: 
 
 * The model provides the best citation titles from markdown (`.md`) files. 
 
@@ -90,7 +90,7 @@ To add a new data source to your Azure OpenAI resource, you need the following A
 
 |Azure RBAC role  |Needed when  |
 |---------|---------|
-|[Cognitive Services OpenAI Contributor](/azure/role-based-access-control/built-in-roles#cognitive-services-openai-contributor) | You want to use Azure OpenAI on your data. |
+|[Cognitive Services Contributor](../how-to/role-based-access-control.md#cognitive-services-contributor) | You want to use Azure OpenAI on your data. |
 |[Search Index Data Contributor](/azure/role-based-access-control/built-in-roles#search-index-data-contributor)     | You have an existing Azure Cognitive Search index that you want to use, instead of creating a new one.        |
 |[Storage Blob Data Contributor](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor)     | You have an existing Blob storage container that you want to use, instead of creating a new one.        |
 
