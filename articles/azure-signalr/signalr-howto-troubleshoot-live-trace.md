@@ -55,7 +55,7 @@ Live trace tool is a single web application for capturing and displaying live tr
 
 #### Sign in with your Microsoft account
 
-1. The live trace tool will pop up a Microsoft sign in window. If no window is pop up, check and allow pop up windows in your broswer.
+1. The live trace tool will pop up a Microsoft sign in window. If no window is pop up, check and allow pop up windows in your browser.
 1. Wait for **Ready** showing in the status bar. 
 
 ## Capture live traces
