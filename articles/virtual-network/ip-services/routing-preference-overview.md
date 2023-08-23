@@ -9,7 +9,6 @@ ms.service: virtual-network
 ms.subservice: ip-services
 # Customer intent: As an Azure customer, I want to learn more about routing choices for my internet egress traffic.
 ms.topic: conceptual
-ms.author: allensu
 ms.custom: references_regions
 ---
 
