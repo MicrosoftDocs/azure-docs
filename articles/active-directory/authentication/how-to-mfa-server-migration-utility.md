@@ -274,11 +274,11 @@ To access the Audit logs in the Azure portal to view details of MFA Server to Az
 
    :::image type="content" border="true" source="./media/how-to-mfa-server-migration-utility/add-filter.png" alt-text="Screenshot of how to add filters.":::
 
-1. Select **Initiated By (Actor)**.
+1. Select **Initiated by (actor)** and click **Apply**.
 
    :::image type="content" border="true" source="./media/how-to-mfa-server-migration-utility/actor.png" alt-text="Screenshot of Initiated by Actor option.":::
 
-1. Type _Azure MFA Management_.
+1. Type _Azure MFA Management_ and click **Apply**.
 
    :::image type="content" border="true" source="./media/how-to-mfa-server-migration-utility/apply-actor.png" alt-text="Screenshot of MFA management option.":::
 
