@@ -79,7 +79,6 @@ In regards to your data processing information, refer to the Azure Image Builder
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Reliability in Azure](../reliability/overview.md)
-> [Enable Azure VM disaster recovery between availability zones](../site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md)
-> [Azure Image Builder overview](../virtual-machines//image-builder-overview.md)
+- [Reliability in Azure](../reliability/overview.md)
+- [Enable Azure VM disaster recovery between availability zones](../site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md)
+- [Azure Image Builder overview](../virtual-machines//image-builder-overview.md)
