@@ -66,7 +66,7 @@ This article provides an overview of how to configure Iceberg catalog in HDInsig
             "catalogOptions": {
                 "hive": [
                     {
-                        "catalogName": "iceberg",
+                        "catalogName": "ice",
                         "metastoreDbConnectionURL": "jdbc:sqlserver://{{DATABASE_SERVER}}.database.windows.net:1433;database={{DATABASE_NAME}};encrypt=true;trustServerCertificate=true;loginTimeout=30;",
                         "metastoreDbConnectionUserName": "{{DATABASE_USER_NAME}}",
                         "metastoreDbConnectionPasswordSecret": "hms-db-pwd-ref",
