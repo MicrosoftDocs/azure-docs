@@ -48,11 +48,11 @@ highlightedContent:
 
 # Azure Services
 productDirectory:
-  title: HPC Components and Services # < 60 chars (optional)
+  title: HPC Components # < 60 chars (optional)
   # summary: # < 160 chars (optional)
   items:
     # Card
-    - title: HPC Compute VM Sizes
+    - title: HPC Compute
       imageSrc: https://static.docs.com/ui/media/product/azure/virtual-machine.svg
       links:
         - url: ../virtual-machines/sizes-hpc.md
@@ -72,7 +72,7 @@ productDirectory:
         - url: /azure/azure-managed-lustre/amlfs-overview
           text: Azure Managed Lustre
     # Card
-    - title: HPC Related Services
+    - title: HPC Workload Orchestration
       imageSrc: ../high-performance-computing/media/azure-batch.svg
       links:
         - url: ../batch/batch-technical-overview.md
@@ -87,10 +87,10 @@ conceptualContent:
   # Supports up to 3 subsections
   sections:
     - title: HPC Documentation # < 60 chars (Optional; Remove if not applicable.)
-      summary: See Azure HPC solutions, tutorials, guides and resources # < 160 chars (Optional; Remove if not applicable.)
+      summary: See Azure HPC solutions, tutorials, guides and resources. # < 160 chars (Optional; Remove if not applicable.)
       items:
         # Card
-        - title: HPC Infra
+        - title: HPC Compute
           links:
             - url: ../virtual-machines/overview.md
               itemType: concept
@@ -105,7 +105,7 @@ conceptualContent:
               itemType: concept
               text: Azure ExpressRoute       
         # Card
-        - title: Storage
+        - title: HPC Storage
           links:
             - url: ../hpc-cache/hpc-cache-netapp.md
               itemType: concept
@@ -121,7 +121,7 @@ conceptualContent:
               text: Use Azure Blob storage with an Azure Managed Lustre file system
               
         # Card
-        - title: HPC Scenarios & Frameworks 
+        - title: HPC Scenarios and Architectures   
           links:
             - url: /azure/architecture/example-scenario/infrastructure/video-rendering/
               itemType: overview
@@ -141,7 +141,7 @@ conceptualContent:
 additionalContent:
   # Supports up to 4 subsections
   sections:
-    - title: Take the Next Step # < 60 chars (Optional; Remove if not applicable.)
+    - title: Supporting your Migration # < 60 chars (Optional; Remove if not applicable.)
       summary: Tell us what you’re solving for. An Azure HPC expert will help you find the best solution. # < 160 chars (Optional; Remove if not applicable.)
       items:
       # Card
@@ -206,7 +206,7 @@ additionalContent:
 
 # Video Playlists and other links
     - title: HPC Video Content # < 60 chars (Optional; Remove if not applicable.)
-      summary: Learn more about Azure HPC with various video content and events # < 160 chars (Optional; Remove if not applicable.)
+      summary: Learn more about Azure HPC with various video content and events. # < 160 chars (Optional; Remove if not applicable.)
       items:
         # Card
         - title: HPC Business Strategy
@@ -258,7 +258,7 @@ additionalContent:
               url: https://aka.ms/HPCEvents
 
               
-    - title: What’s New at HPC # < 60 chars (optional)
+    - title: HPC Conferences# < 60 chars (optional)
       summary: Learn more about product updates, event information and technology offers and more. # < 160 chars (optional)
       items:
         # Card
