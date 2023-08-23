@@ -38,8 +38,7 @@ If you're new to Prompt flow, we recommend you to start with compute instance ru
 
 You need to assign enough permission to use runtime in Prompt flow. To assign a role, you need to have `owner` or have `Microsoft.Authorization/roleAssignments/write` permission on resource.
 
-- To create runtime, you need to have `AzureML Data Scientist` role of the workspace. To learn more, see [Prerequisites](#prerequisites)
-- To use a runtime in flow authoring, you or identity associate with managed online endpoint need to have `AzureML Data Scientist` role of workspace, `Storage Blob Data Contributor` and `Storage Table Data Contributor` role of workspace default storage. To learn more, see [Grant sufficient permissions to use the runtime](#grant-sufficient-permissions-to-use-the-runtime).
+To create and use runtime to authoring prompt flow, you need to have `AzureML Data Scientist` role of the workspace. To learn more, see [Prerequisites](#prerequisites)
 
 ## Create runtime in UI
 
@@ -143,43 +142,13 @@ After creating the runtime, you need to grant the necessary permissions to use i
 
 To assign role, you need to have `owner` or have `Microsoft.Authorization/roleAssignments/write` permission on the resource.
 
-### Assign built-in roles
+To use runtime, assigning the `AzureML Data Scientist` role of workspace to user (if using Compute instance as runtime) or endpoint (if using managed online endpoint as runtime). To learn more: [Manage access to an Azure Machine Learning workspace](../how-to-assign-roles.md?view=azureml-api-2&tabs=labeler&preserve-view=true)
 
-To use runtime, assigning the following roles to user (if using Compute instance as runtime) or endpoint (if using managed online endpoint as runtime).
 
-| Resource                  | Role                                  | Why do I need this?                      |
-|---------------------------|---------------------------------------|------------------------------------------|
-| Workspace                 | Azure Machine Learning Data Scientist | Used to write to run history, log metrics |
-| Workspace default ACR     | AcrPull                               | Pull image from ACR                      |
-| Workspace default storage | Storage Blob Data Contributor         | Write intermediate data and tracing data |
-| Workspace default storage | Storage Table Data Contributor        | Write intermediate data and tracing data |
+> [!NOTE]
+> This operation may take several minutes to take effect.
 
-You can use this Azure Resource Manager template to assign these roles to your user or endpoint.
 
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fcloga%2Fazure-quickstart-templates%2Flochen%2Fpromptflow%2Fquickstarts%2Fmicrosoft.machinelearningservices%2Fmachine-learning-prompt-flow%2Fassign-built-in-roles%2Fazuredeploy.json)
-
-To find the minimal permissions required, and use an Azure Resource Manager template to create a custom role and assign relevant permissions, visit: [Permissions/roles need to use runtime](./how-to-create-manage-runtime.md#permissionsroles-need-to-use-runtime)
-
-You can also assign these permissions manually through the UI.
-
-- Select top-right corner to access the Azure Machine Learning workspace detail page.
-    :::image type="content" source="./media/how-to-create-manage-runtime/mir-without-acr-runtime-workspace-top-right.png" alt-text="Screenshot of the Azure Machine Learning workspace detail page. " lightbox = "./media/how-to-create-manage-runtime/mir-without-acr-runtime-workspace-top-right.png":::
-- Locate the **default storage account** and **ACR** on the Azure Machine Learning workspace detail page.
-    :::image type="content" source="./media/how-to-create-manage-runtime/runtime-permission-workspace-detail-storage-acr.png" alt-text="Screenshot of Azure Machine Learning workspace detail page with storage account and ACR highlighted. " lightbox = "./media/how-to-create-manage-runtime/runtime-permission-workspace-detail-storage-acr.png":::
-- Navigate to `access control` to grant the relevant roles to the workspace, storage account, and ACR. 
-    :::image type="content" source="./media/how-to-create-manage-runtime/runtime-permission-workspace-access-control.png" alt-text="Screenshot of the access control page highlighting the add role assignment button. " lightbox = "./media/how-to-create-manage-runtime/runtime-permission-workspace-access-control.png":::
-- Select user if you're using compute instance
-    :::image type="content" source="./media/how-to-create-manage-runtime/runtime-permission-rbac-user.png" alt-text="Screenshot of add role assignment with assign access to highlighted. " lightbox = "./media/how-to-create-manage-runtime/runtime-permission-rbac-user.png":::
-- Alternatively, choose the managed identity and machine learning online endpoint for the MIR runtime.
-    :::image type="content" source="./media/how-to-create-manage-runtime/runtime-permission-rbac-msi.png" alt-text="Screenshot of add role assignment with assign access to highlighted and managed identity selected. " lightbox = "./media/how-to-create-manage-runtime/runtime-permission-rbac-msi.png":::
-
-    > [!NOTE]
-    > This operation may take several minutes to take effect.
-
-To learn more:
-- [Manage access to an Azure Machine Learning workspace](../how-to-assign-roles.md?view=azureml-api-2&tabs=labeler&preserve-view=true)
-- [Assign an Azure role for access to blob data](../../storage/blobs/assign-azure-role-data-access.md?tabs=portal)
-- [Azure Container Registry roles and permissions](../../container-registry/container-registry-roles.md?tabs=azure-cli)
 
 ## Using runtime in Prompt flow authoring
 

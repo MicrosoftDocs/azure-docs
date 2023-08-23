@@ -336,7 +336,7 @@ deployment:
 You need to replace the following placeholders with your own values:
 
 - `ENDPOINT_NAME`: the name of the endpoint you created in the previous step
-- `PRT_CONFIG_FILE`: the name of the config file that contains the port and runtime settings
+- `PRT_CONFIG_FILE`: the name of the config file that contains the port and runtime settings, please include the parent model folder name, for example, if model folder name is `model`, then the config file name should be `model/config.yaml`.
 - `IMAGE_NAME` to name of your own image, for example: `mcr.microsoft.com/azureml/promptflow/promptflow-runtime:<newest_version>`, you can also follow [Customize environment with docker context for runtime](#customize-environment-with-docker-context-for-runtime) to create your own environment.
 
 ```yaml
