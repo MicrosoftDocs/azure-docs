@@ -30,7 +30,7 @@ Yes, as of July 1, 2022, Permissions Management is GDPR compliant.
 
 ## How do customers request a Data Subject Request to export or delete data?
 
-If you are an enterprise customer, you can contact your Microsoft representative, account team, or tenant admin to file a high-priority IcM support ticket requesting a Data Subject Request. Please do not include details or any personally identifiable information in the IcM request. We'll reach out to you for these details only after an IcM is filed.
+If you are an enterprise customer, you can contact your Microsoft representative, account team, or tenant admin to file a high-priority IcM support ticket requesting a Data Subject Request. Do not include details or any personally identifiable information in the IcM request. We'll reach out to you for these details only after an IcM is filed.
 
 If you are a self-service customer (you set up a trial or paid license in the M365 Admin center) you can contact the Permissions Management privacy team by selecting your profile drop-down menu, then **Account Settings** in Permissions Management.
 
@@ -68,7 +68,7 @@ Permissions Management currently supports the three major public clouds: Amazon 
 
 Permissions Management currently doesn't support hybrid environments.
 
-## What types of identities are supported by Permissions Management?
+## What types of identities does Permissions Management support?
 
 Permissions Management supports user identities (for example, employees, customers, external partners) and workload identities (for example, virtual machines, containers, web apps, serverless functions).
 
@@ -94,7 +94,7 @@ The Permissions Creep Index (PCI) is a quantitative measure of risk associated w
 
 ## How can customers use Permissions Management to delete unused or excessive permissions?
 
-Permissions Management allows users to right-size excessive permissions and automate least privilege policy enforcement with just a few clicks. The solution continuously analyzes historical permission usage data for each identity and gives customers the ability to right-size permissions of that identity to only the permissions that are being used for day-to-day operations. All unused and other risky permissions can be automatically removed.
+Permissions Management allows users to right-size excessive permissions and automate least privilege policy enforcement with just a few clicks. The solution continuously analyzes historical permission usage data for each identity and gives customers the ability to right-size the permissions of that identity to permissions that are only being used for day-to-day operations. All unused and other risky permissions can be automatically removed.
 
 ## How can customers grant permissions on-demand with Permissions Management?
 
@@ -143,9 +143,9 @@ You can read our [blog](https://techcommunity.microsoft.com/t5/microsoft-entra-a
 
 ## What is the data destruction/decommission process? 
 
-If a customer initiates a free Permissions Management 45-day trial, but does not follow up and convert to a paid license within 45 days of the free trial expiration, we will delete all collected data on or just before 45 days.  
+If a customer initiates a free Permissions Management 45-day trial and does not convert to a paid license within 45 days of the trial expiration, all collected data on or just before 45 days is deleted.  
 
-If a customer decides to discontinue licensing the service, we will also delete all previously collected data within 45 days of license termination.  
+If a customer decides to discontinue licensing the service, all previously collected data within 45 days of license termination is deleted.  
 
 We also have the ability to remove, export or modify specific data should the Global Administrator using the Entra Permissions Management service file an official Data Subject Request. This can be initiated by opening a ticket in the Azure portal [New support request - Microsoft Entra admin center](https://entra.microsoft.com/#blade/Microsoft_Azure_Support/NewSupportRequestV3Blade/callerName/ActiveDirectory/issueType/technical), or alternately contacting your local Microsoft representative. 
 
