@@ -15,8 +15,6 @@ Using Azure Virtual Desktop Insights can help you understand your deployments of
 
 - An existing host pool with session hosts, and a workspace [configured to use Azure Virtual Desktop Insights](insights.md). You need to have had active sessions for a period of time before you can make informed decisions.
 
-- Azure role-based access control (RBAC) role assigned to your user account. TODO: WHICH ROLE?
-
 ## Connectivity
 
 Connectivity issues can have a severe impact on the quality and reliability of the end-user experience with Azure Virtual Desktop. Azure Virtual Desktop Insights can help you identify connectivity issues and understand where improvements can be made.
@@ -43,7 +41,7 @@ To view round-trip time:
    
    The list of users can be used to identify who is being impacted by these issues. You can select the magnifying glass icon in the **Details** column to drill down further into the data.
    
-   :::image type="content" source="media/insights-use-cases/insights-connection-performance-latency-3.png" alt-text="A screenshot of a table showing the round-trip time per user." lightbox="media/insights-use-cases/insights-use-cases/insights-connection-performance-latency-3.png":::
+   :::image type="content" source="media/insights-use-cases/insights-connection-performance-latency-3.png" alt-text="A screenshot of a table showing the round-trip time per user." lightbox="media/insights-use-cases/insights-connection-performance-latency-3.png":::
 
 There are several possibilities for why latency may be higher than anticipated for some users, such as a poor Wi-Fi connection, or issues with their Internet Service Provider (ISP). However, with a list of impacted users, you have the ability to proactively contact and attempt to resolve end-user experience problems by understanding their network connectivity.
 
@@ -68,7 +66,7 @@ To view session host performance:
    
    In this example there are some periods of higher disk read times that correlate with the higher user input delay above.
    
-   :::image type="content" source="media/insights-use-cases/insights-session-host-performance-2.png" alt-text="A screenshot of graphs showing session host metrics." lightbox="media/insights-use-cases/insights-use-cases/insights-session-host-performance-2.png":::
+   :::image type="content" source="media/insights-use-cases/insights-session-host-performance-2.png" alt-text="A screenshot of graphs showing session host metrics." lightbox="media/insights-use-cases/insights-session-host-performance-2.png":::
    
 1. For more information about a specific session host, select the **Host Diagnostics** tab.
 
