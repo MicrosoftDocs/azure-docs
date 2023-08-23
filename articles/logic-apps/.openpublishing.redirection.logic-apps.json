@@ -32,7 +32,7 @@
         },
         {
             "source_path_from_root": "/articles/connectors/apis-list.md",
-            "redirect_url": "/azure/connectors/introduction",
+            "redirect_url": "/connectors/connectors",
             "redirect_document_id": true
         },
         {
@@ -422,12 +422,12 @@
         },
         {
             "source_path_from_root": "/articles/connectors/index.md",
-            "redirect_url": "/azure/connectors/apis-list",
+            "redirect_url": "/connectors/connectors",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/connectors/connectors-overview.md",
-            "redirect_url": "/azure/connectors/apis-list",
+            "redirect_url": "/azure/connectors/introduction",
             "redirect_document_id": true
         },
         {
