@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 11/17/2022
 ---
 
-# Generate and manage Grafana API keys in Azure Managed Grafana
+# Generate and manage Grafana API keys in Azure Managed Grafana (Deprecated)
 
 > [!NOTE]
 > This document is deprecated as the API keys feature has been replaced by a new feature in Grafana 9.1. Go to [Service accounts](./how-to-service-accounts.md) to access the current recommended method to create and manage API keys.
