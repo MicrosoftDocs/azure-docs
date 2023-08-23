@@ -32,8 +32,8 @@
         },
         {
             "source_path_from_root": "/articles/connectors/apis-list.md",
-            "redirect_url": "/connectors/connectors",
-            "redirect_document_id": true
+            "redirect_url": "https://learn.microsoft.com/connectors/connectors",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/biztalk-services/biztalk-backup-restore.md",
@@ -422,7 +422,7 @@
         },
         {
             "source_path_from_root": "/articles/connectors/index.md",
-            "redirect_url": "/connectors/connectors",
+            "redirect_url": "https://learn.microsoft.com/connectors/connectors",
             "redirect_document_id": false
         },
         {
