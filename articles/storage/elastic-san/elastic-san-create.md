@@ -20,12 +20,8 @@ This article explains how to deploy and configure an elastic storage area networ
     - Once you've installed the latest version, run `az extension add -n elastic-san` to install the extension for Elastic SAN.
 
 
-## Register for the preview
-Register your subscription with Microsoft.ElasticSAN resource provider and the preview feature using the following command:
-
-# [Portal](#tab/azure-portal)
-
-Use either the Azure PowerShell module or the Azure CLI to register your subscription for the preview.
+## Preview Registration
+If you are using the Azure Portal, register your subscription with Microsoft.ElasticSAN resource provider and the preview feature using the following command:
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -55,7 +51,7 @@ az provider show --namespace Microsoft.ElasticSan
 az feature show --name ElasticSanPreviewAccess --namespace Microsoft.ElasticSan
 ```
 ---
-
+If you are using PowerShell or CLI, you will not need to run this command, you can simply go ahead and deploy an Elastic SAN.
 ## Limitations
 
 [!INCLUDE [elastic-san-regions](../../../includes/elastic-san-regions.md)]
