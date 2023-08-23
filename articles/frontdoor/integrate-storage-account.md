@@ -65,8 +65,7 @@ A storage account gives access to the Azure Storage services. The storage accoun
 | WAF | *Optional* - Toggle on if you want to protect your endpoint from common vulnerabilities, malicious actor and bots with [Web Application Firewall](web-application-firewall.md). You can use an existing policy from the WAF policy dropdown or create a new one. |
 | Private link | *Optional* - Toggle on if you want to keep your storage account private that is, not exposed to public internet. Select the region that is the same region as your storage account or closest to your origin. Select target sub resource as **blob**. </br>|
 
-
-![Screenshot of the caching, WAF and private link settings for an endpoint.](media/integrate-storage-account/image.png)
+:::image type="content" source="./media/integrate-storage-account/image.png" alt-text="Screenshot of the caching, WAF and private link settings for an endpoint.":::
 
     > [!NOTE]
     > * With Standard tier, you can only use custom rules with WAF.To deploy managed rules and bot protection, choose Premium tier. For detailed comparison, see [Azure Front Door tier comparison](./standard-premium/tier-comparison.md).
