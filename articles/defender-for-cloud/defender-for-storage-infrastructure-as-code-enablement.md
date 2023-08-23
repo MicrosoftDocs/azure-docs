@@ -181,6 +181,7 @@ To modify the monthly threshold for malware scanning in your storage accounts, s
 If you want to turn off the on-upload malware scanning or sensitive data threat detection features, you can change the `isEnabled` value to **False** under the `malwareScanning` or `sensitiveDataDiscovery` properties sections.
 
 **Disabling the entire Defender for Storage plan**
+
 To disable the entire Defender for Storage plan for the storage account, you can use the following code snippet:
 
 ```
