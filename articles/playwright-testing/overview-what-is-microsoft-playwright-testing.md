@@ -14,10 +14,6 @@ Run your Playwright test suite in the cloud, without changes to your test code o
 
 Get started by [running your Playwright tests at scale with Microsoft Playwright Testing](./quickstart-run-end-to-end-tests.md).
 
-The following diagram shows an architecture overview of Microsoft Playwright Testing.
-
-:::image type="content" source="./media/overview-what-is-microsoft-playwright-testing/microsoft-playwright-testing-architecture.png" alt-text="Diagram that shows the Microsoft Playwright Testing architecture.":::
-
 To learn more about how Playwright works, visit the [Getting started documentation](https://playwright.dev/docs/intro) on the Playwright website.
 
 > [!IMPORTANT]
@@ -43,17 +39,15 @@ You can use Microsoft Playwright Testing for testing both publicly and privately
 
 ## How it works
 
-Microsoft Playwright Testing enables you to run Playwright end-to-end tests in a managed service. Microsoft Playwright Testing workers abstract the cloud infrastructure for operating the remote browsers that run the test steps in your test specification. The workers support [multiple operating systems](./how-to-cross-platform-tests.md) and multiple browsers.
+Microsoft Playwright Testing instantiates cloud-hosted browsers across different operating systems. Playwright runs on the client machine and interacts with Microsoft Playwright Testing to run your Playwright tests on the hosted browsers. The client machine can be your developer workstation or a CI/CD agent machine if you run your tests as part of your CI/CD pipeline. The Playwright test code remains on the client machine during the test run.
 
-Playwright runs on the client machine and interacts with Microsoft Playwright Testing to run the tests on the remote browsers. The client machine can be your developer workstation or a CI/CD agent machine if you run your tests as part of your CI/CD pipeline. Playwright uses the test specification file to determine which steps must be run to perform the web UI test.
+To run existing tests with Microsoft Playwright Testing requires no changes to your test code. Include a service configuration file to your test project, and specify your workspace settings, such as the access key and the service endpoint. Use this service configuration on the Playwright CLI to use the cloud-hosted browsers.
 
-After a test run completes, Playwright uploads the test results and test artifacts to the service for you to view in the dashboard. Microsoft Playwright Testing stores the history of your test runs.
+After a test run completes, Playwright sends the test run metadata to the service. The test results, trace files, and other test run files are available on the client machine. 
 
-Running existing tests with Microsoft Playwright Testing requires no changes to your test specifications. Update the Playwright configuration file to add the settings to connect and authenticate with the service. To authenticate service requests, you [generate an access key](./how-to-manage-access-keys.md).
+The following diagram shows an architecture overview of Microsoft Playwright Testing.
 
-After you update the Playwright configuration file, you can continue to run your tests using the Playwright command-line interface, the Visual Studio Code extension, or integrate them in your CI/CD pipeline.
-
-To [test applications that aren't publicly accessible](./how-to-test-private-endpoints.md), you can add a configuration setting to enable Microsoft Playwright Testing to communicate with the application over an outbound connection.
+:::image type="content" source="./media/overview-what-is-microsoft-playwright-testing/microsoft-playwright-testing-architecture.png" alt-text="Diagram that shows the Microsoft Playwright Testing architecture.":::
 
 ## Limitations
 
