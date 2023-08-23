@@ -106,7 +106,7 @@ In the example code, two example custom fields `customfield_message` and `custom
 
 It's recommended that you host your own copy of templates in an [Azure Container Registry](../../container-registry/container-registry-intro.md) (ACR) instance. ACR can be used to host your custom templates and support with versioning.
 
-Hosting your own templates and using them for `$convert-data` operations involves the following six steps:
+Hosting your own templates and using them for `$convert-data` operations involves the following seven steps:
 
 1. [Create an Azure Container Registry instance](#step-1-create-an-azure-container-registry-instance)
 2. [Push the templates to your Azure Container Registry instance](#step-2-push-the-templates-to-your-azure-container-registry-instance)
