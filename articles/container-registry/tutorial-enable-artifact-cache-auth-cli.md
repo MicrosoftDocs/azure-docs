@@ -1,17 +1,17 @@
 ---
-title: Enable Cache ACR with authentication - Azure CLI
-description: Learn how to enable Cache ACR with authentication using Azure CLI.
+title: Enable Artifact Cache with authentication - Azure CLI
+description: Learn how to enable Artifact Cache with authentication using Azure CLI.
 ms.topic: tutorial
 ms.custom: devx-track-azurecli
 ms.date: 06/17/2022
 ms.author: tejaswikolli
 ---
 
-# Enable Cache ACR (Preview) with authentication - Azure CLI
+# Enable Artifact Cache with authentication - Azure CLI
 
-This article is part five of a six-part tutorial series. [Part one](tutorial-registry-cache.md) provides an overview of Cache ACR, its features, benefits, and preview limitations. In [part two](tutorial-enable-registry-cache.md), you learn how to enable Cache ACR feature by using the Azure portal. In [part three](tutorial-enable-registry-cache-cli.md), you learn how to enable Cache ACR feature by using the Azure CLI. In [part four](tutorial-enable-registry-cache-auth.md), you learn how to enable Cache ACR feature with authentication by using Azure portal. 
+This article is part five of a six-part tutorial series. [Part one](tutorial-artifact-cache.md) provides an overview of Artifact Cache, its features, benefits, and limitations. In [part two](tutorial-enable-artifact-cache.md), you learn how to enable Artifact Cache feature by using the Azure portal. In [part three](tutorial-enable-artifact-cache-cli.md), you learn how to enable Artifact Cache feature by using the Azure CLI. In [part four](tutorial-enable-artifact-cache-auth.md), you learn how to enable Artifact Cache feature with authentication by using Azure portal. 
 
-This article walks you through the steps of enabling Cache ACR with authentication by using the Azure CLI. You have to use the Credential set to make an authenticated pull or to access a private repository.
+This article walks you through the steps of enabling Artifact Cache with authentication by using the Azure CLI. You have to use the Credential set to make an authenticated pull or to access a private repository.
 
 ## Prerequisites
 
@@ -19,7 +19,7 @@ This article walks you through the steps of enabling Cache ACR with authenticati
 * You have an existing Key Vault to store credentials. Learn more about [creating and storing credentials in a Key Vault.][create-and-store-keyvault-credentials]
 * You can set and retrieve secrets from your Key Vault. Learn more about [set and retrieve a secret from Key Vault.][set-and-retrieve-a-secret]
 
-## Configure Cache ACR (preview) with authentication - Azure CLI
+## Configure Artifact Cache with authentication - Azure CLI
 
 ### Create a Credential Set - Azure CLI
 
@@ -154,7 +154,7 @@ Before configuring a Credential Set, you have to create and store secrets in the
 
 ## Next steps
 
-* Advance to the [next article](tutorial-troubleshoot-registry-cache.md) to walk through the troubleshoot guide for Registry Cache.
+* Advance to the [next article](tutorial-troubleshoot-artifact-cache.md) to walk through the troubleshoot guide for Registry Cache.
 
 <!-- LINKS - External -->
 [create-and-store-keyvault-credentials]: ../key-vault/secrets/quick-create-cli.md#add-a-secret-to-key-vault
