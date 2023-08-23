@@ -242,6 +242,11 @@ You cannot migrate existing App Service instances or environment resources from 
 
 There's no additional cost associated with enabling availability zones. Pricing for a zone redundant App Service is the same as a single zone App Service. You'll be charged based on your App Service plan SKU, the capacity you specify, and any instances you scale to based on your autoscale criteria. If you enable availability zones but specify a capacity less than three, the platform will enforce a minimum instance count of three and charge you for those three instances. For pricing information for App Service Environment v3, see [Pricing](../app-service/environment/overview.md#pricing).
 
+## Disaster recovery: cross-region failover
+
+Most organizations have a business continuity plan to maintain availability of their applications during downtime and the preservation of their data in a regional disaster. 
+
+For information on how to use common disaster recovery strategies for web apps deployed to App Service, see [Strategies for business continuity and disaster recovery in Azure App Service](/azure/app-service/overview-disaster-recovery).
 
 
 ## Next steps
