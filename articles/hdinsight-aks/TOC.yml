@@ -42,7 +42,7 @@ items:
   - name: Export ARM templates
     items:
     - name: Manual export
-      href: ./create-cluster-use-arm-template.md
+      href: ./create-cluster-using-arm-template.md
     - name: Script based export
       href: ./create-cluster-using-arm-template-script.md
   - name: Secure Network Traffic  
