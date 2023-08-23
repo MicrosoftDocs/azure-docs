@@ -8,6 +8,7 @@ ms.service: private-5g-core
 ms.topic: how-to
 ms.date: 03/21/2023
 ms.custom: template-how-to 
+zone_pivot_groups: ase-pro-version
 ---
 
 # Create additional Packet Core instances for a site  using the Azure portal
@@ -42,8 +43,14 @@ In this step, you'll create an additional packet core instance for a site in you
     - Ensure **AKS-HCI** is selected in the **Platform** field.
 
 1. Use the information you collected in [Collect access network values](collect-required-information-for-a-site.md#collect-access-network-values) for the site to fill out the fields in the **Access network** section.
+:::zone pivot="ase-pro-gpu"
     > [!NOTE]
-    > **ASE N2 virtual subnet** and **ASE N3 virtual subnet** (if this site supports 5G UEs) or **ASE S1-MME virtual subnet** and **ASE S1-U virtual subnet** (if this site supports 4G UEs) must match the corresponding virtual network names on port 5 on your Azure Stack Edge Pro device.
+    > **ASE N2 virtual subnet** and **ASE N3 virtual subnet** (if this site supports 5G UEs) or **ASE S1-MME virtual subnet** and **ASE S1-U virtual subnet** (if this site supports 4G UEs) must match the corresponding virtual network names on port 5 on your Azure Stack Edge Pro GPU device.
+:::zone-end
+:::zone pivot="ase-pro-2"
+    > [!NOTE]
+    > **ASE N2 virtual subnet** and **ASE N3 virtual subnet** (if this site supports 5G UEs) or **ASE S1-MME virtual subnet** and **ASE S1-U virtual subnet** (if this site supports 4G UEs) must match the corresponding virtual network names on port 3 on your Azure Stack Edge Pro 2 device.
+:::zone-end
 
 1. In the **Attached data networks** section, select **Attach data network**. Select the existing data network you used for the site then use the information you collected in [Collect data network values](collect-required-information-for-a-site.md#collect-data-network-values) to fill out the fields. Note the following:
     - **ASE N6 virtual subnet** (if this site supports 5G UEs) or **ASE SGi virtual subnet** (if this site supports 4G UEs) must match the corresponding virtual network name on port 6 on your Azure Stack Edge Pro device.
