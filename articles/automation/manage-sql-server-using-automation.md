@@ -1,12 +1,12 @@
 ---
-title: Manage databases in Azure SQL databases using Azure Automation.
+title: Manage databases in Azure SQL databases using Azure Automation
 description: This article explains on how to use Azure SQL server database using a system assigned managed identity in Azure Automation.
 services: automation
 ms.date: 06/26/2023
 ms.topic: conceptual
 ---
 
-# Manage databases in Azure SQL database using Azure Automation.
+# Manage databases in Azure SQL database using Azure Automation
 
 This article describes the procedure to connect and manage databases in Azure SQL database using Azure Automation's [system-assigned managed identity](enable-managed-identity-for-automation.md). With Azure Automation, you can manage databases in Azure SQL Database by using the [latest Az PowerShell cmdlets](https://learn.microsoft.com/powershell/module/) that are available in [Azure Az PowerShell](https://learn.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-10.2.0).
 
@@ -82,7 +82,7 @@ roles.[name], members.[name]
 > [!NOTE]
 > When a SQL server is running behind a firewall, you must run the Azure Automation runbook on a machine in your own network. Ensure that you configure this machine as a Hybrid Runbook Worker so that the IP address or network is not blocked by the firewall. For more information on how to configure a machine as a Hybrid Worker, see [create a hybrid worker](extension-based-hybrid-runbook-worker-install.md).
 
-### Using a Hybrid worker
+### Use Hybrid worker
 When you use a Hybrid worker, the modules that your runbook uses, must be installed locally from an elevated PowerShell prompt. For example, `- Install-module Az.Accounts and Install-module SqlServer`. To find the required module names, run a command on each cmdlet and then check the source. For example, to check module name for cmdlet `Connect-AzAccounts` which is part of the Az.Account module, run the command: `get-command Connect-AzAccount`
 
 > [!NOTE]
