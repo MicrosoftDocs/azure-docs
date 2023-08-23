@@ -105,6 +105,7 @@ In this section, you use the IP flow verify capability of Network Watcher to tes
     ```azurecli-interactive
     # Start the IP flow verify session to test outbound flow to 10.10.10.10.
     az network watcher test-ip-flow --direction 'outbound' --protocol 'TCP' --local '10.0.0.4:60000' --remote '10.10.10.10:80' --vm 'myVM' --nic 'myVmVMNic' --resource-group 'myResourceGroup' --out 'table'
+    ```
 
     After a few seconds, you get a similar output to the following example:
     
@@ -121,6 +122,7 @@ In this section, you use the IP flow verify capability of Network Watcher to tes
     ```azurecli-interactive
     # Start the IP flow verify session to test inbound flow from 10.10.10.10.
     az network watcher test-ip-flow --direction 'inbound' --protocol 'TCP' --local '10.0.0.4:80' --remote '10.10.10.10:6000' --vm 'myVM' --nic 'myVmVMNic' --resource-group 'myResourceGroup' --out 'table'
+    ```
 
     After a few seconds, you get similar output to the following example:
     
