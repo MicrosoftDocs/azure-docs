@@ -127,7 +127,7 @@ Monitoring Conditional Access enforcement of token protection before and after e
 Use Azure AD sign-in log to verify the outcome of a token protection enforcement policy in report only mode or in enabled mode. 
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
-1. Browse to **Identity** > **Monitoding & health** > **Sign-in logs**.
+1. Browse to **Identity** > **Monitoring & health** > **Sign-in logs**.
 1. Select a specific request to determine if the policy is applied or not.
 1. Go to the **Conditional Access** or **Report-Only** pane depending on its state and select the name of your policy requiring token protection.
 1. Under **Session Controls** check to see if the policy requirements were satisfied or not.
