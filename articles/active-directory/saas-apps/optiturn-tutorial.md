@@ -69,7 +69,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 	| `https://optiturn.com/sp` - production |
 	| `https://sandbox.optiturn.com/sp` - testing |
 
-        b. In the **Reply URL** textbox, type a URL using one of the following patterns:
+   b. In the **Reply URL** textbox, type a URL using one of the following patterns:
     
 	| **Reply URL** |
 	|------------|
@@ -79,8 +79,8 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 	c. In the **Sign on URL** textbox, type one of the following:
 
 	| **Sign on URL** |
-	|----------|
-        | `https://optiturn.com/session/new` - production |
+	| ---------- |
+   | `https://optiturn.com/session/new` - production |
 	| `https://sandbox.optiturn.com/session/new` - testing |
 
 	> [!NOTE]
