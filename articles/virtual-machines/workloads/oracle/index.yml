@@ -46,6 +46,8 @@ landingContent:
             url: oracle-reference-architecture.md
           - text: Oracle application solutions with Database on OCI
             url: oracle-oci-applications.md
+          - text: Architectures to deploy Oracle applications with Oracle database on Azure IaaS
+            url: deploy-oracle-application-oracle-database-azure.md
           - text: Architectures for Oracle Database Enterprise Edition on Azure
             url: oracle-design.md
 
