@@ -1,6 +1,6 @@
 ---
-title: Establish trust on Azure Confidential Ledger
-description: Learn how to establish trust on Azure Confidential Ledger by verifying the node quote
+title: Establish trust on Azure confidential ledger
+description: Learn how to establish trust on Azure confidential ledger by verifying the node quote
 author: settiy
 ms.author: settiy
 ms.date: 08/18/2023
@@ -9,14 +9,14 @@ ms.custom: devx-track-linux
 ms.topic: how-to
 ---
 
-# Establish trust on Azure Confidential Ledger
+# Establish trust on Azure confidential ledger
 
-An Azure Confidential Ledger node executes on top of a Trusted Execution Environment(TEE), such as Intel SGX, which guarantees the confidentiality of the data while in process. The trustworthiness of the platform and the binaries running inside it is guaranteed through a remote attestation process. An Azure Confidential Ledger requires a node to present a quote before joining the network. The quote report data contains the cryptographic hash of the node's identity public key and the MRENCLAVE value. The node is allowed to join the network if the quote is found to be valid and the MRENCLAVE value is one of the allowed values in the auditable governance.
+An Azure confidential ledger node executes on top of a Trusted Execution Environment(TEE), such as Intel SGX, which guarantees the confidentiality of the data while in process. The trustworthiness of the platform and the binaries running inside it is guaranteed through a remote attestation process. An Azure confidential ledger requires a node to present a quote before joining the network. The quote report data contains the cryptographic hash of the node's identity public key and the MRENCLAVE value. The node is allowed to join the network if the quote is found to be valid and the MRENCLAVE value is one of the allowed values in the auditable governance.
 
 ## Prerequisites
 
 - Install [CCF](https://microsoft.github.io/CCF/main/build_apps/install_bin.html) or the [CCF Python package](https://pypi.org/project/ccf/).
-- An Azure Confidential Ledger instance.
+- An Azure confidential ledger instance.
 
 ## Verify node quote
 
