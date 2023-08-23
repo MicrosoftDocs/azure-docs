@@ -385,13 +385,11 @@
           href: tutorial-multi-container-app.md
 - name: Reliability
   items:
+    - name: Reliability in Azure App Service
+    href: ../reliability/reliability-app-service.md?toc=/azure/app-service/toc.json&bc=/azure/app-service/breadcrumb/toc.json
   - name: Migrate to availability zones
     href: ../reliability/migrate-app-service.md?toc=/azure/app-service/toc.json&bc=/azure/app-service/breadcrumb/toc.json
-  - name: Reliability in Azure App Service
-    href: ../reliability/reliability-app-service.md?toc=/azure/app-service/toc.json&bc=/azure/app-service/breadcrumb/toc.json
-  - name: About disaster recovery
-    href: overview-disaster-recovery.md
-  - name: About DR backup region
+  - name: Move an App Service app to another region
     href: manage-disaster-recovery.md
 - name: Samples
   items:

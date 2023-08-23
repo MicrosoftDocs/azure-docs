@@ -479,7 +479,7 @@ In the case of a region-wide disaster, Azure can provide protection from regiona
 
 You can use Cross Region restore to restore Azure VMs via paired regions. With Cross Region restore, you can restore all the Azure VMs for the selected recovery point if the backup is done in the secondary region. For more details on Cross Region restore, refer to the Cross Region table row entry in our [restore options](../backup/backup-azure-arm-restore-vms.md#restore-options).
 
-### Cross-region disaster recovery in multi-region geography
+### Disaster recovery in multi-region geography
 
 In the case of a region-wide service disruption, Microsoft works diligently to restore the virtual machine service. However, you will still have to rely on other application-specific backup strategies to achieve the highest level of availability. For more information, see the section on [Data strategies for disaster recovery](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan).
 
@@ -502,7 +502,7 @@ When setting up disaster recovery for virtual machines, understand what [Azure S
 - Failover virtual machines to [another region](../site-recovery/azure-to-azure-tutorial-failover-failback.md)
 - Failover virtual machines to the [primary region](../site-recovery/azure-to-azure-tutorial-failback.md#fail-back-to-the-primary-region)
 
-### Single-region geography disaster recovery
+### Disaster recovery in single-region geography
 
 With disaster recovery set up, Azure VMs continuously replicate to a different target region. If an outage occurs, you can fail over VMs to the secondary region, and access them from there.
 
