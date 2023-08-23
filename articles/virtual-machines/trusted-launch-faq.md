@@ -15,7 +15,7 @@ ms.custom: template-faq, devx-track-azurecli, devx-track-azurepowershell
 
 Frequently asked questions about trusted launch.
 
-## Top Frequently asked questions about Trusted Launch
+## Frequently asked questions about Trusted Launch
 
 ### Why should I use trusted launch? What does trusted launch guard against?
 
@@ -37,19 +37,7 @@ VM Guest State (VMGS) is specific to Trusted Launch VM. It is a blob that is man
 
 Hyper-V Shielded VM is currently available on Hyper-V only. [Hyper-V Shielded VM](/windows-server/security/guarded-fabric-shielded-vm/guarded-fabric-and-shielded-vms) is typically deployed in conjunction with Guarded Fabric. A Guarded Fabric consists of a Host Guardian Service (HGS), one or more guarded hosts, and a set of Shielded VMs. Hyper-V Shielded VMs are intended for use in fabrics where the data and state of the virtual machine must be protected from both fabric administrators and untrusted software that might be running on the Hyper-V hosts. Trusted launch on the other hand can be deployed as a standalone virtual machine or Virtual Machine Scale Sets on Azure without additional deployment and management of HGS. All of the trusted launch features can be enabled with a simple change in deployment code or a checkbox on the Azure portal.
 
-## Feature Support
-
-### Does trusted launch support Azure Compute Gallery?
-
-Trusted launch now allows images to be created and shared through the Azure Compute Gallery (formerly Shared Image Gallery). The image source can be an existing Azure VM which is either generalized or specialized, an existing managed disk or a snapshot, a VHD or an image version from another gallery. To deploy a Trusted Launch VM from an Azure Compute Gallery image version see [trusted launch VM](https://aka.ms/trusted-launch-azurecomputegallery).
-
-### Does trusted launch support Azure Backup?
-
-Trusted launch now supports Azure Backup. For more information, see  [Support matrix for Azure VM backup](../backup/backup-support-matrix-iaas.md#vm-compute-support).
-
-### Does trusted launch support ephemeral OS disks?
-
-Trusted launch supports ephemeral OS disks. Note that, while using ephemeral disks for Trusted Launch VMs, keys and secrets generated or sealed by the vTPM after the creation of the VM may not be persisted across operations like reimaging and platform events like service healing. For more information, see [Trusted Launch for Ephemeral OS disks (Preview)](https://aka.ms/ephemeral-os-disks-support-trusted-launch).
+## Deployment
 
 ### How can I find VM sizes that support Trusted launch?
 
@@ -57,7 +45,7 @@ See the list of [Generation 2 VM sizes supporting Trusted launch](trusted-launch
 
 The following commands can be used to check if a [Generation 2 VM Size](../virtual-machines/generation-2.md#generation-2-vm-sizes) does not support Trusted launch.
 
-#### CLI
+#### [CLI](#tab/cli)
 
 ```azurecli
 subscription="<yourSubID>"
@@ -67,7 +55,7 @@ vmSize="Standard_NC12s_v3"
 az vm list-skus --resource-type virtualMachines  --location $region --query "[?name=='$vmSize'].capabilities" --subscription $subscription
 ```
 
-#### PowerShell
+#### [PowerShell](#tab/PowerShell)
 
 ```azurepowershell
 $region = "southeastasia"
@@ -109,6 +97,21 @@ AcceleratedNetworkingEnabled                 True
 RdmaEnabled                                  False
 MaxNetworkInterfaces                         8
 ```
+---
+
+## Feature Support
+
+### Does trusted launch support Azure Compute Gallery?
+
+Trusted launch now allows images to be created and shared through the Azure Compute Gallery (formerly Shared Image Gallery). The image source can be an existing Azure VM which is either generalized or specialized, an existing managed disk or a snapshot, a VHD or an image version from another gallery. To deploy a Trusted Launch VM from an Azure Compute Gallery image version see [trusted launch VM](https://aka.ms/trusted-launch-azurecomputegallery).
+
+### Does trusted launch support Azure Backup?
+
+Trusted launch now supports Azure Backup. For more information, see  [Support matrix for Azure VM backup](../backup/backup-support-matrix-iaas.md#vm-compute-support).
+
+### Does trusted launch support ephemeral OS disks?
+
+Trusted launch supports ephemeral OS disks. Note that, while using ephemeral disks for Trusted Launch VMs, keys and secrets generated or sealed by the vTPM after the creation of the VM may not be persisted across operations like reimaging and platform events like service healing. For more information, see [Trusted Launch for Ephemeral OS disks (Preview)](https://aka.ms/ephemeral-os-disks-support-trusted-launch).
 
 ## Boot Integrity Monitoring
 
