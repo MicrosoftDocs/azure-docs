@@ -1,7 +1,7 @@
 ---
 title: Manage multiple machines in Azure Update Manager (preview)
 description: The article details how to use Azure Update Manager (preview) in Azure to manage multiple supported machines and view their compliance state in the Azure portal.
-ms.service: update-manager
+ms.service: azure-update-manager
 ms.date: 05/02/2023
 ms.topic: conceptual
 author: SnehaSudhirG
@@ -16,7 +16,7 @@ ms.author: sudhirsneha
 > - For a seamless scheduled patching experience, we recommend that for all Azure VMs, you update the patch orchestration to **Customer Managed Schedules (Preview)**. If you fail to update the patch orchestration, you can experience a disruption in business continuity because the schedules will fail to patch the VMs.[Learn more](prerequsite-for-schedule-patching.md).
 
 
-This article describes the various features that update management center (Preview) offers to manage the system updates on your machines. Using the Update Manager (preview), you can:
+This article describes the various features that Update Manager (Preview) offers to manage the system updates on your machines. Using the Update Manager (preview), you can:
 
 - Quickly assess the status of available operating system updates.
 - Deploy updates.
@@ -27,13 +27,13 @@ This article describes the various features that update management center (Previ
 Instead of performing these actions from a selected Azure VM or Arc-enabled server, you can manage all your machines in the Azure subscription.
 
 
-## View update management center (Preview) status 
+## View update Manager (preview) status 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. To view update assessment across all machines, including Azure Arc-enabled servers  navigate to **Update management center(Preview)**.
+1. To view update assessment across all machines, including Azure Arc-enabled servers  navigate to **Update Manager(preview)**.
 
-   :::image type="content" source="./media/manage-multiple-machines/overview-page-inline.png" alt-text="Screenshot of update management center overview page in the Azure portal." lightbox="./media/manage-multiple-machines/overview-page-expanded.png":::
+   :::image type="content" source="./media/manage-multiple-machines/overview-page-inline.png" alt-text="Screenshot of update manager overview page in the Azure portal." lightbox="./media/manage-multiple-machines/overview-page-expanded.png":::
    
      In the **Overview** page - the summary tiles show the following status:
 
@@ -122,7 +122,7 @@ For machines that haven't had a compliance assessment scan for the first time, y
    :::image type="content" source="./media/manage-multiple-machines/update-center-assess-now-complete-banner-inline.png" alt-text="Screenshot of assessment banner on Manage Machines page." lightbox="./media/manage-multiple-machines/update-center-assess-now-complete-banner-expanded.png":::   
 
 
-Select a machine from the list to open update management center (Preview) scoped to that machine. Here, you can view its detailed assessment status, update history, configure its patch orchestration options, and initiate an update deployment. 
+Select a machine from the list to open Update Manager (preview) scoped to that machine. Here, you can view its detailed assessment status, update history, configure its patch orchestration options, and initiate an update deployment. 
 
 ### Deploy the updates
 
