@@ -38,6 +38,7 @@ There are many new features that are only supported in the Azure WAF engine. The
   * HTTP listeners limit
   * WAF IP address ranges per match condition
   * Exclusions limit
+* [Rate-limit Custom Rules](rate-limiting-overview.md)
 
 New WAF features will only be released with later versions of CRS on the new WAF engine. 
 
