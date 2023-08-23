@@ -1222,8 +1222,6 @@ This list includes information about TLS/SSL self-signed certificates:
 
   If you want to use client certificate or Azure Active Directory Open Authentication (Azure AD OAuth) with the "Certificate" credential type instead, you still have to complete a few extra steps for this authentication type. Otherwise, the call fails. For more information, review [Client certificate or Azure Active Directory Open Authentication (Azure AD OAuth) with the "Certificate" credential type for single-tenant Azure Logic Apps](../connectors/connectors-native-http.md#client-certificate-authentication).
 
-* For logic app workflows in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), the HTTP connector permits self-signed certificates for TLS/SSL handshakes. However, you must first [enable self-signed certificate support](../logic-apps/create-integration-service-environment-rest-api.md#request-body) for an existing ISE or new ISE by using the Azure Logic Apps REST API, and install the public certificate at the `TrustedRoot` location.
-
 Here are more ways that you can help secure endpoints that handle calls sent from your logic app workflows:
 
 * [Add authentication to outbound requests](#add-authentication-outbound).
