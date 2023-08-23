@@ -84,7 +84,7 @@ When a revision is scaled above the [minimum replica count](scale-app.md), all o
 
 #### Jobs
 
-In the Consumption plan, resources consumed by Azure Container Apps jobs are charged the active rate. Because jobs executions stop consuming resources when they complete, idle charges don't apply.
+In the Consumption plan, resources consumed by Azure Container Apps jobs are charged the active rate. Idle charges don't apply to jobs because executions stop consuming resources once the job completes.
 
 ### Request charges
 
