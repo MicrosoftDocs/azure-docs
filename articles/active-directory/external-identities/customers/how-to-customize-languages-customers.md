@@ -77,7 +77,7 @@ The following languages are supported in the customer tenant:
    - Spanish (Spain)
    - Swedish (Sweden)
    - Thai (Thailand)
-   - Turkish (Turkey)
+   - Turkish (Türkiye)
    - Ukrainian (Ukraine)
    
 6. Customize the elements on the **Basics**, **Layout**, **Header**, **Footer**, **Sign-in form**, and **Text** tabs. For detailed instructions, see [Customize the branding and end-user experience](how-to-customize-branding-customers.md).

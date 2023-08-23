@@ -12,7 +12,7 @@ ms.topic: how-to
 
 # How to create a `WebPubSubServiceClient` with JavaScript and Azure Identity
 
-This how-to guide shows you how to create a `WebPubSubServiceClient` using Azure Active Directory in JavaScript.
+This how-to guide shows you how to create a `WebPubSubServiceClient` using Microsoft Entra ID in JavaScript.
 
 ## Requirements
 
@@ -68,4 +68,4 @@ This how-to guide shows you how to create a `WebPubSubServiceClient` using Azure
 
 ## Complete sample
 
-- [Simple chatroom with AAD Auth](https://github.com/Azure/azure-webpubsub/tree/main/samples/javascript/chatapp-aad)
+- [Simple chatroom with Microsoft Entra ID authorization](https://github.com/Azure/azure-webpubsub/tree/main/samples/javascript/chatapp-aad)

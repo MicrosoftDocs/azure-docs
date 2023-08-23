@@ -232,6 +232,10 @@ A Network Virtual Appliance (NVA) can be deployed inside a virtual hub. For step
 
 No. The spoke VNet can't have a virtual network gateway if it's connected to the virtual hub.
 
+### Can a spoke VNet have an Azure Route Server?
+
+No. The spoke VNet can't have a Route Server if it's connected to the virtual WAN hub.
+
 ### Is there support for BGP in VPN connectivity?
 
 Yes, BGP is supported. When you create a VPN site, you can provide the BGP parameters in it. This will imply that any connections created in Azure for that site will be enabled for BGP.
@@ -246,7 +250,7 @@ A simple configuration of one Virtual WAN with one hub and one vpnsite can be cr
 
 ### Can spoke VNets connected to a virtual hub communicate with each other (V2V Transit)?
 
-Yes. Standard Virtual WAN supports VNet-to-VNet transitive connectivity via the Virtual WAN hub that the VNets are connected to. In Virtual WAN terminology, we refer to these paths as "local Virtual WAN VNet transit" for VNets connected to a Virtual Wan hub within a single region, and "global Virtual WAN VNet transit" for VNets connected through multiple Virtual WAN hubs across two or more regions.
+Yes. Standard Virtual WAN supports VNet-to-VNet transitive connectivity via the Virtual WAN hub that the VNets are connected to. In Virtual WAN terminology, we refer to these paths as "local Virtual WAN VNet transit" for VNets connected to a Virtual WAN hub within a single region, and "global Virtual WAN VNet transit" for VNets connected through multiple Virtual WAN hubs across two or more regions.
 
 In some scenarios, spoke VNets can also be directly peered with each other using [virtual network peering](../virtual-network/virtual-network-peering-overview.md) in addition to local or global Virtual WAN VNet transit. In this case, VNet Peering takes precedence over the transitive connection via the Virtual WAN hub.
 
