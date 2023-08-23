@@ -14,6 +14,8 @@ ms.service: azure-communication-services
 
 # Send WhatsApp template messages
 
+[!INCLUDE [Public Preview Disclaimer](../../../includes/public-preview-include-document.md)]
+
 This document provides guidance to send WhatsApp Template messages using Advanced Communication Messages SDK.   
 
 ## Why do I need to send a template message?
