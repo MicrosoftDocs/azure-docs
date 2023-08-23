@@ -262,4 +262,3 @@ Task-based scenarios, such as batch processing a large dataset with several cont
 [azure-instance-log]: /powershell/module/az.containerinstance/get-azcontainerinstancelog
 [azure-powershell-install]: /powershell/azure/install-Az-ps
 [new-Azcontainergroup]: /powershell/module/az.containerinstance/new-azcontainergroup
-[portal]: https://portal.azure.com

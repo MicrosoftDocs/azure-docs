@@ -28,8 +28,6 @@ By default, granting tenant-wide admin consent to an application will allow all 
 
 Granting tenant-wide admin consent may revoke any permissions that had previously been granted tenant-wide for that application. Permissions that have previously been granted by users on their own behalf won't be affected.
 
-[!INCLUDE [portal updates](../includes/portal-update.md)]
-
 ## Prerequisites
 
 Granting tenant-wide admin consent requires you to sign in as a user that is authorized to consent on behalf of the organization.
@@ -42,6 +40,8 @@ To grant tenant-wide admin consent, you need:
    - A custom directory role that includes the [permission to grant permissions to applications](../roles/custom-consent-permissions.md), for the permissions required by the application.
 
 ## Grant tenant-wide admin consent in Enterprise apps
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 You can grant tenant-wide admin consent through the **Enterprise applications** panel if the application has already been provisioned in your tenant. For example, an app could be provisioned in your tenant if at least one user has already consented to the application. For more information, see [How and why applications are added to Azure Active Directory](../develop/how-applications-are-added.md).
 
@@ -80,10 +80,11 @@ https://login.microsoftonline.com/{organization}/adminconsent?client_id={client-
 where:
 
 - `{client-id}` is the application's client ID (also known as app ID).
-- `{organization}` is the tenant ID or any verified domain name of the tenant you want to consent the application in. You can use the value `common`, which will cause the consent to happen in the home tenant of the user you sign in with.
+- `{organization}` is the tenant ID or any verified domain name of the tenant you want to consent the application in. You can use the value `organizations`, which will cause the consent to happen in the home tenant of the user you sign in with.
 
 As always, carefully review the permissions an application requests before granting consent.
 
+For more information on constructing the tenant-wide admin consent URL, see [Admin consent on the Microsoft identity platform](../develop/v2-admin-consent.md).
 
 :::zone-end
 
@@ -183,7 +184,7 @@ In the example, the resource enterprise application is Microsoft Graph of object
 
 1. Grant the delegated permissions to the client enterprise application by running the following request.
    
-   ```http   
+   ```http
    POST https://graph.microsoft.com/v1.0/oauth2PermissionGrants
    
    Request body

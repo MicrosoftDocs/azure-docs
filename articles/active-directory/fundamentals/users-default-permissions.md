@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # What are the default user permissions in Azure Active Directory?
 
-In Azure Active Directory (Azure AD), all users are granted a set of default permissions. A user's access consists of the type of user, their [role assignments](active-directory-users-assign-role-azure-portal.md), and their ownership of individual objects. 
+In Azure Active Directory (Azure AD), all users are granted a set of default permissions. A user's access consists of the type of user, their [role assignments](./how-subscriptions-associated-directory.md), and their ownership of individual objects. 
 
 This article describes those default permissions and compares the member and guest user defaults. The default user permissions can be changed only in user settings in Azure AD.
 
@@ -100,7 +100,7 @@ When a user creates a group, they're automatically added as an owner for that gr
 
 An owner can also add or remove other owners. Unlike global administrators and user administrators, owners can manage only the groups that they own. 
 
-To assign a group owner, see [Managing owners for a group](active-directory-accessmanagement-managing-group-owners.md).
+To assign a group owner, see [Managing owners for a group](./how-to-manage-groups.md).
 
 ### Ownership permissions
 
@@ -143,6 +143,10 @@ Users can perform the following actions on owned enterprise applications. An ent
 | microsoft.directory/servicePrincipals/permissions/update | Update the `servicePrincipals.permissions` property in Azure AD. |
 | microsoft.directory/servicePrincipals/policies/update | Update the `servicePrincipals.policies` property in Azure AD. |
 | microsoft.directory/signInReports/allProperties/read | Read all properties (including privileged properties) on sign-in reports in Azure AD. |
+| microsoft.directory/servicePrincipals/synchronizationCredentials/manage |	Manage application provisioning secrets and credentials |
+| microsoft.directory/servicePrincipals/synchronizationJobs/manage |	Start, restart, and pause application provisioning synchronization jobs |
+| microsoft.directory/servicePrincipals/synchronizationSchema/manage |	Create and manage application provisioning synchronization jobs and schema |
+| microsoft.directory/servicePrincipals/synchronization/standard/read |	Read provisioning settings associated with your service principal |
 
 #### Owned devices
 
@@ -173,7 +177,7 @@ Users can perform the following actions on owned groups.
 ## Next steps
 
 * To learn more about the **Guest user access restrictions** setting, see [Restrict guest access permissions in Azure Active Directory](../enterprise-users/users-restrict-guest-permissions.md).
-* To learn more about how to assign Azure AD administrator roles, see [Assign a user to administrator roles in Azure Active Directory](active-directory-users-assign-role-azure-portal.md).
+* To learn more about how to assign Azure AD administrator roles, see [Assign a user to administrator roles in Azure Active Directory](./how-subscriptions-associated-directory.md).
 * To learn more about how resource access is controlled in Microsoft Azure, see [Understanding resource access in Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md).
-* For more information on how Azure AD relates to your Azure subscription, see [How Azure subscriptions are associated with Azure Active Directory](active-directory-how-subscriptions-associated-directory.md).
-* [Manage users](add-users-azure-active-directory.md).
+* For more information on how Azure AD relates to your Azure subscription, see [How Azure subscriptions are associated with Azure Active Directory](./how-subscriptions-associated-directory.md).
+* [Manage users](./add-users.md).

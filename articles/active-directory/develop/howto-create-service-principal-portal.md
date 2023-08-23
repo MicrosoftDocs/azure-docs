@@ -36,7 +36,9 @@ You must have sufficient permissions to register an application with your Azure 
 
 ## Register an application with Azure AD and create a service principal
 
-1. Sign-in to the [Azure portal](https://portal.azure.com).
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for and Select **Azure Active Directory**.
 1. Select **App registrations**, then select **New registration**.
 1. Name the application, for example "example-app". 
@@ -54,7 +56,7 @@ To access resources in your subscription, you must assign a role to the applicat
 
 You can set the scope at the level of the subscription, resource group, or resource. Permissions are inherited to lower levels of scope.
 
-1. Sign-in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select the level of scope you wish to assign the application to. For example, to assign a role at the subscription scope, search for and select **Subscriptions**. If you don't see the subscription you're looking for, select **global subscriptions filter**. Make sure the subscription you want is selected for the tenant.
 1. Select **Access control (IAM)**.
 1. Select **Add**, then select **Add role assignment**.
@@ -141,7 +143,7 @@ You might need to configure extra permissions on resources that your application
 
 To configure access policies:
 
-1. Sign-in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select your key vault and select **Access policies**.
 1. Select **Add access policy**, then select the key, secret, and certificate permissions you want to grant your application.  Select the service principal you created previously.
 1. Select **Add** to add the access policy.

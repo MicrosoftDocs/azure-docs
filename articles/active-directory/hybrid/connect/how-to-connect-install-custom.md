@@ -242,8 +242,8 @@ For more information, see [Directory extensions](how-to-connect-sync-feature-dir
 ### Enabling single sign-on
 On the **Single sign-on** page, you configure single sign-on for use with password synchronization or pass-through authentication. You do this step once for each forest that's being synchronized to Azure AD. Configuration involves two steps:
 
-1.	Create the necessary computer account in your on-premises instance of Active Directory.
-2.	Configure the intranet zone of the client machines to support single sign-on.
+1. Create the necessary computer account in your on-premises instance of Active Directory.
+2. Configure the intranet zone of the client machines to support single sign-on.
 
 #### Create the computer account in Active Directory
 For each forest that has been added in Azure AD Connect, you need to supply domain administrator credentials so that the computer account can be created in each forest. The credentials are used only to create the account. They aren't stored or used for any other operation. Add the credentials on the **Enable single sign-on** page, as the following image shows.
@@ -258,14 +258,14 @@ To ensure that the client signs in automatically in the intranet zone, make sure
 
 On a computer that has Group Policy management tools:
 
-1.	Open the Group Policy management tools.
-2.	Edit the group policy that will be applied to all users. For example, the Default Domain policy.
-3.	Go to **User Configuration** > **Administrative Templates** > **Windows Components** > **Internet Explorer** > **Internet Control Panel** > **Security Page**. Then select **Site to Zone Assignment List**.
-4.	Enable the policy. Then, in the dialog box, enter a value name of `https://autologon.microsoftazuread-sso.com` and value of `1`. Your setup should look like the following image.
+1. Open the Group Policy management tools.
+2. Edit the group policy that will be applied to all users. For example, the Default Domain policy.
+3. Go to **User Configuration** > **Administrative Templates** > **Windows Components** > **Internet Explorer** > **Internet Control Panel** > **Security Page**. Then select **Site to Zone Assignment List**.
+4. Enable the policy. Then, in the dialog box, enter a value name of `https://autologon.microsoftazuread-sso.com` and value of `1`. Your setup should look like the following image.
   
     ![Screenshot showing intranet zones.](./media/how-to-connect-install-custom/sitezone.png)
 
-6.	Select **OK** twice.
+6. Select **OK** twice.
 
 ## Configuring federation with AD FS
 You can configure AD FS with Azure AD Connect in just a few clicks. Before you start, you need:

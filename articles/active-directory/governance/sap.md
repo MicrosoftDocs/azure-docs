@@ -62,7 +62,7 @@ After your users are in Azure AD, you can provision accounts into the various Sa
 
 Customers who have yet to transition from applications such as  SAP ERP Central Component (SAP ECC) to SAP S/4HANA can still rely on the Azure AD provisioning service to provision user accounts. Within SAP ECC, you expose the necessary Business Application Programming Interfaces (BAPIs) for creating, updating, and deleting users. Within Azure AD, you have two options:
 
-* Use the lightweight Azure AD provisioning agent and [web services connector](/azure/active-directory/app-provisioning/on-premises-web-services-connector) to [provision users into apps such as SAP ECC](https://learn.microsoft.com/azure/active-directory/app-provisioning/on-premises-sap-connector-configure?branch=pr-en-us-243167).
+* Use the lightweight Azure AD provisioning agent and [web services connector](/azure/active-directory/app-provisioning/on-premises-web-services-connector) to [provision users into apps such as SAP ECC](/azure/active-directory/app-provisioning/on-premises-sap-connector-configure?branch=pr-en-us-243167).
 * In scenarios where you need to do more complex group and role management, use [Microsoft Identity Manager](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-ma-ws) to manage access to your legacy SAP applications.
 
 ## Trigger custom workflows

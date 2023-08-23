@@ -50,9 +50,11 @@ For more information, see [What is Azure attribute-based access control (Azure A
 
 ## Assign a role
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Follow these steps to make a user eligible for an Azure resource role.
 
-1. Sign in to [Azure portal](https://portal.azure.com/) with Owner or User Access Administrator role permissions.
+1. Sign in to the [Azure portal](https://portal.azure.com) with Owner or User Access Administrator role permissions.
 
 1. Open **Azure AD Privileged Identity Management**.
 

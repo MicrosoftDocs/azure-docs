@@ -5,8 +5,8 @@ ms.topic: conceptual
 ms.service: backup
 ms.custom: references_regions
 ms.date: 05/25/2023
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Immutable vault for Azure Backup

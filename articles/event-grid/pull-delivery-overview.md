@@ -10,11 +10,10 @@ ms.topic: conceptual
 # Pull delivery with HTTP (Preview)
 This article builds on [What is Azure Event Grid?](overview.md) to provide essential information before you start using Event Grid’s pull delivery over HTTP. It covers fundamental concepts, resource models, and message delivery modes supported. At the end of this document, you find useful links to articles that guide you on how to use Event Grid and to articles that offer in-depth conceptual information.
 
->[!Important]
+>[!NOTE]
 > This document helps you get started with Event Grid capabilities that use the HTTP protocol. This article is suitable for users who need to integrate applications on the cloud. If you require to communicate IoT device data, see [Overview of the MQTT Support in Azure Event Grid](mqtt-overview.md).
 
-> [!NOTE]
-> This feature is currently in preview. It's provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+[!INCLUDE [pull-preview-note](./includes/pull-preview-note.md)]
 
 ## Core concepts
 

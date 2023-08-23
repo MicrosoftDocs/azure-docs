@@ -4,8 +4,8 @@ description: This article provides a protection matrix listing all workloads, da
 ms.date: 04/20/2023
 ms.topic: conceptual
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Azure Backup Server V3 RTM protection matrix

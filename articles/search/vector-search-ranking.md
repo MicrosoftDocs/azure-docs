@@ -13,7 +13,7 @@ ms.date: 07/14/2023
 # Vector query execution and scoring in Azure Cognitive Search
 
 > [!IMPORTANT]
-> Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and [alpha SDKs](https://github.com/Azure/cognitive-search-vector-pr#readme).
+> Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and [beta client libraries](https://github.com/Azure/cognitive-search-vector-pr#readme).
 
 This article is for developers who need a deeper understanding of vector query execution and ranking in Azure Cognitive Search.
 
@@ -30,7 +30,7 @@ If a query request is about dogs, the model maps the query into a vector that ex
 
 Commonly used similarity metrics include `cosine`, `euclidean` (also known as `l2 norm`), and `dotProduct`, which are summarized here:
 
-+ `cosine` calculates the angle between two vectors. Cosine is the similarity metric used by [Azure OpenAI embedding models](/azure/cognitive-services/openai/concepts/understand-embeddings#cosine-similarity).
++ `cosine` calculates the angle between two vectors. Cosine is the similarity metric used by [Azure OpenAI embedding models](/azure/ai-services/openai/concepts/understand-embeddings#cosine-similarity).
 
 + `euclidean` calculates the Euclidean distance between two vectors, which is the l2-norm of the difference of the two vectors.
 

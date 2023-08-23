@@ -28,6 +28,12 @@ landingContent:
         links:
           - text: Govern access to your resources
             url: https://www.youtube.com/watch?v=bFfowdpApu4&list=PLQXpv_NQsPIBg3op2xONM9KgwlayFDue6
+      - linkListType: reference
+        links:
+          - text: Microsoft Entra ID Governance licensing fundamentals
+            url: licensing-fundamentals.md
+          - text: Identity Governance dashboard (Preview)
+            url: governance-dashboard.md            
   
   # Card
   - title: Govern the lifecycle of access to groups, apps, and sites

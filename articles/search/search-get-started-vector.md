@@ -13,7 +13,7 @@ ms.date: 07/07/2023
 # Quickstart: Use preview REST APIs for vector search queries
 
 > [!IMPORTANT]
-> Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and [alpha SDKs](https://github.com/Azure/cognitive-search-vector-pr#readme).
+> Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and [beta client libraries](https://github.com/Azure/cognitive-search-vector-pr#readme).
 
 Get started with vector search in Azure Cognitive Search using the **2023-07-01-Preview** REST APIs that create, load, and query a search index. Search indexes now support vector fields in the fields collection. When querying the search index, you can build vector-only queries, or create hybrid queries that target vector fields *and* textual fields configured for filters, sorts, facets, and semantic ranking.
 
@@ -39,7 +39,7 @@ Sample data consists of text and vector descriptions of 108 Azure services, gene
 
 + Vector data (text embeddings) is used for vector search. Currently, Cognitive Search doesn't generate vectors for you. For this quickstart, vector data was generated previously and copied into the "Upload Documents" request and into the query requests.
 
-  For documents, we generated vector data using demo code that calls Azure OpenAI for the embeddings. Demo code is currently using alpha builds of the Azure SDKs and is available in [Python](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-python) and [C#](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-dotnet).
+  For documents, we generated vector data using demo code that calls Azure OpenAI for the embeddings. Samples are currently using beta versions of the Azure SDKs and are available in [Python](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-python), [C#](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-dotnet), and [JavaScript](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-javascript).
 
   For queries, we used the "Create Query Embeddings" request that calls Azure OpenAI and outputs embeddings for a search string. If you want to formulate your own vector queries against the sample data of 108 Azure services, provide your Azure OpenAI connection information in the Postman collection variables. Your Azure OpenAI service must have a deployment of an embedding model that's identical to the one used to generate embeddings in your search corpus. For this quickstart, the following parameters were used: 
   
@@ -294,10 +294,10 @@ api-key: {{admin-api-key}}
                 -0.00086512347
             ],
             "fields": "contentVector",
-            "select": "title, content, category"
             "k": 10
         },
     ],
+    "select": "title, content, category",
     "filter": "category eq 'Databases'"
 }
 ```

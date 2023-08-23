@@ -90,11 +90,11 @@ Select any discovery group to view more information, edit the group, or kickstar
 
 ### Run history
 
-The discovery group details page contains the run history for the group. This section displays key information about each discovery run that was performed on the specific group of seeds. The **Status** column indicates whether the run is **In Progress**, **Complete**, or **Failed**. This section also includes **started** and **completed** timestamps and counts of the total number of assets versus new assets discovered.
+The discovery group details page contains the run history for the group. This section displays key information about each discovery run that was performed on the specific group of seeds. The **Status** column indicates whether the run is **In Progress**, **Complete**, or **Failed**. This section also includes **started** and **completed** timestamps and a count of all new assets added to your inventory after that particular discovery run. This count includes all assets brought into inventory, regardless of state or billable status. 
 
 Run history is organized by the seed assets that were scanned during the discovery run. To see a list of the applicable seeds, select **Details**. A pane opens on the right of your screen that lists all the seeds and exclusions by kind and name.
 
-:::image type="content" source="media/Discovery_10.png" alt-text="Screenshot that shows the run history for the discovery group screen.":::
+:::image type="content" source="media/discovery-10.png" alt-text="Screenshot that shows the run history for the discovery group screen.":::
 
 ### View seeds and exclusions
 

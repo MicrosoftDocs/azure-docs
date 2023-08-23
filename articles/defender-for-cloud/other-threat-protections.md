@@ -1,5 +1,5 @@
 ---
-title: Other threat protections from Microsoft Defender for Cloud
+title: Other threat protections
 description: Learn about the threat protections available from Microsoft Defender for Cloud
 ms.topic: overview
 ms.date: 05/22/2023

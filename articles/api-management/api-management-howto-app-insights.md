@@ -90,7 +90,7 @@ You can specify loggers on different levels:
  
 Specifying *both*:
 - By default, the single API logger (more granular level) overrides the one for all APIs.
-- If the loggers configured at the two levels are different, and you need both loggers to receive telemetry (multiplexing), please contact Microsoft Support. 
+- If the loggers configured at the two levels are different, and you need both loggers to receive telemetry (multiplexing), please contact Microsoft Support. Please note that multiplexing is not supported if you're using the same logger (Application Insights destination) at the "All APIs" level and the single API level. For multiplexing to work correctly, you must configure different loggers at the "All APIs" and individual API level and request assistance from Microsoft support to enable multiplexing for your service.
 
 ## What data is added to Application Insights
 

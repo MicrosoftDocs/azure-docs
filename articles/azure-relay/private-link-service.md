@@ -32,7 +32,7 @@ Your private endpoint uses a private IP address in your virtual network.
 The following procedure provides step-by-step instructions for disabling public access to a Relay namespace and then adding a private endpoint to the namespace. 
 
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. In the search bar, type in **Relays**.
 3. Select the **namespace** from the list to which you want to add a private endpoint.
 4. On the left menu, select the **Networking** tab under **Settings**.

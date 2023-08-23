@@ -48,5 +48,5 @@ The following example calculates the arccosine of the specified values using the
 
 ## Next steps
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`COS`](cos.md)

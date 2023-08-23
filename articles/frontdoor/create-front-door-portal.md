@@ -78,7 +78,7 @@ In this example, we create two Web App instances that are deployed in two differ
 
 Use the following steps to create two Web Apps used in this example.
 
-1. Sign in to the Azure portal at https://portal.azure.com.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. On the top left-hand side of the portal, select **+ Create a resource**. Then search for **Web App**. Select **Create** to begin configuring the first Web App.
 

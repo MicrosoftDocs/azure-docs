@@ -112,7 +112,7 @@
         href: ot-deploy/install-software-ot-sensor.md
       - name: Validate after installation
         href: ot-deploy/post-install-validation-ot-software.md
-      - name: Activate and set up an OT sensor
+      - name: Configure initial settings and activate your sensor
         href: ot-deploy/activate-deploy-sensor.md
         displayName: SSL, TLS, certificate
       - name: Configure proxy settings
@@ -322,7 +322,7 @@
           href: configure-sensor-settings-portal.md
         - name: Maintain an OT sensor from the sensor console
           href: how-to-manage-individual-sensors.md
-          displayName: activation, time zone, SMTP, PCAP
+          displayName: activation, time zone, SMTP, PCAP, SSH, ERSPAN
         - name: Configure SNMP monitoring
           href: how-to-set-up-snmp-mib-monitoring.md
         - name: Add support for proprietary protocols

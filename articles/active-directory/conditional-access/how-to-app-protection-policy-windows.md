@@ -23,19 +23,7 @@ App protection policies apply mobile application management (MAM) to specific ap
 
 ## Prerequisites
 
-The following requirements must be met before you can apply an [app protection policy] to Windows client devices:
-
-- Ensure your Windows client version is Windows 11, build 10.0.22621 (22H2) or newer.
-- Ensure your device isn't managed, including:
-   - Not Azure AD joined or enrolled in Mobile Device Management (MDM) for the same tenant
-as your MAM user.
-   - Not Azure AD registered (workplace joined) with more than two users besides the MAM user. There's a limit of no more than [three Azure AD registered users to a device](../devices/faq.yml#i-can-t-add-more-than-3-azure-ad-user-accounts-under-the-same-user-session-on-a-windows-10-11-device--why).
-- Clients must be running Microsoft Edge build v115.0.1901.155 or newer.
-   - You can check the version by going to `edge://settings/help` in the address bar.
-- Clients must have the **Enable MAM on Edge desktop platforms** flag enabled.
-   - You can enable this going to `edge://flags/#edge-desktop-mam` in the address bar.
-   - Enable **Enable MAM on Edge desktop platforms**
-   - Click the **Restart** button at the bottom of the window.
+Customers interested in the public preview will need to opt-in using the [MAM for Windows Public Preview Sign Up Form](https://aka.ms/MAMforWindowsPublic).
 
 ## User exclusions
 [!INCLUDE [active-directory-policy-exclusions](../../../includes/active-directory-policy-exclude-user.md)]
@@ -48,7 +36,7 @@ The following policy is put in to [Report-only mode](howto-conditional-access-in
 
 The following steps help create a Conditional Access policy requiring an app protection policy when using a Windows device. The app protection policy must also be configured and assigned to your users in Microsoft Intune. For more information about how to create the app protection policy, see the article [Preview: App protection policy settings for Windows](/mem/intune/apps/app-protection-policy-settings-windows).
 
-1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
 1. Browse to **Microsoft Entra ID (Azure AD)** > **Protection** > **Conditional Access**.
 1. Select **Create new policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
@@ -82,7 +70,7 @@ Clicking on **Switch Edge profile** opens a window listing their Work or school 
 This process opens a window offering to allow Windows to remember your account and automatically sign you in to your apps and websites. 
 
 > [!CAUTION]
-> You must *UNCHECK* the box **Allow my organization to manage my device**. Leaving this checked enrolls your device in mobile device maangment (MDM) not mobile application management (MAM).
+> You must *CLEAR THE CHECKBOX* **Allow my organization to manage my device**. Leaving this checked enrolls your device in mobile device maangment (MDM) not mobile application management (MAM).
 
 ![Screenshot showing the stay signed in to all your apps window. Uncheck the allow my organization to manage my device checkbox.](./media/how-to-app-protection-policy-windows/stay-signed-in-to-all-your-apps.png)
 
@@ -101,7 +89,6 @@ In some circumstances, after getting the "you're all set" page you may still be 
 To resolve these possible scenarios:
 
 - Wait a few minutes and try again in a new tab.
-- Go to **Settings** > **Accounts** > **Access work or school**, then add the account there.
 - Contact your administrator to check that Microsoft Intune MAM policies are applying to your account correctly.
 
 ### Existing account

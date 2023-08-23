@@ -4,6 +4,7 @@ description: Learn how to configure an OpenID Connect provider as an identity pr
 ms.topic: article
 ms.date: 10/20/2021
 ms.reviewer: mahender
+ms.custom: AppServiceIdentity
 ---
 
 # Configure your App Service or Azure Functions app to login using an OpenID Connect provider
@@ -57,3 +58,5 @@ If you are unable to use a configuration metadata document, you will need to gat
 ## <a name="related-content"> </a>Next steps
 
 [!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
+
+[Azure portal]: https://portal.azure.com

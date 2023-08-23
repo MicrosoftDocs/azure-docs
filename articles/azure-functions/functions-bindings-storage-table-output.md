@@ -87,61 +87,6 @@ public static MyTableData Run(
 }
 ```
 
-# [C# Script](#tab/csharp-script)
-
-The following example shows a table output binding in a *function.json* file and [C# script](functions-reference-csharp.md) code that uses the binding. The function writes multiple table entities.
-
-Here's the *function.json* file:
-
-```json
-{
-  "bindings": [
-    {
-      "name": "input",
-      "type": "manualTrigger",
-      "direction": "in"
-    },
-    {
-      "tableName": "Person",
-      "connection": "MyStorageConnectionAppSetting",
-      "name": "tableBinding",
-      "type": "table",
-      "direction": "out"
-    }
-  ],
-  "disabled": false
-}
-```
-
-The [attributes](#attributes) section explains these properties.
-
-Here's the C# script code:
-
-```csharp
-public static void Run(string input, ICollector<Person> tableBinding, ILogger log)
-{
-    for (int i = 1; i < 10; i++)
-        {
-            log.LogInformation($"Adding Person entity {i}");
-            tableBinding.Add(
-                new Person() { 
-                    PartitionKey = "Test", 
-                    RowKey = i.ToString(), 
-                    Name = "Name" + i.ToString() }
-                );
-        }
-
-}
-
-public class Person
-{
-    public string PartitionKey { get; set; }
-    public string RowKey { get; set; }
-    public string Name { get; set; }
-}
-
-```
-
 ---
 
 ::: zone-end
@@ -375,7 +320,7 @@ def main(req: func.HttpRequest, message: func.Out[str]) -> func.HttpResponse:
 ::: zone pivot="programming-language-csharp"
 ## Attributes 
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use attributes to define the function. C# script instead uses a function.json configuration file.
+Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use attributes to define the function. C# script instead uses a function.json configuration file as described in the [C# scripting guide](./functions-reference-csharp.md#table-output).
 
 # [In-process](#tab/in-process)
 
@@ -426,22 +371,6 @@ In [C# class libraries](dotnet-isolated-process-guide.md), the `TableInputAttrib
 |**PartitionKey** | The partition key of the table entity to write. | 
 |**RowKey** | The row key of the table entity to write. | 
 |**Connection** | The name of an app setting or setting collection that specifies how to connect to the table service. See [Connections](#connections). |
-    
-# [C# script](#tab/csharp-script)
-
-C# script uses a function.json file for configuration instead of attributes.
-
-The following table explains the binding configuration properties for C# script that you set in the *function.json* file. 
-
-|function.json property | Description|
-|---|---|
-|**type** |Must be set to `table`. This property is set automatically when you create the binding in the Azure portal.|
-|**direction** |  Must be set to `out`. This property is set automatically when you create the binding in the Azure portal. |
-|**name** |  The variable name used in function code that represents the table or entity. Set to `$return` to reference the function return value.| 
-|**tableName** |The name of the table to which to write.| 
-|**partitionKey** |The partition key of the table entity to write. | 
-|**rowKey** | The row key of the table entity to write. | 
-|**connection** | The name of an app setting or setting collection that specifies how to connect to the table service. See [Connections](#connections). |
 
 ---
 
@@ -493,11 +422,7 @@ An in-process class library is a compiled C# function runs in the same process a
  
 # [Isolated process](#tab/isolated-process)
 
-An isolated worker process class library compiled C# function runs in a process isolated from the runtime.   
-   
-# [C# script](#tab/csharp-script)
-
-C# script is used primarily when creating C# functions in the Azure portal.
+An isolated worker process class library compiled C# function runs in a process isolated from the runtime.
 
 ---
 
@@ -541,33 +466,6 @@ Return a plain-old CLR object (POCO) with properties that can be mapped to the t
 # [Functions 1.x](#tab/functionsv1/isolated-process)
 
 Functions version 1.x doesn't support isolated worker process.
-
-# [Azure Tables extension](#tab/table-api/csharp-script)
-
-The following types are supported for `out` parameters and return types:
-
-- A plain-old CLR object (POCO) that includes the `PartitionKey` and `RowKey` properties. You can accompany these properties by implementing `ITableEntity`.
-- `ICollector<T>` or `IAsyncCollector<T>` where `T` includes the `PartitionKey` and `RowKey` properties. You can accompany these properties by implementing `ITableEntity`.
-
-You can also bind to `TableClient` [from the Azure SDK](/dotnet/api/azure.data.tables.tableclient). You can then use that object to write to the table.
-
-# [Combined Azure Storage extension](#tab/storage-extension/csharp-script)
-
-The following types are supported for `out` parameters and return types:
-
-- A plain-old CLR object (POCO) that includes the `PartitionKey` and `RowKey` properties. You can accompany these properties by implementing `ITableEntity` or inheriting `TableEntity`.
-- `ICollector<T>` or `IAsyncCollector<T>` where `T` includes the `PartitionKey` and `RowKey` properties. You can accompany these properties by implementing `ITableEntity` or inheriting `TableEntity`.
-
-You can also bind to `CloudTable` [from the Storage SDK](/dotnet/api/microsoft.azure.cosmos.table.cloudtable) as a method parameter. You can then use that object to write to the table.
-
-# [Functions 1.x](#tab/functionsv1/csharp-script)
-
-The following types are supported for `out` parameters and return types:
-
-- A plain-old CLR object (POCO) that includes the `PartitionKey` and `RowKey` properties. You can accompany these properties by implementing `ITableEntity` or inheriting `TableEntity`.
-- `ICollector<T>` or `IAsyncCollector<T>` where `T` includes the `PartitionKey` and `RowKey` properties. You can accompany these properties by implementing `ITableEntity` or inheriting `TableEntity`.
-
-You can also bind to `CloudTable` [from the Storage SDK](/dotnet/api/microsoft.azure.cosmos.table.cloudtable) as a method parameter. You can then use that object to write to the table.
 
 ---
 

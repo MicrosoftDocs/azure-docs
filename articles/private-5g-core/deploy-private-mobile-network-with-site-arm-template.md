@@ -2,10 +2,11 @@
 title: Deploy a private mobile network and site - ARM template
 titleSuffix: Azure Private 5G Core
 description: Learn how to deploy a private mobile network and site using an Azure Resource Manager template (ARM template).
-services: azure-resource-manager 
-author: djrmetaswitch
-ms.author: drichards
-ms.service: azure-resource-manager
+services: azure-resource-manager
+author: robswain
+ms.author: robswain
+ms.service: private-5g-core
+tags: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-arm-template
 zone_pivot_groups: ase-pro-version
@@ -144,9 +145,9 @@ The following Azure resources are defined in the template.
     - A **Packet Core Control Plane** resource representing the control plane function of the packet core instance in the site.
     - A **Packet Core Data Plane** resource representing the data plane function of the packet core instance in the site.
     - An **Attached Data Network** resource representing the site's view of the data network.
-    - A **Service** resource representing the default service. 
+    - A **Service** resource representing the default service.
     - A **SIM Policy** resource representing the allow-all SIM policy.
-    - A **SIM Group** resource (if you provisioned any SIMs). 
+    - A **SIM Group** resource (if you provisioned any SIMs).
 
     :::image type="content" source="media/create-full-private-5g-core-deployment-arm-template/full-deployment-resource-group.png" alt-text="Screenshot of the Azure portal showing a resource group containing the resources for a full Azure Private 5G Core deployment." lightbox="media/create-full-private-5g-core-deployment-arm-template/full-deployment-resource-group.png":::
 

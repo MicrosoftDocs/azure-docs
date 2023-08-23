@@ -2,7 +2,7 @@
 author: rhurey
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.topic: include
 ms.date: 06/18/2021
 ms.author: rhurey

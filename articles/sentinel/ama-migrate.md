@@ -26,10 +26,10 @@ The following tables show gap analyses for the log types that currently rely on 
 
 |Log type / Support  |Azure Monitor agent support |Log Analytics agent support  |
 |---------|---------|---------|
-|**Security Events**     |  [Windows Security Events data connector](data-connectors/windows-security-events-via-ama.md)  (Public preview)     |  [Windows Security Events data connector (Legacy)](data-connectors/security-events-via-legacy-agent.md)       |
-|**Filtering by security event ID**     |   [Windows Security Events data connector (AMA)](data-connectors/windows-security-events-via-ama.md)  (Public preview)    |     -     |
+|**Security Events**     |  [Windows Security Events data connector](data-connectors/windows-security-events-via-ama.md)   |  [Windows Security Events data connector (Legacy)](data-connectors/security-events-via-legacy-agent.md)       |
+|**Filtering by security event ID**     |   [Windows Security Events data connector (AMA)](data-connectors/windows-security-events-via-ama.md)   |     -     |
 |**Filtering by event ID**     | Collection only        |   -       |
-|**Windows Event Forwarding**     |  [Windows Forwarded Events](data-connectors/windows-forwarded-events.md) (Public Preview)       |     -     |
+|**Windows Event Forwarding**     |  [Windows Forwarded Events](data-connectors/windows-forwarded-events.md)   |     -     |
 |**Windows Firewall Logs**     |  -        |  [Windows Firewall data connector](data-connectors/windows-firewall.md)       |
 |**Performance counters**     |   Collection only      |  Collection only       |
 |**Windows Event Logs**     |  Collection only       | Collection only        |

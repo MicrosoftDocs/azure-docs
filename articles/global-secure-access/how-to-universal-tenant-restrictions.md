@@ -1,11 +1,11 @@
 ---
 title: Global Secure Access (preview) and universal tenant restrictions
-description: What are universal tenant restrictions
+description: Learn about how Global Secure Access (preview) secures access to your corporate network by restricting access to external tenants.
 
 ms.service: network-access
 ms.subservice: 
 ms.topic: how-to
-ms.date: 06/09/2023
+ms.date: 07/27/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -64,13 +64,13 @@ Outlook uses the QUIC protocol for some communications. We don't currently suppo
 
 Before an organization can use universal tenant restrictions, they must configure both the default tenant restrictions and tenant restrictions for any specific partners.
 
-For more information to configure these policies, see the article [Set up tenant restrictions V2 (Preview)](../active-directory/external-identities/tenant-restrictions-v2.md).
+For more information to configure these policies, see the article [Set up tenant restrictions V2 (Preview)](/azure/active-directory/external-identities/tenant-restrictions-v2).
 
 :::image type="content" source="media/how-to-universal-tenant-restrictions/sample-tenant-restrictions-policy-blocking-access.png" alt-text="Screenshot showing a sample tenant restriction policy in the portal." lightbox="media/how-to-universal-tenant-restrictions/sample-tenant-restrictions-policy-blocking-access.png":::
 
 ## Enable tagging for tenant restrictions v2
 
-Once you have created the tenant restriction v2 policies, you can utilize Global Secure Access to apply tagging for tenant restrictions v2. An administrator with both the [Global Secure Access Administrator](../active-directory/roles/permissions-reference.md) and [Security Administrator](../active-directory/roles/permissions-reference.md#security-administrator) roles must take the following steps to enable enforcement with Global Secure Access.
+Once you have created the tenant restriction v2 policies, you can utilize Global Secure Access to apply tagging for tenant restrictions v2. An administrator with both the [Global Secure Access Administrator](/azure/active-directory/roles/permissions-reference) and [Security Administrator](/azure/active-directory/roles/permissions-reference#security-administrator) roles must take the following steps to enable enforcement with Global Secure Access.
 
 1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a Global Secure Access Administrator.
 1. Browse to **Global Secure Access** > **Global Settings** > **Session Management**.
@@ -122,6 +122,6 @@ The next step for getting started with Microsoft Entra Internet Access is to [En
 
 For more information on Conditional Access policies for Global Secure Access (preview), see the following articles:
 
-- [Set up tenant restrictions V2 (Preview)](../active-directory/external-identities/tenant-restrictions-v2.md)
+- [Set up tenant restrictions V2 (Preview)](/azure/active-directory/external-identities/tenant-restrictions-v2)
 - [Source IP restoration](how-to-source-ip-restoration.md)
 - [Enable compliant network check with Conditional Access](how-to-compliant-network.md)

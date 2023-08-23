@@ -21,6 +21,8 @@ Changing a workflow's tasks or execution conditions requires the creation of a n
 
 ## Edit the tasks of a workflow using the Azure portal
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 
 Tasks within workflows can be added, edited, reordered, and removed at will. To edit the tasks of a workflow using the Azure portal, you complete the following steps:
 

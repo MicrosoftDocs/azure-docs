@@ -41,6 +41,8 @@ This tutorial shows you how to access the Azure Resource Manager API using a Win
 
 ## Grant your VM access to a resource group in Resource Manager
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Using managed identities for Azure resources, your application can get access tokens to authenticate to resources that support Azure AD authentication. The Azure Resource Manager API supports Azure AD authentication. We grant this VM's identity access to a resource in Azure Resource Manager, in this case a Resource Group. We assign the [Reader](../../role-based-access-control/built-in-roles.md#reader) role to the managed-identity at the scope of the resource group. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with your administrator account.
@@ -58,10 +60,10 @@ Using managed identities for Azure resources, your application can get access to
 
 You'll need to use **PowerShell** in this portion.  If you don’t have **PowerShell** installed, download it [here](/powershell/azure/). 
 
-1.	In the portal, navigate to **Virtual Machines** and go to your Windows virtual machine and in the **Overview**, select **Connect**. 
-2.	Enter in your **Username** and **Password** for which you added when you created the Windows VM. 
-3.	Now that you've created a **Remote Desktop Connection** with the virtual machine, open **PowerShell** in the remote session. 
-4.	Using the Invoke-WebRequest cmdlet, make a request to the local managed identity for Azure resources endpoint to get an access token for Azure Resource Manager.
+1. In the portal, navigate to **Virtual Machines** and go to your Windows virtual machine and in the **Overview**, select **Connect**. 
+2. Enter in your **Username** and **Password** for which you added when you created the Windows VM. 
+3. Now that you've created a **Remote Desktop Connection** with the virtual machine, open **PowerShell** in the remote session. 
+4. Using the Invoke-WebRequest cmdlet, make a request to the local managed identity for Azure resources endpoint to get an access token for Azure Resource Manager.
 
     ```powershell
        $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/' -Method GET -Headers @{Metadata="true"}

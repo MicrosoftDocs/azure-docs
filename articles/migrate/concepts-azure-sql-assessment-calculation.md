@@ -5,7 +5,7 @@ author: rashi-ms
 ms.author: rajosh
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 03/15/2023
+ms.date: 08/02/2023
 ms.custom: engagement-fy23
 ---
 
@@ -100,6 +100,7 @@ High availability and disaster recovery properties | **Disaster recovery region*
 High availability and disaster recovery properties | **Multi-subnet intent** | Defaulted to Disaster recovery. <br/><br/> Select **Disaster recovery** if you want asynchronous data replication where some replication delays are tolerable. This allows higher durability using geo-redundancy. In the event of failover, data that hasn't yet been replicated may be lost. <br/><br/> Select **High availability** if you desire the data replication to be synchronous and no data loss due to replication delay is allowable. This setting allows assessment to leverage built-in high availability options in Azure SQL Databases and Azure SQL Managed Instances, and availability zones and zone-redundancy in Azure Virtual Machines to provide higher availability. In the event of failover, no data is lost.  
 High availability and disaster recovery properties | **Internet Access** | Defaulted to Available.<br/><br/> Select **Available** if you allow outbound Internet access from Azure VMs. This allows the use of [Cloud Witness](https://learn.microsoft.com/azure/azure-sql/virtual-machines/windows/hadr-cluster-quorum-configure-how-to?view=azuresql&tabs=powershell) which is the recommended approach for Windows Server Failover Clusters in Azure Virtual Machines. <br/><br/> Select **Not available** if the Azure VMs have no outbound Internet access. This requires the use of a Shared Disk as a witness for Windows Server Failover Clusters in Azure Virtual Machines. 
 High availability and disaster recovery properties | **Async commit mode intent** | Defaulted to Disaster recovery. <br/><br/> Select **Disaster recovery** if you're using asynchronous commit availability mode to enable higher durability for the data without affecting performance. In the event of failover, data that hasn't yet been replicated may be lost. <br/><br/> Select **High availability** if you're using asynchronous commit data availability mode to improve availability and scale out read traffic. This setting allows assessment to leverage built-in high availability features in Azure SQL Databases, Azure SQL Managed Instances, and Azure Virtual Machines to provide higher availability and scale out.  
+Security | **Security** | Defaulted to Yes, with Microsoft Defender for Cloud. <br/><br/> Specifies whether you want to assess readiness and cost for security tooling on Azure. If the setting has the default value **Yes, with Microsoft Defender for Cloud**, it will assess security readiness and costs for your Azure SQL MI/DB with Microsoft Defender for Cloud.   
 
 [Review the best practices](best-practices-assessment.md) for creating an assessment with Azure Migrate.
 
@@ -137,6 +138,14 @@ If you select the target deployment type as **Recommended** in the Azure SQL ass
 
 > [!NOTE]
 > In the recommended deployment strategy, if the source SQL Server is good fit for all three deployment targets- SQL Server on Azure VM, Azure SQL Managed Instance and Azure SQL Database, the assessment recommends a specific option that optimizes your cost and fits within the size and performance boundaries.
+
+### Security readiness
+
+If the database/instance is marked as **Ready** for the target deployment type Azure SQL DB/MI, it is automatically considered **Ready** for Microsoft Defender for SQL. 
+If the database/instance is marked as **Ready** for the target deployment type SQL Server on Azure VM, it is considered **Ready** for Microsoft Defender for SQL if it is running any of these versions:
+- SQL Server versions 2012, 2014, 2016, 2017, 2019, 2022
+- For all other versions, it is marked as **Ready with Conditions**.
+
 
 ## Calculate sizing
 
@@ -247,6 +256,7 @@ This section provides guidance to configure the target resource and steps to mig
 
 ## Calculate monthly costs
 After sizing recommendations are complete, Azure SQL assessment calculates the compute and storage costs for the recommended Azure SQL configurations using an internal pricing API. It aggregates the compute and storage cost across all instances to calculate the total monthly compute cost. 
+
 ### Compute cost
 - To calculate the compute cost for an Azure SQL configuration, the assessment considers the following properties:
     - Azure Hybrid Benefit for SQL and Windows licenses
@@ -269,6 +279,11 @@ After sizing recommendations are complete, Azure SQL assessment calculates the c
     - A minimum of 5 GB storage cost is added in the cost estimate and additional storage cost is added for storage in 1 GB increments. [Learn More](https://azure.microsoft.com/pricing/details/sql-database/single/).
 - **Azure SQL Managed Instance**
     - There's no storage cost added for the first 32 GB/instance/month storage and additional storage cost is added for storage in 32 GB increments. [Learn More](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
+
+### Security cost
+
+For SQL Server instances and DBs recommended for SQL Server on Azure VM, Azure SQL MI or Azure SQL DB, if they're ready to run Defender for SQL, the Defender for SQL per SQL Server instance for that region is added. For DBs recommended to Azure SQL DB, cost is rolled up at instance level.
+
         
 ## Next steps
 - [Review](best-practices-assessment.md) best practices for creating assessments. 

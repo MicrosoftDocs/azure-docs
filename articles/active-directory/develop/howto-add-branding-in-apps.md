@@ -9,9 +9,9 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 03/16/2023
+ms.date: 07/26/2023
 ms.author: ryanwi
-ms.reviewer: arielgo, jiml
+ms.reviewer: arielgo
 ms.custom: aaddev, signin_art
 ---
 
@@ -92,6 +92,12 @@ To download the official images for use in your app, right-click the one you wan
 | Sign in with Microsoft (light theme) | ![Downloadable "Sign in with Microsoft" button light theme PNG](./media/howto-add-branding-in-apps/ms-symbollockup_signin_light.png) | ![Downloadable "Sign in with Microsoft" button light theme SVG](./media/howto-add-branding-in-apps/ms-symbollockup_signin_light.svg) |
 | Sign in (dark theme)                 | ![Downloadable "Sign in" short button dark theme PNG](./media/howto-add-branding-in-apps/ms-symbollockup_signin_dark_short.png) | ![Downloadable "Sign in" short button dark theme SVG](./media/howto-add-branding-in-apps/ms-symbollockup_signin_dark_short.svg) |
 | Sign in (light theme)                | ![Downloadable "Sign in" short button light theme PNG](./media/howto-add-branding-in-apps/ms-symbollockup_signin_light_short.png) | ![Downloadable "Sign in" short button light theme SVG](./media/howto-add-branding-in-apps/ms-symbollockup_signin_light_short.svg) |
+
+## Localized terminology and UI strings
+
+Microsoft Terminology can be used to ensure that terminology in your localized versions of applications match the corresponding terminology in Microsoft products.  You can query the Microsoft Terminology via the [Microsoft Terminology Search page](https://msit.powerbi.com/view?r=eyJrIjoiODJmYjU4Y2YtM2M0ZC00YzYxLWE1YTktNzFjYmYxNTAxNjQ0IiwidCI6IjcyZjk4OGJmLTg2ZjEtNDFhZi05MWFiLTJkN2NkMDExZGI0NyIsImMiOjV9).
+
+Microsoft UI string translations can be used to ensure that translations in the localized versions of your applications match the corresponding UI strings in Microsoft products. You can query the Microsoft UI strings via the [Microsoft UI String Search page](https://msit.powerbi.com/view?r=eyJrIjoiMmE2NjJhMDMtNTY3MC00MmI2LWFmOWUtYWM5YTVjODI5MjQwIiwidCI6IjcyZjk4OGJmLTg2ZjEtNDFhZi05MWFiLTJkN2NkMDExZGI0NyIsImMiOjV9).
 
 ## Branding Do’s and Don’ts
 

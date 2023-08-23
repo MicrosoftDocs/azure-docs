@@ -21,6 +21,9 @@ This quickstart builds on [Quickstart: Add 1:1 video calling to your app](../../
 
 ## Using video effects
 
+> [!Note]
+> Video effects support on Android is limited to the **last four** major versions of Android. For example, when a new, major version of Android is released, the Android requirement is the new version and the three most recent versions that precede it.
+
 Currently there's one available Video Effect: Background Blur.
 
 The `VideoEffectsLocalVideoStreamFeature` object has the following API structure:

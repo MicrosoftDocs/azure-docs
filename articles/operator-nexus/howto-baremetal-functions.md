@@ -6,7 +6,7 @@ ms.author: harishrao
 ms.service: azure-operator-nexus
 ms.topic: how-to
 ms.date: 05/26/2023
-ms.custom: template-how-to
+ms.custom: template-how-to, devx-track-azurecli
 ---
 
 # Manage lifecycle of Bare Metal Machines

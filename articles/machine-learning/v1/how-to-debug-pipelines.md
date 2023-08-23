@@ -9,7 +9,7 @@ ms.author: zhanxia
 author: xiaoharper
 ms.date: 11/04/2022
 ms.topic: troubleshooting
-ms.custom: UpdateFrequency5, troubleshooting, devx-track-python, contperf-fy21q2, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, troubleshooting, contperf-fy21q2, sdkv1, event-tier1-build-2022
 #Customer intent: As a data scientist, I want to figure out why my pipeline doesn't run so that I can fix it.
 ---
 

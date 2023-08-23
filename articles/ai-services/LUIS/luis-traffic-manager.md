@@ -28,7 +28,7 @@ This article explains how to manage the traffic across keys with Azure [Traffic 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## Connect to PowerShell in the Azure portal
-In the [Azure][azure-portal] portal, open the PowerShell window. The icon for the PowerShell window is the **>_** in the top navigation bar. By using PowerShell from the portal, you get the latest PowerShell version and you are authenticated. PowerShell in the portal requires an [Azure Storage](https://azure.microsoft.com/services/storage/) account.
+In the [Azure portal](https://portal.azure.com), open the PowerShell window. The icon for the PowerShell window is the **>_** in the top navigation bar. By using PowerShell from the portal, you get the latest PowerShell version and you are authenticated. PowerShell in the portal requires an [Azure Storage](https://azure.microsoft.com/services/storage/) account.
 
 ![Screenshot of Azure portal with PowerShell window open](./media/traffic-manager/azure-portal-powershell.png)
 
@@ -378,7 +378,6 @@ Review [middleware](/azure/bot-service/bot-builder-create-middleware?tabs=csaddm
 [traffic-manager-marketing]: https://azure.microsoft.com/services/traffic-manager/
 [traffic-manager-docs]: ../../traffic-manager/index.yml
 [LUIS]: ./luis-reference-regions.md#luis-website
-[azure-portal]: https://portal.azure.com/
 [azure-storage]: https://azure.microsoft.com/services/storage/
 [routing-methods]: ../../traffic-manager/traffic-manager-routing-methods.md
 [traffic-manager-endpoints]: ../../traffic-manager/traffic-manager-endpoint-types.md

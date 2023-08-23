@@ -31,6 +31,7 @@ Azure AD is a multitenant application. It requires outbound connectivity to perf
 - **Private access (virtual network integration)**:
 
   - You need an outbound network security group (NSG) rule to allow virtual network traffic to only reach the `AzureActiveDirectory` service tag.
+  - If you're using a route table, you need to create a rule with destination service tag `AzureActiveDirectory` and next hop `Internet`.
   - Optionally, if you're using a proxy, you can add a new firewall rule to allow HTTP/S traffic to reach only the `AzureActiveDirectory` service tag.
 
 To set the Azure AD admin during server provisioning, follow these steps:

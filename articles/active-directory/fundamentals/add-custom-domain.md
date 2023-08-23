@@ -26,9 +26,11 @@ Before you can add a custom domain name, create your domain name with a domain r
 
 ## Create your directory in Azure AD
 
-After you get your domain name, you can create your first Azure AD directory. Sign in to the Azure portal for your directory, using an account with the **Owner** role for the subscription.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-Create your new directory by following the steps in [Create a new tenant for your organization](active-directory-access-create-new-tenant.md#create-a-new-tenant-for-your-organization).
+After you get your domain name, you can create your first Azure AD directory. Sign in to the [Azure portal](https://portal.azure.com) for your directory, using an account with the **Owner** role for the subscription.
+
+Create your new directory by following the steps in [Create a new tenant for your organization](./create-new-tenant.md#create-a-new-tenant-for-your-organization).
 
 >[!IMPORTANT]
 >The person who creates the tenant is automatically the Global administrator for that tenant. The Global administrator can add additional administrators to the tenant.
@@ -38,13 +40,13 @@ For more information about subscription roles, see [Azure roles](../../role-base
 >[!TIP]
 > If you plan to federate your on-premises Windows Server AD with Azure AD, then you need to select **I plan to configure this domain for single sign-on with my local Active Directory** when you run the Azure AD Connect tool to synchronize your directories.
 >
-> You also need to register the same domain name you select for federating with your on-premises directory in the **Azure AD Domain** step in the wizard. To see what that setup looks like, see [Verify the Azure AD domain selected for federation](../hybrid/how-to-connect-install-custom.md#verify-the-azure-ad-domain-selected-for-federation). If you don't have the Azure AD Connect tool, you can [download it here](https://go.microsoft.com/fwlink/?LinkId=615771).
+> You also need to register the same domain name you select for federating with your on-premises directory in the **Azure AD Domain** step in the wizard. To see what that setup looks like, see [Verify the Azure AD domain selected for federation](../hybrid/connect/how-to-connect-install-custom.md#verify-the-azure-ad-domain-selected-for-federation). If you don't have the Azure AD Connect tool, you can [download it here](https://go.microsoft.com/fwlink/?LinkId=615771).
 
 ## Add your custom domain name to Azure AD
 
 After you create your directory, you can add your custom domain name.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) using a Global administrator account for the directory.
+1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator account for the directory.
 
 1. Search for and select *Azure Active Directory* from any page. Then select **Custom domain names** > **Add custom domain**.
 
@@ -76,7 +78,7 @@ After you register your custom domain name, make sure it's valid in Azure AD. Th
 
 To verify your custom domain name, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) using a Global administrator account for the directory.
+1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator account for the directory.
 
 1. Search for and select *Azure Active Directory* from any page, then select **Custom domain names**.
 
@@ -108,9 +110,9 @@ If Azure AD can't verify a custom domain name, try the following suggestions:
 
 ## Next steps
 
-- Add another Global administrator to your directory. For more information, see [How to assign roles and administrators](active-directory-users-assign-role-azure-portal.md).
+- Add another Global administrator to your directory. For more information, see [How to assign roles and administrators](./how-subscriptions-associated-directory.md).
 
-- Add users to your domain. For more information, see [How to add or delete users](add-users-azure-active-directory.md).
+- Add users to your domain. For more information, see [How to add or delete users](./add-users.md).
 
 - Manage your domain name information in Azure AD. For more information, see [Managing custom domain names](../enterprise-users/domains-manage.md).
 

@@ -37,7 +37,7 @@ A rule set is a customized rules engine that groups a combination of rules into 
 
 ## Architecture
 
-Rule sets handle requests at the Front Door edge. When a request arrives at your Front Door endpoint, WAF is processed first, followed by the settings configured in route. Those settings include the rule set associated to the route. Rule sets are processed in the order the appear under the routing configuration. Rules in a rule set also get process in the order they appear. In order for all the actions in each rule to run, all the match conditions within a rule has to be met. If a request doesn't match any of the conditions in your rule set configuration, then only the default route settings get applied.
+Rule sets handle requests at the Front Door edge. When a request arrives at your Front Door endpoint, WAF is processed first, followed by the settings configured in route. Those settings include the rule set associated to the route. Rule sets are processed in the order they appear under the routing configuration. Rules in a rule set also get processed in the order they appear. In order for all the actions in each rule to run, all the match conditions within a rule have to be met. If a request doesn't match any of the conditions in your rule set configuration, then only the default route settings get applied.
 
 If the **Stop evaluating remaining rules** is selected, then any remaining rule sets associated with the route don't get ran.  
 
