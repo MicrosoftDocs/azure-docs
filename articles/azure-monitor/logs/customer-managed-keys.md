@@ -18,9 +18,9 @@ We recommend you review [Limitations and constraints](#limitationsandconstraints
 
 [Encryption at Rest](../../security/fundamentals/encryption-atrest.md) is a common privacy and security requirement in organizations. You can let Azure completely manage encryption at rest, while you have various options to closely manage encryption and encryption keys.
 
-Azure Monitor ensures that all data and saved queries are encrypted at rest using Microsoft-managed keys (MMK). You also have the option to encrypt data with your own key in [Azure Key Vault](../../key-vault/general/overview.md), with control over key lifecycle and ability to revoke  access to your data at any time. Azure Monitor use of encryption is identical to the way [Azure Storage encryption](../../storage/common/storage-service-encryption.md#about-azure-storage-service-side-encryption) operates.
+Azure Monitor ensures that all data and saved queries are encrypted at rest using Microsoft-managed keys (MMK). You can also encrypt data with your own key in [Azure Key Vault](../../key-vault/general/overview.md), with control over key lifecycle and ability to revoke  access to your data at any time. Azure Monitor use of encryption is identical to the way [Azure Storage encryption](../../storage/common/storage-service-encryption.md#about-azure-storage-service-side-encryption) operates.
 
-Customer-managed key is delivered on [dedicated clusters](./logs-dedicated-clusters.md) providing higher protection level and control. Data to dedicated clusters is encrypted twice, once at the service level using Microsoft-managed keys or Customer-managed keys, and once at the infrastructure level, using two different encryption algorithms and two different keys. [double encryption](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) protects against a scenario where one of the encryption algorithms or keys may be compromised. In this case, the additional layer of encryption continues to protect your data. Dedicated cluster also allows you to protect your data with [Lockbox](#customer-lockbox) control.
+Customer-managed key is delivered on [dedicated clusters](./logs-dedicated-clusters.md) providing higher protection level and control. Data to dedicated clusters is encrypted twice, once at the service level using Microsoft-managed keys or Customer-managed keys, and once at the infrastructure level, using two different encryption algorithms and two different keys. [double encryption](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) protects against a scenario where one of the encryption algorithms or keys may be compromised. In this case, the extra layer of encryption continues to protect your data. Dedicated cluster also allows you to protect your data with [Lockbox](#customer-lockbox) control.
 
 Data ingested in the last 14 days or recently used in queries is kept in hot-cache (SSD-backed) for query efficiency. SSD data is encrypted with Microsoft keys regardless customer-managed key configuration, but your control over SSD access adheres to [key revocation](#key-revocation)
 
@@ -254,8 +254,8 @@ The cluster storage will always respect changes in key permissions within an hou
 ## Key rotation
 
 Key rotation has two modes: 
-- Autorotation—update your cluster with ```"keyVaultProperties"``` but omit ```"keyVersion"``` property, or set it to ```""```. Storage will automatically use the latest versions.
-- Explicit key version update—update your cluster with key version in ```"keyVersion"``` property. Rotation of keys requires an explicit ```"keyVaultProperties"``` update in cluster, see [Update cluster with Key identifier details](#update-cluster-with-key-identifier-details). If you generate new key version in Key Vault but don't update it in the cluster, the cluster storage will keep using your previous key. If you disable or delete the old key before updating a new one in the cluster, you will get into [key revocation](#key-revocation) state.
+- Autorotation—update your cluster with ```"keyVaultProperties"``` but omit ```"keyVersion"``` property, or set it to ```""```. Storage automatically uses the latest versions.
+- Explicit key version update—update your cluster with key version in ```"keyVersion"``` property. Rotation of keys requires an explicit ```"keyVaultProperties"``` update in cluster, see [Update cluster with Key identifier details](#update-cluster-with-key-identifier-details). If you generate new key version in Key Vault but don't update it in the cluster, the cluster storage will keep using your previous key. If you disable or delete the old key before updating a new one in the cluster, you'll get into [key revocation](#key-revocation) state.
 
 All your data remains accessible after the key rotation operation. Data always encrypted with the Account Encryption Key ("AEK"), which is encrypted with your new Key Encryption Key ("KEK") version in Key Vault.
 
@@ -275,7 +275,7 @@ When linking your Storage Account for saved queries, the service stores saved-qu
 * Linking a Storage Account for queries removed existing saves queries from your workspace. Copy saves queries that you need before this configuration. You can view your saved queries using  [PowerShell](/powershell/module/az.operationalinsights/get-azoperationalinsightssavedsearch).
 * Query 'history' and 'pin to dashboard' aren't supported when linking Storage Account for queries.
 * You can link a single Storage Account to a workspace, which can be used for both saved queries and log alerts queries.
-* Fired log alerts will not contain search results or alert query. You can use [alert dimensions](../alerts/alerts-unified-log.md#split-by-alert-dimensions) to get context in the fired alerts.
+* Fired log alerts don't contain search results or alert query. You can use [alert dimensions](../alerts/alerts-unified-log.md#split-by-alert-dimensions) to get context in the fired alerts.
 
 **Configure BYOS for saved queries**
 
@@ -415,13 +415,13 @@ Customer-Managed key is provided on dedicated cluster and these operations are r
 
 - Moving a cluster to another resource group or subscription isn't currently supported.
 
-- Cluster update should not include both identity and key identifier details in the same operation. In case you need to update both, the update should be in two consecutive operations.
+- Cluster update shouldn't include both identity and key identifier details in the same operation. In case you need to update both, the update should be in two consecutive operations.
 
 - Lockbox isn't available in China currently. 
 
 - [Double encryption](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) is configured automatically for clusters created from October 2020 in supported regions. You can verify if your cluster is configured for double encryption by sending a GET request on the cluster and observing that the `isDoubleEncryptionEnabled` value is `true` for clusters with Double encryption enabled. 
   - If you create a cluster and get an error—"region-name doesn’t support Double Encryption for clusters", you can still create the cluster without Double encryption, by adding `"properties": {"isDoubleEncryptionEnabled": false}` in the REST request body.
-  - Double encryption settings cannot be changed after the cluster has been created.
+  - Double encryption settings can't be changed after the cluster has been created.
 
 Deleting a linked workspace is permitted while linked to cluster. If you decide to [recover](./delete-workspace.md#recover-a-workspace-in-a-soft-delete-state) the workspace during the [soft-delete](./delete-workspace.md#delete-a-workspace-into-a-soft-delete-state) period, it returns to previous state and remains linked to cluster.
 
@@ -462,7 +462,7 @@ Deleting a linked workspace is permitted while linked to cluster. If you decide 
 
 - If you update your key version in Key Vault and don't update the new key identifier details in the cluster, the cluster will keep using your previous key and your data will become inaccessible. Update new key identifier details in the cluster to resume data ingestion and ability to query data.
 
-- Some operations are long and can take a while to complete — these are cluster create, cluster key update and cluster delete. You can check the operation status by sending GET request to cluster or workspace and observe the response. For example, unlinked workspace won't have the *clusterResourceId* under *features*.
+- Some operations are long and can take a while to complete — these are cluster create, cluster key update and cluster delete. You can check the operation status by sending GET request to cluster or workspace and observe the response. For example, unlinked workspace don't have the *clusterResourceId* under *features*.
 
 - Error messages
   
