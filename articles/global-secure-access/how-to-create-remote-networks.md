@@ -60,7 +60,11 @@ Before you can set up remote networks, you need to onboard your tenant informati
 
 You MUST complete the email step before selecting the checkbox. 
 
-## Create a remote network with the Microsoft Entra admin center
+## Create a remote network
+
+You can create a remote network in the Microsoft Entra admin center or through the Microsoft Graph API.
+
+# [Microsoft Entra admin center](#tab/microsoft-entra-admin-center) 
 
 Remote networks are configured on three tabs. You must complete each tab in order. After completing the tab either select the next tab from the top of the page, or select the **Next** button at the bottom of the page.
 
@@ -96,7 +100,7 @@ You can assign the remote network to a traffic forwarding profile when you creat
 
 The final tab in the process is to review all of the settings that you provided. Review the details provided here and select the **Create remote network** button.
 
-## Create remote networks using the Microsoft Graph API
+# [Microsoft Graph API](#tab/microsoft-graph-api) 
 
 Global Secure Access remote networks can be viewed and managed using Microsoft Graph on the `/beta` endpoint. Creating a remote network and assigning a traffic forwarding profile are separate API calls.
 
@@ -163,10 +167,11 @@ Associating a traffic forwarding profile to your remote network using the Micros
     ```
 
 1. Select **Run query** to update the remote network.
+---
 
 ## Verify your remote network configurations
 
-There are a few things to consider when creating remote networks.
+There are a few things to consider and verify when creating remote networks. You may need to double-check some settings based.
 
 - **Verify IKE crypto profile**: The crypto profile (IKE phase 1 and phase 2 algorithms) set for a device link should match what has been set on the CPE. If you chose the **default IKE policy**, ensure that your CPE is set up with the crypto profile specified in the [Remote network configurations](reference-remote-network-configurations.md) reference article.
 
@@ -175,7 +180,7 @@ There are a few things to consider when creating remote networks.
 - **Verify local and peer BDP IP addresses**: The public IP addresses and BGP addresses specified while creating a device link in Microsoft Global Secure Access should match what you specified when configuring the CPE. 
     - In general, the settings in Microsoft Entra admin center and your CPE should be complementary.
     - Peer BGP IP addresses, such as IP1, in the Microsoft Entra admin center is a private IP address used for BGP service on your on-premise device.
-    - Local BGP IP address, such as IP2, in the Microsoft Entra admin center is a private IP address used for BGP service on the GSA gateway.
+    - Local BGP IP address, such as IP2, in the Microsoft Entra admin center is a private IP address used for BGP service on the Global Secure Access gateway.
     - You can choose the IP address for Global Secure Access that doesn't overlap with your on-premises network.
     - However, when setting up the on-premises device, the relationship is reversed. From the device's perspective, the peer BGP IP address is IP2, and the local BGP IP address is IP2.
     - The same considerations apply to ASNs.
