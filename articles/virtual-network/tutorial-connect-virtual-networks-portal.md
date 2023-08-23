@@ -37,13 +37,13 @@ Repeat the previous steps to create a second virtual network with the following 
 >[!NOTE]
 >The second virtual network can be in the same region as the first virtual network or in a different region. You can skip the **Security** tab and the Bastion deployment for the second virtual network. After the network peer, you can connect to both virtual machines with the same Bastion deployment.
 
-    | Setting | Value |
-    | --- | --- |
-    | Name | **vnet-2** |
-    | Address space | **10.1.0.0/16** |
-    | Resource group | **test-rg** |
-    | Subnet name | **subnet-1** |
-    | Subnet address range | **10.1.0.0/24** |
+| Setting | Value |
+| --- | --- |
+| Name | **vnet-2** |
+| Address space | **10.1.0.0/16** |
+| Resource group | **test-rg** |
+| Subnet name | **subnet-1** |
+| Subnet address range | **10.1.0.0/24** |
 
 <a name="peer-virtual-networks"></a>
 
