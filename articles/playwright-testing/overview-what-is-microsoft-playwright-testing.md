@@ -47,7 +47,7 @@ After a test run completes, Playwright sends the test run metadata to the servic
 
 The following diagram shows an architecture overview of Microsoft Playwright Testing.
 
-:::image type="content" source="./media/overview-what-is-microsoft-playwright-testing/microsoft-playwright-testing-architecture.png" alt-text="Diagram that shows the Microsoft Playwright Testing architecture.":::
+:::image type="content" source="./media/overview-what-is-microsoft-playwright-testing/microsoft-playwright-testing-architecture.png" alt-text="Diagram that shows the Microsoft Playwright Testing architecture." lightbox="./media/overview-what-is-microsoft-playwright-testing/microsoft-playwright-testing-architecture.png":::
 
 ## Limitations
 
