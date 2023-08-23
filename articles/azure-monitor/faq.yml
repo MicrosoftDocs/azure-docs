@@ -1081,6 +1081,21 @@ sections:
   - name: Container insights
     questions:
       - question: |
+         Why do I see info banner "You don't have right cluster permissions which may restrict your access to the feature. Please reach-out to your cluster-admin to get the right permissions"?
+        answer: |
+         Container Insights has historically allowed users to access the Azure portal experience based on the access permission of the Log Analytics workspace.
+
+         Container Insights now check cluster level permission to provide access to Azure portal experience. It is recommended for users to get atleast basic read-only cluster level access through their cluster admin.
+
+          Cluster admin would need to follow different steps based on the following cluster types
+           *AKS without Kubernetes role-based access control (RBAC) authorization enabled
+           *AKS enabled with Kubernetes RBAC authorization
+            **AKS configured with the cluster role binding clusterMonitoringUser
+          *AKS enabled with Azure Active Directory (Azure AD) SAML-based single sign-on
+
+          [Learn more for cluster admins on role assignment](https://learn.microsoft.com/azure/aks/concepts-identity)
+    
+      - question: |
           What does "Other processes" represent under the Node view?
         answer: |
           *Other processes* are intended to help you clearly understand the root cause of the high resource usage on your node. This information helps you to distinguish usage between containerized processes versus noncontainerized processes.
