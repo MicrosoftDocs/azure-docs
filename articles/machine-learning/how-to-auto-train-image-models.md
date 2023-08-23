@@ -222,7 +222,7 @@ validation_data:
 
 # [Python SDK](#tab/python)
 
- [!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 You can create data inputs from training and validation MLTable from your local directory or cloud storage with the following code:
 
@@ -359,13 +359,48 @@ In individual trials, you directly control the model architecture and hyperparam
 
 #### Supported model architectures
 
-The following table summarizes the supported models for each computer vision task.
+The following table summarizes the supported legacy models for each computer vision task. Using only these legacy models will trigger runs using the legacy runtime (where each individual run or trial is submitted as a command job). Please see below for HuggingFace and MMDetection support.
 
 Task |  model architectures | String literal syntax<br> ***`default_model`\**** denoted with \*
 ---|----------|----------
 Image classification<br> (multi-class and multi-label)| **MobileNet**: Light-weighted models for mobile applications <br> **ResNet**: Residual networks<br> **ResNeSt**: Split attention networks<br> **SE-ResNeXt50**: Squeeze-and-Excitation networks<br> **ViT**: Vision transformer networks| `mobilenetv2`   <br>`resnet18` <br>`resnet34` <br> `resnet50`  <br> `resnet101` <br> `resnet152`    <br> `resnest50` <br> `resnest101`  <br> `seresnext`  <br> `vits16r224` (small) <br> ***`vitb16r224`\**** (base) <br>`vitl16r224` (large)|
 Object detection | **YOLOv5**: One stage object detection model   <br>  **Faster RCNN ResNet FPN**: Two stage object detection models  <br> **RetinaNet ResNet FPN**: address class imbalance with Focal Loss <br> <br>*Note: Refer to [`model_size` hyperparameter](reference-automl-images-hyperparameters.md#model-specific-hyperparameters) for YOLOv5 model sizes.*| ***`yolov5`\**** <br> `fasterrcnn_resnet18_fpn` <br> `fasterrcnn_resnet34_fpn` <br> `fasterrcnn_resnet50_fpn` <br> `fasterrcnn_resnet101_fpn` <br> `fasterrcnn_resnet152_fpn` <br> `retinanet_resnet50_fpn` 
 Instance segmentation | **MaskRCNN ResNet FPN**| `maskrcnn_resnet18_fpn` <br> `maskrcnn_resnet34_fpn` <br> ***`maskrcnn_resnet50_fpn`\****  <br> `maskrcnn_resnet101_fpn` <br> `maskrcnn_resnet152_fpn`
+
+#### Supported model architectures - HuggingFace and MMDetection (preview)
+
+With the new backend that runs on [Azure Machine Learning pipelines](concept-ml-pipelines.md), you can additionally use any image classification model from the [HuggingFace Hub](https://huggingface.co/models?pipeline_tag=image-classification&library=transformers) which is part of the transformers library (such as microsoft/beit-base-patch16-224), as well as any object detection or instance segmentation model from the [MMDetection Version 2.28.2 Model Zoo](https://mmdetection.readthedocs.io/en/v2.28.2/model_zoo.html) (such as atss_r50_fpn_1x_coco). 
+
+In addition to supporting any model from HuggingFace Transfomers and MMDetection 2.28.2, we also offer a list of curated models from these libraries in the azureml-staging registry. These curated models have been tested thoroughly and use default hyperparameters selected from extensive benchmarking to ensure effective training. The table below summarizes these curated models.
+
+Task |  model architectures | String literal syntax
+---|----------|----------
+Image classification<br> (multi-class and multi-label)| **BEiT** <br> **ViT** <br> **DeiT** <br> **SwinV2]** | [`microsoft/beit-base-patch16-224-pt22k-ft22k`](https://ml.azure.com/registries/azureml/models/microsoft-beit-base-patch16-224-pt22k-ft22k/version/5)<br> [`google/vit-base-patch16-224`](https://ml.azure.com/registries/azureml/models/google-vit-base-patch16-224/version/5)<br> [`facebook/deit-base-patch16-224`](https://ml.azure.com/registries/azureml/models/facebook-deit-base-patch16-224/version/5)<br> [`microsoft/swinv2-base-patch4-window12-192-22k`](https://ml.azure.com/registries/azureml/models/microsoft-swinv2-base-patch4-window12-192-22k/version/5)
+Object Detection | **Sparse R-CNN** <br> **Deformable DETR** <br> **VFNet** <br> **YOLOF** <br> **Swin** | [`sparse_rcnn_r50_fpn_300_proposals_crop_mstrain_480-800_3x_coco`](https://ml.azure.com/registries/azureml/models/sparse_rcnn_r50_fpn_300_proposals_crop_mstrain_480-800_3x_coco/version/3)<br> [`sparse_rcnn_r101_fpn_300_proposals_crop_mstrain_480-800_3x_coco`](https://ml.azure.com/registries/azureml/models/sparse_rcnn_r101_fpn_300_proposals_crop_mstrain_480-800_3x_coco/version/3) <br> [`deformable_detr_twostage_refine_r50_16x2_50e_coco`](https://ml.azure.com/registries/azureml/models/deformable_detr_twostage_refine_r50_16x2_50e_coco/version/3) <br> [`vfnet_r50_fpn_mdconv_c3-c5_mstrain_2x_coco`](https://ml.azure.com/registries/azureml/models/vfnet_r50_fpn_mdconv_c3-c5_mstrain_2x_coco/version/3) <br> [`vfnet_x101_64x4d_fpn_mdconv_c3-c5_mstrain_2x_coco`](https://ml.azure.com/registries/azureml/models/vfnet_x101_64x4d_fpn_mdconv_c3-c5_mstrain_2x_coco/version/3) <br> [`yolof_r50_c5_8x8_1x_coco`](https://ml.azure.com/registries/azureml/models/yolof_r50_c5_8x8_1x_coco/version/3)
+Instance Segmentation | **Swin** | [`mask_rcnn_swin-t-p4-w7_fpn_1x_coco`](https://ml.azure.com/registries/azureml/models/mask_rcnn_swin-t-p4-w7_fpn_1x_coco/version/3)
+
+We constantly update the list of curated models. You can get the most up-to-date list of the curated models for a given task using the Python SDK:
+```
+credential = DefaultAzureCredential()
+ml_client = MLClient(credential, registry_name="azureml-staging")
+
+models = ml_client.models.list()
+classification_models = []
+for model in models:
+    model = ml_client.models.get(model.name, label="latest")
+    if model.tags['task'] == 'image-classification': # choose an image task
+        classification_models.append(model.name)
+
+classification_models
+```
+Output:
+```
+['google-vit-base-patch16-224',
+ 'microsoft-swinv2-base-patch4-window12-192-22k',
+ 'facebook-deit-base-patch16-224',
+ 'microsoft-beit-base-patch16-224-pt22k-ft22k']
+```
+Using any HuggingFace or MMDetection model will trigger runs using pipeline components. If both legacy and HuggingFace/MMdetection models are used, all runs/trials will be triggered using components. 
 
 
 In addition to controlling the model architecture, you can also tune hyperparameters used for model training. While many of the hyperparameters exposed are model-agnostic, there are instances where hyperparameters are task-specific or model-specific. [Learn more about the available hyperparameters for these instances](reference-automl-images-hyperparameters.md). 
