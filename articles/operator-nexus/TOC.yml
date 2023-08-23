@@ -43,27 +43,9 @@
   items:
     - name: Operator Nexus Instance Deployment and Upgrade
       expanded: false
-      items:    
-        - name: Before you start Operator Nexus NFC and CM deployment
-          href: howto-azure-operator-nexus-prerequisites.md
-        - name: Network Fabric Controller
-          href: howto-configure-network-fabric-controller.md
-        - name: Cluster Manager
-          href: howto-cluster-manager.md
-        - name: Before you start Operator Nexus platform deployment
-          href: howto-platform-prerequisites.md
-        - name: Network Fabric
-          href: howto-configure-network-fabric.md
-        - name: Cluster
-          href: howto-configure-cluster.md
-        - name: Instance Readiness Testing
-          href: howto-run-instance-readiness-testing.md
-        - name: Cluster Upgrades
-          href: howto-cluster-runtime-upgrade.md
-    - name: BareMetal Actions
       items:
         - name: Management Plane
-          expanded: false
+          expanded: true
           items:
             - name: Before you start deployment
               href: howto-azure-operator-nexus-prerequisites.md
@@ -83,15 +65,17 @@
                   href: howto-configure-network-fabric.md
                 - name: Cluster
                   href: howto-configure-cluster.md
+                - name: Instance Readiness Testing
+                  href: howto-run-instance-readiness-testing.md
                 - name: Cluster Upgrades
                   href: howto-cluster-runtime-upgrade.md
-    - name: Network Fabric
-      expanded: false
-      items:
-        - name: Isolation Domain
-          href: howto-configure-isolation-domain.md
-        - name: Network Fabric Route Policy
-          href: how-to-route-policy.md  
+        - name: Network Fabric
+          expanded: false
+          items:
+          - name: Isolation Domain
+            href: howto-configure-isolation-domain.md
+          - name: Network Fabric Route Policy
+            href: how-to-route-policy.md  
     - name: Nexus Kubernetes cluster
       expanded: false
       items:
