@@ -109,7 +109,7 @@ items:
   - name: Cluster management
     items:
     - name: Trino configuration
-      href: ./trino/trino-service-config.md
+      href: ./trino/trino-service-configuration.md
     - name: Hive metastore
       href: ./trino/trino-connect-to-metastore.md      
     - name: Custom plugins
@@ -119,7 +119,7 @@ items:
     - name: Caching
       href: ./trino/trino-caching.md      
     - name: JVM Heap settings
-      href: ./trino/trino-jvm-config.md           
+      href: ./trino/trino-jvm-configuration.md           
     - name: Miscellaneous files
       href: ./trino/trino-miscellaneous-files.md
     - name: Fault tolerance
