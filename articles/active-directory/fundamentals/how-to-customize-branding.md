@@ -47,18 +47,23 @@ The **Global Administrator** role is required to customize company branding.
 
 The branding elements are called out in the following example. Text descriptions are provided following the image.
 
-:::image type="content" source="media/how-to-customize-branding/company-branding-map.png" alt-text="Screenshot of the sign-in page, with each of the company branding elements highlighted." lightbox="media/how-to-customize-branding/company-branding-map-large.png":::
+:::image type="content" source="media/how-to-customize-branding/sign-in-page-map.png" alt-text="Screenshot of the sign-in page, with each of the company branding elements highlighted." lightbox="media/how-to-customize-branding/sign-in-page-map-expanded.png":::
 
 1. **Favicon**: Small icon that appears on the left side of the browser tab.
-1. **Header logo**: Space across the top of the web page, below the web browser navigation area.
+1. **Header**: Space across the top of the sign-in page, behind the header log.
+1. **Header logo**: Logo that appears in the upper-left corner of the sign-in page.
 1. **Background image**: The entire space behind the sign-in box.
 1. **Page background color**: The entire space behind the sign-in box.
-1. **Banner logo**: The logo that appears in the upper-left corner of the sign-in box.
+1. **Banner logo**: Logo that appears at the top of the sign-in box
+1. **Sign-in page title**: Larger text that appears below the banner logo.
+1. **Sign-in page description**: Text to describe the of the sign-in page.
 1. **Username hint and text**: The text that appears before a user enters their information.
-1. **Sign-in page text**: Text you can add below the username field.
 1. **Self-service password reset**: A link you can add below the sign-in page text for password resets.
+1. **Sign-in page text**: Text you can add below the username field.
+1. **Footer link: Privacy & Cookies**: Link you can add to the lower-right corner for privacy information.
+1. **Footer: Terms of Use**: Text in the lower-right corner of the page where you can add Terms of use information.
+1. **Footer**: Space across the bottom of the page for privacy and Terms of Use information.
 1. **Template**: The layout of the page and sign-in boxes.
-1. **Footer**: Text in the lower-right corner of the page where you can add Terms of use or privacy information.
 
 ### User experience
 
@@ -86,9 +91,9 @@ Beginning September 30, 2023, when B2B collaboration end-users perform cross-ten
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using a Global Administrator account for the directory.
+1. Sign in to the [Azure portal](https://portal.azure.com) as a Global Administrator for the directory.
 
-2. Go to **Azure Active Directory** > **Company branding** > **Customize**.
+2. Browse to **Azure Active Directory** > **Company branding** > **Customize**.
     - If you currently have a customized sign-in experience, the **Edit** button is available.
 
     ![Custom branding landing page with 'Company branding' highlighted in the side menu and 'Configure' button highlighted in the center of the page](media/how-to-customize-branding/customize-branding-getting-started.png)
