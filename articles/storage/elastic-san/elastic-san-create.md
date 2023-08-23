@@ -51,7 +51,9 @@ az provider show --namespace Microsoft.ElasticSan
 az feature show --name ElasticSanPreviewAccess --namespace Microsoft.ElasticSan
 ```
 ---
-If you are using PowerShell or CLI, you will not need to run this command, you can simply go ahead and deploy an Elastic SAN.
+> [!IMPORTANT]
+> If you are using PowerShell or CLI, you will not need to run this command, you can simply go ahead and deploy an Elastic SAN.
+
 ## Limitations
 
 [!INCLUDE [elastic-san-regions](../../../includes/elastic-san-regions.md)]
