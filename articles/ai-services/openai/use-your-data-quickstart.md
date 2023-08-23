@@ -9,7 +9,7 @@ ms.subservice: openai
 ms.topic: quickstart
 author: aahill
 ms.author: aahi
-ms.date: 08/11/2023
+ms.date: 08/22/2023
 recommendations: false
 zone_pivot_groups: openai-use-your-data
 ---
@@ -29,7 +29,7 @@ In this quickstart you can use your own data with Azure OpenAI models. Using Azu
 
     - Your chat model must use version `0301`. You can view or change your model version in [Azure OpenAI Studio](./concepts/models.md#model-updates).
 
-- Be sure that you are assigned at least the [Cognitive Services OpenAI Contributor](/azure/role-based-access-control/built-in-roles#cognitive-services-openai-contributor) role for the Azure OpenAI resource. 
+- Be sure that you are assigned at least the [Cognitive Services Contributor](./how-to/role-based-access-control.md#cognitive-services-contributor) role for the Azure OpenAI resource. 
 
 
 > [!div class="nextstepaction"]
