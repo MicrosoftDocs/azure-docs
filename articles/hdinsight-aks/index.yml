@@ -22,7 +22,7 @@ landingContent:
           - text: What is HDInsight on AKS?
             url: overview.md
           - text: Versioning & Support
-            url: versioning.md   
+            url: versions.md   
           - text: Security
             url: concept-security.md
           - text: Azure Monitor integration
