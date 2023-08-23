@@ -81,5 +81,3 @@ GET https://guestnotificationservice.azure.us/urls/allowlist?api-version=2020-01
 |`https://graph.chinacloudapi.cn/` | Required when [Azure RBAC](../azure-rbac.md) is configured. |
 | `*.arc.azure.net`| Required to manage connected clusters in Azure portal. |
 |`https://<region>.obo.arc.azure.cn:8084/` | Required when [Cluster Connect](../cluster-connect.md) is configured. |
-
-[!INCLUDE [arc-region-note](../../includes/arc-region-note.md)]
