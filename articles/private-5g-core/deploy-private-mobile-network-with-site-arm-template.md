@@ -61,10 +61,10 @@ The following Azure resources are defined in the template.
 
     [![Deploy to Azure.](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.mobilenetwork%2Fmobilenetwork-create-full-5gc-deployment%2Fazuredeploy.json)
 
+:::zone pivot="ase-pro-gpu"
 
 1. Select or enter the following values, using the information you retrieved in [Prerequisites](#prerequisites).
 
-:::zone pivot="ase-pro-gpu"
     |Field  |Value  |
     |---------|---------|
     |**Subscription**     | Select the Azure subscription you want to use to create your private mobile network.        |
@@ -92,8 +92,12 @@ The following Azure resources are defined in the template.
     |**Napt Enabled** | Set this field depending on whether Network Address and Port Translation (NAPT) should be enabled for the data network.|
     | **Dns Addresses** | Enter the DNS server addresses. You should only omit this if you don't need the UEs to perform DNS resolution, or if all UEs in the network will use their own locally configured DNS servers. |
     |**Custom Location** | Enter the resource ID of the custom location that targets the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster on the Azure Stack Edge Pro device in the site.|
+
 :::zone-end
 :::zone pivot="ase-pro-2"
+
+1. Select or enter the following values, using the information you retrieved in [Prerequisites](#prerequisites).
+
     |Field  |Value  |
     |---------|---------|
     |**Subscription**     | Select the Azure subscription you want to use to create your private mobile network.        |
@@ -121,14 +125,15 @@ The following Azure resources are defined in the template.
     |**Napt Enabled** | Set this field depending on whether Network Address and Port Translation (NAPT) should be enabled for the data network.|
     | **Dns Addresses** | Enter the DNS server addresses. You should only omit this if you don't need the UEs to perform DNS resolution, or if all UEs in the network will use their own locally configured DNS servers. |
     |**Custom Location** | Enter the resource ID of the custom location that targets the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster on the Azure Stack Edge Pro device in the site.|
+
 :::zone-end
 
-2. Select **Review + create**.
-3. Azure will now validate the configuration values you've entered. You should see a message indicating that your values have passed validation.
+1. Select **Review + create**.
+1. Azure will now validate the configuration values you've entered. You should see a message indicating that your values have passed validation.
 
      If the validation fails, you'll see an error message and the **Configuration** tab(s) containing the invalid configuration will be flagged. Select the flagged tab(s) and use the error messages to correct invalid configuration before returning to the **Review + create** tab.
 
-4. Once your configuration has been validated, you can select **Create** to deploy the resources. The Azure portal will display a confirmation screen when the deployment is complete.
+1. Once your configuration has been validated, you can select **Create** to deploy the resources. The Azure portal will display a confirmation screen when the deployment is complete.
 
 ## Review deployed resources
 

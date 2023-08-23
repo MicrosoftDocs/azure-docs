@@ -57,28 +57,32 @@ In this step, you'll create the mobile network site resource representing the ph
 1. Use the information you collected in [Collect access network values](collect-required-information-for-a-site.md#collect-access-network-values) to fill out the fields in the **Access network** section.
 
 :::zone pivot="ase-pro-gpu"
-    > [!NOTE]
-    > **ASE N2 virtual subnet** and **ASE N3 virtual subnet** (if this site will support 5G UEs) or **ASE S1-MME virtual subnet** and **ASE S1-U virtual subnet** (if this site will support 4G UEs) must match the corresponding virtual network names on port 5 on your Azure Stack Edge Pro GPU device.
-:::zone-end
-:::zone pivot="ase-pro-2"
-    > [!NOTE]
-    > **ASE N2 virtual subnet** and **ASE N3 virtual subnet** (if this site will support 5G UEs) or **ASE S1-MME virtual subnet** and **ASE S1-U virtual subnet** (if this site will support 4G UEs) must match the corresponding virtual network names on port 3 on your Azure Stack Edge Pro 2 device.
-:::zone-end
+> [!NOTE]
+> **ASE N2 virtual subnet** and **ASE N3 virtual subnet** (if this site will support 5G UEs) or **ASE S1-MME virtual subnet** and **ASE S1-U virtual subnet** (if this site will support 4G UEs) must match the corresponding virtual network names on port 5 on your Azure Stack Edge Pro GPU device.
 
 1. In the **Attached data networks** section, select **Attach data network**. Choose whether you want to use an existing data network or create a new one, then use the information you collected in [Collect data network values](collect-required-information-for-a-site.md#collect-data-network-values) to fill out the fields. Note the following:
-
-:::zone pivot="ase-pro-gpu"
     - **ASE N6 virtual subnet** (if this site will support 5G UEs) or **ASE SGi virtual subnet** (if this site will support 4G UEs) must match the corresponding virtual network name on port 5 or 6 on your Azure Stack Edge Pro device.
-:::zone-end
-:::zone pivot="ase-pro-2"
-    - **ASE N6 virtual subnet** (if this site will support 5G UEs) or **ASE SGi virtual subnet** (if this site will support 4G UEs) must match the corresponding virtual network name on port 3 or 4 on your Azure Stack Edge Pro device.
-:::zone-end
     - If you decided not to configure a DNS server, clear the **Specify DNS addresses for UEs?** checkbox.
     - If you decided to keep NAPT disabled, ensure you configure your data network router with static routes to the UE IP pools via the appropriate user plane data IP address for the corresponding attached data network.
 
     :::image type="content" source="media/create-a-site/create-site-attach-data-network.png" alt-text="Screenshot of the Azure portal showing the Attach data network screen.":::
 
     Once you've finished filling out the fields, select **Attach**.
+
+:::zone-end
+:::zone pivot="ase-pro-2"
+> [!NOTE]
+> **ASE N2 virtual subnet** and **ASE N3 virtual subnet** (if this site will support 5G UEs) or **ASE S1-MME virtual subnet** and **ASE S1-U virtual subnet** (if this site will support 4G UEs) must match the corresponding virtual network names on port 3 on your Azure Stack Edge Pro 2 device.
+
+1. In the **Attached data networks** section, select **Attach data network**. Choose whether you want to use an existing data network or create a new one, then use the information you collected in [Collect data network values](collect-required-information-for-a-site.md#collect-data-network-values) to fill out the fields. Note the following:
+    - **ASE N6 virtual subnet** (if this site will support 5G UEs) or **ASE SGi virtual subnet** (if this site will support 4G UEs) must match the corresponding virtual network name on port 3 or 4 on your Azure Stack Edge Pro device.
+    - If you decided not to configure a DNS server, clear the **Specify DNS addresses for UEs?** checkbox.
+    - If you decided to keep NAPT disabled, ensure you configure your data network router with static routes to the UE IP pools via the appropriate user plane data IP address for the corresponding attached data network.
+
+    :::image type="content" source="media/create-a-site/create-site-attach-data-network.png" alt-text="Screenshot of the Azure portal showing the Attach data network screen.":::
+
+    Once you've finished filling out the fields, select **Attach**.
+:::zone-end
 
 1. Repeat the previous step for each additional data network you want to configure.
 1. If you decided you want to configure diagnostics packet collection or use a user assigned managed identity for HTTPS certificate for this site, select **Next : Identity >**.  
