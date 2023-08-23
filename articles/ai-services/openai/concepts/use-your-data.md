@@ -107,9 +107,7 @@ This option encourages the model to respond using your data only, and is selecte
 
 ### Semantic search 
 
-> [!IMPORTANT]
-> * Semantic search is subject to [additional pricing](/azure/search/semantic-search-overview#availability-and-pricing)
-> * Currently Azure OpenAI on your data supports semantic search for English data only. Only enable semantic search if both your documents and use case are in English.
+[!INCLUDE [Semantic search note](../includes/use-your-data-semantic-search.md)]
 
 If [semantic search](/azure/search/semantic-search-overview) is enabled for your Azure Cognitive Search service, you are more likely to produce better retrieval of your data, which can improve response and citation quality.
 
