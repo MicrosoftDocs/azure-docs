@@ -312,6 +312,10 @@
           href: standard-premium/how-to-monitor-metrics.md
         - name: View Front Door reports
           href: standard-premium/how-to-reports.md
+      - name: Integrations
+        items:
+        - name: Azure Storage Account
+          href: integrate-storage-account.md
     - name : Classic
       items:
       - name: Migrate to Standard or Premium tier
