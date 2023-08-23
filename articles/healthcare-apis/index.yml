@@ -48,7 +48,7 @@ conceptualContent:
               text: Grant permissions to a managed identity
          
         # Card
-        - title: Health data and PHI
+        - title: Health data
           links:
             - url: ./fhir/overview.md
               itemType: overview

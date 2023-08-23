@@ -5,13 +5,13 @@
   items:
     - name: What is Azure Health Data Services?
       href: healthcare-apis-overview.md
-    - name: Health data and PHI
+    - name: FHIR service
       displayName: FHIR service
       href: ./fhir/overview.md
-    - name: Image data
+    - name: DICOM service
       displayName: DICOM service
       href: ./dicom/dicom-services-overview.md
-    - name: Device data
+    - name: MedTech service
       displayName: MedTech service
       href: ./iot/overview.md
     - name: Events
