@@ -32,7 +32,7 @@ conceptualContent:
           links:
             - url: ./get-started-with-health-data-services.md
               itemType: how-to-guide
-              text: Create an Azure resource
+              text: Set up a workspace
             - url: ./healthcare-apis-quickstart.md 
               itemType: how-to-guide
               text: Deploy Azure Health Data Services
