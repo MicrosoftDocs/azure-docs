@@ -46,7 +46,7 @@ The Azure Web PubSub service live trace tool has ability to collect resource log
 1. Select **Save** button. It will take a moment for the changes to take effect.
 1. When updating is complete, select **Open Live Trace Tool**.
 
-    :::image type="content" source="media/signalr-howto-troubleshoot-live-trace/signalr-enable-live-trace.png" alt-text="Screenshot of launching the live trace tool.":::
+    :::image type="content" source="./media/howto-troubleshoot-diagnostic-logs/diagnostic-logs-with-live-trace-tool.png" alt-text="Screenshot of launching the live trace tool.":::
 
 ### Steps for access key disabled
 
@@ -69,7 +69,7 @@ The Azure Web PubSub service live trace tool has ability to collect resource log
 1. Select **Save** button. It will take a moment for the changes to take effect.
 1. When updating is complete, select **Open Live Trace Tool**.
 
-    :::image type="content" source="media/signalr-howto-troubleshoot-live-trace/signalr-enable-live-trace.png" alt-text="Screenshot of launching the live trace tool.":::
+    :::image type="content" source="./media/howto-troubleshoot-diagnostic-logs/diagnostic-logs-with-live-trace-tool.png" alt-text="Screenshot of launching the live trace tool.":::
 
 #### Sign in with your Microsoft account
 
