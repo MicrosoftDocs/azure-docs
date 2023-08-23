@@ -289,6 +289,8 @@
               href: create-node-pools.md
             - name: Manage node pools
               href: manage-node-pools.md
+            - name: Add an Azure Spot node pool
+              href: spot-node-pool.md
             - name: Multi-instance GPU Node pool
               href: gpu-multi-instance.md
             - name: Node pool snapshot
@@ -485,8 +487,6 @@
               href: azure-cni-overlay.md
             - name: Use Azure CNI Powered by Cilium
               href: azure-cni-powered-by-cilium.md
-            - name: Deploy Isovalent Cilium Enterprise
-              href: cilium-enterprise-marketplace.md
             - name: Use Azure CNI for dynamic IP allocation and enhanced subnet support
               href: configure-azure-cni-dynamic-ip-allocation.md
             - name: Bring your own CNI
