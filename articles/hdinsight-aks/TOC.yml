@@ -121,7 +121,7 @@ items:
     - name: JVM Heap settings
       href: ./trino/trino-jvm-config.md           
     - name: Miscellaneous files
-      href: ./trino/trino-misc-files.md
+      href: ./trino/trino-miscellaneous-files.md
     - name: Fault tolerance
       href: ./trino/trino-fault-tolerance.md
     - name: Troubleshoot
