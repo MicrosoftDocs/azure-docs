@@ -91,12 +91,12 @@ For outbound communication with a workspace managed virtual network, Azure Machi
 
 - Creates private endpoints for the managed virtual network to use for communication with Azure resources that are used by the workspace, such as Azure Storage, Azure Key Vault, and Azure Container Registry.
 - Allows deployments to access the Microsoft Container Registry (MCR), which can be useful when you want to use curated environments or MLflow no-code deployment.
-- Allows users to configure private endpoint outbound rules to private resources and configure outbound rules for service tags and FQDNs for public resources. For more information on how to manage outbound rules, see [Manage outbound rules](how-to-managed-network.md#manage-outbound-rules).
+- Allows users to configure private endpoint outbound rules to private resources and configure outbound rules (service tag or FQDN) for public resources. For more information on how to manage outbound rules, see [Manage outbound rules](how-to-managed-network.md#manage-outbound-rules).
 
-Furthermore, you have two configuration modes for outbound traffic from the workspace managed virtual network, namely:
+Furthermore, you can configure two isolation modes for outbound traffic from the workspace managed virtual network, namely:
 
 - **Allow internet outbound**, to allow all internet outbound traffic from the managed virtual network
-- **Allow only approved outbound**, to control outbound traffic using private endpoints, FQDNs, and service tags.
+- **Allow only approved outbound**, to control outbound traffic using private endpoints, FQDN outbound rules, and service tag outbound rules.
 
 For example, say your workspace's managed virtual network contains two deployments under a managed online endpoint, both deployments can use the workspace's private endpoints to communicate with:
 
@@ -120,11 +120,11 @@ However, say the app is private, such as an internal app within your organizatio
 
 **For outbound communication (deployment)**:
 
-Suppose your deployment doesn't need to access private Azure resources (such as the Azure Storage blob, ACR, and Azure Key Vault), then you don't need to use a workspace managed virtual network.
+Suppose your deployment needs to access private Azure resources (such as the Azure Storage blob, ACR, and Azure Key Vault), or it's unacceptable for the deployment to access the internet. In this case, you need to **enable** the _workspace's managed virtual network_ with the **allow only approved outbound** isolation mode. This isolation mode allows outbound communication from the deployment to approved destinations only, thereby protecting against data exfiltration. Furthermore, you can add outbound rules for the workspace, to allow access to more private or public resources. For more information, see [Configure a managed virtual network to allow only approved outbound](how-to-managed-network.md#configure-a-managed-virtual-network-to-allow-only-approved-outbound).
 
-However, if the deployment needs to access private Azure resources, you need to **enable** the _workspace's managed virtual network_ so that its private endpoints can be used by the deployment to communicate with those Azure resources.
-Furthermore, you can configure the managed virtual network to **allow internet outbound** so that your deployment can also access the public internet.
-Alternatively, you can configure the virtual network to **allow only approved outbound**, so that outbound communication from the deployment is to approved destinations only, thereby protecting against data exfiltration.
+However, if you want your deployment to access the internet, you can use the workspace's managed virtual network with the **allow internet outbound** isolation mode. Apart from being able to access the internet, you'll be able to use the private endpoints of the managed virtual network to access private Azure resources that you need.
+
+Finally, if your deployment doesn't need to access private Azure resources and you don't need to control access to the internet, then you don't need to use a workspace managed virtual network.
 
 ## Appendix
 
