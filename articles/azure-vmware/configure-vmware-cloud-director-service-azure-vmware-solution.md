@@ -13,15 +13,15 @@ ms.date: 06/12/2023
 In this article, learn how to configure [VMware Cloud Director](https://docs.vmware.com/en/VMware-Cloud-Director-service/index.html) service in Azure VMware Solution.  
 
 ## Prerequisites
--	Plan and deploy a VMware Cloud Director Service Instance in your preferred region using the process described here. [How Do I Create a VMware Cloud Director Instance](https://docs.vmware.com/en/VMware-Cloud-Director-service/services/using-vmware-cloud-director-service/GUID-26D98BA1-CF4B-4A57-971E-E58A0B482EBB.html#GUID-26D98BA1-CF4B-4A57-971E-E58A0B482EBB)
+- Plan and deploy a VMware Cloud Director Service Instance in your preferred region using the process described here. [How Do I Create a VMware Cloud Director Instance](https://docs.vmware.com/en/VMware-Cloud-Director-service/services/using-vmware-cloud-director-service/GUID-26D98BA1-CF4B-4A57-971E-E58A0B482EBB.html#GUID-26D98BA1-CF4B-4A57-971E-E58A0B482EBB)
 
    >[!Note] 
    > VMware Cloud Director Instances can establish connections to AVS SDDC in regions where latency remains under 150 ms.
 
- - Plan and deploy Azure VMware solution private cloud using the following links:
+- Plan and deploy Azure VMware solution private cloud using the following links:
     - [Plan Azure VMware solution private cloud SDDC.](plan-private-cloud-deployment.md)
     - [Deploy and configure Azure VMware Solution - Azure VMware Solution.](deploy-azure-vmware-solution.md) 
--	After successfully gaining access to both your VMware Cloud Director instance and Azure VMware Solution SDDC, you can then proceed to the next section.
+- After successfully gaining access to both your VMware Cloud Director instance and Azure VMware Solution SDDC, you can then proceed to the next section.
 
 ## Plan and prepare Azure VMware solution private cloud for VMware Reverse proxy
 
