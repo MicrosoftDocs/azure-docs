@@ -76,7 +76,7 @@ In this tutorial:
 
     ```bash
     # Name of the existing Azure Key Vault used to store the signing keys
-    AKV_NAME=<your-unique-keyvault-name>
+    AKV_NAME=myakv
     # New desired key name used to sign and verify
     KEY_NAME=wabbit-networks-io
     CERT_SUBJECT="CN=wabbit-networks.io,O=Notary,L=Seattle,ST=WA,C=US"
@@ -98,13 +98,18 @@ In this tutorial:
     IMAGE_SOURCE=https://github.com/wabbit-networks/net-monitor.git#main
     ```
 
+## Assign access policy in AKV (Azure CLI)
+
+To create a self-signed certificate and sign a container image in AKV, you must assign proper access policy to a principal. The permissions that you grant for a principal should include at least certificate permissions `Create` and `Get`, and key permissions `Sign`. A principal can be user principal, service principal or managed identity. In this tutorial, the access policy is assigned to a signed-in Azure user. To learn more about assigning policy to a principal, see [Assign Access Policy](/azure/key-vault/general/assign-access-policy).
+
+```azure-cli
+USER_ID=$(az ad signed-in-user show --query id -o tsv)
+az keyvault set-policy -n $AKV_NAME --certificate-permissions create get --key-permissions sign --object-id $USER_ID
+```
+
 ## Create a self-signed signing certificate in AKV
 
 If you have an existing certificate, see [import a certificate in AKV](../key-vault/certificates/tutorial-import-certificate.md). The following steps show how to create a self-signed signing certificate for testing purpose.
-
-### Set up access policy in AKV
-
-Users who create a self-signed certificate in AKV must have authorized access to AKV with at least `Create` permission under certificate permission group, see [Assign Access Policy](/azure/key-vault/general/assign-access-policy) to learn how to assign policy to a user. The same users that sign the container image requires additional `Sign` permission under key permission group, and `Get` permission under certificate permission group are required.
 
 ### Create a self-signed certificate (Azure CLI)
 
