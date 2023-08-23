@@ -129,6 +129,9 @@ When using the API, pass the `filter` parameter in each API request. For example
     ]
 }
 ```
+* `my_group_ids` is the field name that you selected for **Permitted groups** during [fields mapping](#index-field-mapping).
+* `group_id1, group_id2` are groups attributed to the logged in user. The client application can retrieve and cache users' groups.
+
 
 ## Schedule automatic index refreshes
 

@@ -389,7 +389,8 @@ The following parameters can be used inside of the `parameters` field inside of 
 | `topNDocuments` | number | Optional | 5 | Number of documents that need to be fetched for document augmentation.  |
 | `queryType` | string | Optional | simple |  Indicates which query option will be used for Azure Cognitive Search. |
 | `semanticConfiguration` | string | Optional | null |  The semantic search configuration. Only available when `queryType` is set to `semantic`.  |
-| `roleInformation` | string | Optional | null |  Gives the model instructions about how it should behave and the context it should reference when generating a response. Corresponds to the “System Message” in Azure OpenAI Studio. <!--See [Using your data](./concepts/use-your-data.md#system-message) for more information.--> There’s a 100 token limit, which counts towards the overall token limit.|
+| `roleInformation` | string | Optional | null |  Gives the model instructions about how it should behave and the context it should reference when generating a response. Corresponds to the "System Message" in Azure OpenAI Studio. See [Using your data](./concepts/use-your-data.md#system-message) for more information. There’s a 100 token limit, which counts towards the overall token limit.|
+| `filter` | string | Optional | null | The filter pattern used for [restricting access to sensitive documents](./concepts/use-your-data.md#restrict-access-to-sensitive-documents)
 
 ## Image generation
 
