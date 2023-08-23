@@ -78,7 +78,7 @@ Your target operating system must be up-to-date to enable these extra security f
 
 #### Option 1
 
-**Step 1**: Follow the instructions in [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) to verify protections are enabled using the [SpeculationControl](https://aka.ms/SpeculationControlPS) PowerShell module.
+**Step 1:** Follow the instructions in [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) to verify protections are enabled using the [SpeculationControl](https://aka.ms/SpeculationControlPS) PowerShell module.
 
 > [!NOTE]
 > If you previously downloaded this module, you will need to install the newest version.
@@ -89,10 +89,10 @@ To validate enabled protections against these vulnerabilities, see [Understandin
 
 If protections are not enabled, please [contact Azure Support](https://aka.ms/microcodeenablementrequest-supporttechnical) to enable additional controls on your Azure VM.
 
-**Step 2**: To enable Kernel Virtual Address Shadowing (KVAS) and Branch Target Injection (BTI) OS support, follow the instructions in [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) to enable protections using the `Session Manager` registry keys. A reboot is required.
+**Step 2:** To enable Kernel Virtual Address Shadowing (KVAS) and Branch Target Injection (BTI) OS support, follow the instructions in [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) to enable protections using the `Session Manager` registry keys. A reboot is required.
 
 
-**Step 3**: For deployments that are using [nested virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization) (D3 and E3 only): These instructions apply inside the VM you're using as a Hyper-V host.
+**Step 3:** For deployments that are using [nested virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization) (D3 and E3 only): These instructions apply inside the VM you're using as a Hyper-V host.
 
 1.	Follow the instructions in [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) to enable protections using the `MinVmVersionForCpuBasedMitigations` registry keys.
 2.	Set the hypervisor scheduler type to `Core` by following the instructions [here](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types).
@@ -146,7 +146,7 @@ If you're running a hyper-threaded VM, [contact Azure Support](https://aka.ms/Mi
 
 
 
-**Step 2**: To mitigate against any of the below CPU based memory vulnerabilities, refer to your operating system provider’s documentation:   
+**Step 2:** To mitigate against any of the below CPU based memory vulnerabilities, refer to your operating system provider’s documentation:   
  
 - [Redhat and CentOS](https://access.redhat.com/security/vulnerabilities) 
 - [SUSE](https://www.suse.com/support/kb/?doctype%5B%5D=DT_SUSESDB_PSDB_1_1&startIndex=1&maxIndex=0) 

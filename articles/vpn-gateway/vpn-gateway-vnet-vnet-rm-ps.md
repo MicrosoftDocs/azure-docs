@@ -200,7 +200,7 @@ We use the following values in the examples:
 
 After you finish the commands, it will take 45 minutes or more to create this gateway. If you are using Azure Cloud Shell, you can restart your Cloud Shell session by clicking in the upper left of the Cloud Shell terminal, then configure TestVNet4. You don't need to wait until the TestVNet1 gateway completes.
 
-### Step 3 - Create and configure TestVNet4
+### Step 3: Create and configure TestVNet4
 
 Once you've configured TestVNet1, create TestVNet4. Follow the steps below, replacing the values with your own when needed.
 
@@ -261,7 +261,7 @@ Once you've configured TestVNet1, create TestVNet4. Follow the steps below, repl
    -VpnType RouteBased -GatewaySku VpnGw1
    ```
 
-### Step 4 - Create the connections
+### Step 4: Create the connections
 
 Wait until both gateways are completed. Restart your Azure Cloud Shell session and copy and paste the variables from the beginning of Step 2 and Step 3 into the console to redeclare values.
 
@@ -295,11 +295,11 @@ The difference between these steps and the previous set is that some of the conf
 
 Due to changing subscription context in this exercise, you may find it easier to use PowerShell locally on your computer, rather than using the Azure Cloud Shell, when you get to Step 8.
 
-### Step 5 - Create and configure TestVNet1
+### Step 5: Create and configure TestVNet1
 
 You must complete [Step 1](#Step1) and [Step 2](#Step2) from the previous section to create and configure TestVNet1 and the VPN Gateway for TestVNet1. For this configuration, you are not required to create TestVNet4 from the previous section, although if you do create it, it will not conflict with these steps. Once you complete Step 1 and Step 2, continue with Step 6 to create TestVNet5.
 
-### Step 6 - Verify the IP address ranges
+### Step 6: Verify the IP address ranges
 
 It is important to make sure that the IP address space of the new virtual network, TestVNet5, does not overlap with any of your VNet ranges or local network gateway ranges. In this example, the virtual networks may belong to different organizations. For this exercise, you can use the following values for the TestVNet5:
 
@@ -318,7 +318,7 @@ It is important to make sure that the IP address space of the new virtual networ
 * Connection: VNet5toVNet1
 * ConnectionType: VNet2VNet
 
-### Step 7 - Create and configure TestVNet5
+### Step 7: Create and configure TestVNet5
 
 This step must be done in the context of the new subscription. This part may be performed by the administrator in a different organization that owns the subscription.
 
@@ -397,7 +397,7 @@ This step must be done in the context of the new subscription. This part may be 
    -IpConfigurations $gwipconf5 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1
    ```
 
-### Step 8 - Create the connections
+### Step 8: Create the connections
 
 In this example, because the gateways are in the different subscriptions, we've split this step into two PowerShell sessions marked as [Subscription 1] and [Subscription 5].
 
