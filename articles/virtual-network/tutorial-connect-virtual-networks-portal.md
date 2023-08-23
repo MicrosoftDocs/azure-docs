@@ -45,6 +45,8 @@ Sign in to the [Azure portal](https://portal.azure.com).
     | Subnet name | **subnet-1** |
     | Subnet address range | **10.1.0.0/24** |
 
+<a name="peer-virtual-networks"></a>
+
 [!INCLUDE [virtual-network-create-network-peer.md](../../includes/virtual-network-create-network-peer.md)]
 
 ## Create virtual machines
@@ -62,7 +64,7 @@ Repeat the previous steps to create a second virtual machine in the second virtu
 | Virtual network | Select **vnet-2**. |
 | Subnet | Select **subnet-1 (10.1.0.0/24)**. |
 | Public IP | **None** |
-| Network security group | **Basic** |
+| Network security group name | **nsg-2** |
 
 Wait for the virtual machines to be created before continuing with the next steps.
 
