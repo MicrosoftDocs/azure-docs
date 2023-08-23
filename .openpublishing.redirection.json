@@ -24237,6 +24237,11 @@
             "source_path_from_root": "/articles/app-service/overview-disaster-recovery.md",
             "redirect_url": "/azure/reliability/reliability-app-service",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/app-service/functions-geo-disaster-recovery.md",
+            "redirect_url": "/azure/reliability/reliability-functions",
+            "redirect_document_id": false
         }
     ]
 }
