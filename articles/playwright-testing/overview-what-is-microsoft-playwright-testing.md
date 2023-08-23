@@ -23,7 +23,10 @@ To learn more about how Playwright works, visit the [Getting started documentati
 > [!IMPORTANT]
 > Microsoft Playwright Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## Run end-to-end tests at scale across multiple platforms
+## Get test suite results faster
+
+
+## Test across multiple operating systems and browsers
 
 Playwright lets you run end-to-end tests across multiple browser configurations. Microsoft Playwright Testing helps you run these tests at cloud scale, and on multiple operating systems.
 
@@ -45,9 +48,9 @@ You can use the cloud-based infrastructure to test both publicly and privately a
 
 ## Limitations
 
-- Linux & Windows hosted browsers (macOS)
-- 50 parallel workers
-- Support for JavaScript/TypeScript with the Playwright runner
+- Only hosted browsers on Linux and Windows are supported.
+- During preview, the service supports up to a maximum of 50 parallel workers.
+- Only the Playwright runner and test code written in JavaScript or TypeScript are supported.
 
 ## How it works
 
