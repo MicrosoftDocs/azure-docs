@@ -90,7 +90,7 @@ In this section, you use the IP flow verify capability of Network Watcher to tes
     az network watcher test-ip-flow --direction 'outbound' --protocol 'TCP' --local '10.0.0.4:60000' --remote '10.0.1.10:80' --vm 'myVM' --nic 'myVmVMNic' --resource-group 'myResourceGroup' --out 'table'
     ```
 
-After a few seconds, you get a similar output to the following example:
+    After a few seconds, you get a similar output to the following example:
 
     ```output
     Access RuleName
