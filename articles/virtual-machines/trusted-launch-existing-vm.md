@@ -58,6 +58,7 @@ This section steps through using the Azure portal to enable Trusted Launch on ex
 
 5. Select **Trusted Launch** under drop-down and select check-boxes to enable **Secure Boot** and **vTPM**. CLick **Save** after making required changes.
 > [!NOTE]
+> - After enabling Trusted Launch, currently virtual machine cannot be rolled back to security type **Standard** (Non-Trusted Launch configuration).
 > - **vTPM** is enabled by default.
 > - **Secure Boot** is disabled by default and recommended to be enabled if you are not using custom unsigned kernel or drivers. Secure Boot preserves boot integrity and enables foundational security for VM.
 
@@ -92,6 +93,7 @@ az vm deallocate \
 
 3. Enable Trusted Launch by setting `--security-type` to `TrustedLaunch`. 
 > [!NOTE]
+> - After enabling Trusted Launch, currently virtual machine cannot be rolled back to security type **Standard** (Non-Trusted Launch configuration).
 > - **vTPM** is enabled by default.
 > - **Secure Boot** is disabled by default and recommended to be enabled if you are not using custom unsigned kernel or drivers. Secure Boot preserves boot integrity and enables foundational security for VM.
 
@@ -143,6 +145,7 @@ Stop-AzVM -ResourceGroupName myResourceGroup -Name myVm
 
 3. Enable Trusted Launch by setting `--security-type` to `TrustedLaunch`. 
 > [!NOTE]
+> - After enabling Trusted Launch, currently virtual machine cannot be rolled back to security type **Standard** (Non-Trusted Launch configuration).
 > - **vTPM** is enabled by default.
 > - **Secure Boot** is disabled by default and recommended to be enabled if you are not using custom unsigned kernel or drivers. Secure Boot preserves boot integrity and enables foundational security for VM.
 
@@ -227,10 +230,6 @@ This section steps through using an ARM template to enable Trusted Launch on exi
 }
 ```
 
-These resources are defined in template:
-- [Microsoft.Compute/virtualMachines](/azure/templates/microsoft.compute/virtualMachines)
-
-
 2. Edit the **parameters** json file with virtual machines to be updated with `TrustedLaunch` security type.
 
 ```json
@@ -267,6 +266,7 @@ location    |    Location of Azure Generation 2 VM    |    "westus3"
 secureBootEnabled    |    Enable secure boot with Trusted Launch security type    |    true
 
 > [!NOTE]
+> - After enabling Trusted Launch, currently virtual machine cannot be rolled back to security type **Standard** (Non-Trusted Launch configuration).
 > - **vTPM** is enabled by default.
 > - **Secure Boot** is disabled by default and recommended to be enabled if you are not using custom unsigned kernel or drivers. Secure Boot preserves boot integrity and enables foundational security for VM.
 

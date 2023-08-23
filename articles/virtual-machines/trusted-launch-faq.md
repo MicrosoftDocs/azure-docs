@@ -120,6 +120,14 @@ Trusted launch supports ephemeral OS disks. For more information, see [Trusted L
 > [!NOTE]
 > While using ephemeral disks for Trusted Launch VMs, keys and secrets generated or sealed by the vTPM after the creation of the VM may not be persisted across operations like reimaging and platform events like service healing.
 
+## Enable Trusted Launch on existing VMs
+
+### Can virtual machine be restored using backup taken before enabling Trusted Launch?
+Backups taken before [upgrading existing Generation 2 VM to Trusted Launch](trusted-launch-existing-vm.md) can be used to restore entire virtual machine or individual data disks. They cannot be used to restore or replace OS disk only.
+
+### Will backup continue to work after enabling Trusted Launch?
+Backups configured with [enhanced policy](../backup/backup-azure-vms-enhanced-policy.md) will continue to take backup of VM after enabling Trusted Launch.
+
 ## Boot Integrity Monitoring
 
 ### What happens when an integrity fault is detected?
