@@ -8,6 +8,7 @@ ms.author: drichards
 ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-arm-template
+zone_pivot_groups: ase-pro-version
 ms.date: 03/23/2022
 ---
 
