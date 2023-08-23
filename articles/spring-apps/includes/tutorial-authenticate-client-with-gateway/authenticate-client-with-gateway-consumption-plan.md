@@ -63,26 +63,26 @@ Use the following steps to create a service instance:
    | Subscription               | Your subscription name                       | The Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you'd like to be billed for the resource.                                                                                                                        |
    | Resource group             | *myresourcegroup*                            | A new resource group name or an existing one from your subscription.                                                                                                                                                                                                                               |
    | Name                       | *myasa*                                      | A unique name that identifies your Azure Spring Apps service. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number. |
-   | Plan                       | *Standard consumption & dedicated (preview)* | The pricing plan determines the resources and cost associated with your instance.                                                                                                                                                                                                                       |
+   | Plan                       | *Standard consumption & dedicated (preview)* | The pricing plan determines the resources and cost associated with your instance.                                                                                                                                                                                                                  |
    | Region                     | The region closest to your users             | The location that is closest to your users.                                                                                                                                                                                                                                                        |
    | Container Apps Environment | *myacaenv*                                   | Select which Container Apps environment instance to share the same virtual network with other services and resources.                                                                                                                                                                              |
 
    :::image type="content" source="../../media/tutorial-authenticate-client-with-gateway/create-consumption-service-basics.png" alt-text="Screenshot of the Azure portal that shows the Create Azure Spring Apps consumption plan page." lightbox="../../media/tutorial-authenticate-client-with-gateway/create-consumption-service-basics.png":::
 
-   Use the following table as a guide for the Container Apps Environment creation:
+   Use the following table as a guide to create the Container Apps Environment:
 
-   | Setting              | Suggested value   | Description                                                                               |
-   |----------------------|-------------------|-------------------------------------------------------------------------------------------|
-   | Environment name     | *myacaenv*        | A unique name that identifies your Azure Container Apps Environment service.              |
-   | Plan                 | *Consumption*     | The pricing plan determines the resources and cost associated with your instance.              |
-   | Zone Redundant       | *Disabled*        | Whether to create your Container Apps Environment service in an Azure availability zone.  |
+   | Setting          | Suggested value | Description                                                                              |
+   |------------------|-----------------|------------------------------------------------------------------------------------------|
+   | Environment name | *myacaenv*      | A unique name that identifies your Azure Container Apps Environment service.             |
+   | Plan             | *Consumption*   | The pricing plan determines the resources and cost associated with your instance.        |
+   | Zone Redundant   | *Disabled*      | Whether to create your Container Apps Environment service in an Azure availability zone. |
 
    :::image type="content" source="../../media/tutorial-authenticate-client-with-gateway/create-apps-container-env-basics.png" alt-text="Screenshot of the Azure portal that shows the Create Azure Container Apps page." lightbox="../../media/tutorial-authenticate-client-with-gateway/create-apps-container-env-basics.png":::
 
    > [!IMPORTANT]
    > The Consumption workload profile has a pay-as-you-go billing model, with no starting cost. You're billed for the dedicated workload profile based on the provisioned resources. For more information, see [Workload profiles in Consumption + Dedicated plan structure environments in Azure Container Apps (preview)](../../../container-apps/workload-profiles-overview.md) and [Azure Spring Apps pricing](https://azure.microsoft.com/pricing/details/spring-apps/).
 
-1. Select **Review and Create** to review your selections. Select **Create** to provision the Azure Spring Apps instance.
+4. Select **Review and Create** to review your selections. Select **Create** to provision the Azure Spring Apps instance.
 
 1. On the toolbar, select the **Notifications** icon (a bell) to monitor the deployment process. After the deployment is done, you can select **Pin to dashboard**, which creates a tile for this service on your Azure portal dashboard as a shortcut to the service's **Overview** page. Select **Go to resource** to open the service's **Overview** page.
 
@@ -197,7 +197,7 @@ Use the [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-
 
    - **Select child modules to configure(input numbers separated by comma, eg: [1-2,4,6], ENTER to select ALL)**: Press <kbd>Enter</kbd> to select all.
    - **OAuth2 login**: Authorize the login to Azure based on the OAuth2 protocol.
-   - **Select subscription**: Select the subscription list number of the Azure Spring Apps instance you created, which defaults to the first subscription in the list. If you use the default number, press   <kbd>Enter</kbd> directly.
+   - **Select subscription**: Select the subscription list number of the Azure Spring Apps instance you created, which defaults to the first subscription in the list. If you use the default number, press <kbd>Enter</kbd> directly.
    - **Select Azure Spring Apps for deployment**: Select the list number of the Azure Spring Apps instance you created. If you use the default number, press <kbd>Enter</kbd> directly.
    - **Select apps to expose public access:(input numbers separated by comma, eg: [1-2,4,6], ENTER to select NONE)**: Enter *1* for `gateway-service`.
    - **Confirm to save all the above configurations (Y/n)**: Enter <kbd>y</kbd>. If you enter <kbd>n</kbd>, the configuration isn't saved in the POM files.
