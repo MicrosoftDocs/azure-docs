@@ -109,42 +109,77 @@ Based on whether you have a Consumption or Standard logic app workflow, follow t
 
 ---
 
-You can now add any other actions that your workflow requires. For example, you can the Twilio **Send message** action, which sends a text when a calendar event starts in 15 minutes.
+You can now add any other actions that your workflow requires. For example, you can add the Twilio **Send message** action, which sends a text when a calendar event starts in 15 minutes.
 
 ## Add an Office 365 Outlook action
 
 Based on whether you have a Consumption or Standard logic app workflow, follow the corresponding steps:
 
-An [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) is an operation that's run by the workflow in your logic app. This example logic app creates a new contact in Office 365 Outlook. You can use the output from another trigger or action to create the contact. For example, suppose your logic app uses the Salesforce trigger, **When a record is created**. You can add the Office 365 Outlook **Create contact** action and use the outputs from the trigger to create the new contact.
-
-
 ### [Consumption](#tab/consumption)
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app in the visual designer.
+1. In the [Azure portal](https://portal.azure.com), open your logic app and workflow in the designer.
 
-1. To add an action as the last step in your workflow, select **New step**.
+   This example with the Office 365 Outlook trigger named **When a a new email arrives**.
 
-   To add an action between steps, move your pointer over the arrow between those steps. Select the plus sign (**+**) that appears, and then select **Add an action**.
+1. [Follow these general steps to add the Office 365 Outlook action](logic-apps/create-workflow-with-trigger-or-action?tabs=consumption#add-action) that you want to your workflow.
 
-1. In the search box, enter `office 365 outlook` as your filter. This example selects **Create contact**.
+   This example continues with the Office 365 Outlook action named **Create contact**. This operation creates a new contact in Office 365 Outlook. You can use the output from a previous operation in the workflow to create the contact.
 
-   ![Select the action to run in your logic app](./media/connectors-create-api-office365-outlook/office365-actions.png) 
-
-1. If you don't have an active connection to your Outlook account, you're prompted to sign in and create that connection. To connect to Outlook with a different user account, such as a service account, see [Connect using other accounts](#connect-using-other-accounts). Otherwise, provide the information for the action's properties.
+1. If prompted, sign in to your Office 365 Outlook account, which creates a connection. To connect with a different user account, such as a service account, see [Connect using other accounts](#connect-using-other-accounts).
 
    > [!NOTE]
+   >
    > Your connection doesn't expire until revoked, even if you change your sign-in credentials. 
    > For more information, see [Configurable token lifetimes in Azure Active Directory](../active-directory/develop/configurable-token-lifetimes.md).
 
-   This example selects the contacts folder where the action creates the new contact, for example:
+1. In the trigger information box, provide the required information, for example:
 
-   ![Configure the action's properties](./media/connectors-create-api-office365-outlook/select-contacts-folder.png)
+   | Parameter | Required | Value | Description |
+   |-----------|----------|-------|-------------|
+   | **Folder Id** | Yes | **Contacts** | The folder where the action creates the new contact |
+   | **Given name** | Yes | <*contact-name*> | The name to give the contact |
+   | **Home phones** | Yes | <*home-phone-number*> | The home phone number for the contact |
 
-   To add other available action properties, select those properties from the **Add new parameter** list.
+   This example selects the **Contacts** folder where the action creates the new contact and uses trigger outputs for the remaining parameter values:
 
-1. On the designer toolbar, select **Save**.
+   ![Screenshot shows Azure portal, Consumption workflow, and action parameters.](./media/connectors-create-api-office365-outlook/create-contact-consumption.png)
+
+   To add other available parameters, open the **Add new parameter** list, and select the parameters that you want.
+
+1. Save your workflow. On the designer toolbar, select **Save**.
 
 ### [Standard](#tab/standard)
+
+1. In the [Azure portal](https://portal.azure.com), open your logic app and workflow in the designer.
+
+   This example with the Office 365 Outlook trigger named **When a a new email arrives**.
+
+1. [Follow these general steps to add the Office 365 Outlook action](logic-apps/create-workflow-with-trigger-or-action?tabs=standard#add-action) that you want to your workflow.
+
+   This example continues with the Office 365 Outlook action named **Create contact**. This operation creates a new contact in Office 365 Outlook. You can use the output from a previous operation in the workflow to create the contact.
+
+1. If prompted, sign in to your Office 365 Outlook account, which creates a connection. To connect with a different user account, such as a service account, see [Connect using other accounts](#connect-using-other-accounts).
+
+   > [!NOTE]
+   >
+   > Your connection doesn't expire until revoked, even if you change your sign-in credentials. 
+   > For more information, see [Configurable token lifetimes in Azure Active Directory](../active-directory/develop/configurable-token-lifetimes.md).
+
+1. In the trigger information box, provide the required information, for example:
+
+   | Parameter | Required | Value | Description |
+   |-----------|----------|-------|-------------|
+   | **Folder Id** | Yes | **Contacts** | The folder where the action creates the new contact |
+   | **Given name** | Yes | <*contact-name*> | The name to give the contact |
+   | **Home phones** | Yes | <*home-phone-number*> | The home phone number for the contact |
+
+   This example selects the **Contacts** folder where the action creates the new contact and uses trigger outputs for the remaining parameter values:
+
+   ![Screenshot shows Azure portal, Standard workflow, and action parameters.](./media/connectors-create-api-office365-outlook/create-contact-standard.png)
+
+   To add other available parameters, open the **Add new parameter** list, and select the parameters that you want.
+
+1. Save your workflow. On the designer toolbar, select **Save**.
 
 ---
 
@@ -156,7 +191,11 @@ If you try connecting to Outlook by using a different account than the one curre
 
 * Set up the other account with the **Contributor** role in your logic app's resource group.
 
-  1. On your logic app's resource group menu, select **Access control (IAM)**. Set up the other account with the **Contributor** role. 
+  1. In the Azure portal, open your logic app's resource group.
+
+  1. On the resource group menu, select **Access control (IAM)**.
+
+  1. Assign the **Contributor** role to the other account.
   
      For more information, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
