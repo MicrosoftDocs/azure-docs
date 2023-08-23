@@ -24,15 +24,11 @@ Microsoft Entra Permissions Management (Permissions Management) is a cloud infra
 
 Permissions Management supports data collection from AWS, GCP, and/or Microsoft Azure. For data collection and analysis, customers are required to have an Azure Active Directory (Azure AD) account to use Permissions Management.
 
-## Is Permissions Management General Data Protection Regulation (GDPR)-compliant? 
-
-Yes, as of July 1, 2022, Permissions Management is GDPR compliant.
-
 ## How do customers request a Data Subject Request to export or delete data?
 
 If you are an enterprise customer, you can contact your Microsoft representative, account team, or tenant admin to file a high-priority IcM support ticket requesting a Data Subject Request. Do not include details or any personally identifiable information in the IcM request. We'll reach out to you for these details only after an IcM is filed.
 
-If you are a self-service customer (you set up a trial or paid license in the M365 Admin center) you can contact the Permissions Management privacy team by selecting your profile drop-down menu, then **Account Settings** in Permissions Management. Follow the instructions to make a Data Subject Access Request.
+If you are a self-service customer (you set up a trial or paid license in the Microsoft 365 Admin center) you can contact the Permissions Management privacy team by selecting your profile drop-down menu, then **Account Settings** in Permissions Management. Follow the instructions to make a Data Subject Access Request.
 
 Learn more about [Azure Data Subject Requests](https://go.microsoft.com/fwlink/?linkid=2245178). 
 
