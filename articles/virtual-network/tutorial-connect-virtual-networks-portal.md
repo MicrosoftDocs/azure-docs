@@ -32,7 +32,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 [!INCLUDE [virtual-network-create-with-bastion.md](../../includes/virtual-network-create-with-bastion.md)]
    
-1. Repeat the previous steps to create a second virtual network with the following values:
+12. Repeat the previous steps to create a second virtual network with the following values:
 
     >[!NOTE]
     >The second virtual network can be in the same region as the first virtual network or in a different region. You can skip the **Security** tab and the Bastion deployment for the second virtual network. After the network peer, you can connect to both virtual machines with the same Bastion deployment.
