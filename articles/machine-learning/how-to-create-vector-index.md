@@ -79,7 +79,9 @@ After you create a vector index, you can add it to a prompt flow from the prompt
 
 1. Enter the path to your vector index, along with the query that you want to perform against the index. The 'path' is the location for the MLIndex created in the create a vector index section of this tutorial. To know this location select the desired Vector Index, select 'Details', and select 'Index Data'. Then on the 'Index data' page, copy the 'Datasore URI' in the Data sources section.
 
-1. Enter a query that you want to perform against the index. A query is a question either as plain string or embedding from the previous step. For example: `${embed_the_question.output}`. 
+1. Enter a query that you want to perform against the index. A query is a question either as plain string or an embedding from the input cell of the previous step. If you choose to enter an embedding, be sure your query is defined in the input section of your prompt flow like the example here:
+   
+   An example of a plain string you can input in this case would be: `How to use SDK V2?'. Here is an example of an embedding as an input: `${embed_the_question.output}`. 
 
 ## Next steps
 
