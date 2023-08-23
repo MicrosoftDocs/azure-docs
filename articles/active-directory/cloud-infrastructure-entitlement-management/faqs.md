@@ -24,14 +24,6 @@ Microsoft Entra Permissions Management (Permissions Management) is a cloud infra
 
 Permissions Management supports data collection from AWS, GCP, and/or Microsoft Azure. For data collection and analysis, customers are required to have an Azure Active Directory (Azure AD) account to use Permissions Management.
 
-## How do customers request a Data Subject Request to export or delete data?
-
-If you are an enterprise customer, you can contact your Microsoft representative, account team, or tenant admin to file a high-priority IcM support ticket requesting a Data Subject Request. Do not include details or any personally identifiable information in the IcM request. We'll reach out to you for these details only after an IcM is filed.
-
-If you are a self-service customer (you set up a trial or paid license in the Microsoft 365 Admin center) you can contact the Permissions Management privacy team by selecting your profile drop-down menu, then **Account Settings** in Permissions Management. Follow the instructions to make a Data Subject Access Request.
-
-Learn more about [Azure Data Subject Requests](https://go.microsoft.com/fwlink/?linkid=2245178). 
-
 ## Can a customer use Permissions Management if they have other identities with access to their IaaS platform that aren't yet in Azure AD?
 
 Yes, a customer can detect, mitigate, and monitor the risk for AWS IAM or GCP accounts, or from other identity providers such as Okta or AWS IAM.
@@ -137,13 +129,19 @@ No, Permissions Management doesn't have access to sensitive personal data.
 
 You can read our [blog](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/bg-p/Identity) and visit our [web page](https://www.microsoft.com/en-us/security/business/identity-access/microsoft-entra-permissions-management). You can also get in touch with your Microsoft point of contact to schedule a demo.
 
-## What is the data destruction/decommission process? 
+## What is the data destruction/decommission process?
 
-If a customer initiates a free Permissions Management 45-day trial and does not convert to a paid license within 45 days of the trial expiration, all collected data on or just before 45 days is deleted.  
+If a customer initiates a free Permissions Management 45-day trial and does not convert to a paid license within 45 days of the trial expiration, all collected data is deleted within 30 days of the trial expiration date.  
 
-If a customer decides to discontinue licensing the service, all previously collected data within 45 days of license termination is deleted.  
+If a customer decides to discontinue licensing the service, all previously collected data is deleted within 30 days of license termination.
 
-We also have the ability to remove, export or modify specific data should the Global Administrator using the Entra Permissions Management service file an official Data Subject Request. This can be initiated by opening a ticket in the Azure portal [New support request - Microsoft Entra admin center](https://entra.microsoft.com/#blade/Microsoft_Azure_Support/NewSupportRequestV3Blade/callerName/ActiveDirectory/issueType/technical), or alternately contacting your local Microsoft representative. 
+Customers can also remove, export or modify specific data if a Global Administrator using the Permissions Management service files an official Data Subject Request. To file a request:
+
+If you're an enterprise customer, you can contact your Microsoft representative, account team, or tenant admin to file a high-priority IcM support ticket requesting a Data Subject Request. Do not include details or any personally identifiable information in the IcM request. We'll reach out to you for these details only after an IcM is filed.
+
+If you're a self-service customer (you set up a trial or paid license in the Microsoft 365 Admin center) you can contact the Permissions Management privacy team by selecting your profile drop-down menu, then **Account Settings** in Permissions Management. Follow the instructions to make a Data Subject Access Request.
+
+Learn more about [Azure Data Subject Requests](https://go.microsoft.com/fwlink/?linkid=2245178).
 
 ## Do I require a license to use Entra Permissions Management? 
 
