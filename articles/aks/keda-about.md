@@ -26,7 +26,7 @@ The KEDA add-on makes it even easier by deploying a managed KEDA installation, p
 
 Learn more about how KEDA works in the [official KEDA documentation][keda-architecture].
 
-## Installation and version
+## Installation
 
 KEDA can be added to your Azure Kubernetes Service (AKS) cluster by enabling the KEDA add-on using an [ARM template][keda-arm] or [Azure CLI][keda-cli].
 
