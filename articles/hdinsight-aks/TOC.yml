@@ -50,7 +50,7 @@ items:
     - name: Use firewall with Azure CLI
       href: ./secure-traffic-by-firewall.md
     - name: Use firewall with Azure portal
-      href: ./secure-traffic-fw-portal.md
+      href: ./secure-traffic-by-firewall-azure-portal.md
     - name: Use NSG to restrict traffic
       href: ./secure-traffic-by-nsg.md
 - name: Manage
