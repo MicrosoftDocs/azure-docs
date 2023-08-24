@@ -1,6 +1,21 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/logic-apps/connect-virtual-network-vnet-isolated-environment.md",
+            "redirect_url": "/azure/logic-apps/connect-virtual-vnet-isolated-environment-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/logic-apps/create-integration-service-environment-rest-api.md",
+            "redirect_url": "/azure/logic-apps/connect-virtual-vnet-isolated-environment-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/logic-apps/customer-managed-keys-integration-service-environment.md",
+            "redirect_url": "/azure/logic-apps/connect-virtual-vnet-isolated-environment-overview",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/logic-apps/logic-apps-using-file-connector.md",
             "redirect_url": "/azure/connectors/file-system",
             "redirect_document_id": false
@@ -32,8 +47,8 @@
         },
         {
             "source_path_from_root": "/articles/connectors/apis-list.md",
-            "redirect_url": "/azure/connectors/introduction",
-            "redirect_document_id": true
+            "redirect_url": "https://learn.microsoft.com/connectors/connectors",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/biztalk-services/biztalk-backup-restore.md",
@@ -422,12 +437,12 @@
         },
         {
             "source_path_from_root": "/articles/connectors/index.md",
-            "redirect_url": "/azure/connectors/apis-list",
+            "redirect_url": "https://learn.microsoft.com/connectors/connectors",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/connectors/connectors-overview.md",
-            "redirect_url": "/azure/connectors/apis-list",
+            "redirect_url": "/azure/connectors/introduction",
             "redirect_document_id": true
         },
         {
