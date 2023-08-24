@@ -40,17 +40,11 @@ Azure AD for customers supports authentication for Single-page apps (SPAs).
 
 The following steps show you how to register your SPA in the Microsoft Entra admin center:
 
-1.  Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com). 
 
-1. If you have access to multiple tenants, make sure you use the directory that contains your Azure AD for customers tenant:
-    
-    1. Select the **Directories + subscriptions** icon :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the portal toolbar. 
-    
-    1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD for customers directory in the **Directory name** list, and then select **Switch**. 
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to your customer tenant. 
 
-1. On the sidebar menu, select **Azure Active Directory**.
-
-1. Select **Applications**, then select **App Registrations**.
+1. Browse to **Identity** > **Applications** > **App registrations**.
 
 1. Select **+ New registration**.
 
@@ -93,17 +87,11 @@ Azure AD for customers supports authentication for web apps.
 
 The following steps show you how to register your web app in the Microsoft Entra admin center:
 
-1.  Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com). 
 
-1. If you have access to multiple tenants, make sure you use the directory that contains your Azure AD for customers tenant:
-    
-    1. Select the **Directories + subscriptions** icon :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the portal toolbar. 
-    
-    1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD for customers directory in the **Directory name** list, and then select **Switch**. 
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to your customer tenant. 
 
-1. On the sidebar menu, select **Azure Active Directory**.
-
-1. Select **Applications**, then select **App Registrations**.
+1. Browse to **Identity** > **Applications** > **App registrations**.
 
 1. Select **+ New registration**.
 
@@ -163,17 +151,11 @@ If your web app needs to call an API, you must grant your web app API permission
 
 The following steps show you how to register your app in the Microsoft Entra admin center:
 
-1.  Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com). 
 
-1. If you have access to multiple tenants, make sure you use the directory that contains your Azure AD for customers tenant:
-    
-    1. Select the **Directories + subscriptions** icon :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the portal toolbar. 
-    
-    1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD for customers directory in the **Directory name** list, and then select **Switch**. 
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to your customer tenant. 
 
-1. On the sidebar menu, select **Azure Active Directory**.
-
-1. Select **Applications**, then select **App Registrations**.
+1. Browse to **Identity** > **Applications** > **App registrations**.
 
 1. Select **+ New registration**.
 

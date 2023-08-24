@@ -848,9 +848,12 @@
               href: how-to-deploy-automl-endpoint.md
         - name: Security
           items:
-            - name: Authenticate to endpoints
+            - name: Authentication for endpoints
               href: how-to-authenticate-online-endpoint.md
             - name: Network isolation with managed online endpoints
+              displayName: network, vnet, secure
+              href: concept-secure-online-endpoint.md
+            - name: Secure your managed online endpoints with network isolation
               displayName: network, vnet, secure
               href: how-to-secure-online-endpoint.md
             - name: Access Azure resources from online endpoints
@@ -1048,6 +1051,7 @@
     - name: Tutorials & templates
       items:
         - name: "Tutorial: Create a secure workspace in Azure portal"
+          displayName: managed virtual network
           href: tutorial-create-secure-workspace.md
         - name: "Tutorial: Create a secure workspace with templates"
           href: tutorial-create-secure-workspace-template.md
@@ -1096,8 +1100,16 @@
           href: how-to-managed-network.md
         - name: Troubleshoot managed virtual network
           href: how-to-troubleshoot-managed-network.md
+        - name: Use private endpoint
+          displayName: private endpoint
+          href: how-to-configure-private-link.md
+        - name: Use custom DNS
+          href: how-to-custom-dns.md
         - name: Use Azure Virtual Network
           items:
+            - name: "Tutorial: Create a secure workspace with a VNet"
+              displayName: azure virtual network
+              href: tutorial-create-secure-workspace-vnet.md
             - name: Secure workspace resources
               displayName: vnet, workspace, network isolation, container registry
               href: how-to-secure-workspace-vnet.md
@@ -1123,9 +1135,6 @@
             - name: Use studio in a virtual network
               displayName: vnet
               href: how-to-enable-studio-virtual-network.md
-            - name: Use private endpoint
-              displayName: private endpoint
-              href: how-to-configure-private-link.md
             # v1
             - name: Use private endpoint
               displayName: private endpoint
@@ -1134,8 +1143,6 @@
               displayName: ssl, tls
               href: ./v1/how-to-secure-web-service.md
             # end v1
-            - name: Use custom DNS
-              href: how-to-custom-dns.md
             - name: Configure required network traffic
               displayName: firewall, user-defined route, udr
               href: how-to-access-azureml-behind-firewall.md
