@@ -14,7 +14,7 @@ ms.custom: template-how-to, FY23 content-maintenance, devx-track-azurepowershell
 
 In this tutorial, you learn to create a virtual network peering between virtual networks created through Resource Manager. The virtual networks exist in different subscriptions that may belong to different Azure Active Directory (Azure AD) tenants. Peering two virtual networks enables resources in different virtual networks to communicate with each other with the same bandwidth and latency as though the resources were in the same virtual network. Learn more about [Virtual network peering](virtual-network-peering-overview.md).
 
-Depending on whether the virtual networks are in the same, or different subscriptions the steps to create a virtual network peering are different. Steps to peer networks created with the classic deployment model are different. For more information about deployment models, see [Azure deployment model](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
+Depending on whether, the virtual networks are in the same, or different subscriptions the steps to create a virtual network peering are different. Steps to peer networks created with the classic deployment model are different. For more information about deployment models, see [Azure deployment model](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
 
 Learn how to create a virtual network peering in other scenarios by selecting the scenario from the following table:
 
@@ -178,7 +178,7 @@ $virtualNetwork | Set-AzVirtualNetwork
 
 ### Sign in to subscription-1
 
-Use [az login](/cli/azure/reference-index#az-login) to sign in to **subscription-1**.
+Use [az sign-in](/cli/azure/reference-index#az-login) to sign in to **subscription-1**.
 
 ```azurecli-interactive
 az login
@@ -453,7 +453,7 @@ $virtualNetwork | Set-AzVirtualNetwork
 
 ### Sign in to subscription-2
 
-Use [az login](/cli/azure/reference-index#az-login) to sign in to **subscription-1**.
+Use [az sign-in](/cli/azure/reference-index#az-login) to sign in to **subscription-1**.
 
 ```azurecli-interactive
 az login
@@ -761,7 +761,7 @@ vnet-1            Initiated
 
 ### Sign in to subscription-1
 
-Use [az login](/cli/azure/reference-index#az-login) to sign in to **subscription-1**.
+Use [az sign-in](/cli/azure/reference-index#az-login) to sign in to **subscription-1**.
 
 ```azurecli-interactive
 az login
@@ -777,7 +777,7 @@ az account set --subscription "subscription-1"
 
 Authenticate to **subscription-2** so that the peering can be set up.
 
-Use [az login](/cli/azure/reference-index#az-login) to sign in to **subscription-2**.
+Use [az sign-in](/cli/azure/reference-index#az-login) to sign in to **subscription-2**.
 
 ```azurecli-interactive
 az login
@@ -936,7 +936,7 @@ vnet-2            Connected
 
 ### Sign in to subscription-2
 
-Use [az login](/cli/azure/reference-index#az-login) to sign in to **subscription-2**.
+Use [az sign-in](/cli/azure/reference-index#az-login) to sign in to **subscription-2**.
 
 ```azurecli-interactive
 az login
@@ -952,7 +952,7 @@ az account set --subscription "subscription-2"
 
 Authenticate to **subscription-1** so that the peering can be set up.
 
-Use [az login](/cli/azure/reference-index#az-login) to sign in to **subscription-1**.
+Use [az sign-in](/cli/azure/reference-index#az-login) to sign in to **subscription-1**.
 
 ```azurecli-interactive
 az login
