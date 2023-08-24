@@ -24,11 +24,11 @@ You can secure prompt flow using private networks. This article explains the req
 ## Involved services
 
 When you developing your llm application using prompt flow, you mean want to in secured environment. You can make following service as private via network setting.
-- Workspace as private, you can make Azure machine learning workspace as private and limit inbound and outbound of it.
-- Compute resource as private, you can also limit inboud and outbount rule of compute resource in the worksapce.
-- Storage account, you can limit the accessibilty of the storage account to specific VNet.
-- Container registry, you may also want to secure your container registry with VNet.
-- Endpoint, you may want to limit Azure services or ip address to access your endpoint.
+- Workspace: you can make Azure machine learning workspace as private and limit inbound and outbound of it.
+- Compute resource: you can also limit inboud and outbount rule of compute resource in the worksapce.
+- Storage account: you can limit the accessibilty of the storage account to specific VNet.
+- Container registry: you may also want to secure your container registry with VNet.
+- Endpoint: you may want to limit Azure services or ip address to access your endpoint.
 - Related Azure cognitive services as such Azure OpenAI, Azure content safety and Azure cognitive search, you can use network config to make them as private then using private endpoint to let Azure machine learning services communicate with them.
 
 ## Secure prompt flow with workspace managed VNet
@@ -47,7 +47,10 @@ Workspace managed VNet is recommand way to support network isolation in prompt f
 
 ## Secure prompt flow use your own VNet
 
-If you want using your own VNet, you need follow [Secure workspace resources](../how-to-secure-workspace-vnet.md) to setup realted settings.
+- You can follow [Secure workspace resources](../how-to-secure-workspace-vnet.md) to setup Azure machine learning related resources as private. 
+- Meanwhile, you can follow [private Azure cognitive services](../../ai-services/cognitive-services-virtual-networks.md) to make them as private.
+- You can either create private endpoint to the same VNet or levergage VNet peering to make them communicate with each other.
+
 
 ## Limitations
 - Workspace hub / leah workspace and AI studio didn't support bring your own VNet.
