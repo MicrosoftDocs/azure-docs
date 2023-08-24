@@ -111,7 +111,7 @@ Use the Microsoft Graph Explorer to add roles to an enterprise application.
 
 Update the attributes to define the role claim that is included in the token.
 
-1. Locate the application in the Azure portal, and then select **Single sign-on** in the left menu.
+1. Locate the application in the Microsoft Entra admin center, and then select **Single sign-on** in the left menu.
 1. In the **Attributes & Claims** section, select **Edit**.
 1. Select **Add new claim**.
 1. In the **Name** box, type the attribute name. This example uses **Role Name** as the claim name.
@@ -123,7 +123,7 @@ Update the attributes to define the role claim that is included in the token.
 
 After the service principal is patched with more roles, you can assign users to the respective roles.
 
-1. In the Azure portal, locate the application to which the role was added.
+1. Locate the application to which the role was added in the Microsoft Entra admin center.
 1. Select **Users and groups** in the left menu and then select the user that you want to assign the new role.
 1. Select **Edit assignment** at the top of the pane to change the role.
 1. Select **None Selected**, select the role from the list, and then select **Select**.
