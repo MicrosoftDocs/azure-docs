@@ -48,7 +48,7 @@ To start a batch run with evaluation, you can select on the **"Batch run"** butt
 
 To submit batch run, you can select a dataset to test your flow with. You can also select an evaluation method to calculate metrics for your flow output. If you don't want to use an evaluation method, you can skip this step and run the batch run without calculating any metrics. You can also start a new round of evaluation later.
 
-First, you are asked to give your batch run a descriptive and recognizable name. You can also write a description and add tags (key-value pairs) to your batch run. After you finish the configuration, select **"Next"** to continue.
+First, you're asked to give your batch run a descriptive and recognizable name. You can also write a description and add tags (key-value pairs) to your batch run. After you finish the configuration, select **"Next"** to continue.
 
 :::image type="content" source="./media/how-to-bulk-test-evaluate-flow/batch-run-name.png" alt-text="Screenshot of batch run settings where you select a test dataset. " lightbox = "./media/how-to-bulk-test-evaluate-flow/batch-run-name.png":::
 
@@ -59,7 +59,7 @@ Prompt flow also  supports mapping your flow input to a specific data column in 
 
 Then, in the next step, you can decide to use an evaluation method to validate the performance of this run either immediately or later. For a completed batch run, a new round of evaluation can still be added.
 
-You can directly click **"Next"** button to skip this step and run the batch run without using any evaluation method to calculate metrics. In this way, this batch run will only generate outputs for your dataset. You can check the outputs manually or export them for further analysis with other methods.
+You can directly click **"Next"** button to skip this step and run the batch run without using any evaluation method to calculate metrics. In this way, this batch run only generates outputs for your dataset. You can check the outputs manually or export them for further analysis with other methods.
 
 Otherwise, if you want to run batch run with evaluation now, you can select an evaluation method from the dropdown box based on the description provided. After you selected an evaluation method, you can select **"View detail"** button to see more information about the selected method, such as the metrics it generates and the connections and inputs it requires.
 
@@ -102,7 +102,7 @@ In the overview panel, you can check the metadata of this run. You can also go t
 
 :::image type="content" source="./media/how-to-bulk-test-evaluate-flow/batch-run-detail-output.png" alt-text="Screenshot of batch run detail page on the outputs tab where you check batch run outputs. " lightbox = "./media/how-to-bulk-test-evaluate-flow/batch-run-detail-output.png":::
 
-You can  **select an evaluation run**  from the dropdown box and you'll see additional columns appended at the end of the table showing the evaluation result for each row of data. In this screenshot, you can locate the result that is falsely predicted with the output column "grade".
+You can  **select an evaluation run**  from the dropdown box and you'll see appended columns at the end of the table showing the evaluation result for each row of data. In this screenshot, you can locate the result that is falsely predicted with the output column "grade".
 
 :::image type="content" source="./media/how-to-bulk-test-evaluate-flow/batch-run-detail-output-eval.png" alt-text="Screenshot of batch run detail page on the outputs tab where evaluation results are appended. " lightbox = "./media/how-to-bulk-test-evaluate-flow/batch-run-detail-output-eval.png":::
 
@@ -110,7 +110,7 @@ To view the overall performance, you can select the **"Metrics"** tab, and you c
 
 :::image type="content" source="./media/how-to-bulk-test-evaluate-flow/batch-run-detail-metrics.png" alt-text="Screenshot of batch run detail page on the metrics tab where you check the overall performance in the metrics tab. " lightbox = "./media/how-to-bulk-test-evaluate-flow/batch-run-detail-metrics.png":::
 
-To learn more about the metrics calculated by the built-in evaluation methods, please navigate to [understand the built-in evaluation metrics](#understand-the-built-in-evaluation-metrics).
+To learn more about the metrics calculated by the built-in evaluation methods, navigate to [understand the built-in evaluation metrics](#understand-the-built-in-evaluation-metrics).
 
 ## Start a new round of evaluation
 
@@ -183,7 +183,7 @@ System message, sometimes referred to as a metaprompt or [system prompt](../../c
 
 ## Next steps
 
-In this document, you learned how to run a batch run and use a built-in evaluation method to measure the quality of your flow output. You also learned how to view the evaluation result and metrics, and how to start a new round of evaluation with a different method or subset of variants. We hope this document helps you improve your flow performance and achieve your goals with Prompt flow.
+In this document, you learned how to submit a batch run and use a built-in evaluation method to measure the quality of your flow output. You also learned how to view the evaluation result and metrics, and how to start a new round of evaluation with a different method or subset of variants. We hope this document helps you improve your flow performance and achieve your goals with Prompt flow.
 
 - [Develop a customized evaluation flow](how-to-develop-an-evaluation-flow.md)
 - [Tune prompts using variants](how-to-tune-prompts-using-variants.md)

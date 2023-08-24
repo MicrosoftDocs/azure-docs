@@ -70,8 +70,8 @@ In Prompt flow, a flow is a sequence of nodes that process an input and generate
 
 Some special features of evaluation methods are:
 
-1. They usually run after the another run to be tested, and receive outputs from that run.
-2. Apart from the outputs from the run to be tested, they can receive an optional additional dataset which may contains corresponding ground truths. 
+1. They usually run after the run to be tested, and receive outputs from that run.
+2. Apart from the outputs from the run to be tested, they can receive an optional additional dataset which may contain corresponding ground truths. 
 3. They may have an aggregation node that calculates the overall performance of the flow being tested based on the individual scores.
 4. They can log metrics using log_metric() function.
 
@@ -79,7 +79,7 @@ We'll introduce how the inputs and outputs should be defined in developing evalu
 
 ### Inputs
 
-An evaluation runs after another run to assess how well the outputs of that run align with specific criteria and goals. Therefore, evaluation receive the outputs generated from that run.
+An evaluation runs after another run to assess how well the outputs of that run align with specific criteria and goals. Therefore, evaluation receives the outputs generated from that run.
 
 Other inputs may also be required, such as ground truth, which may come from a dataset. By default, evaluation will use the same dataset as the test dataset provided to the tested run. However, if the corresponding labels or target ground truth values are in a different dataset, you can easily switch to that one.  
 
@@ -96,7 +96,7 @@ Therefore, to run an evaluation, you need to indicate the sources of these requi
 
 ### Input description
 
-To remind what inputs are needed to calculate metrics, you can add a description for each required input. The descriptions will be displayed when mapping the sources in batch run submission.
+To remind what inputs are needed to calculate metrics, you can add a description for each required input. The descriptions are displayed when mapping the sources in batch run submission.
 
 :::image type="content" source="./media/how-to-develop-an-evaluation-flow/input-description.png" alt-text="Screenshot of evaluation input mapping with the answers description highlighted. " lightbox = "./media/how-to-develop-an-evaluation-flow/input-description.png":::
 
@@ -104,7 +104,7 @@ To add descriptions for each input, select **Show description** in the input sec
 
 :::image type="content" source="./media/how-to-develop-an-evaluation-flow/add-description.png" alt-text="Screenshot of Classification Accuracy Evaluation with hide description highlighted. " lightbox = "./media/how-to-develop-an-evaluation-flow/add-description.png":::
 
-Then this description will be displayed to when using this evaluation method in batch run submission.
+Then this description is displayed to when using this evaluation method in batch run submission.
 
 ### Outputs and metrics
 
@@ -114,15 +114,15 @@ The outputs of an evaluation are the results that measure the performance of the
 
 In Prompt flow, the flow processes each sample dataset one at a time and generates an output record. Similarly, in most evaluation cases, there will be a metric for each output, allowing you to check how the flow performs on each individual data.
 
-To record the score for each data sample, calculate the score for each output, and log the score **as a flow output** by setting it in the output section. This is the same as defining a standard flow output.
+To record the score for each data sample, calculate the score for each output, and log the score **as a flow output** by setting it in the output section. This authoring experience is the same as defining a standard flow output.
 
 :::image type="content" source="./media/how-to-develop-an-evaluation-flow/eval-output.png" alt-text="Screenshot of the outputs section showing a name and value. " lightbox = "./media/how-to-develop-an-evaluation-flow/eval-output.png":::
 
-We calculate this score in `line_process` node, which you can create and edit from scratch when creating by type. You can also replace this python node with a LLM node to use LLM to calculate the score.
+We calculate this score in `line_process` node, which you can create and edit from scratch when creating by type. You can also replace this python node with an LLM node to use LLM to calculate the score.
 
 :::image type="content" source="./media/how-to-develop-an-evaluation-flow/line-process.png" alt-text="Screenshot of line_process node in the template. " lightbox = "./media/how-to-develop-an-evaluation-flow/line-process.png":::
 
-When this evaluation method is used in a batch run, the instance-level score can be viewed in the **Ovewview->Output** tab.
+When this evaluation method is used in a batch run, the instance-level score can be viewed in the **Overview ->Output** tab.
 
 :::image type="content" source="./media/how-to-develop-an-evaluation-flow/eval-output-bulk.png" alt-text="Screenshot of the output tab with GPT coherence highlighted. " lightbox = "./media/how-to-develop-an-evaluation-flow/eval-output-bulk.png":::
 
@@ -160,7 +160,7 @@ def calculate_accuracy(grades: List[str], variant_ids: List[str]):
 
     return aggregate_grades
 ```
-As you called this function in the Python node, you do not need to assign it anywhere else and you can view the metrics later. When this evaluation method is used in a batch run, the instance-level score can be viewed in the **Ovewview->Metrics** tab.
+As you called this function in the Python node, you don't need to assign it anywhere else, and you can view the metrics later. When this evaluation method is used in a batch run, the instance-level score can be viewed in the **Ovewview->Metrics** tab.
 
 :::image type="content" source="./media/how-to-develop-an-evaluation-flow/eval-metrics-bulk.png" alt-text="Screenshot of the output tab with GPT coherence highlighted. " lightbox = "./media/how-to-develop-an-evaluation-flow/eval-metrics-bulk.png":::
 
