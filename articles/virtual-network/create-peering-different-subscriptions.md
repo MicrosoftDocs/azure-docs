@@ -44,6 +44,8 @@ This tutorial peers virtual networks in the same region. You can also peer virtu
 
     - Each user must accept the guest user invitation from the opposite Azure Active Directory tenant.
 
+- Sign-in to the [Azure portal](https://portal.azure.com).
+
 # [**PowerShell**](#tab/create-peering-powershell)
 
 - An Azure account(s) with two active subscriptions. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -105,8 +107,6 @@ The following resources and account examples are used in the steps in this artic
 # [**Portal**](#tab/create-peering-portal)
 
 <a name="create-virtual-network"></a>
-
-1. Sign-in to the [Azure portal](https://portal.azure.com).
 
 [!INCLUDE [virtual-network-create-tabs.md](../../includes/virtual-network-create-tabs.md)]
 
@@ -379,9 +379,9 @@ Repeat the steps in the [previous section](#create-virtual-network) to create a 
 | Setting | Value |
 | --- | --- |
 | Subscription | **subscription-2** |
+| Resource group | **test-rg-2** |
 | Name | **vnet-2** |
 | Address space | **10.1.0.0/16** |
-| Resource group | **test-rg-2** |
 | Subnet name | **subnet-1** |
 | Subnet address range | **10.1.0.0/24** |
 
@@ -664,9 +664,11 @@ You need the **Resource ID** for **vnet-2** from the previous steps to set up th
     | ------- | ----- |
     | **This virtual network** |  |
     | Peering link name | Enter **vnet-1-to-vnet-2**. |
-    | Traffic to remote virtual network | Leave the subnet-1 of **Allow (subnet-1)**. |
-    | Traffic forwarded from remote virtual network | Leave the subnet-1 of **Allow (subnet-1)**. |
-    | Virtual network gateway or Route Server | Leave the subnet-1 of **None (subnet-1)**. |
+    | Peering link name | Enter **vnet-1-to-vnet-2**. |
+    | Allow access to remote virtual network | Leave the default of selected.  |
+    | Allow traffic to remote virtual network | Select the checkbox. |
+    | Allow traffic forwarded from the remote virtual network (allow gateway transit) | Leave the default of cleared. |
+    | Use remote virtual network gateway or route server | Leave the default of cleared. |
     | **Remote virtual network** |  |
     | Peering link name | Leave blank. |
     | Virtual network deployment model | Select **Resource manager**. |
@@ -838,9 +840,10 @@ You need the **Resource IDs** for **vnet-1** from the previous steps to set up t
     | ------- | ----- |
     | **This virtual network** |  |
     | Peering link name | Enter **vnet-2-to-vnet-1**. |
-    | Traffic to remote virtual network | Leave the subnet-1 of **Allow (subnet-1)**. |
-    | Traffic forwarded from remote virtual network | Leave the subnet-1 of **Allow (subnet-1)**. |
-    | Virtual network gateway or Route Server | Leave the subnet-1 of **None (subnet-1)**. |
+    | Allow access to remote virtual network | Leave the default of selected.  |
+    | Allow traffic to remote virtual network | Select the checkbox. |
+    | Allow traffic forwarded from the remote virtual network (allow gateway transit) | Leave the default of cleared. |
+    | Use remote virtual network gateway or route server | Leave the default of cleared. |
     | **Remote virtual network** |  |
     | Peering link name | Leave blank. |
     | Virtual network deployment model | Select **Resource manager**. |
