@@ -471,7 +471,7 @@ Once the data is in delta sink, you can run the query in Power BI desktop and cr
 
 1. URL of the storage account.
 
-    :::image type="content" source="./media/use-flink-delta-connector/url-of-the-storage-account..png" alt-text="Screenshot showing the URL of the storage account.":::
+    :::image type="content" source="./media/use-flink-delta-connector/url-of-the-storage-account.png" alt-text="Screenshot showing the URL of the storage account.":::
 
     :::image type="content" source="./media/use-flink-delta-connector/adls-gen-2-details.png" alt-text="Screenshot showing ADLS Gen2-details.":::
 
