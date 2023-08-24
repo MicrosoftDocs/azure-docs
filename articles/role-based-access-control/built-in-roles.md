@@ -8,7 +8,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 08/07/2023
+ms.date: 08/24/2023
 ms.custom: generated
 ---
 
@@ -167,6 +167,7 @@ The following table provides a brief description of each built-in role. Click th
 > | [Cognitive Services OpenAI User](#cognitive-services-openai-user) | Read access to view files, models, deployments. The ability to create completion and embedding calls. | 5e0bd9bd-7b93-4f28-af87-19fc36ad61bd |
 > | [Cognitive Services QnA Maker Editor](#cognitive-services-qna-maker-editor) | Let's you create, edit, import and export a KB. You cannot publish or delete a KB. | f4cc2bf9-21be-47a1-bdf1-5c5804381025 |
 > | [Cognitive Services QnA Maker Reader](#cognitive-services-qna-maker-reader) | Let's you read and test a KB only. | 466ccd10-b268-4a11-b098-b4849f024126 |
+> | [Cognitive Services Usages Reader](#cognitive-services-usages-reader) | Minimal permission to view Cognitive Services usages. | bba48692-92b0-4667-a9ad-c31c7b334ac2 |
 > | [Cognitive Services User](#cognitive-services-user) | Lets you read and list keys of Cognitive Services. | a97b65f3-24c7-4388-baec-2e87135dc908 |
 > | **Internet of things** |  |  |
 > | [Device Update Administrator](#device-update-administrator) | Gives you full access to management and content operations | 02ca0879-e8e4-47a5-a61e-5c618b76e64a |
@@ -462,6 +463,7 @@ View all resources, but does not allow you to make any changes. [Learn more](rba
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
+
 ### Role Based Access Control Administrator (Preview)
 
 Manage access to Azure resources by assigning roles using Azure RBAC. This role does not allow you to manage access using other ways, such as Azure Policy.
@@ -7437,7 +7439,7 @@ Can perform all actions within an Azure Machine Learning workspace, except for c
 
 ### Cognitive Services Contributor
 
-Lets you create, read, update, delete and manage keys of Cognitive Services. [Learn more](../ai-services/cognitive-services-virtual-networks.md)
+Lets you create, read, update, delete and manage keys of Cognitive Services. [Learn more](../ai-services/openai/how-to/role-based-access-control.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -7886,7 +7888,7 @@ Full access to the project, including the system level configuration. [Learn mor
 
 ### Cognitive Services OpenAI Contributor
 
-Full access including the ability to fine-tune, deploy and generate text
+Full access including the ability to fine-tune, deploy and generate text [Learn more](../ai-services/openai/how-to/role-based-access-control.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -7931,7 +7933,7 @@ Full access including the ability to fine-tune, deploy and generate text
 
 ### Cognitive Services OpenAI User
 
-Read access to view files, models, deployments. The ability to create completion and embedding calls.
+Read access to view files, models, deployments. The ability to create completion and embedding calls. [Learn more](../ai-services/openai/how-to/role-based-access-control.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -7953,6 +7955,7 @@ Read access to view files, models, deployments. The ability to create completion
 > | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/OpenAI/deployments/extensions/chat/completions/action | Creates a completion for the chat message with extensions |
 > | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/OpenAI/deployments/embeddings/action | Return the embeddings for a given prompt. |
 > | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/OpenAI/deployments/completions/write |  |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/OpenAI/images/generations/action | Create image generations. |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -7961,7 +7964,7 @@ Read access to view files, models, deployments. The ability to create completion
   "assignableScopes": [
     "/"
   ],
-  "description": "Ability to view files, models, deployments. Readers can't make any changes They can inference",
+  "description": "Ability to view files, models, deployments. Readers are able to call inference operations such as chat completions and image generation.",
   "id": "/providers/Microsoft.Authorization/roleDefinitions/5e0bd9bd-7b93-4f28-af87-19fc36ad61bd",
   "name": "5e0bd9bd-7b93-4f28-af87-19fc36ad61bd",
   "permissions": [
@@ -7983,7 +7986,8 @@ Read access to view files, models, deployments. The ability to create completion
         "Microsoft.CognitiveServices/accounts/OpenAI/deployments/chat/completions/action",
         "Microsoft.CognitiveServices/accounts/OpenAI/deployments/extensions/chat/completions/action",
         "Microsoft.CognitiveServices/accounts/OpenAI/deployments/embeddings/action",
-        "Microsoft.CognitiveServices/accounts/OpenAI/deployments/completions/write"
+        "Microsoft.CognitiveServices/accounts/OpenAI/deployments/completions/write",
+        "Microsoft.CognitiveServices/accounts/OpenAI/images/generations/action"
       ],
       "notDataActions": []
     }
@@ -8189,6 +8193,45 @@ Let's you read and test a KB only. [Learn more](../ai-services/qnamaker/index.ym
     }
   ],
   "roleName": "Cognitive Services QnA Maker Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### Cognitive Services Usages Reader
+
+Minimal permission to view Cognitive Services usages. [Learn more](../ai-services/openai/how-to/role-based-access-control.md)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/locations/usages/read | Read all usages data |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Minimal permission to view Cognitive Services usages.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/bba48692-92b0-4667-a9ad-c31c7b334ac2",
+  "name": "bba48692-92b0-4667-a9ad-c31c7b334ac2",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.CognitiveServices/locations/usages/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Cognitive Services Usages Reader",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
