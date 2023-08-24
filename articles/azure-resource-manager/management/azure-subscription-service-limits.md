@@ -2,7 +2,7 @@
 title: Azure subscription limits and quotas
 description: Provides a list of common Azure subscription and service limits, quotas, and constraints. This article includes information on how to increase limits along with maximum values.
 ms.topic: conceptual
-ms.date: 12/13/2022
+ms.date: 08/24/2023
 ---
 
 # Azure subscription and service limits, quotas, and constraints
@@ -16,9 +16,9 @@ To learn more about Azure pricing, see [Azure pricing overview](https://azure.mi
 > [!NOTE]
 > Some services have adjustable limits.
 >
-> When a service doesn't have adjustable limits, the following tables use the header **Limit**. In those cases, the default and the maximum limits are the same.
+> When the limit can be adjusted, the tables include **Default limit** and **Maximum limit** headers. The limit can be raised above the default limit but not above the maximum limit. Some services with adjustable limits use different headers with information about adjusting the limit.
 >
-> When the limit can be adjusted, the tables include **Default limit** and **Maximum limit** headers. The limit can be raised above the default limit but not above the maximum limit.
+> When a service doesn't have adjustable limits, the following tables use the header **Limit** without any additional information about adjusting the limit. In those cases, the default and the maximum limits are the same.
 >
 > If you want to raise the limit or quota above the default limit, [open an online customer support request at no charge](../templates/error-resource-quota.md).
 >
@@ -321,7 +321,7 @@ The following table details the features and limits of the Basic, Standard, and 
 ## Digital Twins limits
 
 > [!NOTE]
-> Some areas of this service have adjustable limits, and others do not. This is represented in the tables below with the *Adjustable?* column. When the limit can be adjusted, the *Adjustable?* value is *Yes*.
+> Some areas of this service have adjustable limits, and others do not. This is represented in the following tables with the *Adjustable?* column. When the limit can be adjusted, the *Adjustable?* value is *Yes*.
 
 [!INCLUDE [digital-twins-limits](../../../includes/digital-twins-limits.md)]
 
@@ -512,7 +512,7 @@ For more information, see [Virtual machine sizes](../../virtual-machines/sizes.m
 
 [!INCLUDE [azure-storage-limits-vm-apps](../../../includes/azure-storage-limits-vm-apps.md)]
 
-For more information see [VM Applications](../../virtual-machines/vm-applications.md).
+For more information, see [VM Applications](../../virtual-machines/vm-applications.md).
 
 #### Disk encryption sets
 

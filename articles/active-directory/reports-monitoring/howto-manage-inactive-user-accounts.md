@@ -12,8 +12,6 @@ ms.subservice: report-monitor
 ms.date: 05/02/2023
 ms.author: sarahlipsey
 ms.reviewer: besiler
-
-ms.collection: M365-identity-device-management
 ---
 # How To: Manage inactive user accounts
 
@@ -77,8 +75,8 @@ The following details relate to the `lastSignInDateTime` property.
 
 If you need to view the latest sign-in activity for a user, you can view the user's sign-in details in Azure AD. You can also use the Microsoft Graph **users by name** scenario described in the [previous section](#detect-inactive-user-accounts-with-microsoft-graph).
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
-1. Go to **Azure AD** > **Users** > select a user from the list.
+1. Sign in to the [Azure portal](https://portal.azure.com) as a Report Reader. 
+1. Browse to **Azure AD** > **Users** > select a user from the list.
 1. In the **My Feed** area of the user's Overview, locate the **Sign-ins** tile. 
 
     ![Screenshot of the user overview page with the sign-in activity tile highlighted.](media/howto-manage-inactive-user-accounts/last-sign-activity-tile.png)

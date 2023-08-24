@@ -46,8 +46,8 @@ To view and update the membership of the [Global Administrator](/azure/active-di
 
 You can manage the [Azure AD Joined Device Local Administrator](/azure/active-directory/roles/permissions-reference#azure-ad-joined-device-local-administrator) role from **Device settings**. 
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as at least a [Cloud Device Administrator](../roles/permissions-reference.md#cloud-device-administrator).
-1. Browse to **Azure Active Directory** > **Devices** > **Device settings**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Device Administrator](../roles/permissions-reference.md#cloud-device-administrator).
+1. Browse to **Identity** > **Devices** > **All devices** > **Device settings**.
 1. Select **Manage Additional local administrators on all Azure AD joined devices**.
 1. Select **Add assignments** then choose the other administrators you want to add and select **Add**.
 

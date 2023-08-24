@@ -79,10 +79,10 @@ After a few minutes, the command completes and returns information about the clu
 
 To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl][kubectl]. `kubectl` is already installed if you use Azure Cloud Shell.
 
-1. Install `kubectl` locally using the `Install-AzAksKubectl` cmdlet:
+1. Install `kubectl` locally using the `Install-AzAksCliTool` cmdlet:
 
     ```azurepowershell
-    Install-AzAksKubectl
+    Install-AzAksCliTool
     ```
 
 2. Configure `kubectl` to connect to your Kubernetes cluster using the [Import-AzAksCredential][import-azakscredential] cmdlet. The following cmdlet downloads credentials and configures the Kubernetes CLI to use them.
