@@ -92,7 +92,7 @@ After the command finishes execution, you should have a *.crt* and a *.key* file
 
 Once you associate your app registration with the certificate, you need to update your app code to start using the certificate:
 
-1. Locate the file that contains your MSAL configuration object, such as `msalConfig`  in *authConfig.js*, then update it to look similar to the following code:
+1. Locate the file that contains your MSAL configuration object, such as `msalConfig`  in *authConfig.js*, then update it to look similar to the following code. If you have a client secret present, make sure you remove it:
 
     ```javascript
     require('dotenv').config();
@@ -124,7 +124,6 @@ Once you associate your app registration with the certificate, you need to updat
             auth: {
                 clientId: process.env.CLIENT_ID || 'Enter_the_Application_Id_Here', // 'Application (client) ID' of app registration in Azure portal - this value is a GUID
                 authority: process.env.AUTHORITY || `https://${TENANT_SUBDOMAIN}.ciamlogin.com/`, 
-                //clientSecret: process.env.CLIENT_SECRET || 'Enter_the_Client_Secret_Here', // Client secret generated from the app registration in Azure portal
                 clientCertificate: {
                     thumbprint: "YOUR_CERT_THUMBPRINT", // replace with thumbprint obtained during step 2 above
                     privateKey: privateKey
@@ -174,14 +173,13 @@ Once you associate your app registration with the certificate, you need to updat
 
 You can use your existing certificate directly from Azure Key Vault:
 
-1. Locate the file that contains your MSAL configuration object, such as `msalConfig`  in *authConfig.js*, then comment the `clientSecret` property:
+1. Locate the file that contains your MSAL configuration object, such as `msalConfig`  in *authConfig.js*, then remove the `clientSecret` property:
     
     ```java
     const msalConfig = {
         auth: {
             clientId: process.env.CLIENT_ID || 'Enter_the_Application_Id_Here', // 'Application (client) ID' of app registration in Azure portal - this value is a GUID
             authority: process.env.AUTHORITY || `https://${TENANT_SUBDOMAIN}.ciamlogin.com/`, 
-            //clientSecret: process.env.CLIENT_SECRET || 'Enter_the_Client_Secret_Here', // Client secret generated from the app registration in Azure portal
         },
         //...
     };
