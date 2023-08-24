@@ -117,7 +117,7 @@ This section provides the steps to deploy your application to Azure Spring Apps.
 
 Use the following steps to deploy using the [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Spring-Apps):
 
-1. Navigate to the *complete* directory and then run the following command to configure the app in Azure Spring Apps:
+1. Navigate to the *complete* directory, and then run the following command to configure the app in Azure Spring Apps:
 
    ```bash
    ./mvnw com.microsoft.azure:azure-spring-apps-maven-plugin:1.18.0:config
