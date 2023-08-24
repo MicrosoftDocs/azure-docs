@@ -110,15 +110,15 @@ Azure OpenAI on your data lets you restrict the documents that can be returned i
 1. Make sure each sensitive document in the index has the value set correctly on this security field to indicate the permitted groups of the document.
 1. in [Azure OpenAI Studio](https://oai.azure.com/portal), add your data source. in the [index field mapping](#index-field-mapping) section, you can map zero or one value to the **permitted groups** field, as long as the schema is compatible. If the **Permitted groups** field isn't mapped, document level access won't be enabled. 
 
-**Accessing sensitive documents using Azure OpenAI Studio**
+**Azure OpenAI Studio**
 
 Once the Azure Cognitive Search index is connected, your responses in the studio will have document access based on the Azure AD permissions of the logged in user.
 
-**Accessing sensitive documents using the Web app**
+**Web app**
 
 If you are using a published [web app](#using-the-web-app), you need to republish it to upgrade to the latest version. The latest version of the web app includes the ability to retrieve the groups of the logged in user's Azure AD account, cache it, and include the group IDs in each API request.
 
-**Accessing sensitive documents using the API**
+**API**
 
 When using the API, pass the `filter` parameter in each API request. For example:
 
