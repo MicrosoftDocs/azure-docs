@@ -105,7 +105,7 @@ Follow these steps to restore your flexible server using an existing full backup
 
    :::image type="content" source="./media/how-to-restore-server-portal/geo-restore-enabled-flex.png" alt-text="Screenshot of  enabling Geo-Restore." lightbox="./media/how-to-restore-server-portal/geo-restore-enabled-flex.png":::
 
-    :::image type="content" source="./media/how-to-restore-server-portal/geo-restore-flex-locationdropdown.png" alt-text="Screenshot of location dropdown." lightbox="./media/how-to-restore-server-portal/geo-restore-flex-locationdropdown.png":::
+    :::image type="content" source="./media/how-to-restore-server-portal/geo-restore-flex-location-dropdown.png" alt-text="Screenshot of location dropdown." lightbox="./media/how-to-restore-server-portal/geo-restore-flex-locationdropdown.png":::
 
 1. Provide a new server name in the **Name** field in the Server details section.
 
