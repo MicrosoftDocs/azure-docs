@@ -203,7 +203,7 @@ Set a limit on the number of tokens per model response. The upper limit for Azur
 
 This option encourages the model to respond using your data only, and is selected by default. If you unselect this option, the model may more readily apply its internal knowledge to respond. Determine the correct selection based on your use case and scenario. 
 
-### Search types
+### Search options
 
 Azure OpenAI on your data provides several search options you can use when you add your data source, leveraging the following types of search.
 
