@@ -56,7 +56,7 @@ The branding elements are called out in the following example. Text descriptions
 1. **Page background color**: The entire space behind the sign-in box.
 1. **Banner logo**: Logo that appears at the top of the sign-in box
 1. **Sign-in page title**: Larger text that appears below the banner logo.
-1. **Sign-in page description**: Text to describe the of the sign-in page.
+1. **Sign-in page description**: Text to describe the sign-in page.
 1. **Username hint and text**: The text that appears before a user enters their information.
 1. **Self-service password reset**: A link you can add below the sign-in page text for password resets.
 1. **Sign-in page text**: Text you can add below the username field.
@@ -85,7 +85,7 @@ In the following examples, replace the contoso.com with your own tenant name, or
 - For my app portal `https://myapps.microsoft.com/?whr=contoso.com` 
 - Self-service password reset `https://passwordreset.microsoftonline.com/?whr=contoso.com`
 
-Beginning September 30, 2023, when B2B collaboration end-users perform cross-tenant sign-ins, they'll notice a change in branding. Instead of seeing the resource tenant's branding, their home tenant branding will appear, even if there isn't custom branding specified. We're making this change to highlight that the user is signing into their home account. No action is needed from you to enable this change.
+Beginning September 30, 2023, when B2B collaboration end-users perform cross-tenant sign-ins, they'll notice a change in branding. Instead of seeing the resource tenant's branding, their home tenant branding appears, even if there isn't custom branding specified. We're making this change to highlight that the user is signing into their home account. No action is needed from you to enable this change.
 
 ## How to navigate the company branding process
 
@@ -162,13 +162,10 @@ If you haven't enabled the footer, go to the **Layout** section and select **Sho
 
     To begin a new paragraph, use the enter key twice. You can also change text formatting to include bold, italics, an underline, or clickable link. Use the following syntax to add formatting to text: 
 
-    > Hyperlink: `[text](link)` 
-        
-    > Bold: `**text**` or `__text__` 
-          
-    > Italics: `*text*` or `_text_` 
-          
-    > Underline: `++text++` 
+    - Hyperlink: `[text](link)` 
+    - Bold: `**text**` or `__text__`
+    - Italics: `*text*` or `_text_`
+    - Underline: `++text++` 
          
     > [!IMPORTANT]
     > Hyperlinks that are added to the sign-in page text render as text in native environments, such as desktop and mobile applications.

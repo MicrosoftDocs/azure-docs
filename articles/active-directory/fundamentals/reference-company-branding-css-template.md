@@ -68,7 +68,7 @@ Use the following CSS selectors to configure the details of the sign-in experien
     - `.ext-button.ext-secondary:focus:hover` - When the button has focus *and* the mouse is over the button
     - `.ext-button.ext-secondary:active` - When the button is being clicked
 
-    ![Screenshot of the sign-in box at the Sign-in options step, with the secondary - Back - button highlighted.](media/reference-company-branding-css-template/ext-secondary-button.png)
+    ![Screenshot of the sign-in box at the Sign-in options step, with the secondary - Back - button highlighted.](media/reference-company-branding-css-template/secondary-button.png)
 
 - `.ext-error` - Error text
 
