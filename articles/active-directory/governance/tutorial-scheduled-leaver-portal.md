@@ -41,7 +41,7 @@ The scheduled leaver scenario can be broken down into the following:
 
 ## Create a workflow using scheduled leaver template
 
-Use the following steps to create a scheduled leaver workflow that will configure off-boarding tasks for employees after their last day of work with Lifecycle workflows using the Microsoft entra admin center.
+Use the following steps to create a scheduled leaver workflow that will configure off-boarding tasks for employees after their last day of work with Lifecycle workflows using the Microsoft Entra admin center.
 
  1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Lifecycle Workflows Administrator](../roles/permissions-reference.md#lifecycle-workflows-administrator).
  2. Select **Identity Governance**.

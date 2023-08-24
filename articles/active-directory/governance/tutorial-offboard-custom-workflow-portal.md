@@ -95,7 +95,7 @@ To run the workflow immediately, you can use the on-demand feature.
 > [!NOTE]
 > You currently can't run a workflow on demand if it's set to **Disabled**. You need to set the workflow to **Enabled** to use the on-demand feature.
 
-To run a workflow on demand for users by using the Microsoft entra admin center:
+To run a workflow on demand for users by using the Microsoft Entra admin center:
 
 1. On the workflow screen, select the specific workflow that you want to run.
 2. Select **Run on demand**.
