@@ -130,7 +130,7 @@ Additionally, while you can use the following Conditional Access conditions, be 
 - **Locations.** The named location definitions in the resource tenant determine the scope of the policy. The scope of the policy doesn't evaluate trusted locations managed in the home tenant. If your organization wants to share trusted locations across tenants, define the locations in each tenant where you define the resources and Conditional Access policies.
 
 ## Securing your multi-tenant environment
-Review the [security checklist](../fundamentals/steps-secure-identity.md) and [best pactices](../fundamentals/operational-best-practices.md) for guidance on securing your tenant. Ensure these best practices are followed and review them with any tenants that you collaborate closely with.
+Review the [security checklist](/azure/security/fundamentals/steps-secure-identity.md) and [best pactices](/azure/security/fundamentals/operational-best-practices.md) for guidance on securing your tenant. Ensure these best practices are followed and review them with any tenants that you collaborate closely with.
 
 ### Conditional access
 The following are considerations for configuring access control.
@@ -141,7 +141,7 @@ The following are considerations for configuring access control.
 - Create dedicated Conditional Access policies for external accounts.
 
 ### Monitoring your multi-tenant environment
-- Monitor for changes to cross-tenant access policies using the [audit logs UI](../reports-monitoring/concept-audit-logs), [API](https://learn.microsoft.com/graph/api/resources/azure-ad-auditlog-overview), or [Azure Monitor integration](../reports-monitoring/tutorial-configure-log-analytics-workspace.md) (for proactive alerts). The audit events use the categories "CrossTenantAccessSettings" and "CrossTenantIdentitySyncSettings." By monitoring for audit events under these cartegories, you can identify any cross-tenant access policy changes in your tenant and take action. When creating alerts in Azure Monitor, you can create a query such as the one below to identify any cross-tenant access policy changes.   
+- Monitor for changes to cross-tenant access policies using the [audit logs UI](../reports-monitoring/concept-audit-logs.md), [API](/graph/api/resources/azure-ad-auditlog-overview.md), or [Azure Monitor integration](../reports-monitoring/tutorial-configure-log-analytics-workspace.md) (for proactive alerts). The audit events use the categories "CrossTenantAccessSettings" and "CrossTenantIdentitySyncSettings." By monitoring for audit events under these cartegories, you can identify any cross-tenant access policy changes in your tenant and take action. When creating alerts in Azure Monitor, you can create a query such as the one below to identify any cross-tenant access policy changes.   
 
 ```
 AuditLogs
@@ -161,6 +161,9 @@ If an application has the **User assignment required?** property set to **No**, 
 
 ### Privileged Identity Management
 Minimize persistent administrator access by enabling [privileged identity management](../fundamentals/steps-secure-identity#implement-privilege-access-management.md). 
+
+### Restricted Management Units
+When you're using security groups to control who is in scope for cross-tenant synchronization, you will want to limit who can make changes to the security group. Minimize the number of owners of the security groups assigned to the cross-tenant synchronization job and include the groups in a [restricted management unit](../roles/admin-units-restricted-management.md). This will limit the number of people that can add or remove group members and provision accounts across tenants. 
 
 ## Other access control considerations
 
