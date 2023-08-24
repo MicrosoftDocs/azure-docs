@@ -22,15 +22,12 @@ You can view fired and resolved Prometheus alerts in the Azure portal together w
 4. Click the alert name to view the details of a specific fired/resolved alert.
 :::image type="content" source="media/prometheus-metric-alerts/alert-details-grafana.png" lightbox="media/prometheus-metric-alerts/alert-details-grafana.png" alt-text="Screenshot of detail for a Prometheus alert in Azure Monitor.":::
 
-If your rule group is configured with [a specific cluster scope](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/prometheus-rule-groups#limiting-rules-to-a-specific-cluster), you can also view alerts fired for this cluster, under this cluster alerts blade. From the cluster menu in the Azure portal, select **Alerts**. You can then filter for the Prometheus monitor service as shown above.
+If your rule group is configured with [a specific cluster scope](../essentials/prometheus-rule-groups#limiting-rules-to-a-specific-cluster), you can also view alerts fired for this cluster, under this cluster alerts blade. From the cluster menu in the Azure portal, select **Alerts**. You can then filter for the Prometheus monitor service as shown above.
 
 ## Explore Prometheus alerts in Grafana
 1. In the fired alerts details pane, you can click the **View query in Grafana** link. 
 2. A browser tab will be opened taking you to the [Azure Managed Grafana](../../managed-grafana/overview.md) instance connected to your Azure Monitor Workspace. 
 3. Grafana will be opened in Explore mode, presenting the chart for your alert rule expression query which triggered the alert, around the alert firing time. You can further explore the query in Grafana to identify the reason causing the alert to fire.
-
-## View Prometheus alerts 
-You can view fired and resolved Prometheus alerts in the Azure portal together with all other alert types. Use the following steps to filter on only Prometheus alerts.
 
 > [!NOTE]
 > 1. If there is no Azure Managed Grafana connected to your Azure Monitor Workspace, a link to Grafana will not be available.
