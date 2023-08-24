@@ -130,7 +130,7 @@ Additionally, while you can use the following Conditional Access conditions, be 
 - **Locations.** The named location definitions in the resource tenant determine the scope of the policy. The scope of the policy doesn't evaluate trusted locations managed in the home tenant. If your organization wants to share trusted locations across tenants, define the locations in each tenant where you define the resources and Conditional Access policies.
 
 ## Securing your multi-tenant environment
-Review the [security checklist](/azure/security/fundamentals/steps-secure-identity.md) and [best pactices](/azure/security/fundamentals/operational-best-practices.md) for guidance on securing your tenant. Ensure these best practices are followed and review them with any tenants that you collaborate closely with.
+Review the [security checklist](/azure/security/fundamentals/steps-secure-identity) and [best pactices](/azure/security/fundamentals/operational-best-practices) for guidance on securing your tenant. Ensure these best practices are followed and review them with any tenants that you collaborate closely with.
 
 ### Conditional access
 The following are considerations for configuring access control.
@@ -160,7 +160,7 @@ If your organization is using the [**all users** dynamic group](../external-iden
 If an application has the **User assignment required?** property set to **No**, external users can access the application. Application admins must understand access control impacts, especially if the application contains sensitive information. [Restrict your Azure AD app to a set of users in an Azure AD tenant](../develop/howto-restrict-your-app-to-a-set-of-users.md) explains how registered applications in an Azure Active Directory (Azure AD) tenant are, by default, available to all users of the tenant who successfully authenticate.
 
 ### Privileged Identity Management
-Minimize persistent administrator access by enabling [privileged identity management](../fundamentals/steps-secure-identity#implement-privilege-access-management.md). 
+Minimize persistent administrator access by enabling [privileged identity management](/fundamentals/steps-secure-identity#implement-privilege-access-management). 
 
 ### Restricted Management Units
 When you're using security groups to control who is in scope for cross-tenant synchronization, you will want to limit who can make changes to the security group. Minimize the number of owners of the security groups assigned to the cross-tenant synchronization job and include the groups in a [restricted management unit](../roles/admin-units-restricted-management.md). This will limit the number of people that can add or remove group members and provision accounts across tenants. 
