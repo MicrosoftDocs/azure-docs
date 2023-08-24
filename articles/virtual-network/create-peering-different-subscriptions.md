@@ -226,27 +226,27 @@ A user account in the other subscription that you want to peer with must be adde
 
 1. Remain signed in to the portal as **user-1**.
 
-2. In the search box a the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
+1. In the search box a the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
 
-3. Select **vnet-1**.
+1. Select **vnet-1**.
 
-4. Select **Access control (IAM)**.
+1. Select **Access control (IAM)**.
 
-5. Select **+ Add** -> **Add role assignment**.
+1. Select **+ Add** -> **Add role assignment**.
 
-6. In **Add role assignment** in the **Role** tab, select **Network Contributor**.
+1. In **Add role assignment** in the **Role** tab, select **Network Contributor**.
 
-7. Select **Next**.
+1. Select **Next**.
 
-8. In the **Members** tab, select **+ Select members**.
+1. In the **Members** tab, select **+ Select members**.
 
-9. In **Select members** in the search box, enter **user-2**.
+1. In **Select members** in the search box, enter **user-2**.
 
-10. Select **Select**.
+1. Select **Select**.
 
-11. Select **Review + assign**.
+1. Select **Review + assign**.
 
-12. Select **Review + assign**.
+1. Select **Review + assign**.
 
 # [**PowerShell**](#tab/create-peering-powershell)
 
@@ -328,15 +328,15 @@ Replace the example guid in **`--assignee`** with the real object ID for **user-
 
 1. Remain signed in to the portal as **user-1**.
 
-2. In the search box a the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
+1. In the search box a the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
 
-3. Select **vnet-1**.
+1. Select **vnet-1**.
 
-4. In **Settings**, select **Properties**.
+1. In **Settings**, select **Properties**.
 
-5. Copy the information in the **Resource ID** field and save for the later steps. The resource ID is similar to the following example: **`/subscriptions/<Subscription Id>/resourceGroups/test-rg/providers/Microsoft.Network/virtualNetworks/vnet-1`**.
+1. Copy the information in the **Resource ID** field and save for the later steps. The resource ID is similar to the following example: **`/subscriptions/<Subscription Id>/resourceGroups/test-rg/providers/Microsoft.Network/virtualNetworks/vnet-1`**.
 
-6. Sign out of the portal as **user-1**.
+1. Sign out of the portal as **user-1**.
 
 # [**PowerShell**](#tab/create-peering-powershell)
 
@@ -501,27 +501,27 @@ A user account in the other subscription that you want to peer with must be adde
 
 1. Remain signed in to the portal as **user-2**.
 
-2. In the search box a the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
+1. In the search box a the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
 
-3. Select **vnet-2**.
+1. Select **vnet-2**.
 
-4. Select **Access control (IAM)**.
+1. Select **Access control (IAM)**.
 
-5. Select **+ Add** -> **Add role assignment**.
+1. Select **+ Add** -> **Add role assignment**.
 
-6. In **Add role assignment** in the **Role** tab, select **Network Contributor**.
+1. In **Add role assignment** in the **Role** tab, select **Network Contributor**.
 
-7. Select **Next**.
+1. Select **Next**.
 
-8. In the **Members** tab, select **+ Select members**.
+1. In the **Members** tab, select **+ Select members**.
 
-9. In **Select members** in the search box, enter **user-1**.
+1. In **Select members** in the search box, enter **user-1**.
 
-10. Select **Select**.
+1. Select **Select**.
 
-11. Select **Review + assign**.
+1. Select **Review + assign**.
 
-12. Select **Review + assign**.
+1. Select **Review + assign**.
 
 # [**PowerShell**](#tab/create-peering-powershell)
 
@@ -602,15 +602,15 @@ The resource ID of **vnet-2** is required to set up the peering connection from 
 
 1. Remain signed in to the portal as **user-2**.
 
-2. In the search box a the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
+1. In the search box a the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
 
-3. Select **vnet-2**.
+1. Select **vnet-2**.
 
-4. In **Settings**, select **Properties**.
+1. In **Settings**, select **Properties**.
 
-5. Copy the information in the **Resource ID** field and save for the later steps. The resource ID is similar to the following example: **`/subscriptions/<Subscription Id>/resourceGroups/test-rg-2/providers/Microsoft.Network/virtualNetworks/vnet-2`**.
+1. Copy the information in the **Resource ID** field and save for the later steps. The resource ID is similar to the following example: **`/subscriptions/<Subscription Id>/resourceGroups/test-rg-2/providers/Microsoft.Network/virtualNetworks/vnet-2`**.
 
-6. Sign out of the portal as **user-2**.
+1. Sign out of the portal as **user-2**.
 
 # [**PowerShell**](#tab/create-peering-powershell)
 
@@ -650,20 +650,19 @@ You need the **Resource ID** for **vnet-2** from the previous steps to set up th
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as **user-1**. If you're using one account for both subscriptions, change to **subscription-1** in the portal.
 
-2. In the search box a the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
+1. In the search box a the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
 
-3. Select **vnet-1**.
+1. Select **vnet-1**.
 
-4. Select **Peerings**.
+1. Select **Peerings**.
 
-5. Select **+ Add**.
+1. Select **+ Add**.
 
-6. Enter or select the following information in **Add peering**:
+1. Enter or select the following information in **Add peering**:
 
     | Setting | Value |
     | ------- | ----- |
     | **This virtual network** |  |
-    | Peering link name | Enter **vnet-1-to-vnet-2**. |
     | Peering link name | Enter **vnet-1-to-vnet-2**. |
     | Allow access to remote virtual network | Leave the default of selected.  |
     | Allow traffic to remote virtual network | Select the checkbox. |
@@ -675,13 +674,15 @@ You need the **Resource ID** for **vnet-2** from the previous steps to set up th
     | Select the box for **I know my resource ID**. |   |
     | Resource ID | Enter or paste the **Resource ID** for **vnet-2**. |
 
-7. In the pull-down box, select the **Directory** that corresponds with **vnet-2** and **user-2**.
+1. In the pull-down box, select the **Directory** that corresponds with **vnet-2** and **user-2**.
 
-8. Select **Authenticate**.
+1. Select **Authenticate**.
 
-9. Select **Add**.
+    :::image type="content" source="./media/create-peering-different-subscriptions/vnet-1-to-vnet-2-peering.png" alt-text="Screenshot of peering from vnet-1 to vnet-2.":::
 
-10. Sign out of the portal as **user-1**.
+1. Select **Add**.
+
+1. Sign out of the portal as **user-1**.
 
 # [**PowerShell**](#tab/create-peering-powershell)
 
@@ -826,15 +827,15 @@ You need the **Resource IDs** for **vnet-1** from the previous steps to set up t
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as **user-2**. If you're using one account for both subscriptions, change to **subscription-2** in the portal.
 
-2. In the search box a the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
+1. In the search box a the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
 
-3. Select **vnet-2**.
+1. Select **vnet-2**.
 
-4. Select **Peerings**.
+1. Select **Peerings**.
 
-5. Select **+ Add**.
+1. Select **+ Add**.
 
-6. Enter or select the following information in **Add peering**:
+1. Enter or select the following information in **Add peering**:
 
     | Setting | Value |
     | ------- | ----- |
@@ -850,11 +851,13 @@ You need the **Resource IDs** for **vnet-1** from the previous steps to set up t
     | Select the box for **I know my resource ID**. |   |
     | Resource ID | Enter or paste the **Resource ID** for **vnet-1**. |
 
-7. In the pull-down box, select the **Directory** that corresponds with **vnet-1** and **user-1**.
+1. In the pull-down box, select the **Directory** that corresponds with **vnet-1** and **user-1**.
 
-8. Select **Authenticate**.
+1. Select **Authenticate**.
 
-9. Select **Add**.
+    :::image type="content" source="./media/create-peering-different-subscriptions/vnet-2-to-vnet-1-peering.png" alt-text="Screenshot of peering from vnet-2 to vnet-1.":::
+
+1. Select **Add**.
 
 # [**PowerShell**](#tab/create-peering-powershell)
 
