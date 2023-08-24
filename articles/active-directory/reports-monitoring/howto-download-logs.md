@@ -9,11 +9,9 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 02/16/2023
+ms.date: 08/24/2023
 ms.author: sarahlipsey
 ms.reviewer: besiler 
-
-ms.collection: M365-identity-device-management
 ---
 
 # How to download logs in Azure Active Directory
@@ -53,13 +51,13 @@ Azure AD stores activity logs for a specific period. For more information, see [
 
 ## How to download activity logs
 
-You can access the activity logs from the **Monitoring** section of Azure AD or from the **Users** page of Azure AD. If you view the audit logs from the **Users** page, the filter category will be set to **UserManagement**. Similarly, if you view the audit logs from the **Groups** page, the filter category will be set to **GroupManagement**. Regardless of how you access the activity logs, your download is based on the filter you've set. 
+You can access the activity logs from the **Monitoring** section of Azure AD or from the **Users** page of Azure AD. If you view the audit logs from the **Users** page, the filter category is set to **UserManagement**. Similarly, if you view the audit logs from the **Groups** page, the filter category is set to **GroupManagement**. Regardless of how you access the activity logs, your download is based on the filter you've set. 
 
-1. Navigate to the activity log you need to download.
-1. Adjust the filter for your needs.  
+1. Sign in to the [Azure portal](https://portal.azure.com) using the appropriate least privileged role.
+1. Browse to **Azure Active Directory** > **Monitoring** > **Audit logs**/**Sign-in logs**/**Provisioning logs**. 
 1. Select **Download**.
-    - For audit and sign-in logs, a window appears where you'll select the download format (CSV or JSON).
-    - For provisioning logs, you'll select the download format (CSV of JSON) from the Download button.
+    - For audit and sign-in logs, a window appears where you select the download format (CSV or JSON).
+    - For provisioning logs, you select the download format (CSV of JSON) from the Download button.
     - You can change the File Name of the download.
     - Select the **Download** button.
 1. The download processes and sends the file to your default download location. 

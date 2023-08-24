@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/10/2023
+ms.date: 08/24/2023
 ms.author: sarahlipsey
 ms.reviewer: hafowler
 ---
@@ -43,8 +43,8 @@ Some recommendations may require a P2 or other license. For more information, se
 
 To view the details of a recommendation:
 
-1. Sign in to Azure using the appropriate least-privilege role.
-1. Go to **Azure AD** > **Recommendations** and select a recommendation from the list.
+1. Sign in to the [Azure portal](https://portal.azure.com) using the appropriate least privilege role.
+1. Browse to **Azure AD** > **Monitoring** > **Recommendations** and select a recommendation from the list.
 
     ![Screenshot of the list of recommendations.](./media/howto-use-recommendations/recommendations-list.png)
 
