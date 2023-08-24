@@ -38,19 +38,19 @@ To move the Azure Database for MySQL - Flexible Server to the geo-paired region 
 
 4. Restore page will be shown with an option to choose **Geo-redundant restore**. If you have configured your server for geographically redundant backups, the server can be restored to the corresponding Azure paired region and the geo-redundant restore option can be enabled. Geo-redundant restore option restores the server to Latest UTC Now timestamp and hence after selection of Geo-redundant restore, the point-in-time restore options cannot be selected simultaneously.
 
-   :::image type="content" source="./media/how-to-restore-server-portal/georestore-flex.png" alt-text="Geo-restore option":::
+   :::image type="content" source="./media/how-to-move-regions/geo-restore-flex.png" alt-text="Geo-restore option":::
 
-   :::image type="content" source="./media/how-to-restore-server-portal/georestore-enabled-flex.png" alt-text="Enabling Geo-Restore":::
+   :::image type="content" source="./media/how-to-move-regions/geo-restore-enabled-flex.png" alt-text="Enabling Geo-Restore":::
 
 5. Provide a new server name in the **Name** field in the Server details section.
 
 6. When primary region is down, one cannot create geo-redundant servers in the respective geo-paired region as storage cannot be provisioned in the primary region. One must wait for the primary region to be up to provision geo-redundant servers in the geo-paired region. With the primary region down one can still geo-restore the source server to the geo-paired region by disabling the geo-redundancy option in the Compute + Storage Configure Server settings in the restore portal experience and restore as a locally redundant server to ensure business continuity.
 
-   :::image type="content" source="./media/how-to-restore-server-portal/georestore-region-down-1.png" alt-text="Compute + Storage window":::
+   :::image type="content" source="./media/how-to-move-regions/geo-restore-region-down-1.png" alt-text="Compute + Storage window":::
 
-   :::image type="content" source="./media/how-to-restore-server-portal/georestore-region-down-2.png" alt-text="Disabling Geo-Redundancy":::
+   :::image type="content" source="./media/how-to-move-regions/geo-restore-region-down-2.png" alt-text="Disabling Geo-Redundancy":::
 
-   :::image type="content" source="./media/how-to-restore-server-portal/georestore-region-down-3.png" alt-text="Restoring as Locally redundant server":::
+   :::image type="content" source="./media/how-to-move-regions/geo-restore-region-down-3.png" alt-text="Restoring as Locally redundant server":::
 
 7. Select **Review + Create** to review your selections.
 
