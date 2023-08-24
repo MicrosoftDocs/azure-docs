@@ -99,4 +99,6 @@ After failover, reprotect the Azure VMs to the Azure VMware Solution private clo
 
 > [!div class="nextstepaction"]
 > [Reprotect Azure VMs](avs-tutorial-reprotect.md)
-> [Failback from Azure](avs-tutorial-failback.md)
+
+> [!div class="nextstepaction"]
+> [Fail back from Azure](avs-tutorial-failback.md)

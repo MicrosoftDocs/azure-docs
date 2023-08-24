@@ -108,6 +108,11 @@ The virtual network takes a few seconds to create. After it's created, it appear
 
 Learn more about:
 
-* [Preparing your infrastructure](avs-tutorial-prepare-avs.md)
-* [Azure networks](../virtual-network/virtual-networks-overview.md)
-* [Managed disks](../virtual-machines/managed-disks-overview.md)
+> [!div class="nextstepaction"]
+> [Preparing your infrastructure](avs-tutorial-prepare-avs.md)
+
+> [!div class="nextstepaction"]
+> [Azure networks](../virtual-network/virtual-networks-overview.md)
+
+> [!div class="nextstepaction"]
+> [Managed disks](../virtual-machines/managed-disks-overview.md)
