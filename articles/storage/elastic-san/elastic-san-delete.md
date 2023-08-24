@@ -80,7 +80,7 @@ az elastic-san volume delete -e $sanName -g $resourceGroupName -v $volumeGroupNa
 ```
 ---
 
-To delete volume groups, run the below commands.
+To delete volume groups, run the following commands.
 
 # [PowerShell](#tab/azure-powershell)
 
