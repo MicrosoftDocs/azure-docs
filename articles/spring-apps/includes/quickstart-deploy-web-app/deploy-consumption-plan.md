@@ -20,7 +20,7 @@ First, prepare the Spring project to run locally.
 
 ### [Azure portal](#tab/Azure-portal)
 
-Although you use the Azure portal in later steps, you must use the Bash command line to prepare the project locally. Use the following steps to clone and run the app locally. These steps use the
+Although you use the Azure portal in later steps, you must use the Bash command line to prepare the project locally. Use the following steps to clone and run the app locally:
 
 1. Use the following command to clone the sample project from GitHub:
 
@@ -56,8 +56,8 @@ Use the following steps to initialize the web application from the Azure Develop
 
    The following list describes the command interactions:
 
-    - **OAuth2 login**: Authorize the login to Azure based on the OAuth2 protocol.
-    - **Please enter a new environment name**: Provide an environment name, which is used as a suffix for the resource group created to hold all the Azure resources. This name should be unique within your Azure subscription.
+   - **OAuth2 login**: Authorize the login to Azure based on the OAuth2 protocol.
+   - **Please enter a new environment name**: Provide an environment name, which is used as a suffix for the resource group created to hold all the Azure resources. This name should be unique within your Azure subscription.
 
    The console outputs messages similar to the following example:
 
@@ -116,11 +116,11 @@ Use the following steps to create a service instance:
 
    :::image type="content" source="../../media/quickstart-deploy-web-app/create-container-apps-environment.png" alt-text="Screenshot of the Azure portal that shows the Create Container Apps Environment." lightbox="../../media/quickstart-deploy-web-app/create-container-apps-environment.png":::
 
-   Then select **Create** to create the Container Apps Environment.
+   Then, select **Create** to create the Container Apps Environment.
 
 1. Select **Review and Create** to review your selections. Select **Create** to provision the Azure Spring Apps instance.
 
-1. On the toolbar, select the **Notifications** icon (a bell) to monitor the deployment process. Once the deployment is done, you can select **Pin to dashboard**, which creates a tile for this service on your Azure portal dashboard as a shortcut to the service's **Overview** page. Select **Go to resource** to open the service's **Overview** page.
+1. On the toolbar, select the **Notifications** icon (a bell) to monitor the deployment process. After the deployment is done, you can select **Pin to dashboard**, which creates a tile for this service on your Azure portal dashboard as a shortcut to the service's **Overview** page. Select **Go to resource** to open the service's **Overview** page.
 
    :::image type="content" source="../../media/quickstart-deploy-web-app/notifications.png" alt-text="Screenshot of the Azure portal that shows the Overview page with the Notifications pane open." lightbox="../../media/quickstart-deploy-web-app/notifications.png":::
 
@@ -134,19 +134,19 @@ Use the following steps to connect your service instances:
 
 1. Go to your Azure Spring Apps instance in the Azure portal.
 
-1. From the navigation pane, open the **Apps** pane and select **Create App**.
+1. From the navigation pane, open the **Apps** pane and then select **Create App**.
 
-1. On the **Create App** page, fill in the app name and select *Use quick start sample app* to create app.
+1. On the **Create App** page, fill in the app name and then select *Use quick start sample app* to create the app.
 
    :::image type="content" source="../../media/quickstart-deploy-web-app/consumption-create-app.png" alt-text="Screenshot of the Azure portal that shows the Create app pane." lightbox="../../media/quickstart-deploy-web-app/consumption-create-app.png":::
 
-1. Select **Create** to finish the app creation and select the app to view details.
+1. Select **Create** to finish the app creation and the select the app to view its details.
 
-1. Select **Configuration** from the navigation pane and configure the following properties at the **Environment variables** tab.
+1. Select **Configuration** from the navigation pane and then configure the following properties on the **Environment variables** tab:
 
    - **SPRING_DATASOURCE_URL**: *jdbc:postgresql://my-demo-psql.postgres.database.azure.com:5432/todo?sslmode=require*
    - **SPRING_DATASOURCE_USERNAME**: *myadmin*
-   - **SPRING_DATASOURCE_PASSWORD**: Enter your password
+   - **SPRING_DATASOURCE_PASSWORD**: Enter your password.
 
    :::image type="content" source="../../media/quickstart-deploy-web-app/app-configuration.png" alt-text="Screenshot of the Azure portal that shows the app Configuration page." lightbox="../../media/quickstart-deploy-web-app/app-configuration.png":::
 
@@ -179,14 +179,14 @@ Use the following steps to connect your service instances:
 
    The console outputs messages similar to the ones below:
 
-   ```text
+   ```output
    SUCCESS: Your application was provisioned in Azure in xx minutes xx seconds.
    You can view the resources created under the resource group rg-<your-environment-name> in Azure Portal:
    https://portal.azure.com/#@/resource/subscriptions/<your-subscription-id>/resourceGroups/<your-resource-group>/overview
    ```
 
    > [!NOTE]
-   > This may take a while to complete. You will see a progress indicator as it provisions Azure resources.
+   > This command may take a while to complete. You see a progress indicator as it provisions Azure resources.
 
 ---
 
@@ -196,7 +196,7 @@ You can now deploy the app to Azure Spring Apps.
 
 ### [Azure portal](#tab/Azure-portal)
 
-Use the [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Spring-Apps) to deploy.
+Use the following steps to deploy with the [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Spring-Apps):
 
 1. Navigate to the sample project directory and then use the following command to configure the app in Azure Spring Apps:
 

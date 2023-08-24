@@ -66,7 +66,7 @@ Use the following steps to initialize the web application from the Azure Develop
    (✓) Done: Initialized git repository
    (✓) Done: Downloading template code to: <your-local-path>
 
-   Enter a new environment name: <your-env-name>
+   Please enter a new environment name: <your-env-name>
 
    SUCCESS: New project initialized!
    You can view the template code in your directory: <your-local-path>
@@ -152,7 +152,7 @@ Use the following steps to connect your service instances:
    - **Select the authentication type you'd like to use between your compute service and target service.**: Select **Connection string**.
    - **Continue with...**: Select **Database credentials**
    - **Username**: *myadmin*
-   - **Password**: Enter your password
+   - **Password**: Enter your password.
 
    :::image type="content" source="../../media/quickstart-deploy-web-app/app-service-connector-authentication.png" alt-text="Screenshot of the Azure portal that shows the Authentication tab of the Create connection pane with the Connection string option highlighted." lightbox="../../media/quickstart-deploy-web-app/app-service-connector-authentication.png":::
 
@@ -166,13 +166,13 @@ Use the following steps to connect your service instances:
    azd auth login
    ```
 
-1. Use the following command to enable Azure Spring Apps feature:
+1. Use the following command to enable the Azure Spring Apps feature:
 
    ```bash
    azd config set alpha.springapp on
    ```
 
-1. Use the following command to set the template with **standard** plan:
+1. Use the following command to set the template with the **standard** plan:
 
    ```bash
    azd env set PLAN standard
@@ -191,14 +191,14 @@ Use the following steps to connect your service instances:
 
    The console outputs messages similar to the following example:
 
-   ```text
+   ```output
    SUCCESS: Your application was provisioned in Azure in xx minutes xx seconds.
    You can view the resources created under the resource group rg-<your-environment-name> in Azure Portal:
    https://portal.azure.com/#@/resource/subscriptions/<your-subscription-id>/resourceGroups/<your-resource-group>/overview
    ```
 
    > [!NOTE]
-   > This may take a while to complete. You will see a progress indicator as it provisions Azure resources.
+   > This command may take a while to complete. You see a progress indicator as it provisions Azure resources.
 
 ---
 
