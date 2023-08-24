@@ -173,7 +173,7 @@ For example, if you listed Alice and Bob as the first stage approver(s), list Ca
 
 ## Collect additional requestor information for approval
 
-In order to make sure users are getting access to the right access packages, you can require requestors to answer custom text field or Multiple Choice questions at the time of request. There's a limit of 20 questions per policy and a limit of 25 answers for Multiple Choice questions. The questions will then be shown to approvers to help them make a decision.
+In order to make sure users are getting access to the right access packages, you can require requestors to answer custom text field or Multiple Choice questions at the time of request. The questions will then be shown to approvers to help them make a decision.
 
 1. Go to the **Requestor information** tab and select the **Questions** sub tab.
  

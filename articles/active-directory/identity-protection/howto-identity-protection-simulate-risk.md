@@ -84,8 +84,6 @@ The sign-in shows up in the Identity Protection dashboard within 2-4 hours.
 
 ## Leaked Credentials for Workload Identities
 
-[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
-
 This risk detection indicates that the application's valid credentials have been leaked. This leak can occur when someone checks in the credentials in a public code artifact on GitHub. Therefore, to simulate this detection, you need a GitHub account and can [sign up a GitHub account](https://docs.github.com/get-started/signing-up-for-github) if you don't have one already.
 
 ### Simulate Leaked Credentials in GitHub for Workload Identities

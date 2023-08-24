@@ -5,7 +5,7 @@ description: Learn how to create an any-to-any configuration using an Azure Reso
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: quickstart
-ms.date: 06/14/2022
+ms.date: 08/24/2023
 ms.author: cherylmc
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ---
