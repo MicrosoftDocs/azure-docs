@@ -15,8 +15,6 @@ Azure Elastic storage area network (SAN) Preview allows you to secure and contro
 
 This article describes how to configure your Elastic SAN to allow access from your Azure virtual network infrastructure.
 
-You can configure your Elastic SAN volume groups to allow access only from endpoints on specific virtual network subnets. The allowed subnets may belong to virtual networks in the same subscription, or those in a different subscription, including a subscription belonging to a different Azure Active Directory tenant.
-
 To configure network access to your Elastic SAN:
 
 > [!div class="checklist"]
@@ -24,6 +22,8 @@ To configure network access to your Elastic SAN:
 > - [Configure client connections](#configure-client-connections).
 
 ## Configure a virtual network endpoint
+
+You can configure your Elastic SAN volume groups to allow access only from endpoints on specific virtual network subnets. The allowed subnets may belong to virtual networks in the same subscription, or those in a different subscription, including a subscription belonging to a different Azure Active Directory tenant.
 
 You can allow access to your Elastic SAN volume group from two types of Azure virtual network endpoints:
 
@@ -40,8 +40,8 @@ Once network access is configured for a volume group, the configuration is inher
 
 The process for enabling each type of endpoint follows:
 
-- [Configure an Azure Storage service endpoint](#configure-an-azure-storage-service-endpoint)
 - [Configure a private endpoint](#configure-a-private-endpoint)
+- [Configure an Azure Storage service endpoint](#configure-an-azure-storage-service-endpoint)
 
 ### Configure a private endpoint
 
