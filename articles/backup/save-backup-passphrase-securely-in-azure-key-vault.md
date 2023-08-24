@@ -1,10 +1,9 @@
 ---
 title: Save and manage MARS agent passphrase securely in Azure Key Vault (preview)
 description: Learn how to save MARS agent passphrase securely in Azure Key Vault and retrieve them during restore.
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/18/2023
-ms.custom: how-to_regions 
-ms.reviewer: sharrai
+ms.reviewer: sooryar
 ms.service: backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -39,7 +38,7 @@ To configure a vault, follow these steps in the given sequence to achieve the in
 3. Enable soft-delete and purge protection on the Azure Key Vault.
 
 >[!Note]
->-	Once you enable this feature, you must not disable the managed identity (even temporarily). Disabling the managed identity may lead to inconsistent behaviour.
+>-	Once you enable this feature, you must not disable the managed identity (even temporarily). Disabling the managed identity may lead to inconsistent behavior.
 >-	User-assigned managed identity is currently not supported for saving passphrase in Azure Key Vault.
 
 
@@ -53,7 +52,7 @@ Follow these steps:
 
 1. Go to your *Recovery Services vault* > **Identity**.
 
-   :::image type="content" source="./media/save-backup-passphrase-securely-in-azure-key-vault/recovery-services-vault-identity.png" alt-text="Screenshot shows how to go to Identity in Recovery Services vault.":::
+   :::image type="content" source="./media/save-backup-passphrase-securely-in-azure-key-vault/recovery-services-vault-identity.png" alt-text="Screenshot shows how to go to Identity in Recovery Services vault." lightbox="./media/save-backup-passphrase-securely-in-azure-key-vault/recovery-services-vault-identity.png":::
 
 2. Select the **System assigned** tab.
 3. Change the **Status** to **On**.
@@ -123,7 +122,7 @@ To assign the permissions, follow these steps:
 
    You can select a *built-in role* such as **Key Vault Secrets Officer** that has the permission (along with other permissions not required for this feature) or [create a custom role](../key-vault/general/rbac-guide.md?tabs=azurepowershell#creating-custom-roles) with only Set permission on Secret. 
 
-  Select **Details** to view the permissions granted by the role and ensure Set permission on Secret is available.
+   Select **Details** to view the permissions granted by the role and ensure Set permission on Secret is available.
  
 4. Select **Next** to proceed to select Members for assignment. 
 
@@ -179,25 +178,25 @@ Follow these steps:
 
 1. Go to your *Azure Key Vault* > **Access Policies** > **Access policies**, and then select **+ Create**.
 
-   :::image type="content" source="./media/save-backup-passphrase-securely-in-azure-key-vault/create-access-policies.png" alt-text="Screenshot shows how to start creating a Key Vault.":::
+   :::image type="content" source="./media/save-backup-passphrase-securely-in-azure-key-vault/create-access-policies.png" alt-text="Screenshot shows how to start creating a Key Vault." lightbox="./media/save-backup-passphrase-securely-in-azure-key-vault/create-access-policies.png":::
 
 2. Under **Secret Permissions**, select **Set operation**. 
 
    This specifies the allowed actions on the Secret.
 
-   :::image type="content" source="./media/save-backup-passphrase-securely-in-azure-key-vault/set-secret-permissions.png" alt-text="Screenshot shows how to start setting permissions.":::
+   :::image type="content" source="./media/save-backup-passphrase-securely-in-azure-key-vault/set-secret-permissions.png" alt-text="Screenshot shows how to start setting permissions." lightbox="./media/save-backup-passphrase-securely-in-azure-key-vault/set-secret-permissions.png":::
 
 3. Go to **Select Principal** and search for your *vault* in the search box using its name or managed identity. 
 
    Select the *vault* from the search result and choose **Select**.
 
-   :::image type="content" source="./media/save-backup-passphrase-securely-in-azure-key-vault/assign-principal.png" alt-text="Screenshot shows the assignment of permission to a selected vault.":::
+   :::image type="content" source="./media/save-backup-passphrase-securely-in-azure-key-vault/assign-principal.png" alt-text="Screenshot shows the assignment of permission to a selected vault." lightbox="./media/save-backup-passphrase-securely-in-azure-key-vault/assign-principal.png":::
 
 4. Go to **Review + create**, ensure that **Set permission** is available and **Principal** is the correct *Recovery Services vault*, and then select **Create**.
 
-   :::image type="content" source="./media/save-backup-passphrase-securely-in-azure-key-vault/review-and-create-access-policy.png" alt-text="Screenshot shows the verification of the assigned Recovery Services vault and create the Key Vault.":::
+   :::image type="content" source="./media/save-backup-passphrase-securely-in-azure-key-vault/review-and-create-access-policy.png" alt-text="Screenshot shows the verification of the assigned Recovery Services vault and create the Key Vault." lightbox="./media/save-backup-passphrase-securely-in-azure-key-vault/review-and-create-access-policy.png":::
 
-   :::image type="content" source="./media/save-backup-passphrase-securely-in-azure-key-vault/check-access-policies.png" alt-text="Screenshot shows how to verify the access present.":::
+   :::image type="content" source="./media/save-backup-passphrase-securely-in-azure-key-vault/check-access-policies.png" alt-text="Screenshot shows how to verify the access present." lightbox="./media/save-backup-passphrase-securely-in-azure-key-vault/check-access-policies.png":::
 
 
 # [PowerShell](#tab/powershell)
@@ -239,7 +238,7 @@ You can enable soft-delete and purge protection from the Azure Key Vault.
 
 Alternatively, you can set these properties while creating the Key Vault. [Learn more](../key-vault/general/soft-delete-overview.md) about these Key Vault properties. 
 
-:::image type="content" source="./media/save-backup-passphrase-securely-in-azure-key-vault/enable-soft-delete-and-purge-protection.png" alt-text="Screenshot shows how to enable spft-delete.":::
+:::image type="content" source="./media/save-backup-passphrase-securely-in-azure-key-vault/enable-soft-delete-and-purge-protection.png" alt-text="Screenshot shows how to enable spft-delete." lightbox="./media/save-backup-passphrase-securely-in-azure-key-vault/enable-soft-delete-and-purge-protection.png":::
 
 # [PowerShell](#tab/powershell)
 
@@ -314,12 +313,12 @@ Before proceeding to install the MARS agent, ensure that you have  [configured t
 
 2. After providing the *Recovery Services vault credentials* during registration, in the **Encryption Setting**,  select the option to save the passphrase to Azure Key Vault.
 
-   :::image type="content" source="./media/save-backup-passphrase-securely-in-azure-key-vault/save-passphrase.png" alt-text="Screenshot shows the option to save the passphrase to Azure Key Vault to be selected.":::
+   :::image type="content" source="./media/save-backup-passphrase-securely-in-azure-key-vault/save-passphrase.png" alt-text="Screenshot shows the option to save the passphrase to Azure Key Vault to be selected." lightbox="./media/save-backup-passphrase-securely-in-azure-key-vault/save-passphrase.png":::
 
 3. Enter your *passphrase* or select **Generate Passphrase**.
 4. In the *Azure portal*, open your *Key Vault*, copy the *Key Vault URI*.
 
-   :::image type="content" source="./media/save-backup-passphrase-securely-in-azure-key-vault/copy-key-vault-url.png" alt-text="Screenshot shows how to copy the Key Vault URI.":::
+   :::image type="content" source="./media/save-backup-passphrase-securely-in-azure-key-vault/copy-key-vault-url.png" alt-text="Screenshot shows how to copy the Key Vault URI." lightbox="./media/save-backup-passphrase-securely-in-azure-key-vault/copy-key-vault-url.png":::
 
 5. Paste the *Key Vault URI* in the *MARS console*, and then select **Register**.
 
@@ -327,7 +326,7 @@ Before proceeding to install the MARS agent, ensure that you have  [configured t
 
 6. Once the registration succeeds, the option to *copy the identifier to the Secret* is created and the passphrase is NOT saved to a file locally.  
 
-   :::image type="content" source="./media/save-backup-passphrase-securely-in-azure-key-vault/server-registration-success.png" alt-text="Screenshot shows the option to copy the identifier to the Secret gets creates.":::
+   :::image type="content" source="./media/save-backup-passphrase-securely-in-azure-key-vault/server-registration-success.png" alt-text="Screenshot shows the option to copy the identifier to the Secret gets creates." lightbox="./media/save-backup-passphrase-securely-in-azure-key-vault/server-registration-success.png":::
 
    If you change the passphrase in the future for this MARS agent, a new version of the Secret will be added with the latest passphrase.
 
@@ -352,18 +351,18 @@ To save the passphrase to Key Vault:
 
    Alternatively, select **Change Properties** > **Change Passphrase** to proceed.
 
-   :::image type="content" source="./media/save-backup-passphrase-securely-in-azure-key-vault/save-passphrase-key-vault.png" alt-text="Screenshot shows how to start changing passphrase for an existing MARS installation.":::
+   :::image type="content" source="./media/save-backup-passphrase-securely-in-azure-key-vault/save-passphrase-key-vault.png" alt-text="Screenshot shows how to start changing passphrase for an existing MARS installation." lightbox="./media/save-backup-passphrase-securely-in-azure-key-vault/save-passphrase-key-vault.png":::
 
 2. In the **Change Properties** dialog box, the option to *save passphrase to Key Vault by providing a Key Vault URI* appears.
 
    >[!Note]
    >If the machine is already configured to save passphrase to Key Vault, the Key Vault URI will be populated in the text box automatically.
 
-   :::image type="content" source="./media/save-backup-passphrase-securely-in-azure-key-vault/enter-key-vault-url.png" alt-text="Screenshot shows the option to save passphrase to Key Vault by providing a Key Vault URI gets generated.":::
+   :::image type="content" source="./media/save-backup-passphrase-securely-in-azure-key-vault/enter-key-vault-url.png" alt-text="Screenshot shows the option to save passphrase to Key Vault by providing a Key Vault URI gets generated." lightbox="./media/save-backup-passphrase-securely-in-azure-key-vault/enter-key-vault-url.png":::
 
 3. Open the *Azure portal*, open your *Key Vault*, and then *copy the Key Vault URI*.
 
-   :::image type="content" source="./media/save-backup-passphrase-securely-in-azure-key-vault/copy-key-vault-url.png" alt-text="Screenshot shows how to copy the Key Vault URI.":::
+   :::image type="content" source="./media/save-backup-passphrase-securely-in-azure-key-vault/copy-key-vault-url.png" alt-text="Screenshot shows how to copy the Key Vault URI." lightbox="./media/save-backup-passphrase-securely-in-azure-key-vault/copy-key-vault-url.png":::
 
 4. *Paste the Key Vault URI* in the *MARS console*, and then select **OK**.
 
@@ -371,7 +370,7 @@ To save the passphrase to Key Vault:
 
 5. Once the change passphrase operation succeeds, an option to *copy the identifier to the Secret* gets created and the passphrase is NOT saved to a file locally.
 
-   :::image type="content" source="./media/save-backup-passphrase-securely-in-azure-key-vault/passphrase-saved-to-key-vault.png" alt-text="Screenshot shows an option to copy the identifier to the Secret gets created.":::
+   :::image type="content" source="./media/save-backup-passphrase-securely-in-azure-key-vault/passphrase-saved-to-key-vault.png" alt-text="Screenshot shows an option to copy the identifier to the Secret gets created." lightbox="./media/save-backup-passphrase-securely-in-azure-key-vault/passphrase-saved-to-key-vault.png":::
 
    If you change the passphrase in the future for this MARS agent, a new version of the *Secret* will be added with the latest passphrase.
 
@@ -391,13 +390,13 @@ To locate the machine’s passphrase:
 
 2. Select **Secrets** and search for the secret named `AzBackup-<machine name>-<vaultname>`.
 
-   :::image type="content" source="./media/save-backup-passphrase-securely-in-azure-key-vault/locate-passphrase.png" alt-text="Screenshot shows bow to check for the secret name.":::
+   :::image type="content" source="./media/save-backup-passphrase-securely-in-azure-key-vault/locate-passphrase.png" alt-text="Screenshot shows bow to check for the secret name." lightbox="./media/save-backup-passphrase-securely-in-azure-key-vault/locate-passphrase.png":::
  
 3. Select the **Secret**, open the latest version and *copy the value of the Secret*.
 
    This is the passphrase of the machine to be used during recovery.
 
-   :::image type="content" source="./media/save-backup-passphrase-securely-in-azure-key-vault/copy-passphrase-from-secret.png" alt-text="Screenshot shows selection of the secret.":::
+   :::image type="content" source="./media/save-backup-passphrase-securely-in-azure-key-vault/copy-passphrase-from-secret.png" alt-text="Screenshot shows selection of the secret." lightbox="./media/save-backup-passphrase-securely-in-azure-key-vault/copy-passphrase-from-secret.png":::
 
    If you have a large number of Secrets in the Key Vault, use the Key Vault CLI to list and search for the secret.
 
@@ -426,7 +425,7 @@ This section lists commonly encountered errors when saving the passphrase to Azu
 2.	Ensure that the Key Vault URI corresponds to the intended Key Vault.
 3.	Ensure that the Recovery Services vault name is listed under Key Vault -> Access policies -> Application, with Secret Permissions as Set. 
  
-   :::image type="content" source="./media/save-backup-passphrase-securely-in-azure-key-vault/check-secret-permissions-is-set.png" alt-text="Screenshot shows the Recovery Services vault name is listed under Key Vault.":::
+   :::image type="content" source="./media/save-backup-passphrase-securely-in-azure-key-vault/check-secret-permissions-is-set.png" alt-text="Screenshot shows the Recovery Services vault name is listed under Key Vault." lightbox="./media/save-backup-passphrase-securely-in-azure-key-vault/check-secret-permissions-is-set.png":::
 
    If it's not listed, [configure the permission again](#assign-permissions-to-save-the-passphrase-in-azure-key-vault).
 
@@ -436,7 +435,7 @@ This section lists commonly encountered errors when saving the passphrase to Azu
 
 **Recommended action**: Ensure that you have entered a Key Vault URI copied from the Azure portal.  For example, `https://myvault.vault.azure.net/`. 
  
-:::image type="content" source="./media/save-backup-passphrase-securely-in-azure-key-vault/copy-key-vault-url.png" alt-text="Screenshot shows how to copy Kay Vault URL.":::
+:::image type="content" source="./media/save-backup-passphrase-securely-in-azure-key-vault/copy-key-vault-url.png" alt-text="Screenshot shows how to copy Kay Vault URL." lightbox="./media/save-backup-passphrase-securely-in-azure-key-vault/copy-key-vault-url.png":::
 
 ### Registration is incomplete
 
@@ -444,7 +443,7 @@ This section lists commonly encountered errors when saving the passphrase to Azu
 
 **Recommended action**: Select the warning message and complete the registration.
 
-:::image type="content" source="./media/save-backup-passphrase-securely-in-azure-key-vault/registration-incomplete-warning.png" alt-text="Screenshot shows how to complete the registration.":::
+:::image type="content" source="./media/save-backup-passphrase-securely-in-azure-key-vault/registration-incomplete-warning.png" alt-text="Screenshot shows how to complete the registration." lightbox="./media/save-backup-passphrase-securely-in-azure-key-vault/registration-incomplete-warning.png":::
 
  
 
