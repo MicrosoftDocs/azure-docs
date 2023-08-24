@@ -26,7 +26,7 @@ See [Support for Azure Storage features](elastic-san-introduction.md#support-for
 
 ## Regional availability
 
-This feature is covered in all preview regions for LRS. It is not available for ZRS SANs.
+This feature is covered in all preview regions for LRS. It is not available for ZRS SANs. Share volume support (SCSI Persistent Reservation) for Elastic SAN Preview are supported in all regions if you deploy with LRS as the redundancy option, but we do not currently offer support for ZRS.
 
 ## How it works
 
