@@ -172,7 +172,7 @@ The following table lists the fields in the schema and what they signify for NSG
 > - Deprecated fields: `VMIP_s`, `Subscription_s`, `Region_s`, `NSGRules_s`, `Subnet_s`, `VM_s`, `NIC_s`, `PublicIPs_s`, `FlowCount_d`
 > - New fields: `SrcPublicIPs_s`, `DestPublicIPs_s`, `NSGRule_s`
 
-### VNet flow logs
+### VNet flow logs (preview)
 
 The following table lists the fields in the schema and what they signify for VNet flow logs.
 
