@@ -1,7 +1,7 @@
 ---
 title: Manage various operations of dynamic scoping (preview).
 description: This article describes how to manage dynamic scoping (preview) operations 
-ms.service: update-manager
+ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
 ms.date: 07/05/2023
