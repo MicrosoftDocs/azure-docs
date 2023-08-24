@@ -146,7 +146,7 @@ You can refer this article on how to use CLI and get started with Flink SQL Clie
 
   Default_catalog is the default in-memory catalog
 - Let us now check default database of in-memory catalog
-  :::image type="content" source="./media//flink-table-sql-api/default-database-inmemorycatalogs.png" alt-text="Screenshot showing default in-memory catalogs.":::
+  :::image type="content" source="./media//flink-table-sql-api/default-database-in-memory-catalogs.png" alt-text="Screenshot showing default in-memory catalogs.":::
 - Let us create Hive Catalog of version 3.1.2 and use it
   
   ```sql
@@ -157,7 +157,7 @@ You can refer this article on how to use CLI and get started with Flink SQL Clie
   > HDInsight on AKS Flink supports **Hive 3.1.2** and **Hadoop 3.3.2**. The `hive-conf-dir` is set to location `/opt/hive-conf`
   
 - Let us create Database in hive catalog and make it default for the session (unless changed).
-  :::image type="content" source="./media//flink-table-sql-api/create-default-hivecatalog.png" alt-text="Screenshot showing creating database in hive catalog and making it default catalog for the session.":::
+  :::image type="content" source="./media//flink-table-sql-api/create-default-hive-catalog.png" alt-text="Screenshot showing creating database in hive catalog and making it default catalog for the session.":::
 
 ## How to Create and Register Hive Tables to Hive Catalog
 
