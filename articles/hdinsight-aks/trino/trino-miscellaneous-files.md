@@ -10,7 +10,7 @@ ms.date: 07/28/2023
 
 This article provides details on how to specify and use miscellaneous files configuration.
 
-You can add the configurations for using miscellaneous files in your cluster using ARM template. For broader examples, refer to [Service configuration](./trino-service-config.md)
+You can add the configurations for using miscellaneous files in your cluster using ARM template. For broader examples, refer to [Service configuration](./trino-service-config.md).
 
 ## Prerequisites
 * An operational HDInsight on AKS Trino cluster.
