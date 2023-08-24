@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 08/17/2023
+ms.date: 08/24/2023
 ms.author: jfields
 ---
 
@@ -17,7 +17,7 @@ ms.author: jfields
 
 Welcome to the Quickstart Guide for Microsoft Entra Permissions Management. 
 
-Permissions Management is a Cloud Infrastructure Entitlement Management (CIEM) solution that provides comprehensive visibility into permissions assigned to all identities. These identities include over-privileged workload and user identities, actions, and resources across multicloud infrastructures in Microsoft Entra, Amazon Web Services (AWS), and Google Cloud Platform (GCP). Permissions Management helps your organization effectively secure and manage cloud permissions by detecting, automatically right-sizing, and continuously monitoring unused and excessive permissions. 
+Permissions Management is a Cloud Infrastructure Entitlement Management (CIEM) solution that provides comprehensive visibility into permissions assigned to all identities. These identities include over-privileged workload and user identities, actions, and resources across multicloud infrastructures in Microsoft Azure, Amazon Web Services (AWS), and Google Cloud Platform (GCP). Permissions Management helps your organization effectively secure and manage cloud permissions by detecting, automatically right-sizing, and continuously monitoring unused and excessive permissions. 
 
 With this quickstart guide, you’ll set up your multicloud environment(s), configure data collection, and enable permissions access to ensure your cloud identities are managed and secure.  
 
@@ -25,52 +25,52 @@ With this quickstart guide, you’ll set up your multicloud environment(s), conf
 
 Before you begin, you need access to these tools for the onboarding process: 
 
-- Access to a local BASH shell with the Entra CLI or Entra Cloud Shell using BASH environment (Entra CLI is included). 
-- Access to AWS, Entra, and GCP consoles.
-- A user with permissions (Permissions Management Administrator?) to create a new app registration in Entra is required for AWS and GCP onboarding. 
+- Access to a local BASH shell with the Azure CLI or Azure Cloud Shell using BASH environment (Azure CLI is included). 
+- Access to AWS, Azure, and GCP consoles.
+- A user must have *Global Administrator* or *Permissions Management Administrator* role assignments to create a new app registration in Entra ID tenant is required for AWS and GCP onboarding. 
 
 
 ## Step 1: Set-up Permissions Management
 
-To enable Permissions Management, you must have a Microsoft Entra tenant (example, Entra Admin Center).  
-- If you have an Entra account, you automatically have an Entra Admin Center tenant. 
-- If you don’t already have one, create a free account at [entra.microsoft.com](https://entra.microsoft.com). 
+To enable Permissions Management, you must have a Microsoft Entra ID tenant (example, Entra admin center).  
+- If you have an Azure account, you automatically have an Entra admin center tenant. 
+- If you don’t already have one, create a free account at [entra.microsoft.com].(https://entra.microsoft.com)
 
 If the above points are met, continue with:
 
 1. [Enable Microsoft Entra Permissions Management in your organization](onboard-enable-tenant.md)
 
-Ensure you are a Global Administrator, Permissions Management Administrator, or have equivalent permissions in your Entra Admin Center tenant. Learn more about [Permissions Management roles and permissions](product-roles-permissions.md). 
+Ensure you are a *Global Administrator* or *Permissions Management Administrator*. Learn more about [Permissions Management roles and permissions](product-roles-permissions.md). 
 
  
 ## Step 2: Onboard your multicloud environment
 
 So far you’ve,  
 
-1. Been assigned the Permissions Management Administrator role in your Entra Admin Center tenant. 
+1. Been assigned the *Permissions Management Administrator* role in your Entra admin center tenant. 
 2. Purchased licenses or activated your 45-day free trial for Permissions Management. 
 3. Successfully launched Permissions Management.
 
-Now, you're going to learn about the role and settings of the Controller, and Data collection modes in Permissions Management.
+Now, you're going to learn about the role and settings of the Controller and Data collection modes in Permissions Management.
 
 ### Set the controller 
 The controller gives you the choice to determine the level of access you grant to users in Permissions Management.  
 
-- Enabling the controller during onboarding grants Permissions Management admin access, or read and write access, so users can right-size permissions and remediate directly through Permissions Management (instead of going to the AWS, Entra, or GCP consoles).  
+- Enabling the controller during onboarding grants Permissions Management admin access, or read and write access, so users can right-size permissions and remediate directly through Permissions Management (instead of going to the AWS, Azure, or GCP consoles).  
 
-- Disabling the controller during onboarding, or never enabling it, grants Permissions Management user read only access to your environment(s).  
+- Disabling the controller during onboarding, or never enabling it, grants a Permissions Management user read-only access to your environment(s).  
 
 > [!NOTE]
-> If you do not enable the controller during onboarding, you have the option to enable it after onboarding is complete. To set the controller in Permissions Management after onboarding, see [Enable or disable the controller after onboarding](onboard-enable-controller-after-onboarding.md).
+> If you don't enable the controller during onboarding, you have the option to enable it after onboarding is complete. To set the controller in Permissions Management after onboarding, see [Enable or disable the controller after onboarding](onboard-enable-controller-after-onboarding.md).
 > For AWS environments, once you've enabled the controller, you *cannot* disable it. 
 
 To set the controller settings during onboarding:
-1. Select **Enable** to give read and writer access to Permissions Management.
+1. Select **Enable** to give read and write access to Permissions Management.
 2. Select **Disable** to give read-only access to Permissions Management.
 
 ### Configure data collection
 
-There are three mode options to set in order to collect data in Permissions Management. 
+There are three modes to choose from in order to collect data in Permissions Management. 
 
 - **Automatic (recommended)** 
 Permissions Management automatically discovers, onboards, and monitors all current and future subscriptions. 
@@ -86,19 +86,19 @@ Permissions Management automatically discovers all current subscriptions. Once d
 
 To configure data collection:
 1. In Permissions Management, navigate to the data collectors page.
-2. Select a cloud environment: AWS, Entra, or GCP.
+2. Select a cloud environment: AWS, Azure, or GCP.
 3. Click **Create configuration**.
 
 ### Onboard Amazon Web Services (AWS)
 Since Permissions Management is hosted on Microsoft Entra, there are additional steps to take to onboard your AWS environment.  
 
-To connect AWS to Permissions Management, you must create an Entra Admin Center application in the Entra Admin Center tenant where Permissions Management is enabled. This Entra Admin Center application is used to set up an OIDC connection to your AWS environment.   
+To connect AWS to Permissions Management, you must create an Entra ID application in the Entra admin center tenant where Permissions Management is enabled. This Entra ID application is used to set up an OIDC connection to your AWS environment.   
 
 *OpenID Connect (OIDC) is an interoperable authentication protocol based on the OAuth 2.0 family of specifications.*
 
 ### Prerequisites 
 
-A user (Permissions Management Admin?) with the ability to create a new app registration in Entra (needed to facilitate the OIDC connection) is needed for AWS and GCP onboarding. 
+A user must have *Global Administrator* or *Permissions Management Administrator* role assignments to create a new app registration in Entra ID. 
 
 Account IDs and roles for: 
 - AWS OIDC account: An AWS member account designated by you to create and host the OIDC connection through an OIDC IdP
@@ -110,31 +110,29 @@ To use **Automatic** or **Select** data collection modes, you must connect your 
 
 During this step, you have the option to enable the controller by entering the name of the S3 bucket with AWS CloudTrail activity logs (found on AWS Trails). 
 
-![Diagram, Entra Permissions Management tenant for OIDC app.](media/permissions-management-quickstart-guide/quickstart-entra-tenant.png)
-
 To onboard your AWS environment and configure data collection, see [Onboard an Amazon Web Services (AWS) account](onboard-aws.md).
 
-### Onboard Microsoft Entra
-When you enabled Permissions Management in the Entra tenant, an enterprise application Cloud Infrastructure Entitlement Management (CIEM) was created. To onboard your Entra environment, you grant permissions to this application so Permissions management.
+### Onboard Microsoft Azure
+When you enabled Permissions Management in the Entra ID tenant, an enterprise application for CIEM was created. To onboard your Azure environment, you grant permissions to this application for Permissions management.
 
-In the Enta tenant where Permissions management is enabled, locate the Cloud Infrastructure Entitlement Management (CIEM) application.  
+1. In the Entra ID tenant where Permissions management is enabled, locate the **Cloud Infrastructure Entitlement Management (CIEM)** enterprise application.  
 
-Assign the *Reader* role to the CIEM application to allow Permissions management to read the Entra subscriptions in your environment. 
+2. Assign the *Reader* role to the CIEM application to allow Permissions management to read the Entra subscriptions in your environment. 
 
 ### Prerequisites 
-A user with Microsoft.Authorization/roleAssignments/write permissions at the subscription or management group scope. 
+- A user with ```Microsoft.Authorization/roleAssignments/write``` permissions at the subscription or management group scope. 
 
-To use **Automatic** or **Select** data collection modes, you must assign *Reader* role at the Management group scope. 
+- To use **Automatic** or **Select** data collection modes, you must assign the *Reader* role at the Management group scope. 
 
-To enable the controller, you must assign the *User Access Administrator* role to the CIEM application. 
+- To enable the controller, you must assign the *User Access Administrator* role to the CIEM application. 
 
-To onboard your Entra environment and configure data collection, see [Onboard a Microsoft Entra subscription](onboard-azure.md).
+- To onboard your Azure environment and configure data collection, see [Onboard a Microsoft Azure subscription](onboard-azure.md).
 
 
 ### Onboard Google Cloud Platform (GCP)
-Because Permissions Management is hosted on Microsoft Entra, there are additional steps to take to onboard your GCP environment.
+Because Permissions Management is hosted on Microsoft Azure, there are additional steps to take to onboard your GCP environment.
 
-To connect GCP to Permissions Management, you must create an Entra Admin Center application in the Entra tenant where Permissions Management is enabled. This Entra Admin Center application is used to set up an OIDC connection to your GCP environment.   
+To connect GCP to Permissions Management, you must create an Entra admin center application in the Entra ID tenant where Permissions Management is enabled. This Entra admin center application is used to set up an OIDC connection to your GCP environment.   
 
 *OpenID Connect (OIDC) is an interoperable authentication protocol based on the OAuth 2.0 family of specifications.* 
 
@@ -158,8 +156,6 @@ During this step, you have the option to **Enable** controller mode by assigning
 > [!NOTE]
 > The Permissions Management default scope is at the project level. 
 
-![Diagram, GCP Permissions Management connection for OIDC app.](media/permissions-management-quickstart-guide/quickstart-entra-tenant.png)
-
 To onboard your GCP environment and configure data collection, see [Onboard a GCP project](onboard-gcp.md).
 
 ## Summary
@@ -169,10 +165,10 @@ Congratulations! You've finished configuring data collection for your environmen
 The status column in your Permissions Management UI shows you which step of data collection you are at.  
 
  
-- **Pending**: Permissions management has not started detecting or onboarded yet. 
-- **Discovering**: Permissions management is detecting the authorization systems. 
-- **In progress**: Permissions management has finished detecting the authorization systems and has started onboarding. 
-- **Onboarded**: data collection has completed, and all detected authorization systems have been successfully onboarded to Permissions Management. 
+- **Pending**: Permissions Management has not started detecting or onboarding yet. 
+- **Discovering**: Permissions Management is detecting the authorization systems. 
+- **In progress**: Permissions Management has finished detecting the authorization systems and is onboarding. 
+- **Onboarded**: Data collection is complete, and all detected authorization systems are onboarded to Permissions Management. 
 
 > [!NOTE] 
 > Data collection might take time depending on the amount of authorization systems you've onboarded. While the data collection process continues, you can begin setting up [users and groups in Permissions Management](how-to-add-remove-user-to-group.md). 
@@ -183,8 +179,5 @@ The status column in your Permissions Management UI shows you which step of data
 - [Add an account/subscription/project after onboarding is complete](onboard-add-account-after-onboarding.md)
 
 References:
-- Permissions Management operational guide tbd.md
-- Troubleshooting guide
-- Permissions Management best practices guide
 - [Permissions Management Glossary](multi-cloud-glossary.md)
 - [Permissions Management FAQs](faqs.md)
