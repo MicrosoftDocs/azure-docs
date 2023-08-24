@@ -35,7 +35,7 @@ Vector search is a new capability for indexing, storing, and retrieving vector e
 
 The following diagram shows the indexing and query workflows for vector search.
 
-:::image type="content" source="media/vector-search-overview/vector-search-architecture-diagram-2.png" alt-text="Architecture of vector search workflow." border="true" lightbox="media/vector-search-overview/vector-search-architecture-diagram-2.png":::
+:::image type="content" source="media/vector-search-overview/vector-search-architecture-diagram-3.svg" alt-text="Architecture of vector search workflow." border="false" lightbox="media/vector-search-overview/vector-search-architecture-diagram-3-high-res.png":::
 
 On the indexing side, prepare source documents that contain embeddings. Cognitive Search doesn't generate embeddings, so your solution should include calls to Azure OpenAI or other models that can transform image, audio, text, and other content into vector representations. Add a *vector field* to your index definition on Cognitive Search. Load the index with a documents payload that includes the vectors. Your index is now ready to query.
 
