@@ -9,7 +9,7 @@ ms.date: 08/10/2023
 ms.author: ankitadutta
 ---
 
-# Azure virtual machines - Regional to Zonal Move
+# Azure single instance virtual machines - Regional to Zonal Move
 
 This article describes how to move single instance Azure virtual machines from a Regional configuration to a target [Availability Zone](../reliability/availability-zones-overview.md) within the same Azure region.
 
@@ -29,9 +29,9 @@ The following components are used during the regional to zonal move:
 
 | Component | Details |
 | --- | --- |
-| Move collection |	A move collection is an Azure Resource Manager object that is created during the Regional to Zonal move process. The collection is based on the VMs' region and subscription parameters and contains metadata and configuration information about the resources you want to move. VMs added to a move collection must be in the same subscription and region/location but can be selected from different resource groups.|
+| Move collection |	A move collection is an Azure Resource Manager object that is created during the Regional to Zonal move process. The collection is based on the VM's region and subscription parameters and contains metadata and configuration information about the resources you want to move. VMs added to a move collection must be in the same subscription and region/location but can be selected from different resource groups.|
 | Move resource |	When you add VM(s) to a move collection, it's tracked as a move resource and this information is maintained in the move collection for each of the VM(s) that are currently in the move process. The move collection will be created in a temporary resource group in your subscription and can be deleted along with the resource group if desired. |
-| Dependencies | When you add VMs to the move collection, validation checks are done to determine if the VMs have any dependencies that are not in the move collection. For example, a network interface card (NIC) is a dependent resource for a VM and must be moved along with the VM. After identifying the dependencies for each of the VMs, you can either add dependencies to the move collection and move them as well, or you can select alternate existing resources in the target zonal configuration. You can select a new VNET that’s already existing in the target zonal configuration. |
+| Dependencies | When you add VMs to the move collection, validation checks are done to determine if the VMs have any dependencies that are not in the move collection. For example, a network interface card (NIC) is a dependent resource for a VM and must be moved along with the VM. After identifying the dependencies for each of the VMs, you can either add dependencies to the move collection and move them as well, or you can select alternate existing resources in the target zonal configuration. You can select an existing VNET in the target zonal configuration or create a new VNET as applicable. |
 
 
 ## Support matrix
