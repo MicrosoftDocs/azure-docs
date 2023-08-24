@@ -234,7 +234,7 @@ B2B direct connect users and teams are included in access reviews of the Teams-e
 
 Use the following instructions to create an access review on a team with shared channels:
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
 1. Browse to **Identity governance** > **Access Reviews**.
 

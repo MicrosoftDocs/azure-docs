@@ -31,7 +31,7 @@ For more information, see [License requirements](access-reviews-overview.md#lice
 
 ### Scope
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
 1. Browse to **Identity governance** > **Access Reviews** > **Review History**.
 
