@@ -12,7 +12,7 @@ In this quickstart, you'll use the [Maven Plugin for Azure App Service Web Apps]
 The quickstart uses a [Quarkus](https://quarkus.io) sample, which comes with a bundled web server. You can deploy your own application and server bundle in a single JAR file to App Service instead of the using the Tomcat or JBoss hosting options. If you want, you can also embed a Tomcat server in the JAR file and run that in App Service.
 
 > [!NOTE]
-> To deploy a Spring app to Azure, try [Azure Spring Apps](../../../spring-apps/quickstart.md) instead.
+> For Spring apps that requires all the Spring services, try [Azure Spring Apps](../../../spring-apps/quickstart.md) instead. However, you can deploy Spring Boot apps to App Service.
 
 ![Screenshot of Maven Hello World web app running in Azure App Service in introduction.](../../media/quickstart-java/quarkus-hello-world-in-browser-azure-app-service.png)
 
