@@ -7974,11 +7974,15 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-functions/functions-create-first-azure-function-azure-cli.md",
-            "redirect_url": "/azure/azure-functions/create-first-function-cli-csharp",
+            "source_path_from_root": "/articles/azure-functions/functions-bindings-example.md",
+            "redirect_url": "/azure/azure-functions/functions-triggers-bindings#bindings-code-examples",
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-functions/functions-create-first-azure-function-azure-cli.md",
+            "redirect_url": "/azure/azure-functions/create-first-function-cli-csharp",
+            "redirect_document_id": false
+        },        {
             "source_path_from_root": "/articles/azure-functions/functions-create-first-java-maven.md",
             "redirect_url": "/azure/azure-functions/create-first-function-cli-java",
             "redirect_document_id": false
