@@ -40,7 +40,7 @@ This document describes the various options to lift and shift your MongoDB workl
   - *mongoexport* takes an argument specifying the subset of your existing data to export.
   - *mongoimport* opens a JSON or CSV file and inserts the content into the target database instance (Azure Cosmos DB in this case.).
   - Since JSON and CSV aren't compact formats, you may incur excess network charges as *mongoimport* sends data to Azure Cosmos DB.
-- Here's how you can [migrate data to Azure Cosmos DB for MongoDB vCore using the native MongoDB tools](../tutorial-mongotools-cosmos-db.md#perform-the-migration).
+- Here's how you can [migrate data to Azure Cosmos DB for MongoDB vCore using the native MongoDB tools](./migrate-with-mongo-tools.md).
 
 ## Data migration using Azure Databricks (Offline/Online)
 

@@ -16,6 +16,8 @@
       items:
         - name: Node.js
           href: tutorial-nodejs-web-app.md
+    - name: Build AI Apps with Vector Search
+      href: tutorial-vector-search-in-ai-apps.md
 - name: Concepts
   items:
     - name: Vector search
@@ -23,9 +25,7 @@
     - name: MongoDB feature support
       href: compatibility.md
     - name: High availability
-      href: high-availability.md
-    - name: Migration options
-      href: migration-options.md
+      href: high-availability.md    
     - name: Security
       href: security.md
     - name: Transactions
@@ -38,6 +38,12 @@
           items:
             - name: Connect using Studio 3T
               href: connect-using-robomongo.md
+    - name: Migrate Data
+      items:
+        - name: Migration options
+          href: migration-options.md
+        - name: Migrate using MongoDB tools
+          href: migrate-with-mongo-tools.md
     - name: Troubleshooting and performance
       items:
         - name: Troubleshoot common issues

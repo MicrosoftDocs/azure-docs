@@ -7,7 +7,7 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.custom: has-azure-ad-ps-ref
 ms.topic: conceptual
-ms.date: 08/15/2023
+ms.date: 08/22/2023
 
 ms.author: justinha
 author: justinha
@@ -46,7 +46,7 @@ To optimize the frequency of authentication prompts for your users, you can conf
 
 ### Evaluate session lifetime policies
 
-Without any session lifetime settings, there are no persistent cookies in the browser session. Every time a user closes and open the browser, they get a prompt for reauthentication. In Office clients, the default time period is a rolling window of 90 days. With this default Office configuration, if the user has reset their password or there has been inactivity of over 90 days, the user is required to reauthenticate with all required factors (first and second factor).
+Without any session lifetime settings, there are no persistent cookies in the browser session. Every time a user closes and opens the browser, they get a prompt for reauthentication. In Office clients, the default time period is a rolling window of 90 days. With this default Office configuration, if the user has reset their password or there has been inactivity of over 90 days, the user is required to reauthenticate with all required factors (first and second factor).
 
 A user might see multiple MFA prompts on a device that doesn't have an identity in Azure AD. Multiple prompts result when each application has its own OAuth Refresh Token that isn't shared with other client apps. In this scenario, MFA prompts multiple times as each application requests an OAuth Refresh Token to be validated with MFA.
 
@@ -99,7 +99,7 @@ This setting allows configuration of lifetime for token issued by Azure Active D
 
 Now that you understand how different settings works and the recommended configuration, it's time to check your tenants. You can start by looking at the sign-in logs to understand which session lifetime policies were applied during sign-in.
 
-Under each sign-in log, go to the **Authentication Details** tab and explore **Session Lifetime Policies Applied**. For more information, see [Authentication details](../reports-monitoring/concept-sign-ins.md#authentication-details).
+Under each sign-in log, go to the **Authentication Details** tab and explore **Session Lifetime Policies Applied**. For more information, see [Authentication details](../reports-monitoring/concept-sign-in-log-activity-details.md#authentication-details).
 
 ![Screenshot of authentication details.](./media/concepts-azure-multi-factor-authentication-prompts-session-lifetime/details.png)
 

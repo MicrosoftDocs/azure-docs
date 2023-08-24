@@ -5,7 +5,7 @@ ms.topic: overview
 author: dcurwin
 ms.author: dacurwin
 ms.custom: ignite-2022
-ms.date: 08/20/2023
+ms.date: 08/24/2023
 ---
 
 # Overview of Microsoft Defender for Containers
@@ -114,7 +114,7 @@ The discovery process is based on snapshots taken at intervals:
 
 When you enable the agentless discovery for Kubernetes extension, the following process occurs:
 
-- **Create**: Defender for Cloud creates an identity in customer environments called `CloudPosture/securityOperator/DefenderForContainersSecurityOperator`.
+- **Create**: Defender for Cloud creates an identity in customer environments called CloudPosture/securityOperator/DefenderForContainersSecurityOperator.
 - **Assign**: Defender for Cloud assigns a built-in role called **Kubernetes Agentless Operator** to that identity on subscription scope. The role contains the following permissions:
 
   - AKS read (Microsoft.ContainerService/managedClusters/read)
@@ -126,7 +126,7 @@ When you enable the agentless discovery for Kubernetes extension, the following 
    Learn more about [AKS Trusted Access](/azure/aks/trusted-access-feature).
 
 - **Discover**: Using the system assigned identity, Defender for Cloud performs a discovery of the AKS clusters in your environment using API calls to the API server of AKS.
-- **Bind**: Upon discovery of an AKS cluster, Defender for Cloud performs an AKS bind operation between the created identity and the Kubernetes role `Microsoft.Security/pricings/microsoft-defender-operator`. The role is visible via API and gives Defender for Cloud data plane read permission inside the cluster.
+- **Bind**: Upon discovery of an AKS cluster, Defender for Cloud performs an AKS bind operation between the created identity and the Kubernetes role “Microsoft.Security/pricings/microsoft-defender-operator”. The role is visible via API and gives Defender for Cloud data plane read permission inside the cluster.
 
 ## Learn more
 
