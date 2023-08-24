@@ -48,7 +48,7 @@ To enable sign-in for customers with a Google account, you need to create an app
     - `https://<tenant-ID>.ciamlogin.com/<tenant-ID>/federation/oauth2`
     - `https://<tenant-ID>.ciamlogin.com/<tenant-name>.onmicrosoft.com/federation/oauth2`
    > [!NOTE]
-   > To find your customer tenant ID, sign in to the [Microsoft Entra admin center](https://entra.microsoft.com). Browse to **Identity** > **Overview**. Then select the **Overview** tab and copy the **Tenant ID**.
+   > To find your customer tenant ID, sign in to the [Microsoft Entra admin center](https://entra.microsoft.com). Browse to **Identity** > **Overview** and copy the **Tenant ID**.
 2. Select **Create**.
 3. Copy the values of **Client ID** and **Client secret**. You need both values to configure Google as an identity provider in your tenant. **Client secret** is an important security credential.
 

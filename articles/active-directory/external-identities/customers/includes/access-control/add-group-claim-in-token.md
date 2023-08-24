@@ -14,6 +14,6 @@ To emit the group membership claims in security tokens, follow these steps:
 1. Select the application in which you want to add the groups claim.
 1. Under **Manage**, select **Token configuration**.
 1. Select **Add groups claim**.
-1. Select **group types** to include in the security tokens.
+1. Select group types to include in the security tokens.
 1. For the **Customize token properties by type**, select **Group ID**.
 1. Select **Add** to add the groups claim.

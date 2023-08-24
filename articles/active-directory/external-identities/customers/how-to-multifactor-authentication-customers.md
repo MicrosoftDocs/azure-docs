@@ -79,7 +79,7 @@ Enable the email one-time passcode authentication method in your customer tenant
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
 
-1. Browse to **Identity** > **Protection** > **Authentication Methods**.
+1. Browse to **Identity** > **Protection** > **Authentication methods**.
 
 1. In the **Method** list, select **Email OTP**.
 

@@ -57,8 +57,7 @@ Before you customize any settings, the neutral default branding will appear in y
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the customer tenant you created earlier.
-1. Browse to **Company branding**.
-1. Under **Default sign-in** select **Edit**.
+1. Browse to **Company Branding** > **Default sign-in** > **Edit**.
 
    :::image type="content" source="media/how-to-customize-branding-customers/company-branding-default-edit-button.png" alt-text="Screenshot of the company branding edit button.":::
 
@@ -188,8 +187,7 @@ When no longer needed, you can remove the sign-in customization from your custom
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the customer tenant you created earlier.
-1. Browse to **Company branding**.
-1. Under **Default sign-in experience**, select **Edit**.
+1. Browse to **Company branding** > **Default sign-in experience** > **Edit**.
 1. Remove the elements you no longer need.
 1. Once finished select **Review + save**. 
 1. Wait a few minutes for the changes to take effect.
