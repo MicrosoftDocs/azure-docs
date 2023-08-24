@@ -32,7 +32,7 @@ The [Application Map](app-map.md) allows a high-level, top-down view of the appl
 
 To understand the number of Application Insights resources required to cover your application or components across environments, see the [Application Insights deployment planning guide](separate-resources.md).
 
-:::image type="content" source="media/app-insights-overview/app-insights-overview-blowout.svg" alt-text="Diagram that shows the path of data as it travels through the Application Insights service." border="false" lightbox="media/app-insights-overview/app-insights-overview-blowout.svg":::
+:::image type="content" source="media/app-insights-overview/app-insights-overview-blowout.svg" alt-text="Diagram that shows the path of data as it flows through the layers of the Application Insights service." border="false" lightbox="media/app-insights-overview/app-insights-overview-blowout.svg":::
 
 ## How do I use Application Insights?
 
