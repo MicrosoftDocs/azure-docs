@@ -19,9 +19,9 @@ ms.custom: developer, devx-track-js
 
 Azure Active Directory (Azure AD) for customers supports two types of authentication for [confidential client applications](../../../active-directory/develop/msal-client-applications.md); password-based authentication (such as client secret) and certificate-based authentication. For a higher level of security, we recommend using a certificate (instead of a client secret) as a credential in your confidential client applications.
 
-In production, you should purchase a certificate signed by a well-known certificate authority, and use [Azure Key Vault](https://azure.microsoft.com/products/key-vault/) to manage certificate access and lifetime for you. However, for testing purposes, you can create a self-signed certificate and configure your apps to authenticate with it.
+In production, you should purchase a certificate signed by a well-known certificate authority, and use [Azure Key Vault](https://azure.microsoft.com/products/key-vault/) to manage certificate access and lifetime for you. However, for testing purposes, you can create a self-signed certificate and configure your apps to authenticate with it. 
 
-In this article, you learn to generate a self-signed certificate by using [Azure Key Vault](https://azure.microsoft.com/products/key-vault/) on the Azure portal, OpenSSL or Windows PowerShell.  
+In this article, you learn to generate a self-signed certificate by using [Azure Key Vault](https://azure.microsoft.com/products/key-vault/) on the Azure portal, OpenSSL or Windows PowerShell. If you have a client secret already, you'll learn how to safely delete it.
 
 When needed, you can also create a self-signed certificate programmatically by using [.NET](/azure/key-vault/certificates/quick-create-net), [Node.js](/azure/key-vault/certificates/quick-create-node), [Go](/azure/key-vault/certificates/quick-create-go), [Python](/azure/key-vault/certificates/quick-create-python) or [Java](/azure/key-vault/certificates/quick-create-java) client libraries.
 
@@ -87,6 +87,11 @@ After the command finishes execution, you should have a *.crt* and a *.key* file
 ## Upload certificate to your app registration
 
 [!INCLUDE [active-directory-customers-app-integration-add-user-flow](./includes/register-app/add-client-app-certificate.md)]
+
+If you have a client secret already in place for your application, it needs to be deleted to avoid a malicious application to impersonate your application. There is no reason to keep secrets in a tenant if they are no longer needed.
+
+1. Go to the **Client secrets** tab, and select the **Delete** icon.
+2. In the pop-up window that appears, select **Yes**.
 
 ## Configure your Node.js app to use certificate
 
