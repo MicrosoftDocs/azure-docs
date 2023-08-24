@@ -99,7 +99,7 @@ Create a new Python file named _quickstart.py_. Open the new file in your prefer
 
     # Display the image in the default image viewer
     image = Image.open(image_path)
-    image.show()
+    image.show()    
     ```
 
     > [!IMPORTANT]
