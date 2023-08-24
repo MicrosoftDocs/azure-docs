@@ -1,15 +1,16 @@
 ---
 title: Constrained vCPU sizes 
-description: Lists the Vm sizes that are capable of having a constrained vCPU count.
-author: mimckitt
+description: Lists the Vm sizes that are capable of having a constrained vCPU count. Useful for per-core licensed database workloads.
+author: mattmcinnes
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 12/20/2022
-ms.author: mimckitt
+ms.date: 08/24/2023
+ms.author: mattmcinnes
+ms.reviewer: mimckitt
 ---
 
-# Constrained vCPU capable VM sizes
+# Constrained vCPU sizes for database workloads
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
@@ -25,6 +26,9 @@ For example, the Standard_E32s_v5 VM size comes with 32 vCPUs, 256 GiB RAM, 32 d
 The licensing fees charged for SQL Server are based on the avaialble vCPU count. Third party products should count the available vCPU which represents the max to be used and licensed. This results in a 50% to 75% increase in the ratio of the VM specs to available (billable) vCPUs. At this time, the VM pricing, remains the same as the original size. For more information, see [Azure VM sizes for more cost-effective database workloads](https://azure.microsoft.com/blog/announcing-new-azure-vm-sizes-for-more-cost-effective-database-workloads/).
 
 
+
+#### [M-family size series](#tab/family-M)
+
 | Name                    | vCPU | Specs              |
 |-------------------------|------|--------------------|
 | Standard_M8-2ms         | 2    | Same as M8ms       |
@@ -37,6 +41,14 @@ The licensing fees charged for SQL Server are based on the avaialble vCPU count.
 | Standard_M64-16ms       | 16   | Same as M64ms      |
 | Standard_M128-64ms      | 64   | Same as M128ms     |
 | Standard_M128-32ms      | 32   | Same as M128ms     |
+| Standard_M416-208s_v2   | 208  | Same as M416s_v2   |
+| Standard_M416-208ms_v2  | 208  | Same as M416ms_v2  |
+
+
+#### [E-family size series](#tab/family-E)
+
+| Name                    | vCPU | Specs              |
+|-------------------------|------|--------------------|
 | Standard_E4-2s_v3       | 2    | Same as E4s_v3     |
 | Standard_E8-4s_v3       | 4    | Same as E8s_v3     |
 | Standard_E8-2s_v3       | 2    | Same as E8s_v3     |
@@ -119,10 +131,20 @@ The licensing fees charged for SQL Server are based on the avaialble vCPU count.
 | Standard_E64-16as_v5    | 16   | Same as E64as_v5   |
 | Standard_E96-48as_v5    | 48   | Same as E96as_v5   |
 | Standard_E96-24as_v5    | 24   | Same as E96as_v5   |
+
+
+#### [G-family size series](#tab/family-G)
+
+| Name                    | vCPU | Specs              |
+|-------------------------|------|--------------------|
 | Standard_GS4-8          | 8    | Same as GS4        |
 | Standard_GS4-4          | 4    | Same as GS4        |
 | Standard_GS5-16         | 16   | Same as GS5        |
 | Standard_GS5-8          | 8    | Same as GS5        |
+
+
+#### [D-family size series](#tab/family-D)
+
 | Standard_DS11-1_v2      | 1    | Same as DS11_v2    |
 | Standard_DS12-2_v2      | 2    | Same as DS12_v2    |
 | Standard_DS12-1_v2      | 1    | Same as DS12_v2    |
@@ -130,8 +152,8 @@ The licensing fees charged for SQL Server are based on the avaialble vCPU count.
 | Standard_DS13-2_v2      | 2    | Same as DS13_v2    |
 | Standard_DS14-8_v2      | 8    | Same as DS14_v2    |
 | Standard_DS14-4_v2      | 4    | Same as DS14_v2    |
-| Standard_M416-208s_v2   | 208  | Same as M416s_v2   |
-| Standard_M416-208ms_v2  | 208  | Same as M416ms_v2  |
+
+---
 
 ## Other sizes
 - [Compute optimized](./sizes-compute.md)
