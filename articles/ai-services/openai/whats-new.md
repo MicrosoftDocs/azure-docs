@@ -17,8 +17,14 @@ keywords:
 
 ## August 2023
 
+### Azure OpenAI on your own data (preview) updates
+
 - You can now deploy Azure OpenAI on your data to [Power Virtual Agents](/azure/ai-services/openai/concepts/use-your-data#deploying-the-model).
 - [Azure OpenAI on your data](./concepts/use-your-data.md#virtual-network-support--private-network-support) now supports private endpoints.
+- Ability to [filter access to sensitive documents](./concepts/use-your-data.md#restrict-access-to-sensitive-documents).
+- [Automatically refresh your index on a schedule](./concepts/use-your-data.md#schedule-automatic-index-refreshes).
+- [Vector search and semantic search options](./concepts/use-your-data.md#schedule-automatic-index-refreshes). 
+- [View your chat history in the deployed web app](./concepts/use-your-data.md#chat-history)
 
 ## July 2023
 
