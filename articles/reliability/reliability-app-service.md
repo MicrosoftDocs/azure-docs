@@ -257,7 +257,7 @@ Normally, maintaining an SLA around RTO is impractical for regional disasters, a
 
 Depending on your desired RTO and RPO metrics, three disaster recovery architectures are commonly used for both App Service multitenant and App Service Environments.  Each architecture is described in the following table:
  
-|.| [Active-Active regions](#active-active-architecture) | [Active-Passive regions](#active-passive-architecture) | [Passive/Cold region](#disaster-recovery-in-single-region-geography)|
+|.| [Active-Active regions](#active-active-architecture) | [Active-Passive regions](#active-passive-architecture) | [Passive/Cold region](#passive-cold-architecture)|
 |-|-|-|-|
 |RTO| Real-time or seconds| Minutes| Hours |
 |RPO| Real-time or seconds| Minutes| Hours |
