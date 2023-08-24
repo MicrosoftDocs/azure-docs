@@ -314,7 +314,7 @@ Job has been submitted with JobID e0eba72d5143cea53bcf072335a4b1cb
         
 - Let us create a dashboard to display various views.
   
-:::image type="content" source="./media/sink-kafka-to-kibana/elastic-dashboard-selection.png" alt-text="Screenshot showing elastic to select dashboard and start creating views" lightbox="./media/sink-kafka-to-kibana/elastic-dashboard-selection.png" :::
+:::image type="content" source="./media/sink-kafka-to-kibana/elastic-dashboard-selection.png" alt-text="Screenshot showing elastic to select dashboard and start creating views." lightbox="./media/sink-kafka-to-kibana/elastic-dashboard-selection.png" :::
 - Let's use a  **Area** (area graph), then select the **kafka_click_events** index and edit the Horizontal axis and Vertical axis to illustrate the events
   
 :::image type="content" source="./media/sink-kafka-to-kibana/elastic-dashboard.png" alt-text="Screenshot showing elastic plot with the Kafka click event." lightbox="./media/sink-kafka-to-kibana/elastic-dashboard.png" :::
