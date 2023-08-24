@@ -40,7 +40,7 @@ After configuring endpoints, you can configure network rules to further control 
 ## Private endpoints
 
 > [!IMPORTANT]
-> Private endpoints for Elastic SAN Preview are supported in all regions for LRS SANs, but we do not currently offer private endpoint support for ZRS SANs.
+> Private endpoints for Elastic SAN Preview are supported in all regions if you deploy with LRS as the redundancy option, but we do not currently offer private endpoint support for ZRS yet.
 
 Azure [Private Link](../../private-link/private-link-overview.md) enables you to access an Elastic SAN volume group securely over a [private endpoint](../../private-link/private-endpoint-overview.md) from a virtual network subnet. Traffic between your virtual network and the service traverses the Microsoft backbone network, eliminating the risk of exposing your service to the public internet. An Elastic SAN private endpoint uses a set of IP addresses from the subnet address space for each volume group. The maximum number used per endpoint is 20.
 
