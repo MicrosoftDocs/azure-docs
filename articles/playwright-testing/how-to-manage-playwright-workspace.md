@@ -80,5 +80,4 @@ To delete a Playwright workspace in the Azure portal:
     
 ## Next steps
 
-- Learn more about [automating end-to-end tests with GitHub Actions](./quickstart-automate-end-to-end-testing.md).
-- Learn how to [Run existing Playwright tests in the cloud](./how-to-run-with-playwright-testing.md).
+- Learn more about [automating end-to-end tests in your CI workflow](./quickstart-automate-end-to-end-testing.md).
