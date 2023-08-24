@@ -132,7 +132,7 @@ dpdk-testpmd -l 1-9 --vdev="$BUS_INFO,mac=$MANA_MAC" -- --forward-mode=txonly --
 ### Fail to set interface down.
 Failure to set the MANA bound device to DOWN can result in low or zero packet throughput. 
 The failure to release the device can result the EAL error message related to transmit queues.
-```
+```log
 mana_start_tx_queues(): Failed to create qp queue index 0
 mana_dev_start(): failed to start tx queues -19
 ```
@@ -140,7 +140,7 @@ mana_dev_start(): failed to start tx queues -19
 ### Failure to enable huge pages.
 
 Try enabling huge pages and ensuring the information is visible in meminfo.
-```
+```log
 EAL: No free 2048 kB hugepages reported on node 0
 EAL: FATAL: Cannot get hugepage information.
 EAL: Cannot get hugepage information.
@@ -151,3 +151,83 @@ Cause: Cannot init EAL: Permission denied
 ### Low throughput with use of --vdev="net_vdev_netvsc0,iface=eth1"
 
 Failover configuration of either the `net_failsafe` or `net_vdev_netvsc` poll-mode-drivers isn't recommended for high performance on Azure. The netvsc configuration with DPDK version 20.11 or higher may give better results. For optimal performance, ensure your Linux kernel, rdma-core, and DPDK packages meet the listed requirements for DPDK and MANA.
+
+### Version mismatch for rdma-core
+Mismatches in rdma-core and the linux kernel can occur any time a user is building some combination of rdma-core, DPDK, and the linux kernel from source. This error can cause a number of issues, on MANA it will likely result in a failed probe of the MANA virtual function (VF). 
+
+```log
+EAL: Probe PCI driver: net_mana (1414:ba) device: 7870:00:00.0 (socket 0)
+mana_arg_parse_callback(): key=mac value=00:0d:3a:76:3b:d0 index=0
+mana_init_once(): MP INIT PRIMARY
+mana_pci_probe_mac(): Probe device name mana_0 dev_name uverbs0 ibdev_path /sys/class/infiniband/mana_0
+mana_probe_port(): device located port 2 address 00:0D:3A:76:3B:D0
+mana_probe_port(): ibv_alloc_parent_domain failed port 2
+mana_pci_probe_mac(): Probe on IB port 2 failed -12
+EAL: Requested device 7870:00:00.0 cannot be used
+EAL: Bus (pci) probe failed.
+hn_vf_attach(): Couldn't find port for VF
+hn_vf_add(): RNDIS reports VF but device not found, retrying
+
+```
+This likely results from using a kernel with backported patches for mana_ib with a newer version of rdma-core. The root cause is an interaction between the kernel rdma drivers and userspace rdma-core libraries.
+
+The Linux kernel uapi for rdma has a list of rdma provider ids, in backported versions of the kernel this ID value can differ from the version in the rdma-core libraries.
+> {!NOTE}
+> Example snippets are from [Ubuntu 5.150-1045 linux-azure](https://git.launchpad.net/~canonical-kernel/ubuntu/+source/linux-azure/+git/focal/tree/include/uapi/rdma/ib_user_ioctl_verbs.h?h=azure-5.15-next) and [rdma-core v46.0](https://github.com/linux-rdma/rdma-core/blob/4cce53f5be035137c9d31d28e204502231a56382/kernel-headers/rdma/ib_user_ioctl_verbs.h#L220)
+```c
+// Linux kernel header
+// include/uapi/rdma/ib_user_ioctl_verbs.h
+enum rdma_driver_id {
+	RDMA_DRIVER_UNKNOWN,
+	RDMA_DRIVER_MLX5,
+	RDMA_DRIVER_MLX4,
+	RDMA_DRIVER_CXGB3,
+	RDMA_DRIVER_CXGB4,
+	RDMA_DRIVER_MTHCA,
+	RDMA_DRIVER_BNXT_RE,
+	RDMA_DRIVER_OCRDMA,
+	RDMA_DRIVER_NES,
+	RDMA_DRIVER_I40IW,
+	RDMA_DRIVER_IRDMA = RDMA_DRIVER_I40IW,
+	RDMA_DRIVER_VMW_PVRDMA,
+	RDMA_DRIVER_QEDR,
+	RDMA_DRIVER_HNS,
+	RDMA_DRIVER_USNIC,
+	RDMA_DRIVER_RXE,
+	RDMA_DRIVER_HFI1,
+	RDMA_DRIVER_QIB,
+	RDMA_DRIVER_EFA,
+	RDMA_DRIVER_SIW,
+	RDMA_DRIVER_MANA, //<- Note MANA added as last member of enum
+};
+
+// Example mismatched rdma-core ioctl verbs header
+// on github: kernel-headers/rdma/ib_user_ioctl_verbs.h
+// or in release tar.gz: include/rdma/ib_user_ioctl_verbs.h
+enum rdma_driver_id {
+	RDMA_DRIVER_UNKNOWN,
+	RDMA_DRIVER_MLX5,
+	RDMA_DRIVER_MLX4,
+	RDMA_DRIVER_CXGB3,
+	RDMA_DRIVER_CXGB4,
+	RDMA_DRIVER_MTHCA,
+	RDMA_DRIVER_BNXT_RE,
+	RDMA_DRIVER_OCRDMA,
+	RDMA_DRIVER_NES,
+	RDMA_DRIVER_I40IW,
+	RDMA_DRIVER_IRDMA = RDMA_DRIVER_I40IW,
+	RDMA_DRIVER_VMW_PVRDMA,
+	RDMA_DRIVER_QEDR,
+	RDMA_DRIVER_HNS,
+	RDMA_DRIVER_USNIC,
+	RDMA_DRIVER_RXE,
+	RDMA_DRIVER_HFI1,
+	RDMA_DRIVER_QIB,
+	RDMA_DRIVER_EFA,
+	RDMA_DRIVER_SIW,
+	RDMA_DRIVER_ERDMA,  // <- This upstream has two additional providers
+	RDMA_DRIVER_MANA,   // <- So MANA's ID in the enum does not match
+};
+```
+
+This mismatch will result in the MANA provider code failing to load. If you use `gdb` to trace the execution in this example you will find the provider for edrma is loaded instead. Either removing the erdma provider from the rdma-core source or forcing the ordering of the provider IDs will allow the MANA provider to load correctly.
