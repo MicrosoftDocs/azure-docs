@@ -60,7 +60,7 @@ Scheduled events are delivered to and can be acknowledged by:
 - All the VMs in a scale set placement group. 
 
 > [!NOTE]
-> Scheduled Events for all virtual machines (VMs) in a Fabric Controller (FC) tenant are delivered to all VMs in a FC tenant. FC tenant equates to a standalone VM, an entire Cloud Service, an entire Availability Set, and a Placement Group for a VM Scale Set (VMSS) regardless of Availability Zone usage. 
+> Scheduled Events for all virtual machines (VMs) in a Fabric Controller (FC) tenant are delivered to all VMs in a FC tenant. FC tenant equates to a standalone VM, an entire Cloud Service, an entire Availability Set, and a Placement Group for a Virtual Machine Scale Set regardless of Availability Zone usage. 
 
 As a result, check the `Resources` field in the event to identify which VMs are affected.
 
@@ -97,7 +97,7 @@ User-initiated VM maintenance via the Azure portal, API, CLI, or PowerShell resu
 
 If you restart a VM, an event with the type `Reboot` is scheduled. If you redeploy a VM, an event with the type `Redeploy` is scheduled. Typically events with a user event source can be immediately approved to avoid a delay on user-initiated actions. We advise having a primary and secondary VM communicating and approving user generated scheduled events in case the primary VM becomes unresponsive. Immediately approving events prevents delays in recovering your application back to a good state.  
 	
-Scheduled events are disabled by default for [VMSS Guest OS upgrades or reimages](../../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md). To enable scheduled events for these operations, first enable them using [OSImageNotificationProfile](https://learn.microsoft.com/rest/api/compute/virtual-machine-scale-sets/create-or-update?tabs=HTTP#osimagenotificationprofile). 
+Scheduled events are disabled by default for [Virtual Machine Scale Set Guest OS upgrades or reimages](../../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md). To enable scheduled events for these operations, first enable them using [OSImageNotificationProfile](https://learn.microsoft.com/rest/api/compute/virtual-machine-scale-sets/create-or-update?tabs=HTTP#osimagenotificationprofile). 
 
 ## Use the API
 
