@@ -76,7 +76,7 @@ Since it's your first time, you start with an empty estimate.
 
 Here's an example of a virtual machine configuration:
 
-:::image type="content" source="./media/pricing-calculator/vm-configuration-example.svg" alt-text="Image showing a virtual machine configuration example." lightbox="./media/pricing-calculator/vm-configuration-example.svg" :::
+:::image type="content" source="./media/pricing-calculator/virtual-machine-configuration-example.svg" alt-text="Image showing a virtual machine configuration example." lightbox="./media/pricing-calculator/virtual-machine-configuration-example.svg" :::
 
 ## Use advanced calculator features
 
@@ -144,15 +144,15 @@ Your calculator estimate updates with your MCA price sheet information.
 If you have negotiated pricing associated with an EA billing account:
 
 1. Select the **Enterprise Agreement (EA)** option in the licensing program list.  
-    :::image type="content" source="./media/pricing-calculator/select-program-offer-ea.png" alt-text="Screenshot showing the Enterprise Agreement (EA) list item." lightbox="./media/pricing-calculator/select-program-offer-ea.png" :::
+    :::image type="content" source="./media/pricing-calculator/select-program-offer-enterprise-agreement.png" alt-text="Screenshot showing the Enterprise Agreement (EA) list item." lightbox="./media/pricing-calculator/select-program-offer-enterprise-agreement.png" :::
 2. In the Choose Agreement area, select your enrollment or your billing account ID and then select **Apply**.  
-    :::image type="content" source="./media/pricing-calculator/select-choose-agreement-ea.png" alt-text="Screenshot showing the Choose Agreement area." lightbox="./media/pricing-calculator/select-choose-agreement-ea.png" :::
+    :::image type="content" source="./media/pricing-calculator/select-choose-agreement-enterprise-agreement.png" alt-text="Screenshot showing the Choose Agreement area." lightbox="./media/pricing-calculator/select-choose-agreement-enterprise-agreement.png" :::
 
 Your calculator estimate refreshes with your EA price sheet information.
 
 If you want to change your selected enrollment, select the **Selected agreement** link to the right of the licensing program list item. Here's an example.
 
-:::image type="content" source="./media/pricing-calculator/selected-agreement-ea-change.png" alt-text="Screenshot showing the Selected Agreement option." lightbox="./media/pricing-calculator/selected-agreement-ea-change.png" :::
+:::image type="content" source="./media/pricing-calculator/selected-agreement-enterprise-agreement-change.png" alt-text="Screenshot showing the Selected Agreement option." lightbox="./media/pricing-calculator/selected-agreement-enterprise-agreement-change.png" :::
 
 If you're a Cloud Solution Provider (CSP) partner who has transitioned to the new commerce experience, you can view your estimate by selecting the Microsoft Customer Agreement (MCA) option in the licensing program.
 

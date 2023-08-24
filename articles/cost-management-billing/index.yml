@@ -51,7 +51,7 @@ productDirectory:
       imageSrc: ./media/controls-horizontal.svg
       links:
         - url: costs/pricing-calculator.md
-          text: Estimate prices with the Pricing calculator
+          text: Estimate prices with the Azure pricing calculator
         - url: https://azure.microsoft.com/pricing/tco/calculator
           text: TCO calculator
         - url: ../migrate/index.yml
