@@ -26,7 +26,7 @@ If your rule group is configured with [a specific cluster scope](../essentials/p
 
 ## Explore Prometheus alerts in Grafana
 1. In the fired alerts details pane, you can click the **View query in Grafana** link. 
-2. A browser tab will is opened taking you to the [Azure Managed Grafana](../../managed-grafana/overview.md) instance connected to your Azure Monitor Workspace. 
+2. A browser tab is opened taking you to the [Azure Managed Grafana](../../managed-grafana/overview.md) instance connected to your Azure Monitor Workspace. 
 3. Grafana is opened in Explore mode, presenting the chart for your alert rule expression query around the alert firing time. You can further explore the query in Grafana to identify the reason causing the alert to fire.
 
 > [!NOTE]
