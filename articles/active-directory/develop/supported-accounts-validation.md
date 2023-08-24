@@ -5,7 +5,7 @@ author: cilwerner
 ms.author: cwerner
 manager: CelesteDG
 ms.date: 03/24/2023
-ms.topic: conceptual
+ms.topic: reference
 ms.subservice: develop
 ms.custom: aaddev, engagement-fy23
 ms.service: active-directory
