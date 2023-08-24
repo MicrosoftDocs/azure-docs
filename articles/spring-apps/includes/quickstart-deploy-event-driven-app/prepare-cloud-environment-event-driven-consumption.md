@@ -10,7 +10,7 @@ ms.date: 08/31/2023
 <!-- 
 For clarity of structure, a separate markdown file is used to describe how to prepare event-driven project.
 
-[!INCLUDE [prepare-the-cloud-environment-event-driven-consumption.md](../../includes/quickstart-deploy-event-driven-app/prepare-the-cloud-environment-event-driven-consumption.md)]
+[!INCLUDE [prepare-cloud-environment-event-driven-consumption.md](prepare-cloud-environment-event-driven-consumption.md)]
 
 -->
 
@@ -24,7 +24,7 @@ Open your web browser and go to the [Azure portal](https://portal.azure.com/). E
 
 ### 3.2. Create a Service Bus instance
 
-[!INCLUDE [provision-service-bus](../../includes/quickstart-deploy-event-driven-app/provision-service-bus.md)]
+[!INCLUDE [provision-service-bus](provision-service-bus.md)]
 
 ### 3.3. Create an Azure Spring Apps instance
 
@@ -51,7 +51,7 @@ Use the following steps to create the service instance:
 
 1. (Optional) Use the following steps to create a Container Apps Environment:
 
-   [!INCLUDE [prepare-container-apps-environment](../../includes/quickstart-deploy-event-driven-app/prepare-container-apps-environment.md)]
+   [!INCLUDE [prepare-container-apps-environment](prepare-container-apps-environment.md)]
 
 1. Select **Review and Create** to review your selections. Select **Create** to provision the Azure Spring Apps instance.
 
