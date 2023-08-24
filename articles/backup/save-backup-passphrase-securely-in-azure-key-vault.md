@@ -309,13 +309,13 @@ Before proceeding to install the MARS agent, ensure that you have  [configured t
 3. Assigned permissions to your Recovery Services vault to create Secret in your Key Vault.
 4. Enabled soft delete and purge protection for your Key Vault.
 
-1. To install the MARS agent on a machine, download the MARS installer from the Azure portal, and then [use installation wizard](install-mars-agent.md).
+5. To install the MARS agent on a machine, download the MARS installer from the Azure portal, and then [use installation wizard](install-mars-agent.md).
 
-2. After providing the *Recovery Services vault credentials* during registration, in the **Encryption Setting**,  select the option to save the passphrase to Azure Key Vault.
+6. After providing the *Recovery Services vault credentials* during registration, in the **Encryption Setting**,  select the option to save the passphrase to Azure Key Vault.
 
    :::image type="content" source="./media/save-backup-passphrase-securely-in-azure-key-vault/save-passphrase.png" alt-text="Screenshot shows the option to save the passphrase to Azure Key Vault to be selected." lightbox="./media/save-backup-passphrase-securely-in-azure-key-vault/save-passphrase.png":::
 
-3. Enter your *passphrase* or select **Generate Passphrase**.
+7. Enter your *passphrase* or select **Generate Passphrase**.
 4. In the *Azure portal*, open your *Key Vault*, copy the *Key Vault URI*.
 
    :::image type="content" source="./media/save-backup-passphrase-securely-in-azure-key-vault/copy-key-vault-url.png" alt-text="Screenshot shows how to copy the Key Vault URI." lightbox="./media/save-backup-passphrase-securely-in-azure-key-vault/copy-key-vault-url.png":::
@@ -324,7 +324,7 @@ Before proceeding to install the MARS agent, ensure that you have  [configured t
 
    If you encounter an error, [check the troubleshooting section](#troubleshoot-common-scenarios) for more information.
 
-6. Once the registration succeeds, the option to *copy the identifier to the Secret* is created and the passphrase is NOT saved to a file locally.  
+8. Once the registration succeeds, the option to *copy the identifier to the Secret* is created and the passphrase is NOT saved to a file locally.  
 
    :::image type="content" source="./media/save-backup-passphrase-securely-in-azure-key-vault/server-registration-success.png" alt-text="Screenshot shows the option to copy the identifier to the Secret gets creates." lightbox="./media/save-backup-passphrase-securely-in-azure-key-vault/server-registration-success.png":::
 
