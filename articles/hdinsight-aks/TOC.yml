@@ -166,7 +166,7 @@ items:
       items:
       - name:  Flink Command Line Interface (CLI)
         href: ./flink/use-flink-cli-to-submit-jobs.md
-      - name: Access CLI  Azure portal
+      - name:  Use Azure portal to access CLI
         href: ./flink/flink-webssh-on-portal-to-flink-sql.md
       - name:  Azure Cosmos DB (Apache Cassandra)
         href: ./flink/cosmos-db-for-apache-cassandra.md
