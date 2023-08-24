@@ -22,7 +22,7 @@ You can view fired and resolved Prometheus alerts in the Azure portal together w
 4. Click the alert name to view the details of a specific fired/resolved alert.
 :::image type="content" source="media/prometheus-metric-alerts/alert-details-grafana.png" lightbox="media/prometheus-metric-alerts/alert-details-grafana.png" alt-text="Screenshot of detail for a Prometheus alert in Azure Monitor.":::
 
-If your rule group is configured with [a specific cluster scope](../essentials/prometheus-rule-groups#limiting-rules-to-a-specific-cluster), you can also view alerts fired for this cluster, under this cluster alerts blade. From the cluster menu in the Azure portal, select **Alerts**. You can then filter for the Prometheus monitor service.
+If your rule group is configured with [a specific cluster scope](../essentials/prometheus-rule-groups.md#limiting-rules-to-a-specific-cluster), you can also view alerts fired for this cluster, under this cluster alerts blade. From the cluster menu in the Azure portal, select **Alerts**. You can then filter for the Prometheus monitor service.
 
 ## Explore Prometheus alerts in Grafana
 1. In the fired alerts details pane, you can click the **View query in Grafana** link. 
