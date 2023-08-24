@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/16/2023
+ms.date: 08/24/2023
 ms.author: jfields
 ---
 
 # Enable or disable the controller after onboarding is complete
 
-With the controller, you determine what level of access to provide Permissions Management.
+With the controller, you can decide what level of access to grant in Permissions Management.
 
-* Enable to grant read and write access to your environment(s). You can manage permissions and remediate through Permissions Management.
+* Enable to grant read and write access to your environments. You can right-size permissions and remediate through Permissions Management.
     
-* Disable to grant read-only access to your environment(s).
+* Disable to grant read-only access to your environments.
 
 
 This article describes how to enable the controller in Amazon Web Services (AWS), Microsoft Azure and Google Cloud Platform (GCP) after onboarding is complete.
@@ -30,7 +30,7 @@ This article also describes how to disable the controller in Microsoft Azure and
 ## Enable the controller in AWS
 
 > [!NOTE]
->  You can enable the controller in AWS if you disabled it during onboarding. Once you enable the controller, you can’t disable it at this time.
+>  You can enable the controller in AWS if you disabled it during onboarding. Once you enable the controller in AWS, you can’t disable it.
 
 1. Sign in to the AWS console of the member account in a separate browser window.
 1. Go to the Permissions Management home page, select **Settings** (the gear icon), and then select the **Data Collectors** subtab.
