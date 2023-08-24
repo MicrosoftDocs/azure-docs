@@ -93,7 +93,8 @@ Create a new Python file called quickstart.py. Then open it in your preferred ed
         image_file.write(generated_image)
 
     # Display the image in the default image viewer
-    display(Image.open(image_path))
+    image = Image.open(image_path)
+    image.show()    
     ```
 
     > [!IMPORTANT]

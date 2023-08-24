@@ -67,6 +67,8 @@ Create a new Python file called **quickstart.py**. Then open it up in your prefe
         response = requests.get(operation_location, headers=headers)
         status = response.json()['status']
     image_url = response.json()['result']['data'][0]['url']
+
+    print(image_url)
     ```
 
     > [!IMPORTANT]
