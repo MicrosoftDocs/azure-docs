@@ -20,6 +20,7 @@ This is the first tutorial in a series that shows you how to set up disaster rec
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
+>
 > * Create a Recovery Services vault. A vault holds metadata and configuration information for VMs, along with other replication components.
 > * Set up an Azure virtual network. When Azure VMs are created after failover, they're joined to this network.
 

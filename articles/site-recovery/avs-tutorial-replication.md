@@ -1,6 +1,6 @@
 ---
 title: Set up Azure Site Recovery for Azure VMware Solution VMs
-description: Learn how to set up disaster recovery to Azure for Azure VMware Solution VMs by using Azure Site Recovery.
+description: Learn how to set up disaster recovery to Azure for Azure VMware Solution VMs, by using Azure Site Recovery.
 author: ankitaduttaMSFT
 manager: rochakm
 ms.service: site-recovery
@@ -87,16 +87,16 @@ The license provided with the OVA template is an evaluation license that's valid
 7. On the **Ready to complete** page, to set up the VM with the default settings, select **Power on after deployment** > **Finish**.
 
    > [!TIP]
-   > By default, the template contains a single NIC. If you want to add a adapter, clear **Power on after deployment** before you select **Finish**. You can add adapters after deployment.
+   > By default, the template contains a single network adapter. If you want to add an adapter, clear **Power on after deployment** before you select **Finish**. You can add adapters after deployment.
 
-## Add an adapter
+## Add a network adapter
 
-If you want to add an adapter to the configuration server, add it before you register the server in the vault. You can't add adapters after registration.
+If you want to add a network adapter to the configuration server, add it before you register the server in the vault. You can't add adapters after registration.
 
 1. In the vSphere Client inventory, right-click the VM and select **Edit Settings**.
 2. In **Hardware**, select **Add** > **Ethernet Adapter**. Then select **Next**.
 3. Select an adapter type and a network.
-4. To connect the virtual NIC when the VM is turned on, select **Connect at power on**.
+4. To connect the adapter when the VM is turned on, select **Connect at power on**.
 5. Select **Next** > **Finish**. Then select **OK**.
 
 ## Register the configuration server
@@ -110,30 +110,38 @@ After you set up the configuration server, you register it in the vault:
    The first time you sign in, the Azure Site Recovery configuration tool starts within a few seconds.
 4. Enter a name that's used to register the configuration server with Azure Site Recovery. Then select **Next**.
 5. The tool checks that the VM can connect to Azure. After the connection is established, select **Sign in** to sign in to your Azure subscription. The credentials must have access to the vault in which you want to register the configuration server. Ensure that necessary [roles](vmware-azure-deploy-configuration-server.md#azure-active-directory-permission-requirements) are assigned to this user.
-6. The tool performs some configuration tasks and then restarts.
-7. Sign in to the machine again. In a few seconds, the **Configuration Server Management** wizard starts automatically.
+
+   The tool performs some configuration tasks and then restarts.
+6. Sign in to the machine again. In a few seconds, the **Configuration Server Management** wizard starts automatically.
 
 ### Configure settings and add the VMware vCenter server
 
-Finish setting up and registering the configuration server.
+Finish setting up and registering the configuration server:
 
 1. In the **Configuration Server Management** wizard, select **Setup connectivity**.
 
-   From the dropdown lists, first select the NIC that the in-built process server uses for discovery and push installation of mobility service on source machines. Then select the NIC that the configuration server uses for connectivity with Azure. When you finish, select **Save**.
+   From the dropdown lists, first select the network adapter that the in-built process server uses for discovery and push installation of mobility service on source machines. Then select the adapter that the configuration server uses for connectivity with Azure. When you finish, select **Save**.
 
    You can't change this setting after it's configured.
 1. In **Select Recovery Services vault**, select your Azure subscription and the relevant resource group and vault.
 1. In **Install third-party software**, accept the license agreement. Select **Download and Install** to install MySQL Server. If you placed MySQL in the path, you can skip this step. [Learn more about MySQL installation](vmware-azure-deploy-configuration-server.md#configure-settings).
-1. In **Validate appliance configuration**, prerequisites are verified before you continue.
-1. In **Configure vCenter Server/vSphere ESXi server**, enter the fully qualified domain name (FQDN) or IP address of the VMware vCenter server that contains the VMs that you want to replicate. Enter the port on which the server is listening. Enter a friendly name to be used for the VMware vCenter server in the vault.
-1. Enter user credentials that the configuration server will use to connect to the VMware vCenter server. Ensure that the user name and password are correct. Also ensure that the user is a part of the Administrators group of the virtual machine to be protected. Azure Site Recovery uses these credentials to automatically discover VMware vSphere VMs that are available for replication. Select **Add**, and then select **Continue**.
+1. In **Validate appliance configuration**, wait until prerequisites are verified before you continue.
+1. In **Configure vCenter Server/vSphere ESXi server**:
+   1. Enter the fully qualified domain name (FQDN) or IP address of the VMware vCenter server that contains the VMs that you want to replicate.
+   1. Enter the port on which the server is listening.
+   1. Enter a friendly name to be used for the VMware vCenter server in the vault.
+1. Enter user credentials that the configuration server will use to connect to the VMware vCenter server. 
+
+   Ensure that the user name and password are correct. Also ensure that the user is a part of the Administrators group of the virtual machine to be protected. Azure Site Recovery uses these credentials to automatically discover VMware vSphere VMs that are available for replication.
+
+   Select **Add**, and then select **Continue**.
 1. In **Configure virtual machine credentials**, enter the user name and password that will be used to automatically install the Mobility service on VMs when replication is enabled.
    * For Windows, the account needs local administrator privileges on the machines that you want to replicate.
    * For Linux, provide details for the root account.
 1. Select **Finalize configuration**.
 1. After registration finishes, open the Azure portal and verify that the configuration server and VMware server are listed on **Recovery Services Vault** > **Manage** > **Site Recovery Infrastructure** > **Configuration Servers**.
 
-After the configuration server is registered, Site Recovery connects to VMware vCenter server by using the specified settings, and it discovers VMs.
+After the configuration server is registered, Site Recovery connects to teh VMware vCenter server by using the specified settings, and it discovers VMs.
 
 > [!NOTE]
 > It can take 15 minutes or more for the account name to appear in the portal. To update immediately, select **Configuration Servers**, select the server name, and then select **Refresh Server**.
@@ -145,7 +153,7 @@ Select and verify target resources:
 1. Select **Prepare infrastructure** > **Target**.
 2. Select the Azure subscription that you want to use. The example in this tutorial uses an Azure Resource Manager model.
 
-   Azure Site Recovery checks that you have one or more virtual networks. You should have had these when you set up the Azure components in the [first tutorial](tutorial-prepare-azure.md) in this tutorial series.
+   Azure Site Recovery checks that you have one or more virtual networks. You should have these from setting up the Azure components in the [first tutorial](tutorial-prepare-azure.md) in this tutorial series.
 
    ![Screenshot of the pane for selecting and verifying a target virtual network.](./media/vmware-azure-tutorial/storage-network.png)
 
@@ -191,9 +199,9 @@ Enable replication for VMs as follows:
     It can take 15 minutes or longer for changes to take effect and appear in the portal.
 14. To monitor VMs that you add, check the last discovered time for VMs in **Configuration Servers** > **Last Contact At**. To add VMs without waiting for the scheduled discovery, highlight the configuration server (don't select it) and select **Refresh**.
 
-## Next steps
+## Next step
 
-After you enable replication, run a drill to make sure everything's working as expected.
+After you enable replication, run a drill to make sure that everything works as expected.
 
 > [!div class="nextstepaction"]
 > [Run a disaster recovery drill](avs-tutorial-dr-drill-azure.md)

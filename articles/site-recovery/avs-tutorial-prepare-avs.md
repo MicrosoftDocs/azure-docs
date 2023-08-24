@@ -18,6 +18,7 @@ This is the second tutorial in a series that shows you how to set up disaster re
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
+>
 > * Prepare an account on the vCenter server to automate VM discovery.
 > * Prepare an account for automatic installation of the Mobility service on VMware vSphere VMs.
 > * Review requirements and support for VMware vCenter servers and VMs.
