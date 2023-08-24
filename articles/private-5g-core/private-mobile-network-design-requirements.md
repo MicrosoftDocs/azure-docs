@@ -45,7 +45,7 @@ This section outlines some decisions you should consider when designing your net
 #### Design considerations
 
 :::zone pivot="ase-pro-gpu"
-When deployed on Azure Stack Edge Pro GPU (ASE), AP5GC uses physical port 5 for access signaling and data (5G N2 and N3 reference points/4G S1 and S1-U reference points) and port 6 for core data (5G N6/4G SGi reference points).
+When deployed on Azure Stack Edge Pro GPU (ASE), AP5GC uses physical port 5 for access signaling and data (5G N2 and N3 reference points/4G S1 and S1-U reference points) and port 6 for core data (5G N6/4G SGi reference points). If more than six data networks are configured, port 5 is also used for core data.
 
 AP5GC supports deployments with or without layer 3 routers on ports 5 and 6. This is useful for avoiding extra hardware at smaller edge sites.
 
@@ -54,7 +54,7 @@ AP5GC supports deployments with or without layer 3 routers on ports 5 and 6. Thi
 - Alternatively, you can combine these approaches. For example, you could use a router on ASE port 6 with a flat layer 2 network on ASE port 5. If a layer 3 router is present in the local network, you must configure it to match the ASE's configuration.
 :::zone-end
 :::zone pivot="ase-pro-2"
-When deployed on Azure Stack Edge 2 (ASE 2), AP5GC uses physical port 3 for access signaling and data (5G N2 and N3 reference points/4G S1 and S1-U reference points) and port 4 for core data (5G N6/4G SGi reference points).
+When deployed on Azure Stack Edge 2 (ASE 2), AP5GC uses physical port 3 for access signaling and data (5G N2 and N3 reference points/4G S1 and S1-U reference points) and port 4 for core data (5G N6/4G SGi reference points). If more than six data networks are configured, port 3 is also used for core data.
 
 AP5GC supports deployments with or without layer 3 routers on ports 3 and 4. This is useful for avoiding extra hardware at smaller edge sites.
 
