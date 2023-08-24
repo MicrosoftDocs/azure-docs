@@ -31,7 +31,7 @@
     - name: Scenarios
       items:
       - name: Manage databases in Azure SQL database using Azure Automation
-        href: manage-sql-server-using-automation.md
+        href: manage-sql-server-in-automation.md
       - name: Configure data based on STIG
         href: automation-dsc-configuration-based-on-stig.md
       - name: Configure data at scale
