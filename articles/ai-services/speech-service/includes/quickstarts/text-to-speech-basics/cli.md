@@ -18,7 +18,7 @@ ms.author: eur
 
 ## Synthesize to speaker output
 
-Run the following command for speech synthesis to the default speaker output. You can modify the text to be synthesized and the voice.
+Run the following command for speech synthesis to the default speaker output. You can modify the voice and the text to be synthesized.
 
 ```console
 spx synthesize --text "I'm excited to try text to speech" --voice "en-US-JennyNeural"
@@ -28,11 +28,11 @@ If you don't set a voice name, the default voice for `en-US` speaks. All neural 
 
 ## Remarks
 
-Now that you've completed the quickstart, here are some other considerations:
+Here are some other considerations:
 
 You can have finer control over voice styles, prosody, and other settings by using [Speech Synthesis Markup Language (SSML)](~/articles/ai-services/speech-service/speech-synthesis-markup.md).
 
-In the following example, the voice and style ('excited') are provided in the SSML block. 
+In the following example, the voice and style, `excited`, are provided in the SSML block.
 
 ```console
 spx synthesize --ssml "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xmlns:mstts='https://www.w3.org/2001/mstts' xml:lang='en-US'><voice name='en-US-JennyNeural'><mstts:express-as style='excited'>I'm excited to try text to speech</mstts:express-as></voice></speak>"

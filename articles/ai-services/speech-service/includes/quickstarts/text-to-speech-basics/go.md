@@ -16,7 +16,7 @@ ms.author: eur
 
 ## Set up the environment
 
-Install the [Speech SDK for Go](../../../quickstarts/setup-platform.md?pivots=programming-language-go&tabs=dotnet%252cwindows%252cjre%252cbrowser). Check the [SDK installation guide](../../../quickstarts/setup-platform.md?pivots=programming-language-go) for any more requirements.
+Install the [Speech SDK for Go](../../../quickstarts/setup-platform.md?pivots=programming-language-go&tabs=dotnet%252cwindows%252cjre%252cbrowser). Check the [SDK installation guide](../../../quickstarts/setup-platform.md?pivots=programming-language-go) for any requirements.
 
 ### Set environment variables
 
@@ -26,8 +26,8 @@ Install the [Speech SDK for Go](../../../quickstarts/setup-platform.md?pivots=pr
 
 Follow these steps to create a new GO module.
 
-1. Open a command prompt where you want the new module, and create a new file named `speech-synthesis.go`.
-1. Copy the following code into `speech_synthesis.go`:
+1. Open a console window where you want the new module, and then create a new file named *speech-synthesis.go*.
+1. Copy the following code into *speech_synthesis.go*:
 
     ```go
     package main
@@ -134,9 +134,11 @@ Follow these steps to create a new GO module.
     }
     ```
 
-1. To change the speech synthesis language, replace `en-US-JennyNeural` with another [supported voice](~/articles/ai-services/speech-service/language-support.md#prebuilt-neural-voices). All neural voices are multilingual and fluent in their own language and English. For example, if the input text in English is "I'm excited to try text to speech" and you set `es-ES-ElviraNeural`, the text is spoken in English with a Spanish accent. If the voice doesn't speak the language of the input text, the Speech service doesn't output synthesized audio.
+1. To change the speech synthesis language, replace `en-US-JennyNeural` with another [supported voice](~/articles/ai-services/speech-service/language-support.md#prebuilt-neural-voices).
 
-1. Run the following commands to create a `go.mod` file that links to components hosted on GitHub:
+   All neural voices are multilingual and fluent in their own language and English. For example, if the input text in English is "I'm excited to try text to speech" and you set `es-ES-ElviraNeural`, the text is spoken in English with a Spanish accent. If the voice doesn't speak the language of the input text, the Speech service doesn't output synthesized audio.
+
+1. Run the following commands to create a *go.mod* file that links to components hosted on GitHub:
 
    ```cmd
    go mod init speech-synthesis

@@ -19,7 +19,7 @@ ms.author: eur
 Before you can do anything, you need to install the Speech SDK. The sample in this quickstart works with the [Java Runtime](~/articles/ai-services/speech-service/quickstarts/setup-platform.md?pivots=programming-language-java&tabs=jre).
 
 1. Install [Apache Maven](https://maven.apache.org/install.html). Then run `mvn -v` to confirm successful installation.
-1. Create a new `pom.xml` file in the root of your project, and copy the following into it:
+1. Create a new *pom.xml* file in the root of your project, and copy the following code into it:
 
    ```xml
    <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -62,9 +62,9 @@ Before you can do anything, you need to install the Speech SDK. The sample in th
 
 ## Synthesize to speaker output
 
-Follow these steps to create a new console application for speech recognition.
+Follow these steps to create a console application for speech recognition.
 
-1. Create a new file named `SpeechSynthesis.java` in the same project root directory.
+1. Create a file named *SpeechSynthesis.java* in the same project root directory.
 1. Copy the following code into `SpeechSynthesis.java`:
 
    ```java
@@ -115,9 +115,11 @@ Follow these steps to create a new console application for speech recognition.
    }
    ```
 
-1. To change the speech synthesis language, replace `en-US-JennyNeural` with another [supported voice](~/articles/ai-services/speech-service/language-support.md#prebuilt-neural-voices). All neural voices are multilingual and fluent in their own language and English. For example, if the input text in English is "I'm excited to try text to speech" and you set `es-ES-ElviraNeural`, the text is spoken in English with a Spanish accent. If the voice doesn't speak the language of the input text, the Speech service doesn't output synthesized audio.
+1. To change the speech synthesis language, replace `en-US-JennyNeural` with another [supported voice](~/articles/ai-services/speech-service/language-support.md#prebuilt-neural-voices).
 
-1. Run your new console application to start speech synthesis to the default speaker.
+   All neural voices are multilingual and fluent in their own language and English. For example, if the input text in English is "I'm excited to try text to speech" and you set `es-ES-ElviraNeural`, the text is spoken in English with a Spanish accent. If the voice doesn't speak the language of the input text, the Speech service doesn't output synthesized audio.
+
+1. Run your console application to start speech synthesis to the default speaker.
 
    ```console
    javac SpeechSynthesis.java -cp ".;target\dependency\*"
@@ -127,7 +129,7 @@ Follow these steps to create a new console application for speech recognition.
    > [!IMPORTANT]
    > Make sure that you set the `SPEECH_KEY` and `SPEECH_REGION` environment variables as described in [Set environment variables](#set-environment-variables). If you don't set these variables, the sample fails with an error message.
 
-1. Enter some text that you want to speak. For example, type "I'm excited to try text to speech." Select the **Enter** key to hear the synthesized speech.
+1. Enter some text that you want to speak. For example, type *I'm excited to try text to speech*. Select the **Enter** key to hear the synthesized speech.
 
    ```console
    Enter some text that you want to speak >
@@ -136,12 +138,12 @@ Follow these steps to create a new console application for speech recognition.
 
 ## Remarks
 
-Now that you've completed the quickstart, here are some other considerations:
+Here are some other considerations:
 
 This quickstart uses the `SpeakTextAsync` operation to synthesize a short block of text that you enter. You can also get text from files as described in these guides:
 
-- For information about speech synthesis from a file and finer control over voice styles, prosody, and other settings, see [How to synthesize speech](~/articles/ai-services/speech-service/how-to-speech-synthesis.md) and [Improve synthesis with Speech Synthesis Markup Language (SSML)](~/articles/ai-services/speech-service/speech-synthesis-markup.md).
-- For information about synthesizing long-form text to speech, see [batch synthesis](~/articles/ai-services/speech-service/batch-synthesis.md).
+- For information about speech synthesis from a file and finer control over voice styles, prosody, and other settings, see [How to synthesize speech](~/articles/ai-services/speech-service/how-to-speech-synthesis.md) and [Speech Synthesis Markup Language (SSML) overview](~/articles/ai-services/speech-service/speech-synthesis-markup.md).
+- For information about synthesizing long-form text to speech, see [Batch synthesis API for text to speech](~/articles/ai-services/speech-service/batch-synthesis.md).
 
 ## Clean up resources
 

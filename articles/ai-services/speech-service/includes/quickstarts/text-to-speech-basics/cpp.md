@@ -15,7 +15,8 @@ ms.author: eur
 [!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
 
 ## Set up the environment
-The Speech SDK is available as a [NuGet package](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech) and implements .NET Standard 2.0. You install the Speech SDK later in this guide, but first check the [SDK installation guide](../../../quickstarts/setup-platform.md?pivots=programming-language-cpp) for any more requirements.
+
+The Speech SDK is available as a [NuGet package](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech) that implements .NET Standard 2.0. Install the Speech SDK later in this guide. Check the [SDK installation guide](../../../quickstarts/setup-platform.md?pivots=programming-language-cpp) for any requirements.
 
 ### Set environment variables
 
@@ -25,14 +26,14 @@ The Speech SDK is available as a [NuGet package](https://www.nuget.org/packages/
 
 Follow these steps to create a new console application and install the Speech SDK.
 
-1. Create a new C++ console project in Visual Studio Community 2022 named `SpeechSynthesis`.
+1. Create a C++ console project in Visual Studio Community 2022 named `SpeechSynthesis`.
 1. Install the Speech SDK in your new project with the NuGet package manager.
 
    ```powershell
    Install-Package Microsoft.CognitiveServices.Speech
    ```
 
-1. Replace the contents of `SpeechSynthesis.cpp` with the following code:
+1. Replace the contents of *SpeechSynthesis.cpp* with the following code:
 
     ```cpp
     #include <iostream> 
@@ -110,7 +111,9 @@ Follow these steps to create a new console application and install the Speech SD
     }  
     ```
 
-1. To change the speech synthesis language, replace `en-US-JennyNeural` with another [supported voice](~/articles/ai-services/speech-service/language-support.md#prebuilt-neural-voices). All neural voices are multilingual and fluent in their own language and English. For example, if the input text in English is "I'm excited to try text to speech" and you set `es-ES-ElviraNeural`, the text is spoken in English with a Spanish accent. If the voice doesn't speak the language of the input text, the Speech service doesn't output synthesized audio.
+1. To change the speech synthesis language, replace `en-US-JennyNeural` with another [supported voice](~/articles/ai-services/speech-service/language-support.md#prebuilt-neural-voices).
+
+   All neural voices are multilingual and fluent in their own language and English. For example, if the input text in English is "I'm excited to try text to speech" and you set `es-ES-ElviraNeural`, the text is spoken in English with a Spanish accent. If the voice doesn't speak the language of the input text, the Speech service doesn't output synthesized audio.
 
 1. [Build and run your new console application](/cpp/build/vscpp-step-2-build) to start speech synthesis to the default speaker.
 
@@ -126,12 +129,12 @@ Follow these steps to create a new console application and install the Speech SD
 
 ## Remarks
 
-Now that you've completed the quickstart, here are some other considerations:
+Here are some other considerations:
 
 This quickstart uses the `SpeakTextAsync` operation to synthesize a short block of text that you enter. You can also get text from files as described in these guides:
 
-- For information about speech synthesis from a file and finer control over voice styles, prosody, and other settings, see [How to synthesize speech](~/articles/ai-services/speech-service/how-to-speech-synthesis.md) and [Improve synthesis with Speech Synthesis Markup Language (SSML)](~/articles/ai-services/speech-service/speech-synthesis-markup.md).
-- For information about synthesizing long-form text to speech, see [batch synthesis](~/articles/ai-services/speech-service/batch-synthesis.md). 
+- For information about speech synthesis from a file and finer control over voice styles, prosody, and other settings, see [How to synthesize speech](~/articles/ai-services/speech-service/how-to-speech-synthesis.md) and [Speech Synthesis Markup Language (SSML) overview](~/articles/ai-services/speech-service/speech-synthesis-markup.md).
+- For information about synthesizing long-form text to speech, see [Batch synthesis API for text to speech](~/articles/ai-services/speech-service/batch-synthesis.md).
 
 ## Clean up resources
 
