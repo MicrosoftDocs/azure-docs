@@ -1,126 +1,173 @@
 ---
-title: 'Quickstart: Use the OpenAI Service image generation REST APIs'
-titleSuffix: Azure OpenAI Service
-description: Walkthrough on how to get started with Azure OpenAI image generation using the REST API. 
+title: 'Quickstart: Use Azure OpenAI Service with the JavaScript SDK to generate images'
+titleSuffix: Azure OpenAI
+description: Walkthrough on how to get started with Azure OpenAI and make your first image genration call with the JavaScript SDK. 
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: include
-ms.date: 06/04/2023
+author: PatrickFarley
+ms.author: pafarley
+ms.date: 08/24/2023
 keywords: 
 ---
 
-Use this guide to get started calling the image generation APIs using the Python SDK.
-
-> [!NOTE]
-> The image generation API creates an image from a text prompt. It does not edit existing images or create variations.
+[Source code](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/openai/openai) | [Package (npm)](https://www.npmjs.com/package/@azure/openai) | [Samples](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/openai/Azure.AI.OpenAI/tests/Samples)
 
 ## Prerequisites
 
-- An Azure subscription - <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>
-- Access granted to DALL-E in the desired Azure subscription
-    Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Existing Azure OpenAI customers need to re-enter the form to get access to DALL-E. Open an issue on this repo to contact us if you have an issue.
-- <a href="https://www.python.org/" target="_blank">Python 3.7.1 or later version</a>
-- The following Python libraries: os, requests, json
-- An Azure OpenAI resource created in the East US region. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
+- An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true)
+- Access granted to the Azure OpenAI service in the desired Azure subscription.
+    Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI Service by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access?azure-portal=true).
+- [LTS versions of Node.js](https://github.com/nodejs/release#release-schedule)
+* Once you have your Azure subscription, <a href="tbd"  title="create an Azure OpenAI resource"  target="_blank">create a Vision resource</a> in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
+    * You need the key and endpoint from the resource you create to connect your application to the Azure AI Vision service.
+    * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
-## Retrieve key and endpoint
 
-To successfully make a call against Azure OpenAI, you'll need the following:
+## Set up
+
+### Install the client library
+
+Create a new directory and navigate into that directory.
+
+Install the Azure OpenAI client library for JavaScript with npm:
+
+```console
+npm install @azure/openai
+```
+
+### Retrieve key and endpoint
+
+To successfully make a call against Azure OpenAI, you need an **endpoint** and a **key**.
 
 |Variable name | Value |
 |--------------------------|-------------|
-| `ENDPOINT`               | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. Alternatively, you can find the value in **Azure OpenAI Studio** > **Playground** > **Code View**. An example endpoint is: `https://docs-test-001.openai.azure.com/`.|
+| `ENDPOINT`               | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. Alternatively, you can find the value in the **Azure OpenAI Studio** > **Playground** > **Code View**. An example endpoint is: `https://docs-test-001.openai.azure.com/`.|
 | `API-KEY` | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. You can use either `KEY1` or `KEY2`.|
 
 Go to your resource in the Azure portal. The **Endpoint and Keys** can be found in the **Resource Management** section. Copy your endpoint and access key as you'll need both for authenticating your API calls. You can use either `KEY1` or `KEY2`. Always having two keys allows you to securely rotate and regenerate keys without causing a service disruption.
 
-## Install the Python SDK
+:::image type="content" source="../media/quickstarts/endpoint.png" alt-text="Screenshot of the overview UI for an OpenAI Resource in the Azure portal with the endpoint and access keys location circled in red." lightbox="../media/quickstarts/endpoint.png":::
 
-Open the command prompt and navigate to your project folder. Install the OpenAI Python SDK using the following command: 
+Create and assign persistent environment variables for your key and endpoint.
 
-```bash
-pip install openai
-```
-Install the following libraries as well:
+### Environment variables
 
-```bash
-pip install requests
-pip install pillow 
+# [Command Line](#tab/command-line)
+
+```CMD
+setx AZURE_OPENAI_KEY "REPLACE_WITH_YOUR_KEY_VALUE_HERE" 
 ```
 
-## Create a new Python application
+```CMD
+setx AZURE_OPENAI_ENDPOINT "REPLACE_WITH_YOUR_ENDPOINT_HERE" 
+```
 
-Create a new Python file called quickstart.py. Then open it in your preferred editor or IDE.
+# [PowerShell](#tab/powershell)
 
-1. Replace the contents of quickstart.py with the following code. Enter your endpoint URL and key in the appropriate fields.
+```powershell
+[System.Environment]::SetEnvironmentVariable('AZURE_OPENAI_KEY', 'REPLACE_WITH_YOUR_KEY_VALUE_HERE', 'User')
+```
 
-    ```python
-    import openai
-    import os
-    import requests
-    from PIL import Image
+```powershell
+[System.Environment]::SetEnvironmentVariable('AZURE_OPENAI_ENDPOINT', 'REPLACE_WITH_YOUR_ENDPOINT_HERE', 'User')
+```
 
-    openai.api_base = '<your_openai_endpoint>' # Add your endpoint here
-    openai.api_key = '<your_openai_key>'  # Add your api key here
+# [Bash](#tab/bash)
 
-    # At the moment Dall-E is only supported by the 2023-06-01-preview API version
-    openai.api_version = '2023-06-01-preview'
+```Bash
+echo export AZURE_OPENAI_KEY="REPLACE_WITH_YOUR_KEY_VALUE_HERE" >> /etc/environment && source /etc/environment
+```
 
-    openai.api_type = 'azure'
+```Bash
+echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/environment && source /etc/environment
+```
+---
 
-    # Create an image using the image generation API
-    generation_response = openai.Image.create(
-        prompt='A painting of a dog',
-        size='1024x1024',
-        n=2
-    )
+> [!div class="nextstepaction"]
+> [I ran into an issue with the setup.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVASCRIPT&Pillar=AOAI&Product=Chatgpt&Page=quickstart&Section=Set-up-the-environment)
 
-    # Set the directory where we'll store the image
-    image_dir = os.path.join(os.curdir, 'images')
-    # If the directory doesn't exist, create it
-    if not os.path.isdir(image_dir):
-        os.mkdir(image_dir)
+## Create a sample application
 
-    # With the directory in place, we can initialize the image path (note that filetype should be png)
-    image_path = os.path.join(image_dir, 'generated_image.png')
+Open a command prompt where you want the new project, and create a new file named _ImageGeneration.js_. Copy the following code into the _ImageGeneration.js_ file.
 
-    # Now we can retrieve the generated image
-    image_url = generation_response["data"][0]["url"]  # extract image URL from response
-    generated_image = requests.get(image_url).content  # download the image
-    with open(image_path, "wb") as image_file:
-        image_file.write(generated_image)
+```javascript
+/**
+ * Demonstrates how to generate images from prompts using Azure OpenAI Batch Image Generation.
+ *
+ * @summary generates images from prompts using Azure OpenAI Batch Image Generation.
+ * @azsdk-weight 100
+ */
 
-    # Display the image in the default image viewer
-    display(Image.open(image_path))
-    ```
+const { OpenAIClient, AzureKeyCredential, ImageLocation } = require("@azure/openai");
 
-    > [!IMPORTANT]
-    > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials. For example, [Azure Key Vault](../../../key-vault/general/overview.md).
+// Load the .env file if it exists
+import * as dotenv from "dotenv";
+dotenv.config();
 
-1. Run the application with the `python` command:
+// You will need to set these environment variables or edit the following values
+const endpoint = process.env["ENDPOINT"] || "<endpoint>";
+const azureApiKey = process.env["AZURE_API_KEY"] || "<api key>";
 
-    ```console
-    python quickstart.py
-    ```
+// The prompt to generate images from
+const PROMPT = "a monkey eating a banana";
+const SIZE = "256x256";
 
-    The script will loop until the generated image is ready.
+// The number of images to generate
+const N = 3;
+
+export async function main() {
+  console.log("== Batch Image Generation ==");
+
+  const client = new OpenAIClient(endpoint, new AzureKeyCredential(azureApiKey));
+  let operationState = await client.beginAzureBatchImageGeneration(PROMPT, { n: N, size: SIZE });
+
+  while (operationState.status === "notRunning" || operationState.status === "running") {
+    await delay(5000);
+    operationState = await client.getAzureBatchImageGenerationOperationStatus(operationState.id);
+  }
+
+  if (operationState.status !== "succeeded") {
+    throw new Error("Image generation failed");
+  }
+
+  console.log(`Image generation succeeded with id: ${operationState.id}`);
+  for (const image of operationState.result?.data as ImageLocation[]) {
+    console.log(`Image generation result URL: ${image.url}`);
+  }
+}
+
+main().catch((err) => {
+  console.error("The sample encountered an error:", err);
+});
+
+function delay(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+```
+
+Run the file with the following command:
+
+```cmd
+node.exe ChatCompletion.js
+```
 
 ## Output
 
-The output image will be downloaded to _generated_image.png_ at your specified location. The script will also display the image in your default image viewer.
+```output
+tbd
+```
 
-The image generation APIs come with a content moderation filter. If the service recognizes your prompt as harmful content, it won't return a generated image. For more information, see the [content filter](../concepts/content-filter.md) article.
 
 ## Clean up resources
 
-If you want to clean up and remove an OpenAI resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
+If you want to clean up and remove an Azure OpenAI resource, you can delete the resource. Before deleting the resource, you must first delete any deployed models.
 
 - [Portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
 - [Azure CLI](../../multi-service-resource.md?pivots=azcli#clean-up-resources)
 
 ## Next steps
 
-* [Azure OpenAI Overview](../overview.md)
-* For more examples check out the [Azure OpenAI Samples GitHub repository](https://github.com/Azure/openai-samples).
+* For more examples, check out the [Azure OpenAI Samples GitHub repository](https://aka.ms/AOAICodeSamples)
