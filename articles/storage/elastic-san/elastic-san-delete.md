@@ -95,7 +95,7 @@ az elastic-san volume-group delete -e $sanName -g $resourceGroupName -n $volumeG
 ```
 ---
 
-To delete the Elastic SAN itself, run the below commands.
+To delete the Elastic SAN itself, run the following commands.
 
 # [PowerShell](#tab/azure-powershell)
 
