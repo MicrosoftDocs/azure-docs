@@ -64,7 +64,6 @@ iscsiadm --mode node --target **yourStorageTargetIQN** --portal **yourStorageTar
 
 When your SAN has no active connections to any clients, you may delete it using the Azure portal or Azure PowerShell module. If you delete a SAN or a volume group, the corresponding child resources will be deleted along with it. The delete commands for each of the resource levels are below.
 
-One thing to note about the SAN deletion process is that if you have not deleted all the volumes that have active iSCSI connections, the delete operation will delete all the volumes that don't have iSCSI connections but will fail on those volumes that do, and the SAN, volume groups, and volumes with active iSCSI connections will remain. Similarly, deleting volumes that have active iSCSI connections will cause the delete operation to fail. If you want to delete a volume, you must delete any active iSCSI connections it may have.
 
 To delete volumes, run the below commands.
 
