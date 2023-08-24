@@ -47,16 +47,16 @@ For connections to a workspace, except the workspace used for initial feed disco
 
 | Configuration | Outcome |
 |--|--|
-| Public access **enabled** from all networks | Workspace feed requests are **allowed** from public routes.<br /><br />Workspace feed requests are **allowed** from private routes. |
-| Public access **disabled** from all networks | Workspace feed requests are **denied** from public routes.<br /><br />Workspace feed requests are **allowed** from private routes. |
+| Public access **enabled** from all networks | Workspace feed requests are **allowed** from *public* routes.<br /><br />Workspace feed requests are **allowed** from *private* routes. |
+| Public access **disabled** from all networks | Workspace feed requests are **denied** from *public* routes.<br /><br />Workspace feed requests are **allowed** from *private* routes. |
 
-For connections to host pools, the following table details the outcome of each scenario. With the [reverse connect transport](network-connectivity.md#reverse-connect-transport), there are two network connections: the client to the gateway, and the session host to the gateway. In addition to enabling or disabling public access for both connections, you can also choose to enable public access for clients connecting to the gateway and only allow private access for session hosts connecting to the gateway.
+With the [reverse connect transport](network-connectivity.md#reverse-connect-transport), there are two network connections for connections to host pools: the client to the gateway, and the session host to the gateway. In addition to enabling or disabling public access for both connections, you can also choose to enable public access for clients connecting to the gateway and only allow private access for session hosts connecting to the gateway. The following table details the outcome of each scenario:
 
 | Configuration | Outcome |
 |--|--|
-| Public access **enabled** from all networks | Remote sessions are **allowed** when either the client or session host is using a public route.<br /><br />Remote sessions are **allowed** when either the client or session host is using a private route. |
-| Public access **disabled** from all networks | Remote sessions are **denied** when either the client or session host is using a public route.<br /><br />Remote sessions are **allowed** when both the client and session host are using a private route. |
-| Public access **enabled** for client networks, but **disabled** for session host networks | Remote sessions are **denied** if the session host is using a public route, regardless of the route the client is using.<br /><br />Remote sessions are **allowed** as long as the session host is using a private route, regardless of the route the client is using. |
+| Public access **enabled** from all networks | Remote sessions are **allowed** when either the client or session host is using a *public* route.<br /><br />Remote sessions are **allowed** when either the client or session host is using a *private* route. |
+| Public access **disabled** from all networks | Remote sessions are **denied** when either the client or session host is using a *public* route.<br /><br />Remote sessions are **allowed** when both the client and session host are using a *private* route. |
+| Public access **enabled** for client networks, but **disabled** for session host networks | Remote sessions are **denied** if the session host is using a *public* route, regardless of the route the client is using.<br /><br />Remote sessions are **allowed** as long as the session host is using a *private* route, regardless of the route the client is using. |
 
 > [!IMPORTANT]
 > - A private endpoint to the global sub-resource of any workspace controls the shared fully qualified domain name (FQDN) for initial feed discovery. This in turn enables feed discovery for all workspaces. Because the workspace connected to the private endpoint is so important, deleting it will cause all feed discovery processes to stop working. We recommend you create an unused placeholder workspace for the global sub-resource. 
