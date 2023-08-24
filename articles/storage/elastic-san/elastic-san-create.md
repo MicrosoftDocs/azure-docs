@@ -54,7 +54,7 @@ az feature show --name ElasticSanPreviewAccess --namespace Microsoft.ElasticSan
 ```
 ---
 > [!IMPORTANT]
-> If you are using PowerShell or CLI, you will not need to run this command, you can simply go ahead and deploy an Elastic SAN.
+> If you are using PowerShell or CLI, you don't need to run this command. Skip this step and proceed to deploy an Elastic SAN.
 
 ## Limitations
 
