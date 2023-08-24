@@ -84,6 +84,83 @@ To escape single quotes in an ARM expression output, double up the single quotes
 }
 ```
 
+In resource definition, double-escape values within an expression. The `scriptOutput` from the following template is `de'f`.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "forceUpdateTag": {
+      "type": "string",
+      "defaultValue": "[newGuid()]"
+    }
+  },
+  "variables": {
+    "deploymentScriptSharedProperties": {
+      "forceUpdateTag": "[parameters('forceUpdateTag')]",
+      "azPowerShellVersion": "10.1",
+      "retentionInterval": "P1D"
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Resources/deploymentScripts",
+      "apiVersion": "2020-10-01",
+      "name": "escapingTest",
+      "location": "[resourceGroup().location]",
+      "kind": "AzurePowerShell",
+      "properties": "[union(variables('deploymentScriptSharedProperties'), createObject('scriptContent', '$DeploymentScriptOutputs = @{}; $DeploymentScriptOutputs.escaped = \"de''''f\";'))]"
+    }
+  ],
+  "outputs": {
+    "scriptOutput": {
+      "type": "string",
+      "value": "[reference('escapingTest').outputs.escaped]"
+    }
+  }
+}
+```
+
+With [languageVersion 2.0](./syntax.md#languageversion-20), double-escape is on longer needed. The preceding example can be written as the following JSON to get the same result, `de'f`.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "languageVersion": "2.0",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "forceUpdateTag": {
+      "type": "string",
+      "defaultValue": "[newGuid()]"
+    }
+  },
+  "variables": {
+    "deploymentScriptSharedProperties": {
+      "forceUpdateTag": "[parameters('forceUpdateTag')]",
+      "azPowerShellVersion": "10.1",
+      "retentionInterval": "P1D"
+    }
+  },
+  "resources": {
+    "escapingTest": {
+      "type": "Microsoft.Resources/deploymentScripts",
+      "apiVersion": "2020-10-01",
+      "name": "escapingTest",
+      "location": "[resourceGroup().location]",
+      "kind": "AzurePowerShell",
+      "properties": "[union(variables('deploymentScriptSharedProperties'), createObject('scriptContent', '$DeploymentScriptOutputs = @{}; $DeploymentScriptOutputs.escaped = \"de''f\";'))]"
+    }
+  },
+  "outputs": {
+    "scriptOutput": {
+      "type": "string",
+      "value": "[reference('escapingTest').outputs.escaped]"
+    }
+  }
+}
+```
+
 When passing in parameter values, the use of escape characters depends on where the parameter value is specified. If you set a default value in the template, you need the extra left bracket.
 
 ```json

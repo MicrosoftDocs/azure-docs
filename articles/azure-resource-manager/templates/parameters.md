@@ -14,13 +14,6 @@ Resource Manager resolves parameter values before starting the deployment operat
 
 Each parameter must be set to one of the [data types](data-types.md).
 
-> [!TIP]
-> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [parameters](../bicep/parameters.md).
-
-You are limited to 256 parameters in a template. For more information, see [Template limits](./best-practices.md#template-limits).
-
-For parameter best practices, see [Parameters](./best-practices.md#parameters).
-
 In addition to minValue, maxValue, minLength, maxLength, and allowedValues, [languageVersion 2.0](./syntax.md#languageversion-20) introduces some aggregate type validation constraints to be used in [definitions](./syntax.md#definitions), [parameters](./syntax.md#parameters) and [outputs](./syntax.md#outputs) definitions. These constraints include:
 
 - [additionalProperties](#additionalproperties)
@@ -29,6 +22,15 @@ In addition to minValue, maxValue, minLength, maxLength, and allowedValues, [lan
 - [nullable](#nullable-constraint)
 - [prefixItems](#prefixitems)
 - [properties](#properties)
+
+[!INCLUDE [VSCode ARM Tools extension doesn't support languageVersion 2.0](../../../includes/resource-manager-vscode-language-version-20.md)]
+
+> [!TIP]
+> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [parameters](../bicep/parameters.md).
+
+You are limited to 256 parameters in a template. For more information, see [Template limits](./best-practices.md#template-limits).
+
+For parameter best practices, see [Parameters](./best-practices.md#parameters).
 
 ## Minimal declaration
 

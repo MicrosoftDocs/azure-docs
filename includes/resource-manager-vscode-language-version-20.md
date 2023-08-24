@@ -7,4 +7,4 @@ ms.author: jgao
 ---
 
 > [!NOTE]
-> The current release of the Azure Resource Manager Tools extension for Visual Studio Code does not recognize the enhancements made in languageVersion 2.0.
+> The current release of the Azure Resource Manager Tools extension for Visual Studio Code does not recognize the enhancements made in [languageVersion 2.0](../articles/azure-resource-manager/templates/syntax.md#languageversion-20).

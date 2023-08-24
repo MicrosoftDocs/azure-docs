@@ -35,6 +35,44 @@ The following example shows a network interface that depends on a virtual networ
 }
 ```
 
+With [languageVersion 2.0](./syntax.md#languageversion-20), use resource symbolic name in `dependsOn` arrays. For example:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "languageVersion": "2.0",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
+    }
+  },
+  "resources": {
+    "myStorage": {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2023-01-01",
+      "name": "[format('storage{0}', uniqueString(resourceGroup().id))]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "StorageV2"
+    },
+    "myVm": {
+      "type": "Microsoft.Compute/virtualMachines",
+      "apiVersion": "2023-03-01",
+      "name": "[format('vm{0}', uniqueString(resourceGroup().id))]",
+      "location": "[parameters('location')]",
+      "dependsOn": [
+        "myStorage"
+      ],
+      ...
+    }
+  }
+}
+```
+
 While you may be inclined to use `dependsOn` to map relationships between your resources, it's important to understand why you're doing it. For example, to document how resources are interconnected, `dependsOn` isn't the right approach. After deployment, the resource doesn't retain deployment dependencies in its properties, so there are no commands or operations that let you see dependencies. Setting unnecessary dependencies slows deployment time because Resource Manager can't deploy those resources in parallel.
 
 ## Child resources
@@ -204,7 +242,7 @@ The following example shows how to deploy three storage accounts before deployin
 }
 ```
 
-[Symbolic names](./resource-declaration.md#use-symbolic-name) can be used in `dependsOn`` arrays. If a symbolic name is for a copy loop, all resources in the loop are added as dependencies. The preceding sample can be written as the following JSON. In the sample, **myVM** depends on all of the storage accounts in the **myStorages** loop.
+[Symbolic names](./resource-declaration.md#use-symbolic-name) can be used in `dependsOn` arrays. If a symbolic name is for a copy loop, all resources in the loop are added as dependencies. The preceding sample can be written as the following JSON. In the sample, **myVM** depends on all of the storage accounts in the **myStorages** loop.
 
 ```json
 {

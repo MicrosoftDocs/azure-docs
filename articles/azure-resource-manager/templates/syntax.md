@@ -31,7 +31,7 @@ In its simplest structure, a template has the following elements:
   "parameters": { },
   "variables": { },
   "functions": [ ],
-  "resources": [ ], // or "resources": { } with languageVersion 2.0
+  "resources": [ ], /* or "resources": { } with languageVersion 2.0 */
   "outputs": { }
 }
 ```
@@ -42,7 +42,7 @@ In its simplest structure, a template has the following elements:
 | languageVersion |No |Language version of the template. To view the enhancements of languageVersion 2.0, see [languageVersion 2.0](#languageversion-20). |
 | contentVersion |Yes |Version of the template (such as 1.0.0.0). You can provide any value for this element. Use this value to document significant changes in your template. When deploying resources using the template, this value can be used to make sure that the right template is being used. |
 | apiProfile |No | An API version that serves as a collection of API versions for resource types. Use this value to avoid having to specify API versions for each resource in the template. When you specify an API profile version and don't specify an API version for the resource type, Resource Manager uses the API version for that resource type that is defined in the profile.<br><br>The API profile property is especially helpful when deploying a template to different environments, such as Azure Stack and global Azure. Use the API profile version to make sure your template automatically uses versions that are supported in both environments. For a list of the current API profile versions and the resources API versions defined in the profile, see [API Profile](https://github.com/Azure/azure-rest-api-specs/tree/master/profile).<br><br>For more information, see [Track versions using API profiles](./template-cloud-consistency.md#track-versions-using-api-profiles). |
-| [definitions](#definitions) |No |Schemas that are used to validate array and object values. |
+| [definitions](#definitions) |No |Schemas that are used to validate array and object values. Definitions are only supported in [languageVersion 2.0](#languageversion-20).|
 | [parameters](#parameters) |No |Values that are provided when deployment is executed to customize resource deployment. |
 | [variables](#variables) |No |Values that are used as JSON fragments in the template to simplify template language expressions. |
 | [functions](#functions) |No |User-defined functions that are available within the template. |
@@ -71,7 +71,7 @@ In the `definitions` section of the template, specify the schemas used for valid
     "discriminator": <schema-to-apply>,
     "nullable": <boolean>,
     "metadata": {
-      "description": "<description-of-the parameter>"
+      "description": "<description-of-the-type-definition>"
     }
   }
 }
@@ -79,20 +79,20 @@ In the `definitions` section of the template, specify the schemas used for valid
 
 | Element name | Required | Description |
 |:--- |:--- |:--- |
-| parameter-name |Yes |Name of the parameter. Must be a valid JavaScript identifier. |
-| type |Yes |Type of the parameter value. The allowed types and values are **string**, **securestring**, **int**, **bool**, **object**, **secureObject**, and **array**. See [Data types in ARM templates](data-types.md). |
-| allowedValues |No |Array of allowed values for the parameter to make sure that the right value is provided. |
-| minValue |No |The minimum value for int type parameters, this value is inclusive. |
-| maxValue |No |The maximum value for int type parameters, this value is inclusive. |
-| minLength |No |The minimum length for string, secure string, and array type parameters, this value is inclusive. |
-| maxLength |No |The maximum length for string, secure string, and array type parameters, this value is inclusive. |
+| definition-name |Yes |Name of the type definition. Must be a valid JavaScript identifier. |
+| type |Yes |Type of the type definition. The allowed types and values are **string**, **securestring**, **int**, **bool**, **object**, **secureObject**, and **array**. See [Data types in ARM templates](data-types.md). |
+| allowedValues |No |Array of allowed values for the type definition to make sure that the right value is provided. |
+| minValue |No |The minimum value for int type definitions, this value is inclusive. |
+| maxValue |No |The maximum value for int type definitions, this value is inclusive. |
+| minLength |No |The minimum length for string, secure string, and array type definitions, this value is inclusive. |
+| maxLength |No |The maximum length for string, secure string, and array type definitions, this value is inclusive. |
 | prefixItems |No |The schema for validating the element of an array at the same index. |
 | items |No |The schema that is applied to all elements of the array whose index is greater than the largest index of the `prefixItems` constraint, or boolean for controlling the elements of the array whose index is greater than the largest index of the `prefixItems` constraint. |
 | properties |No |The schema for validating object. |
 | additionalProperties |No |The schema that is applied to all properties not mentioned in the `properties` constraint, or boolean for accepting any property not defined in the `properties` constraint. |
 | discriminator |No |The schema to apply based on a discriminator property.|
 | nullable|No |A boolean indicating that the value may be null or omitted. |
-| description |No |Description of the parameter that is displayed to users through the portal. For more information, see [Comments in templates](#comments). |
+| description |No |Description of the type definition that is displayed to users through the portal. For more information, see [Comments in templates](#comments). |
 
 For examples of how to use type definitions, see [Type definitions in ARM templates](./definitions.md).
 
@@ -137,15 +137,13 @@ The available properties for a parameter are:
 | maxValue |No |The maximum value for int type parameters, this value is inclusive. |
 | minLength |No |The minimum length for string, secure string, and array type parameters, this value is inclusive. |
 | maxLength |No |The maximum length for string, secure string, and array type parameters, this value is inclusive. |
-| prefixItems |No |The type definition for validating the element of an array at the same index. |
-| items |No |The schema that is applied to all elements of the array whose index is greater than the largest index of the `prefixItems` constraint, or boolean for controlling the elements of the array whose index is greater than the largest index of the `prefixItems` constraint. |
-| properties |No |The schema for validating object. |
-| additionalProperties |No |The schema that is applied to all properties not mentioned in the `properties` constraint, or boolean for accepting any property not defined in the `properties` constraint. |
-| discriminator |No |The schema to apply based on a discriminator property.|
-| nullable|No |A boolean indicating that the value may be null or omitted. |
+| prefixItems |No |The type definition for validating the element of an array at the same index. `prefixItems` is only supported in [languageVersion 2.0](#languageversion-20).|
+| items |No |The schema that is applied to all elements of the array whose index is greater than the largest index of the `prefixItems` constraint, or boolean for controlling the elements of the array whose index is greater than the largest index of the `prefixItems` constraint. `items` is only supported in [languageVersion 2.0](#languageversion-20).|
+| properties |No |The schema for validating object. `properties` is only supported in [languageVersion 2.0](#languageversion-20).|
+| additionalProperties |No |The schema that is applied to all properties not mentioned in the `properties` constraint, or boolean for accepting any property not defined in the `properties` constraint. `additionalProperties` is only supported in [languageVersion 2.0](#languageversion-20).|
+| discriminator |No |The schema to apply based on a discriminator property. `discriminator` is only supported in [languageVersion 2.0](#languageversion-20).|
+| nullable|No |A boolean indicating that the value may be null or omitted. `nullable` is only supported in [languageVersion 2.0](#languageversion-20).|
 | description |No |Description of the parameter that is displayed to users through the portal. For more information, see [Comments in templates](#comments). |
-
-Some of the properties, including `prefixItems`, `items`, `properties`, `additionalProperties`, `discriminator`, and `nullable`, can only be used with [languageVersion 2.0](#languageversion-20).
 
 For examples of how to use parameters, see [Parameters in ARM templates](./parameters.md).
 
@@ -508,28 +506,40 @@ In Bicep, see [multi-line strings](../bicep/file.md#multi-line-strings).
 
 ## languageVersion 2.0
 
-[!INCLUDE [VSCode ARM Tools extension doesn't support languageVersion 2.0](../../../includes/resource-manager-vscode-language-version-20.md)]
-
-jgao: show the syntax of using language version 2.0.
-
-The enhancements that comes with languageVersion 2.0.
-
 > [!NOTE]
 > Using any `languageVersion` that ends in `-experimental` is not recommended in production environments because experimental functionality could be changed at any time.
+
+[!INCLUDE [VSCode ARM Tools extension doesn't support languageVersion 2.0](../../../includes/resource-manager-vscode-language-version-20.md)]
+
+To use languageVersion 2.0, add `"languageVersion": "2.0"` to your template:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "languageVersion": "2.0",
+  "contentVersion": "1.0.0.0",
+  "resources": {
+    "<name-of-the-resource>": {
+      ...
+    }
+  }
+}
+```
+
+The enhancements and changes that comes with languageVersion 2.0:
 
 - Use symbolic name in ARM JSON template. For more information, see [Use symbolic name](./resource-declaration.md#use-symbolic-name).
 - Use symbolic name in resource copy loops. See [Use symbolic name](./copy-resources.md#use-symbolic-name).
 - Use symbolic name in `dependsOn` arrays. See [DependsOn](./resource-dependency.md#dependson) and [Depend on resources in a loop](./resource-dependency.md#depend-on-resources-in-a-loop).
-- Use symbolic name in the `reference` function.  See [reference](./template-functions-resource.md#reference).
-- Declare existing resources for ARM to read rather than deploy a resource.
-- User-defined types. See [Type definition](./definitions.md).
-- The default value for the `expressionEvaluationOptions` property is `inner`. The value `outer` is blocked. See [Expression evaluation scope in nested templates](./linked-templates.md#expression-evaluation-scope-in-nested-templates).
+- Use symbolic name instead of resource name in the `reference` function.  See [reference](./template-functions-resource.md#reference).
+- A references() function that returns an array of objects representing a resource collection's runtime states. See [references](./template-functions-resource.md#references).
+- Use the 'existing' resource property to declare existing resources for ARM to read rather than deploy a resource. See [Declare existing resources](./resource-declaration.md#declare-existing-resources).
+- Create user-defined types. See [Type definition](./definitions.md).
 - Additional aggregate type validation constraints to be used in [parameters](./parameters.md) and [outputs](./outputs.md).
+- The default value for the `expressionEvaluationOptions` property is `inner`. The value `outer` is blocked. See [Expression evaluation scope in nested templates](./linked-templates.md#expression-evaluation-scope-in-nested-templates).
 - The `deployment` function returns a limited subset of properties. See [deployment](./template-functions-deployment.md#deployment).
-- references() function.
--
--
-- To support [Bicep](../bicep/overview.md) symbolic name in ARM JSON templates, add `languageVersion` with the version `2.0` or newer, and change the resource definition from an array to an object. For more information, see [Resources](#resources).
+- If Deployments resource is used in a symbolic-name deployment, use apiVersion `2020-09-01` or later.
+- In resource definition, double-escaping values within an expression is no longer needed.  See [Escape characters](./template-expressions.md#escape-characters).
 
 ## Next steps
 
