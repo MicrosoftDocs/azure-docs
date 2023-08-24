@@ -8,7 +8,7 @@ ms.date: 08/23/2023
 ms.author: sudhirsneha
 ---
 
-# Patching guidance overview 
+# Patching guidance on Migration from Microsoft Configuration Manager to Azure
 
 This article provides the details on how to patch your migrated virtual machines on Azure.
 
@@ -29,7 +29,7 @@ The MCM in Azure and Azure Update Manager can fulfill your patching requirements
    :::image type="content" source="./media/guidance-migration-azure/update-manager-service-selection-inline.png" alt-text="Screenshot of selecting the Azure Update Manager from Azure portal." lightbox="./media/manage-multiple-machines/overview-page-expanded.png":::
 1. In the **Azure Update Manager (Preview)** home page, Under **Manage** > **Machines**, select your subscription to view all your machines.
 1. Filter as per the available options to know the status of your specific machines.
-   :::image type="content" source="./media/guidance-migration-azure/filter-machine-status-inline.png" alt-text="Screenshot of selecting the filters in Azure Update Manager to view the machines." lightbox="./media/filter-machine-status-expanded.png":::
+   :::image type="content" source="./media/guidance-migration-azure/filter-machine-status-inline.png" alt-text="Screenshot of selecting the filters in Azure Update Manager to view the machines." lightbox="./media/guidance-migration-azure/filter-machine-status-expanded.png":::
 1. Select the suitable [assessment](assessment-options.md) and [patching](updates-maintenance-schedules.md) options as per your requirement.
 
 ## Map MCM capabilities to Azure Update Manager
