@@ -20,49 +20,14 @@ keywords:
 - An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true)
 - Access granted to the Azure OpenAI service in the desired Azure subscription.
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI Service by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access?azure-portal=true).
-- [Java Development Kit (JDK)](/java/azure/jdk/) with version 8 or above.
-- An Azure OpenAI Service resource.
+* The current version of the [Java Development Kit (JDK)](https://www.microsoft.com/openjdk)
+* The [Gradle build tool](https://gradle.org/install/), or another dependency manager.
+* Once you have your Azure subscription, <a href="tbd"  title="create an Azure OpenAI resource"  target="_blank">create a Vision resource</a> in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
+    * You need the key and endpoint from the resource you create to connect your application to the Azure AI Vision service.
+    * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
-## Set up
 
-1. Install [Apache Maven](https://maven.apache.org/install.html). Then run `mvn -v` to confirm successful installation. The `README.txt` file from the installation has instructions on adding the Maven bin directory to your PATH variable. If you don't set this the `mvn` command will instead need to run like `c:\apache-maven-3.9.2-bin\apache-maven-3.9.2\mvn -v`.
 
-2. Create the directory structure for your project.
-
-```console
-mkdir "quickstart/src/main/java/com/azure/ai/openai/usage"  
-```
-
-3. At the root of the quickstart directory, create a file named `pom.xml` with the following content:
-
-```xml
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>com.azure.ai.openai.usage.GetImagesAsyncSample</groupId>
-    <artifactId>quickstart-eclipse</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
-    <build>
-        <sourceDirectory>src</sourceDirectory>
-        <plugins>
-        <plugin>
-            <artifactId>maven-compiler-plugin</artifactId>
-            <version>3.7.0</version>
-            <configuration>
-            <source>1.8</source>
-            <target>1.8</target>
-            </configuration>
-        </plugin>
-        </plugins>
-    </build>
-<dependencies>
-    <dependency>
-        <groupId>com.azure</groupId>
-        <artifactId>azure-ai-openai</artifactId>
-        <version>1.0.0-beta.3</version>
-    </dependency>
-</dependencies>
-</project>
-```
 
 ### Retrieve key and endpoint
 
@@ -114,89 +79,136 @@ echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/envi
 
 ## Create a sample application
 
-Create a new file named `GetImagesAsyncSample.java` in the `quickstart/src/main/java/com/azure/ai/openai/usage` folder. Copy the following code into the file.
 
-```java
-package com.azure.ai.openai.usage;
+1. Create a new Gradle project.
 
-import com.azure.ai.openai.OpenAIClient;
-import com.azure.ai.openai.OpenAIClientBuilder;
-import com.azure.ai.openai.models.ChatChoice;
-import com.azure.ai.openai.models.ChatCompletions;
-import com.azure.ai.openai.models.ChatCompletionsOptions;
-import com.azure.ai.openai.models.ChatMessage;
-import com.azure.ai.openai.models.ChatRole;
-import com.azure.ai.openai.models.CompletionsUsage;
-import com.azure.core.credential.AzureKeyCredential;
+    In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app, and navigate to it. 
+    
+    ```console
+    mkdir myapp && cd myapp
+    ```
+    
+    Run the `gradle init` command from your working directory. This command will create essential build files for Gradle, including *build.gradle.kts*, which is used at runtime to create and configure your application.
+    
+    ```console
+    gradle init --type basic
+    ```
 
-import java.util.ArrayList;
-import java.util.List;
+    When prompted to choose a **DSL**, select **Kotlin**.
 
-public class GetChatCompletionsSample {
+1. Install the client library.
 
-    public static void main(String[] args) {
-        String azureOpenaiKey = System.getenv("AZURE_OPENAI_KEY");;
-        String endpoint = System.getenv("AZURE_OPENAI_ENDPOINT");;
-        String deploymentOrModelId = "gpt-35-turbo";
+    This quickstart uses the Gradle dependency manager. You can find the client library and information for other dependency managers on the [Maven Central Repository](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-computervision).
 
-      OpenAIClient client = new OpenAIClientBuilder()
-            .endpoint(endpoint)
-            .credential(new AzureKeyCredential(azureOpenaiKey))
-            .buildClient();
+    Locate *build.gradle.kts* and open it with your preferred IDE or text editor. Then copy in the following build configuration. This configuration defines the project as a Java application whose entry point is the class **OpenAIQuickstart**. It imports the Azure AI Vision library.
 
-        List<ChatMessage> chatMessages = new ArrayList<>();
-        chatMessages.add(new ChatMessage(ChatRole.SYSTEM, "You are a helpful assistant"));
-        chatMessages.add(new ChatMessage(ChatRole.USER, "Does Azure OpenAI support customer managed keys?"));
-        chatMessages.add(new ChatMessage(ChatRole.ASSISTANT, "Yes, customer managed keys are supported by Azure OpenAI?"));
-        chatMessages.add(new ChatMessage(ChatRole.USER, "Do other Azure AI services support this too?"));
-
-        ChatCompletions chatCompletions = client.getChatCompletions(deploymentOrModelId, new ChatCompletionsOptions(chatMessages));
-
-        System.out.printf("Model ID=%s is created at %s.%n", chatCompletions.getId(), chatCompletions.getCreatedAt());
-        for (ChatChoice choice : chatCompletions.getChoices()) {
-            ChatMessage message = choice.getMessage();
-            System.out.printf("Index: %d, Chat Role: %s.%n", choice.getIndex(), message.getRole());
-            System.out.println("Message:");
-            System.out.println(message.getContent());
-        }
-
-        System.out.println();
-        CompletionsUsage usage = chatCompletions.getUsage();
-        System.out.printf("Usage: number of prompt token is %d, "
-                + "number of completion token is %d, and number of total tokens in request and response is %d.%n",
-            usage.getPromptTokens(), usage.getCompletionTokens(), usage.getTotalTokens());
+    ```kotlin
+    plugins {
+        java
+        application
     }
-}  
-```
+    application { 
+        mainClass.set("OpenAIQuickstart")
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        implementation(group = "com.azure", name = "azure-ai-openai", version = "1.0.0-beta.3")
+        implementation("org.slf4j:slf4j-simple:1.7.9")
+    }
+    ```
 
-> [!IMPORTANT]
-> For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). For more information about credential security, see the Azure AI services [security](../../security-features.md) article.
+1. Create a Java file.
 
-From the top level quickstart directory where your `pom.xml` is located run:
+    From your working directory, run the following command to create a project source folder:
 
-```console
-mvn compile
-```
+    ```console
+    mkdir -p src/main/java
+    ```
 
-Now run the sample:
+    Navigate to the new folder and create a file called *OpenAIQuickstart.java*. 
 
-```console
-mvn exec:java -Dexec.mainClass="com.azure.ai.openai.usage.GetChatCompletionsSample"
-```
+
+1. Open *OpenAIQuickstart.java* in your preferred editor or IDE and paste in the following code.
+
+    ```java
+    import com.azure.ai.openai.OpenAIAsyncClient;
+    import com.azure.ai.openai.OpenAIClientBuilder;
+    import com.azure.ai.openai.models.ImageGenerationOptions;
+    import com.azure.ai.openai.models.ImageLocation;
+    import com.azure.core.credential.AzureKeyCredential;
+    import com.azure.core.models.ResponseError;
+    
+    import java.util.concurrent.TimeUnit;
+    
+    /**
+     * Sample demonstrates how to get the images for a given prompt.
+     */
+    public class OpenAIQuickstart {
+    
+        /**
+         * Runs the sample algorithm and demonstrates how to get the images for a given prompt.
+         *
+         * @param args Unused. Arguments to the program.
+         */
+        public static void main(String[] args) throws InterruptedException {
+            
+            // Get key and endpoint from environment variables:
+            String azureOpenaiKey = System.getenv("AZURE_OPENAI_KEY");
+            String endpoint = System.getenv("AZURE_OPENAI_ENDPOINT");
+    
+            OpenAIAsyncClient client = new OpenAIClientBuilder()
+                .endpoint(endpoint)
+                .credential(new AzureKeyCredential(azureOpenaiKey))
+                .buildAsyncClient();
+    
+            ImageGenerationOptions imageGenerationOptions = new ImageGenerationOptions(
+                "A drawing of the Seattle skyline in the style of Van Gogh");
+            client.getImages(imageGenerationOptions).subscribe(
+                images -> {
+                    for (ImageLocation imageLocation : images.getData()) {
+                        ResponseError error = imageLocation.getError();
+                        if (error != null) {
+                            System.out.printf("Image generation operation failed. Error code: %s, error message: %s.%n",
+                                error.getCode(), error.getMessage());
+                        } else {
+                            System.out.printf(
+                                "Image location URL that provides temporary access to download the generated image is %s.%n",
+                                imageLocation.getUrl());
+                        }
+                    }
+                },
+                error -> System.err.println("There was an error getting images." + error),
+                () -> System.out.println("Completed getImages."));
+    
+            // The .subscribe() creation and assignment is not a blocking call. For the purpose of this example, we sleep
+            // the thread so the program does not end before the send operation is complete. Using .block() instead of
+            // .subscribe() will turn this into a synchronous call.
+            TimeUnit.SECONDS.sleep(10);
+        }
+    }
+    ```
+
+1. Navigate back to the project root folder, and build the app with:
+
+   ```console
+   gradle build
+   ```
+   
+   Then, run it with the `gradle run` command:
+   
+   ```console
+   gradle run
+   ```
+
 
 ## Output
 
 ```output
-Model ID=chatcmpl-7JYnyE4zpd5gaIfTRH7hNpeVsvAw4 is created at 1684896378.
-Index: 0, Chat Role: assistant.
-Message:
-Yes, most of the Azure AI services support customer managed keys. However, there may be some exceptions, so it is best to check the documentation of each specific service to confirm.
-
-Usage: number of prompt token is 59, number of completion token is 36, and number of total tokens in request and response is 95.
+Image location URL that provides temporary access to download the generated image is https://dalleproduse.blob.core.windows.net/private/images/d2ea917f-8802-4ad6-8ef6-3fb7a15c8482/generated_00.png?se=2023-08-25T23%3A11%3A28Z&sig=%2BKa5Mkb9U88DfvxoBpyAjamYRzwb7aVCEucM6XJC3wQ%3D&ske=2023-08-31T15%3A27%3A47Z&skoid=09ba021e-c417-441c-b203-c81e5dcd7b7f&sks=b&skt=2023-08-24T15%3A27%3A47Z&sktid=33e01921-4d64-4f8c-a055-5bdaffd5e33d&skv=2020-10-02&sp=r&spr=https&sr=b&sv=2020-10-02.
+Completed getImages.
 ```
-
-> [!div class="nextstepaction"]
-> [I ran into an issue when running the code sample.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVA&Pillar=AOAI&Product=Chatgpt&Page=quickstart&Section=Create-application)
 
 ## Clean up resources
 
