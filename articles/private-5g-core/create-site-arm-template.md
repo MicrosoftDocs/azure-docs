@@ -23,14 +23,14 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Prerequisites
 
-- Carry out the steps in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md) for your new site.
+- Carry out the steps in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md?pivots=ase-pro-gpu) for your new site.
 :::zone pivot="ase-pro-gpu"
 - Identify the names of the interfaces corresponding to ports 5 and 6 on your Azure Stack Edge Pro device.
 :::zone-end
 :::zone pivot="ase-pro-2"
 - Identify the names of the interfaces corresponding to ports 3 and 4 on your Azure Stack Edge Pro device.
 :::zone-end
-- Collect all of the information in [Collect the required information for a site](collect-required-information-for-a-site.md).
+- Collect all of the information in [Collect the required information for a site](collect-required-information-for-a-site.md?pivots=ase-pro-2).
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
 - If the new site will support 4G user equipment (UEs), you must have [created a network slice](create-manage-network-slices.md#create-a-network-slice) with slice/service type (SST) value of 1 and an empty slice differentiator (SD).
 
