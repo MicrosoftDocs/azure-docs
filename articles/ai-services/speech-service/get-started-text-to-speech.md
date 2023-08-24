@@ -1,7 +1,7 @@
 ---
 title: "Text to speech quickstart - Speech service"
 titleSuffix: Azure AI services
-description: In this quickstart, you convert text to speech. Learn about object construction and design patterns, supported audio output formats, and custom configuration options for speech synthesis.
+description: In this quickstart, you convert text to speech. Learn about object construction and design patterns, supported audio formats, and custom configuration options.
 services: cognitive-services
 author: eric-urban
 manager: nitinme
