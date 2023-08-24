@@ -214,7 +214,8 @@ Azure OpenAI on your data provides several search options you can use when you a
     To enable vector search, you will need a `text-embedding-ada-002` deployment in your Azure OpenAI resource. Select your embedding deployment when connecting your data, then select one of the vector search types under **Data management**.  
 
 > [!IMPORTANT]
-> Semantic search and vector search are subject to additional pricing.
+> * Semantic search and vector search are subject to additional pricing.
+> * Currently Azure OpenAI on your data supports semantic search for English data only. Only enable semantic search if both your documents and use case are in English.
 
 | Search option       | Retrieval type | Additional pricing? | 
 |---------------------|------------------------|---------------------|
