@@ -36,7 +36,7 @@ Use the following steps to initialize the application from the Azure Developer C
     - **OAuth2 login**: You need to authorize the login to Azure based on the OAuth2 protocol.
     - **Please enter a new environment name**: Provide an environment name, which is used as a suffix for the resource group created to hold all Azure resources. This name should be unique within your Azure subscription.
 
-   The console outputs messages similar to the ones in the following example:
+   The console outputs messages similar to the following example:
 
    ```output
    Initializing a new project (azd init)
@@ -90,7 +90,7 @@ Open your web browser and go to the [Azure portal](https://portal.azure.com/). E
     - **Select an Azure Subscription to use**: Use arrows to move, type to filter, then press <kbd>Enter</kbd>.
     - **Select an Azure location to use**: Use arrows to move, type to filter, then press <kbd>Enter</kbd>.
 
-   The console outputs messages similar to the ones in the following example:
+   The console outputs messages similar to the following example:
 
    ```text
    SUCCESS: Your application was provisioned in Azure in xx minutes xx seconds.
@@ -161,7 +161,7 @@ Use the following steps to package the app, provision the Azure resources requir
    azd deploy
    ```
 
-   The console outputs messages similar to the ones in the following example:
+   The console outputs messages similar to the following example:
 
    ```output
    Deploying services (azd deploy)
