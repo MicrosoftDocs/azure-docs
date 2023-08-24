@@ -52,7 +52,7 @@ To view and investigate risks on a user’s account, select the “Detections no
 
 The Risk history tab also shows all the events that have led to a user risk change in the last 90 days. This list includes risk detections that increased the user’s risk and admin remediation actions that lowered the user’s risk. View it to understand how the user’s risk has changed. 
 
-:::image type="content" source="media/howto-identity-protection-investigate-risk/risky-users-without-details.png" alt-text="Screenshot of the Risky users report" lightbox="media/howto-identity-protection-investigate-risk/risky-users-with-details.png":::
+:::image type="content" source="media/howto-identity-protection-investigate-risk/risky-users-without-details.png" alt-text="Screenshot of the Risky users report." lightbox="media/howto-identity-protection-investigate-risk/risky-users-with-details.png":::
 
 With the information provided by the risky users report, administrators can find:
 
@@ -71,7 +71,7 @@ Administrators can then choose to take action on these events. Administrators ca
 
 ## Risky sign-ins
 
-:::image type="content" source="media/howto-identity-protection-investigate-risk/risky-sign-ins-without-details.png" alt-text="Screenshot of the Risky sign-ins report" lightbox="media/howto-identity-protection-investigate-risk/risky-sign-ins-with-details.png":::
+:::image type="content" source="media/howto-identity-protection-investigate-risk/risky-sign-ins-without-details.png" alt-text="Screenshot of the Risky sign-ins report." lightbox="media/howto-identity-protection-investigate-risk/risky-sign-ins-with-details.png":::
 
 The risky sign-ins report contains filterable data for up to the past 30 days (one month).
 
@@ -96,7 +96,7 @@ Administrators can then choose to take action on these events. Administrators ca
 
 ## Risk detections
 
-:::image type="content" source="media/howto-identity-protection-investigate-risk/risk-detections-without-details.png" alt-text="Screenshot of the Risk detections report" lightbox="media/howto-identity-protection-investigate-risk/risk-detections-with-details.png":::
+:::image type="content" source="media/howto-identity-protection-investigate-risk/risk-detections-without-details.png" alt-text="Screenshot of the Risk detections report." lightbox="media/howto-identity-protection-investigate-risk/risk-detections-with-details.png":::
 
 The risk detections report contains filterable data for up to the past 90 days (three months).
 

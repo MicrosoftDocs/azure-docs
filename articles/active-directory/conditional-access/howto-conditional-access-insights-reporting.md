@@ -106,7 +106,7 @@ To configure a Conditional Access policy in report-only mode:
 In order to access the workbook, you need the proper permissions in Azure AD and Log Analytics. To test whether you have the proper workspace permissions by running a sample log analytics query:
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
-1. Browse to **Identity** > **Monitoding & health** > **Log Analytics**.
+1. Browse to **Identity** > **Monitoring & health** > **Log Analytics**.
 1. Type `SigninLogs` into the query box and select **Run**.
 1. If the query doesn't return any results, your workspace may not have been configured correctly. 
 
