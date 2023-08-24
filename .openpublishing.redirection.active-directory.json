@@ -5271,6 +5271,21 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/active-directory/reports-monitoring/quickstart-filter-audit-log.md",
+      "redirect_url": "/azure/active-directory/reports-monitoring/howto-customize-filter-logs",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/reports-monitoring/reference-basic-info-sign-in-logs.md",
+      "redirect_url": "/azure/active-directory/reports-monitoring/concept-sign-in-log-activity-details",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/reports-monitoring/concept-all-sign-ins.md",
+      "redirect_url": "/azure/active-directory/reports-monitoring/concept-sign-ins",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/active-directory/reports-monitoring/howto-use-azure-monitor-workbooks.md",
       "redirect_url": "/azure/active-directory/reports-monitoring/howto-use-workbooks",
       "redirect_document_id": true
