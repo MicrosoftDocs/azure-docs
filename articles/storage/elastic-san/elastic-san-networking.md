@@ -40,7 +40,6 @@ The process for enabling each type of endpoint follows:
 ### Configure a private endpoint
 
 > [!IMPORTANT]
-
 > - For Elastic SANs using [locally-redundant storage (LRS)](elastic-san-planning.md#redundancy) as their redundancy option, private endpoints are supported in all regions that Elastic SAN is available. Private endpoints aren't currently supported for elastic SANs using [zone-redundant storage (ZRS)](elastic-san-planning.md#redundancy) as their redundancy option.
 >
 > - Before you can create a private endpoint connection to a volume group, it must contain at least one volume.
