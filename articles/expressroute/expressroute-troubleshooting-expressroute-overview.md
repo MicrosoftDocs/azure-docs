@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: troubleshooting
-ms.date: 06/15/2023
+ms.date: 08/23/2023
 ms.author: duau
 ms.custom: seodec18, devx-track-azurepowershell
 ---
@@ -230,10 +230,13 @@ At line:1 char:1
 The Address Resolution Protocol (ARP) table provides a mapping of the IP address and MAC address for a particular peering. The ARP table for an ExpressRoute circuit peering provides the following information for each interface (primary and secondary):
 
 * Mapping of the IP address for the on-premises router interface to the MAC address
-* Mapping of the IP address for the ExpressRoute router interface to the MAC address
+* Mapping of the IP address for the ExpressRoute router interface to the MAC address (optional)
 * Age of the mapping
 
 ARP tables can help validate layer 2 configuration and troubleshoot basic layer 2 connectivity issues.
+
+>[!NOTE]
+> Depending on the hardware platform, the ARP results may vary and only display the *On-premises* interface.
 
 To learn how to view the ARP table of an ExpressRoute peering and how to use the information to troubleshoot layer 2 connectivity issues, see [Getting ARP tables in the Resource Manager deployment model][ARP].
 
@@ -342,6 +345,8 @@ When your results are ready, you have two sets of them for the primary and secon
 * **If you're testing PsPing from on-premises to Azure, received results show matches, but sent results show no matches**: This result indicates that traffic is coming in to Azure but isn't returning to on-premises. Check for return-path routing issues. For example, are you advertising the appropriate prefixes to Azure? Is a user-defined route (UDR) overriding prefixes?
 * **If you're testing PsPing from Azure to on-premises, sent results show matches, but received results show no matches**: This result indicates that traffic is coming in to on-premises but isn't returning to Azure. Work with your provider to find out why traffic isn't being routed to Azure via your ExpressRoute circuit.
 * **One MSEE shows no matches, but the other shows good matches**: This result indicates that one MSEE isn't receiving or passing any traffic. It might be offline (for example, BGP/ARP is down).
+  * You can run additional testing to confirm the unhealthy path by advertising a unique /32 on-premises route over the BGP session on this path. 
+  * Run "Test your private peering connectivity" using the unique /32 advertised as the on-premise destination address and reveiw the results to confirm the path health. 
 
 Your test results for each MSEE device look like the following example:
 

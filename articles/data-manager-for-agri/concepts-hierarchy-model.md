@@ -5,7 +5,7 @@ author: gourdsay
 ms.author: angour
 ms.service: data-manager-for-agri
 ms.topic: conceptual
-ms.date: 02/14/2023
+ms.date: 08/22/2023
 ms.custom: template-concept
 ---
 
@@ -26,14 +26,14 @@ To generate actionable insights data related to growers, farms, and fields shoul
 
 ### Farm
 * Farms are logical entities. A farm is a collection of fields. 
-* Farms don't have any geometry associated with them. Farm entity helps you organize your growing operations. For example Contoso Inc is the Party that has farms in Oregon and Idaho.
+* Farms don't have any geometry associated with them. Farm entity helps you organize your growing operations. For example, Contoso Inc is the Party that has farms in Oregon and Idaho.
 
 ### Field
 * Fields denote a stable geometry that is in general agnostic to seasons and other temporal constructs. For example, field could be the geometry denoted in government records.
 * Fields are multi-polygon. For example, a road might divide the farm in two or more parts.
 
 ### Seasonal field
-* This is the most important construct in the farming world. A seasonal fields definition includes the following things
+* Seasonal field is the most important construct in the farming world. A seasonal fields definition includes the following things
      * geometry
      * Season 
      * Crop
@@ -43,7 +43,7 @@ To generate actionable insights data related to growers, farms, and fields shoul
 * It's multi-polygon. Same crop can be planted in different areas within the farm.
 
 ### Season
-* Season represents the temporal aspect of farming. It is a function of local agronomic practices, procedures and weather.
+* Season represents the temporal aspect of farming. It's a function of local agronomic practices, procedures and weather.
 
 ### Crop
 * Crop entity provides the phenotypic details of the planted crop.

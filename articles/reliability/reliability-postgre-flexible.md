@@ -201,7 +201,6 @@ Application downtime starts at step #3 and can resume operation post step #5. Th
 
 > [!TIP]  
 > With flexible server, you can optionally schedule Azure-initiated maintenance activities by choosing a 60-minute window on a day of your preference where the activities on the databases are expected to be low. Azure maintenance tasks such as patching or minor version upgrades would happen during that window. If you don't choose a custom window, a system allocated 1-hr window between 11 pm - 7 am local time is selected for your server.
-
 > These Azure-initiated maintenance activities are also performed on the standby replica for flexible servers that are configured with availability zones.
 
 For a list of possible planned downtime events, see [Planned downtime events](/azure/postgresql/flexible-server/concepts-business-continuity#planned-downtime-events)
