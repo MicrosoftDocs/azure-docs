@@ -1,6 +1,6 @@
 ---
 title: Provisioning logs in Azure Active Directory
-description: Overview of the provisioning logs in Azure Active Directory.
+description: Learn about the information included in the provisioning logs in Azure Active Directory.
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -8,10 +8,9 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 06/16/2023
+ms.date: 08/24/2023
 ms.author: sarahlipsey
 ms.reviewer: arvinh
-ms.collection: M365-identity-device-management
 ---
 # Provisioning logs in Azure Active Directory
 
@@ -50,15 +49,18 @@ Application owners can view logs for their own applications. The following roles
 - Global Administrator
 - Users in a custom role with the [provisioningLogs permission](../roles/custom-enterprise-app-permissions.md#full-list-of-permissions)
 
-To access the provisioning log data, you have the following options:
+There are several ways to view or analyze the Provisioning logs:
 
-- Select **Provisioning logs** from the **Monitoring** section of Azure AD.
+- View in the Azure portal.
+- Stream logs to [Azure Monitor](../app-provisioning/application-provisioning-log-analytics.md) through Diagnostic settings.
+- Analyze logs through [Workbook](howto-use-workbooks.md) templates.
+- Access logs programmatically through the [Microsoft Graph API](/graph/api/resources/provisioningobjectsummary).
+- [Download the logs](howto-download-logs.md) as a CSV or JSON file.
 
-- Stream the provisioning logs into [Azure Monitor](../app-provisioning/application-provisioning-log-analytics.md). This method allows for extended data retention and building custom dashboards, alerts, and queries.
+To access the logs in the Azure portal:
 
-- Query the [Microsoft Graph API](/graph/api/resources/provisioningobjectsummary) for the provisioning logs.
-
-- Download the provisioning logs as a CSV or JSON file.
+1. Sign in to the [Azure portal](https://portal.azure.com) using the Reports Reader role.
+1. Browse to **Azure Active Directory** > **Monitoring** > **Provisioning logs**.
 
 ## View the provisioning logs
 
@@ -77,7 +79,7 @@ This area enables you to display more fields or remove fields that are already d
 
 ## Filter the results
 
-When you filter your provisioning data, some filter values are dynamically populated based on your tenant. For example, if you don't have any "create" events in your tenant, there won't be a **Create** filter option.
+When you filter your provisioning data, some filter values are dynamically populated based on your tenant. For example, if you don't have any "create" events in your tenant, the\= **Create** filter option isn't available.
 
 The **Identity** filter enables you to specify the name or the identity that you care about. This identity might be a user, group, role, or other object. 
 
@@ -147,7 +149,7 @@ When you select an item in the provisioning list view, you get more details abou
 
 ## Download logs as CSV or JSON
 
-You can download the provisioning logs for later use by going to the logs in the Azure portal and selecting **Download**. The file will be filtered based on the filter criteria you've selected. Make the filters as specific as possible to reduce the size and time of the download. 
+You can download the provisioning logs for later use by going to the logs in the Azure portal and selecting **Download**. The results are filtered based on the filter criteria you've selected. Make the filters as specific as possible to reduce the size and time of the download. 
 
 The CSV download includes three files:
 
@@ -163,7 +165,7 @@ The JSON file is downloaded in minified format to reduce the size of the downloa
 
 - Use [Visual Studio Code to format the JSON](https://code.visualstudio.com/docs/languages/json#_formatting).
 
-- Use PowerShell to format the JSON. This script will output the JSON in a format that includes tabs and spaces: 
+- Use PowerShell to format the JSON. This script produces a JSON output in a format that includes tabs and spaces: 
 
   ` $JSONContent = Get-Content -Path "<PATH TO THE PROVISIONING LOGS FILE>" | ConvertFrom-JSON`
 
@@ -199,7 +201,7 @@ Here are some tips and considerations for provisioning reports:
 
 - You can use the change ID attribute as unique identifier, which can be helpful when you're interacting with product support, for example.
 
-- You might see skipped events for users who aren't in scope. This behavior is expected, especially when the sync scope is set to all users and groups. The service will evaluate all the objects in the tenant, even the ones that are out of scope. 
+- You might see skipped events for users who aren't in scope. This behavior is expected, especially when the sync scope is set to all users and groups. The service evaluates all the objects in the tenant, even the ones that are out of scope. 
 
 - The provisioning logs don't show role imports (applies to AWS, Salesforce, and Zendesk). You can find the logs for role imports in the audit logs. 
 
@@ -210,24 +212,24 @@ Use the following table to better understand how to resolve errors that you find
 |Error code|Description|
 |---|---|
 |Conflict,<br>EntryConflict|Correct the conflicting attribute values in either Azure AD or the application. Or, review your matching attribute configuration if the conflicting user account was supposed to be matched and taken over. Review the [documentation](../app-provisioning/customize-application-attributes.md) for more information on configuring matching attributes.|
-|TooManyRequests|The target app rejected this attempt to update the user because it's overloaded and receiving too many requests. There's nothing to do. This attempt will automatically be retired. Microsoft has also been notified of this issue.|
-|InternalServerError |The target app returned an unexpected error. A service issue with the target application might be preventing it from working. This attempt will automatically be retried in 40 minutes.|
+|TooManyRequests|The target app rejected this attempt to update the user because it's overloaded and receiving too many requests. There's nothing to do. This attempt is automatically retired. Microsoft has also been notified of this issue.|
+|InternalServerError |The target app returned an unexpected error. A service issue with the target application might be preventing it from working. This attempt is automatically retried in 40 minutes.|
 |InsufficientRights,<br>MethodNotAllowed,<br>NotPermitted,<br>Unauthorized| Azure AD authenticated with the target application but wasn't authorized to perform the update. Review any instructions that the target application has provided, along with the respective application [tutorial](../saas-apps/tutorial-list.md).|
 |UnprocessableEntity|The target application returned an unexpected response. The configuration of the target application might not be correct, or a service issue with the target application might be preventing it from working.|
-|WebExceptionProtocolError |An HTTP protocol error occurred in connecting to the target application. There's nothing to do. This attempt will automatically be retried in 40 minutes.|
-|InvalidAnchor|A user that was previously created or matched by the provisioning service no longer exists. Ensure that the user exists. To force a new matching of all users, use the Microsoft Graph API to [restart the job](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta&preserve-view=true). <br><br>Restarting provisioning will trigger an initial cycle, which can take time to complete. Restarting provisioning also deletes the cache that the provisioning service uses to operate. That means all users and groups in the tenant will have to be evaluated again, and certain provisioning events might be dropped.|
+|WebExceptionProtocolError |An HTTP protocol error occurred in connecting to the target application. There's nothing to do. This attempt is automatically retried in 40 minutes.|
+|InvalidAnchor|A user that was previously created or matched by the provisioning service no longer exists. Ensure that the user exists. To force a new matching of all users, use the Microsoft Graph API to [restart the job](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta&preserve-view=true). <br><br>Restarting provisioning triggers an initial cycle, which can take time to complete. Restarting provisioning also deletes the cache that the provisioning service uses to operate. That means all users and groups in the tenant must be evaluated again, and certain provisioning events might be dropped.|
 |NotImplemented | The target app returned an unexpected response. The configuration of the app might not be correct, or a service issue with the target app might be preventing it from working. Review any instructions that the target application has provided, along with the respective application [tutorial](../saas-apps/tutorial-list.md). |
 |MandatoryFieldsMissing,<br>MissingValues |The user couldn't be created because required values are missing. Correct the missing attribute values in the source record, or review your matching attribute configuration to ensure that the required fields aren't omitted. [Learn more](../app-provisioning/customize-application-attributes.md) about configuring matching attributes.|
 |SchemaAttributeNotFound |The operation couldn't be performed because an attribute was specified that doesn't exist in the target application. See the [documentation](../app-provisioning/customize-application-attributes.md) on attribute customization and ensure that your configuration is correct.|
-|InternalError |An internal service error occurred within the Azure AD provisioning service. There's nothing to do. This attempt will automatically be retried in 40 minutes.|
+|InternalError |An internal service error occurred within the Azure AD provisioning service. There's nothing to do. This attempt is automatically retired in 40 minutes.|
 |InvalidDomain |The operation couldn't be performed because an attribute value contains an invalid domain name. Update the domain name on the user or add it to the permitted list in the target application. |
-|Timeout |The operation couldn't be completed because the target application took too long to respond. There's nothing to do. This attempt will automatically be retried in 40 minutes.|
+|Timeout |The operation couldn't be completed because the target application took too long to respond. There's nothing to do. This attempt is automatically retried in 40 minutes.|
 |LicenseLimitExceeded|The user couldn't be created in the target application because there are no available licenses for this user. Procure more licenses for the target application. Or, review your user assignments and attribute mapping configuration to ensure that the correct users are assigned with the correct attributes.|
 |DuplicateTargetEntries  |The operation couldn't be completed because more than one user in the target application was found with the configured matching attributes. Remove the duplicate user from the target application, or [reconfigure your attribute mappings](../app-provisioning/customize-application-attributes.md).|
 |DuplicateSourceEntries | The operation couldn't be completed because more than one user was found with the configured matching attributes. Remove the duplicate user, or [reconfigure your attribute mappings](../app-provisioning/customize-application-attributes.md).|
 |ImportSkipped | When each user is evaluated, the system tries to import the user from the source system. This error commonly occurs when the user who's being imported is missing the matching property defined in your attribute mappings. Without a value present on the user object for the matching attribute, the system can't evaluate scoping, matching, or export changes. The presence of this error doesn't indicate that the user is in scope, because you haven't yet evaluated scoping for the user.|
 |EntrySynchronizationSkipped | The provisioning service has successfully queried the source system and identified the user. No further action was taken on the user and they were skipped. The user might have been out of scope, or the user might have already existed in the target system with no further changes required.|
-|SystemForCrossDomainIdentity<br>ManagementMultipleEntriesInResponse| A GET request to retrieve a user or group received multiple users or groups in the response. The system expects to receive only one user or group in the response. For example, if you do a [GET Group request](../app-provisioning/use-scim-to-provision-users-and-groups.md#get-group) to retrieve a group, provide a filter to exclude members, and your System for Cross-Domain Identity Management (SCIM) endpoint returns the members, you'll get this error.|
+|SystemForCrossDomainIdentity<br>ManagementMultipleEntriesInResponse| A GET request to retrieve a user or group received multiple users or groups in the response. The system expects to receive only one user or group in the response. For example, if you do a [GET Group request](../app-provisioning/use-scim-to-provision-users-and-groups.md#get-group) to retrieve a group, provide a filter to exclude members, and your System for Cross-Domain Identity Management (SCIM) endpoint returns the members, this error appears.|
 |SystemForCrossDomainIdentity<br>ManagementServiceIncompatible|The Azure AD provisioning service is unable to parse the response from the third party application. Work with the application developer to ensure that the SCIM server is compatible with the [Azure AD SCIM client](../app-provisioning/use-scim-to-provision-users-and-groups.md#understand-the-azure-ad-scim-implementation).|
 |SchemaPropertyCanOnlyAcceptValue|The property in the target system can only accept one value, but the property in the source system has multiple. Ensure that you either map a single-valued attribute to the property that is throwing an error, update the value in the source to be single-valued, or remove the attribute from the mappings.|
 
