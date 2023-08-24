@@ -56,7 +56,11 @@ In this tutorial, Site Recovery automatically downloads and installs MySQL to th
 In your source environment, you need a single, highly available, on-premises machine to host these on-premises Site Recovery components:
 
 * **Configuration server**: This server coordinates communications between the Azure VMware Solution private cloud and Azure. It also manages data replication.
-* **Process server**: This server acts as a replication gateway. It receives replication data; optimizes it with caching, compression, and encryption; and sends it to a cache storage account in Azure. The process server also installs the Mobility Service agent on VMs that you want to replicate, and it performs automatic discovery of Azure VMware Solution VMs.
+* **Process server**: This server acts as a replication gateway. It does these tasks:
+
+  * Receives replication data, optimizes the data (with caching, compression, and encryption), and sends the data to a cache storage account in Azure.
+  * Installs the Mobility Service agent on VMs that you want to replicate.
+  * Performs automatic discovery of Azure VMware Solution VMs.
 * **Master target server**: This server handles replication data during failback from Azure.
 
 All of these components are installed together on a single Azure VMware Solution machine that's known as the *configuration server*. By default, for Azure VMware Solution disaster recovery, you set up the configuration server as a highly available VMware vSphere VM. To do this, you download a prepared Open Virtualization Application (OVA) template that's based on Open Virtualization Format (OVF). Then, you import the template into VMware vCenter Server to create the VM.
@@ -130,7 +134,7 @@ Finish setting up and registering the configuration server:
    1. Enter the fully qualified domain name (FQDN) or IP address of the VMware vCenter server that contains the VMs that you want to replicate.
    1. Enter the port on which the server is listening.
    1. Enter a friendly name to be used for the VMware vCenter server in the vault.
-1. Enter user credentials that the configuration server will use to connect to the VMware vCenter server. 
+1. Enter user credentials that the configuration server will use to connect to the VMware vCenter server.
 
    Ensure that the user name and password are correct. Also ensure that the user is a part of the Administrators group of the virtual machine to be protected. Azure Site Recovery uses these credentials to automatically discover VMware vSphere VMs that are available for replication.
 
@@ -141,7 +145,7 @@ Finish setting up and registering the configuration server:
 1. Select **Finalize configuration**.
 1. After registration finishes, open the Azure portal and verify that the configuration server and VMware server are listed on **Recovery Services Vault** > **Manage** > **Site Recovery Infrastructure** > **Configuration Servers**.
 
-After the configuration server is registered, Site Recovery connects to teh VMware vCenter server by using the specified settings, and it discovers VMs.
+After the configuration server is registered, Site Recovery connects to the VMware vCenter server by using the specified settings, and it discovers VMs.
 
 > [!NOTE]
 > It can take 15 minutes or more for the account name to appear in the portal. To update immediately, select **Configuration Servers**, select the server name, and then select **Refresh Server**.
@@ -153,7 +157,7 @@ Select and verify target resources:
 1. Select **Prepare infrastructure** > **Target**.
 2. Select the Azure subscription that you want to use. The example in this tutorial uses an Azure Resource Manager model.
 
-   Azure Site Recovery checks that you have one or more virtual networks. You should have these from setting up the Azure components in the [first tutorial](tutorial-prepare-azure.md) in this tutorial series.
+   Azure Site Recovery checks that you have one or more virtual networks. You should have these networks from setting up the Azure components in the [first tutorial](tutorial-prepare-azure.md) in this tutorial series.
 
    ![Screenshot of the pane for selecting and verifying a target virtual network.](./media/vmware-azure-tutorial/storage-network.png)
 

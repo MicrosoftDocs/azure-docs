@@ -80,9 +80,9 @@ In some scenarios, failover requires additional processing that takes around 8 t
 > [!WARNING]
 > Don't cancel a failover in progress. Before failover is started, VM replication stops. If you cancel a failover in progress, failover stops, but the VM won't replicate again.
 
-## Connect to failed-over VM
+## Connect to a failed-over VM
 
-If you want to connect to Azure VMs after failover by using Remote Desktop Protocol (RDP) and Secure Shell (SSH):
+If you want to connect to an Azure VM after failover by using Remote Desktop Protocol (RDP) and Secure Shell (SSH):
 
 1. Verify that you meet [the requirements](failover-failback-overview.md#connect-to-azure-after-failover).
 2. After failover, go to the VM and validate by [connecting](../virtual-machines/windows/connect-logon.md) to it.

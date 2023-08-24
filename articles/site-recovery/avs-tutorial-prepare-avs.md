@@ -70,7 +70,7 @@ Make sure that the VMware vCenter server and VMs comply with requirements:
 * Verify [VMware vCenter server requirements](vmware-physical-azure-support-matrix.md#on-premises-virtualization-servers).
 * For Linux VMs, check [file system and storage requirements](vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage).
 * Check [network](vmware-physical-azure-support-matrix.md#network) and [storage](vmware-physical-azure-support-matrix.md#storage) support.
-* Check what's supported for [Azure networking](vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover), [storage](vmware-physical-azure-support-matrix.md#azure-storage), and [compute](vmware-physical-azure-support-matrix.md#azure-compute), after failover.
+* Check what's supported for [Azure networking](vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover), [storage](vmware-physical-azure-support-matrix.md#azure-storage), and [compute](vmware-physical-azure-support-matrix.md#azure-compute) after failover.
 * Verify that the Azure VMware Solution VMs that you'll replicate to Azure comply with [Azure VM requirements](vmware-physical-azure-support-matrix.md#azure-vm-requirements).
 * For Linux VMs, ensure that no two devices or mount points have the same names. These names must be unique and aren't case-sensitive. For example, you can't name two devices for the same VM as *device1* and *Device1*.
 
@@ -78,9 +78,9 @@ Make sure that the VMware vCenter server and VMs comply with requirements:
 
 After failover, you might want to connect to the Azure VMs from your Azure VMware Solution network.
 
-### Connect to Windows VMs by using RDP
+### Connect to a Windows VM by using RDP
 
-Before failover, enable RDP on the Azure VMware Solution VM:
+Before failover, enable Remote Desktop Protocol (RDP) on the Azure VMware Solution VM:
 
 * For internet access:
   * Make sure that TCP and UDP rules are added for the **Public** profile.
@@ -91,7 +91,7 @@ Before failover, enable RDP on the Azure VMware Solution VM:
 
 There should be no Windows updates pending on the VM when you trigger a failover. If there are, you won't be able to sign in to the virtual   machine until the update finishes.
 
-On the Windows Azure VM after failover, check **Boot diagnostics** to view a screenshot of the VM. If you can't connect, check that the VM is running and review [troubleshooting tips](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
+After failover, check **Boot diagnostics** to view a screenshot of the VM. If you can't connect, check that the VM is running and review [troubleshooting tips](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 
 ### Connect to Linux VMs by using SSH
 
@@ -100,7 +100,7 @@ On the Azure VMware Solution VM before failover:
 * Check that the Secure Shell (SSH) service is set to start automatically on system startup.
 * Check that firewall rules allow an SSH connection.
 
-On the Azure VM after failover, allow incoming connections to the SSH port for the network security group rules on the failed-over VM, and for the Azure subnet to which it's connected. [Add a public IP address](./site-recovery-monitor-and-troubleshoot.md) for the VM.
+After failover, allow incoming connections to the SSH port for the network security group rules on the failed-over VM, and for the Azure subnet to which it's connected. [Add a public IP address](./site-recovery-monitor-and-troubleshoot.md) for the VM.
 
 You can check **Boot diagnostics** to view a screenshot of the VM.
 
@@ -113,4 +113,7 @@ If you plan to fail back to your Azure VMware Solution cloud, there are several 
 > [!div class="nextstepaction"]
 > [Set up disaster recovery](avs-tutorial-replication.md)
 
-* If you're replicating multiple VMs, [perform capacity planning](site-recovery-deployment-planner.md).
+If you're replicating multiple VMs:
+
+> [!div class="nextstepaction"]
+> [Perform capacity planning](site-recovery-deployment-planner.md)
