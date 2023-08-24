@@ -213,7 +213,7 @@ The following sample command creates a single volume in the Elastic SAN volume g
 > [!IMPORTANT]
 > The volume name is part of your volume's iSCSI Qualified Name, and can't be changed once created.
 
-Use the same variables you set for , then run the following script:
+Use the same variables, then run the following script:
 
 ```azurepowershell
 # Create the volume, this command only creates one.
