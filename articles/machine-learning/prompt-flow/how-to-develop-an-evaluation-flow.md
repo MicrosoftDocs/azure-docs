@@ -62,7 +62,7 @@ To create your evaluation method from scratch, select the  **"Create"** button o
 
 Then, you can see a template of evaluation flow containing two nodes: line_process and aggregate.
 
-:::image type="content" source="./media/how-to-develop-an-evaluation-flow/evaluation-template.png" alt-text="Screenshot of tiles from the Prompt flow gallery with the create button highlighted on evaluation flow. " lightbox = "./media/how-to-develop-an-evaluation-flow/evaluation-template.png":::
+:::image type="content" source="./media/how-to-develop-an-evaluation-flow/evaluation-template.png" alt-text="Screenshot of evaluation flow created with template. " lightbox = "./media/how-to-develop-an-evaluation-flow/evaluation-template.png":::
 
 ## Understand evaluation in Prompt flow
 
@@ -124,7 +124,7 @@ We calculate this score in `line_process` node, which you can create and edit fr
 
 When this evaluation method is used in a batch run, the instance-level score can be viewed in the **Overview ->Output** tab.
 
-:::image type="content" source="./media/how-to-develop-an-evaluation-flow/eval-output-bulk.png" alt-text="Screenshot of the output tab with GPT coherence highlighted. " lightbox = "./media/how-to-develop-an-evaluation-flow/eval-output-bulk.png":::
+:::image type="content" source="./media/how-to-develop-an-evaluation-flow/eval-output-bulk.png" alt-text="Screenshot of the output tab with evaluation result appended and highlighted. " lightbox = "./media/how-to-develop-an-evaluation-flow/eval-output-bulk.png":::
 
 #### Metrics logging and aggregation node
 
@@ -162,7 +162,7 @@ def calculate_accuracy(grades: List[str], variant_ids: List[str]):
 ```
 As you called this function in the Python node, you don't need to assign it anywhere else, and you can view the metrics later. When this evaluation method is used in a batch run, the instance-level score can be viewed in the **Ovewview->Metrics** tab.
 
-:::image type="content" source="./media/how-to-develop-an-evaluation-flow/eval-metrics-bulk.png" alt-text="Screenshot of the output tab with GPT coherence highlighted. " lightbox = "./media/how-to-develop-an-evaluation-flow/eval-metrics-bulk.png":::
+:::image type="content" source="./media/how-to-develop-an-evaluation-flow/eval-metrics-bulk.png" alt-text="Screenshot of the metrics tab that shows the metrics logged by log_metric. " lightbox = "./media/how-to-develop-an-evaluation-flow/eval-metrics-bulk.png":::
 
 
 ## Next steps
