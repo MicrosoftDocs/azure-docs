@@ -140,7 +140,11 @@
     - name: Azure PowerShell
       href: howto-connect-vnet-hub-powershell.md
   - name: Create a cross-tenant VNet connection
-    href: cross-tenant-vnet.md
+    items:
+    - name: Azure PowerShell
+      href: cross-tenant-vnet.md
+    - name: Azure CLI
+      href: cross-tenant-vnet-az-cli.md
   - name: ExpressRoute
     items:
     - name: Create an ExpressRoute association
