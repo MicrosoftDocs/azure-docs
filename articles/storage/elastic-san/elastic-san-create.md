@@ -24,6 +24,7 @@ This article explains how to deploy and configure an elastic storage area networ
 Register your subscription with Microsoft.ElasticSAN resource provider and the preview feature using the following command:
 
 # [Portal](#tab/azure-portal)
+If you are using the portal, follow the steps in either the Azure PowerShell module or the Azure CLI to register your subscription for the preview.
 
 # [PowerShell](#tab/azure-powershell)
 
