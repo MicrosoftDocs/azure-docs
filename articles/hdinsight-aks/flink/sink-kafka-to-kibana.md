@@ -301,9 +301,9 @@ Job has been submitted with JobID e0eba72d5143cea53bcf072335a4b1cb
 - Access Kibana at IP, which you have set earlier.
 - Configure an index pattern by clicking **Stack Management** in the left-side toolbar and find **Index Patterns**, then click **Create Index Pattern** and enter the full index name kafka_user_clicks to create the index pattern. 
 
-:::image type="content" source="./media/sink-kafka-to-kibana/kibana-index-pattern-setup.png" alt-text="Screenshot showing Kibana index pattern setup." lightbox="./media/sink-kafka-to-kibana/kibana-index-pattern-setup.png":::
+:::image type="content" source="./media/sink-kafka-to-kibana/kibana-index-pattern-setup.png" alt-text="Screenshot showing Kibana index pattern set up." lightbox="./media/sink-kafka-to-kibana/kibana-index-pattern-setup.png":::
 
-- Once the index pattern is setup, you can explore the data in Kibana
+- Once the index pattern is set up, you can explore the data in Kibana
     - Click "Discover" in the left-side toolbar.
       
       :::image type="content" source="./media/sink-kafka-to-kibana/kibana-discover.png" alt-text="Screenshot showing how to navigate to discover button." lightbox="./media/sink-kafka-to-kibana/kibana-discover.png":::
