@@ -41,7 +41,7 @@ In this article, you will learn how to:
 You can use symmetric keys or X.509 certificates to authenticate module identities. For X.509 certificate authentication, the module's certificate *must* have its common name (CN) formatted like `CN=<deviceid>/<moduleid>`. For example:
 
 ```bash
-openssl req -new -key d1m1.key.pm -out d1m1.csr -subj "/CN=device01\/module01"
+openssl req -new -key d1m1.key.pem -out d1m1.csr -subj "/CN=device01\/module01"
 ```
 
 ## Create a module identity in the portal
