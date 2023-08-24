@@ -1,5 +1,5 @@
 ---
-title: Use an Azure AD workload identities on Azure Kubernetes Service (AKS)
+title: Use an Azure AD workload identity on Azure Kubernetes Service (AKS)
 description: Learn about Azure Active Directory workload identity for Azure Kubernetes Service (AKS) and how to migrate your application to authenticate using this identity.  
 ms.topic: article
 ms.custom: build-2023
@@ -204,7 +204,7 @@ The following client libraries are the **minimum** version required.
 
 - You can only have 20 federated identity credentials per managed identity.
 - It takes a few seconds for the federated identity credential to be propagated after being initially added.
-- [Virtual nodes][aks-virtual-nodes] add on, based on the open source project [Virtual Kubelet][virtual-kubelet], is not supported.
+- [Virtual nodes][aks-virtual-nodes] add on, based on the open source project [Virtual Kubelet][virtual-kubelet], isn't supported.
 
 ## How it works
 
@@ -242,7 +242,7 @@ If you've used [Azure AD pod-managed identity][use-azure-ad-pod-identity], think
 
 ### Service account annotations
 
-All annotations are optional. If the annotation is not specified, the default value will be used.
+All annotations are optional. If the annotation isn't specified, the default value will be used.
 
 |Annotation |Description |Default |
 |-----------|------------|--------|
@@ -261,12 +261,12 @@ All annotations are optional. If the annotation is not specified, the default va
 
 ### Pod annotations
 
-All annotations are optional. If the annotation is not specified, the default value will be used.
+All annotations are optional. If the annotation isn't specified, the default value will be used.
 
 |Annotation |Description |Default |
 |-----------|------------|--------|
 |`azure.workload.identity/service-account-token-expiration` |Represents the `expirationSeconds` field for the projected service account token. It's an optional field that you configure to prevent any downtime caused by errors during service account token refresh. Kubernetes service account token expiry isn't correlated with Azure AD tokens. Azure AD tokens expire in 24 hours after they're issued. <sup>1</sup> |3600<br> Supported range is 3600-86400. |
-|`azure.workload.identity/skip-containers` |Represents a semi-colon-separated list of containers to skip adding projected service account token volume. For example `container1;container2`. |By default, the projected service account token volume is added to all containers if the service account is labeled with `azure.workload.identity/use: true`. |
+|`azure.workload.identity/skip-containers` |Represents a semi-colon-separated list of containers to skip adding projected service account token volume. For example, `container1;container2`. |By default, the projected service account token volume is added to all containers if the service account is labeled with `azure.workload.identity/use: true`. |
 |`azure.workload.identity/inject-proxy-sidecar` |Injects a proxy init container and proxy sidecar into the pod. The proxy sidecar is used to intercept token requests to IMDS and acquire an Azure AD token on behalf of the user with federated identity credential. |true |
 |`azure.workload.identity/proxy-sidecar-port` |Represents the port of the proxy sidecar. |8000 |
 
