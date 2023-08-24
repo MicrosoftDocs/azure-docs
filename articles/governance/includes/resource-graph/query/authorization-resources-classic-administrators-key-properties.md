@@ -3,7 +3,7 @@ ms.service: resource-graph
 ms.topic: include
 ms.date: 08/24/2023
 author: danielkim
-ms.author: danielk
+ms.author: danielkim
 ---
 
 ### Get classic administrators with key properties
