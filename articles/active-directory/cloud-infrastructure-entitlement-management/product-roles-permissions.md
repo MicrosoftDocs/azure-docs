@@ -47,7 +47,7 @@ See [Microsoft Entra ID built-in roles to learn more.](product-privileged-role-i
 ## Permissions Management actions and required roles
 
 Remediation
-- To view the Remediation tab, you must have *Viewer*, *Controller*, or *Approver* permissions.
+- To view the **Remediation** tab, you must have *Viewer*, *Controller*, or *Approver* permissions.
 - To make changes in the **Remediation** tab, you must have *Controller* or *Approver* permissions.
 
 Autopilot
