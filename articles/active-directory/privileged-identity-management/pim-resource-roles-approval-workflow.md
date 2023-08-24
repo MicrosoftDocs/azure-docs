@@ -35,18 +35,14 @@ As a delegated approver, you'll receive an email notification when an Azure reso
  1. Sign in to the [portal](https://portal.azure.com).
  2. Open **Azure AD Privileged Identity Management**.
  3. Select **Approve requests**.
-     :::image type="content" source="media/pim-resource-roles-approval-workflow/approve-1.png" alt-text="Screenshot of pending resource reqeusts." lightbox="media/pim-resource-roles-approval-workflow/approve-1.png":::
-
  4. In the **Requests for role activations** section, you'll see a list of requests pending your approval.
 
 ## Approve requests
 
  1. Find and select the request that you want to approve. An approve or deny page appears.     
-     :::image type="content" source="media/pim-resource-roles-approval-workflow/approve-1.png" alt-text="Screenshot of approve resource reqeusts." lightbox="media/pim-resource-roles-approval-workflow/approve-1.png":::
- 
  2. In the **Justification** box, enter the business justification.
  3. Select **Approve**. You will receive an Azure notification of your approval.
-      :::image type="content" source="media/azure-ad-pim-approval-workflow/approve-3.png" alt-text="Screenshot of resource approving." lightbox="media/azure-ad-pim-approval-workflow/approve-3.png":::
+
 
 ## Approve pending requests using Microsoft ARM API
 
@@ -86,8 +82,6 @@ For more information, see [Use Role Assignment Approvals to approve PIM role act
 ## Deny requests
 
  1. Find and select the request that you want to approve. An approve or deny page appears.     
-     :::image type="content" source="media/pim-resource-roles-approval-workflow/approve-1.png" alt-text="Screenshot of deny resource reqeusts." lightbox="media/pim-resource-roles-approval-workflow/approve-1.png":::
- 
  2. In the **Justification** box, enter the business justification.
  3. Select **Deny**. A notification appears with your denial.
 

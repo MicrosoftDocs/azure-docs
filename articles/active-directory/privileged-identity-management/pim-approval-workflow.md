@@ -32,8 +32,6 @@ As a delegated approver, you'll receive an email notification when an Azure AD r
  1. Sign in to the [Azure portal](https://portal.azure.com).
  2. Open **Azure AD Privileged Identity Management**.
  3. Select **Approve requests**.
-     :::image type="content" source="media/azure-ad-pim-approval-workflow/approve-1.png" alt-text="Screenshot of approving a reqeust." lightbox="media/azure-ad-pim-approval-workflow/approve-1.png":::
- 
  4. In the **Requests for role activations** section, you'll see a list of requests pending your approval.
 
 ## View pending requests using Microsoft Graph API
@@ -98,13 +96,8 @@ GET https://graph.microsoft.com/v1.0/roleManagement/directory/roleAssignmentSche
 >Approvers are not able to approve their own role activation requests.
 
  1. Find and select the request that you want to approve. An approve or deny page appears.
-     :::image type="content" source="media/azure-ad-pim-approval-workflow/approve-1.png" alt-text="Screenshot of approve and deny." lightbox="media/azure-ad-pim-approval-workflow/approve-1.png":::
-
  2. In the **Justification** box, enter the business justification.
-     :::image type="content" source="media/azure-ad-pim-approval-workflow/approve-2.png" alt-text="Screenshot of justification." lightbox="media/azure-ad-pim-approval-workflow/approve-2.png":::
-
  3. Select **Submit**. You will receive an Azure notification of your approval.
-     :::image type="content" source="media/azure-ad-pim-approval-workflow/approve-3.png" alt-text="Screenshot of approving." lightbox="media/azure-ad-pim-approval-workflow/approve-3.png":::
 
 ## Approve pending requests using Microsoft Graph API
 
@@ -163,11 +156,7 @@ Successful PATCH calls generate an empty response.
 ## Deny requests
 
  1. Find and select the request that you want to approve. An approve or deny page appears.
-     :::image type="content" source="media/azure-ad-pim-approval-workflow/approve-1.png" alt-text="Screenshot of deny." lightbox="media/azure-ad-pim-approval-workflow/approve-1.png":::
-
  2. In the **Justification** box, enter the business justification.
-     :::image type="content" source="media/azure-ad-pim-approval-workflow/deny-1.png" alt-text="Screenshot of deny justification." lightbox="media/azure-ad-pim-approval-workflow/deny-1.png":::
- 
  3. Select **Deny**. A notification appears with your denial.
 
 ## Workflow notifications
