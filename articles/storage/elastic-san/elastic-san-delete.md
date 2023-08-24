@@ -81,7 +81,7 @@ az elastic-san volume delete -e $sanName -g $resourceGroupName -v $volumeGroupNa
 ```
 ---
 
-To delete volume groups, run the below commands. Volume group deletion will fail if there are volumes with active iSCSI connections, i.e., it will clean up the volumes that don't have active connections but will fail upon encountering any volume that does.
+To delete volume groups, run the below commands.
 
 # [PowerShell](#tab/azure-powershell)
 
