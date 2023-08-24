@@ -11,7 +11,7 @@ ms.custom: ignite-2022, devx-track-azurecli, devx-track-azurepowershell
 
 # Delete an Elastic SAN Preview
 
-Your Elastic Storage Area Network (SAN) resources can be deleted at different resource levels. Here. we will be providing you with commands to delete all your resources at each level, starting from deleting iSCSI connections to volumes, to deleting the volumes themselves, to deleting a volume group, and finally, to delete the Elastic SAN itself. To start off with, we strongly recommend that before you delete your SAN, you disconnect every volume in your Elastic SAN Preview from any connected hosts so that all active connections are dropped.
+Your Elastic Storage Area Network (SAN) resources can be deleted at different resource levels. Here. we will be providing you with commands to delete all your resources at each level, starting from disconnecting iSCSI connections to volumes, to deleting the volumes themselves, to deleting a volume group, and finally, to delete the Elastic SAN itself. To start off with, we strongly recommend that before you delete your SAN, you disconnect every volume in your Elastic SAN Preview from any connected hosts so that all active connections are dropped.
 
 ## Disconnect volumes from clients
 
