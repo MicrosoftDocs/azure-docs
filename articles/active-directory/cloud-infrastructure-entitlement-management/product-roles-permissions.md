@@ -1,5 +1,5 @@
 ---
-title: Permissions Management required roles and permissions
+title: Permissions Management roles and permissions
 description: Review roles and the level of permissions assigned in Microsoft Entra Permissions Management.
 # customerintent: As a cloud administer, I want to understand Permissions Management role assignments, so that I can effectively assign the correct permissions to users.
 services: active-directory
