@@ -38,7 +38,7 @@ The following comparison matrix shows basic functionality of different tools tha
 | **SMB 3.0**       | Source | Source | Yes | Yes | Yes | Yes |
 | **SMB 3.1**       | Source/Destination (Azure Files SMB) | Source/Destination (Azure Files SMB) | Yes | Yes | Yes | Yes |
 | **NFS v3**        | Source/Destination (Azure Blob NFSv3)  | Source/Destination (Azure Blob NFSv3) | Yes | Yes | Yes | Yes |
-| **NFS v4.1**      | Source/Destination (Azure Files NFSv4.1) | Source | Yes | No | Yes | Yes |
+| **NFS v4.1**      | Source | Source | Yes | No | Yes | Yes |
 | **Blob REST API** | Yes  | Destination | No | Yes | Yes | Yes |
 | **S3**            | Source | No | Yes | Yes | Yes | Yes |
 | **Google Cloud Storage** | Source | No | Yes | Yes | Yes | Yes |
