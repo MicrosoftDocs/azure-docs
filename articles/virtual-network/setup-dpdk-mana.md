@@ -38,6 +38,13 @@ MANA DPDK requires the following set of drivers:
 1.	[DPDK MANA poll-mode driver](https://github.com/DPDK/dpdk/tree/main/drivers/net/mana) (DPDK 22.11 and later)
 1.	[Libmana user-space drivers](https://github.com/linux-rdma/rdma-core/tree/master/providers/mana) (rdma-core v44 and later)
 
+### Supported Marketplace Images
+A nonexhaustive list of images which have the requisite MANA patches for DPDK:
+- Red Hat Enterprise Linux 8.9
+- Red Hat Enterprise Linux 9.4
+- Canonical Ubuntu Server 20.04 (5.15.0-1045-azure)
+- Canonical Ubuntu Server 22.04 (5.15.0-1045-azure)
+
 >[!NOTE]
 >MANA DPDK is not available for Windows; it will only work on Linux VMs.
 
