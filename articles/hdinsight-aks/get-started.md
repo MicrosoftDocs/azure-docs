@@ -38,7 +38,7 @@ When you click on one of these templates, it launches Custom deployment page in 
 |Cluster Pool Node VM Size|From the drop-down list, select the virtual machine size for the cluster pool based on your requirement.|
 |Resource Prefix|Provide a prefix for creating necessary resources for cluster creation, resources are named as [prefix + predefined string].|
 |Cluster Name |Enter the name of the new cluster.|
-|HDInsight on AKS Version | Select the minor or patch version of the HDInsight on AKS of the new cluster. For more information, see [versioning](./versioning.md).|
+|HDInsight on AKS Version | Select the minor or patch version of the HDInsight on AKS of the new cluster. For more information, see [versioning](./versions.md).|
 |Cluster Node VM Size |Provide the VM size for the cluster. For example: Standard_D8ds_v5.|
 |Cluster OSS Version |Provide the cluster type supported OSS version in three part naming format. For example: Trino - 0.410.0, Flink - 1.16.0, Spark - 3.3.1|
 |Custom VNet Name |Provide custom virtual network to be associated with the cluster pool. It should be in the same resource group as your cluster pool. |
@@ -68,8 +68,7 @@ When you click on one of these templates, it launches Custom deployment page in 
 
    :::image type="content" source="./media/one-click-deployment/custom-deployment-complete.png" alt-text="Screenshot showing custom deployment complete.":::
    
-   :::image type="content" source="./media/portal-elements/notifications.png" alt-text="Screenshot showing notifications icon in the Azure portal.":::
-   
+     
 > [!TIP]
 >
 > For troubleshooting any deployment errors, you can refer this [page](./create-cluster-error-dictionary.md).

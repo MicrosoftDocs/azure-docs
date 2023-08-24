@@ -14,7 +14,7 @@ If you're using Azure subscription first time for HDInsight on AKS, the followin
 
 1. Sign in to [Azure portal](https://portal.azure.com).
    
-1. Click the Cloud Shell icon (:::image type="content" source="./media/portal-elements/cloud-shell.png" alt-text="Screenshot screenshot showing Cloud Shell icon.":::) at the top right, and select **PowerShell** or **Bash** as your environment depending on the command you use.
+1. Click the Cloud Shell icon at the top right, and select **PowerShell** or **Bash** as your environment depending on the command you use.
 
 At the next command prompt, enter each of the following commands:
 

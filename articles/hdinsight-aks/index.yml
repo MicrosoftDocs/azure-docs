@@ -22,7 +22,7 @@ landingContent:
           - text: What is HDInsight on AKS?
             url: overview.md
           - text: Versioning & Support
-            url: versioning.md   
+            url: versions.md   
           - text: Security
             url: concept-security.md
           - text: Azure Monitor integration
@@ -72,7 +72,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Create a Trino cluster
-            url: ./trino/trino-create-cluster-portal.md
+            url: ./trino/trino-create-cluster.md
       - linkListType: tutorial
         links:
           - text: Connect to a Hive Metastore
@@ -134,7 +134,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Submit and Manage Jobs
-            url: ./spark/submit-and-manage-jobs.md
+            url: ./spark/submit-manage-jobs.md
           - text: Library Management
             url: ./spark/library-management.md
           - text: Use ML Notebook on Spark

@@ -3,8 +3,8 @@ title: Configure SSL - Azure Database for MySQL
 description: Instructions for how to properly configure Azure Database for MySQL and associated applications to correctly use SSL connections
 ms.service: mysql
 ms.subservice: single-server
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.topic: how-to
 ms.devlang: csharp, golang, java, javascript, php, python, ruby
 ms.custom: devx-track-csharp

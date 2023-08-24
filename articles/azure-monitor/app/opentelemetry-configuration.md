@@ -258,8 +258,10 @@ The sampler expects a sample rate of between 0 and 1 inclusive. A rate of 0.1 me
 ```csharp
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddOpenTelemetry().UseAzureMonitor();
-builder.Services.Configure<ApplicationInsightsSamplerOptions>(options => { options.SamplingRatio = 0.1F; });
+builder.Services.AddOpenTelemetry().UseAzureMonitor(o =>
+{
+    o.SamplingRatio = 0.1F;
+});
 
 var app = builder.Build();
 
