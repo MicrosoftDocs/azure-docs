@@ -228,7 +228,7 @@ Keep in mind the following considerations when running your functions locally:
 
 + While there's local storage emulation available, it's often best to validate your triggers and bindings against live services in Azure. You can maintain the connections to these services in the local.settings.json project file. For more information, see [Local settings file](functions-develop-local.md#local-settings-file). Make sure to keep test and production data separate when testing against live Azure services. 
 
-+ You can trigger non-HTTP functions locally without connecting to a live service. For more information, see [Pass data to local functions](./functions-run-local.md?tabs=non-http-trigger#pass-data-to-local-functions).
++ You can trigger non-HTTP functions locally without connecting to a live service. For more information, see [Run a local function](./functions-run-local.md?tabs=non-http-trigger#run-a-local-function).
 
 + When you include your Application Insights connection information in the local.settings.json file, local log data is written to the specific Application Insights instance. To keep local telemetry data separate from production data, consider using a separate Application Insights instance for development and testing.
 ::: zone pivot="programming-language-csharp,programming-language-javascript"
