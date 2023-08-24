@@ -79,7 +79,7 @@ Flink clusters can be created once cluster pool deployment has been completed, l
    |History server CPU|Integer. Enter the number of CPUs for the Job manager (in cores).|
    |History server memory in MB | Enter the memory size in MB. Minimum of 1800 MB.|
 
-   :::image type="content" source="./media/create-flink-cluster/flink-config-page.png" alt-text="screenshot showing configurations tab.":::
+   :::image type="content" source="./media/create-flink-cluster/flink-configuration-page.png" alt-text="screenshot showing configurations tab.":::
 
      > [!NOTE]
      > * History server can be enabled/disabled as required.
