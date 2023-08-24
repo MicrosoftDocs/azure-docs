@@ -20,7 +20,7 @@ Azure Active Directory (Azure AD) audit logs collect all traceable activities wi
 
 This article provides a comprehensive list of the audit categories and their related activities. Use the "In this article" section to jump to a specific audit category. 
 
-Audit log activities and categories change periodically. The tables are updated regularly, but may not be in sync with what is available in Azure AD. Provide us feedback if you think there's a missing audit category or activity.
+Audit log activities and categories change periodically. The tables are updated regularly, but may not be in sync with what is available in Azure AD. Provide us with feedback if you think there's a missing audit category or activity.
 
 1. Sign in to the **Azure portal** using one of the [required roles](concept-audit-logs.md).
 1. Browse to **Azure Active Directory** > **Audit logs**.
@@ -73,7 +73,7 @@ With [Azure AD Identity Governance access reviews](../governance/manage-user-acc
 
 ## Account provisioning
 
-Each time an account is provisioned in your Azure AD tenant, a log for that account is captured. Automated provisioning, such as with [Azure AD Connect cloud sync](../hybrid/cloud-sync/what-is-cloud-sync.md), will be found in this log. The Account provisioning service only has one audit category in the logs.
+Each time an account is provisioned in your Azure AD tenant, a log for that account is captured. Automated provisioning, such as with [Azure AD Connect cloud sync](../hybrid/cloud-sync/what-is-cloud-sync.md), is found in this log. The Account provisioning service only has one audit category in the logs.
 
 |Audit Category|Activity|
 |---|---|
@@ -218,7 +218,7 @@ This set of audit logs is related to [B2C](../../active-directory-b2c/overview.m
 |ApplicationManagement|Retrieve V2 application service principals|
 |ApplicationManagement|Update V2 application|
 |ApplicationManagement|Update V2 application permission grant|
-|Authentication|A self-service sign up request was completed|
+|Authentication|A self-service sign-up request was completed|
 |Authentication|An API was called as part of a user flow|
 |Authentication|Delete all available strong authentication devices|
 |Authentication|Evaluate Conditional Access policies|
