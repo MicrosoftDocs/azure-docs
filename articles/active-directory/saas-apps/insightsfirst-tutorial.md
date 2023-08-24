@@ -107,7 +107,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 ## Configure Insightsfirst SSO
 
-To configure single sign-on on **Insightsfirst** side, you need to send the **Thumbprint Value** and appropriate copied URLs from Azure portal to [Insightsfirst support team](insightsfirst.support@evalueserve.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Insightsfirst** side, you need to send the **Thumbprint Value** and appropriate copied URLs from Azure portal to [Insightsfirst support team](mailto:insightsfirst.support@evalueserve.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Insightsfirst test user
 
