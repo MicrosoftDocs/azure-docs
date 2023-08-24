@@ -54,7 +54,7 @@ In this section, you create a virtual network and the subnet that you delegate t
 
 # [**Portal**](#tab/manage-subnet-delegation-portal)
 
-[!INCLUDE [virtual-network-create.md](../../includes/virtual-network-create.md)]
+[!INCLUDE [virtual-network-create-tabs.md](../../includes/virtual-network-create-tabs.md)]
 
 # [**PowerShell**](#tab/manage-subnet-delegation-powershell)
 
