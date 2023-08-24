@@ -16,7 +16,7 @@ This article explains different factors that affect the test suite completion, a
 
 A key factor that influences the time it takes to complete a test suite, is the size of the test suite. The test suite size is determined by the number of tests times the number of browser and operating system combinations. For example, if you have 100 tests that you want to run across 3 browsers, and 2 operating systems, you end up with 100 * 3 * 2 = 600 tests runs.
 
-Playwright supports running multiple tests in parallel by using *workers*. With Microsoft Playwright Testing, you can further scale your test suite to run on cloud-hosted browser. By using parallelization, you can shorten the overall time to complete all tests in the test suite.
+Playwright supports running multiple tests in parallel by using *workers*. With Microsoft Playwright Testing, you can further scale your test suite to run on cloud-hosted, remote browsers. By using parallelization, you can shorten the overall time to complete all tests in the test suite.
 
 You might be tempted to run your test suite across as many parallel workers as possible to minize the test suite completion time. However, adding more parallel workers doesn't always result in a shorter test completion. There are multiple factors that influence the test suite duration, and that might limit the performance gains of adding more parallelization. Specifically, the computing resources of the client machine that runs the Playwright test code, can have a significant affect.
 
@@ -30,7 +30,7 @@ Other factors that might influence the test completion time are:
 
 - The target application's load-handling capacity
 - The complexity of the test code
-- The latency between the client machine and the cloud-hosted browsers
+- The latency between the client machine and the cloud-hosted, remote browsers
 - The Playwright configuration settings, such as timeouts, retries, or tracing
 
 
