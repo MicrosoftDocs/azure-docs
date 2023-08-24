@@ -40,9 +40,9 @@ An SBC is considered healthy if statistics at the moment of sending the call sho
 
 When a call is made, the following logic applies:
 
-- The SBC was paired at 11:00 AM.  
-- The SBC sends options at 11:01 AM, 11:02 AM, and so on.  
-- At 11:15, a user makes a call and the routing mechanism selects this SBC.
+- The SBC was paired at 10:00 AM.  
+- The SBC sends options at 10:01 AM, 10:02 AM, and so on.  
+- At 10:15, a user makes a call and the routing mechanism selects this SBC.
 
 Direct routing takes the regular interval OPTIONS three times (the regular interval is one minute). If OPTIONS were sent during the last three minutes, the SBC is considered healthy.
 
@@ -50,7 +50,8 @@ If the SBC in the example sent OPTIONS at any period between 11:12 AM and 11:15 
 
 Demotion means that the SBC isn't tried first. For example, we have `sbc.contoso.com` and `sbc2.contoso.com` with equal priority.  
 
-If `sbc1.contoso.com` doesn't send SIP OPTIONS on a regular interval as previously described, it's demoted. Next, `sbc2.contoso.com` tries for the call. If `sbc2.contoso.com` can't deliver the call, the `sbc1.contoso.com` (demoted) is tried again before a failure is generated. 
+If `sbc.contoso.com` doesn't send SIP OPTIONS on a regular interval as previously described, it's demoted. Next, `sbc2.contoso.com` tries for the call. If `sbc2.contoso.com` can't deliver the call because of the error codes 408, 503, or 504, the `sbc.contoso.com` (demoted) is tried again before a failure is generated. 
+If both `sbc.contoso.com` and `sbc2.contoso.com` don't send options, `sbc3.contoso.com` is tried.
 
 If two (or more) SBCs in one route are considered healthy and equal, Fisher-Yates shuffle is applied to distribute the calls between the SBCs.
 
