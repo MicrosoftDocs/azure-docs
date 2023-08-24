@@ -580,7 +580,7 @@ Next, create the HANA resources:
 > For existing Pacemaker clusters, if your configuration was already changed to use `socat` as described in [Azure Load Balancer Detection Hardening](https://www.suse.com/support/kb/doc/?id=7024128), you don't need to immediately switch to the `azure-lb` resource agent.
 
 > [!NOTE]
-> This article contains references to the terms *master* and *slave*, terms that Microsoft no longer uses. When these terms are removed from the software, we'll remove them from this article.
+> This article contains references to terms that Microsoft no longer uses. When these terms are removed from the software, we'll remove them from this article.
 
 ```bash
 # Replace <placeholders> with your instance number, HANA system ID, and the front-end IP address of the Azure load balancer. 

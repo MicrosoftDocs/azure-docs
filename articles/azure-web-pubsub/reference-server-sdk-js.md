@@ -82,7 +82,7 @@ const serviceClient = new WebPubSubServiceClient(
 );
 ```
 
-Or authenticate the `WebPubSubServiceClient` using [Azure Active Directory][aad_doc]
+Or authenticate the `WebPubSubServiceClient` using [Microsoft Entra ID][microsoft_entra_id_doc]
 
 1. Install the `@azure/identity` dependency
 
@@ -427,7 +427,7 @@ For more detailed instructions on how to enable logs, see [@azure/logger package
 
 Use **Live Trace** from the Web PubSub service portal to view the live traffic.
 
-[aad_doc]: howto-authorize-from-application.md
+[microsoft_entra_id_doc]: howto-authorize-from-application.md
 [azure_sub]: https://azure.microsoft.com/free/
 [samples_ref]: https://github.com/Azure/azure-webpubsub/tree/main/samples/javascript/
 

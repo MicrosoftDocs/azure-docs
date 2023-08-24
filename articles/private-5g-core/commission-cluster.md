@@ -80,10 +80,6 @@ Once you've run this command, you should see an updated option in the local UI â
 
 :::image type="content" source="media/commission-cluster/commission-cluster-kubernetes-preview.png" alt-text="Screenshot of configuration menu, with Kubernetes (Preview) highlighted.":::
 
-Select the **This Kubernetes cluster is for Azure Private 5G Core or SAP Digital Manufacturing Cloud workloads** checkbox.
-
-:::image type="content" source="media/commission-cluster/commission-cluster-checkbox.png" alt-text="Screenshot of the local UI with AP5GC configuration selected.":::
-
 If you go to the Azure portal and navigate to your **Azure Stack Edge** resource, you should see an **Azure Kubernetes Service** option. You'll set up the Azure Kubernetes Service in [Start the cluster and set up Arc](#start-the-cluster-and-set-up-arc).
 
 :::image type="content" source="media/commission-cluster/commission-cluster-ase-resource.png" alt-text="Screenshot of Azure Stack Edge resource in the Azure portal. Azure Kubernetes Service (PREVIEW) is shown under Edge services in the left menu.":::

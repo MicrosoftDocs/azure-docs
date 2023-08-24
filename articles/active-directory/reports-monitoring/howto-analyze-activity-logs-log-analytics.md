@@ -8,11 +8,9 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 06/26/2023
+ms.date: 08/24/2023
 ms.author: sarahlipsey
 ms.reviewer: besiler
-
-ms.collection: M365-identity-device-management
 ---
 
 # Analyze Azure AD activity logs with Log Analytics
@@ -45,9 +43,9 @@ To view the Azure AD Log Analytics, you must already be sending your activity lo
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com) using the appropriate least privilege role. 
 
-1. Go to **Azure Active Directory** > **Log Analytics**. A default search query runs.
+1. Browse to **Azure Active Directory** > **Monitoring** > **Log Analytics**. A default search query runs.
 
     ![Default query](./media/howto-analyze-activity-logs-log-analytics/defaultquery.png)
 

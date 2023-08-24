@@ -245,7 +245,7 @@ Use the following commands to restore data on your OT network sensor using the m
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
 |**support**     |   `system restore`      |   No attributes      |
-|**cyberx**, or **support** with [root access](references-work-with-defender-for-iot-cli-commands.md#access-the-system-root-as-a-support-user)     |   ` cyberx-xsense-system-restore`      |   No attributes      |
+|**cyberx**, or **support** with [root access](references-work-with-defender-for-iot-cli-commands.md#access-the-system-root-as-a-support-user)   |   ` cyberx-xsense-system-restore`      |   `-f` `<filename>`      |
 
 
 For example, for the *support* user:
