@@ -2,7 +2,7 @@
 author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/15/2022
+ms.date: 08/25/2023
 ms.author: eur
 ---
 
@@ -134,24 +134,24 @@ Follow these steps to create a new GO module.
     }
     ```
 
-1. To change the speech synthesis language, replace `en-US-JennyNeural` with another [supported voice](~/articles/ai-services/speech-service/language-support.md#prebuilt-neural-voices). All neural voices are multilingual and fluent in their own language and English. For example, if the input text in English is "I'm excited to try text to speech" and you set `es-ES-ElviraNeural`, the text is spoken in English with a Spanish accent. If the voice does not speak the language of the input text, the Speech service won't output synthesized audio.
+1. To change the speech synthesis language, replace `en-US-JennyNeural` with another [supported voice](~/articles/ai-services/speech-service/language-support.md#prebuilt-neural-voices). All neural voices are multilingual and fluent in their own language and English. For example, if the input text in English is "I'm excited to try text to speech" and you set `es-ES-ElviraNeural`, the text is spoken in English with a Spanish accent. If the voice doesn't speak the language of the input text, the Speech service doesn't output synthesized audio.
 
-Run the following commands to create a `go.mod` file that links to components hosted on GitHub:
+1. Run the following commands to create a `go.mod` file that links to components hosted on GitHub:
 
-```cmd
-go mod init speech-synthesis
-go get github.com/Microsoft/cognitive-services-speech-sdk-go
-```
+   ```cmd
+   go mod init speech-synthesis
+   go get github.com/Microsoft/cognitive-services-speech-sdk-go
+   ```
 
-> [!IMPORTANT]
-> Make sure that you set the `SPEECH_KEY` and `SPEECH_REGION` environment variables as described [above](#set-environment-variables). If you don't set these variables, the sample will fail with an error message.
+   > [!IMPORTANT]
+   > Make sure that you set the `SPEECH_KEY` and `SPEECH_REGION` environment variables as described in [Set environment variables](#set-environment-variables). If you don't set these variables, the sample fails with an error message.
 
-Now build and run the code:
+1. Now build and run the code:
 
-```cmd
-go build
-go run speech-synthesis
-```
+   ```cmd
+   go build
+   go run speech-synthesis
+   ```
 
 ## Clean up resources
 

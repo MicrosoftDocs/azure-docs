@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 09/16/2022
+ms.date: 08/25/2023
 ms.author: eur
 ms.devlang: cpp, csharp, golang, java, javascript, objective-c, python
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020, mode-other, devx-track-extended-java, devx-track-go

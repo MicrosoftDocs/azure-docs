@@ -2,7 +2,7 @@
 author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 06/06/2023
+ms.date: 08/25/2023
 ms.author: eur
 ---
 
