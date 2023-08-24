@@ -1,15 +1,15 @@
 ---
-title: 'Quickstart: Use Azure OpenAI Service with the Java SDK'
+title: 'Quickstart: Use Azure OpenAI Service with the Java SDK to generate images'
 titleSuffix: Azure OpenAI
-description: Walkthrough on how to get started with Azure OpenAI and make your first chat completions call with the Java SDK. 
+description: Walkthrough on how to get started with Azure OpenAI and make your first image genration call with the Java SDK. 
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: include
-author: mrbullwinkle
-ms.author: mbullwin
-ms.date: 07/26/2023
+author: PatrickFarley
+ms.author: pafarley
+ms.date: 08/24/2023
 keywords: 
 ---
 
