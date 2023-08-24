@@ -26,7 +26,7 @@ You can customize the role claim in the access token that is received after an a
 - A user account that is assigned to the role. For more information, see [Quickstart: Create and assign a user account](../manage-apps/add-application-portal-assign-users.md).
 
 > [!NOTE]
-> This article explains how to create, update, or delete application roles on the service principal using APIs. To use the new user interface for App Roles, see [Add app roles to your application and receive them in the token](howto-add-app-roles-in-azure-ad-apps.md).
+> This article explains how to create, update, or delete application roles on the service principal using APIs. To use the new user interface for App Roles, see [Add app roles to your application and receive them in the token](./howto-add-app-roles-in-apps.md).
 
 ## Locate the enterprise application
 
@@ -39,8 +39,6 @@ Use the following steps to locate the enterprise application:
 1. Select **Enterprise applications**, and then select **All applications**.
 1. Enter the name of the existing application in the search box, and then select the application from the search results.
 1. After the application is selected, copy the object ID from the overview pane.
-
-    :::image type="content" source="media/enterprise-app-role-management/record-objectid.png" alt-text="Screenshot that shows how to locate and record the object identifier for the application.":::
 
 ## Add roles
 
@@ -122,8 +120,6 @@ Update the attributes to define the role claim that is included in the token.
 1. From the **Source attribute** list, select **user.assignedroles**.
 1. Select **Save**. The new **Role Name** attribute should now appear in the **Attributes & Claims** section. The claim should now be included in the access token when signing into the application.
 
-    :::image type="content" source="media/enterprise-app-role-management/attributes-summary.png" alt-text="Screenshot that shows a display of the list of attributes and claims defined for the application.":::
-
 ## Assign roles
 
 After the service principal is patched with more roles, you can assign users to the respective roles.
@@ -133,8 +129,6 @@ After the service principal is patched with more roles, you can assign users to 
 1. Select **Edit assignment** at the top of the pane to change the role.
 1. Select **None Selected**, select the role from the list, and then select **Select**.
 1. Select **Assign** to assign the role to the user.
-
-    :::image type="content" source="media/enterprise-app-role-management/assign-role.png" alt-text="Screenshot that shows how to assign a role to a user of an application.":::
 
 ## Update roles
 

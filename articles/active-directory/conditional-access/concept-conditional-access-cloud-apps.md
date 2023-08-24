@@ -5,6 +5,7 @@ description: What are cloud apps, actions, and authentication context in an Azur
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
+ms.custom: has-azure-ad-ps-ref
 ms.topic: conceptual
 
 ms.date: 06/27/2023
@@ -155,6 +156,9 @@ When a Conditional Access policy targets the Microsoft Admin Portals cloud app, 
 
 Other Microsoft admin portals will be added over time.
 
+> [!IMPORTANT]
+> Microsoft Admin Poratls (preview) is not currently supported in Government clouds.
+
 > [!NOTE]
 > The Microsoft Admin Portals app applies to interactive sign-ins to the listed admin portals only. Sign-ins to the underlying resources or services like Microsoft Graph or Azure Resource Manager APIs are not covered by this application. Those resources are protected by the [Microsoft Azure Management](#microsoft-azure-management) app. This enables customers to move along the MFA adoption journey for admins without impacting automation that relies on APIs and PowerShell. When you are ready, Microsoft recommends using a [policy requiring administrators perform MFA always](howto-conditional-access-policy-admin-mfa.md) for comprehensive protection.
 
@@ -198,10 +202,10 @@ User actions are tasks that can be performed by a user. Currently, Conditional A
 > [!NOTE]
 > When applying a policy targeting user actions for register security information, if the user account is a guest from [Microsoft personal account (MSA)](../external-identities/microsoft-account.md), using the control 'Require multifactor authentication', will require the MSA user to register security information with the organization. If the guest user is from another provider such as [Google](../external-identities/google-federation.md), access will be blocked.
 
-- **Register or join devices**: This user action enables administrators to enforce Conditional Access policy when users [register](../devices/concept-azure-ad-register.md) or [join](../devices/concept-azure-ad-join.md) devices to Azure AD. It provides granularity in configuring multifactor authentication for registering or joining devices instead of a tenant-wide policy that currently exists. There are three key considerations with this user action: 
+- **Register or join devices**: This user action enables administrators to enforce Conditional Access policy when users [register](../devices/concept-device-registration.md) or [join](../devices/concept-directory-join.md) devices to Azure AD. It provides granularity in configuring multifactor authentication for registering or joining devices instead of a tenant-wide policy that currently exists. There are three key considerations with this user action: 
    - `Require multifactor authentication` is the only access control available with this user action and all others are disabled. This restriction prevents conflicts with access controls that are either dependent on Azure AD device registration or not applicable to Azure AD device registration. 
    - `Client apps`, `Filters for devices` and `Device state` conditions aren't available with this user action since they're dependent on Azure AD device registration to enforce Conditional Access policies.
-   - When a Conditional Access policy is enabled with this user action, you must set **Azure Active Directory** > **Devices** > **Device Settings** - `Devices to be Azure AD joined or Azure AD registered require Multifactor Authentication` to **No**. Otherwise, the Conditional Access policy with this user action isn't properly enforced. More information about this device setting can found in [Configure device settings](../devices/device-management-azure-portal.md#configure-device-settings). 
+   - When a Conditional Access policy is enabled with this user action, you must set **Azure Active Directory** > **Devices** > **Device Settings** - `Devices to be Azure AD joined or Azure AD registered require Multifactor Authentication` to **No**. Otherwise, the Conditional Access policy with this user action isn't properly enforced. More information about this device setting can found in [Configure device settings](../devices/manage-device-identities.md#configure-device-settings). 
 
 ## Traffic forwarding profiles
 
@@ -217,11 +221,11 @@ For example, an organization may keep files in SharePoint sites like the lunch m
 
 ### Configure authentication contexts
 
-Authentication contexts are managed in the Azure portal under **Azure Active Directory** > **Security** > **Conditional Access** > **Authentication context**.
+Authentication contexts are managed under **Azure Active Directory** > **Security** > **Conditional Access** > **Authentication context**.
 
-![Manage authentication context in the Azure portal](./media/concept-conditional-access-cloud-apps/conditional-access-authentication-context-get-started.png)
+![Manage authentication context](./media/concept-conditional-access-cloud-apps/conditional-access-authentication-context-get-started.png)
 
-Create new authentication context definitions by selecting **New authentication context** in the Azure portal. Organizations are limited to a total of 25 authentication context definitions. Configure the following attributes:
+Create new authentication context definitions by selecting **New authentication context**. Organizations are limited to a total of 25 authentication context definitions. Configure the following attributes:
 
 - **Display name** is the name that is used to identify the authentication context in Azure AD and across applications that consume authentication contexts. We recommend names that can be used across resources, like "trusted devices", to reduce the number of authentication contexts needed. Having a reduced set limits the number of redirects and provides a better end to end-user experience.
 - **Description** provides more information about the policies it's used by Azure AD administrators and those applying authentication contexts to resources.

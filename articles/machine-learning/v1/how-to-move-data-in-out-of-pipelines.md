@@ -76,15 +76,15 @@ For more options on creating datasets with different options and from different 
 
 To pass the dataset's path to your script, use the `Dataset` object's `as_named_input()` method. You can either pass the resulting `DatasetConsumptionConfig` object to your script as an argument or, by using the `inputs` argument to your pipeline script, you can retrieve the dataset using `Run.get_context().input_datasets[]`.
 
-Once you've created a named input, you can choose its access mode: `as_mount()` or `as_download()`. If your script processes all the files in your dataset and the disk on your compute resource is large enough for the dataset, the download access mode is the better choice. The download access mode avoids the overhead of streaming the data at runtime. If your script accesses a subset of the dataset or it's too large for your compute, use the mount access mode. For more information, read [Mount vs. Download](how-to-train-with-datasets.md#mount-vs-download)
+Once you've created a named input, you can choose its access mode(for FileDataset only): `as_mount()` or `as_download()`. If your script processes all the files in your dataset and the disk on your compute resource is large enough for the dataset, the download access mode is the better choice. The download access mode avoids the overhead of streaming the data at runtime. If your script accesses a subset of the dataset or it's too large for your compute, use the mount access mode. For more information, read [Mount vs. Download](how-to-train-with-datasets.md#mount-vs-download)
 
 To pass a dataset to your pipeline step:
 
 1. Use `TabularDataset.as_named_input()` or `FileDataset.as_named_input()` (no 's' at end) to create a `DatasetConsumptionConfig` object
-1. Use `as_mount()` or `as_download()` to set the access mode
+1. **For `FileDataset` only:**. Use `as_mount()` or `as_download()` to set the access mode. TabularDataset does not suppport set access mode. 
 1. Pass the datasets to your pipeline steps using either the `arguments` or the `inputs` argument
 
-The following snippet shows the common pattern of combining these steps within the `PythonScriptStep` constructor: 
+The following snippet shows the common pattern of combining these steps within the `PythonScriptStep` constructor, using iris_dataset (TabularDataset): 
 
 ```python
 
@@ -92,7 +92,7 @@ train_step = PythonScriptStep(
     name="train_data",
     script_name="train.py",
     compute_target=cluster,
-    inputs=[iris_dataset.as_named_input('iris').as_mount()]
+    inputs=[iris_dataset.as_named_input('iris')]
 )
 ```
 
@@ -111,7 +111,7 @@ train_step = PythonScriptStep(
     name="train_data",
     script_name="train.py",
     compute_target=cluster,
-    inputs=[train.as_named_input('train').as_download(), test.as_named_input('test').as_download()]
+    inputs=[train.as_named_input('train'), test.as_named_input('test')]
 )
 ```
 

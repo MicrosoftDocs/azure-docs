@@ -69,7 +69,7 @@ If you created an HDInsight cluster with Data Lake Storage as additional storage
 
 4. Because you created a notebook using the PySpark kernel, you do not need to create any contexts explicitly. The Spark and Hive contexts will be automatically created for you when you run the first code cell. You can start by importing the types required for this scenario. To do so, paste the following code snippet in a cell and press **SHIFT + ENTER**.
 
-	```scala
+    ```scala
     from pyspark.sql.types import *
     ```
 
@@ -118,9 +118,9 @@ If you created an HDInsight cluster with Data Lake Storage as additional storage
 
 6. Because you are using a PySpark kernel, you can now directly run a SQL query on the temporary table **hvac** that you just created by using the `%%sql` magic. For more information about the `%%sql` magic, as well as other magics available with the PySpark kernel, see [Kernels available on Jupyter Notebooks with Apache Spark HDInsight clusters](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
 
-	```sql
+    ```sql
     %%sql
-	SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
+    SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
     ```
 7. Once the job is completed successfully, the following tabular output is displayed by default.
 

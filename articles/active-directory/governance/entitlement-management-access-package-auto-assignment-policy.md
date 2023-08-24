@@ -30,7 +30,7 @@ This article describes how to create an access package automatic assignment poli
 
 ## Before you begin
 
-You'll need to have attributes populated on the users who will be in scope for being assigned access.  The attributes you can use in the rules criteria of an access package assignment policy are those attributes listed in [supported properties](../enterprise-users/groups-dynamic-membership.md#supported-properties), along with [extension attributes and custom extension properties](../enterprise-users/groups-dynamic-membership.md#extension-properties-and-custom-extension-properties).  These attributes can be brought into Azure AD from [Graph](/graph/api/resources/user), an HR system such as [SuccessFactors](../app-provisioning/sap-successfactors-integration-reference.md), [Azure AD Connect cloud sync](../cloud-sync/how-to-attribute-mapping.md) or [Azure AD Connect sync](../hybrid/how-to-connect-sync-feature-directory-extensions.md).  The rules can include up to 5000 users per policy.
+You'll need to have attributes populated on the users who will be in scope for being assigned access.  The attributes you can use in the rules criteria of an access package assignment policy are those attributes listed in [supported properties](../enterprise-users/groups-dynamic-membership.md#supported-properties), along with [extension attributes and custom extension properties](../enterprise-users/groups-dynamic-membership.md#extension-properties-and-custom-extension-properties).  These attributes can be brought into Azure AD from [Graph](/graph/api/resources/user), an HR system such as [SuccessFactors](../app-provisioning/sap-successfactors-integration-reference.md), [Azure AD Connect cloud sync](../hybrid/cloud-sync/how-to-attribute-mapping.md) or [Azure AD Connect sync](../hybrid/connect/how-to-connect-sync-feature-directory-extensions.md).  The rules can include up to 5000 users per policy.
 
 ## License requirements
 
@@ -38,7 +38,7 @@ You'll need to have attributes populated on the users who will be in scope for b
 
 ## Create an automatic assignment policy
 
-To create a policy for an access package, you need to start from the access package's policy tab. Follow these steps to create a new policy for an access package.
+To create a policy for an access package, you need to start from the access package's policy tab. Follow these steps to create a new automatic assignment policy for an access package.
 
 **Prerequisite role:** Global administrator or Identity Governance administrator
 
@@ -57,7 +57,10 @@ To create a policy for an access package, you need to start from the access pack
 
     ![Screenshot of an access package automatic assignment policy rule configuration.](./media/entitlement-management-access-package-auto-assignment-policy/auto-assignment-rule-configuration.png)
 
-1. Click **Save** to close the dynamic membership rule editor, then click **Next** to open the **Custom Extensions** tab.
+1. Click **Save** to close the dynamic membership rule editor.
+1. By default, the checkboxes to automatically create and remove assignments should remain checked.
+1. If you wish users to retain access for a limited time after they go out of scope, you can specify a duration in hours or days. For example, when an employee leaves the sales department, you may wish to allow them to continue to retain access for 7 days to allow them to use sales apps and transfer ownership of their resources in those apps to another employee.
+1. Click **Next** to open the **Custom Extensions** tab.
 
 1. If you have [custom extensions](entitlement-management-logic-apps-integration.md) in your catalog you wish to have run when the policy assigns or removes access, you can add them to this policy.  Then click next to open the **Review** tab.
 
@@ -88,7 +91,6 @@ This script below illustrates using the `v1.0` profile, to create a policy for a
 
 ```powershell
 Connect-MgGraph -Scopes "EntitlementManagement.ReadWrite.All"
-Select-MgProfile -Name "v1.0"
 
 $apid = "cdd5f06b-752a-4c9f-97a6-82f4eda6c76d"
 

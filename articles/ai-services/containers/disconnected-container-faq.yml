@@ -72,7 +72,7 @@ sections:
       - question: Are these containers available in sovereign clouds?
         answer: | 
           Not everyone is familiar with the term sovereign cloud, so let's begin with definition:
-          The sovereign cloud consists of the [Azure Government](../../azure-government/documentation-government-welcome.md), [Azure Germany](../../germany/germany-welcome.md), and [Azure China 21Vianet](/azure/china/overview-operations) clouds.
+          The sovereign cloud consists of the [Azure Government](../../azure-government/documentation-government-welcome.md), [Azure Germany](../../germany/germany-welcome.md), and [Microsoft Azure operated by 21Vianet](/azure/china/overview-operations) clouds.
           Currently, customers are able to create disconnected containers resource from public cloud. 
   - name: Versioning
     questions:

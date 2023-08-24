@@ -103,7 +103,7 @@ Within the JWT, these claims are emitted with the following name format:  `extn.
 This section covers the configuration options under optional claims for changing the group attributes used in group claims from the default group objectID to attributes synced from on-premises Windows Active Directory. You can configure groups optional claims for your application through the Azure portal or application manifest. Group optional claims are only emitted in the JWT for user principals. Service principals aren't included in group optional claims emitted in the JWT.
 
 > [!IMPORTANT]
-> The number of groups emitted in a token are limited to 150 for SAML assertions and 200 for JWT, including nested groups. For more information about group limits and important caveats for group claims from on-premises attributes, see [Configure group claims for applications](../hybrid/how-to-connect-fed-group-claims.md).
+> The number of groups emitted in a token are limited to 150 for SAML assertions and 200 for JWT, including nested groups. For more information about group limits and important caveats for group claims from on-premises attributes, see [Configure group claims for applications](../hybrid/connect/how-to-connect-fed-group-claims.md).
 
 Complete the following steps to configure groups optional claims using the Azure portal:
 

@@ -3,7 +3,7 @@ title: Migrate files from one SMB Azure file share to another when using Azure F
 description: Learn how to migrate files from one SMB Azure file share to another when using Azure File Sync, even if the file shares are in different storage accounts.
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 07/27/2023
+ms.date: 08/07/2023
 ms.author: kendownie
 author: khdownie
 ---
@@ -18,11 +18,11 @@ You can check the status of cloud tiering from the Azure portal under server end
 
 If you're not using cloud tiering, then all your data is local on your Azure File Sync server, and you can use Azure File Sync to upload the data to another share.
 
-The following instructions assume you have one Azure File Sync server in your sync group. If you have more than one Azure File Sync server connected to the existing share, you should [removing all the other server endpoints](file-sync-server-endpoint-delete.md) first. Perform the full migration on one endpoint, and then reconnect the other server endpoints to the new sync group.
+The following instructions assume you have one Azure File Sync server in your sync group. If you have more than one Azure File Sync server connected to the existing share, you should [remove all the other server endpoints](file-sync-server-endpoint-delete.md) first. Perform the full migration on one endpoint, and then reconnect the other server endpoints to the new sync group.
 
 1. Make sure that cloud tiering is off on the server endpoint. You can check and change the status from the Azure portal under server endpoint properties.
 
-1. Run the `Invoke-StorageSyncFileRecall` cmdlet with retries to sync any tiered files back down (see [How to manage tiered files](file-sync-how-to-manage-tiered-files.md)). Because there could be an active cloud tiering session when you first run this cmdlet, it's a good idea to run it twice and examine the summary output to ensure that all files are fully recalled and local on the server before you continue.
+1. Run the [Invoke-StorageSyncFileRecall](file-sync-how-to-manage-tiered-files.md#how-to-recall-a-tiered-file-to-disk) cmdlet and use the -PerFileRetryCount parameter to ensure that any files that fail to recall are retried. Because there could be an active cloud tiering session when you first run this cmdlet, it's a good idea to run it twice and examine the summary output to ensure that all files are fully recalled and local on the server before you continue.
 
 1. [Create a new SMB Azure file share](../files/storage-how-to-create-file-share.md) as the target.
 
@@ -71,17 +71,21 @@ Follow these instructions if cloud tiering is on and you're migrating within the
 
 :::image type="content" source="media/file-sync-share-to-share-migration/migrate-cloud-tiering-on-same-region.png" alt-text="Diagram showing the architecture for a same-region Azure File Sync migration with cloud tiering on." lightbox="media/file-sync-share-to-share-migration/migrate-cloud-tiering-on-same-region.png" border="false":::
 
-1. Deploy a Windows VM in the same Azure region as the source share. To ensure good performance we recommend a multi-core VM type with at least 56 GiB of memory and premium storage, such as **standard_DS5_v2**.
+1. [Create a new SMB Azure file share](../files/storage-how-to-create-file-share.md) as the target share.
 
-1. Create a new target sync group in the same storage sync service. Don't connect your local Azure File Sync server to the new sync group yet.
+1. [Create a new sync group](file-sync-deployment-guide.md#create-a-sync-group-and-a-cloud-endpoint) in the existing storage sync service and associate the cloud endpoint to the target share. Don't connect your existing Azure File Sync server to the new sync group yet.
+   
+1. Deploy a Windows Server VM (IaaS VM) in the same Azure region as your source and target file shares. To ensure good performance we recommend a multi-core VM type with at least 56 GiB of memory and premium storage, such as **standard_DS5_v2**.
+  
+1. In your IaaS VM, use different disks for source and target file shares. Use one small disk for your source data connected to the existing sync group and one larger disk that can hold your entire data set.
 
-1. In your Azure IaaS VM, use different disks for source and target. Use one small disk for your source data connected to the existing sync group and one larger disk that can hold your entire data set.
+1. Install the Azure File Sync agent on the IaaS VM and register the server.
 
-1. Connect Azure File Sync to the original sync group. Enable cloud tiering on this server endpoint, because you'll pull data out of it as your source.
+1. In the Azure portal, go to your original sync group (source share) and create a server endpoint on the IaaS VM (use the small disk). Enable cloud tiering on this server endpoint.
 
-1. Set up the target file share as the cloud endpoint of the new sync group. Connect the VM as a server endpoint for the target share, and set the on-premises path to T:\target.
+1. In the Azure portal, go to your new sync group (target share) and create a server endpoint on the IaaS VM (use the larger disk).
 
-You can now start the [initial copy](#initial-copy).
+You can now go to the IaaS VM and start the [initial copy](#initial-copy) between the source and target shares.
 
 ### Migrate across regions
 
@@ -89,21 +93,25 @@ Follow these instructions if cloud tiering is on and you're migrating to a file 
 
 :::image type="content" source="media/file-sync-share-to-share-migration/migrate-cloud-tiering-on-cross-region.png" alt-text="Diagram showing the architecture for a cross-region Azure File Sync migration with cloud tiering on." lightbox="media/file-sync-share-to-share-migration/migrate-cloud-tiering-on-cross-region.png" border="false":::
 
-1. Create a new storage sync service in the target region and a new sync group attached to your target share. The sync group must be in the same region as the file share and sync service.
+1. [Create a new SMB Azure file share](../files/storage-how-to-create-file-share.md) in the new region as the target share.
+ 
+1. [Create a Storage Sync Service](file-sync-deployment-guide.md#deploy-the-storage-sync-service) in the target region and a [sync group](file-sync-deployment-guide.md#create-a-sync-group-and-a-cloud-endpoint) attached to your target share. 
 
-1. Create a new on-premises Azure File Sync file server. Don't connect your new target server to the sync group yet.
+1. Create a new on-premises Azure File Sync file server that will sync to the target share in the new region. Don't connect your new server to the target sync group yet.
 
-1. Deploy a source Azure File Sync VM with a small disk for your source data. Connect Azure File Sync to the existing sync group. Enable cloud tiering on this server endpoint, because you'll pull data out of it as your source.
+1. Deploy a source Azure File Sync VM with a small disk for your source data. Create a server endpoint in the source share sync group. Enable cloud tiering on this server endpoint.
 
-1. In the same region, deploy a target Azure File Sync VM. Use one larger disk that can hold your entire data set. Mount a drive to the source share on the source Azure File Sync VM.
+1. In the same region as the source share, deploy a target Azure File Sync VM and register this server with the Storage Sync Service in the new region. Use a large disk that can hold your entire data set.
 
-1. Set up the target file share as the cloud endpoint of the new sync group. Connect the VM as a server endpoint for the target share, and set the on-premises path to T:\target.
+1. In the Azure portal, navigate to the new Storage Sync Service, go to the sync group for your target share and create a server endpoint on the target Azure File Sync VM. 
 
-You can now start the [initial copy](#initial-copy).
+1. On the target Azure File Sync VM, mount a drive to the source share on the source Azure File Sync VM.
 
-## Initial copy
+You can now start the [initial copy](#initial-copy) between the source and target shares on the target Azure File Sync VM.
 
-Use Robocopy, a tool that's built into Windows, to copy the files from source to target.
+### Initial copy
+
+Use Robocopy, a tool that's built into Windows, to copy the files from source to target shares.
 
 1. Run this command at the Windows command prompt. Optionally, you can include flags for logging features as a best practice (/NP, /NFL, /NDL, /UNILOG).
    
@@ -117,17 +125,11 @@ Use Robocopy, a tool that's built into Windows, to copy the files from source to
    robocopy s:\ t:\ /MIR /COPYALL /MT:16 /R:2 /W:1 /B /IT /DCOPY:DAT
    ```
 
-1. Connect the on-premises Azure File Sync server to the new sync group so the namespace metadata can sync. Be sure to use the same root folder name as the existing share. For example, if your current cache location is D:\cache, use T:\cache for the new server endpoint. If you're using the existing Azure File Sync server (for migrations within the same region), place the local cache on a separate volume from the existing endpoint. Using the same volume is okay as long as the directory isn't the same directory or a sub-directory of the server endpoint that's connected to the source share. Enable cloud tiering on this endpoint so that none of the data will automatically download to the on-premises server.
+1. While the Robocopy is in progress, connect the on-premises Azure File Sync server to the target sync group. Configure your new server endpoint location with a high free space policy at first, because you'll be copying in the latest changes and need to ensure that you have enough room. For example, if your current cache location is D:\cache, use T:\cache for the new server endpoint. If you're using the existing Azure File Sync server (for migrations within the same region), place the local cache on a separate volume from the existing endpoint. Using the same volume is okay as long as the directory isn't the same directory or a sub-directory of the server endpoint that's connected to the source share. Enable cloud tiering on this endpoint so that none of the data will automatically download to the on-premises server. Once the server endpoint is created to the target sync group, allow some time for it to sync the namespace data.
 
-1. Wait for the initial Robocopy run to complete successfully and for the sync from source to target to complete. We recommend waiting for one additional hour to make sure all remaining changes are synced to Azure. To check that all changes have been synced to the cloud, see [How do I monitor the progress of a current sync session?](/troubleshoot/azure/azure-storage/file-sync-troubleshoot-sync-errors?tabs=portal1%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session)
+1. Wait for the initial Robocopy run to complete successfully and for the sync from source to target to complete. We recommend waiting for one additional hour to make sure all remaining changes are synced. To check that all changes have been synced, see [How do I monitor the progress of a current sync session?](/troubleshoot/azure/azure-storage/file-sync-troubleshoot-sync-errors?tabs=portal1%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session)
 
-## Connect the on-premises server to the new sync group
-
-Configure your new target with a high free space policy at first, because you'll be copying in the latest changes and need to ensure that you have enough room.
-
-Once the server is connected to the sync group, allow some time for it to sync the namespace data.
-
-## Sync final changes
+### Sync final changes
 
 Before syncing the final changes, turn off SMB sharing for the existing share or at least make it read-only. After turning off SMB sharing, wait one hour to make sure all remaining changes are synced to Azure.
 
@@ -145,13 +147,13 @@ robocopy s:\ t:\target /mir /copyall /mt:16 /DCOPY:DAT
 
 Once your IaaS VM sync completes, the local target agent will also be up to date.
 
-## Enable sharing on the new server endpoint
+### Enable sharing on the new server endpoint
 
 If you're migrating to a new Azure File Sync server, you should rename the old server to a random name, then rename the new server to the same name as the old server. This way, the file share URL will be the same for your end users.
 
 Enable the new share T:\cache. All the same file ACLs will be there. You'll need to recreate any share-level permissions that existed on the old share.
 
-## Remove the old server endpoint and sync group
+### Remove the old server endpoint and sync group
 
 Once you've confirmed everything is working correctly with the new sync group, you can deprovision the old sync group. [Remove the server endpoints](file-sync-server-endpoint-delete.md) first. You don't need to recall all the data to the old server before removing the server endpoint.
 

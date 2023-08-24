@@ -19,7 +19,7 @@ zone_pivot_groups: acs-js-csharp-java-python
 
 [!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
 
-In the context of a call center, customers may want to receive a scheduled callback at a later time. As such, you will need to create a scheduled job in Job Router.
+In the context of a call center, customers may want to receive a scheduled callback at a later time. As such, you need to create a scheduled job in Job Router.
 
 ## Prerequisites
 
@@ -32,7 +32,7 @@ In the context of a call center, customers may want to receive a scheduled callb
 
 ## Create a job using the ScheduleAndSuspendMode
 
-In the following example, a job is created that will be scheduled 3 minutes from now by setting the `MatchingMode` to `ScheduleAndSuspendMode` with a `scheduleAt` parameter.  This assumes that you've already [created a queue](manage-queue.md) with the queueId `Callback` and that there is an active [worker registered](../../concepts/router/matching-concepts.md) to the queue with available capacity on the `Voice` channel.
+In the following example, a job is created that is scheduled 3 minutes from now by setting the `MatchingMode` to `ScheduleAndSuspendMode` with a `scheduleAt` parameter.  This example assumes that you've already [created a queue](manage-queue.md) with the queueId `Callback` and that there's an active [worker registered](../../concepts/router/matching-concepts.md) to the queue with available capacity on the `Voice` channel.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -83,9 +83,12 @@ client.createJob(new CreateJobOptions("job1", "Voice", "Callback")
 
 ::: zone-end
 
+> [!NOTE]
+> The job's status after being scheduled is initially `PendingSchedule`, and once Job Router successfully schedules the job, the status is updated to `Scheduled`.
+
 ## Wait for the scheduled time to be reached, then queue the job
 
-When the scheduled time has been reached, Job Router will emit a [RouterJobWaitingForActivation event](subscribe-events.md#microsoftcommunicationrouterjobwaitingforactivation).  If this event has been subscribed, the event can be parsed into a variable called `eventGridEvent`.  At this time, some required actions may be performed, before enabling the job to be matched to a worker.  For example, in the context of the contact center, such an action could be making an outbound call and waiting for the customer to accept the callback.  Once the required actions are complete, the job can be queued by calling the `UpdateJobAsync` method with the `MatchingMode` set to `QueueAndMatchMode` and priority set to `100` to quickly find an eligible worker.
+When the scheduled time has been reached, the job's status is updated to `WaitingForActivation` and Job Router emits a [RouterJobWaitingForActivation event](subscribe-events.md#microsoftcommunicationrouterjobwaitingforactivation) to Event Grid.  If this event has been subscribed, some required actions may be performed, before enabling the job to be matched to a worker.  For example, in the context of the contact center, such an action could be making an outbound call and waiting for the customer to accept the callback.  Once the required actions are complete, the job can be queued by calling the `UpdateJobAsync` method with the `MatchingMode` set to `QueueAndMatchMode` and priority set to `100` to quickly find an eligible worker, which updates the job's status to `queued`.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -156,4 +159,4 @@ if (eventGridEvent.EventType == "Microsoft.Communication.RouterJobWaitingForActi
 
 ## Next steps
 
-- Learn how to [accept the Job Router offer](accept-decline-offer.md) that will be issued once a matching worker has been found for the job.
+- Learn how to [accept the Job Router offer](accept-decline-offer.md) that is issued once a matching worker has been found for the job.

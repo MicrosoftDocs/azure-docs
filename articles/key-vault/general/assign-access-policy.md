@@ -4,7 +4,7 @@ description: How to use the Azure CLI to assign a Key Vault access policy to a s
 services: key-vault
 author: msmbaldwin
 tags: azure-resource-manager
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, has-azure-ad-ps-ref
 
 ms.service: key-vault
 ms.subservice: general

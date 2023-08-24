@@ -54,7 +54,7 @@ When you need to take on a group membership or ownership, you can request activa
 
     :::image type="content" source="media/pim-for-groups/pim-group-7.png" alt-text="Screenshot of where to provide a justification in the Reason box." lightbox="media/pim-for-groups/pim-group-7.png":::
 
-1.	Select **Activate**.
+1. Select **Activate**.
 
 If the [role requires approval](pim-resource-roles-approval-workflow.md) to activate, an Azure notification appears in the upper right corner of your browser informing you the request is pending approval.
 

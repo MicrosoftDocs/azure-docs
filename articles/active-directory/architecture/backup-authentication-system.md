@@ -84,7 +84,7 @@ In addition to user authentication, the backup authentication system provides re
 
 ## Cloud environments that support the backup authentication system
 
-The backup authentication system is supported in all cloud environments except Azure China 21vianet. The types of identities supported vary by cloud, as described in the following table. 
+The backup authentication system is supported in all cloud environments except Microsoft Azure operated by 21Vianet. The types of identities supported vary by cloud, as described in the following table. 
 
 | Azure environment | Identities protected |
 | --- | --- |
@@ -92,7 +92,7 @@ The backup authentication system is supported in all cloud environments except A
 | Azure Government | Users, managed identities |
 | Azure Government Secret | managed identities |
 | Azure Government Top Secret | managed identities |
-| Azure China | Not available |
+| Azure operated by 21Vianet | Not available |
 
 ## Appendix
 

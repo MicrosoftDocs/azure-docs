@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: article
-ms.date: 07/22/2023
+ms.date: 07/28/2023
 ms.author: greglin
 ---
 
@@ -15,12 +15,12 @@ The Application Gateway Ingress Controller (AGIC) is a Kubernetes application, w
 The Ingress Controller runs in its own pod on the customer’s AKS. AGIC monitors a subset of Kubernetes Resources for changes. The state of the AKS cluster is translated to Application Gateway specific configuration and applied to the [Azure Resource Manager (ARM)](../azure-resource-manager/management/overview.md).
 
 > [!TIP]
-> Also see [What is Application Gateway for Containers?](for-containers/overview.md), currently in public preview.
+> Also see [What is Application Gateway for Containers?](for-containers/overview.md) currently in public preview.
 
 ## Benefits of Application Gateway Ingress Controller
-AGIC helps eliminate the need to have another load balancer/public IP in front of the AKS cluster and avoids multiple hops in your datapath before requests reach the AKS cluster. Application Gateway talks to pods using their private IP directly and doesn't require NodePort or KubeProxy services. This also brings better performance to your deployments.
+AGIC helps eliminate the need to have another load balancer/public IP address in front of the AKS cluster and avoids multiple hops in your datapath before requests reach the AKS cluster. Application Gateway talks to pods using their private IP address directly and doesn't require NodePort or KubeProxy services. This capability also brings better performance to your deployments.
 
-Ingress Controller is supported exclusively by Standard_v2 and WAF_v2 SKUs, which also enables autoscaling benefits. Application Gateway can react in response to an increase or decrease in traffic load and scale accordingly, without consuming any resources from your AKS cluster.
+Ingress Controller is supported exclusively by Standard_v2 and WAF_v2 SKUs, which also enable autoscaling benefits. Application Gateway can react in response to an increase or decrease in traffic load and scale accordingly, without consuming any resources from your AKS cluster.
 
 Using Application Gateway in addition to AGIC also helps protect your AKS cluster by providing TLS policy and Web Application Firewall (WAF) functionality.
 
@@ -35,16 +35,16 @@ AGIC is configured via the Kubernetes [Ingress resource](https://kubernetes.io/d
   - Integrated web application firewall
 
 ## Difference between Helm deployment and AKS Add-On
-There are two ways to deploy AGIC for your AKS cluster. The first way is through Helm; the second is through AKS as an add-on. The primary benefit of deploying AGIC as an AKS add-on is that it's much simpler than deploying through Helm. For a new setup, you can deploy a new Application Gateway and a new AKS cluster with AGIC enabled as an add-on in one line in Azure CLI. The add-on is also a fully managed service, which provides added benefits such as automatic updates and increased support. Both ways of deploying AGIC (Helm and AKS add-on) are fully supported by Microsoft. Additionally, the add-on allows for better integration with AKS as a first class add-on.
+There are two ways to deploy AGIC for your AKS cluster. The first way is through Helm; the second is through AKS as an add-on. The primary benefit of deploying AGIC as an AKS add-on is that it's simpler than deploying through Helm. For a new setup, you can deploy a new Application Gateway and a new AKS cluster with AGIC enabled as an add-on in one line in Azure CLI. The add-on is also a fully managed service, which provides added benefits such as automatic updates and increased support. Both ways of deploying AGIC (Helm and AKS add-on) are fully supported by Microsoft. Additionally, the add-on allows for better integration with AKS as a first class add-on.
 
-The AGIC add-on is still deployed as a pod in the customer's AKS cluster, however, there are a few differences between the Helm deployment version and the add-on version of AGIC. Below is a list of differences between the two versions: 
+The AGIC add-on is still deployed as a pod in the customer's AKS cluster, however, there are a few differences between the Helm deployment version and the add-on version of AGIC. The following is a list of differences between the two versions: 
   - Helm deployment values can't be modified on the AKS add-on:
     - `verbosityLevel` is set to 5 by default
-    - `usePrivateIp` is set to be false by default; this can be overwritten by the [use-private-ip annotation](ingress-controller-annotations.md#use-private-ip)
+    - `usePrivateIp` is set to be false by default; this setting can be overwritten by the [use-private-ip annotation](ingress-controller-annotations.md#use-private-ip)
     - `shared` isn't supported on add-on 
     - `reconcilePeriodSeconds` isn't supported on add-on
     - `armAuth.type` isn't supported on add-on
-  - AGIC deployed via Helm supports ProhibitedTargets, which means AGIC can configure the Application Gateway specifically for AKS clusters without affecting other existing backends. AGIC add-on doesn't currently support this. 
+  - AGIC deployed via Helm supports ProhibitedTargets, which means AGIC can configure the Application Gateway specifically for AKS clusters without affecting other existing backends. AGIC add-on doesn't currently support this capability. 
   - Since AGIC add-on is a managed service, customers are automatically updated to the latest version of AGIC add-on, unlike AGIC deployed through Helm where the customer must manually update AGIC. 
 
 > [!NOTE]

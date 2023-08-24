@@ -24,7 +24,7 @@ All API request metrics contain four dimensions that you can use to filter your 
 
 More information on supported aggregation types and time series aggregations can be found [Advanced features of Azure Metrics Explorer](../../../azure-monitor/essentials/metrics-charts.md#aggregation).
 
-- **Operation** - All operations or routes that can be called on the Azure Communication Services Chat gateway.
+- **Operation** - All operations or routes that can be called on the Azure Communication Services gateway.
 
 - **API Version** – The version of the API used in the API request.
 

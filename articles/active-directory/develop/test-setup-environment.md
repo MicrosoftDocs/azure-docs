@@ -92,9 +92,9 @@ If your app will primarily be used by a single organization (commonly referred t
 
 #### Conditional Access policies
 
-Replicating conditional access policies ensures you don't encounter unexpected blocked access when moving to production and your application can appropriately handle the errors it's likely to receive.
+Replicating Conditional Access policies ensures you don't encounter unexpected blocked access when moving to production and your application can appropriately handle the errors it's likely to receive.
 
-Viewing your production tenant conditional access policies may need to be performed by a company administrator.
+Viewing your production tenant Conditional Access policies may need to be performed by a company administrator.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using your production tenant account.
 1. Go to **Azure Active Directory** > **Enterprise applications** > **Conditional Access**.

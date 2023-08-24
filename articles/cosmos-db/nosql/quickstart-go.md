@@ -25,6 +25,11 @@ ms.author: sidandrews
 > * [Go](quickstart-go.md)
 >
 
+> [!IMPORTANT]
+> The Go SDK for Azure Cosmos DB is currently in beta. This beta is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities.
+>
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 In this quickstart, you'll build a sample Go application that uses the Azure SDK for Go to manage an Azure Cosmos DB for NoSQL account. Without a credit card or an Azure subscription, you can set up a free [Try Azure Cosmos DB account](https://aka.ms/trycosmosdb)
 
