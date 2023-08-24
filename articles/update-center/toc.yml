@@ -70,3 +70,7 @@
     items:
     - name: Troubleshoot issues
       href: troubleshoot.md
+- name: Guidance
+  items:
+  - name: Patching guidance on migration from MCM to AUM
+    href: guidance-migration-azure.md
