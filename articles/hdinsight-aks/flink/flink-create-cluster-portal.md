@@ -93,6 +93,7 @@ Flink clusters can be created once cluster pool deployment has been completed, l
    |Enable SSH|Upon selection, you can opt for total number of SSH nodes required, which are the access points for the Flink CLI using Secure Shell. The maximum SSH nodes allowed is 5.|
    
    :::image type="content" source="./media/create-flink-cluster/service-configuration.png" alt-text="Screenshot showing autoscale service configuration.":::
+   
    :::image type="content" source="./media/create-flink-cluster/autoscale-rules.png" alt-text="Screenshot showing auto scale rules.":::
 1. Click the **Next: Integration** button to continue to the next page.
 
