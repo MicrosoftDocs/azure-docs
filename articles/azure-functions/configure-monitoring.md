@@ -454,7 +454,7 @@ Update-AzFunctionAppSetting -Name MyAppName -ResourceGroupName MyResourceGroupNa
 
 > [!NOTE]
 > Overriding the `host.json` through changing app settings will restart your function app.
-> For Linux Elastic Premium and Dedicated plans it is not possible to use App Settings that contain a period, please continue to use the *host.json* file.
+> App settings that contain a period aren't supported when running on Linux in an Elastic Premium plan or a Dedicated (App Service) plan. In these hosting environments, you should continue to use the *host.json* file.
 
 ## Monitor function apps using Health check
 
