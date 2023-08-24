@@ -10,7 +10,7 @@ ms.date: 07/19/2023
 <!-- 
 For clarity of structure, a separate markdown file is used to describe how to prepare event-driven project.
 
-[!INCLUDE [deployment-event-driven](../../includes/quickstart-deploy-event-driven-app/deployment-event-driven.md)]
+[!INCLUDE [deployment-event-driven](deployment-event-driven.md)]
 
 -->
 
