@@ -37,6 +37,7 @@ The MCM in Azure and Azure Update Manager can fulfill your patching requirements
 ## Map MCM capabilities to Azure Update Manager
 
 The following table explains the mapping capabilities of MCM software Update Management to AUM.
+
 | **Capability**  | **MCM** | **AUM**|
 | --- | --- | --- |
 |Synchronize software updates between sites(Central Admin site, Primary, Secondary sites)| The top site (either central admin site or stand-alone primary site) connects to Microsoft Update to retrieve software updates.[Learn more](https://learn.microsoft.com/mem/configmgr/sum/understand/software-updates-introduction). After the top sites are synchronized, the child sites are synchronized. | There's no hierarchy of machines in Azure and therefore all machines connected to Azure receive updates from the source repository. |
