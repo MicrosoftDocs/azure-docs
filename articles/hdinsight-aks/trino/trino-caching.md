@@ -67,27 +67,27 @@ Final result caching can also be controlled through the following session parame
   
 3. In the Azure portal search bar, type "HDInsight on AKS cluster" and select "Azure HDInsight on AKS clusters" from the drop-down list.
   
-   :::image type="content" source="../media/Manage-Cluster/Getstarted-PortalSearch-Step1.png" alt-text="Screenshot showing search option for getting started with HDInsight on AKS Cluster.":::
+   :::image type="content" source="../media/trino-caching/portal-search.png" alt-text="Screenshot showing search option for getting started with HDInsight on AKS Cluster.":::
   
 7. Select your cluster name from the list page.
   
-   :::image type="content" source="../media/Manage-Cluster/Getstarted-Portallistview-Step2.png" alt-text="Screenshot showing selecting the HDInsight on AKS Cluster you require from the list.":::
+   :::image type="content" source="../media/trino-caching/portal-search-result.png" alt-text="Screenshot showing selecting the HDInsight on AKS Cluster you require from the list.":::
 
 1. Navigate to **Configuration Management** blade.
 
-   :::image type="content" source="./media/trino-configure-caching/azure-portal-config-management.png" alt-text="Screenshot showing Azure portal configuration management.":::
+   :::image type="content" source="./media/trino-caching/azure-portal-configuration-management.png" alt-text="Screenshot showing Azure portal configuration management.":::
    
 1. Go to config.properties -> Custom configurations and then click **Add**.
 
-   :::image type="content" source="./media/trino-configure-caching/config-properties.png" alt-text="Screenshot showing custom configuration.":::
+   :::image type="content" source="./media/trino-caching/configuration-properties.png" alt-text="Screenshot showing custom configuration.":::
   
 1. Set the required properties, and click **OK**.
 
-   :::image type="content" source="./media/trino-configure-caching/set-properties.png" alt-text="Screenshot showing configuration properties.":::
+   :::image type="content" source="./media/trino-caching/set-properties.png" alt-text="Screenshot showing configuration properties.":::
    
 1. **Save** the configuration.
 
-   :::image type="content" source="./media/trino-configure-caching/save-configuration.png" alt-text="Screenshot showing how to save the configuration."::: 
+   :::image type="content" source="./media/trino-caching/save-configuration.png" alt-text="Screenshot showing how to save the configuration."::: 
 
 ### Using ARM template
 
