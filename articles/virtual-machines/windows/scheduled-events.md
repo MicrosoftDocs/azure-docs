@@ -95,7 +95,7 @@ Scheduled Events is enabled for your service the first time you make a request f
 ### User-initiated maintenance
 User-initiated VM maintenance via the Azure portal, API, CLI, or PowerShell results in a scheduled event. You then can test the maintenance preparation logic in your application, and your application can prepare for user-initiated maintenance.
 
-If you restart a VM, an event with the type `Reboot` is scheduled. If you redeploy a VM, an event with the type `Redeploy` is scheduled. Typically events with a user event source can be immediately approved to avoid a delay on user-initiated actions. We advise having a primary and secondary VM communicating and approving user generated scheduled events in case the primary VM becomes unresponsive. This will prevent delays in recovering your application back to a good state.  
+If you restart a VM, an event with the type `Reboot` is scheduled. If you redeploy a VM, an event with the type `Redeploy` is scheduled. Typically events with a user event source can be immediately approved to avoid a delay on user-initiated actions. We advise having a primary and secondary VM communicating and approving user generated scheduled events in case the primary VM becomes unresponsive. Immediately approving events prevents delays in recovering your application back to a good state.  
 	
 Scheduled events are disabled by default for [VMSS Guest OS upgrades or reimages](../../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md). To enable scheduled events for these operations, first enable them using [OSImageNotificationProfile](https://learn.microsoft.com/rest/api/compute/virtual-machine-scale-sets/create-or-update?tabs=HTTP#osimagenotificationprofile). 
 
@@ -103,11 +103,11 @@ Scheduled events are disabled by default for [VMSS Guest OS upgrades or reimages
 
 ### High level overview
 
-There are two major components to handling Scheduled Events, preparation and recovery. All current events impacting the customer will be available via the IMDS Scheduled Events endpoint. When the event has reached a terminal state, it will be removed from the list of events. The following diagram shows the various state transitions that a single scheduled events can experience: 
+There are two major components to handling Scheduled Events, preparation and recovery. All current events impacting the customer will be available via the IMDS Scheduled Events endpoint. When the event has reached a terminal state, it is removed from the list of events. The following diagram shows the various state transitions that a single scheduled event can experience: 
 
-![State diagram showing the various transitions a scheduled event can take](media/scheduled-events/scheduled-events-states.png)
+![State diagram showing the various transitions a scheduled event can take.](media/scheduled-events/scheduled-events-states.png)
 
-For events in the EventStatus:"Scheduled" state, you'll need to take steps to prepare your workload. Once the preperation is complete, you should then approve the event using the scheduled event API. Otherwise, the event will be automatically approved when the NotBefore time is reached. In the case of a VM on shared infrastructure, the system will then wait for all other tenants on the same hardware to also approve the job or timeout. Once approvals are gathered from all impacted VMs or the NotBefore time is reached then Azure generates a new scheduled event payload with EventStatus:"Started" and triggers the start of the maintenance event. When the event has reached a terminal state, it will be removed from the list of events which serves as the signal for the tenant to recover their VM(s)”
+For events in the EventStatus:"Scheduled" state, you'll need to take steps to prepare your workload. Once the preparation is complete, you should then approve the event using the scheduled event API. Otherwise, the event will be automatically approved when the NotBefore time is reached. If the VM is on shared infrastructure, the system will then wait for all other tenants on the same hardware to also approve the job or timeout. Once approvals are gathered from all impacted VMs or the NotBefore time is reached then Azure generates a new scheduled event payload with EventStatus:"Started" and triggers the start of the maintenance event. When the event has reached a terminal state, it is removed from the list of events which serves as the signal for the tenant to recover their VM(s)”
 
 Below is psudeo code demonstrating a process for how to read and manage scheduled events in your application: 
 ```
@@ -130,15 +130,15 @@ As scheduled events are often used for applications with high availability requi
 3. In the case of hardware failure, Azure will bypass the “Scheduled” state and immediately move to the EventStatus:"Started" state. 
 4. While the event is still in EventStatus:"Started" state, there may be additional impacts of a shorter duration than what was advertised in the scheduled event.
 
-As part of Azure’s availability guarantee, VMs in different fault domains will not be impacted by routine maintenance operations at the same time. However, they may have operations serialized one after another. VMs in one fault domain can receive scheduled events with EventStatus:"Scheduled" shortly after another fault domain’s maintenance is completed. Regardless of what architecture you chose, always keep checking for new events pending against your VMs.
+As part of Azure’s availability guarantee, VMs in different fault domains won't be impacted by routine maintenance operations at the same time. However, they may have operations serialized one after another. VMs in one fault domain can receive scheduled events with EventStatus:"Scheduled" shortly after another fault domain’s maintenance is completed. Regardless of what architecture you chose, always keep checking for new events pending against your VMs.
 
-While the exact timings of events vary, the following diagram provides is a rough guideline for a typical maintenance operation:
+While the exact timings of events vary, the following diagram provides a rough guideline for how a typical maintenance operation proceeds:
 
 - EventStatus:"Scheduled" to Approval Timeout: 15 minutes
 - Impact Duration: 7 seconds
 - EventStatus:"Started" to Completed (event removed from Events array): 10 minutes
 
-![Timeline showing the flow of a scheduled event as outlined above](media/scheduled-events/scheduled-events-timeline.png)
+![Diagram of a timeline showing the flow of a scheduled event.](media/scheduled-events/scheduled-events-timeline.png)
 
 
 ### Headers
@@ -217,7 +217,7 @@ Each event is scheduled a minimum amount of time in the future based on the even
 | Redeploy | 10 minutes |
 | Terminate | [User Configurable](../../virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification.md#enable-terminate-notifications): 5 to 15 minutes |
 
-Once an event is scheduled, it will move into the `Started` state after it's been approved or the `NotBefore` time passes. However, in rare cases, the operation will be cancelled by Azure before it starts. In that case the event will be removed from the Events array, and the impact will not occur as previously scheduled. 
+Once an event is scheduled, it will move into the `Started` state after it's been approved or the `NotBefore` time passes. However, in rare cases, the operation will be canceled by Azure before it starts. In that case the event will be removed from the Events array, and the impact won't occur as previously scheduled. 
 	
 > [!NOTE] 
 > In some cases, Azure is able to predict host failure due to degraded hardware and will attempt to mitigate disruption to your service by scheduling a migration. Affected virtual machines will receive a scheduled event with a `NotBefore` that is typically a few days in the future. The actual time varies depending on the predicted failure risk assessment. Azure tries to give 7 days' advance notice when possible, but the actual time varies and might be smaller if the prediction is that there's a high chance of the hardware failing imminently. To minimize risk to your service in case the hardware fails before the system-initiated migration, we recommend that you self-redeploy your virtual machine as soon as possible.
@@ -245,7 +245,7 @@ The following JSON sample is expected in the `POST` request body. The request sh
 }
 ```
 
-The service will always return a 200 success code in the case of a valid event ID, even if it was already approved by a different VM. A 400 error code indicates that the request header or payload was malformed. 
+The service will always return a 200 success code if it is passed a valid event ID, even if the event was already approved by a different VM. A 400 error code indicates that the request header or payload was malformed. 
 
 > [!Note] 
 > Events will not proceed unless they are  either approved via a POST message or the NotBefore time elapses. This includes user triggered events such as VM restarts from the Azure portal. 
@@ -277,7 +277,7 @@ def confirm_scheduled_event(event_id):
 > Acknowledging an event allows the event to proceed for all `Resources` in the event, not just the VM that acknowledges the event. Therefore, you can choose to elect a leader to coordinate the acknowledgement, which might be as simple as the first machine in the `Resources` field.
 
 ## Example responses
-The following is an example of a series of events that were seen by two VMs that were live migrated to another node. 
+The following events are an example that was seen by two VMs that were live migrated to another node. 
 
 The `DocumentIncarnation` is changing every time there is new information in `Events`. An approval of the event would allow the freeze to proceed for both WestNO_0 and WestNO_1. The `DurationInSeconds` of -1 indicates that the platform doesn't know how long the operation will take. 
 
