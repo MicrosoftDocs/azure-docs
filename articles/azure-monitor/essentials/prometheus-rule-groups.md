@@ -103,15 +103,15 @@ On the rule group  **Details** tab:
 3. Rules are evaluated in the order they appear in the group. You can change the order of rules using the **move up** and **move down** options.
 1. To add a new recording rule:
    * Select **+ Add recording rule** to open the **Create a recording rule** pane.
-   * Enter the **Name** of the rule. This name is be the name of the metric created by the rule.
+   * Enter the **Name** of the rule. This name is the name of the metric created by the rule.
    * Enter the PromQL **Expression** for the rule.
-   * Select if the rule groups is to be enabled when created.
+   * Select if the rule is to be enabled when created.
    * You can enter optional **Labels** key/values for the rule. These labels are added to the metric created by the rule.
    * Select **Create** to add the new rule to the rule list.
 1. To add a new alert rule:
    * Select **+ Add alert rule** to open the "Create an alert rule" pane
    * Select the **Severity** of alerts fired by this rule
-   * Enter the **Name** of the rule. This name is be the name alerts fired by the rule.
+   * Enter the **Name** of the rule. This name is the name alerts fired by the rule.
    * Enter the PromQL **Expression** for the rule.
    * Select the **For** value for the period between the alert expression first becomes true and until the alert is fired.
    * You can enter optional **Annotations** key/values for the rules. These annotations are added to the metric created by the rule.
@@ -119,7 +119,7 @@ On the rule group  **Details** tab:
    * Select the [action groups](../essentials/action-groups.md) that the rule triggers.
    * Select **Automatically resolve alert** to resolve alerts after a period when the rule condition is no longer true.
    * Select the auto resolution period using **Time to auto-resolve**.
-   * Select if the rule groups is to be enabled when created.
+   * Select if the rule is to be enabled when created.
    * Select **Create** to add the new rule to the rule list.
 
  #### Finish creating the rule group
