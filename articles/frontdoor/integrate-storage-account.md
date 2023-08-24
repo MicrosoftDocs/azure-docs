@@ -27,8 +27,6 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
 A storage account gives access to the Azure Storage services. The storage account represents the highest level of the namespace for accessing each of the Azure Storage service components: Azure Blob, Queue, and Table storage. For more information, see [Introduction to Microsoft Azure Storage](../storage/common/storage-introduction.md).
 
-To create a storage account, you must be either a service administrator or a coadministrator for the associated subscription.
-
 1. In the Azure portal, select **+ Create a resource** in the upper left corner. The **Create a resource** pane appears.
 
 1. On the **Create a resource** page, search for **Storage account** and select **Storage account** from the list. Then select **Create**.
@@ -63,9 +61,11 @@ To create a storage account, you must be either a service administrator or a coa
     | Endpoint name | Enter your endpoint hostname, such as *contoso1234*. This name is used to access your cached resources at the URL _&lt;endpoint-name + hash value&gt;_.z01.azurefd.net. |
     | Origin hostname | By default, a new Front Door endpoint uses the hostname of your storage account as the origin server. |
     | Pricing tier | Select **Standard** if you want to do content delivery or select **Premium** if you want to do content delivery and use security features. |
-    | Caching | *Optional* - Toggle on if you want to [enable caching](front-door-caching.md) for your static content. |
+    | Caching | *Optional* - Toggle on if you want to [enable caching](front-door-caching.md) for your static content. Choose an appropriate query string behavior. Enable compression if required.|
     | WAF | *Optional* - Toggle on if you want to protect your endpoint from common vulnerabilities, malicious actor and bots with [Web Application Firewall](web-application-firewall.md). You can use an existing policy from the WAF policy dropdown or create a new one. |
-    | Private link | *Optional* - Toggle on if you want to keep your storage account private that is, not exposed to public internet. Select the region that is the same region as your storage account or closest to your origin. Select target sub resource as **blob**. </br> :::image type="content" source="./media/integrate-storage-account/security-settings.png" alt-text="Screenshot of the WAF and private link settings for an endpoint."::: |
+    | Private link | *Optional* - Toggle on if you want to keep your storage account private that is, not exposed to public internet. Select the region that is the same region as your storage account or closest to your origin. Select target sub resource as **blob**. |
+
+    :::image type="content" source="./media/integrate-storage-account/security-settings.png" alt-text="Screenshot of the caching, WAF and private link settings for an endpoint.":::
 
     > [!NOTE]
     > * With Standard tier, you can only use custom rules with WAF.To deploy managed rules and bot protection, choose Premium tier. For detailed comparison, see [Azure Front Door tier comparison](./standard-premium/tier-comparison.md).
@@ -80,7 +80,7 @@ To create a storage account, you must be either a service administrator or a coa
 From the storage account **Front Door and CDN** page, select the endpoint from the list to open the Front Door endpoint configuration page. You can enable more Front Door features for your delivery, such as [rules engine](front-door-rules-engine.md) and configure how traffic gets [load balanced](routing-methods.md).
 
 For best practices, refer to [Use Azure Front Door with Azure Storage blobs](scenario-storage-blobs.md).
-	
+
 ## Enable SAS
 
 If you want to grant limited access to private storage containers, you can use the Shared Access Signature (SAS) feature of your Azure Storage account. A SAS is a URI that grants restricted access rights to your Azure Storage resources without exposing your account key. 
@@ -126,3 +126,5 @@ In the preceding steps, you created an Azure Front Door profile and an endpoint 
 * Learn how to use [Azure Front Door with Azure Storage blobs](scenario-storage-blobs.md)
 * Learn how to [enable Azure Front Door Private Link with Azure Blob Storage](standard-premium/how-to-enable-private-link-storage-account.md)
 * Learn how to [enable Azure Front Door Private Link with Storage Static Website](how-to-enable-private-link-storage-static-website.md)
+
+

@@ -20,7 +20,7 @@ This connector allows you to ingest AWS service logs, collected in AWS S3 bucket
 | Connector attribute | Description |
 | --- | --- |
 | **Log Analytics table(s)** | AWSGuardDuty<br/> AWSVPCFlow<br/> AWSCloudTrail<br/> |
-| **Data collection rules support** | Not currently supported |
+| **Data collection rules support** | [Supported as listed](/azure/azure-monitor/logs/tables-feature-support) |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com) |
 
 
