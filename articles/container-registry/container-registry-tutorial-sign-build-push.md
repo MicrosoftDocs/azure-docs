@@ -181,7 +181,7 @@ If you have an existing certificate, see [import a certificate in AKV](../key-va
     ```
 
 > [!NOTE]
-> Currently, `notation` relies on [Docker Credential Store](https://docs.docker.com/engine/reference/commandline/login/#credentials-store) for authentication. Notation requires additional configuration on Linux. If `notation login` is failing, you can configure the Docker Credential Store or Notation environment variables by following the guide [Authenticate with OCI-compliant registries](https://notaryproject.dev/docs/how-to/registry-authentication/).
+> If notation login is failing, you may need to Configure a credentials store. Alternatively in development and testing environments, you can use environment variables to authenticate to an OCI-compliant registry. See guide [Authenticate with OCI-compliant registries](https://notaryproject.dev/docs/how-to/registry-authentication/) for details.
 
 3. Get the Key ID of the signing key.
 
