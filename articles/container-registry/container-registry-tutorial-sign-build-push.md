@@ -19,11 +19,11 @@ When you sign container images, you ensure their authenticity and integrity. Thi
 In this tutorial:
 
 > [!div class="checklist"]
-> * Install Notation and AKV plugin
+> * Install Notation CLI and AKV plugin
 > * Create a self-signed signing certificate in AKV
 > * Build and push a container image using ACR task
-> * Sign a container image using Notation 
-> * Validate a container image against the signature using Notation
+> * Sign a container image using Notation CLI and AKV plugin
+> * Validate a container image against the signature using Notation CLI
 
 ## Prerequisites
 
@@ -31,7 +31,7 @@ In this tutorial:
 * Create or use an [Azure Key Vault](../key-vault/general/quick-create-cli.md) for managing signing certificates
 * Install and configure the latest [Azure CLI](/cli/azure/install-azure-cli), or Run commands in the [Azure Cloud Shell](https://portal.azure.com/#cloudshell/)
 
-## Install Notation and Azure Key Vault plugin
+## Install Notation CLI and AKV plugin
 
 1. Install Notation v1.0.0 on a Linux environment. You can also download the package for other environments by following the [Notation installation guide](https://notaryproject.dev/docs/installation/cli/).
 
@@ -98,10 +98,24 @@ In this tutorial:
     IMAGE_SOURCE=https://github.com/wabbit-networks/net-monitor.git#main
     ```
 
+## Sign in with Azure CLI
+
+```azure-cli
+az login
+```
+
+To learn more about Azure CLI and how to sign in with it, see [Sign in with Azure CLI](https://learn.microsoft.com/en-us/cli/azure/authenticate-azure-cli).
+
 ## Assign access policy in AKV (Azure CLI)
 
-To create a self-signed certificate and sign a container image in AKV, you must assign proper access policy to a principal. The permissions that you grant for a principal should include at least certificate permissions `Create` and `Get`, and key permissions `Sign`. A principal can be user principal, service principal or managed identity. In this tutorial, the access policy is assigned to a signed-in Azure user. To learn more about assigning policy to a principal, see [Assign Access Policy](/azure/key-vault/general/assign-access-policy).
+To create a self-signed certificate and sign a container image in AKV, you must assign proper access policy to a principal. The permissions that you grant for a principal should include at least certificate permissions `Create` and `Get` for creating and fetch certificates, and key permissions `Sign` for signing. A principal can be user principal, service principal or managed identity. In this tutorial, the access policy is assigned to a signed-in Azure user. To learn more about assigning policy to a principal, see [Assign Access Policy](/azure/key-vault/general/assign-access-policy).
 
+### Set the subscription that contains the AKV resource
+```azure-cli
+az account set --subscription <your_subscription_id>
+```
+
+### Set the access policy in AKV
 ```azure-cli
 USER_ID=$(az ad signed-in-user show --query id -o tsv)
 az keyvault set-policy -n $AKV_NAME --certificate-permissions create get --key-permissions sign --object-id $USER_ID
@@ -150,7 +164,7 @@ If you have an existing certificate, see [import a certificate in AKV](../key-va
     az keyvault certificate create -n $KEY_NAME --vault-name $AKV_NAME -p @my_policy.json
     ```
 
-## Sign a container image
+## Sign a container image using Notation CLI and AKV plugin
 
 1. Build and push a new image with ACR Tasks.
 
@@ -214,7 +228,7 @@ To verify the container image, you need to add the root certificate that signs t
  
 4. Configure trust policy before verification.
 
-   Trust policies allow users to specify fine-tuned verification policies. Use the following command to configure trust policy. Upon successful execution of the command, one trust policy named `wabbit-networks-images` is created. This trust policy applies to all the artifacts stored in repositories defined in `$REGISTRY/$REPO`. The trust identity that user trusts has the x509 subject `$CERT_SUBJECT` from previous step, and stored under trust store named `$STORE_NAME` of type `$STORE_TYPE`. See [Trust store and trust policy specification](https://github.com/notaryproject/notaryproject/blob/main/specs/trust-store-trust-policy.md) for details.
+   Trust policies allow users to specify fine-tuned verification policies. Use the following command to configure trust policy. Upon successful execution of the command, one trust policy named `wabbit-networks-images` is created. This trust policy applies to all the artifacts stored in repositories defined in `$REGISTRY/$REPO`. The trust identity that user trusts has the x509 subject `$CERT_SUBJECT` from previous step, and stored under trust store named `$STORE_NAME` of type `$STORE_TYPE`. See [Trust store and trust policy specification](https://github.com/notaryproject/notaryproject/blob/v1.0.0/specs/trust-store-trust-policy.md) for details.
 
     ```bash
     cat <<EOF > ./trustpolicy.json
