@@ -270,6 +270,7 @@ The following list contains answers to commonly asked questions about Azure Cach
 - [After scaling, do I have to change my cache name or access keys?](#after-scaling-do-i-have-to-change-my-cache-name-or-access-keys)
 - [How does scaling work?](#how-does-scaling-work)
 - [Do I lose data from my cache during scaling?](#do-i-lose-data-from-my-cache-during-scaling)
+- [Can I use all the features of Premium tier after scaling?](#can-i-use-all-the-features-of-premium-tier-after-scaling)
 - [Is my custom databases setting affected during scaling?](#is-my-custom-databases-setting-affected-during-scaling)
 - [Is my cache be available during scaling?](#is-my-cache-be-available-during-scaling)
 - [Are there scaling limitations with geo-replication?](#are-there-scaling-limitations-with-geo-replication)
@@ -315,6 +316,10 @@ No, your cache name and keys are unchanged during a scaling operation.
 - When you scale a **Basic** cache to a new size, all data is lost and the cache is unavailable during the scaling operation.
 - When you scale a **Basic** cache to a **Standard** cache, the data in the cache is typically preserved.
 - When you scale a **Standard**, **Premium**, **Enterprise**, or **Enterprise Flash** cache to a larger size, all data is typically preserved. When you scale a Standard or Premium cache to a smaller size, data can be lost if the data size exceeds the new smaller size when it's scaled down. If data is lost when scaling down, keys are evicted using the [allkeys-lru](https://redis.io/topics/lru-cache) eviction policy.
+
+ ### Can I use all the features of Premium tier after scaling?
+
+No, features that are creation level settings in Premium tier such as configuring of VNET, setting up zone redundancy won't be available for configuration after scaling. You need to create a new instance in case you are looking to leverage any of those features.
 
 ### Is my custom databases setting affected during scaling?
 
@@ -454,4 +459,4 @@ Unlike Basic, Standard, and Premium tier caches, Enterprise and Enterprise Flash
 ## Next steps
 
 - [Configure your maxmemory-reserved setting](cache-best-practices-memory-management.md#configure-your-maxmemory-reserved-setting)
-- [[Best practices for scaling](cache-best-practices-scale.md)]
+- [Best practices for scaling](cache-best-practices-scale.md)
