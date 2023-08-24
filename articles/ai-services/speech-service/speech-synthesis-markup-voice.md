@@ -97,7 +97,7 @@ By default, neural voices have a neutral speaking style. You can adjust the spea
 
 ### mstts express-as examples
 
-The following table descibes the usage of the `mstts:express-as` element's attributes:
+The following table describes the usage of the `mstts:express-as` element's attributes:
 
 | Attribute | Description | Required or optional |
 | ---------- | ---------- | ---------- |
@@ -215,7 +215,7 @@ This example uses a custom voice named **my-custom-voice**. The custom voice spe
 
 ## Adjust speaking languages
 
-By default, all neural voices are fluent in their own language and English without using the `<lang xml:lang>` element. For example, if the input text in English is, "I'm excited to try text to speech," and you use the `es-ES-ElviraNeural` voice, the text is spoken in English with a Spanish accent. With most neural voices, the Speech service does not support setting a specific speaking language with the `<lang xml:lang>` element at the sentence or word level.
+By default, all neural voices are fluent in their own language and English without using the `<lang xml:lang>` element. For example, if the input text in English is, "I'm excited to try text to speech," and you use the `es-ES-ElviraNeural` voice, the text is spoken in English with a Spanish accent. With most neural voices, the Speech service doesn't support setting a specific speaking language with the `<lang xml:lang>` element at the sentence or word level.
 
 The `<lang xml:lang>` element is primarily intended for multilingual neural voices. You can adjust the speaking language for the multilingual neural voice at the sentence level and word level. For information about the supported languages for multilingual voice, see [Multilingual voices with the lang element](#multilingual-voices-with-the-lang-element) for a table showing the `<lang>` syntax and attribute definitions.
 
@@ -249,7 +249,7 @@ Use this table to determine which speaking languages the Speech service supports
 
 ### Lang examples
 
-For information about the supported values for attributes of the `lang` element, see [Adjust speaking langugage](#adjust-speaking-languages). 
+For information about the supported values for attributes of the `lang` element, see [Adjust speaking language](#adjust-speaking-languages). 
 
 You must specify `en-US` as the default language within the `speak` element, whether or not the language is adjusted elsewhere. In this example, the primary language for `en-US-JennyMultilingualNeural` is `en-US`. 
 
@@ -424,7 +424,7 @@ Use the `mstts:audioduration` element to set the duration of the output audio. U
 
 The audio duration setting applies to all input text within its enclosing `voice` element. To reset or change the audio duration setting again, you must use a new `voice` element with either the same voice or a different voice.
 
-The following tables describes the usage of the `mstts:audioduration` element's attributes:
+The following table describes the usage of the `mstts:audioduration` element's attributes:
 
 | Attribute | Description | Required or optional |
 | ---------- | ---------- | ---------- |
