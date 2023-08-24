@@ -40,7 +40,7 @@ If the above points are met, continue with:
 
 1. [Enable Microsoft Entra Permissions Management in your organization](onboard-enable-tenant.md)
 
-Ensure you are a *Global Administrator* or *Permissions Management Administrator*. Learn more about [Permissions Management roles and permissions](product-roles-permissions.md). 
+Ensure you're a *Global Administrator* or *Permissions Management Administrator*. Learn more about [Permissions Management roles and permissions](product-roles-permissions.md). 
 
  
 ## Step 2: Onboard your multicloud environment
@@ -62,7 +62,7 @@ The controller gives you the choice to determine the level of access you grant t
 
 > [!NOTE]
 > If you don't enable the controller during onboarding, you have the option to enable it after onboarding is complete. To set the controller in Permissions Management after onboarding, see [Enable or disable the controller after onboarding](onboard-enable-controller-after-onboarding.md).
-> For AWS environments, once you've enabled the controller, you *cannot* disable it. 
+> For AWS environments, once you have enabled the controller, you *cannot* disable it. 
 
 To set the controller settings during onboarding:
 1. Select **Enable** to give read and write access to Permissions Management.
@@ -90,7 +90,7 @@ To configure data collection:
 3. Click **Create configuration**.
 
 ### Onboard Amazon Web Services (AWS)
-Since Permissions Management is hosted on Microsoft Entra, there are additional steps to take to onboard your AWS environment.  
+Since Permissions Management is hosted on Microsoft Entra, there are more steps to take to onboard your AWS environment.  
 
 To connect AWS to Permissions Management, you must create an Entra ID application in the Entra admin center tenant where Permissions Management is enabled. This Entra ID application is used to set up an OIDC connection to your AWS environment.   
 
@@ -104,11 +104,11 @@ Account IDs and roles for:
 - AWS OIDC account: An AWS member account designated by you to create and host the OIDC connection through an OIDC IdP
 - AWS Logging account (optional but recommended) 
 - AWS Management account (optional but recommended)  
-- AWS member accounts to be monitored and managed by Permissions Management (for manual mode) 
+- AWS member accounts monitored and managed by Permissions Management (for manual mode) 
 
 To use **Automatic** or **Select** data collection modes, you must connect your AWS Management account.  
 
-During this step, you have the option to enable the controller by entering the name of the S3 bucket with AWS CloudTrail activity logs (found on AWS Trails). 
+During this step, you can enable the controller by entering the name of the S3 bucket with AWS CloudTrail activity logs (found on AWS Trails). 
 
 To onboard your AWS environment and configure data collection, see [Onboard an Amazon Web Services (AWS) account](onboard-aws.md).
 
@@ -160,9 +160,9 @@ To onboard your GCP environment and configure data collection, see [Onboard a GC
 
 ## Summary
 
-Congratulations! You've finished configuring data collection for your environment(s), and the data collection process has begun.  
+Congratulations! You have finished configuring data collection for your environment(s), and the data collection process has begun.  
 
-The status column in your Permissions Management UI shows you which step of data collection you are at.  
+The status column in your Permissions Management UI shows you which step of data collection you're at.  
 
  
 - **Pending**: Permissions Management has not started detecting or onboarding yet. 
