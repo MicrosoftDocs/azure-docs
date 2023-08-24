@@ -50,6 +50,6 @@ The following high-level steps are involved in [connecting a Kubernetes cluster 
 ## Next steps
 
 * Walk through our quickstart to [connect a Kubernetes cluster to Azure Arc](./quickstart-connect-cluster.md).
-* View release notes to see [details about the latest agent versions](../data/release-notes.md).
+* View release notes to see [details about the latest agent versions](release-notes.md).
 * Learn about [upgrading Azure Arc-enabled Kubernetes agents](agent-upgrade.md).
 * Learn more about the creating connections between your cluster and a Git repository as a [configuration resource with Azure Arc-enabled Kubernetes](./conceptual-configurations.md).
