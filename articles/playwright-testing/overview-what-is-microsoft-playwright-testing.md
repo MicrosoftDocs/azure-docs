@@ -57,10 +57,11 @@ The following diagram shows an architecture overview of Microsoft Playwright Tes
 
 ## Data at rest
 
-Microsoft Playwright Testing automatically encrypts all data stored in your workspace with keys managed by Microsoft (service-managed keys). For example, this data includes workspace details and Playwright test run metadata, such as test start time, test duration, number of parallel workers.
+Microsoft Playwright Testing automatically encrypts all data stored in your workspace with keys managed by Microsoft (service-managed keys). For example, this data includes workspace details and Playwright test run meta data like test start and end time, test minutes, and who ran the test.
 
 ## In-region data residency
-Microsoft Playwright Testing doesn't store or process customer data outside the region you deploy the workspace in.
+
+Microsoft Playwright Testing doesn't store or process customer data outside the region you deploy the workspace in. When you use the regional affinity feature, the metadata is transferred from the cloud hosted browser region to the workspace region in a secure and compliant manner.
 
 ## Next step
 
