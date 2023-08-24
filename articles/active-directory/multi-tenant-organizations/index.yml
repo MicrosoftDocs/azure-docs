@@ -49,7 +49,7 @@ landingContent:
           - text: Multi-tenant organizations and Microsoft 365
             url: multi-tenant-organization-microsoft-365.md
           - text: Plan for multi-tenant organizations in Microsoft 365
-            url: /microsoft-365/enterprise/plan-multi-tenant-org-overview?branch=mikeplum-mto
+            url: /microsoft-365/enterprise/plan-multi-tenant-org-overview
           - text: Microsoft 365 multi-tenant organization people search
             url: /microsoft-365/enterprise/multi-tenant-people-search
 
@@ -59,9 +59,9 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Set up a multi-tenant org in Microsoft 365
-            url: /microsoft-365/enterprise/set-up-multi-tenant-org?branch=mikeplum-mto
+            url: /microsoft-365/enterprise/set-up-multi-tenant-org
           - text: Join or leave a multi-tenant organization in Microsoft 365
-            url: /microsoft-365/enterprise/join-leave-multi-tenant-org?branch=mikeplum-mto
+            url: /microsoft-365/enterprise/join-leave-multi-tenant-org
           - text: Microsoft Graph API
             url: multi-tenant-organization-configure-graph.md
 
@@ -77,4 +77,4 @@ landingContent:
           - text: Scoping users or groups to be provisioned
             url: ../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md?toc=/azure/active-directory/multi-tenant-organizations/toc.json&pivots=cross-tenant-synchronization
           - text: Synchronize users in multi-tenant organizations in Microsoft 365
-            url: /microsoft-365/enterprise/sync-users-multi-tenant-orgs?branch=mikeplum-mto
+            url: /microsoft-365/enterprise/sync-users-multi-tenant-orgs

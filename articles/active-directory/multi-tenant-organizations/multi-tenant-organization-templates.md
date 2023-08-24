@@ -70,7 +70,7 @@ To provide administrators with further configurability, you can choose when cros
 | All partner tenants | Both new partner tenants and existing partner tenants |
 | No partner tenants | Policy templates are effectively disabled |
 
-In this context, *new* partners refer to tenants for which you haven't yet configured cross-tenant access settings, while *existing* partners refer to tenants for which you have already configured cross-tenant access settings. This scoping is specified with the `templateApplicationLevel` property on the cross-tenant access [partner configuration template](/graph/api/resources/multitenantorganizationpartnerconfigurationtemplate?branch=pr-en-us-21123) and the `templateApplicationLevel` property on the cross-tenant access [identity synchronization template](/graph/api/resources/multitenantorganizationidentitysyncpolicytemplate?branch=pr-en-us-21123).
+In this context, *new* partners refer to tenants for which you haven't yet configured cross-tenant access settings, while *existing* partners refer to tenants for which you have already configured cross-tenant access settings. This scoping is specified with the `templateApplicationLevel` property on the cross-tenant access [partner configuration template](/graph/api/resources/multitenantorganizationpartnerconfigurationtemplate) and the `templateApplicationLevel` property on the cross-tenant access [identity synchronization template](/graph/api/resources/multitenantorganizationidentitysyncpolicytemplate).
 
 Finally, in terms of interpretation of template property values, any template property value of `null` has no effect on the corresponding property value in the targeted cross-tenant access settings, while a defined template property value causes the corresponding property value in the targeted cross-tenant access settings to be amended in accordance with the template. The following table illustrates how template property values are being applied to corresponding cross-tenant access setting values.
 
@@ -92,7 +92,7 @@ This is achieved by setting the corresponding three template property values to 
 - `automaticUserConsentSettings.outboundAllowed`
 - `userSyncInbound`
 
-For more information, see [Join or leave a multi-tenant organization in Microsoft 365](/microsoft-365/enterprise/join-leave-multi-tenant-org?branch=mikeplum-mto).
+For more information, see [Join or leave a multi-tenant organization in Microsoft 365](/microsoft-365/enterprise/join-leave-multi-tenant-org).
 
 ## Cross-tenant access settings at time of multi-tenant organization disassembly
 

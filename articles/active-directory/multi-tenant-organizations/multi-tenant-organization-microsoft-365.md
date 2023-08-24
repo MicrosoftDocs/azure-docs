@@ -55,7 +55,7 @@ One of the simpler ways to achieve a collaborating user set in each multi-tenant
 
 :::image type="content" source="./media/multi-tenant-organization-microsoft-365/multi-tenant-user-sync.png" alt-text="Diagram that shows users synchronized across multiple tenants." lightbox="./media/multi-tenant-organization-microsoft-365/multi-tenant-user-sync.png":::
 
-Microsoft 365 admin center facilitates orchestration of such a collaborating user set across multi-tenant organization tenants. For more information, see [Synchronize users in multi-tenant organizations in Microsoft 365 (Preview)](/microsoft-365/enterprise/sync-users-multi-tenant-orgs?branch=mikeplum-mto).
+Microsoft 365 admin center facilitates orchestration of such a collaborating user set across multi-tenant organization tenants. For more information, see [Synchronize users in multi-tenant organizations in Microsoft 365 (Preview)](/microsoft-365/enterprise/sync-users-multi-tenant-orgs).
 
 Alternatively, pair-wise configuration of inbound and outbound cross-tenant synchronization can be used to orchestrate such collating user set across multi-tenant organization tenants. For more information, see [What is a cross-tenant synchronization](cross-tenant-synchronization-overview.md).
 
@@ -65,7 +65,7 @@ To ensure a seamless collaboration experience across the multi-tenant organizati
 
 | User synchronization method | Default userType property |
 | --- | --- |
-| [Synchronize users in multi-tenant organizations in Microsoft 365 (Preview)](/microsoft-365/enterprise/sync-users-multi-tenant-orgs?branch=mikeplum-mto) | **Member**<br/> Remains Guest, if the B2B identity already existed as Guest |
+| [Synchronize users in multi-tenant organizations in Microsoft 365 (Preview)](/microsoft-365/enterprise/sync-users-multi-tenant-orgs) | **Member**<br/> Remains Guest, if the B2B identity already existed as Guest |
 | [Cross-tenant synchronization in Azure AD](./cross-tenant-synchronization-overview.md) | **Member**<br/> Remains Guest, if the B2B identity already existed as Guest |
 
 From a security perspective, you should review the default permissions granted to B2B member users. For more information, see [Compare member and guest default permissions](../fundamentals/users-default-permissions.md#compare-member-and-guest-default-permissions).
@@ -78,5 +78,5 @@ To unshare users, you deprovision users by using the user deprovisioning capabil
 
 ## Next steps
 
-- [Plan for multi-tenant organizations in Microsoft 365](/microsoft-365/enterprise/plan-multi-tenant-org-overview?branch=mikeplum-mto)
-- [Set up a multi-tenant org in Microsoft 365](/microsoft-365/enterprise/set-up-multi-tenant-org?branch=mikeplum-mto)
+- [Plan for multi-tenant organizations in Microsoft 365](/microsoft-365/enterprise/plan-multi-tenant-org-overview)
+- [Set up a multi-tenant org in Microsoft 365](/microsoft-365/enterprise/set-up-multi-tenant-org)

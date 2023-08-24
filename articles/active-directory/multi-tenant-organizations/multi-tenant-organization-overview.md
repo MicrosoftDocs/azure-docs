@@ -145,11 +145,11 @@ Here are the basic steps to get started using multi-tenant organization.
 
 ### Step 1: Plan your deployment
 
-For more information, see [Plan for multi-tenant organizations in Microsoft 365 (Preview)](/microsoft-365/enterprise/plan-multi-tenant-org-overview?branch=mikeplum-mto).
+For more information, see [Plan for multi-tenant organizations in Microsoft 365 (Preview)](/microsoft-365/enterprise/plan-multi-tenant-org-overview).
 
 ### Step 2: Create your multi-tenant organization
 
-Create your multi-tenant organization using [Microsoft 365 admin center](/microsoft-365/enterprise/set-up-multi-tenant-org?branch=mikeplum-mto) or [Microsoft Graph API](multi-tenant-organization-configure-graph.md):
+Create your multi-tenant organization using [Microsoft 365 admin center](/microsoft-365/enterprise/set-up-multi-tenant-org) or [Microsoft Graph API](multi-tenant-organization-configure-graph.md):
 
 - First tenant, soon-to-be owner tenant, creates a multi-tenant organization.
 - Owner tenant adds one or more joiner tenants.
@@ -157,7 +157,7 @@ Create your multi-tenant organization using [Microsoft 365 admin center](/micros
 
 ### Step 3: Join a multi-tenant organization
 
-Join a multi-tenant organization using [Microsoft 365 admin center](/microsoft-365/enterprise/join-leave-multi-tenant-org?branch=mikeplum-mto) or [Microsoft Graph API](multi-tenant-organization-configure-graph.md):
+Join a multi-tenant organization using [Microsoft 365 admin center](/microsoft-365/enterprise/join-leave-multi-tenant-org) or [Microsoft Graph API](multi-tenant-organization-configure-graph.md):
 
 - Joiner tenants submit a join request to join the multi-tenant organization of owner tenant.
 - To allow for asynchronous processing, wait **up to 4 hours**.
@@ -168,7 +168,7 @@ Your multi-tenant organization is formed.
 
 Depending on your use case, you may want to synchronize users using one of the following methods:
 
-- [Synchronize users in multi-tenant organizations in Microsoft 365 (Preview)](/microsoft-365/enterprise/sync-users-multi-tenant-orgs?branch=mikeplum-mto)
+- [Synchronize users in multi-tenant organizations in Microsoft 365 (Preview)](/microsoft-365/enterprise/sync-users-multi-tenant-orgs)
 - [Configure cross-tenant synchronization using the Azure portal](cross-tenant-synchronization-configure.md)
 - [Configure cross-tenant synchronization using Microsoft Graph API](cross-tenant-synchronization-configure-graph.md)
 - Your alternative bulk provisioning engine
@@ -188,5 +188,5 @@ The multi-tenant organization capability is in preview, and you can start using 
 
 ## Next steps
 
-- [Plan for multi-tenant organizations in Microsoft 365 (Preview)](/microsoft-365/enterprise/plan-multi-tenant-org-overview?branch=mikeplum-mto)
+- [Plan for multi-tenant organizations in Microsoft 365 (Preview)](/microsoft-365/enterprise/plan-multi-tenant-org-overview)
 - [What is cross-tenant synchronization?](cross-tenant-synchronization-overview.md)

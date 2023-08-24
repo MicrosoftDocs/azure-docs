@@ -23,7 +23,7 @@ ms.custom: it-pro
 
 This article describes the key steps to configure a multi-tenant organization using the Microsoft Graph API. This article uses an example owner tenant named *Cairo* and two member tenants named *Berlin* and *Athens*.
 
-If you instead want to use the Microsoft 365 admin center to configure a multi-tenant organization, see [Set up a multi-tenant org in Microsoft 365 (Preview)](/microsoft-365/enterprise/set-up-multi-tenant-org?branch=mikeplum-mto) and [Join or leave a multi-tenant organization in Microsoft 365 (Preview)](/microsoft-365/enterprise/join-leave-multi-tenant-org?branch=mikeplum-mto).
+If you instead want to use the Microsoft 365 admin center to configure a multi-tenant organization, see [Set up a multi-tenant org in Microsoft 365 (Preview)](/microsoft-365/enterprise/set-up-multi-tenant-org) and [Join or leave a multi-tenant organization in Microsoft 365 (Preview)](/microsoft-365/enterprise/join-leave-multi-tenant-org).
 
 ## Prerequisites
 
@@ -63,7 +63,7 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
 
 ![Icon for the owner tenant.](./media/common/icon-tenant-owner.png)<br/>**Owner tenant**
 
-1. In the owner tenant, use the [Create multiTenantOrganization](/graph/api/tenantrelationship-put-multitenantorganization?branch=pr-en-us-21123) API to create your multi-tenant organization. This operation can take a few minutes.
+1. In the owner tenant, use the [Create multiTenantOrganization](/graph/api/tenantrelationship-put-multitenantorganization) API to create your multi-tenant organization. This operation can take a few minutes.
 
     **Request**
 
@@ -74,7 +74,7 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
     }
     ```
 
-1. Use the [Get multiTenantOrganization](/graph/api/multitenantorganization-get?branch=pr-en-us-21123) API to check that the operation has completed before proceeding.
+1. Use the [Get multiTenantOrganization](/graph/api/multitenantorganization-get) API to check that the operation has completed before proceeding.
 
     **Request**
 
@@ -98,7 +98,7 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
 
 ![Icon for the owner tenant.](./media/common/icon-tenant-owner.png)<br/>**Owner tenant**
 
-1. In the owner tenant, use the [Add multiTenantOrganizationMember](/graph/api/multitenantorganization-post-tenants?branch=pr-en-us-21123) API to add tenants to your multi-tenant organization.
+1. In the owner tenant, use the [Add multiTenantOrganizationMember](/graph/api/multitenantorganization-post-tenants) API to add tenants to your multi-tenant organization.
 
     **Request**
 
@@ -120,7 +120,7 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
     }
     ```
 
-1. Use the [List multiTenantOrganizationMembers](/graph/api/multitenantorganization-list-tenants?branch=pr-en-us-21123) API to verify that the operation has completed before proceeding.
+1. Use the [List multiTenantOrganizationMembers](/graph/api/multitenantorganization-list-tenants) API to verify that the operation has completed before proceeding.
 
     **Request**
 
@@ -184,7 +184,7 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
 
 By default, tenants added to the multi-tenant organization are member tenants. Optionally, you can change them to owner tenants, which allow them to add other tenants to the multi-tenant organization. You can also change an owner tenant to a member tenant.
 
-1. In the owner tenant, use the [Update multiTenantOrganizationMember](/graph/api/multitenantorganizationmember-update?branch=pr-en-us-21123) API to change a member tenant to an owner tenant.
+1. In the owner tenant, use the [Update multiTenantOrganizationMember](/graph/api/multitenantorganizationmember-update) API to change a member tenant to an owner tenant.
 
     **Request**
 
@@ -195,7 +195,7 @@ By default, tenants added to the multi-tenant organization are member tenants. O
     }
     ```
 
-1. Use the [Get multiTenantOrganizationMember](/graph/api/multitenantorganizationmember-get?branch=pr-en-us-21123) API to verify the change.
+1. Use the [Get multiTenantOrganizationMember](/graph/api/multitenantorganizationmember-get) API to verify the change.
 
     **Request**
 
@@ -224,7 +224,7 @@ By default, tenants added to the multi-tenant organization are member tenants. O
     }
     ```
 
-1. Use the [Update multiTenantOrganizationMember](/graph/api/multitenantorganizationmember-update?branch=pr-en-us-21123) API to change an owner tenant to a member tenant.
+1. Use the [Update multiTenantOrganizationMember](/graph/api/multitenantorganizationmember-update) API to change an owner tenant to a member tenant.
 
     **Request**
 
@@ -241,7 +241,7 @@ By default, tenants added to the multi-tenant organization are member tenants. O
 
 You can remove any member tenant, including your own. You can't remove owner tenants. Also, you can't remove the original creator tenant, even if it has been changed from owner to member.
 
-1. In the owner tenant, use the [Remove multiTenantOrganizationMember](/graph/api/multitenantorganization-delete-tenants?branch=pr-en-us-21123) API to remove any member tenant. This operation takes a few minutes.
+1. In the owner tenant, use the [Remove multiTenantOrganizationMember](/graph/api/multitenantorganization-delete-tenants) API to remove any member tenant. This operation takes a few minutes.
 
     **Request**
 
@@ -249,7 +249,7 @@ You can remove any member tenant, including your own. You can't remove owner ten
     DELETE https://graph.microsoft.com/beta/tenantRelationships/multiTenantOrganization/tenants/{memberTenantIdD}
     ```
     
-1. Use the [Get multiTenantOrganizationMember](/graph/api/multitenantorganizationmember-get?branch=pr-en-us-21123) API to verify the change.
+1. Use the [Get multiTenantOrganizationMember](/graph/api/multitenantorganizationmember-get) API to verify the change.
 
     **Request**
 
@@ -327,7 +327,7 @@ The Cairo tenant created a multi-tenant organization and added the Berlin and At
 
 ![Icon for the member tenant.](./media/common/icon-tenant-member.png)<br/>**Member tenant**
 
-1. In the member tenant, use the [Update multiTenantOrganizationJoinRequestRecord](/graph/api/multitenantorganizationjoinrequestrecord-update?branch=pr-en-us-21123) API to join the multi-tenant organization.
+1. In the member tenant, use the [Update multiTenantOrganizationJoinRequestRecord](/graph/api/multitenantorganizationjoinrequestrecord-update) API to join the multi-tenant organization.
 
     **Request**
 
@@ -338,7 +338,7 @@ The Cairo tenant created a multi-tenant organization and added the Berlin and At
     }
     ```
 
-1. Use the [Get multiTenantOrganizationJoinRequestRecord](/graph/api/multitenantorganizationjoinrequestrecord-get?branch=pr-en-us-21123) API to verify the join. 
+1. Use the [Get multiTenantOrganizationJoinRequestRecord](/graph/api/multitenantorganizationjoinrequestrecord-get) API to verify the join. 
 
     **Request**
 
@@ -380,7 +380,7 @@ The Cairo tenant created a multi-tenant organization and added the Berlin and At
     }
     ```
 
-1. Use the [List multiTenantOrganizationMembers](/graph/api/multitenantorganization-list-tenants?branch=pr-en-us-21123) API to check the multi-tenant organization itself. It should reflect the join operation.
+1. Use the [List multiTenantOrganizationMembers](/graph/api/multitenantorganization-list-tenants) API to check the multi-tenant organization itself. It should reflect the join operation.
 
     **Request**
 
@@ -438,7 +438,7 @@ You can leave a multi-tenant organization that you have joined. The process for 
 
 If your tenant is the only multi-tenant organization owner, you must designate a new tenant to be the multi-tenant organization owner. For steps, see [Step 4: (Optional) Change the role of a tenant](#step-4-optional-change-the-role-of-a-tenant) 
 
-- In the tenant, use the [Remove multiTenantOrganizationMember](/graph/api/multitenantorganization-delete-tenants?branch=pr-en-us-21123) API to remove the tenant. This operation takes a few minutes.
+- In the tenant, use the [Remove multiTenantOrganizationMember](/graph/api/multitenantorganization-delete-tenants) API to remove the tenant. This operation takes a few minutes.
 
     **Request**
 
@@ -452,7 +452,7 @@ If your tenant is the only multi-tenant organization owner, you must designate a
 
 You delete a multi-tenant organization by removing all tenants. The process for removing the final owner tenant is the same as the process for removing all other member tenants.
 
-- In the final owner tenant, use the [Remove multiTenantOrganizationMember](/graph/api/multitenantorganization-delete-tenants?branch=pr-en-us-21123) API to remove the tenant. This operation takes a few minutes.
+- In the final owner tenant, use the [Remove multiTenantOrganizationMember](/graph/api/multitenantorganization-delete-tenants) API to remove the tenant. This operation takes a few minutes.
 
     **Request**
 
@@ -462,6 +462,6 @@ You delete a multi-tenant organization by removing all tenants. The process for 
 
 ## Next steps
 
-- [Set up a multi-tenant org in Microsoft 365 (Preview)](/microsoft-365/enterprise/set-up-multi-tenant-org?branch=mikeplum-mto)
-- [Synchronize users in multi-tenant organizations in Microsoft 365 (Preview)](/microsoft-365/enterprise/sync-users-multi-tenant-orgs?branch=mikeplum-mto)
+- [Set up a multi-tenant org in Microsoft 365 (Preview)](/microsoft-365/enterprise/set-up-multi-tenant-org)
+- [Synchronize users in multi-tenant organizations in Microsoft 365 (Preview)](/microsoft-365/enterprise/sync-users-multi-tenant-orgs)
 - [Configure multi-tenant organization templates using the Microsoft Graph API (Preview)](./multi-tenant-organization-configure-templates.md)

@@ -35,7 +35,7 @@ The [cross-tenant access partner configuration](../external-identities/cross-ten
 
 ### Configure inbound and outbound automatic redemption
 
-To specify which trust settings and automatic user consent settings to apply to your policy template, use the [Update multiTenantOrganizationPartnerConfigurationTemplate](/graph/api/multitenantorganizationpartnerconfigurationtemplate-update?branch=pr-en-us-21123) API. If you create or join a multi-tenant organization using the Microsoft 365 admin center, this configuration is handled automatically.
+To specify which trust settings and automatic user consent settings to apply to your policy template, use the [Update multiTenantOrganizationPartnerConfigurationTemplate](/graph/api/multitenantorganizationpartnerconfigurationtemplate-update) API. If you create or join a multi-tenant organization using the Microsoft 365 admin center, this configuration is handled automatically.
 
 **Request**
 
@@ -104,7 +104,7 @@ PATCH https://graph.microsoft.com/beta/policies/crossTenantAccessPolicy/template
 
 ### Reset the template
 
-To reset the template to its default state (decline all trust and automatic user consent), use the [multiTenantOrganizationPartnerConfigurationTemplate: resetToDefaultSettings](/graph/api/multitenantorganizationpartnerconfigurationtemplate-resettodefaultsettings?branch=pr-en-us-21123) API.
+To reset the template to its default state (decline all trust and automatic user consent), use the [multiTenantOrganizationPartnerConfigurationTemplate: resetToDefaultSettings](/graph/api/multitenantorganizationpartnerconfigurationtemplate-resettodefaultsettings) API.
 
 ```http
 POST https://graph.microsoft.com/beta/policies/crossTenantAccessPolicy/templates/multiTenantOrganizationPartnerConfiguration/resetToDefaultSettings
@@ -116,7 +116,7 @@ The identity synchronization policy governs [cross-tenant synchronization](cross
 
 ### Configure inbound user synchronization
 
-To allow inbound user synchronization in the policy template, use the [Update multiTenantOrganizationIdentitySyncPolicyTemplate](/graph/api/multitenantorganizationidentitysyncpolicytemplate-update?branch=pr-en-us-21123) API. If you create or join a multi-tenant organization using the Microsoft 365 admin center, this configuration is handled automatically.
+To allow inbound user synchronization in the policy template, use the [Update multiTenantOrganizationIdentitySyncPolicyTemplate](/graph/api/multitenantorganizationidentitysyncpolicytemplate-update) API. If you create or join a multi-tenant organization using the Microsoft 365 admin center, this configuration is handled automatically.
 
 **Request**
 
@@ -167,7 +167,7 @@ PATCH https://graph.microsoft.com/beta/policies/crossTenantAccessPolicy/template
 
 ### Reset the template
 
-To reset the template to its default state (decline inbound synchronization), use the [multiTenantOrganizationIdentitySyncPolicyTemplate: resetToDefaultSettings](/graph/api/multitenantorganizationidentitysyncpolicytemplate-resettodefaultsettings?branch=pr-en-us-21123) API.
+To reset the template to its default state (decline inbound synchronization), use the [multiTenantOrganizationIdentitySyncPolicyTemplate: resetToDefaultSettings](/graph/api/multitenantorganizationidentitysyncpolicytemplate-resettodefaultsettings) API.
 
 **Request**
 
