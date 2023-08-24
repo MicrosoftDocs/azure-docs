@@ -297,7 +297,7 @@ To prepare for disaster recovery in a multi-region geography, you can use either
 
 In active-active disaster recovery architecture, identical web apps are deployed in two separate regions and Azure Front door is used to route traffic to both the active regions.
 
-:::image type="content" source="media/overview-disaster-recovery/active-active-architecture.png" alt-text="Diagram that shows an active-active deployment of App Service.":::
+:::image type="content" source="../app-service/media/overview-disaster-recovery/active-active-architecture.png" alt-text="Diagram that shows an active-active deployment of App Service.":::
 
 With this example architecture: 
 
@@ -380,7 +380,7 @@ Steps to create an active-passive architecture for your web app in App Service a
 1. Setup and configure all other back-end Azure service, such as databases, storage accounts, and authentication providers. 
 1. Deploy code to both the web apps with [continuous deployment](../app-service/deploy-continuous-deployment.md).
 
-[Tutorial: Create a highly available multi-region app in Azure App Service](tutorial-multi-region-app.md) shows you how to set up an *active-passive* architecture.
+[Tutorial: Create a highly available multi-region app in Azure App Service](../app-service/tutorial-multi-region-app.md) shows you how to set up an *active-passive* architecture.
 
 ##### Passive-cold architecture
 
@@ -417,7 +417,7 @@ Steps to create a passive-cold region for your web app in App Service are summar
 
 ### Disaster recovery in single-region geography
 
-If your web app's region doesn't have GZRS or GRS storage or if you are in an  [Azure region that isn't one of a regional pair](../reliability/cross-region-replication-azure.md#regions-with-availability-zones-and-no-region-pair), you'll need to utilize zone-redundant storage (ZRS) or locally redundant storage (LRS) to create a similar architecture. For example, you can manually create a secondary region for the storage account as follows:
+If your web app's region doesn't have GZRS or GRS storage or if you are in an  [Azure region that isn't one of a regional pair](cross-region-replication-azure.md#regions-with-availability-zones-and-no-region-pair), you'll need to utilize zone-redundant storage (ZRS) or locally redundant storage (LRS) to create a similar architecture. For example, you can manually create a secondary region for the storage account as follows:
 
 :::image type="content" source="../app-service/media/overview-disaster-recovery/alternative-no-grs-no-gzrs.png" alt-text="Diagram that shows how to create a passive or cold region without GRS or GZRS." lightbox="media/overview-disaster-recovery/alternative-no-grs-no-gzrs.png":::
 
