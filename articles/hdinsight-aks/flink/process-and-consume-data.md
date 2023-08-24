@@ -1,10 +1,9 @@
 ---
 title: Using HDInsight Kafka with HDInsight on AKS Flink
-
 description: Learn how to use HDInsight Kafka with HDInsight on AKS Flink
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 07/10/2023
+ms.date: 08/24/2023
 ---
  
 # Using HDInsight Kafka with HDInsight on AKS - Flink
@@ -23,7 +22,7 @@ This example uses HDInsight on AKS Flink 1.16.0 to process streaming data consum
 * [Creation of VNet](https://docs.microsoft.com/azure/hdinsight/hdinsight-create-virtual-network).
 * [Create a Kafka cluster in the same VNet](https://learn.microsoft.com/azure/hdinsight/kafka/apache-kafka-get-started). You can choose Kafka 3.2 or 2.4 on HDInsight based on your current usage.
 
-  :::image type="content" source="./media/process-consuming-data/create-kafka-cluster-in-the-same-vnet.png" alt-text="Screenshot showing how to	create a Kafka cluster in the same VNet." border="true" lightbox="./media/process-consuming-data/create-kafka-cluster-in-the-same-vnet.png":::
+  :::image type="content" source="./media/process-consume-data/create-kafka-cluster-in-the-same-vnet.png" alt-text="Screenshot showing how to	create a Kafka cluster in the same VNet." border="true" lightbox="./media/process-consume-data/create-kafka-cluster-in-the-same-vnet.png":::
   
 * Add the VNet details in the virtual network section.  
 * Create a [HDInsight on AKS Cluster pool](../quickstart-create-cluster.md) with same VNet.
@@ -140,17 +139,17 @@ public class Event {
 ```
 ## Package the jar and submit the job to Flink
 
-:::image type="content" source="./media/process-consuming-data/submitjartoflink-1.png" alt-text="Screenshot showing how to submit the Kafka topic packaged jar as a job to Flink.":::
+:::image type="content" source="./media/process-consume-data/submit-jar-flink.png" alt-text="Screenshot showing how to submit the Kafka topic packaged jar as a job to Flink.":::
 
-:::image type="content" source="./media/process-consuming-data/runningjobflink.png" alt-text="Screenshot showing job running on Flink.":::
+:::image type="content" source="./media/process-consume-data/running-job-flink.png" alt-text="Screenshot showing job running on Flink.":::
 
 ## Produce the topic - clicks on Kafka
 
-:::image type="content" source="./media/process-consuming-data/produce-kafka-topics.png" alt-text="Screenshot showing how to produce Kafka topic." border="true" lightbox="./media/process-consuming-data/produce-kafka-topics.png":::
+:::image type="content" source="./media/process-consume-data/produce-kafka-topics.png" alt-text="Screenshot showing how to produce Kafka topic." border="true" lightbox="./media/process-consume-data/produce-kafka-topics.png":::
 
 ## Consume the topic - events on Kafka
 
-:::image type="content" source="./media/process-consuming-data/consume-kafka-topics.png" alt-text="Screenshot showing how to consume Kafka topic." border="true" lightbox="./media/process-consuming-data/consume-kafka-topics.png":::
+:::image type="content" source="./media/process-consume-data/consume-kafka-topics.png" alt-text="Screenshot showing how to consume Kafka topic." border="true" lightbox="./media/process-consume-data/consume-kafka-topics.png":::
 
 ## Reference
 
