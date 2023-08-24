@@ -38,7 +38,7 @@ Follow these steps to enable [semantic search](semantic-search-overview.md) for 
 
 1. Select either the **Free plan** or the **Standard plan**. You can switch between the free plan and the standard plan at any time.
 
-:::image type="content" source="media/semantic-search-overview/semantic-search-billing.png" alt-text="Screenshot of enabling semantic search in the Azure portal" border="true":::
+:::image type="content" source="media/semantic-search-overview/semantic-search-billing.png" alt-text="Screenshot of enabling semantic search in the Azure portal." border="true":::
 
 The free plan is capped at 1,000 queries per month. After the first 1,000 queries in the free plan, you'll receive an error message letting you know you've exhausted your quota the next time you issue a semantic query. When this happens, you need to upgrade to the standard plan to continue using semantic search.
 
