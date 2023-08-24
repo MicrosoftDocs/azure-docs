@@ -177,6 +177,7 @@ The status column in your Permissions Management UI shows you which step of data
 
 - [Enable or disable the controller after onboarding](onboard-enable-controller-after-onboarding.md)
 - [Add an account/subscription/project after onboarding is complete](onboard-add-account-after-onboarding.md)
+- [Create folders to organize your authorization systems](how-to-create-folders.md)
 
 References:
 - [Permissions Management Glossary](multi-cloud-glossary.md)

@@ -1,5 +1,5 @@
 ---
-title: Permissions Management roles and permissions
+title: Microsoft Entra Permissions Management roles and permissions
 description: Review roles and the level of permissions assigned in Microsoft Entra Permissions Management.
 # customerintent: As a cloud administer, I want to understand Permissions Management role assignments, so that I can effectively assign the correct permissions to users.
 services: active-directory
@@ -16,11 +16,13 @@ ms.author: jfields
 
 # Microsoft Entra Permissions Management roles and permissions levels
 
-In Microsoft Azure and Microsoft Entra Permissions Management, assigned roles give users different levels of access to monitor and take action in multicloud environments. In the [Microsoft Entra admin center built-in roles](../roles/permissions-reference.md), review a list of identities assigned to a privileged role and learn more about the level of permissions given to users assigned roles in your organization.
+In Microsoft Azure and Microsoft Entra Permissions Management role assignments grant users permissions to monitor and take action in multicloud environments.
 
 - **Global Administrator**: Manages all aspects of Entra Admin Center and Microsoft services that use Entra Admin Center identities. 
 - **Billing Administrator**: Performs common billing related tasks like updating payment information. 
 - **Permissions Management Administrator**: Manages all aspects of Entra Permissions Management. 
+
+See [Microsoft Entra ID built-in roles to learn more.](product-privileged-role-insights.md)
 
 ## Enabling Permissions Management
 - To activate a trial or purchase a license, you must have *Global Administrator* or *Billing Administrator* permissions.
@@ -35,12 +37,12 @@ In Microsoft Azure and Microsoft Entra Permissions Management, assigned roles gi
 - Users can have the following permissions:
     - Admin for all authorization system types
     - Admin for selected authorization system types
-- If a user isn't an admin, they're assigned Entra Admin Center security group-based, fine-grained permissions for all or selected authorization system types:
-    - Viewers: View only access to scoped cloud accounts. View the specified AWS accounts, Entra subscriptions, and GCP projects
+    - Fine-grained permissions for all or selected authorization system types
+- If a user isn't an admin, they're assigned Microsoft Entra ID security group-based, fine-grained permissions for all or selected authorization system types:
+    - Viewers: View the specified AWS accounts, Azure subscriptions, and GCP projects
     - Controller: Modify Cloud Infrastructure Entitlement Management (CIEM) properties and use the Remediation dashboard.
     - Approvers: Able to approve permission requests
-    - Requestors: Request for permissions in cloud accounts
-        - Request permissions in the specified AWS accounts, Entra subscriptions, and GCP projects.
+    - Requestors: Request permissions in the specified AWS accounts, Entra subscriptions, and GCP projects.
 
 ## Permissions Management actions and required roles
 
