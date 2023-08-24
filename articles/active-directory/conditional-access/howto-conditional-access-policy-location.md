@@ -25,7 +25,7 @@ With the location condition in Conditional Access, you can control access to you
 ## Define locations
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
-1. Browse to **Microsoft Entra ID (Azure AD)** > **Protection** > **Conditional Access** > **Named locations**.
+1. Browse to **Protection** > **Conditional Access** > **Named locations**.
 1. Choose the type of location to create.
    1. **Countries location** or **IP ranges location**.
 1. Give your location a name.
