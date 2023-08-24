@@ -1,6 +1,6 @@
 ---
-title: How to Use Flink CLI to submit jobs
-description: Learn how to Use Flink CLI to submit jobs
+title: How to use Flink CLI to submit jobs
+description: Learn how to use Flink CLI to submit jobs
 ms.service: hdinsight-aks
 ms.topic: how-to
 ms.date: 08/04/2023
