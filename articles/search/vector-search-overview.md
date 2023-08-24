@@ -15,7 +15,7 @@ ms.date: 08/10/2023
 > [!IMPORTANT]
 > Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and [beta client libraries](https://github.com/Azure/cognitive-search-vector-pr#readme).
 
-This article is a high-level introduction to vector search in Azure Cognitive Search. It also explains integration with other Azure services and covers [terms and concepts](#vector-search-concepts) related to vector search development.
+This article is a high-level introduction to vector support in Azure Cognitive Search. It also explains integration with other Azure services and covers [terminology and concepts](#vector-search-concepts) related to vector search development.
 
 We recommend this article for background, but if you'd rather get started, follow these steps:
 
