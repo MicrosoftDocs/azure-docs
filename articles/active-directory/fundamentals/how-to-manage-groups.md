@@ -24,6 +24,9 @@ This article covers basic group scenarios where a single group is added to a sin
 Before adding groups and members, [learn about groups and membership types](concept-learn-about-groups.md) to help you decide which options to use when you create a group.
 
 ## Create a basic group and add members
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 You can create a basic group and add your members at the same time using the Azure Active Directory (Azure AD) portal. Azure AD roles that can manage groups include **Groups Administrator**, **User Administrator**, **Privileged Role Administrator**, or **Global Administrator**. Review the [appropriate Azure AD roles for managing groups](../roles/delegate-by-task.md#groups)
 
 To create a basic group and add members:
@@ -70,7 +73,7 @@ Members and owners can be added to and removed from existing Azure AD groups. Th
 
 Need to add multiple members at one time? Learn about the [add members in bulk](../enterprise-users/groups-bulk-import-members.md) option.
 
-### Add members or owners of a group:
+### Add members or owners of a group
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -88,7 +91,7 @@ Need to add multiple members at one time? Learn about the [add members in bulk](
 
     The **Group Overview** page updates to show the number of members who are now added to the group.
 
-### Remove members or owners of a group:
+### Remove members or owners of a group
 
 1. Go to **Azure Active Directory** > **Groups**.
 
@@ -101,6 +104,7 @@ Need to add multiple members at one time? Learn about the [add members in bulk](
     ![Screenshot of group members with a name selected and the Remove button highlighted.](media/how-to-manage-groups/groups-remove-member.png)
 
 ## Edit group settings
+
 Using Azure AD, you can edit a group's name, description, or membership type. You'll need the **Groups Administrator** or **User Administrator** role to edit a group's settings.
 
 To edit your group settings:
@@ -181,6 +185,7 @@ You can remove an existing Security group from another Security group; however, 
     ![Screenshot of the 'Group membership' page showing both the member and the group details with 'Remove membership' option highlighted.](media/how-to-manage-groups/remove-nested-group.png)
 
 ## Delete a group
+
 You can delete an Azure AD group for any number of reasons, but typically it will be because you:
 
 - Chose the incorrect **Group type** option.

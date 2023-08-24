@@ -69,7 +69,13 @@ For more information on Flow and Power Apps trial sign-ups, see the following ar
 These two parameters can be used in conjunction to define more precise control over self-service sign-up. For example, the following command allows users to perform self-service sign-up, but only if those users already have an account in Azure AD (in other words, users who would need an email-verified account to be created first can't perform self-service sign-up):
 
 ```powershell
-    Set-MsolCompanySettings -AllowEmailVerifiedUsers $false -AllowAdHocSubscriptions $true
+Import-Module Microsoft.Graph.Identity.SignIns
+connect-MgGraph -Scopes "Policy.ReadWrite.Authorization"
+$param = @{
+ allowedToSignUpEmailBasedSubscriptions=$true
+ allowEmailVerifiedUsersToJoinOrganization=$false
+ }
+Update-MgPolicyAuthorizationPolicy -BodyParameter $param
 ```
 
 The following flowchart explains the different combinations for these parameters and the resulting conditions for the tenant and self-service sign-up.
@@ -79,10 +85,10 @@ The following flowchart explains the different combinations for these parameters
 This setting's details may be retrieved using the PowerShell cmdlet Get-MsolCompanyInformation. For more information on this, see [Get-MsolCompanyInformation](/powershell/module/msonline/get-msolcompanyinformation).
 
 ```powershell
-    Get-MsolCompanyInformation | Select AllowEmailVerifiedUsers, AllowAdHocSubscriptions
+Get-MgPolicyAuthorizationPolicy | Select-Object AllowedToSignUpEmailBasedSubscriptions, AllowEmailVerifiedUsersToJoinOrganization
 ```
 
-For more information and examples of how to use these parameters, see [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings).
+For more information and examples of how to use these parameters, see [Update-MgPolicyAuthorizationPolicy](/powershell/module/microsoft.graph.identity.signins/update-mgpolicyauthorizationpolicy?view=graph-powershell-1.0&preserve-view=true).
 
 ## Next steps
 

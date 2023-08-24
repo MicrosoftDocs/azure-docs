@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 09/30/2022
+ms.date: 07/18/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -21,7 +21,7 @@ Accounts that are assigned administrative rights are targeted by attackers. Requ
 
 More information about device compliance policies can be found in the article, [Set rules on devices to allow access to resources in your organization using Intune](/intune/protect/device-compliance-get-started)
 
-Requiring a hybrid Azure AD joined device is dependent on your devices already being hybrid Azure AD joined. For more information, see the article [Configure hybrid Azure AD join](../devices/howto-hybrid-azure-ad-join.md).
+Requiring a hybrid Azure AD joined device is dependent on your devices already being hybrid Azure AD joined. For more information, see the article [Configure hybrid Azure AD join](../devices/how-to-hybrid-join.md).
 
 Microsoft recommends you require enable this policy for the following roles at a minimum, based on [identity score recommendations](../fundamentals/identity-secure-score.md):
 
@@ -51,9 +51,9 @@ Organizations can choose to include or exclude roles as they see fit.
 
 The following steps will help create a Conditional Access policy to require multifactor authentication, devices accessing resources be marked as compliant with your organization's Intune compliance policies, or be hybrid Azure AD joined.
 
-1. Sign in to the **Azure portal** as a Conditional Access Administrator, Security Administrator, or Global Administrator.
-1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
-1. Select **New policy**.
+1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Browse to **Microsoft Entra ID (Azure AD)** > **Protection** > **Conditional Access**.
+1. Select **Create new policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
 1. Under **Assignments**, select **Users or workload identities**.
    1. Under **Include**, select **Directory roles** and choose built-in roles like:
@@ -76,7 +76,7 @@ The following steps will help create a Conditional Access policy to require mult
       > Conditional Access policies support built-in roles. Conditional Access policies are not enforced for other role types including [administrative unit-scoped](../roles/admin-units-assign-roles.md) or [custom roles](../roles/custom-create.md).
 
    1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts.
-1. Under **Cloud apps or actions** > **Include**, select **All cloud apps**.
+1. Under **Target resources** > **Cloud apps** > **Include**, select **All cloud apps**.
 1. Under **Access controls** > **Grant**.
    1. Select **Require device to be marked as compliant**, and **Require hybrid Azure AD joined device**
    1. **For multiple controls** select **Require one of the selected controls**.
@@ -84,7 +84,7 @@ The following steps will help create a Conditional Access policy to require mult
 1. Confirm your settings and set **Enable policy** to **Report-only**.
 1. Select **Create** to create to enable your policy.
 
-After confirming your settings using [report-only mode](howto-conditional-access-insights-reporting.md), an administrator can move the **Enable policy** toggle from **Report-only** to **On**.
+After administrators confirm the settings using [report-only mode](howto-conditional-access-insights-reporting.md), they can move the **Enable policy** toggle from **Report-only** to **On**.
 
 > [!NOTE]
 > You can enroll your new devices to Intune even if you select **Require device to be marked as compliant** for **All users** and **All cloud apps** using the steps above. **Require device to be marked as compliant** control does not block Intune enrollment. 
@@ -99,10 +99,10 @@ Organizations that use the [Subscription Activation](/windows/deployment/windows
 
 ## Next steps
 
-[Conditional Access common policies](concept-conditional-access-policy-common.md)
+[Conditional Access templates](concept-conditional-access-policy-common.md)
 
-[Determine impact using Conditional Access report-only mode](howto-conditional-access-insights-reporting.md)
+[Determine effect using Conditional Access report-only mode](howto-conditional-access-insights-reporting.md)
 
-[Simulate sign in behavior using the Conditional Access What If tool](troubleshoot-conditional-access-what-if.md)
+[Use report-only mode for Conditional Access to determine the results of new policy decisions.](concept-conditional-access-report-only.md)
 
 [Device compliance policies work with Azure AD](/intune/device-compliance-get-started#device-compliance-policies-work-with-azure-ad)

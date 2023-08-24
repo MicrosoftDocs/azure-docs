@@ -43,6 +43,8 @@ Groups created in | Security group default behavior | Microsoft 365 group defaul
 
 ## Make a group available for user self-service
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's been assigned the Global Administrator or Groups Administrator role for the directory.
 
 2. Browse to **Azure Active Directory** > **Groups**, and then select **General** settings.
@@ -107,6 +109,3 @@ These articles provide additional information on Azure Active Directory.
 * [Application Management in Azure Active Directory](../manage-apps/what-is-application-management.md)
 * [What is Azure Active Directory?](../fundamentals/active-directory-whatis.md)
 * [Integrate your on-premises identities with Azure Active Directory](../hybrid/whatis-hybrid-identity.md)
-
-
-

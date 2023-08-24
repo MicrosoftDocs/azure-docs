@@ -33,7 +33,7 @@ Administrators can choose to enforce one or more controls when granting access. 
 - [Require multifactor authentication (Azure AD Multifactor Authentication)](../authentication/concept-mfa-howitworks.md)
 - [Require authentication strength](#require-authentication-strength)
 - [Require device to be marked as compliant (Microsoft Intune)](/intune/protect/device-compliance-get-started)
-- [Require hybrid Azure AD joined device](../devices/concept-azure-ad-join-hybrid.md)
+- [Require hybrid Azure AD joined device](../devices/concept-hybrid-join.md)
 - [Require approved client app](app-based-conditional-access.md)
 - [Require app protection policy](app-protection-based-conditional-access.md)
 - [Require password change](#require-password-change)

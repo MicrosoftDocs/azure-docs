@@ -5,7 +5,7 @@ author: nickomang
 ms.author: nickoman
 ms.topic: article
 ms.date: 02/27/2023
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-linux
 ---
 
 # Provide an identity to access the Azure Key Vault Provider for Secrets Store CSI Driver

@@ -488,7 +488,7 @@ If you get an exception with either of the following messages:
 You can troubleshoot the exception by using these steps:
 
 1. Confirm that you're using the latest version of MSAL.NET.
-1. Confirm that the authority host that you set when building the confidential client application and the authority host that you used with ADAL are similar. In particular, is it the same [cloud](msal-national-cloud.md) (Azure Government, Azure China 21Vianet, or Azure Germany)?
+1. Confirm that the authority host that you set when building the confidential client application and the authority host that you used with ADAL are similar. In particular, is it the same [cloud](msal-national-cloud.md) (Azure Government, Microsoft Azure operated by 21Vianet, or Azure Germany)?
 
 ## Next steps
 

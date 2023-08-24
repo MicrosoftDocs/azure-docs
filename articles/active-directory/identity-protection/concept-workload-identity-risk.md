@@ -106,10 +106,10 @@ Once you determine if the workload identity was compromised, dismiss the account
 
 ## Remediate risky workload identities
 
-1.	Inventory credentials assigned to the risky workload identity, whether for the service principal or application objects.
+1. Inventory credentials assigned to the risky workload identity, whether for the service principal or application objects.
 1. Add a new credential. Microsoft recommends using x509 certificates.
 1. Remove the compromised credentials. If you believe the account is at risk, we recommend removing all existing credentials.
-1.	Remediate any Azure KeyVault secrets that the Service Principal has access to by rotating them. 
+1. Remediate any Azure KeyVault secrets that the Service Principal has access to by rotating them. 
 
 The [Azure AD Toolkit](https://github.com/microsoft/AzureADToolkit) is a PowerShell module that can help you perform some of these actions.
 

@@ -5,7 +5,7 @@ services: storage
 author: jimmart-dev
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 06/16/2023
+ms.date: 08/01/2023
 ms.author: jammart
 ms.reviewer: santoshc
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, build-2023, engagement-fy23
@@ -266,17 +266,12 @@ The following restrictions apply to IP address ranges:
 
 - Only IPv4 addresses are supported for configuration of storage firewall rules.
 
-You can't use IP network rules in the following cases:
-
-- To restrict access to clients in same Azure region as the storage account.
-
-  IP network rules have no effect on requests that originate from the same Azure region as the storage account. Use [Virtual network rules](#grant-access-from-a-virtual-network) to allow same-region requests.
-
-- To restrict access to clients in a [paired region](../../availability-zones/cross-region-replication-azure.md) that are in a virtual network that has a service endpoint.
-
-- To restrict access to Azure services deployed in the same region as the storage account.
-
-  Services deployed in the same region as the storage account use private Azure IP addresses for communication. So, you can't restrict access to specific Azure services based on their public outbound IP address range.
+> [!IMPORTANT]
+> You can't use IP network rules in the following cases:
+>
+> - To restrict access to clients in same Azure region as the storage account. IP network rules have no effect on requests that originate from the same Azure region as the storage account. Use [Virtual network rules](#grant-access-from-a-virtual-network) to allow same-region requests.
+> - To restrict access to clients in a [paired region](../../availability-zones/cross-region-replication-azure.md) that are in a virtual network that has a service endpoint.
+> - To restrict access to Azure services deployed in the same region as the storage account. Services deployed in the same region as the storage account use private Azure IP addresses for communication. So, you can't restrict access to specific Azure services based on their public outbound IP address range.
 
 ### Configuring access from on-premises networks
 
@@ -549,8 +544,9 @@ The following table lists services that can access your storage account data if 
 | Microsoft Autonomous Systems    | `Microsoft.AutonomousSystems/workspaces` | Enables access to storage accounts. |
 | Azure Cache for Redis | `Microsoft.Cache/Redis` | Enables access to storage accounts. [Learn more](../../azure-cache-for-redis/cache-managed-identity.md).| 
 | Azure Cognitive Search          | `Microsoft.Search/searchServices`       | Enables access to storage accounts for indexing, processing, and querying. |
-| Azure Cognitive Services        | `Microsoft.CognitiveService/accounts`   | Enables access to storage accounts. [Learn more](../..//cognitive-services/cognitive-services-virtual-networks.md).|
+| Azure AI services        | `Microsoft.CognitiveService/accounts`   | Enables access to storage accounts. [Learn more](../..//cognitive-services/cognitive-services-virtual-networks.md).|
 | Azure Container Registry        | `Microsoft.ContainerRegistry/registries`| Through the ACR Tasks suite of features, enables access to storage accounts when you're building container images. |
+| Microsoft Cost Management | `Microsoft.CostManagementExports` | Enables export to storage accounts behind a firewall. [Learn more](../../cost-management-billing/costs/tutorial-export-acm-data.md).|
 | Azure Databricks                | `Microsoft.Databricks/accessConnectors` | Enables access to storage accounts. |
 | Azure Data Factory              | `Microsoft.DataFactory/factories`       | Enables access to storage accounts through the Data Factory runtime. |
 | Azure Backup Vault              | `Microsoft.DataProtection/BackupVaults` | Enables access to storage accounts. |
@@ -568,7 +564,7 @@ The following table lists services that can access your storage account data if 
 | Azure Key Vault Managed HSM     | `Microsoft.keyvault/managedHSMs`        | Enables access to storage accounts. |
 | Azure Logic Apps                | `Microsoft.Logic/integrationAccounts`   | Enables logic apps to access storage accounts. [Learn more](../../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity). |
 | Azure Logic Apps                | `Microsoft.Logic/workflows`             | Enables logic apps to access storage accounts. [Learn more](../../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity). |
-| Azure Machine Learning Studio   | `Microsoft.MachineLearning/registries`  | Enables authorized Azure Machine Learning workspaces to write experiment output, models, and logs to Blob Storage and read the data. [Learn more](../../machine-learning/how-to-network-security-overview.md#secure-the-workspace-and-associated-resources). |
+| Azure Machine Learning studio   | `Microsoft.MachineLearning/registries`  | Enables authorized Azure Machine Learning workspaces to write experiment output, models, and logs to Blob Storage and read the data. [Learn more](../../machine-learning/how-to-network-security-overview.md#secure-the-workspace-and-associated-resources). |
 | Azure Machine Learning          | `Microsoft.MachineLearningServices`     | Enables authorized Azure Machine Learning workspaces to write experiment output, models, and logs to Blob Storage and read the data. [Learn more](../../machine-learning/how-to-network-security-overview.md#secure-the-workspace-and-associated-resources). |
 | Azure Machine Learning          | `Microsoft.MachineLearningServices/workspaces` | Enables authorized Azure Machine Learning workspaces to write experiment output, models, and logs to Blob Storage and read the data. [Learn more](../../machine-learning/how-to-network-security-overview.md#secure-the-workspace-and-associated-resources). |
 | Azure Media Services            | `Microsoft.Media/mediaservices`         | Enables access to storage accounts. |

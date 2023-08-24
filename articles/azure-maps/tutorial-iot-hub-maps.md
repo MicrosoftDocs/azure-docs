@@ -1,5 +1,6 @@
 ---
-title: 'Tutorial: Implement IoT spatial analytics | Microsoft Azure Maps'
+title: 'Tutorial: Implement IoT spatial analytics'
+titleSuffix: Microsoft Azure Maps
 description: Tutorial on how to Integrate IoT Hub with Microsoft Azure Maps service APIs
 author: eriklindeman
 ms.author: eriklind
@@ -38,6 +39,9 @@ If you don't have an Azure subscription, create a [free account] before you begi
 * The [rentalCarSimulation] C# project
 
 This tutorial uses the [Postman] application, but you can choose a different API development environment.
+
+>[!IMPORTANT]
+> In the URL examples, replace `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key.
 
 ## Use case: rental car tracking
 
@@ -90,7 +94,7 @@ The following figure highlights the geofence area in blue. The rental car's rout
 
 ## Create an Azure storage account
 
-To store car violation tracking data, create a [general-purpose v2 storage account] in your resource group. If you haven't created a resource group, follow the directions in [create resource groups][resource group]. In this tutorial, you'll name your resource group *ContosoRental*.
+To store car violation tracking data, create a [general-purpose v2 storage account] in your resource group. If you haven't created a resource group, follow the directions in [create resource groups][resource group]. Name your resource group *ContosoRental*.
 
 To create a storage account, follow the instructions in [create a storage account]. In this tutorial, name the storage account *contosorentalstorage*, but in general you can name it anything you like.
 
@@ -110,13 +114,13 @@ When you successfully create your storage account, you then need to create a con
 
 ## Upload a geofence
 
-Next, use the [Postman] app to [upload the geofence] to Azure Maps. The geofence defines the authorized geographical area for our rental vehicle. You'll be using the geofence in your Azure function to determine whether a car has moved outside the geofence area.
+Next, use the [Postman] app to [upload the geofence] to Azure Maps. The geofence defines the authorized geographical area for our rental vehicle. Use the geofence in your Azure function to determine whether a car has moved outside the geofence area.
 
 Follow these steps to upload the geofence by using the Azure Maps Data Upload API:
 
 1. Open the Postman app, select **New** again. In the **Create New** window, select **HTTP Request**, and enter a request name for the request.
 
-2. Select the **POST** HTTP method in the builder tab, and enter the following URL to upload the geofence to the Data Upload API. Make sure to replace `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key.
+2. Select the **POST** HTTP method in the builder tab, and enter the following URL to upload the geofence to the Data Upload API.
 
     ```HTTP
     https://us.atlas.microsoft.com/mapData?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=2.0&dataFormat=geojson
@@ -132,7 +136,7 @@ Follow these steps to upload the geofence by using the Azure Maps Data Upload AP
     https://us.atlas.microsoft.com/mapData/operations/{operationId}?api-version=2.0
     ```
 
-5. To check the status of the API call, create a **GET** HTTP request on the `status URL`. You'll need to append your subscription key to the URL for authentication. The **GET** request should like the following URL:
+5. To check the status of the API call, create a **GET** HTTP request on the `status URL`. Add your subscription key to the URL for authentication. The **GET** request should like the following URL:
 
    ```HTTP
    https://us.atlas.microsoft.com/mapData/{operationId}/status?api-version=2.0&subscription-key={Your-Azure-Maps-Subscription-key}
@@ -144,21 +148,21 @@ Follow these steps to upload the geofence by using the Azure Maps Data Upload AP
 
 ## Create an IoT hub
 
-IoT Hub enables secure and reliable bi-directional communication between an IoT application and the devices it manages. For this tutorial, you want to get information from your in-vehicle device to determine the location of the rental car. In this section, you create an IoT hub within the *ContosoRental* resource group. This hub will be responsible for publishing your device telemetry events.
+IoT Hub enables secure and reliable bi-directional communication between an IoT application and the devices it manages. For this tutorial, you want to get information from your in-vehicle device to determine the location of the rental car. In this section, you create an IoT hub within the *ContosoRental* resource group. This hub is responsible for publishing your device telemetry events.
 
 To create an IoT hub in the *ContosoRental* resource group, follow the steps in [create an IoT hub].
 
 ## Register a device in your IoT hub
 
-Devices can't connect to the IoT hub unless they're registered in the IoT hub identity registry. Here, you'll create a single device with the name, *InVehicleDevice*. To create and register the device within your IoT hub, follow the steps in [register a new device in the IoT hub]. Make sure to copy the primary connection string of your device. You'll need it later.
+Devices can't connect to the IoT hub unless they're registered in the IoT hub identity registry. Create a single device with the name, *InVehicleDevice*. To create and register the device within your IoT hub, follow the steps in [register a new device in the IoT hub]. Make sure to copy the primary connection string of your device. You'll need it later.
 
 ## Create a function and add an Event Grid subscription
 
 Azure Functions is a serverless compute service that allows you to run small pieces of code ("functions"), without the need to explicitly provision or manage compute infrastructure. To learn more, see [Azure Functions].
 
-A function is triggered by a certain event. Here, you'll create a function that is triggered by an Event Grid trigger. Create the relationship between trigger and function by creating an event subscription for IoT Hub device telemetry events. When a device telemetry event occurs, your function is called as an endpoint, and receives the relevant data for the device you previously registered in IoT Hub.
+A function is triggered by a certain event. Create a function triggered by an Event Grid trigger. Create the relationship between trigger and function by creating an event subscription for IoT Hub device telemetry events. When a device telemetry event occurs, your function is called as an endpoint, and receives the relevant data for the device you previously registered in IoT Hub.
 
-Here's the [C# script] code that your function will contain.
+Here's the [C# script] code that your function contains.
 
 Now, set up your Azure function.
 
@@ -179,7 +183,7 @@ Now, set up your Azure function.
 
     :::image type="content" source="./media/tutorial-iot-hub-maps/function-create.png" alt-text="Screenshot of create a function.":::
 
-1. Give the function a name. In this tutorial, you'll use the name, *GetGeoFunction*, but in general you can use any name you like. Select **Create function**.
+1. Give the function a name. In this tutorial, use the name *GetGeoFunction*, but in general you can use any name you like. Select **Create function**.
 
 1. In the left menu, select the **Code + Test** pane. Copy and paste the [C# script] into the code window.
 
@@ -221,7 +225,7 @@ In your example scenario, you only want to receive messages when the rental car 
 
 ## Send telemetry data to IoT Hub
 
-When your Azure function is running, you can now send telemetry data to the IoT hub, which will route it to Event Grid. Use a C# application to simulate location data for an in-vehicle device of a rental car. To run the application, you need [.NET Core SDK 3.1] on your development computer. Follow these steps to send simulated telemetry data to the IoT hub:
+When your Azure function is running, you can now send telemetry data to the IoT hub, which routes it to Event Grid. Use a C# application to simulate location data for an in-vehicle device of a rental car. To run the application, you need [.NET Core SDK 3.1] on your development computer. Follow these steps to send simulated telemetry data to the IoT hub:
 
 1. If you haven't done so already, download the [rentalCarSimulation] C# project.
 
@@ -239,7 +243,7 @@ When your Azure function is running, you can now send telemetry data to the IoT 
     dotnet run
     ```
 
-  Your local terminal should look like the one below.
+  Your local terminal should look like the following screenshot.
 
 :::image type="content" source="./media/tutorial-iot-hub-maps/terminal.png" alt-text="Screenshot of terminal output.":::
 
@@ -277,32 +281,33 @@ There are no resources that require cleanup.
 To learn more about how to send device-to-cloud telemetry, and the other way around, see:
 
 > [!div class="nextstepaction"]
-> [Send telemetry from a device](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp)
+> [Send telemetry from a device]
 
-[Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
-[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
-[free account]: https://azure.microsoft.com/free/
-[resource group]: ../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups
-[rentalCarSimulation]: https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/tree/master/src/rentalCarSimulation
-[Postman]: https://www.postman.com/
-[Plug and Play schema for geospatial data]: https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v1-preview/schemas/geospatial.md
-[Spatial Geofence Get API]: /rest/api/maps/spatial/getgeofence
-[Search Address Reverse]: /rest/api/maps/search/getsearchaddressreverse
-[general-purpose v2 storage account]: ../storage/common/storage-account-overview.md
-[create a storage account]: ../storage/common/storage-account-create.md?tabs=azure-portal
-[upload the geofence]: ./geofence-geojson.md
-[Open the JSON data file]: https://raw.githubusercontent.com/Azure-Samples/iothub-to-azure-maps-geofencing/master/src/Data/geofence.json?token=AKD25BYJYKDJBJ55PT62N4C5LRNN4
-[create an IoT hub]: ../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp#create-an-iot-hub
-[register a new device in the IoT hub]: ../iot-hub/iot-hub-create-through-portal.md#register-a-new-device-in-the-iot-hub
-[Azure Functions]: ../azure-functions/functions-overview.md
-[C# script]: https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/blob/master/src/Azure%20Function/run.csx
-[Create an Azure storage account]: #create-an-azure-storage-account
-[Upload a geofence]: #upload-a-geofence
-[Use IoT Hub message routing]: ../iot-hub/iot-hub-devguide-messages-d2c.md
-[IoT Hub message routing]: ../iot-hub/iot-hub-devguide-routing-query-syntax.md
 [.NET Core SDK 3.1]: https://dotnet.microsoft.com/download/dotnet/3.1
-[Get Search Address Reverse]: /rest/api/maps/search/getsearchaddressreverse
-[Get Geofence]: /rest/api/maps/spatial/getgeofence
-[Azure Maps REST APIs]: /rest/api/maps/spatial/getgeofence
-[IoT Plug and Play]: ../iot-develop/index.yml
 [Azure certified devices]: https://devicecatalog.azure.com/
+[Azure Functions]: ../azure-functions/functions-overview.md
+[Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
+[Azure Maps REST APIs]: /rest/api/maps/spatial/getgeofence
+[C# script]: https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/blob/master/src/Azure%20Function/run.csx
+[create a storage account]: ../storage/common/storage-account-create.md?tabs=azure-portal
+[Create an Azure storage account]: #create-an-azure-storage-account
+[create an IoT hub]: ../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp#create-an-iot-hub
+[free account]: https://azure.microsoft.com/free/
+[general-purpose v2 storage account]: ../storage/common/storage-account-overview.md
+[Get Geofence]: /rest/api/maps/spatial/getgeofence
+[Get Search Address Reverse]: /rest/api/maps/search/getsearchaddressreverse
+[IoT Hub message routing]: ../iot-hub/iot-hub-devguide-routing-query-syntax.md
+[IoT Plug and Play]: ../iot-develop/index.yml
+[Open the JSON data file]: https://raw.githubusercontent.com/Azure-Samples/iothub-to-azure-maps-geofencing/master/src/Data/geofence.json?token=AKD25BYJYKDJBJ55PT62N4C5LRNN4
+[Plug and Play schema for geospatial data]: https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v1-preview/schemas/geospatial.md
+[Postman]: https://www.postman.com/
+[register a new device in the IoT hub]: ../iot-hub/iot-hub-create-through-portal.md#register-a-new-device-in-the-iot-hub
+[rentalCarSimulation]: https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/tree/master/src/rentalCarSimulation
+[resource group]: ../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups
+[Search Address Reverse]: /rest/api/maps/search/getsearchaddressreverse
+[Send telemetry from a device]: ../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp
+[Spatial Geofence Get API]: /rest/api/maps/spatial/getgeofence
+[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
+[Upload a geofence]: #upload-a-geofence
+[upload the geofence]: ./geofence-geojson.md
+[Use IoT Hub message routing]: ../iot-hub/iot-hub-devguide-messages-d2c.md

@@ -24,7 +24,7 @@ Azure Database for MySQL supports connecting your Azure Database for MySQL serve
 Download the certificate needed to communicate over SSL with your Azure Database for MySQL server from [https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) and save the certificate file to your local drive (this tutorial uses c:\ssl for example).
 **For Microsoft Internet Explorer and Microsoft Edge:** After the download has completed, rename the certificate to BaltimoreCyberTrustRoot.crt.pem.
 
-See the following links for certificates for servers in sovereign clouds: [Azure Government](https://cacerts.digicert.com/BaltimoreCyberTrustRoot.crt.pem), [Azure China](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem), and [Azure Germany](https://www.d-trust.net/cgi-bin/D-TRUST_Root_Class_3_CA_2_2009.crt).
+See the following links for certificates for servers in sovereign clouds: [Azure Government](https://cacerts.digicert.com/BaltimoreCyberTrustRoot.crt.pem), [Microsoft Azure operated by 21Vianet](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem), and [Azure Germany](https://www.d-trust.net/cgi-bin/D-TRUST_Root_Class_3_CA_2_2009.crt).
 
 ## Step 2: Bind SSL
 

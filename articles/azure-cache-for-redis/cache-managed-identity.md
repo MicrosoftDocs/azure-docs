@@ -55,9 +55,9 @@ Managed identity for storage isn't supported on caches that have a dependency on
 
 ## Create a new cache with managed identity using the portal
 
-1. Sign into the [Azure portal](https://portal.azure.com/)
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Create a new Azure Cache for Redis resource with a **Cache type** of any of the premium tiers. Complete **Basics** tab with all the required  information.
+1. Create a new Azure Cache for Redis resource with a **Cache type** of any of the premium tiers. Complete **Basics** tab with all the required information.
 
    :::image type="content" source="media/cache-managed-identity/basics.png" alt-text="Screenshot of showing how to create a premium cache.":::
 

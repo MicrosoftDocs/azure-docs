@@ -90,6 +90,8 @@ Create the application using the following steps:
 
 ## Register your application
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 You can register your application in either of two ways.
 
 ### Option 1: Express mode
@@ -101,6 +103,8 @@ Use the following steps to register your application:
 1. Follow the instructions to download and automatically configure your new application.
 
 ### Option 2: Advanced mode
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 To register and configure your application, follow these steps:
 

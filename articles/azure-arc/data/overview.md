@@ -1,6 +1,6 @@
 ---
-title: What are Azure Arc-enabled data services
-description: Introduces Azure Arc-enabled data services
+title: Introducing Azure Arc-enabled data services
+description: Describes Azure Arc-enabled data services
 ms.custom: references_regions
 author: twright-msft
 ms.author: twright
@@ -8,7 +8,7 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 07/30/2021
+ms.date: 07/19/2023
 ms.topic: overview
 # Customer intent: As a data professional, I want to understand why my solutions would benefit from running with Azure Arc-enabled data services so that I can leverage the capability of the feature.
 ---

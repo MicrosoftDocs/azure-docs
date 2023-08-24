@@ -32,19 +32,19 @@ The following table details the different ways to get Azure AD Multi-Factor Auth
 | [Microsoft 365 Business Premium](https://www.microsoft.com/microsoft-365/business) and [EMS](https://www.microsoft.com/security/business/enterprise-mobility-security) or [Microsoft 365 E3 and E5](https://www.microsoft.com/microsoft-365/enterprise/compare-office-365-plans) | EMS E3, Microsoft 365 E3, and Microsoft 365 Business Premium includes Azure AD Premium P1. EMS E5 or Microsoft 365 E5 includes Azure AD Premium P2. You can use the same Conditional Access features noted in the following sections to provide multi-factor authentication to users. |
 | [Azure AD Premium P1](../fundamentals/active-directory-get-started-premium.md) | You can use [Azure AD Conditional Access](../conditional-access/howto-conditional-access-policy-all-users-mfa.md) to prompt users for multi-factor authentication during certain scenarios or events to fit your business requirements. |
 | [Azure AD Premium P2](../fundamentals/active-directory-get-started-premium.md) | Provides the strongest security position and improved user experience. Adds [risk-based Conditional Access](../conditional-access/howto-conditional-access-policy-risk.md) to the Azure AD Premium P1 features that adapts to user's patterns and minimizes multi-factor authentication prompts. |
-| [All Microsoft 365 plans](https://www.microsoft.com/microsoft-365/compare-microsoft-365-enterprise-plans) | Azure AD Multi-Factor Authentication can be enabled for all users using [security defaults](../fundamentals/concept-fundamentals-security-defaults.md). Management of Azure AD Multi-Factor Authentication is through the Microsoft 365 portal. For an improved user experience, upgrade to Azure AD Premium P1 or P2 and use Conditional Access. For more information, see [secure Microsoft 365 resources with multi-factor authentication](/microsoft-365/admin/security-and-compliance/set-up-multi-factor-authentication).  |
-| [Office 365 free](https://www.microsoft.com/microsoft-365/enterprise/compare-office-365-plans)<br>[Azure AD free](../verifiable-credentials/how-to-create-a-free-developer-account.md) | You can use [security defaults](../fundamentals/concept-fundamentals-security-defaults.md) to prompt users for multi-factor authentication as needed but you don't have granular control of enabled users or scenarios, but it does provide that additional security step.<br /> Even when security defaults aren't used to enable multi-factor authentication for everyone, users assigned the *Azure AD Global Administrator* role can be configured to use multi-factor authentication. This feature of the free tier makes sure the critical administrator accounts are protected by multi-factor authentication. |
+| [All Microsoft 365 plans](https://www.microsoft.com/microsoft-365/compare-microsoft-365-enterprise-plans) | Azure AD Multi-Factor Authentication can be enabled for all users using [security defaults](../fundamentals/security-defaults.md). Management of Azure AD Multi-Factor Authentication is through the Microsoft 365 portal. For an improved user experience, upgrade to Azure AD Premium P1 or P2 and use Conditional Access. For more information, see [secure Microsoft 365 resources with multi-factor authentication](/microsoft-365/admin/security-and-compliance/set-up-multi-factor-authentication).  |
+| [Office 365 free](https://www.microsoft.com/microsoft-365/enterprise/compare-office-365-plans)<br>[Azure AD free](../verifiable-credentials/how-to-create-a-free-developer-account.md) | You can use [security defaults](../fundamentals/security-defaults.md) to prompt users for multi-factor authentication as needed but you don't have granular control of enabled users or scenarios, but it does provide that additional security step.<br /> Even when security defaults aren't used to enable multi-factor authentication for everyone, users assigned the *Azure AD Global Administrator* role can be configured to use multi-factor authentication. This feature of the free tier makes sure the critical administrator accounts are protected by multi-factor authentication. |
 
 ## Feature comparison based on licenses
 
-The following table provides a list of the features that are available in the various versions of Azure AD for Multi-Factor Authentication. Plan out your needs for securing user authentication, then determine which approach meets those requirements. For example, although Azure AD Free provides security defaults that provide Azure AD Multi-Factor Authentication, only the mobile authenticator app can be used for the authentication prompt, including SMS and phone calls. This approach may be a limitation if you can't ensure the mobile authentication app is installed on a user's personal device. See [Azure AD Free tier](#azure-ad-free-tier) later in this topic for more details. 
+The following table provides a list of the features that are available in the various versions of Azure AD for Multi-Factor Authentication. Plan out your needs for securing user authentication, then determine which approach meets those requirements. For example, although Azure AD Free provides security defaults that provide Azure AD Multi-Factor Authentication where only the mobile authenticator app can be used for the authentication prompt. This approach may be a limitation if you can't ensure the mobile authentication app is installed on a user's personal device. See [Azure AD Free tier](#azure-ad-free-tier) later in this topic for more details. 
 
 | Feature | Azure AD Free - Security defaults (enabled for all users) | Azure AD Free - Global Administrators only | Office 365 | Azure AD Premium P1 | Azure AD Premium P2 | 
 | --- |:---:|:---:|:---:|:---:|:---:|
 | Protect Azure AD tenant admin accounts with MFA | ● | ● (*Azure AD Global Administrator* accounts only) | ● | ● | ● |
 | Mobile app as a second factor | ● | ● | ● | ● | ● |
-| Phone call as a second factor | ● | | ● | ● | ● |
-| SMS as a second factor | ● | ● | ● | ● | ● |
+| Phone call as a second factor | | | ● | ● | ● |
+| SMS as a second factor | | ● | ● | ● | ● |
 | Admin control over verification methods | | ● | ● | ● | ● |
 | Fraud alert | | | | ● | ● |
 | MFA Reports | | | | ● | ● |
@@ -53,8 +53,8 @@ The following table provides a list of the features that are available in the va
 | Trusted IPs | | | | ● | ● |
 | Remember MFA for trusted devices | | ● | ● | ● | ● |
 | MFA for on-premises applications | | | | ● | ● |
-| Conditional access | | | | ● | ● |
-| Risk-based conditional access | | | | | ● |
+| Conditional Access | | | | ● | ● |
+| Risk-based Conditional Access | | | | | ● |
 
 ## Compare multi-factor authentication policies
 
@@ -93,10 +93,10 @@ After you have purchased the required Azure AD tier, [plan and deploy Azure AD M
 
 ### Azure AD Free tier
 
-All users in an Azure AD Free tenant can use Azure AD Multi-Factor Authentication by using security defaults. The mobile authentication app and SMS methods can be used for Azure AD Multi-Factor Authentication when using Azure AD Free security defaults.
+All users in an Azure AD Free tenant can use Azure AD Multi-Factor Authentication by using security defaults. The mobile authentication app can be used for Azure AD Multi-Factor Authentication when using Azure AD Free security defaults.
 
-* [Learn more about Azure AD security defaults](../fundamentals/concept-fundamentals-security-defaults.md)
-* [Enable security defaults for users in Azure AD Free](../fundamentals/concept-fundamentals-security-defaults.md#enabling-security-defaults)
+* [Learn more about Azure AD security defaults](../fundamentals/security-defaults.md)
+* [Enable security defaults for users in Azure AD Free](../fundamentals/security-defaults.md#enabling-security-defaults)
 
 If you don't want to enable Azure AD Multi-Factor Authentication for all users, you can instead choose to only protect user accounts with the *Azure AD Global Administrator* role. This approach provides more authentication prompts for critical administrator accounts. You enable Azure AD Multi-Factor Authentication in one of the following ways, depending on the type of account you use:
 

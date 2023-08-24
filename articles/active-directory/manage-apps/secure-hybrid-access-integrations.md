@@ -381,7 +381,7 @@ Method: PATCH
 
 https://graph.microsoft.com/v1.0/identity/conditionalAccess/policies/{policyid}
 {
-    "displayName":"Existing CA Policy",
+    "displayName":"Existing Conditional Access Policy",
     "state":"enabled",
     "conditions": 
     {
@@ -418,7 +418,7 @@ Method: POST
 
 https://graph.microsoft.com/v1.0/identity/conditionalAccess/policies/
 {
-    "displayName":"New CA Policy",
+    "displayName":"New Conditional Access Policy",
     "state":"enabled",
     "conditions": 
     {

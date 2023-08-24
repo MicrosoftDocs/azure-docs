@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 12/02/2022
 ms.author: jammart
 ms.reviewer: tamram
-ms.custom: engagement-fy23
+ms.custom: engagement-fy23, devx-track-linux
 ---
 
 # How to mount Azure Blob Storage as a file system with BlobFuse v1
@@ -143,9 +143,10 @@ For example, suppose you are authorizing with the account access keys and storin
 accountName myaccount
 accountKey storageaccesskey
 containerName mycontainer
+authType Key
 ```
 
-The `accountName` is the name of your storage account, and not the full URL.
+The `accountName` is the name of your storage account, and not the full URL. You need to update `myaccount`, `storageaccesskey`, and `mycontainer` with your storage information. 
 
 Create this file using:
 

@@ -7,7 +7,7 @@ author: pauljewellmsft
 
 ms.author: pauljewell
 ms.date: 05/23/2023
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
@@ -19,12 +19,9 @@ This article shows how to download a blob using the [Azure Storage client librar
 
 ## Prerequisites
 
-To work with the code examples in this article, make sure you have:
-
-- An authorized client object to connect to Blob Storage data resources. To learn more, see [Create and manage client objects that interact with data resources](storage-blob-client-management.md).
-- Permissions to perform a download operation. To learn more, see the authorization guidance for the following REST API operation:
+- This article assumes you already have a project set up to work with the Azure Blob Storage client library for .NET. To learn about setting up your project, including package installation, adding `using` directives, and creating an authorized client object, see [Get started with Azure Blob Storage and .NET](storage-blob-dotnet-get-started.md).
+- The [authorization mechanism](../common/authorize-data-access.md) must have permissions to perform a download operation. To learn more, see the authorization guidance for the following REST API operation:
     - [Get Blob](/rest/api/storageservices/get-blob#authorization)
-- The package **Azure.Storage.Blobs** installed to your project directory. To learn more about setting up your project, see [Get Started with Azure Storage and .NET](storage-blob-dotnet-get-started.md#set-up-your-project).
 
 ## Download a blob
 
@@ -66,7 +63,7 @@ The following example downloads a blob by reading from a stream:
 
 ## Download a block blob with configuration options
 
-You can define client library configuration options when downloading a blob. These options can be tuned to improve performance and enhance reliability. The following code examples show how to use [BlobDownloadToOptions](/dotnet/api/azure.storage.blobs.models.blobdownloadtooptions) to define configuration options when calling an download method. Note that the same options are available for [BlobDownloadOptions](/dotnet/api/azure.storage.blobs.models.blobdownloadoptions).
+You can define client library configuration options when downloading a blob. These options can be tuned to improve performance and enhance reliability. The following code examples show how to use [BlobDownloadToOptions](/dotnet/api/azure.storage.blobs.models.blobdownloadtooptions) to define configuration options when calling a download method. Note that the same options are available for [BlobDownloadOptions](/dotnet/api/azure.storage.blobs.models.blobdownloadoptions).
 
 ### Specify data transfer options on download
 

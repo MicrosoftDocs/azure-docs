@@ -77,6 +77,9 @@ az storage account create \
 
 If version-level immutability support is enabled for the storage account and the account contains one or more containers, then you must delete all containers before you delete the storage account, even if there are no immutability policies in effect for the account or containers.
 
+> [!NOTE]
+> Version-level immutability cannot be disabled after it is enabled on the storage account, although locked policies can be deleted.
+
 ### Enable version-level immutability support on a container
 
 Both new and existing containers can be configured to support version-level immutability. However, an existing container must undergo a migration process in order to enable support.

@@ -7,7 +7,7 @@ author: savjani
 ms.author: pariks
 ms.devlang: ruby
 ms.topic: quickstart
-ms.custom: mvc, mode-other
+ms.custom: mvc, mode-other, devx-track-linux
 ms.date: 05/03/2023
 ---
 

@@ -33,6 +33,8 @@ For more information, see [Prerequisites to use PowerShell or Graph Explorer](pr
 
 ### Create a new custom role to grant access to manage app registrations
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure Active Directory** > **Roles and administrators** > **New custom role**.

@@ -220,7 +220,7 @@ sections:
   - name: Hybrid Azure AD join FAQ
     questions:
       - question: How do I unjoin a Hybrid Azure AD joined device locally on the device?
-        answer: For hybrid Azure AD joined devices, make sure to turn off automatic registration in AD using the [Controlled validation](hybrid-azuread-join-control.md) article. Then the scheduled task won't register the device again. Next, open a command prompt as an administrator and enter `dsregcmd.exe /debug /leave`. Or run this command as a script across several devices to unjoin in bulk.
+        answer: For hybrid Azure AD joined devices, make sure to turn off automatic registration in AD using the [Controlled validation](hybrid-join-control.md) article. Then the scheduled task won't register the device again. Next, open a command prompt as an administrator and enter `dsregcmd.exe /debug /leave`. Or run this command as a script across several devices to unjoin in bulk.
 
       - question: Where can I find troubleshooting information to diagnose hybrid Azure AD join failures?
         answer: |
@@ -233,7 +233,7 @@ sections:
         answer: |
           When your users add their accounts to apps on a domain-joined device, they might be prompted with **Add account to Windows?** If they enter **Yes** on the prompt, the device registers with Azure AD. The trust type is marked as Azure AD registered. After you enable hybrid Azure AD join in your organization, the device also gets hybrid Azure AD joined. Then two device states show up for the same device. 
           
-          In most cases, Hybrid Azure AD join takes precedence over the Azure AD registered state, resulting in your device being considered hybrid Azure AD joined for any authentication and Conditional Access evaluation. However, sometimes, this dual state can result in a non-deterministic evaluation of the device and cause access issues. We strongly recommend upgrading to Windows 10 version 1803 and above where we automatically clean up the Azure AD registered state. Learn how to [avoid or clean up this dual state on the Windows 10 machine](hybrid-azuread-join-plan.md#review-things-you-should-know). 
+          In most cases, Hybrid Azure AD join takes precedence over the Azure AD registered state, resulting in your device being considered hybrid Azure AD joined for any authentication and Conditional Access evaluation. However, sometimes, this dual state can result in a non-deterministic evaluation of the device and cause access issues. We strongly recommend upgrading to Windows 10 version 1803 and above where we automatically clean up the Azure AD registered state. Learn how to [avoid or clean up this dual state on the Windows 10 machine](hybrid-join-plan.md#review-things-you-should-know). 
           
           
           
@@ -298,8 +298,8 @@ additionalContent: |
 
   ## Next steps
 
-  - Learn more about [Azure AD registered devices](concept-azure-ad-register.md)
-  - Learn more about [Azure AD joined devices](concept-azure-ad-join.md)
-  - Learn more about [hybrid Azure AD joined devices](concept-azure-ad-join-hybrid.md)
+  - Learn more about [Azure AD registered devices](concept-device-registration.md)
+  - Learn more about [Azure AD joined devices](concept-directory-join.md)
+  - Learn more about [hybrid Azure AD joined devices](concept-hybrid-join.md)
   - [The Microsoft Error Lookup Tool](/windows/win32/debug/system-error-code-lookup-tool)
   

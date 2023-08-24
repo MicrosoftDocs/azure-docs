@@ -58,10 +58,10 @@ Follow these steps to create a new console application and install the Speech SD
         speechConfig->SetSpeechRecognitionLanguage("en-US");
     
         auto audioConfig = AudioConfig::FromDefaultMicrophoneInput();
-        auto recognizer = SpeechRecognizer::FromConfig(speechConfig, audioConfig);
+        auto speechRecognizer = SpeechRecognizer::FromConfig(speechConfig, audioConfig);
     
         std::cout << "Speak into your microphone.\n";
-        auto result = recognizer->RecognizeOnceAsync().get();
+        auto result = speechRecognizer->RecognizeOnceAsync().get();
     
         if (result->Reason == ResultReason::RecognizedSpeech)
         {

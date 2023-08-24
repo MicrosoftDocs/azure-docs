@@ -51,6 +51,8 @@ To complete this tutorial, you need the following resources and privileges:
 
 ## Create a Conditional Access policy
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 The recommended way to enable and use Azure AD Multi-Factor Authentication is with Conditional Access policies. Conditional Access lets you create and define policies that react to sign-in events and that request additional actions before a user is granted access to an application or service.
 
 :::image type="content" alt-text="Overview diagram of how Conditional Access works to secure the sign-in process" source="media/tutorial-enable-azure-mfa/conditional-access-overview.png" lightbox="media/tutorial-enable-azure-mfa/conditional-access-overview.png":::
@@ -156,7 +158,7 @@ First, sign in to a resource that doesn't require MFA:
 
 You configured the Conditional Access policy to require additional authentication for the Azure portal. Because of that configuration, you're prompted to use Azure AD Multi-Factor Authentication or to configure a method if you haven't yet done so. Test this new requirement by signing in to the Azure portal:
 
-1. Open a new browser window in InPrivate or incognito mode and browse to [https://portal.azure.com](https://portal.azure.com).
+1. Open a new browser window in InPrivate or incognito mode and sign in to the [Azure portal](https://portal.azure.com).
 
 1. Sign in with your non-administrator test user, such as *testuser*. Be sure to include `@` and the domain name for the user account.
 
@@ -172,7 +174,7 @@ You configured the Conditional Access policy to require additional authenticatio
 
 1. Complete the instructions on the screen to configure the method of multi-factor authentication that you've selected. 
 
-1. Close the browser window, and log in again at [https://portal.azure.com](https://portal.azure.com) to test the authentication method that you configured. For example, if you configured a mobile app for authentication, you should see a prompt like the following.
+1. Close the browser window, and sign in to the [Azure portal](https://portal.azure.com) again to test the authentication method that you configured. For example, if you configured a mobile app for authentication, you should see a prompt like the following.
 
    ![To sign in, follow the prompts in your browser and then the prompt on the device that you registered for multi-factor authentication.](media/tutorial-enable-azure-mfa/tutorial-enable-azure-mfa-browser-prompt.png)
 
@@ -186,7 +188,7 @@ If you no longer want to use the Conditional Access policy that you configured a
 
 1. Search for and select **Azure Active Directory**, and then select **Security** from the menu on the left-hand side.
 
-1. Select **Conditional access**, and then select the policy that you created, such as **MFA Pilot**.
+1. Select **Conditional Access**, and then select the policy that you created, such as **MFA Pilot**.
 
 1. select **Delete**, and then confirm that you want to delete the policy.
 

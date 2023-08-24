@@ -37,6 +37,8 @@ You can remove users, groups, or devices from administrative units individually 
 
 ### Remove a single user, group, or device from administrative units
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure Active Directory**.

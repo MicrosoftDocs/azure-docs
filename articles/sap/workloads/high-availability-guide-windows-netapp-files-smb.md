@@ -119,7 +119,7 @@ Perform the following steps, as preparation for using Azure NetApp Files.
 7. Mount the SMB volume on your Windows Virtual Machine.  
 
 > [!TIP]
-> You can find the instructions on how to mount the Azure NetApp Files volume, if you navigate in [Azure Portal](https://portal.azure.com/#home) to the Azure NetApp Files object, click on the **Volumes** blade, then **Mount Instructions**.  
+> For instructions on how to mount the Azure NetApp Files volume, sign in to the [Azure portal](https://portal.azure.com), then navigate to the Azure NetApp Files object, select the **Volumes** blade, then select **Mount Instructions**.  
 
 ### Important considerations
 

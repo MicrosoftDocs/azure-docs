@@ -37,6 +37,8 @@ To assign or remove custom security attributes for a user in your Azure AD tenan
     
 ## Assign custom security attributes to a user
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Make sure that you have defined custom security attributes. For more information, see [Add or deactivate custom security attribute definitions in Azure AD](../fundamentals/custom-security-attributes-add.md).

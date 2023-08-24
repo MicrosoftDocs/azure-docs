@@ -74,9 +74,14 @@ Currently, there are two category groups:
 - **All**: Every resource log offered by the resource.
 - **Audit**: All resource logs that record customer interactions with data or the settings of the service. Audit logs are an attempt by each resource provider to provide the most relevant audit data, but may not be considered sufficient from an auditing standards perspective.
 
-The "Audit" category is a subset of "All", but the Azure portal and REST API consider them separate settings. Selecting "All" does collect all audit logs regardless of if the "Audit" category is also selected.    
+The "Audit" category is a subset of "All", but the Azure portal and REST API consider them separate settings. Selecting "All" does collect all audit logs regardless of if the "Audit" category is also selected.  
 
-Note : Enabling *Audit* for Azure SQL Database does not enable auditing for Azure SQL Database. To enable database auditing, you have to enable it from the auditing blade for Azure Database. 
+The following image shows the logs category groups on the add diagnostics settings page.
+   :::image type="content" source="./media/diagnostic-settings/audit-category-group.png" alt-text="A screenshot showing the logs category groups."::: 
+
+
+> [!NOTE] 
+> Enabling *Audit* for Azure SQL Database does not enable auditing for Azure SQL Database. To enable database auditing, you have to enable it from the auditing blade for Azure Database. 
 
 ### Activity log
 
@@ -207,7 +212,11 @@ You can configure diagnostic settings in the Azure portal either from the Azure 
 
      1. **Partner integration**: You must first install partner integration into your subscription. Configuration options vary by partner. For more information, see [Azure Monitor partner integrations](../../partner-solutions/overview.md).
 
-1. Select **Save**.
+1. If the service supports both [resource-specific](resource-logs.md#resource-specific) and [Azure diagnostics](resource-logs.md#azure-diagnostics-mode) mode, then an option to select the [destination table](resource-logs.md#select-the-collection-mode) will be displayed when you select **Log Analytics workspace** as a destination. You should usually select **Resource specific** since the table structure allows for more flexibility and more efficient queries.
+
+    :::image type="content" source="media/diagnostic-settings/destination-table.png" alt-text="Screenshot of dialog box to set destination table." lightbox="media/diagnostic-settings/destination-table.png":::
+
+2. Select **Save**.
 
 After a few moments, the new setting appears in your list of settings for this resource. Logs are streamed to the specified destinations as new event data is generated. It might take up to 15 minutes between when an event is emitted and when it [appears in a Log Analytics workspace](../logs/data-ingestion-time.md).
 

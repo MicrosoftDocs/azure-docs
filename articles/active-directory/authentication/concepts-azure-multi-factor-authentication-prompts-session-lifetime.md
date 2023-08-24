@@ -131,7 +131,7 @@ The following table summarizes the recommendations based on licenses:
 
 |              | Azure AD Free and Microsoft 365 apps | Azure AD Premium |
 |------------------------------|-----------------------------------|------------------|
-| **SSO**                      | [Azure AD join](../devices/concept-azure-ad-join.md) or [Hybrid Azure AD join](../devices/concept-azure-ad-join-hybrid.md), or [Seamless SSO](../hybrid/how-to-connect-sso.md) for unmanaged devices. | Azure AD join<br />Hybrid Azure AD join |
+| **SSO**                      | [Azure AD join](../devices/concept-directory-join.md) or [Hybrid Azure AD join](../devices/concept-hybrid-join.md), or [Seamless SSO](../hybrid/how-to-connect-sso.md) for unmanaged devices. | Azure AD join<br />Hybrid Azure AD join |
 | **Reauthentication settings** | Remain signed-in                  | Use Conditional Access policies for sign-in frequency and persistent browser session |
 
 ## Next steps

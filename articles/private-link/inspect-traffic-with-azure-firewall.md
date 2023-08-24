@@ -7,7 +7,7 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 04/27/2023
 ms.author: allensu
-ms.custom: template-how-to
+ms.custom: template-how-to, devx-track-linux
 ---
 
 # Use Azure Firewall to inspect traffic destined to a private endpoint

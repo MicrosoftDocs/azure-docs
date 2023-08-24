@@ -36,6 +36,10 @@ Make sure that the following prerequisites are in place:
 >[!IMPORTANT]
 >Make sure the PKI is secure and can't be easily compromised. In the event of a compromise, the attacker can create and sign client certificates and compromise any user in the tenant, both users whom are synchronized from on-premises and cloud-only users. However, a strong key protection strategy, along with other physical and logical controls, such as HSM activation cards or tokens for the secure storage of artifacts, can provide defense-in-depth to prevent external attackers or insider threats from compromising the integrity of the PKI. For more information, see [Securing PKI](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn786443(v=ws.11)).
 
+>[!IMPORTANT]
+>Please visit the [Microsoft recommendations](/security/sdl/cryptographic-recommendations#security-protocol-algorithm-and-key-length-recommendations) for best practices for Microsoft Cryptographic involving algorithm choice, key length and data protection. Please make sure to use one of the recommended algorithms, key length and NIST approved curves.
+
+
 >[!NOTE]
 >When evaluating a PKI, it is important to review certificate issuance policies and enforcement. As mentioned, adding certificate authorities (CAs) to Azure AD configuration allows certificates issued by those CAs to authenticate any user in Azure AD. For this reason, it is important to consider how and when the CAs are allowed to issue certificates, and how they implement reusable identifiers. Where administrators need to ensure only a specific certificate is able to be used to authenticate a user, admins should exclusively use high-affinity bindings to achieve a higher level of assurance that only a specific certificate is able to authenticate the user. For more information, see [high-affinity bindings](concept-certificate-based-authentication-technical-deep-dive.md#understanding-the-username-binding-policy).
 
@@ -53,9 +57,11 @@ You can configure CAs by using the Azure portal or PowerShell.
 
 ### Configure certification authorities using the Azure portal
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 To enable the certificate-based authentication and configure user bindings in the Azure portal, complete the following steps:
 
-1. Sign in to the Azure portal as a Global Administrator.
+1. Sign in to the [Azure portal](https://portal.azure.com) as a Global Administrator.
 1. Click **Azure Active Directory** > **Security**.
 
    :::image type="content" border="true" source="./media/how-to-certificate-based-authentication/certificate-authorities.png" alt-text="Screenshot of certification authorities.":::
@@ -140,10 +146,10 @@ For more information, see [Understanding the certificate revocation process](./c
 
 To enable the certificate-based authentication in the Azure portal, complete the following steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) as an Authentication Policy Administrator.
+1. Sign in to the [Azure portal](https://portal.azure.com) as an Authentication Policy Administrator.
 1. Select **Azure Active Directory**, then choose **Security** from the menu on the left-hand side.
 1. Under **Manage**, select **Authentication methods** > **Certificate-based Authentication**.
-1.	Under **Enable and Target**, click **Enable**.
+1. Under **Enable and Target**, click **Enable**.
 1. Click **All users**, or click **Add groups** to select specific groups.
 
    :::image type="content" border="true" source="./media/how-to-certificate-based-authentication/enable.png" alt-text="Screenshot of how to enable CBA.":::
@@ -246,7 +252,7 @@ As a first configuration test, you should try to sign in to the [MyApps portal](
 
 1. Select **Sign in with a certificate**.
 
-1.	Pick the correct user certificate in the client certificate picker UI and click **OK**.
+1. Pick the correct user certificate in the client certificate picker UI and click **OK**.
 
    :::image type="content" border="true" source="./media/how-to-certificate-based-authentication/picker.png" alt-text="Screenshot of the certificate picker UI.":::
 

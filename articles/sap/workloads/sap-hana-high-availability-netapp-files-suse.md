@@ -6,6 +6,7 @@ documentationcenter: saponazure
 author: apmsft
 manager: juergent
 tags: azure-resource-manager
+ms.custom: devx-track-linux
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: tutorial

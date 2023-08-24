@@ -71,7 +71,7 @@ Incorporate the following access controls in your existing Conditional Access po
 The following example describes policies you must create to provide a resilient access control for user to access their apps and resources. In this example, you will require a security group **AppUsers** with the target users you want to give access to, a group named **CoreAdmins** with the core administrators, and a group named **EmergencyAccess** with the emergency access accounts.
 This example policy set will grant selected users in **AppUsers**, access to selected apps if they are connecting from a trusted device OR provide strong authentication, for example MFA. It excludes emergency accounts and core administrators.
 
-**CA mitigation policies set:**
+**Conditional Access mitigation policies set:**
 
 * Policy 1: Block access to people outside target groups
   * Users and Groups: Include all users. Exclude AppUsers, CoreAdmins, and EmergencyAccess
@@ -282,7 +282,7 @@ Undo the changes you made as part of the activated contingency plan once the ser
 * [Manage emergency-access administrative accounts in Azure AD](../roles/security-emergency-access.md)
 * [Configure named locations in Azure Active Directory](../conditional-access/location-condition.md)
   * [Set-MsolDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings)
-* [How to configure hybrid Azure Active Directory joined devices](../devices/hybrid-azuread-join-plan.md)
+* [How to configure hybrid Azure Active Directory joined devices](../devices/hybrid-join-plan.md)
 * [Windows Hello for Business Deployment Guide](/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
   * [Password Guidance - Microsoft Research](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf)
 * [What are conditions in Azure Active Directory Conditional Access?](../conditional-access/concept-conditional-access-conditions.md)

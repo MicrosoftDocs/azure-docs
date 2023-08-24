@@ -48,6 +48,8 @@
           href: learn/quick-windows-container-deploy-cli.md
         - name: Use Azure PowerShell
           href: learn/quick-windows-container-deploy-powershell.md
+        - name: Use the Azure portal
+          href: learn/quick-windows-container-deploy-portal.md
     - name: Develop applications
       expanded: true
       items:
@@ -277,8 +279,10 @@
           items:
             - name: Node pool snapshot
               href: node-pool-snapshot.md
-            - name: Use multiple node pools
-              href: use-multiple-node-pools.md
+            - name: Create node pools
+              href: create-node-pools.md
+            - name: Manage node pools
+              href: manage-node-pools.md
             - name: Use spot node pools
               href: spot-node-pool.md
             - name: Use system node pools
@@ -555,8 +559,6 @@
       items:
         - name: Monitor AKS
           href: monitor-aks.md
-        - name: Monitor kube-audit events
-          href: monitor-apiserver.md
         - name: Monitor reference
           href: monitor-aks-reference.md
         - name: View the kubelet logs
@@ -566,6 +568,8 @@
           maintainContext: true
     - name: Use Windows Server containers
       items:
+        - name: Windows AKS Partner Solutions
+          href: windows-aks-partner-solutions.md
         - name: Connect remotely
           href: rdp.md
         - name: Use HostProcess containers
@@ -596,6 +600,8 @@
           href: howto-deploy-java-liberty-app.md
         - name: Build Java app with WebLogic Server
           href: howto-deploy-java-wls-app.md
+        - name: Build Java app with Quarkus
+          href: howto-deploy-java-quarkus-app.md
         - name: Build WordPress app with MySQL
           href: ../mysql/flexible-server/tutorial-deploy-wordpress-on-aks.md
           maintainContext: true

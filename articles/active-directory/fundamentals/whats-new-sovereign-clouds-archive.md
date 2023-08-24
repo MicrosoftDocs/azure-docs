@@ -178,7 +178,7 @@ Azure AD certificate-based authentication (CBA) enables customers to allow or re
 **Product capability:** Device Lifecycle Management   
  
 
-BitLocker keys are sensitive security items. Audited BitLocker recovery ensures that when BitLocker keys are read, an audit log is generated so that you can trace who accesses this information for given devices. For more information, see: [View or copy BitLocker keys](../devices/device-management-azure-portal.md#view-or-copy-bitlocker-keys).
+BitLocker keys are sensitive security items. Audited BitLocker recovery ensures that when BitLocker keys are read, an audit log is generated so that you can trace who accesses this information for given devices. For more information, see: [View or copy BitLocker keys](../devices/manage-device-identities.md#view-or-copy-bitlocker-keys).
  
 ---
 
@@ -224,7 +224,7 @@ Pick a group of up to five members and provision them into your third-party appl
 
 The new Device Overview in the Azure portal provides meaningful and actionable insights about devices in your tenant.
 
-In the devices overview, you can view the number of total devices, stale devices, noncompliant devices, and unmanaged devices. You'll also find links to Intune, Conditional Access, BitLocker keys, and basic monitoring. For more information, see: [Manage device identities by using the Azure portal](../devices/device-management-azure-portal.md).
+In the devices overview, you can view the number of total devices, stale devices, noncompliant devices, and unmanaged devices. You'll also find links to Intune, Conditional Access, BitLocker keys, and basic monitoring. For more information, see: [Manage device identities by using the Azure portal](../devices/manage-device-identities.md).
  
 ---
 

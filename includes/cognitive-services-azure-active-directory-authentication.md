@@ -12,13 +12,13 @@ ms.date: 08/24/2022
 > [!IMPORTANT]
 > Azure AD authentication always needs to be used together with custom subdomain name of your Azure resource. [Regional endpoints](../articles/cognitive-services/cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) do not support Azure AD authentication.
 
-In the previous sections, we showed you how to authenticate against Azure Cognitive Services using a single-service or multi-service subscription key. While these keys provide a quick and easy path to start development, they fall short in more complex scenarios that require Azure [role-based access control (Azure RBAC)](../articles/role-based-access-control/overview.md). Let's take a look at what's required to authenticate using Azure Active Directory (Azure AD).
+In the previous sections, we showed you how to authenticate against Azure AI services using a single-service or multi-service subscription key. While these keys provide a quick and easy path to start development, they fall short in more complex scenarios that require Azure [role-based access control (Azure RBAC)](../articles/role-based-access-control/overview.md). Let's take a look at what's required to authenticate using Azure Active Directory (Azure AD).
 
-In the following sections, you'll use either the Azure Cloud Shell environment or the Azure CLI to create a subdomain, assign roles, and obtain a bearer token to call the Azure Cognitive Services. If you get stuck, links are provided in each section with all available options for each command in Azure Cloud Shell/Azure CLI.
+In the following sections, you'll use either the Azure Cloud Shell environment or the Azure CLI to create a subdomain, assign roles, and obtain a bearer token to call the Azure AI services. If you get stuck, links are provided in each section with all available options for each command in Azure Cloud Shell/Azure CLI.
 
 ### Create a resource with a custom subdomain
 
-The first step is to create a custom subdomain. If you want to use an existing Cognitive Services resource which does not have custom subdomain name, follow the instructions in [Cognitive Services Custom Subdomains](../articles/cognitive-services/cognitive-services-custom-subdomains.md#how-does-this-impact-existing-resources) to enable custom subdomain for your resource.
+The first step is to create a custom subdomain. If you want to use an existing Azure AI services resource which does not have custom subdomain name, follow the instructions in [Azure AI services custom subdomains](../articles/cognitive-services/cognitive-services-custom-subdomains.md#how-does-this-impact-existing-resources) to enable custom subdomain for your resource.
 
 1. Start by opening the Azure Cloud Shell. Then [select a subscription](/powershell/module/az.accounts/set-azcontext):
 
@@ -26,7 +26,7 @@ The first step is to create a custom subdomain. If you want to use an existing C
    Set-AzContext -SubscriptionName <SubscriptionName>
    ```
 
-2. Next, [create a Cognitive Services resource](/powershell/module/az.cognitiveservices/new-azcognitiveservicesaccount) with a custom subdomain. The subdomain name needs to be globally unique and cannot include special characters, such as: ".", "!", ",".
+2. Next, [create an Azure AI services resource](/powershell/module/az.cognitiveservices/new-azcognitiveservicesaccount) with a custom subdomain. The subdomain name needs to be globally unique and cannot include special characters, such as: ".", "!", ",".
 
    ```powershell-interactive
    $account = New-AzCognitiveServicesAccount -ResourceGroupName <RESOURCE_GROUP_NAME> -name <ACCOUNT_NAME> -Type <ACCOUNT_TYPE> -SkuName <SUBSCRIPTION_TYPE> -Location <REGION> -CustomSubdomainName <UNIQUE_SUBDOMAIN>
@@ -64,7 +64,7 @@ Now that you have a custom subdomain associated with your resource, you're going
 3. The last step is to [assign the "Cognitive Services User" role](/powershell/module/az.Resources/New-azRoleAssignment) to the service principal (scoped to the resource). By assigning a role, you're granting service principal access to this resource. You can grant the same service principal access to multiple resources in your subscription.
    >[!NOTE]
    > The ObjectId of the service principal is used, not the ObjectId for the application.
-   > The ACCOUNT_ID will be the Azure resource Id of the Cognitive Services account you created. You can find Azure resource Id from "properties" of the resource in Azure portal.
+   > The ACCOUNT_ID will be the Azure resource Id of the Azure AI services account you created. You can find Azure resource Id from "properties" of the resource in Azure portal.
 
    ```azurecli-interactive
    New-AzRoleAssignment -ObjectId <SERVICE_PRINCIPAL_OBJECTID> -Scope <ACCOUNT_ID> -RoleDefinitionName "Cognitive Services User"
@@ -114,11 +114,11 @@ Alternatively, the service principal can be authenticated with a certificate. Be
 
 ## Authorize access to managed identities
  
-Cognitive Services support Azure Active Directory (Azure AD) authentication with [managed identities for Azure resources](../articles/active-directory/managed-identities-azure-resources/overview.md). Managed identities for Azure resources can authorize access to Cognitive Services resources using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. By using managed identities for Azure resources together with Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud.  
+Azure AI services support Azure Active Directory (Azure AD) authentication with [managed identities for Azure resources](../articles/active-directory/managed-identities-azure-resources/overview.md). Managed identities for Azure resources can authorize access to Azure AI services resources using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. By using managed identities for Azure resources together with Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud.  
 
 ### Enable managed identities on a VM
 
-Before you can use managed identities for Azure resources to authorize access to Cognitive Services resources from your VM, you must enable managed identities for Azure resources on the VM. To learn how to enable managed identities for Azure Resources, see:
+Before you can use managed identities for Azure resources to authorize access to Azure AI services resources from your VM, you must enable managed identities for Azure resources on the VM. To learn how to enable managed identities for Azure Resources, see:
 
 - [Azure portal](../articles/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 - [Azure PowerShell](../articles/active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)

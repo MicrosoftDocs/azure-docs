@@ -209,13 +209,13 @@ Before enabling synchronization of the UserType attribute, you must first decide
 
 The steps to enable synchronization of the UserType attribute can be summarized as:
 
-1.	Disable the sync scheduler and verify there is no synchronization in progress.
-2.	Add the source attribute to the on-premises AD Connector schema.
-3.	Add the UserType to the Azure AD Connector schema.
-4.	Create an inbound synchronization rule to flow the attribute value from on-premises Active Directory.
-5.	Create an outbound synchronization rule to flow the attribute value to Azure AD.
-6.	Run a full synchronization cycle.
-7.	Enable the sync scheduler.
+1. Disable the sync scheduler and verify there is no synchronization in progress.
+2. Add the source attribute to the on-premises AD Connector schema.
+3. Add the UserType to the Azure AD Connector schema.
+4. Create an inbound synchronization rule to flow the attribute value from on-premises Active Directory.
+5. Create an outbound synchronization rule to flow the attribute value to Azure AD.
+6. Run a full synchronization cycle.
+7. Enable the sync scheduler.
 
 >[!NOTE]
 > The rest of this section covers these steps. They are described in the context of an Azure AD deployment with single-forest topology and without custom synchronization rules. If you have multi-forest topology, custom synchronization rules configured, or have a staging server, you need to adjust the steps accordingly.

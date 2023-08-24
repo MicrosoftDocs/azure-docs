@@ -5,7 +5,7 @@ description: Learn how to configure site-to-site VPN connections over ExpressRou
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/21/2022
+ms.date: 07/28/2023
 ms.author: cherylmc
 
 ---
@@ -21,7 +21,6 @@ You can configure a Site-to-Site VPN to a virtual network gateway over an Expres
 
 This feature is available for the following SKUs:
 
-* VpnGw1, VpnGw2, VpnGw3, VpnGw4, VpnGw5 with standard public IP with no zones
 * VpnGw1AZ, VpnGw2AZ, VpnGw3AZ, VpnGw4AZ, VpnGw5AZ with standard public IP with one or more zones
 
   >[!NOTE]

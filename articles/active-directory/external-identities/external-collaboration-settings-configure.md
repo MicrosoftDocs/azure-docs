@@ -31,6 +31,8 @@ For B2B collaboration with other Azure AD organizations, you should also review 
 
 ## Configure settings in the portal
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator account and open the **Azure Active Directory** service.
 1. Select **External Identities** > **External collaboration settings**.
 

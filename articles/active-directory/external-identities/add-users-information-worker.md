@@ -82,6 +82,9 @@ Self-service app management requires some initial setup by a Global Administrato
 > You cannot add guest users to a dynamic group or to a group that is synced with on-premises Active Directory.
 
 ### Enable self-service group management for your tenant
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 1. Sign in to the [Azure portal](https://portal.azure.com) as a Global Administrator.
 2. In the navigation panel, select **Azure Active Directory**.
 3. Select **Groups**.
@@ -90,6 +93,7 @@ Self-service app management requires some initial setup by a Global Administrato
 6. Select **Save**.
 
 ### Create a group to assign to the app and make the user an owner
+
 1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD administrator or Global Administrator.
 2. In the navigation panel, select **Azure Active Directory**.
 3. Select **Groups**.
@@ -102,6 +106,7 @@ Self-service app management requires some initial setup by a Global Administrato
 10. Under **Manage**, select **Owners** > **Add owners**. Search for the user who should manage access to the application. Select the user, and then click **Select**.
 
 ### Configure the app for self-service and assign the group to the app
+
 1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD administrator or Global Administrator.
 2. In the navigation pane, select **Azure Active Directory**.
 3. Under **Manage**, select **Enterprise applications** > **All applications**.

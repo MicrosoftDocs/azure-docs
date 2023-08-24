@@ -21,8 +21,8 @@ If there was an outage of the primary authentication service, the Azure Active D
 
 For authentications protected by Conditional Access, policies are reevaluated before access tokens are issued to determine:
 
-1.	Which Conditional Access policies apply?
-1.	For policies that do apply, were the required controls are satisfied?
+1. Which Conditional Access policies apply?
+1. For policies that do apply, were the required controls are satisfied?
 
 During an outage, not all conditions can be evaluated in real time by the Backup Authentication Service to determine whether a Conditional Access policy should apply. Conditional Access resilience defaults are a new session control that lets admins decide between:
 
@@ -81,11 +81,11 @@ You can configure Conditional Access resilience defaults from the Azure portal, 
 
 ### Azure portal
 
-1.	Navigate to the **Azure portal** > **Security** > **Conditional Access**
-1.	Create a new policy or select an existing policy
-1.	Open the Session control settings
-1.	Select Disable resilience defaults to disable the setting for this policy. Sign-ins in scope of the policy will be blocked during an Azure AD outage
-1.	Save changes to the policy
+1. Navigate to the **Azure portal** > **Security** > **Conditional Access**
+1. Create a new policy or select an existing policy
+1. Open the Session control settings
+1. Select Disable resilience defaults to disable the setting for this policy. Sign-ins in scope of the policy will be blocked during an Azure AD outage
+1. Save changes to the policy
 
 ### MS Graph APIs
 

@@ -1,5 +1,5 @@
 ---
-title: "Use Document Intelligence SDK for Java (REST API v2.1)"
+title: "Use Document Intelligence (formerly Form Recognizer) SDK for Java (REST API v2.1)"
 description: Use the Document Intelligence Java SDK (REST API v2.1) to create a forms processing app that extracts key data from your documents.
 author: laujan
 manager: nitinme

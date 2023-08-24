@@ -4,7 +4,7 @@
   items:
   - name: What is Azure DDoS Protection?
     href: ddos-protection-overview.md
-  - name: SKU comparison
+  - name: Tier comparison
     href: ddos-protection-sku-comparison.md
 - name: Quickstarts
   expanded: true
@@ -43,10 +43,28 @@
   items:
   - name: View and configure DDoS telemetry
     href: telemetry.md
+  - name: Configure Monitoring and Logging
+    items:
+      - name: Configure Log Analytics workspace 
+        href: ddos-configure-log-analytics-workspace.md
+      - name: Configure metric alerts through portal
+        href: alerts.md  
+      - name: Configure diagnostic logging
+        href: diagnostic-logging.md   
+      - name: Configure diagnostic logging alerts
+        href: ddos-diagnostic-alert-templates.md 
+  - name: View Monitoring and Logging
+    items: 
+      - name: View alerts in Microsoft Defender for Cloud
+        href: ddos-view-alerts-defender-for-cloud.md
+      - name: View diagnostic logs in Log Analytics workspace
+        href: ddos-view-diagnostic-logs.md        
 - name: Concepts
   items:
   - name: Azure DDoS Protection features
     href: ddos-protection-features.md
+  - name: Price comparison
+    href: ddos-pricing-guide.md
   - name: Reference architectures
     href: ddos-protection-reference-architectures.md
   - name: Monitoring Azure DDoS Protection 
@@ -71,22 +89,6 @@
   items:
     - name: Switch tiers
       href: ddos-switch-ddos-protection-tier.md
-    - name: Configure Monitoring and Logging
-      items:
-        - name: Configure Log Analytics workspace 
-          href: ddos-configure-log-analytics-workspace.md
-        - name: Configure metric alerts through portal
-          href: alerts.md  
-        - name: Configure diagnostic logging alerts
-          href: ddos-diagnostic-alert-templates.md
-        - name: Configure diagnostic logging
-          href: diagnostic-logging.md    
-    - name: View Monitoring and Logging
-      items: 
-        - name: View alerts in Microsoft Defender for Cloud
-          href: ddos-view-alerts-defender-for-cloud.md
-        - name: View diagnostic logs in Log Analytics workspace
-          href: ddos-view-diagnostic-logs.md
     - name: Test with simulation partners
       href: test-through-simulations.md
     - name: Engage DDoS Rapid Response (DRR)

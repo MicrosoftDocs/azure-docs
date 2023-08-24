@@ -58,9 +58,11 @@ If you're using the  [Basic AD and Azure environment](tutorial-basic-ad-azure.md
 
 ## Configure Azure AD Connect cloud sync
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Use the following steps to configure and start the provisioning:
 
-1. Sign in to the Azure portal.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select **Azure Active Directory**
 1. Select **Azure AD Connect**
 1. Select **Manage cloud sync**

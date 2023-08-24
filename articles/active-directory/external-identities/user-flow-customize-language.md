@@ -26,6 +26,8 @@ By default, language customization is enabled for users signing up to ensure a c
 
 ## Customize your strings 
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Language customization enables you to customize any string in your user flow.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD administrator.

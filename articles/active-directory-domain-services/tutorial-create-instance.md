@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/29/2023
+ms.date: 08/01/2023
 ms.author: justinha
 
 #Customer intent: As an identity administrator, I want to create an Azure Active Directory Domain Services managed domain so that I can synchronize identity information with my Azure Active Directory tenant and provide Domain Services connectivity to virtual machines and applications in Azure.
@@ -67,7 +67,7 @@ When you create a managed domain, you specify a DNS name. There are some conside
 * **Non-routable domain suffixes:** We generally recommend that you avoid a non-routable domain name suffix, such as *contoso.local*. The *.local* suffix isn't routable and can cause issues with DNS resolution.
 
 > [!TIP]
-> If you create a custom domain name, take care with existing DNS namespaces. It's recommended to use a domain name separate from any existing Azure or on-premises DNS name space.
+> If you create a custom domain name, take care with existing DNS namespaces. Although it's supported, you may want to use a domain name separate from any existing Azure or on-premises DNS namespace.
 >
 > For example, if you have an existing DNS name space of *contoso.com*, create a managed domain with the custom domain name of *aaddscontoso.com*. If you need to use secure LDAP, you must register and own this custom domain name to generate the required certificates.
 >
@@ -105,6 +105,16 @@ To quickly create a managed domain, you can select **Review + create** to accept
 * Creates a virtual network named *aadds-vnet* that uses the IP address range of *10.0.2.0/24*.
 * Creates a subnet named *aadds-subnet* using the IP address range of *10.0.2.0/24*.
 * Synchronizes *All* users from Azure AD into the managed domain.
+
+>[!NOTE]
+>You shouldn't use public IP addresses for virtual networks and their subnets due to the following issues:
+>
+>- **Scarcity of the IP address**: IPv4 public IP addresses are limited, and their demand often exceeds the available supply. Also, there are potentially overlapping IPs with public endpoints.
+>- **Security risks**: Using public IPs for virtual networks exposes your devices directly to the internet, increasing the risk of unauthorized access and potential attacks. Without proper security measures, your devices may become vulnerable to various threats.
+>
+>- **Complexity**: Managing a virtual network with public IPs can be more complex than using private IPs, as it requires dealing with external IP ranges and ensuring proper network segmentation and security.
+>
+>It is strongly recommended to use private IP addresses. If you use a public IP, ensure you are the owner/dedicated user of the chosen IPs in the public range you chose.
 
 Select **Review + create** to accept these default configuration options.
 

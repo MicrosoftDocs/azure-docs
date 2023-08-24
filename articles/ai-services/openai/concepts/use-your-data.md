@@ -9,7 +9,7 @@ ms.subservice: openai
 ms.topic: quickstart
 author: aahill
 ms.author: aahi
-ms.date: 07/12/2023
+ms.date: 08/08/2023
 recommendations: false
 ---
 
@@ -152,9 +152,24 @@ Avoid asking long questions and break them down into multiple questions if possi
 
 * If you have documents in multiple languages, we recommend building a new index for each language and connecting them separately to Azure OpenAI.  
 
-### Using the web app
+### Deploying the model
 
-You can use the available web app to interact with your model using a graphical user interface, which you can deploy using either [Azure OpenAI studio](../use-your-data-quickstart.md?pivots=programming-language-studio#deploy-a-web-app) or a [manual deployment](https://github.com/microsoft/sample-app-aoai-chatGPT). 
+After you connect Azure OpenAI to your data, you can deploy it using the **Deploy to** button in Azure OpenAI studio.
+
+:::image type="content" source="../media/use-your-data/deploy-model.png" alt-text="A screenshot showing the model deployment button in Azure OpenAI Studio." lightbox="../media/use-your-data/deploy-model.png":::
+
+#### Using Power Virtual Agents
+
+You can deploy your model to [Power Virtual Agents](/power-virtual-agents/fundamentals-what-is-power-virtual-agents) directly from Azure OpenAI studio, enabling you to bring conversational experiences to various Microsoft Teams, Websites, Power Platform solutions, Dynamics 365, and other [Azure Bot Service channels](/power-virtual-agents/publication-connect-bot-to-azure-bot-service-channels). Power Virtual Agents acts as a conversational and generative AI platform, making the process of creating, publishing and deploying a bot to any number of channels simple and accessible.
+
+While Power Virtual Agents has features that leverage Azure OpenAI such as [generative answers](/power-virtual-agents/nlu-boost-conversations), deploying a model grounded on your data lets you create a chatbot that will respond using your data, and connect it to the Power Platform. For more information, see [Use a connection to Azure OpenAI on your data](/power-virtual-agents/nlu-generative-answers-azure-openai).
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RW18YwQ]
+
+
+#### Using the web app
+
+You can also use the available standalone web app to interact with your model using a graphical user interface, which you can deploy using either Azure OpenAI studio or a [manual deployment](https://github.com/microsoft/sample-app-aoai-chatGPT). 
 
 ![A screenshot of the web app interface.](../media/use-your-data/web-app.png)
 
@@ -169,6 +184,22 @@ When customizing the app, we recommend:
 - When you rotate API keys for your Azure OpenAI or Azure Cognitive Search resource, be sure to update the app settings for each of your deployed apps to use the new keys.
 
 - Pulling changes from the `main` branch for the web app's source code frequently to ensure you have the latest bug fixes and improvements.
+
+#### Important considerations
+
+- Publishing creates an Azure App Service in your subscription. It may incur costs depending on the 
+[pricing plan](https://azure.microsoft.com/pricing/details/app-service/windows/) you select. When you're done with your app, you can delete it from the Azure portal.
+- You can [customize](../concepts/use-your-data.md#using-the-web-app) the frontend and backend logic of the web app.
+- By default, the app will only be accessible to you. To add authentication (for example, restrict access to the app to members of your Azure tenant):
+
+    1. Go to the [Azure portal](https://portal.azure.com/#home) and search for the app name you specified during publishing. Select the web app, and go to the **Authentication** tab on the left navigation menu. Then select **Add an identity provider**. 
+    
+        :::image type="content" source="../media/quickstarts/web-app-authentication.png" alt-text="Screenshot of the authentication page in the Azure portal." lightbox="../media/quickstarts/web-app-authentication.png":::
+
+    1. Select Microsoft as the identity provider. The default settings on this page will restrict the app to your tenant only, so you don't need to change anything else here. Then select **Add**
+    
+    Now users will be asked to sign in with their Azure Active Directory account to be able to access your app. You can follow a similar process to add another identity provider if you prefer. The app doesn't use the user's login information in any other way other than verifying they are a member of your tenant.
+
 
 ### Using the API
 

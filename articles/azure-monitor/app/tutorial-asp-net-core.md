@@ -267,7 +267,7 @@ The sample application makes calls to multiple Azure resources, including Azure 
 
 Application Insights introspects the incoming telemetry data and is able to generate a visual map of the system integrations it detects.
 
-1. Access and log into the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Open the resource group for the sample application, which is `application-insights-azure-cafe`.
 
@@ -464,4 +464,3 @@ For the latest updates and bug fixes, see the [release notes](./release-notes.md
 * [Logging in ASP.NET Core](/aspnet/core/fundamentals/logging)
 * [.NET trace logs in Application Insights](./asp-net-trace-logs.md)
 * [Autoinstrumentation for Application Insights](./codeless-overview.md)
-

@@ -21,6 +21,9 @@
       - name: Conditional Access
         tocHref: /azure/active-directory/conditional-access/
         topicHref: /azure/active-directory/conditional-access/
+      - name: Architecture
+        tocHref: /azure/active-directory/architecture/
+        topicHref: /azure/active-directory/architecture/
       - name: Authentication
         tocHref: /azure/active-directory/authentication/
         topicHref: /azure/active-directory/authentication/

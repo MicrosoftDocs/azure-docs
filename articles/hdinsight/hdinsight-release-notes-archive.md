@@ -4,7 +4,7 @@ description: Archived release notes for Azure HDInsight. Get development tips an
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive, references_regions
-ms.date: 05/11/2023
+ms.date: 07/28/2023
 ---
 
 # Archived release notes
@@ -14,9 +14,78 @@ ms.date: 05/11/2023
 Azure HDInsight is one of the most popular services among enterprise customers for open-source analytics on Azure.
 If you would like to subscribe on release notes, watch releases on [this GitHub repository](https://github.com/Azure/HDInsight/releases).
 
+## Release date: May 08, 2023
+
+This release applies to HDInsight 4.x and 5.x HDInsight release is available to all regions over several days. This release is applicable for image number **2304280205**. [How to check the image number?](./view-hindsight-cluster-image-version.md)
+
+HDInsight uses safe deployment practices, which involve gradual region deployment. it may take up to 10 business days for a new release or a new version to be available in all regions.
+
+**OS versions**
+
+* HDInsight 4.0: Ubuntu 18.04.5 LTS Linux Kernel 5.4
+* HDInsight 5.0: Ubuntu 18.04.5 LTS Linux Kernel 5.4
+
+For workload specific versions, see 
+
+* [HDInsight 5.x component versions](./hdinsight-5x-component-versioning.md)
+* [HDInsight 4.x component versions](./hdinsight-40-component-versioning.md)
+
+![Icon showing update with text.](media/hdinsight-release-notes/new-icon-for-updated.png)
+
+1. Azure HDInsight 5.1 updated with
+
+    1. Apache HBase 2.4.11
+    1. Apache Phoenix 5.1.2
+    1. Apache Hive 3.1.2
+    1. Apache Spark 3.3.1
+    1. Apache Tez 0.9.1
+    1. Apache Zeppelin 0.10.1
+    1. Apache Livy 0.5
+    1. Apache Kafka 3.2.0
+
+    > [!NOTE]
+    > * All components are integrated with Hadoop 3.3.4 & ZK 3.6.3
+    > * All above upgraded components are now available in non-ESP clusters for public preview.
+
+![Icon showing new features with text.](media/hdinsight-release-notes/new-icon-for-new-feature.png)
+
+1. **Enhanced Autoscale for HDInsight**
+
+   Azure HDInsight has made notable improvements stability and latency on Autoscale, The essential changes include improved feedback loop for scaling decisions, significant improvement on latency for scaling and support for recommissioning the decommissioned nodes, Learn [more](https://techcommunity.microsoft.com/t5/analytics-on-azure-blog/enhanced-autoscale-capabilities-in-hdinsight-clusters/ba-p/3811271) about the enhancements, how to custom configure and migrate your cluster to enhanced autoscale. The enhanced Autoscale capability is available effective 17 May, 2023 across all supported regions.
+    
+1. **Azure HDInsight ESP for Apache Kafka 2.4.1 is now Generally Available**.
+
+   Azure HDInsight ESP for Apache Kafka 2.4.1 has been in public preview since April 2022. After notable improvements in CVE fixes and stability, Azure HDInsight ESP Kafka 2.4.1 now becomes generally available and ready for production workloads, learn the detail about the [how to configure](./domain-joined/apache-domain-joined-run-kafka.md) and [migrate](./kafka/migrate-versions.md).
+
+1. **Quota Management for HDInsight**
+
+    HDInsight currently allocates quota to customer subscriptions at a regional level. The cores allocated to customers are generic and not classified at a VM family level (For example, Dv2, Ev3, Eav4, etc.).
+    
+    HDInsight introduced an improved view, which provides a detail and classification of quotas for family-level VMs, this feature allows customers to view current and remaining quotas for a region at the VM family level. With the enhanced view, customers have richer visibility, for planning quotas, and a better user experience. This feature is currently available on HDInsight 4.x and 5.x for East US EUAP region. Other regions to follow later.
+
+    For more information, see [Cluster capacity planning in Azure HDInsight | Microsoft Learn](./hdinsight-capacity-planning.md#view-quota-management-for-hdinsight)
+    
+![Icon showing new regions added with text.](media/hdinsight-release-notes/new-icon-for-new-regions-added.png) 
+
+* Poland Central
+
+## Coming soon
+
+* The max length of cluster name changes to 45 from 59 characters, to improve the security posture of clusters.
+* Cluster permissions for secure storage  
+  * Customers can specify (during cluster creation) whether a secure channel should be used for HDInsight cluster nodes to contact the storage account. 
+* In-line quota update.
+   * Request quotas increase directly from the My Quota page, which is a direct API call, which is faster. If the API call fails, then customers need to create a new support request for quota increase.
+* HDInsight Cluster Creation with Custom VNets.
+  * To improve the overall security posture of the HDInsight clusters, HDInsight clusters using custom VNETs need to ensure that the user needs to have permission for `Microsoft Network/virtualNetworks/subnets/join/action` to perform create operations. Customers would need to plan accordingly as this would be a mandatory check to avoid cluster creation failures.
+* Basic and Standard A-series VMs Retirement.
+   * On 31 August 2024, we'll retire Basic and Standard A-series VMs. Before that date, you need to migrate your workloads to Av2-series VMs, which provide more memory per vCPU and faster storage on solid-state drives (SSDs). To avoid service disruptions, [migrate your workloads](https://aka.ms/Av1retirement) from Basic and Standard A-series VMs to Av2-series VMs before 31 August 2024.
+* Non-ESP ABFS clusters [Cluster Permissions for World Readable] 
+  * Plan to introduce a change in non-ESP ABFS clusters, which restricts non-Hadoop group users from executing Hadoop commands for storage operations. This change to improve cluster security posture. Customers need to plan for the updates.
+
 ## Release date: February 28, 2023
 
-This release applies to HDInsight 4.0. and 5.0, 5.1. HDInsight release will be available to all regions over several days. This release is applicable for image number **2302250400**. [How to check the image number?](./view-hindsight-cluster-image-version.md)
+This release applies to HDInsight 4.0. and 5.0, 5.1. HDInsight release is be available to all regions over several days. This release is applicable for image number **2302250400**. [How to check the image number?](./view-hindsight-cluster-image-version.md)
 
 HDInsight uses safe deployment practices, which involve gradual region deployment. it may take up to 10 business days for a new release or a new version to be available in all regions.
 
@@ -72,18 +141,18 @@ For more information, see [HDInsight 5.1.0 version](./hdinsight-51-component-ver
 
 End of support for Azure HDInsight clusters on Spark 2.4 February 10, 2024. For more information, see [Spark versions supported in Azure HDInsight](./hdinsight-40-component-versioning.md#spark-versions-supported-in-azure-hdinsight)
 
-## Coming soon
+## What's next
 
 * Autoscale
   * Autoscale with improved latency and several improvements 
 * Cluster name change limitation 
-  * The max length of cluster name will be changed to 45 from 59 in Public, Mooncake and Fairfax. 
+  * The max length of cluster name changes to 45 from 59 in Public, Mooncake and Fairfax. 
 * Cluster permissions for secure storage  
   * Customers can specify (during cluster creation) whether a secure channel should be used for HDInsight cluster nodes to contact the storage account. 
 * Non-ESP ABFS clusters [Cluster Permissions for World Readable] 
   * Plan to introduce a change in non-ESP ABFS clusters, which restricts non-Hadoop group users from executing Hadoop commands for storage operations. This change to improve cluster security posture. Customers need to plan for the updates.
 * Open-source upgrades
-  * Apache Spark 3.3.0 and Hadoop 3.3.4 are under development on HDInsight 5.1 and will include several significant new features, performance and other improvements.
+  * Apache Spark 3.3.0 and Hadoop 3.3.4 are under development on HDInsight 5.1 and includes several significant new features, performance and other improvements.
 
  > [!NOTE]
  > We advise customers to use to latest versions of HDInsight [Images](./view-hindsight-cluster-image-version.md) as they bring in the best of open source updates,  Azure updates and security fixes. For more information, see [Best practices](./hdinsight-overview-before-you-start.md).
@@ -292,7 +361,7 @@ HDInsight uses safe deployment practices, which involve gradual region deploymen
 
 HDInsight cluster comes with pre-defined disk space based on SKU. This space may not be sufficient in large job scenarios. 
 
-This new feature allows you to add more disks in cluster, which will be used as node manager local directory. Add number of disks to worker nodes during HIVE and Spark cluster creation, while the  selected disks will be part of node manager’s local directories.
+This new feature allows you to add more disks in cluster, which will be used as node manager local directory. Add number of disks to worker nodes during HIVE and Spark cluster creation, while the  selected disks are be part of node manager’s local directories.
 
 > [!NOTE]
 > The added disks are only configured for node manager local directories.
@@ -385,7 +454,7 @@ HDInsight is compatible with Apache HIVE 3.1.2. Due to a bug in this release, th
 
 ## Release date: 06/03/2022
 
-This release applies for HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region over several days.
+This release applies for HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see following changes, wait for the release being live in your region over several days.
 
 ### Release highlights
 
@@ -486,7 +555,7 @@ HDI Hive 3.1 version is upgraded to OSS Hive 3.1.2. This version has all fixes a
 
 ## Release date: 03/10/2022
 
-This release applies for HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region over several days.
+This release applies for HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see following changes, wait for the release being live in your region over several days.
 
 The OS versions for this release are: 
 - 	HDInsight 4.0: Ubuntu 18.04.5 
@@ -551,7 +620,7 @@ Starting from March 01, 2022, HDInsight will only support manual scale for HBase
 
 ## Release date: 12/27/2021
 
-This release applies for HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region over several days.
+This release applies for HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see following changes, wait for the release being live in your region over several days.
 
 The OS versions for this release are:
 - HDInsight 4.0: Ubuntu 18.04.5 LTS
@@ -564,7 +633,7 @@ HDInsight 4.0 image has been updated to mitigate Log4j vulnerability as describe
 
 ## Release date: 07/27/2021
 
-This release applies for both HDInsight 3.6 and HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region in several days.
+This release applies for both HDInsight 3.6 and HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see following changes, wait for the release being live in your region in several days.
 
 The OS versions for this release are:
 - HDInsight 3.6: Ubuntu 16.04.7 LTS
@@ -671,7 +740,7 @@ No other action is needed from you. The price correction will only apply for usa
 
 ## Release date: 06/02/2021
 
-This release applies for both HDInsight 3.6 and HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region in several days.
+This release applies for both HDInsight 3.6 and HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see following changes, wait for the release being live in your region in several days.
 
 The OS versions for this release are:
 - HDInsight 3.6: Ubuntu 16.04.7 LTS
@@ -777,7 +846,7 @@ You can find the current component versions for HDInsight 4.0 and HDInsight 3.6 
 
 ## Release date: 02/05/2021
 
-This release applies for both HDInsight 3.6 and HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region in several days.
+This release applies for both HDInsight 3.6 and HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see following changes, wait for the release being live in your region in several days.
 
 ### New features
 #### Dav4-series support
@@ -817,7 +886,7 @@ No component version change for this release. You can find the current component
 
 ## Release date: 11/18/2020
 
-This release applies for both HDInsight 3.6 and HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region in several days.
+This release applies for both HDInsight 3.6 and HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see following changes, wait for the release being live in your region in several days.
 
 ### New features
 #### Auto key rotation for customer managed key encryption at rest
@@ -845,7 +914,7 @@ No component version change for this release. You can find the current component
 
 ## Release date: 11/09/2020
 
-This release applies for both HDInsight 3.6 and HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region in several days.
+This release applies for both HDInsight 3.6 and HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see following changes, wait for the release being live in your region in several days.
 
 ### New features
 #### HDInsight Identity Broker (HIB) is now GA
@@ -890,7 +959,7 @@ No component version change for this release. You can find the current component
 
 ## Release date: 10/08/2020
 
-This release applies for both HDInsight 3.6 and HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region in several days.
+This release applies for both HDInsight 3.6 and HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see following changes, wait for the release being live in your region in several days.
 
 ### New features
 #### HDInsight private clusters with no public IP and Private link (Preview)
@@ -920,7 +989,7 @@ No component version change for this release. You can find the current component
 
 ## Release date: 09/28/2020
 
-This release applies for both HDInsight 3.6 and HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region in several days.
+This release applies for both HDInsight 3.6 and HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see following changes, wait for the release being live in your region in several days.
 
 ### New features
 #### Autoscale for Interactive Query with HDInsight 4.0 is now generally available
@@ -961,7 +1030,7 @@ No component version change for this release. You can find the current component
 
 ## Release date: 08/09/2020
 
-This release applies only for HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region in several days.
+This release applies only for HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see following changes, wait for the release being live in your region in several days.
 
 ### New features
 #### Support for SparkCruise
@@ -1015,7 +1084,7 @@ An issue has been fixed in the Azure portal, where users were experiencing an er
 
 ## Release date: 07/13/2020
 
-This release applies both for HDInsight 3.6 and 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region in several days.
+This release applies both for HDInsight 3.6 and 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see following changes, wait for the release being live in your region in several days.
 
 ### New features
 #### Support for Customer Lockbox for Microsoft Azure
@@ -1056,7 +1125,7 @@ No component version change for this release. You can find the current component
 
 ## Release date: 06/11/2020
 
-This release applies both for HDInsight 3.6 and 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region in several days.
+This release applies both for HDInsight 3.6 and 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see following changes, wait for the release being live in your region in several days.
 
 ### New features
 #### Moving to Azure virtual machine scale sets
@@ -1119,7 +1188,7 @@ There's an issue for Hive Warehouse Connector in this release. The fix will be i
 
 ## Release date: 01/09/2020
 
-This release applies both for HDInsight 3.6 and 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region in several days.
+This release applies both for HDInsight 3.6 and 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see following changes, wait for the release being live in your region in several days.
 
 ### New features
 #### TLS 1.2 enforcement

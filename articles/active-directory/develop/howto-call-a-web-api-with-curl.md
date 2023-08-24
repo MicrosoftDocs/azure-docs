@@ -1,10 +1,13 @@
 ---
 title: Call an ASP.NET Core web API with cURL
 description: Learn how to call a protected ASP.NET Core Web API using the Microsoft identity platform with cURL
-manager: CelesteDG
+services: active-directory
 author: henrymbuguakiarie
-ms.author: henrymbugua
+
 ms.service: active-directory
+ms.subservice: develop
+ms.author: henrymbugua
+manager: CelesteDG
 ms.topic: how-to
 ms.date: 03/14/2023
 zone_pivot_groups: web-api-howto-prereq
@@ -63,9 +66,11 @@ The Microsoft identity platform requires your application to be registered befor
 
 ### Register the web API 
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Follow these steps to create the web API registration:  
 
-1. Sign in to the [Azure portal](https://portal.azure.com/). 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. If access to multiple tenants is available, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.  
 1. Search for and select **Azure Active Directory**.  
 1. Under **Manage**, select **App registrations > New registration**.  
@@ -124,7 +129,7 @@ Follow these steps to create the web app registration:
 
 ::: zone pivot="api"
 
-1. Sign in to the [Azure portal](https://portal.azure.com/). 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. If access to multiple tenants is available, use the Directories + subscriptions filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application. 
 1. Search for and select **Azure Active Directory**. 
 1. Under **Manage**, select **App registrations** > **New registration**. 

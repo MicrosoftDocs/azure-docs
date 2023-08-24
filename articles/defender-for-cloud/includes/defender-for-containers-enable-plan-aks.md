@@ -46,7 +46,7 @@ If you disable the automatic installation of any component, you can easily deplo
    > [!Note]
     > Microsoft Defender for Containers is configured to defend all of your clouds automatically. When you install all of the required prerequisites and enable all of the automatic installation capabilities.
     >
-    > If you choose to disable all of the automatic installation configuration options, no agents, or components will be deployed to your clusters. Protection will be limited to the Agentless features only. Learn which features are Agentless in the [availability section](../supported-machines-endpoint-solutions-clouds-containers.md) for Defender for Containers.
+    > If you choose to disable all of the automatic installation configuration options, no agents, or components will be deployed to your clusters. Protection will be limited to the agentless features only. Learn which features are agentless in the [availability section](../supported-machines-endpoint-solutions-clouds-containers.md) for Defender for Containers.
 
 Learn more about the [roles used to provision Defender for Containers extensions](../permissions.md#roles-used-to-automatically-provision-agents-and-extensions).
 

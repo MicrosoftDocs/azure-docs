@@ -30,7 +30,7 @@ The following considerations apply when using a warmup trigger:
 
 <!--Optional intro text goes here, followed by the C# modes include.-->
 
-[!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
+[!INCLUDE [functions-bindings-csharp-intro-with-csx](../../includes/functions-bindings-csharp-intro-with-csx.md)]
 
 # [In-process](#tab/in-process)
 

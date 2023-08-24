@@ -25,8 +25,6 @@ Using the information in this tutorial, an administrator learns how to:
 > * Communicate a term of use to users of the application
 > * Create a collection in the My Apps portal
 
-[!INCLUDE [portal updates](../includes/portal-update.md)]
-
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -36,9 +34,11 @@ Using the information in this tutorial, an administrator learns how to:
 
 ## Grant tenant wide admin consent
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 For the application that the administrator added to their tenant, they want to set it up so that all users in the organization can use it and not have to individually request consent to use it. To avoid the need for user consent, they can grant consent for the application on behalf of all users in the organization. For more information, see [Consent and permissions overview](consent-and-permissions-overview.md).
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) with one of the roles listed in the prerequisites.
+1. Sign in to the [Azure portal](https://portal.azure.com) with one of the roles listed in the prerequisites.
 2. Search for and select **Azure Active Directory**.
 3. Select **Enterprise applications**.
 4. Select the application to which you want to grant tenant-wide admin consent.
@@ -47,7 +47,7 @@ For the application that the administrator added to their tenant, they want to s
 
 ## Create a Conditional Access policy
 
-The administrator wants to make sure that only the people they assign to the application can securely sign in. To do this, they can configure a conditional access policy for a group of users that enforces multi-factor authentication (MFA). For more information, see [What is Conditional Access?](../conditional-access/overview.md).
+The administrator wants to make sure that only the people they assign to the application can securely sign in. To do this, they can configure a Conditional Access policy for a group of users that enforces multi-factor authentication (MFA). For more information, see [What is Conditional Access?](../conditional-access/overview.md).
 
 ### Create a group
 
@@ -83,7 +83,7 @@ In this tutorial, the administrator can find the basic steps to configure the ap
 ### Test multi-factor authentication
 
 1. Open a new browser window in InPrivate or incognito mode and browse to the URL of the application.
-1. Sign in with the user account that you assigned to the application. You're required to register for and use Azure AD Multi-Factor Authentication. Follow the prompts to complete the process and verify you successfully sign into the Azure portal.
+1. Sign in with the user account that you assigned to the application. You're required to register for and use Azure AD Multi-Factor Authentication. Follow the prompts to complete the process and verify you successfully sign in to the Azure portal.
 1. Close the browser window.
 
 ## Create a terms of use statement
@@ -99,7 +99,7 @@ Juan wants to make sure that certain terms and conditions are known to users bef
 1. Upload your terms of use PDF file.
 1. For **Language**, select **English**.
 1. For **Require users to expand the terms of use**, select **On**.
-1. For **Enforce with conditional access policy templates**, select **Custom policy**.
+1. For **Enforce with Conditional Access policy templates**, select **Custom policy**.
 1. Select **Create**.
 
 ### Add the terms of use to the policy
@@ -147,7 +147,7 @@ You can keep the resources for future use, or if you're not going to continue to
 1. In the **Manage** section of the left menu, select **Properties**.
 1. At the top of the **Properties** pane, select **Delete**, and then select **Yes** to confirm you want to delete the application from your Azure AD tenant.
 
-### Delete the conditional access policy
+### Delete the Conditional Access policy
 
 1. Select **Enterprise applications**.
 1. Under **Security**, select **Conditional Access**.

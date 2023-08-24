@@ -22,7 +22,7 @@ When you enable the auto-provision option, a default workspace will be automatic
 
 **To check if you have a workspace assigned**:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Search for, and select **Policy**.
 

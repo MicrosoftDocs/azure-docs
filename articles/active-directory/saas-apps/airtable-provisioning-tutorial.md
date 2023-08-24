@@ -37,12 +37,23 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * A user account in Airtable with Admin permissions.
 
 ## Step 1. Plan your provisioning deployment
-1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
-1. Determine who will be in [scope for provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
-1. Determine what data to [map between Azure AD and Airtable](../app-provisioning/customize-application-attributes.md).
+* Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
+* Determine who will be in [scope for provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+*  Determine what data to [map between Azure AD and Airtable](../app-provisioning/customize-application-attributes.md).
 
-## Step 2. Configure Airtable to support provisioning with Azure AD
-Contact Airtable support to configure Airtable to support provisioning with Azure AD.
+## Step 2. Create an Airtable Personal Access Token to authorize provisioning with Azure AD.
+
+1. Login to [Airtable Developer Hub](https://airtable.com) as an Admin user, and then navigate to `https://airtable.com/create/tokens`.
+1. Select "Personal Access Tokens" from the left hand navigation bar.
+
+   ![Screenshot of Personal Access Token Selection.](media/airtable-provisioning-tutorial/developer-hub-personal-access-token.png)
+
+1. Create a new token with a memorable name such as "AzureAdScimProvisioning".
+1. Add the "enterprise.scim.usersAndGroups:manage" scope.
+
+   ![Screenshot of enterprise scim scope addition.](media/airtable-provisioning-tutorial/enterprise-scim-scope.png)
+
+1. Select "Create Token" and copy the resulting token for use in **Step 5** below.
 
 ## Step 3. Add Airtable from the Azure AD application gallery
 
@@ -79,7 +90,12 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Screenshot of Provisioning tab automatic.](common/provisioning-automatic.png)
 
-1. Under the **Admin Credentials** section, input your Airtable Tenant URL and Secret Token. Click **Test Connection** to ensure Azure AD can connect to Airtable. If the connection fails, ensure your Airtable account has Admin permissions and try again.
+1. Under the **Admin Credentials** section,
+   1. Enter `https://airtable.com/scim/v2` as the Airtable **Tenant URL**.
+
+   1. Enter the Personal Access Token created in **Step 2** above as **Secret Token**.
+
+   Click **Test Connection** to ensure Azure AD can connect to Airtable. If the connection fails, ensure your Airtable account has Admin permissions and that your personal access token has the appropriate scope applied and try again.
 
  	![Screenshot of Token.](common/provisioning-testconnection-tenanturltoken.png)
 

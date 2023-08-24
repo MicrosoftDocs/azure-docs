@@ -28,6 +28,9 @@ A dynamic group is a dynamic configuration of security group membership for Azur
 [Azure AD Premium P1 or P2 licensing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing) is required to create and use dynamic groups. Learn more in [Create attribute-based rules for dynamic group membership in Azure Active Directory](../enterprise-users/groups-dynamic-membership.md).
 
 ## Creating an "all users" dynamic group
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 You can create a group containing all users within a tenant using a membership rule. When users are added or removed from the tenant in the future, the group's membership is adjusted automatically.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with an account that is assigned the Global administrator or User administrator role in the tenant.

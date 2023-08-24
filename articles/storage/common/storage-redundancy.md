@@ -7,10 +7,10 @@ author: jimmart-dev
 
 ms.service: azure-storage
 ms.topic: conceptual
-ms.date: 07/06/2023
+ms.date: 08/04/2023
 ms.author: jammart
 ms.subservice: storage-common-concepts
-ms.custom: references_regions, engagement-fy23
+ms.custom: references_regions, engagement
 ---
 
 # Azure Storage redundancy
@@ -159,9 +159,6 @@ Geo-redundant storage (with GRS or GZRS) replicates your data to another physica
 
 If your applications require high availability, then you can configure your storage account for read access to the secondary region. When you enable read access to the secondary region, then your data is always available to be read from the secondary, including in a situation where the primary region becomes unavailable. Read-access geo-redundant storage (RA-GRS) or read-access geo-zone-redundant storage (RA-GZRS) configurations permit read access to the secondary region.
 
-> [!CAUTION]
-> Because data is replicated asynchronously from the primary to the secondary region, the secondary region is typically behind the primary region in terms of write operations. If a disaster were to strike the primary region, it's likely that some data would be lost. For more information about how to plan for potential data loss, see [Anticipate data loss](storage-disaster-recovery-guidance.md#anticipate-data-loss).
-
 > [!NOTE]
 > Azure Files does not support read-access geo-redundant storage (RA-GRS) or read-access geo-zone-redundant storage (RA-GZRS).
 
@@ -173,13 +170,9 @@ The secondary region is available for read access after you enable RA-GRS or RA-
 
 When read access to the secondary is enabled, your application can be read from the secondary endpoint as well as from the primary endpoint. The secondary endpoint appends the suffix *–secondary* to the account name. For example, if your primary endpoint for Blob storage is `myaccount.blob.core.windows.net`, then the secondary endpoint is `myaccount-secondary.blob.core.windows.net`. The account access keys for your storage account are the same for both the primary and secondary endpoints.
 
-### Check the Last Sync Time property
+#### Plan for data loss
 
-Because data is replicated to the secondary region asynchronously, the secondary region is often behind the primary region. If a failure happens in the primary region, it's likely that all writes to the primary won't yet have been replicated to the secondary.
-
-To determine which write operations have been replicated to the secondary region, your application can check the **Last Sync Time** property for your storage account. All write operations written to the primary region prior to the last sync time have been successfully replicated to the secondary region, meaning that they're available to be read from the secondary. Any write operations written to the primary region after the last sync time may or may not have been replicated to the secondary region, meaning that they may not be available for read operations.
-
-You can query the value of the **Last Sync Time** property using Azure PowerShell, Azure CLI, or one of the Azure Storage client libraries. The **Last Sync Time** property is a GMT date/time value. For more information, see [Check the Last Sync Time property for a storage account](last-sync-time-get.md).
+Because data is replicated asynchronously from the primary to the secondary region, the secondary region is typically behind the primary region in terms of write operations. If a disaster were to strike the primary region, it's likely that some data would be lost. For more information about how to plan for potential data loss, see [Anticipate data loss](storage-disaster-recovery-guidance.md#anticipate-data-loss).
 
 ## Summary of redundancy options
 
@@ -215,9 +208,14 @@ The following table indicates whether your data is durable and available in a gi
 
 The following table shows which redundancy options are supported by each Azure Storage service.
 
-| LRS | ZRS | GRS | RA-GRS | GZRS | RA-GZRS |
-|---|---|---|---|---|---|
-| Blob storage (including Data Lake Storage)<br/>Queue storage <br/>Table storage <br/>Azure Files<sup>1,</sup><sup>2</sup> <br/>Azure managed disks<br/> Page blobs | Blob storage (including Data Lake Storage)<br/>Queue storage <br/>Table storage <br/>Azure Files<sup>1,</sup><sup>2</sup> <br/>Azure managed disks<sup>3</sup> | Blob storage (including Data Lake Storage)<br/>Queue storage <br/>Table storage <br/>Azure Files<sup>1</sup> | Blob storage (including Data Lake Storage)<br/>Queue storage <br/>Table storage <br/> | Blob storage (including Data Lake Storage)<br/>Queue storage <br/>Table storage <br/>Azure Files<sup>1</sup> | Blob storage (including Data Lake Storage)<br/>Queue storage <br/>Table storage <br/> |
+| Service | LRS | ZRS | GRS | RA-GRS | GZRS | RA-GZRS |
+|---------|-----|-----|-----|--------|------|---------|
+| Blob storage <br/>(including Data Lake Storage) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| Queue storage                                   | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| Table storage                                   | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| Azure Files                                     | &#x2705; <sup>1,</sup><sup>2</sup> | &#x2705; <sup>1,</sup><sup>2</sup> | &#x2705; <sup>1</sup> | | &#x2705; <sup>1</sup> | |
+| Azure managed disks                             | &#x2705; | &#x2705; <sup>3</sup> |          |          |          |          |
+| Azure Elastic SAN                               | &#x2705; | &#x2705; |          |          |          |          |
 
 <sup>1</sup> Standard file shares are supported on LRS and ZRS. Standard file shares are supported on GRS and GZRS as long as they're less than or equal to 5 TiB in size.<br/>
 <sup>2</sup> Premium file shares are supported on LRS and ZRS.<br/>
@@ -247,17 +245,35 @@ For pricing information for each redundancy option, see [Azure Storage pricing](
 
 ### Support for customer-managed account failover
 
-All geo-redundant offerings support Microsoft-managed failover in the event of a disaster in the primary region. In addition, some account types support customer-managed account failover, as shown in the following table. Supported account types must use Azure Resource Manager deployments. For more information about disaster recovery and customer-managed failover, see [Disaster recovery and storage account failover](storage-disaster-recovery-guidance.md).
+All geo-redundant offerings support [Microsoft-managed failover](storage-disaster-recovery-guidance.md#microsoft-managed-failover) in the event of a disaster in the primary region. In addition, some account types support customer-managed account failover, as shown in the following table:
 
 | Type of failover | GRS/RA-GRS | GZRS/RA-GZRS |
 |---|---|---|
 | **Customer-managed failover** | General-purpose v2 accounts</br> General-purpose v1 accounts</br> Legacy Blob Storage accounts | General-purpose v2 accounts |
 | **Microsoft-managed failover** | All account types | General-purpose v2 accounts |
 
-> [!NOTE]
-> Customer-managed account failover is not yet supported in accounts that have a hierarchical namespace (Azure Data Lake Storage Gen2). To learn more, see [Blob storage features available in Azure Data Lake Storage Gen2](../blobs/storage-feature-support-in-storage-accounts.md).
+> [!IMPORTANT]
 >
-> In the event of a disaster that affects the primary region, Microsoft will manage the failover for accounts with a hierarchical namespace. For more information, see [Microsoft-managed failover](storage-disaster-recovery-guidance.md#microsoft-managed-failover).
+> **Classic storage accounts**
+>
+> Customer-managed account failover is only supported for storage accounts deployed using the Azure Resource Manager (ARM) deployment model. The Azure Service Manager (ASM) deployment model, also known as *classic*, is not supported. To make classic storage accounts eligible for customer-managed account failover, they must first be [migrated to the ARM model](classic-account-migration-overview.md). Your storage account must be accessible to perform the upgrade, so the primary region cannot currently be in a failed state.
+>
+> In the event of a disaster that affects the primary region, Microsoft will manage the failover for classic storage accounts. For more information, see [Microsoft-managed failover](storage-disaster-recovery-guidance.md#microsoft-managed-failover).
+>
+> **Azure Data Lake Storage Gen2**
+>
+> Customer-managed account failover for accounts that have a hierarchical namespace (Azure Data Lake Storage Gen2) is currently in PREVIEW and only supported in the following regions:
+>
+> - (Asia Pacific) Central India
+> - (Europe) Switzerland North
+> - (Europe) Switzerland West
+> - (North America) Canada Central
+>
+> To opt in to the preview, see [Set up preview features in Azure subscription](../../azure-resource-manager/management/preview-features.md) and specify `AllowHNSAccountFailover` as the feature name.
+>
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+For more information about disaster recovery and customer-managed failover, see [Disaster recovery and storage account failover](storage-disaster-recovery-guidance.md).
 
 ## Data integrity
 

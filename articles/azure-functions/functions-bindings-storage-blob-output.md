@@ -96,53 +96,6 @@ The following example is a [C# function](dotnet-isolated-process-guide.md) that 
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Blob/BlobFunction.cs" range="4-26":::
 
-# [C# Script](#tab/csharp-script)
-
-The following example shows blob input and output bindings in a *function.json* file and [C# script (.csx)](functions-reference-csharp.md) code that uses the bindings. The function makes a copy of a text blob. The function is triggered by a queue message that contains the name of the blob to copy. The new blob is named *{originalblobname}-Copy*.
-
-In the *function.json* file, the `queueTrigger` metadata property is used to specify the blob name in the `path` properties:
-
-```json
-{
-  "bindings": [
-    {
-      "queueName": "myqueue-items",
-      "connection": "MyStorageConnectionAppSetting",
-      "name": "myQueueItem",
-      "type": "queueTrigger",
-      "direction": "in"
-    },
-    {
-      "name": "myInputBlob",
-      "type": "blob",
-      "path": "samples-workitems/{queueTrigger}",
-      "connection": "MyStorageConnectionAppSetting",
-      "direction": "in"
-    },
-    {
-      "name": "myOutputBlob",
-      "type": "blob",
-      "path": "samples-workitems/{queueTrigger}-Copy",
-      "connection": "MyStorageConnectionAppSetting",
-      "direction": "out"
-    }
-  ],
-  "disabled": false
-}
-```
-
-The [configuration](#configuration) section explains these properties.
-
-Here's the C# script code:
-
-```cs
-public static void Run(string myQueueItem, string myInputBlob, out string myOutputBlob, ILogger log)
-{
-    log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
-    myOutputBlob = myInputBlob;
-}
-```
-
 ---
 
 ::: zone-end
@@ -393,7 +346,7 @@ def main(queuemsg: func.QueueMessage, inputblob: bytes, outputblob: func.Out[byt
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use attribute to define the function. C# script instead uses a function.json configuration file.
+Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use attribute to define the function. C# script instead uses a function.json configuration file as described in the [C# scripting guide](./functions-reference-csharp.md#blob-output).
 
 # [In-process](#tab/in-process)
 
@@ -427,20 +380,6 @@ The `BlobOutputAttribute` constructor takes the following parameters:
 |---------|----------------------|
 |**BlobPath** | The path to the blob.|
 |**Connection** | The name of an app setting or setting collection that specifies how to connect to Azure Blobs. See [Connections](#connections).|
-
-
-# [C# script](#tab/csharp-script)
-
-The following table explains the binding configuration properties for C# script that you set in the *function.json* file. 
-
-|function.json property | Description|
-|---------|----------------------|
-|**type** | Must be set to `blob`. |
-|**direction** | Must be set to `in`. Exceptions are noted in the [usage](#usage) section. |
-|**name** | The name of the variable that represents the blob in function code.|
-|**path** | The path to the blob. |
-|**connection** | The name of an app setting or setting collection that specifies how to connect to Azure Blobs. See [Connections](#connections).|
-|**dataType**| For dynamically typed languages, specifies the underlying data type. Possible values are `string`, `binary`, or `stream`. For more detail, refer to the [triggers and bindings concepts](functions-triggers-bindings.md?tabs=python#trigger-and-binding-definitions). |
 
 ---
 
@@ -507,10 +446,6 @@ See [Binding types](./functions-bindings-storage-blob.md?tabs=in-process#binding
 # [Isolated process](#tab/isolated-process)
 
 [!INCLUDE [functions-bindings-storage-blob-output-dotnet-isolated-types](../../includes/functions-bindings-storage-blob-output-dotnet-isolated-types.md)]
-
-# [C# Script](#tab/csharp-script)
-
-See [Binding types](./functions-bindings-storage-blob.md?tabs=in-process#binding-types) for a list of supported types.
 
 ---
 

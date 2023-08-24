@@ -179,7 +179,7 @@ the page.
     |Region  |Select **East US**.|
     |Availability Options  |Select **Availability zones**.|
     |Availability zone  |Select **1**.| 
-    |Image  |Select **Ubuntu Server 18.04LTS – Gen1**.| 
+    |Image  |Select **Ubuntu Server 18.04LTS - Gen1**.| 
     |Azure Spot instance  |Select **No**.| 
     |Size   |Choose VM size or take default setting.| 
     |**Administrator account**||

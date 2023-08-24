@@ -29,10 +29,10 @@ You need the following to use Azure AD Connect cloud sync:
 A group Managed Service Account is a managed domain account that provides automatic password management, simplified service principal name (SPN) management, the ability to delegate the management to other administrators, and also extends this functionality over multiple servers.  Azure AD Connect Cloud Sync supports and uses a gMSA for running the agent.  You will be prompted for administrative credentials during setup, in order to create this account.  The account will appear as (domain\provAgentgMSA$).  For more information on a gMSA, see [group Managed Service Accounts](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview) 
 
 ### Prerequisites for gMSA:
-1.	The Active Directory schema in the gMSA domain's forest needs to be updated to Windows Server 2012 or later.
-2.	[PowerShell RSAT modules](/windows-server/remote/remote-server-administration-tools) on a domain controller
-3.	At least one domain controller in the domain must be running Windows Server 2012 or later.
-4.	A domain joined server where the agent is being installed needs to be either Windows Server 2016 or later.
+1. The Active Directory schema in the gMSA domain's forest needs to be updated to Windows Server 2012 or later.
+2. [PowerShell RSAT modules](/windows-server/remote/remote-server-administration-tools) on a domain controller
+3. At least one domain controller in the domain must be running Windows Server 2012 or later.
+4. A domain joined server where the agent is being installed needs to be either Windows Server 2016 or later.
 
 ### Custom gMSA account
 If you are creating a custom gMSA account, you need to ensure that the account has the following permissions.

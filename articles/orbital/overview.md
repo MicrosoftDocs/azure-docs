@@ -22,17 +22,24 @@ Azure Orbital Ground Station uses Microsoft’s global infrastructure and low-la
 
 ## Earth Observation with Azure Orbital Ground Station
 
-   Schedule contacts with satellites on a pay-as-you-go basis to ingest data from the satellite, monitor the satellite health and status, or transmit commands to the satellite. Incoming data is delivered to your private virtual network allowing it to be processed or stored in Azure.
+Schedule contacts with satellites on a pay-as-you-go basis to ingest data from satellites, monitor satellite health and status, or transmit commands to satellites. Incoming data is delivered to your private virtual network allowing it to be processed or stored in Azure.
    
-   The fully digitized service allows you to use software modems from Kratos and Amergint to do the modulation / demodulation, and encoding / decoding functions to recover the data. 
+The fully digitized service allows you to use managed software modems from Kratos to do the modulation / demodulation, and encoding / decoding functions to recover the data. Alternatively, choose to leverage virtual RF and GNU Radio to send raw RF signal directly to your VM for processing.
 
-   For a full end-to-end solution to manage fleet operations and "Telemetry, Tracking, & Control" (TT&C) functions, seamlessly integrate your Azure Orbital Ground Station operations with Kubos Major Tom. Lower your operational costs and maximize your capabilities by using Azure Space.
+For a full end-to-end solution to manage fleet operations and "Telemetry, Tracking, & Control" (TT&C) functions, seamlessly integrate your Azure Orbital Ground Station operations with Kubos Major Tom. Lower your operational costs and maximize your capabilities by using Azure Space.
 
    * Spacecraft contact self-service scheduling
    * Direct data ingestion into Azure
    * Marketplace integration with third-party data processing and image calibration services
-   * Integrated cloud modems for X and S bands and Certified cloud modems available through the Azure Marketplace
+   * Integrated cloud modems for X and S bands
    * Global reach through integrated third-party networks
+
+## Links to learn more
+- [Overview, features, security, and FAQ](https://azure.microsoft.com/products/orbital/#layout-container-uid189e)
+- [Pricing](https://azure.microsoft.com/pricing/details/orbital/)
+- [Microsoft Learn training session](https://learn.microsoft.com/training/modules/introduction-to-ground-station/)
+- [Azure Space Blog](https://techcommunity.microsoft.com/t5/azure-space-blog/bg-p/AzureSpaceBlog)
+- [General Availability press announcement](https://azure.microsoft.com/blog/new-azure-space-products-enable-digital-resiliency-and-empower-the-industry/)
 
 ## Next steps
 

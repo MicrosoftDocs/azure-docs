@@ -13,6 +13,8 @@ items:
       href: get-started-with-dicom.md
     - name: Deploy DICOM service using Portal
       href: deploy-dicom-services-in-azure.md
+    - name: Get started using DICOM data in analytics workloads
+      href: get-started-with-analytics-dicom.md
 - name: How-to guides
   expanded: true
   items:
@@ -74,13 +76,15 @@ items:
       href: dicom-services-faqs.yml
     - name: API versioning for DICOM service
       href: api-versioning-dicom-service.md
+    - name: DICOM Service API v2 Changes
+      href: dicom-service-v2-api-changes.md
     - name: DICOM Conformance Statement
       expanded: true
       items: 
-        - name: V1
-          href: dicom-services-conformance-statement.md
         - name: V2
           href: dicom-services-conformance-statement-v2.md
+        - name: V1
+          href: dicom-services-conformance-statement.md
 - name: References
   expanded: true
   items:

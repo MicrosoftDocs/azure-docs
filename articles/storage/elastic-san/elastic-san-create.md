@@ -4,7 +4,7 @@ description: Learn how to deploy an Azure Elastic SAN (preview) with the Azure p
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: how-to
-ms.date: 03/08/2023
+ms.date: 08/02/2023
 ms.author: rogarana
 ms.custom: references_regions, ignite-2022, devx-track-azurepowershell, devx-track-azurecli
 ---
@@ -68,8 +68,9 @@ az feature show --name ElasticSanPreviewAccess --namespace Microsoft.ElasticSan
 
 1. Sign in to the Azure portal and search for **Elastic SAN**.
 1. Select **+ Create a new SAN**
-1. On the basics page, fill out the values.
-    1. Select the same region as your Azure virtual network and compute client.
+1. On the basics page, fill in the appropriate values.
+    - **Elastic SAN name** must be between 3 and 24 characters long. The name may only contain lowercase letters, numbers, hyphens and underscores, and must begin and end with a letter or a number. Each hyphen and underscore must be preceded and followed by an alphanumeric character.
+
 1. Specify the amount of base capacity you require, and any additional capacity, then select next.
 
     Increasing your SAN's base size will also increase its IOPS and bandwidth. Increasing additional capacity only increase its total size (base+additional) but won't increase IOPS or bandwidth, however, it's cheaper than increasing base.
@@ -117,8 +118,9 @@ Now that you've configured the basic settings and provisioned your storage, you 
 
 # [Portal](#tab/azure-portal)
 
-1. Select **+ Create volume group** and name your volume.
-    The volume group name can't be changed once created.
+1. Select **+ Create volume group** and name your volume group.
+    - The name must be between 3 and 63 characters long. The name may only contain lowercase letters, numbers and hyphens, and must begin and end with a letter or a number. Each hyphen must be preceded and followed by an alphanumeric character. The volume group name can't be changed once created.
+
 1. Select **Next : Volumes**
 
 # [PowerShell](#tab/azure-powershell)

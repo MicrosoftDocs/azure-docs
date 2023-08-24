@@ -43,13 +43,15 @@ You can see all the users that were deleted less than 30 days ago. These users c
 
 ### To view your restorable users
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) using a Global administrator account for the organization.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator account for the organization.
 
 2. Select **Azure Active Directory**, select **Users**, and then select **Deleted users**.
 
     Review the list of users that are available to restore.
 
-    ![Users - Deleted users page, with users that can still be restored](media/active-directory-users-restore/users-deleted-users-view-restorable.png)
+    ![Users - Deleted users page, with users that can still be restored](media/users-restore/users-deleted-users-view-restorable.png)
 
 ## Restore a recently deleted user
 
@@ -59,13 +61,15 @@ When a user account is deleted from the organization, the account is in a suspen
 > Once a user is restored, licenses that were assigned to the user at the time of deletion are also restored even if there are no seats available for those licenses. If you are then consuming more licenses more than you purchased, your organization could be temporarily out of compliance for license usage.
 
 ### To restore a user
+
 1. On the **Users - Deleted users** page, search for and select one of the available users. For example, _Mary Parker_.
 
 2. Select **Restore user**.
 
-    ![Users - Deleted users page, with Restore user option highlighted](media/active-directory-users-restore/users-deleted-users-restore-user.png)
+    ![Users - Deleted users page, with Restore user option highlighted](media/users-restore/users-deleted-users-restore-user.png)
 
 ## Permanently delete a user
+
 You can permanently delete a user from your organization without waiting the 30 days for automatic deletion. A permanently deleted user can't be restored by you, another administrator, nor by Microsoft customer support.
 
 >[!Note]
@@ -77,9 +81,10 @@ You can permanently delete a user from your organization without waiting the 30 
 
 2. Select **Delete permanently**.
 
-    ![Users - Deleted users page, with Delete user option highlighted](media/active-directory-users-restore/users-deleted-users-permanent-delete-user.png)
+    ![Users - Deleted users page, with Delete user option highlighted](media/users-restore/users-deleted-users-permanent-delete-user.png)
 
 ## Next steps
+
 After you've restored or deleted your users, you can:
 
 - [Add or delete users](add-users-azure-active-directory.md)

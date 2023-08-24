@@ -4,7 +4,7 @@ description: Learn how to use token protection in Conditional Access policies.
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 06/21/2023
+ms.date: 07/18/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -86,7 +86,7 @@ The steps that follow help create a Conditional Access policy to require token p
 1. Under **Assignments**, select **Users or workload identities**.
    1. Under **Include**, select the users or groups who are testing this policy.
    1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
-1. Under **Cloud apps or actions** > **Include**, select **Select apps**.
+1. Under **Target resources** > **Cloud apps** > **Include** > **Select apps**
    1. Under **Select**, select the following applications supported by the preview:
        1. Office 365 Exchange Online
        1. Office 365 SharePoint Online
@@ -110,7 +110,7 @@ The steps that follow help create a Conditional Access policy to require token p
 1. Confirm your settings and set **Enable policy** to **Report-only**.
 1. Select **Create** to create to enable your policy.
 
-After confirming your settings using [report-only mode](howto-conditional-access-insights-reporting.md), an administrator can move the **Enable policy** toggle from **Report-only** to **On**.
+After administrators confirm the settings using [report-only mode](howto-conditional-access-insights-reporting.md), they can move the **Enable policy** toggle from **Report-only** to **On**.
 
 ### Capture logs and analyze
 

@@ -67,7 +67,7 @@ You can use the following population tags for the geo-location attribute when yo
 | USDoD East     | usgov-ddeast-azr    |
 | USDoD Central  | usgov-ddcentral-azr |
 
-### Azure China
+### Microsoft Azure operated by 21Vianet
 
 | Display name   | Population name     |
 |----------------|---------------------|

@@ -7,7 +7,7 @@ author: normesta
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/13/2023
+ms.date: 08/08/2023
 ms.author: normesta
 ms.devlang: csharp
 ms.custom: subject-monitoring, devx-track-csharp, devx-track-azurepowershell
@@ -59,6 +59,8 @@ To collect resource logs, you must create a diagnostic setting. When you create 
 | StorageRead | Read operations on objects. |
 | StorageWrite | Write operations on objects. |
 | StorageDelete | Delete operations on objects. |
+
+The **audit** resource log category group allows you to collect the baseline of resource logs that Microsoft deems necessary for auditing your resource. What's collected is dynamic, and Microsoft may change it over time as new resource log categories become available. If you choose the **audit** category group, you can't specify any other resource categories, because the system will decide which logs to collect. For more information, see [Diagnostic settings in Azure Monitor: Resource logs](../../azure-monitor/essentials/diagnostic-settings.md#resource-logs).
 
 > [!NOTE]
 > Data Lake Storage Gen2 doesn't appear as a storage type. That's because Data Lake Storage Gen2 is a set of capabilities available to Blob storage.

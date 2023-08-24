@@ -176,7 +176,7 @@
           href: app-service-key-vault-references.md
         - name: End-to-end tutorials
           items:
-            - name: Connect to Cognitive Services with secrets in Key Vault
+            - name: Connect to Azure AI services with secrets in Key Vault
               items: 
               - name: Use .NET
                 href: tutorial-connect-msi-key-vault.md

@@ -6,6 +6,7 @@ author: ankitaduttaMSFT
 manager: carmonm
 ms.topic: article
 ms.service: site-recovery
+ms.custom: devx-track-linux
 ms.date: 6/4/2020
 ms.author: ankitadutta
 ---

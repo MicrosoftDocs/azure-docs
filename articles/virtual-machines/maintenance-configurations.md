@@ -54,14 +54,19 @@ This scope is integrated with [update management center](../update-center/overvi
 
 - [Patch orchestration](automatic-vm-guest-patching.md#patch-orchestration-modes) for virtual machines need to be set to AutomaticByPlatform
 
-- A minimum of 1 hour and 10 minutes is required for the maintenance window.
-    :::image type="content" source="./media/maintenance-configurations/add-schedule-maintenance-window.png" alt-text="Screenshot of the upper maintenance window minimum time specification.":::
+    :::image type="content" source="./media/maintenance-configurations/add-schedule-maintenance-window.png" alt-text="Screenshot of the upper maintenance window time.":::
 
 - The upper maintenance window is 3 hours 55 mins.
 - A minimum of 1 hour and 30 minutes is required for the maintenance window.
 - The value of **Repeat** should be at least 6 hours.
 
+>[!IMPORTANT]
+> The minimum maintenance window has been increased from 1 hour 10 minutes to 1 hour 30 minutes, while the minimum repeat value has been set to 6 hours for new schedules. **Please note that your existing schedules will not get impacted; however, we strongly recommend updating existing schedules to include these new changes.**
+
 To learn more about this topic, checkout [update management center and scheduled patching](../update-center/scheduled-patching.md)
+
+> [!NOTE]
+> In rare cases if platform catchup host update window happens to coincide with the guest (VM) patching window and if the guest patching window don't get sufficient time to execute after host update then the system would show **Schedule timeout, waiting for an ongoing update to complete the resource** error since only a single update is allowed by the platform at a time. 
 
 ## Shut Down Machines
 

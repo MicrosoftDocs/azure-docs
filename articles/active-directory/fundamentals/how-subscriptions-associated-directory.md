@@ -24,7 +24,7 @@ When a user signs up for a Microsoft cloud service, a new Azure AD tenant is 
 
 While users may only have a single authentication *home* directory, users may participate as guests in multiple directories. You can see both the home and guest directories for each user in Azure AD.
 
-:::image type="content" source="media/active-directory-how-subscriptions-associated-directory/trust-relationship-azure-ad.png" alt-text="Screenshot that shows the trust relationship between Azure subscriptions and Azure active directories.":::
+:::image type="content" source="media/how-subscriptions-associated-directory/trust-relationship.png" alt-text="Screenshot that shows the trust relationship between Azure subscriptions and Azure active directories.":::
 
 > [!Important]
 > When a subscription is associated with a different directory, users who have roles assigned using [Azure role-based access control](../../role-based-access-control/role-assignments-portal.md) lose their access. Classic subscription administrators, including Service Administrator and Co-Administrators, also lose access.
@@ -57,17 +57,17 @@ To associate an existing subscription with your Azure AD, follow these steps:
 
 1. Select **Change directory**.
 
-   :::image type="content" source="media/active-directory-how-subscriptions-associated-directory/change-directory-in-azure-subscriptions.png" alt-text="Screenshot that shows the Subscriptions page, with the Change directory option highlighted.":::
+   :::image type="content" source="media/how-subscriptions-associated-directory/change-directory-in-azure-subscriptions.png" alt-text="Screenshot that shows the Subscriptions page, with the Change directory option highlighted.":::
 
 1. Review any warnings that appear, and then select **Change**.
 
-   :::image type="content" source="media/active-directory-how-subscriptions-associated-directory/edit-directory-ui.png" alt-text="Screenshot that shows the Change the directory page with a sample directory and the Change button highlighted.":::
+   :::image type="content" source="media/how-subscriptions-associated-directory/edit-directory-ui.png" alt-text="Screenshot that shows the Change the directory page with a sample directory and the Change button highlighted.":::
 
    After the directory is changed for the subscription, you'll get a success message.
 
 1. Select **Switch directories** on the subscription page to go to your new directory.
 
-   :::image type="content" source="media/active-directory-how-subscriptions-associated-directory/directory-switcher.png" alt-text="Screenshot that shows the Directory switcher page with sample information.":::
+   :::image type="content" source="media/how-subscriptions-associated-directory/directory-switcher.png" alt-text="Screenshot that shows the Directory switcher page with sample information.":::
 
    It can take several hours for everything to show up properly. If it seems to be taking too long, check the **Global subscription filter**. Make sure the moved subscription isn't hidden. You may need to sign out of the Azure portal and sign back in to see the new directory.
 

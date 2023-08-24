@@ -293,7 +293,7 @@ If your Azure Active Directory is connected to on-premises Active Directory, the
 * Deploy Privileged Access Workstations for all administrators
 * Require MFA
 * Use Just Enough Admin for domain controller maintenance, lowering the attack surface of domains
-* Deploy Advanced Threat Assessment for attack detection
+* Deploy [Advanced Threat Analytics](/advanced-threat-analytics/) for attack detection
 
 ### Additional steps for organizations managing access to Azure
 
@@ -382,7 +382,7 @@ Determine if current built-in Azure AD administrator roles are still up to date 
 
 #### Review users who have administration of Azure AD joined devices
 
-For more information, see [How to configure hybrid Azure Active Directory joined devices](../devices/hybrid-azuread-join-plan.md).
+For more information, see [How to configure hybrid Azure Active Directory joined devices](../devices/hybrid-join-plan.md).
 
 #### Review members of [built-in Microsoft 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)
 Skip this step if you're not using Microsoft 365.

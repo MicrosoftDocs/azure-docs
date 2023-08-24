@@ -24,6 +24,8 @@ A domain name is an important part of the identifier for resources in many Azure
 
 ## Set the primary domain name for your Azure AD organization
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 When your organization is created, the initial domain name, such as ‘contoso.onmicrosoft.com,’ is also the primary domain name. The primary domain is the default domain name for a new user when you create a new user. Setting a primary domain name streamlines the process for an administrator to create new users in the portal. To change the primary domain name:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a Global Administrator for the organization.

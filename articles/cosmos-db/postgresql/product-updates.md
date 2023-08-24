@@ -7,7 +7,7 @@ ms.custom: mvc
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
-ms.date: 07/09/2023
+ms.date: 08/01/2023
 ---
 
 # Product updates for Azure Cosmos DB for PostgreSQL
@@ -22,12 +22,31 @@ Updates that don’t directly affect the internals of a cluster are rolled out g
 
 Updates that change cluster internals, such as installing a [new minor PostgreSQL version](https://www.postgresql.org/developer/roadmap/), are delivered to existing clusters as part of the next [scheduled maintenance](concepts-maintenance.md) event. Such updates are available immediately to newly created clusters.
 
-### June  2023
+### August 2023
+* Preview: [Azure Active Directory (Azure AD) authentication](./concepts-authentication.md#azure-active-directory-authentication-preview) is now supported in addition to Postgres roles.
+* Preview: Azure CLI is now supported for all Azure Cosmos DB for PostgreSQL management operations.
+    * See [details](/cli/azure/cosmosdb/postgres).
+
+### July 2023
+* Preview: Azure SDKs are now available for all Azure Cosmos DB for PostgreSQL management operations.
+    * [.NET (preview)](https://www.nuget.org/packages/Azure.ResourceManager.CosmosDBForPostgreSql/1.0.0-beta.1)
+    * [Go (preview)](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/cosmosforpostgresql/armcosmosforpostgresql@v0.1.0)
+    * [Java (preview)](https://central.sonatype.com/artifact/com.azure.resourcemanager/azure-resourcemanager-cosmosdbforpostgresql/1.0.0-beta.1/overview)
+    * [JavaScript (preview)](https://www.npmjs.com/package/@azure/arm-cosmosdbforpostgresql/v/1.0.0-beta.1)
+    * [Python (preview)](https://pypi.org/project/azure-mgmt-cosmosdbforpostgresql/1.0.0b1/)
+* General availability: Terraform support is now available for all cluster management operations. See the following pages for details:
+    * [Cluster management](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cosmosdb_postgresql_cluster)
+    * [Worker node configuration](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cosmosdb_postgresql_node_configuration)
+    * [Coordinator / single node configuration](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cosmosdb_postgresql_coordinator_configuration)
+    * [Postgres role management](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cosmosdb_postgresql_role)
+    * [Public access: Firewall rule management](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cosmosdb_postgresql_firewall_rule)
+    * [Private access: Private endpoint management](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/private_endpoint)
+    * [Private access: Private Link service management](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/private_link_service)
 * General availability: 99.99% monthly availability [Service Level Agreement (SLA)](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
 
-### June  2023
+### June 2023
 * General availability: Customer-defined database name is now available in [all regions](./resources-regions.md) at [cluster provisioning](./quickstart-create-portal.md) time.
-    * If the database name is not specified, the default `citus` name is used.
+    * If the database name isn't specified, the default `citus` name is used.
 * General availability: [Managed PgBouncer settings](./reference-parameters.md#managed-pgbouncer-parameters) are now configurable on all clusters.
     * Learn more about [connection pooling](./concepts-connection-pool.md).
 * General availability: Preferred availability zone (AZ) selection is now enabled in [all Azure Cosmos DB for PostgreSQL regions](./resources-regions.md) that support AZs.
@@ -37,7 +56,7 @@ Updates that change cluster internals, such as installing a [new minor PostgreSQ
 * Preview: Audit logging of database activities in Azure Cosmos DB for PostgreSQL is available through the PostgreSQL pgAudit extension.
     * See [details](./how-to-enable-audit.md).
 
-### May  2023
+### May 2023
 
 * General availability: [Pgvector extension](howto-use-pgvector.md) enabling vector storage is now fully supported on Azure Cosmos DB for Postgres.
 * General availability: [The latest minor PostgreSQL version updates](reference-versions.md#postgresql-versions) (11.20, 12.15, 13.11, 14.8, and 15.3) are now available in all supported regions.
@@ -48,7 +67,7 @@ Updates that change cluster internals, such as installing a [new minor PostgreSQ
 	* See [this page](./reference-extensions.md#citus-extension) for the latest supported Citus versions.
 	* See [this page](./concepts-upgrade.md) for information on PostgreSQL and Citus version in-place upgrade.
 
-### April  2023
+### April 2023
 
 * General availability: [Representational State Transfer (REST) APIs](/rest/api/postgresqlhsc/) are now fully supported for all cluster management operations.
 * General availability: [Bicep](/azure/templates/microsoft.dbforpostgresql/servergroupsv2?pivots=deployment-language-bicep) and [ARM templates](/azure/templates/microsoft.dbforpostgresql/servergroupsv2?pivots=deployment-language-arm-template) for Azure Cosmos DB for PostgreSQL's serverGroupsv2 resource type.
@@ -106,8 +125,11 @@ might have constrained capabilities.  For more information, see
 [Supplemental Terms of Use for Microsoft Azure
 Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
-* [Data encryption at rest using customer managed keys](./concepts-customer-managed-keys.md).
-* [Database audit with pgAudit](./how-to-enable-audit.md).
+* [Azure Active Directory (Azure AD) authentication](./concepts-authentication.md#azure-active-directory-authentication-preview)
+* [Azure CLI support for Azure Cosmos DB for PostgreSQL](/cli/azure/cosmosdb/postgres)
+* Azure SDKs: [.NET](https://www.nuget.org/packages/Azure.ResourceManager.CosmosDBForPostgreSql/1.0.0-beta.1), [Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/cosmosforpostgresql/armcosmosforpostgresql@v0.1.0), [Java](https://central.sonatype.com/artifact/com.azure.resourcemanager/azure-resourcemanager-cosmosdbforpostgresql/1.0.0-beta.1/overview), [JavaScript](https://www.npmjs.com/package/@azure/arm-cosmosdbforpostgresql/v/1.0.0-beta.1), and [Python](https://pypi.org/project/azure-mgmt-cosmosdbforpostgresql/1.0.0b1/)
+* [Data encryption at rest using customer managed keys](./concepts-customer-managed-keys.md)
+* [Database audit with pgAudit](./how-to-enable-audit.md)
 
 ## Contact us
 

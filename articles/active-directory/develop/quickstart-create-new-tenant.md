@@ -41,6 +41,8 @@ This quickstart addresses two scenarios for the type of app you want to build:
 To build an environment for either work and school accounts or personal Microsoft accounts (MSA), you can use an existing Azure AD tenant or create a new one.
 ### Use an existing Azure AD tenant
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Many developers already have tenants through services or subscriptions that are tied to Azure AD tenants, such as Microsoft 365 or Azure subscriptions.
 
 To check the tenant:

@@ -93,13 +93,15 @@ This tutorial uses the Guided Configuration v16.1 Easy Button template. With the
 
 ## Register the Easy Button
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Before a client or service accesses Microsoft Graph, the Microsoft identity platform must trust it.
 
 Learn more: [Quickstart: Register an application with the Microsoft identity platform](../develop/quickstart-register-app.md)
 
 Create a tenant app registration to authorize the Easy Button access to Graph. The BIG-IP pushes configurations to establish a trust between a SAML SP instance for published application, and Azure AD as the SAML IdP.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) with Application Administrative permissions.
+1. Sign in to the [Azure portal](https://portal.azure.com) with Application Administrative permissions.
 2. In the left navigation pane, select the **Azure Active Directory** service.
 3. Under **Manage**, select **App registrations > New registration**.
 4. Enter an application **Name**. For example, F5 BIG-IP Easy Button.
@@ -318,7 +320,7 @@ See, Microsoft [My Apps](https://myapplications.microsoft.com/)
 
 The SAML federation metadata for the published application is imported from the tenant. This action provides the APM with the SAML sign out endpoint for Azure AD. Then, SP-initiated sign out terminates the client and Azure AD session. Ensure the APM knows when a user signs out.
 
-If you use the BIG-IP webtop portal to access published applications, APM processes a sign out to call the Azure AD sign out endpoint. If you don't use the BIG-IP webtop portal, the user can't instruct the APM to sign out. If the user signs out of the application, the BIG-IP is oblivious to the action. Ensure SP-initiated sign out triggers secure sessions termination. Add an SLO function to the applications **Sign out** button to redirect the client to the Azure AD SAML or BIG-IP sign out endpoint. Find the SAML sign out endpoint URL for your tenant in **App Registrations > Endpoints**.
+If you use the BIG-IP webtop portal to access published applications, APM processes a sign out to call the Azure AD sign-out endpoint. If you don't use the BIG-IP webtop portal, the user can't instruct the APM to sign out. If the user signs out of the application, the BIG-IP is oblivious to the action. Ensure SP-initiated sign out triggers secure sessions termination. Add an SLO function to the applications **Sign out** button to redirect the client to the Azure AD SAML or BIG-IP sign out endpoint. Find the SAML sign out endpoint URL for your tenant in **App Registrations > Endpoints**.
 
 If you can't change the app, have the BIG-IP listen for the application sign out call and then trigger SLO. 
 

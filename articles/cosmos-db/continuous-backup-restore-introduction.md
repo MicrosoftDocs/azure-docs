@@ -136,7 +136,7 @@ Currently the point in time restore functionality has the following limitations:
 
 * The restored account is created in the same region where your source account exists. You can't restore an account into a region where the source account didn't exist.
 
-* The restore window is only 30-day for continuous 30-day tier and it can't be changed. Similarly it's only 7-day for continuous 7-day tier and that also can't be changed.
+* The restore window is only 30 days for continuous 30-day tier and seven days for continuous 7-day tier. These tiers can be switched, but the actual quantities (``7`` or ``30``) can't be changed. Furthermore, if you switch from 30-day tier to 7-day tier, there's the potential for data loss on days beyond the seventh.
 
 * The backups aren't automatically geo-disaster resistant. You've to explicitly add another region to have resiliency for the account and the backup.
 

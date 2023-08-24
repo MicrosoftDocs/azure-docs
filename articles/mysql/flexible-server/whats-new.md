@@ -25,6 +25,11 @@ This article summarizes new releases and features in Azure Database for MySQL - 
 > [!NOTE]  
 > This article references the term slave, which Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
+## July 2023
+
+- **Autoscale IOPS in Azure Database for MySQL - Flexible Server (General Availability)**
+
+    You can now scale IOPS on demand without having to pre-provision a certain amount of IOPS. With this feature, you can now enjoy worry free IO management in Azure Database for MySQL - Flexible Server because the server scales IOPs up or down automatically depending on workload needs. With this feature, you pay only for the IO you use and no longer need to provision and pay for resources they aren't fully using, saving time and money. The autoscale IOPS feature eliminates the administration required to provide the best performance for Azure Database for MySQL customers at the lowest cost. [Learn more](./concepts-storage-iops.md#autoscale-iops)
 
 ## June 2023
 

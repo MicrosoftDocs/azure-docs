@@ -44,6 +44,8 @@ You can create a new administrative unit by using either the Azure portal, Power
 
 ### Azure portal
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure Active Directory** > **Administrative units**.

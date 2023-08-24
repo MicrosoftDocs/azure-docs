@@ -59,6 +59,7 @@ This section provides references for solutions for Linux OSS applications and da
 
 * [Use Teamcenter PLM with Azure NetApp Files](/azure/architecture/example-scenario/manufacturing/teamcenter-plm-netapp-files)
 * [Siemens Teamcenter baseline architecture](/azure/architecture/example-scenario/manufacturing/teamcenter-baseline)
+* [Migrate Product Lifecycle Management (PLM) to Azure](/industry/manufacturing/architecture/ra-migrate-plm-azure)
 
 ### Machine Learning
 *	[Cloudera Machine Learning](https://docs.cloudera.com/machine-learning/cloud/requirements-azure/topics/ml-requirements-azure.html)

@@ -59,8 +59,8 @@ Up until January 2023, it was required that every Privileged Access Group (forme
 ## Making group of users eligible for Azure AD role
 
 There are two ways to make a group of users eligible for Azure AD role:
-1.	Make active assignments of users to the group, and then assign the group to a role as eligible for activation.
-2.	Make active assignment of a role to a group and assign users to be eligible to group membership.
+1. Make active assignments of users to the group, and then assign the group to a role as eligible for activation.
+2. Make active assignment of a role to a group and assign users to be eligible to group membership.
 
 To provide a group of users with just-in-time access to Azure AD directory roles with permissions in SharePoint, Exchange, or Security & Microsoft Purview compliance portal (for example, Exchange Administrator role), be sure to make active assignments of users to the group, and then assign the group to a role as eligible for activation (Option #1 above). If you choose to make active assignment of a group to a role and assign users to be eligible to group membership instead, it may take significant time to have all permissions of the role activated and ready to use.
 

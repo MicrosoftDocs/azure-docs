@@ -232,7 +232,7 @@ The Token obtained from the Token Provider is wrong
 This message indicates either that the credentials configured in Notification Hubs are invalid or that there's an issue with the registrations in the hub. Delete this registration and let the client re-create the registration before sending the message.
 
 > [!NOTE]
-> Use of the `EnableTestSend` property is heavily throttled. Use this option only in a development/test environment and with a limited set of registrations. Debug notifications are sent to only 10 devices. There's also a limit on processing debug sends, at 10 per minute.
+> Use of the `EnableTestSend` property is heavily throttled. Use this option only in a development/test environment and with a limited set of registrations. Debug notifications are sent to only 10 devices. There's also a limit on processing debug sends, at 10 per minute. Debug notifications are also excluded the the Azure Notification Hubs SLA.
 
 ### Review telemetry
 
@@ -269,7 +269,6 @@ For more information about programmatic access, see [Programmatic access](/previ
 [5]: ./media/notification-hubs-push-notification-fixer/PortalDashboard.png
 [6]: ./media/notification-hubs-push-notification-fixer/PortalAnalytics.png
 [7]: ./media/notification-hubs-ios-get-started/notification-hubs-test-send.png
-[8]: ./media/notification-hubs-push-notification-fixer/VSRegistrations.png
 [9]: ./media/notification-hubs-push-notification-fixer/vsserverexplorer.png
 [10]: ./media/notification-hubs-push-notification-fixer/VSTestNotification.png
 
@@ -279,6 +278,4 @@ For more information about programmatic access, see [Programmatic access](/previ
 [Templates]: /previous-versions/azure/azure-services/dn530748(v=azure.100)
 [APNs overview]: https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html
 [About FCM messages]: https://firebase.google.com/docs/cloud-messaging/concept-options
-[Deep dive: Visual Studio 2013 Update 2 RC and Azure SDK 2.3]: https://azure.microsoft.com/blog/2014/04/09/deep-dive-visual-studio-2013-update-2-rc-and-azure-sdk-2-3/#NotificationHubs
-[Announcing release of Visual Studio 2013 Update 3 and Azure SDK 2.4]: https://azure.microsoft.com/blog/2014/08/04/announcing-release-of-visual-studio-2013-update-3-and-azure-sdk-2-4/
 [EnableTestSend]: /dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.enabletestsend

@@ -101,7 +101,7 @@ However, if the application already existed in your environment, then it's possi
 1. If the application was using AD security groups, then you need to review the membership of those security groups.
 1. If the application had its own directory or database and wasn't integrated for provisioning, then once the review is complete, you may need to manually update the application's internal database or directory to remove those users who were denied.
 1. If the application was using AD security groups, and those groups were created in AD, then once the review is complete, you need to manually update the AD groups to remove memberships of those users who were denied.  Subsequently, to have denied access rights removed automatically, you can either update the application to use an AD group that was created in Azure AD and [written back to Azure AD](../enterprise-users/groups-write-back-portal.md), or move the membership from the AD group to the Azure AD group, and nest the written back group as the only member of the AD group.
-1. Once the review has been completed and the application access updated, or if no users have access, then continue on to the next steps to deploy conditional access and entitlement management policies for the application.
+1. Once the review has been completed and the application access updated, or if no users have access, then continue on to the next steps to deploy Conditional Access and entitlement management policies for the application.
 
 Now that you have a baseline that ensures existing access has been reviewed, then you can [deploy the organization's policies](identity-governance-applications-deploy.md) for ongoing access and any new access requests.
 

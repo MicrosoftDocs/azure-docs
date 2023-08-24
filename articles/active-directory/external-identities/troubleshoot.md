@@ -84,7 +84,7 @@ If you're notified that you don't have permissions to invite users, verify that 
 
 If you've recently modified these settings or assigned the Guest Inviter role to a user, there might be a 15-60 minute delay before the changes take effect.
 
-## The user that I invited is receiving an error during redemption
+## The user that I invited is receiving an error during the redemption process
 
 Common errors include:
 
@@ -110,7 +110,7 @@ This happens when another object in the directory has the same invited email add
 
 ## The guest user object doesn't have a proxyAddress
 
-Sometimes, the external guest user you're inviting conflicts with an existing [Contact object](/graph/api/resources/contact). When this occurs, the guest user is created without a proxyAddress. This means that the user won't be able to redeem this account using [just-in-time redemption](redemption-experience.md#redemption-through-a-direct-link) or [email one-time passcode authentication](one-time-passcode.md#user-experience-for-one-time-passcode-guest-users). Also, if the contact object you're synchronizing from on-premises AD conflicts with an existing guest user, the conflicting proxyAddress is removed from the existing guest user.
+Sometimes, the external guest user you're inviting conflicts with an existing [Contact object](/graph/api/resources/contact). When this occurs, the guest user is created without a proxyAddress. This means that the user won't be able to redeem this account using [just-in-time redemption](redemption-experience.md#redemption-process-through-a-direct-link) or [email one-time passcode authentication](one-time-passcode.md#user-experience-for-one-time-passcode-guest-users). Also, if the contact object you're synchronizing from on-premises AD conflicts with an existing guest user, the conflicting proxyAddress is removed from the existing guest user.
 
 ## How does ‘\#’, which isn't normally a valid character, sync with Azure AD?
 
@@ -122,7 +122,7 @@ External users can be added only to “assigned” or “Security” groups and 
 
 ## My external user didn't receive an email to redeem
 
-The invitee should check with their ISP or spam filter to ensure that the following address is allowed: Invites@microsoft.com
+The invitee should check with their ISP or spam filter to ensure that the following address is allowed: Invites@microsoft.com.
 
 > [!NOTE]
 >
@@ -198,7 +198,11 @@ Let's say you inadvertently invite a guest user with an email address that match
 
 ## External access blocked by policy error on the login screen
 
-When you try to login to your tenant, you might see this error message: "Your network administrator has restricted what organizations can be accessed. Contact your IT department to unblock access." This error is related to tenant restriction settings. To resolve this issue, ask your IT team to follow the instructions in [this article](/azure/active-directory/manage-apps/tenant-restrictions).  
+When you try to login to your tenant, you might see this error message: "Your network administrator has restricted what organizations can be accessed. Contact your IT department to unblock access." This error is related to tenant restriction settings. To resolve this issue, ask your IT team to follow the instructions in [this article](/azure/active-directory/manage-apps/tenant-restrictions).
+
+## Invitation is blocked due missing cross-tenant access settings 
+
+You might see this message: "This invitation is blocked by cross-tenant access settings in your organization. Your administrator must configure cross-tenant access settings to allow this invitation." In this case, ask your administrator to check the cross-tenant access settings.  
 
 ## Next steps
 

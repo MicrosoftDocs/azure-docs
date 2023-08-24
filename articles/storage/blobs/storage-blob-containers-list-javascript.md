@@ -6,7 +6,7 @@ services: storage
 author: pauljewellmsft
 ms.author: pauljewell
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 11/30/2022
 
@@ -18,7 +18,13 @@ ms.custom: devx-track-js, devguide-js
 
 When you list the containers in an Azure Storage account from your code, you can specify a number of options to manage how results are returned from Azure Storage. This article shows how to list containers using the [Azure Storage client library for JavaScript](https://www.npmjs.com/package/@azure/storage-blob).
 
-## Understand container listing options
+## Prerequisites
+
+- The examples in this article assume you already have a project set up to work with the Azure Blob Storage client library for JavaScript. To learn about setting up your project, including package installation, importing modules, and creating an authorized client object to work with data resources, see [Get started with Azure Blob Storage and JavaScript](storage-blob-javascript-get-started.md).
+- The [authorization mechanism](../common/authorize-data-access.md) must have permissions to list blob containers. To learn more, see the authorization guidance for the following REST API operation:
+    - [List Containers](/rest/api/storageservices/list-containers2#authorization)
+
+## About container listing options
 
 To list containers in your storage account, create a [BlobServiceClient](storage-blob-javascript-get-started.md#create-a-blobserviceclient-object) object then call the following method:
 

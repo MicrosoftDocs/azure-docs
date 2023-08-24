@@ -27,7 +27,7 @@ You can use the ServiceTag `CognitiveServicesMangement` to restrict inbound acce
 2. Run the following command in the PowerShell window at the bottom of the page:
 
 ```ps
-Add-AzWebAppAccessRestrictionRule -ResourceGroupName "<resource group name>" -WebAppName "<app service name>" -Name "Azure AI services Tag" -Priority 100 -Action Allow -ServiceTag "CognitiveServicesManagement" 
+Add-AzWebAppAccessRestrictionRule -ResourceGroupName "<resource group name>" -WebAppName "<app service name>" -Name "Cognitive Services Tag" -Priority 100 -Action Allow -ServiceTag "CognitiveServicesManagement" 
 ```
 3.  Verify the added access rule is present in the **Access Restrictions** section of the **Networking** tab:  
 

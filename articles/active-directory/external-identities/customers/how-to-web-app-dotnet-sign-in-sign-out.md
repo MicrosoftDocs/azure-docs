@@ -58,7 +58,7 @@ After installing the NuGet packages and adding necessary code for authentication
 
 1. Next, add a reference to `_LoginPartial` in the *Layout.cshtml* file, which is located in the same folder. It's recommended to place this after the `navbar-collapse` class as shown in the following snippet:
 
-	```html
+    ```html
     <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
         <partial name="_LoginPartial" />
     </div>

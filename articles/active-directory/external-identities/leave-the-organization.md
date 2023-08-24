@@ -8,7 +8,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 07/04/2023
+ms.date: 07/27/2023
 
 ms.author: cmulligan 
 author: csmulligan 
@@ -57,7 +57,7 @@ If your organization allows users to remove themselves from external organizatio
 
 1. Under **Other organizations you collaborate with** (or **Organizations** if you don't have a home organization), find the organization that you want to leave, and then select **Leave**.
 
-   ![Screenshot showing Leave organization option in the user interface.](media/leave-the-organization/leave-org.png)
+   :::image type="content" source="media/leave-the-organization/leave-org.png" alt-text="Screenshot showing Leave organization option in the user interface." lightbox="media/leave-the-organization/leave-org.png":::
 
 1. When asked to confirm, select **Leave**.
 1. If you select **Leave** for an organization but you see the following message, it means you’ll need to contact the organization's admin, or privacy contact and ask them to remove you from their organization.
@@ -76,6 +76,8 @@ For the external organizations listed under **Other organizations you collaborat
 In these cases, you can select **Leave**, but then you'll see a message saying you need to contact the admin or privacy contact for that organization to ask them to remove you.
 
 ## More information for administrators
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 Administrators can use the **External user leave settings** to control whether external users can remove themselves from their organization. If you disallow the ability for external users to remove themselves from your organization, external users will need to contact your admin, or privacy contact to be removed.
 
@@ -99,7 +101,7 @@ When a B2B collaboration user leaves an organization, the user's account is "sof
 
 If desired, a tenant administrator can permanently delete the account at any time during the soft-delete period with the following steps. This action is irrevocable.
 
-1. In the [Azure portal](https://portal.azure.com), select **Azure Active Directory**.
+1. Sign in to the [Azure portal](https://portal.azure.com), then select **Azure Active Directory**.
 
 1. Under **Manage**, select **Users**.
 

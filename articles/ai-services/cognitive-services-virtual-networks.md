@@ -165,7 +165,7 @@ Each Azure AI services resource supports up to 100 virtual network rules, which 
 
 ### Required permissions
 
-To apply a virtual network rule to an Azure AI services resource, the user must have the appropriate permissions for the subnets being added. The required permission is the default *Contributor* role, or the *Azure AI services Contributor* role. Required permissions can also be added to custom role definitions.
+To apply a virtual network rule to an Azure AI services resource, the user must have the appropriate permissions for the subnets being added. The required permission is the default *Contributor* role, or the *Cognitive Services Contributor* role. Required permissions can also be added to custom role definitions.
 
 Azure AI services resource and the virtual networks granted access may be in different subscriptions, including subscriptions that are a part of a different Azure AD tenant.
 

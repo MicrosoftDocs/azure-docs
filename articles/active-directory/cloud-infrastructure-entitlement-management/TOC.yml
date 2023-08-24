@@ -27,6 +27,8 @@
         href: onboard-enable-controller-after-onboarding.md
       - name: Add an account/ subscription/ project after onboarding is complete
         href: onboard-add-account-after-onboarding.md
+      - name: Create folders to organize your Authorization Systems
+        href: how-to-create-folders.md
     - name: View information about your Authorization Systems
       expanded: false
       items:
@@ -107,10 +109,10 @@
         href: how-to-create-custom-queries.md
       - name: Filter and query user activity
         href: product-audit-trail.md
-    - name: Set activity alerts and triggers 
+    - name: Set alerts and alert triggers 
       expanded: false
       items: 
-      - name: View information about activity triggers
+      - name: View information about alerts and alert triggers
         href: ui-triggers.md
       - name: Create and view activity alerts and alert triggers
         href: how-to-create-alert-trigger.md

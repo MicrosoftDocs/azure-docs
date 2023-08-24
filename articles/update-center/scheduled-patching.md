@@ -33,6 +33,18 @@ Update management center (preview) uses maintenance control schedule instead of 
 1. All VMs in a common [availability set](../virtual-machines/availability-set-overview.md) aren't updated concurrently.
 1. VMs in a common availability set are updated within Update Domain boundaries and, VMs across multiple Update Domains aren't updated concurrently.
 
+## Service limits
+
+The following are the recommended limits for the mentioned indicators:
+
+| Indicator    | Limit          |
+|----------|----------------------------|
+| Number of schedules per Subscription per Region     | 250  |
+| Total number of Resource associations to a schedule | 3000 |
+| Resource associations on each dynamic scope    | 1000 |
+| Number of dynamic scopes per Resource Group or Subscription per Region     | 250  |
+
+
 ## Schedule recurring updates on single VM
 
 >[!NOTE]

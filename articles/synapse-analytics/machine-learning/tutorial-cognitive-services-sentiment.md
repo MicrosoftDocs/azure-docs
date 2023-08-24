@@ -62,7 +62,9 @@ You'll need a Spark table for this tutorial.
    df.write.mode("overwrite").saveAsTable("default.YourTableName")
    ```
 
-## Open the Cognitive Services wizard
+<a name='open-the-cognitive-services-wizard'></a>
+
+## Open the Azure AI services wizard
 
 1. Right-click the Spark table created in the previous procedure. Select **Machine Learning** > **Predict with a model** to open the wizard.
 

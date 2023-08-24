@@ -26,7 +26,7 @@ Search for **Microsoft.Media** and **Microsoft.EventGrid**. If not in the regist
     
 ## Use the Azure portal to create an Azure AI Video Indexer account
 
-1. Sign into the [Azure portal](https://portal.azure.com/). 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
     Alternatively, you can start creating the **unlimited** account from the [videoindexer.ai](https://www.videoindexer.ai) website.
 1. Using the search bar at the top, enter **"Video Indexer"**.

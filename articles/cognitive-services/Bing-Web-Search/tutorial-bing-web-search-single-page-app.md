@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Create a single-page web app - Bing Web Search API"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: This single-page app demonstrates how the Bing Web Search API can be used to retrieve, parse, and display relevant search results in a single-page app.
 services: cognitive-services
 author: aahill
@@ -28,7 +28,7 @@ This sample app can:
 > * Manage subscription keys
 > * Handle errors
 
-To use this app, an [Azure Cognitive Services account](../cognitive-services-apis-create-account.md) with Bing Search APIs is required.
+To use this app, an [Azure AI services account](../cognitive-services-apis-create-account.md) with Bing Search APIs is required.
 
 ## Prerequisites
 

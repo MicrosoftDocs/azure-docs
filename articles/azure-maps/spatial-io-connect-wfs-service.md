@@ -10,9 +10,9 @@ ms.service: azure-maps
 
 # Connect to a WFS service
 
-A Web Feature Service (WFS) is a web service for querying spatial data that has a standardized API that is defined by the Open Geospatial Consortium (OGC). The `WfsClient` class in the spatial IO module lets developers connect to a WFS service and query data from the service.
+A Web Feature Service (WFS) is a web service for querying spatial data that has a standardized API defined by the Open Geospatial Consortium (OGC). The `WfsClient` class in the spatial IO module lets developers connect to a WFS service and query data from the service.
 
-The following features are supported by the `WfsClient` class:
+The `WfsClient` class supports the following features:
 
 - Supported versions: `1.0.0`, `1.1.0`, and `2.0.0`
 - Supported filter operators: binary comparisons, logic, math, value, and `bbox`.
@@ -39,7 +39,7 @@ The [Simple WFS example] sample shows how to easily query a Web Feature Service 
 
 ## Supported filters
 
-The specification for the WFS standard makes use of OGC filters. The filters below are supported by the WFS client, assuming that the service being called also supports these filters. Custom filter strings can be passed into the `CustomFilter` class.
+The specification for the WFS standard makes use of OGC filters. The WFS client supports the following filters, assuming that the service being called also supports these filters. Custom filter strings can be passed into the `CustomFilter` class.
 
 **Logical operators**
 
@@ -91,7 +91,7 @@ The [WFS service explorer] sample is a simple tool for exploring WFS services on
 </iframe>
 -------------------------------------------------->
 
-To access WFS services hosted on non-CORS enabled endpoints, a CORS enabled proxy service can be passed into the `proxyService` option of the WFS client as shown below.
+To access WFS services hosted on non-CORS enabled endpoints, a CORS enabled proxy service can be passed into the `proxyService` option of the WFS client as shown in the following example.
 
 ```JavaScript
 //Create the WFS client to access the service and use the proxy service settings
@@ -106,23 +106,26 @@ client = new atlas.io.ogc.WfsClient({
 Learn more about the classes and methods used in this article:
 
 > [!div class="nextstepaction"]
-> [WfsClient](/JavaScript/api/azure-maps-spatial-io/atlas.io.ogc.wfsclient)
+> [WfsClient]
 
 > [!div class="nextstepaction"]
-> [WfsServiceOptions](/JavaScript/api/azure-maps-spatial-io/atlas.wfsserviceoptions)
+> [WfsServiceOptions]
 
 See the following articles for more code samples to add to your maps:
 
 > [!div class="nextstepaction"]
-> [Leverage core operations](spatial-io-core-operations.md)
+> [Leverage core operations]
 
 > [!div class="nextstepaction"]
-> [Supported data format details](spatial-io-supported-data-format-details.md)
+> [Supported data format details]
 
-[Simple WFS example]: https://samples.azuremaps.com/spatial-io-module/simple-wfs-example
-[WFS filter example]: https://samples.azuremaps.com/spatial-io-module/wfs-filter-examples
-[WFS service explorer]: https://samples.azuremaps.com/spatial-io-module/wfs-service-explorer
-
+[Leverage core operations]: spatial-io-core-operations.md
 [Simple WFS example source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Spatial%20IO%20Module/Simple%20WFS%20example/Simple%20WFS%20example.html
+[Simple WFS example]: https://samples.azuremaps.com/spatial-io-module/simple-wfs-example
+[Supported data format details]: spatial-io-supported-data-format-details.md
 [WFS filter example source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Spatial%20IO%20Module/WFS%20filter%20examples/WFS%20filter%20examples.html
+[WFS filter example]: https://samples.azuremaps.com/spatial-io-module/wfs-filter-examples
 [WFS service explorer source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Spatial%20IO%20Module/WFS%20service%20explorer/WFS%20service%20explorer.html
+[WFS service explorer]: https://samples.azuremaps.com/spatial-io-module/wfs-service-explorer
+[WfsClient]: /JavaScript/api/azure-maps-spatial-io/atlas.io.ogc.wfsclient
+[WfsServiceOptions]: /JavaScript/api/azure-maps-spatial-io/atlas.wfsserviceoptions

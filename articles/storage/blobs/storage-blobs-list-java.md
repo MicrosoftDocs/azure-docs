@@ -5,9 +5,9 @@ description: Learn how to list blobs in your storage account using the Azure Sto
 services: storage
 author: pauljewellmsft
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
-ms.date: 11/16/2022
+ms.date: 08/02/2023
 ms.author: pauljewell
 ms.devlang: java
 ms.custom: devx-track-java, devguide-java, devx-track-extended-java
@@ -17,9 +17,15 @@ ms.custom: devx-track-java, devguide-java, devx-track-extended-java
 
 This article shows how to list blobs with the [Azure Storage client library for Java](/java/api/overview/azure/storage-blob-readme).
 
-When you list blobs from your code, you can specify many options to manage how results are returned from Azure Storage. You can specify the number of results to return in each set of results, and then retrieve the subsequent sets. You can specify a prefix to return blobs whose names begin with that character or string. And you can list blobs in a flat listing structure, or hierarchically. A hierarchical listing returns blobs as though they were organized into folders.
+## Prerequisites
 
-## Understand blob listing options
+- This article assumes you already have a project set up to work with the Azure Blob Storage client library for Java. To learn about setting up your project, including package installation, adding `import` directives, and creating an authorized client object, see [Get Started with Azure Storage and Java](storage-blob-java-get-started.md).
+- The [authorization mechanism](../common/authorize-data-access.md) must have permissions to list blobs. To learn more, see the authorization guidance for the following REST API operation:
+    - [List Blobs](/rest/api/storageservices/list-blobs#authorization)
+
+## About blob listing options
+
+When you list blobs from your code, you can specify options to manage how results are returned from Azure Storage. You can specify the number of results to return in each set of results, and then retrieve the subsequent sets. You can specify a prefix to return blobs whose names begin with that character or string. And you can list blobs in a flat listing structure, or hierarchically. A hierarchical listing returns blobs as though they were organized into folders.
 
 To list the blobs in a storage account, call one of these methods:
 

@@ -65,6 +65,8 @@ items:
     items:
     - name: Overview of FHIR search
       href: overview-of-search.md
+    - name: selectable search parameters
+      href: selectable-search-parameters.md
     - name: Defining custom search parameters
       href: how-to-do-custom-search.md
     - name: How to run a reindex job
@@ -81,6 +83,8 @@ items:
         href: overview-of-convert-data.md
       - name: Configure settings for $convert-data
         href: configure-settings-convert-data.md
+      - name: Troubleshoot $convert-data
+        href: troubleshoot-convert-data.md
       - name: FAQs - $convert-data
         href: frequently-asked-questions-convert-data.md     
     - name: $export

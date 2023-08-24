@@ -90,7 +90,7 @@ This attribute describes the type of cross-tenant access used by the actor to ac
 
 If the sign-in did not the pass the boundaries of a tenant, the value is `none`.
 
-### Conditional access evaluation 
+### Conditional Access evaluation 
 
 This value shows whether continuous access evaluation (CAE) was applied to the sign-in event. There are multiple sign-in requests for each authentication. Some are shown on the interactive tab, while others are shown on the non-interactive tab. CAE is only displayed as true for one of the requests, and it can be on the interactive tab or non-interactive tab. For more information, see [Monitor and troubleshoot sign-ins with continuous access evaluation in Azure AD](../conditional-access/howto-continuous-access-evaluation-troubleshoot.md). 
 

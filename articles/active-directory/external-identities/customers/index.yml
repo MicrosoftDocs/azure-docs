@@ -10,7 +10,7 @@ metadata:
    ms.subservice: ciam
    ms.workload: identity
    ms.topic: landing-page
-   ms.date: 05/10/2023
+   ms.date: 07/31/2023
    author: csmulligan
    ms.author: cmulligan
    manager: celested
@@ -29,7 +29,7 @@ landingContent:
           - text: Planning for customer identity and access management
             url: concept-planning-your-solution.md 
           - text: Feature support in customer tenants
-            url: concept-planning-your-solution.md 
+            url: concept-supported-features-customers.md 
           - text: Security and governance
             url: concept-security-customers.md
   - title: Add sign-in to your application
@@ -66,34 +66,34 @@ landingContent:
             url: how-to-add-attributes-to-token.md  
   - title: Developer guides for samples
     linkLists:
-      - linkListType: how-to-guide
+      - linkListType: sample
         links:
           - text: JavaScript SPA sign-in
-            url: how-to-single-page-app-vanillajs-sample-sign-in.md
+            url: sample-single-page-app-vanillajs-sign-in.md
           - text: React SPA sign-in
-            url: how-to-single-page-application-react-sample.md
+            url: sample-single-page-app-react-sign-in.md
           - text: Node.js web app sign-in
-            url: how-to-web-app-node-sample-sign-in.md
+            url: sample-web-app-node-sign-in.md
           - text: Node.js web app sign in and call an API
-            url: how-to-web-app-node-sample-sign-in-call-api.md
+            url: sample-web-app-node-sign-in-call-api.md
           - text: ASP.NET web app sign-in
-            url: how-to-web-app-dotnet-sample-sign-in.md
+            url: sample-web-app-dotnet-sign-in.md
           - text: More code sample guides
             url: samples-ciam-all.md
   - title: Guides for building and integrating your app
     linkLists:
-      - linkListType: how-to-guide
+      - linkListType: tutorial
         links:
           - text: Vanilla JS SPA
             url: how-to-single-page-app-vanillajs-prepare-tenant.md
           - text: React SPA
-            url: how-to-single-page-application-react-prepare-tenant.md
+            url: tutorial-single-page-app-react-sign-in-prepare-tenant.md
           - text: Node.js web app
-            url: how-to-web-app-node-sign-in-overview.md
+            url: tutorial-web-app-node-sign-in-prepare-tenant.md
           - text: ASP.NET web app
             url: how-to-web-app-dotnet-sign-in-prepare-tenant.md
           - text: Secure an ASP.NET web API
-            url: how-to-protect-web-api-dotnet-core-overview.md
+            url: tutorial-protect-web-api-dotnet-core-build-app.md
           - text: More build and integrate guides
             url: samples-ciam-all.md
   - title: Samples by app type and language/platform 

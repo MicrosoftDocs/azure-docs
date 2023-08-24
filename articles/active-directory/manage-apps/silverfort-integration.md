@@ -20,7 +20,7 @@ ms.custom: not-enterprise-apps
 
 In this tutorial, learn how to integrate your on-premises Silverfort implementation with Azure AD.
 
-Learn more: [Hybrid Azure AD joined devices](../devices/concept-azure-ad-join-hybrid.md).
+Learn more: [Hybrid Azure AD joined devices](../devices/concept-hybrid-join.md).
 
 Silverfort connects assets with Azure AD. These bridged assets appear as regular applications in Azure AD and can be protected with [Conditional Access](../conditional-access/overview.md), single-sign-on (SSO), multi-factor authentication (MFA), auditing and more. Use Silverfort to connect assets including:
 

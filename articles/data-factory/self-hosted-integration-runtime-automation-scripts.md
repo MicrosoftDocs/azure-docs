@@ -7,7 +7,7 @@ ms.topic: conceptual
 author: lrtoyou1223
 ms.author: lle
 ms.custom: seo-lt-2019
-ms.date: 08/18/2022
+ms.date: 07/20/2023
 ---
 
 # Automating self-hosted integration runtime installation using local PowerShell scripts

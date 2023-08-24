@@ -11,9 +11,8 @@ ms.date: 04/06/2023
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
+ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref, devx-track-linux
 ms.collection: engagement-fy23, M365-identity-device-management
-
 # Customer intent: As a tenant administrator, I want to bulk-invite external users to an organization from email addresses that I've stored in a .csv file.
 ---
 

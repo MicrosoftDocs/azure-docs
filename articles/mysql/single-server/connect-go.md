@@ -6,7 +6,7 @@ ms.subservice: single-server
 ms.topic: quickstart
 author: savjani
 ms.author: pariks
-ms.custom: mvc, mode-api, devx-track-go
+ms.custom: mvc, mode-api, devx-track-go, devx-track-linux
 ms.devlang: golang
 ms.date: 05/03/2023
 ---

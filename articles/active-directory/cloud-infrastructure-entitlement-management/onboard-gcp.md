@@ -8,24 +8,24 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/16/2023
+ms.date: 08/09/2023
 ms.author: jfields
 ---
 
 # Onboard a Google Cloud Platform (GCP) project
 
-This article describes how to onboard a Google Cloud Platform (GCP) project on Permissions Management.
+This article describes how to onboard a Google Cloud Platform (GCP) project in Microsoft Entra Permissions Management.
 
 > [!NOTE]
 > A *global administrator* or *super admin* (an admin for all authorization system types) can perform the tasks in this article after the global administrator has initially completed the steps provided in [Enable Permissions Management on your Azure Active Directory tenant](onboard-enable-tenant.md).
 
 ## Explanation
 
-For GCP, permissions management is scoped to a *GCP project*. A GCP project is a logical collection of your resources in GCP, like a subscription in Azure, albeit with further configurations you can perform such as application registrations and OIDC configurations.
+For GCP, Permissions Management is scoped to a *GCP project*. A GCP project is a logical collection of your resources in GCP, like a subscription in Azure, but with further configurations you can perform such as application registrations and OIDC configurations.
 
 <!-- Diagram from Gargi-->
 
-There are several moving parts across GCP and Azure, which are required to be configured before onboarding.
+There are several moving parts across GCP and Azure, which should be configured before onboarding.
 
 * An Azure AD OIDC App
 * A Workload Identity in GCP
@@ -39,7 +39,7 @@ There are several moving parts across GCP and Azure, which are required to be co
 
     - In the Permissions Management home page, select **Settings** (the gear icon), and then select the **Data Collectors** subtab.
 
-1. On the **Data Collectors** tab, select **GCP**, and then select **Create Configuration**.
+1. On the **Data Collectors** tab, select **GCP**, then select **Create Configuration**.
 
 ### 1. Create an Azure AD OIDC app.
 
@@ -50,7 +50,7 @@ There are several moving parts across GCP and Azure, which are required to be co
 1. To create the app registration, copy the script and run it in your command-line app.
 
     > [!NOTE]
-    > 1. To confirm that the app was created, open **App registrations** in Azure and, on the **All applications** tab, locate your app.
+    > 1. To confirm the app was created, open **App registrations** in Azure and, on the **All applications** tab, locate your app.
     > 1. Select the app name to open the **Expose an API** page. The **Application ID URI** displayed in the **Overview** page is the *audience value* used while making an OIDC connection with your GCP account.
     > 1. Return to the Permissions Management window, and in the **Permissions Management Onboarding - Azure AD OIDC App Creation**, select **Next**.
 
@@ -73,15 +73,15 @@ Choose from three options to manage GCP projects.
 
 #### Option 1: Automatically manage 
 
-The automatically manage option allows projects to be automatically detected and monitored without extra configuration. Steps to detect list of projects and onboard for collection:  
+The automatically manage option allows you to automatically detect and monitor projects without extra configuration. Steps to detect a list of projects and onboard for collection:  
 
-1. Firstly, grant **Viewer** and **Security Reviewer** role to service account created in previous step at organization, folder or project scope. 
+1. Grant **Viewer** and **Security Reviewer** roles to a service account created in the previous step at a project, folder or organization level. 
 
-To enable controller mode 'On' for any projects, add following roles to the specific projects:
+To enable Controller mode **On** for any projects, add these roles to the specific projects:
 - Role Administrators
 - Security Admin 
 
-2. Once done, the steps are listed in the screen, which shows how to further configure in the GPC console, or programmatically with the gCloud CLI.
+The required commands to run in Google Cloud Shell are listed in the Manage Authorization screen for each scope of a project, folder or organization. This is also configured in the GPC console.
 
 3. Select **Next**.
 
@@ -93,7 +93,7 @@ You have the ability to specify only certain GCP member projects to manage and m
 
 2. You can choose to download and run the script at this point, or you can do it via Google Cloud Shell.
     
-    To enable controller mode 'On' for any projects, add following roles to the specific projects:
+    To enable controller mode 'On' for any projects, add these roles to the specific projects:
     - Role Administrators
     - Security Admin 
 
@@ -101,14 +101,16 @@ You have the ability to specify only certain GCP member projects to manage and m
 
 #### Option 3: Select authorization systems 
 
-This option detects all projects that are accessible by the Cloud Infrastructure Entitlement Management application.  
+This option detects all projects accessible by the Cloud Infrastructure Entitlement Management application.  
 
-1. Firstly, grant Viewer and Security Reviewer role to service account created in previous step at organization, folder or project scope
+1. Grant **Viewer** and **Security Reviewer** roles to a service account created in the previous step at a project, folder or organization level. 
 
-    To enable controller mode 'On' for any projects, add following roles to the specific projects:
-    - Role Administrators
-    - Security Admin 
-2.  Once done, the steps are listed in the screen to do configure manually in the GPC console, or programmatically with the gCloud CLI
+To enable Controller mode **On** for any projects, add these roles to the specific projects:
+- Role Administrators
+- Security Admin 
+
+The required commands to run in Google Cloud Shell are listed in the Manage Authorization screen for each scope of a project, folder or organization. This is also configured in the GPC console.
+
 3. Select **Next**.
 
 
@@ -116,11 +118,11 @@ This option detects all projects that are accessible by the Cloud Infrastructure
 
 - In the **Permissions Management Onboarding – Summary** page, review the information you've added, and then select **Verify Now & Save**.
 
-    The following message appears: **Successfully Created Configuration.**
+    The following message appears: **Successfully Created Configuration**.
 
     On the **Data Collectors** tab, the **Recently Uploaded On** column displays **Collecting**. The **Recently Transformed On** column displays **Processing.**
 
-    You have now completed onboarding GCP, and Permissions Management has started collecting and processing your data.
+    You've completed onboarding GCP, and Permissions Management has started collecting and processing your data.
 
 ### 4. View the data.
 

@@ -3,6 +3,7 @@ title: Configuration and Optimization of InfiniBand enabled H-series and N-serie
 description: Learn about configuring and optimizing the InfiniBand enabled H-series and N-series VMs for HPC.
 ms.service: virtual-machines
 ms.subservice: hpc
+ms.custom: devx-track-linux
 ms.topic: article
 ms.date: 04/11/2023
 ms.reviewer: cynthn, mattmcinnes
@@ -73,7 +74,7 @@ For SR-IOV enabled [RDMA capable VMs](sizes-hpc.md#rdma-capable-instances), [Ubu
 - Additionally, details on what's included in the [Ubuntu-HPC VM images](#ubuntu-hpc-vm-images) and CentOS-HPC version 7.6 and later VM images, and how to deploy them are in a [TechCommunity article](https://techcommunity.microsoft.com/t5/azure-compute/azure-hpc-vm-images/ba-p/977094).
 
 > [!NOTE]
-> Among the CentOS-HPC VM images, currently only the version 7.9 VM image additionally comes preconfigured with the NVIDIA GPU drivers and GPU compute software stack (CUDA, NCCL).
+> Among the CentOS-HPC VM images, currently only the version 7.9 VM image additionally comes preconfigured with the NVIDIA GPU drivers and GPU compute software stack (CUDA, NCCL). CentOS 7 is currently the only supported CentOS version, which will continue to receive community security patches and bug fix updates until June 2024. Therefore, we are not releasing any new CentOS HPC images to Azure marketplace. You can still use our CentOS HPC version 7.9 images, but it is suggested to consider moving to our AlmaLinux HPC images alternatives in Azure marketplace, as it has the same set of drivers installed as Ubuntu/CentOS.
 
 > [!NOTE]
 > SR-IOV enabled N-series VM sizes with FDR InfiniBand (e.g. NCv3 and older) will be able to use the following CentOS-HPC VM image or older versions from the Marketplace:

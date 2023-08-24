@@ -28,6 +28,8 @@
       href: migration-options.md
     - name: Security
       href: security.md
+    - name: Transactions
+      href: transactions.md
 - name: How to
   items:
     - name: Use developer tools
@@ -40,3 +42,5 @@
       href: how-to-scale-cluster.md
     - name: Restore cluster
       href: how-to-restore-cluster.md
+    - name: Perform text search
+      href: how-to-text-indexes.md

@@ -38,6 +38,8 @@ This article is for people to publish an application with this scenario for the 
 
 ### Install an Application Proxy connector
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 If you've enabled Application Proxy and installed a connector already, you can skip this section and go to [Add your application to Azure AD with Application Proxy](#add-your-application-to-azure-ad-with-application-proxy).
 
 The Application Proxy connector is a Windows Server service that directs the traffic from your remote employees to your published applications. For more detailed installation instructions, see [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](../app-proxy/application-proxy-add-on-premises-application.md).
@@ -66,7 +68,7 @@ You'll first have to publish your application. This action involves:
 
 To publish your own on-premises application:
 
-1. If you didn't in the last section, sign in to the [Azure portal](https://portal.azure.com) as an Application Administrator.
+1. If you didn't in the previous section, sign in to the [Azure portal](https://portal.azure.com) as an Application Administrator.
 1. Browse to **Enterprise applications** > **New application** > **Add an on-premises application**. The **Add your own on-premises application** page appears.
 
    ![Add your own on-premises application](./media/application-proxy-configure-single-sign-on-with-ping-access/add-your-own-on-premises-application.png)

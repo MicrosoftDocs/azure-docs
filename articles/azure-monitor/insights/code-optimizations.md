@@ -6,7 +6,7 @@ ms.service: azure-monitor
 ms.subservice: optimization-insights
 author: hhunter-ms
 ms.author: hannahhunter
-ms.date: 05/01/2023
+ms.date: 07/24/2023
 ms.reviewer: ryankahng
 ---
 
@@ -22,6 +22,10 @@ With its advanced AI algorithms, Code Optimizations detects CPU and memory usage
 With Code Optimizations, you can:
 - View real-time performance data and insights gathered from your production environment. 
 - Make informed decisions about optimizing your code.
+
+## Demo video
+
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/eu1P_vLTZO0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## Requirements for using Code Optimizations
 

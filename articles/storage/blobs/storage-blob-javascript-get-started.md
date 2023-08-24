@@ -6,7 +6,7 @@ services: storage
 author: pauljewellmsft
 ms.author: pauljewell
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 11/30/2022
 ms.custom: template-how-to, devx-track-js, devguide-js, passwordless-js

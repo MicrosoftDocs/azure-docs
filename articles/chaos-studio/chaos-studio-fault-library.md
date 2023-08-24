@@ -650,7 +650,7 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 | Prerequisites | Agent must run as administrator. If the agent is installed as a VM extension, it runs as administrator by default. |
 | Urn | urn:csci:microsoft:agent:networkPacketLoss/1.0 |
 | Parameters (key, value) |  |
-| lossRate | The rate at which packets matching the destination filters will be lost, ranging from 0.0 to 1.0. |
+| packetLossRate | The rate at which packets matching the destination filters will be lost, ranging from 0.0 to 1.0. |
 | virtualMachineScaleSetInstances | An array of instance IDs when this fault is applied to a virtual machine scale set. Required for virtual machine scale sets. |
 | destinationFilters | Delimited JSON array of packet filters (parameters below) that define which outbound packets to target for fault injection. Maximum of three.|
 | address | IP address that indicates the start of the IP range. |
@@ -673,7 +673,7 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
                 "value": "[{\"address\":\"23.45.229.97\",\"subnetMask\":\"255.255.255.224\",\"portLow\":5000,\"portHigh\":5200}]"
             },
             {
-                "key": "lossRate",
+                "key": "packetLossRate",
                 "value": "0.5"
             },
             {

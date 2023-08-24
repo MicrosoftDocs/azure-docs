@@ -175,9 +175,6 @@ Once scheduling is enabled, the workflow is evaluated every three hours to deter
 
  [![Workflow template schedule.](media/understanding-lifecycle-workflows/workflow-10.png)](media/understanding-lifecycle-workflows/workflow-10.png#lightbox)
 
->[!NOTE]
-> For a particular user and workflow version, the scheduled workflow execution is performed only once every 30 days. Also, the execution of on-demand workflows of a particular workflow version in the last 30 days results in the scheduled workflow execution not taking place for a particular user.
-
 To view a detailed guide on scheduling a workflow, see: [Customize the schedule of workflows](customize-workflow-schedule.md).
 
 ### On-demand scheduling

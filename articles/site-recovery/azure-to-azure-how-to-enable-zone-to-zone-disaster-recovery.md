@@ -5,7 +5,7 @@ author: ankitaduttaMSFT
 manager: aravindang
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/07/2022
+ms.date: 07/27/2023
 ms.author: ankitadutta
 ms.custom: references_regions
 ---
@@ -14,21 +14,33 @@ ms.custom: references_regions
 
 This article describes how to replicate, failover, and failback Azure virtual machines from one Availability Zone to another, within the same Azure region.
 
-> [!NOTE]
->
-> - Support for Zone to Zone disaster recovery is currently limited to the following regions: Southeast Asia, East Asia, Japan East, Korea Central, Australia East, India Central, China North 3, Qatar Central, UK South, West Europe, North Europe, Germany West Central, Norway East, France Central, Switzerland North, Sweden Central (Managed Access), South Africa North, Canada Central, US Gov Virginia, Central US, South Central US, East US, East US 2, West US 2, Brazil South, West US 3 and UAE North.
->
->
-> - Site Recovery does not move or store customer data out of the region in which it's deployed when the customer is using Zone to Zone Disaster Recovery. Customers may select a Recovery Services Vault from a different region if they so choose. The Recovery Services Vault contains metadata but no actual customer data.
->
->
-> - Zone to Zone disaster recovery is not supported for VMs having ZRS managed disks.
-
 Site Recovery service contributes to your business continuity and disaster recovery strategy by keeping your business apps up and running, during planned and unplanned outages. It is the recommended Disaster Recovery option to keep your applications up and running if there are regional outages.
 
 Availability Zones are unique physical locations within an Azure region. Each zone has one or more datacenters. 
 
 If you want to move VMs to an availability zone in a different region, [review this article](../resource-mover/move-region-availability-zone.md).
+
+## Supported regions for Zone to Zone Disaster Recovery
+
+Support for Zone to Zone disaster recovery is currently limited to the following regions: 
+
+| **Americas** | Europe | Middle East | Africa | APAC |
+|--------|--------------|-------------|--------|--------------|
+| Canada Central | UK South | Qatar Central | South Africa North | Southeast Asia |
+| US Gov Virginia | West Europe | | | East Asia |
+| Central US | North Europe | UAE North | | Japan East |
+| South Central US | Germany West Central | | | Korea Central |
+| East US | Norway East | | | Australia East |
+| East US 2 | France Central | | | Central India |
+| West US 2 | Switzerland North | | | China North 3 |
+| West US 3 | Sweden Central (Managed Access) | | |  |
+| Brazil South | Poland Central | | | |
+| | Italy North | | | |
+ 
+Site Recovery does not move or store customer data out of the region in which it's deployed when the customer is using Zone to Zone Disaster Recovery. Customers may select a Recovery Services Vault from a different region if they so choose. The Recovery Services Vault contains metadata but no actual customer data.
+
+>[!Note]
+>Zone to Zone disaster recovery is not supported for VMs having ZRS managed disks.
 
 ## Using Availability Zones for Disaster Recovery
 

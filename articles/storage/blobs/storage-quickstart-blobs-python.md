@@ -7,7 +7,7 @@ author: pauljewellmsft
 ms.author: pauljewell
 ms.date: 10/24/2022
 ms.topic: quickstart
-ms.service: storage
+ms.service: azure-storage
 ms.devlang: python
 ms.custom: devx-track-python, mode-api, passwordless-python
 ---

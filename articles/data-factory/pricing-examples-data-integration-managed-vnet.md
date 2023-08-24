@@ -24,7 +24,7 @@ Refer to the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calc
 
 :::image type="content" source="media/pricing-concepts/scenario-4.png" alt-text="Diagram showing overlapping pipeline activity.":::
 To accomplish the scenario, you need to create two pipelines with the following items:
-  - A pipeline activity – Delete Activity.
+  - A pipeline activity - Delete Activity.
   - A copy activity with an input dataset for the data to be copied from Azure Blob storage.
   - An output dataset for the data on Azure SQL Database.
   - A schedule trigger to execute the pipeline. When you want to run a pipeline, you can either [trigger it immediately or schedule it](concepts-pipeline-execution-triggers.md). In addition to the pipeline itself, each trigger instance counts as a single Activity run.

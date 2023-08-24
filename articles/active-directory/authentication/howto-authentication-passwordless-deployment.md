@@ -33,7 +33,7 @@ Microsoft offers the following [three passwordless authentication options](conce
 
 ## Use the passwordless methods wizard
 
-The [Azure portal](https://portal.azure.com/) now has a passwordless methods wizard that will help you to select the appropriate method for each of your audiences. If you haven't yet determined the appropriate methods, see [https://aka.ms/passwordlesswizard](https://aka.ms/passwordlesswizard), then return to this article to continue planning for your selected methods. **You need administrator rights to access this wizard.**
+The [Azure portal](https://portal.azure.com) now has a passwordless methods wizard that will help you to select the appropriate method for each of your audiences. If you haven't yet determined the appropriate methods, see [https://aka.ms/passwordlesswizard](https://aka.ms/passwordlesswizard), then return to this article to continue planning for your selected methods. **You need administrator rights to access this wizard.**
 
 ## Passwordless authentication scenarios
 
@@ -304,7 +304,7 @@ Here are the sample test cases for passwordless authentication with security key
 
 ## Manage passwordless authentication
 
-To manage your user's passwordless authentication methods in the [Azure portal](https://portal.azure.com/), select your user account, and then select Authentication methods.
+To manage your user's passwordless authentication methods in the [Azure portal](https://portal.azure.com), select your user account, and then select Authentication methods.
 
 ### Microsoft Graph APIs 
 
@@ -319,6 +319,8 @@ You can also manage the passwordless authentication methods using the authentica
 For more information on what authentication methods can be managed in Microsoft Graph, see [Azure AD authentication methods API overview](/graph/api/resources/authenticationmethods-overview).
 
 ### Rollback
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 Though passwordless authentication is a lightweight feature with minimal impact on end users, it may be necessary to roll back.
 

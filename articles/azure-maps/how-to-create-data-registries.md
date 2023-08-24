@@ -200,7 +200,41 @@ Now that you have your storage account with the desired files linked to your Azu
 
 > [!NOTE]
 > The maximum size of a file that can be registered with an Azure Maps datastore is one gigabyte.
+
 To create a data registry:
+
+# [system-assigned](#tab/System-assigned)
+
+1. Provide the information needed to reference the storage account that is being added to the data registry in the body of your HTTP request. The information must be in JSON format and contain the following fields:
+
+    ```json
+    {
+    "kind": "AzureBlob",
+        "azureBlob": {
+            "dataFormat": "geojson",
+            "linkedResource": "{datastore ID}",
+            "blobUrl": "https://teststorageaccount.blob.core.windows.net/testcontainer/test.geojson"
+        }
+    }
+    ```
+
+    > [!NOTE]
+    > When using System-assigned managed identities, you will get an error if you provide a value for the msiClientId property in your HTTP request.
+
+    For more information on the properties required in the HTTP request body, see [Data registry properties](#data-registry-properties).
+
+1. Once you have the body of your HTTP request ready, execute the following **HTTP PUT request**:
+
+    ```http
+    https://us.atlas.microsoft.com/dataRegistries/{udid}?api-version=2023-06-01&subscription-key={Your-Azure-Maps-Subscription-key} 
+    
+    ```
+
+   For more information on the `udid` property, see [The user data ID](#the-user-data-id).
+
+1. Copy the value of the **Operation-Location** key from the response header.
+
+# [user-assigned](#tab/User-assigned)
 
 1. Provide the information needed to reference the storage account that is being added to the data registry in the body of your HTTP request. The information must be in JSON format and contain the following fields:
 
@@ -216,6 +250,9 @@ To create a data registry:
     }
     ```
 
+    > [!NOTE]
+    > When using User-assigned managed identities, you will get an error if you don't provide a value for the msiClientId property in your HTTP request.
+
     For more information on the properties required in the HTTP request body, see [Data registry properties](#data-registry-properties).
 
 1. Once you have the body of your HTTP request ready, execute the following **HTTP PUT request**:
@@ -228,6 +265,8 @@ To create a data registry:
    For more information on the `udid` property, see [The user data ID](#the-user-data-id).
 
 1. Copy the value of the **Operation-Location** key from the response header.
+
+---
 
 > [!TIP]
 > If the contents of a previously registered file is modified, it will fail its [data validation](#data-validation) and won't be usable in Azure Maps until it's re-registered. To re-register a file, rerun the register request, passing in the same [AzureBlob](#the-azureblob) used to create the original registration.

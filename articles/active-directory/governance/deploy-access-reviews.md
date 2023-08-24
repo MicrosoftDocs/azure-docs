@@ -63,9 +63,10 @@ The following videos help you learn about access reviews:
 
 ### Licenses
 
-You need a valid Azure AD Premium (P2) license for each person, other than Global administrators or User administrators, who will create or do access reviews. For more information, see [Access reviews license requirements](access-reviews-overview.md).
+[!INCLUDE [active-directory-p2-governance-license.md](../../../includes/active-directory-p2-governance-license.md)]
 
-You might also need other Identity Governance features, such as [entitlement lifecycle management](entitlement-management-overview.md) or PIM. In that case, you might also need related licenses. For more information, see [Azure Active Directory pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
+>[!NOTE]
+>Creating a review on inactive users and with [user-to-group affiliation](review-recommendations-access-reviews.md#user-to-group-affiliation) recommendations requires a Microsoft Entra ID Governance license.
 
 ## Plan the access reviews deployment project
 

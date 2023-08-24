@@ -1,11 +1,11 @@
 ---
 title: Enable source IP restoration with the Global Secure Access preview
-description: Learn how to enable source IP restoration to ensure source IP match in downstream resources.
+description: Learn how to enable source IP restoration to ensure the source IP matches in downstream resources.
 
 ms.service: network-access
 ms.subservice: 
 ms.topic: how-to
-ms.date: 06/09/2023
+ms.date: 07/27/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -18,9 +18,9 @@ With a cloud based network proxy between users and their resources, the IP addre
 
 Source IP restoration in Global Secure Access (preview) allows backward compatibility for Microsoft Entra ID customers to continue using original user Source IP. Administrators can benefit from the following capabilities:
 
-- Continue to enforce Source IP-based location policies across both [Conditional Access](../active-directory/conditional-access/overview.md) and [continuous access evaluation](../active-directory/conditional-access/concept-continuous-access-evaluation.md)
-- [Identity Protection risk detections](../active-directory/identity-protection/concept-identity-protection-risks.md) get a consistent view of original user Source IP address for assessing various risk scores.
-- Original user Source IP is also made available in [Microsoft Entra ID sign-in logs](../active-directory/reports-monitoring/concept-all-sign-ins.md).
+- Continue to enforce Source IP-based location policies across both [Conditional Access](/azure/active-directory/conditional-access/overview) and [continuous access evaluation](/azure/active-directory/conditional-access/concept-continuous-access-evaluation)
+- [Identity Protection risk detections](/azure/active-directory/identity-protection/concept-identity-protection-risks) get a consistent view of original user Source IP address for assessing various risk scores.
+- Original user Source IP is also made available in [Microsoft Entra ID sign-in logs](/azure/active-directory/reports-monitoring/concept-all-sign-ins).
 
 ## Prerequisites
 
@@ -64,5 +64,5 @@ Sign-in log data may take some time to appear, this delay is normal as there's s
 
 ## Next steps
 
-- [Set up tenant restrictions V2 (Preview)](../active-directory/external-identities/tenant-restrictions-v2.md)
+- [Set up tenant restrictions V2 (Preview)](/azure/active-directory/external-identities/tenant-restrictions-v2)
 - [Enable compliant network check with Conditional Access](how-to-compliant-network.md)

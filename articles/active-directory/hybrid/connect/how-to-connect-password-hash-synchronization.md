@@ -35,7 +35,7 @@ The password hash synchronization feature automatically retries failed synchroni
 The synchronization of a password has no impact on the user  who is currently signed in.
 Your current cloud service session is not immediately affected by a synchronized password change that occurs, while you are signed in, to a cloud service. However, when the cloud service requires you to authenticate again, you need to provide your new password.
 
-A user must enter their corporate credentials a second time to authenticate to Azure AD, regardless of whether they're signed in to their corporate network. This pattern can be minimized, however, if the user selects the Keep me signed in (KMSI) check box at sign-in. This selection sets a session cookie that bypasses authentication for 180 days. KMSI behavior can be enabled or disabled by the Azure AD administrator. In addition, you can reduce password prompts by configuring [Azure AD join](../../devices/concept-azure-ad-join.md) or [Hybrid Azure AD join](../../devices/concept-azure-ad-join-hybrid.md), which automatically signs users in when they are on their corporate devices connected to your corporate network.
+A user must enter their corporate credentials a second time to authenticate to Azure AD, regardless of whether they're signed in to their corporate network. This pattern can be minimized, however, if the user selects the Keep me signed in (KMSI) check box at sign-in. This selection sets a session cookie that bypasses authentication for 180 days. KMSI behavior can be enabled or disabled by the Azure AD administrator. In addition, you can reduce password prompts by configuring [Azure AD join](../../devices/concept-directory-join.md) or [Hybrid Azure AD join](../../devices/concept-hybrid-join.md), which automatically signs users in when they are on their corporate devices connected to your corporate network.
 
 ### Additional advantages
 
@@ -93,49 +93,48 @@ If a user is in the scope of password hash synchronization, by default the cloud
 
 You can continue to sign in to your cloud services by using a synchronized password that is expired in your on-premises environment. Your cloud password is updated the next time you change the password in the on-premises environment.
 
-##### EnforceCloudPasswordPolicyForPasswordSyncedUsers
+##### CloudPasswordPolicyForPasswordSyncedUsersEnabled
 
-If there are synchronized users that only interact with Azure AD integrated services and must also comply with a password expiration policy, you can force them to comply with your Azure AD password expiration policy by enabling the *EnforceCloudPasswordPolicyForPasswordSyncedUsers* feature.
+If there are synchronized users that only interact with Azure AD integrated services and must also comply with a password expiration policy, you can force them to comply with your Azure AD password expiration policy by enabling the *CloudPasswordPolicyForPasswordSyncedUsersEnabled* feature (in the deprecated MSOnline PowerShell module it was called *EnforceCloudPasswordPolicyForPasswordSyncedUsers*).
 
-When *EnforceCloudPasswordPolicyForPasswordSyncedUsers* is disabled (which is the default setting), Azure AD Connect sets the PasswordPolicies attribute of synchronized users to "DisablePasswordExpiration". This is done every time a user's password is synchronized and instructs Azure AD to ignore the cloud password expiration policy for that user. You can check the value of the attribute using the Azure AD PowerShell module with the following command:
+When *CloudPasswordPolicyForPasswordSyncedUsersEnabled* is disabled (which is the default setting), Azure AD Connect sets the PasswordPolicies attribute of synchronized users to "DisablePasswordExpiration". This is done every time a user's password is synchronized and instructs Azure AD to ignore the cloud password expiration policy for that user. You can check the value of the attribute using the Azure AD PowerShell module with the following command:
 
-`(Get-AzureADUser -objectID <User Object ID>).passwordpolicies`
+`(Get-MgUser -UserId <User Object ID> -Property PasswordPolicies).PasswordPolicies`
 
-To enable the EnforceCloudPasswordPolicyForPasswordSyncedUsers feature, run the following command using the MSOnline PowerShell module as shown below. You would have to type yes for the Enable parameter as shown below:
+To enable the CloudPasswordPolicyForPasswordSyncedUsersEnabled feature, run the following commands using the Graph PowerShell module as shown below:
 
 ```
-Set-MsolDirSyncFeature -Feature EnforceCloudPasswordPolicyForPasswordSyncedUsers
-cmdlet Set-MsolDirSyncFeature at command pipeline position 1
-Supply values for the following parameters:
-Enable: yes
-Confirm
-Continue with this operation?
-[Y] Yes [N] No [S] Suspend [?] Help (default is "Y"): y
+$OnPremSync = Get-MgDirectoryOnPremiseSynchronization
+$OnPremSync.Features.CloudPasswordPolicyForPasswordSyncedUsersEnabled = $true
+
+Update-MgDirectoryOnPremiseSynchronization `
+  -OnPremisesDirectorySynchronizationId $OnPremSync.Id `
+  -Features $OnPremSync.Features 
 ```
 
 Once enabled, Azure AD does not go to each synchronized user to remove the `DisablePasswordExpiration` value from the PasswordPolicies attribute. Instead, the `DisablePasswordExpiration` value is removed from PasswordPolicies during the next password hash sync for each user, upon their next password change in on-premises AD.
 
-After the *EnforceCloudPasswordPolicyForPasswordSyncedUsers* feature is enabled, new users are provisioned without a PasswordPolicies value.
+After the *CloudPasswordPolicyForPasswordSyncedUsersEnabled* feature is enabled, new users are provisioned without a PasswordPolicies value.
 
 >[!TIP]
->It is recommended to enable *EnforceCloudPasswordPolicyForPasswordSyncedUsers* prior to enabling password hash sync, so that the initial sync of password hashes does not add the `DisablePasswordExpiration` value to the PasswordPolicies attribute for the users.
+>It is recommended to enable *CloudPasswordPolicyForPasswordSyncedUsersEnabled* prior to enabling password hash sync, so that the initial sync of password hashes does not add the `DisablePasswordExpiration` value to the PasswordPolicies attribute for the users.
 
-The default Azure AD password policy requires users to change their passwords every 90 days. If your policy in AD is also 90 days, the two policies should match. However, if the AD policy is not 90 days, you can update the Azure AD password policy to match by using the Set-MsolPasswordPolicy PowerShell command.
+The default Azure AD password policy requires users to change their passwords every 90 days. If your policy in AD is also 90 days, the two policies should match. However, if the AD policy is not 90 days, you can update the Azure AD password policy to match by using the Update-MgDomain PowerShell command (previously: Set-MsolPasswordPolicy).
 
 Azure AD supports a separate password expiration policy per registered domain.
 
 Caveat: If there are synchronized accounts that need to have non-expiring passwords in Azure AD, you must explicitly add the `DisablePasswordExpiration` value to the PasswordPolicies attribute of the user object in Azure AD.  You can do this by running the following command.
 
-`Set-AzureADUser -ObjectID <User Object ID> -PasswordPolicies "DisablePasswordExpiration"`
+`Update-MgUser -UserID <User Object ID> -PasswordPolicies "DisablePasswordExpiration"`
 
 > [!NOTE]
 > For hybrid users that have a PasswordPolicies value set to `DisablePasswordExpiration`, this value switches to `None` after a password change is executed on-premises.
 
 > [!NOTE]
-> The Set-MsolPasswordPolicy PowerShell command will not work on federated domains. 
+> Neither the Update-MgDomain, nor the deprecated Set-MsolPasswordPolicy PowerShell commands will work on federated domains. 
 
 > [!NOTE]
-> The Set-AzureADUser PowerShell command will not work on federated domains. 
+> Neither the Set-MgUser, nor the deprecated Set-AzureADUser PowerShell commands will work on federated domains. 
 
 #### Synchronizing temporary passwords and "Force Password Change on Next Logon"
 

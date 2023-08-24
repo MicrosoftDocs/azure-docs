@@ -110,13 +110,13 @@ In this example, the users and or groups are created in a cloud HR application l
 
 ![Picture 2](./media/plan-auto-user-provisioning/workdayprovisioning.png)
 
-1.	**HR team** performs the transactions in the cloud HR app tenant.
-2.	**Azure AD provisioning service** runs the scheduled cycles from the cloud HR app tenant and identifies changes that need to be processed for sync with AD.
-3.	**Azure AD provisioning service** invokes the Azure AD Connect provisioning agent with a request payload containing AD account create/update/enable/disable operations.
-4.	**Azure AD Connect provisioning agent** uses a service account to manage AD account data.
-5.	**Azure AD Connect** runs delta sync to pull updates in AD.
-6.	**AD** updates are synced with Azure AD. 
-7.	**Azure AD provisioning service** writebacks email attribute and username from Azure AD to the cloud HR app tenant.
+1. **HR team** performs the transactions in the cloud HR app tenant.
+2. **Azure AD provisioning service** runs the scheduled cycles from the cloud HR app tenant and identifies changes that need to be processed for sync with AD.
+3. **Azure AD provisioning service** invokes the Azure AD Connect provisioning agent with a request payload containing AD account create/update/enable/disable operations.
+4. **Azure AD Connect provisioning agent** uses a service account to manage AD account data.
+5. **Azure AD Connect** runs delta sync to pull updates in AD.
+6. **AD** updates are synced with Azure AD. 
+7. **Azure AD provisioning service** writebacks email attribute and username from Azure AD to the cloud HR app tenant.
 
 ## Plan the deployment project
 
