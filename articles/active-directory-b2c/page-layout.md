@@ -477,3 +477,4 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 
 For details on how to customize the user interface of your applications in custom policies, see [Customize the user interface of your application using a custom policy](customize-ui-with-html.md).
 
+
