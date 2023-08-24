@@ -32,6 +32,8 @@ The [Application Map](app-map.md) allows a high-level, top-down view of the appl
 
 To understand the number of Application Insights resources required to cover your application or components across environments, see the [Application Insights deployment planning guide](separate-resources.md).
 
+:::image type="content" source="media/app-insights-overview/app-insights-overview-blowout.svg" alt-text="Diagram that shows the path of data as it travels through the Application Insights service." border="false" lightbox="media/app-insights-overview/app-insights-overview-blowout.svg":::
+
 ## How do I use Application Insights?
 
 Application Insights is enabled through either [autoinstrumentation](codeless-overview.md) (agent) or by adding the [Application Insights SDK](sdk-support-guidance.md) or [Azure Monitor OpenTelemetry Distro](opentelemetry-enable.md) to your application code. [Many languages](#supported-languages) are supported. The applications could be on Azure, on-premises, or hosted by another cloud. To figure out which type of instrumentation is best for you, see [How do I instrument an application?](#how-do-i-instrument-an-application).
