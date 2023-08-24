@@ -20,32 +20,30 @@ ms.custom: "devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-
 
 # Quickstart: Sign in users and call the Microsoft Graph API from an ASP.NET Core web app
 
-This quickstart uses a sample ASP.NET Core web app to show the fundamentals of modern authentication using the [Microsoft Authentication Library for .NET](/entra/msal/dotnet/) and [Microsoft Identity Web](/entra/msal/dotnet/microsoft-identity-web/) for ASP.NET to handle authentication.
+**Applies to** 
+
+This quickstart uses a sample ASP.NET Core web app to show the fundamentals of <!--What type of auth code flow--> modern authentication using the [Microsoft Authentication Library for .NET](/entra/msal/dotnet/) and [Microsoft Identity Web](/entra/msal/dotnet/microsoft-identity-web/) for ASP.NET to handle authentication.
 
 In this article you register a web application in the Microsoft Entra admin center, and download a sample ASP.NET web application. You'll run the sample application, sign in with your personal Microsoft account or a work or school account, and sign out.
-
-<!--See [How the sample works](#how-the-sample-works) for an illustration.-->
 
 ## Prerequisites
 
 * An Azure account with an active subscription. Use the link to [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
-[Visual Studio 2022](https://visualstudio.microsoft.com/vs/) or [Visual Studio Code](https://code.visualstudio.com/)
+* [Visual Studio 2022](https://visualstudio.microsoft.com/vs/) or [Visual Studio Code](https://code.visualstudio.com/)
 * [.NET Core SDK 6.0+](https://dotnet.microsoft.com/download)
 
 ## Register the application in the Microsoft Entra admin center
-
-[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
     1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which to register the application. We recommend that you use your default tenant for this quickstart.
 1. On the left blade, search for and select **Identity**.
 1. Select **Applications** > **App registrations**.
 1. On the page that appears, select **+ New registration**.
-1. For **Name**, enter a name for the application. For example, enter *aspnet-web-app*. App users can see this name, and it can be changed later.
+1. For **Name**, enter a name for the application. For example, enter *identity-client-app*. App users can see this name, and it can be changed later in **Manage** > **Branding & properties**.
 1. Under **Supported account types**, select *Accounts in this organizational directory only*.
 1. Select **Register**. A new page appears, listing the app's details. Copy the **Application (client) ID** and **Directory (tenant) ID** values, as they're needed to configure the app in a later step.
 
-## Apply application redirect URIs
+## Define the platform and URLs
 
 1. Under **Manage**, select **Authentication**.
 1. Under **Platform configurations**, select **Add a platform**.
@@ -54,10 +52,9 @@ In this article you register a web application in the Microsoft Entra admin cent
 1. Under **Front-channel logout URL**, enter `https://localhost:5001/signout-oidc`.
 1. Select **Configure**.
 
-
 ## Clone or download the sample application
 
-To obtain the sample application, you can either clone it from GitHub or download it as a .zip file.
+To obtain the sample application, you can either clone it from GitHub or download it as a *.zip* file.
 - [Download the .zip file](https://github.com/Azure-Samples/ms-identity-docs-code-dotnet/archive/refs/heads/main.zip). Extract it to a file path where the length of the name is fewer than 260 characters.
 - To clone the sample, open a command prompt and navigate to where you wish to create the project, and enter the following command:
     
@@ -67,7 +64,7 @@ To obtain the sample application, you can either clone it from GitHub or downloa
 
 ## Create and upload a self-signed certificate
 
-1. Using your terminal, use the following commands to navigate to the project directory, and then create a self-signed certificate:
+1. Using your terminal, use the following commands to navigate to create a self-signed certificate in the project directory.
 
     ```console
     cd ms-identity-docs-code-dotnet\web-app-aspnet\
@@ -82,7 +79,7 @@ To obtain the sample application, you can either clone it from GitHub or downloa
 
 ## Configure the project
 
-1. Use your chosen IDE, for example, **Visual Studio Code**, to open the correct project folder *ms-identity-docs-code-dotnet\web-app-aspnet*.
+1. In your IDE, for example, **Visual Studio Code**, to open the correct project folder, *ms-identity-docs-code-dotnet\web-app-aspnet*.
 1. Open *appsettings.json* and replace the file contents with the following snippet;
 
     ```json
