@@ -6,8 +6,8 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: tutorial
-ms.date: 08/15/2023
-#CustomerIntent: As a developer, I want a introcutory example of using Azure Cache for Redis triggers with Azure Functions so that I can understand how to use the functions with a Redis cache.
+ms.date: 08/24/2023
+#CustomerIntent: As a developer, I want a introductory example of using Azure Cache for Redis triggers with Azure Functions so that I can understand how to use the functions with a Redis cache.
 
 ---
 
@@ -49,7 +49,7 @@ Creating the cache can take a few minutes. You can move to the next section whil
 
 1. Create a new local folder on your computer to hold the project that you're building. This tutorial uses _RedisAzureFunctionDemo_ as an example.
 
-1. On the **Azure** tab, create a new function app by selecting the lightning bolt icon in the upper right of the **Workspace** tab. 
+1. On the **Azure** tab, create a new function app by selecting the lightning bolt icon in the upper right of the **Workspace** tab.
 
 1. Select **Create function...**.
 

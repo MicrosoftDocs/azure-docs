@@ -6,7 +6,7 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: tutorial
-ms.date: 08/15/2023
+ms.date: 08/24/2023
 #CustomerIntent: As a developer, I want a practical example of using Azure Cache for Redis triggers with Azure Functions so that I can write applications that tie together a Redis cache and a database like Azure SQL.
 
 ---
@@ -40,7 +40,7 @@ In this tutorial, you learn how to:
 
 The SQL database is the backing database for this example. You can create a SQL database through the Azure portal or through your preferred method of automation.
 
-For more information on creating a SQL database, see [Quickstart: Create a single database - Azure SQL Database](../azure/azure-sql/database/single-database-create-quickstart.md).
+For more information on creating a SQL database, see [Quickstart: Create a single database - Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md).
 
 This example uses the portal:
 
