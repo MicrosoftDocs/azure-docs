@@ -35,7 +35,7 @@ To use the steps in this article, you must have the following configuration alre
 
 * A virtual WAN and virtual hub in your parent subscription
 * A virtual network configured in a subscription in a different (remote) tenant
-* Virtual WAN CLI extension, version 0.3.0 or higher. For more details about extension go to [Available Azure CLI extensions](https://learn.microsoft.com/en-us/cli/azure/azure-cli-extensions-list)
+* Virtual WAN CLI extension, version 0.3.0 or higher. For more details about extension go to [Available Azure CLI extensions](https://learn.microsoft.com/cli/azure/azure-cli-extensions-list)
 
 Make sure that the virtual network address space in the remote tenant does not overlap with any other address space within any other virtual networks already connected to the parent virtual hub.
 
