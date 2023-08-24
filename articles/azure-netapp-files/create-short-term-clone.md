@@ -5,16 +5,18 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 05/20/2023
+ms.date: 08/24/2023
 ms.author: anfdocs
 ---
-# Create a short-term clone from an Azure NetApp File snapshot (preview)
+# Create a short-term clone volume in Azure NetApp File (preview)
 
-Short-term clones are cloned volumes created from Azure NetApp Files snapshots intended for temporary use. Short-term clones are writable and space efficient. The clones share data blocks with the parent volume for common data thereby limiting the amount of storage consumption. 
+A short-term clone volume in Azure NetApp Files is a writable and space-efficient clone that is created for temporary uses, such as development, testing, data analytics or digital forensics of large data sets. A short-term clone mitigates the need to create a regular clone allocated against the capacity pools. 
 
-With a short-term clone, you can create a clone of your original volume on a different capacity pool to utilize a different QoS level without being restrained by space restrictions in the source capacity pool. Additionally, short-term clones enable you to test a snapshot restore on a different capacity pool before [reverting to the original volume](snapshots-revert-volume.md). 
+Short-term clone volumes are created from snapshots of existing Azure NetApp File volumes and inherit the data in that base snapshot. To accommodate additional writes on the short-term clone volumes and changes to the data, short-term clone volumes are allocated with quota. That quota counts towards the capacity pool that contains the short-term clone volume. 
 
-Short-term clones can be converted to regular volumes. 
+With a short-term clone volume, you can create a clone of your original volume on a different capacity pool to utilize a different QoS level without being restrained by space restrictions in the source capacity pool. Additionally, short-term clones enable you to test a snapshot restore on a different capacity pool before [reverting to the original volume](snapshots-revert-volume.md). 
+
+Short-term clones can be converted to regular volumes. By default, they convert to regular volumes 28 days after the clone operation completes. 
 
 ## Considerations 
 
@@ -25,11 +27,8 @@ Short-term clones can be converted to regular volumes.
     * Details about automatic conversion, including necessary capacity pool resizing, are sent to the volume's **Activity Log**. The Activity Log will notify you twice of impending automatic split clone operations: first seven days before the operation, then one day before the operation. 
 * You cannot delete the parent volume of a short-term clone. You must first delete the clone or convert it to a regular volume, then delete the parent volume. 
 * During the clone operation, the parent volume is accessible and you can capture new snapshots of the parent volume. 
-* You cannot migrate an SVM that contains a short-term clone, nor can you initiate a short-term clone operation during an active SVM migration. 
+<!-- * You cannot migrate an SVM that contains a short-term clone, nor can you initiate a short-term clone operation during an active SVM migration. -->
 * There is a limit of two clones per volume. You can increase this limit with a [support request](azure-netapp-files-resource-limits.md#request-limit-increase).
-
-<!-- activity logs? -->
-<!-- alerting of cloning -->
 
 ## Register the feature
 
@@ -63,8 +62,7 @@ Short-term clones are currently in preview. To take advantage of the feature, yo
 	Provide a **Quota** value.
     Confirm if the short-term clone is a **Large volume** (greater than 100 GiB).
 
-1. Select **Review and create**.
-<!-- time expectation -->
+1. Select **Review and create**. <!-- time expectation -->
 1. Confirm the short-term clone is created in the **Volume** menu. In the overview menu for the individual clone, you can confirm the volume type under the **Short-term clone volume** field, view the **Inherited size**, and track the **Split clone volume progress.** You can also monitor activity on a short-term clone in the **Activity Log** for the volume. 
 
 ## Convert a short-term clone to a volume
