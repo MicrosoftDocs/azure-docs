@@ -75,8 +75,8 @@ You can use the following functions to transform claims.
 | **ToLowercase()** | Converts the characters of the selected attribute into lowercase characters. |
 | **ToUppercase()** | Converts the characters of the selected attribute into uppercase characters. |
 | **Contains()** | Outputs an attribute or constant if the input matches the specified value. Otherwise, you can specify another output if there's no match. <br/>For example, if you want to emit a claim where the value is the user's email address if it contains the domain `@contoso.com`, otherwise you want to output the user principal name. To perform this function, you configure the following values:<br/>*Parameter 1(input)*: user.email<br/>*Value*: "@contoso.com"<br/>Parameter 2 (output): user.email<br/>Parameter 3 (output if there's no match): user.userprincipalname |
-| **EndWith()** | Outputs an attribute or constant if the input ends with the specified value. Otherwise, you can specify another output if there's no match.<br/>For example, if you want to emit a claim where the value is the user's employee ID if the employee ID ends with "000", otherwise you want to output an extension attribute. To perform this function, you configure the following values:<br/>*Parameter 1(input)*: user.employeeid<br/>*Value*: "000"<br/>Parameter 2 (output): user.employeeid<br/>Parameter 3 (output if there's no match): user.extensionattribute1 |
-| **StartWith()** | Outputs an attribute or constant if the input starts with the specified value. Otherwise, you can specify another output if there's no match.<br/>For example, if you want to emit a claim where the value is the user's employee ID if the country/region starts with "US", otherwise you want to output an extension attribute. To perform this function, you configure the following values:<br/>*Parameter 1(input)*: user.country<br/>*Value*: "US"<br/>Parameter 2 (output): user.employeeid<br/>Parameter 3 (output if there's no match): user.extensionattribute1 |
+| **EndWith()** | Outputs an attribute or constant if the input ends with the specified value. Otherwise, you can specify another output if there's no match.<br/>For example, if you want to emit a claim where the value is the user's employee ID if the employee ID ends with `000`, otherwise you want to output an extension attribute. To perform this function, you configure the following values:<br/>*Parameter 1(input)*: user.employeeid<br/>*Value*: "000"<br/>Parameter 2 (output): user.employeeid<br/>Parameter 3 (output if there's no match): user.extensionattribute1 |
+| **StartWith()** | Outputs an attribute or constant if the input starts with the specified value. Otherwise, you can specify another output if there's no match.<br/>For example, if you want to emit a claim where the value is the user's employee ID if the country/region starts with `US`, otherwise you want to output an extension attribute. To perform this function, you configure the following values:<br/>*Parameter 1(input)*: user.country<br/>*Value*: "US"<br/>Parameter 2 (output): user.employeeid<br/>Parameter 3 (output if there's no match): user.extensionattribute1 |
 | **Extract() - After matching** | Returns the substring after it matches the specified value.<br/>For example, if the input's value is `Finance_BSimon`, the matching value is `Finance_`, then the claim's output is `BSimon`. |
 | **Extract() - Before matching** | Returns the substring until it matches the specified value.<br/>For example, if the input's value is `BSimon_US`, the matching value is `_US`, then the claim's output is `BSimon`. |
 | **Extract() - Between matching** | Returns the substring until it matches the specified value.<br/>For example, if the input's value is `Finance_BSimon_US`, the first matching value is `Finance_`, the second matching value is `_US`, then the claim's output is `BSimon`. |
@@ -186,7 +186,7 @@ As another example, consider when Britta Simon tries to sign in using the follow
 As a final example, consider what happens if Britta has no `user.othermail` configured or it's empty. The claim falls back to `user.extensionattribute1` ignoring the condition entry in both cases.
 
 ## Security considerations
-Applications that receive tokens rely on claim values that are authoritatively issued by Azure AD and can't be tampered with. When you modify the token contents through claims customization, these assumptions may no longer be correct. Applications must explicitly acknowledge that tokens have been modified by the creator of the customization to protect themselves from customizations created by malicious actors. This can be done in one the following ways:
+Applications that receive tokens rely on claim values that can't be tampered with. When you modify the token contents through claims customization, these assumptions may no longer be correct. Applications must explicitly acknowledge that tokens have been modified to protect themselves from customizations created by malicious actors. Protect from inappropriate customizations in one the following ways:
 
 - [Configure a custom signing key](#configure-a-custom-signing-key)
 - [update the application manifest to accept mapped claims](#update-the-application-manifest).  
@@ -194,7 +194,7 @@ Applications that receive tokens rely on claim values that are authoritatively i
 Without this, Azure AD returns an [AADSTS50146 error code](./reference-error-codes.md#aadsts-error-codes).
 
 ## Configure a custom signing key
-For multi-tenant apps, a custom signing key should be used. Don't set `acceptMappedClaims` in the app manifest. when setting up an app in the Azure portal, you get an app registration object and a service principal in your tenant. That app is using the Azure global sign-in key, which can't be used for customizing claims in tokens. To get custom claims in tokens, create a custom sign-in key from a certificate and add it to service principal. For testing purposes, you can use a self-signed certificate. After configuring the custom signing key, your application code needs to validate the token signing key.
+For multi-tenant apps, a custom signing key should be used. Don't set `acceptMappedClaims` in the app manifest. when setting up an app in the Azure portal, you get an app registration object and a service principal in your tenant. That app is using the Azure global sign-in key, which can't be used for customizing claims in tokens. To get custom claims in tokens, create a custom sign-in key from a certificate and add it to service principal. For testing purposes, you can use a self-signed certificate. After you configure the custom signing key, your application code needs to validate the token signing key.
 
 Add the following information to the service principal:
 
@@ -205,7 +205,7 @@ Add the following information to the service principal:
 Extract the private and public key base-64 encoded from the PFX file export of your certificate. Make sure that the `keyId` for the `keyCredential` used for "Sign" matches the `keyId` of the `passwordCredential`. You can generate the `customkeyIdentifier` by getting the hash of the cert's thumbprint.
 
 ## Request
-The following example shows the format of the HTTP PATCH request to add a custom signing key to a service principal. The "key" value in the `keyCredentials` property is shortened for readability. The value is base-64 encoded. For the private key, the property usage is "Sign". For the public key, the property usage is "Verify".
+The following example shows the format of the HTTP PATCH request to add a custom signing key to a service principal. The "key" value in the `keyCredentials` property is shortened for readability. The value is base-64 encoded. For the private key, the property usage is `Sign`. For the public key, the property usage is `Verify`.
 
 ```
 PATCH https://graph.microsoft.com/v1.0/servicePrincipals/f47a6776-bca7-4f2e-bc6c-eec59d058e3e
@@ -250,9 +250,9 @@ Authorization: Bearer {token}
 ```
 
 ## Configure a custom signing key using PowerShell
-Use PowerShell to [instantiate an MSAL Public Client Application](msal-net-initializing-client-applications.md#initializing-a-public-client-application-from-code) and use the [Authorization Code Grant](v2-oauth2-auth-code-flow.md) flow to obtain a delegated permission access token for Microsoft Graph. Use the access token to call Microsoft Graph and configure a custom signing key for the service principal. After configuring the custom signing key, your application code needs to [validate the token signing key](#validate-token-signing-key).
+Use PowerShell to [instantiate an MSAL Public Client Application](msal-net-initializing-client-applications.md#initializing-a-public-client-application-from-code) and use the [Authorization Code Grant](v2-oauth2-auth-code-flow.md) flow to obtain a delegated permission access token for Microsoft Graph. Use the access token to call Microsoft Graph and configure a custom signing key for the service principal. After you configure the custom signing key, your application code needs to [validate the token signing key](#validate-token-signing-key).
 
-To run this script you need:
+To run this script, you need:
 
 - The object ID of your application's service principal, found in the Overview blade of your application's entry in Enterprise Applications in the Azure portal.
 - An app registration to sign in a user and get an access token to call Microsoft Graph. Get the application (client) ID of this app in the Overview blade of the application's entry in App registrations in the Azure portal. The app registration should have the following configuration:
@@ -458,7 +458,7 @@ https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 ```
 
 ## Update the application manifest
-For single tenant apps, you can set the `acceptMappedClaims` property to `true` in the [application manifest](reference-app-manifest.md). As documented on the [apiApplication resource type](/graph/api/resources/apiapplication?view=graph-rest-1.0&preserve-view=true#properties), this allows an application to use claims mapping without specifying a custom signing key.
+For single tenant apps, you can set the `acceptMappedClaims` property to `true` in the [application manifest](reference-app-manifest.md). As documented on the [apiApplication resource type](/graph/api/resources/apiapplication?view=graph-rest-1.0&preserve-view=true#properties). Setting the property allows an application to use claims mapping without specifying a custom signing key.
 
 >[!WARNING]
 >Do not set the acceptMappedClaims property to true for multi-tenant apps, which can allow malicious actors to create claims-mapping policies for your app.
