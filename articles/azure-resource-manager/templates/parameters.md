@@ -21,17 +21,14 @@ You are limited to 256 parameters in a template. For more information, see [Temp
 
 For parameter best practices, see [Parameters](./best-practices.md#parameters).
 
-In addition to minValue, maxValue, minLength, maxLength, and allowedValues, [languageVersion 2.0](./syntax.md#template-format) introduces some aggregate type validation constraints to be used in [definitions](./syntax.md#definitions), [parameters](./syntax.md#parameters) and [outputs](./syntax.md#outputs) definitions. These constraints include:
+In addition to minValue, maxValue, minLength, maxLength, and allowedValues, [languageVersion 2.0](./syntax.md#languageversion-20) introduces some aggregate type validation constraints to be used in [definitions](./syntax.md#definitions), [parameters](./syntax.md#parameters) and [outputs](./syntax.md#outputs) definitions. These constraints include:
 
 - [additionalProperties](#additionalproperties)
 - [discriminator](#discriminator)
 - [items](#items)
-- [nullable](#nullable)
+- [nullable](#nullable-constraint)
 - [prefixItems](#prefixitems)
 - [properties](#properties)
-
-> [!NOTE]
-> The current version of the Azure Resource Manager Tools extension for Visual Studio Code does not recognize the enhancements made in languageVersion 2.0.
 
 ## Minimal declaration
 
@@ -183,7 +180,7 @@ You can set minimum and maximum values for integer parameters. You can set one o
 
 ## Object constraints
 
-The object constraints are only allowed on [objects](./data-types.md#objects), and can only be used with [languageVersion 2.0](./syntax.md#template-format).
+The object constraints are only allowed on [objects](./data-types.md#objects), and can only be used with [languageVersion 2.0](./syntax.md#languageversion-20).
 
 ### Properties
 
@@ -329,7 +326,7 @@ The value `discriminator` defines what schema to apply based on a discriminator 
 
 ## Array constraints
 
-The array constraints are only allowed on [arrays](./data-types.md#arrays), and can only be used with [languageVersion 2.0](./syntax.md#template-format).
+The array constraints are only allowed on [arrays](./data-types.md#arrays), and can only be used with [languageVersion 2.0](./syntax.md#languageversion-20).
 
 ### prefixItems
 
@@ -423,7 +420,7 @@ If the value is true, elements of the array whose index is greater than the larg
 
 ## nullable constraint
 
-The nullable constraint can only be used with [languageVersion 2.0](./syntax.md#template-format). It indicates that the value may be `null` or omitted. See [Properties](#properties) for an example.
+The nullable constraint can only be used with [languageVersion 2.0](./syntax.md#languageversion-20). It indicates that the value may be `null` or omitted. See [Properties](#properties) for an example.
 
 ## Description
 

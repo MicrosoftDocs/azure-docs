@@ -94,7 +94,7 @@ The following example deploys a storage account through a nested template.
 }
 ```
 
-[Nested resources](./child-resource-name-type.md#within-parent-resource) can't use [symbolic name](./syntax.md#use-symbolic-name). In the following template, the nested storage account resource cannot use symbolic name:
+[Nested resources](./child-resource-name-type.md#within-parent-resource) can't use [symbolic name](./resource-declaration.md#use-symbolic-name). In the following template, the nested storage account resource cannot use symbolic name:
 
 ```json
 {
@@ -158,7 +158,7 @@ When using a nested template, you can specify whether template expressions are e
 You set the scope through the `expressionEvaluationOptions` property. By default, the `expressionEvaluationOptions` property is set to `outer`, which means it uses the parent template scope. Set the value to `inner` to cause expressions to be evaluated within the scope of the nested template.
 
 > [!IMPORTANT]
-> For [`languageVersion 2.0`](./syntax.md#template-format), the default value for the `expressionEvaluationOptions` property is `inner`. The value `outer` is blocked.
+> For [`languageVersion 2.0`](./syntax.md#languageversion-20), the default value for the `expressionEvaluationOptions` property is `inner`. The value `outer` is blocked.
 
 ```json
 {
@@ -507,7 +507,7 @@ If you're linking to a template in GitHub, use the raw URL. The link has the for
 
 [!INCLUDE [Deploy templates in private GitHub repo](../../../includes/resource-manager-private-github-repo-templates.md)]
 
-For linked templates, you can nest a non-symbolic-name deployment inside a [symbolic-name template](./syntax.md#use-symbolic-name), or nest a symbolic-name deployment inside a non-symbolic template, or  nest a symbolic-name deployment inside another symbolic-name template, or vice versa.
+For linked templates, you can nest a non-symbolic-name deployment inside a [symbolic-name template](./resource-declaration.md#use-symbolic-name), or nest a symbolic-name deployment inside a non-symbolic template, or  nest a symbolic-name deployment inside another symbolic-name template, or vice versa.
 
 ### Parameters for linked template
 

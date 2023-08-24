@@ -412,11 +412,11 @@ The [providers operation](/rest/api/resources/providers) is still available thro
 
 ## reference
 
-In the templates without [symbolic names](./syntax.md#use-symbolic-name):
+In the templates without [symbolic names](./resource-declaration.md#use-symbolic-name):
 
 `reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])`
 
-In the templates with [symbolic names](./syntax.md#use-symbolic-name):
+In the templates with [symbolic names](./resource-declaration.md#use-symbolic-name):
 
 `reference(symbolicName or resourceIdentifier, [apiVersion], ['Full'])`
 

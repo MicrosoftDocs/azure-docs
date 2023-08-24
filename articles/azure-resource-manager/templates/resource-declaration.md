@@ -205,6 +205,35 @@ The [reference](./template-functions-resource.md#reference) function can use a r
 
 If [Deployments resource](/azure/templates/microsoft.resources/deployments?tabs=json) is used in a symbolic-name deployment, use apiVersion `2020-09-01` or later.
 
+### Declare existing resources
+
+With [`languageVersion 2.0`](#template-format) and using symbolic name for resource declaration, you can declare existing resources. A top-level resource property of `"existing": true` causes ARM to read rather than deploy a resource as shown in the following example:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "languageVersion": "2.0",
+
+  "resources": {
+    "storageAccount": {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2022-09-01",
+      "name": "storageacct",
+      "existing": true
+    }
+  },
+  "outputs": {
+    "saBlocksPlaintext": {
+      "type": "bool",
+      "value": "[ reference('storageAccount').supportsHttpsTrafficOnly]"
+    }
+  }
+}
+```
+
+Existing resources don't need to define any properties other than `type`, `apiVersion`, and `name`.
+
 ## Next steps
 
 * To conditionally deploy a resource, see [Conditional deployment in ARM templates](conditional-resource-deployment.md).

@@ -39,7 +39,7 @@ In its simplest structure, a template has the following elements:
 | Element name | Required | Description |
 |:--- |:--- |:--- |
 | $schema |Yes |Location of the JavaScript Object Notation (JSON) schema file that describes the version of the template language. The version number you use depends on the scope of the deployment and your JSON editor.<br><br>If you're using [Visual Studio Code with the Azure Resource Manager tools extension](quickstart-create-templates-use-visual-studio-code.md), use the latest version for resource group deployments:<br>`https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#`<br><br>Other editors (including Visual Studio) may not be able to process this schema. For those editors, use:<br>`https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>For subscription deployments, use:<br>`https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#`<br><br>For management group deployments, use:<br>`https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#`<br><br>For tenant deployments, use:<br>`https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#` |
-| languageVersion |No |Language version of the template. For a list of enhancement of languageVersion 2.0, see [languageVersion 2.0](#languageversion-20). |
+| languageVersion |No |Language version of the template. To view the enhancements of languageVersion 2.0, see [languageVersion 2.0](#languageversion-20). |
 | contentVersion |Yes |Version of the template (such as 1.0.0.0). You can provide any value for this element. Use this value to document significant changes in your template. When deploying resources using the template, this value can be used to make sure that the right template is being used. |
 | apiProfile |No | An API version that serves as a collection of API versions for resource types. Use this value to avoid having to specify API versions for each resource in the template. When you specify an API profile version and don't specify an API version for the resource type, Resource Manager uses the API version for that resource type that is defined in the profile.<br><br>The API profile property is especially helpful when deploying a template to different environments, such as Azure Stack and global Azure. Use the API profile version to make sure your template automatically uses versions that are supported in both environments. For a list of the current API profile versions and the resources API versions defined in the profile, see [API Profile](https://github.com/Azure/azure-rest-api-specs/tree/master/profile).<br><br>For more information, see [Track versions using API profiles](./template-cloud-consistency.md#track-versions-using-api-profiles). |
 | [definitions](#definitions) |No |Schemas that are used to validate array and object values. |
@@ -324,8 +324,6 @@ You define resources with the following structure:
 To support [Bicep](../bicep/overview.md) symbolic name in ARM JSON templates, add `languageVersion` with the version `2.0` or newer, and change the resource definition from an array to an object.
 
 ```json
-
-```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "languageVersion": "2.0",
@@ -341,35 +339,6 @@ To support [Bicep](../bicep/overview.md) symbolic name in ARM JSON templates, ad
 For more information, see [Resources](#resources).
 
 In Bicep, see [resources](../bicep/file.md#resources).
-
-### Declare existing resources
-
-With [`languageVersion 2.0`](#template-format) and using symbolic name for resource declaration, you can declare existing resources. A top-level resource property of `"existing": true` causes ARM to read rather than deploy a resource as shown in the following example:
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "languageVersion": "2.0",
-
-  "resources": {
-    "storageAccount": {
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2022-09-01",
-      "name": "storageacct",
-      "existing": true
-    }
-  },
-  "outputs": {
-    "saBlocksPlaintext": {
-      "type": "bool",
-      "value": "[ reference('storageAccount').supportsHttpsTrafficOnly]"
-    }
-  }
-}
-```
-
-Existing resources don't need to define any properties other than `type`, `apiVersion`, and `name`.
 
 ## Outputs
 
@@ -539,6 +508,8 @@ In Bicep, see [multi-line strings](../bicep/file.md#multi-line-strings).
 
 ## languageVersion 2.0
 
+[!INCLUDE [VSCode ARM Tools extension doesn't support languageVersion 2.0](../../../includes/resource-manager-vscode-language-version-20.md)]
+
 jgao: show the syntax of using language version 2.0.
 
 The enhancements that comes with languageVersion 2.0.
@@ -550,6 +521,7 @@ The enhancements that comes with languageVersion 2.0.
 - Use symbolic name in resource copy loops. See [Use symbolic name](./copy-resources.md#use-symbolic-name).
 - Use symbolic name in `dependsOn` arrays. See [DependsOn](./resource-dependency.md#dependson) and [Depend on resources in a loop](./resource-dependency.md#depend-on-resources-in-a-loop).
 - Use symbolic name in the `reference` function.  See [reference](./template-functions-resource.md#reference).
+- Declare existing resources for ARM to read rather than deploy a resource.
 - User-defined types. See [Type definition](./definitions.md).
 - The default value for the `expressionEvaluationOptions` property is `inner`. The value `outer` is blocked. See [Expression evaluation scope in nested templates](./linked-templates.md#expression-evaluation-scope-in-nested-templates).
 - Additional aggregate type validation constraints to be used in [parameters](./parameters.md) and [outputs](./outputs.md).

@@ -158,7 +158,7 @@ If you want to return values from the deployed resources, you can use [copy in t
 
 ### Use symbolic name
 
-[Symbolic name](./syntax.md#use-symbolic-name) can be assigned to resource copy loops. The loop index is zero-based. In the following example, `myStorages[1]` references the second resource in the resource loop.
+[Symbolic name](./resource-declaration.md#use-symbolic-name) can be assigned to resource copy loops. The loop index is zero-based. In the following example, `myStorages[1]` references the second resource in the resource loop.
 
 ```json
 {
