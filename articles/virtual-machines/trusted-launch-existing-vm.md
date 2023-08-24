@@ -56,7 +56,7 @@ This section steps through using the Azure portal to enable Trusted Launch on ex
 
 :::image type="content" source="./media/trusted-launch/04-g2totl-select-dropdown.png" alt-text="Screenshot of the Security type drop-down.":::
 
-5. Select **Trusted Launch** under drop-down and select check-boxes to enable **Secure Boot** and **vTPM**. CLick **Save** after making required changes.
+5. Select **Trusted Launch** under drop-down and select check-boxes to enable **Secure Boot** and **vTPM**. Click **Save** after making required changes.
 > [!NOTE]
 > - After enabling Trusted Launch, currently virtual machine cannot be rolled back to security type **Standard** (Non-Trusted Launch configuration).
 > - **vTPM** is enabled by default.
