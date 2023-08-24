@@ -44,7 +44,7 @@ The following steps show you how to register your SPA in the Microsoft Entra adm
 
 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to your customer tenant. 
 
-1. Browse to **Identity** > **Applications** > **App Registrations**.
+1. Browse to **Identity** > **Applications** > **App registrations**.
 
 1. Select **+ New registration**.
 
@@ -91,7 +91,7 @@ The following steps show you how to register your web app in the Microsoft Entra
 
 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to your customer tenant. 
 
-1. Browse to **Identity** > **Applications** > **App Registrations**.
+1. Browse to **Identity** > **Applications** > **App registrations**.
 
 1. Select **+ New registration**.
 
@@ -155,7 +155,7 @@ The following steps show you how to register your app in the Microsoft Entra adm
 
 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to your customer tenant. 
 
-1. Browse to **Identity** > **Applications** > **App Registrations**.
+1. Browse to **Identity** > **Applications** > **App registrations**.
 
 1. Select **+ New registration**.
 

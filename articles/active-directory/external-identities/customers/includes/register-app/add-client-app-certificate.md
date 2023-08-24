@@ -13,7 +13,7 @@ To use your client app certificate, you need to associate the app you registered
 
 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="../../media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to your customer tenant. 
 
-1. Browse to **Identity** > **Applications** > **App Registrations**.
+1. Browse to **Identity** > **Applications** > **App registrations**.
 
 1. From the app registration list, select the app that you want to associate with the certificate, such as *ciam-client-app*.
 
