@@ -5,7 +5,7 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 03/24/2023
+ms.date: 08/24/2023
 ms.devlang: csharp
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
@@ -319,7 +319,15 @@ No, your cache name and keys are unchanged during a scaling operation.
 
  ### Can I use all the features of Premium tier after scaling?
 
-No, features that are creation level settings in Premium tier such as configuring of VNET, setting up zone redundancy won't be available for configuration after scaling. You need to create a new instance in case you are looking to leverage any of those features.
+No, some features can only be set when you create a cache in Premium tier, and are not available after scaling. 
+
+These features cannot be added after you create the Premium cache:
+
+- VNet injection
+- Adding zone redundancy
+- Using multiple replicas per primary
+
+To use any of these  features, you must create a new cache instance in the Premium tier. 
 
 ### Is my custom databases setting affected during scaling?
 
@@ -419,7 +427,7 @@ You can connect to your cache using the same [endpoints](cache-configure.md#prop
 
 ### Can I directly connect to the individual shards of my cache?
 
-The clustering protocol requires the client to make the correct shard connections, so the client should make share connections for you. With that said, each shard consists of a primary/replica cache pair, collectively known as a cache instance. You can connect to these cache instances using the redis-cli utility in the [unstable](https://redis.io/download) branch of the Redis repository at GitHub. This version implements basic support when started with the `-c` switch. For more information, see [Playing with the cluster](https://redis.io/topics/cluster-tutorial#playing-with-the-cluster) on [https://redis.io](https://redis.io) in the [Redis cluster tutorial](https://redis.io/topics/cluster-tutorial).
+The clustering protocol requires the client to make the correct shard connections, so the client should make share connections for you. With that said, each shard consists of a primary/replica cache pair, collectively known as a cache instance. You can connect to these cache instances using the Redis-CLI utility in the [unstable](https://redis.io/download) branch of the Redis repository at GitHub. This version implements basic support when started with the `-c` switch. For more information, see [Playing with the cluster](https://redis.io/topics/cluster-tutorial#playing-with-the-cluster) on [https://redis.io](https://redis.io) in the [Redis cluster tutorial](https://redis.io/topics/cluster-tutorial).
 
 You need to use the `-p` switch to specify the correct port to connect to. Use the [CLUSTER NODES](https://redis.io/commands/cluster-nodes/) command to determine the exact ports used for the primary and replica nodes. The following port ranges are used:
 
@@ -429,10 +437,10 @@ You need to use the `-p` switch to specify the correct port to connect to. Use t
 
 ### Can I configure clustering for a previously created cache?
 
-Yes. First, ensure that your cache is premium by scaling it up. Next, you can see the cluster configuration options, including an option to enable cluster. Change the cluster size after the cache is created, or after you have enabled clustering for the first time.
+Yes. First, ensure that your cache is in the Premium tier by scaling it up. Next, you can see the cluster configuration options, including an option to enable cluster. Change the cluster size after the cache is created, or after you have enabled clustering for the first time.
 
 >[!IMPORTANT]
->You can't undo enabling clustering. And a cache with clustering enabled and only one shard behaves *differently* than a cache of the same size with *no* clustering.
+>You can't undo enabling clustering. And a cache with clustering enabled and only one shard behaves _differently_ than a cache of the same size with _no_ clustering.
 
 All Enterprise and Enterprise Flash tier caches are always clustered.
 
