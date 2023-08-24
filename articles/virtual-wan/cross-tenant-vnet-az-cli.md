@@ -82,7 +82,7 @@ In the following steps, you will be using Azure CLI commands to link a virtual h
 
 2. Connect the virtual network to the hub:
 
-   ```azurepowershell-interactive
+   ```azurecli-interactive
    az network vhub connection create --resource-group "[resource_group_name]" --name "[connection_name]" --vhub-name "[virtual_hub_name]" --remote-vnet "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rgName/providers/Microsoft.Network/virtualNetworks/vnetName"
    ```
 
