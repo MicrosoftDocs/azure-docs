@@ -24,24 +24,20 @@ These JSON Web tokens (JWT) used by OIDC and OAuth applications contain pieces o
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-To view or edit the claims issued in the JWT to the application, open the application in Azure portal. Then select **Single sign-on** blade in the left-hand menu and open the **Attributes & Claims** section.
+To view or edit the claims issued in the JWT to the application:
 
-:::image type="content" source="./media/jwt-claims-customization/attributes-claims.png" alt-text="Screenshot of opening the Attributes & Claims section in the Azure portal.":::
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**.
+1. Select the application, select **Single sign-on** in the left-hand menu, and then select **Edit** in the **Attributes & Claims** section.
 
 An application may need claims customization for various reasons. For example, when an application requires a different set of claim URIs or claim values. Using the **Attributes & Claims** section, you can add or remove a claim for your application. You can also create a custom claim that is specific for an application based on the use case.
 
 The following steps describe how to assign a constant value:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. In the **Attributes & Claims** section, Select **Edit** to edit the claims.
-1. Select the required claim that you want to modify.
+1. Select the claim that you want to modify.
 1. Enter the constant value without quotes in the **Source attribute** as per your organization, and then select **Save**.
 
-:::image type="content" source="./media/jwt-claims-customization/customize-claim.png" alt-text="Screenshot of customizing a claim in the Azure portal.":::
-
 The Attributes overview displays the constant value.
-
-:::image type="content" source="./media/jwt-claims-customization/claims-overview.png" alt-text="Screenshot of displaying claims in the Azure portal.":::
 
 ## Special claims transformations
 
@@ -69,8 +65,6 @@ To apply a transformation to a user attribute:
 1. Select the function from the transformation dropdown. Depending on the function selected, provide parameters and a constant value to evaluate in the transformation.
 1. **Treat source as multivalued** indicates whether the transform is applied to all values or just the first. By default, the first element in a multi-value claim is applied the transformations. When you check this box, it ensures it's applied to all. This checkbox is only enabled for multi-valued attributes. For example, `user.proxyaddresses`.
 1. To apply multiple transformations, select **Add transformation**. You can apply a maximum of two transformations to a claim. For example, you could first extract the email prefix of the `user.mail`. Then, make the string upper case.
-
-    :::image type="content" source="./media/jwt-claims-customization/sso-saml-multiple-claims-transformation.png" alt-text="Screenshot of claims transformation.":::
 
 You can use the following functions to transform claims.
 
@@ -187,11 +181,7 @@ For example, Britta Simon is a guest user in the Contoso tenant. Britta belongs 
 
 First, the Microsoft identity platform verifies whether Britta's user type is **All guests**. Because the type is **All guests**, the Microsoft identity platform assigns the source for the claim to `user.extensionattribute1`. Second, the Microsoft identity platform verifies whether Britta's user type is **AAD guests**. Because the type is **All guests**, the Microsoft identity platform assigns the source for the claim to `user.mail`. Finally, the claim is emitted with a value of `user.mail` for Britta.
 
-:::image type="content" source="./media/jwt-claims-customization/sso-saml-user-conditional-claims.png" alt-text="Screenshot of claims conditional configuration.":::
-
 As another example, consider when Britta Simon tries to sign in using the following configuration. Azure AD first evaluates all conditions with source `Attribute`. The source for the claim is `user.mail` when Britta's user type is **AAD guests**. Next, Azure AD evaluates the transformations. Because Britta is a guest, `user.extensionattribute1` is the new source for the claim. Because Britta is in **AAD guests**, `user.othermail` is the new source for this claim. Finally, the claim is emitted with a value of `user.othermail` for Britta.
-
-:::image type="content" source="./media/jwt-claims-customization/sso-saml-user-conditional-claims-2.png" alt-text="Screenshot of more claims conditional configuration.":::
 
 As a final example, consider what happens if Britta has no `user.othermail` configured or it's empty. The claim falls back to `user.extensionattribute1` ignoring the condition entry in both cases.
 
