@@ -34,6 +34,8 @@ To understand the number of Application Insights resources required to cover you
 
 :::image type="content" source="media/app-insights-overview/app-insights-overview-blowout.svg" alt-text="Diagram that shows the path of data as it flows through the layers of the Application Insights service." border="false" lightbox="media/app-insights-overview/app-insights-overview-blowout.svg":::
 
+Firewall settings need to be adjusted to make sure telemetry data can reach ingestion endpoints. For more information, see [IP addresses used by Azure Monitor](./ip-addresses.md).
+
 ## How do I use Application Insights?
 
 Application Insights is enabled through either [autoinstrumentation](codeless-overview.md) (agent) or by adding the [Application Insights SDK](sdk-support-guidance.md) or [Azure Monitor OpenTelemetry Distro](opentelemetry-enable.md) to your application code. [Many languages](#supported-languages) are supported. The applications could be on Azure, on-premises, or hosted by another cloud. To figure out which type of instrumentation is best for you, see [How do I instrument an application?](#how-do-i-instrument-an-application).
