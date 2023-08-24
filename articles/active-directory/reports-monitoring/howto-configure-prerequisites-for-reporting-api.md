@@ -1,6 +1,6 @@
 ---
 title: Prerequisites for Azure Active Directory reporting API
-description: Learn about the prerequisites to access the Azure AD reporting API
+description: Learn how to configure the prerequisites that are required to access the Microsoft Graph reporting API.
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -42,9 +42,8 @@ To enable your application to access Microsoft Graph without user intervention, 
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using the appropriate least privilege role.
-
-1. Browse to **Azure Active Directory** > **App registrations**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Security Reader](../roles/permissions-reference.md#security-reader).
+1. Browse to **Identity** > **Applications** > **App registrations**.
 
 1. Select **New registration**.
 
