@@ -7,7 +7,7 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/27/2022
+ms.date: 08/22/2023
 ---
 
 # Demos - Azure Cognitive Search
@@ -18,6 +18,7 @@ The following demos are built and hosted by Microsoft.
 
 | Demo name | Description | Source code |
 |-----------|------------ |-------------|
+| [Chat with your data](https://entgptsearch.azurewebsites.net/) | An Azure web app that uses ChatGPT in Azure OpenAI with fictitous health plan data in a search index. | [https://github.com/Azure-Samples/azure-search-openai-demo/](https://github.com/Azure-Samples/azure-search-openai-demo/)  |
 | [AzSearchLab](https://azuresearchlab.azurewebsites.net/) | A web front end that makes calls to a search index. | [https://github.com/Azure-Samples/azure-search-lab](https://github.com/Azure-Samples/azure-search-lab) |
 | [NYC Jobs demo](https://azjobsdemo.azurewebsites.net/) | An ASP.NET app with facets, filters, details, geo-search (map controls). | [https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) |
 | [JFK files demo](https://jfk-demo-2019.azurewebsites.net/#/) | An ASP.NET web app built on a public data set, transformed with custom and predefined skills to extract searchable content from scanned document (JPEG) files. [Learn more...](https://www.microsoft.com/ai/ai-lab-jfk-files) | [https://github.com/Microsoft/AzureSearch_JFK_Files](https://github.com/Microsoft/AzureSearch_JFK_Files) |

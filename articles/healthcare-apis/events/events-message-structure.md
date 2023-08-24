@@ -1,6 +1,6 @@
 ---
 title: Events message structure - Azure Health Data Services
-description: Learn about the Events message structures and required values.
+description: Learn about the events message structures and required values.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
@@ -12,10 +12,10 @@ ms.author: jasteppe
 
 # Events message structures
 
-In this article, learn about the Events message structures, required and nonrequired elements, and see samples of Events message payloads.
+In this article, learn about the events message structures, required and nonrequired elements, and see samples of events message payloads.
 
 > [!IMPORTANT]
-> Events currently supports only the following operations:
+> Events currently supports the following operations:
 >
 > * **FhirResourceCreated** - The event emitted after a FHIR resource gets created successfully.
 >
@@ -332,11 +332,11 @@ In this article, learn about the Events message structures, required and nonrequ
 
 ## Next steps
 
-In this article, you learned about the Events message structures.
+In this article, you learned about the events message structures.
 
-To learn how to deploy Events using the Azure portal, see
+To learn how to deploy events using the Azure portal, see
 
 > [!div class="nextstepaction"]
-> [Deploy Events using the Azure portal](events-deploy-portal.md)
+> [Deploy events using the Azure portal](events-deploy-portal.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

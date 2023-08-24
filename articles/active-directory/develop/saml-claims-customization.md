@@ -73,7 +73,7 @@ Select the desired source for the `NameIdentifier` (or `nameID`) claim. You can 
 | `onpremisessamaccountname` | The SAM account name that has been synced from on-premises Azure AD. |
 | `objectid` | The object ID of the user in Azure AD. |
 | `employeeid` | The employee ID of the user. |
-| `Directory extensions` | The directory extensions [synced from on-premises Active Directory using Azure AD Connect Sync](../hybrid/how-to-connect-sync-feature-directory-extensions.md). |
+| `Directory extensions` | The directory extensions [synced from on-premises Active Directory using Azure AD Connect Sync](../hybrid/connect/how-to-connect-sync-feature-directory-extensions.md). |
 | `Extension Attributes 1-15` | The on-premises extension attributes used to extend the Azure AD schema. |
 | `pairwiseid` | The persistent form of user identifier. |
 
@@ -232,7 +232,7 @@ When the following conditions occur after **Add** or **Run test** is selected, a
 
 ## Add the UPN claim to SAML tokens
 
-The `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn` claim is part of the [SAML restricted claim set](reference-claims-mapping-policy-type.md), so you can't add it in the **Attributes & Claims** section. As a workaround, you can add it as an [optional claim](active-directory-optional-claims.md) through **App registrations** in the Azure portal.  
+The `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn` claim is part of the [SAML restricted claim set](reference-claims-mapping-policy-type.md), so you can't add it in the **Attributes & Claims** section. As a workaround, you can add it as an [optional claim](./optional-claims.md) through **App registrations** in the Azure portal.  
 
 Open the application in **App registrations**, select **Token configuration**, and then select **Add optional claim**. Select the **SAML** token type, choose **upn** from the list, and then click **Add** to add the claim to the token.
 
@@ -287,4 +287,4 @@ The following table lists other advanced options that can be configured for an a
 
 ## Next steps
 
-* [Configure single sign-on for applications that aren't in the Azure AD application gallery](../manage-apps/configure-saml-single-sign-on.md)
+* [Configure single sign-on for applications that aren't in the Azure AD application gallery](./single-sign-on-saml-protocol.md)

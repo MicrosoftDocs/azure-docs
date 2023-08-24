@@ -73,6 +73,8 @@ items:
   items:
   - name: App and deployment
     href: concept-understand-app-and-deployment.md
+  - name: Version support for Java, Spring Boot, and more
+    href: concept-app-customer-responsibilities.md
   - name: Blue-green deployment strategies
     href: concepts-blue-green-deployment-strategies.md
   - name: Zero downtime deployment
@@ -369,6 +371,8 @@ items:
           href: how-to-configure-enterprise-spring-cloud-gateway.md
         - name: Configure routes
           href: how-to-use-enterprise-spring-cloud-gateway.md
+        - name: Configure route filters
+          href: how-to-configure-enterprise-spring-cloud-gateway-filters.md
         - name: Troubleshoot
           href: how-to-troubleshoot-enterprise-spring-cloud-gateway.md
       - name: Use VMware Tanzu Application Accelerator
@@ -549,8 +553,10 @@ items:
         href: /azure/developer/java/migration/migrate-tomcat-to-azure-spring-apps?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
 - name: Architecture
   items:
-  - name: Reference architecture
-    href: reference-architecture.md
+  - name: Architecture design
+    href: /azure/architecture/web-apps/spring-apps?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
+  - name: Landing zone accelerator
+    href: /azure/cloud-adoption-framework/scenarios/app-platform/spring-apps/landing-zone-accelerator?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
   - name: Deploy to multiple regions
     href: /azure/architecture/reference-architectures/microservices/spring-apps-multi-region?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
 - name: Reference

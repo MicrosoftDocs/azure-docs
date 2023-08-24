@@ -39,8 +39,8 @@ Using Azure Active Directory (Azure AD), part of Microsoft Entra, with an Azure 
 ## Next steps
 These articles provide additional information on Azure Active Directory.
 
-* [Managing access to resources with Azure Active Directory groups](../fundamentals/active-directory-manage-groups.md)
+* [Managing access to resources with Azure Active Directory groups](../fundamentals/concept-learn-about-groups.md)
 * [Application Management in Azure Active Directory](../manage-apps/what-is-application-management.md)
 * [Azure Active Directory cmdlets for configuring group settings](../enterprise-users/groups-settings-cmdlets.md)
-* [What is Azure Active Directory?](../fundamentals/active-directory-whatis.md)
+* [What is Azure Active Directory?](../fundamentals/whatis.md)
 * [Integrating your on-premises identities with Azure Active Directory](../hybrid/whatis-hybrid-identity.md)

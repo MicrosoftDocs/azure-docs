@@ -26,6 +26,9 @@ NVIDIA Tesla (CUDA) drivers for NC, NCv2, NCv3, NCasT4_v3, ND, and NDv2-series V
 | Windows Server 2016 | [451.82](https://us.download.nvidia.com/tesla/451.82/451.82-tesla-desktop-winserver-2019-2016-international.exe) (.exe) |
 
 ### NVIDIA GRID drivers
+> [!Note]
+> The Azure NVads A10 v5 VMs only support GRID 14.1(510.73) or higher driver version.
+>
 
 Microsoft redistributes NVIDIA GRID driver installers for NV,NVv3 and NVads A10 v5-series VMs used as virtual workstations or for virtual applications. Install only these GRID drivers on Azure NV-series VMs, only on the operating systems listed in the following table. These drivers include licensing for GRID Virtual GPU Software in Azure. You don't need to set up a NVIDIA vGPU software license server.
 
@@ -52,7 +55,7 @@ For Windows Server 2012 R2:
 - [GRID 13 (471.68)](https://download.microsoft.com/download/9/b/4/9b4d4f8d-7962-4a67-839b-37cc95756759/471.68_grid_winserver2012R2_64bit_azure_swl.exe) (.exe)
 
 > [!Note]
-> vGPU 15.1/15.2 installer process makes an additional remote call to ngx.download.nvidia.com. This is an unexpected change in behavior and NVIDIA will disable this by default starting with vGPU 15.3. In the meantime, update the following regkey before installing vGPU 15.1/15.2 driver.
+> vGPU 15.1/15.2 installer process makes an additional remote call to ngx.download.nvidia.com. This is an unexpected change in behavior and NVIDIA will disable this by default starting with vGPU 15.3 or higher. In the meantime, update the following regkey before installing vGPU 15.1/15.2 driver.
 > >
 > To disable the remote call to ngx. 
 >

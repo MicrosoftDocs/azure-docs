@@ -171,15 +171,22 @@ To create a job, a standalone Spark job can be defined as a YAML specification f
   - `runtime_version` - defines the Spark runtime version. The following Spark runtime versions are currently supported:
     - `3.1`
     - `3.2`
+    - `3.3`
       > [!IMPORTANT]
-      >
-      > End of life announcement (EOLA) for Azure Synapse Runtime for Apache Spark 3.1 was made on January 26, 2023. In accordance, Apache Spark 3.1 will not be supported after July 31, 2023. We recommend that you use Apache Spark 3.2.
+      > Azure Synapse Runtime for Apache Spark: Announcements
+      > * Azure Synapse Runtime for Apache Spark 3.1:
+      >   * End of Life (EOLA) Announcement Date: January 26, 2023 
+      >   * End of Support Date: July 31, 2023. After this date, the runtime will be disabled. 
+      > * Azure Synapse Runtime for Apache Spark 3.2:
+      >   * EOLA Announcement Date: July 8, 2023
+      >   * End of Support Date: July 8, 2024. After this date, the runtime will be disabled.
+      > * For continued support and optimal performance, we advise migrating to Apache Spark 3.3.
 
   An example is shown here:
   ```yaml
   resources:
     instance_type: standard_e8s_v3
-    runtime_version: "3.2"
+    runtime_version: "3.3"
   ```
 - `compute` - this property defines the name of an attached Synapse Spark pool, as shown in this example:
   ```yaml
@@ -260,7 +267,7 @@ identity:
 
 resources:
   instance_type: standard_e4s_v3
-  runtime_version: "3.2"
+  runtime_version: "3.3"
 ```
 
 > [!NOTE]
@@ -314,9 +321,17 @@ To create a standalone Spark job, use the `azure.ai.ml.spark` function, with the
   - `runtime_version` - a key that defines the Spark runtime version. The following Spark runtime versions are currently supported:
     - `3.1.0`
     - `3.2.0`   
+    - `3.3.0`   
       > [!IMPORTANT]
-      >
-      > End of life announcement (EOLA) for Azure Synapse Runtime for Apache Spark 3.1 was made on January 26, 2023. In accordance, Apache Spark 3.1 will not be supported after July 31, 2023. We recommend that you use Apache Spark 3.2.
+      > Azure Synapse Runtime for Apache Spark: Announcements
+      > * Azure Synapse Runtime for Apache Spark 3.1:
+      >   * End of Life (EOLA) Announcement Date: January 26, 2023 
+      >   * End of Support Date: July 31, 2023. After this date, the runtime will be disabled. 
+      > * Azure Synapse Runtime for Apache Spark 3.2:
+      >   * EOLA Announcement Date: July 8, 2023
+      >   * End of Support Date: July 8, 2024. After this date, the runtime will be disabled.
+      > * For continued support and optimal performance, we advise migrating to Apache Spark 3.3.
+
 - `compute` - the name of an attached Synapse Spark pool.
 - `inputs` - the inputs for the Spark job. This parameter should pass a dictionary with mappings of the input data bindings used in the job. This dictionary has these values:
   - a dictionary key defines the input name
@@ -368,7 +383,7 @@ spark_job = spark(
     executor_instances=2,
     resources={
         "instance_type": "Standard_E8S_V3",
-        "runtime_version": "3.2.0",
+        "runtime_version": "3.3.0",
     },
     inputs={
         "titanic_data": Input(
@@ -417,9 +432,15 @@ To submit a standalone Spark job using the Azure Machine Learning studio UI:
 2. If you selected **Spark serverless**:
     1. Select **Virtual machine size**.
     2. Select **Spark runtime version**.
-       > [!IMPORTANT]
-       >
-       > End of life announcement (EOLA) for Azure Synapse Runtime for Apache Spark 3.1 was made on January 26, 2023. In accordance, Apache Spark 3.1 will not be supported after July 31, 2023. We recommend that you use Apache Spark 3.2.
+      > [!IMPORTANT]
+      > Azure Synapse Runtime for Apache Spark: Announcements
+      > * Azure Synapse Runtime for Apache Spark 3.1:
+      >   * End of Life (EOLA) Announcement Date: January 26, 2023 
+      >   * End of Support Date: July 31, 2023. After this date, the runtime will be disabled. 
+      > * Azure Synapse Runtime for Apache Spark 3.2:
+      >   * EOLA Announcement Date: July 8, 2023
+      >   * End of Support Date: July 8, 2024. After this date, the runtime will be disabled.
+      > * For continued support and optimal performance, we advise migrating to Apache Spark 3.3.
 3. If you selected **Attached compute**:
     1. Select an attached Synapse Spark pool from the **Select Azure Machine Learning attached compute** menu.
 4. Select **Next**.
@@ -674,7 +695,7 @@ def spark_pipeline(spark_input_data):
     spark_step.identity = ManagedIdentityConfiguration()
     spark_step.resources = {
         "instance_type": "Standard_E8S_V3",
-        "runtime_version": "3.2.0",
+        "runtime_version": "3.3.0",
     }
 
 pipeline = spark_pipeline(

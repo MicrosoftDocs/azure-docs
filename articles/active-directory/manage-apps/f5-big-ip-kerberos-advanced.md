@@ -72,8 +72,8 @@ Prior BIG-IP experience isn't necessary. You need:
   * F5 BIG-IP APM standalone license
   * F5 BIG-IP APM add-on license on a BIG-IP Local Traffic Manager (LTM)
   * 90-day BIG-IP [Free Trial](https://www.f5.com/trial/big-ip-trial.php) license
-* User identities [synchronized](../hybrid/how-to-connect-sync-whatis.md) from an on-premises directory to Azure AD, or created in Azure AD and flowed back to your on-premises directory
-* An account with Azure AD Application Administrator [permissions](../users-groups-roles/directory-assign-admin-roles.md)
+* User identities [synchronized](../hybrid/connect/how-to-connect-sync-whatis.md) from an on-premises directory to Azure AD, or created in Azure AD and flowed back to your on-premises directory
+* An account with Azure AD Application Administrator [permissions](../roles/permissions-reference.md)
 * A web server [certificate](../manage-apps/f5-bigip-deployment-guide.md) for publishing services over HTTPS, or use default BIG-IP certificates while testing
 * A Kerberos application, or go to active-directory-wp.com to learn to configure [SSO with IIS on Windows](https://active-directory-wp.com/docs/Networking/Single_Sign_On/SSO_with_IIS_on_Windows.html)
 
@@ -128,7 +128,7 @@ Configure the BIG-IP registration to fulfill SAML tokens that the BIG-IP APM req
     ![Screenshot of the Federation Metadata XML Download option.](./media/f5-big-ip-kerberos-advanced/edit-saml-signing-certificate.png)
 
 > [!NOTE]
-> SAML signing certificates that Azure AD creates have a lifespan of three years. For more information, see [Managed certificates for federated single sign-on](./manage-certificates-for-federated-single-sign-on.md).
+> SAML signing certificates that Azure AD creates have a lifespan of three years. For more information, see [Managed certificates for federated single sign-on](./tutorial-manage-certificates-for-federated-single-sign-on.md).
 
 ## Grant access to users and groups
 
