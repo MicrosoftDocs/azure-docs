@@ -9,20 +9,18 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/17/2023
+ms.date: 08/24/2023
 ms.author: jfields
 ---
 
 
-# Microsoft Entra admin center built-in roles
+# Microsoft Entra Permissions Management roles and permissions levels
 
 In Microsoft Azure and Microsoft Entra Permissions Management, assigned roles give users different levels of access to monitor and take action in multicloud environments. In the [Microsoft Entra admin center built-in roles](../roles/permissions-reference.md), review a list of identities assigned to a privileged role and learn more about the level of permissions given to users assigned roles in your organization.
 
 - **Global Administrator**: Manages all aspects of Entra Admin Center and Microsoft services that use Entra Admin Center identities. 
 - **Billing Administrator**: Performs common billing related tasks like updating payment information. 
 - **Permissions Management Administrator**: Manages all aspects of Entra Permissions Management. 
-
-## Permissions Management roles and permissions levels
 
 ## Enabling Permissions Management
 - To activate a trial or purchase a license, you must have *Global Administrator* or *Billing Administrator* permissions.

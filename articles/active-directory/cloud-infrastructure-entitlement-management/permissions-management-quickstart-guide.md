@@ -34,7 +34,7 @@ Before you begin, you need access to these tools for the onboarding process:
 
 To enable Permissions Management, you must have a Microsoft Entra ID tenant (example, Entra admin center).  
 - If you have an Azure account, you automatically have an Entra admin center tenant. 
-- If you don’t already have one, create a free account at [entra.microsoft.com].(https://entra.microsoft.com)
+- If you don’t already have one, create a free account at [entra.microsoft.com.](https://entra.microsoft.com)
 
 If the above points are met, continue with:
 
@@ -126,7 +126,7 @@ When you enabled Permissions Management in the Entra ID tenant, an enterprise ap
 
 - To enable the controller, you must assign the *User Access Administrator* role to the CIEM application. 
 
-- To onboard your Azure environment and configure data collection, see [Onboard a Microsoft Azure subscription](onboard-azure.md).
+To onboard your Azure environment and configure data collection, see [Onboard a Microsoft Azure subscription](onboard-azure.md).
 
 
 ### Onboard Google Cloud Platform (GCP)
