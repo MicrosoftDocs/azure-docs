@@ -72,7 +72,7 @@
       href: troubleshoot.md
 - name: Guidance
   items:
-  - name: Guidance on migration from MCM to AUM
+  - name: Migration from MCM to AUM
     href: guidance-migration-azure.md
-  - name: Guidance on security awareness and Ubuntu Pro support
+  - name: Security awareness and Ubuntu Pro support
     href: security-awareness-ubuntu-support.md

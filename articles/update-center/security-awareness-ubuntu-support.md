@@ -15,14 +15,14 @@ ms.author: sudhirsneha
 
 This article provides the details on security vulnerabilities and Ubuntu Pro support in Azure Update Manager.
 
-If you are using Ubuntu 18.04 LTS, you must take the necessary steps against security vulnerabilities as the Ubuntu 18.04 image has reached the end of its [standard security maintenance](https://ubuntu.com/blog/18-04-end-of-standard-support) in May 2023. As the Canonical has stopped publishing new security or critical updates after May 2023, the risk of systems and data to potential security threats is high. Without software updates, you may experience performance issues or compatibility issues whenever a new hardware or software is released.
+If you are using Ubuntu 18.04 LTS, you must take the necessary steps against security vulnerabilities as the Ubuntu 18.04 image has reached the end of its [standard security maintenance](https://ubuntu.com/blog/18-04-end-of-standard-support) in May 2023. As Canonical has stopped publishing new security or critical updates after May 2023, the risk of systems and data to potential security threats is high. Without software updates, you may experience performance issues or compatibility issues whenever a new hardware or software is released.
 
-You can either upgrade to [Ubuntu Pro](https://ubuntu.com/azure/pro) or migrate to a newer version of LTS to avoid any future disruption to the patching mechanisms. When you [upgrade to Ubuntu Pro version](https://ubuntu.com/blog/enhancing-the-ubuntu-experience-on-azure-introducing-ubuntu-pro-updates-awareness), you can avoid any security or performance issues. 
+You can either upgrade to [Ubuntu Pro](https://ubuntu.com/azure/pro) or migrate to a newer version of LTS to avoid any future disruption to the patching mechanisms. When you [upgrade to Ubuntu Pro](https://ubuntu.com/blog/enhancing-the-ubuntu-experience-on-azure-introducing-ubuntu-pro-updates-awareness), you can avoid any security or performance issues. 
 
 
 ## Ubuntu Pro on Azure Update Manager
  
-Azure Update Manager (AUM) assesses both Azure and Arc-enabled VMs to indicate any action. AUM helps to identify Ubuntu instances that don't have the available security updates and allows an upgrade to Ubuntu Pro from the Azure portal. For example, an Ubuntu server 18.04 LTS instance on Azure Update Manager displays about upgrading to Ubuntu Pro.
+Azure Update Manager (AUM) assesses both Azure and Arc-enabled VMs to indicate any action. AUM helps to identify Ubuntu instances that don't have the available security updates and allows an upgrade to Ubuntu Pro from the Azure portal. For example, an Ubuntu server 18.04 LTS instance on Azure Update Manager has information about upgrading to Ubuntu Pro.
 
 :::image type="content" source="./media/security-awareness-ubuntu-support/ubuntu-pro-subscription-inline.png" alt-text="Screenshot of recommendation to subscribe to Ubuntu Pro in Azure Update Manager." lightbox="./media/security-awareness-ubuntu-support/ubuntu-pro-subscription-inline.png":::
 
