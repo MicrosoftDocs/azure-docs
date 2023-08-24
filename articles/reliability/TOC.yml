@@ -77,11 +77,11 @@
       - name: Azure Cosmos DB
         href: ../cosmos-db/high-availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure Data Explorer
-        href: ../data-explorer/create-cluster-database-portal.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+        href: /azure/data-explorer/create-cluster-database-portal?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure Data Factory
         href: ../data-factory/concepts-data-redundancy.md?bc=%2fazure%2freliability%2fbreadcrumb%2ftoc.json&toc=%2fazure%2freliability%2ftoc.json
       - name: Azure Database for MySQL - Flexible Server
-        href: ../mysql/flexible-server/concepts-high-availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+        href: /azure/mysql/flexible-server/concepts-high-availability?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure Database for PostgreSQL - Flexible Server
         href: reliability-postgre-flexible.md
       - name: Azure Data Manager for Energy
@@ -175,7 +175,7 @@
       - name: Azure Active Directory Domain Services
         href: ../active-directory-domain-services/tutorial-create-replica-set?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#how-does-app-configuration-ensure-high-data-availability
       - name: Azure Backup
-        href: ../backup/backup-overview.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+        href: ../backup//backup-create-recovery-services-vault.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure Batch
         href: reliability-batch.md
       - name: Azure Cache for Redis
@@ -193,11 +193,11 @@
       - name: Azure Cosmos DB
         href: ../cosmos-db/how-to-multi-master?tabs=api-async?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure Data Explorer
-        href: ../data-explorer/business-continuity-overview.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+        href: /azure/data-explorer/business-continuity-overview?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure Data Factory
         href: ../data-factory/concepts-data-redundancy.md?bc=%2fazure%2freliability%2fbreadcrumb%2ftoc.json&toc=%2fazure%2freliability%2ftoc.json
       - name: Azure Database for MySQL - Flexible Server
-        href: ../mysql/flexible-server/how-to-restore-server-portal#geo-restore-to-latest-restore-point.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+        href: /azure/mysql/flexible-server/how-to-restore-server-portal?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#geo-restore-to-latest-restore-point
       - name: Azure Database for PostgreSQL - Flexible Server
         href: reliability-postgre-flexible.md#zone-down-experience
       - name: Azure Data Manager for Energy
@@ -205,7 +205,7 @@
       - name: Azure Data Share
         href: ../data-share/disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure DevOps
-        href: ../devops/organizations/security/data-protection?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json&view=azure-devops#data-availability
+        href: /azure/devops/organizations/security/data-protection?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json&view=azure-devops#data-availability
       - name: Azure DDoS Protection
         href: ../ddos-protection/ddos-disaster-recovery-guidance.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#business-continuity
       - name: Azure Disk Encryption 
@@ -215,7 +215,7 @@
       - name: Azure DNS - Azure DNS Private Resolver
         href: ../dns/dns-private-resolver-get-started-portal.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure Event Grid
-        href: ../event-grid/custom-disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+        href: ../event-grid/custom-disaster-recovery-client-side.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure Event Hubs
         href: ../event-hubs/event-hubs-geo-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability-zones
       - name: Azure ExpressRoute
@@ -227,7 +227,7 @@
       - name: Azure Functions 
         href: reliability-functions.md
       - name: Azure Guest Configuration
-        href: ../governance/policy/concepts/guest-configuration?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability
+        href: ../governance/policy/concepts/guest-configuration.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure HDInsight
         href: reliability-hdinsight.md
       - name: Azure Health Data Services - Azure API for FHIR
@@ -235,7 +235,7 @@
       - name: Azure IoT Hub
         href: ../iot-hub/iot-hub-ha-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability-zones
       - name: Azure Image Builder
-        href: ../virtual-machines/image-builder-reliability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+        href: reliability-image-builder.md
       - name: Azure Key Vault
         href: ../key-vault/general/disaster-recovery-guidance.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure Kubernetes Service (AKS)
@@ -325,7 +325,7 @@
       - name: Azure Data Factory
         href: ../data-factory/concepts-data-redundancy.md?bc=%2fazure%2freliability%2fbreadcrumb%2ftoc.json&toc=%2fazure%2freliability%2ftoc.json
       - name: Azure Database for MySQL - Flexible Server
-        href: ../mysql/flexible-server/concepts-high-availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+        href: /azure/mysql/flexible-server/concepts-high-availability?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure Database for PostgreSQL - Flexible Server
         href: reliability-postgre-flexible.md
       - name: Azure Data Manager for Energy

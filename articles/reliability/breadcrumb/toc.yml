@@ -74,7 +74,13 @@ items:
       tocHref: /azure/container-registry/
       topicHref: /azure/reliability/index
     - name: Reliability
+      tocHref: /azure/governance/
+      topicHref: /azure/reliability/index
+    - name: Reliability
       tocHref: /azure/cosmos-db/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/devops/
       topicHref: /azure/reliability/index
     - name: Reliability
       tocHref: /azure/data-explorer/
