@@ -24239,7 +24239,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/functions/functions-geo-disaster-recovery.md",
+            "source_path_from_root": "/articles/azure-functions/functions-geo-disaster-recovery.md",
             "redirect_url": "/azure/reliability/reliability-functions",
             "redirect_document_id": false
         },
