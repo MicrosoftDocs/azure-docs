@@ -52,13 +52,16 @@ You can use a policy definition to enable Defender for Servers at scale:
 
 - To get the built-in *Configure Azure Defender for Servers to be enabled* policy definition, in the Azure portal for your deployment, go to **Azure Policy** > **Policy Definitions**.
 
-    :::image type="content" source="media/plan-defender-for-servers-scale/select-policy-definition.png" alt-text="Screenshot that shows the Configure Azure Defender for Servers to be enabled policy definition." lightbox="media/plan-defender-for-servers-scale/select-policy-definition.png":::    
+    :::image type="content" source="media/plan-defender-for-servers-scale/select-policy-definition.png" alt-text="Screenshot that shows the Configure Azure Defender for Servers to be enabled policy definition." lightbox="media/plan-defender-for-servers-scale/select-policy-definition.png":::
 
 - Alternatively, you can use a [custom policy](https://github.com/Azure/Microsoft-Defender-for-Cloud/tree/main/Policy/Enable%20Defender%20for%20Servers%20plans) to enable Defender for Servers and select the plan at the same time.
 - You can enable only one Defender for Servers plan on each subscription. You can't enable both Defender for Servers Plan 1 and Plan 2 at the same subscription.
 - If you want to use both plans in your environment, divide your subscriptions into two management groups. On each management group, assign a policy to enable the respective plan on each underlying subscription.
 
 ## Scale auto provisioning
+
+> [!NOTE]
+> As the Log Analytics agent is set to retire in August 2024 and as part of the Defender for Cloud [updated strategy](upcoming-changes.md#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation), the Azure Monitor Agent will no longer be required to receive all the capabilities of **Defender for Servers**, but will remain required for **Defender for SQL on machines**. As a result, in October 2023, the current shared Log Analytics agent / Azure Monitor agent auto-provisioning mechanism will be updated and applied to the Log Analytics agent only. The Azure Monitor agent related (Public Preview) policy initiatives mentioned below will be deprecated, and a new SQL-targeted AMA policy will be released. For more information about this change, see [this announcement](upcoming-changes.md#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation).
 
 You can set up auto provisioning by assigning the built-in policy definitions to an Azure management group to cover underlying subscriptions. The following table summarizes the definitions:
 
