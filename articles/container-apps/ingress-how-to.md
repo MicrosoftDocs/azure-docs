@@ -174,7 +174,7 @@ You can expose additional TCP ports from your application. To learn more, see th
 Adding additional TCP ports can be done through the CLI by referencing a YAML file with your TCP port configurations.
 
 ```azurecli
-az containerapp update 
+az containerapp create
     --name <app-name> \
     --resource-group <resource-group> \
     --yaml <your-yaml-file>
@@ -191,7 +191,7 @@ properties:
     ingress:
       additionalPortMappings:
       - exposedPort: 21025
-        external: true
+        external: false
         targetPort: 1025
       allowInsecure: false
       external: true

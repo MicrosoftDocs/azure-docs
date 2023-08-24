@@ -9,7 +9,7 @@ ms.topic: conceptual
 author: santiagxf
 ms.author: fasantia
 ms.reviewer: mopeakande
-ms.custom: devplatv2
+ms.custom: devplatv2, moe-wsvnet
 ms.date: 04/01/2023
 #Customer intent: As an MLOps administrator, I want to understand what a managed endpoint is and why I need it.
 ---
@@ -88,9 +88,9 @@ Visual Studio Code enables you to interactively debug endpoints.
 
 Optionally, you can secure communication with a managed online endpoint by using private endpoints.
 
-You can configure security for inbound scoring requests and outbound communications with the workspace and other services separately. Inbound communications use the private endpoint of the Azure Machine Learning workspace. Outbound communications use private endpoints created per deployment.
+You can configure security for inbound scoring requests and outbound communications with the workspace and other services separately. Inbound communications use the private endpoint of the Azure Machine Learning workspace. Outbound communications use private endpoints created for the workspace's managed virtual network (preview).
 
-For more information, see [Secure online endpoints](how-to-secure-online-endpoint.md).
+For more information, see [Network isolation with managed online endpoints](concept-secure-online-endpoint.md).
 
 ## Managed online endpoints vs Kubernetes online endpoints
 
@@ -110,7 +110,7 @@ The following table highlights the key differences between managed online endpoi
 | **Cluster sizing (scaling)** | [Managed manual and autoscale](how-to-autoscale-endpoints.md), supporting additional nodes provisioning                                                             | [Manual and autoscale](how-to-kubernetes-inference-routing-azureml-fe.md#autoscaling), supporting scaling the number of replicas within fixed cluster boundaries                         |
 | **Compute type**              | Managed by the service                                                                                                            | Customer-managed Kubernetes cluster (Kubernetes)                                                                        |
 | **Managed identity**          | [Supported](how-to-access-resources-from-endpoints-managed-identities.md)                                                         | Supported                                                                                                               |
-| **Virtual Network (VNET)**    | [Supported via managed network isolation](how-to-secure-online-endpoint.md)                                                       | User responsibility                                                                                                     |
+| **Virtual Network**    | [Supported via managed network isolation](concept-secure-online-endpoint.md)                                                       | User responsibility                                                                                                     |
 | **Out-of-box monitoring & logging** | [Azure Monitor and Log Analytics powered](how-to-monitor-online-endpoints.md) (includes key metrics and log tables for endpoints and deployments) | User responsibility                                                                        |
 | **Logging with Application Insights (legacy)** | Supported                                                                                                        | Supported                                                                                                               |
 | **View costs**                | [Detailed to endpoint / deployment level](how-to-view-online-endpoints-costs.md)                                                  | Cluster level                                                                                                           |
