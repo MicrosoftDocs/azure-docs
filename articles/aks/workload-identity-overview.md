@@ -201,11 +201,11 @@ The following client libraries are the **minimum** version required.
 
 | Ecosystem | Library | Image | Example | Has Windows |
 |-----------|-----------|----------|----------|----------|
-| .NET | [microsoft-authentication-library-for-dotnet](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | ghcr.io/azure/azure-workload-identity/msal-net:latest | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/msal-net/akvdotnet) | Yes |
-| Go | [microsoft-authentication-library-for-go](https://github.com/AzureAD/microsoft-authentication-library-for-go) | ghcr.io/azure/azure-workload-identity/msal-go:latest | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/msal-go) | Yes |
-| Java | [microsoft-authentication-library-for-java](https://github.com/AzureAD/microsoft-authentication-library-for-java) | ghcr.io/azure/azure-workload-identity/msal-java:latest | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/msal-java) | No |
-| JavaScript | [microsoft-authentication-library-for-js](https://github.com/AzureAD/microsoft-authentication-library-for-js) | ghcr.io/azure/azure-workload-identity/msal-node:latest | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/msal-node) | No |
-| Python | [microsoft-authentication-library-for-python](https://github.com/AzureAD/microsoft-authentication-library-for-python) | ghcr.io/azure/azure-workload-identity/msal-python:latest | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/msal-python) | No |
+| .NET | [microsoft-authentication-library-for-dotnet](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | `ghcr.io/azure/azure-workload-identity/msal-net:latest` | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/msal-net/akvdotnet) | Yes |
+| Go | [microsoft-authentication-library-for-go](https://github.com/AzureAD/microsoft-authentication-library-for-go) | `ghcr.io/azure/azure-workload-identity/msal-go:latest` | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/msal-go) | Yes |
+| Java | [microsoft-authentication-library-for-java](https://github.com/AzureAD/microsoft-authentication-library-for-java) | `ghcr.io/azure/azure-workload-identity/msal-java:latest` | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/msal-java) | No |
+| JavaScript | [microsoft-authentication-library-for-js](https://github.com/AzureAD/microsoft-authentication-library-for-js) | `ghcr.io/azure/azure-workload-identity/msal-node:latest` | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/msal-node) | No |
+| Python | [microsoft-authentication-library-for-python](https://github.com/AzureAD/microsoft-authentication-library-for-python) | `ghcr.io/azure/azure-workload-identity/msal-python:latest` | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/msal-python) | No |
 
 ## Limitations
 
