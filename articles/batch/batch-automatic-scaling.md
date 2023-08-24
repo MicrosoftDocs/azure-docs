@@ -2,7 +2,7 @@
 title: Autoscale compute nodes in an Azure Batch pool
 description: Enable automatic scaling on an Azure Batch cloud pool to dynamically adjust the number of compute nodes in the pool.
 ms.topic: how-to
-ms.date: 05/26/2023
+ms.date: 08/23/2023
 ms.custom: H1Hack27Feb2017, fasttrack-edit, devx-track-csharp, devx-track-linux
 ---
 
@@ -58,6 +58,8 @@ pendingTaskSamples = pendingTaskSamplePercent < 70 ? startingNumberOfVMs : avg($
 $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
 $NodeDeallocationOption = taskcompletion;
 ```
+> [!IMPORTANT]
+> Currently Batch Service has limitaion with the resolution of the pending tasks. When a task is added to the queue but is subsequently deleted before it can be scheduled, the task might persist within the queue, causing it to still be counted in the pending tasks queue. However, it's important to note that the deleted task will eventually be removed from the queue and the removal process occurs when the Batch Service gets a chance to fetch tasks from the queue and schedule them alongside idle nodes in the Batch pool.
 
 #### Preempted nodes
 
