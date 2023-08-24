@@ -2,7 +2,7 @@
 title: Azure Arc resource bridge (preview) network requirements
 description: Learn about network requirements for Azure Arc resource bridge (preview) including URLs that must be allowlisted.
 ms.topic: conceptual
-ms.date: 01/30/2023
+ms.date: 08/24/2023
 ---
 
 # Azure Arc resource bridge (preview) network requirements
@@ -61,12 +61,9 @@ The default value for `noProxy` is `localhost,127.0.0.1,.svc,10.0.0.0/8,172.16.0
 
 > [!IMPORTANT]
 > When listing multiple addresses for the noproxy settings, do not add a space after the commas to separate the addresses. The addresses must immediately follow the comma.
+
 ## Next steps
 
 - Review the [Azure Arc resource bridge (preview) overview](overview.md) to understand more about requirements and technical details.
 - Learn about [security configuration and considerations for Azure Arc resource bridge (preview)](security-overview.md).
-
-
-
-
-
+- View [troubleshooting tips for networking issues](troubleshoot-resource-bridge.md#networking-issues).
