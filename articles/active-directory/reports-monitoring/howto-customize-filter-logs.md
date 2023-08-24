@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/18/2023
+ms.date: 08/22/2023
 ms.author: sarahlipsey
 ms.reviewer: besiler
 ---
@@ -38,8 +38,7 @@ You can always access your own sign-in history at [https://mysignins.microsoft.c
 
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using the appropriate least privileged role.
-1. Go to **Azure Active Directory** > **Monitoring and health**.
-1. Select the logs from the side menu.
+1. Browse to **Azure Active Directory** > **Monitoring** > **Audit logs**/**Sign-in logs**/**Provisioning logs**.
 
 ## Audit logs
 
