@@ -4,7 +4,7 @@ description: Learn about how using Azure Virtual Desktop Insights can help you u
 ms.topic: how-to
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 08/22/2023
+ms.date: 08/24/2023
 ---
 
 # Use cases for Azure Virtual Desktop Insights
@@ -55,9 +55,14 @@ Issues with session hosts, such as where session hosts have too many sessions to
 
 To view session host performance:
 
-1. Sign in to Azure Virtual Desktop Insights in the Azure portal by browsing to [https://aka.ms/avdi](https://aka.ms/avdi).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. From the drop-down lists, select one or more **subscriptions**, **resource groups**, **host pools**, and specify a **time range**, then select the **Host Performance** tab.
+1. In the search bar, type *Azure Virtual Desktop* and select the matching service entry to go to the Azure Virtual Desktop overview.
+
+1. Select **Host pools**, then select the name of the host pool for which you want to view session host performance.
+
+1. Select **Insights**, specify a **time range**, then select the **Host Performance** tab.
+
 1. Review the table for **Input delay by host** and the graph **Median input delay over time** to find a summary of the median and 95th percentile user input delay values for each session host in the host pool. Ideally the user input delay for each host should be below 100 milliseconds, and a lower value is better.
 
    In the following example, the session hosts have a reasonable median user input delay, but occasionally values peak above the threshold of 100 ms, implying potential for impacting end-users.
