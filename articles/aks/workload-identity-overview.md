@@ -31,7 +31,7 @@ In the Azure Identity client libraries, choose one of the following approaches:
 
 The following table provides the **minimum** package version required for each language ecosystem's client library.
 
-| Ecosystem | Library                                                                                                          | Minimum Version |
+| Ecosystem | Library                                                                                                          | Minimum version |
 |-----------|------------------------------------------------------------------------------------------------------------------|-----------------|
 | .NET      | [Azure.Identity](/dotnet/api/overview/azure/identity-readme)                                                     | 1.9.0           |
 | C++       | [azure-identity-cpp](https://github.com/Azure/azure-sdk-for-cpp/blob/main/sdk/identity/azure-identity/README.md) | 1.6.0-beta.1    |
