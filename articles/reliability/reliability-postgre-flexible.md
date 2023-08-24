@@ -1,5 +1,6 @@
 ---
-title: Reliability and high availability in Azure Database for PostgreSQL - Flexible Server
+title: Reliability and high availability in PostgreSQL - Flexible Server
+titleSufffix: Azure Database for PostgreSQL - Flexible Server
 description: Find out about reliability and high availability in Azure Database for PostgreSQL - Flexible Server
 author: sunilagarwal
 ms.author: anaharris
@@ -127,7 +128,7 @@ Application transaction-triggered writes and commits are first logged to the WAL
 
 #### Health check
 
-Flexible server health monitoring periodically checks for both the primary and standby health. If, after multiple pings, health monitoring detects that a primary server isn't reachable, the service then initiates an automatic failover to the standby server. The health monitoring algorithm is based on multiple data points to avoid false positive situations.
+Flexible server health monitoring periodically checks for both the primary and standby health. After multiple pings, if health monitoring detects that a primary server isn't reachable, the service then initiates an automatic failover to the standby server. The health monitoring algorithm is based on multiple data points to avoid false positive situations.
 
 #### Failover modes
 
@@ -290,7 +291,7 @@ For more information on geo-redundant backup and restore, see [geo-redundant bac
 
 Cross region read replicas can be deployed to protect your databases from region-level failures. Read replicas are updated asynchronously using PostgreSQL's physical replication technology, and may lag the primary. Read replicas are supported in general purpose and memory optimized compute tiers.
 
-For more information on on read replica features and considerations, see [Read replicas](/azure/postgresql/flexible-server/concepts-read-replicas).
+For more information on read replica features and considerations, see [Read replicas](/azure/postgresql/flexible-server/concepts-read-replicas).
 
 #### Outage detection, notification, and management
 
