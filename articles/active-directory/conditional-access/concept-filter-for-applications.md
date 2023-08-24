@@ -24,7 +24,7 @@ Application filters are a new feature for Conditional Access that allows organiz
 In this document, you create a custom attribute set, assign a custom security attribute to your application, and create a Conditional Access policy to secure the application. 
 
 > [!IMPORTANT]
-> Filter for applications is currently in public preview. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Filter for applications is currently in public preview. For more information about previews, see [Universal License Terms For Online Services](https://www.microsoft.com/licensing/terms/product/ForOnlineServices/all).
 
 ## Assign roles
 
