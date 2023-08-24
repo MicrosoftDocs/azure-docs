@@ -38,7 +38,7 @@ To access this new dashboard, you need:
 Organizations can access the new dashboard by:
 
 1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)**.
-1. Browse to **Identity** > **Protection** > **Identity Protection** > **Dashboard (Preview)**.
+1. Browse to **Protection** > **Identity Protection** > **Dashboard (Preview)**.
 
 ### Metric cards
  

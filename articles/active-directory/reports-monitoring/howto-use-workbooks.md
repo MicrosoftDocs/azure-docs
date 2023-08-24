@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/10/2023
+ms.date: 08/24/2023
 ms.author: sarahlipsey
 ms.reviewer: sarbar
 ---
@@ -70,8 +70,8 @@ For more information on Azure AD built-in roles, see [Azure AD built-in roles](.
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Navigate to **Azure Active Directory** > **Monitoring** > **Workbooks**. 
+1. Sign in to the [Azure portal](https://portal.azure.com) using the appropriate least privilege role.
+1. Browse to **Azure Active Directory** > **Monitoring** > **Workbooks**. 
     - **Workbooks**: All workbooks created in your tenant
     - **Public Templates**: Prebuilt workbooks for common or high priority scenarios
     - **My Templates**: Templates you've created
@@ -86,7 +86,7 @@ For more information on Azure AD built-in roles, see [Azure AD built-in roles](.
 Workbooks can be created from scratch or from a template. When creating a new workbook, you can add elements as you go or use the **Advanced Editor** option to paste in the JSON representation of a workbook, copied from the [workbooks GitHub repository](https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json).
 
 **To create a new workbook from scratch**:
-1. Navigate to **Azure AD** > **Monitoring** > **Workbooks**.
+1. Browse to **Azure AD** > **Monitoring** > **Workbooks**.
 1. Select **+ New**.
 1. Select an element from the **+ Add** menu.
 
@@ -95,7 +95,7 @@ Workbooks can be created from scratch or from a template. When creating a new wo
     ![Screenshot of the Azure Workbooks +Add menu options.](./media/howto-use-azure-monitor-workbooks/create-new-workbook-elements.png)
 
 **To create a new workbook from a template**:
-1. Navigate to **Azure AD** > **Monitoring** > **Workbooks**.
+1. Browse to **Azure AD** > **Monitoring** > **Workbooks**.
 1. Select a workbook template from the Gallery.
 1. Select **Edit** from the top of the page.
     - Each element of the workbook has its own **Edit** button. 
