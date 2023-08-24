@@ -77,7 +77,7 @@ After you approve the request in your search service, you can start using the [c
 
 ### Azure OpenAI resources in private networks
 
-You can protect Azure OpenAI resource in [private networks](/azure/ai-services/cognitive-services-virtual-networks) the same way as any Azure AI services.
+You can protect Azure OpenAI resource in [private networks](/azure/ai-services/cognitive-services-virtual-networks) the same way as any Azure AI service.
 
 ### Storage accounts in private networks
 
@@ -205,25 +205,26 @@ This option encourages the model to respond using your data only, and is selecte
 
 ### Search types
 
-Azure OpenAI on your data provides two search methods you can use when you add your data source.
+Azure OpenAI on your data provides several search options you can use when you add your data source, leveraging the following types of search.
 
-#### Semantic search 
+* [Simple search](/azure/search/search-lucene-query-architecture)
+* [Semantic search](/azure/search/semantic-search-overview)
+* [Vector search](/azure/search/vector-search-overview) using Ada [embedding](./understand-embeddings) models. 
 
-[!INCLUDE [Semantic search note](../includes/use-your-data-semantic-search.md)]
-
-If [semantic search](/azure/search/semantic-search-overview) is enabled for your Azure Cognitive Search service, you are more likely to produce better retrieval of your data, which can improve response and citation quality.
-
-#### Vector search
-
-[Vector search](/azure/search/vector-search-overview) with Ada embedding models is supported. To enable vector search, you will need a `text-embedding-ada-002` deployment in your Azure OpenAI resource. Select your embedding deployment when connecting your data, then select one of the vector search types under **Data management**. 
-
-- The Vector search type will use only vectors for retrieval.
-- The **Vector + Simple** search type will use a hybrid of vector search and simple keyword search for retrieval.
-- The **Vector + Semantic** search type will use a hybrid of vector search and semantic search for retrieval.
+    To enable vector search, you will need a `text-embedding-ada-002` deployment in your Azure OpenAI resource. Select your embedding deployment when connecting your data, then select one of the vector search types under **Data management**.  
 
 > [!IMPORTANT]
-> * Vector search will incur additional usage to your Azure OpenAI account from calling the embedding model while building or using the search index.
-> * If **Vector + Semantic** is selected, semantic search is subject to [additional pricing](/azure/search/semantic-search-overview#availability-and-pricing)
+> Semantic search and vector search are subject to additional pricing.
+
+| Search option       | Retrieval type | Additional pricing? | 
+|---------------------|------------------------|---------------------|
+| *simple*            | Simple search                       | No additional pricing.                    |
+| *semantic*          |  Semantic search  |  Additional pricing for [semantic search](/azure/search/semantic-search-overview#availability-and-pricing) usage.                  |      
+| *vector*            | Vector search       | [Additional pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) on your Azure OpenAI account from calling the embedding model.                    |         |
+| *vector + simple*   | A hybrid of vector search and simple search | [Additional pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) on your Azure OpenAI account from calling the embedding model.            |      
+| *vector + semantic* | A hybrid of vector search and semantic search for retrieval.     | [Additional pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) on your Azure OpenAI account from calling the embedding model, and additional pricing for [semantic search](/azure/search/semantic-search-overview#availability-and-pricing) usage.                    |     
+
+The optimal search option can vary depending on your dataset and use-case. You may need to experiment with multiple options to determine which works best for your use-case.
 
 ### Index field mapping 
 
