@@ -16,7 +16,7 @@ ms.author: jeedes
 
 # Azure Active Directory SSO integration with Insightsfirst
 
-In this article, you'll learn how to integrate Insightsfirst with Azure Active Directory (Azure AD). Insightsfirst helps you compete, get an edge in the marketplace, and make intelligent decisions at the right time. It is a cloud platform that harnesses power of internal and external knowledge. When you integrate Insightsfirst with Azure AD, you can:
+In this article, you'll learn how to integrate Insightsfirst with Azure Active Directory (Azure AD). Insightsfirst helps you compete, get an edge in the marketplace, and make intelligent decisions at the right time. It's a cloud platform that harnesses power of internal and external knowledge. When you integrate Insightsfirst with Azure AD, you can:
 
 * Control in Azure AD who has access to Insightsfirst.
 * Enable your users to be automatically signed-in to Insightsfirst with their Azure AD accounts.
@@ -111,7 +111,7 @@ To configure single sign-on on **Insightsfirst** side, you need to send the **Th
 
 ### Create Insightsfirst test user
 
-In this section, a user called B.Simon is created in Tanium SSO. Tanium SSO supports just-in-time user provisioning, which is enabled by default. There's no action item for you in this section. If a user doesn't already exist in Tanium SSO, a new one is created after authentication.
+In this section, a user called B.Simon is created in Insightsfirst SSO. Insightsfirst SSO supports just-in-time user provisioning, which is enabled by default. There's no action item for you in this section. If a user doesn't already exist in Insightsfirst SSO, a new one is created after authentication.
 
 ## Test SSO 
 
