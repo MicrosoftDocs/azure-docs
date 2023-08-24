@@ -99,7 +99,7 @@ az network vnet subnet update --resource-group $RgName --vnet-name $VnetName --n
 ### Configure a private endpoint
 
 > [!IMPORTANT]
-> - Private endpoints for Elastic SAN Preview are currently only supported in France Central.
+> - Private endpoints for Elastic SAN Preview are supported in all regions that Elastic SAN is available in if you deploy with [locally-redundant storage (LRS)](elastic-san-planning.md#redundancy) as their redundancy option. Private endpoints aren't currently supported Elastic SANs deployed using [zone-redundant storage (ZRS)](elastic-san-planning.md#redundancy) as their redundancy option.
 >
 > - Before you can create a private endpoint connection to a volume group, it must contain at least one volume.
 
