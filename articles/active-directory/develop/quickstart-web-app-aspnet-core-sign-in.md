@@ -20,7 +20,6 @@ ms.custom: "devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-
 
 # Quickstart: Sign in users and call the Microsoft Graph API from an ASP.NET Core web app
 
-**Applies to** 
 
 This quickstart uses a sample ASP.NET Core web app to show the fundamentals of <!--What type of auth code flow--> modern authentication using the [Microsoft Authentication Library for .NET](/entra/msal/dotnet/) and [Microsoft Identity Web](/entra/msal/dotnet/microsoft-identity-web/) for ASP.NET to handle authentication.
 
