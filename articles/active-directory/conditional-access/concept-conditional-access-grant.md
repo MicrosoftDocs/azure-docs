@@ -34,8 +34,8 @@ Administrators can choose to enforce one or more controls when granting access. 
 - [Require authentication strength](#require-authentication-strength)
 - [Require device to be marked as compliant (Microsoft Intune)](/intune/protect/device-compliance-get-started)
 - [Require hybrid Azure AD joined device](../devices/concept-hybrid-join.md)
-- [Require approved client app](app-based-conditional-access.md)
-- [Require app protection policy](app-protection-based-conditional-access.md)
+- [Require approved client app](./howto-policy-approved-app-or-app-protection.md)
+- [Require app protection policy](./howto-policy-approved-app-or-app-protection.md)
 - [Require password change](#require-password-change)
 
 When administrators choose to combine these options, they can use the following methods:
@@ -128,7 +128,7 @@ The following client apps support this setting. This list isn't exhaustive and i
 - Conditional Access can't consider Microsoft Edge in InPrivate mode an approved client app.
 - Conditional Access policies that require Microsoft Power BI as an approved client app don't support using Azure AD Application Proxy to connect the Power BI mobile app to the on-premises Power BI Report Server.
 
-See [Require approved client apps for cloud app access with Conditional Access](app-based-conditional-access.md) for configuration examples.
+See [Require approved client apps for cloud app access with Conditional Access](./howto-policy-approved-app-or-app-protection.md) for configuration examples.
 
 ### Require app protection policy
 
@@ -172,7 +172,7 @@ The following client apps support this setting. This list isn't exhaustive and i
 > [!NOTE]
 > Kaizala, Skype for Business, and Visio don't support the **Require app protection policy** grant. If you require these apps to work, use the **Require approved apps** grant exclusively. Using the "or" clause between the two grants will not work for these three applications.
 
-See [Require app protection policy and an approved client app for cloud app access with Conditional Access](app-protection-based-conditional-access.md) for configuration examples.
+See [Require app protection policy and an approved client app for cloud app access with Conditional Access](./howto-policy-approved-app-or-app-protection.md) for configuration examples.
 
 ### Require password change
 

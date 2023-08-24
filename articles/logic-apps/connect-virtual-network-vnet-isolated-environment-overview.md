@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 11/04/2022
+ms.date: 08/23/2023
 ---
 
 # Access to Azure virtual networks from Azure Logic Apps using an integration service environment (ISE)
@@ -15,27 +15,21 @@ ms.date: 11/04/2022
 > On August 31, 2024, the ISE resource will retire, due to its dependency on Azure Cloud Services (classic), 
 > which retires at the same time. Before the retirement date, export any logic apps from your ISE to Standard 
 > logic apps so that you can avoid service disruption. Standard logic app workflows run in single-tenant Azure 
-> Logic Apps and provide the same capabilities plus more.
->
-> Starting November 1, 2022, you can no longer create new ISE resources. However, ISE resources existing 
-> before this date are supported through August 31, 2024. For more information, see the following resources:
->
-> - [ISE Retirement - what you need to know](https://techcommunity.microsoft.com/t5/integrations-on-azure-blog/ise-retirement-what-you-need-to-know/ba-p/3645220)
-> - [Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps](single-tenant-overview-compare.md)
-> - [Azure Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/)
-> - [Export ISE workflows to a Standard logic app](export-from-ise-to-standard-logic-app.md)
-> - [Integration Services Environment will be retired on 31 August 2024 - transition to Logic Apps Standard](https://azure.microsoft.com/updates/integration-services-environment-will-be-retired-on-31-august-2024-transition-to-logic-apps-standard/)
-> - [Cloud Services (classic) deployment model is retiring on 31 August 2024](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/)
+> Logic Apps and provide the same capabilities plus more. For example Standard workflows support using private 
+> endpoints for inbound traffic so that your workflows can communicate privately and securely with virtual 
+> networks. Standard workflows also support virtual network integration for outbound traffic. For more information, 
+> review [Secure traffic between virtual networks and single-tenant Azure Logic Apps using private endpoints](secure-single-tenant-workflow-virtual-network-private-endpoint.md).
 
-Sometimes, your logic app workflows need access to protected resources, such as virtual machines (VMs) and other systems or services, that are inside or connected to an Azure virtual network. To directly access these resources from workflows that usually run in multi-tenant Azure Logic Apps, you can create and run your logic apps in an *integration service environment* (ISE) instead. An ISE is actually an instance of Azure Logic Apps that runs separately on dedicated resources, apart from the global multi-tenant Azure environment, and doesn't [store, process, or replicate data outside the region where you deploy the ISE](https://azure.microsoft.com/global-infrastructure/data-residency#select-geography).
+Since November 1, 2022, the capability to create new ISE resources is no longer available. However, ISE resources existing before this date are supported through August 31, 2024.
 
-For example, some Azure virtual networks use private endpoints ([Azure Private Link](../private-link/private-link-overview.md)) for providing access to Azure PaaS services, such as Azure Storage, Azure Cosmos DB, or Azure SQL Database, partner services, or customer services that are hosted on Azure. If your logic app workflows require access to virtual networks that use private endpoints, you have these options:
+For more information, see the following resources:
 
-* If you want to develop workflows using the **Logic App (Consumption)** resource type, and your workflows need to use private endpoints, you *must* create, deploy, and run your logic apps in an ISE. For more information, review [Connect to Azure virtual networks from Azure Logic Apps using an integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md).
-
-* If you want to develop workflows using the **Logic App (Standard)** resource type, and your workflows need to use private endpoints, you don't need an ISE. Instead, your workflows can communicate privately and securely with virtual networks by using private endpoints for inbound traffic and virtual network integration for outbound traffic. For more information, review [Secure traffic between virtual networks and single-tenant Azure Logic Apps using private endpoints](secure-single-tenant-workflow-virtual-network-private-endpoint.md).
-
-For more information, review the [differences between multi-tenant Azure Logic Apps and integration service environments](logic-apps-overview.md#resource-environment-differences).
+- [ISE Retirement - what you need to know](https://techcommunity.microsoft.com/t5/integrations-on-azure-blog/ise-retirement-what-you-need-to-know/ba-p/3645220)
+- [Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps](single-tenant-overview-compare.md)
+- [Azure Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/)
+- [Export ISE workflows to a Standard logic app](export-from-ise-to-standard-logic-app.md)
+- [Integration Services Environment will be retired on 31 August 2024 - transition to Logic Apps Standard](https://azure.microsoft.com/updates/integration-services-environment-will-be-retired-on-31-august-2024-transition-to-logic-apps-standard/)
+- [Cloud Services (classic) deployment model is retiring on 31 August 2024](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/)
 
 ## How an ISE works with a virtual network
 
@@ -45,7 +39,7 @@ When you create an ISE, you select the Azure virtual network where you want Azur
 
 For more control over the encryption keys used by Azure Storage, you can set up, use, and manage your own key by using [Azure Key Vault](../key-vault/general/overview.md). This capability is also known as "Bring Your Own Key" (BYOK), and your key is called a "customer-managed key". For more information, review [Set up customer-managed keys to encrypt data at rest for integration service environments (ISEs) in Azure Logic Apps](../logic-apps/customer-managed-keys-integration-service-environment.md).
 
-This overview provides more information about [why you'd want to use an ISE](#benefits), the [differences between the dedicated and multi-tenant Logic Apps service](#difference), and how you can directly access resources that are inside or connected your Azure virtual network.
+This overview provides more information about the [benefits to using an ISE](#benefits), the [differences between the dedicated and multi-tenant Logic Apps service](#difference), and how you can directly access resources that are inside or connected your Azure virtual network.
 
 <a name="benefits"></a>
 
@@ -155,14 +149,14 @@ When you create your ISE, you can choose to use either internal or external acce
   > * SAP (multi-tenant version)
   > 
   > Also, make sure that you have network connectivity between the private endpoints and the computer from 
-  > where you want to access the run history. Otherwise, when you try to view your logic app's run history, 
+  > where you want to access the run history. Otherwise, when you try to view your workflow's run history, 
   > you get an error that says "Unexpected error. Failed to fetch".
   >
   > ![Azure Storage action error resulting from inability to send traffic through firewall](./media/connect-virtual-network-vnet-isolated-environment-overview/integration-service-environment-error.png)
   >
   > For example, your client computer can exist inside the ISE's virtual network or inside a virtual network that's connected to the ISE's virtual network through peering or a virtual private network. 
 
-* **External**: Public endpoints permit calls to logic apps in your ISE where you can view and access inputs and outputs from logic apps' runs history *from outside your virtual network*. If you use network security groups (NSGs), make sure they're set up with inbound rules to allow access to the run history's inputs and outputs. For more information, see [Enable access for ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access).
+* **External**: Public endpoints permit calls to logic app workflows in your ISE where you can view and access inputs and outputs from logic apps' runs history *from outside your virtual network*. If you use network security groups (NSGs), make sure they're set up with inbound rules to allow access to the run history's inputs and outputs.
 
 To determine whether your ISE uses an internal or external access endpoint, on your ISE's menu, under **Settings**, select **Properties**, and find the **Access endpoint** property:
 

@@ -1,12 +1,12 @@
 ---
 title: What is Azure Virtual Network IP Services?
 description: Overview of Azure Virtual Network IP Services. Learn how IP services work and how to use IP resources in Azure.
-author: asudbring
-ms.author: allensu
+author: mbender-ms
+ms.author: mbender
+ms.date: 08/24/2023
 ms.service: virtual-network
 ms.subService: ip-services
 ms.topic: overview
-ms.date: 04/19/2023
 ms.custom: template-overview, devx-track-linux
 ---
 

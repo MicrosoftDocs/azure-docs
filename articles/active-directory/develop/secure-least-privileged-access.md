@@ -82,5 +82,5 @@ Make these standard practices in an organization to help make sure that deployed
 
 ## Next steps
 
-- [Permissions and consent in the Microsoft identity platform](../develop/v2-permissions-and-consent.md)
+- [Permissions and consent in the Microsoft identity platform](./permissions-consent-overview.md)
 - [Understanding Azure AD application consent experiences](../develop/application-consent-experience.md)

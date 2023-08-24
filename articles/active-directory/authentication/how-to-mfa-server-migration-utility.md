@@ -34,7 +34,7 @@ Take a look at our video for an overview of the MFA Server Migration Utility and
 ## Limitations and requirements
 
 - The MFA Server Migration Utility requires a new build of the MFA Server solution to be installed on your Primary MFA Server. The build makes updates to the MFA Server data file, and includes the new MFA Server Migration Utility. You don’t have to update the WebSDK or User portal. Installing the update _doesn't_ start the migration automatically.
-- The MFA Server Migration Utility copies the data from the database file onto the user objects in Azure AD. During migration, users can be targeted for Azure AD MFA for testing purposes using [Staged Rollout](../hybrid/how-to-connect-staged-rollout.md). Staged migration lets you test without making any changes to your domain federation settings. Once migrations are complete, you must finalize your migration by making changes to your domain federation settings.
+- The MFA Server Migration Utility copies the data from the database file onto the user objects in Azure AD. During migration, users can be targeted for Azure AD MFA for testing purposes using [Staged Rollout](../hybrid/connect/how-to-connect-staged-rollout.md). Staged migration lets you test without making any changes to your domain federation settings. Once migrations are complete, you must finalize your migration by making changes to your domain federation settings.
 - AD FS running Windows Server 2016 or higher is required to provide MFA authentication on any AD FS relying parties, not including Azure AD and Office 365. 
 - Review your AD FS access control policies and make sure none requires MFA to be performed on-premises as part of the authentication process.
 - Staged rollout can target a maximum of 500,000 users (10 groups containing a maximum of 50,000 users each).
@@ -153,7 +153,7 @@ Azure MFA Server can provide MFA functionality for third-party solutions that us
 
 For RADIUS deployments that can’t be upgraded, you’ll need to deploy an NPS Server and install the [Azure AD MFA NPS extension](howto-mfa-nps-extension.md). 
 
-For LDAP deployments that can’t be upgraded or moved to RADIUS, [determine if Azure Active Directory Domain Services can be used](../fundamentals/auth-ldap.md). In most cases, LDAP was deployed to support in-line password changes for end users. Once migrated, end users can manage their passwords by using [self-service password reset in Azure AD](tutorial-enable-sspr.md).
+For LDAP deployments that can’t be upgraded or moved to RADIUS, [determine if Azure Active Directory Domain Services can be used](../architecture/auth-ldap.md). In most cases, LDAP was deployed to support in-line password changes for end users. Once migrated, end users can manage their passwords by using [self-service password reset in Azure AD](tutorial-enable-sspr.md).
 
 If you enabled the [MFA Server Authentication provider in AD FS 2.0](./howto-mfaserver-adfs-windows-server.md#secure-windows-server-ad-fs-with-azure-multi-factor-authentication-server) on any relying party trusts except for the Office 365 relying party trust, you’ll need to upgrade to [AD FS 3.0](/windows-server/identity/ad-fs/deployment/upgrading-to-ad-fs-in-windows-server) or federate those relying parties directly to Azure AD if they support modern authentication methods. Determine the best plan of action for each of the dependencies.
 
@@ -479,4 +479,4 @@ Set the **Staged Rollout for Azure MFA** to **Off**. Users will once again be re
 ## Next steps
 
 - [Overview of how to migrate from MFA Server to Azure AD Multi-Factor Authentication](how-to-migrate-mfa-server-to-azure-mfa.md)
-- [Migrate to cloud authentication using Staged Rollout](../hybrid/how-to-connect-staged-rollout.md)
+- [Migrate to cloud authentication using Staged Rollout](../hybrid/connect/how-to-connect-staged-rollout.md)
