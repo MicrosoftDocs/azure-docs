@@ -202,16 +202,10 @@
       href: logic-apps-diagnosing-failures.md
   - name: Access Azure virtual networks
     items:
-    - name: Create integration service environment - Azure portal
-      href: connect-virtual-network-vnet-isolated-environment.md
-    - name: Create integration service environment - REST API
-      href: create-integration-service-environment-rest-api.md
     - name: Set up access for multiple integration service environments
       href: connect-virtual-network-vnet-set-up-single-ip-address.md
     - name: Add resources to integration service environments
       href: add-artifacts-integration-service-environment-ise.md
-    - name: Set up customer-managed encryption keys for integration service environments
-      href: customer-managed-keys-integration-service-environment.md
   - name: Access on-premises data
     items:
     - name: Install data gateway

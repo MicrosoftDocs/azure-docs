@@ -33,7 +33,7 @@ To complete the scenario in this quickstart, you need:
 
 The goal of this step is to get an impression of the sign-in experience without a Conditional Access policy.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as your test user.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as your test user.
 1. Sign out.
 
 ## Create your terms of use
@@ -42,8 +42,8 @@ This section provides you with the steps to create a sample ToU. When you create
 
 1. In Microsoft Word, create a new document.
 1. Type **My terms of use**, and then save the document on your computer as **mytou.pdf**.
-1. Sign in to the [Azure portal](https://portal.azure.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
-1. Browse to **Azure Active Directory** > **Security** > **Conditional Access** > **Terms of use**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Browse to **Protection** > **Conditional Access** > **Terms of use**.
 
 
    :::image type="content" source="media/require-tou/terms-of-use-azure-ad-conditional-access.png" alt-text="Screenshot of terms of use highlighting the new terms button." lightbox="media/require-tou/terms-of-use-azure-ad-conditional-access.png":::
