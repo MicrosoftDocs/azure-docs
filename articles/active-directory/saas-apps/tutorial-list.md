@@ -1,5 +1,5 @@
 ---
-title: SaaS App Integration Tutorials for use with Azure AD
+title: App Integration Tutorials for use with Azure AD
 description: Configure Azure Active Directory single sign-on integration with a variety of third-party software as a service applications.
 services: active-directory
 author: jeevansd
@@ -14,9 +14,9 @@ ms.custom: contperf-fy21q3-portal
 ms.reviewer: celested
 ---
 
-# Tutorials for integrating SaaS applications with Azure Active Directory
+# Tutorials for integrating applications with Azure Active Directory
 
-To help integrate your cloud-enabled [software as a service (SaaS)](https://azure.microsoft.com/overview/what-is-saas/) applications with Azure Active Directory, we have developed a collection of tutorials that walk you through configuration.
+To help integrate your cloud-enabled [software as a service (SaaS)](https://azure.microsoft.com/overview/what-is-saas/) and on-premises applications with Azure Active Directory, we have developed a collection of tutorials that walk you through configuration.
 
 For a list of all SaaS apps that have been pre-integrated into Azure AD, see the [Active Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps).
 
