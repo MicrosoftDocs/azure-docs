@@ -3,7 +3,7 @@ title: How to enter the HDInsight on AKS Flink CLI client using Secure Shell (SS
 description: How to enter the HDInsight on AKS Flink SQL & DStream CLI client using webssh on Azure portal
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 07/29/2023
+ms.date: 08/24/2023
 ---
 
 # Access CLI Client using Secure Shell (SSH) on Azure portal
@@ -17,7 +17,7 @@ This example guides how to enter the HDInsight on AKS Flink CLI client using SSH
 
 Once the Flink cluster is created, you can observe on the left pane the **Settings** option to access **Secure Shell**
 
-:::image type="content" source="./media/flink-webssh-client/create-pod-and-connect-to-webssh_contoso.png" alt-text="Screenshot showing How to create POD and connect to webssh.":::
+:::image type="content" source="./media/flink-web-ssh-on-portal-to-flink-sql/create-pod-and-connect-to-web-ssh.png" alt-text="Screenshot showing How to create POD and connect to webssh.":::
 
 ## Flink SQL 
 
@@ -25,9 +25,9 @@ Once the Flink cluster is created, you can observe on the left pane the **Settin
 
 You're required to change directory to `/opt/flink-webssh/bin` and then execute `./sql-client.sh`
 
-:::image type="content" source="./media/flink-webssh-client/sql-client-file-msdata.png" alt-text="Screenshot how to find sql client file.":::
+:::image type="content" source="./media/flink-web-ssh-on-portal-to-flink-sql/sql-client-file.png" alt-text="Screenshot how to find sql client file.":::
 
-:::image type="content" source="./media/flink-webssh-client/run-sql-client-msdata.png" alt-text="Screenshot showing how to run SQL client."::: 
+:::image type="content" source="./media/flink-web-ssh-on-portal-to-flink-sql/run-sql-client.png" alt-text="Screenshot showing how to run SQL client."::: 
 
 You're now on SQL Client on Flink
 
@@ -46,7 +46,7 @@ Submitting a job means to upload the job’s JAR to the SSH pod and initiating t
 
 - Upload the fat job jar from ABFS to webssh.
 - Based on your use case, you're required to edit client configurations at `conf/flink-conf.yaml`
-  :::image type="content" source="./media/flink-webssh-client/flink-conf-yaml.png" alt-text="Screenshot showing how to configure the Flink config yaml on CLI.":::
+  :::image type="content" source="./media/flink-web-ssh-on-portal-to-flink-sql/flink-configuration-yaml.png" alt-text="Screenshot showing how to configure the Flink config yaml on CLI.":::
 - Let us run StateMachineExample.jar
 
   ```
