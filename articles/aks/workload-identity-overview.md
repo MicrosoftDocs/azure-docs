@@ -42,7 +42,7 @@ The following table provides the **minimum** package version required for each l
 
 &dagger; In the C++ library, `WorkloadIdentityCredential` isn't part of the `DefaultAzureCredential` authentication flow.
 
-In the following code samples, `DefaultAzureCredential` is used. This credential type will use the environment variables injected by the Azure Workload Identity mutating webhook to authenticate with Azure Key Vault.
+In the following code samples, the credential type will use the environment variables injected by the Azure Workload Identity mutating webhook to authenticate with Azure Key Vault.
 
 ## [.NET](#tab/dotnet)
 
@@ -70,11 +70,18 @@ KeyVaultSecret secret = await client.GetSecretAsync(secretName);
 using namespace Azure::Identity;
 using namespace Azure::Security::KeyVault::Secrets;
 
+// * AZURE_TENANT_ID: Tenant ID for the Azure account.
+// * AZURE_CLIENT_ID: The client ID to authenticate the request.
+std::string GetTenantId() { return std::getenv("AZURE_TENANT_ID"); }
+std::string GetClientId() { return std::getenv("AZURE_CLIENT_ID"); }
+std::string GetTokenFilePath() { return std::getenv("AZURE_FEDERATED_TOKEN_FILE"); }
+
 int main()
 {
   const char* keyVaultUrl = std::getenv("KEYVAULT_URL");
   const char* secretName = std::getenv("SECRET_NAME");
-  auto credential = std::make_shared<DefaultAzureCredential>();
+  auto credential = std::make_shared<WorkloadIdentityCredential>(
+    GetTenantId(), GetClientId(), GetTokenFilePath());
 
   SecretClient client(keyVaultUrl, credential);
   Secret secret = client.GetSecret(secretName).Value;
