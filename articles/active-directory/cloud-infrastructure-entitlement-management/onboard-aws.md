@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/16/2023
+ms.date: 08/24/2023
 ms.author: jfields
 ---
 
@@ -186,7 +186,12 @@ This option detects all AWS accounts that are accessible through OIDC role acces
 
     On the **Data Collectors** dashboard, the **Recently Uploaded On** column displays **Collecting**. The **Recently Transformed On** column displays **Processing.**
 
-    You have now completed onboarding AWS, and Permissions Management has started collecting and processing your data.
+    The status column in your Permissions Management UI shows you which step of data collection you're at:  
+ 
+    - **Pending**: Permissions Management has not started detecting or onboarding yet. 
+    - **Discovering**: Permissions Management is detecting the authorization systems. 
+    - **In progress**: Permissions Management has finished detecting the authorization systems and is onboarding. 
+    - **Onboarded**: Data collection is complete, and all detected authorization systems are onboarded to Permissions Management. 
 
 ### 7. View the data
 
