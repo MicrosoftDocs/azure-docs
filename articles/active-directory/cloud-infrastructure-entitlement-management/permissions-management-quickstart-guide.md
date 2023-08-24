@@ -38,7 +38,7 @@ To enable Permissions Management, you must have a Microsoft Entra ID tenant (exa
 
 If the above points are met, continue with:
 
-1. [Enable Microsoft Entra Permissions Management in your organization](onboard-enable-tenant.md)
+[Enable Microsoft Entra Permissions Management in your organization](onboard-enable-tenant.md)
 
 Ensure you're a *Global Administrator* or *Permissions Management Administrator*. Learn more about [Permissions Management roles and permissions](product-roles-permissions.md). 
 
