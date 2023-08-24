@@ -142,11 +142,11 @@ Complete the following steps to configure groups optional claims through the app
    
    Multiple token types can be listed:
 
-   - idToken for the OIDC ID token
-   - accessToken for the OAuth access token
-   - Saml2Token for SAML tokens.
+   - `idToken` for the OIDC ID token
+   - `accessToken` for the OAuth access token
+   - `Saml2Token` for SAML tokens.
 
-   The Saml2Token type applies to both SAML1.1 and SAML2.0 format tokens.
+   The `Saml2Token` type applies to both SAML1.1 and SAML2.0 format tokens.
 
    For each relevant token type, modify the groups claim to use the `optionalClaims` section in the manifest. The `optionalClaims` schema is as follows:
 
