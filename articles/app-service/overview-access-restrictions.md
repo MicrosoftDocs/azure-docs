@@ -16,7 +16,9 @@ Access restrictions in App Service are equivalent to a firewall allowing you to 
 
 When traffic reaches App Service, it first evaluates if the traffic originates from a private endpoint or is coming through the default endpoint. If the traffic is sent through a private endpoint, it's sent directly to the site without any restrictions. Restrictions to private endpoints are configured using network security groups.
 
-If you send traffic through the default endpoint (often a public endpoint), the traffic is first evaluated at the site access level. Here you can either enable or disable access. If you enable site access, the traffic is evaluated at the app access level. For any app, you have both the main site and the advanced tools site (also known as scm or kudu site). You have the option of configuring a set of access restriction rules for each site. You can also specify the behavior if no rules are matched. The following sections go into details. 
+If you send traffic through the default endpoint (often a public endpoint), the traffic is first evaluated at the app access level. Here you can either enable or disable access. If you enable app access, the traffic is evaluated at the site access level. For any app, you have both the main site and the advanced tools site (also known as scm or kudu site).
+
+You have the option of configuring a set of access restriction rules for each site. Access restriction rules are evaluated in priority order. If some rules have the same priority, they're evaluated in the order they're listed when returned from the Azure Resource Manager API and in Azure portal before sorting. You can also specify the behavior if no rules are matched. The following sections go into details.
 
 :::image type="content" source="media/overview-access-restrictions/access-restriction-diagram.png" alt-text="Diagram of access restrictions high-level flow.":::
 
@@ -69,7 +71,8 @@ For testing or in specific scenarios, you may want to allow traffic from any ser
 
 [Azure service tags](../virtual-network/service-tags-overview.md) are well defined sets of IP addresses for Azure services. Service tags group the IP ranges used in various Azure services and is often also further scoped to specific regions. This type of rule allows you to filter *inbound* traffic from specific Azure services. 
 
-For a full list of tags and more information, visit the service tag link above.
+For a full list of tags and more information, visit the service tag link.
+
 To learn how to enable this feature, see [Configuring access restrictions](./app-service-ip-restrictions.md).
 
 ### Multi-source rules

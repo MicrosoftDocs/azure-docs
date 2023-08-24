@@ -144,12 +144,16 @@ To edit an existing alert rule:
 
         To use one of the predefined alert rule queries, expand the **Schema and filter** pane on the left of the **Logs** pane. Then select the **Queries** tab, and select one of the queries.
 
-    1. (Optional) If you're querying an ADX cluster, Log Analytics can't automatically identify the column with the event timestamp, so we recommend that you add a time range filter to the query. For example:
-        ```azurecli
+    1. (Optional) If you're querying an ADX or ARG cluster, Log Analytics can't automatically identify the column with the event timestamp, so we recommend that you add a time range filter to the query. For example:
+        ```KQL
          adx(cluster).table    
          | where MyTS >= ago(5m) and MyTS <= now()
         ```     
-
+         ```KQL
+         arg("").Resources
+         | where type =~ 'Microsoft.Compute/virtualMachines'
+         | project _ResourceId=tolower(id), tags
+        ```  
         :::image type="content" source="media/alerts-create-new-alert-rule/alerts-logs-conditions-tab.png" alt-text="Screenshot that shows the Condition tab when creating a new log alert rule.":::
 
     1. Select **Run** to run the alert.

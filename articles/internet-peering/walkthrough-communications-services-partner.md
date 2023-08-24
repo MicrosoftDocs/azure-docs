@@ -1,16 +1,16 @@
 ---
-title: Internet peering for Peering Service Voice Services walkthrough
+title: Internet peering for Peering Service Voice walkthrough
 description: Learn about Internet peering for Peering Service Voice Services, its requirements, the steps to establish direct interconnect, and how to register and activate a prefix.
 author: halkazwini
 ms.author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
-ms.date: 07/23/2023
+ms.date: 08/09/2023
 ---
 
-# Internet peering for Peering Service Voice Services walkthrough
+# Internet peering for Peering Service Voice walkthrough
 
-In this article, you learn steps to establish a Peering Service interconnect between a voice services provider and Microsoft.
+In this article, you learn how to establish a Peering Service interconnect between a voice services provider and Microsoft.
 
 **Voice Services Providers** are the organizations that offer communication services (messaging, conferencing, and other communications services.) and want to integrate their communications services infrastructure (SBC, SIP gateways, and other infrastructure device) with Azure Communication Services and Microsoft Teams. 
 
@@ -102,11 +102,9 @@ For optimized routing for voice services infrastructure prefixes, you must regis
 
 Ensure that the registered prefixes are announced over the direct interconnects established with your peering. If the same prefix is announced in multiple peering locations, you do NOT have to register the prefix in every single location. A prefix can only be registered with a single peering. When you receive the unique prefix key after validation, this key will be used for the prefix even in locations other than the location of the peering it was registered under.
 
-1. To begin registration, go to your peering in the Azure portal and select **Registered prefixes**.
+1. To begin registration, go to your peering in the Azure portal and select **Registered prefixes** under **Settings**.
 
-    :::image type="content" source="./media/walkthrough-communications-services-partner/registered-asn.png" alt-text="Screenshot shows how to go to Registered ASNs from the Peering Overview page in the Azure portal.":::
-
-1. Select **Add registered prefix**.
+1. In **Registered prefixes**, select **+ Add registered prefix**.
 
     :::image type="content" source="./media/walkthrough-communications-services-partner/add-registered-prefix.png" alt-text="Screenshot of Registered prefix page in the Azure portal.":::
 

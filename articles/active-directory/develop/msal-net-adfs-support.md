@@ -58,4 +58,4 @@ Currently, there are no plans to support a direct connection to:
 
 ## Next steps
 
-For the federated case, see [Configure Azure Active Directory sign in behavior for an application by using a Home Realm Discovery policy](../manage-apps/configure-authentication-for-federated-users-portal.md)
+For the federated case, see [Configure Azure Active Directory sign-in behavior for an application by using a Home Realm Discovery policy](../manage-apps/configure-authentication-for-federated-users-portal.md)

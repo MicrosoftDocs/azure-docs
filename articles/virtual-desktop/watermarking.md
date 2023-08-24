@@ -28,6 +28,7 @@ You'll need the following things before you can use watermarking:
 - A Remote Desktop client that supports watermarking. The following clients currently support watermarking:
 
   - [Windows Desktop client](users/connect-windows.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json), version 1.2.3317 or later, on Windows 10 and later.
+  - [Web client](users/connect-web.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json).
 
 - [Azure Virtual Desktop Insights](azure-monitor.md) configured for your environment.
 

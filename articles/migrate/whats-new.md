@@ -99,7 +99,7 @@ Learn more on how to perform [software inventory](how-to-discover-applications.m
 
 ## Update (February 2022)
 - General Availability: Migrate Windows and Linux Hyper-V virtual machines with large data disks (up to 32 TB in size).
-- Azure Migrate is now supported in Azure China. [Learn more](/azure/china/overview-operations#azure-operations-in-china).
+- Azure Migrate is now supported in Microsoft Azure operated by 21Vianet. [Learn more](/azure/china/overview-operations#azure-operations-in-china).
 - Public preview of at-scale, software inventory, and agentless dependency analysis for Hyper-V virtual machines and bare metal servers or servers running on other clouds like AWS, GCP etc.
 
 

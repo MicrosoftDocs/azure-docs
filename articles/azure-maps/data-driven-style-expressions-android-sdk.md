@@ -17,22 +17,22 @@ Expressions enable you to apply business logic to styling options that observe t
 
 Data-driven styles reduce the amount of code needed to implement business logic around styling. When used with layers, expressions are evaluated at render time on a separate thread. This functionality provides increased performance compared to evaluating business logic on the UI thread.
 
-The Azure Maps Android SDK supports nearly all the same style expressions as the Azure Maps Web SDK, so all the same concepts outlined in the [Data-driven Style Expressions (Web SDK)](data-driven-style-expressions-web-sdk.md) can be carried over into an Android app. All style expressions in the Azure Maps Android SDK are available under the `com.microsoft.azure.maps.mapcontrol.options.Expression` namespace. There are many different types of style expressions.
+The Azure Maps Android SDK supports nearly all the same style expressions as the Azure Maps Web SDK, so all the same concepts outlined in the [Data-driven Style Expressions (Web SDK)] can be carried over into an Android app. All style expressions in the Azure Maps Android SDK are available under the `com.microsoft.azure.maps.mapcontrol.options.Expression` namespace. There are many different types of style expressions.
 
 | Type of expressions | Description |
 |---------------------|-------------|
-| [Boolean expressions](#boolean-expressions) | Boolean expressions provide a set of boolean operators expressions for evaluating boolean comparisons. |
-| [Color expressions](#color-expressions) | Color expressions make it easier to create and manipulate color values. |
-| [Conditional expressions](#conditional-expressions) | Conditional expressions provide logic operations that are like if-statements. |
-| [Data expressions](#data-expressions) | Provides access to the property data in a feature. |
-| [Interpolate and Step expressions](#interpolate-and-step-expressions) | Interpolate and step expressions can be used to calculate values along an interpolated curve or step function. |
-| [JSON-based expressions](#json-based-expressions) | Makes it easy to reuse style raw JSON-based expressions created for the Web SDK with the Android SDK. |  
-| [Layer specific expressions](#layer-specific-expressions) | Special expressions that are only applicable to a single layer. |
-| [Math expressions](#math-expressions) | Provides mathematical operators to perform data-driven calculations within the expression framework. |
-| [String operator expressions](#string-operator-expressions) | String operator expressions perform conversion operations on strings such as concatenating and converting the case. |
-| [Type expressions](#type-expressions) | Type expressions provide tools for testing and converting different data types like strings, numbers, and boolean values. |
-| [Variable binding expressions](#variable-binding-expressions) | Variable binding expressions store the results of a calculation in a variable and referenced elsewhere in an expression multiple times without having to recalculate the stored value. |
-| [Zoom expression](#zoom-expression) | Retrieves the current zoom level of the map at render time. |
+| [Boolean expressions] | Boolean expressions provide a set of boolean operators expressions for evaluating boolean comparisons. |
+| [Color expressions] | Color expressions make it easier to create and manipulate color values. |
+| [Conditional expressions] | Conditional expressions provide logic operations that are like if-statements. |
+| [Data expressions] | Provides access to the property data in a feature. |
+| [Interpolate and Step expressions] | Interpolate and step expressions can be used to calculate values along an interpolated curve or step function. |
+| [JSON-based expressions] | Makes it easy to reuse style raw JSON-based expressions created for the Web SDK with the Android SDK. |  
+| [Layer specific expressions] | Special expressions that are only applicable to a single layer. |
+| [Math expressions] | Provides mathematical operators to perform data-driven calculations within the expression framework. |
+| [String operator expressions] | String operator expressions perform conversion operations on strings such as concatenating and converting the case. |
+| [Type expressions] | Type expressions provide tools for testing and converting different data types like strings, numbers, and boolean values. |
+| [Variable binding expressions] | Variable binding expressions store the results of a calculation in a variable and referenced elsewhere in an expression multiple times without having to recalculate the stored value. |
+| [Zoom expression] | Retrieves the current zoom level of the map at render time. |
 
 > [!NOTE]
 > The syntax for expressions is largely identical in Java and Kotlin. If you have the documentation set to Kotlin, but see code blocks for Java, the code is identical in both languages.
@@ -873,7 +873,7 @@ There are three types of interpolation methods that can be used in an `interpola
 |------|-------------|
 | `linear()` | Interpolates linearly between the pair of stops.  |
 | `exponential(number)` \| `exponential(Expression)` | Interpolates exponentially between the stops. A "base" is specified and controls the rate at which the output increases. Higher values make the output increase more towards the high end of the range. A "base" value close to 1 produces an output that increases more linearly.|
-| `cubicBezier(number x1, number y1, number x2, number y2)` \| `cubicBezier(Expression x1, Expression y1, Expression x2, Expression y2)` | Interpolates using a [cubic Bezier curve](https://developer.mozilla.org/docs/Web/CSS/timing-function) defined by the given control points. |
+| `cubicBezier(number x1, number y1, number x2, number y2)` \| `cubicBezier(Expression x1, Expression y1, Expression x2, Expression y2)` | Interpolates using a [cubic Bezier curve] defined by the given control points. |
 
 The `stop` expression has the format `stop(stop, value)`.
 
@@ -931,7 +931,7 @@ The following image demonstrates how the colors are chosen for the above express
 
 ### Step expression
 
-A `step` expression can be used to calculate discrete, stepped result values by evaluating a [piecewise-constant function](https://mathworld.wolfram.com/PiecewiseConstantFunction.html) defined by stops.
+A `step` expression can be used to calculate discrete, stepped result values by evaluating a [piecewise-constant function] defined by stops.
 
 The `interpolate` expression has the following formats:
 
@@ -1094,7 +1094,7 @@ val layer = HeatMapLayer(source,
 
 ::: zone-end
 
-For more information, see the [Add a heat map layer](map-add-heat-map-layer-android.md) documentation.
+For more information, see the [Add a heat map layer] documentation.
 
 ### Line progress expression
 
@@ -1149,7 +1149,7 @@ val layer = LineLayer(source,
 
 ::: zone-end
 
-[See live example](map-add-line-layer.md#line-stroke-gradient)
+[See live example]
 
 ### Text field format expression
 
@@ -1349,16 +1349,39 @@ val layer = BubbleLayer(source,
 Learn more about the layers that support expressions:
 
 > [!div class="nextstepaction"]
-> [Add a symbol layer](how-to-add-symbol-to-android-map.md)
+> [Add a symbol layer]
 
 > [!div class="nextstepaction"]
-> [Add a bubble layer](map-add-bubble-layer-android.md)
+> [Add a bubble layer]
 
 > [!div class="nextstepaction"]
-> [Add a line layer](android-map-add-line-layer.md)
+> [Add a line layer]
 
 > [!div class="nextstepaction"]
-> [Add a polygon layer](how-to-add-shapes-to-android-map.md)
+> [Add a polygon layer]
 
 > [!div class="nextstepaction"]
-> [Add a heat map](map-add-heat-map-layer-android.md)
+> [Add a heat map]
+
+[Add a bubble layer]: map-add-bubble-layer-android.md
+[Add a heat map layer]: map-add-heat-map-layer-android.md
+[Add a heat map]: map-add-heat-map-layer-android.md
+[Add a line layer]: android-map-add-line-layer.md
+[Add a polygon layer]: how-to-add-shapes-to-android-map.md
+[Add a symbol layer]: how-to-add-symbol-to-android-map.md
+[Boolean expressions]: #boolean-expressions
+[Color expressions]: #color-expressions
+[Conditional expressions]: #conditional-expressions
+[cubic Bezier curve]: https://developer.mozilla.org/docs/Web/CSS/timing-function
+[Data expressions]: #data-expressions
+[Data-driven Style Expressions (Web SDK)]: data-driven-style-expressions-web-sdk.md
+[Interpolate and Step expressions]: #interpolate-and-step-expressions
+[JSON-based expressions]: #json-based-expressions
+[Layer specific expressions]: #layer-specific-expressions
+[Math expressions]: #math-expressions
+[piecewise-constant function]: https://mathworld.wolfram.com/PiecewiseConstantFunction.html
+[See live example]: map-add-line-layer.md#line-stroke-gradient
+[String operator expressions]: #string-operator-expressions
+[Type expressions]: #type-expressions
+[Variable binding expressions]: #variable-binding-expressions
+[Zoom expression]: #zoom-expression

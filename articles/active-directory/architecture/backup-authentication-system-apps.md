@@ -62,7 +62,7 @@ The backup authentication system doesn't currently support the [authorization co
 
 ##### Web applications & services 
 
-The backup authentication system doesn't currently support web applications and services that are configured as confidential clients. Protection for the [authorization code grant flow](../develop/v2-oauth2-auth-code-flow.md) and subsequent token acquisition using refresh tokens and client secrets or [certificate credentials](../develop/active-directory-certificate-credentials.md) isn't currently supported. The OAuth 2.0 [on-behalf-of flow](../develop/v2-oauth2-on-behalf-of-flow.md) isn't currently supported.  
+The backup authentication system doesn't currently support web applications and services that are configured as confidential clients. Protection for the [authorization code grant flow](../develop/v2-oauth2-auth-code-flow.md) and subsequent token acquisition using refresh tokens and client secrets or [certificate credentials](../develop/certificate-credentials.md) isn't currently supported. The OAuth 2.0 [on-behalf-of flow](../develop/v2-oauth2-on-behalf-of-flow.md) isn't currently supported.  
 
 #### SAML 2.0 single sign-on (SSO) 
 
