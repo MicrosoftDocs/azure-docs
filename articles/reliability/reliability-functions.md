@@ -6,13 +6,13 @@ ms.author: anaharris
 ms.topic: conceptual
 ms.service: azure-functions
 ms.custom: references_regions, subject-reliability
-ms.date: 10/07/2022
+ms.date: 08/24/2023
 #Customer intent: I want to understand reliability support in Azure Functions so that I can respond to and/or avoid failures in order to minimize downtime and data loss.
 ---
 
 # Reliability in Azure Functions
 
-This article describes reliability support in Azure Functions and covers both intra-regional resiliency with [availability zones](#availability-zone-support) and links to information on [cross-region resiliency with disaster recovery](#disaster-recovery-cross-region-failover). For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
+This article describes reliability support in [Azure Functions](../azure-functions/overview.md), and covers both intra-regional resiliency with [availability zones](#availability-zone-support) and [disaster recovery and business continuity](#disaster-recovery-and-business-continuity). For a more detailed overview of reliability principles in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
 
 Availability zone support for Azure Functions is available on both Premium (Elastic Premium) and Dedicated (App Service) plans.  This article focuses on zone redundancy support for Premium plans. For zone redundancy on Dedicated plans, see [Migrate App Service to availability zone support](migrate-app-service.md).
 
@@ -152,36 +152,41 @@ Applications that are deployed in an availability zone enabled Premium plan cont
 
 When Functions allocates instances to a zone redundant Premium plan, it uses best effort zone balancing offered by the underlying Azure Virtual Machine Scale Sets. A Premium plan is considered balanced when each zone has either the same number of VMs (± 1 VM) in all of the other zones used by the Premium plan.
 
-## Disaster recovery: cross region failover
+## Disaster recovery and business continuity
 
-When an entire Azure region, viz. all of the component availability zones experience downtime, your mission-critical code needs to continue processing in a different region. This article explains some of the strategies that you can use to deploy functions to allow for disaster recovery.
+When an entire Azure region, including all availability zones within that region, experience downtime, your mission-critical code needs to continue processing in a different region. This section explains some of the strategies that you can use to deploy functions to allow for disaster recovery.
 
-### Basic concepts
+### Multi-region disaster recovery
 
-Functions run in a function app in a specific Azure region. There's no built-in redundancy available. To avoid loss of execution during outages, you can redundantly deploy the same functions to function apps in multiple regions.  
+Because there is no built-in redundancy available, Functions run in a function app in a specific Azure region. To avoid loss of execution during outages, you can redundantly deploy the same functions to function apps in multiple regions.  
 
 When you run the same function code in multiple regions, there are two patterns to consider:
 
 | Pattern | Description |
 | --- | --- |
-|**Active/active** | Functions in both regions are actively running and processing events, either in a duplicate manner or in rotation. We recommend using an active/active pattern in combination with [Azure Front Door](../frontdoor/front-door-overview.md) for your critical HTTP triggered functions. |
-|**Active/passive** | Functions run actively in region receiving events, while the same functions in a second region remain idle.  When failover is required, the second region is activated and takes over processing. We recommend this pattern for your event-driven, non-HTTP triggered functions, such as Service Bus and Event Hubs triggered functions.
+|[Active-active](#active-active) | Functions in both regions are actively running and processing events, either in a duplicate manner or in rotation. We recommend using an active/active pattern in combination with [Azure Front Door](../frontdoor/front-door-overview.md) for your critical HTTP triggered functions. |
+|[Active-passive](#active-passive) | Functions run actively in the region that's receiving events; while the same functions in a second region remain idle.  When failover is required, the second region is activated and takes over processing. We recommend this pattern for your event-driven, non-HTTP triggered functions, such as Service Bus and Event Hubs triggered functions.
 
 To learn more about multi-region deployments, see the guidance in [Highly available multi-region web application](/azure/architecture/reference-architectures/app-service-web-app/multi-region).
 
-### Redundancy for HTTP trigger functions
+### Active-active
 
-The active/active pattern is the best deployment model for HTTP trigger functions. In this case, you need to use [Azure Front Door](../frontdoor/front-door-overview.md) to coordinate requests between both regions. Azure Front Door can route and round-robin HTTP requests between functions running in multiple regions. It also periodically checks the health of each endpoint. When a function in one region stops responding to health checks, Azure Front Door takes it out of rotation, and only forwards traffic to the remaining healthy functions.  
+#### HTTP trigger functions
 
-![Architecture for Azure Front Door and Function](media/functions-geo-dr/front-door.png)  
+The active-active pattern is the best deployment model for HTTP trigger functions. For this pattern, use [Azure Front Door](../frontdoor/front-door-overview.md) to coordinate requests between both regions. Azure Front Door can route and round-robin HTTP requests between functions running in multiple regions. Front door can also periodically checks the health of each endpoint. When a function in one region stops responding to health checks, Azure Front Door takes it out of rotation, and only forwards traffic to the remaining healthy functions.  
 
-### Redundancy for non-HTTP trigger functions
+![Architecture for Azure Front Door and Function](../azure-functions/media/functions-geo-dr/front-door.png)  
 
-Redundancy for functions that consume events from other services requires a different pattern, which works with the failover pattern of the related services. 
+#### non-HTTP trigger functions
 
-#### Active/passive redundancy for non-HTTP trigger functions
+You can achieve active-active deployments for non-HTTP triggered functions. However, you need to consider how the two active regions interact or coordinate with one another. When you deploy the same function app to two regions with each triggering on the same Service Bus queue, they would act as competing consumers on de-queueing that queue. While this means each message is only being processed by either one of the instances, it also means there's still a single point of failure on the single Service Bus instance. 
 
-Active/passive provides a way for only a single function to process each message while providing a mechanism to fail over to a secondary region in a disaster. Function apps work with the failover behaviors of the partner services, such as [Azure Service Bus geo-recovery](../service-bus-messaging/service-bus-geo-dr.md) and [Azure Event Hubs geo-recovery](../event-hubs/event-hubs-geo-dr.md). The secondary function app is considered _passive_ because the failover service to which it's connected isn't currently active, so the function app remains _idle_.
+You could instead deploy two Service Bus queues, with one in a primary region, one in a secondary region. In this case, you could have two function apps, with each pointed to the Service Bus queue active in their region. The challenge with this topology is how the queue messages are distributed between the two regions.  Often, this means that each publisher attempts to publish a message to *both* regions, and each message is processed by both active function apps. While this creates the desired active/active pattern, it also creates other challenges around duplication of compute and when or how data is consolidated. Because of these challenges, we recommend using the [active-passive pattern](#active-passive) for non-HTTPS trigger functions.
+
+
+#### Active-passive
+
+To create redundancy for non-HTTP trigger functions, use an active-passive pattern. The active-passive pattern provides a way for only a single function to process each message while providing a mechanism to fail over to a secondary region in a disaster. Function apps work with the failover behaviors of the partner services, such as [Azure Service Bus geo-recovery](../service-bus-messaging/service-bus-geo-dr.md) and [Azure Event Hubs geo-recovery](../event-hubs/event-hubs-geo-dr.md). The secondary function app is considered _passive_ because the failover service to which it's connected isn't currently active, so the function app remains _idle_.
 
 Consider an example topology using an Azure Event Hubs trigger. In this case, the active/passive pattern requires involve the following components:
 
@@ -191,17 +196,12 @@ Consider an example topology using an Azure Event Hubs trigger. In this case, th
 * Function app triggers on the *direct* (non-alias) connection string for its respective event hub. 
 * Publishers to the event hub should publish to the alias connection string. 
 
-![Active-passive example architecture](media/functions-geo-dr/active-passive.png)
+![Active-passive example architecture](../azure-functions/media/functions-geo-dr/active-passive.png)
 
 Before failover, publishers sending to the shared alias route to the primary event hub. The primary function app is listening exclusively to the primary event hub. The secondary function app is passive and idle. As soon as failover is initiated, publishers sending to the shared alias are routed to the secondary event hub. The secondary function app now becomes active and starts triggering automatically.  Effective failover to a secondary region can be driven entirely from the event hub, with the functions becoming active only when the respective event hub is active.
 
 Read more on information and considerations for failover with [Service Bus](../service-bus-messaging/service-bus-geo-dr.md) and [Event Hubs](../event-hubs/event-hubs-geo-dr.md).
 
-#### Active/active redundancy for non-HTTP trigger functions
-
-You can still achieve active/active deployments for non-HTTP triggered functions. However, you need to consider how the two active regions interact or coordinate with one another. When you deploy the same function app to two regions with each triggering on the same Service Bus queue, they would act as competing consumers on de-queueing that queue. While this means each message is only being processed by either one of the instances, it also means there's still a single point of failure on the single Service Bus instance. 
-
-You could instead deploy two Service Bus queues, with one in a primary region, one in a secondary region. In this case, you could have two function apps, with each pointed to the Service Bus queue active in their region. The challenge with this topology is how the queue messages are distributed between the two regions.  Often, this means that each publisher attempts to publish a message to *both* regions, and each message is processed by both active function apps. While this creates the desired active/active pattern, it also creates other challenges around duplication of compute and when or how data is consolidated. Because of these challenges, we recommend using the active/passive pattern for non-HTTPS trigger functions.
 
 ## Next steps
 

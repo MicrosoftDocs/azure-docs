@@ -257,7 +257,7 @@ Normally, maintaining an SLA around RTO is impractical for regional disasters, a
 
 Depending on your desired RTO and RPO metrics, three disaster recovery architectures are commonly used for both App Service multitenant and App Service Environments.  Each architecture is described in the following table:
  
-|.| [Active-Active regions](#active-active-architecture) | [Active-Passive regions](#active-passive-architecture) | [Passive/Cold region](#passive-cold-architecture)|
+|.| [Active-Active](#active-active-architecture) | [Active-Passive](#active-passive-architecture) | [Passive/Cold](#passive-cold-architecture)|
 |-|-|-|-|
 |RTO| Real-time or seconds| Minutes| Hours |
 |RPO| Real-time or seconds| Minutes| Hours |
@@ -419,7 +419,7 @@ Steps to create a passive-cold region for your web app in App Service are summar
 
 If your web app's region doesn't have GZRS or GRS storage or if you are in an  [Azure region that isn't one of a regional pair](cross-region-replication-azure.md#regions-with-availability-zones-and-no-region-pair), you'll need to utilize zone-redundant storage (ZRS) or locally redundant storage (LRS) to create a similar architecture. For example, you can manually create a secondary region for the storage account as follows:
 
-:::image type="content" source="../app-service/media/overview-disaster-recovery/alternative-no-grs-no-gzrs.png" alt-text="Diagram that shows how to create a passive or cold region without GRS or GZRS." lightbox="media/overview-disaster-recovery/alternative-no-grs-no-gzrs.png":::
+:::image type="content" source="../app-service/media/overview-disaster-recovery/alternative-no-grs-no-gzrs.png" alt-text="Diagram that shows how to create a passive or cold region without GRS or GZRS." lightbox="../app-service/media/overview-disaster-recovery/alternative-no-grs-no-gzrs.png":::
 
 Steps to create a passive-cold region without GRS and GZRS are summarized as follows: 
 
