@@ -34,9 +34,8 @@ You can customize the role claim in the access token that is received after an a
 
 Use the following steps to locate the enterprise application:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. In the left pane, select **Azure Active Directory**.
-1. Select **Enterprise applications**, and then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**.
 1. Enter the name of the existing application in the search box, and then select the application from the search results.
 1. After the application is selected, copy the object ID from the overview pane.
 
