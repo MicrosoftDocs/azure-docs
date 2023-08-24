@@ -29,9 +29,8 @@ In this quickstart, you'll learn how to create a tenant with customer configurat
 
 ## Create a new tenant with customer configurations 
 
-1. Sign in to your organization's [Microsoft Entra admin center](https://entra.microsoft.com/).
-1. From the left menu, select **Azure Active Directory** > **Overview**.
-1. Select **Manage tenants** at the top of the page.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com). 
+1. Browse to **Identity** > **Overview** > **Manage tenants**.
 1. Select **Create**.
 
     :::image type="content" source="media/how-to-create-customer-tenant-portal/create-tenant.png" alt-text="Screenshot of the create tenant option.":::
@@ -74,9 +73,9 @@ In this quickstart, you'll learn how to create a tenant with customer configurat
 
 If you're not going to continue to use this tenant, you can delete it using the following steps:
 
-1. Ensure that you're signed in to the directory that you want to delete through the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the Azure portal. Switch to the target directory if needed.
-1. From the left menu, select **Azure Active Directory** > **Overview**.
-1. Select **Manage tenants** at the top of the page.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com). 
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to your customer tenant. 
+1. Browse to **Identity** > **Overview** > **Manage tenants**.
 1. Select the tenant you want to delete, and then select **Delete**.
 
     :::image type="content" source="media/how-to-create-customer-tenant-portal/delete-tenant.png" alt-text="Screenshot that shows how to delete the tenant.":::

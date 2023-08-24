@@ -67,7 +67,7 @@ Applying locks can lead to unexpected results. Some operations, which don't seem
 
   For example, if a request uses [File Shares - Delete](/rest/api/storagerp/file-shares/delete), which is a control plane operation, the deletion fails. If the request uses [Delete Share](/rest/api/storageservices/delete-share), which is a data plane operation, the deletion succeeds. We recommend that you use a control plane operation.
   
-- A read-only lock on a **network security group (NSG)** prevents the creation of a traffic flow log for the NSG. A cannot-delete lock on the NSG doesn't prevent the creation of this log.
+- A read-only lock on a **network security group (NSG)** prevents the creation of the corresponding NSG flow log. A cannot-delete lock on a **network security group (NSG)** doesn't prevent the creation or modification of the corresponding NSG flow log.
 
 - A read-only lock on an **App Service** resource prevents Visual Studio Server Explorer from displaying files for the resource because that interaction requires write access.
 
