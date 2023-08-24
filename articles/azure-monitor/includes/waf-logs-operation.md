@@ -3,13 +3,14 @@ author: bwren
 ms.author: bwren
 ms.service: azure-monitor
 ms.topic: include
-ms.date: 03/30/2023
+ms.date: 08/24/2023
 ---
 
 ### Design checklist
 
 > [!div class="checklist"]
 > - Design a workspace architecture with the minimal number of workspaces to meet your business requirements.
+> - Define your workspaces in code when managing multiple workspaces.
 > - Use Log Analytics workspace insights to track the health and performance of your Log Analytics workspaces.
 > - Create alert rules to be proactively notified of operational issues in the workspace.
 
