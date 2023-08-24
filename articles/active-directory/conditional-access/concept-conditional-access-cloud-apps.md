@@ -157,7 +157,7 @@ When a Conditional Access policy targets the Microsoft Admin Portals cloud app, 
 Other Microsoft admin portals will be added over time.
 
 > [!IMPORTANT]
-> Microsoft Admin Poratls (preview) is not currently supported in Government clouds.
+> Microsoft Admin Portals (preview) is not currently supported in Government clouds.
 
 > [!NOTE]
 > The Microsoft Admin Portals app applies to interactive sign-ins to the listed admin portals only. Sign-ins to the underlying resources or services like Microsoft Graph or Azure Resource Manager APIs are not covered by this application. Those resources are protected by the [Microsoft Azure Management](#microsoft-azure-management) app. This enables customers to move along the MFA adoption journey for admins without impacting automation that relies on APIs and PowerShell. When you are ready, Microsoft recommends using a [policy requiring administrators perform MFA always](howto-conditional-access-policy-admin-mfa.md) for comprehensive protection.
