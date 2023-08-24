@@ -55,7 +55,8 @@ Default setting is 60,000 milliseconds (1 min), this value can be changed as des
 ## State Backend
 
 The state backend determines how Flink manages and persists the state of your application. It impacts how checkpoints are stored. You can configure the `state backend using the following property:
-state.backend: <value>`
+
+`state.backend: <value>`
 
 By default HDInsight on AKS Flink uses rocks db
 
