@@ -45,7 +45,7 @@ To enable and configure Microsoft Defender for Storage and ensure maximum protec
 
 - [Override subscription-level settings to configure specific storage accounts](advanced-configurations-for-malware-scanning.md#override-defender-for-storage-subscription-level-settings) with custom configurations that differ from the settings configured at the subscription level.
 
-There are several ways to enable and configure Defender for Storage: [Azure built-in policy](defender-for-storage-policy-enablement.md) (recommended method), programmatically using Infrastructure as Code templates, including [Bicep](defender-for-storage-infrastructure-as-code-enablement.md?tabs=enable-subscription#bicep-template) and [ARM template](defender-for-storage-infrastructure-as-code-enablement.md?tabs=enable-subscription#azure-resource-manager-template), using the [Azure portal](defender-for-storage-azure-portal-enablement.md?tabs=enable-subscription), or directly with [REST API](defender-for-storage-rest-api-enablement.md?tabs=enable-subscription).
+There are several ways to enable and configure Defender for Storage: using the [Azure built-in policy](defender-for-storage-policy-enablement.md) (the recommended method), programmatically using Infrastructure as Code templates, including [Terraform](defender-for-storage-infrastructure-as-code-enablement.md?tabs=enable-subscription#terraform-template), [Bicep](defender-for-storage-infrastructure-as-code-enablement.md?tabs=enable-subscription#bicep-template), and [ARM](defender-for-storage-infrastructure-as-code-enablement.md?tabs=enable-subscription#azure-resource-manager-template) templates, using the [Azure portal](defender-for-storage-azure-portal-enablement.md?tabs=enable-subscription), or directly with the [REST API](defender-for-storage-rest-api-enablement.md?tabs=enable-subscription).
 
 Enabling Defender for Storage via a policy is recommended because it facilitates enablement at scale and ensures that a consistent security policy is applied across all existing and future storage accounts within the defined scope (such as entire management groups). This keeps the storage accounts protected with Defender for Storage according to the organization's defined configuration.
 
@@ -55,3 +55,4 @@ Enabling Defender for Storage via a policy is recommended because it facilitates
 ## Next steps
 
 - Learn how to [enable and Configure the Defender for Storage plan at scale with an Azure built-in policy](defender-for-storage-policy-enablement.md).
+

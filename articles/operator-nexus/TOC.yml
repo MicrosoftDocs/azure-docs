@@ -107,6 +107,13 @@
           href: howto-cluster-metrics-configuration-management.md
         - name: Tracking asynchronous operations
           href: howto-track-async-operations-cli.md
+    - name: Security
+      expanded: false
+      items:
+        - name: Set up Defender for Cloud security
+          href: howto-set-up-defender-for-cloud-security.md
+        - name: Use Azure Policy for AKS Clusters
+          href: howto-use-azure-policy-for-aks-cluster-security.md
     - name: Install CLI Extension
       href: howto-install-cli-extensions.md
 - name: Troubleshooting
