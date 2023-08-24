@@ -113,7 +113,7 @@ To view status of onboarding after saving the configuration:
 
 ### 2. Review and save.
 
-- In **Permissions Management Onboarding – Summary** page, review the information you've added, and then select **Verify Now & Save**.
+1. In **Permissions Management Onboarding – Summary** page, review the information you've added, and then select **Verify Now & Save**.
 
     The following message appears: **Successfully Created Configuration.**
 
@@ -128,7 +128,7 @@ To view status of onboarding after saving the configuration:
 
 ### 3. View the data.
 
-- To view the data, select the **Authorization Systems** tab.
+1. To view the data, select the **Authorization Systems** tab.
 
     The **Status** column in the table displays **Collecting Data.**
 

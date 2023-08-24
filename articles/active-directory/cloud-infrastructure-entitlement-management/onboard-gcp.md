@@ -116,7 +116,7 @@ The required commands to run in Google Cloud Shell are listed in the Manage Auth
 
 ### 3. Review and save.
 
-- In the **Permissions Management Onboarding – Summary** page, review the information you've added, and then select **Verify Now & Save**.
+1. In the **Permissions Management Onboarding – Summary** page, review the information you've added, and then select **Verify Now & Save**.
 
     The following message appears: **Successfully Created Configuration**.
 
@@ -131,7 +131,7 @@ The required commands to run in Google Cloud Shell are listed in the Manage Auth
 
 ### 4. View the data.
 
-- To view the data, select the **Authorization Systems** tab.
+1. To view the data, select the **Authorization Systems** tab.
 
     The **Status** column in the table displays **Collecting Data.**
 
