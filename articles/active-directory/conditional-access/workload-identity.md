@@ -43,7 +43,7 @@ Conditional Access for workload identities enables blocking service principals f
 Create a location based Conditional Access policy that applies to service principals.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
-1. Browse to **Microsoft Entra ID (Azure AD)** > **Protection** > **Conditional Access**.
+1. Browse to **Protection** > **Conditional Access**.
 1. Select **Create new policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
 1. Under **Assignments**, select **Users or workload identities**.
@@ -62,7 +62,7 @@ Create a risk-based Conditional Access policy that applies to service principals
 :::image type="content" source="media/workload-identity/conditional-access-workload-identity-risk-policy.png" alt-text="Creating a Conditional Access policy with a workload identity and risk as a condition." lightbox="media/workload-identity/conditional-access-workload-identity-risk-policy.png":::
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
-1. Browse to **Microsoft Entra ID (Azure AD)** > **Protection** > **Conditional Access**.
+1. Browse to **Protection** > **Conditional Access**.
 1. Select **Create new policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
 1. Under **Assignments**, select **Users or workload identities**.
