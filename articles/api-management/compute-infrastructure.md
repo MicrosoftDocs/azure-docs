@@ -27,7 +27,7 @@ The following table summarizes the compute platforms currently used for instance
 | `stv1` |  Single-tenant v1 | Azure-allocated compute infrastructure |  Developer, Basic, Standard, Premium |
 | `mtv1` | Multi-tenant v1 |  Shared infrastructure that supports native autoscaling and scaling down to zero in times of no traffic |  Consumption |
 
-<sup>1</sup> `stv2.1` infrastructure provides higher performing CPU, increased RAM, and greater API Management capacity. Instances hosted on `stv2` platform may migrate automatically to `stv2.1` based on regional infrastructure availability. Customers cannot initiate migration from `stv2` to `stv2.1`.
+<sup>1</sup> `stv2.1` infrastructure provides higher performing CPU, increased RAM, and greater API Management capacity. Instances hosted on `stv2` platform may migrate automatically to `stv2.1` based on regional infrastructure availability. Customers cannot initiate migration from `stv2` to `stv2.1`.<br/>
 <sup>2</sup> Newly created instances in these tiers and some existing instances in Developer and Premium tiers configured with virtual networks or availability zones.
 
 > [!NOTE]
