@@ -2,7 +2,7 @@
 ms.service: resource-graph
 ms.topic: include
 ms.date: 08/24/2023
-author: danielkim
+author: danielkim916
 ms.author: danielkim
 ---
 
