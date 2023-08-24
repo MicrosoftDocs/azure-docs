@@ -397,7 +397,7 @@ For example, given `http.url = http://example.com/path?queryParam1=value1,queryP
 
 ### Mask
 
-For example, given `http.url = https://example.com/user/12345622` is updated to `http.url = https://example.com/user/****` based on the below configuration.
+For example, given `http.url = https://example.com/user/12345622` is updated to `http.url = https://example.com/user/****` using either of the below configurations.
 
 
 First configuration example:
