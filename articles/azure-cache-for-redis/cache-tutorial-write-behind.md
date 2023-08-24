@@ -50,7 +50,7 @@ This example uses the portal:
 
 1. Select **Use SQL authentication** and enter an admin sign-in and password. Be sure to remember these credentials or write them down. When you're deploying a server in production, use Azure Active Directory (Azure AD) authentication instead.
 
-   :::image type="content" source="media/cache-tutorial-write-behind/cache-sql-authentication.png" alt-text="Screenshot of the authentication information for a Azure SQL resource.":::
+   :::image type="content" source="media/cache-tutorial-write-behind/cache-sql-authentication.png" alt-text="Screenshot of the authentication information for an Azure SQL resource.":::
 
 1. Go to the **Networking** tab and choose **Public endpoint** as a connection method. Select **Yes** for both firewall rules that appear. This endpoint allows access from your Azure function app.
 
@@ -70,7 +70,7 @@ This example uses the portal:
        );
    ```
 
-    :::image type="content" source="media/cache-tutorial-write-behind/cache-sql-query-table.png" alt-text="Screenshot showing the creation of a table in Query Editor of a Azure SQL resource.":::
+    :::image type="content" source="media/cache-tutorial-write-behind/cache-sql-query-table.png" alt-text="Screenshot showing the creation of a table in Query Editor of an Azure SQL resource.":::
 
 1. After the command finishes running, expand the _Tables_ folder and verify that the new table was created.
 
