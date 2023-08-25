@@ -105,11 +105,61 @@ United States | Central US </br> East US </br> East US 2</br> North Central US <
 >
 > For the above limitations, we recommend that you use [Automation update management](../automation/update-management/overview.md) till the support is available in Update Manager (preview).
 
-**Marketplace/PIR images**
+### Marketplace/PIR images
 
-Currently, we support a combination of Offer, Publisher, and Sku of the image. Ensure that you match all the three to confirm support. For more information, see [list of supported marketplace OS images](../virtual-machines/automatic-vm-guest-patching.md#supported-os-images). 
+The Marketplace image in Azure has the following attributes:
+- **Publisher** - The organization that creates the image. Examples: Canonical, MicrosoftWindowsServer
+- **Offer**- The name of the group of related images created  by the publisher. Examples: UbuntuServer, WindowsServer
+- **SKU**- An instance of an offer, such as a major release of a distribution. Examples: 18.04LTS, 2019-Datacenter
+- **Version** - The version number of an image SKU.
 
-**Custom images**
+Azure Update Manager supports the following operating system versions:
+
+#### Windows operating systems
+
+| **Publisher**| **Versions(s)** 
+|----------|-------------|
+|Microsoft Windows Server | 1709, 1803, 1809, 2012, 2016, 2019, 2022|
+|Microsoft Windows Server HPC Pack | 2012, 2016, 2019 |
+|Microsoft SQL Server | 2008, 2012, 2014, 2016, 2017, 2019, 2022 |
+|Microsoft Visual Studio | ws2012r2, ws2016, ws2019, ws2022 |
+|Microsoft Azure Site Recovery | Windows 2012
+|Microsoft Biz Talk Server | 2016, 2020 |
+|Microsoft DynamicsAx | ax7 |
+|Microsoft PowerBI | 2016, 2017, 2019, 2022 |
+|Microsoft Sharepoint | sp* |
+
+#### Linux operating systems
+
+| **Publisher**| **Versions(s)** 
+|----------|-------------|
+|Canonical | Ubuntu 16.04, 18.04, 20.04, 22.04 |
+|RedHat | RHEL 7,8,9|
+|Openlogic | CentOS 7|
+|SUSE 12 |sles, sles-byos, sap, sap-byos, sapcal, sles-standard |
+|SUSE 15 | basic, hpc, opensuse, sles, sap, sapcal|
+|Oracle Linux | 7*, ol7*, ol8*, ol9* |
+|Oracle Database | 21, 19-0904, 18.*|
+
+#### Unsupported Operating systems
+
+The following table lists the operating systems for marketplace images that aren't supported:
+
+| **Publisher**| **OS Offer** | **SKU**|
+|----------|-------------|-----|
+|OpenLogic | CentOS | 8* |
+|OpenLogic | centos-hpc| * |
+|Oracle | Oracle-Linux | 8, 8-ci, 81, 81-ci , 81-gen2, ol82, ol8_2-gen2,ol82-gen2, ol83-lvm, ol83-lvm-gen2, ol84-lvm,ol84-lvm-gen2 | 
+|Red Hat | RHEL-HA | 7.4, 7.5, 7.6, 8.1, 81_gen2 |
+|Red Hat | 	RHEL-SAP | 7.4, 7.5, 7.7 |
+|Red Hat | 	RHEL-SAP-HANA | 7.5 |
+|Microsoft SQL Server | SQL 2019-SLES* | * |
+|Microsoft SQL Server | SQL 2019-RHEL7 | * |
+|Microsoft SQL Server | SQL 2017-RHEL7 | * |
+|Microsoft | microsoft-ads |*.* |
+|SUSE| sles-sap-15-*-byos | gen *|
+
+### Custom images
 
 We support [generalized](../virtual-machines/linux/imaging.md#generalized-images) custom images. Table below lists the operating systems that we support for generalized images. Refer to [custom images (preview)](manage-updates-customized-images.md) for instructions on how to start using Update manage center to manage updates on custom images.
 
