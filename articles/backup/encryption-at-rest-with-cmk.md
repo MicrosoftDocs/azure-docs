@@ -359,14 +359,14 @@ To assign the key and follow the steps, choose a client:
     1. Enter the **Key URI** with which you want to encrypt the data in this Recovery Services vault. You  also need to specify the subscription in which the Azure Key Vault (that contains this key) is present. This key URI can be obtained from the corresponding key in your Azure Key Vault. Ensure the key URI is copied correctly. It's recommended that you use the **Copy to clipboard** button provided with the key identifier.
 
         >[!NOTE]
-        >When specifying the encryption key using the full Key URI, the key will not be auto-rotated, and you need to perform key updates manually by specifying the new key when required. Alternatively, remove the Version component of the Key URI to get automatic rotation.
+        >When specifying the encryption key using the full Key URI, the key will not be autorotated, and you need to perform key updates manually by specifying the new key when required. Alternatively, remove the Version component of the Key URI to get automatic rotation.
 
         ![Enter key URI](./media/encryption-at-rest-with-cmk/key-uri.png)
 
     2. Browse and select the key from the Key Vault in the key picker pane.
 
         >[!NOTE]
-        >When specifying the encryption key using the key picker pane, the key will be auto-rotated whenever a new version for the key is enabled. [Learn more](#enable-auto-rotation-of-encryption-keys) on enabling auto-rotation of encryption keys.
+        >When specifying the encryption key using the key picker pane, the key will be autorotated whenever a new version for the key is enabled. [Learn more](#enable-auto-rotation-of-encryption-keys) on enabling autorotation of encryption keys.
 
         ![Select key from key vault](./media/encryption-at-rest-with-cmk/key-vault.png)
 
@@ -550,20 +550,20 @@ When your subscription is allow-listed, the **Backup Encryption** tab will displ
 
 1. To specify the key to be used for encryption, select the appropriate option.
 
-   You can provide the URI for the encryption key, or browse and select the key. When you specify the key using the **Select the Key Vault** option, auto-rotation of the encryption key will enable automatically. [Learn more on auto-rotation](#enable-auto-rotation-of-encryption-keys). 
+   You can provide the URI for the encryption key, or browse and select the key. When you specify the key using the **Select the Key Vault** option, autorotation of the encryption key will enable automatically. [Learn more on autorotation](#enable-auto-rotation-of-encryption-keys). 
 
 1. Specify the user assigned managed identity to manage encryption with customer-managed keys. Click **Select** to browse and select the required identity.
 
 1. Proceed to add Tags (optional) and continue creating the vault.
 
-### Enable auto-rotation of encryption keys
+### Enable autorotation of encryption keys
 
 When you specify the customer-managed key that must be used to encrypt backups, use the following methods to specify it:
 
 - Enter the key URI
 - Select from Key Vault
 
-Using the **Select from Key Vault** option helps to enable auto-rotation for the selected key. This eliminates the manual effort to update to the next version. However, using this option:
+Using the **Select from Key Vault** option helps to enable autorotation for the selected key. This eliminates the manual effort to update to the next version. However, using this option:
 - Key version update may take up to an hour to take effect.
 - When a new version of the key takes effect, the old version should also be available (in enabled state) for at least one subsequent backup job after the key update has taken effect.
 
@@ -574,7 +574,7 @@ Using the **Select from Key Vault** option helps to enable auto-rotation for the
 
 Azure Backup allows you to use Azure Polices to audit and enforce encryption, using customer-managed keys, of data in the Recovery Services vault. Using the Azure Policies:
 
-- The audit policy can be used for auditing vaults with encryption using customer-managed keys that are enabled after 04/01/2021. For vaults with the CMK encryption enabled before this date, the policy may fail to apply or may show false negative results (that is, these vaults may be reported as non-compliant despite having **CMK encryption** enabled).
+- The audit policy can be used for auditing vaults with encryption using customer-managed keys that are enabled after 04/01/2021. For vaults with the CMK encryption enabled before this date, the policy may fail to apply or may show false negative results (that is, these vaults may be reported as noncompliant despite having **CMK encryption** enabled).
 - To use the audit policy for auditing vaults with **CMK encryption** enabled before 04/01/2021, use the Azure portal to update an encryption key. This helps to upgrade to the new model. If you don't want to change the encryption key, provide the same key again through the key URI or the key selection option. 
 
    >[!Warning]
