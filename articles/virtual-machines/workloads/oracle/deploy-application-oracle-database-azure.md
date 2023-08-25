@@ -24,7 +24,7 @@ As Oracle applications move on Azure IaaS, there are common design consideration
 The provided network settings for Oracle Applications on Azure cover various aspects of network and security considerations. Here's a breakdown of the recommended network settings:
 
 - Single sign-on (SSO) with Azure AD and SAML: Use [Azure AD for single sign-on (SSO)](https://learn.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on) using the Security Assertions Markup Language (SAML) protocol. This SSO allows users to authenticate once and access multiple services seamlessly.
-- Azure AD Application Proxy: Consider using [Azure AD Application Proxy](https://learn.microsoft.com/en-us/azure/active-directory/app-proxy/application-proxy), especially for remote users. This proxy allows you to securely access on-premises applications from outside your network.
+- Azure AD Application Proxy: Consider using [Azure AD Application Proxy](https://learn.microsoft.com/azure/active-directory/app-proxy/application-proxy), especially for remote users. This proxy allows you to securely access on-premises applications from outside your network.
 - Routing Internal Users through [ExpressRoute](https://learn.microsoft.com/azure/expressroute/expressroute-introduction): For internal users, route traffic through Azure ExpressRoute for a dedicated, private connection to Azure services, ensuring low-latency and secure communication.
 - Azure Firewall: If necessary, you can configure [Azure Firewall](https://learn.microsoft.com/azure/architecture/example-scenario/gateway/application-gateway-before-azure-firewall) in front of your application for added security. Azure Firewall helps protect your resources from unauthorized access and threats.
 - Application Gateway for External Users: When external users need to access your application, consider using [Azure Application Gateway](https://learn.microsoft.com/azure/application-gateway/overview). It supplies Web Application Firewall (WAF) capabilities for protecting your web applications and Layer 7 load balancing to distribute traffic.
@@ -34,7 +34,7 @@ The provided network settings for Oracle Applications on Azure cover various asp
 - More Considerations:
   - Data Encryption: Ensure that data at rest and in transit is encrypted. Azure provides tools like Azure Disk Encryption and SSL/TLS for this purpose.
   - Patch Management: Regularly update and patch your EBS environment to protect against known vulnerabilities.
-  - Monitoring and Logging: Implement [Azure Monitor](https://learn.microsoft.com/azure/azure-monitor/overview) and [Azure Defender](https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-cloud-introduction) for security to continuously check your environment for security threats and anomalies. Set up logging for auditing and forensic analysis.
+  - Monitoring and Logging: Implement [Azure Monitor](https://learn.microsoft.com/azure/azure-monitor/overview) and [Azure Defender](https://learn.microsoft.com/azure/defender-for-cloud/defender-for-cloud-introduction) for security to continuously check your environment for security threats and anomalies. Set up logging for auditing and forensic analysis.
 
   
 
