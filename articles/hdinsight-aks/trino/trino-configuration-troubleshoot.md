@@ -15,7 +15,7 @@ Incorrect cluster configuration may lead to deployment errors. Typically those e
 
 Example configuration error:
 
-:::image type="content" source="./media/troubleshooting-guide/error-user-configuration-trino.png" alt-text="Screenshot of user configuration error.":::
+:::image type="content" source="./media/trino-configuration-troubleshoot/error-user-configuration-trino.png" alt-text="Screenshot of user configuration error.":::
 
 The following table provides error codes and their description to help diagnose and fix common errors.
 
