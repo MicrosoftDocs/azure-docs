@@ -143,7 +143,7 @@ Start writing your application's code by working on the server side.
     const wpsOptions = {
         hub: "codestream",
         connectionString: process.argv[2]
-    };
+    }
     ```
 
 2. Create a Web PubSub for Socket.IO server:
@@ -241,7 +241,7 @@ async function initialize(url) {
     });
 
     return [socket, editor, data.room_id];
-};
+}
 ```
 
 The `initialize(url)` function organizes a few setup operations together:
@@ -294,7 +294,7 @@ As mentioned [earlier](#the-finished-app), you have two user roles on the client
 
         changes = [];
         content = editor.getValue();
-    };
+    }
     ```
 
 4. When a new viewer client is connected, the viewer needs to get the latest *complete state* of the editor. To achieve this, a message that contains `sync` data is sent to the writer client. The message asks the writer client to send the complete editor state.
@@ -381,7 +381,7 @@ As mentioned [earlier](#the-finished-app), you have two user roles on the client
             room_id: room_id,
             data: data
         });
-    };
+    }
     ```
 
 ## Run the application
