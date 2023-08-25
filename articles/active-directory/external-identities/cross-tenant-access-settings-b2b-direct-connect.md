@@ -131,6 +131,9 @@ With inbound settings, you select which external users and groups will be able t
    - In the menu next to the search box, choose either **user** or **group**.
    - Select **Add**.
 
+   > [!NOTE]
+   > You cannot target users or groups in inbound default settings.
+
    ![Screenshot showing adding external users for inbound b2b direct connect](media/cross-tenant-access-settings-b2b-direct-connect/b2b-direct-connect-inbound-external-users-groups-add.png)
 
 1. When you're done adding users and groups, select **Submit**.

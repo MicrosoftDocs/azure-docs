@@ -37,7 +37,7 @@ These differences make workload identities harder to manage and put them at high
 
 To make use of workload identity risk, including the new **Risky workload identities** blade and the **Workload identity detections** tab in the **Risk detections** blade in the portal, you must have the following.
 
-- Workload Identities Premium licensing: You can view and acquire licenses on the [Workload Identities blade](https://portal.azure.com/#view/Microsoft_Azure_ManagedServiceIdentity/WorkloadIdentitiesBlade) in the Azure portal.
+- Workload Identities Premium licensing: You can view and acquire licenses on the [Workload Identities blade](https://portal.azure.com/#view/Microsoft_Azure_ManagedServiceIdentity/WorkloadIdentitiesBlade).
 - One of the following administrator roles assigned
    - Security Administrator
    - Security Operator
@@ -62,10 +62,8 @@ We detect risk on workload identities across sign-in behavior and offline indica
 
 Organizations can find workload identities that have been flagged for risk in one of two locations:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as at least a [Security Reader](../roles/permissions-reference.md#security-reader).
-1. Browse to **Azure Active Directory** > **Security** > **Risky workload identities**.
-1. Or browse to **Azure Active Directory** > **Security** > **Risk detections**.
-   1. Select the **Workload identity detections** tab.'
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Security Reader](../roles/permissions-reference.md#security-reader).
+1. Browse to **Protection** > **Identity Protection** > **Risky workload identities**.
    
 :::image type="content" source="media/concept-workload-identity-risk/workload-identity-detections-in-risk-detections-report.png" alt-text="Screenshot showing risks detected against workload identities in the report." lightbox="media/concept-workload-identity-risk/workload-identity-detections-in-risk-detections-report.png":::
 
