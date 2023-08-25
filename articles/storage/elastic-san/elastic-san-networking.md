@@ -30,9 +30,11 @@ You can allow access to your Elastic SAN volume group from two types of Azure vi
 - [Private endpoints](../../private-link/private-endpoint-overview.md)
 - [Storage service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md)
 
+A private endpoint uses one or more private IP addresses from your virtual network subnet to access an Elastic SAN volume group over the Microsoft backbone network. With a private endpoint, traffic between your virtual network and the volume group are secured over a private link.
+
 Virtual network service endpoints are public and accessible via the internet. You can [Configure virtual network rules](#configure-virtual-network-rules) to control access to your volume group when using storage service endpoints. 
 
-A private endpoint uses one or more private IP addresses from your virtual network subnet to access a storage account over the Microsoft backbone network. With a private endpoint, traffic between your virtual network and the volume group are secured over a private link. Elastic SAN volume group network rules only apply to the public endpoints of a storage account, not private endpoints. The process of approving the creation of a private endpoint grants implicit access to traffic from the subnet that hosts the private endpoint. You can use [Network Policies](../../private-link/disable-private-endpoint-network-policy.md) to control traffic over private endpoints if you want to refine access rules. If you want to use private endpoints exclusively, do not enable service endpoints for the volume group.
+Network rules only apply to the public endpoints of a volume group, not private endpoints. The process of approving the creation of a private endpoint grants implicit access to traffic from the subnet that hosts the private endpoint. You can use [Network Policies](../../private-link/disable-private-endpoint-network-policy.md) to control traffic over private endpoints if you want to refine access rules. If you want to use private endpoints exclusively, do not enable service endpoints for the volume group.
 
 To decide which type of endpoint works best for you, see [Compare Private Endpoints and Service Endpoints](../../virtual-network/vnet-integration-for-azure-services.md#compare-private-endpoints-and-service-endpoints).
 
