@@ -30,12 +30,16 @@ items:
     items:
     - name: How to access activity logs
       href: howto-access-activity-logs.md
-    - name: Access logs with Microsoft Graph  
-      href: quickstart-access-log-with-graph-api.md
     - name: Customize and filter activity logs
       href: howto-customize-filter-logs.md
-    - name: Analyze sign-ins 
+    - name: Analyze sign-ins
       href: quickstart-analyze-sign-in.md
+    - name: Configure prerequisites for Reporting API
+      href: howto-configure-prerequisites-for-reporting-api.md
+    - name: Access logs with Microsoft Graph  
+      href: quickstart-access-log-with-graph-api.md
+    - name: Archive logs to a storage account
+      href: howto-archive-logs-to-storage-account.md
     - name: Download logs
       href: howto-download-logs.md
 
@@ -110,17 +114,12 @@ items:
     items:
     - name: Stream logs to an event hub
       href: howto-stream-logs-to-event-hub.md
-    - name: Archive logs to a storage account
-      href: howto-archive-logs-to-storage-account.md
-    - name: Integrate with Azure Monitor logs 
-      expanded: false
-      items:
-      - name: Configure a Log Analytics workspace
-        href: tutorial-configure-log-analytics-workspace.md
-      - name: Integrate activity logs with Azure Monitor logs
-        href: howto-integrate-activity-logs-with-azure-monitor-logs.md  
-      - name: Analyze activity logs in Azure Monitor logs
-        href: howto-analyze-activity-logs-log-analytics.md
+    - name: Configure a Log Analytics workspace
+      href: tutorial-configure-log-analytics-workspace.md
+    - name: Integrate activity logs with Azure Monitor logs
+      href: howto-integrate-activity-logs-with-azure-monitor-logs.md  
+    - name: Analyze activity logs in Azure Monitor logs
+      href: howto-analyze-activity-logs-log-analytics.md
 
 - name: Common troubleshooting scenarios
   expanded: false
@@ -147,8 +146,6 @@ items:
     href: reference-azure-ad-sla-performance.md
   - name: Azure AD PowerShell cmdlets for reporting
     href: reference-powershell-reporting.md
-  - name: Configure prerequisites for Reporting API
-    href: howto-configure-prerequisites-for-reporting-api.md
   - name: Audit logs API reference
     href: /graph/api/resources/directoryaudit
   - name: Azure AD recommendations API reference

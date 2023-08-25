@@ -59,9 +59,9 @@ The SIEM tools you can integrate with your event hub can provide analysis and mo
 
 ### Quick steps
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using one of the required roles.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Security Administrator](../roles/permissions-reference.md#security-administrator).
 1. Create an Event Hubs namespace and event hub.
-1. Browse to **Azure AD** > **Monitoring** > **Diagnostic settings**.
+1. Browse to **Identity** > **Monitoring & health** > **Diagnostic settings**.
 1. Choose the logs you want to stream, select the **Stream to an event hub** option, and complete the fields.
     - [Set up an Event Hubs namespace and an event hub](../../event-hubs/event-hubs-create.md)
     - [Learn more about streaming activity logs to an event hub](tutorial-azure-monitor-stream-logs-to-event-hub.md)
@@ -103,11 +103,11 @@ Integrating Azure AD logs with Azure Monitor logs provides a centralized locatio
  
 ### Quick steps
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using one of the required roles.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Security Administrator](../roles/permissions-reference.md#security-administrator).
 1. [Create a Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md).
-1. Browse to **Azure AD** > **Monitoring** > **Diagnostic settings**.
+1. Browse to **Identity** > **Monitoring & health** > **Diagnostic settings**.
 1. Choose the logs you want to stream, select the **Send to Log Analytics workspace** option, and complete the fields.
-1. Go to **Azure AD** > **Log Analytics** and begin querying the data.
+1. Browse to **Identity** > **Monitoring & health** > **Log Analytics** and begin querying the data.
     - [Integrate Azure AD logs with Azure Monitor logs](howto-integrate-activity-logs-with-log-analytics.md)
     - [Learn how to query using Log Analytics](howto-analyze-activity-logs-log-analytics.md)
 
@@ -154,7 +154,7 @@ The reports available in the Azure portal provide a wide range of capabilities t
 Use the following basic steps to access the reports in the Azure portal. 
 #### Azure AD activity logs
 
-1. Browse to **Azure AD** > **Monitoring** > **Audit logs**/**Sign-in logs**/**Provisioning logs**.
+1. Browse to **Identity** > **Monitoring & health** > **Audit logs**/**Sign-in logs**/**Provisioning logs**.
 1. Adjust the filter according to your needs.
     - [Learn how to filter activity logs](quickstart-filter-audit-log.md)
     - [Explore the Azure AD audit log categories and activities](reference-audit-activities.md) 
@@ -162,14 +162,14 @@ Use the following basic steps to access the reports in the Azure portal.
 
 #### Azure AD Identity Protection reports
 
-1. Browse to **Azure AD** > **Security** > **Identity Protection**.
+1. Browse to **Protection** > **Identity Protection**.
 1. Explore the available reports.
     - [Learn more about Identity Protection](../identity-protection/overview-identity-protection.md)
     - [Learn how to investigate risk](../identity-protection/howto-identity-protection-investigate-risk.md)
 
 #### Usage and insights reports
 
-1. Browse to **Azure AD** > **Monitoring** > **Usage and insights**.
+1. Browse to **Identity** > **Monitoring & health** > **Usage and insights**.
 1. Explore the available reports.
     - [Learn more about the Usage and insights report](concept-usage-insights-report.md)
 
@@ -201,16 +201,16 @@ Use the following basic steps to archive or download your activity logs.
 
 #### Archive activity logs to a storage account
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using one of the required roles.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Security Administrator](../roles/permissions-reference.md#security-administrator).
 1. Create a storage account.
-1. Browse to **Azure AD** > **Monitoring** > **Diagnostic settings**.
+1. Browse to **Identity** > **Monitoring & health** > **Diagnostic settings**.
 1. Choose the logs you want to stream, select the **Archive to a storage account** option, and complete the fields.
     - [Review the data retention policies](reference-reports-data-retention.md)
 
 #### Manually download activity logs
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using one of the required roles.
-1. Browse to **Azure AD** > **Monitoring** > **Audit logs**/**Sign-in logs**/**Provisioning logs** from the **Monitoring** menu.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Reports Reader](../roles/permissions-reference.md#reports-reader).
+1. Browse to **Identity** > **Monitoring & health** > **Audit logs**/**Sign-in logs**/**Provisioning logs** from the **Monitoring** menu.
 1. Select **Download**.
     - [Learn more about how to download logs](howto-download-logs.md).
 
