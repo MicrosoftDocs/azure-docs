@@ -5,8 +5,8 @@ author: flang-msft
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 ms.author: franlanglois
-ms.service: cache
-ms.topic: conceptual
+ms.service: azure-functions
+ms.topic: reference
 ms.date: 08/07/2023
 
 ---
@@ -22,7 +22,7 @@ The `RedisListTrigger` pops new elements from a list and surfaces those entries 
 | Lists | Yes  | Yes   |  Yes  |
 
 > [!IMPORTANT]
-> Redis triggers are not currently supported on Azure Functions Consumption plan.
+> Redis triggers aren't currently supported for functions running in the [Consumption plan](consumption-plan.md). 
 >
 
 ## Example
@@ -74,9 +74,9 @@ The following sample polls the key `listTest` at a localhost Redis instance at `
 ::: zone-end
 ::: zone pivot="programming-language-javascript"
 
-### [v3](#tab/javasscript-v1)
+### [v3](#tab/node-v3)
 
-Each sample uses the same `index.js` file, with binding data in the `function.json` file.
+This sample uses the same `index.js` file, with binding data in the `function.json` file.
 
 Here's the `index.js` file:
 
@@ -107,7 +107,7 @@ From `function.json`, here's the binding data:
 }
 ```
 
-### [v4](#tab/javascript-v2)
+### [v4](#tab/node-v4)
 
 The JavaScript v4 programming model example isn't available in preview.
 
@@ -116,7 +116,7 @@ The JavaScript v4 programming model example isn't available in preview.
 ::: zone-end
 ::: zone pivot="programming-language-powershell"
 
-Each sample uses the same `run.ps1` file, with binding data in the `function.json` file.
+This sample uses the same `run.ps1` file, with binding data in the `function.json` file.
 
 Here's the `run.ps1` file:
 
@@ -150,7 +150,7 @@ From `function.json`, here's the binding data:
 ::: zone-end
 ::: zone pivot="programming-language-python"
 
-Each sample uses the same `__init__.py` file, with binding data in the `function.json` file.
+This sample uses the same `__init__.py` file, with binding data in the `function.json` file.
 
 ### [v1](#tab/python-v1)
 
