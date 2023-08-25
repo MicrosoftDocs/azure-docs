@@ -37,14 +37,14 @@ The available VNet features depend on your environment selection.
 
 Container Apps has two different [environment types](environment.md#types), which share many of the same networking characteristics with some key differences.
 
-| Environment type | Description | Plan type |
+| Environment type | Description | Supported plan types |
 |---|---|---|
-| Workload profiles | Supports user defined routes (UDR) and egress through NAT Gateway. The minimum required subnet size is `/27`. | Consumption or dedicated |
+| Workload profiles | Supports user defined routes (UDR) and egress through NAT Gateway. The minimum required subnet size is `/27`. | Consumption, Dedicated |
 | Consumption only | Doesn't support user defined routes (UDR) and egress through NAT Gateway. The minimum required subnet size is `/23`. | Consumption |
 
 ## Accessibility levels
 
-You can configure whether your container app allows public ingress or  ingress only from within your VNet at the environment level.
+You can configure whether your container app allows public ingress or ingress only from within your VNet at the environment level.
 
 | Accessibility level | Description |
 |---|---|
@@ -123,7 +123,7 @@ IP addresses are broken down into the following types:
 
 Virtual network integration depends on a dedicated subnet. How IP addresses are allocated in a subnet and what subnet sizes are supported depends on which [plan](plans.md) you're using in Azure Container Apps.
 
-Selecting your subnet size carefully. Subnet sizes can't be modified after you create a Container Apps environment.
+Select your subnet size carefully. Subnet sizes can't be modified after you create a Container Apps environment.
 
 Different environment types have different subnet requirements:
 
@@ -133,7 +133,7 @@ Different environment types have different subnet requirements:
 
 - Your subnet must be delegated to `Microsoft.App/environments`.
 
-- The Container Apps runtime automatically reserves 11 IP addresses for integration with the subnet. When your apps are running in workload profiles environment, the number of IP addresses required for infrastructure integration doesn't vary based on the scale demands of the environment. Instead, IP addresses are allocated according to the following rules:
+- Container Apps automatically reserves 11 IP addresses for integration with the subnet. When your apps are running in a workload profiles environment, the number of IP addresses required for infrastructure integration doesn't vary based on the scale demands of the environment. Additional IP addresses are allocated according to the following rules depending on the type of workload profile you are using:
 
   - More IP addresses are allocated depending on your environment's workload profile:
 
@@ -180,7 +180,7 @@ User Defined Routes (UDR) and controlled egress through a NAT Gateway are only s
 > [!NOTE]
 > When using UDR with Azure Firewall in Azure Container Apps, you need to add certain FQDN's and service tags to the allowlist for the firewall. To learn more, see [configuring UDR with Azure Firewall](./networking.md#configuring-udr-with-azure-firewall---preview).
 
-- You can use UDR a workload profile to restrict outbound traffic from your container app through Azure Firewall or other network appliances.
+- You can use UDR with workload profiles environments to restrict outbound traffic from your container app through Azure Firewall or other network appliances.
 
 - Configuring UDR is done outside of the Container Apps environment scope.
 
@@ -224,9 +224,9 @@ Network rules allow or deny traffic based on the network and transport layer. Th
 
 ### NAT gateway integration (preview)
 
-You can use NAT Gateway to simplify outbound connectivity for your outbound internet traffic in your virtual network in workload profiles environment.
+You can use NAT Gateway to simplify outbound connectivity for your outbound internet traffic in your virtual network in a workload profiles environment.
 
-When you enable a NAT Gateway on your subnet, the NAT Gateway provides a static public IP address to your environment. All outbound traffic from your container app is routed through the NAT Gateway's static public IP address.
+When you configure a NAT Gateway on your subnet, the NAT Gateway provides a static public IP address for your environment. All outbound traffic from your container app is routed through the NAT Gateway's static public IP address.
 
 ### Environment security
 
