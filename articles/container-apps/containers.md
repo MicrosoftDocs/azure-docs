@@ -18,14 +18,19 @@ Azure Container Apps manages the details of Kubernetes and container orchestrati
 
 Azure Container Apps supports:
 
-- Any Linux-based x86-64 (`linux/amd64`) container image
+- Any Linux-based x86-64 (`linux/amd64`) container image with no required base image
 - Containers from any public or private container registry
+- [Sidecar](#sidecar-containers) and [init](#init-containers) containers
 
-Features include:
+Container apps features include:
 
-- There's no required base container image.
 - Changes to the `template` configuration section trigger a new [container app revision](application-lifecycle-management.md).
 - If a container crashes, it automatically restarts.
+
+Jobs features include:
+
+- Job executions use the `template` configuration section to define the container image and other settings when each execution starts.
+- If a container exits with a non-zero exit code, the job execution is marked as failed. You can configure a job to retry failed executions.
 
 ## Configuration
 
@@ -185,6 +190,9 @@ To run multiple containers in a container app, add more than one container in th
 You can define one or more [init containers](https://kubernetes.io/docs/concepts/workloads/pods/init-containers/) in a container app. Init containers run before the primary app container and can be used to perform initialization tasks such as downloading data or preparing the environment.
 
 Init containers are defined in the `initContainers` array of the container app template. The containers run in the order they are defined in the array and must complete successfully before the primary app container starts.
+
+> [!NOTE]
+> Init containers support [image pulls using managed identities](#managed-identity-with-azure-container-registry), but processes running in init containers don't have access to managed identities.
 
 ## Container registries
 
