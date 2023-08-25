@@ -116,12 +116,11 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for MySQL](/az
    database = os.getenv('AZURE_MYSQL_NAME')
    user = os.getenv('AZURE_MYSQL_USER')
    password = accessToken.token
-   
+      
    cnx = mysql.connector.connect(user=user,
                                  password=password,
                                  host=host,
-                                 database=database,
-                                 port=port)
+                                 database=database)
    cnx.close()
    
    ```
