@@ -8,7 +8,6 @@ ms.custom: build-2023, devx-track-azurecli
 ms.topic: quickstart
 ms.date: 08/21/2023
 ms.author: cshoe
-zone_pivot_groups: container-apps-job-types
 ---
 
 # Create a job with Azure Container Apps using the Azure portal
@@ -17,7 +16,7 @@ Azure Container Apps [jobs](jobs.md) allow you to run containerized tasks that e
 
 Jobs are best suited to for tasks such as data processing, machine learning, or any scenario that requires on-demand processing.
 
-In this quickstart, you create a manual or scheduled job. To learn how to create an event-driven job, see [Deploy an event-driven job with Azure Container Apps](tutorial-event-driven-jobs.md).
+In this quickstart, you create a scheduled job. To learn how to create an event-driven job, see [Deploy an event-driven job with Azure Container Apps](tutorial-event-driven-jobs.md).
 
 ## Prerequisites
 
@@ -70,21 +69,11 @@ Next, create an environment for your container app.
 
 ### Deploy the job
 
-::: zone pivot="container-apps-job-manual"
-
-1. In *Job details*, select **Manual** for the *Trigger type*.
-
-::: zone-end
-
-::: zone pivot="container-apps-job-scheduled"
-
-1. In *Job details*, select **Schedule** for the *Trigger type*.
+1. In *Job details*, select **Scheduled** for the *Trigger type*.
 
     In the *Cron expression* field, enter `*/1 * * * *`.
     
     This expression starts the job every minute.
-
-::: zone-end
 
 2. Select the **Next: Container** button at the bottom of the page.
 
@@ -102,9 +91,9 @@ Next, create an environment for your container app.
 
 1. Select the **Review and create** button at the bottom of the page.  
 
-    Next, the settings in the Container App are verified. If no errors are found, the *Create* button is enabled.  
+    Next, the settings in the job are verified. If no errors are found, the *Create* button is enabled.  
 
-    If there are errors, any tab containing errors is marked with a red dot.  Navigate to the appropriate tab.  Fields containing an error will be highlighted in red.  Once all errors are fixed, select **Review and create** again.
+    If there are errors, any tab containing errors is marked with a red dot. Navigate to the appropriate tab. Fields containing an error will be highlighted in red. Once all errors are fixed, select **Review and create** again.
 
 1. Select **Create**.
 
@@ -112,27 +101,13 @@ Next, create an environment for your container app.
 
 ### Verify deployment
 
-::: zone pivot="container-apps-job-manual"
-
 1. Select **Go to resource** to view your new Container Apps job.
-
-    In the *Overview* page, select the **Start** button.
-
-    An execution of the job is started.
-
-::: zone-end
-
-::: zone pivot="container-apps-job-scheduled"
-
-1. Select **Go to resource** to view your new Container Apps job.
-
-::: zone-end
 
 2. Select the **Execution history** tab.
 
-    The *Execution history* tab displays the status of the job execution. Select the **Refresh** button to update the list. The job's status changes from *Pending* to *Running* to *Succeeded*.
+    The *Execution history* tab displays the status of each job execution. Select the **Refresh** button to update the list. Wait up to a minute for the scheduled job execution to start. Its status changes from *Pending* to *Running* to *Succeeded*.
 
-1. Select **View logs** to view the logs for the job execution.
+1. Select **View logs**.
 
     The logs show the output of the job execution. It may take a few minutes for the logs to appear.
 
