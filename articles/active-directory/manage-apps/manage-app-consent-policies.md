@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/28/2023
+ms.date: 08/25/2023
 ms.author: jomondi
 ms.reviewer: phsignor, yuhko
 ms.custom: contperf-fy21q2, enterprise-apps
@@ -172,7 +172,7 @@ Follow these steps to create a custom app consent policy:
    
    {
      "permissionType": "delegated",
-     “PermissionClassification: "low",
+     "PermissionClassification": "low",
      "clientApplicationsFromVerifiedPublisherOnly": true
    }
    ```
@@ -199,14 +199,15 @@ Once the app consent policy has been created, you can [allow user consent](confi
 
 1. The following shows how you can delete a custom app consent policy. **This action can’t be undone.**
 
-```http
-DELETE https://graph.microsoft.com/v1.0/policies/permissionGrantPolicies/ my-custom-policy
-```
+   ```http
+   DELETE https://graph.microsoft.com/v1.0/policies/permissionGrantPolicies/ my-custom-policy
+   ```
 
 :::zone-end
 
 > [!WARNING]
 > Deleted app consent policies cannot be restored. If you accidentally delete a custom app consent policy, you will need to re-create the policy.
+
 ### Supported conditions
 
 The following table provides the list of supported conditions for app consent policies.
@@ -221,8 +222,11 @@ The following table provides the list of supported conditions for app consent po
 | ClientApplicationTenantIds | A list of Azure Active Directory tenant IDs in which the client application is registered, or a list with the single value "all" to match with client apps registered in any tenant. Default is the single value "all". |
 | ClientApplicationPublisherIds | A list of Microsoft Partner Network (MPN) IDs for [verified publishers](../develop/publisher-verification-overview.md) of the client application, or a list with the single value "all" to match with client apps from any publisher. Default is the single value "all". |
 | ClientApplicationsFromVerifiedPublisherOnly | Set this switch to only match on client applications with a [verified publishers](../develop/publisher-verification-overview.md). Disable this switch (`-ClientApplicationsFromVerifiedPublisherOnly:$false`) to match on any client app, even if it doesn't have a verified publisher. Default is `$false`. |
+|scopeType| The resource scope type the pre-approval applies to. Possible values: `group` for [groups](/graph/api/resources/group) and [teams](/graph/api/resources/team), `chat` for [chats](graph/api/resources/chat?view=graph-rest-1.0&preserve-view=true),  or `tenant` for tenant-wide access. Required.|
+| sensitivityLabels| The sensitivity labels that are applicable to the scope type and have been pre-approved. It allows you to protect sensitive organizational data. Learn about [sensitivity labels](/microsoft-365/compliance/sensitivity-labels). **Note:** Chat resource **does not** support sensitivityLabels yet.
 
-
+> [!WARNING]
+> Deleted app consent policies cannot be restored. If you accidentally delete a custom app consent policy, you will need to re-create the policy.
 ## Next steps
 
 To learn more:
