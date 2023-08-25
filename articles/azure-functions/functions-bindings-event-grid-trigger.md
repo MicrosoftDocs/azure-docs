@@ -352,9 +352,9 @@ The following table explains the binding configuration properties that you set i
 
 See the [Example section](#example) for complete examples.
 
-The EventGridTrigger uses a WebHook HTTP request and this can be configured using the same Host.Json settings as the HTTP Trigger. [HTTP Host.Json Settings](https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-http-webhook?tabs=in-process%2Cfunctionsv2&pivots=programming-language-javascript#hostjson-settings)
-
 ## Usage
+
+The Event Grid trigger uses a webhook HTTP request, which can be configured using the same [*host.json* settings as the HTTP Trigger](functions-bindings-http-webhook.md#hostjson-settings).
 
 ::: zone pivot="programming-language-csharp"  
 The parameter type supported by the Event Grid trigger depends on the Functions runtime version, the extension package version, and the C# modality used. 
