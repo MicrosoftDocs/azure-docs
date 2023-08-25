@@ -45,12 +45,12 @@ Azure controls planned maintenance and recovery prioritization for regional pair
 
 You are not limited to using services within your regional pairs. Although an Azure service can rely upon a specific regional pair, you can host your other services in any region that satisfies your business needs. For example, an Azure GRS storage solution can pair data in Canada Central with a peer in Canada East while using Azure Compute resources located in East US.
 
-## Azure cross-region replication pairings for all geographies
+## Azure paired regions
 
 Regions are paired for cross-region replication based on proximity and other factors.
 
 >[!IMPORTANT]
->To learn more about your region's architecture, please contact your Microsoft sales or customer representative.
+>To learn more about your region's architecture and available pairings, please contact your Microsoft sales or customer representative.
 
 **Azure regional pairs**
 
@@ -95,9 +95,11 @@ Regions are paired for cross-region replication based on proximity and other fac
 
 ## Regions with availability zones and no region pair
 
-Azure continues to expand globally with Qatar as the first region with no regional pair and achieves high availability by leveraging [availability zones](../reliability/availability-zones-overview.md) and [locally redundant or zone-redundant storage (LRS/ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage). Regions without a pair will not have [geo-redundant storage (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage). Such regions follow [data residency](https://azure.microsoft.com/global-infrastructure/data-residency/#overview) guidelines allowing the option to keep data resident within the same region. Customers are responsible for data resiliency based on their Recovery Point Objective or Recovery Time Objective (RTO/RPO) needs and may move, copy, or access their data from any location globally. In the rare event that an entire Azure region is unavailable, customers will need to plan for their Cross Region Disaster Recovery per guidance from [Azure services that support high availability](../reliability/availability-zones-service-support.md#azure-services-with-availability-zone-support) and  [Azure Resiliency – Business Continuity and Disaster Recovery](https://azure.microsoft.com/mediahandler/files/resourcefiles/resilience-in-azure-whitepaper/resiliency-whitepaper-2022.pdf).
+Azure continues to expand globally and achieves high availability by leveraging [availability zones](../reliability/availability-zones-overview.md) and [locally redundant or zone-redundant storage (LRS/ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage). Regions without a pair will not have [geo-redundant storage (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage). Such regions follow [data residency](https://azure.microsoft.com/global-infrastructure/data-residency/#overview) guidelines allowing the option to keep data resident within the same region. Customers are responsible for data resiliency based on their Recovery Point Objective or Recovery Time Objective (RTO/RPO) needs and may move, copy, or access their data from any location globally. In the rare event that an entire Azure region is unavailable, customers will need to plan for their Cross Region Disaster Recovery per guidance from [Azure services that support high availability](../reliability/availability-zones-service-support.md#azure-services-with-availability-zone-support) and  [Azure Resiliency – Business Continuity and Disaster Recovery](https://azure.microsoft.com/mediahandler/files/resourcefiles/resilience-in-azure-whitepaper/resiliency-whitepaper-2022.pdf).
 
 ## Next steps
 
 - [Azure services and regions that support availability zones](availability-zones-service-support.md)
-- [Quickstart templates](https://aka.ms/azqs)
+- [Availability zones guidance by service]()
+- [Disaster recovery guidance by service]()
+- [Reliability guidance by services](reliability-guidance-overview.md)
