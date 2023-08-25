@@ -139,12 +139,11 @@ An assessment describes:
 To view an assessment:
 
 1. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select the number next to **Azure VM assessment**.
-2. In **Assessments**, select an assessment to open it. As an example (estimations and costs for example only): 
-
-    ![Screenshot of Assessment summary.](./media/tutorial-assess-vmware-azure-vm/assessment-summary.png)
-
-3. Review the assessment summary. You can also edit the assessment properties, or recalculate the assessment.
- 
+2. In **Assessments**, select an assessment to open it. 
+4. Review the assessment summary. You can also edit the assessment properties, or recalculate the assessment.
+   - The Azure readiness graph displays the status of the VM.
+   - The Supportability section displays the distribution by OS license support status and the distribution by Windows Server version.
+   - The Savings option section displays the estimated savings on moving to Azure.
  
 ### Review readiness
 
