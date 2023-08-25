@@ -32,15 +32,15 @@ Azure Cognitive Search is a [proven solution for information retrieval](https://
 
 ## Approaches for RAG with Cognitive Search
 
-Microsoft has several built-in implementations.
+Microsoft has several built-in implementations for using Cognitive Search in a a RA solution.
 
-+ [Using your data with Azure OpenAI Service](/azure/ai-services/openai/concepts/use-your-data) explains how to use Cognitive Search as a retrieval component in Azure AI Studio.
++ In Azure AI Studio, [use your data with an Azure OpenAI Service](/azure/ai-services/openai/concepts/use-your-data). Azure AI Studio integrates with Azure Cognitive Search for storage and retrieval. If you already have a search index, you can connect to it in Azure AI Studio.
 
-+ [Create a vector index in an Azure Machine Learning prompt flow](/azure/machine-learning/how-to-create-vector-index) explains that you can use Cognitive Search as a [vector store](/azure/machine-learning/concept-vector-store).
++ In Azure Machine Learning, a search index can be used as a [vector store](/azure/machine-learning/concept-vector-stores). You can [create a vector index in an Azure Machine Learning prompt flow](/azure/machine-learning/how-to-create-vector-index) that uses your Cognitive Search service for storage and retrieval.
 
 + If you need a custom approach, you can roll your own RAG solution.
 
-The rest of this article describes how Cognitive Search fits into the solution. In addition, you can review the [Azure Cognitive Search OpenAI demo](https://github.com/Azure-Samples/azure-search-openai-demo) for an example.
+  The rest of this article describes how Cognitive Search fits into the solution. In addition, you can review the [Azure Cognitive Search OpenAI demo](https://github.com/Azure-Samples/azure-search-openai-demo) for an example.
 
 ## RAG pattern for Cognitive Search
 
@@ -55,7 +55,7 @@ RAG patterns that include Cognitive Search have the elements indicated in the fo
 
 The web app provides the user experience, providing the presentation, context, and user interaction. Questions or prompts from a user start here. Inputs pass through the integration layer, going first to information retrieval to get the payload, but also go to the LLM to set the context and intent. 
 
-The app server or orchestrator is the integration code that coordinates the handoffs between information retrieval and the LLM. One option is to use [LangChain](https://python.langchain.com/docs/get_started/introduction.html) to coordinate the workflow. LangChain [integrates with Azure Cognitive Search](https://python.langchain.com/docs/integrations/retrievers/azure_cognitive_search), making it easier to include Cognitive Search as a [retriever](https://python.langchain.com/docs/modules/data_connection/retrievers/) in your workflow.
+The app server or orchestrator is the integration code that coordinates the handoffs between information retrieval and the LLM. One option is to use [LangChain](https://python.langchain.com/docs/get_started/introduction) to coordinate the workflow. LangChain [integrates with Azure Cognitive Search](https://python.langchain.com/docs/integrations/retrievers/azure_cognitive_search), making it easier to include Cognitive Search as a [retriever](https://python.langchain.com/docs/modules/data_connection/retrievers/) in your workflow.
 
 The information retrieval system provides the searchable index, query logic, and the payload (query response). The query is executed using the existing search engine in Cognitive Search, which can handle keyword (or term) and vector queries. The index is created in advance, based on a schema you define, and loaded with your content that's sourced from files, databases, or storage.
 
@@ -65,17 +65,17 @@ Cognitive Search doesn't provide native LLM integration, web front ends, or vect
 
 ## Searchable content in Cognitive Search
 
-In Cognitive Search, all searchable content is stored in a search index that's hosted on your search service in the cloud. A search index is designed for fast queries with millisecond response times, so its internal data structures exist to support that objective. To that end, a search index stores indexed content, and not whole content files like entire PDFs or images. Internally, the data structures include inverted indexes of tokenized text, vector indexes for embeddings, and unaltered text for cases where verbatim matching is required (for example, in filters, fuzzy search, regular expression queries).
+In Cognitive Search, all searchable content is stored in a search index that's hosted on your search service in the cloud. A search index is designed for fast queries with millisecond response times, so its internal data structures exist to support that objective. To that end, a search index stores *indexed content*, and not whole content files like entire PDFs or images. Internally, the data structures include inverted indexes of [tokenized text](https://lucene.apache.org/core/7_5_0/test-framework/org/apache/lucene/analysis/Token), vector indexes for embeddings, and unaltered text for cases where verbatim matching is required (for example, in filters, fuzzy search, regular expression queries).
 
-When you set up the data for your RAG solution, you use the features that create and load an index in Cognitive Search. An index includes fields that transfer or represent your source content. An index field might be simple transference (a title or description in a source document becomes a title or description field in a search index), or a field might contain the output of an external process, such as vectorization or skill processing that generates a text description of an image.
+When you set up the data for your RAG solution, you use the features that create and load an index in Cognitive Search. An index includes fields that duplicate or represent your source content. An index field might be simple transference (a title or description in a source document becomes a title or description in a search index), or a field might contain the output of an external process, such as vectorization or skill processing that generates a text description of an image.
 
 One way to approach indexing is through a content-first approach. The following table identifies which indexing features are useful for each content type. 
 
 | Content type | Indexed as | Features |
 |--------------|------------|----------|
-| text | tokens, unaltered text | Indexers can pull content from other Azure resources. You can also push content to an index. To modify text in flight, use analyzers and normalizers to add lexical processing during indexing. Synonym maps are useful if source documents are missing terminology that might be used in a query. |
+| text | tokens, unaltered text | [Indexers](search-indexer-overview.md) can pull content from other Azure resources. You can also [push content](search-what-is-data-import.md) to an index. To modify text in flight, use [analyzers](search-analyzers.md) and [normalizers](search-normalizers.md) to add lexical processing during indexing. [Synonym maps](search-synonyms.md) are useful if source documents are missing terminology that might be used in a query. |
 | text | vectors <sup>1</sup> | Text can be chunked and vectorized externally and then [indexed as vector fields](vector-search-how-to-create-index.md) in your index. |
-| image | tokens, unaltered text <sup>2</sup> | Skills for OCR and Image Analysis process images for text recognition or image characteristics. Image information is converted to searchable text and added to the index. Skills have an indexer requirement. |
+| image | tokens, unaltered text <sup>2</sup> | [Skills](ccognitive-search-working-with-skillsets.md) for OCR and Image Analysis process images for text recognition or image characteristics. Image information is converted to searchable text and added to the index. Skills have an indexer requirement. |
 | image | vectors <sup>1</sup> | Images can be vectorized externally and then [indexed as vector fields](vector-search-how-to-create-index.md) in your index. |
 | video | vectors <sup>1</sup> | Video files can be vectorized externally and then [indexed as vector fields](vector-search-how-to-create-index.md) in your index. |
 | audio | vectors <sup>1</sup> | Audio files can be vectorized externally and then [indexed as vector fields](vector-search-how-to-create-index.md) in your index. |
@@ -84,7 +84,7 @@ One way to approach indexing is through a content-first approach. The following 
 
 <sup>2</sup> [Skills](cognitive-search-working-with-skillsets.md) are built-in support for [AI enrichment](cognitive-search-concept-intro.md). For OCR and Image Analysis, the indexing pipeline makes an internal call to the Azure AI Vision APIs. These skills pass an extracted image to Azure AI for processing, and receive the output as text that's indexed by Cognitive Search.
 
-Vectors provide the best accommodation for dissimilar content (multiple file formats and languages) because content is expressed universally as mathematic representations. Vectors also support similarity search: matching on the coordinates that are most similar to the vector query. Compared to keyword search (or term search) that matches at the token level, similarity search is more nuanced. It's a better choice if there's ambiguity or interpretation requirements in the content or in queries.
+Vectors provide the best accommodation for dissimilar content (multiple file formats and languages) because content is expressed universally as mathematic representations. Vectors also support similarity search: matching on the coordinates that are most similar to the vector query. Compared to keyword search (or term search) that matches on tokenized terms, similarity search is more nuanced. It's a better choice if there's ambiguity or interpretation requirements in the content or in queries.
 
 ## Content retrieval in Cognitive Search
 
@@ -94,7 +94,7 @@ There's no query type in Cognitive Search - not even semantic search or vector s
 
 | Query feature | Purpose | Why use it |
 |---------------|---------|------------|
-| [Simple or full Lucene syntax](search-query-create.md) | Query execution over text and non-vector numeric content | Full text search is best for exact matches, rather than similar matches. Full text search queries are ranked using the BM25 algorithm and support relevance tuning through scoring profiles. It also supports filters and facets. |
+| [Simple or full Lucene syntax](search-query-create.md) | Query execution over text and non-vector numeric content | Full text search is best for exact matches, rather than similar matches. Full text search queries are ranked using the [BM25 algorithm](index-similarity-and-scoring.md) and support relevance tuning through scoring profiles. It also supports filters and facets. |
 | [Filters](search-filters.md) and [facets](search-faceted-navigation.md) over text or numeric (non-vector) fields | Reduces the search surface area based on inclusion or exclusion criteria. | Adds precision to your queries. |
 | [Semantic search](semantic-how-to-query-request.md) | Re-ranks a BM25 result set using semantic models. Produces short-form captions and answers that are useful as LLM inputs. | Easier than scoring profiles, and depending on your content, a more reliable technique for relevance tuning. |
   [Vector search](vector-search-how-to-query.md) | Query execution over vector fields for similarity search, where the query string is one or more vectors. | Vectors can represent all types of content, in any language. |
@@ -106,19 +106,22 @@ A query's response provides the input to the LLM, so the quality of your search 
 
 Results are a tabular row set. The composition or structure of the results depends on:
 
-+ For columns, pay attention to attributes on the field and the select statement. A field definition in the index schema has attributes, and those determine whether a field is used in a response. Only "retrievable" fields are returned in full text or vector query results. Set "searchable" for full text search over text fields. Set "facetable" and "filterable" over text and non-vector numeric fields that you want to facet and filter by. By default all "retrievable" fields are returned, but you can use "select" to specify a subset.
++ Fields that determine which parts of the index are included in the response.
++ Rows the represent a match from index.
 
-+ For rows, the response is either what matches, up to the top 50 matches for full text search or k-nearest-neighbor matches for vector search.
+Fields appear in search results when the attribute is "retrievable". You can also use a select statement. A field definition in the index schema has attributes, and those determine whether a field is used in a response. Only "retrievable" fields are returned in full text or vector query results. By default all "retrievable" fields are returned, but you can use "select" to specify a subset. Fields don't have lengths.
+
+Rows are ranked by relevance, similarity, or both. Results are capped at the top 50 matches for full text search or k-nearest-neighbor matches for vector search. You can change the defaults to increase or decrease the limit. You can also use top and skip paging parameters to retrieve results as a series of paged results.
 
 ### Rank by relevance
 
-When you're working with complex processes, a large amount of data, and expectations for millisecond responses, you'll need to ensure that each step adds value and improves the quality of the end result. On the information retrieval side, *relevance tuning* is an activity that improves the quality of the results sent to the LLM.
+When you're working with complex processes, a large amount of data, and expectations for millisecond responses, it's critical that each step adds value and improves the quality of the end result. On the information retrieval side, *relevance tuning* is an activity that improves the quality of the results sent to the LLM.
 
-Relevance applies to keyword (non-vector) search and to hybrid queries (over the non-vector fields). In Cognitive Search, there's no relevance tuning for similarity search and vector queries. 
+Relevance applies to keyword (non-vector) search and to hybrid queries (over the non-vector fields). In Cognitive Search, there's no relevance tuning for similarity search and vector queries. [BM25 ranking](index-similarity-and-scoring.md) is the ranking algorithm for full text search. 
 
-Approaches to relevance tuning include:
+Relevance tuning is supported through features that enhance BM25 ranking. These approaches include:
 
-+ [Scoring profiles](index-add-scoring-profiles.md) that boost the search score if matches are found in a specific search field or on other criteria
++ [Scoring profiles](index-add-scoring-profiles.md) that boost the search score if matches are found in a specific search field or on other criteria.
 + [Semantic ranking](semantic-ranking.md) that re-ranks a BM25 results set, using semantic models from Bing to reorder results for a better semantic fit to the original query.
 
 ## Integration code and LLMs
@@ -139,15 +142,13 @@ terminology - is it important to introduce parametric and non-parametric verbiag
 
 ## How to get started
 
-+ Use Azure AI Studio and "bring your own data" to experiment with prompts and an existing search index. This step helps you decide what model to use, and whether your existing index needs modification.
++ [Use Azure AI Studio and "bring your own data"](/azure/ai-services/openai/concepts/use-your-data) to experiment with prompts on an existing search index. This step helps you decide what model to use, and whether your existing index needs modification.
 
-+ Review this demo to see a RAG solution in action, and to study the code that builds the experience.
++ [Review this demo](https://github.com/Azure-Samples/azure-search-openai-demo) to see a working RAG solution that includes Cognitive Search, and to study the code that builds the experience.
 
-+ Review indexing strategies to determine how you want to ingest and refresh data. Decide whether to use vector search, keyword search, or hybrid search. The kind of content you need to search over, and the type of queries you want to run, will determine index design.
++ [Review indexing concepts and strategies](search-what-is-an-index.md) to determine how you want to ingest and refresh data. Decide whether to use vector search, keyword search, or hybrid search. The kind of content you need to search over, and the type of queries you want to run, will determine index design.
 
-+ Review query and relevance.
-
-+ Use this accelerator to create your own RAG solution.
+<!-- + Use this accelerator to create your own RAG solution. -->
 
 > [!NOTE]
 > Some Cognitive Search features are intended for human interaction and aren't useful in a RAG pattern. Specifically, you can skip autocomplete and suggestions. Other features like facets and orderby might be useful, but would be uncommon in a RAG scenario.
