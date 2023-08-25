@@ -19,7 +19,7 @@ You can perform the following operations on the tables using HDInsight on AKS Tr
   
 ## Prerequisites
 
-* [Configure Delta Lake catalog](trino-add-deltalake-catalog.md).
+* [Configure Delta Lake catalog](trino-add-delta-lake-catalog.md).
 
 ## Create Delta Lake schemas and tables
 
