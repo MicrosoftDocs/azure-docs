@@ -49,6 +49,9 @@ The steps you'll take are:
 
 [!INCLUDE [notebook set kernel](includes/prereq-set-kernel.md)] 
 
+> [!NOTE]
+>- Serverless Spark Compute does not have `Python 3.10 - SDK v2` installed by default. It is recommended that users create a compute instance and select it before proceeding with the tutorial.
+
 <!-- nbstart https://raw.githubusercontent.com/Azure/azureml-examples/main/tutorials/get-started-notebooks/deploy-model.ipynb -->
 
 

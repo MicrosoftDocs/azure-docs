@@ -19,11 +19,11 @@ ms.collection: M365-identity-device-management
 
 Azure Active Directory (Azure AD) provides a central place to manage device identities and monitor related event information.
 
-[![Screenshot that shows the devices overview in the Azure portal.](./media/manage-device-identities/devices-azure-portal.png)](./media/manage-device-identities/devices-azure-portal.png#lightbox)
+[![Screenshot that shows the devices overview.](./media/manage-device-identities/devices-azure-portal.png)](./media/manage-device-identities/devices-azure-portal.png#lightbox)
 
 You can access the devices overview by completing these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Reader](../roles/permissions-reference.md#global-reader).
 1. Go to **Azure Active Directory** > **Devices**.
 
 In the devices overview, you can view the number of total devices, stale devices, noncompliant devices, and unmanaged devices. You'll also find links to Intune, Conditional Access, BitLocker keys, and basic monitoring. 
@@ -43,7 +43,7 @@ From there, you can go to **All devices** to:
 - Review device-related audit logs.
 - Download devices.
 
-[![Screenshot that shows the All devices view in the Azure portal.](./media/manage-device-identities/all-devices-azure-portal.png)](./media/manage-device-identities/all-devices-azure-portal.png#lightbox)
+[![Screenshot that shows the All devices view.](./media/manage-device-identities/all-devices-azure-portal.png)](./media/manage-device-identities/all-devices-azure-portal.png#lightbox)
 
 > [!TIP]
 > - Hybrid Azure AD joined Windows 10 or newer devices don't have an owner. If you're looking for a device by owner and don't find it, search by the device ID.
@@ -109,8 +109,6 @@ To view or copy BitLocker keys, you need to be the owner of the device or have o
 
 ## View and filter your devices (preview)
 
-[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
-
 In this preview, you have the ability to infinitely scroll, reorder columns, and select all devices. You can filter the device list by these device attributes:
 
 - Enabled state
@@ -129,11 +127,11 @@ In this preview, you have the ability to infinitely scroll, reorder columns, and
 
 To enable the preview in the **All devices** view:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Go to **Azure Active Directory** > **Devices** > **All devices**.
-3. Select the **Preview features** button.
-4. Turn on the toggle that says **Enhanced devices list experience**. Select **Apply**.
-5. Refresh your browser.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Reader](../roles/permissions-reference.md#global-reader).
+1. Browse to **Identity** > **Devices** > **All devices**.
+1. Select the **Preview features** button.
+1. Turn on the toggle that says **Enhanced devices list experience**. Select **Apply**.
+1. Refresh your browser.
 
 You can now experience the enhanced **All devices** view.
 
@@ -149,7 +147,7 @@ The exported list includes these device identity attributes:
 
 If you want to manage device identities by using the Azure portal, the devices need to be either [registered or joined](overview.md) to Azure AD. As an administrator, you can control the process of registering and joining devices by configuring the following device settings.
 
-You must be assigned one of the following roles to view device settings in the Azure portal:
+You must be assigned one of the following roles to view device settings:
 
 - Global Administrator
 - Global Reader
@@ -158,7 +156,7 @@ You must be assigned one of the following roles to view device settings in the A
 - Windows 365 Administrator
 - Directory Reviewer
 
-You must be assigned one of the following roles to manage device settings in the Azure portal:
+You must be assigned one of the following roles to manage device settings:
 
 - Global Administrator
 - Cloud Device Administrator
@@ -189,7 +187,7 @@ This option is a premium edition capability available through products like Azur
 
 - **Restrict non-admin users from recovering the BitLocker key(s) for their owned devices**: Admins can block self-service BitLocker key access to the registered owner of the device. Default users without the BitLocker read permission will be unable to view or copy their BitLocker key(s) for their owned devices. You must be a Global Administrator or Privileged Role Administrator to update this setting. 
 
-- **Enterprise State Roaming**: For information about this setting, see [the overview article](enterprise-state-roaming-overview.md).
+- **Enterprise State Roaming**: For information about this setting, see [the overview article](./enterprise-state-roaming-enable.md).
 
 ## Audit logs
 

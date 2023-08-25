@@ -27,7 +27,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 Before you begin, you’ll need to:
 
-- Create an Azure Active Directory tenant. For more information, see [Access the Azure portal and create a new tenant](active-directory-access-create-new-tenant.md).
+- Create an Azure Active Directory tenant. For more information, see [Access the Azure portal and create a new tenant](./create-new-tenant.md).
 
 <a name='sign-in-to-the-azure-portal'></a>
 
@@ -39,7 +39,7 @@ You must sign in to the [Azure portal](https://portal.azure.com) using a Global 
 
 ## Create a new group 
 
-Create a new group, named _MDM policy - West_. For more information about creating a group, see [How to create a basic group and add members](active-directory-groups-create-azure-portal.md).
+Create a new group, named _MDM policy - West_. For more information about creating a group, see [How to create a basic group and add members](./how-to-manage-groups.md).
 
 1. Go to **Azure Active Directory** > **Groups**.
 
@@ -56,7 +56,7 @@ Create a new group, named _MDM policy - West_. For more information about creati
 1. Select **Create**.
 
 ## Create a new user
-A user must exist before being added as a group member, so you'll need to create a new user. For this quickstart, we've added a user named _Alain Charon_. Check the "Custom domain names" tab first to get the verified domain name in which to create users. For more information about creating a user, see [How to add or delete users](add-users-azure-active-directory.md).
+A user must exist before being added as a group member, so you'll need to create a new user. For this quickstart, we've added a user named _Alain Charon_. Check the "Custom domain names" tab first to get the verified domain name in which to create users. For more information about creating a user, see [How to add or delete users](./add-users.md).
 
 1. Go to **Azure Active Directory** > **Users**.
 
@@ -136,4 +136,4 @@ The group you just created is used in other articles in the Azure AD Fundamental
 Advance to the next article to learn how to associate a subscription to your Azure AD directory.
 
 > [!div class="nextstepaction"]
-> [Associate an Azure subscription](active-directory-how-subscriptions-associated-directory.md)
+> [Associate an Azure subscription](./how-subscriptions-associated-directory.md)

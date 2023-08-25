@@ -101,7 +101,7 @@ These limits aren't adjustable.
 | Max number of simultaneous dataset uploads | N/A | 5 |
 | Max data file size for data import per dataset | N/A | 2 GB |
 | Upload of long audios or audios without script | N/A | Yes |
-| Max number of simultaneous model trainings | N/A | 3 |
+| Max number of simultaneous model trainings | N/A | 4 |
 | Max number of custom endpoints | N/A | 50 |
 
 #### Audio Content Creation tool

@@ -451,7 +451,7 @@ var request = {
 myMSALObj.acquireTokenPopup(request);
 ```
 
-To learn more, see [Optional claims](active-directory-optional-claims.md).
+To learn more, see [Optional claims](./optional-claims.md).
 
 # [Angular (MSAL.js v2)](#tab/angular2)
 
