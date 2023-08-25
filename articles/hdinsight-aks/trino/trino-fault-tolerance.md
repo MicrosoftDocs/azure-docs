@@ -13,9 +13,9 @@ This article describes how you can enable fault tolerance for your HDInsight on 
 
 ## Configuration
 
-Fault-tolerant execution is disabled by default. It can be enabled by adding `retry-policy` property in config.properties settings. Learn how to [manage configurations](./trino-service-config.md) of your cluster.
+Fault-tolerant execution is disabled by default. It can be enabled by adding `retry-policy` property in config.properties settings. Learn how to [manage configurations](./trino-service-configuration.md) of your cluster.
 
-|Property|Allowed Values| Description|
+|Property|Allowed Values|Description|
 |-|-|-|
 |`retry-policy`|QUERY or TASK| Setting determines whether Trino retries failing tasks or entire queries if there's a failure.|
 
@@ -38,7 +38,7 @@ To set up exchange manager with Azure Blob Storage as spooling destination, you 
 
 
 > [!TIP]
-> You need to add `exchange-manager.properties` file in `common` component inside `serviceConfigsProfiles.serviceName[“trino”]` section in the cluster ARM template. Refer to [manage confgurations](./trino-service-config.md#using-arm-template) on how to add configuration files to your cluster.
+> You need to add `exchange-manager.properties` file in `common` component inside `serviceConfigsProfiles.serviceName[“trino”]` section in the cluster ARM template. Refer to [manage confgurations](./trino-service-configuration.md#using-arm-template) on how to add configuration files to your cluster.
 
 Example:
 
