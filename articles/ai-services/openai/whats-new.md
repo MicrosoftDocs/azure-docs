@@ -8,7 +8,7 @@ ms.author: mbullwin
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: whats-new
-ms.date: 08/08/2023
+ms.date: 08/25/2023
 recommendations: false
 keywords:  
 ---
@@ -23,7 +23,7 @@ keywords:
 - [Azure OpenAI on your data](./concepts/use-your-data.md#virtual-network-support--private-network-support) now supports private endpoints.
 - Ability to [filter access to sensitive documents](./concepts/use-your-data.md#restrict-access-to-sensitive-documents).
 - [Automatically refresh your index on a schedule](./concepts/use-your-data.md#schedule-automatic-index-refreshes).
-- [Vector search and semantic search options](./concepts/use-your-data.md#schedule-automatic-index-refreshes). 
+- [Vector search and semantic search options](./concepts/use-your-data.md#search-options). 
 - [View your chat history in the deployed web app](./concepts/use-your-data.md#chat-history)
 
 ## July 2023

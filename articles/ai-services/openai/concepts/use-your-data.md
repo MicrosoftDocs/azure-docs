@@ -9,7 +9,7 @@ ms.subservice: openai
 ms.topic: quickstart
 author: aahill
 ms.author: aahi
-ms.date: 08/22/2023
+ms.date: 08/25/2023
 recommendations: false
 ---
 
@@ -73,7 +73,10 @@ If you have Azure OpenAI resource protected by a private network, and want to al
 
 Learn more about the [manual approval workflow](/azure/private-link/private-endpoint-overview#access-to-a-private-link-resource-using-approval-workflow).
 
-After you approve the request in your search service, you can start using the [chat completions extensions API](/azure/ai-services/openai/reference#completions-extensions). Public network access can be disabled for that search service. Private network access for Azure OpenAI Studio is not currently supported.
+After you approve the request in your search service, you can start using the [chat completions extensions API](/azure/ai-services/openai/reference#completions-extensions). Public network access can be disabled for that search service.
+
+> [!NOTE]
+> Virtual network support & private networks are only supported for the API, and not currently supported for Azure OpenAI Studio. 
 
 ### Azure OpenAI resources in virtual networks and private endpoints
 
@@ -214,7 +217,7 @@ Azure OpenAI on your data provides several search options you can use when you a
     To enable vector search, you will need a `text-embedding-ada-002` deployment in your Azure OpenAI resource. Select your embedding deployment when connecting your data, then select one of the vector search types under **Data management**.  
 
 > [!IMPORTANT]
-> * Semantic search and vector search are subject to additional pricing.
+> * [Semantic search](/azure/search/semantic-search-overview#availability-and-pricing) and [vector search](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) are subject to additional pricing.
 > * Currently Azure OpenAI on your data supports semantic search for English data only. Only enable semantic search if both your documents and use case are in English.
 
 | Search option       | Retrieval type | Additional pricing? | 
