@@ -12,11 +12,11 @@ ms.date: 08/25/2023
 ms.author: cmulligan
 ms.custom: it-pro
 
-#Customer intent: As a dev, devops, or IT admin, I want to customize the customer tenant.
+#Customer intent: As a dev, devops, or IT admin, I want to personalize the customer tenant.
 ---
 # Quickstart: Get started with our guide to run a sample app and sign in your users (preview)
 
-In this quickstart, we'll guide you through customizing the look and feel of your apps in the tenant, setting up a user and configuring a sample app in only a few minutes. With these built-in customer configuration features, Azure AD for customers can serve as the identity provider and access management service for your customers.
+In this quickstart, we'll guide you through customizing the look and feel of your apps in the  customer tenant, setting up a user and configuring a sample app in only a few minutes. With these built-in customer configuration features, Azure AD for customers can serve as the identity provider and access management service for your customers.
 
 ## Prerequisites
 
