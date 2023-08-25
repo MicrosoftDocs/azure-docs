@@ -91,6 +91,10 @@ The following example Azure Resource Manager template creates a manual job named
 }
 ```
 
+# [Azure portal](#tab/azure-portal)
+
+To create a manual job using the Azure portal, search for *Container App Jobs* in the Azure portal and select *Create*. Specify *Manual* as the trigger type.
+
 ---
 
 The `mcr.microsoft.com/k8se/quickstart-jobs:latest` image is a sample container image that runs a job that waits a few seconds, prints a message to the console, and then exits.
@@ -161,6 +165,10 @@ The following example Azure Resource Manager template creates a manual job named
     }
 }
 ```
+
+# [Azure portal](#tab/azure-portal)
+
+To create a scheduled job using the Azure portal, search for *Container App Jobs* in the Azure portal and select *Create*. Specify *Schedule* as the trigger type and define the schedule with a cron expression.
 
 ---
 
@@ -260,6 +268,10 @@ The following example Azure Resource Manager template creates an event-driven jo
 }
 ```
 
+# [Azure portal](#tab/azure-portal)
+
+To create an event-driven job using the Azure portal, search for *Container App Jobs* in the Azure portal and select *Create*. Specify *Event* as the trigger type and configure the scaling rule.
+
 ---
 
 The example configures an Azure Storage queue scale rule. For a complete tutorial, see [Deploy an event-driven job](tutorial-event-driven-jobs.md).
@@ -330,6 +342,10 @@ Authorization: Bearer <TOKEN>
 
 Replace `<SUBSCRIPTION_ID>` with your subscription ID and `<TOKEN>` in the `Authorization` header with a valid bearer token. For more information, see [Azure REST API reference](/rest/api/azure).
 
+# [Azure portal](#tab/azure-portal)
+
+Starting a job execution using the Azure portal isn't supported.
+
 ---
 
 ## Get job execution history
@@ -355,6 +371,10 @@ GET https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/
 Replace `<SUBSCRIPTION_ID>` with your subscription ID.
 
 To authenticate the request, add an `Authorization` header with a valid bearer token. For more information, see [Azure REST API reference](/rest/api/azure).
+
+# [Azure portal](#tab/azure-portal)
+
+To view the status of job executions using the Azure portal, search for *Container App Jobs* in the Azure portal and select the job. The *Execution history* tab displays the status of recent executions.
 
 ---
 
@@ -463,16 +483,17 @@ The following example Azure Resource Manager template creates a job with advance
 }
 ```
 
+# [Azure portal](#tab/azure-portal)
+
+To configure advanced settings using the Azure portal, search for *Container App Jobs* in the Azure portal and select *Create*. Select *Configuration* to configure the settings.
+
 ---
 
-## Jobs preview restrictions
+## Jobs restrictions
 
 The following features are not supported:
 
-- Volume mounts
-- Init containers
 - Dapr
-- Azure Key Vault references in secrets
 - Ingress and related features such as custom domains and SSL certificates
 
 ## Next steps
