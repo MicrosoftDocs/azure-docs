@@ -53,5 +53,5 @@ During the free trial period, you'll have access to all product features with fe
 
 ## Get started guide
 
-Once your customer tenant free trial is set up, the next step is to personalize your customer's sign-in and sign-up experience, set up a user in your tenant, and configure a sample app. The get started guide will walk you through all of these steps in just a few minutes. For more information about the next steps see the [get started guide](quickstart-get-started-guide.md) article. 
+Once your customer tenant free trial is ready, the next step is to personalize your customer's sign-in and sign-up experience, set up a user in your tenant, and configure a sample app. The get started guide will walk you through all of these steps in just a few minutes. For more information about the next steps see the [get started guide](quickstart-get-started-guide.md) article. 
 
