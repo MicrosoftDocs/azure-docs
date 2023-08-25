@@ -58,6 +58,8 @@ There are two steps involved in configuring a private endpoint connection:
 > - Creating the endpoint and the associated connection.
 > - Approving the connection.
 
+You can also use [Network Policies](../../private-link/disable-private-endpoint-network-policy.md) to refine access control over private endpoints.
+
 To create a private endpoint for an Elastic SAN volume group, you must have the [Elastic SAN Volume Group Owner](../../role-based-access-control/built-in-roles.md#elastic-san-volume-group-owner) role. To approve a new private endpoint connection, you must have permission to the [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftelasticsan) `Microsoft.ElasticSan/elasticSans/PrivateEndpointConnectionsApproval/action`. Permission for this operation is included in the [Elastic SAN Network Admin](../../role-based-access-control/built-in-roles.md#elastic-san-owner) role, but it can also be granted via a custom Azure role.
 
 If you create the endpoint from a user account that has all of the necessary roles and permissions required for creation and approval, the process can be completed in one step. If not, it will require two separate steps by two different users.
