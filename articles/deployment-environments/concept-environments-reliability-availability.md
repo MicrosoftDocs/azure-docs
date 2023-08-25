@@ -34,7 +34,7 @@ Regions supported:
 - Korea Central
 - Canada Central
 
-For more detailed information on availability zones in Azure, see [Regions and availability zones](azure/reliability/availability-zones-overview).
+For more detailed information on availability zones in Azure, see [Regions and availability zones](/azure/reliability/availability-zones-overview). 
 
 ## Disaster recovery: cross-region failover 
 
@@ -44,11 +44,11 @@ You can replicate the following Deployment Environments resources in an alternat
  
 - Dev center
 - Project
-- catalog
-- catalog items
-- dev center environment type
-- project environment type
-- environments
+- Catalog
+- Catalog items
+- Dev center environment type
+- Project environment type
+- Environments
 
 
 
