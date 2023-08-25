@@ -33,7 +33,7 @@ Follow these steps to create a Node.js console application for speech synthesis.
    npm install microsoft-cognitiveservices-speech-sdk
    ```
 
-1. Copy the following code into `SpeechSynthesis.js`:
+1. Copy the following code into *SpeechSynthesis.js*:
 
    ```javascript
    (function() {
@@ -100,7 +100,7 @@ Follow these steps to create a Node.js console application for speech synthesis.
 
 1. The provided text should be in an audio file:
 
-   ```console
+   ```output
    Enter some text that you want to speak >
    > I'm excited to try text to speech
    Now synthesizing to: YourAudioFile.wav

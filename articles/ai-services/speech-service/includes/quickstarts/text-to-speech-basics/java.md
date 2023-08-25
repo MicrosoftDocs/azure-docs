@@ -16,7 +16,7 @@ ms.author: eur
 
 ## Set up the environment
 
-Before you can do anything, you need to install the Speech SDK. The sample in this quickstart works with the [Java Runtime](~/articles/ai-services/speech-service/quickstarts/setup-platform.md?pivots=programming-language-java&tabs=jre).
+Before you can do anything, you need to [install the Speech SDK](~/articles/ai-services/speech-service/quickstarts/setup-platform.md?pivots=programming-language-java&tabs=jre). The sample in this quickstart works with the Java Runtime.
 
 1. Install [Apache Maven](https://maven.apache.org/install.html). Then run `mvn -v` to confirm successful installation.
 1. Create a new *pom.xml* file in the root of your project, and copy the following code into it:
@@ -65,7 +65,7 @@ Before you can do anything, you need to install the Speech SDK. The sample in th
 Follow these steps to create a console application for speech recognition.
 
 1. Create a file named *SpeechSynthesis.java* in the same project root directory.
-1. Copy the following code into `SpeechSynthesis.java`:
+1. Copy the following code into *SpeechSynthesis.java*:
 
    ```java
    import com.microsoft.cognitiveservices.speech.*;

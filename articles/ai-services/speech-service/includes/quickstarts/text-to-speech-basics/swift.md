@@ -18,7 +18,7 @@ ms.author: eur
 
 The Speech SDK for Swift is distributed as a framework bundle. The framework supports both Objective-C and Swift on both iOS and macOS.
 
-The Speech SDK can be used in Xcode projects as a [CocoaPod](https://cocoapods.org/), or downloaded directly [here](https://aka.ms/csspeech/macosbinary) and linked manually. This guide uses a CocoaPod. Install the CocoaPod dependency manager as described in its [installation instructions](https://guides.cocoapods.org/using/getting-started.html).
+The Speech SDK can be used in Xcode projects as a [CocoaPod](https://cocoapods.org/), or [downloaded directly](https://aka.ms/csspeech/macosbinary) and linked manually. This guide uses a CocoaPod. Install the CocoaPod dependency manager as described in its [installation instructions](https://guides.cocoapods.org/using/getting-started.html).
 
 ### Set environment variables
 
@@ -108,14 +108,14 @@ Follow these steps to synthesize speech in a macOS application.
    }
    ```
 
-1. In `AppDelegate.m`, use the [environment variables that you previously set](#set-environment-variables) for your Speech resource key and region.
+1. In *AppDelegate.m*, use the [environment variables that you previously set](#set-environment-variables) for your Speech resource key and region.
 
    ```swift
    sub = ProcessInfo.processInfo.environment["SPEECH_KEY"]
    region = ProcessInfo.processInfo.environment["SPEECH_REGION"]
    ```
 
-1. Optionally in `AppDelegate.m`, include a speech synthesis voice name as shown here:
+1. Optionally in *AppDelegate.m*, include a speech synthesis voice name as shown here:
 
    ```swift
    speechConfig?.speechSynthesisVoiceName = "en-US-JennyNeural";

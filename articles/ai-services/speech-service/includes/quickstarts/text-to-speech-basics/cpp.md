@@ -26,7 +26,7 @@ The Speech SDK is available as a [NuGet package](https://www.nuget.org/packages/
 
 Follow these steps to create a new console application and install the Speech SDK.
 
-1. Create a C++ console project in Visual Studio Community 2022 named `SpeechSynthesis`.
+1. Create a C++ console project in [Visual Studio Community](https://visualstudio.microsoft.com/downloads/) named `SpeechSynthesis`.
 1. Install the Speech SDK in your new project with the NuGet package manager.
 
    ```powershell
@@ -120,7 +120,7 @@ Follow these steps to create a new console application and install the Speech SD
    > [!IMPORTANT]
    > Make sure that you set the `SPEECH_KEY` and `SPEECH_REGION` environment variables as described in [Set environment variables](#set-environment-variables). If you don't set these variables, the sample fails with an error message.
 
-1. Enter some text that you want to speak. For example, type "I'm excited to try text to speech." Select the **Enter** key to hear the synthesized speech.
+1. Enter some text that you want to speak. For example, type *I'm excited to try text to speech*. Select the **Enter** key to hear the synthesized speech.
 
    ```console
    Enter some text that you want to speak >
