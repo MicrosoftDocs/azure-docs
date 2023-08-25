@@ -23,32 +23,32 @@ versions](https://www.postgresql.org/docs/release/):
 
 ### PostgreSQL version 15
 
-The current minor release is 15.3. Refer to the [PostgreSQL
-documentation](https://www.postgresql.org/docs/release/15.3/) to
+The current minor release is 15.4. Refer to the [PostgreSQL
+documentation](https://www.postgresql.org/docs/release/15.4/) to
 learn more about improvements and fixes in this minor release.
 
 ### PostgreSQL version 14
 
-The current minor release is 14.8. Refer to the [PostgreSQL
-documentation](https://www.postgresql.org/docs/release/14.8/) to
+The current minor release is 14.9. Refer to the [PostgreSQL
+documentation](https://www.postgresql.org/docs/release/14.9/) to
 learn more about improvements and fixes in this minor release.
 
 ### PostgreSQL version 13
 
-The current minor release is 13.11. Refer to the [PostgreSQL
-documentation](https://www.postgresql.org/docs/release/13.11/) to
+The current minor release is 13.12. Refer to the [PostgreSQL
+documentation](https://www.postgresql.org/docs/release/13.12/) to
 learn more about improvements and fixes in this minor release.
 
 ### PostgreSQL version 12
 
-The current minor release is 12.15. Refer to the [PostgreSQL
-documentation](https://www.postgresql.org/docs/release/12.15/) to
+The current minor release is 12.16. Refer to the [PostgreSQL
+documentation](https://www.postgresql.org/docs/release/12.16/) to
 learn more about improvements and fixes in this minor release.
 
 ### PostgreSQL version 11
 
-The current minor release is 11.20. Refer to the [PostgreSQL
-documentation](https://www.postgresql.org/docs/release/11.20/) to
+The current minor release is 11.21. Refer to the [PostgreSQL
+documentation](https://www.postgresql.org/docs/release/11.21/) to
 learn more about improvements and fixes in this minor release.
 
 ### PostgreSQL version 10 and older
