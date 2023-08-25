@@ -37,7 +37,6 @@ The provided network settings for Oracle Applications on Azure cover various asp
   - Monitoring and Logging: Implement [Azure Monitor](https://learn.microsoft.com/azure/azure-monitor/overview) and [Azure Defender](https://learn.microsoft.com/azure/defender-for-cloud/defender-for-cloud-introduction) for security to continuously check your environment for security threats and anomalies. Set up logging for auditing and forensic analysis.
 
   
-
 - In summary, these network and security settings aim to provide a robust and secure environment for hosting Oracle applications on Azure IaaS. They incorporate best practices for authentication, access control, and network security, both for internal and external users. They also consider the need for SSH access to Application servers. These recommendations can help you set up a mature security posture for your Oracle applications deployment on Azure IaaS.
 
 **Web Tier**: The web tier load balances the requests and sends the requests accordingly to the application tier, database tier and/or backup.
@@ -75,7 +74,7 @@ Here's the recommended architecture of a Siebel application deployment on Azure 
 
 ### Oracle Siebel design considerations
 
-**Network & Security:**  The network settings for Oracle Siebel on Azure required to follow the general network & security considerations, additionally. 
+- Network & Security:  The network settings for Oracle Siebel on Azure required to follow the general network & security considerations, additionally. 
 
 - Migration must be done using Siebel Tool subnet.
 
@@ -83,7 +82,7 @@ Here's the recommended architecture of a Siebel application deployment on Azure 
 
 - Version 17 or higher – configurations of certain server and utilities on the application and database is required.
 
-**Database Tier**:
+**Database Tier**
 
 - Ensure Database and Siebel version match.
 - Primary and replicated to a secondary using Data Guard based recommended [Oracle reference architecture](oracle-reference-architecture.md).
@@ -94,14 +93,13 @@ Oracle E-Business Suite (EBS) is a suite of applications including Supply Chain 
 
 We assume that external users don't cross the corporate network in the following diagram.
 
-
 :::image type="content" source="media/oracle-database-architecture/on-premises-network-and-external-users.png" alt-text="Diagram showing on-premises network and external users." lightbox="media/oracle-database-architecture/on-premises-network-and-external-users.png":::
 
 ### Oracle EBS design considerations 
 
-**Database Tier** - Primary & secondary database should be within one datacenter, the synchronous configuration should be used. If you install your application across datacenters, you should configure Data Guard in Asynchronous mode.
+Database Tier - Primary & secondary database should be within one datacenter, the synchronous configuration should be used. If you install your application across datacenters, you should configure Data Guard in Asynchronous mode.
 
-**JD Edwards on Azure**
+### JD Edwards on Azure
 
 Oracle's JD Edwards is an integrated applications suite of comprehensive enterprise resource planning software. We have seen JDE used in Supply chain, Warehouse Management, Logistics, Manufacturing resource planning and more. Because of the use of the application, we see that interfaces to other systems are important as well.
 
@@ -114,6 +112,7 @@ The following architecture is built to being highly available. We assumed that e
 Web Tier: The application web tier typically consists of multiple application servers. In JD Edwards, rules are often saved on these application web servers.
 
 - Presentation Tier: Each instance in the presentation tier is associated with storage. Cutting dependencies between instances can lead to high latencies, so it's crucial to assess them carefully.
+
 - Server Performance Variation: Some servers may handle more tasks and create higher throughput than others. During the design phase, it's essential to evaluate this throughput variation to ensure that your infrastructure can handle peak workloads efficiently.
 - Re-Architecture: Using VMSS for autoscaling doesn't require a rearchitecture of your JD Edwards setup. It's a scalable solution that can be implemented without significant changes to your application's architecture.
 
@@ -131,7 +130,9 @@ Oracle's PeopleSoft application suite contains software for human resources and 
 Application Tier: The application tier contains several tasks and servers. It runs the business logic and processes but also maintains the connection to the database. As soon as this dependency is cut, it causes latencies.
 
 - Dependency between Application and Database Tiers: It's important to minimize latency between the application and database tiers. Placing them in the same cloud provider (Azure, in this case) is a good idea to reduce network latency. Azure provides various networking options and services like Virtual Network (VNet) peering or ExpressRoute to ensure low-latency connections between tiers.
+
 - Operating System Considerations: If the Process Scheduler specifically requires Windows operating systems, you can still run it on Azure VMs. Azure supports various Windows Server versions, allowing you to choose the one that meets your application's requirements.
+
 - Architecture Evaluation: Carefully evaluate your architecture requirements, including scalability, availability, and performance. Consider setting up multiple application server instances in a load-balanced configuration to ensure high availability and scalability.
 
 Database Tier - The primary and replicated to a secondary should stay within one datacenter, the synchronous configuration should be used. If you install your application across datacenters, you should configure Data Guard in Asynchronous mode.
