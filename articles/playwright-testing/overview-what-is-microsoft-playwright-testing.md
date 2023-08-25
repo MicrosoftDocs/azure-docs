@@ -45,10 +45,6 @@ To run existing tests with Microsoft Playwright Testing requires no changes to y
 
 After a test run completes, Playwright sends the test run metadata to the service. The test results, trace files, and other test run files are available on the client machine. 
 
-The following diagram shows an architecture overview of Microsoft Playwright Testing.
-
-:::image type="content" source="./media/overview-what-is-microsoft-playwright-testing/microsoft-playwright-testing-architecture.png" alt-text="Diagram that shows the Microsoft Playwright Testing architecture." lightbox="./media/overview-what-is-microsoft-playwright-testing/microsoft-playwright-testing-architecture.png":::
-
 ## Limitations
 
 - Only hosted browsers on Linux and Windows are supported.
