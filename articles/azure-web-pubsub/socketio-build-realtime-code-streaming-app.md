@@ -10,7 +10,7 @@ ms.topic: how-to
 
 # Build a real-time code-streaming app by using Socket.IO and host it on Azure
 
-Building a real-time experience like the co-creation feature from [Microsoft Word](https://www.microsoft.com/microsoft-365/word) can be challenging.
+Building a real-time experience like the co-creation feature in [Microsoft Word](https://www.microsoft.com/microsoft-365/word) can be challenging.
 
 Through its easy-to-use APIs, [Socket.IO](https://socket.io/) has proven itself as a library for real-time communication between clients and a server. However, Socket.IO users often report difficulty around scaling Socket.IO's connections. With Web PubSub for Socket.IO, developers no longer need to worry about managing persistent connections.
 
@@ -170,7 +170,7 @@ Now that you've created a Socket.IO server hosted by Web PubSub, you can define 
     });
     ```
 
-2. Each client emits two events that the server can respond to: `joinRoom` and `sendToRoom`. After the server gets the `room_id` value that a client wants join, you use `socket.join` from Socket.IO's API to join the target client to the specified room.
+2. Each client emits two events that the server can respond to: `joinRoom` and `sendToRoom`. After the server gets the `room_id` value that a client wants to join, you use `socket.join` from Socket.IO's API to join the target client to the specified room.
 
     ```javascript
     /*server.js*/
@@ -201,7 +201,7 @@ Now that you've created a Socket.IO server hosted by Web PubSub, you can define 
             sendToRoom(socket, `${room_id}-control`, { data: 'sync'});
         }
         // ... 
-    })
+    });
     ```
 
 4. When a client sends a `sendToRoom` event to the server, the server broadcasts the *changes to the code editor state* to the specified room. All clients in the room can now receive the latest update.
@@ -224,7 +224,7 @@ Now that the server-side procedures are finished, you can work on the client sid
 
 ### Initial setup
 
-You need to create an Socket.IO client to communicate with the server. The question is which server the client should establish a persistent connection with. Because you're using Web PubSub for Socket.IO, the server is an Azure service. Recall that you defined a [`/negotiate`](#build-an-http-server) route to serve clients an endpoint to Web PubSub for Socket.IO.
+You need to create a Socket.IO client to communicate with the server. The question is which server the client should establish a persistent connection with. Because you're using Web PubSub for Socket.IO, the server is an Azure service. Recall that you defined a [/negotiate](#build-an-http-server) route to serve clients an endpoint to Web PubSub for Socket.IO.
 
 ```javascript
 /*client.js*/
@@ -241,7 +241,7 @@ async function initialize(url) {
     });
 
     return [socket, editor, data.room_id];
-}
+};
 ```
 
 The `initialize(url)` function organizes a few setup operations together:
@@ -252,7 +252,7 @@ The `initialize(url)` function organizes a few setup operations together:
 
 ### Writer client
 
-[As mentioned earlier](#the-finished-app), you have two user roles on the client side: writer and viewer. Anything that the writer types is streamed to the viewer's screen.  
+As mentioned [earlier](#the-finished-app), you have two user roles on the client side: writer and viewer. Anything that the writer types is streamed to the viewer's screen.  
 
 1. Get the endpoint to Web PubSub for Socket.IO and the `room_id` value:
 
@@ -294,7 +294,7 @@ The `initialize(url)` function organizes a few setup operations together:
 
         changes = [];
         content = editor.getValue();
-    }
+    };
     ```
 
 4. When a new viewer client is connected, the viewer needs to get the latest *complete state* of the editor. To achieve this, a message that contains `sync` data is sent to the writer client. The message asks the writer client to send the complete editor state.
@@ -381,7 +381,7 @@ The `initialize(url)` function organizes a few setup operations together:
             room_id: room_id,
             data: data
         });
-    }
+    };
     ```
 
 ## Run the application
