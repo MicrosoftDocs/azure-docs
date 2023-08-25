@@ -34,11 +34,11 @@ For more information, see [License requirements](entitlement-management-overview
 
 **Prerequisite role:** Global administrator, Identity Governance administrator, User administrator, Catalog owner, or Access package manager
 
-1. In the Azure portal, in the left navigation, select **Azure Active Directory**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-2. In the left menu, select **Identity Governance**.
+1. Browse to **Identity governance** > **Entitlement management** > **Access package**.
 
-3. In the left menu, select **Access packages**. If you see Access denied, ensure that a Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance license is present in your directory.
+3. When selecting the access package page if you see Access denied, ensure that a Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance license is present in your directory.
 
 4. Select **New access package**.
 
@@ -110,11 +110,9 @@ In this step, you can delete the **External user package** access package.
 
 **Prerequisite role:** Global administrator, Identity Governance administrator or Access package manager
 
-1. In the **Azure portal**, in the left navigation, select **Azure Active Directory**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-2. In the left menu, select **Identity Governance**.
-
-3. In the left menu, select **Access Packages**. 
+1. Browse to **Identity governance** > **Entitlement management** > **Access package**.
 
 4. Open the **External user package** access package. 
 
