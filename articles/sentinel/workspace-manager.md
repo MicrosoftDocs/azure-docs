@@ -81,6 +81,10 @@ Workspace manager groups allow you to organize workspaces together based on busi
 ## Publish the Group definition
 At this point, the content items selected haven't been published to the member workspace(s) yet.
 
+> [!NOTE]
+> The publish action will fail if the maximum publish operations are exceeded. *Published operations* = (*member workspaces*) * (*content items*).
+> Consider creating additional groups if you approach this limit. 
+
 1. Select the group > **Publish content**.
 
     :::image type="content" source="media/workspace-manager/publish-group.png" alt-text="Screenshot shows the group publish window.":::
@@ -115,6 +119,7 @@ Common reasons for failure include:
 - Workbooks stored in bring-your-own-storage aren't currently supported.
 - Workspace manager only manages content items published from the central workspace. It doesn't manage content created locally from member workspace(s).
 - Currently, deleting content residing in member workspace(s) centrally via workspace manager isn't supported.
+- The maximum published operations per group is 2000. *Published operations* = (*member workspaces*) * (*content items*).<br>For example, if you have 10 member workspaces in a group and you publish 20 content items in that group,<br>*published operations* = *10* * *20* = *200*.
 
 ### API references
 - [Workspace Manager Assignment Jobs](/rest/api/securityinsights/preview/workspace-manager-assignment-jobs)
