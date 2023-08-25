@@ -7,7 +7,7 @@ ms.topic: include
 ms.date: 08/31/2023
 ---
 
-<!-- 
+<!--
 For clarity of structure, a separate markdown file is used to describe how to deploy to Azure Spring Apps with Basic/Standard plan.
 
 [!INCLUDE [deploy-app-with-basic-standard-plan](includes/quickstart/deploy-app-with-basic-standard-plan.md)]
@@ -27,9 +27,9 @@ Use the following steps to initialize the application from the Azure Developer C
 1. Open a terminal window, create a new folder, and change directory into it.
 1. Use the following command to initialize the project:
 
-    ```bash
-    azd init --template spring-guides/gs-spring-boot-for-azure
-    ```
+   ```bash
+   azd init --template spring-guides/gs-spring-boot-for-azure
+   ```
 
    The following list describes the command interactions:
 
@@ -40,7 +40,7 @@ Use the following steps to initialize the application from the Azure Developer C
 
    ```output
    Initializing a new project (azd init)
-   
+
    (✓) Done: Initialized git repository
    (✓) Done: Downloading template code to: <your-local-path>
    Enter a new environment name: <your-env-name>
@@ -172,16 +172,15 @@ Use the following steps to package the app, provision the Azure resources requir
 
    ```output
    Deploying services (azd deploy)
-   
+
    WARNING: Feature 'springapp' is in alpha stage.
    To learn more about alpha features and their support, visit https://aka.ms/azd-feature-stages.
-   
+
    ...
-   
+
    Deploying service demo (Fetching endpoints for spring app service)
    - Endpoint: https://<your-Azure-Spring-Apps-instance-name>-demo.azuremicroservices.io/
-   
-   
+
    SUCCESS: Your application was deployed to Azure in xx minutes xx seconds.
    You can view the resources created under the resource group rg-<your-environment-name> in Azure Portal:
    https://portal.azure.com/#@/resource/subscriptions/<your-subscription-id>/resourceGroups/rg-<your-environment-name>/overview
