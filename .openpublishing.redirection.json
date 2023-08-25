@@ -24244,7 +24244,7 @@
         },
         {
             "source_path_from_root": "/articles/reliability/reliability-postgre-flexible.md",
-            "redirect_url": "/azure/reliability/reliability-postgresql-flexible",
+            "redirect_url": "/azure/reliability/reliability-postgresql-flexible-server",
             "redirect_document_id": false
         }
     ]
