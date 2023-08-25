@@ -454,7 +454,7 @@ az dataprotection backup-instance list-from-resourcegraph --datasource-type Azur
 ]
 ```
 
-You can specify a rule and tagname while triggering backup. To view the rules in policy, look through the policy JSON. In the following example, the rule with the name `"BackupDaily"`, and tag name `"default"`` is displayed, and we'll use that rule for the on-demand backup.
+You can specify a rule and tagname while triggering backup. To view the rules in policy, look through the policy JSON. In the following example, the rule with the name `"BackupDaily"`, and tag name `"default"` is displayed, and we'll use that rule for the on-demand backup.
 
 ```json
 "name": "BackupDaily",
