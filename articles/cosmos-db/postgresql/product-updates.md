@@ -24,6 +24,7 @@ Updates that change cluster internals, such as installing a [new minor PostgreSQ
 
 ### August 2023
 * General availability: [The latest minor PostgreSQL version updates](reference-versions.md#postgresql-versions) (11.21, 12.16, 13.12, 14.9, and 15.4) are now available in all supported regions.
+* General availability: [PgBouncer](http://www.pgbouncer.org/) version 1.20 is now supported for all [PostgreSQL versions](reference-versions.md#postgresql-versions) in all [supported regions](./resources-regions.md) 	
 * General availability: Citus 12 is now available in [all supported regions](./resources-regions.md) with PostgreSQL 14 and PostgreSQL 15.
     * Check [what's new in Citus 12](https://www.citusdata.com/updates/v12-0/).
     * See [Postgres and Citus version in-place upgrade](./concepts-upgrade.md).
