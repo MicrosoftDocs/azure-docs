@@ -169,16 +169,6 @@ The assessment summary shows the estimated compute and storage cost of running V
 2. Review monthly storage costs. The view shows the aggregated storage costs for the assessed group, split over different types of storage disks. 
 3. You can drill down to see cost details for specific VMs.
 
-### Review support status
-
-The assessment summary displays the support status of the Operating system licenses.
-
-1. Select the graph in the **Supportability** section to view a list of the assessed VMs.
-2. The **Operating system license support status** column displays the support status of the Operating system, whether it is in mainstream support, extended support, or out of support. Selecting the support status opens a pane on the right which shows the type of support status, duration of support, and the recommended steps to secure their workloads. 
-   - To view the remaining duration of support, that is, the number of months for which the license is valid, 
-select **Columns** > **Support ends in** > **Submit**. The **Support ends in** column displays the duration in months. 
-
-
 ### Review confidence rating
 
 Azure Migrate assigns a confidence rating to performance-based assessments. Rating is from one star (lowest) to five stars (highest).

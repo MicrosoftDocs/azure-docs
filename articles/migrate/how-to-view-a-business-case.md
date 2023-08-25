@@ -58,10 +58,14 @@ As you plan to migrate to Azure in phases, this line chart shows your cashflow p
 - The future state cost shows how your net cashflow will be as you migrate some percentage to Azure per year as in the 'Azure cost' assumptions, while your infrastructure is growing 5% per year.
 
 ### Savings with Azure Hybrid Benefits
-Currently, this card shows a static percentage of maximum savings you could get with Azure hybrid Benefits. It also displays the savings you could get by using Extended Security updates over the next 3 years. 
+This card shows a static percentage of maximum savings you could get with Azure hybrid Benefits. 
+
+### Savings with Extended security updates
+It shows the potential savings with respect to extended security update license. It is the cost of extended security update license required to run Windows Server and SQL Server securely after the end of support of its licenses on-premises. Extended security updates are offered at no additional cost on Azure.
+
 
 ### Discovery insights
-It covers the total severs scoped in the business case computation, virtualization distribution, utilization insights, support status of the licenses, and distribution of servers based on workloads running on them.
+It covers the total servers scoped in the business case computation, virtualization distribution, utilization insights, support status of the licenses, and distribution of servers based on workloads running on them.
 
 #### Utilization insights
 It covers which servers are ideal for cloud, servers that can be decommissioned on-premises, and servers that can't be classified based on resource utilization/performance data:
