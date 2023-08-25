@@ -16,7 +16,7 @@ ms.author: eur
 
 You can use Speech Synthesis Markup Language (SSML) to specify the text to speech voice, language, name, style, and role for your speech output. You can also use multiple voices in a single SSML document, and adjust the emphasis, speaking rate, pitch, and volume. In addition, SSML features the ability to insert prerecorded audio, such as a sound effect or a musical note.
 
-Refer to the following sections in the article for details about how to use SSML elements to specify voice and sound. For more information about SSML syntax, see [SSML document structure and events](speech-synthesis-markup-structure.md).
+The article shows you how to use SSML elements to specify voice and sound. For more information about SSML syntax, see [SSML document structure and events](speech-synthesis-markup-structure.md).
 
 ## Use voice elements
 
@@ -93,7 +93,7 @@ You use the `effect` attribute to optimize the auditory experience for scenarios
 By default, neural voices have a neutral speaking style. You can adjust the speaking style, style degree, and role at the sentence level.
 
 > [!NOTE]
-> The Speech service supports styles, style degree, and roles for a subset of neural voices as described in the [voice styles and roles](language-support.md?tabs=tts#voice-styles-and-roles) documentation. To determine the supported styles and roles for each voice, you can also use the [list voices](rest-text-to-speech.md#get-a-list-of-voices) API and the [Audio Content Creation](https://aka.ms/audiocontentcreation) web application.
+> The Speech service supports styles, style degree, and roles for a subset of neural voices as described in [Voice styles and roles](language-support.md?tabs=tts#voice-styles-and-roles) documentation. To determine the supported styles and roles for each voice, you can also use the [list voices](rest-text-to-speech.md#get-a-list-of-voices) API and the [Audio Content Creation](https://aka.ms/audiocontentcreation) web application.
 
 ### mstts express-as examples
 
@@ -130,7 +130,7 @@ The following table describes each supported `style` attribute:
 |`style="hopeful"`|Expresses a warm and yearning tone. It sounds like something good will happen to the speaker.|
 |`style="lyrical"`|Expresses emotions in a melodic and sentimental way.|
 |`style="narration-professional"`|Expresses a professional, objective tone for content reading.|
-|`style="narration-relaxed"`|Express a soothing and melodious tone for content reading.|
+|`style="narration-relaxed"`|Expresses a soothing and melodious tone for content reading.|
 |`style="newscast"`|Expresses a formal and professional tone for narrating news.|
 |`style="newscast-casual"`|Expresses a versatile and casual tone for general news delivery.|
 |`style="newscast-formal"`|Expresses a formal, confident, and authoritative tone for news delivery.|
@@ -138,10 +138,10 @@ The following table describes each supported `style` attribute:
 |`style="sad"`|Expresses a sorrowful tone.|
 |`style="serious"`|Expresses a strict and commanding tone. Speaker often sounds stiffer and much less relaxed with firm cadence.|
 |`style="shouting"`|Expresses a tone that sounds as if the voice is distant or in another location and making an effort to be clearly heard.|
-|`style="sports_commentary"`|Expresses a relaxed and interesting tone for broadcasting a sports event.|
+|`style="sports_commentary"`|Expresses a relaxed and interested tone for broadcasting a sports event.|
 |`style="sports_commentary_excited"`|Expresses an intensive and energetic tone for broadcasting exciting moments in a sports event.|
 |`style="whispering"`|Expresses a soft tone that's trying to make a quiet and gentle sound.|
-|`style="terrified"`|Expresses a scared tone, with faster pace and a shakier voice. It sounds like the speaker is in an unsteady and frantic status.|
+|`style="terrified"`|Expresses a scared tone, with a faster pace and a shakier voice. It sounds like the speaker is in an unsteady and frantic status.|
 |`style="unfriendly"`|Expresses a cold and indifferent tone.|
 
 The following table has descriptions of each supported `role` attribute:
@@ -161,7 +161,7 @@ The following table has descriptions of each supported `role` attribute:
 
 You use the `mstts:express-as` element to express emotions like cheerfulness, empathy, and calm. You can also optimize the voice for different scenarios like customer service, newscast, and voice assistant.
 
-The following SSML example uses the `<mstts:express-as>` element with a sad style degree of `2`. 
+The following SSML example uses the `<mstts:express-as>` element with a `sad` style degree of `2`. 
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="zh-CN">
@@ -196,9 +196,9 @@ This SSML snippet illustrates how the `role` attribute is used to change the rol
 
 #### Custom neural voice style example
 
-You can train your custom neural voice to speak with some preset styles such as cheerful, sad, and whispering. You can also [train a custom neural voice](how-to-custom-voice-create-voice.md?tabs=multistyle#train-your-custom-neural-voice-model) to speak in a custom style as determined by your training data. To use your custom neural voice style in SSML, specify the style name that you previously entered in Speech Studio.
+You can train your custom neural voice to speak with some preset styles such as `cheerful`, `sad`, and `whispering`. You can also [train a custom neural voice](how-to-custom-voice-create-voice.md?tabs=multistyle#train-your-custom-neural-voice-model) to speak in a custom style as determined by your training data. To use your custom neural voice style in SSML, specify the style name that you previously entered in Speech Studio.
 
-This example uses a custom voice named **my-custom-voice**. The custom voice speaks with the "cheerful" preset style and style degree of `2`, and then with a custom style named **my-custom-style** and style degree of `0.01`. 
+This example uses a custom voice named **my-custom-voice**. The custom voice speaks with the `cheerful` preset style and style degree of `2`, and then with a custom style named **my-custom-style** and style degree of `0.01`. 
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">
@@ -245,7 +245,7 @@ Use this table to determine which speaking languages the Speech service supports
 <sup>2</sup> The `en-US-JennyMultilingualV2Neural` voice is provided temporarily in public preview solely for evaluation purposes. It will be removed in the future. 
 
 > [!NOTE] 
-> Multilingual voices don't fully support certain SSML elements, such as break, emphasis, silence, and sub.
+> Multilingual voices don't fully support certain SSML elements, such as `break`, `emphasis`, `silence`, and `sub`.
 
 ### Lang examples
 
@@ -387,7 +387,7 @@ This SSML snippet demonstrates how you can use the `emphasis` element to add
 The `audio` element is optional. You can use it to insert prerecorded audio into an SSML document. The body of the `audio` element can contain plain text or SSML markup that's spoken if the audio file is unavailable or unplayable. The `audio` element can also contain text and the following elements: `audio`, `break`, `p`, `s`, `phoneme`, `prosody`, `say-as`, and `sub`.
 
 Any audio included in the SSML document must meet these requirements:
-* The audio file must be valid *.mp3, *.wav, *.opus, *.ogg, *.flac, or *.wma files.
+* The audio file must be valid **.mp3*, **.wav*, **.opus*, **.ogg*, **.flac*, or **.wma* files.
 * The combined total time for all text and audio files in a single response can't exceed 600 seconds.
 * The audio must not contain any customer-specific or other sensitive information.
 
@@ -398,11 +398,11 @@ The following table describes the usage of the `audio` element's attributes:
 
 | Attribute | Description | Required or optional |
 | ---------- | ---------- | ---------- |
-| `src`     | The URI location of the audio file. The audio must be hosted on an internet-accessible HTTPS endpoint. HTTPS is required, and the domain hosting the file must present a valid, trusted TLS/SSL certificate. You should put the audio file into Blob Storage in the same Azure region as the text to speech endpoint to minimize the latency. | Required |
+| `src`     | The URI location of the audio file. The audio must be hosted on an internet-accessible HTTPS endpoint. HTTPS is required. The domain hosting the file must present a valid, trusted TLS/SSL certificate. You should put the audio file into Blob Storage in the same Azure region as the text to speech endpoint to minimize the latency. | Required |
 
 ### Audio examples
 
-This SSML snippet illustrates how the `src` attribute is used to insert audio from two .wav files.
+This SSML snippet illustrates how to use `src` attribute to insert audio from two .wav files.
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
@@ -420,7 +420,7 @@ This SSML snippet illustrates how the `src` attribute is used to insert audio fr
 
 ## Adjust the audio duration
 
-Use the `mstts:audioduration` element to set the duration of the output audio. Use this element to help synchronize the timing of audio output completion. The audio duration can be decreased or increased between 0.5 to two times the rate of the original audio. The original audio here is the audio without any other rate settings. The speaking rate is slowed down or sped up accordingly based on the set value. 
+Use the `mstts:audioduration` element to set the duration of the output audio. Use this element to help synchronize the timing of audio output completion. The audio duration can be decreased or increased between 0.5 to two times the rate of the original audio. The original audio is the audio without any other rate settings. The speaking rate is slowed down or sped up accordingly based on the set value. 
 
 The audio duration setting applies to all input text within its enclosing `voice` element. To reset or change the audio duration setting again, you must use a new `voice` element with either the same voice or a different voice.
 
@@ -428,11 +428,11 @@ The following table describes the usage of the `mstts:audioduration` element's a
 
 | Attribute | Description | Required or optional |
 | ---------- | ---------- | ---------- |
-| `value` | The requested duration of the output audio in either seconds (such as `2s`) or milliseconds (such as `2000ms`).<br/><br/>This value should be within 0.5 to two times the original audio without any other rate settings. For example, if the requested duration of your audio is `30s`, then the original audio must have otherwise been between 15 and 60 seconds. If you set a value outside of these boundaries, the duration is set according to the respective minimum or maximum multiple.<br/><br/>Given your requested output audio duration, the Speech service adjusts the speaking rate accordingly. Use the [voice list](rest-text-to-speech.md#get-a-list-of-voices) API and check the `WordsPerMinute` attribute to find out the speaking rate of the neural voice that you're using. You can divide the number of words in your input text by the value of the `WordsPerMinute` attribute to get the approximate original output audio duration. The output audio sounds most natural when you set the audio duration closest to the estimated duration.| Required |
+| `value` | The requested duration of the output audio in either seconds, such as `2s`, or milliseconds, such as `2000ms`.<br/><br/>This value should be within 0.5 to two times the original audio without any other rate settings. For example, if the requested duration of your audio is `30s`, then the original audio must have otherwise been between 15 and 60 seconds. If you set a value outside of these boundaries, the duration is set according to the respective minimum or maximum multiple.<br/><br/>Given your requested output audio duration, the Speech service adjusts the speaking rate accordingly. Use the [voice list](rest-text-to-speech.md#get-a-list-of-voices) API and check the `WordsPerMinute` attribute to find out the speaking rate of the neural voice that you're using. You can divide the number of words in your input text by the value of the `WordsPerMinute` attribute to get the approximate original output audio duration. The output audio sounds most natural when you set the audio duration closest to the estimated duration.| Required |
 
 ### mstts audio duration examples
 
-In this example, the original audio is around 15 seconds. The `mstts:audioduration` element is used to set the audio duration to 20 seconds (`20s`).
+In this example, the original audio is around 15 seconds. The `mstts:audioduration` element is used to set the audio duration to 20 seconds or `20s`.
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xml:lang="en-US">
@@ -481,5 +481,5 @@ The following table describes the usage of the `mstts:backgroundaudio` element's
 
 - [SSML overview](speech-synthesis-markup.md)
 - [SSML document structure and events](speech-synthesis-markup-structure.md)
-- [Language support: Voices, locales, languages](language-support.md?tabs=tts)
+- [Language and voice support for the Speech service](language-support.md?tabs=tts)
 
