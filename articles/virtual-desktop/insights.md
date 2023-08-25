@@ -38,8 +38,8 @@ Before you start using Azure Virtual Desktop Insights, you'll need to set up the
 
    You can also create a custom role to reduce the scope of assignment on the Log Analytics workspace. For more information, see [Manage access to Log Analytics workspaces](../azure-monitor/logs/manage-access.md).
 
-> [!NOTE]
-> Read access only lets admins view data. They'll need different permissions to manage resources in the Azure Virtual Desktop portal.
+   > [!NOTE]
+   > Read access only lets admins view data. They'll need different permissions to manage resources in the Azure Virtual Desktop portal.
 
 ## Open Azure Virtual Desktop Insights
 
