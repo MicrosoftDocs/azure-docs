@@ -76,7 +76,7 @@ items:
     - name: Log Analytics
       href: how-to-azure-monitor-integration.md
     - name: Azure managed Prometheus and Grafana
-      href: monitoring-with-prometheus-and-grafana.md
+      href: monitor-with-prometheus-grafana.md
 - name: Trino
   items:
   - name: What is Trino?
@@ -125,7 +125,7 @@ items:
     - name: Fault tolerance
       href: ./trino/trino-fault-tolerance.md
     - name: Troubleshoot
-      href: ./trino/trino-config-troubleshoot.md
+      href: ./trino/trino-configuration-troubleshoot.md
   - name: How-to guides
     items:
     - name: Use Apache Superset with Trino cluster
@@ -139,7 +139,7 @@ items:
       - name: Expose Superset to the Internet
         href: ./trino/configure-ingress.md
     - name: Read Delta Lake Tables (Synapse or External Locations)
-      href: ./trino/trino-create-deltalake-tables-synapse.md
+      href: ./trino/trino-create-delta-lake-tables-synapse.md
     - name: Use query scan statistics
       href: ./trino/trino-scan-stats.md
     - name: Use Azure Data Factory (ADF) with Trino cluster
@@ -159,7 +159,7 @@ items:
     - name: Configuration Management
       href: ./flink/flink-configuration-management.md
     - name: Table API and SQL
-      href: ./flink/flink-tableapi-and-sql.md
+      href: ./flink/flink-table-api-and-sql.md
   - name: How-to guides
     items:
     - name: General
@@ -167,7 +167,7 @@ items:
       - name:  Flink Command Line Interface (CLI)
         href: ./flink/use-flink-cli-to-submit-jobs.md
       - name:  Use Azure portal to access CLI
-        href: ./flink/flink-webssh-on-portal-to-flink-sql.md
+        href: ./flink/flink-web-ssh-on-portal-to-flink-sql.md
       - name:  Azure Cosmos DB (Apache Cassandra)
         href: ./flink/cosmos-db-for-apache-cassandra.md
       - name:  Azure Event Hubs
