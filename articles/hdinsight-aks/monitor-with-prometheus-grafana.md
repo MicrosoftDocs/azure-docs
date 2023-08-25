@@ -70,7 +70,7 @@ You can create the workspaces from the HDI on AKS cluster pool page.
 
 1. Click on **Create New** workspace for Azure Managed Prometheus.
 
-    :::image type="content" source="./monitor-with-prometheus-grafana/configure-prometheus-step-3.png" alt-text="Screenshot showing configure Prometheus step 3." border="true" lightbox="./media/monitor-with-prometheus-grafana/configure-prometheus-step-3.png":::
+    :::image type="content" source="./media/monitor-with-prometheus-grafana/configure-prometheus-step-3.png" alt-text="Screenshot showing configure Prometheus step 3." border="true" lightbox="./media/monitor-with-prometheus-grafana/configure-prometheus-step-3.png":::
 
 1. Fill in the name, region and click on **Create** for Prometheus.
 
