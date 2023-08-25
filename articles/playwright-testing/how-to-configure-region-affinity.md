@@ -6,9 +6,9 @@ ms.date: 08/23/2023
 ms.custom: playwright-testing-preview
 ---
 
-# Configure region affinity for a Microsoft Playwright Testing workspace
+# Configure region affinity for a workspace in Microsoft Playwright Testing Preview
 
-Learn how to configure region affinity for a Microsoft Playwright Testing workspace. With region affinity, you can minimize the network latency between the client machine and the remote browsers.
+Learn how to configure region affinity for a Microsoft Playwright Testing Preview workspace. With region affinity, you can minimize the network latency between the client machine and the remote browsers.
 
 Region affinity lets you run your Playwright tests on hosted browsers in the Azure region nearest the client machine. Microsoft Playwright Testing collects the test results in Azure region of the remote browsers, and then transfers the results to the workspace region.
 
