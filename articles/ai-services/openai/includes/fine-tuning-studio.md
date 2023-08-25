@@ -28,10 +28,10 @@ Take a moment to review the fine-tuning workflow for using Azure OpenAI Studio w
 
 1. Prepare your training and validation data.
 1. Use the **Create custom model** wizard in Azure OpenAI Studio to train your custom model.
-    1. [Select a base model](#select-a-base-model).
+    1. [Select a base model](#select-the-base-model).
     1. [Choose your training data](#choose-your-training-data).
     1. Optionally, [choose your validation data](#choose-your-validation-data).
-    1. Optionally, [choose advanced options](#configure-advanced-options) for your fine-tune job.
+    1. Optionally, [configure advanced options](#configure-advanced-options) for your fine-tune job.
     1. [Review your choices and train your new custom model](#review-your-choices-and-train-your-model).
 1. Check the status of your custom model.
 1. Deploy your custom model for use.
