@@ -125,7 +125,7 @@ items:
     - name: Fault tolerance
       href: ./trino/trino-fault-tolerance.md
     - name: Troubleshoot
-      href: ./trino/trino-config-troubleshoot.md
+      href: ./trino/trino-configuration-troubleshoot.md
   - name: How-to guides
     items:
     - name: Use Apache Superset with Trino cluster
@@ -139,13 +139,13 @@ items:
       - name: Expose Superset to the Internet
         href: ./trino/configure-ingress.md
     - name: Read Delta Lake Tables (Synapse or External Locations)
-      href: ./trino/trino-create-deltalake-tables-synapse.md
+      href: ./trino/trino-create-delta-lake-tables-synapse.md
     - name: Use query scan statistics
       href: ./trino/trino-scan-stats.md
     - name: Use Azure Data Factory (ADF) with Trino cluster
-      href: ./trino/trino-connect-adf.md
+      href: ./trino/trino-azure-data-factory.md
     - name: Use Apache Airflow with Trino cluster
-      href: ./trino/trino-connect-airflow.md
+      href: ./trino/trino-airflow.md
     - name: Use AWS S3 and Glue with Trino cluster
       href: ./trino/trino-catalog-glue.md
 - name: Apache Flink
