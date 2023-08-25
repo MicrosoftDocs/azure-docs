@@ -45,7 +45,8 @@ To complete this quickstart, you need an Azure account with an active subscripti
 
     :::image type="content" source="./media/quickstart-wordpress/08-wordpress-advanced-settings.png" alt-text="Screenshot of WordPress Advanced Settings.":::
     
-    Note: The Word Press App requires a Vnet with an address space of /23 at minimum. 
+   > [!NOTE]
+   > The WordPress app requires a virtual network with an address space of /23 at minimum. 
 
 1. Select the **Review + create** tab. After validation runs, select the **Create** button at the bottom of the page to create the WordPress site.
  
