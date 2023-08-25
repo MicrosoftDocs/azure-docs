@@ -1,5 +1,5 @@
 ---
-title: Log File Retrieval
+title: Log file retrieval
 titleSuffix: An Azure Communication Services tutorial
 description: Learn how to retrieve Log Files from the Calling SDK for enhanced supportability.
 author: adamhammer
@@ -47,10 +47,10 @@ To add enhanced log collection capabilities to your app, consider the following 
 2. Always obtain user consent before submitting data.
 3. Customize strategies based on your users.
 
-Refer to the [Conceptual Document](../concepts/voice-video-calling/retrieving-support-files.md) for more in-depth guidance.
+Refer to the [Conceptual Document](../concepts/voice-video-calling/retrieve-support-files.md) for more in-depth guidance.
 
 ## You may also like
 
-- [Retrieve log files Conceptual Document](../concepts/voice-video-calling/retrieving-support-files.md)
+- [Retrieve log files Conceptual Document](../concepts/voice-video-calling/retrieve-support-files.md)
 - [End of call Survey](./end-of-call-survey-tutorial.md)
 - [User Facing Diagnostics](../concepts/voice-video-calling/user-facing-diagnostics.md)

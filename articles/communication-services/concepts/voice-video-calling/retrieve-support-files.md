@@ -1,5 +1,5 @@
 ---
-title: Azure Calling SDK - Log File Access   
+title: Retrieving support files from calling SDK applications
 description: Understand how to access Log Files for the creation of effective support tools
 author:      ahammer
 ms.author:   adamhammer

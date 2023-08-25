@@ -326,7 +326,7 @@ items:
         href: how-tos/calling-sdk/is-sdk-active-in-multiple-tabs.md
         displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
       - name: Collect and Share Log Files
-        href: concepts/voice-video-calling/retrieving-support-files.md
+        href: tutorials/log-file-retrieval-tutorial.md
         displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
       - name: Get users ready for their call with UI Library
         items:
@@ -722,7 +722,7 @@ items:
       - name: Design with UI Library Design Kit
         href: quickstarts/ui-library/get-started-ui-kit.md  
     - name: Log File Access
-      href: ./concepts/voice-video-calling/retrieving-support-files.md
+      href: ./concepts/voice-video-calling/retrieve-support-files.md
     - name: User experience
       href: concepts/voice-video-calling/user-experience.md
     - name: Known issues
