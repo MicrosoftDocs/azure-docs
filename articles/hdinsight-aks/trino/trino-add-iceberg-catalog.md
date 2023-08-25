@@ -12,7 +12,7 @@ This article provides an overview of how to configure Iceberg catalog in HDInsig
 
 ## Prerequisites
 
-* [Understanding of Trino cluster config](trino-service-config.md).
+* [Understanding of Trino cluster config](trino-service-configuration.md).
 * [Add catalogs to existing cluster](trino-add-catalogs.md).
 
 ## Steps to configure Iceberg catalog
