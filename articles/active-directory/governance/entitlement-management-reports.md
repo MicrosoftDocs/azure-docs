@@ -145,7 +145,7 @@ To view events for an access package, you must have access to the underlying Azu
 - Reports reader  
 - Application administrator  
 
-1. In the Azure portal, select **Azure Active Directory** then select **Workbooks**. If you only have one subscription, move on to step 3. 
+1. In the Microsoft Entra admin center, select **Identity** then select **Workbooks** under **Monitoring & health**. If you only have one subscription, move on to step 3. 
 
 1. If you have multiple subscriptions, select the subscription that contains the workspace.  
 
