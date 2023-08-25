@@ -1,6 +1,6 @@
 ---
 title: Complete an access review of Azure resource and Azure AD roles in PIM
-description: Learn how to complete an access review of Azure resource and Azure AD roles Privileged Identity Management in Azure Active Directory.
+description: Learn how to complete an access review of Azure resource and Azure AD roles Privileged Identity Management.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -26,13 +26,11 @@ Once the review has been created, follow the steps in this article to complete t
 
 ## Complete access reviews
 
-[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a user that is assigned to one of the prerequisite role(s).
 
-1. Sign in to the [Azure portal](https://portal.azure.com). For **Azure resources**, navigate to **Privileged Identity Management** and select **Azure resources** under **Manage** from the dashboard. For **Azure AD roles**, select **Azure AD roles** from the same dashboard.
+1. Browse to **Identity governance** > **Privileged Identity Management** > For **Azure AD roles**, select **Azure AD roles**. For **Azure resources**, select **Azure resources**
 
-2. For **Azure resources**, select your resource under **Azure resources** and then select **Access reviews** from the dashboard. For **Azure AD roles**, proceed directly to the **Access reviews** on the dashboard.
-
-3. Select the access review that you want to manage. Below is a sample screenshot of the **Access Reviews** overview for both **Azure resources** and **Azure AD roles**.
+1. Select the access review that you want to manage. Below is a sample screenshot of the **Access Reviews** overview for both **Azure resources** and **Azure AD roles**.
 
     :::image type="content" source="media/pim-complete-azure-ad-roles-and-resource-roles-review/rbac-azure-ad-roles-home-list.png" alt-text="Access reviews list showing role, owner, start date, end date, and status screenshot." lightbox="media/pim-complete-azure-ad-roles-and-resource-roles-review/rbac-azure-ad-roles-home-list.png":::
 
