@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 ---
 # Change approval and requestor information settings for an access package in entitlement management
 
-Each access package must have one or more access package assignment policies, before a user can be assigned access.  When an access package is created in the Entra portal, the Entra portal automatically creates the first access package assignment policy for that access package.  The policy determines who can request access, and who if anyone must approve access.
+Each access package must have one or more access package assignment policies, before a user can be assigned access.  When an access package is created in the Microsoft Entra admin center, the Microsoft Entra admin center automatically creates the first access package assignment policy for that access package.  The policy determines who can request access, and who if anyone must approve access.
 
 As an access package manager, you can change the approval and requestor information settings for an access package at any time by editing an existing policy or adding a new additional policy for requesting access.
 
@@ -173,7 +173,7 @@ For example, if you listed Alice and Bob as the first stage approver(s), list Ca
 
 ## Collect additional requestor information for approval
 
-In order to make sure users are getting access to the right access packages, you can require requestors to answer custom text field or Multiple Choice questions at the time of request. There's a limit of 20 questions per policy and a limit of 25 answers for Multiple Choice questions. The questions will then be shown to approvers to help them make a decision.
+In order to make sure users are getting access to the right access packages, you can require requestors to answer custom text field or Multiple Choice questions at the time of request. The questions will then be shown to approvers to help them make a decision.
 
 1. Go to the **Requestor information** tab and select the **Questions** sub tab.
  

@@ -27,13 +27,9 @@ Use the following steps to run a workflow on-demand.
 >[!NOTE]
 >To be run on demand, the  workflow must be enabled.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Lifecycle Workflows Administrator](../roles/permissions-reference.md#lifecycle-workflows-administrator).
 
-1. Type in **Identity Governance** on the search bar near the top of the page and select it.
-
-1. On the left menu, select **Lifecycle workflows**.
-
-1. select **Workflows**
+1. Browse to **Identity governance** > **Lifecycle workflows** > **workflows**.
 
 1. On the workflow screen, select the specific workflow you want to run.
 
