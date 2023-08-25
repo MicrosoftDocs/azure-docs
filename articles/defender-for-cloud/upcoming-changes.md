@@ -2,13 +2,14 @@
 title: Important upcoming changes
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 08/17/2023
+ms.date: 08/22/2023
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
 
 > [!IMPORTANT]
 > The information on this page relates to pre-release products or features, which may be substantially modified before they are commercially released, if ever. Microsoft makes no commitments or warranties, express or implied, with respect to the information provided here.
+
 [Defender for Servers](#defender-for-servers)
 On this page, you can learn about changes that are planned for Defender for Cloud. It describes planned modifications to the product that might affect things like your secure score or workflows.
 
@@ -32,6 +33,7 @@ If you're looking for the latest release notes, you can find them in the [What's
 | [Classic connectors for multicloud will be retired](#classic-connectors-for-multicloud-will-be-retired) | September 2023 |
 | [Replacing secret scanning recommendation results in Defender for DevOps from CredScan with GitHub Advanced Security for Azure DevOps powered secret scanning](#replacing-secret-scanning-recommendation-results-in-defender-for-devops-from-credscan-with-github-advanced-security-for-azure-devops-powered-secret-scanning) | September 2023 |
 | [Change to the Log Analytics daily cap](#change-to-the-log-analytics-daily-cap) | September 2023 |
+| [Deprecating and replacing "Microsoft Defender for Storage plan should be enabled" recommendation](#deprecating-and-replacing-microsoft-defender-for-storage-plan-should-be-enabled-recommendation) | September 2023|
 | [Defender for Cloud plan and strategy for the Log Analytics agent deprecation](#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation) | August 2024 |
 
 ### Replacing secret scanning recommendation results in Defender for DevOps from CredScan with GitHub Advanced Security for Azure DevOps powered secret scanning
@@ -267,6 +269,20 @@ At that time, all billable data types will be capped if the daily cap is met. Th
 
 Learn more about [workspaces with Microsoft Defender for Cloud](../azure-monitor/logs/daily-cap.md#workspaces-with-microsoft-defender-for-cloud).
 
+## Deprecating and replacing "Microsoft Defender for Storage plan should be enabled" recommendation
+
+**Estimated date for change: September 2023**
+
+The recommendation `Microsoft Defender for Storage plan should be enabled` will be deprecated on public clouds and will remain available on Azure Government cloud. This recommendation will be replaced by a new recommendation: `Microsoft Defender for Storage plan should be enabled with Malware Scanning and Sensitive Data Threat Detection`. This recommendation ensures that Defender for Storage is enabled at the subscription level with malware scanning and sensitive data threat detection capabilities.
+
+| Policy Name | Description | Policy Effect | Version |
+|--|--|--|--|
+| [Microsoft Defender for Storage should be enabled](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f640d2586-54d2-465f-877f-9ffc1d2109f4) | Microsoft Defender for Storage detects potential threats to your storage accounts. It helps prevent the three major impacts on your data and workload: malicious file uploads, sensitive data exfiltration, and data corruption. The new Defender for Storage plan includes malware scanning and sensitive data threat detection.This plan also provides a predictable pricing structure (per storage account) for control over coverage and costs. | Audit, disabled | 1.0.0 |
+
+Learn more about [Microsoft Defender for Storage](defender-for-storage-introduction.md).
+
 ## Next steps
 
 For all recent changes to Defender for Cloud, see [What's new in Microsoft Defender for Cloud?](release-notes.md).
+
+

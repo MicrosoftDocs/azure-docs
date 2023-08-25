@@ -8,4 +8,5 @@ items:
     topicHref: /azure/postgresql/index
   - name: PostgreSQL
     tocHref: /azure/reliability
+    topicHref: /azure/postgresql/index
     

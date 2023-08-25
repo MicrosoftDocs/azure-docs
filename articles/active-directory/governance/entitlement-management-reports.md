@@ -35,9 +35,11 @@ This report enables you to list all of the users who are assigned to an access p
 
 **Prerequisite role:** Global administrator, Identity Governance administrator or User administrator
 
-1. Select **Azure Active Directory** and then select **Identity Governance**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1. In the left menu, select **Access packages** and then open the access package of interest.
+1. Browse to **Identity governance** > **Entitlement management** > **Access packages**.
+
+1. On the **Access packages** page select the access package of interest.
 
 1. In the left menu, select **Assignments**, then select **Download**.
 
@@ -49,9 +51,9 @@ This report enables you to list all of the access packages a user can request an
 
 **Prerequisite role:** Global administrator, Identity Governance administrator or User administrator
 
-1. Select **Azure Active Directory** and then select **Identity Governance**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1. In the left menu, select **Reports**.
+1. Browse to **Identity governance** > **Entitlement management** > **Reports**.
 
 1. Select **Access packages for a user**.
 
@@ -73,9 +75,9 @@ This report enables you to list the resources currently assigned to a user in en
 
 **Prerequisite role:** Global administrator, Identity Governance administrator or User administrator
 
-1. Select **Azure Active Directory** and then select **Identity Governance**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1. In the left menu, select **Reports**.
+1. Browse to **Identity governance** > **Entitlement management** > **Reports**.
 
 1. Select **Resource assignments for a user**.
 
@@ -93,7 +95,9 @@ This report enables you to list the resources currently assigned to a user in en
 
 To get additional details on how a user requested and received access to an access package, you can use the Azure AD audit log. In particular, you can use the log records in the `EntitlementManagement` and `UserManagement` categories to get additional details on the processing steps for each request.  
 
-1. Select **Azure Active Directory** and then select **Audit logs**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
+
+1. Browse to **Identity governance** > **Entitlement management** > **Audit logs**.
 
 1. At the top, change the **Category** to either `EntitlementManagement` or `UserManagement`, depending on the audit record you're looking for.  
 
@@ -123,9 +127,11 @@ When the user's access package assignment expires, is canceled by the user, or r
 
 **Prerequisite role**: *Global administrator*, *Identity Governance administrator*,  or *User administrator*
 
-1. In the Azure portal, select **Azure Active Directory**, and then select **Identity Governance**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1. In the left pane, select **Connected organizations**, and then select **Download**.
+1. Browse to **Identity governance** > **Entitlement management** > **Connected organizations**.
+
+1. On the **Connected organizations** page select **Download**.
 
 ## View events for an access package  
 
@@ -139,7 +145,7 @@ To view events for an access package, you must have access to the underlying Azu
 - Reports reader  
 - Application administrator  
 
-1. In the Azure portal, select **Azure Active Directory** then select **Workbooks**. If you only have one subscription, move on to step 3. 
+1. In the Microsoft Entra admin center, select **Identity** then select **Workbooks** under **Monitoring & health**. If you only have one subscription, move on to step 3. 
 
 1. If you have multiple subscriptions, select the subscription that contains the workspace.  
 
