@@ -103,13 +103,13 @@ items:
     - name: Catalogs
       href: ./trino/trino-add-catalogs.md
     - name: Configure Delta Lake catalog
-      href: ./trino/trino-add-deltalake-catalog.md
+      href: ./trino/trino-add-delta-lake-catalog.md
     - name: Configure Iceberg catalog
       href: ./trino/trino-add-iceberg-catalog.md
   - name: Cluster management
     items:
     - name: Trino configuration
-      href: ./trino/trino-service-config.md
+      href: ./trino/trino-service-configuration.md
     - name: Hive metastore
       href: ./trino/trino-connect-to-metastore.md      
     - name: Custom plugins
@@ -119,9 +119,9 @@ items:
     - name: Caching
       href: ./trino/trino-caching.md      
     - name: JVM Heap settings
-      href: ./trino/trino-jvm-config.md           
+      href: ./trino/trino-jvm-configuration.md           
     - name: Miscellaneous files
-      href: ./trino/trino-misc-files.md
+      href: ./trino/trino-miscellaneous-files.md
     - name: Fault tolerance
       href: ./trino/trino-fault-tolerance.md
     - name: Troubleshoot
