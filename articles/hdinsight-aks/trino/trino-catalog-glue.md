@@ -12,7 +12,7 @@ This article provides examples of how you can add catalogs to an HDInsight on AK
 
 ## Prerequisites
 
-* [Understanding of HDInsight on AKS Trino cluster configurations](./trino-service-config.md).
+* [Understanding of HDInsight on AKS Trino cluster configurations](./trino-service-configuration.md).
 * [How to add catalogs to an existing cluster](./trino-add-catalogs.md).
 * [AWS account with Glue and S3](./trino-catalog-glue.md#quickstart-with-aws-glue-and-s3).
 
