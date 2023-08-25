@@ -29,7 +29,7 @@ This article covers three options for mounting your storage account:
 
 Choose this option when mounting storage using the Azure portal. You can use the basic option as long as the storage account isn't using [service endpoints](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network), [private endpoints](../../../storage/common/storage-private-endpoints.md), or [Azure Key Vault](../../../key-vault/general/overview.md). In this case, the portal gets and stores the access key for you. 
 
-If you plan to mount storage using the Azure CLI, you'll need to obtain an access key. 
+If you plan to mount storage using the Azure CLI, you need to obtain an access key. 
 
 ### [Access Key](#tab/access-key)
 
@@ -75,16 +75,16 @@ Choose this option when using Azure Key Vault to securely store and retrieve acc
 - Mapping `/` or `/home` to custom-mounted storage isn't supported.
 - Don't map the storage mount to `/tmp` or its subdirectories as this action may cause a timeout during app startup.
 - Azure Storage isn't supported with [Docker Compose](../../configure-custom-container.md?pivots=container-linux#docker-compose-options) scenarios.
-- Storage mounts aren't included in [backups](../../manage-backup.md). Be sure to follow best practices to backup the Azure Storage accounts.
+- Storage mounts aren't included in [backups](../../manage-backup.md). Be sure to follow best practices to back up the Azure Storage accounts.
 - Azure Files [NFS](../../../storage/files/files-nfs-protocol.md) is currently unsupported for App Service on Linux. Only Azure Files [SMB](../../../storage/files/files-smb-protocol.md) are supported.
-- With VNET integration on your app, the mounted drive will use an RC1918 IP address and not an IP address from your VNET.
+- With VNET integration on your app, the mounted drive uses an RC1918 IP address and not an IP address from your VNET.
 
 ## Prepare for mounting
 
 
 ### [Basic](#tab/basic)
 
-No additional steps are required because the portal gets and stores the access key for you. 
+No extra steps are required because the portal gets and stores the access key for you. 
 
 ### [Access Key](#tab/access-key)
 
@@ -186,7 +186,7 @@ az webapp config storage-account list --resource-group <resource-group> --name <
 
 # [Azure CLI](#tab/cli/key-vault)
 
-Mounting storage with Key Vault access isn't currently supported by the Azure CLI. Please use the portal instead.
+Mounting storage with Key Vault access isn't currently supported by the Azure CLI. Use the portal instead.
 
 ---
 
@@ -213,7 +213,7 @@ To validate that the Azure Storage is mounted successfully for the app:
 
 ## Best practices
 
-- To avoid latency issues, place the app and the Azure Storage account in the same region. Note that if you grant access from App Service IP addresses in the [Azure Storage firewall configuration](../../../storage/common/storage-network-security.md) when the app and Azure Storage account are in the same region, then these IP restrictions aren't honored.
+- To avoid latency issues, place the app and the Azure Storage account in the same region. If you grant access from App Service IP addresses in the [Azure Storage firewall configuration](../../../storage/common/storage-network-security.md) when the app and Azure Storage account are in the same region, then these IP restrictions aren't honored.
 
 - The mount directory in the custom container should be empty. Any content stored at this path is deleted when the Azure Storage is mounted (if you specify a directory under `/home`, for example). If you are migrating files for an existing app, make a backup of the app and its content before you begin.
 

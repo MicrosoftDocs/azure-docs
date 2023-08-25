@@ -10,7 +10,7 @@ ms.author: msangapu
 > Azure Key Vault support for Azure Storage is in preview.
 >
 
-This guide shows how to mount Azure Storage Files as a network share in a Windows container in App Service. Only [Azure Files Shares](../../../storage/files/storage-how-to-use-files-portal.md) and [Premium Files Shares](../../../storage/files/storage-how-to-create-file-share.md) are supported. Azure Storage is non-default storage for App Service and billed separately.
+This guide shows how to mount Azure Storage Files as a network share in a Windows container in App Service. Only [Azure Files Shares](../../../storage/files/storage-how-to-use-files-portal.md) and [Premium Files Shares](../../../storage/files/storage-how-to-create-file-share.md) are supported. Azure Storage is nondefault storage for App Service and billed separately.
 
 The benefits of custom-mounted storage include:
 - Configure persistent storage for your App Service app and manage the storage separately.
@@ -32,7 +32,7 @@ This article covers three options for mounting your storage account:
 
 Choose this option when mounting storage using the Azure portal. You can use the basic option as long as the storage account isn't using [service endpoints](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network), [private endpoints](../../../storage/common/storage-private-endpoints.md), or [Azure Key Vault](../../../key-vault/general/overview.md). In this case, the portal gets and stores the access key for you. 
 
-If you plan to mount storage using the Azure CLI, you'll need to obtain an access key. 
+If you plan to mount storage using the Azure CLI, you need to obtain an access key. 
 
 ### [Access Key](#tab/access-key)
 
@@ -82,7 +82,7 @@ Choose this option when using Azure Key Vault to securely store and retrieve acc
 
 ### [Basic](#tab/basic)
 
-No additional steps are required because the portal gets and stores the access key for you. 
+No extra steps are required because the portal gets and stores the access key for you. 
 
 ### [Access Key](#tab/access-key)
 
@@ -181,7 +181,7 @@ az webapp config storage-account list --resource-group <resource-group> --name <
 
 # [Azure CLI](#tab/cli/key-vault)
 
-Mounting storage with Key Vault access isn't currently supported by the Azure CLI. Please use the portal instead.
+Mounting storage with Key Vault access isn't currently supported by the Azure CLI. Use the portal instead.
 
 ---
 
