@@ -120,8 +120,6 @@ There are two ways to enable Azure AD login for your Linux VM:
 
 ### Azure portal
 
-[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
-
 You can enable Azure AD login for any of the [supported Linux distributions](#supported-linux-distributions-and-azure-regions) by using the Azure portal.
 
 For example, to create an Ubuntu Server 18.04 Long Term Support (LTS) VM in Azure with Azure AD login:
