@@ -100,6 +100,16 @@ The following comparison matrix shows basic functionality of different tools tha
 
 ### AzCopy
 
+- Multi-platform support
+- Windows 32-bit / 64-bit
+- Linux x86-64 and ARM64
+- macOS Intel and ARM64
+- Benchmarking [azcopy bench](/azure/storage/common/storage-ref-azcopy-bench)
+- Supports block blobs, page blobs, and append blobs
+- MD5 checks for downloads
+- Customizable transfer rate to preserve bandwidth on the client
+- Tagging
+
 ### Azure Storage Mover
 
 ### Datadobi DobiMigrate
