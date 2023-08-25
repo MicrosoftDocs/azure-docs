@@ -71,7 +71,7 @@ func init MyProjFolder --worker-runtime dotnet
 
 ---
 
-This command creates a project that runs on the current Long-Term Support (LTS) version of .NET Core in the chosen [process mode](./dotnet-isolated-in-process-differences.md).
+This command creates a project that runs on the current Long-Term Support (LTS) version of .NET Core in the desired [process mode](./dotnet-isolated-in-process-differences.md).
 ::: zone-end
 ::: zone pivot="programming-language-java"
 Java uses a Maven archetype to create the local project, along with your first HTTP triggered function. Rather than using `func init` and `func new`, you should instead follow the steps in the [Command line quickstart](./create-first-function-cli-java.md).  
@@ -87,7 +87,7 @@ func init MyProjFolder --worker-runtime javascript --model V3
 ```
 ---
 
-This command creates a JavaScript project that uses the desired programming model version. For more information, see the [Node.js developer guide](functions-reference-node.md).
+This command creates a JavaScript project that uses the desired [programming model version](functions-reference-node.md).
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"   
 ### [v4](#tab/node-v4)
@@ -100,7 +100,7 @@ func init MyProjFolder --worker-runtime typescript --model V3
 ```
 ---
 
-This command creates a TypeScript project that uses the desired programming model version. For more information, see the [Node.js developer guide](functions-reference-node.md).
+This command creates a TypeScript project that uses the desired [programming model version](functions-reference-node.md).
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"
 ```console
@@ -118,7 +118,7 @@ func init MyProjFolder --worker-runtime python
 ```
 ---
 
-This command creates a Python project that uses the desired programming model version. For more information, see the [Python developer guide](functions-reference-python.md#programming-model).
+This command creates a Python project that uses the desired [programming model version](functions-reference-python.md#programming-model).
 ::: zone-end
 
 When you run `func init` without the `--worker-runtime` option, you're prompted to choose your project language. To learn more about the available options for the `func init` command, see the [`func init`](functions-core-tools-reference.md#func-init) reference.
