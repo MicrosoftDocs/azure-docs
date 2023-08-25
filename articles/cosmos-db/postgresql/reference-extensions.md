@@ -118,7 +118,7 @@ The versions of each extension installed in a cluster sometimes differ based on 
 > | [pageinspect](https://www.postgresql.org/docs/current/pageinspect.html) | Inspect the contents of database pages at a low level. | 1.7 | 1.7 | 1.8 | 1.9 | 1.10 |
 > | [pg\_azure\_storage](howto-ingest-azure-blob-storage.md) | Azure integration for PostgreSQL. | | | 1.2 | 1.2 | 1.2 |
 > | [pg\_buffercache](https://www.postgresql.org/docs/current/static/pgbuffercache.html) | Provides a means for examining what's happening in the shared buffer cache in real time. | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 |
-> | [pg\_cron](https://github.com/citusdata/pg_cron) | Job scheduler for PostgreSQL. | 1.4 | 1.4 | 1.4 | 1.4 | 1.4 |
+> | [pg\_cron](https://github.com/citusdata/pg_cron) | Job scheduler for PostgreSQL. | 1.5 | 1.5 | 1.5 | 1.5 | 1.5 |
 > | [pg\_freespacemap](https://www.postgresql.org/docs/current/pgfreespacemap.html) | Examine the free space map (FSM). | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 |
 > | [pg\_prewarm](https://www.postgresql.org/docs/current/static/pgprewarm.html) | Provides a way to load relation data into the buffer cache. | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 |
 > | [pg\_stat\_statements](https://www.postgresql.org/docs/current/static/pgstatstatements.html) | Provides a means for tracking execution statistics of all SQL statements executed by a server. See the "pg_stat_statements" section for information about this extension. | 1.6 | 1.7 | 1.8 | 1.9 | 1.10 |
@@ -160,8 +160,7 @@ There's a tradeoff between the query execution information pg_stat_statements pr
 You can use dblink and postgres\_fdw to connect from one PostgreSQL server to
 another, or to another database in the same server.  The receiving server needs
 to allow connections from the sending server through its firewall.  To use
-these extensions to connect between Azure Cosmos DB for PostgreSQL servers or
-clusters, set **Allow Azure services and resources to access this cluster (or
+these extensions to connect between Azure Cosmos DB for PostgreSQL clusters with [public access](./concepts-firewall-rules.md), set **Allow Azure services and resources to access this cluster (or
 server)** to ON.  You also need to turn this setting ON if you want to use the
 extensions to loop back to the same server.  The **Allow Azure services and
 resources to access this cluster** setting can be found in the Azure portal
