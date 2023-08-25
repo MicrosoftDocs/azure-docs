@@ -235,13 +235,9 @@ az network private-endpoint-connection approve \
 
 ### Configure an Azure Storage service endpoint
 
-You can configure an Azure Storage service endpoint from the virtual network where access is required. You must have permission to the `Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action` [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftnetwork) via a custom Azure role to configure a service endpoint.
+To configure an Azure Storage service endpoint from the virtual network where access is required, you must have permission to the `Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action` [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftnetwork) via a custom Azure role to configure a service endpoint.
 
-To configure network access to your Elastic SAN:
-
-> [!div class="checklist"]
-> - [Configure a virtual network endpoint](#configure-a-virtual-network-endpoint).
-> - [Configure virtual network rules](#configure-virtual-network-rules) to control the source and type of traffic to your Elastic SAN.
+Virtual network service endpoints are public and accessible via the internet. You can [Configure virtual network rules](#configure-virtual-network-rules) to control access to your volume group when using storage service endpoints. 
 
 > [!NOTE]
 > Configuration of rules that grant access to subnets in virtual networks that are a part of a different Azure Active Directory tenant are currently only supported through PowerShell, CLI and REST APIs. These rules cannot be configured through the Azure portal, though they may be viewed in the portal.
