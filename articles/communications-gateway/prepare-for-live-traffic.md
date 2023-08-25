@@ -26,10 +26,15 @@ In this article, you learn about the steps you and your onboarding team must tak
 - You must have [deployed Azure Communications Gateway](deploy.md) using the Microsoft Azure portal.
 - You must have [chosen some test numbers](prepare-to-deploy.md#prerequisites).
 - You must have a tenant you can use for testing (representing an enterprise customer), and some users in that tenant to whom you can assign the test numbers.
-- You must have access to the:
-  - [Operator Connect portal](https://operatorconnect.microsoft.com/).
-  - [Teams Admin Center](https://admin.teams.microsoft.com/) for your test tenant.
-- You must be able to manage users in your test tenant.
+    - If you do not already have a suitable test tenant, you can use the [Microsoft 365 Developer Program](https://developer.microsoft.com/microsoft-365/dev-program), which provides E5 licenses.
+    - The test users must be licensed for Teams Phone System and in Teams Only mode.
+- You must have access to the following configuration portals.
+
+    |Configuration portal  |Required permissions |
+    |---------|---------|
+    |[Operator Connect portal](https://operatorconnect.microsoft.com/) | `Admin` role or `PartnerSettings.Read` and `NumberManagement.Write` roles (configured on the Project Synergy enterprise application that you set up when [you prepared to deploy Azure Communications Gateway](prepare-to-deploy.md#1-add-the-project-synergy-application-to-your-azure-tenancy))|
+    |[Teams Admin Center](https://admin.teams.microsoft.com/) for your test tenant |User management|
+
 
 ## Methods
 
@@ -41,9 +46,12 @@ In some parts of this article, the steps you must take depend on whether your de
     1. Azure Communications Gateway is preconfigured to support the DigiCert Global Root G2 certificate and the Baltimore CyberTrust Root certificate as root certificate authority (CA) certificates. If the certificate that your network presents to Azure Communications Gateway uses a different root CA certificate, provide your onboarding team with this root CA certificate.
     1. The root CA certificate for Azure Communications Gateway's certificate is the DigiCert Global Root G2 certificate. If your network doesn't have this root certificate, download it from https://www.digicert.com/kb/digicert-root-certificates.htm and install it in your network.
 1. Configure your infrastructure to meet the call routing requirements described in [Reliability in Azure Communications Gateway](reliability-communications-gateway.md).
-1. Configure your network devices to send and receive SIP traffic from Azure Communications Gateway. You might need to configure SBCs, softswitches and access control lists (ACLs). To find the hostnames to use for SIP traffic:
-    1. Go to the **Overview** page for your Azure Communications Gateway resource.
-    1. In each **Service Location** section, find the **Hostname** field. You need to validate TLS connections against this hostname to ensure secure connections.
+1. Configure your network devices to send and receive SIP traffic from Azure Communications Gateway.
+    * Depending on your network, you might need to configure SBCs, softswitches and access control lists (ACLs).
+    * Your network needs to send SIP traffic to per-region FQDNs for Azure Communications Gateway. To find these FQDNs:
+        1. Go to the **Overview** page for your Azure Communications Gateway resource.
+        1. In each **Service Location** section, find the **Hostname** field. You need to validate TLS connections against this hostname to ensure secure connections.
+    * We recommend configuring an SRV lookup for each region, using `_sip._tls.<regional-FQDN-from-portal>`. Replace *`<regional-FQDN-from-portal>`* with the per-region FQDNs that you found in the **Overview** page for your resource.
 1. If your Azure Communications Gateway includes integrated MCP, configure the connection to MCP:
     1. Go to the **Overview** page for your Azure Communications Gateway resource.
     1. In each **Service Location** section, find the **MCP hostname** field.
@@ -81,11 +89,12 @@ In some parts of this article, the steps you must take depend on whether your de
 
 Your onboarding team must register the test enterprise tenant that you chose in [Prerequisites](#prerequisites) with Microsoft Teams.
 
+1. Find your company's "Operator ID" in your [operator configuration in the Operator Connect portal](https://operatorconnect.microsoft.com/operator/configuration).
 1. Provide your onboarding contact with:
     - Your company's name.
-    - Your company's ID ("Operator ID").
+    - Your company's Operator ID.
     - The ID of the tenant to use for testing.
-2. Wait for your onboarding team to confirm that your test tenant has been registered.
+1. Wait for your onboarding team to confirm that your test tenant has been registered.
 
 ## 3. Assign numbers to test users in your tenant
 
@@ -94,7 +103,7 @@ Your onboarding team must register the test enterprise tenant that you chose in 
     1. Sign in to the [Teams Admin Center](https://admin.teams.microsoft.com/) for your test tenant.
     1. Select **Voice** > **Operators**.
     1. Select your company in the list of operators, fill in the form and select **Add as my operator**.
-1. In your test tenant, create some test users (if you don't already have suitable users). These users must be licensed for Teams Phone System and in Teams Only mode.
+1. In your test tenant, create some test users (if you don't already have suitable users). License the users for Teams Phone System and place them in Teams Only mode.
 1. Configure emergency locations in your test tenant.
 1. Upload numbers in the Number Management Portal (if you chose to deploy it as part of Azure Communications Gateway) or the Operator Connect Operator Portal. Use the Calling Profile that you obtained from your onboarding team.
 

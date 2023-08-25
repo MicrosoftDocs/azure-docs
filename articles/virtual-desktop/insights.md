@@ -3,7 +3,7 @@ title: Use Azure Virtual Desktop Insights to monitor your deployment - Azure
 description: How to set up Azure Virtual Desktop Insights to monitor your Azure Virtual Desktop environments.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 06/14/2023
+ms.date: 08/24/2023
 ms.author: helohr
 manager: femila
 ---
@@ -20,22 +20,26 @@ Azure Virtual Desktop Insights is a dashboard built on Azure Monitor Workbooks t
 Before you start using Azure Virtual Desktop Insights, you'll need to set up the following things:
 
 - All Azure Virtual Desktop environments you monitor must be based on the latest release of Azure Virtual Desktop that’s compatible with Azure Resource Manager.
+
 - At least one configured Log Analytics Workspace. Use a designated Log Analytics workspace for your Azure Virtual Desktop session hosts to ensure that performance counters and events are only collected from session hosts in your Azure Virtual Desktop deployment.
+
 - Enable data collection for the following things in your Log Analytics workspace:
-    - Diagnostics from your Azure Virtual Desktop environment
-    - Recommended performance counters from your Azure Virtual Desktop session hosts
-    - Recommended Windows Event Logs from your Azure Virtual Desktop session hosts
 
- The data setup process described in this article is the only one you'll need to monitor Azure Virtual Desktop. You can disable all other items sending data to your Log Analytics workspace to save costs.
+   - Diagnostics from your Azure Virtual Desktop environment
+   - Recommended performance counters from your Azure Virtual Desktop session hosts
+   - Recommended Windows Event Logs from your Azure Virtual Desktop session hosts
 
-Anyone monitoring Azure Virtual Desktop Insights for your environment will also need the following read-access permissions:
+   The data setup process described in this article is the only one you'll need to monitor Azure Virtual Desktop. You can disable all other items sending data to your Log Analytics workspace to save costs.
 
-- Read-access to the Azure resource groups that hold your Azure Virtual Desktop resources.
-- Read-access to the subscription's resource groups that hold your Azure Virtual Desktop session hosts.
-- Read access to the Log Analytics workspace. In the case that multiple Log Analytics workspaces are used, read access should be granted to each to allow viewing data.
+- Anyone monitoring Azure Virtual Desktop Insights for your environment will also need to have the following Azure role-based access control (RBAC) roles assigned as a minimum:
 
-> [!NOTE]
-> Read access only lets admins view data. They'll need different permissions to manage resources in the Azure Virtual Desktop portal.
+   - [Desktop Virtualization Reader](../role-based-access-control/built-in-roles.md#desktop-virtualization-reader) assigned on the resource group or subscription where the host pools, workspaces and session hosts are.
+   - [Log Analytics Reader](../role-based-access-control/built-in-roles.md#log-analytics-reader) assigned on any Log Analytics workspace used with Azure Virtual Desktop Insights.
+
+   You can also create a custom role to reduce the scope of assignment on the Log Analytics workspace. For more information, see [Manage access to Log Analytics workspaces](../azure-monitor/logs/manage-access.md).
+
+   > [!NOTE]
+   > Read access only lets admins view data. They'll need different permissions to manage resources in the Azure Virtual Desktop portal.
 
 ## Open Azure Virtual Desktop Insights
 

@@ -61,8 +61,6 @@ items:
 - name: Concepts
   expanded: true
   items:
-    - name: DICOMcast overview
-      href: dicom-cast-overview.md
     - name: DICOM Change Feed Overview
       href: dicom-change-feed-overview.md
     - name: DICOM Extended Query Tags overview

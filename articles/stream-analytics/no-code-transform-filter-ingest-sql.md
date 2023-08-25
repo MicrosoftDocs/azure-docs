@@ -6,7 +6,7 @@ ms.author: xujiang1
 ms.service: stream-analytics
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 06/07/2022
+ms.date: 06/13/2023
 ---
 
 # Use Azure Stream Analytics no-code editor to transform and store data in Azure SQL database

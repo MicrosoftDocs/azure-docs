@@ -1,5 +1,5 @@
 ---
-title: What is Document Intelligence Studio?
+title: What is Document Intelligence (formerly Form Recognizer) Studio?
 titleSuffix: Azure AI services
 description: Learn how to set up and use Document Intelligence Studio to test features of Azure AI Document Intelligence on the web.
 author: laujan

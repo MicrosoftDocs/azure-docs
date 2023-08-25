@@ -38,7 +38,7 @@ This article shows you how to create an Azure Kubernetes Service (AKS) cluster w
     ```
 
     > [!IMPORTANT]
-    > Zonal configuration for your NAT gateway resource can be done with user-assigned NAT gateway resources. See [Create an AKS cluster with a user-assigned NAT gateway](#create-an-aks-cluster-with-a-user-assigned-nat-gateway] for more details.
+    > Zonal configuration for your NAT gateway resource can be done with user-assigned NAT gateway resources. See [Create an AKS cluster with a user-assigned NAT gateway](#create-an-aks-cluster-with-a-user-assigned-nat-gateway) for more details.
     > If no value for the outbound IP address is specified, the default value is one.
 
 ### Update the number of outbound IP addresses
