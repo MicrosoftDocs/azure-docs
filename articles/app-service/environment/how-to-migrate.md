@@ -4,7 +4,7 @@ description: Learn how to migrate your App Service Environment to App Service En
 author: seligj95
 ms.topic: tutorial
 ms.custom: devx-track-azurecli
-ms.date: 8/07/2023
+ms.date: 8/25/2023
 ms.author: jordanselig
 zone_pivot_groups: app-service-cli-portal
 ---
@@ -230,7 +230,7 @@ App Service Environment v3 requires the subnet it's in to have a single delegati
 
 Your App Service plans are converted from Isolated to the corresponding Isolated v2 SKU. For example, I2 is converted to I2v2. Your apps may be over-provisioned after the migration since the Isolated v2 tier has more memory and CPU per corresponding instance size. You have the opportunity to scale your environment as needed once migration is complete. For more information, review the [SKU details](https://azure.microsoft.com/pricing/details/app-service/windows/).
 
-:::image type="content" source="./media/migration/ack-instance-size.png" alt-text="Screenshot that shows acknowledging the instance size changes when migratingZ.":::
+:::image type="content" source="./media/migration/ack-instance-size.png" alt-text="Screenshot that shows acknowledging the instance size changes when migrating.":::
 
 ## 6. Confirm there are no locks on the virtual network
 
