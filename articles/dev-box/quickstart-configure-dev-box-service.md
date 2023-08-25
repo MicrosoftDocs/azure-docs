@@ -12,7 +12,7 @@ ms.date: 04/25/2023
 
 # Quickstart: Configure Microsoft Dev Box 
 
-This quickstart describes how to set up Microsoft Dev Box to enable development teams to self-serve their dev boxes. The setup process involves two distinct phases. In the first phase, dev infra admins configure the necessary Microsoft Dev Box resources through the Azure portal. After this phase is complete, users can proceed to the next phase, creating and managing their dev boxes through the developer portal. This quickstart shows you how to complete the first phase.
+This quickstart describes how to set up Microsoft Dev Box to enable development teams to self-serve their dev boxes. The setup process involves two distinct phases. In the first phase, platform engineers configure the necessary Microsoft Dev Box resources through the Azure portal. After this phase is complete, users can proceed to the next phase, creating and managing their dev boxes through the developer portal. This quickstart shows you how to complete the first phase.
 
 The following graphic shows the steps required to configure Microsoft Dev Box in the Azure portal. 
 
@@ -36,7 +36,6 @@ To complete this quickstart, you need:
   - Microsoft 365 A3, Microsoft 365 A5
   - Microsoft 365 Business Premium
   - Microsoft 365 Education Student Use Benefit
-- [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/), which allows you to use your Windows licenses on Azure with Dev Box.
 - If your organization routes egress traffic through a firewall, open the appropriate ports. For more information, see [Network requirements](/windows-365/enterprise/requirements-network).
 ## 1. Create a dev center
 
@@ -116,8 +115,8 @@ You now need a network connection to associate the virtual network and subnet wi
 
 - To determine which type of join is appropriate for your dev boxes, refer to:
    
-   - [Azure AD joined devices](/azure/active-directory/devices/concept-azure-ad-join).
-   - [Hybrid Azure AD joined devices](/azure/active-directory/devices/concept-azure-ad-join-hybrid).
+   - [Azure AD joined devices](/azure/active-directory/devices/concept-directory-join).
+   - [Hybrid Azure AD joined devices](/azure/active-directory/devices/concept-hybrid-join).
 
 To create the network connection, complete the steps on the relevant tab.
 

@@ -21,7 +21,7 @@ SDKs, REST APIs, CLI, help you develop Language Understanding (LUIS) apps in you
 
 ## Azure resource management
 
-Use the Azure AI services Management layer to create, edit, list, and delete the Language Understanding or Azure AI services resource.
+Use the Azure AI services management layer to create, edit, list, and delete the Language Understanding or Azure AI services resource.
 
 Find reference documentation based on the tool:
 

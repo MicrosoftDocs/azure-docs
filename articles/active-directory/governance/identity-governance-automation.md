@@ -28,13 +28,15 @@ This article shows you how to get started using Azure Automation for Microsoft E
 
 ## Create an Azure Automation account
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Azure Automation provides a cloud-hosted environment for [runbook execution](../../automation/automation-runbook-execution.md).  Those runbooks can start automatically based on a schedule, or be triggered by webhooks or by Logic Apps.
 
 Using Azure Automation requires you to have an Azure subscription.
 
 **Prerequisite role**: Azure subscription or resource group owner
 
-1. Sign in to the Azure portal. Make sure you have access to the subscription or resource group where the Azure Automation account will be located.
+1. Sign in to the [Azure portal](https://portal.azure.com). Make sure you have access to the subscription or resource group where the Azure Automation account will be located.
 
 1. Select the subscription or resource group, and select **Create**.  Type **Automation**, select the **Automation** Azure service from Microsoft, then select **Create**.
 
@@ -168,7 +170,6 @@ $ClientId = Get-AutomationVariable -Name 'ClientId'
 $TenantId = Get-AutomationVariable -Name 'TenantId'
 $Thumbprint = Get-AutomationVariable -Name 'Thumbprint'
 $auth = Connect-MgGraph -clientId $ClientId -tenantid $TenantId -certificatethumbprint $Thumbprint
-Select-MgProfile -Name beta
 Import-Module Microsoft.Graph.Identity.Governance
 $ap = Get-MgEntitlementManagementAccessPackage -All -ErrorAction Stop
 $ap | Select-Object -Property Id,DisplayName | ConvertTo-Json

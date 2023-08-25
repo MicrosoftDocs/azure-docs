@@ -4,7 +4,7 @@ description: Azure Files geo-redundancy for large file shares (preview) signific
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 05/24/2023
+ms.date: 08/13/2023
 ms.author: kendownie
 ms.custom: references_regions
 ---
@@ -55,6 +55,11 @@ Azure Files geo-redundancy for large file shares preview is currently available 
 - Australia Central 2
 - Australia East
 - Australia Southeast
+- Brazil South
+- Brazil Southeast
+- Canada Central
+- Canada East
+- Central India
 - Central US
 - China East 2
 - China East 3
@@ -70,18 +75,27 @@ Azure Files geo-redundancy for large file shares preview is currently available 
 - Japan West
 - Korea Central
 - Korea South
+- North Central US
 - Norway East
 - Norway West
 - South Africa North
 - South Africa West
+- South Central US
+- South India
 - Southeast Asia
 - Sweden Central
 - Sweden South
+- Switzerland North
+- Switzerland West
 - UAE Central
 - UAE North
 - UK South
 - UK West
+- US Gov Arizona
+- US Gov Texas
+- US Gov Virginia
 - West Central US
+- West India
 - West US 2
 
 ## Pricing

@@ -5,7 +5,7 @@ services: active-directory
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 11/03/2022
 author: henrymbuguakiarie
@@ -28,6 +28,8 @@ The following property usage scenarios are considered as sensitive:
 - `TokenEncryptionKeyId` which specifies the keyId of a public key from the keyCredentials collection. When configured, Azure AD encrypts all the tokens it emits by using the key to which this property points. The application code that receives the encrypted token must use the matching private key to decrypt the token before it can be used for the signed-in user.
 
 ## Configure an app instance lock
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 To configure an app instance lock using the Azure portal:
 

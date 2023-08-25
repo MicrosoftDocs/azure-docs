@@ -37,7 +37,7 @@ Configure regional redundancy by adding a global frontend public IP address to y
 
 If one region fails, the traffic is routed to the next closest healthy regional load balancer.  
 
-The health probe of the cross-region load balancer gathers information about availability of each regional load balancer every 20 seconds. If one regional load balancer drops its availability to 0, cross-region load balancer detects the failure. The regional load balancer is then taken out of rotation. 
+The health probe of the cross-region load balancer gathers information about availability of each regional load balancer every 5 seconds. If one regional load balancer drops its availability to 0, cross-region load balancer detects the failure. The regional load balancer is then taken out of rotation. 
 
 :::image type="content" source="./media/cross-region-overview/global-region-view.png" alt-text="Diagram of global region traffic view." border="true":::
 
@@ -79,6 +79,8 @@ Cross-region load balancer is a Layer-4 pass-through network load balancer. This
 ### Floating IP
 
 Floating IP can be configured at both the global IP level and regional IP level. For more information, visit [Multiple frontends for Azure Load Balancer](./load-balancer-multivip-overview.md)
+
+It is important to note that floating IP configured on the Azure cross-region Load Balancer operates independently of floating IP configurations on backend regional load balancers. If floating IP is enabled on the cross-region load balancer, the appropriate loopback interface needs to be added to the backend VMs. 
 
 ### Health Probes
 
@@ -151,6 +153,8 @@ Cross-region load balancer routes the traffic to the appropriate regional load b
 * NAT64 translation isn't supported at this time. The frontend and backend IPs must be of the same type (v4 or v6).
 
 * UDP traffic isn't supported on Cross-region Load Balancer for IPv6.
+
+* UDP traffic on port 3 isn't supported on Cross-Region Load Balancer
 
 * Outbound rules aren't supported on Cross-region Load Balancer. For outbound connections, utilize [outbound rules](./outbound-rules.md) on the regional load balancer or [NAT gateway](../nat-gateway/nat-overview.md).
 

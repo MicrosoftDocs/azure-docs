@@ -180,7 +180,7 @@ Functions 1.x exposed types from the deprecated [Microsoft.WindowsAzure.Storage]
 
 # [Extension 5.x and higher](#tab/extensionv5/isolated-process)
 
-The isolated worker process supports parameter types according to the tables below. Support for binding to `Stream`, and to types from [Azure.Storage.Blobs] is in preview.
+The isolated worker process supports parameter types according to the tables below.
 
 **Blob trigger**
 

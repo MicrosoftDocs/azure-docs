@@ -2,16 +2,24 @@
 title: Data protection overview for Azure Files
 description: Learn how to protect your data in Azure Files. Understand the concepts and processes involved with backup and recovery of Azure file shares.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 06/19/2023
+ms.date: 07/26/2023
 ms.author: kendownie
-ms.subservice: files
 ---
 
 # Azure Files data protection overview
 
 Azure Files gives you many tools to protect your data, including soft delete, share snapshots, Azure Backup, and Azure File Sync. This article describes how to protect your data in Azure Files, and the concepts and processes involved with backup and recovery of Azure file shares.
+
+:::row:::
+    :::column:::
+        > [!VIDEO https://www.youtube.com/embed/TOHaNJpAOfc]
+    :::column-end:::
+    :::column:::
+        Watch this video to learn how Azure Files advanced data protection helps enterprises stay protected against ransomware and accidental data loss while delivering greater business continuity.
+   :::column-end:::
+:::row-end:::
 
 ## Why you should protect your data
 

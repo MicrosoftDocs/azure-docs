@@ -52,6 +52,10 @@ az keyvault secret set --vault-name MyAKSGMSAVault --name "GMSADomainUserCred" -
 
 Your domain controller needs to be configured through DNS so it's reachable by the AKS cluster. You can configure your network and DNS outside of your AKS cluster to allow your cluster to access the domain controller. Alternatively, you can configure a custom VNET with a custom DNS using Azure CNI with your AKS cluster to provide access to your domain controller. For more information, see [Configure Azure CNI networking in Azure Kubernetes Service (AKS)][aks-cni].
 
+## Optional: Configure more than one DNS server
+
+If you want to configure more than one DNS server for Windows GMSA in your AKS cluster, don't specify `--gmsa-dns-server`or `v--gmsa-root-domain-name`. Instead, you can add multiple DNS servers in the vnet by selecting Custom DNS and adding the DNS servers
+
 ## Optional: Use your own kubelet identity for your cluster
 
 To provide the AKS cluster access to your key vault, the cluster kubelet identity needs access to your key vault. By default, when you create a cluster with managed identity enabled, a kubelet identity is automatically created. You can grant access to your key vault for this identity after cluster creation, which is done in a later step.

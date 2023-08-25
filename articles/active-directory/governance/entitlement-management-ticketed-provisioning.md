@@ -47,7 +47,7 @@ To add a Logic App workflow to an existing catalog, you use an ARM template for 
 Provide the Azure subscription, resource group details, along with the Logic App name and the Catalog ID to associate the Logic App with and select purchase. For more information on how to create a new catalog, please follow the steps in this document: [Create and manage a catalog of resources in entitlement management](entitlement-management-catalog-create.md).
 
 
-1. Navigate To Entra portal [Identity Governance - Microsoft Entra admin center](https://entra.microsoft.com/#view/Microsoft_AAD_ERM/DashboardBlade/~/elmEntitlement)
+1. Navigate To Microsoft Entra admin center [Identity Governance - Microsoft Entra admin center](https://entra.microsoft.com/#view/Microsoft_AAD_ERM/DashboardBlade/~/elmEntitlement)
 
 1. In the left menu, select **Catalogs**. 
 
@@ -100,9 +100,11 @@ After setting up custom extensibility in the catalog, administrators can create 
 
 ## Register an application with secrets in Azure portal
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 With Azure, you're able to use [Azure Key Vault](/azure/key-vault/secrets/about-secrets) to store application secrets such as passwords. To register an application with secrets within the Azure portal, follow these steps:
 
-1. Sign in to the Azure portal.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Search for and select Azure Active Directory.
 
@@ -131,7 +133,7 @@ After registering your application, you must add a client secret by following th
 
 To authorize the created application to call the [MS Graph resume API](/graph/api/accesspackageassignmentrequest-resume) you'd do the following steps:
 
-1.	Navigate to the Entra portal [Identity Governance - Microsoft Entra admin center](https://entra.microsoft.com/#view/Microsoft_AAD_ERM/DashboardBlade/~/elmEntitlement)
+1. Navigate to the Microsoft Entra admin center [Identity Governance - Microsoft Entra admin center](https://entra.microsoft.com/#view/Microsoft_AAD_ERM/DashboardBlade/~/elmEntitlement)
 
 1. In the left menu, select **Catalogs**.
 

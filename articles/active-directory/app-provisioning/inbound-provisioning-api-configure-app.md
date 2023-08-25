@@ -19,7 +19,7 @@ ms.reviewer: cmmdesai
 This tutorial describes how to configure [API-driven inbound user provisioning](inbound-provisioning-api-concepts.md). 
 
 > [!IMPORTANT]
-> API-driven inbound provisioning is currently in public preview and is governed by [Preview Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> API-driven inbound provisioning is currently in public preview. For more information about previews, see [Universal License Terms For Online Services](https://www.microsoft.com/licensing/terms/product/ForOnlineServices/all).
 
 This feature is available only when you configure the following Enterprise Gallery apps: 
 * API-driven inbound user provisioning to Azure AD
@@ -36,7 +36,7 @@ If you're configuring inbound user provisioning to on-premises Active Directory,
 
 ## Create your API-driven provisioning app
 
-1. Log in to the [Microsoft Entra portal](<https://entra.microsoft.com>).
+1. Log in to the [Microsoft Entra admin center](<https://entra.microsoft.com>).
 2. Browse to **Azure Active Directory -> Applications -> Enterprise applications**.
 3. Click on **New application** to create a new provisioning application. 
      [![Screenshot of Entra Admin Center.](media/inbound-provisioning-api-configure-app/provisioning-entra-admin-center.png)](media/inbound-provisioning-api-configure-app/provisioning-entra-admin-center.png#lightbox)
@@ -101,12 +101,13 @@ Depending on the app you selected, use one of the following sections to complete
 ## Start accepting provisioning requests
 
 1. Open the provisioning application's **Provisioning** -> **Overview** page. 
+      :::image type="content" source="media/inbound-provisioning-api-configure-app/provisioning-api-endpoint.png" alt-text="Screenshot of Provisioning API endpoint." lightbox="media/inbound-provisioning-api-configure-app/provisioning-api-endpoint.png":::
 1. On this page, you can take the following actions: 
      - **Start provisioning** control button – Click on this button to place the provisioning job in **listen mode** to process inbound bulk upload request payloads.  
      - **Stop provisioning** control button – Use this option to pause/stop the provisioning job. 
      - **Restart provisioning** control button – Use this option to purge any existing request payloads pending processing and start a new provisioning cycle. 
      - **Edit provisioning** control button – Use this option to edit the job settings, attribute mappings and to customize the provisioning schema. 
-     - **Provision on demand** control button – This feature is not yet enabled in private preview. 
+     - **Provision on demand** control button – This feature is not supported for API-driven inbound provisioning. 
      - **Provisioning API Endpoint** URL text – Copy the HTTPS URL value shown and save it in a Notepad or OneNote for use later with the API client.
 1. Expand the **Statistics to date** > **View technical information** panel and copy the **Provisioning API Endpoint** URL. Share this URL with your API developer after [granting access permission](inbound-provisioning-api-grant-access.md) to invoke the API. 
 

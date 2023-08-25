@@ -38,12 +38,12 @@ To configure password-based SSO in your Azure AD tenant, you need:
 
 ## Configure password-based single sign-on
 
-1.	Sign in to the [Azure portal](https://portal.azure.com) with the appropriate role.
-1.	Select **Azure Active Directory** in Azure Services, and then select **Enterprise applications**.
-1.	Search for and select the application that you want to add password-based SSO.
-1.	Select **Single sign-on** and then select **Password-based**.
-1.	Enter the URL for the sign-in page of the application.
-1.	Select **Save**. 
+1. Sign in to the [Azure portal](https://portal.azure.com) with the appropriate role.
+1. Select **Azure Active Directory** in Azure Services, and then select **Enterprise applications**.
+1. Search for and select the application that you want to add password-based SSO.
+1. Select **Single sign-on** and then select **Password-based**.
+1. Enter the URL for the sign-in page of the application.
+1. Select **Save**. 
 
 Azure AD parses the HTML of the sign-in page for username and password input fields. If the attempt succeeds, you're done. Your next step is to [Assign users or groups](add-application-portal-assign-users.md) to the application. 
 

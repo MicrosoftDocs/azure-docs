@@ -43,6 +43,8 @@
       href:  exchange-hybrid-writeback.md
     - name:  Decommission connect sync V1
       href:  decommission-connect-sync-v1.md
+    - name:  Verify your version of sync
+      href:  verify-sync-tool-version.md
   - name: Managing users and groups
     items: 
     - name:  Provision users on-demand

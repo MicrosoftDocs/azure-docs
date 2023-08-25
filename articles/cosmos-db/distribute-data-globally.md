@@ -26,7 +26,7 @@ With Azure Cosmos DB, you can add or remove the regions associated with your acc
 
 * **Azure public** cloud, which is available globally.
 
-* **Azure China 21Vianet** is available through a unique partnership between Microsoft and 21Vianet, one of the country’s largest internet providers in China.
+* **Microsoft Azure operated by 21Vianet** is available through a unique partnership between Microsoft and 21Vianet, one of the country’s largest internet providers in China.
 
 * **Azure Germany** provides services under a data trustee model, which ensures that customer data remains in Germany under the control of T-Systems International GmbH, a subsidiary of Deutsche Telekom, acting as the German data trustee.
 

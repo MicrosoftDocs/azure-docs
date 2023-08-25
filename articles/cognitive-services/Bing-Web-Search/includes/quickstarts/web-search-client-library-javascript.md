@@ -1,6 +1,6 @@
 ---
 title: Bing Web Search JavaScript client library quickstart 
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -98,7 +98,7 @@ When you're done with this project, make sure to remove your subscription key fr
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Cognitive Services Node.js SDK samples](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
+> [Azure AI services Node.js SDK samples](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
 
 ## See also
 

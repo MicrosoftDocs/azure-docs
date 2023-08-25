@@ -3,7 +3,7 @@ title: Deploy Azure Site Recovery replication appliance - Modernized
 description: This article describes support and requirements when deploying the replication appliance for VMware disaster recovery to Azure with Azure Site Recovery - Modernized
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/27/2023
+ms.date: 08/01/2023
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ---
@@ -59,7 +59,7 @@ Ensure the following URLs are allowed and reachable from the Azure Site Recovery
   | **URL**                  | **Details**                             |
   | ------------------------- | -------------------------------------------|
   | portal.azure.com          | Navigate to the Azure portal.              |
-  | `*.login.windows.net `<br>`*.graph.windows.net `<br>`*.msftauth.net`<br>`*.msauth.net`<br>`*.microsoft.com`<br>`*.live.com `<br>`*.office.com ` | To sign-in to your Azure subscription.  |
+  | `login.windows.net `<br>`graph.windows.net `<br>`*.msftauth.net`<br>`*.msauth.net`<br>`*.microsoft.com`<br>`*.live.com `<br>`*.office.com ` | To sign-in to your Azure subscription.  |
   |`*.microsoftonline.com `|Create Azure Active  Directory (AD) apps for the appliance to communicate with Azure Site Recovery. |
   |management.azure.com |Create Azure AD apps for the appliance to communicate with the Azure Site Recovery service. |
   |`*.services.visualstudio.com `|Upload app logs used for internal monitoring. |

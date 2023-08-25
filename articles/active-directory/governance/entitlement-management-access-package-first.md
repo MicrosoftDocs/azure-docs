@@ -52,24 +52,26 @@ For more information, see [License requirements](entitlement-management-overview
 
 ## Step 1: Set up users and group
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 A resource directory has one or more resources to share. In this step, you create a group named **Marketing resources** in the Woodgrove Bank directory that is the target resource for entitlement management. You also set up an internal requestor.
 
 **Prerequisite role:** Global administrator or User administrator
 
 ![Diagram that shows the users and groups for this tutorial.](./media/entitlement-management-access-package-first/elm-users-groups.png)
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a Global administrator or User administrator.  
+1. Sign in to the [Azure portal](https://portal.azure.com) as a Global administrator or User administrator.
 
 1. In the left navigation, select **Azure Active Directory**.
 
-1. [Create two users](../fundamentals/add-users-azure-active-directory.md). Use the following names or different names.
+1. [Create two users](../fundamentals/add-users.md). Use the following names or different names.
 
     | Name | Directory role |
     | --- | --- |
     | **Admin1** | Global administrator, or User administrator. This user can be the user you're currently signed in. |
     | **Requestor1** | User |
 
-4. [Create an Azure AD security group](../fundamentals/active-directory-groups-create-azure-portal.md) named **Marketing resources** with a membership type of **Assigned**. This group is the target resource for entitlement management. The group should be empty of members to start.
+4. [Create an Azure AD security group](../fundamentals/how-to-manage-groups.md) named **Marketing resources** with a membership type of **Assigned**. This group is the target resource for entitlement management. The group should be empty of members to start.
 
 
 ## Step 2: Create an access package

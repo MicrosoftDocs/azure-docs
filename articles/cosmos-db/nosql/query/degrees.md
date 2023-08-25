@@ -1,53 +1,52 @@
 ---
-title: DEGREES in Azure Cosmos DB query language
-description: Learn about the DEGREES SQL system function in Azure Cosmos DB to return the corresponding angle in degrees for an angle specified in radians
-author: ginamr
+title: DEGREES
+titleSuffix: Azure Cosmos DB for NoSQL
+description: An Azure Cosmos DB for NoSQL system function that returns the angle in degrees for a radian value.
+author: jcodella
+ms.author: jacodel
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.topic: conceptual
-ms.date: 03/03/2020
-ms.author: girobins
-ms.custom: query-reference, ignite-2022
+ms.topic: reference
+ms.date: 07/19/2023
+ms.custom: query-reference
 ---
-# DEGREES (Azure Cosmos DB)
+
+# DEGREES (NoSQL query)
+
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
- Returns the corresponding angle in degrees for an angle specified in radians.  
-  
+Returns the corresponding angle in degrees for an angle specified in radians.
+
 ## Syntax
-  
+
 ```sql
-DEGREES (<numeric_expr>)  
+DEGREES(<numeric_expr>)  
 ```  
-  
+
 ## Arguments
-  
-*numeric_expr*  
-   Is a numeric expression.  
-  
+
+| | Description |
+| --- | --- |
+| **`numeric_expr`** | A numeric expression. |
+
 ## Return types
-  
-  Returns a numeric expression.  
-  
+
+Returns a numeric expression.  
+
 ## Examples
-  
-  The following example returns the number of degrees in an angle of PI/2 radians.  
-  
-```sql
-SELECT DEGREES(PI()/2) AS degrees  
-```  
-  
- Here is the result set.  
-  
-```json
-[{"degrees": 90}]  
-```  
+
+The following example returns the degrees for various radian values.
+
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/degrees/query.sql" highlight="2-5":::
+
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/degrees/result.json":::
 
 ## Remarks
 
-This system function will not utilize the index.
+- This function doesn't use the index.
 
 ## Next steps
 
-- [System functions Azure Cosmos DB](system-functions.yml)
-- [Introduction to Azure Cosmos DB](../../introduction.md)
+- [System functions](system-functions.yml)
+- [`RADIANS`](radians.md)

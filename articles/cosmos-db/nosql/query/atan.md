@@ -48,6 +48,6 @@ The following example calculates the arctangent of the specified angle using the
 
 ## Next steps
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`TAN`](tan.md)
 - [`ATN2`](atn2.md)

@@ -1,6 +1,6 @@
 ---
 title: Use and display requirements for the Bing Search APIs
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: The requirements for displaying search results from the Bing Search APIs in your applications.
 services: cognitive-services
 author: aahill

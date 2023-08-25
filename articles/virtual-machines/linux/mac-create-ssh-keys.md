@@ -5,6 +5,7 @@ author: mattmcinnes
 ms.service: virtual-machines
 ms.collection: linux
 ms.workload: infrastructure-services
+ms.custom: devx-track-linux
 ms.topic: how-to
 ms.date: 04/11/2023
 ms.author: mattmcinnes

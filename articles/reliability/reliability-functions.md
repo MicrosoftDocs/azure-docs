@@ -19,6 +19,7 @@ Availability zone support for Azure Functions is available on both Premium (Elas
 
 ## Availability zone support
 
+
 [!INCLUDE [Availability zone description](includes/reliability-availability-zone-description-include.md)]
 
 Azure Functions supports both [zone-redundant and zonal instances](availability-zones-service-support.md#azure-services-with-availability-zone-support). 

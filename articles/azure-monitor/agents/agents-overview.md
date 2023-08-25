@@ -203,7 +203,6 @@ View [supported operating systems for Azure Arc Connected Machine agent](../../a
 | Amazon Linux 2                                              | X | X |   |
 | CentOS Linux 8                                              | X | X |   |
 | CentOS Linux 7                                              | X<sup>3</sup> | X | X |
-| CentOS Linux 6                                              |   | X |   |
 | CBL-Mariner 2.0                                             | X<sup>3,4</sup> |   |   |
 | Debian 11                                                   | X<sup>3</sup> |   |   |
 | Debian 10                                                   | X | X |   |
@@ -212,14 +211,12 @@ View [supported operating systems for Azure Arc Connected Machine agent](../../a
 | OpenSUSE 15                                                 | X |   |   |
 | Oracle Linux 8                                              | X | X |   |
 | Oracle Linux 7                                              | X | X | X |
-| Oracle Linux 6                                              |   | X |   |
-| Oracle Linux 6.4+                                           |   | X | X |
+| Oracle Linux 6.4+                                           |   |  | X |
 | Red Hat Enterprise Linux Server 9+                         | X |  |   |
 | Red Hat Enterprise Linux Server 8.6                         | X<sup>3</sup> | X<sup>2</sup> | X<sup>2</sup> |
 | Red Hat Enterprise Linux Server 8+                           | X | X<sup>2</sup> | X<sup>2</sup> |
 | Red Hat Enterprise Linux Server 7                           | X | X | X |
-| Red Hat Enterprise Linux Server 6.7+                        |   | X | X |
-| Red Hat Enterprise Linux Server 6                           |   | X |   |
+| Red Hat Enterprise Linux Server 6.7+                        |   |  | X |
 | Rocky Linux 8                                               | X | X |   |
 | SUSE Linux Enterprise Server 15 SP4                         | X<sup>3</sup> |   |   |
 | SUSE Linux Enterprise Server 15 SP3                         | X |   |   |
