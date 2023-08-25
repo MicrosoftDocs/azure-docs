@@ -1,7 +1,6 @@
 ---
-
 title: How to download logs in Azure Active Directory
-description: Learn how to download activity logs in Azure Active Directory.
+description: Learn how to download audit, sign-in, and provisioning log data for storage in Azure Active Directory.
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -28,12 +27,13 @@ Azure AD stores the data in these logs for a limited amount of time. As an IT ad
 
 The option to download the data of an activity log is available in all editions of Azure AD. You can also download activity logs using Microsoft Graph; however, downloading logs programmatically requires a premium license.
 
-The following roles provide read access to audit logs. Always use the least privileged role, according to Microsoft [Zero Trust guidance](/security/zero-trust/zero-trust-overview).
-- Reports Reader
-- Security Reader
-- Security Administrator
-- Global Reader (sign-in logs only)
-- Global Administrator
+The required roles and licenses may vary based on the report. Global Administrators can access all reports, but we recommend using a role with least privilege access to align with the [Zero Trust guidance](/security/zero-trust/zero-trust-overview).
+
+| Log / Report | Roles | Licenses |
+|--|--|--|
+| Audit | Report Reader<br>Security Reader<br>Security Administrator<br>Global Reader | All editions of Azure AD |
+| Sign-ins | Report Reader<br>Security Reader<br>Security Administrator<br>Global Reader | All editions of Azure AD |
+| Provisioning | Same as audit and sign-ins, plus<br>Security Operator<br>Application Administrator<br>Cloud App Administrator<br>A custom role with `provisioningLogs` permission | Premium P1/P2 |
 
 ## Log download details
 
@@ -53,8 +53,8 @@ Azure AD stores activity logs for a specific period. For more information, see [
 
 You can access the activity logs from the **Monitoring** section of Azure AD or from the **Users** page of Azure AD. If you view the audit logs from the **Users** page, the filter category is set to **UserManagement**. Similarly, if you view the audit logs from the **Groups** page, the filter category is set to **GroupManagement**. Regardless of how you access the activity logs, your download is based on the filter you've set. 
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using the appropriate least privileged role.
-1. Browse to **Azure Active Directory** > **Monitoring** > **Audit logs**/**Sign-in logs**/**Provisioning logs**. 
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Reports Reader](../roles/permissions-reference.md#reports-reader).
+1. Browse to **Identity** > **Monitoring & health** > **Audit logs**/**Sign-in logs**/**Provisioning logs**.
 1. Select **Download**.
     - For audit and sign-in logs, a window appears where you select the download format (CSV or JSON).
     - For provisioning logs, you select the download format (CSV of JSON) from the Download button.

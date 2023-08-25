@@ -1,6 +1,6 @@
 ---
 title: How to manage inactive user accounts
-description: Learn how to detect and resolve user accounts that have become obsolete
+description: Learn how to detect and resolve Azure Active Directory user accounts that have become inactive or obsolete.
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.workload: identity
 ms.custom: has-azure-ad-ps-ref
 ms.subservice: report-monitor
-ms.date: 05/02/2023
+ms.date: 08/24/2023
 ms.author: sarahlipsey
 ms.reviewer: besiler
 ---
@@ -75,8 +75,9 @@ The following details relate to the `lastSignInDateTime` property.
 
 If you need to view the latest sign-in activity for a user, you can view the user's sign-in details in Azure AD. You can also use the Microsoft Graph **users by name** scenario described in the [previous section](#detect-inactive-user-accounts-with-microsoft-graph).
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a Report Reader. 
-1. Browse to **Azure AD** > **Users** > select a user from the list.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Reports Reader](../roles/permissions-reference.md#reports-reader).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select a user from the list.
 1. In the **My Feed** area of the user's Overview, locate the **Sign-ins** tile. 
 
     ![Screenshot of the user overview page with the sign-in activity tile highlighted.](media/howto-manage-inactive-user-accounts/last-sign-activity-tile.png)
