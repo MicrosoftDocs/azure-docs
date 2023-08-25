@@ -1,6 +1,6 @@
 ---
-title: Connect to an internal virtual network using Azure API Management
-description: Learn how to set up and configure Azure API Management in a virtual network using internal mode
+title: Deploy Azure API Management instance to internal VNet
+description: Learn how to deploy (inject) your Azure API instance to a virtual network in internal mode and access API backends through it.
 author: dlepow
 
 ms.service: api-management
@@ -9,8 +9,9 @@ ms.date: 01/03/2022
 ms.author: danlep
 ---
 
-# Connect to a virtual network in internal mode using Azure API Management 
-With Azure virtual networks (VNets), Azure API Management can manage internet-inaccessible APIs using several VPN technologies to make the connection. For VNet connectivity options, requirements, and considerations, see [Using a virtual network with Azure API Management](virtual-network-concepts.md).
+# Deploy your Azure API Management instance to a virtual network - internal mode
+
+Azure API Management can be deployed (injected) inside an Azure virtual network (VNet) to access backend services within the network. For VNet connectivity options, requirements, and considerations, see [Using a virtual network with Azure API Management](virtual-network-concepts.md).
 
 This article explains how to set up VNet connectivity for your API Management instance in the *internal* mode. In this mode, you can only access the following API Management endpoints within a VNet whose access you control.
 * The API gateway
