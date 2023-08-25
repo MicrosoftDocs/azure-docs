@@ -76,7 +76,7 @@ items:
     - name: Log Analytics
       href: how-to-azure-monitor-integration.md
     - name: Azure managed Prometheus and Grafana
-      href: monitoring-with-prometheus-and-grafana.md
+      href: monitor-with-prometheus-grafana.md
 - name: Trino
   items:
   - name: What is Trino?

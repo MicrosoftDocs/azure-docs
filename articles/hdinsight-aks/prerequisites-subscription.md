@@ -14,7 +14,7 @@ If you're using Azure subscription first time for HDInsight on AKS, the followin
 
 1. Sign in to [Azure portal](https://portal.azure.com).
    
-1. Click the Cloud Shell icon at the top right, and select **PowerShell** or **Bash** as your environment depending on the command you use.
+1. Click the Cloud Shell icon (:::image type="icon" source="./media/prerequisites-subscription/cloud-shell.png" alt-text="Screenshot screenshot showing Cloud Shell icon.":::) at the top right, and select **PowerShell** or **Bash** as your environment depending on the command you use.
 
 At the next command prompt, enter each of the following commands:
 
@@ -65,4 +65,4 @@ At the next command prompt, enter each of the following commands:
     **Output:** The response indicates the registration is in progress. 
 
 ## Next steps
-* [One-click deployment](./getting-started.md)
+* [One-click deployment](./get-started.md)

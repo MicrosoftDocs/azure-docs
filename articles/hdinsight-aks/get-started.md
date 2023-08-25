@@ -49,11 +49,11 @@ When you click on one of these templates, it launches Custom deployment page in 
  
  1. In the top search bar in the Azure portal, enter your user ID. (For example, john@contoso.com)
 
-    :::image type="content" source="./media/one-click-deployment/search-object-id.png" alt-text="Screenshot showing how to search object ID.":::
+    :::image type="content" source="./media/get-started/search-object-id.png" alt-text="Screenshot showing how to search object ID.":::
    
  2. From Azure Active Directory box, click on your user ID.
     
-    :::image type="content" source="./media/one-click-deployment/view-object-id.png" alt-text="Screenshot showing how to view object ID.":::
+    :::image type="content" source="./media/get-started/view-object-id.png" alt-text="Screenshot showing how to view object ID.":::
     
  1. Copy the Object ID.
  
@@ -62,13 +62,15 @@ When you click on one of these templates, it launches Custom deployment page in 
  1. Select **Next: Review + create** to continue.
  1. On the **Review + create** page, based on validation status, continue to click **Create**.
 
-    :::image type="content" source="./media/one-click-deployment/custom-deployment-summary.png" alt-text="Screenshot showing custom deployment summary.":::
+    :::image type="content" source="./media/get-started/custom-deployment-summary.png" alt-text="Screenshot showing custom deployment summary.":::
 
    The **Deployment is in progress** page is displayed while the resources are getting created, and the **"Your deployment is complete"**  page is displayed once the cluster pool and cluster are fully deployed and ready for use.
 
-   :::image type="content" source="./media/one-click-deployment/custom-deployment-complete.png" alt-text="Screenshot showing custom deployment complete.":::
+   :::image type="content" source="./media/get-started/custom-deployment-complete.png" alt-text="Screenshot showing custom deployment complete.":::
+
+   :::image type="icon" source="./media/get-started/notifications.png" alt-text="Screenshot showing notifications icon in the Azure portal.":::
    
-     
-> [!TIP]
->
-> For troubleshooting any deployment errors, you can refer this [page](./create-cluster-error-dictionary.md).
+   > [!TIP]
+   >
+   > For troubleshooting any deployment errors, you can refer this [page](./create-cluster-error-dictionary.md).
+    
