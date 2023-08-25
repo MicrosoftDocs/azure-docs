@@ -25,7 +25,7 @@ Azure Container Apps implements container app versioning by creating revisions. 
 :::image type="content" source="media/revisions/azure-container-apps-revisions.png" alt-text="Azure Container Apps: Containers":::
 
 > [!NOTE]
-> Azure Container Apps jobs don't have revisions. Each job execution uses the latest configuration of the job.
+> [Azure Container Apps jobs](jobs.md) don't have revisions. Each job execution uses the latest configuration of the job.
 
 ## Use cases
 
