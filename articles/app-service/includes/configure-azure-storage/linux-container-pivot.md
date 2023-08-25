@@ -7,7 +7,7 @@ ms.author: msangapu
 ---
 
 > [!NOTE]
-> Azure Key Vault support for Azure Storage is now available in preview. There's an ongoing deployment and Key Vault support will be available in all regions in the next few weeks. Key Vault support for App Service on Linux is available over SMB.
+> Azure Key Vault support for Azure Storage is in preview.
 >
 
 This guide shows how to mount Azure Storage as a network share in a built-in Linux container or a custom Linux container in App Service. See the video [how to mount Azure Storage as a local share](https://www.youtube.com/watch?v=OJkvpWYr57Y). For using Azure Storage in an ARM template, see [Bring your own storage](https://github.com/Azure/app-service-linux-docs/blob/master/BringYourOwnStorage/BYOS_azureFiles.json). Azure Storage is non-default storage for App Service and billed separately.

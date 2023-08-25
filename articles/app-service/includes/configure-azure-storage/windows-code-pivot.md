@@ -7,7 +7,7 @@ ms.author: msangapu
 ---
 
 > [!NOTE]
-> Azure Key Vault support for Azure Storage is now available in preview. There's an ongoing deployment and Key Vault support will be available in all regions in the next few weeks.
+> Azure Key Vault support for Azure Storage is in preview.
 >
 
 This guide shows how to mount Azure Storage Files as a network share in Windows code (non-container) in App Service. Only [Azure Files Shares](../../../storage/files/storage-how-to-use-files-portal.md) and [Premium Files Shares](../../../storage/files/storage-how-to-create-file-share.md) are supported. Azure Storage is non-default storage for App Service and billed separately.

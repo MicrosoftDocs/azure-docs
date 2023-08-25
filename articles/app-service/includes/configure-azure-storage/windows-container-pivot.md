@@ -7,7 +7,7 @@ ms.author: msangapu
 ---
 
 > [!NOTE]
-> Azure Key Vault support for Azure Storage is now available in preview. There's an ongoing deployment and Key Vault support will be available in all regions in the next few weeks.
+> Azure Key Vault support for Azure Storage is in preview.
 >
 
 This guide shows how to mount Azure Storage Files as a network share in a Windows container in App Service. Only [Azure Files Shares](../../../storage/files/storage-how-to-use-files-portal.md) and [Premium Files Shares](../../../storage/files/storage-how-to-create-file-share.md) are supported. Azure Storage is non-default storage for App Service and billed separately.
@@ -30,23 +30,19 @@ This article covers three options for mounting your storage account:
 
 ### [Basic](#tab/basic)
 
-No additional steps are required because the portal gets and stores the access key for you. 
+Choose this option when mounting storage using the Azure portal. You can use the basic option as long as the storage account isn't using [service endpoints](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network), [private endpoints](../../../storage/common/storage-private-endpoints.md), or [Azure Key Vault](../../../key-vault/general/overview.md). In this case, the portal gets and stores the access key for you. 
+
+If you plan to mount storage using the Azure CLI, you'll need to obtain an access key. 
 
 ### [Access Key](#tab/access-key)
 
-You need to obtain the access key from your storage account. <!--link or instructions? -->
+Choose this option storage account isn't using [service endpoints](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network), [private endpoints](../../../storage/common/storage-private-endpoints.md), or [Azure Key Vault](../../../key-vault/general/overview.md). 
+
+Also use this option when you plan to mount storage using the Azure CLI, which requires the access key. 
 
 ### [Key Vault](#tab/key-vault)
 
-Before you can mount storage using Key Vault access, you need to get the Key Vault secret and add it as an application setting in your app.  
-
-1. In the portal, browse to your Key Vault secret and copy the **Secret Identifier** into your clipboard.
-:::image type="content" source="../../media/configure-azure-storage/key-vault-secret-identifier.png" alt-text="Key Vault secret identifier":::
-
-1. Back in your app, create an [**application setting**](../../configure-common.md?tabs=portal#configure-app-settings) and paste the Key Vault **Secret Identifier** into **Value**.
-:::image type="content" source="../../media/configure-azure-storage/secret-identifier-application-setting.png" alt-text="Secret Identifier application setting":::
-
-Now you're ready to use Key Vault to access your storage account.
+Choose this option when using Azure Key Vault to securely store and retrieve access keys. [Azure Key Vault](../../../key-vault/general/overview.md) has the benefits of storing application secrets centrally and securely with the ability to monitor, administer, and integrate with other Azure services like Azure App Service.
 
 ---
 
