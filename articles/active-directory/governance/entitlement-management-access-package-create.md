@@ -1,6 +1,6 @@
 ---
 title: Create an access package in entitlement management
-description: Learn how to create an access package of resources that you want to share in Azure Active Directory entitlement management.
+description: Learn how to create an access package of resources that you want to share in Microsoft Entra entitlement management.
 services: active-directory
 documentationCenter: ''
 author: owinfreyATL

@@ -35,7 +35,7 @@ In this tutorial, you learn how to:
 > * Allow a user in your directory to request access
 > * Demonstrate how an internal user can request the access package
 
-For a step-by-step demonstration of the process of deploying Azure Active Directory entitlement management, including creating your first access package, view the following video:
+For a step-by-step demonstration of the process of deploying Microsoft Entra entitlement management, including creating your first access package, view the following video:
 
 >[!VIDEO https://www.youtube.com/embed/zaaKvaaYwI4]
 
