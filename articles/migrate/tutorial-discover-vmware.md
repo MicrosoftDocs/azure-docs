@@ -348,6 +348,21 @@ To start vCenter Server discovery, select **Start discovery**. After the discove
 
    :::image type="content" source="./media/tutorial-discover-vmware/discovery-assessment-tile.png" alt-text="Screenshot that shows how to refresh data in discovery and assessment tile.":::
 
+Details such as OS license support status, inventory, database instances, etc are displayed. 
+
+#### View support status
+
+You can gain deeper insights into the support posture of your environment from the **Discovered servers** and **Discovered database instances** sections.
+
+The **Operating system license support status** column displays the support status of the Operating system, whether it is in mainstream support, extended support, or out of support. Selecting the support status opens a pane on the right which provides clear guidance regarding actionable steps that can be taken to secure servers and databases in extended support or out of support.
+
+To view the remaining duration until end of support, that is, the number of months for which the license is valid, select **Columns** > **Support ends in** > **Submit**. The **Support ends in** column displays the duration in months.
+
+The **Database instances** displays the number of instances discovered by Azure Migrate. Select the number of instances to view the database instance details. The **Database instance license support status** displays the support status of the database instance. Selecting the support status opens a pane on the right which provides clear guidance regarding actionable steps that can be taken to secure servers and databases in extended support or out of support.
+
+To view the remaining duration until end of support, that is, the number of months for which the license is valid, select **Columns** > **Support ends in** > **Submit**. The **Support ends in** column displays the duration in months.
+ 
+
 ## Next steps
 
 - Learn how to [assess servers to migrate to Azure VMs](./tutorial-assess-vmware-azure-vm.md).
