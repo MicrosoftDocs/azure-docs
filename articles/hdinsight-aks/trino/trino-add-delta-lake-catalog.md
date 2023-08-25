@@ -8,11 +8,11 @@ ms.date: 08/16/2023
 
 # Configure Delta Lake catalog
 
-This article provides an overview of how to configure Delta Lake catalog in your HDInsight on AKS Trino cluster. You can add a new catalog by updating your cluster ARM template except the hive catalog, which you can add during [Trino cluster creation](./trino-create-cluster-portal.md) in the Azure portal.
+This article provides an overview of how to configure Delta Lake catalog in your HDInsight on AKS Trino cluster. You can add a new catalog by updating your cluster ARM template except the hive catalog, which you can add during [Trino cluster creation](./trino-create-cluster.md) in the Azure portal.
 
 ## Prerequisites
 
-* [Understanding of Trino cluster configuration](./trino-service-config.md).
+* [Understanding of Trino cluster configuration](./trino-service-configuration.md).
 * [Add catalogs to existing cluster](./trino-add-catalogs.md).
 
 ## Steps to configure Delta Lake catalog
