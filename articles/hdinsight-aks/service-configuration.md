@@ -25,11 +25,11 @@ You can customize configurations using following options:
   
 1. In the Azure portal search bar, type "HDInsight on AKS cluster" and select "Azure HDInsight on AKS clusters" from the drop-down list.
   
-   :::image type="content" source="./media/service-configuration/getstarted-portalsearch-step1.png" alt-text="Screenshot showing search option for getting started with HDInsight on AKS Cluster.":::
+   :::image type="content" source="./media/service-configuration/get-started-portal-search-step-1.png" alt-text="Screenshot showing search option for getting started with HDInsight on AKS Cluster.":::
   
 1. Select your cluster name from the list page.
   
-   :::image type="content" source="./media/service-configuration/getstarted-portallistview-step2.png" alt-text="Screenshot showing selecting the HDInsight on AKS Cluster you require from the list.":::
+   :::image type="content" source="./media/service-configuration/get-started-portal-list-view-step-2.png" alt-text="Screenshot showing selecting the HDInsight on AKS Cluster you require from the list.":::
    
 1. Go to "Configuration management" blade in the left menu.
    
