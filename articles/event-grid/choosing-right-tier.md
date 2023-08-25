@@ -15,7 +15,7 @@ Use this tier:
 - If you want to build applications with flexible consumption patterns, e. g. pull delivery.
 - If you want to go beyond 5 MB/s in ingress and egress throughput, up to 20 MB/s (ingress) and 40 MB/s (egress).
 
-For more information, see quotas and limits for [namespaces](quotas-limits#namespace-resource-limits).
+For more information, see quotas and limits for [namespaces](quotas-limits.md#namespace-resource-limits).
 
 **Basic tier offers custom topics, system topics, event domains and partner topics.**
 
@@ -25,7 +25,7 @@ Use this tier:
 - If you want to publish events to thousands of topics at the same time.
 - If you want to go up to 5 MB/s in ingress and egress throughput.
 
-For more information, see quotas and limits for [custom topics, system topics and partner topics](quotas-limits#custom-topic-system-topic-and-partner-topic-resource-limits) and [domains](quotas-limits#domain-resource-limits).
+For more information, see quotas and limits for [custom topics, system topics and partner topics](quotas-limits.md#custom-topic-system-topic-and-partner-topic-resource-limits) and [domains](quotas-limits.md#domain-resource-limits).
 
 ## Basic and standard tiers
 
