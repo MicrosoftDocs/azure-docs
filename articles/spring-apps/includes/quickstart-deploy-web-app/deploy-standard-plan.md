@@ -19,7 +19,7 @@ First, prepare the Spring project to run locally.
 
 ### [Azure portal](#tab/Azure-portal)
 
-Although you use the Azure portal in later steps, you must use the Bash command line to prepare the project locally. Use the following steps to clone and run the app locally. These steps use the 
+Although you use the Azure portal in later steps, you must use the Bash command line to prepare the project locally. Use the following steps to clone and run the app locally:
 
 1. Use the following command to clone the sample project from GitHub:
 
@@ -266,14 +266,13 @@ Use the following steps to package the app, provision the Azure resources requir
 
    ```output
    Deploying services (azd deploy)
-   
+
    WARNING: Feature 'springapp' is in alpha stage.
    To learn more about alpha features and their support, visit https://aka.ms/azd-feature-stages.
-   
+
    (✓) Done: Deploying service simple-todo-web
    - Endpoint: https://<your-Azure-Spring-Apps-instance-name>-demo.azuremicroservices.io/
-   
-   
+
    SUCCESS: Your application was deployed to Azure in xx minutes xx seconds.
    You can view the resources created under the resource group rg-<your-environment-name> in Azure Portal:
    https://portal.azure.com/#@/resource/subscriptions/<your-subscription-id>/resourceGroups/rg-<your-environment-name>/overview
