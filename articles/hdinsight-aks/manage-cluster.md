@@ -43,7 +43,7 @@ You can view the cluster details in the "Overview" blade of your cluster. It pro
 |Location| Region in which the cluster is deployed.|
 |Cluster size details| Node size, node type, and number of nodes.|
 
-:::image type="content" source="./media/manage-cluster/view-cluster-info-step-3.png" alt-text="Screenshot showing all cluster settings overview on HDInsight on AKS Cluster." border="true" lightbox="./media/manage-cluster/view-cluster-info-step-3.png":::
+:::image type="content" source="./media/manage-cluster/view-cluster-information-step-3.png" alt-text="Screenshot showing all cluster settings overview on HDInsight on AKS Cluster." border="true" lightbox="./media/manage-cluster/view-cluster-information-step-3.png":::
 
 ## Manage cluster size 
 
