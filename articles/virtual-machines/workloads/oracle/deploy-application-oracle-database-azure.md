@@ -51,25 +51,25 @@ Collaborate with Azure Subject Matter Experts (SMEs) to perform a thorough asses
 
 Load Balancing and Throughput: It's important to evaluate the workload characteristics of application servers. Some servers handle more tasks and create higher throughput than others. This information is crucial when designing your VMSS and load balancing configuration to ensure that resources are allocated effectively
 
-**Database** **Tier**: HA architectures are recommended with Oracle Data Guard for Oracle on Azure IaaS. Applications require specific type of HA setup and are listed under each application.
+Database Tier: HA architectures are recommended with Oracle Data Guard for Oracle on Azure IaaS. Applications require specific type of HA setup and are listed under each application.
 
-**Backup** - [Backups](https://learn.microsoft.com/azure/backup/backup-azure-vms-introduction) are sent from the application tier and the database tier. It's just one of many reasons why those two tiers shouldn't be separated into two different vendors.  Backups of the database are performed by [Azure Backup Volume Snapshot](https://techcommunity.microsoft.com/t5/data-architecture-blog/azure-backup-volume-snapshots-for-oracle-is-now-ga/ba-p/2820032) on Premium Files to the secondary region.
+Backup - [Backups](https://learn.microsoft.com/azure/backup/backup-azure-vms-introduction) are sent from the application tier and the database tier. It's just one of many reasons why those two tiers shouldn't be separated into two different vendors.  Backups of the database are performed by [Azure Backup Volume Snapshot](https://techcommunity.microsoft.com/t5/data-architecture-blog/azure-backup-volume-snapshots-for-oracle-is-now-ga/ba-p/2820032) on Premium Files to the secondary region.
 
-**Disaster Recovery** - There are different solutions you can choose from. It very much depends on your requirements. The architecture above is built to be highly available. For replicating the application tier, you can use [Azure Site Recovery](https://learn.microsoft.com/azure/site-recovery/site-recovery-overview). Another solution you can choose is [Redundancy options for managed disks.](https://learn.microsoft.com/azure/virtual-machines/disks-redundancy) Both solutions replicate your data. Redundancy options for managed disks are a solution that can simplify the architecture but also comes with a few limitations.
+Disaster Recovery - There are different solutions you can choose from. It very much depends on your requirements. The architecture above is built to be highly available. For replicating the application tier, you can use [Azure Site Recovery](https://learn.microsoft.com/azure/site-recovery/site-recovery-overview). Another solution you can choose is [Redundancy options for managed disks.](https://learn.microsoft.com/azure/virtual-machines/disks-redundancy) Both solutions replicate your data. Redundancy options for managed disks are a solution that can simplify the architecture but also comes with a few limitations.
 
-**Siebel on Azure**
+## Siebel on Azure
 
 Oracle Siebel CRM continues to be a preferred enterprise grade CRM solution by many enterprises. It's one of the most complex applications in Oracle's portfolio delivering a combination of transactional, analytical, and engagements features to manage customer facing operations.
 
 Here's the recommended architecture of a Siebel application deployment on Azure VMs for Innovation Pack 16 and earlier:
 
-:::image type="content" source="media/oracle-database-architecture/on-premises-network-external-users.png" alt-text="Diagram showing on-premises network for external users." lightbox="media/oracle-database-architecture/on-premises-network-external-users.png":::
+:::image type="content" source="media/oracle-database-architecture/on-premises-network-external-users.png" alt-text="Diagram showing the recommended architecture of a Siebel application deployment on Azure VMs for Innovation Pack 16 and earlier." lightbox="media/oracle-database-architecture/on-premises-network-external-users.png":::
 
 
- Here's the recommended architecture of a Siebel application deployment on Azure VMs for Innovation Pack 17 and earlier:
+ The following diagram is architecture of a Siebel application deployment on Azure VMs for Innovation Pack 17 and earlier:
 
 
-:::image type="content" source="media/oracle-database-architecture/on-premises-network-internal-users.png" alt-text="Diagram showing on-premises network for internal users." lightbox="media/oracle-database-architecture/on-premises-network-internal-users.png":::
+:::image type="content" source="media/oracle-database-architecture/on-premises-network-internal-users.png" alt-text="Diagram showing the recommended architecture of a Siebel application deployment on Azure VMs for Innovation Pack 17 and earlier." lightbox="media/oracle-database-architecture/on-premises-network-internal-users.png":::
 
 
 ### Oracle Siebel design considerations
@@ -93,7 +93,7 @@ Oracle E-Business Suite (EBS) is a suite of applications including Supply Chain 
 
 We assume that external users don't cross the corporate network in the following diagram.
 
-:::image type="content" source="media/oracle-database-architecture/on-premises-network-and-external-users.png" alt-text="Diagram showing on-premises network and external users." lightbox="media/oracle-database-architecture/on-premises-network-and-external-users.png":::
+:::image type="content" source="media/oracle-database-architecture/on-premises-network-and-external-users.png" alt-text="Diagram showing on-premises network where external users don't cross the corporate network." lightbox="media/oracle-database-architecture/on-premises-network-and-external-users.png":::
 
 ### Oracle EBS design considerations 
 
@@ -103,9 +103,8 @@ Database Tier - Primary & secondary database should be within one datacenter, th
 
 Oracle's JD Edwards is an integrated applications suite of comprehensive enterprise resource planning software. We have seen JDE used in Supply chain, Warehouse Management, Logistics, Manufacturing resource planning and more. Because of the use of the application, we see that interfaces to other systems are important as well.
 
-The following architecture is built to being highly available. We assumed that external users aren't accessing over the corporate network. If an external user accesses the application using corporate network, the architecture can be simplified on networking:
-
-:::image type="content" source="media/oracle-database-architecture/on-premises-network-and-internal-users.png" alt-text="Diagram showing on-premises network and internal users." lightbox="media/oracle-database-architecture/on-premises-network-and-internal-users.png":::
+The following architecture is built to being highly available. We assumed that external users aren't accessing over the corporate network. If an external user accesses the application using corporate network, the architecture can be simplified on networking as follows.
+:::image type="content" source="media/oracle-database-architecture/on-premises-network-and-internal-users.png" alt-text="Diagram showing on-premises network and external users." lightbox="media/oracle-database-architecture/on-premises-network-and-internal-users.png":::
 
 ### JD Edwards design considerations
 
