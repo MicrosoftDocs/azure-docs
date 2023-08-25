@@ -9,7 +9,7 @@ ms.author: daknappe
 
 # Host pool load balancing algorithms in Azure Virtual Desktop
 
-Azure Virtual Desktop supports two load balancing algorithms for pooled host pools. Each algorithm determines which session host is used when a user starts a remote session. Load balancing doesn't apply to a personal host pool because users always have a 1:1 mapping to a session host within the host pool.
+Azure Virtual Desktop supports two load balancing algorithms for pooled host pools. Each algorithm determines which session host is used when a user starts a remote session. Load balancing doesn't apply to personal host pools because users always have a 1:1 mapping to a session host within the host pool.
 
 The following load balancing algorithms are available for pooled host pools:
 
