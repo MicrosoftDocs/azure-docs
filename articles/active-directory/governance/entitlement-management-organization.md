@@ -23,15 +23,15 @@ ms.collection: M365-identity-device-management
 
 # Manage connected organizations in entitlement management
 
-With entitlement management, you can collaborate with people outside your organization. If you frequently collaborate with many users from specific external organizations, you can add those organization's identity sources as connected organizations. Having a connected organization simplifies how more people from those organization can request access. This article describes how to add a connected organization so that you can allow users outside your organization to request resources in your directory.
+With entitlement management, you can collaborate with people outside your organization. If you frequently collaborate with many users from specific external organizations, you can add those organization's identity sources as connected organizations. Having a connected organization simplifies how more people from those organizations can request access. This article describes how to add a connected organization so that you can allow users outside your organization to request resources in your directory.
 
 ## What is a connected organization?
 
 A connected organization is another organization that you have a relationship with.  In order for the users in that organization to be able to access your resources, such as your SharePoint Online sites or apps, you'll need a representation of that organization's users in that directory.  Because in most cases the users in that organization aren't already in your Azure AD directory, you can use entitlement management to bring them into your Azure AD directory as needed.  
 
-If you want to provide an path for anyone to request access, and you are not sure which organizations those new users might be from, then you can configure an [access package assignment policy for users not in your directory](entitlement-management-access-package-request-policy.md#for-users-not-in-your-directory). In that policy, select the option of **All users (All connected organizations + any new external users)**. If the requestor is approved, and they don’t belong to a connected organization in your directory, a connected organization will automatically be created for them.
+If you want to provide a path for anyone to request access, and you are not sure which organizations those new users might be from, then you can configure an [access package assignment policy for users not in your directory](entitlement-management-access-package-request-policy.md#for-users-not-in-your-directory). In that policy, select the option of **All users (All connected organizations + any new external users)**. If the requestor is approved, and they don’t belong to a connected organization in your directory, a connected organization will automatically be created for them.
 
-If you want to only allow individuals from designated organizations to request access, then first create those connected organization. Subsequently, configure an [access package assignment policy for users not in your directory](entitlement-management-access-package-request-policy.md#for-users-not-in-your-directory), select the option of **Specific connected organizations**, and select the organizations you created.
+If you want to only allow individuals from designated organizations to request access, then first create those connected organizations. Second, configure an [access package assignment policy for users not in your directory](entitlement-management-access-package-request-policy.md#for-users-not-in-your-directory), select the option of **Specific connected organizations**, and select the organizations you created.
 
 
 There are four ways that entitlement management lets you specify the users that form a connected organization.  It could be
@@ -39,7 +39,7 @@ There are four ways that entitlement management lets you specify the users that 
 * users in another Azure AD directory (from any Microsoft cloud),
 * users in another non-Azure AD directory that has been configured for direct federation,
 * users in another non-Azure AD directory, whose email addresses all have the same domain name in common, or
-* users with a Microsoft Account, such as from the domain *live.com*, if you have a business need for collaboration with users which have no common organization.
+* users with a Microsoft Account, such as from the domain *live.com*, if you have a business need for collaboration with users that have no common organization.
 
 For example, suppose you work at Woodgrove Bank and you want to collaborate with two external organizations.  You want to give users from both external organizations access to the same resources, but these two organizations have different configurations:
 
@@ -51,8 +51,8 @@ In this case, you can configure two connected organizations, then one access pac
 1. Ensure that you have [email one-time passcode (OTP) authentication](../external-identities/one-time-passcode.md) turned on, so that  users from those domains that aren't yet part of Azure AD directories who'll authenticate using email one-time-passcode when requesting access or later accessing your resources.
 1. Create a connected organization for Contoso. When you specify the domain *contoso.com*, entitlement management will recognize that there is no existing Azure AD tenant associated with that domain, and that users from that connected organization will be recognized if they  authenticate with an email one-time-passcode with a *contoso.com* email address domain.
 1. Create another connected organization for Graphic Design Institute.  When you specify the domain *graphicdesigninstitute.com*, entitlement management will recognize that there is a tenant associated with that domain.
-1. Create an access package with an access package assignment policy for **users not yet in your directory**. In that policy select the option **Specific connected organizations** and specify the two connected organizations. This will allow users from each organization, with an identity source that matches one of the connected organizations, to request the access package.
-1. When external users with a user principal name that has a domain of *contoso.com* request the access package, they will authenticate using email, and this will match the Contoso-connected organization and be allowed to request the package.
+1. Create an access package with an access package assignment policy for **users not yet in your directory**. In that policy, select the option **Specific connected organizations** and specify the two connected organizations. This will allow users from each organization, with an identity source that matches one of the connected organizations, to request the access package.
+1. When external users with a user principal name that has a domain of *contoso.com* request the access package, they will authenticate using email. This email domain will match the Contoso-connected organization and the user will be allowed to request the package.
 1. In addition, users that are using an organizational account from the Graphic Design Institute tenant would match the Graphic Design Institute-connected organization and be allowed to request the access package. And, because Graphic Design Institute uses Azure AD, any users with a principal name that matches another [verified domain](../fundamentals/add-custom-domain.md#verify-your-custom-domain-name) that's added to the Graphic Design Institute tenant, such as *graphicdesigninstitute.example*, would also be able to request access packages by using the same policy. 
 
 ![Connected organization example](./media/entitlement-management-organization/connected-organization-example.png)
