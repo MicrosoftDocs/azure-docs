@@ -11,7 +11,7 @@ A control that allows a user to specify one or more files to upload.
 
 ## UI sample
 
-![Microsoft.Common.FileUpload](./media/managed-application-elements/microsoft-common-fileupload.png)
+:::image type="content" source="./media/managed-application-elements/microsoft-common-fileupload.png" alt-text="Screenshot of Microsoft.Common.FileUpload UI element in Azure portal.":::
 
 ## Schema
 

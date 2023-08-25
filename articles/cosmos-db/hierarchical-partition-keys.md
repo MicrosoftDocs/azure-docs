@@ -8,7 +8,7 @@ ms.reviewer: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/05/2023
-ms.custom: event-tier1-build-2022, ignite-2022, devx-track-arm-template, build-2023
+ms.custom: event-tier1-build-2022, ignite-2022, build-2023
 ---
 
 # Hierarchical partition keys in Azure Cosmos DB

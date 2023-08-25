@@ -8,7 +8,7 @@ ms.date: 03/02/2020
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: image-builder
-
+ms.custom: devx-track-azurecli
 ---
 # Create a new VM image from an existing image by using Azure VM Image Builder in Linux
 
@@ -98,41 +98,41 @@ You can review the JSON example you're about to use at [helloImageTemplateforSIG
 
 1. Configure the JSON with your variables: 
 
-	```console
-	curl https://raw.githubusercontent.com/azure/azvmimagebuilder/master/quickquickstarts/8_Creating_a_Custom_Linux_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromSIG.json -o helloImageTemplateforSIGfromSIG.json
-	sed -i -e "s/<subscriptionID>/$subscriptionID/g" helloImageTemplateforSIGfromSIG.json
-	sed -i -e "s/<rgName>/$sigResourceGroup/g" helloImageTemplateforSIGfromSIG.json
-	sed -i -e "s/<imageDefName>/$imageDefName/g" helloImageTemplateforSIGfromSIG.json
-	sed -i -e "s/<sharedImageGalName>/$sigName/g" helloImageTemplateforSIGfromSIG.json
-	sed -i -e "s%<sigDefImgVersionId>%$sigDefImgVersionId%g" helloImageTemplateforSIGfromSIG.json
-	sed -i -e "s/<region1>/$location/g" helloImageTemplateforSIGfromSIG.json
-	sed -i -e "s/<region2>/$additionalregion/g" helloImageTemplateforSIGfromSIG.json
-	sed -i -e "s/<runOutputName>/$runOutputName/g" helloImageTemplateforSIGfromSIG.json
-	sed -i -e "s%<imgBuilderId>%$imgBuilderId%g" helloImageTemplateforSIGfromSIG.json
-	```
+    ```console
+    curl https://raw.githubusercontent.com/azure/azvmimagebuilder/master/quickquickstarts/8_Creating_a_Custom_Linux_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromSIG.json -o helloImageTemplateforSIGfromSIG.json
+    sed -i -e "s/<subscriptionID>/$subscriptionID/g" helloImageTemplateforSIGfromSIG.json
+    sed -i -e "s/<rgName>/$sigResourceGroup/g" helloImageTemplateforSIGfromSIG.json
+    sed -i -e "s/<imageDefName>/$imageDefName/g" helloImageTemplateforSIGfromSIG.json
+    sed -i -e "s/<sharedImageGalName>/$sigName/g" helloImageTemplateforSIGfromSIG.json
+    sed -i -e "s%<sigDefImgVersionId>%$sigDefImgVersionId%g" helloImageTemplateforSIGfromSIG.json
+    sed -i -e "s/<region1>/$location/g" helloImageTemplateforSIGfromSIG.json
+    sed -i -e "s/<region2>/$additionalregion/g" helloImageTemplateforSIGfromSIG.json
+    sed -i -e "s/<runOutputName>/$runOutputName/g" helloImageTemplateforSIGfromSIG.json
+    sed -i -e "s%<imgBuilderId>%$imgBuilderId%g" helloImageTemplateforSIGfromSIG.json
+    ```
 
 ## Create the image
 
 1. Submit the image configuration to the VM Image Builder service:
 
-	```azurecli-interactive
-	az resource create \
-		--resource-group $sigResourceGroup \
-		--properties @helloImageTemplateforSIGfromSIG.json \
-		--is-full-object \
-		--resource-type Microsoft.VirtualMachineImages/imageTemplates \
-		-n helloImageTemplateforSIGfromSIG01
-	```
+    ```azurecli-interactive
+    az resource create \
+        --resource-group $sigResourceGroup \
+        --properties @helloImageTemplateforSIGfromSIG.json \
+        --is-full-object \
+        --resource-type Microsoft.VirtualMachineImages/imageTemplates \
+        -n helloImageTemplateforSIGfromSIG01
+    ```
 
 1. Start the image build:
 
-	```azurecli-interactive
-	az resource invoke-action \
-		--resource-group $sigResourceGroup \
-		--resource-type  Microsoft.VirtualMachineImages/imageTemplates \
-		-n helloImageTemplateforSIGfromSIG01 \
-		--action Run 
-	```
+    ```azurecli-interactive
+    az resource invoke-action \
+        --resource-group $sigResourceGroup \
+        --resource-type  Microsoft.VirtualMachineImages/imageTemplates \
+        -n helloImageTemplateforSIGfromSIG01 \
+        --action Run 
+    ```
 
 Wait for the image to be built and replicated before you move along to the next step.
 
@@ -140,39 +140,39 @@ Wait for the image to be built and replicated before you move along to the next 
 
 1. Create the VM by doing the following:
 
-	```azurecli-interactive
-	az vm create \
-	--resource-group $sigResourceGroup \
-	--name aibImgVm001 \
-	--admin-username azureuser \
-	--location $location \
-	--image "/subscriptions/$subscriptionID/resourceGroups/$sigResourceGroup/providers/Microsoft.Compute/galleries/$sigName/images/$imageDefName/versions/latest" \
-	--generate-ssh-keys
-	```
+    ```azurecli-interactive
+    az vm create \
+    --resource-group $sigResourceGroup \
+    --name aibImgVm001 \
+    --admin-username azureuser \
+    --location $location \
+    --image "/subscriptions/$subscriptionID/resourceGroups/$sigResourceGroup/providers/Microsoft.Compute/galleries/$sigName/images/$imageDefName/versions/latest" \
+    --generate-ssh-keys
+    ```
 
 1. Create a Secure Shell (SSH) connection to the VM by using the public IP address of the VM.
 
-	```console
-	ssh azureuser@<pubIp>
-	```
+    ```console
+    ssh azureuser@<pubIp>
+    ```
 
-	After the SSH connection is established, you should receive a "Message of the Day" saying that the image was customized:
+    After the SSH connection is established, you should receive a "Message of the Day" saying that the image was customized:
 
-	```output
-	*******************************************************
-	**            This VM was built from the:            **
-	**      !! AZURE VM IMAGE BUILDER Custom Image !!    **
-	**         You have just been Customized :-)         **
-	*******************************************************
-	```
+    ```output
+    *******************************************************
+    **            This VM was built from the:            **
+    **      !! AZURE VM IMAGE BUILDER Custom Image !!    **
+    **         You have just been Customized :-)         **
+    *******************************************************
+    ```
 
 1. Type `exit` to close the SSH connection.
 
 1. To list the image versions that are now available in your gallery, run:
 
-	```azurecli-interactive
-	az sig image-version list -g $sigResourceGroup -r $sigName -i $imageDefName -o table
-	```
+    ```azurecli-interactive
+    az sig image-version list -g $sigResourceGroup -r $sigName -i $imageDefName -o table
+    ```
 
 ## Next steps
 

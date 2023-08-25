@@ -76,23 +76,18 @@ Confidential VMs support the following VM sizes:
 
  For more information, see the [AMD deployment options](virtual-machine-solutions-amd.md).
 ### OS support
-
 Confidential VMs support the following OS options:
-- Ubuntu 20.04 LTS
-- Ubuntu 22.04 LTS
-- RHEL 9.2 [Tech Preview](https://techcommunity.microsoft.com/t5/azure-confidential-computing/rhel-9-2-preview-confidential-image-is-now-available-on/ba-p/3823616)
-- Windows Server 2019 Datacenter - x64 Gen 2
-- Windows Server 2019 Datacenter Server Core - x64 Gen 2
-- Windows Server 2022 Datacenter - x64 Gen 2
-- Windows Server 2022 Datacenter: Azure Edition Core - x64 Gen 2
-- Windows Server 2022 Datacenter: Azure Edition - x64 Gen 2
-- Windows Server 2022 Datacenter Server Core - x64 Gen 2
-- Windows 11 Enterprise N, version 22H2 -x64 Gen 2
-- Windows 11 Pro, version 22H2 ZH-CN -x64 Gen 2
-- Windows 11 Pro, version 22H2 -x64 Gen 2
-- Windows 11 Pro N, version 22H2 -x64 Gen 2
-- Windows 11 Enterprise, version 22H2 -x64 Gen 2
-- Windows 11 Enterprise multi-session, version 22H2 -x64 Gen 2
+
+| Linux                                             | Windows                                | |
+|---------------------------------------------------|--------------------------------------------------|-------------------------------|
+| **Ubuntu**                                        | **Windows 11**                                   | **Windows Server Datacenter** |
+| 20.04 <span class="pill purple">LTS</span>        | 22H2 Pro                                         | 2019                          |
+| 22.04 <span class="pill purple">LTS</span>        | 22H2 Pro <span class="pill red">ZH-CN</span>     | 2019 Server Core              |
+|                                                   | 22H2 Pro N                                       |                               |
+| **RHEL**                                          | 22H2 Enterprise                                  | 2022                          |
+| 9.2 <span class="pill purple">TECH PREVIEW</span> | 22H2 Enterprise N                                | 2022 Server Core              |
+|                                                   | 22H2 Enterprise Multi-session                    | 2022 Azure Edition            |
+|                                                   |                                                  | 2022 Azure Edition Core       |
 
 ### Regions
 

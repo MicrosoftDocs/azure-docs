@@ -250,4 +250,5 @@ Software updates for the Remote Desktop clients you can use to access Azure Virt
 
 ## Next steps
 
-To learn how to enable multi-factor authentication, see [Set up multi-factor authentication](set-up-mfa.md).
+- Learn how to [Set up multi-factor authentication](set-up-mfa.md).
+- [Apply Zero Trust principles for an Azure Virtual Desktop deployment](/security/zero-trust/azure-infrastructure-avd).

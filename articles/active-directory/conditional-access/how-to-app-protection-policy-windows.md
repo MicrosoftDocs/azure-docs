@@ -36,8 +36,8 @@ The following policy is put in to [Report-only mode](howto-conditional-access-in
 
 The following steps help create a Conditional Access policy requiring an app protection policy when using a Windows device. The app protection policy must also be configured and assigned to your users in Microsoft Intune. For more information about how to create the app protection policy, see the article [Preview: App protection policy settings for Windows](/mem/intune/apps/app-protection-policy-settings-windows).
 
-1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
-1. Browse to **Microsoft Entra ID (Azure AD)** > **Protection** > **Conditional Access**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Browse to **Protection** > **Conditional Access**.
 1. Select **Create new policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
 1. Under **Assignments**, select **Users or workload identities**.
@@ -70,7 +70,7 @@ Clicking on **Switch Edge profile** opens a window listing their Work or school 
 This process opens a window offering to allow Windows to remember your account and automatically sign you in to your apps and websites. 
 
 > [!CAUTION]
-> You must *UNCHECK* the box **Allow my organization to manage my device**. Leaving this checked enrolls your device in mobile device maangment (MDM) not mobile application management (MAM).
+> You must *CLEAR THE CHECKBOX* **Allow my organization to manage my device**. Leaving this checked enrolls your device in mobile device maangment (MDM) not mobile application management (MAM).
 
 ![Screenshot showing the stay signed in to all your apps window. Uncheck the allow my organization to manage my device checkbox.](./media/how-to-app-protection-policy-windows/stay-signed-in-to-all-your-apps.png)
 
@@ -89,7 +89,6 @@ In some circumstances, after getting the "you're all set" page you may still be 
 To resolve these possible scenarios:
 
 - Wait a few minutes and try again in a new tab.
-- Go to **Settings** > **Accounts** > **Access work or school**, then add the account there.
 - Contact your administrator to check that Microsoft Intune MAM policies are applying to your account correctly.
 
 ### Existing account

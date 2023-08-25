@@ -13,8 +13,7 @@ ms.date: 06/01/2023
 
 #  What is Azure Large Instances?
 
-While Microsoft Azure offers a cloud infrastructure with a wide range of integrated cloud services to meet your business needs,   
-in some cases, you may need to run services on Azure large servers without a virtualization layer. You may also require root access and control over the operating system (OS). To meet these needs, Azure offers Azure Large Instances for several high-value, mission-critical applications.
+While Microsoft Azure offers a cloud infrastructure with a wide range of integrated cloud services to meet your business needs, in some cases, you may need to run services on Azure large servers without a virtualization layer. You may also require root access and control over the operating system (OS). To meet these needs, Azure offers Azure Large Instances for several high-value, mission-critical applications.
 
 Azure Large Instances is comprised of dedicated large compute instances with the following key features:
 
@@ -128,9 +127,7 @@ Storage and compute units assigned to different tenants cannot see each other or
 The Linux OS version for Azure Large Instances is Red Hat Enterprise Linux (RHEL) 8.4.  
 
 >[!Note]
-> Remember,Check properties of an instance Azure Large Instances is a BYOL model.
-
-Microsoft loads base image with RHEL 8.4, but customers can choose to upgrade to newer versions in collaboration with Microsoft team.
+> Remember, Azure Large Instances is a BYOL model. Microsoft loads base image with RHEL 8.4, but customers can choose to upgrade to newer versions in collaboration with Microsoft team.
 
 ## Storage
 
@@ -184,7 +181,7 @@ Shows Azure IaaS, and in this case, use of VMs to host your applications, which 
 Shows using your ExpressRoute Gateway enabled with ExpressRoute FastPath for Azure Large Instances connectivity offering low latency.
 
 > [!Note]
->To support this configuration, your ExpressRoute Gateway should be UltraPerformance. For more information, [About ExpressRoute virtual network gateways](../expressroute/expressroute-about-virtual-network-gateways.md).
+>To support this configuration, your ExpressRoute Gateway should be UltraPerformance. For more information, see [About ExpressRoute virtual network gateways](../expressroute/expressroute-about-virtual-network-gateways.md).
 
 
 

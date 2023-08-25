@@ -114,8 +114,8 @@ To send logs to your logs analytics workspace:
 1. Select **Diagnostic settings**, and then select **Add diagnostic setting**. You can also select Export Settings from the Audit Logs or Sign-ins page to get to the diagnostic settings configuration page.
 1. In the Diagnostic settings menu, select **Send to Log Analytics workspace**, and then select Configure.
 1. Select the Log Analytics workspace you want to send the logs to, or create a new workspace in the provided dialog box.
-1.	Select the logs that you would like to send to the workspace.
-1.	Select **Save** to save the setting.
+1. Select the logs that you would like to send to the workspace.
+1. Select **Save** to save the setting.
 
 After about 15 minutes, verify that events are streamed to your Log Analytics workspace.
 

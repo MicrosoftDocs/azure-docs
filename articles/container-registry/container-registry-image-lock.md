@@ -51,27 +51,27 @@ To see the current attributes of a tag, run the following [az acr repository sho
 
 ```azurecli
 az acr repository show \
-    --name myregistry --image myimage:tag \
+    --name myregistry --image myrepo:tag \
     --output jsonc
 ```
 
 ### Lock an image by tag
 
-To lock the *myimage:tag* image in *myregistry*, run the following [az acr repository update][az-acr-repository-update] command:
+To lock the *myrepo:tag* image in *myregistry*, run the following [az acr repository update][az-acr-repository-update] command:
 
 ```azurecli
 az acr repository update \
-    --name myregistry --image myimage:tag \
+    --name myregistry --image myrepo:tag \
     --write-enabled false
 ```
 
 ### Lock an image by manifest digest
 
-To lock a *myimage* image identified by manifest digest (SHA-256 hash, represented as `sha256:...`), run the following command. (To find the manifest digest associated with one or more image tags, run the [az acr manifest list-metadata][az-acr-manifest-list-metadata] command.)
+To lock a *myrepo* image identified by manifest digest (SHA-256 hash, represented as `sha256:...`), run the following command. (To find the manifest digest associated with one or more image tags, run the [az acr manifest list-metadata][az-acr-manifest-list-metadata] command.)
 
 ```azurecli
 az acr repository update \
-    --name myregistry --image myimage@sha256:123456abcdefg \
+    --name myregistry --image myrepo@sha256:123456abcdefg \
     --write-enabled false
 ```
 
@@ -94,7 +94,7 @@ az acr repository update \
 
 ```bash
 registry="myregistry"
-repo="myimage"
+repo="myrepo"
 tag="mytag"
 
 az login
@@ -108,11 +108,11 @@ az acr manifest show-metadata -r $registry -n "$repo@$digest"
 
 ### Protect an image from deletion
 
-To allow the *myimage:tag* image to be updated but not deleted, run the following command:
+To allow the *myrepo:tag* image to be updated but not deleted, run the following command:
 
 ```azurecli
 az acr repository update \
-    --name myregistry --image myimage:tag \
+    --name myregistry --image myrepo:tag \
     --delete-enabled false --write-enabled true
 ```
 
@@ -128,11 +128,11 @@ az acr repository update \
 
 ## Prevent read operations on an image or repository
 
-To prevent read (pull) operations on the *myimage:tag* image, run the following command:
+To prevent read (pull) operations on the *myrepo:tag* image, run the following command:
 
 ```azurecli
 az acr repository update \
-    --name myregistry --image myimage:tag \
+    --name myregistry --image myrepo:tag \
     --read-enabled false
 ```
 
@@ -146,11 +146,11 @@ az acr repository update \
 
 ## Unlock an image or repository
 
-To restore the default behavior of the *myimage:tag* image so that it can be deleted and updated, run the following command:
+To restore the default behavior of the *myrepo:tag* image so that it can be deleted and updated, run the following command:
 
 ```azurecli
 az acr repository update \
-    --name myregistry --image myimage:tag \
+    --name myregistry --image myrepo:tag \
     --delete-enabled true --write-enabled true
 ```
 

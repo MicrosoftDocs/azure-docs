@@ -90,6 +90,14 @@ To help simplify steps to configure the identities required, the steps below def
     export AKS_OIDC_ISSUER="$(az aks show -n myAKSCluster -g "${RESOURCE_GROUP}" --query "oidcIssuerProfile.issuerUrl" -otsv)"
     ```
 
+    The variable should contain the Issuer URL similar to the following example:
+
+    ```output
+    https://eastus.oic.prod-aks.azure.com/00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000/
+    ```
+
+    By default, the Issuer is set to use the base URL `https://{region}.oic.prod-aks.azure.com`, where the value for `{region}` matches the location the AKS cluster is deployed in.
+
 ## Create an Azure Key Vault and secret
 
 1. Create an Azure Key Vault in resource group you created in this tutorial using the [`az keyvault create`][az-keyvault-create] command.

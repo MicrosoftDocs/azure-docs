@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/06/2023
+ms.date: 08/02/2023
 ms.author: anfdocs
 ---
 # Resource limits for Azure NetApp Files
@@ -48,10 +48,10 @@ The following table describes resource limits for Azure NetApp Files:
 |  Maximum assigned throughput for a manual QoS volume     |    4,500 MiB/s    |    No    |    
 |  Number of cross-region replication data protection volumes (destination volumes)     |    10    |    Yes    |     
 |  Number of cross-zone replication data protection volumes (destination volumes)     |    10    |    Yes    |     
-|  Maximum numbers of policy-based (scheduled) backups per volume  | <ul><li> Daily retention count: 2 (minimum) to 1019 (maximum) </li> <li> Weekly retention count: 1 (minimum) to 1019 (maximum) </li> <li> Monthly retention count: 1 (minimum) to 1019 (maximum) </ol></li> <br> The maximum hourly, daily, weekly, and monthly backup retention counts *combined* is 1019.  |  N  |
-|  Maximum size of protected volume  |  100 TiB  |  N  |
-|  Maximum number of volumes that can be backed up per subscription   |  5  |  Y  |
-|  Maximum number of manual backups per volume per day |  5  |  Y  |
+|  Maximum numbers of policy-based (scheduled) backups per volume  | <ul><li> Daily retention count: 2 (minimum) to 1019 (maximum) </li> <li> Weekly retention count: 1 (minimum) to 1019 (maximum) </li> <li> Monthly retention count: 1 (minimum) to 1019 (maximum) </ol></li> <br> The maximum hourly, daily, weekly, and monthly backup retention counts *combined* is 1019.  |  No  |
+|  Maximum size of protected volume  |  100 TiB  |  No  |
+|  Maximum number of volumes that can be backed up per subscription   |  5  |  Yes  |
+|  Maximum number of manual backups per volume per day |  5  |  No  |
 
 \* [!INCLUDE [Limitations for capacity pool minimum of 2 TiB](includes/2-tib-capacity-pool.md)]
 

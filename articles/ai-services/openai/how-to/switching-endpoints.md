@@ -89,7 +89,7 @@ from azure.identity import DefaultAzureCredential
 credential = DefaultAzureCredential()
 token = credential.get_token("https://cognitiveservices.azure.com/.default")
 
-openai.api_type = "azuread"
+openai.api_type = "azure_ad"
 openai.api_key = token.token
 openai.api_base = "https://example-endpoint.openai.azure.com"
 openai.api_version = "2023-05-15"  # subject to change

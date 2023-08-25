@@ -8,7 +8,7 @@ ms.author: diberry
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 07/18/2023
-ms.custom: devx-track-js, devx-track-azurecli
+ms.custom: devx-track-js, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: javascript
 ---
 

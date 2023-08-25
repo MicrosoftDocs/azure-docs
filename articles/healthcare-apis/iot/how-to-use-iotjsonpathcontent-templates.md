@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 07/20/2023
+ms.date: 08/01/2023
 ms.author: jasteppe
 ---
 
@@ -89,7 +89,8 @@ In this example, we're using a device message that is capturing `heartRate` data
 
 ```json
 {
-    "heartRate" : "78"
+    "PatientId": "patient1",
+    "HeartRate" : "78"
 }
 ```
 
@@ -103,13 +104,15 @@ The IoT hub enriches and routes the device message to the event hub before the M
 ```json
 {
     "Body": {
-        "heartRate": "78"
-    },
-    "Properties": {
-        "iothub-creation-time-utc": "2023-03-13T22:46:01.87500000"
+        "PatientId": "patient1",
+        "HeartRate": "78"
     },
     "SystemProperties": {
-        "iothub-connection-device-id": "device01"
+        "iothub-enqueuedtime": "2023-07-25T20:41:26.046Z",
+        "iothub-connection-device-id": "sampleDeviceId"
+    },
+    "Properties": {
+        "iothub-creation-time-utc": "2023-07-25T20:41:26.046Z"
     }
 }   
 ```
@@ -122,19 +125,19 @@ We're using this device mapping for the normalization stage:
         {
             "templateType": "IotJsonPathContent",
             "template": {
-                "typeName": "heartRate",
-                "typeMatchExpression": "$..[?(@Body.heartRate)]",
-                "patientIdExpression": "$.SystemProperties.iothub-connection-device-id",
+                "typeName": "HeartRate",
+                "typeMatchExpression": "$..[?(@Body.HeartRate)]",
+                "patientIdExpression": "$.Body.PatientId",
                 "values": [
                     {
-                        "required": "true",
-                        "valueExpression": "$.Body.heartRate",
-                        "valueName": "hr"
+                        "required": true,
+                        "valueExpression": "$.Body.HeartRate",
+                        "valueName": "HeartRate"
                     }
                 ]
             }
         }
-    ]
+    ]    
 }
 ```
 
@@ -142,12 +145,13 @@ The resulting normalized message will look like this after the normalization sta
 
 ```json
 {
-    "type": "heartRate",
-    "occurrenceTimeUtc": "2023-03-13T22:46:01.875Z",
-    "deviceId": "device01",
+    "type": "HeartRate",
+    "occurrenceTimeUtc": "2023-07-25T20:41:26.046Z",
+    "deviceId": "sampleDeviceId",
+    "patientId": "patient1",
     "properties": [
         {
-            "name": "hr",
+            "name": "HeartRate",
             "value": "78"
         }
     ]
@@ -172,5 +176,10 @@ For an overview of the MedTech service FHIR destination mapping, see
 
 > [!div class="nextstepaction"]
 > [Overview of the FHIR destination mapping](overview-of-fhir-destination-mapping.md)
+
+For an overview of the MedTech service scenario-based mappings samples, see
+
+> [!div class="nextstepaction"]
+> [Overview of the MedTech service scenario-based mappings samples](overview-of-samples.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

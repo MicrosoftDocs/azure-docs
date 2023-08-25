@@ -25,12 +25,12 @@ The customer tenant is unique in that it doesn't have any default branding, but 
 
 The following list and image outline the elements of the default Microsoft sign-in experience in an Azure AD tenant: 
 
-1.	Microsoft background image and color.
-2.	Microsoft favicon.
-3.	Microsoft banner logo.
-4.	Footer as a page layout element.
-5.	Microsoft footer hyperlinks, for example,  Privacy & cookies, Terms of use and troubleshooting details also known as ellipsis in the right bottom corner of the screen.
-6.	Microsoft overlay.
+1. Microsoft background image and color.
+2. Microsoft favicon.
+3. Microsoft banner logo.
+4. Footer as a page layout element.
+5. Microsoft footer hyperlinks, for example,  Privacy & cookies, Terms of use and troubleshooting details also known as ellipsis in the right bottom corner of the screen.
+6. Microsoft overlay.
 
    :::image type="content" source="media/how-to-customize-branding-customers/microsoft-branding.png" alt-text="Screenshot of the Azure AD default Microsoft branding." lightbox="media/how-to-customize-branding-customers/microsoft-branding.png":::
 

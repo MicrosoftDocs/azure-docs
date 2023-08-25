@@ -44,8 +44,7 @@ The following table provides a summary of issues fixed in this release.
 
   |No.  |Feature  | Issue | Workaround/comments |
   |-----|-----|-----|-----|
-  | 1 | Local Dashboards | When a web proxy is enabled on the Azure Stack Edge appliance that the packet core is running on and Azure Active Directory is used to authenticate access to AP5GC Local Dashboards, the traffic to Azure Active Directory does not transmit via the web proxy. If there is a firewall blocking traffic that does not go via the web proxy then enabling Azure Active Directory will cause the packet core install to fail. | Disable Azure Active Directory and use password based authentication to authenticate access to AP5GC Local Dashboards instead.
-Description |
+  | 1 | Local Dashboards | When a web proxy is enabled on the Azure Stack Edge appliance that the packet core is running on and Azure Active Directory is used to authenticate access to AP5GC Local Dashboards, the traffic to Azure Active Directory does not transmit via the web proxy. If there is a firewall blocking traffic that does not go via the web proxy then enabling Azure Active Directory will cause the packet core install to fail. | Disable Azure Active Directory and use password based authentication to authenticate access to AP5GC Local Dashboards instead. |
   | 2 | Reboot | AP5GC may intermittently fail to recover after the underlying platform is rebooted and may require another reboot to recover. | Not applicable. |
 
 ## Known issues from previous releases

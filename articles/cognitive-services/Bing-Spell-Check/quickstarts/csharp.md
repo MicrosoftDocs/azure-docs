@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Check spelling with the REST API and C# - Bing Spell Check"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: "Get started using the Bing Spell Check REST API and C# to check spelling and grammar."
 services: cognitive-services
 author: aahill

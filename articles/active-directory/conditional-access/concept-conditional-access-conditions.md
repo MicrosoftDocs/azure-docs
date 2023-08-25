@@ -189,7 +189,7 @@ If the access control assigned to the policy uses **Require approved client app*
 For more information, see the following articles:
 
 - [Block legacy authentication with Conditional Access](block-legacy-authentication.md)
-- [Requiring approved client apps with Conditional Access](app-based-conditional-access.md)
+- [Requiring approved client apps with Conditional Access](./howto-policy-approved-app-or-app-protection.md)
 
 ### Other clients
 
