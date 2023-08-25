@@ -33,15 +33,12 @@ For more information, see [License requirements](access-reviews-overview.md#lice
 
  
 ## View the status of an access review
-
-[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
-
  
 You can track the progress of access reviews as they're completed.
  
-1. Sign in to the [Azure portal](https://portal.azure.com) and open the [Identity Governance page](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
- 
-1. In the left menu, select **Access reviews**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
+
+1. Browse to **Identity governance** > **Access Reviews**.
  
 1. In the list, select an access review.
  
@@ -119,7 +116,7 @@ Manually or automatically applying results doesn't have an effect on a group tha
  
 On review creation, the creator can choose between two options for denied guest users in an access review. 
  - Denied guest users can have their access to the resource removed. This is the default.
- - The denied guest user can be blocked from signing in for 30 days, then deleted from the tenant. During the 30-day period the guest user is able to be restored access to the tenant by an administrator. After the 30-day period is completed, if the guest user hasn't had access to the resource granted to them again, they'll be removed from the tenant permanently. In addition, using the Azure portal, a Global Administrator can explicitly [permanently delete a recently deleted user](../fundamentals/users-restore.md) before that time period is reached. Once a user has been permanently deleted, the data about that guest user will be removed from active access reviews. Audit information about deleted users remains in the audit log.
+ - The denied guest user can be blocked from signing in for 30 days, then deleted from the tenant. During the 30-day period the guest user is able to be restored access to the tenant by an administrator. After the 30-day period is completed, if the guest user hasn't had access to the resource granted to them again, they'll be removed from the tenant permanently. In addition, using the Microsoft Entra admin center, a Global Administrator can explicitly [permanently delete a recently deleted user](../fundamentals/users-restore.md) before that time period is reached. Once a user has been permanently deleted, the data about that guest user will be removed from active access reviews. Audit information about deleted users remains in the audit log.
  
 ### Actions taken on denied B2B direct connect users
 
