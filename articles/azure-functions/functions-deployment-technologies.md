@@ -46,7 +46,7 @@ Each plan has different behaviors. Not all deployment technologies are available
 | FTP<sup>1</sup> |✔|✔|✔| |✔|✔|
 | In-portal editing<sup>2</sup> |✔|✔|✔|✔|✔<sup>3</sup>|✔<sup>3</sup>|
 
-<sup>1</sup> Deployment technology that requires [manual trigger syncing](#trigger-syncing).  
+<sup>1</sup> Deployment technology that requires [manual trigger syncing](#trigger-syncing).  Deployment Center no longer shows the FTP/FTPS Credentials. If these are still needed then you can download the publishing profile. 
 <sup>2</sup> In-portal editing is disabled when code is deployed to your function app from outside the portal. For more information, including language support details for in-portal editing, see [Language support details](supported-languages.md#language-support-details).  
 <sup>3</sup> In-portal editing is enabled only for HTTP and Timer triggered functions running on Linux in Premium and Dedicated plans.  
 
