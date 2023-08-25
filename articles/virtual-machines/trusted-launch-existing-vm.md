@@ -64,7 +64,7 @@ This section steps through using the Azure portal to enable Trusted Launch on ex
 
 :::image type="content" source="./media/trusted-launch/05-g2totl-select-uefi-settings.png" alt-text="Screenshot of the Secure boot and vTPM settings.":::
 
-6. Close the **Configuration** tab once the update is successfully complete and validate **Security type** under VM properties on **Overview** tab.
+6. Close the **Configuration** tab once the update is successfully complete and validate **Security type** under VM properties on **Overview** page.
 
 :::image type="content" source="./media/trusted-launch/06-g2totl-validate-uefi.png" alt-text="Screenshot of the Trusted Launch upgraded VM.":::
 
