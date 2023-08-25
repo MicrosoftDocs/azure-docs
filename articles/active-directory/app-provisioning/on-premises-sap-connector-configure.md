@@ -1,6 +1,6 @@
 ---
-title: Azure AD Provisioning to SAP ERP Central Component (SAP ECC) 7.0
-description: This document describes how to configure Azure AD to provision users into SAP ECC 7.
+title: Azure AD Provisioning into SAP ERP Central Component (SAP ECC, formerly SAP R/3) with NetWeaver 7.0 or later.
+description: This document describes how to configure Azure AD to provision users into SAP ERP Central Component (SAP ECC, formerly SAP R/3) with NetWeaver 7.0 or later.
 services: active-directory
 author: billmath
 manager: amycolannino
