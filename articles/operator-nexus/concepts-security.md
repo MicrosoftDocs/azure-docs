@@ -47,6 +47,6 @@ You have the option to enable Defender for Containers protection within Defender
 
 ## Cloud security is a shared responsibility
 
-It is important to understand that in a cloud environment, security is a [shared responsibility](../security/fundamentals/shared-responsibility.md) between you and the cloud provider. The responsibilities vary depending on the type of cloud service your workloads run on, whether it is Software as a Service (SaaS), Platform as a Service (PaaS), or Infrastructure as a Service (IaaS), as well as where the workloads are hosted – within the cloud provider’s or your own on-premises data centers.
+It is important to understand that in a cloud environment, security is a [shared responsibility](../security/fundamentals/shared-responsibility.md) between you and the cloud provider. The responsibilities vary depending on the type of cloud service your workloads run on, whether it is Software as a Service (SaaS), Platform as a Service (PaaS), or Infrastructure as a Service (IaaS), as well as where the workloads are hosted – within the cloud provider’s or your own on-premises datacenters.
 
 Azure Operator Nexus workloads run on servers in your data centers, so you are in control of changes to your on-premises environment. Microsoft periodically makes new platform releases available that contain security and other updates. You must then decide when to apply these releases to your environment as appropriate for your organization’s business needs.
