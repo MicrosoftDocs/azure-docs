@@ -53,11 +53,11 @@ To use entitlement management and assign users to access packages, you must have
 
 Follow these steps to change the list of incompatible groups or other access packages for an existing access package:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1.  Select **Azure Active Directory**, and then select **Identity Governance**.
+1. Browse to **Identity governance** > **Entitlement management** > **Access package**.
 
-1. In the left menu, select **Access packages** and then open the access package which users will request.
+1. On the **Access packages** page open the access package which users will request.
 
 1. In the left menu, select **Separation of duties**.
 
@@ -97,11 +97,11 @@ New-MgEntitlementManagementAccessPackageIncompatibleAccessPackageByRef -AccessPa
 
 Follow these steps to view the list of other access packages that have indicated that they're incompatible with an existing access package:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1.  Select **Azure Active Directory**, and then select **Identity Governance**.
+1. Browse to **Identity governance** > **Entitlement management** > **Access package**.
 
-1. In the left menu, select **Access packages** and then open the access package.
+1. On the **Access packages** page open the access package.
 
 1. In the left menu, select **Separation of duties**.
 
@@ -115,11 +115,11 @@ If you've configured incompatible access settings on an access package that alre
 
 Follow these steps to view the list of users who have assignments to two access packages.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1.  Select **Azure Active Directory**, and then select **Identity Governance**.
+1. Browse to **Identity governance** > **Entitlement management** > **Access package**.
 
-1. In the left menu, select **Access packages** and then open the access package where you've configured another access package as incompatible.
+1. On the **Access packages** page open the access package where you've configured another access package as incompatible.
 
 1. In the left menu, select **Separation of duties**.
 
@@ -139,31 +139,31 @@ If you're configuring incompatible access settings on an access package that alr
 
 Follow these steps to view the list of users who have assignments to two access packages.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1.  Select **Azure Active Directory**, and then select **Identity Governance**.
+1. Browse to **Identity governance** > **Entitlement management** > **Access package**.
 
-1. In the left menu, select **Access packages** and then open the access package where you'll be configuring incompatible assignments.
+1. Open the access package where you'll be configuring incompatible assignments.
 
 1. In the left menu, select **Assignments**.
 
-1.  In the **Status** field, ensure that **Delivered** status is selected.
+1. In the **Status** field, ensure that **Delivered** status is selected.
 
-1.  Select the **Download** button and save the resulting CSV file as the first file with a list of assignments.
+1. Select the **Download** button and save the resulting CSV file as the first file with a list of assignments.
 
-1.  In the navigation bar, select **Identity Governance**.
+1. In the navigation bar, select **Identity Governance**.
 
 1. In the left menu, select **Access packages** and then open the access package that you plan to indicate as incompatible.
 
 1. In the left menu, select **Assignments**.
 
-1.  In the **Status** field, ensure that the **Delivered** status is selected.
+1. In the **Status** field, ensure that the **Delivered** status is selected.
 
-1.  Select the **Download** button and save the resulting CSV file as the second file with a list of assignments.
+1. Select the **Download** button and save the resulting CSV file as the second file with a list of assignments.
 
-1.  Use a spreadsheet program such as Excel to open the two files.
+1. Use a spreadsheet program such as Excel to open the two files.
 
-1.  Users who are listed in both files will have already-existing incompatible assignments.
+1. Users who are listed in both files will have already-existing incompatible assignments.
 
 ### Identifying users who already have incompatible access programmatically
 
