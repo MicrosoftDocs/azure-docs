@@ -17,6 +17,8 @@ items:
       href: quickstart-trial-setup.md 
     - name: Set up a tenant
       href: quickstart-tenant-setup.md
+    - name: Get started guide
+      href: quickstart-get-started-guide.md
 - name: Samples
   expanded: true
   items: 
