@@ -8,7 +8,7 @@ ms.date: 08/16/2023
 
 # Configure Iceberg catalog
 
-This article provides an overview of how to configure Iceberg catalog in HDInsight on AKS Trino cluster. You can add a new catalog by updating your cluster ARM template except the hive catalog, which you can add during [Trino cluster creation](./trino-create-cluster-portal.md) in the Azure portal.
+This article provides an overview of how to configure Iceberg catalog in HDInsight on AKS Trino cluster. You can add a new catalog by updating your cluster ARM template except the hive catalog, which you can add during [Trino cluster creation](./trino-create-cluster.md) in the Azure portal.
 
 ## Prerequisites
 
