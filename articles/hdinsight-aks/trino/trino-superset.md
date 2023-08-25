@@ -24,7 +24,7 @@ Summary of the steps covered in this article:
 
 ### Create a HDInsight on AKS Trino cluster and assign a Managed Identity
 
-1. If you haven't already, create an [HDInsight on AKS Trino cluster](trino-create-cluster-portal.md).
+1. If you haven't already, create an [HDInsight on AKS Trino cluster](trino-create-cluster.md).
 
 2. For Apache Superset to call Trino, it needs to have a managed identity (MSI). Create or pick an existing [user assigned managed identity](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity).
 
