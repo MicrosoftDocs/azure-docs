@@ -169,24 +169,22 @@ Associating a traffic forwarding profile to your remote network using the Micros
 
 ## Verify your remote network configurations
 
-There are a few things to consider and verify when creating remote networks. You may need to double-check some settings based.
+There are a few things to consider and verify when creating remote networks. You may need to double-check some settings.
 
 - **Verify IKE crypto profile**: The crypto profile (IKE phase 1 and phase 2 algorithms) set for a device link should match what has been set on the CPE. If you chose the **default IKE policy**, ensure that your CPE is set up with the crypto profile specified in the [Remote network configurations](reference-remote-network-configurations.md) reference article.
 
 - **Verify pre-shared key**: Compare the pre-shared key (PSK) you specified when creating the device link in Microsoft Global Secure Access with the PSK you specified on your CPE. This detail is added on the **Security** tab during the **Add a link** process. For more information, see [How to manage remote network device links.](how-to-manage-remote-network-device-links.md#add-a-device-link-using-the-microsoft-entra-admin-center).
 
-- **Verify local and peer BDP IP addresses**: The public IP addresses and BGP addresses specified while creating a device link in Microsoft Global Secure Access should match what you specified when configuring the CPE. 
-    - In general, the settings in Microsoft Entra admin center and your CPE should be complementary.
-    - Peer BGP IP addresses, such as IP1, in the Microsoft Entra admin center is a private IP address used for BGP service on your on-premise device.
-    - Local BGP IP address, such as IP2, in the Microsoft Entra admin center is a private IP address used for BGP service on the Global Secure Access gateway.
-    - You can choose the IP address for Global Secure Access that doesn't overlap with your on-premises network.
-    - However, when setting up the on-premises device, the relationship is reversed. From the device's perspective, the peer BGP IP address is IP2, and the local BGP IP address is IP2.
-    - The same considerations apply to ASNs.
+- **Verify local and peer BGP IP addresses**: The public IP addresses and BGP addresses specified while creating a device link in Microsoft Global Secure Access should match what you specified when configuring the CPE. 
+    - The local and peer BGP addresses are reversed between the CPE and what is entered in Global Secure Access.
+        - **CPE**: Local BGP IP address = IP1, Peer BGP IP address = IP2
+        - **Global Secure Access**: Local BGP IP address = IP2, Peer BGP IP address = IP1
+    - Choose an IP address for Global Secure Access that doesn't overlap with your on-premises network.
+    - The same rule applies to ASNs.
 
 - **Verify ASN**: Global Secure Access uses BGP to advertise routes between two autonomous systems: your network and Microsoft's. These autonomous systems should have different ASNs.
     - When creating a remote network in the Microsoft Entra admin center, use your network's ASN.
     - When configuring your CPE, use Microsoft's ASN. Go to **Global Secure Access** > **Devices** > **Remote Networks**. Select **Links** and confirm the value in the **Link ASN** column.
-<!--- Need to confirm how to view the configuration. --->
 
 - **Verify your public IP address**: In a test environment or lab setup, the public IP address of your CPE may change unexpectedly. This change can cause the IKE negotiation to fail even though everything remains the same.
     - If you encounter this scenario, complete the following steps:
@@ -194,13 +192,12 @@ There are a few things to consider and verify when creating remote networks. You
         - Go to the **Global Secure Access** > **Devices** > **Remote Networks**.
         - Select the appropriate remote network, delete the old tunnel, and recreate a new tunnel with the updated public IP address.
 
-- **Port forwarding**: In some situations, the IPS router can also be a network address translation (NAT) device. A NAT converts the private IP addresses of home devices to a public internet-routable device.
+- **Port forwarding**: In some situations, the ISP router can also be a network address translation (NAT) device. A NAT converts the private IP addresses of home devices to a public internet-routable device.
     - Generally, a NAT device changes both the IP address and the port. This port changing is the root of the problem.
     - For IPsec tunnels to work, Global Secure Access uses port 500. This port is where IKE negotiation happens.
-    - If the ISP router changes this port to something else, GLobal Secure Access cannot identify this traffic and negotiation fails.
+    - If the ISP router changes this port to something else, Global Secure Access cannot identify this traffic and negotiation fails.
     - As a result, phase 1 of IKE negotiation fails and the tunnel is not established.
     - To remediate this failure, complete the port forwarding on your device, which tells the ISP router to not change the port and forward it as-is.
-
 
 [!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
 
