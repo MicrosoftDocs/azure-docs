@@ -90,7 +90,7 @@ You can create the workspaces from the HDI on AKS cluster pool page.
 
 ### Enable Azure Managed Prometheus during cluster creation
 
-1. Once the cluster pool is created and the Azure Managed Prometheus enabled, user must [create a HDI on AKS cluster in the same cluster pool](./trino-create-cluster.md).
+1. Once the cluster pool is created and the Azure Managed Prometheus enabled, user must [create a HDI on AKS cluster in the same cluster pool](./trino/trino-create-cluster.md).
 
 1. During the cluster creation process, navigate to the **Integration** page and enable **Azure Prometheus.**
 
