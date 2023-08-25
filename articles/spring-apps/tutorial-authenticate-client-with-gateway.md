@@ -21,7 +21,7 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, mode-
 
 This quickstart shows you how to secure communication between a client application and a microservice application that is hosted on Azure Spring Apps and shielded with a Spring Cloud Gateway app. The client application is verified as a security principal to initiate contact with the microservice deployed on Azure Spring Apps, using the app built with [Spring Cloud Gateway](https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/). This method employs Spring Cloud Gateway's Token Relay and Spring Security's Resource Server features for the processes of authentication and authorization, realized through the execution of the [OAuth 2.0 client credentials flow](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md).
 
-The following list shows the composition of a sample project:
+The following list shows the composition of the sample project:
 
 - Books SPA: This Single Page Application (SPA), hosted locally, interacts with the Books microservice for adding or searching for books.
 - Books microservice:
@@ -33,7 +33,7 @@ The following list shows the composition of a sample project:
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - [Git](https://git-scm.com/downloads).
 - [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
-- An Azure AD tenant. For more information on how to create an Azure AD tenant, see [Quickstart: Create a new tenant in Azure AD](../active-directory/fundamentals/create-new-tenant.md).
+- A Microsoft Entra ID tenant. For more information on how to create a Microsoft Entra ID tenant, see [Quickstart: Create a new tenant in Azure AD](../active-directory/fundamentals/create-new-tenant.md).
 - [Azure CLI](/cli/azure/install-azure-cli) version 2.45.0 or higher.
 - Install [Node.js](https://nodejs.org).
 
@@ -45,7 +45,7 @@ You can access the Books SPA app that communicates with the Books RESTful APIs t
 
 1. Go to `http://localhost:3000` in your browser to access the application.
 
-1. Enter an **Author** and a **Title**, and then select **Add Book**. You'll see a response similar to the following example:
+1. Enter values for **Author** and **Title**, and then select **Add Book**. You see a response similar to the following example:
 
    ```output
    Book added successfully: {"id":1,"author":"Jeff Black","title":"Spring In Action"}
@@ -71,7 +71,7 @@ You can access the Books SPA app that communicates with the Books RESTful APIs t
 > [Use managed identities for applications in Azure Spring Apps](./how-to-use-managed-identities.md)
 
 > [!div class="nextstepaction"]
-> [Run microservice apps(Pet Clinic)](./quickstart-sample-app-introduction.md)
+> [Run microservice apps (Pet Clinic)](./quickstart-sample-app-introduction.md)
 
 > [!div class="nextstepaction"]
 > [Run polyglot apps on Enterprise plan (ACME Fitness Store)](./quickstart-sample-app-acme-fitness-store-introduction.md)
