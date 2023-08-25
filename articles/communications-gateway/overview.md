@@ -13,8 +13,7 @@ ms.custom: template-overview
 
 Azure Communications Gateway enables Microsoft Teams calling through the Operator Connect and Teams Phone Mobile programs for your telecommunications network. Azure Communications Gateway is certified as part of the Operator Connect Accelerator program. It provides Voice and IT integration with Microsoft Teams across both fixed and mobile networks.
 
-> [!IMPORTANT]
-> You must sign an Operator Connect or Teams Phone Mobile agreement with Microsoft to use this service.
+[!INCLUDE [communications-gateway-tsp-with-oc-restriction](includes/communications-gateway-tsp-with-oc-restriction.md)]
 
 :::image type="complex" source="media/azure-communications-gateway-overview.png" alt-text="Diagram that shows Azure Communications Gateway between Microsoft Phone System and your networks. Your networks can be fixed and/or mobile.":::
     Diagram that shows how Azure Communications Gateway connects to the Microsoft Phone System and to your fixed and mobile networks. Microsoft Teams clients connect to the Microsoft Phone system. Your fixed network connects to PSTN endpoints. Your mobile network connects to Teams Phone Mobile users.

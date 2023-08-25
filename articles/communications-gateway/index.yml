@@ -1,8 +1,7 @@
 ### YamlMime:Landing
 
 title: Azure Communications Gateway documentation
-summary: Learn about Azure Communications Gateway. Azure Communications Gateway enables telecommunications operators to provide Operator Connect and Teams Phone Mobile services.
-
+summary: Learn about Azure Communications Gateway for telecommunications operators and service providers. If you have signed an Operator Connect or Teams Phone Mobile agreement with Microsoft, you can use Azure Communications Gateway to provide these services.
 metadata:
   title: Azure Communications Gateway documentation
   description: Learn about Azure Communications Gateway. Azure Communications Gateway enables telecommunications operators to provide Operator Connect and Teams Phone Mobile services.
