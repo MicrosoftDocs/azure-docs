@@ -61,11 +61,11 @@ Deploy the updated ARM template to reflect the changes in your cluster. Learn ho
 >
 > * PartitionRetentionInDays only removes the metadata partition from the mounted table, it doesn't delete the data. Please clean up the data as per your requirements if not needed anymore.
  
- ## Metadata Management ##
+ ## Metadata Management
 
 If the user specifies a catalog name in `hiveCatalogName` property, plugin mounts the logs files written in storage account as external tables and views, which can be queried through Trino.
 
-The plugin creates three tables and three views, which can be used to query the lifecycle events ( `QueryCompletedEvent`, `QueryCreatedEvent`, and `SplitCompletedEVent`). These tables & views are created under the catalog and schema provided as user input.
+The plugin creates three tables and three views, which can be used to query the lifecycle events (`QueryCompletedEvent`, `QueryCreatedEvent`, and `SplitCompletedEVent`). These tables & views are created under the catalog and schema provided as user input.
 
 **Name of tables:**
 - **`querycompleted`**: Contains `QueryCompleted` events fired by Trino.
@@ -81,7 +81,7 @@ The plugin creates three tables and three views, which can be used to query the 
  > 
  > Users are encouraged to use the views as they are immune to underlying schema changes and account for table described as follows.
  
-## Table Archival ##
+## Table Archival
 The plugin supports archiving (N-1)th table in the scenario where user decides to the change the `path` or external location of the logs. 
 If that happens, plugin renames the table pointing to the old path as *<table_name>_archived*, the view created will union the result of current and the archived tables in this scenario.
 
