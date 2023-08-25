@@ -70,7 +70,7 @@ helm upgrade --install --values values.yaml superset superset/superset
 
     Example:
 
-    :::image type="content" source="./media/trino-superset/role-assignment.png" alt-text="Screenshot showing role assignments in Azure Active Directory app roles.":::
+    :::image type="content" source="./media/role-based-access-control/role-assignment.png" alt-text="Screenshot showing role assignments in Azure Active Directory app roles.":::
 
 1. Assign User Roles in Enterprise App Registration.
 
@@ -86,7 +86,7 @@ helm upgrade --install --values values.yaml superset superset/superset
   
     1. Verify you have the Admin role.
       
-       :::image type="content" source="./media/trino-superset/admin_role.png" alt-text="Screenshot showing Admin role in Superset is labeled on profile.":::
+       :::image type="content" source="./media/role-based-access-control/admin-role.png" alt-text="Screenshot showing Admin role in Superset is labeled on profile.":::
 
 ## Next steps
 
