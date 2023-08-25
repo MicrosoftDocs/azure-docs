@@ -46,7 +46,7 @@ The *Network Engineer* is responsible for traffic between workloads and any ingr
 
 ### Azure services for network administrator
 
-The following table lists the services that are commonly used by the network engineer to monitor the health and performance of the Kubernetes cluster and its components.  
+The following table lists the services that are commonly used by the network engineer to monitor the health and performance of the network supporting the Kubernetes cluster.  
 
 
 | Service | Description |
@@ -61,7 +61,7 @@ The following table lists the services that are commonly used by the network eng
 Following are common scenarios for monitoring the network.
 
 - Create [flow logs](../../network-watcher/network-watcher-nsg-flow-logging-overview.md) to log information about the IP traffic flowing through network security groups used by your cluster and then use [traffic analytics](../../network-watcher/traffic-analytics.md) to analyze and provide insights on this data. You'll most likely use the same Log Analytics workspace for traffic analytics that you use for Container insights and your control plane logs.
-- Using traffic analytics, you can determine if any traffic is flowing either to or from any unexpected ports used by the cluster and also if any traffic is flowing over public IPs that shouldn't be exposed. Use this information to determine whether your network rules need modification.
+- Using [traffic analytics](../../network-watcher/traffic-analytics.md), you can determine if any traffic is flowing either to or from any unexpected ports used by the cluster and also if any traffic is flowing over public IPs that shouldn't be exposed. Use this information to determine whether your network rules need modification.
 
 
 ## Platform engineer
@@ -229,7 +229,6 @@ Following are common scenarios for monitoring your managed Kubernetes components
 **Troubleshooting**<br>
 - For troubleshooting scenarios, you can access kubelet logs using the process described at [Get kubelet logs from Azure Kubernetes Service (AKS) cluster nodes](../../aks/kubelet-logs.md).
 
-
 ### Monitor level 4 - Kubernetes objects and workloads
 
 The Kubernetes objects and workloads level includes the following components:
@@ -243,6 +242,9 @@ The Kubernetes objects and workloads level includes the following components:
 Following are common scenarios for monitoring your Kubernetes objects and workloads.
 
 
+
+
+
 **Container insights**<br>
 - Use the **Nodes** and **Controllers** views to see the health and performance of the pods running on them and drill down to the health and performance of their containers.
 - Use the **Containers** view to see the health and performance for the containers. For more information on analyzing container health and performance, see [Monitor your Kubernetes cluster performance with Container Insights](container-insights-analyze.md#analyze-nodes-controllers-and-container-health).
@@ -251,10 +253,8 @@ Following are common scenarios for monitoring your Kubernetes objects and worklo
 **Grafana dashboards**<br>
 - Multiple [Kubernetes dashboards](https://grafana.com/grafana/dashboards/?search=kubernetes) are available that visualize the performance and health of your nodes based on data stored in Prometheus.
 
-
 **Live data**
 - In troubleshooting scenarios, Container Insights provides access to live AKS container logs (stdout/stderror), events and pod metrics. For more information about this feature, see [How to view Kubernetes logs, events, and pod metrics in real-time](container-insights-livedata-overview.md).
-
 
 ### Alerts for the platform engineer
 
@@ -280,7 +280,10 @@ In addition to developing the application, the *developer* maintains the applica
 
 ### Azure services for developer
 
-The following table lists the services that are commonly used by the developer to monitor the health and performance of the Kubernetes cluster and its components.  
+The following table lists the services that are commonly used by the developer to monitor the health and performance of the application running on the cluster.  
+
+
+
 
 
 | Service | Description |
@@ -288,11 +291,17 @@ The following table lists the services that are commonly used by the developer t
 | [Application insights](../app/app-insights-overview.md) |  Feature of Azure Monitor that provides application performance monitoring (APM) to monitor applications running on your Kubernetes cluster from development, through test, and into production. Quickly identify and mitigate latency and reliability issues using distributed traces. Supports [OpenTelemetry](../app/opentelemetry-overview.md#opentelemetry) for vendor-neutral instrumentation. |
 
 
+
+
+
 See [Data Collection Basics of Azure Monitor Application Insights](../app/opentelemetry-overview.md) for options on configuring data collection from the application running on your cluster and decision criteria on the best method for your particular requirements. 
 
 ### Monitor level 5 - Application
 
 Following are common scenarios for monitoring your application.
+
+
+
 
 
 **Application performance**<br>
@@ -317,8 +326,8 @@ Following are common scenarios for monitoring your application.
 
 - For AKS clusters, deploy the [Istio-based service mesh add-on](../../aks/istio-about.md) which provides observability to your microservices architecture. [Istio](https://istio.io/) is an open-source service mesh that layers transparently onto existing distributed applications. The add-on assists in the deployment and management of Istio for AKS.
 
-
 ## See also
 
 - See [Monitoring AKS](../../aks/monitor-aks.md) for guidance on monitoring specific to Azure Kubernetes Service (AKS).
+
 

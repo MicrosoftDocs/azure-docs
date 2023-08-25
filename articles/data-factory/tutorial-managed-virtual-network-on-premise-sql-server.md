@@ -217,7 +217,7 @@ the page.
     **sudo ./ip_fwd.sh -i eth0 -f 1433 -a <FQDN/IP> -b 1433**<br/>
     <FQDN/IP> is your target SQL Server IP.<br/>
     
-    > [!Note] 
+    > [!NOTE] 
     > FQDN doesn't work for on-premises SQL Server unless you add a record in Azure DNS zone.
     
 3. Run below command and check the iptables in your backend server VMs. You can see one record in your iptables with your target IP.<br/>
@@ -225,14 +225,17 @@ the page.
 
     :::image type="content" source="./media/tutorial-managed-virtual-network/command-record-1.png" alt-text="Screenshot that shows the command record.":::
 
-    >[!Note]
+    > [!NOTE]
     > If you have more than one SQL Server or data sources, you need to define multiple load balancer rules and IP table records with different ports. Otherwise, there will be some conflict. For example,<br/>
     >
-    >|                  |Port in load balancer rule|Backend port in load balance rule|Command run in backend server VM|
-    >|------------------|---------|--------|---------|
-    >|**SQL Server 1**|1433 |1433 |sudo ./ip_fwd.sh -i eth0 -f 1433 -a <FQDN/IP> -b 1433|
-    >|**SQL Server 2**|1434 |1434 |sudo ./ip_fwd.sh -i eth0 -f 1434 -a <FQDN/IP> -b 1433|
-    
+    > |                  |Port in load balancer rule|Backend port in load balance rule|Command run in backend server VM|
+    > |------------------|---------|--------|---------|
+    > |**SQL Server 1**|1433 |1433 |sudo ./ip_fwd.sh -i eth0 -f 1433 -a <FQDN/IP> -b 1433|
+    > |**SQL Server 2**|1434 |1434 |sudo ./ip_fwd.sh -i eth0 -f 1434 -a <FQDN/IP> -b 1433|
+
+    > [!NOTE]
+    > It's important to be aware that the configuration within the virtual machine (VM) is not permanent. This means that each time the VM restarts, it will require reconfiguration.
+
 ## Create a Private Endpoint to Private Link Service
 
 1. Select All services in the left-hand menu, select All resources, and then select your 
@@ -246,8 +249,8 @@ data factory from the resources list.
 
     :::image type="content" source="./media/tutorial-managed-virtual-network/private-endpoint-6.png" alt-text="Screenshot that shows the private endpoint settings.":::
 
-> [!Note]
-> When deploying your SQL Server on a virtual machine within a virtual network, it is essential to enhance your FQDN by appending **privatelink**. Otherwise, it will be conflicted with other records in the DNS setting. For example, you can simply modify the SQL Server's FQDN from **sqlserver.westus.cloudapp.azure.net** to **sqlserver.privatelink.westus.cloudapp.azure.net**.
+   > [!NOTE]
+   > When deploying your SQL Server on a virtual machine within a virtual network, it is essential to enhance your FQDN by appending **privatelink**. Otherwise, it will be conflicted with other records in the DNS setting. For example, you can simply modify the SQL Server's FQDN from **sqlserver.westus.cloudapp.azure.net** to **sqlserver.privatelink.westus.cloudapp.azure.net**.
 
 8. Create private endpoint.
 
@@ -268,7 +271,7 @@ data factory from the resources list.
 
     :::image type="content" source="./media/tutorial-managed-virtual-network/linked-service-3.png" alt-text="Screenshot that shows the SQL server linked service creation page.":::
 
-    > [!Note] 
+    > [!NOTE]
     > If you have more than one SQL Server and need to define multiple load balancer rules and IP table records with different ports, make sure you explicitly add the port name after the FQDN when you edit Linked Service. The NAT VM will handle the port translation. If it's not explicitly specified, the connection will always time-out.
 
 ## Troubleshooting
