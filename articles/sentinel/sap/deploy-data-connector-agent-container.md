@@ -11,7 +11,9 @@ ms.date: 01/18/2023
 
 This article shows you how to deploy the container that hosts the SAP data connector agent. You do this to ingest SAP data into Microsoft Sentinel, as part of the Microsoft Sentinel solution for SAP® applications.
 
-This article shows you how to deploy the container and create SAP systems via the UI. Alternatively, you can [deploy the data connector agent using other methods](deploy-data-connector-agent-container-other-methods.md): Managed identity, a registered application, a configuration file, or directly on the VM.
+This article shows you how to deploy the container and create SAP systems via the UI. Also see [this video](https://www.youtube.com/watch?v=bg0vmUvcQ5Q) that shows the agent deployment process via the UI.
+
+Alternatively, you can [deploy the data connector agent using other methods](deploy-data-connector-agent-container-other-methods.md): Managed identity, a registered application, a configuration file, or directly on the VM.
 
 > [!IMPORTANT]
 > Deploying the container and creating SAP systems via the UI is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability. 
@@ -160,7 +162,7 @@ In this section, you deploy the data connector agent. After you deploy the agent
 
 1. Copy the **appId**, **tenant**, and **password** from the output. You'll need these for assigning the key vault access policy and running the deployment script in the coming steps.
 
-1. Run the following commands to **create a key vault** (substitute actual names for the `<placeholders>`). If you'll be using an existing key vault, ignore this step :
+1. Run the following commands to **create a key vault** (substitute actual names for the `<placeholders>`). If you'll be using an existing key vault, ignore this step:
 
     ```azurecli
     az keyvault create \

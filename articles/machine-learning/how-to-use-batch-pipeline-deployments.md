@@ -16,7 +16,7 @@ ms.custom: how-to, devplatv2, event-tier1-build-2023
 
 # How to deploy pipelines with batch endpoints (preview)
 
-[!INCLUDE [ml v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [ml v2](includes/machine-learning-dev-v2.md)]
 
 You can deploy pipeline components under a batch endpoint, providing a convenient way to operationalize them in Azure Machine Learning. In this article, you'll learn how to create a batch deployment that contains a simple pipeline. You'll learn to:
 
@@ -25,13 +25,13 @@ You can deploy pipeline components under a batch endpoint, providing a convenien
 > * Create a batch endpoint and deploy a pipeline component
 > * Test the deployment
 
-[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## About this example
 
 In this example, we're going to deploy a pipeline component consisting of a simple command job that prints "hello world!". This component requires no inputs or outputs and is the simplest pipeline deployment scenario.
 
-[!INCLUDE [machine-learning-batch-clone](../../includes/machine-learning/azureml-batch-clone-samples.md)]
+[!INCLUDE [machine-learning-batch-clone](includes/azureml-batch-clone-samples.md)]
 
 The files for this example are in:
 
@@ -45,7 +45,7 @@ You can follow along with the Python SDK version of this example by opening the 
 
 ## Prerequisites
 
-[!INCLUDE [machine-learning-batch-prereqs](../../includes/machine-learning/azureml-batch-prereqs.md)]
+[!INCLUDE [machine-learning-batch-prereqs](includes/azureml-batch-prereqs.md)]
 
 ## Create the pipeline component
 

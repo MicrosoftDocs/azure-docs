@@ -15,10 +15,10 @@ ms.custom: UpdateFrequency5, sdkv1, event-tier1-build-2022, ignite-2022, devx-tr
 
 # Set up AutoML to train computer vision models with Python (v1)
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
     
     
-[!INCLUDE [cli-version-info](../../../includes/machine-learning-cli-version-1-only.md)]
+[!INCLUDE [cli-version-info](../includes/machine-learning-cli-version-1-only.md)]
 
 
 > [!IMPORTANT]
@@ -37,9 +37,9 @@ Automated ML supports model training for computer vision tasks like image classi
 
 * The Azure Machine Learning Python SDK installed.
     To install the SDK you can either, 
-    * Create a compute instance, which automatically installs the SDK and is pre-configured for ML workflows. For more information, see [Create and manage an Azure Machine Learning compute instance](../how-to-create-manage-compute-instance.md).
+    * Create a compute instance, which automatically installs the SDK and is pre-configured for ML workflows. For more information, see [Create and manage an Azure Machine Learning compute instance](../how-to-create-compute-instance.md).
 
-    * [Install the `automl` package yourself](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/README.md#setup-using-a-local-conda-environment), which includes the [default installation](/python/api/overview/azure/ml/install#default-install) of the SDK.
+    * [Install the `automl` package yourself](https://github.com/Azure/azureml-examples/blob/v1-archive/v1/python-sdk/tutorials/automl-with-azureml/README.md#setup-using-a-local-conda-environment), which includes the [default installation](/python/api/overview/azure/ml/install#default-install) of the SDK.
     
     > [!NOTE]
     > Only Python 3.7 and 3.8 are compatible with automated ML support for computer vision tasks. 
@@ -512,7 +512,7 @@ For a detailed description on task specific hyperparameters, please refer to [Hy
 If you want to use tiling, and want to control tiling behavior, the following parameters are available: `tile_grid_size`, `tile_overlap_ratio` and `tile_predictions_nms_thresh`. For more details on these parameters please check [Train a small object detection model using AutoML](../how-to-use-automl-small-object-detect.md).
 
 ## Example notebooks
-Review detailed code examples and use cases in the [GitHub notebook repository for automated machine learning samples](https://github.com/Azure/azureml-examples/tree/main/v1/python-sdk/tutorials/automl-with-azureml). Please check the folders with 'image-' prefix for samples specific to building computer vision models.
+Review detailed code examples and use cases in the [GitHub notebook repository for automated machine learning samples](https://github.com/Azure/azureml-examples/tree/v1-archive/v1/python-sdk/tutorials/automl-with-azureml). Please check the folders with 'image-' prefix for samples specific to building computer vision models.
 
 
 ## Next steps

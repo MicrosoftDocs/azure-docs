@@ -16,7 +16,7 @@ ms.custom: aaddev, devx-track-extended-java
 ---
 # Logging in MSAL for Android
 
-[!INCLUDE [MSAL logging introduction](../../../includes/active-directory-develop-error-logging-introduction.md)]
+[!INCLUDE [MSAL logging introduction](./includes/error-handling-and-tips/error-logging-introduction.md)]
 
 ## Logging in MSAL for Android using Java
 

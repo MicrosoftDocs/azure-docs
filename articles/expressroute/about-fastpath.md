@@ -71,6 +71,14 @@ FastPath will honor UDRs configured on the GatewaySubnet and send traffic direct
 > * FastPath UDR connectivity is not supported for Azure Dedicated Host workloads.
 > * FastPath UDR connectivity is not supported for IPv6 workloads.
 
+To enroll in the Public preview, please send an email **exrpm@microsoft.com** with the following information:
+- Azure subscription ID
+- Virtual Network(s) Azure Resource ID(s)
+- ExpressRoute Circuit(s) Azure Resource ID(s)
+- ExpressRoute Connection(s) Azure Resource ID(s)
+- Number of Virtual Network peering connections
+- Number of UDRs configured in the hub Virtual Network
+
 ### Private Link Connectivity for 10Gbps ExpressRoute Direct
 
 Private Link traffic sent over ExpressRoute FastPath will bypass the ExpressRoute virtual network gateway in the data path.

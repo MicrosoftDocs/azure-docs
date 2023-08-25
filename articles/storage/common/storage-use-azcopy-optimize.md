@@ -2,11 +2,11 @@
 title: Optimize the performance of AzCopy v10 with Azure Storage
 description: This article helps you to optimize the performance of AzCopy v10 with Azure Storage.
 author: normesta
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 06/02/2023
 ms.author: normesta
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ms.reviewer: dineshm
 ---
 

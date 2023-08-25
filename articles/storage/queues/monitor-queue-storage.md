@@ -5,10 +5,9 @@ author: normesta
 services: storage
 ms.author: normesta
 ms.reviewer: fryu
-ms.date: 10/06/2022
+ms.date: 08/08/2023
 ms.topic: conceptual
-ms.service: storage
-ms.subservice: queues
+ms.service: azure-queue-storage
 ms.devlang: csharp, powershell, azurecli
 ms.custom: monitoring, devx-track-csharp, devx-track-azurepowershell
 ---
@@ -58,6 +57,8 @@ To collect resource logs, you must create a diagnostic setting. When you create 
 | **StorageRead** | Read operations on objects. |
 | **StorageWrite** | Write operations on objects. |
 | **StorageDelete** | Delete operations on objects. |
+
+The **audit** resource log category group allows you to collect the baseline of resource logs that Microsoft deems necessary for auditing your resource. What's collected is dynamic, and Microsoft may change it over time as new resource log categories become available. If you choose the **audit** category group, you can't specify any other resource categories, because the system will decide which logs to collect. For more information, see [Diagnostic settings in Azure Monitor: Resource logs](../../azure-monitor/essentials/diagnostic-settings.md#resource-logs).
 
 See [Create diagnostic setting to collect platform logs and metrics in Azure](../../azure-monitor/platform/diagnostic-settings.md) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, and PowerShell. You can also find links to information about how to create a diagnostic setting by using an Azure Resource Manager template or an Azure Policy definition.
 

@@ -8,6 +8,7 @@ ms.author: henrymbugua
 ms.service: active-directory
 ms.topic: tutorial
 ms.subservice: ciam
+ms.custom: devx-track-dotnet
 ms.date: 06/05/2023
 ---
 
@@ -44,7 +45,7 @@ Wait for the project to be created and its dependencies to be restored.
 
 MSAL client enables developers to acquire security tokens from Azure Active Directory (Azure AD) for customers tenant to authenticate and access secured web APIs. In this section, you download files that makes up MSALClient.
 
-Download the following files:
+Download the following files into a folder in your computer:
 
 - [AzureAdConfig.cs](https://github.com/Azure-Samples/ms-identity-ciam-dotnet-tutorial/blob/main/1-Authentication/2-sign-in-maui/MSALClient/AzureAdConfig.cs) - This file gets and sets the Azure AD app unique identifiers from your app configuration file.
 - [DownStreamApiConfig.cs](https://github.com/Azure-Samples/ms-identity-ciam-dotnet-tutorial/blob/main/1-Authentication/2-sign-in-maui/MSALClient/DownStreamApiConfig.cs) - This file gets and sets the scopes for Microsoft Graph call.
@@ -63,7 +64,7 @@ Download the following files:
 
 1. In the **Solution Explorer** pane, right-click on the **SignInMaui** project and select **Add** > **New Folder**. Name the folder _MSALClient_.
 1. Right-click on **MSALClient** folder, select **Add** > **Existing Item...**.
-1. Navigate to the folder that contains the downloaded MSALClient files.
+1. Navigate to the folder that contains the downloaded MSALClient files that you downloaded earlier.
 1. Select all of the MSALClient files you downloaded, then select **Add**
 
 ## Install required packages

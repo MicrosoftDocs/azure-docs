@@ -162,9 +162,10 @@ The following JSON shows the schema for the Key Vault VM extension. Before you c
       "autoUpgradeMinorVersion": true,
       "settings": {
          "secretsManagementSettings": {
-            "pollingIntervalInS": <A string that specifies the polling interval in seconds. Example: 3600>,
+            "pollingIntervalInS": <A string that specifies the polling interval in seconds. Example: "3600">,
             "certificateStoreName": <The certificate store name. Example: "MY">,
-            "linkOnRenewal": <Windows only. Ensures s-channel binding when the certificate renews without necessitating redeployment. Example: true>,"certificateStoreLocation": <The certificate store location, which currently works locally only. Example: "LocalMachine">,
+            "linkOnRenewal": <Windows only. Ensures s-channel binding when the certificate renews without necessitating redeployment. Example: true>,
+            "certificateStoreLocation": <The certificate store location, which currently works locally only. Example: "LocalMachine">,
             "requireInitialSync": <Require an initial synchronization of the certificates. Example: true>,
             "observedCertificates": <A string array of KeyVault URIs that represent the monitored certificates. Example: "[https://myvault.vault.azure.net/secrets/mycertificate"]>
          },

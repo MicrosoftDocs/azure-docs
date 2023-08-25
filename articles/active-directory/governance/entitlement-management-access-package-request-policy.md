@@ -57,17 +57,19 @@ If you have a set of users that should have different request and approval setti
 
 **Prerequisite role:** Global administrator, Identity Governance administrator, User administrator, Catalog owner, or Access package manager
 
-1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1. In the left menu, click **Access packages** and then open the access package.
+1. Browse to **Identity governance** > **Entitlement management** > **Access package**.
 
-1. Click **Policies** and then **Add policy**.
+1. On the **Access packages** page open the access package you want to edit.
+
+1. Select **Policies** and then **Add policy**.
 
 1. You will start on the **Basics** tab. Type a name and a description for the policy.
 
     ![Create policy with name and description](./media/entitlement-management-access-package-request-policy/policy-name-description.png)
 
-1. Click **Next** to open the **Requests** tab.
+1. Select **Next** to open the **Requests** tab.
 
 1. Change the **Users who can request access** setting. Use the steps in the following sections to change the setting to one of the following options: 
     - [For users in your directory](#for-users-in-your-directory) 
@@ -127,7 +129,7 @@ Follow these steps if you want to allow users not in your directory to request t
     | --- | --- |
     | **Specific connected organizations** | Choose this option if you want to select from a list of organizations that your administrator previously added. All users from the selected organizations can request this access package. |
     | **All configured connected organizations** | Choose this option if all users from all your configured connected organizations can request this access package. Only users from configured connected organizations can request access packages that are shown to users from all configured organizations. |
-    | **All users (All connected organizations + any new external users)** | Choose this option if any user on the internet should be able to request this access package.  If they don’t belong to a connected organization in your directory, a connected organization will automatically be created for them when they request the package. The automatically created connected organization will be in a **proposed** state. For more information about the proposed state, see [State properties of connected organizations](entitlement-management-organization.md#state-properties-of-connected-organizations). |
+    | **All users (All connected organizations + any new external users)** | Choose this option if any user on the internet should be able to request this access package.  If they don’t belong to a connected organization in your directory, a connected organization will automatically be created for them when they request the package. The automatically created connected organization will be in a **proposed** state. For more information about the proposed state, see [State property of connected organizations](entitlement-management-organization.md#state-property-of-connected-organizations). |
 
     A connected organization is an external Azure AD directory or domain that you have a relationship with.
 
@@ -170,21 +172,23 @@ To change the request and approval settings for an access package, you need to o
 
 **Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
 
-1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1. In the left menu, click **Access packages** and then open the access package.
+1. Browse to **Identity governance** > **Entitlement management** > **Access package**.
 
-1. Click **Policies** and then click the policy you want to edit.
+1. On the **Access packages** page open the access package whose policy request settings you want to edit.
+
+1. Select **Policies** and then click the policy you want to edit.
 
     The Policy details pane opens at the bottom of the page.
 
     ![Access package - Policy details pane](./media/entitlement-management-shared/policy-details.png)
 
-1. Click **Edit** to edit the policy.
+1. Select **Edit** to edit the policy.
 
     ![Access package - Edit policy](./media/entitlement-management-shared/policy-edit.png)
 
-1. Click the **Requests** tab to open the request settings.
+1. Select the **Requests** tab to open the request settings.
 
 1. Use the steps in the previous sections to change the request settings as needed.
 
@@ -200,14 +204,14 @@ To change the request and approval settings for an access package, you need to o
 
     ![Access package - Policy- Enable policy setting](./media/entitlement-management-access-package-approval-policy/enable-requests.png)
 
-1. Click **Next**.
+1. Select **Next**.
 
 1. If you want to require requestors to provide additional information when requesting access to an access package, use the steps in [Change approval and requestor information settings for an access package in entitlement management](entitlement-management-access-package-approval-policy.md#collect-additional-requestor-information-for-approval)
  to configure requestor information.
 
 1. Configure lifecycle settings.
 
-1. If you are editing a policy click **Update**. If you are adding a new policy, click **Create**.
+1. If you are editing a policy select **Update**. If you are adding a new policy, select **Create**.
 
 ## Create an access package assignment policy programmatically
 
@@ -219,7 +223,7 @@ You can create a policy using Microsoft Graph. A user in an appropriate role wit
 
 ### Create an access package assignment policy through PowerShell
 
-You can also create an access package in PowerShell with the cmdlets from the [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) module version 1.16.0 or later.  
+You can also create an access package in PowerShell with the cmdlets from the [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) module version 1.16.0 or a later 1.x.x module version, or Microsoft Graph PowerShell cmdlets beta module version 2.1.x or later beta module version.  This script illustrates using the Graph `beta` profile and Microsoft Graph PowerShell cmdlets module version 1.x.x.
 
 This script below illustrates using the `beta` profile, to create a policy for direct assignment to an access package. In this policy, only the administrator can assign access, and there are no access reviews. See [Create an automatic assignment policy](entitlement-management-access-package-auto-assignment-policy.md#create-an-access-package-assignment-policy-through-powershell) for an example of how to create an automatic assignment policy, and [create an accessPackageAssignmentPolicy](/graph/api/entitlementmanagement-post-assignmentpolicies?tabs=http&view=graph-rest-beta&preserve-view=true) for more examples.
 
@@ -230,24 +234,24 @@ Select-MgProfile -Name "beta"
 $apid = "cdd5f06b-752a-4c9f-97a6-82f4eda6c76d"
 
 $pparams = @{
-	AccessPackageId = $apid
-	DisplayName = "direct"
-	Description = "direct assignments by administrator"
-	AccessReviewSettings = $null
-	RequestorSettings = @{
-		ScopeType = "NoSubjects"
-		AcceptRequests = $true
-		AllowedRequestors = @(
-		)
-	}
-	RequestApprovalSettings = @{
-		IsApprovalRequired = $false
-		IsApprovalRequiredForExtension = $false
-		IsRequestorJustificationRequired = $false
-		ApprovalMode = "NoApproval"
-		ApprovalStages = @(
-		)
-	}
+    AccessPackageId = $apid
+    DisplayName = "direct"
+    Description = "direct assignments by administrator"
+    AccessReviewSettings = $null
+    RequestorSettings = @{
+        ScopeType = "NoSubjects"
+        AcceptRequests = $true
+        AllowedRequestors = @(
+        )
+    }
+    RequestApprovalSettings = @{
+        IsApprovalRequired = $false
+        IsApprovalRequiredForExtension = $false
+        IsRequestorJustificationRequired = $false
+        ApprovalMode = "NoApproval"
+        ApprovalStages = @(
+        )
+    }
 }
 New-MgEntitlementManagementAccessPackageAssignmentPolicy -BodyParameter $pparams
 ```

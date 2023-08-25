@@ -5,6 +5,7 @@ author: rashi-ms
 ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: how-to
+ms.service: azure-migrate
 ms.date: 03/22/2021
 ms.custom: engagement-fy23
 ---

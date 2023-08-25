@@ -31,7 +31,7 @@ The information in this table can help you decide when to use each type of alert
 |Metric alert|Metric data is stored in the system already pre-computed. Metric alerts are useful when you want to be alerted about data that requires little or no manipulation. Use metric alerts if the data you want to monitor is available in metric data.|Each metric alert rule is charged based on the number of time series that are monitored. |
 |Log alert|You can use log alerts to perform advanced logic operations on your data. If the data you want to monitor is available in logs, or requires advanced logic, you can use the robust features of Kusto Query Language (KQL) for data manipulation by using log alerts.|Each log alert rule is billed based on the interval at which the log query is evaluated. More frequent query evaluation results in a higher cost. For log alerts configured for [at-scale monitoring](#splitting-by-dimensions-in-log-alert-rules), the cost also depends on the number of time series created by the dimensions resulting from your query. |
 |Activity log alert|Activity logs provide auditing of all actions that occurred on resources. Use activity log alerts to be alerted when a specific event happens to a resource like a restart, a shutdown, or the creation or deletion of a resource. Service Health alerts and Resource Health alerts let you know when there's an issue with one of your services or resources.|For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/monitor/).|
-|Prometheus alerts|Prometheus alerts are primarily used for alerting on performance and health of Kubernetes clusters, including Azure Kubernetes Service. The alert rules are based on PromQL, which is an open-source query language. |Prometheus alert rules are only charged on the data queried by the rules.  For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/monitor/). |
+|Prometheus alerts|Prometheus alerts are used for alerting on Prometheus metrics stored in [Azure Monitor managed services for Prometheus](../essentials/prometheus-metrics-overview.md). The alert rules are based on the PromQL open-source query language. |Prometheus alert rules are only charged on the data queried by the rules.  For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/monitor/). |
 
 ## Metric alerts
 
@@ -207,12 +207,13 @@ Smart detection works for web apps hosted in the cloud or on your own servers th
 
 ## Prometheus alerts
 
-Prometheus alerts are based on Prometheus metric values stored in [Azure Monitor managed services for Prometheus](../essentials/prometheus-metrics-overview.md). Prometheus alert rules are configured as part of [Prometheus rule groups](/azure/azure-monitor/essentials/prometheus-rule-groups). They fire when the result of a PromQL expression resolves to true. Fired Prometheus alerts are displayed and managed like other alert types.
+Prometheus alerts are used to monitor metrics stored in [Azure Monitor managed services for Prometheus](../essentials/prometheus-metrics-overview.md). Prometheus alert rules are configured as part of [Prometheus rule groups](/azure/azure-monitor/essentials/prometheus-rule-groups). They fire when the result of a PromQL expression resolves to true. Fired Prometheus alerts are displayed and managed like other alert types.
 
 ## Next steps
 - Get an [overview of alerts](alerts-overview.md).
 - [Create an alert rule](alerts-log.md).
 - Learn more about [smart detection](proactive-failure-diagnostics.md).
+
 
 
 

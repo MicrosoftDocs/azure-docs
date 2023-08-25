@@ -36,6 +36,7 @@ If you want to clean up and remove a Communication Services subscription, you ca
 ## Next steps
 For more information, see the following articles:
 
+- Learn more about using closed captions in [Teams interop](../../concepts/interop/enable-closed-captions.md) scenarios. 
 - Check out our [web calling sample](../../samples/web-calling-sample.md)
 - Learn about [Calling SDK capabilities](./getting-started-with-calling.md?pivots=platform-web)
 - Learn more about [how calling works](../../concepts/voice-video-calling/about-call-types.md)

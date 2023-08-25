@@ -15,13 +15,13 @@ ms.date: 09/27/2022
 
 # CLI (v2) parallel job YAML schema
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 
 > [!IMPORTANT]
 > Parallel job can only be used as a single step inside an Azure Machine Learning pipeline job. Thus, there is no source JSON schema for parallel job at this time. This document lists the valid keys and their values when creating a parallel job in a pipeline.
 
-[!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
+[!INCLUDE [schema note](includes/machine-learning-preview-old-json-schema-note.md)]
 
 ## YAML syntax
 

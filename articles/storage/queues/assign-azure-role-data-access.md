@@ -5,12 +5,12 @@ description: Learn how to assign permissions for queue data to an Azure Active D
 services: storage
 author: tamram
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 07/13/2021
 ms.author: tamram
 ms.reviewer: dineshm
-ms.subservice: common 
+ms.subservice: storage-common-concepts
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
 ---

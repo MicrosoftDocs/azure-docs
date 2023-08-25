@@ -1,6 +1,6 @@
 ---
 title: What is the Bing Video Search API?
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn how to search for videos across the web, using the Bing Video Search API.
 services: cognitive-services
 
@@ -14,7 +14,7 @@ ms.date: 12/18/2019
 ---
 # What is the Bing Video Search API?
 
-[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 
 The Bing Video Search API makes it easy to add video searching capabilities to your services and applications. By sending user search queries with the API, you can get and display relevant and high-quality videos similar to [Bing Video](https://www.bing.com/video). Use this API for search results that only contain videos. The [Bing Web Search API](../bing-web-search/overview.md) can return other types of web content, including webpages, videos, news and images.
 
@@ -32,7 +32,7 @@ The Bing Video Search API makes it easy to add video searching capabilities to y
 
 The Bing Video Search API is a RESTful web service, making it easy to call from any programming language that can make HTTP requests and parse JSON. You can use the service using either the [REST API](./quickstarts/csharp.md), or the [SDK](./quickstarts/client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp).
 
-1. Create a [Cognitive Services API account](../cognitive-services-apis-create-account.md) with access to the Bing Search APIs. If you don't have an Azure subscription, you can [create an account](https://azure.microsoft.com/free/cognitive-services/) for free.
+1. Create an [Azure AI services API account](../cognitive-services-apis-create-account.md) with access to the Bing Search APIs. If you don't have an Azure subscription, you can [create an account](https://azure.microsoft.com/free/cognitive-services/) for free.
 2. Send a request to the API, with a valid search query.
 3. Process the API response by parsing the returned JSON message.
 

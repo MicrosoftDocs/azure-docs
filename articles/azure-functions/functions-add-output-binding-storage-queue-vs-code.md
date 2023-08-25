@@ -4,7 +4,7 @@ description: Learn how to connect Azure Functions to an Azure Queue Storage by a
 ms.date: 01/31/2023
 ms.topic: quickstart
 ms.devlang: csharp, java, javascript, powershell, python, typescript
-ms.custom: devx-track-python, devx-track-js, mode-ui, devdivchpfy22, devx-track-azurepowershell, devx-track-extended-java
+ms.custom: devx-track-python, devx-track-js, mode-ui, devdivchpfy22, devx-track-extended-java
 zone_pivot_groups: programming-languages-set-functions
 #Customer intent: As an Azure Functions developer, I want to connect my function to Azure Storage so that I can easily write data to a storage queue.
 ---
@@ -73,9 +73,9 @@ Because you're using a Queue storage output binding, you must have the Storage b
 
 Your project has been configured to use [extension bundles](functions-bindings-register.md#extension-bundles), which automatically installs a predefined set of extension packages.
 
-Extension bundles usage is enabled in the *host.json* file at the root of the project, which appears as follows:
+Extension bundles is already enabled in the *host.json* file at the root of the project, which should look like the following example:
 
-:::code language="json" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/host.json":::
+:::code language="json" source="~/functions-docs-python/functions-add-output-binding-storage-queue-cli/host.json":::
 
 Now, you can add the storage output binding to your project.
 

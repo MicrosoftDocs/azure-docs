@@ -63,7 +63,7 @@ When using `docker login`, provide the full login server name of the registry, s
 docker login myregistry.azurecr.io
 ```
 
-When using [az acr login](/cli/azure/acr#az-acr-login) with an Azure Active Directory identity, first [sign into the Azure CLI](/cli/azure/authenticate-azure-cli), and then specify the Azure resource name of the registry. The resource name is the name provided when the registry was created, such as *myregistry* (without a domain suffix). Example:
+When using [az acr login](/cli/azure/acr#az-acr-login) with an Azure Active Directory identity, first [sign in to the Azure CLI](/cli/azure/authenticate-azure-cli), and then specify the Azure resource name of the registry. The resource name is the name provided when the registry was created, such as *myregistry* (without a domain suffix). Example:
 
 ```azurecli
 az acr login --name myregistry

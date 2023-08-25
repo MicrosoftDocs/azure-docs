@@ -127,6 +127,12 @@
       href: ssh-arc-overview.md
     - name: Troubleshoot SSH access to Azure Arc-enabled servers
       href: ssh-arc-troubleshoot.md
+  - name: Extended Security Updates
+    items:
+    - name: Prepare to deliver Extended Security Updates
+      href: prepare-extended-security-updates.md
+    - name: License provisioning for Extended Security Updates
+      href: license-extended-security-updates.md
   - name: Troubleshooting
     items:
     - name: Agent connection issues
@@ -162,9 +168,9 @@
   - name: Azure CLI
     href: /cli/azure/connectedmachine
   - name: Azure PowerShell
-    href: /powershell/module/az.connectedmachine/
+    href: /powershell/module/az.connectedmachine/?view=azps-10.1.0
   - name: .NET
-    href: /dotnet/api/overview/azure/hybridcompute/management/management-hybridcompute
+    href: /dotnet/api/microsoft.azure.management.hybridcompute.hybridcomputemanagementclient.apiversion
   - name: Azure Stack HCI REST
     href: /rest/api/stackhci/
   - name: REST

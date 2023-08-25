@@ -17,7 +17,7 @@ ms.custom: aaddev, devx-track-extended-java
 
 # Logging in MSAL for Java
 
-[!INCLUDE [MSAL logging introduction](../../../includes/active-directory-develop-error-logging-introduction.md)]
+[!INCLUDE [MSAL logging introduction](./includes/error-handling-and-tips/error-logging-introduction.md)]
 
 ## MSAL for Java logging
 

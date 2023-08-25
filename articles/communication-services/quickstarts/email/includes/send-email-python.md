@@ -71,7 +71,7 @@ message = {
 response = {
     "id": "str",  # The unique id of the operation. Uses a UUID. Required.
     "status": "str",  # Status of operation. Required. Known values are:
-        "NotStarted", "Running", "Succeeded", "Failed", and "Canceled".
+        "NotStarted", "Running", "Succeeded", and "Failed".
     "error": {
         "additionalInfo": [
             {
@@ -95,8 +95,7 @@ The `response.status` values are explained further in the following table.
 | ----------- | ------------|
 | InProgress | The email send operation is currently in progress and being processed. |
 | Succeeded | The email send operation has completed without error and the email is out for delivery. Any detailed status about the email delivery beyond this stage can be obtained either through Azure Monitor or through Azure Event Grid. [Learn how to subscribe to email events](../handle-email-events.md) |
-| Failed | The email send operation wasn't successful and encountered an error. The email wasn't sent. The result contains an error object with more details on the reason for failure or cancellation. |
-| Canceled | The email send operation was canceled before it could complete. The email wasn't sent. The result contains an error object with more details on the reason for failure or cancellation.|
+| Failed | The email send operation wasn't successful and encountered an error. The email wasn't sent. The result contains an error object with more details on the reason for failure. |
 
 ## Prerequisites
 

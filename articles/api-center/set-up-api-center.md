@@ -47,7 +47,7 @@ After you've been added to the API Center preview, you need to register the **Mi
 
 ## Create an API center
 
-1. [Sign in](https://portal.azure.com) to the portal. 
+1. [Sign in to the Azure portal using this link](https://aka.ms/apicenter/azureportal).
 
 1. In the search bar, enter *API Centers*. 
 

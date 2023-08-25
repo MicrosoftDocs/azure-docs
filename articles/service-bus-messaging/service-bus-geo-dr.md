@@ -87,7 +87,11 @@ You first create or use an existing primary namespace, and a new secondary names
     1. Manually fail over to the secondary namespace. 
         1. Select **Failover** on the toolbar. 
         1. Confirm that you want to fail over to the secondary namespace by typing in your alias. 
-        1. Turn ON the **Safe Failover** option to safely fail over to the secondary namespace. This feature makes sure that pending Geo-DR replications are completed before switching over to the secondary. 
+        1. Turn ON the **Safe Failover** option to safely fail over to the secondary namespace. 
+        
+            > [!NOTE]
+            > - The safe failover makes sure that pending Geo-DR replications are completed before switching over to the secondary. Whereas forced or manual failover doesn't wait for pending replications to be completed before switching over to the secondary. 
+            > - Currently, the safe failover fails if the primary and secondary namespaces aren't in the same Azure subscription. 
         1. Then, select **Failover**. 
         
             :::image type="content" source="./media/service-bus-geo-dr/failover-page.png" alt-text="Screenshot showing the Failover page.":::

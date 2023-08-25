@@ -40,6 +40,12 @@ Though you can use app roles or groups for authorization, key differences betwee
 | App roles are removed when their app registration is removed.| Groups remain intact even if the app is removed.|
 | Provided in the `roles` claim.| Provided in `groups` claim. |
 
+## Create a security group
+
+[!INCLUDE [ciam-security-group](./includes/access-control/add-security-group.md)]
+
+Azure AD for customers can include a user's group membership information in tokens for use within applications. You learn how to add the group claim to tokens in [Assign users and groups to roles](#assign-users-and-groups-to-roles) section.
+
 ## Declare roles for an application
 
 [!INCLUDE [ciam-declare-roles](./includes/access-control/declare-app-roles.md)]

@@ -31,7 +31,7 @@ For each Microsoft Authentication Library (MSAL) type, you can find sample code 
 - [MSAL.NET wiki](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki)
 
 
-[!INCLUDE [Common steps to move to production](../../../includes/active-directory-develop-scenarios-production.md)]
+[!INCLUDE [Common steps to move to production](./includes/scenarios/scenarios-production.md)]
 
 ## Next steps
 

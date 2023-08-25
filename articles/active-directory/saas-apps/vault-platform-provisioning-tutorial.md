@@ -42,6 +42,33 @@ The scenario outlined in this tutorial assumes that you already have the followi
 ## Step 2. Configure Vault Platform to support provisioning with Azure AD
 Contact Vault Platform support to configure Vault Platform to support provisioning with Azure AD.
 
+### 1. Authentication
+
+Go to the Vault Platform, login with your email and password (initial login method), then head to the **Administration > Authentication page**.
+
+There, first change the login method dropdown to **Identity Provider - Azure - SAML**
+
+Using the details in the SAML setup instructions page, enter the information:
+
+![Screenshot of VaultPlatform Authentication page.](media/vault-platform-provisioning-tutorial/authentication.png)
+
+1. Issuer URI must be set to `vaultplatform`
+2. SSO URL must be set to the value of Login URL
+   ![Screenshot for identifying SSO URL.](media/vault-platform-provisioning-tutorial/sso-url-entry-point-uri.png)
+3. Download the **Certificate (Base64)** file, open it in a text editor and copy its contents (including the `-----BEGIN/END CERTIFICATE-----` markers) into the **Certificate** text field
+   ![Screenshot of Certificate.](media/vault-platform-provisioning-tutorial/certificate-base64.png)
+
+### 2. Data Integration
+
+Next go to **Administration > Data Integration** inside Vault Platform
+
+![Screenshot of Data Integration page.](media/vault-platform-provisioning-tutorial/data-integration.png)
+
+1. For **Data Integration** select `Azure`.
+1. For **Method of providing SCIM secret location** set `bearer`.
+1. For **Secret** set a complex string, similar to a strong password. Keep this string secure as it will be used later on at **Step 5**
+1. Toggle **Set as active SCIM Provider** to be active.
+
 ## Step 3. Add Vault Platform from the Azure AD application gallery
 
 Add Vault Platform from the Azure AD application gallery to start managing provisioning to Vault Platform. If you have previously setup Vault Platform for SSO you can use the same application. However it's recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
@@ -77,7 +104,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Screenshot of Provisioning tab automatic.](common/provisioning-automatic.png)
 
-1. Under the **Admin Credentials** section, input your Vault Platform Tenant URL and Secret Token. Click **Test Connection** to ensure Azure AD can connect to Vault Platform. If the connection fails, ensure your Vault Platform account has Admin permissions and try again.
+1. Under the **Admin Credentials** section, input your Vault Platform Tenant URL (URL with structure `https://app.vaultplatform.com/api/scim/${organization-slug}`) and Secret Token (from Step 2.2). Click **Test Connection** to ensure Azure AD can connect to Vault Platform. If the connection fails, ensure your Vault Platform account has Admin permissions and try again.
 
  	![Screenshot of Token.](common/provisioning-testconnection-tenanturltoken.png)
 

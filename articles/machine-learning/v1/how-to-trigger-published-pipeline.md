@@ -16,7 +16,7 @@ ms.custom: UpdateFrequency5, devx-track-python, sdkv1, event-tier1-build-2022
 
 # Trigger machine learning pipelines
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 In this article, you'll learn how to programmatically schedule a pipeline to run on Azure. You can create a schedule based on elapsed time or on file-system changes. Time-based schedules can be used to take care of routine tasks, such as monitoring for data drift. Change-based schedules can be used to react to irregular or unpredictable changes, such as new data being uploaded or old data being edited. After learning how to create schedules, you'll learn how to retrieve and deactivate them. Finally, you'll learn how to use other Azure services, Azure Logic App and Azure Data Factory, to run pipelines. An Azure Logic App allows for more complex triggering logic or behavior. Azure Data Factory pipelines allow you to call a machine learning pipeline as part of a larger data orchestration pipeline.
 
@@ -153,11 +153,9 @@ published_pipeline = PublishedPipeline.get(ws, id="<pipeline-id-here>")
 published_pipeline.endpoint 
 ```
 
-## Create a Logic App
+## Create a logic app in Azure
 
-Now create an [Azure Logic App](../../logic-apps/logic-apps-overview.md) instance. If you wish, [use an integration service environment (ISE)](../../logic-apps/connect-virtual-network-vnet-isolated-environment.md) and [set up a customer-managed key](../../logic-apps/customer-managed-keys-integration-service-environment.md) for use by your Logic App.
-
-Once your Logic App has been provisioned, use these steps to configure a trigger for your pipeline:
+Now create an [Azure Logic App](../../logic-apps/logic-apps-overview.md) instance. After your logic app is provisioned, use these steps to configure a trigger for your pipeline:
 
 1. [Create a system-assigned managed identity](../../logic-apps/create-managed-service-identity.md) to give the app access to your Azure Machine Learning Workspace.
 

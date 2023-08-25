@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: This article teaches you how to use Azure Machine Learning to deploy a GPU-enabled Tensorflow deep learning model as a web service.service and score inference requests.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: mlops
+ms.subservice: inferencing
 ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
@@ -15,13 +15,13 @@ ms.custom: UpdateFrequency5, deploy, sdkv1, event-tier1-build-2022
 
 # Deploy a deep learning model for inference with GPU
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 This article teaches you how to use Azure Machine Learning to deploy a GPU-enabled model as a web service. The information in this article is based on deploying a model on Azure Kubernetes Service (AKS). The AKS cluster provides a GPU resource that is used by the model for inference.
 
 Inference, or model scoring, is the phase where the deployed model is used to make predictions. Using GPUs instead of CPUs offers performance advantages on highly parallelizable computation.
 
-[!INCLUDE [endpoints-option](../../../includes/machine-learning-endpoints-preview-note.md)]
+[!INCLUDE [endpoints-option](../includes/machine-learning-endpoints-preview-note.md)]
 
 > [!IMPORTANT]
 > When using the Azure Machine Learning __SDK v1__, GPU inference is only supported on Azure Kubernetes Service. When using the Azure Machine Learning __SDK v2__ or __CLI v2__, you can use an online endpoint for GPU inference. For more information, see [Deploy and score a machine learning model with an online endpoint](../how-to-deploy-online-endpoints.md).

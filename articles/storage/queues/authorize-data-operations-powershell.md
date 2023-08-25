@@ -9,8 +9,7 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.date: 02/10/2021
 ms.topic: how-to
-ms.service: storage
-ms.subservice: queues
+ms.service: azure-queue-storage
 ---
 
 # Run PowerShell commands with Azure AD credentials to access queue data

@@ -52,6 +52,8 @@ A grace period defines a period of special processing in which clients can try t
 
 Azure NetApp Files also supports [breaking file locks](troubleshoot-file-locks.md).
 
+To learn more about file locking in Azure NetApp Files, see [file locking](understand-file-locks.md).
+
 ## Why is the `.snapshot` directory not visible in an NFSv4.1 volume, but it's visible in an NFSv3 volume?
 
 By design, the .snapshot directory is never visible to NFSv4.1 clients. By default, the `.snapshot `directory is visible to NFSv3 clients. To hide the `.snapshot` directory from NFSv3 clients, edit the properties of the volume to [hide the snapshot path](snapshots-edit-hide-path.md).

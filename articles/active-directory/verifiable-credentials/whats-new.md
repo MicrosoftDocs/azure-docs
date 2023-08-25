@@ -20,9 +20,17 @@ ms.author: barclayn
 
 This article lists the latest features, improvements, and changes in the Microsoft Entra Verified ID service.
 
+## June 2023
+
+Tutorial for getting started with the Wallet Library demo on Android and iOS available [here](using-wallet-library.md).
+
 ## May 2023
 
 - Wallet Library was announced at Build 2023 in session [Reduce fraud and improve engagement using Digital Wallets](https://build.microsoft.com/en-US/sessions/4ca41843-1b3f-4ee6-955e-9e2326733be8). The Wallet Library enables customers to add verifiable credentials technology to their own mobile apps. The libraries are available for [Android](https://github.com/microsoft/entra-verifiedid-wallet-library-android/tree/dev) and [iOS](https://github.com/microsoft/entra-verifiedid-wallet-library-ios/tree/dev).
+
+## April 2023
+
+Instructions for setting up place of work verification on LinkedIn available [here](linkedin-employment-verification.md).
 
 ## March 2023
 
@@ -47,7 +55,7 @@ This article lists the latest features, improvements, and changes in the Microso
 
 ## September 2022
 
-- The Request Service API now have [granular app permissions](verifiable-credentials-configure-tenant.md?#grant-permissions-to-get-access-tokens) and you can grant **VerifiableCredential.Create.IssueRequest** and **VerifiableCredential.Create.PresentRequest** separately to segregate duties of issuance and presentation to separate application. 
+- The Request Service API now has [granular app permissions](verifiable-credentials-configure-tenant.md?#grant-permissions-to-get-access-tokens) and you can grant **VerifiableCredential.Create.IssueRequest** and **VerifiableCredential.Create.PresentRequest** separately to segregate duties of issuance and presentation to separate application. 
 - [IDV Partner Gallery](partner-gallery.md) now available in the documentation guiding you how to integrate with Microsoft's Identity Verification partners.
 - How-to guide for implementing the [presentation attestation flow](how-to-use-quickstart-presentation.md) that requires presenting a verifiable credential during issuance.
 
@@ -57,7 +65,7 @@ Microsoft Entra Verified ID is now generally available (GA) as the new member of
 
 ### Known issues
 
-- Tenants that [opt-out](verifiable-credentials-faq.md?#how-do-i-reset-the-entra-verified-id-service) without issuing any Verifiable Credential gets a `Specified resource does not exist` error from the Admin API and/or the Entra portal. A fix for this issue should be available by August 20, 2022.
+- Tenants that [opt-out](verifiable-credentials-faq.md?#how-do-i-reset-the-entra-verified-id-service) without issuing any Verifiable Credential gets a `Specified resource does not exist` error from the Admin API and/or the Microsoft Entra admin center. A fix for this issue should be available by August 20, 2022.
 
 ## July 2022
 

@@ -3,12 +3,12 @@ title: Public IP addresses in Azure
 titleSuffix: Azure Virtual Network
 description: Learn about public IP addresses in Azure.
 services: virtual-network
-author: asudbring
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: conceptual
-ms.date: 05/28/2023
-ms.author: allensu
+author: mbender-ms
+ms.author: mbender
+ms.date: 08/24/2023
 ---
 
 # Public IP addresses
@@ -173,8 +173,6 @@ To learn more about IP address pricing in Azure, review the [IP address pricing]
 ## Limitations for IPv6
 
 * VPN gateways can't be used in a virtual network with IPv6 enabled, either directly or peered with "UseRemoteGateway".
-
-* Public IPv6 addresses are locked at an idle timeout of 4 minutes.
 
 * Azure doesn't support IPv6 communication for containers.
 

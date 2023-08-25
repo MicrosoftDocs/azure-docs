@@ -6,11 +6,11 @@ ms.topic: quickstart
 ms.date: 06/20/2023
 ms.custom: mvc, devx-track-azurecli, mode-api
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
-# Quickstart: Restore SAP HANA System Replication on Azure VMs using Azure CLI (preview)
+# Quickstart: Restore SAP HANA System Replication on Azure VMs using Azure CLI
 
 This quickstart describes how to restore SAP HANA System Replication (HSR) using Azure CLI.
 

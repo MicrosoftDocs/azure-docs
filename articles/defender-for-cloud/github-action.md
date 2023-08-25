@@ -32,7 +32,7 @@ Security DevOps uses the following Open Source tools:
 
 - Open the [Microsoft Security DevOps GitHub action](https://github.com/marketplace/actions/security-devops-action) in a new window.
 
-- Ensure that [Workflow permissions are set to Read and Write](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#setting-the-permissions-of-the-github_token-for-your-repository) on the GitHub repository. 
+- Ensure that [Workflow permissions are set to Read and Write](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#setting-the-permissions-of-the-github_token-for-your-repository) on the GitHub repository.
 
 ## Configure the Microsoft Security DevOps GitHub action
 
@@ -56,7 +56,7 @@ Security DevOps uses the following Open Source tools:
 
     :::image type="content" source="media/msdo-github-action/devops.png" alt-text="Screenshot that shows you where to enter a name for your new workflow.":::
 
-1. Copy and paste the following [sample action workflow](https://github.com/microsoft/security-devops-action/blob/main/.github/workflows/sample-workflow-windows-latest.yml) into the Edit new file tab.
+1. Copy and paste the following [sample action workflow](https://github.com/microsoft/security-devops-action/blob/main/.github/workflows/sample-workflow.yml) into the Edit new file tab.
 
     ```yml
     name: MSDO windows-latest
@@ -96,14 +96,14 @@ Security DevOps uses the following Open Source tools:
             name: alerts
             path: ${{ steps.msdo.outputs.sarifFile }}
     ```
- 
-    For details on various input options, see [action.yml](https://github.com/microsoft/security-devops-action/blob/main/action.yml)                
 
-1.  Select **Start commit**
+    For details on various input options, see [action.yml](https://github.com/microsoft/security-devops-action/blob/main/action.yml)
+
+1. Select **Start commit**
 
     :::image type="content" source="media/msdo-github-action/start-commit.png" alt-text="Screenshot showing you where to select start commit.":::
 
-1.  Select **Commit new file**.
+1. Select **Commit new file**.
 
     :::image type="content" source="media/msdo-github-action/commit-new.png" alt-text="Screenshot showing you how to commit a new file.":::
 
@@ -119,7 +119,7 @@ Security DevOps uses the following Open Source tools:
 
 1. Sign in to [GitHub](https://www.github.com).
 
-1. Navigate to **Security** > **Code scanning alerts** > **Tool**. 
+1. Navigate to **Security** > **Code scanning alerts** > **Tool**.
 
 1. From the dropdown menu, select **Filter by tool**.
 
@@ -132,6 +132,7 @@ Code scanning findings will be filtered by specific MSDO tools in GitHub. These 
 - Learn how to [deploy apps from GitHub to Azure](/azure/developer/github/deploy-to-azure).
 
 ## Next steps
+
 Learn more about [Defender for DevOps](defender-for-devops-introduction.md).
 
 Learn how to [connect your GitHub](quickstart-onboard-github.md) to Defender for Cloud.

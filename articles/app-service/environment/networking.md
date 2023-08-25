@@ -3,7 +3,7 @@ title: App Service Environment networking
 description: App Service Environment networking details
 author: madsd
 ms.topic: overview
-ms.date: 02/06/2023
+ms.date: 07/21/2023
 ms.author: madsd
 ---
 
@@ -21,7 +21,19 @@ You must delegate the subnet to `Microsoft.Web/hostingEnvironments`, and the sub
 The size of the subnet can affect the scaling limits of the App Service plan instances within the App Service Environment. It's a good idea to use a `/24` address space (256 addresses) for your subnet, to ensure enough addresses to support production scale.
 
 >[!NOTE]
-> Windows Containers uses an additional IP address per app for each App Service plan instance, and you need to size the subnet accordingly. If your App Service Environment has for example 2 Windows Container App Service plans each with 25 instances and each with 5 apps running, you will need 300 IP addresses and additional addresses to support horizontal (up/down) scale.
+> Windows Containers uses an additional IP address per app for each App Service plan instance, and you need to size the subnet accordingly. If your App Service Environment has for example 2 Windows Container App Service plans each with 25 instances and each with 5 apps running, you will need 300 IP addresses and additional addresses to support horizontal (in/out) scale.
+>
+> Sample calculation:
+>
+> For each App Service plan instance, you need:  
+> 5 Windows Container apps = 5 IP addresses  
+> 1 IP address per App Service plan instance  
+> 5 + 1 = 6 IP addresses
+>
+> For 25 instances:  
+> 6 x 25 = 150 IP addresses per App Service plan
+>
+> Since you have 2 App Service plans, 2 x 150 = 300 IP addresses.
 
 If you use a smaller subnet, be aware of the following limitations:
 

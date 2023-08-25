@@ -84,14 +84,14 @@ Learn more about the [TokenRequiredDelegate](/cpp/api/spatial-anchors/ndk/tokenr
     });
 ```
 
-[!INCLUDE [Azure AD Tokens](../../../includes/spatial-anchors-create-locate-anchors-aad-tokens.md)]
+[!INCLUDE [Azure AD Tokens](../../../includes/spatial-anchors-create-locate-anchors-tokens.md)]
 
 ```cpp
     auto configuration = cloudSession_->Configuration();
     configuration->AuthenticationToken(R"(MyAuthenticationToken)");
 ```
 
-[!INCLUDE [Azure AD Tokens Event](../../../includes/spatial-anchors-create-locate-anchors-aad-tokens-event.md)]
+[!INCLUDE [Azure AD Tokens Event](../../../includes/spatial-anchors-create-locate-anchors-tokens-event.md)]
 
 ```cpp
     auto accessTokenRequiredToken = cloudSession_->AccessTokenRequired([](auto&&, auto&& args) {

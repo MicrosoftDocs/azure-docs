@@ -16,8 +16,8 @@ ms.custom: UpdateFrequency5, data4ml, event-tier1-build-2022
 
 # Data in Azure Machine Learning v1
 
-[!INCLUDE [CLI v1](../../../includes/machine-learning-cli-v1.md)]
-[!INCLUDE [SDK v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [CLI v1](../includes/machine-learning-cli-v1.md)]
+[!INCLUDE [SDK v1](../includes/machine-learning-sdk-v1.md)]
 
 
 Azure Machine Learning makes it easy to connect to your data in the cloud. It provides an abstraction layer over the underlying storage service, so you can securely access and work with your data without having to write code specific to your storage type. Azure Machine Learning also provides the following data capabilities:

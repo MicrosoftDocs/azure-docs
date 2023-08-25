@@ -92,7 +92,7 @@ Register the service principal for Azure Front Door as an app in your Azure Acti
 
 > [!NOTE]
 > * This action requires you to have *Global Administrator* permissions in Azure AD. The registration only needs to be performed **once per Azure AD tenant**.
-> * The Application Id of **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8** is predefined by Azure for Front Door Standard and Premium tier across all Azure tenants and subscriptions. Azure Front Door (Classic) has a different Application Id.
+> * The application ID of **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8** and **d4631ece-daab-479b-be77-ccb713491fc0** is predefined by Azure for Front Door Standard and Premium across all Azure tenants and subscriptions. Azure Front Door (Classic) has a different application ID.
 
 # [Azure PowerShell](#tab/powershell)
 
@@ -100,8 +100,16 @@ Register the service principal for Azure Front Door as an app in your Azure Acti
 
 1. Use PowerShell, run the following command:
 
+    **Azure public cloud:**
+
      ```azurepowershell-interactive
      New-AzADServicePrincipal -ApplicationId '205478c0-bd83-4e1b-a9d6-db63a3e1e1c8'
+     ```
+
+    **Azure government cloud:**
+
+    ```azurepowershell-interactive
+     New-AzADServicePrincipal -ApplicationId 'd4631ece-daab-479b-be77-ccb713491fc0'
      ```
 
 # [Azure CLI](#tab/cli)
@@ -110,10 +118,17 @@ Register the service principal for Azure Front Door as an app in your Azure Acti
 
 1. Use the Azure CLI to run the following command:
 
-     ```azurecli-interactive
-     az ad sp create --id 205478c0-bd83-4e1b-a9d6-db63a3e1e1c8
-     ```
+    **Azure public cloud:**
 
+    ```azurecli-interactive
+    az ad sp create --id 205478c0-bd83-4e1b-a9d6-db63a3e1e1c8
+    ```
+
+    **Azure government cloud:**
+
+    ```azurecli-interactive
+     az ad sp create --id d4631ece-daab-479b-be77-ccb713491fc0
+     ```
 ---
 
 #### Grant Azure Front Door access to your key vault

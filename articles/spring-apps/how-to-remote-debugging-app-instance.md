@@ -6,7 +6,7 @@ ms.topic: how-to
 author: KarlErickson
 ms.author: jialuogan
 ms.date: 4/18/2023
-ms.custom: devx-track-java, event-tier1-build-2022
+ms.custom: devx-track-java, devx-track-extended-java, event-tier1-build-2022
 ---
 
 # Debug your apps remotely in Azure Spring Apps

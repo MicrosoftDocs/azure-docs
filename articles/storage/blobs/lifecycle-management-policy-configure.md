@@ -6,8 +6,8 @@ author: normesta
 
 ms.author: normesta
 ms.date: 05/02/2023
-ms.service: storage
-ms.subservice: common
+ms.service: azure-storage
+ms.subservice: storage-common-concepts
 ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: "devx-track-azurepowershell, devx-track-azurecli" 
@@ -32,12 +32,15 @@ For a blob snapshot or version, the condition that is checked is the number of d
 
 Before you configure a lifecycle management policy, you can choose to enable blob access time tracking. When access time tracking is enabled, a lifecycle management policy can include an action based on the time that the blob was last accessed with a read or write operation. To minimize the effect on read access latency, only the first read of the last 24 hours updates the last access time. Subsequent reads in the same 24-hour period don't update the last access time. If a blob is modified between reads, the last access time is the more recent of the two values.
 
+If [last access time tracking](lifecycle-management-overview.md#move-data-based-on-last-accessed-time) is not enabled, **daysAfterLastAccessTimeGreaterThan** uses the date the lifecycle policy was enabled instead of the `LastAccessTime` property of the blob. This date is also used when the `LastAccessTime` property is a null value. For more information about using last access time tracking, see [Move data based on last accessed time](lifecycle-management-overview.md#move-data-based-on-last-accessed-time).
+
 #### [Portal](#tab/azure-portal)
 
 To enable last access time tracking with the Azure portal, follow these steps:
 
 1. Navigate to your storage account in the Azure portal.
 1. In the **Data management** section, select **Lifecycle management**.
+1. Check the checkbox "Enable access tracking"
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot showing how to enable last access tracking in Azure portal.](media/lifecycle-management-policy-configure/last-access-tracking-enable.png)

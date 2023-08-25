@@ -33,8 +33,8 @@ Azure AD Pass-through Authentication creates the following log type, which can c
 
 Improve user privacy for Pass-through Authentication in two ways:
 
-1.	Upon request, extract data for a person and remove data from that person from the installations.
-2.	Ensure no data is retained beyond 48 hours.
+1. Upon request, extract data for a person and remove data from that person from the installations.
+2. Ensure no data is retained beyond 48 hours.
 
 We strongly recommend the second option as it is easier to implement and maintain. Following are the instructions for each log type:
 
@@ -84,16 +84,16 @@ Foreach ($file in $files) {
 
 To schedule this script to run every 48 hours follow these steps:
 
-1.	Save the script in a file with the ".PS1" extension.
-2.	Open **Control Panel** and click on **System and Security**.
-3.	Under the **Administrative Tools** heading, click on “**Schedule Tasks**”.
-4.	In **Task Scheduler**, right-click on “**Task Schedule Library**” and click on “**Create Basic task…**”.
-5.	Enter the name for the new task and click **Next**.
-6.	Select “**Daily**” for the **Task Trigger** and click **Next**.
-7.	Set the recurrence to two days and click **Next**.
-8.	Select “**Start a program**” as the action and click **Next**.
-9.	Type “**PowerShell**” in the box for the Program/script, and in box labeled “**Add arguments (optional)**”, enter the full path to the script that you created earlier, then click **Next**.
-10.	The next screen shows a summary of the task you are about to create. Verify the values and click **Finish** to create the task:
+1. Save the script in a file with the ".PS1" extension.
+2. Open **Control Panel** and click on **System and Security**.
+3. Under the **Administrative Tools** heading, click on “**Schedule Tasks**”.
+4. In **Task Scheduler**, right-click on “**Task Schedule Library**” and click on “**Create Basic task…**”.
+5. Enter the name for the new task and click **Next**.
+6. Select “**Daily**” for the **Task Trigger** and click **Next**.
+7. Set the recurrence to two days and click **Next**.
+8. Select “**Start a program**” as the action and click **Next**.
+9. Type “**PowerShell**” in the box for the Program/script, and in box labeled “**Add arguments (optional)**”, enter the full path to the script that you created earlier, then click **Next**.
+10. The next screen shows a summary of the task you are about to create. Verify the values and click **Finish** to create the task:
  
 ### Note about Domain controller logs
 

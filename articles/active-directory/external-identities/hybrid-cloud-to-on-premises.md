@@ -32,8 +32,8 @@ You must do the following:
 - Assign Azure AD B2B Users to the SAML Application.
 
 When you've completed the steps above, your app should be up and running. To test Azure AD B2B access:
-1.	Open a browser and navigate to the external URL that you created when you published the app.
-2.	Sign in with the Azure AD B2B account that you assigned to the app. You should be able to open the app and access it with single sign-on.
+1. Open a browser and navigate to the external URL that you created when you published the app.
+2. Sign in with the Azure AD B2B account that you assigned to the app. You should be able to open the app and access it with single sign-on.
 
 ## Access to IWA and KCD apps
 
@@ -54,13 +54,13 @@ The following diagram provides a high-level overview of how Azure AD Application
 
 ![Diagram of MIM and B2B script solutions.](media/hybrid-cloud-to-on-premises/MIMScriptSolution.PNG)
 
-1.	A user from a partner organization (the Fabrikam tenant) is invited to the Contoso tenant.
-2.	A guest user object is created in the Contoso tenant (for example, a user object with a UPN of guest_fabrikam.com#EXT#@contoso.onmicrosoft.com).
-3.	The Fabrikam guest is imported from Contoso through MIM or through the B2B PowerShell script.
-4.	A representation or “footprint” of the Fabrikam guest user object (Guest#EXT#) is created in the on-premises directory, Contoso.com, through MIM or through the B2B PowerShell script.
-5.	The guest user accesses the on-premises application, app.contoso.com.
-6.	The authentication request is authorized through Application Proxy, using Kerberos constrained delegation. 
-7.	Because the guest user object exists locally, the authentication is successful.
+1. A user from a partner organization (the Fabrikam tenant) is invited to the Contoso tenant.
+2. A guest user object is created in the Contoso tenant (for example, a user object with a UPN of guest_fabrikam.com#EXT#@contoso.onmicrosoft.com).
+3. The Fabrikam guest is imported from Contoso through MIM or through the B2B PowerShell script.
+4. A representation or “footprint” of the Fabrikam guest user object (Guest#EXT#) is created in the on-premises directory, Contoso.com, through MIM or through the B2B PowerShell script.
+5. The guest user accesses the on-premises application, app.contoso.com.
+6. The authentication request is authorized through Application Proxy, using Kerberos constrained delegation. 
+7. Because the guest user object exists locally, the authentication is successful.
 
 ### Lifecycle management policies
 
@@ -75,11 +75,11 @@ You can use an [Azure AD B2B sample script](https://github.com/Azure-Samples/B2B
 
 ### Create B2B guest user objects through MIM
 
-You can use MIM 2016 Service Pack 1, and the MIM management agent for Microsoft Graph to create the guest user objects in the on-premises directory.  To learn more, see [Azure AD business-to-business (B2B) collaboration with Microsoft Identity Manager (MIM) 2016 SP1 with Azure Application Proxy](/microsoft-identity-manager/microsoft-identity-manager-2016-graph-b2b-scenario).
+You can use MIM and the MIM connector for Microsoft Graph to create the guest user objects in the on-premises directory.  To learn more, see [Azure AD business-to-business (B2B) collaboration with Microsoft Identity Manager (MIM) 2016 SP1 with Azure Application Proxy](/microsoft-identity-manager/microsoft-identity-manager-2016-graph-b2b-scenario).
 
 ## License considerations
 
-Make sure that you have the correct Client Access Licenses (CALs) for external guest users who access on-premises apps. For more information, see the "External Connectors" section of [Client Access Licenses and Management Licenses](https://www.microsoft.com/licensing/product-licensing/client-access-license.aspx). Consult your Microsoft representative or local reseller regarding your specific licensing needs.
+Make sure that you have the correct Client Access Licenses (CALs) or External Connectors for external guest users who access on-premises apps or whose identities are managed on-premises. For more information, see the "External Connectors" section of [Client Access Licenses and Management Licenses](https://www.microsoft.com/licensing/product-licensing/client-access-license.aspx). Consult your Microsoft representative or local reseller regarding your specific licensing needs.
 
 ## Next steps
 

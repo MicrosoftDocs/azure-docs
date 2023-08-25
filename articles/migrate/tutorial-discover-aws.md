@@ -5,8 +5,9 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 06/15/2023
-ms.custom: mvc, subject-rbac-steps
+ms.date: 07/10/2023
+ms.service: azure-migrate
+ms.custom: mvc, subject-rbac-steps, engagement-fy23
 #Customer intent: As a server admin I want to discover my AWS instances.
 ---
 
@@ -71,13 +72,9 @@ If you just created a free Azure account, you're the owner of your subscription.
 
 1. To register the appliance, your Azure account needs **permissions to register Azure Active Directory apps.**
 
-1. In Azure portal, navigate to **Azure Active Directory** > **Users** > **User Settings**.
+1. In the portal, go to **Azure Active Directory** > **Users**.
 
-1. In **User settings**, verify that Azure AD users can register applications (set to **Yes** by default).
-
-    ![Image to Verify in User Settings that users can register Active Directory apps](./media/tutorial-discover-aws/register-apps.png)
-
-1. In case the 'App registrations' settings is set to 'No', request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the **Application Developer** role to an account to allow the registration of Azure Active Directory App. [Learn more](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
+1. Request the tenant or global admin to assign the [Application Developer role](../active-directory/roles/permissions-reference.md#application-developer) to the account to allow Azure AD app registration by users. [Learn more](../active-directory/roles/manage-roles-portal.md#assign-a-role).
 
 ## Prepare AWS instances
 
@@ -104,12 +101,11 @@ Set up a new project.
 
 1. In the Azure portal > **All services**, search for **Azure Migrate**.
 2. Under **Services**, select **Azure Migrate**.
-3. In **Overview**, select **Create project**.
+3. In **Get started**, select **Create project**.
 5. In **Create project**, select your Azure subscription and resource group. Create a resource group if you don't have one.
 6. In **Project Details**, specify the project name and the geography in which you want to create the project. Review supported geographies for [public](migrate-support-matrix.md#public-cloud) and [government clouds](migrate-support-matrix.md#azure-government).
 
    ![Screenshot for project name and region.](./media/tutorial-discover-aws/new-project.png)
-
 
 7. Select **Create**.
 8. Wait a few minutes for the project to deploy. The **Azure Migrate: Discovery and assessment** tool is added by default to the new project.
@@ -163,13 +159,13 @@ Check that the zipped file is secure, before you deploy it.
 
         **Scenario** | **Download*** | **Hash value**
         --- | --- | ---
-        Physical (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | 7134EF5B61D3560A102DF4814CB91C95E44EAE9677AAF1CC68AE0A04A6DBD613 
+        Physical (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | 967FC3B8A5C467C303D86C8889EB4E0D4A8A7798865CBFBDF23E425D4EE425CA
 
     - For Azure Government:
 
         **Scenario** | **Download*** | **Hash value**
         --- | --- | ---
-        Physical (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | 7134EF5B61D3560A102DF4814CB91C95E44EAE9677AAF1CC68AE0A04A6DBD613 
+        Physical (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | 967FC3B8A5C467C303D86C8889EB4E0D4A8A7798865CBFBDF23E425D4EE425CA 
  
 
 ### 3. Run the Azure Migrate installer script

@@ -248,7 +248,7 @@ DELETE {{FHIR_URL}}/SearchParameter/{{SearchParameter_ID}}
 ```
 
 > [!Warning]
-> Be careful when deleting search parameters. Changing an existing search parameter could have impacts on the expected behavior. We recommend running a reindex job immediately.
+> Be careful when deleting search parameters. Deleting an existing search parameter could have impacts on the expected behavior. We recommend running a reindex job immediately.
 
 
 

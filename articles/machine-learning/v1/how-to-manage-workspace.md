@@ -15,7 +15,7 @@ ms.custom: UpdateFrequency5, fasttrack-edit, FY21Q4-aml-seo-hack, contperf-fy21q
 
 # Manage Azure Machine Learning workspaces with the Python SDK (v1)
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 In this article, you create, view, and delete [**Azure Machine Learning workspaces**](../concept-workspace.md) for [Azure Machine Learning](../overview-what-is-azure-machine-learning.md), using the [SDK for Python](/python/api/overview/azure/ml/).  
 
@@ -28,13 +28,13 @@ As your needs change or requirements for automation increase you can also manage
 
 ## Limitations
 
-[!INCLUDE [register-namespace](../../../includes/machine-learning-register-namespace.md)]
+[!INCLUDE [register-namespace](../includes/machine-learning-register-namespace.md)]
 
 * By default, creating a workspace also creates an Azure Container Registry (ACR).  Since ACR doesn't currently support unicode characters in resource group names, use a resource group that doesn't contain these characters.
 
 * Azure Machine Learning doesn't support hierarchical namespace (Azure Data Lake Storage Gen2 feature) for the workspace's default storage account.
 
-[!INCLUDE [application-insight](../../../includes/machine-learning-application-insight.md)]
+[!INCLUDE [application-insight](../includes/machine-learning-application-insight.md)]
 
 ## Create a workspace
 
@@ -42,7 +42,7 @@ You can create a workspace [directly in Azure Machine Learning studio](../quicks
 
 * **Default specification.** By default, dependent resources and the resource group will be created automatically. This code creates a workspace named `myworkspace` and a resource group named `myresourcegroup` in `eastus2`.
     
-    [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+    [!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
     ```python
     from azureml.core import Workspace
@@ -58,7 +58,7 @@ You can create a workspace [directly in Azure Machine Learning studio](../quicks
 
 * **Multiple tenants.**  If you have multiple accounts, add the tenant ID of the Azure Active Directory you wish to use.  Find your tenant ID from the [Azure portal](https://portal.azure.com) under **Azure Active Directory, External Identities**.
 
-    [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+    [!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
     ```python
     from azureml.core.authentication import InteractiveLoginAuthentication
@@ -76,7 +76,7 @@ You can create a workspace [directly in Azure Machine Learning studio](../quicks
 
 * **[Sovereign cloud](../reference-machine-learning-cloud-parity.md)**. You'll need extra code to authenticate to Azure if you're working in a sovereign cloud.
     
-    [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+    [!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
     ```python
     from azureml.core.authentication import InteractiveLoginAuthentication
@@ -94,7 +94,7 @@ You can create a workspace [directly in Azure Machine Learning studio](../quicks
 
 * **Use existing Azure resources**.  You can also create a workspace that uses existing Azure resources with the Azure resource ID format. Find the specific Azure resource IDs in the Azure portal or with the SDK. This example assumes that the resource group, storage account, key vault, App Insights, and container registry already exist.
     
-    [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+    [!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
    ```python
    import os
@@ -179,7 +179,7 @@ If you'll be using a [compute instance](../quickstart-create-resources.md) in yo
 
 If you plan to use code on your local environment that references this workspace (`ws`), write the configuration file:
     
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 ```python
 ws.write_config()
@@ -191,7 +191,7 @@ Place the file into  the directory structure with your Python scripts or Jupyter
 
 In your Python code, you create a workspace object to connect to your workspace.  This code will read the contents of the configuration file to find your workspace.  You'll get a prompt to sign in if you aren't already authenticated.
     
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 ```python
 from azureml.core import Workspace
@@ -201,7 +201,7 @@ ws = Workspace.from_config()
 
 * **Multiple tenants.**  If you have multiple accounts, add the tenant ID of the Azure Active Directory you wish to use.  Find your tenant ID from the [Azure portal](https://portal.azure.com) under **Azure Active Directory, External Identities**.
     
-    [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+    [!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
     ```python
     from azureml.core.authentication import InteractiveLoginAuthentication
@@ -213,7 +213,7 @@ ws = Workspace.from_config()
 
 * **[Sovereign cloud](../reference-machine-learning-cloud-parity.md)**. You'll need extra code to authenticate to Azure if you're working in a sovereign cloud.
 
-   [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+   [!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
     ```python
     from azureml.core.authentication import InteractiveLoginAuthentication
@@ -231,7 +231,7 @@ See a list of all the workspaces you can use.
 
 Find your subscriptions in the [Subscriptions page in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Copy the ID and use it in the code below to see all workspaces available for that subscription.
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 ```python
 from azureml.core import Workspace
@@ -246,7 +246,7 @@ The Workspace.list(..) method doesn't return the full workspace object. It inclu
 
 When you no longer need a workspace, delete it.  
 
-[!INCLUDE [machine-learning-delete-workspace](../../../includes/machine-learning-delete-workspace.md)]
+[!INCLUDE [machine-learning-delete-workspace](../includes/machine-learning-delete-workspace.md)]
 
 > [!TIP]
 > The default behavior for Azure Machine Learning is to _soft delete_ the workspace. This means that the workspace is not immediately deleted, but instead is marked for deletion. For more information, see [Soft delete](../concept-soft-delete.md).
@@ -254,7 +254,7 @@ When you no longer need a workspace, delete it.
 
 Delete the workspace `ws`:
     
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 ```python
 ws.delete(delete_dependent_resources=False, no_wait=False)
@@ -265,7 +265,7 @@ The default action isn't to delete resources associated with the workspace, that
 
 ## Clean up resources
 
-[!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
+[!INCLUDE [aml-delete-resource-group](../includes/aml-delete-resource-group.md)]
 
 ## Troubleshooting
 
@@ -282,18 +282,18 @@ The default action isn't to delete resources associated with the workspace, that
 
 ### Workspace diagnostics
 
-[!INCLUDE [machine-learning-workspace-diagnostics](../../../includes/machine-learning-workspace-diagnostics.md)]
+[!INCLUDE [machine-learning-workspace-diagnostics](../includes/machine-learning-workspace-diagnostics.md)]
 
 ### Resource provider errors
 
-[!INCLUDE [machine-learning-resource-provider](../../../includes/machine-learning-resource-provider.md)]
+[!INCLUDE [machine-learning-resource-provider](../includes/machine-learning-resource-provider.md)]
  
 
 ### Deleting the Azure Container Registry
 
 The Azure Machine Learning workspace uses Azure Container Registry (ACR) for some operations. It will automatically create an ACR instance when it first needs one.
 
-[!INCLUDE [machine-learning-delete-acr](../../../includes/machine-learning-delete-acr.md)]
+[!INCLUDE [machine-learning-delete-acr](../includes/machine-learning-delete-acr.md)]
 
 
 ## Next steps

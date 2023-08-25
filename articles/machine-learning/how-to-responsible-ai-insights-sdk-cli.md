@@ -15,7 +15,7 @@ ms.custom: responsible-ml, event-tier1-build-2022, devx-track-python
 
 # Generate a Responsible AI insights with YAML and Python
 
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 You can generate a Responsible AI dashboard and scorecard via a pipeline job by using Responsible AI components. There are six core components for creating Responsible AI dashboards, along with a couple of helper components. Here's a sample experiment graph:
 

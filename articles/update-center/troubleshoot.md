@@ -1,16 +1,17 @@
 ---
-title: Troubleshoot known issues with update management center (preview)
-description: The article provides details on the known issues and troubleshooting any problems with update management center (preview).
-ms.service: update-management-center
+title: Troubleshoot known issues with Azure Update Manager (preview)
+description: The article provides details on the known issues and troubleshooting any problems with Azure Update Manager (preview).
+ms.service: azure-update-manager
 ms.date: 05/30/2023
 ms.topic: conceptual
 ms.author: sudhirsneha
 author: SnehaSudhirG
 ---
 
-# Troubleshoot issues with update management center (preview)
+# Troubleshoot issues with Azure Update Manager (preview)
 
-This article describes the errors that might occur when you deploy or use update management center (preview) and how to resolve them.  
+This article describes the errors that might occur when you deploy or use Update Manager (preview), how to resolve them and the known issues and limitations of scheduled patching.  
+
 
 ## General troubleshooting
 
@@ -36,6 +37,18 @@ To review the logs related to all actions performed by the extension, check for 
 * `WindowsUpdateExtension.log`: Contains details related to the patch actions, such as the patches assessed and installed on the machine, and any issues encountered in the process.
 * `CommandExecution.log`: There is a wrapper above the patch action, which is used to manage the extension and invoke specific patch operation. This log contains details about the wrapper. For Auto-Patching, the log has details on whether the specific patch operation was invoked.
 
+## Unable to change the patch orchestration option to manual updates from automatic updates
+
+### Issue 
+
+Azure machine has the patch orchestration option as AutomaticByOS/Windows automatic updates and you are unable to change the patch orchestration to Manual Updates using Change update settings.
+
+### Resolution
+
+If you don't want any patch installation to be orchestrated by Azure or aren't using custom patching solutions, you can change the patch orchestration option to **Customer Managed Schedules (Preview)** or **AutomaticByPlatform/ByPassPlatformSafetyChecksOnUserSchedule** and not associate a schedule/maintenance configuration to the machine. This will ensure that no patching is performed on the machine until you change it explicitly. For more information, see **scenario 2** in [User scenarios](prerequsite-for-schedule-patching.md#user-scenarios).
+
+:::image type="content" source="./media/troubleshoot/known-issue-update-settings-failed.png" alt-text="Screenshot that shows a notification of failed update settings.":::
+
 ## Machine shows as "Not assessed" and shows an HRESULT exception
 
 ### Issue
@@ -45,7 +58,7 @@ To review the logs related to all actions performed by the extension, check for 
 
 ### Cause
 
-The Update Agent (Windows Update Agent on Windows; the package manager for a Linux distribution) isn't configured correctly. Update Management relies on the machine's Update Agent to provide the updates that are needed, the status of the patch, and the results of deployed patches. Without this information, Update Management can't properly report on the patches that are needed or installed.
+The Update Agent (Windows Update Agent on Windows; the package manager for a Linux distribution) isn't configured correctly. Update Manager relies on the machine's Update Agent to provide the updates that are needed, the status of the patch, and the results of deployed patches. Without this information, Update Manager can't properly report on the patches that are needed or installed.
 
 ### Resolution
 
@@ -91,7 +104,11 @@ To review the logs related to all actions performed by the extension, on Windows
 * `cmd_execution_<numeric>_stdout.txt`: There is a wrapper above the patch action, which is used to manage the extension and invoke specific patch operation. This log contains details about the wrapper. For Auto-Patching, the log has details on whether the specific patch operation was invoked.
 * `cmd_excution_<numeric>_stderr.txt`
 
-## Known issues
+## Known issues in schedule patching
+
+- For concurrent/conflicting schedule, only one schedule will be triggered. The other schedule will be triggered once a schedule is finished.
+- If a machine is newly created, the schedule might have 15 minutes of schedule trigger delay in case of Azure VMs.
+- Policy definition *[Preview]: Schedule recurring updates using Update Manager* with version 1.0.0-preview successfully remediates resources however, it will always show them as non-compliant. The current value of the existence condition is a placeholder that will always evaluate to false.
 
 ### Scenario: Unable to apply patches for the shutdown machines 
 
@@ -129,7 +146,10 @@ More details can be found by reviewing the logs in the file path provided in the
 
 Setting a longer time range for maximum duration when triggering an [on-demand update deployment](deploy-updates.md) helps avoid the problem.
 
+
+
+
 ## Next steps
 
-* To learn more about Azure Update management center (preview), see the [Overview](overview.md).
-* To view logged results from all your machines, see [Querying logs and results from update management center (preview)](query-logs.md).
+* To learn more about Azure Update Manager (preview), see the [Overview](overview.md).
+* To view logged results from all your machines, see [Querying logs and results from update Manager (preview)](query-logs.md).

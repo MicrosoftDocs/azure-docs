@@ -10,23 +10,23 @@ ms.service: machine-learning
 ms.subservice: automl
 ms.custom: event-tier1-build-2022, ignite-2022, devx-track-azurecli, devx-track-python
 ms.topic: how-to
-ms.date: 07/13/2022
+ms.date: 07/16/2023
 #Customer intent: I'm a data scientist with ML knowledge in the computer vision space, looking to build ML models using image data in Azure Machine Learning with full control of the model architecture, hyperparameters, and training and deployment environments.
 ---
 
 # Set up AutoML to train computer vision models
 
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 
-In this article, you learn how to train computer vision models on image data with automated ML with the Azure Machine Learning CLI extension v2 or the Azure Machine Learning Python SDK v2.
+In this article, you learn how to train computer vision models on image data with automated ML. You can train models using the Azure Machine Learning CLI extension v2 or the Azure Machine Learning Python SDK v2.
 
 Automated ML supports model training for computer vision tasks like image classification, object detection, and instance segmentation. Authoring AutoML models for computer vision tasks is currently supported via the Azure Machine Learning Python SDK. The resulting experimentation trials, models, and outputs are accessible from the Azure Machine Learning studio UI. [Learn more about automated ml for computer vision tasks on image data](concept-automated-ml.md).
 
 ## Prerequisites
 
 # [Azure CLI](#tab/cli)
- [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+ [!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 
 * An Azure Machine Learning workspace. To create the workspace, see [Create workspace resources](quickstart-create-resources.md).
@@ -34,16 +34,16 @@ Automated ML supports model training for computer vision tasks like image classi
 
 # [Python SDK](#tab/python)
 
- [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+ [!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 * An Azure Machine Learning workspace. To create the workspace, see [Create workspace resources](quickstart-create-resources.md).
 
 * The Azure Machine Learning Python SDK v2 installed.
 
     To install the SDK you can either,  
-    * Create a compute instance, which automatically installs the SDK and is pre-configured for ML workflows. For more information, see [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md).
+    * Create a compute instance, which automatically installs the SDK and is pre-configured for ML workflows. For more information, see [Create an Azure Machine Learning compute instance](how-to-create-compute-instance.md).
 
-    * Use the following commands to install Azure Machine Learning Python SDK v2:
+    * Use the following command is used to install Azure Machine Learning Python SDK v2:
        * Uninstall previous preview version:
        ```python
        pip uninstall azure-ai-ml
@@ -68,7 +68,7 @@ image instance segmentation| CLI v2: `image_instance_segmentation` <br> SDK v2: 
 
 # [Azure CLI](#tab/cli)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 This task type is a required parameter and can be set using the `task` key.
 
@@ -80,7 +80,7 @@ task: image_object_detection
 
 # [Python SDK](#tab/python)
 
- [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+ [!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 
 Based on the task type, you can create AutoML image jobs using task specific `automl` functions.
@@ -116,7 +116,7 @@ Field| Description
 `image_details`|Image metadata information consists of height, width, and format. This field is optional and hence may or may not exist.
 `label`| A json representation of the image label, based on the task type.
 
-The following is a sample JSONL file for image classification:
+The following code is a sample JSONL file for image classification:
 
 ```json
 {
@@ -200,13 +200,13 @@ transformations:
         column_type: stream_info
 ```
 
-Automated ML doesn't impose any constraints on training or validation data size for computer vision tasks. Maximum dataset size is only limited by the storage layer behind the dataset (i.e. blob store). There's no minimum number of images or labels. However, we recommend starting with a minimum of 10-15 samples per label to ensure the output model is sufficiently trained. The higher the total number of labels/classes, the more samples you need per label.
+Automated ML doesn't impose any constraints on training or validation data size for computer vision tasks. Maximum dataset size is only limited by the storage layer behind the dataset (Example: blob store). There's no minimum number of images or labels. However, we recommend starting with a minimum of 10-15 samples per label to ensure the output model is sufficiently trained. The higher the total number of labels/classes, the more samples you need per label.
 
 # [Azure CLI](#tab/cli)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
-Training data is a required parameter and is passed in using the `training_data` key. You can optionally specify another MLtable as a validation data with the `validation_data` key. If no validation data is specified, 20% of your training data will be used for validation by default, unless you pass `validation_data_size` argument with a different value.
+Training data is a required parameter and is passed in using the `training_data` key. You can optionally specify another MLtable as a validation data with the `validation_data` key. If no validation data is specified, 20% of your training data is used for validation by default, unless you pass `validation_data_size` argument with a different value.
 
 Target column name is a required parameter and used as target for supervised ML task. It's passed in using the `target_column_name` key. For example,
 
@@ -222,13 +222,13 @@ validation_data:
 
 # [Python SDK](#tab/python)
 
- [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 You can create data inputs from training and validation MLTable from your local directory or cloud storage with the following code:
 
 [!Notebook-python[] (~/azureml-examples-main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=data-load)]
 
-Training data is a required parameter and is passed in using the `training_data` parameter of the task specific `automl` type function. You can optionally specify another MLTable as a validation data with the `validation_data` parameter. If no validation data is specified, 20% of your training data will be used for validation by default, unless you pass `validation_data_size` argument with a different value.
+Training data is a required parameter and is passed in using the `training_data` parameter of the task specific `automl` type function. You can optionally specify another MLTable as a validation data with the `validation_data` parameter. If no validation data is specified, 20% of your training data is used for validation by default, unless you pass `validation_data_size` argument with a different value.
 
 Target column name is a required parameter and used as target for supervised ML task. It's passed in using the `target_column_name` parameter of the task specific `automl` function. For example,
 
@@ -244,7 +244,7 @@ image_object_detection_job = automl.image_object_detection(
 
 ## Compute to run experiment
 
-Provide a [compute target](concept-azure-machine-learning-architecture.md#compute-targets) for automated ML to conduct model training. Automated ML models for computer vision tasks require GPU SKUs and support NC and ND families. We recommend the NCsv3-series (with v100 GPUs) for faster training. A compute target with a multi-GPU VM SKU leverages multiple GPUs to also speed up training. Additionally, when you set up a compute target with multiple nodes you can conduct faster model training through parallelism when tuning hyperparameters for your model.
+Provide a [compute target](concept-azure-machine-learning-architecture.md#compute-targets) for automated ML to conduct model training. Automated ML models for computer vision tasks require GPU SKUs and support NC and ND families. We recommend the NCsv3-series (with v100 GPUs) for faster training. A compute target with a multi-GPU VM SKU uses multiple GPUs to also speed up training. Additionally, when you set up a compute target with multiple nodes you can conduct faster model training through parallelism when tuning hyperparameters for your model.
 
 > [!NOTE]
 > If you are using a [compute instance](concept-compute-instance.md) as your compute target, please make sure that multiple AutoML jobs are not run at the same time. Also, please make sure that `max_concurrent_trials` is set to 1 in your [job limits](#job-limits).
@@ -253,7 +253,7 @@ The compute target is passed in using the `compute` parameter. For example:
 
 # [Azure CLI](#tab/cli)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 ```yaml
 compute: azureml:gpu-cluster
@@ -261,7 +261,7 @@ compute: azureml:gpu-cluster
 
 # [Python SDK](#tab/python)
 
- [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+ [!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 ```python
 from azure.ai.ml import automl
@@ -277,7 +277,7 @@ image_object_detection_job = automl.image_object_detection(
 
 For computer vision tasks, you can launch either [individual trials](#individual-trials), [manual sweeps](#manually-sweeping-model-hyperparameters) or [automatic sweeps](#automatically-sweeping-model-hyperparameters-automode). We recommend starting with an automatic sweep to get a first baseline model. Then, you can try out individual trials with certain models and hyperparameter configurations. Finally, with manual sweeps you can explore multiple hyperparameter values near the more promising models and hyperparameter configurations. This three step workflow (automatic sweep, individual trials, manual sweeps) avoids searching the entirety of the hyperparameter space, which grows exponentially in the number of hyperparameters.
 
-Automatic sweeps can yield competitive results for many datasets. Additionally, they do not require advanced knowledge of model architectures, they take into account hyperparameter correlations and they work seamlessly across different hardware setups. All these reasons make them a strong option for the early stage of your experimentation process.
+Automatic sweeps can yield competitive results for many datasets. Additionally, they don't require advanced knowledge of model architectures, they take into account hyperparameter correlations and they work seamlessly across different hardware setups. All these reasons make them a strong option for the early stage of your experimentation process.
 
 ### Primary metric
 
@@ -300,7 +300,7 @@ Parameter | Detail
 
 # [Azure CLI](#tab/cli)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 ```yaml
 limits:
@@ -311,7 +311,7 @@ limits:
 
 # [Python SDK](#tab/python)
 
- [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+ [!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 [!Notebook-python[] (~/azureml-examples-main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=limit-settings)]
 
@@ -322,15 +322,15 @@ limits:
 > [!IMPORTANT]
 > This feature is currently in public preview. This preview version is provided without a service-level agreement. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-It is generally hard to predict the best model architecture and hyperparameters for a dataset. Also, in some cases the human time allocated to tuning hyperparameters may be limited. For computer vision tasks, you can specify a number of trials and the system will automatically determine the region of the hyperparameter space to sweep. You do not have to define a hyperparameter search space, a sampling method or an early termination policy.
+It's hard to predict the best model architecture and hyperparameters for a dataset. Also, in some cases the human time allocated to tuning hyperparameters may be limited. For computer vision tasks, you can specify any number of trials and the system automatically determines the region of the hyperparameter space to sweep. You don't have to define a hyperparameter search space, a sampling method or an early termination policy.
 
 #### Triggering AutoMode
 
-You can run automatic sweeps by setting `max_trials` to a value greater than 1 in `limits` and by not specifying the search space, sampling method and termination policy. We call this functionality AutoMode; please see an example below.
+You can run automatic sweeps by setting `max_trials` to a value greater than 1 in `limits` and by not specifying the search space, sampling method and termination policy. We call this functionality AutoMode; please see the following example.
 
 # [Azure CLI](#tab/cli)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 ```yaml
 limits:
@@ -340,14 +340,14 @@ limits:
 
 # [Python SDK](#tab/python)
 
- [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+ [!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 ```python
 image_object_detection_job.set_limits(max_trials=10, max_concurrent_trials=2)
 ```
 ---
 
-A number of trials between 10 and 20 will likely work well on many datasets. The [time budget](#job-limits) for the AutoML job can still be set, but we recommend doing this only if each trial may take a long time.
+A number of trials between 10 and 20 likely works well on many datasets. The [time budget](#job-limits) for the AutoML job can still be set, but we recommend doing this only if each trial may take a long time.
 
 > [!Warning]
 > Launching automatic sweeps via the UI is not supported at this time.
@@ -359,7 +359,7 @@ In individual trials, you directly control the model architecture and hyperparam
 
 #### Supported model architectures
 
-The following table summarizes the supported models for each computer vision task.
+The following table summarizes the supported legacy models for each computer vision task. Using only these legacy models will trigger runs using the legacy runtime (where each individual run or trial is submitted as a command job). Please see below for HuggingFace and MMDetection support.
 
 Task |  model architectures | String literal syntax<br> ***`default_model`\**** denoted with \*
 ---|----------|----------
@@ -367,12 +367,47 @@ Image classification<br> (multi-class and multi-label)| **MobileNet**: Light-wei
 Object detection | **YOLOv5**: One stage object detection model   <br>  **Faster RCNN ResNet FPN**: Two stage object detection models  <br> **RetinaNet ResNet FPN**: address class imbalance with Focal Loss <br> <br>*Note: Refer to [`model_size` hyperparameter](reference-automl-images-hyperparameters.md#model-specific-hyperparameters) for YOLOv5 model sizes.*| ***`yolov5`\**** <br> `fasterrcnn_resnet18_fpn` <br> `fasterrcnn_resnet34_fpn` <br> `fasterrcnn_resnet50_fpn` <br> `fasterrcnn_resnet101_fpn` <br> `fasterrcnn_resnet152_fpn` <br> `retinanet_resnet50_fpn` 
 Instance segmentation | **MaskRCNN ResNet FPN**| `maskrcnn_resnet18_fpn` <br> `maskrcnn_resnet34_fpn` <br> ***`maskrcnn_resnet50_fpn`\****  <br> `maskrcnn_resnet101_fpn` <br> `maskrcnn_resnet152_fpn`
 
+#### Supported model architectures - HuggingFace and MMDetection (preview)
+
+With the new backend that runs on [Azure Machine Learning pipelines](concept-ml-pipelines.md), you can additionally use any image classification model from the [HuggingFace Hub](https://huggingface.co/models?pipeline_tag=image-classification&library=transformers) which is part of the transformers library (such as microsoft/beit-base-patch16-224), as well as any object detection or instance segmentation model from the [MMDetection Version 2.28.2 Model Zoo](https://mmdetection.readthedocs.io/en/v2.28.2/model_zoo.html) (such as atss_r50_fpn_1x_coco). 
+
+In addition to supporting any model from HuggingFace Transfomers and MMDetection 2.28.2, we also offer a list of curated models from these libraries in the azureml-staging registry. These curated models have been tested thoroughly and use default hyperparameters selected from extensive benchmarking to ensure effective training. The table below summarizes these curated models.
+
+Task |  model architectures | String literal syntax
+---|----------|----------
+Image classification<br> (multi-class and multi-label)| **BEiT** <br> **ViT** <br> **DeiT** <br> **SwinV2]** | [`microsoft/beit-base-patch16-224-pt22k-ft22k`](https://ml.azure.com/registries/azureml/models/microsoft-beit-base-patch16-224-pt22k-ft22k/version/5)<br> [`google/vit-base-patch16-224`](https://ml.azure.com/registries/azureml/models/google-vit-base-patch16-224/version/5)<br> [`facebook/deit-base-patch16-224`](https://ml.azure.com/registries/azureml/models/facebook-deit-base-patch16-224/version/5)<br> [`microsoft/swinv2-base-patch4-window12-192-22k`](https://ml.azure.com/registries/azureml/models/microsoft-swinv2-base-patch4-window12-192-22k/version/5)
+Object Detection | **Sparse R-CNN** <br> **Deformable DETR** <br> **VFNet** <br> **YOLOF** <br> **Swin** | [`sparse_rcnn_r50_fpn_300_proposals_crop_mstrain_480-800_3x_coco`](https://ml.azure.com/registries/azureml/models/sparse_rcnn_r50_fpn_300_proposals_crop_mstrain_480-800_3x_coco/version/3)<br> [`sparse_rcnn_r101_fpn_300_proposals_crop_mstrain_480-800_3x_coco`](https://ml.azure.com/registries/azureml/models/sparse_rcnn_r101_fpn_300_proposals_crop_mstrain_480-800_3x_coco/version/3) <br> [`deformable_detr_twostage_refine_r50_16x2_50e_coco`](https://ml.azure.com/registries/azureml/models/deformable_detr_twostage_refine_r50_16x2_50e_coco/version/3) <br> [`vfnet_r50_fpn_mdconv_c3-c5_mstrain_2x_coco`](https://ml.azure.com/registries/azureml/models/vfnet_r50_fpn_mdconv_c3-c5_mstrain_2x_coco/version/3) <br> [`vfnet_x101_64x4d_fpn_mdconv_c3-c5_mstrain_2x_coco`](https://ml.azure.com/registries/azureml/models/vfnet_x101_64x4d_fpn_mdconv_c3-c5_mstrain_2x_coco/version/3) <br> [`yolof_r50_c5_8x8_1x_coco`](https://ml.azure.com/registries/azureml/models/yolof_r50_c5_8x8_1x_coco/version/3)
+Instance Segmentation | **Swin** | [`mask_rcnn_swin-t-p4-w7_fpn_1x_coco`](https://ml.azure.com/registries/azureml/models/mask_rcnn_swin-t-p4-w7_fpn_1x_coco/version/3)
+
+We constantly update the list of curated models. You can get the most up-to-date list of the curated models for a given task using the Python SDK:
+```
+credential = DefaultAzureCredential()
+ml_client = MLClient(credential, registry_name="azureml-staging")
+
+models = ml_client.models.list()
+classification_models = []
+for model in models:
+    model = ml_client.models.get(model.name, label="latest")
+    if model.tags['task'] == 'image-classification': # choose an image task
+        classification_models.append(model.name)
+
+classification_models
+```
+Output:
+```
+['google-vit-base-patch16-224',
+ 'microsoft-swinv2-base-patch4-window12-192-22k',
+ 'facebook-deit-base-patch16-224',
+ 'microsoft-beit-base-patch16-224-pt22k-ft22k']
+```
+Using any HuggingFace or MMDetection model will trigger runs using pipeline components. If both legacy and HuggingFace/MMdetection models are used, all runs/trials will be triggered using components. 
+
 
 In addition to controlling the model architecture, you can also tune hyperparameters used for model training. While many of the hyperparameters exposed are model-agnostic, there are instances where hyperparameters are task-specific or model-specific. [Learn more about the available hyperparameters for these instances](reference-automl-images-hyperparameters.md). 
 
 # [Azure CLI](#tab/cli)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 If you wish to use the default hyperparameter values for a given architecture (say yolov5), you can specify it using the model_name key in the training_parameters section. For example,
 
@@ -382,7 +417,7 @@ training_parameters:
 ```
 # [Python SDK](#tab/python)
 
- [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+ [!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 If you wish to use the default hyperparameter values for a given architecture (say yolov5), you can specify it using the model_name parameter in the set_training_parameters method of the task specific `automl` job. For example,
 
@@ -397,7 +432,7 @@ When training computer vision models, model performance depends heavily on the h
 
 # [Azure CLI](#tab/cli)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 ```yaml
 search_space:
@@ -429,7 +464,7 @@ search_space:
 
 # [Python SDK](#tab/python)
 
- [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+ [!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 [!Notebook-python[] (~/azureml-examples-main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=search-space-settings)]
 
@@ -473,11 +508,11 @@ Learn more about [how to configure the early termination policy for your hyperpa
 > For a complete sweep configuration sample, please refer to this [tutorial](tutorial-auto-train-image-models.md#manual-hyperparameter-sweeping-for-image-tasks).
 
 
-You can configure all the sweep related parameters as shown in the example below.
+You can configure all the sweep related parameters as shown in the following example.
 
 # [Azure CLI](#tab/cli)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 ```yaml
 sweep:
@@ -491,7 +526,7 @@ sweep:
 
 # [Python SDK](#tab/python)
 
- [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+ [!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 [!Notebook-python[] (~/azureml-examples-main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=sweep-settings)]
 
@@ -499,11 +534,11 @@ sweep:
 
 #### Fixed settings
 
-You can pass fixed settings or parameters that don't change during the parameter space sweep as shown below.
+You can pass fixed settings or parameters that don't change during the parameter space sweep as shown in the following example.
 
 # [Azure CLI](#tab/cli)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 ```yaml
 training_parameters:
@@ -514,7 +549,7 @@ training_parameters:
 
 # [Python SDK](#tab/python)
 
- [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+ [!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
  
 [!Notebook-python[] (~/azureml-examples-main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=pass-arguments)]
 
@@ -523,7 +558,7 @@ training_parameters:
 
 ## Data augmentation 
 
-In general, deep learning model performance can often improve with more data. Data augmentation is a practical technique to amplify the data size and variability of a dataset which helps to prevent overfitting and improve the model's generalization ability on unseen data. Automated ML applies different data augmentation techniques based on the computer vision task, before feeding input images to the model. Currently, there's no exposed hyperparameter to control data augmentations. 
+In general, deep learning model performance can often improve with more data. Data augmentation is a practical technique to amplify the data size and variability of a dataset, which helps to prevent overfitting and improve the model's generalization ability on unseen data. Automated ML applies different data augmentation techniques based on the computer vision task, before feeding input images to the model. Currently, there's no exposed hyperparameter to control data augmentations. 
 
 |Task | Impacted dataset | Data augmentation technique(s) applied |
 |-------|----------|---------|
@@ -532,16 +567,16 @@ In general, deep learning model performance can often improve with more data. Da
 |Object detection using yolov5| Training <br><br> Validation & Test  |Mosaic, random affine (rotation, translation, scale, shear), horizontal flip <br><br><br> Letterbox resizing|
 
 Currently the augmentations defined above are applied by default for an Automated ML for image job. To provide control over augmentations, Automated ML for images exposes below two flags to turn-off certain augmentations. Currently, these flags are only supported for object detection and instance segmentation tasks. 
- 1. **apply_mosaic_for_yolo:** This flag is only specific to Yolo model. Setting it to False turns off the mosaic data augmentation which is applied at the training time.
+ 1. **apply_mosaic_for_yolo:** This flag is only specific to Yolo model. Setting it to False turns off the mosaic data augmentation, which is applied at the training time.
  2. **apply_automl_train_augmentations:** Setting this flag to false turns off the augmentation applied during training time for the object detection and instance segmentation models. For augmentations, see the details in the table above.
-    - For non-yolo object detection model and instance segmentation models, this flag turns off only the first three augmentations i.e., *Random crop around bounding boxes, expand, horizontal flip*. The normalization and resize augmentations are still applied regardless of this flag.
+    - For non-yolo object detection model and instance segmentation models, this flag turns off only the first three augmentations. For example: *Random crop around bounding boxes, expand, horizontal flip*. The normalization and resize augmentations are still applied regardless of this flag.
     - For Yolo model, this flag turns off the random affine and horizontal flip augmentations.
 
 These two flags are supported via *advanced_settings* under *training_parameters* and can be controlled in the following way.
 
 # [Azure CLI](#tab/cli)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 ```yaml
 training_parameters:
@@ -553,7 +588,7 @@ training_parameters:
   advanced_settings: >
     {"apply_automl_train_augmentations": false}
 ```
- Please note that these two flags are independent of each other and can also be used in combination using the following settings.
+ Note that these two flags are independent of each other and can also be used in combination using the following settings.
  ```yaml
 training_parameters:
   advanced_settings: >
@@ -562,7 +597,7 @@ training_parameters:
 
 # [Python SDK](#tab/python)
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
  
 ```python
 from azure.ai.ml import automl
@@ -605,7 +640,7 @@ In our experiments, we found that these augmentations help the model to generali
 
 ##  Incremental training (optional)
 
-Once the training job is done, you have the option to further train the model by loading the trained model checkpoint. You can either use the same dataset or a different one for incremental training. 
+Once the training job is done, you can choose to further train the model by loading the trained model checkpoint. You can either use the same dataset or a different one for incremental training. If you are satisfied with the model, you can choose to stop training and use the current model. 
 
 
 ### Pass the checkpoint via job ID
@@ -614,7 +649,7 @@ You can pass the job ID that you want to load the checkpoint from.
 
 # [Azure CLI](#tab/cli)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 ```yaml
 training_parameters:
@@ -624,7 +659,7 @@ training_parameters:
 
 # [Python SDK](#tab/python)
 
- [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+ [!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 To find the job ID from the desired model, you can use the following code. 
 
@@ -676,7 +711,7 @@ automl_image_job_incremental = ml_client.jobs.create_or_update(
 
 # [Azure CLI](#tab/cli)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 To submit your AutoML job, you run the following CLI v2 command with the path to your .yml file, workspace name, resource group and subscription ID.
 
@@ -686,7 +721,7 @@ az ml job create --file ./hello-automl-job-basic.yml --workspace-name [YOUR_AZUR
 
 # [Python SDK](#tab/python)
 
- [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+ [!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 When you've configured your AutoML Job to the desired settings, you can submit the job.
 
@@ -695,7 +730,7 @@ When you've configured your AutoML Job to the desired settings, you can submit t
 
 ## Outputs and evaluation metrics
 
-The automated ML training jobs generates output model files, evaluation metrics, logs and deployment artifacts like the scoring file and the environment file which can be viewed from the outputs and logs and metrics tab of the child jobs.
+The automated ML training jobs generates output model files, evaluation metrics, logs and deployment artifacts like the scoring file and the environment file. These files and metrics can be viewed from the outputs and logs and metrics tab of the child jobs.
 
 > [!TIP]
 > Check how to navigate to the job results from the  [View job results](how-to-understand-automated-ml.md#view-job-results) section.
@@ -704,13 +739,13 @@ For definitions and examples of the performance charts and metrics provided for 
 
 ## Register and deploy model
 
-Once the job completes, you can register the model that was created from the best trial (configuration that resulted in the best primary metric). You can either register the model after downloading or by specifying the azureml path with corresponding jobid.  Note: If you want to change the inference settings that are described below you need to download the model and change settings.json and register using the updated model folder.
+Once the job completes, you can register the model that was created from the best trial (configuration that resulted in the best primary metric). You can either register the model after downloading or by specifying the azureml path with corresponding jobid.  Note: When you want to change the inference settings that are described below you need to download the model and change settings.json and register using the updated model folder.
 
 ### Get the best trial
 
 # [Azure CLI](#tab/cli)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 ```yaml
 CLI example not available, please use Python SDK.
@@ -718,7 +753,7 @@ CLI example not available, please use Python SDK.
 
 # [Python SDK](#tab/python)
 
- [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+ [!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 [!Notebook-python[] (~/azureml-examples-main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=best_run)] 
 
@@ -733,14 +768,14 @@ Register the model either using the azureml path or your locally downloaded path
 
 # [Azure CLI](#tab/cli)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 ```azurecli
  az ml model create --name od-fridge-items-mlflow-model --version 1 --path azureml://jobs/$best_run/outputs/artifacts/outputs/mlflow-model/ --type mlflow_model --workspace-name [YOUR_AZURE_WORKSPACE] --resource-group [YOUR_AZURE_RESOURCE_GROUP] --subscription [YOUR_AZURE_SUBSCRIPTION]
 ```
 # [Python SDK](#tab/python)
 
- [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+ [!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 [!Notebook-python[] (~/azureml-examples-main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=register_model)]    
 ---
@@ -751,7 +786,7 @@ After you register the model you want to use, you can deploy it using the manage
 
 # [Azure CLI](#tab/cli)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 ```yaml
 $schema: https://azuremlschemas.azureedge.net/latest/managedOnlineEndpoint.schema.json
@@ -761,7 +796,7 @@ auth_mode: key
     
 # [Python SDK](#tab/python)
 
- [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+ [!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 [!Notebook-python[] (~/azureml-examples-main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=endpoint)]    
 
@@ -769,19 +804,19 @@ auth_mode: key
 
 ### Create the endpoint
 
-Using the `MLClient` created earlier, we'll now create the Endpoint in the workspace. This command will start the endpoint creation and return a confirmation response while the endpoint creation continues.
+Using the `MLClient` created earlier, we create the Endpoint in the workspace. This command starts the endpoint creation and returns a confirmation response while the endpoint creation continues.
 
 
 # [Azure CLI](#tab/cli)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 ```azurecli
 az ml online-endpoint create --file .\create_endpoint.yml --workspace-name [YOUR_AZURE_WORKSPACE] --resource-group [YOUR_AZURE_RESOURCE_GROUP] --subscription [YOUR_AZURE_SUBSCRIPTION]
 ```
 
 # [Python SDK](#tab/python)
 
- [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+ [!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 [!Notebook-python[] (~/azureml-examples-main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=create_endpoint)]
 ---
@@ -793,7 +828,7 @@ A deployment is a set of resources required for hosting the model that does the 
 
 # [Azure CLI](#tab/cli)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 ```yaml
 name: od-fridge-items-mlflow-deploy
@@ -817,7 +852,7 @@ readiness_probe:
 
 # [Python SDK](#tab/python)
 
- [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+ [!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 [!Notebook-python[] (~/azureml-examples-main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=deploy)]
 ---
@@ -829,7 +864,7 @@ Using the `MLClient` created earlier, we'll now create the deployment in the wor
 
 # [Azure CLI](#tab/cli)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 ```azurecli
 az ml online-deployment create --file .\create_deployment.yml --workspace-name [YOUR_AZURE_WORKSPACE] --resource-group [YOUR_AZURE_RESOURCE_GROUP] --subscription [YOUR_AZURE_SUBSCRIPTION]
@@ -837,7 +872,7 @@ az ml online-deployment create --file .\create_deployment.yml --workspace-name [
 
 # [Python SDK](#tab/python)
 
- [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+ [!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 [!Notebook-python[] (~/azureml-examples-main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=create_deploy)]
 ---
@@ -847,7 +882,7 @@ By default the current deployment is set to receive 0% traffic. you can set the 
 
 # [Azure CLI](#tab/cli)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 ```azurecli
 az ml online-endpoint update --name 'od-fridge-items-endpoint' --traffic 'od-fridge-items-mlflow-deploy=100' --workspace-name [YOUR_AZURE_WORKSPACE] --resource-group [YOUR_AZURE_RESOURCE_GROUP] --subscription [YOUR_AZURE_SUBSCRIPTION]
@@ -855,7 +890,7 @@ az ml online-endpoint update --name 'od-fridge-items-endpoint' --traffic 'od-fri
 
 # [Python SDK](#tab/python)
 
- [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+ [!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 [!Notebook-python[] (~/azureml-examples-main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=update_traffic)]
 ---
@@ -884,12 +919,12 @@ Each of the tasks (and some models) has a set of parameters. By default, we use 
 |Object detection using `yolov5`| `img_size`<br>`model_size`<br>`box_score_thresh`<br>`nms_iou_thresh` | 640<br>medium<br>0.1<br>0.5 |
 |Instance segmentation| `min_size`<br>`max_size`<br>`box_score_thresh`<br>`nms_iou_thresh`<br>`box_detections_per_img`<br>`mask_pixel_score_threshold`<br>`max_number_of_polygon_points`<br>`export_as_image`<br>`image_type` | 600<br>1333<br>0.3<br>0.5<br>100<br>0.5<br>100<br>False<br>JPG|
 
-For a detailed description on task specific hyperparameters, please refer to [Hyperparameters for computer vision tasks in automated machine learning](./reference-automl-images-hyperparameters.md).
+For a detailed description on task specific hyperparameters, refer to [Hyperparameters for computer vision tasks in automated machine learning](./reference-automl-images-hyperparameters.md).
     
-If you want to use tiling, and want to control tiling behavior, the following parameters are available: `tile_grid_size`, `tile_overlap_ratio` and `tile_predictions_nms_thresh`. For more details on these parameters please check [Train a small object detection model using AutoML](./how-to-use-automl-small-object-detect.md).
+If you want to use tiling, and want to control tiling behavior, the following parameters are available: `tile_grid_size`, `tile_overlap_ratio` and `tile_predictions_nms_thresh`. For more details on these parameters check [Train a small object detection model using AutoML](./how-to-use-automl-small-object-detect.md).
 
 ###  Test the deployment
-Please check this [Test the deployment](./tutorial-auto-train-image-models.md#test-the-deployment) section to test the deployment and visualize the detections from the model.
+Check this [Test the deployment](./tutorial-auto-train-image-models.md#test-the-deployment) section to test the deployment and visualize the detections from the model.
 
 ## Generate explanations for predictions
 
@@ -906,12 +941,12 @@ Some of the advantages of using Explainable AI (XAI) with AutoML for images:
 - Helps in discovering the bias
 
 ### Explanations
-Explanations are **feature attributions** or weights given to each pixel in the input image based on its contribution to model's prediction. Each weight can be negative (negatively correlated with the prediction) or positive (positively correlated with the prediction). These attributions are calculated against the predicted class. For multi-class classification, exactly one attribution matrix of size `[3, valid_crop_size, valid_crop_size]` will be generated per sample, whereas for multi-label classification, attribution matrix of size `[3, valid_crop_size, valid_crop_size]` will be generated for each predicted label/class for each sample.
+Explanations are **feature attributions** or weights given to each pixel in the input image based on its contribution to model's prediction. Each weight can be negative (negatively correlated with the prediction) or positive (positively correlated with the prediction). These attributions are calculated against the predicted class. For multi-class classification, exactly one attribution matrix of size `[3, valid_crop_size, valid_crop_size]` is generated per sample, whereas for multi-label classification, attribution matrix of size `[3, valid_crop_size, valid_crop_size]` is generated for each predicted label/class for each sample.
 
-Using Explainable AI in AutoML for Images on the deployed endpoint, users can get **visualizations** of explanations (attributions overlaid on an input image) and/or **attributions** (multi-dimensional array of size `[3, valid_crop_size, valid_crop_size]`) for each image. Apart from visualizations, users can also get attribution matrices to gain more control over the explanations (like generating custom visualizations using attributions or scrutinizing segments of attributions). All the explanation algorithms will use cropped square images with size `valid_crop_size` for generating attributions.
+Using Explainable AI in AutoML for Images on the deployed endpoint, users can get **visualizations** of explanations (attributions overlaid on an input image) and/or **attributions** (multi-dimensional array of size `[3, valid_crop_size, valid_crop_size]`) for each image. Apart from visualizations, users can also get attribution matrices to gain more control over the explanations (like generating custom visualizations using attributions or scrutinizing segments of attributions). All the explanation algorithms use cropped square images with size `valid_crop_size` for generating attributions.
 
 
-Explanations can be generated either from **online endpoint** or **batch endpoint**. Once the deployment is done, this endpoint can be utilized to generate the explanations for predictions. In case of online deployment, make sure to pass `request_settings = OnlineRequestSettings(request_timeout_ms=90000)` parameter to `ManagedOnlineDeployment` and set `request_timeout_ms` to its maximum value to avoid **timeout issues** while generating explanations (refer to [register and deploy model section](#register-and-deploy-model)). Some of the explainability (XAI) methods like `xrai` consume more time (specially for multi-label classification as we need to generate attributions and/or visualizations against each predicted label). So, we recommend any GPU instance for faster explanations. For more information on input and output schema for generating explanations, see the [schema docs](reference-automl-images-schema.md#data-format-for-online-scoring-and-explainability-xai).
+Explanations can be generated either from **online endpoint** or **batch endpoint**. Once the deployment is done, this endpoint can be utilized to generate the explanations for predictions. In online deployments, make sure to pass `request_settings = OnlineRequestSettings(request_timeout_ms=90000)` parameter to `ManagedOnlineDeployment` and set `request_timeout_ms` to its maximum value to avoid **timeout issues** while generating explanations (refer to [register and deploy model section](#register-and-deploy-model)). Some of the explainability (XAI) methods like `xrai` consume more time (specially for multi-label classification as we need to generate attributions and/or visualizations against each predicted label). So, we recommend any GPU instance for faster explanations. For more information on input and output schema for generating explanations, see the [schema docs](reference-automl-images-schema.md#data-format-for-online-scoring-and-explainability-xai).
 
 
 We support following state-of-the-art explainability algorithms in AutoML for images:
@@ -932,7 +967,7 @@ Internally XRAI algorithm uses integrated gradients. So, `n_steps` parameter is 
 
 We recommend using XRAI > Guided GradCAM > Integrated Gradients > Guided BackPropagation algorithms for better explanations, whereas Guided BackPropagation > Guided GradCAM > Integrated Gradients > XRAI are recommended for faster explanations in the specified order.
 
-A sample request to the online endpoint looks like the following. This request generates explanations when `model_explainability` is set to `True`. Following request will generate visualizations and attributions using faster version of XRAI algorithm with 50 steps.
+A sample request to the online endpoint looks like the following. This request generates explanations when `model_explainability` is set to `True`. Following request generates visualizations and attributions using faster version of XRAI algorithm with 50 steps.
 
 ```python
 import base64
@@ -1001,7 +1036,7 @@ image = Image.open(BytesIO(img_bytes))
 Following picture describes the Visualization of explanations for a sample input image.
 ![Screenshot of visualizations generated by XAI for AutoML for images.](./media/how-to-auto-train-image-models/xai-visualization.jpg)
 
-Decoded base64 figure will have four image sections within a 2 x 2 grid.
+Decoded base64 figure has four image sections within a 2 x 2 grid.
 
 - Image at Top-left corner (0, 0) is the cropped input image
 - Image at top-right corner (0, 1) is the heatmap of attributions on a color scale bgyw (blue green yellow white) where the contribution of white pixels on the predicted class is the highest and blue pixels is the lowest.
@@ -1075,7 +1110,7 @@ By default, each model trains on a single VM. If training a model is taking too 
 
 # [Azure CLI](#tab/cli)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 ```yaml
 properties:
@@ -1084,7 +1119,7 @@ properties:
 
 # [Python SDK](#tab/python)
 
- [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+ [!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 Multi-node training is supported for all tasks. The `node_count_per_trial` property can be specified using the task-specific `automl` functions. For instance, for object detection:
 
@@ -1100,14 +1135,14 @@ image_object_detection_job = automl.image_object_detection(
 
 ### Streaming image files from storage
 
-By default, all image files are downloaded to disk prior to model training. If the size of the image files is greater than available disk space, the job will fail. Instead of downloading all images to disk, you can select to stream image files from Azure storage as they're needed during training. Image files are streamed from Azure storage directly to system memory, bypassing disk. At the same time, as many files as possible from storage are cached on disk to minimize the number of requests to storage.
+By default, all image files are downloaded to disk prior to model training. If the size of the image files is greater than available disk space, the job fails. Instead of downloading all images to disk, you can select to stream image files from Azure storage as they're needed during training. Image files are streamed from Azure storage directly to system memory, bypassing disk. At the same time, as many files as possible from storage are cached on disk to minimize the number of requests to storage.
 
 > [!NOTE]
 > If streaming is enabled, ensure the Azure storage account is located in the same region as compute to minimize cost and latency.
 
 # [Azure CLI](#tab/cli)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 ```yaml
 training_parameters:
@@ -1117,7 +1152,7 @@ training_parameters:
 
 # [Python SDK](#tab/python)
 
- [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+ [!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 ```python
 from azure.ai.ml import automl
@@ -1133,7 +1168,7 @@ image_object_detection_job.set_training_parameters(
 
 
 ## Example notebooks
-Review detailed code examples and use cases in the [GitHub notebook repository for automated machine learning samples](https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs/automl-standalone-jobs). Please check the folders with 'automl-image-' prefix for samples specific to building computer vision models.
+Review detailed code examples and use cases in the [GitHub notebook repository for automated machine learning samples](https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs/automl-standalone-jobs). Check the folders with 'automl-image-' prefix for samples specific to building computer vision models.
 
 
 ## Code examples
@@ -1145,7 +1180,7 @@ Review detailed code examples and use cases in the [azureml-examples repository 
 
 # [Python SDK](#tab/python)
 
- [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+ [!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 Review detailed code examples and use cases in the [GitHub notebook repository for automated machine learning samples](https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs/automl-standalone-jobs). 
 
@@ -1153,4 +1188,3 @@ Review detailed code examples and use cases in the [GitHub notebook repository f
 ## Next steps
 
 * [Tutorial: Train an object detection model with AutoML and Python](tutorial-auto-train-image-models.md).
-* [Troubleshoot automated ML experiments (SDK v1)](./v1/how-to-troubleshoot-auto-ml.md?view=azureml-api-1&preserve-view=true).

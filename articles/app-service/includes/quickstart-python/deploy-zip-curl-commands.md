@@ -9,7 +9,7 @@ ms.date: 01/29/2022
 ```bash
 curl -X POST \
     -H 'Content-Type: application/zip' \
-    -u <deployment-user> \
+    -u '<deployment-user>' \
     -T <zip-file-name> \
     https://<app-name>.scm.azurewebsites.net/api/zipdeploy
 ```

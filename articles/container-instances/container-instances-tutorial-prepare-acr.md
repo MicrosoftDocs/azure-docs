@@ -7,7 +7,7 @@ author: tomvcassidy
 ms.service: container-instances
 services: container-instances
 ms.date: 06/17/2022
-ms.custom: "seodec18, mvc, devx-track-azurecli"
+ms.custom: seodec18, mvc, devx-track-azurecli, devx-track-linux
 ---
 
 # Tutorial: Create an Azure container registry and push a container image

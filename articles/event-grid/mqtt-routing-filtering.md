@@ -10,6 +10,8 @@ ms.author: geguirgu
 # Filtering of MQTT Routed Messages
 You can use the Event Grid Subscription’s filtering capability to filter the routed MQTT messages.
 
+[!INCLUDE [mqtt-preview-note](./includes/mqtt-preview-note.md)]
+
 ## Topic filtering
 
 You can filter on the messages’ MQTT topics through filtering on the "subject" property in the Cloud Event schema. Event Grid Subscriptions supports free simple subject filtering by specifying a starting or ending value for the subject. For example,

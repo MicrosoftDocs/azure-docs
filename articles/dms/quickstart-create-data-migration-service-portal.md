@@ -21,7 +21,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ## Sign in to the Azure portal
 
-Open your web browser, navigate to the [Microsoft Azure portal](https://portal.azure.com/), and then enter your credentials to sign in to the portal. The default view is your service dashboard.
+From a web browser, sign in to the [Azure portal](https://portal.azure.com). The default view is your service dashboard.
 
 > [!NOTE]
 > You can create up to 10 instances of DMS per subscription per region. If you require a greater number of instances, please create a support ticket.

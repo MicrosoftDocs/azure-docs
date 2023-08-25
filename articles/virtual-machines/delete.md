@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 05/09/2022
 ms.author: cynthn
-ms.custom: template-how-to, devx-track-azurecli
+ms.custom: template-how-to, devx-track-azurecli, devx-track-linux, devx-track-azurepowershell
 ---
 
 # Delete a VM and attached resources
@@ -23,25 +23,25 @@ Depending on how you delete a VM, it may only delete the VM resource, not the ne
 1. Open the [portal](https://portal.azure.com).
 1. Select **+ Create a resource**.
 1. On the **Create a resource** page, under **Virtual machines**, select **Create**.
-1. Make your choices on the **Basics**, then select **Next : Disks >**. The **Disks** tab will open.
+1. Make your choices on the **Basics**, then select **Next : Disks >** to open the **Disks** tab.
 1. Under **Disk options**, by default the OS disk is set to **Delete with VM**. If you don't want to delete the OS disk, clear the checkbox. If you're using an existing OS disk, the default is to detach the OS disk when the VM is deleted.
 
     :::image type="content" source="media/delete/delete-disk.png" alt-text="Screenshot checkbox to choose to have the disk deleted when the VM is deleted.":::
 
 1. Under **Data disks**, you can either attach an existing data disk or create a new disk and attach it to the VM.
 
-    - If you choose **Create and attach a new disk**, the **Create a new disk** page will open and you can select whether to delete the disk when you delete the VM.
+    - If you choose **Create and attach a new disk**, the **Create a new disk** page opens and you can select whether to delete the disk when you delete the VM.
         :::image type="content" source="media/delete/delete-data-disk.png" alt-text="Screenshot showing a checkbox to choose to delete the data disk when the VM is deleted.":::
 
-    - If you choose to **Attach an existing disk**, you'll be able to choose the disk, LUN, and whether you want to delete the data disk when you delete the VM.
+    - If you choose to **Attach an existing disk**, can choose the disk, LUN, and whether you want to delete the data disk when you delete the VM.
         :::image type="content" source="media/delete/delete-existing-data-disk.png" alt-text="Screenshot showing the checkbox to choose to delete the data disk when the VM is deleted.":::
 
-1. When you're done adding your disk information, select **Next : Networking >**. The **Networking** tab will open.
+1. When you're done adding your disk information, select **Next : Networking >** to open the **Networking** tab.
 1. Towards the bottom of the page, select **Delete public IP and NIC when VM is deleted**.
 
     :::image type="content" source="media/delete/delete-networking.png" alt-text="Screenshot showing the checkbox to choose to delete the public IP and NIC when the VM is deleted.":::
 
-1. When you're done making selections, select **Review + create**. The **Review + create** page will open.
+1. When you're done making selections, select **Review + create**.
 1. You can verify which resources you have chosen to delete when you delete the VM.
 1. When you're satisfied with your selections, and validation passes, select **Create** to deploy the VM. 
 
@@ -94,7 +94,7 @@ New-AzVm `
 
 ### [REST](#tab/rest2)
 
-This example shows how to set the data disk and NIC to be deleted when the VM is deleted.
+This example shows how to set the data disk and NIC to be deleted when the VM is deleted. Note, the API version specified in the api-version parameter must be '2021-03-01' or newer to configure the delete option. 
 
 ```rest
 PUT 
@@ -116,8 +116,8 @@ https://management.azure.com/subscriptions/subid/resourceGroups/rg1/providers/Mi
         { 
           "id": "/subscriptions/.../Microsoft.Network/networkInterfaces/myNIC", 
           "properties": { 
-            "primary": true, 
-  	         "deleteOption": "Delete"
+            "primary": true,
+  	        "deleteOption": "Delete"
           }
         } 
       ]
@@ -186,9 +186,21 @@ The following example sets the delete option to `detach` so you can reuse the di
 az resource update --resource-group myResourceGroup --name myVM --resource-type virtualMachines --namespace Microsoft.Compute --set properties.storageProfile.osDisk.deleteOption=detach
 ```
 
+### [PowerShell](#tab/powershell3)
+
+The following example updates VM to delete the OS disk, all data disks, and all NICs when the VM is deleted.
+
+```azurepowershell
+$vmConfig = Get-AzVM -ResourceGroupName myResourceGroup -Name myVM
+$vmConfig.StorageProfile.OsDisk.DeleteOption = 'Delete'
+$vmConfig.StorageProfile.DataDisks | ForEach-Object { $_.DeleteOption = 'Delete' }
+$vmConfig.NetworkProfile.NetworkInterfaces | ForEach-Object { $_.DeleteOption = 'Delete' }
+$vmConfig | Update-AzVM
+``` 
+
 ### [REST](#tab/rest3)
 
-The following example updates the VM to delete the NIC, OS  disk, and data disk when the VM is deleted.
+The following example updates the VM to delete the NIC, OS disk, and data disk when the VM is deleted. Note, the API version specified in the api-version parameter must be '2021-03-01' or newer to configure the delete option. 
 
 ```rest
 PATCH https://management.azure.com/subscriptions/subID/resourceGroups/resourcegroup/providers/Microsoft.Compute/virtualMachines/testvm?api-version=2021-07-01 
@@ -283,7 +295,7 @@ PATCH https://management.azure.com/subscriptions/subID/resourceGroups/resourcegr
 
 ## Force Delete for VMs
 
-Force delete allows you to forcefully delete your virtual machine, reducing delete latency and immediately freeing up attached resources. For VMs that don't require graceful shutdown, Force Delete will delete the VM as fast as possible while relieving the logical resources from the VM, bypassing the graceful shutdown and some of the cleanup operations. Force Delete won't immediately free the MAC address associated with a VM, as this is a physical resource that may take up to 10 min to free. If you need to immediately re-use the MAC address on a new VM, Force Delete isn't recommended. Force delete should only be used when you aren't intending to re-use virtual hard disks. You can use force delete through Portal, CLI, PowerShell, and REST API.
+Force delete allows you to forcefully delete your virtual machine, reducing delete latency and immediately freeing up attached resources. For VMs that don't require graceful shutdown, Force Delete will delete the VM as fast as possible while relieving the logical resources from the VM, bypassing the graceful shutdown and some of the cleanup operations. Force Delete won't immediately free the MAC address associated with a VM, as this is a physical resource that may take up to 10 min to free. If you need to immediately reuse the MAC address on a new VM, Force Delete isn't recommended. Force delete should only be used when you aren't intending to reuse virtual hard disks. You can use force delete through Portal, CLI, PowerShell, and REST API.
 
 ### [Portal](#tab/portal4)
 
@@ -325,7 +337,7 @@ You can use the Azure REST API to apply force delete to your virtual machines. U
 
 ## Force Delete for scale sets
 
-Force delete allows you to forcefully delete your **Uniform** Virtual Machine Scale Set, reducing delete latency and immediately freeing up attached resources. Force Delete won't immediately free the MAC address associated with a VM, as this is a physical resource that may take up to 10 min to free. If you need to immediately re-use the MAC address on a new VM, Force Delete isn't recommended. Force delete should only be used when you are not intending to re-use virtual hard disks. You can use force delete through Portal, CLI, PowerShell, and REST API.
+Force delete allows you to forcefully delete your **Uniform** Virtual Machine Scale Set, reducing delete latency and immediately freeing up attached resources. Force Delete won't immediately free the MAC address associated with a VM, as this is a physical resource that may take up to 10 min to free. If you need to immediately reuse the MAC address on a new VM, Force Delete is not recommended. Force delete should only be used when you are not intending to reuse virtual hard disks. You can use force delete through Portal, CLI, PowerShell, and REST API.
 
 ### [Portal](#tab/portal5)
 
@@ -345,7 +357,7 @@ Use the `--force-deletion` parameter for [`az vmss delete`](/cli/azure/vmss#az-v
 az vmss delete \
     --resource-group myResourceGroup \
     --name myVMSS \
-    --force-deletion
+    --force-deletion true
 ```
 
 ### [PowerShell](#tab/powershell5)

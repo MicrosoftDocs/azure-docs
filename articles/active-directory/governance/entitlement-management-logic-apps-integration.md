@@ -43,15 +43,18 @@ Entitlement management use cases that can be integrated with Logic Apps include 
 
 These triggers to Logic Apps are controlled in a tab within access package policies called **Rules**. Additionally, a **Custom Extensions** tab on the Catalog page shows all added Logic Apps extensions for a given Catalog. This article describes how to create and add logic apps to catalogs and access packages in entitlement management. 
 
+## License requirements
+
+[!INCLUDE [active-directory-entra-governance-license.md](../../../includes/active-directory-entra-governance-license.md)]
+
+
 ## Create and add a Logic App workflow to a catalog for use in entitlement management 
 
 **Prerequisite roles:** Global administrator, Identity Governance administrator, Catalog owner or Resource Group Owner 
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1. In the Azure portal, select **Azure Active Directory** and then select **Identity Governance**. 
-
-1. In the left menu, select **Catalogs**. 
+1. Browse to **Identity governance** > **Catalogs**.
 
 1. Select the catalog for which you want to add a custom extension and then in the left menu, select **Custom Extensions**. 
 
@@ -116,11 +119,9 @@ These triggers to Logic Apps are controlled in a tab within access package polic
 
 **Prerequisite roles:** Global administrator, Identity Governance administrator, Catalog owner, or Access package manager 
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1. In the Azure portal, select **Azure Active Directory** and then select **Identity Governance**. 
-
-1. In the left menu, select **Access packages**. 
+1. Browse to **Identity governance** > **Entitlement management** > **Access package**.
 
 1. Select the access package you want to add a custom extension (logic app) to from the list of access packages that have already been created.  
 

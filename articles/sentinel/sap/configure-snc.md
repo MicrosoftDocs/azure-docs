@@ -103,6 +103,24 @@ This section explains how to import a certificate so that it's trusted by your A
 
 1. Ensure **Entry for RFC activated** and **Entry for certificate activated** checkboxes are marked, then select **Save**.
 
+### Map users of the ABAP service provider to external user IDs
+
+1. Run the **SM30** transaction.
+
+1. In the **Table/View** field, type **VUSREXTID**, then select **Maintain**. 
+
+1. In the **Determine Work Area: Entry** page, select the **DN** ID type as the **Work Area**. 
+
+1. Type these details:
+
+    - **External ID**: *CN=Sentinel*, *C=US*
+    - **Seq. No**: *000*
+    - **User**: *SENTINEL*
+
+1. Select **Save** and **Enter**. 
+
+    :::image type="content" source="media/configure-snc/vusrextid-table-configuration.png" alt-text="Screenshot of configuring the SAP VUSREXTID table.":::
+
 ### Set up the container
 
 > [!NOTE]
@@ -194,7 +212,6 @@ Learn more about the Microsoft Sentinel solution for SAP® applications:
 Troubleshooting:
 
 - [Troubleshoot your Microsoft Sentinel solution for SAP® applications deployment](sap-deploy-troubleshoot.md)
-- [Configure SAP Transport Management System](configure-transport.md)
 
 Reference files:
 

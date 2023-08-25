@@ -403,10 +403,7 @@
       displayName: create users, add users, delete users, revoke sessions
     - name: Migrate users
       href: user-migration.md
-      displayName: bulk import
-    - name: Manage inactive users   
-      href: user-manage-inactive.md
-      displayName: Manage and delete inactive users          
+      displayName: bulk import        
     - name: Partner integration
       items:
       - name: N8identity

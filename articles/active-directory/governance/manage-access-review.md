@@ -22,11 +22,11 @@ ms.collection: M365-identity-device-management
 With access reviews, you can easily ensure that users or guests have appropriate access. You can ask the users themselves or a decision maker to participate in an access review and recertify (or attest) to users' access. The reviewers can give their input on each user's need for continued access based on suggestions from Azure AD. When an access review is finished, you can then make changes and remove access from users who no longer need it.
  
 > [!NOTE]
-> This article discusses conducting access reviews for users and applications. To see information on conducting an access review for multiple resources in access packages see here [Review access of an access package in Azure AD entitlement management](entitlement-management-access-reviews-review-access.md). If you want to review user or service principal access to Azure AD or Azure resource roles, see [Start an access review in Azure AD Privileged Identity Management](../privileged-identity-management/pim-how-to-start-security-review.md).
+> This article discusses conducting access reviews for users and applications. To see information on conducting an access review for multiple resources in access packages see here [Review access of an access package in Azure AD entitlement management](entitlement-management-access-reviews-review-access.md). If you want to review user or service principal access to Azure AD or Azure resource roles, see [Start an access review in Azure AD Privileged Identity Management](../privileged-identity-management/pim-create-roles-and-resource-roles-review.md).
  
 ## Prerequisites
  
-- Azure AD Premium P2
+- Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance
  
 For more information, see [License requirements](access-reviews-overview.md#license-requirements).
  
@@ -152,5 +152,3 @@ In some organizations, guests might not be aware of their group memberships.
 ## Next steps
  
 [Create an access review of groups or applications](create-access-review.md)
-
-

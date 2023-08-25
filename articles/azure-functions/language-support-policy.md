@@ -2,7 +2,7 @@
 title: Azure Functions language runtime support policy
 description: Learn about Azure Functions language runtime support policy
 ms.topic: conceptual
-ms.date: 08/17/2021
+ms.date: 07/18/2023
 ---
 
 # Language runtime support policy
@@ -23,7 +23,7 @@ After the language end-of-life date, function apps that use retired language ver
 
 > [!IMPORTANT]
 >You're highly encouraged to upgrade the language version of your affected function apps to a supported version.
->If you're running functions apps using an unsupported language version, you'll be required to upgrade before receiving support for your function app.
+>If you're running functions apps using an unsupported runtime or language version, you may encounter issues and performance implications and will be required to upgrade before receiving support for your function app.
 
 
 ## Retirement policy exceptions
@@ -32,7 +32,10 @@ There are few exceptions to the retirement policy outlined above. Here is a list
 
 |Language Versions                        |EOL Date         |Retirement Date|
 |-----------------------------------------|-----------------|----------------|
-|Node 12|30 Apr 2022|13 December 2022|
+|Python 3.7|27 June 2023|30 September 2023|
+|Node 14|30 April 2023|30 June 2024|
+|Node 16|11 September 2023|30 June 2024|
+
 
 ## Language version support timeline
 
@@ -47,7 +50,8 @@ To learn more about specific language version support policy timeline, visit the
 
 |Language                         | Configuration guides         |
 |-----------------------------------------|-----------------|
-|C# (class library) |[link](./functions-dotnet-class-library.md#supported-versions)|
+|C# (in-process model) |[link](./functions-dotnet-class-library.md#supported-versions)|
+|C# (isolated worker model) |[link](./dotnet-isolated-process-guide.md#supported-versions)|
 |Node |[link](./functions-reference-node.md#setting-the-node-version)|
 |PowerShell |[link](./functions-reference-powershell.md#changing-the-powershell-version)|
 |Python |[link](./functions-reference-python.md#python-version)|

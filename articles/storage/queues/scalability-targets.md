@@ -7,8 +7,7 @@ services: storage
 ms.author: tamram
 ms.date: 12/18/2019
 ms.topic: conceptual
-ms.service: storage
-ms.subservice: queues
+ms.service: azure-queue-storage
 ---
 
 # Scalability and performance targets for Queue Storage

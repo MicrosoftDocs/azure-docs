@@ -111,7 +111,7 @@ await client.CreateDocumentAsync(
 
 * `Microsoft.Azure.Documents.Document`
 
-Because the .NET v3 SDK allows users to configure a custom serialization engine, there's no direct replacement for the `Document` type. When using Newtonsoft.Json (default serialization engine), `JObject` can be used to achieve the same functionality. When using a different serialization engine, you can use its base json document type (for example, `JsonDocument` for System.Text.Json). The recommendation is to use a C# type that reflects the schema of your items instead of relying on generic types.
+Because the .NET v3 SDK allows users to configure [a custom serialization engine](migrate-dotnet-v3.md#customize-serialization), there's no direct replacement for the `Document` type. When using Newtonsoft.Json (default serialization engine), `JObject` can be used to achieve the same functionality. When using a different serialization engine, you can use its base json document type (for example, `JsonDocument` for System.Text.Json). The recommendation is to use a C# type that reflects the schema of your items instead of relying on generic types.
 
 * `Microsoft.Azure.Documents.Resource`
 
@@ -145,8 +145,8 @@ The `FeedOptions` class in SDK v2 has now been renamed to `QueryRequestOptions` 
 |`FeedOptions.EnableCrossPartitionQuery`|Removed. Default behavior in SDK 3.0 is that cross-partition queries will be executed without the need to enable the property specifically. |
 |`FeedOptions.PopulateQueryMetrics`|Removed. It is now enabled by default and part of the [diagnostics](troubleshoot-dotnet-sdk.md#capture-diagnostics).|
 |`FeedOptions.RequestContinuation`|Removed. It is now promoted to the query methods themselves. |
-|`FeedOptions.JsonSerializerSettings`|Removed. Serialization can be customized through a [custom serializer](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.serializer) or [serializer options](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.serializeroptions).|
-|`FeedOptions.PartitionKeyRangeId`|Removed. Same outcome can be obtained from using [FeedRange](change-feed-pull-model.md#using-feedrange-for-parallelization) as input to the query method.|
+|`FeedOptions.JsonSerializerSettings`|Removed. See how to [customize serialization](#customize-serialization) for additional information.|
+|`FeedOptions.PartitionKeyRangeId`|Removed. Same outcome can be obtained from using [FeedRange](change-feed-pull-model.md#use-feedrange-for-parallelization) as input to the query method.|
 |`FeedOptions.DisableRUPerMinuteUsage`|Removed.|
 
 ### Constructing a client
@@ -258,13 +258,13 @@ Executing change feed queries on the v3 SDK is considered to be using the [chang
 
 | .NET v2 SDK | .NET v3 SDK |
 |-------------|-------------|
-|`ChangeFeedOptions.PartitionKeyRangeId`|`FeedRange` - In order to achieve parallelism reading the change feed [FeedRanges](change-feed-pull-model.md#using-feedrange-for-parallelization) can be used. It's no longer a required parameter, you can [read the Change Feed for an entire container](change-feed-pull-model.md#consuming-an-entire-containers-changes) easily now.|
-|`ChangeFeedOptions.PartitionKey`|`FeedRange.FromPartitionKey` - A FeedRange representing the desired Partition Key can be used to [read the Change Feed for that Partition Key value](change-feed-pull-model.md#consuming-a-partition-keys-changes).|
-|`ChangeFeedOptions.RequestContinuation`|`ChangeFeedStartFrom.Continuation` - The change feed iterator can be stopped and resumed at any time by [saving the continuation and using it when creating a new iterator](change-feed-pull-model.md#saving-continuation-tokens).|
+|`ChangeFeedOptions.PartitionKeyRangeId`|`FeedRange` - In order to achieve parallelism reading the change feed [FeedRanges](change-feed-pull-model.md#use-feedrange-for-parallelization) can be used. It's no longer a required parameter, you can [read the Change Feed for an entire container](change-feed-pull-model.md#consume-the-changes-for-an-entire-container) easily now.|
+|`ChangeFeedOptions.PartitionKey`|`FeedRange.FromPartitionKey` - A FeedRange representing the desired Partition Key can be used to [read the Change Feed for that Partition Key value](change-feed-pull-model.md#consume-the-changes-for-a-partition-key).|
+|`ChangeFeedOptions.RequestContinuation`|`ChangeFeedStartFrom.Continuation` - The change feed iterator can be stopped and resumed at any time by [saving the continuation and using it when creating a new iterator](change-feed-pull-model.md#save-continuation-tokens).|
 |`ChangeFeedOptions.StartTime`|`ChangeFeedStartFrom.Time` |
 |`ChangeFeedOptions.StartFromBeginning` |`ChangeFeedStartFrom.Beginning` |
-|`ChangeFeedOptions.MaxItemCount`|`ChangeFeedRequestOptions.PageSizeHint` - The change feed iterator can be stopped and resumed at any time by [saving the continuation and using it when creating a new iterator](change-feed-pull-model.md#saving-continuation-tokens).|
-|`IDocumentQuery.HasMoreResults` |`response.StatusCode == HttpStatusCode.NotModified` - The change feed is conceptually infinite, so there could always be more results. When a response contains the `HttpStatusCode.NotModified` status code, it means there are no new changes to read at this time. You can use that to stop and [save the continuation](change-feed-pull-model.md#saving-continuation-tokens) or to temporarily sleep or wait and then call `ReadNextAsync` again to test for new changes. |
+|`ChangeFeedOptions.MaxItemCount`|`ChangeFeedRequestOptions.PageSizeHint` - The change feed iterator can be stopped and resumed at any time by [saving the continuation and using it when creating a new iterator](change-feed-pull-model.md#save-continuation-tokens).|
+|`IDocumentQuery.HasMoreResults` |`response.StatusCode == HttpStatusCode.NotModified` - The change feed is conceptually infinite, so there could always be more results. When a response contains the `HttpStatusCode.NotModified` status code, it means there are no new changes to read at this time. You can use that to stop and [save the continuation](change-feed-pull-model.md#save-continuation-tokens) or to temporarily sleep or wait and then call `ReadNextAsync` again to test for new changes. |
 |Split handling|It's no longer required for users to handle split exceptions when reading the change feed, splits will be handled transparently without the need of user interaction.|
 
 ### Using the bulk executor library directly from the V3 SDK
@@ -272,6 +272,33 @@ Executing change feed queries on the v3 SDK is considered to be using the [chang
 The v3 SDK has built-in support for the bulk executor library, allowing you to use the same SDK for building your application and performing bulk operations. Previously, you were required to use a separate bulk executor library.
 
 For more information, see [how to migrate from the bulk executor library to  bulk support in Azure Cosmos DB .NET V3 SDK](how-to-migrate-from-bulk-executor-library.md)
+
+### Customize serialization
+The .NET V2 SDK allows setting *JsonSerializerSettings* in *RequestOptions* at the operational level used to deserialize the result document:
+
+```csharp
+// .NET V2 SDK
+var result = await container.ReplaceDocumentAsync(document, new RequestOptions { JsonSerializerSettings = customSerializerSettings })
+```
+
+The .NET SDK v3 provides a [serializer interface](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.serializer) to fully customize the serialization engine, or more generic [serialization options](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.serializeroptions) as part of the client construction.
+
+Customizing the serialization at the operation level can be achieved through the use of Stream APIs:
+
+```csharp
+// .NET V3 SDK
+using(Response response = await this.container.ReplaceItemStreamAsync(stream, "itemId", new PartitionKey("itemPartitionKey"))
+{
+
+    using(Stream stream = response.ContentStream)
+    {
+        using (StreamReader streamReader = new StreamReader(stream))
+        {
+            // Read the stream and do dynamic deserialization based on type with a custom Serializer
+        }
+    }
+}
+```
 
 ## Code snippet comparisons
 
