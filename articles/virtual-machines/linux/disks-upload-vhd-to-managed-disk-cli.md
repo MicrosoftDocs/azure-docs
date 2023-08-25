@@ -4,7 +4,7 @@ description: Learn how to upload a VHD to an Azure managed disk and copy a manag
 services: "virtual-machines,storage"
 author: roygara
 ms.author: rogarana
-ms.date: 08/18/2023
+ms.date: 08/25/2023
 ms.topic: how-to
 ms.service: azure-disk-storage
 ms.custom: devx-track-azurecli
@@ -75,8 +75,12 @@ Replace `<yourdiskname>`, `<yourresourcegroupname>`, `<yourregion>` with values 
 > 
 > If you're using Azure AD to secure disk uploads, add `-dataAccessAuthmode 'AzureActiveDirectory'`.
 > When uploading to an Ultra Disk or Premium SSD v2 you need to select the correct sector size of the target disk. If you're using a VHDX file with a 4k logical sector size, the target disk must be set to 4k. If you're using a VHD file with a 512 logical sector size, the target disk must be set to 512.
+>
+> VHDX files with logical sector size of 512k aren't supported.
 
 ```azurecli
+##For Ultra Disk or Premium SSD v2, add --logical-sector-size and specify either 512 or 4096, depending on if you're using a VHD or VHDX
+
 az disk create -n <yourdiskname> -g <yourresourcegroupname> -l <yourregion> --os-type Linux --for-upload --upload-size-bytes 34359738880 --sku standard_lrs
 ```
 
@@ -129,14 +133,6 @@ Replace `<yourdiskname>`and `<yourresourcegroupname>`, then use the following co
 ```azurecli
 az disk revoke-access -n <yourdiskname> -g <yourresourcegroupname>
 ```
-
-Ultra disk and Premium SSD v2 disk support both 4k sector size and 512e sector size (512-byte-emulation). When importing a VHD or VHDX file from on-premises to Azure, it is important to make sure the file format is compatible to target disk's sector size. Follow guidelines below to align the sector size of target disk with your VHD or VHDX file.
-
-- Import a VHDX file with 4k logical sector size: Sector size of the target disk should be 4k
-
-- Import a VHD file with 512 logical sector size: Sector size of the target disk should be 512e
-
-Note that the import of VHDX file with logical sector size of 512k is not supported.
 
 ## Copy a managed disk
 

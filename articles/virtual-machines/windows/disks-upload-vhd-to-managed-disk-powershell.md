@@ -3,7 +3,7 @@ title: Upload a VHD to Azure or copy a disk across regions - Azure PowerShell
 description: Learn how to upload a VHD to an Azure managed disk and copy a managed disk across regions, using Azure PowerShell, via direct upload.    
 author: roygara
 ms.author: rogarana
-ms.date: 08/18/2023
+ms.date: 08/25/2023
 ms.topic: how-to
 ms.service: azure-disk-storage
 ms.tgt_pltfrm: linux
@@ -43,7 +43,7 @@ For detailed steps on assigning a role, see [Assign Azure roles using Azure Powe
 
 There are two ways you can upload a VHD with the Azure PowerShell module: You can either use the [Add-AzVHD](/powershell/module/az.compute/add-azvhd) command, which will automate most of the process for you, or you can perform the upload manually with AzCopy.
 
-Generally, you should use [Add-AzVHD](#use-add-azvhd). However, if you need to upload a VHD that is larger than 50 GiB, consider [uploading the VHD manually with AzCopy](#manual-upload). VHDs 50 GiB and larger upload faster using AzCopy.
+For Premium SSDs, Standard SSDs, and Standard HDDs, you should generally use [Add-AzVHD](#use-add-azvhd). However, if you're uploading to an Ultra Disk, or a Premium SSD v2, or if you need to upload a VHD that is larger than 50 GiB, you must [upload the VHD or VHDX manually with AzCopy](#manual-upload). VHDs 50 GiB and larger upload faster using AzCopy and Add-AzVhd doesn't currently support uploading to an Ultra Disk or a Premium SSD v2.
 
 For guidance on how to copy a managed disk from one region to another, see [Copy a managed disk](#copy-a-managed-disk).
 
@@ -124,16 +124,20 @@ Replace `<yourdiskname>`, `<yourresourcegroupname>`, and `<yourregion>` then run
 > 
 > If you're using Azure AD to secure your uploads, add `-dataAccessAuthMode 'AzureActiveDirectory'` to `New-AzDiskConfig`.  
 > When uploading to an Ultra Disk or Premium SSD v2 you need to select the correct sector size of the target disk. If you're using a VHDX file with a 4k logical sector size, the target disk must be set to 4k. If you're using a VHD file with a 512 logical sector size, the target disk must be set to 512.
+>
+> VHDX files with logical sector size of 512k aren't supported.
 
 ```powershell
 $vhdSizeBytes = (Get-Item "<fullFilePathHere>").length
+
+## For Ultra Disks or Premium SSD v2, add -LogicalSectorSize and specify either 4096 or 512, depending on if you're using a VHDX or a VHD
 
 $diskconfig = New-AzDiskConfig -SkuName 'Standard_LRS' -OsType 'Windows' -UploadSizeInBytes $vhdSizeBytes -Location '<yourregion>' -CreateOption 'Upload'
 
 New-AzDisk -ResourceGroupName '<yourresourcegroupname>' -DiskName '<yourdiskname>' -Disk $diskconfig
 ```
 
-If you would like to upload either a premium SSD or a standard SSD, replace **Standard_LRS** with either **Premium_LRS** or **StandardSSD_LRS**. Ultra disks aren't currently supported.
+If you would like to upload either a premium SSD or a standard SSD, replace **Standard_LRS** with either **Premium_LRS** or **StandardSSD_LRS**.
 
 ### Generate writeable SAS
 
@@ -151,7 +155,7 @@ $disk = Get-AzDisk -ResourceGroupName '<yourresourcegroupname>' -DiskName '<your
 
 Now that you have a SAS for your empty managed disk, you can use it to set your managed disk as the destination for your upload command.
 
-Use AzCopy v10 to upload your local VHD or VHDX  file to a managed disk by specifying the SAS URI you generated.
+Use AzCopy v10 to upload your local VHD or VHDX file to a managed disk by specifying the SAS URI you generated.
 
 This upload has the same throughput as the equivalent [standard HDD](../disks-types.md#standard-hdds). For example, if you have a size that equates to S4, you will have a throughput of up to 60 MiB/s. But, if you have a size that equates to S70, you will have a throughput of up to 500 MiB/s.
 
@@ -166,14 +170,6 @@ Replace `<yourdiskname>`and `<yourresourcegroupname>`, then run the following co
 ```powershell
 Revoke-AzDiskAccess -ResourceGroupName '<yourresourcegroupname>' -DiskName '<yourdiskname>'
 ```
-
-Ultra disk and Premium SSD v2 disk support both 4k sector size and 512e sector size (512-byte-emulation). When importing a VHD or VHDX file from on-premises to Azure, it is important to make sure the file format is compatible to target disk's sector size. Follow guidelines below to align the sector size of target disk with your VHD or VHDX file.
-
-- Import a VHDX file with 4k logical sector size: Sector size of the target disk should be 4k
-
-- Import a VHD file with 512 logical sector size: Sector size of the target disk should be 512e
-
-Note that the import of VHDX file with logical sector size of 512k is not supported.
 
 ## Copy a managed disk
 
