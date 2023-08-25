@@ -26,7 +26,7 @@ The following table lists the supported operating system versions.
 | Ubuntu  | Ubuntu 20.04  | `linux`   | `ubuntu-latest` or `ubuntu-20.04` |
 | Ubuntu  | Ubuntu 18.04  | `linux`   | `ubuntu-18.04`                    |
 
-By default, Microsoft Playwright Testing runs tests on the latest Ubuntu version. Learn how to override the default operating system and [run tests on multiple operating systems](./how-to-cross-platform-tests.md).
+By default, Microsoft Playwright Testing runs tests on the latest Ubuntu version.
 
 > [!NOTE]
 > macOS support is coming soon. [Contact the product team](mailto:pw-service-preview@microsoft.com) to register early access for macOS.
@@ -49,5 +49,5 @@ By default, Playwright uses the Chromium browser.
 
 ## Next steps
 
-- Learn how to [run tests on multiple operating systems](./how-to-cross-platform-tests.md).
-- Learn how to [configure existing Playwright tests with Microsoft Playwright Testing](./how-to-run-with-playwright-testing.md).
+- Learn how to [run Playwright tests at scale with Microsoft Playwright Testing](./quickstart-run-end-to-end-tests.md).
+- Learn more about [automating end-to-end tests in your CI workflow](./quickstart-automate-end-to-end-testing.md).

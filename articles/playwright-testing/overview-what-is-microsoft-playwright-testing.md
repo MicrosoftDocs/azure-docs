@@ -1,6 +1,6 @@
 ---
 title: What is Microsoft Playwright Testing?
-description: 'Microsoft Playwright Testing is a fully managed service for end-to-end testing built on top of Playwright. Run Playwright tests across multiple operating systems and browser configurations at scale.'
+description: 'Microsoft Playwright Testing is a fully managed service for end-to-end testing built on top of Playwright. Run Playwright tests with high parallelization across different operating system and browser combinations simultaneously.'
 ms.topic: overview
 ms.date: 08/23/2022
 ms.custom: playwright-testing-preview
@@ -8,56 +8,58 @@ ms.custom: playwright-testing-preview
 
 # What is Microsoft Playwright Testing Preview?
 
-Microsoft Playwright Testing Preview is a fully managed service for end-to-end testing built on top of Playwright. Test end-to-end user scenarios across multiple browsers and operating systems, regardless of where you host your application. The service dashboard helps you gain actionable insights by bringing together test logs, artifacts, metrics, and traces into one view. Microsoft Playwright Testing abstracts the complexity and infrastructure to run Playwright tests at cloud scale and reduce the time to complete your tests.
+With Playwright, you can automate end-to-end tests to ensure your web apps work the way you expect it to, across different web browsers and operating systems. Microsoft Playwright Testing Preview is a fully managed service for end-to-end testing built on top of Playwright. The service abstracts the complexity and infrastructure for running Playwright tests with high parallelization across different operating system and browser combinations simultaneously.
 
-You can quickly configure your existing Playwright test suite to run in the cloud, without changing your test specifications or modifying your tooling setup. Implement continuous end-to-end testing by running your Playwright tests as part of your continuous integration and continuous deployment (CI/CD) workflow.
+Run your Playwright test suite in the cloud, without changes to your test code or modifications to your tooling setup. Use the Playwright Test Visual Studio Code extension for a rich editor experience, or use the Playwright CLI to add automation within your continuous integration (CI) workflow.
 
-Get started by [running a sample Playwright test suite with Microsoft Playwright Testing](./quickstart-run-end-to-end-tests.md) or [run your existing Playwright tests in the cloud](./how-to-run-with-playwright-testing.md).
+Get started by [running your Playwright tests at scale with Microsoft Playwright Testing](./quickstart-run-end-to-end-tests.md).
 
 To learn more about how Playwright works, visit the [Getting started documentation](https://playwright.dev/docs/intro) on the Playwright website.
 
 > [!IMPORTANT]
 > Microsoft Playwright Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## Run end-to-end tests at scale across multiple platforms
+## Get test suite results faster
 
-Playwright lets you run end-to-end tests across multiple browser configurations. Microsoft Playwright Testing helps you run these tests at cloud scale, and on multiple operating systems.
+As your application becomes more complex, your test suite for comprehensive testing increases in size. The time to complete your test suite also grows accordingly.
 
-The service enables you to run all tests on a specific operating system version, or you can [test across multiple operating systems](./how-to-cross-platform-tests.md) with each run.
+Microsoft Playwright enables you to distribute your tests across many parallel browsers, hosted on cloud infrastructure. By using cloud-hosted browsers, you can scale your test beyond the processing power of your developer workstation, or local infrastructure. This parallelization helps you shorten the overall test suite completion time.
 
-Microsoft Playwright Testing lets you scale your test run across parallel *workers*, without being limited by the processing power of your local infrastructure. These workers let you achieve a high degree of parallelism across the different test cases, browser configurations, and operating systems. This parallelization helps you shorten the overall test duration.
+Microsoft Playwright Testing supports *regional affinity* to reduce the latency between your client machine and the cloud-hosted browsers. With regional affinity, the service creates the hosted browsers in an Azure region that's closest to your client machine. Alternately, you can choose to run your tests on browsers in the region that's linked to your Microsoft Playwright Testing *workspace*.
 
-By reducing the test duration, you can also enable [continuous end-to-end testing](./quickstart-automate-end-to-end-testing.md) and get feedback with every application build. You can integrate Microsoft Playwright Testing in any CI/CD solution by using the Playwright command-line interface (CLI).
+## Test across multiple operating systems and browsers
 
-You can use the cloud-based infrastructure to test both publicly and privately accessible applications without allowing inbound connections on your firewall. During the development phase, you can also use Microsoft Playwright Testing to run tests against a localhost development server.
+App complexity isn’t the only factor in increasing test suite size. Modern web apps need to work flawlessly across numerous browsers, operating systems, and devices. Testing across all these variables increases the amount of time it takes to run your test suite.
 
-## Gain actionable insights
+With Microsoft Playwright Testing, you can run these tests simultaneously across all modern browsers on Windows, Linux, and mobile emulation of Google Chrome for Android and Mobile Safari. Microsoft Playwright Testing supports all [browsers supported by Playwright](https://playwright.dev/docs/release-notes).
 
-Microsoft Playwright Testing tracks the history of your test runs in the dashboard. You can explore the test run history to analyze application quality and performance trends over time in the dashboard.
+## Test web applications regardless of their location
 
-Compare test runs over time and across different browser configurations. For example, to analyze why a specific user scenario performs badly for a given browser and operating system configuration.
+You can use Microsoft Playwright Testing for testing both publicly and privately accessible applications, without having to allow inbound connections on your firewall. During the development phase, you can also use Microsoft Playwright Testing to run tests against a localhost development server.
 
-Identify test and application stability issues by quickly identifying *flaky tests*. Flaky tests fail on the first run, but pass when retried without any change to the test code.
+## How it works
 
-## How does Microsoft Playwright Testing work?
+Microsoft Playwright Testing instantiates cloud-hosted browsers across different operating systems. Playwright runs on the client machine and interacts with Microsoft Playwright Testing to run your Playwright tests on the hosted browsers. The client machine can be your developer workstation or a CI/CD agent machine if you run your tests as part of your CI/CD pipeline. The Playwright test code remains on the client machine during the test run.
 
-Microsoft Playwright Testing enables you to run Playwright end-to-end tests in a managed service. Microsoft Playwright Testing workers abstract the cloud infrastructure for operating the remote browsers that run the test steps in your test specification. The workers support [multiple operating systems](./how-to-cross-platform-tests.md) and multiple browsers.
+To run existing tests with Microsoft Playwright Testing requires no changes to your test code. Include a service configuration file to your test project, and specify your workspace settings, such as the access key and the service endpoint. Use this service configuration on the Playwright CLI to use the cloud-hosted browsers.
 
-Playwright runs on the client machine and interacts with Microsoft Playwright Testing to run the tests on the remote browsers. The client machine can be your developer workstation or a CI/CD agent machine if you run your tests as part of your CI/CD pipeline. Playwright uses the test specification file to determine which steps must be run to perform the web UI test.
+After a test run completes, Playwright sends the test run metadata to the service. The test results, trace files, and other test run files are available on the client machine. 
 
-After a test run completes, Playwright uploads the test results and test artifacts to the service for you to view in the dashboard. Microsoft Playwright Testing stores the history of your test runs.
+## Limitations
 
-:::image type="content" source="./media/overview-what-is-microsoft-playwright-testing/microsoft-playwright-testing-architecture.png" alt-text="Diagram that shows the Microsoft Playwright Testing architecture.":::
+- Only hosted browsers on Linux and Windows are supported.
+- During preview, the service supports up to a maximum of 50 parallel workers.
+- Only the Playwright runner and test code written in JavaScript or TypeScript are supported.
 
-Running existing tests with Microsoft Playwright Testing requires no changes to your test specifications. Update the Playwright configuration file to add the settings to connect and authenticate with the service. To authenticate service requests, you [generate an access key](./how-to-manage-access-keys.md).
+## Data at rest
 
-After you update the Playwright configuration file, you can continue to run your tests using the Playwright command-line interface, the Visual Studio Code extension, or integrate them in your CI/CD pipeline.
+Microsoft Playwright Testing automatically encrypts all data stored in your workspace with keys managed by Microsoft (service-managed keys). For example, this data includes workspace details and Playwright test run meta data like test start and end time, test minutes, and who ran the test.
 
-To [test applications that aren't publicly accessible](./how-to-test-private-endpoints.md), you can add a configuration setting to enable Microsoft Playwright Testing to communicate with the application over an outbound connection.
+## In-region data residency
 
-## Next steps
+Microsoft Playwright Testing doesn't store or process customer data outside the region you deploy the workspace in. When you use the regional affinity feature, the metadata is transferred from the cloud hosted browser region to the workspace region in a secure and compliant manner.
 
-Start using Microsoft Playwright Testing.
+## Next step
 
-- [Quickstart: Run end-to-end tests at scale](./quickstart-run-end-to-end-tests.md).
-- [Quickstart: Set up continuous end-to-end testing with CI/CD](./quickstart-automate-end-to-end-testing.md).
+> [!div class="nextstepaction"]
+> [Run Playwright tests at scale](quickstart-run-end-to-end-tests.md)
