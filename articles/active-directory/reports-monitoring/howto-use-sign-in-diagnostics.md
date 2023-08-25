@@ -53,7 +53,7 @@ You can start the Sign-in diagnostic from the **Diagnose and Solve Problems** ar
 **To search for sign-in events**:
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Reader](../roles/permissions-reference.md#global-reader).
 1. Browse to **Learn & support** > **Diagnose & solve problems** or **Protection** **Conditional Access** > **Diagnose and Solve Problems**. 
-1. Select the **Troublehoot** link on the **Sign-in Diagnostic** tile.
+1. Select the **Troubleshoot** link on the **Sign-in Diagnostic** tile.
 1. Select the **All Sign-In Events** tab to start a search. 
 1. Enter as many details as possible into the search fields.
     - **User**: Provide the name or email address of who made the sign-in attempt.
