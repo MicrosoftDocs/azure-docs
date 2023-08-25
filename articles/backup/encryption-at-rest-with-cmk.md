@@ -567,7 +567,7 @@ Using the **Select from Key Vault** option helps to enable auto-rotation for the
 - Key version update may take up to an hour to take effect.
 - When a new version of the key takes effect, the old version should also be available (in enabled state) for at least one subsequent backup job after the key update has taken effect.
 
-> [NOTE]
+> [!NOTE]
 > When specifying the encryption key using the full Key URI, the key won't be auto rotated, and you need to perform key updates manually by specifying the new key when required. To enable automatic rotation, remove the Version component of the Key URI.
 
 ### Use Azure Policies to audit and enforce encryption with customer-managed keys (in preview)
