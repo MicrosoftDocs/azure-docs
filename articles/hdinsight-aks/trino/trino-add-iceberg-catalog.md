@@ -82,4 +82,4 @@ This article provides an overview of how to configure Iceberg catalog in HDInsig
    * User-assigned MSI name is listed in the `msiResourceId` property in the cluster's resource JSON.
 
 Deploy the updated ARM template to reflect the changes in your cluster. Learn how to [deploy an ARM template](/azure/azure-resource-manager/templates/deploy-portal). 
-<br>Once successfully deployed, you can see the "iceberg" catalog in your Trino cluster.
+<br>Once successfully deployed, you can see the "ice" catalog in your Trino cluster.
