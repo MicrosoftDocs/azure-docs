@@ -40,7 +40,7 @@ You can enable access reviews when [creating a new access package](entitlement-m
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
 
-1. Browse to **Identity governance** > **Entitlement management** > **Access package**.
+1. Browse to **Identity governance** > **Access reviews** > **Access package**.
 
 1. To create a new access policy, select **New access** package.
 
