@@ -73,7 +73,7 @@ Use the following steps to create the service instance:
 
 1. Select **Configuration** from the navigation pane, and then configure the following property on the **Environment variables** tab.
 
-    - **SERVICE_BUS_CONNECTION_STRING**: Enter the Service Bus primary connection string.
+   - **SERVICE_BUS_CONNECTION_STRING**: Enter the Service Bus primary connection string.
 
    :::image type="content" source="../../media/quickstart-deploy-event-driven-app/app-configuration-environment-variables-consumption.png" alt-text="Screenshot of the Azure portal that shows the Environment variables tab of the App Configuration page for consumption plan." lightbox="../../media/quickstart-deploy-event-driven-app/app-configuration-environment-variables-consumption.png":::
 
@@ -93,7 +93,7 @@ Use the following steps to create the service instance:
    azd config set alpha.springapp on
    ```
 
-1. Use the following command to package a deployable copy of your application, provision the template's infrastructure to Azure, and deploy the application code to those newly provisioned resources:
+1. Use the following command to provision the template's infrastructure to Azure:
 
    ```bash
    azd provision
@@ -101,8 +101,8 @@ Use the following steps to create the service instance:
 
    The following list describes the command interactions:
 
-    - **Please select an Azure Subscription to use**: Use arrows to move, type to filter, and then press <kbd>Enter</kbd>.
-    - **Please select an Azure location to use**: Use arrows to move, type to filter, and then press <kbd>Enter</kbd>.
+   - **Please select an Azure Subscription to use**: Use arrows to move, type to filter, and then press <kbd>Enter</kbd>.
+   - **Please select an Azure location to use**: Use arrows to move, type to filter, and then press <kbd>Enter</kbd>.
 
    The console outputs messages similar to the following example:
 
