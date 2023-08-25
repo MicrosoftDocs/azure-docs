@@ -46,7 +46,7 @@ The *Network Engineer* is responsible for traffic between workloads and any ingr
 
 ### Azure services for network administrator
 
-The following table lists the services that are commonly used by the network engineer to monitor the health and performance of the Kubernetes cluster and its components.  
+The following table lists the services that are commonly used by the network engineer to monitor the health and performance of the network supporting the Kubernetes cluster.  
 
 
 | Service | Description |
@@ -243,6 +243,8 @@ Following are common scenarios for monitoring your Kubernetes objects and worklo
 
 
 
+
+
 **Container insights**<br>
 - Use the **Nodes** and **Controllers** views to see the health and performance of the pods running on them and drill down to the health and performance of their containers.
 - Use the **Containers** view to see the health and performance for the containers. For more information on analyzing container health and performance, see [Monitor your Kubernetes cluster performance with Container Insights](container-insights-analyze.md#analyze-nodes-controllers-and-container-health).
@@ -278,7 +280,9 @@ In addition to developing the application, the *developer* maintains the applica
 
 ### Azure services for developer
 
-The following table lists the services that are commonly used by the developer to monitor the health and performance of the Kubernetes cluster and its components.  
+The following table lists the services that are commonly used by the developer to monitor the health and performance of the application running on the cluster.  
+
+
 
 
 
@@ -288,11 +292,15 @@ The following table lists the services that are commonly used by the developer t
 
 
 
+
+
 See [Data Collection Basics of Azure Monitor Application Insights](../app/opentelemetry-overview.md) for options on configuring data collection from the application running on your cluster and decision criteria on the best method for your particular requirements. 
 
 ### Monitor level 5 - Application
 
 Following are common scenarios for monitoring your application.
+
+
 
 
 

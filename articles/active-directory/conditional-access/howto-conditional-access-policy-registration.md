@@ -30,7 +30,7 @@ Organizations can choose to deploy this policy using the steps outlined below or
 The following policy applies to the selected users, who attempt to register using the combined registration experience. The policy requires users to be in a trusted network location, do multifactor authentication or use Temporary Access Pass credentials.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
-1. Browse to **Microsoft Entra ID (Azure AD)** > **Protection** > **Conditional Access**.
+1. Browse to **Protection** > **Conditional Access**.
 1. Select **Create new policy**.
 1. In Name, Enter a Name for this policy. For example, **Combined Security Info Registration with TAP**.
 1. Under **Assignments**, select **Users or workload identities**.
@@ -69,7 +69,7 @@ Organizations may choose to require other grant controls with or in place of **R
 For [guest users](../external-identities/what-is-b2b.md) who need to register for multifactor authentication in your directory you may choose to block registration from outside of [trusted network locations](concept-conditional-access-conditions.md#locations) using the following guide.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
-1. Browse to **Microsoft Entra ID (Azure AD)** > **Protection** > **Conditional Access**.
+1. Browse to **Protection** > **Conditional Access**.
 1. Select **Create new policy**.
 1. In Name, Enter a Name for this policy. For example, **Combined Security Info Registration on Trusted Networks**.
 1. Under **Assignments**, select **Users or workload identities**.
