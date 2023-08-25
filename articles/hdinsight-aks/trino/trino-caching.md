@@ -109,7 +109,7 @@ The following example demonstrates where to add the properties.
     "resources": [
         {
             "type": "microsoft.hdinsight/clusterpools/clusters",
-            "apiVersion": "2021-09-15-preview",
+            "apiVersion": "<api-version>",
             "name": "<cluster-pool-name>/<cluster-name>",
             "location": "<region, e.g. westeurope>",
             "tags": {},
@@ -163,7 +163,7 @@ The following example demonstrates where to add the properties to enable Hive ca
     "resources": [
         {
             "type": "microsoft.hdinsight/clusterpools/clusters",
-            "apiVersion": "2021-09-15-preview",
+            "apiVersion": "<api-version>",
             "name": "<cluster-pool-name>/<cluster-name>",
             "location": "<region, e.g. westeurope>",
             "tags": {},
