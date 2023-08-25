@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: postgresql
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 08/09/2023
+ms.date: 08/24/2023
 ---
 
 # Supported database versions in Azure Cosmos DB for PostgreSQL
