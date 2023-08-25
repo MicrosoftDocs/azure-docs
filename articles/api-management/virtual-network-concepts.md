@@ -168,7 +168,8 @@ For more information, see [Connect privately to API Management using an inbound 
 
 In the Standard v2 tier, you can connect (integrate) your API Management instance to a virtual network and then make outbound requests to API backends that are isolated in the network. In this mode, your API Management instance isn't itself deployed in a virtual network. It's configured to make outbound connections to resources in a subnet in a virtual network that's in the same region and that's delegated to the Microsoft.Web/serverFarms service.
 
-:::image type="content" source="../app-service/media/networking-features/vnet-integration.png" alt-text="Diagram of integrating API Management instance with a delegated subnet."  :::
+<!-- Compare with /app-service/media/networking-features/vnet-integration.png -->
+:::image type="content" source="./media/virtual-network-concepts/vnet-integration.svg" alt-text="Diagram of integrating API Management instance with a delegated subnet."  :::
 
 For more information, see [Integrate an Azure API Management instance with a private VNet](integrate-vnet-outbound.md).
 

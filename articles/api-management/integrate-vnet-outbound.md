@@ -14,7 +14,7 @@ This article guides you through the process of configuring *VNet integration* fo
 
 When an API Management instance is integrated with a virtual network, the API Management itself is not deployed in a network, and the gateway other endpoints remain publicly accessible. In addition to having connectivity to the internet, the API Management instance has outbound connectivity to the network, enabling it to reach both public and network-isolated backend services.
 
-:::image type="content" source="../app-service/media/integrate-vnet-outbound/vnet-integration.png" alt-text="Diagram of integrating API Management instance with a delegated subnet."  :::
+:::image type="content" source="./media/integrate-vnet-outbound/vnet-integration.svg" alt-text="Diagram of integrating API Management instance with a delegated subnet."  :::
 
 > [!NOTE]
 > VNet integration is currently in preview. This networking option is available in the **Standard v2** pricing tier. For an overview of networking scenarios, see [Use a virtual network with Azure API Management](virtual-network-concepts.md). 
