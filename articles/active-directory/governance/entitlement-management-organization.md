@@ -61,9 +61,9 @@ For a demonstration of how to add a connected organization, watch the following 
 
 **Prerequisite role**: *Global administrator*, *Identity Governance administrator*,  or *User administrator*
 
-1. In the Azure portal, select **Azure Active Directory**, and then select **Identity Governance**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1. In the left pane, select **Connected organizations**.
+1. Browse to **Identity governance** > **Entitlement management** > **Connected organizations**.
 
 1. In the search box, you can search for a connected organization by the name of the connected organization.  However, you cannot search for a domain name.
 
@@ -73,9 +73,11 @@ To add an external Azure AD directory or domain as a connected organization, fol
 
 **Prerequisite role**: *Global administrator*, *Identity Governance administrator*,  or *User administrator*
 
-1. In the Azure portal, select **Azure Active Directory**, and then select **Identity Governance**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1. In the left pane, select **Connected organizations**, and then select **Add connected organization**.
+1. Browse to **Identity governance** > **Entitlement management** > **Connected organizations**.
+
+1. On the **Connected organizations** page select **Add connected organization**.
 
     ![The "Add connected organization" button](./media/entitlement-management-organization/connected-organization.png)
 
@@ -124,9 +126,11 @@ If the connected organization changes to a different domain, the organization's 
 
 **Prerequisite role**: *Global administrator* or *User administrator*
 
-1. In the Azure portal, select **Azure Active Directory**, and then select **Identity Governance**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1. In the left pane, select **Connected organizations**, and then select the connected organization to open it.
+1. Browse to **Identity governance** > **Entitlement management** > **Connected organizations**.
+
+1. On the **Connected organizations** page select the connected organization you want to update.
 
 1. In the connected organization's overview pane, select **Edit** to change the organization name, description, or state.  
 
@@ -141,9 +145,11 @@ If you no longer have a relationship with an external Azure AD directory or doma
 
 **Prerequisite role**: *Global administrator* or *User administrator*
 
-1. In the Azure portal, select **Azure Active Directory**, and then select **Identity Governance**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1. In the left pane, select **Connected organizations**, and then select the connected organization to open it.
+1. Browse to **Identity governance** > **Entitlement management** > **Connected organizations**.
+
+1. On the **Connected organizations** page select the connected organization you want to delete to open it.
 
 1. In the connected organization's overview pane, select **Delete** to delete it.
 

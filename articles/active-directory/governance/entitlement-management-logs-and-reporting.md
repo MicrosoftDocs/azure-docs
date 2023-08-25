@@ -36,9 +36,9 @@ Archiving Azure AD audit logs requires you to have Azure Monitor in an Azure sub
 
 **Prerequisite role**: Global Administrator
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a user who is a Global Administrator. Make sure you have access to the resource group containing the Azure Monitor workspace.
+1. Sign in to the [Microsoft Entra admin center](https://portal.azure.com) as a user who is a Global Administrator. Make sure you have access to the resource group containing the Azure Monitor workspace.
  
-1. Select **Azure Active Directory** then select **Diagnostic settings** under Monitoring in the left navigation menu. Check if there's already a setting to send the audit logs to that workspace.
+1. Select **Identity**, then select **Diagnostic settings** under **Monitoring and health** in the left navigation menu. Check if there's already a setting to send the audit logs to that workspace.
 
 1. If there isn't already a setting, select **Add diagnostic setting**. Use the instructions in [Integrate Azure AD logs with Azure Monitor logs](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) to send the Azure AD audit log to the Azure Monitor workspace.
 
@@ -52,7 +52,7 @@ Archiving Azure AD audit logs requires you to have Azure Monitor in an Azure sub
 
 1. Later, to see the range of dates held in your workspace, you can use the *Archived Log Date Range* workbook:  
     
-    1. Select **Azure Active Directory** then select **Workbooks**. 
+    1. Select **Identity** then select **Workbooks** under **Monitoring and health**. 
     
     1. Expand the section **Azure Active Directory Troubleshooting**, and select on **Archived Log Date Range**. 
 
@@ -68,7 +68,7 @@ To view events for an access package, you must have access to the underlying Azu
 
 Use the following procedure to view events: 
 
-1. In the Azure portal, select **Azure Active Directory** then select **Workbooks**. If you only have one subscription, move on to step 3. 
+1. In the Microsoft Entra admin center, select **Identity** then select **Workbooks**. If you only have one subscription, move on to step 3. 
 
 1. If you have multiple subscriptions, select the subscription that contains the workspace.  
 
@@ -84,10 +84,10 @@ Use the following procedure to view events:
 
     ![View app role assignments](./media/entitlement-management-access-package-incompatible/workbook-ara.png)
 
-## Create custom Azure Monitor queries using the Azure portal
+## Create custom Azure Monitor queries using the Microsoft Entra admin center
 You can create your own queries on Azure AD audit events, including entitlement management events.  
 
-1. In Azure Active Directory of the Azure portal, select **Logs** under the Monitoring section in the left navigation menu to create a new query page.
+1. In Identity of the Microsoft Entra admin center, select **Logs** under the Monitoring section in the left navigation menu to create a new query page.
 
 1. Your workspace should be shown in the upper left of the query page. If you have multiple Azure Monitor workspaces, and the workspace you're using to store Azure AD audit events isn't shown, select **Select Scope**. Then, select the correct subscription and workspace.
 
