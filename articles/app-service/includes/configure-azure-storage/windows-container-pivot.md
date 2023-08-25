@@ -76,7 +76,7 @@ Choose this option when using Azure Key Vault to securely store and retrieve acc
 - FTP/FTPS access to mounted storage not supported (use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)).
 - Mapping `[C-Z]:\`, `[C-Z]:\home`, `/`, and `/home` to custom-mounted storage isn't supported.
 - Storage mounts aren't backed up when you [back up your app](../../manage-backup.md). Be sure to follow best practices to back up the Azure Storage accounts.
-- With VNET integration on your app, the mounted drive uses an RC1918 IP address and not an IP address from your VNET.
+- With VNET integration on your app, the mounted drive uses an RFC1918 IP address and not an IP address from your VNET.
 
 ## Prepare for mounting
 

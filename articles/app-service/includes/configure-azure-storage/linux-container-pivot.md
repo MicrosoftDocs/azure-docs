@@ -77,7 +77,7 @@ Choose this option when using Azure Key Vault to securely store and retrieve acc
 - Azure Storage isn't supported with [Docker Compose](../../configure-custom-container.md?pivots=container-linux#docker-compose-options) scenarios.
 - Storage mounts aren't included in [backups](../../manage-backup.md). Be sure to follow best practices to back up the Azure Storage accounts.
 - Azure Files [NFS](../../../storage/files/files-nfs-protocol.md) is currently unsupported for App Service on Linux. Only Azure Files [SMB](../../../storage/files/files-smb-protocol.md) are supported.
-- With VNET integration on your app, the mounted drive uses an RC1918 IP address and not an IP address from your VNET.
+- With VNET integration on your app, the mounted drive uses an RFC1918 IP address and not an IP address from your VNET.
 
 ## Prepare for mounting
 
