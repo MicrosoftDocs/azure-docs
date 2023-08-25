@@ -40,7 +40,7 @@ This guide will help you get started with playing audio files to participants by
 |PlayFailed|400|8535|Action failed, file format is invalid.|
 |PlayFailed|400|8536|Action failed, file could not be downloaded.|
 |PlayFailed|400|8565 | Action failed, bad request to Cognitive Services. Check input parameters. | 
-|PlayFailed | 401 | 8565 | Action failed, cognitive services authentication error. |  |
+|PlayFailed | 401 | 8565 | Action failed, cognitive services authentication error. | 
 |PlayFailed | 403 | 8565 | Action failed, forbidden request to cognitive services, free subscription used by the request ran out of quota. | 
 |PlayFailed | 429 | 8565 | Action failed, requests exceeded the number of allowed concurrent requests for the cognitive services subscription. | 
 |PlayFailed | 408 | 8565 | Action failed, request to Cognitive Services timed out. | 
