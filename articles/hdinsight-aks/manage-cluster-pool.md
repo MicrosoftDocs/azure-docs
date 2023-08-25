@@ -21,11 +21,11 @@ This article describes how to manage a cluster pool.
   
 1. In the Azure portal search bar, type "HDInsight on AKS cluster pool" and select "Azure HDInsight on AKS cluster pools" from the drop-down list.
   
-   :::image type="content" source="./media/manage-cluster-pool/clusterpool-getstarted.png" alt-text="Screenshot showing search option for getting started with HDInsight on AKS Cluster pool." border="true" lightbox="./media/manage-cluster-pool/clusterpool-getstarted.png":::
+   :::image type="content" source="./media/manage-cluster-pool/cluster-pool-get-started.png" alt-text="Screenshot showing search option for getting started with HDInsight on AKS Cluster pool." border="true" lightbox="./media/manage-cluster-pool/cluster-pool-get-started.png":::
   
 1. Select your cluster pool name from the list page.
   
-   :::image type="content" source="./media/manage-cluster-pool/clusterpool-in-list-view.png" alt-text="Screenshot showing cluster pools in a list view." border="true" lightbox="./media/manage-cluster-pool/clusterpool-in-list-view.png":::
+   :::image type="content" source="./media/manage-cluster-pool/cluster-pool-in-list-view.png" alt-text="Screenshot showing cluster pools in a list view." border="true" lightbox="./media/manage-cluster-pool/cluster-pool-in-list-view.png":::
 
 ## Create new cluster
    
@@ -41,7 +41,7 @@ Learn more on how to [create a cluster](./quickstart-create-cluster.md).
 
 You can view the list of clusters in the cluster pool on the **Overview** tab.
 
-:::image type="content" source="./media/manage-cluster-pool/clusterpool-viewclusters.png" alt-text="Screenshot showing list of existing clusters." lightbox="./media/manage-cluster-pool/clusterpool-viewclusters.png":::
+:::image type="content" source="./media/manage-cluster-pool/cluster-pool-view-clusters.png" alt-text="Screenshot showing list of existing clusters." lightbox="./media/manage-cluster-pool/cluster-pool-view-clusters.png":::
    
 ## Manage access to the cluster pool
  
@@ -75,12 +75,12 @@ For more information, see [manage access](./hdinsight-on-aks-manage-authorizatio
 
   1. To delete the cluster pool, click on "Delete" at the top left in the "Overview" blade in the Azure portal.
     
-     :::image type="content" source="./media/manage-cluster-pool/delete-clusterpool.png" alt-text="Screenshot showing how to delete cluster pool.":::
+     :::image type="content" source="./media/manage-cluster-pool/delete-cluster-pool.png" alt-text="Screenshot showing how to delete cluster pool.":::
     
   1. Enter the pool name to be deleted and click on delete.
     
-     :::image type="content" source="./media/manage-cluster-pool/clusterpool-deletecluster.png" alt-text="Screenshot showing how to delete cluster pool, and updating your cluster pool name once you click delete.":::
+     :::image type="content" source="./media/manage-cluster-pool/cluster-pool-delete-cluster.png" alt-text="Screenshot showing how to delete cluster pool, and updating your cluster pool name once you click delete.":::
 
    Once the deletion is successful, you can check the status by clicking Notifications icon ![Screenshot showing the Notifications icon in the Azure portal.](./media/manage-cluster-pool/notifications.png) in the Azure portal.
 
-   :::image type="content" source="./media/manage-cluster-pool/clusterpool-deletecluster-notification.png" alt-text="Screenshot showing a notification alert of a cluster pool deletion successful.":::
+   :::image type="content" source="./media/manage-cluster-pool/cluster-pool-delete-cluster-notification.png" alt-text="Screenshot showing a notification alert of a cluster pool deletion successful.":::
