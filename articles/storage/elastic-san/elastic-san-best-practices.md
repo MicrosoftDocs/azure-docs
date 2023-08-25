@@ -30,13 +30,46 @@ Enable “Accelerated Networking”.
 
 ## MPIO
 
-### Windows
+The following settings should provide optimal performance with MPIO on either Windows or Linux.
 
 ### Linux
+
+
+|Setting  |Description  |Recommended value  |
+|---------|---------|---------|
+|polling_interval     |         |         |
+|path_selector     |         |"round-robin 0"         |
+|path_grouping_policy     |         |multibus         |
+|path_checker     |         |tur         |
+|checker_timeout     |         |30 sec         |
+|failback     |         |immediate         |
+|no_path_retry     |Number of retries until disable queueing, or "fail" means immediate failure (no queueing), "queue" means never stop queueing.         |>0         |
+|user_friendly_names     |If set to "yes" create 'mpathn' names. Else use WWID as the alias.         |yes         |
+
+
+
+### Windows
+
+|Setting  |Description  |Dependency  |Recommended value  |
+|---------|---------|---------|---------|
+|Automatically claim iSCSI devices for MPIO     |Enable multipath support for iSCSI devices         |N/A         |TRUE         |
+|Load balancing policy     |Load balancing policy         |N/A         |Round robin       |
+|Disk time out     |Length of time the server waits before marking the I/O request as timed out.         |N/A         |120 sec         |
 
 ## iSCSI
 
+If MPIO is enabled, set iSCSI timers to immediately defer commands to the multipathing layer. This ensures that I/O errors are retried and queued if all paths fail in the multipath layer.
+
 ### Windows
+
+- Increase disk timeout value to prevent application from noticing I/O errors due to link loss. See MPIO Windows section for details.
+- srbTimeoutDelta has a default value of 15 seconds. With the Microsoft iSCSI initiator, srbTimeoutDelta is added to the disk class driver's timeoutvalue (default of 10 seconds) when SCSI requests are being built. So the default SCCSI timeout value will be 25 seconds.
+- DelaybetweenReconnect
+- MaxConnectionRetries
+- MaxRequestHoldTime
+- LinkDownTime
+- EnableNOPOut
 
 ### Linux
 
+- NOP-Out interval and timeout: To help monitor problems, iSCSI layer sends a NOP-Out request to each target. If a NOP-Out request times out, the iSCSI layer responds by failing any running commands and instructing the SCSI layer to requeue those commands when possible. When multipath is being used, the SCSI layer will fail those running commands and defer them to the multipath layer. The multipath layer then retries those commands on another path. If multipath isn't being used, those commands are retried five times before failing altogether.
