@@ -1132,6 +1132,8 @@
         "articles/app-service/**/*.md": ["Azure","App Service"],
         "articles/azure-app-configuration/**/*.md": ["Azure","AppConfig"],
         "articles/azure-app-configuration/**/*.yml": ["Azure","AppConfig"],
+        "articles/azure-arc/**/*.md": ["Azure", "Azure Arc"],
+        "articles/azure-arc/**/*.yml": ["Azure", "Azure Arc"],
         "articles/azure-cache-for-redis/**/*.md": ["Azure","Cache for Redis"],
         "articles/azure-cache-for-redis/**/*.yml": ["Azure","Cache for Redis"],
         "articles/azure-databricks/**/*.md": ["Azure","Azure Databricks"],

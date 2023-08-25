@@ -1,7 +1,7 @@
 ---
-title: Deploy updates and track results in update management center (preview).
-description: The article details how to use update management center (preview) in the Azure portal to deploy updates and view results for supported machines.
-ms.service: update-management-center
+title: Deploy updates and track results in Azure Update Manager (preview).
+description: The article details how to use Azure Update Manager (preview) in the Azure portal to deploy updates and view results for supported machines.
+ms.service: azure-update-manager
 ms.date: 08/08/2023
 ms.topic: conceptual
 author: SnehaSudhirG
@@ -9,11 +9,11 @@ ms.author: sudhirsneha
 ms.custom: references_regions
 ---
 
-# Deploy updates now and track results with update management center (preview)
+# Deploy updates now and track results with Azure Update Manager (preview)
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
 
-The article describes how to perform an on-demand update on a single VM or multiple VMs using update management center (preview).
+The article describes how to perform an on-demand update on a single VM or multiple VMs using Update Manager (preview).
 
 See the following sections for detailed information:
 - [Install updates on a single VM](#install-updates-on-single-vm)
@@ -21,7 +21,7 @@ See the following sections for detailed information:
 
 ## Supported regions
 
-Update management center (preview) is available in all [Azure public regions](support-matrix.md#supported-regions). 
+Update Manager (preview) is available in all [Azure public regions](support-matrix.md#supported-regions). 
 
 ## Configure reboot settings
 
@@ -31,7 +31,7 @@ The registry keys listed in [Configuring Automatic Updates by editing the regist
 ## Install updates on single VM
 
 >[!NOTE]
-> You can install the updates from the Overview or Machines blade in update management center (preview) page or from the selected VM.
+> You can install the updates from the Overview or Machines blade in Update Manager (preview) page or from the selected VM.
 
 # [From Overview blade](#tab/install-single-overview) 
 
@@ -39,7 +39,7 @@ To install one time updates on a single VM, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In **Update management center (preview)**, **Overview**, choose your **Subscription** and select **One-time update** to install updates.
+1. In **Update Manager (preview)**, **Overview**, choose your **Subscription** and select **One-time update** to install updates.
 
    :::image type="content" source="./media/deploy-updates/install-updates-now-inline.png" alt-text="Example of installing one-time updates." lightbox="./media/deploy-updates/install-updates-now-expanded.png":::
 
@@ -52,15 +52,15 @@ To install one time updates on a single VM, follow these steps:
 1. In **Updates**, specify the updates to include in the deployment. For each product, select or deselect all supported update classifications and specify the ones to include in your update deployment. If your deployment is meant to apply only for a select set of updates, it's necessary to deselect all the pre-selected update classifications when configuring the **Inclusion/exclusion** updates described below. This ensures only the updates you've specified to include in this deployment are installed on the target machine.
 
    > [!NOTE]
-   > - Selected Updates shows a preview of OS updates which may be installed based on the last OS update assessment information available. If the OS update assessment information in update center management (preview) is obsolete, the actual updates installed would vary. Especially if you have chosen to install a specific update category, where the OS updates applicable may vary as new packages or KB Ids may be available for the category.
-   > - Update management center (preview) doesn't support driver updates. 
+   > - Selected Updates shows a preview of OS updates which may be installed based on the last OS update assessment information available. If the OS update assessment information in Update Manager (preview) is obsolete, the actual updates installed would vary. Especially if you have chosen to install a specific update category, where the OS updates applicable may vary as new packages or KB Ids may be available for the category.
+   > - Update Manager (preview) doesn't support driver updates. 
 
 
    - Select **+Include update classification**, in the **Include update classification** select the appropriate classification(s) that must be installed on your machines.
    
       :::image type="content" source="./media/deploy-updates/include-update-classification-inline.png" alt-text="Screenshot on including update classification." lightbox="./media/deploy-updates/include-update-classification-expanded.png":::
    
-   - Select **Include KB ID/package** to include in the updates. Enter a comma separated list of Knowledge Base article ID numbers to include or exclude for Windows updates. For example,  `3103696, 3134815`. For Windows, you can refer to the [MSRC link](https://msrc.microsoft.com/update-guide/deployments) to get the details of the latest Knowledge Base released. For supported Linux distros, you specify a comma separated list of packages by the package name, and you can include wildcards. For example, `kernel*, glibc, libc=1.0.1`. Based on the options specified, update management center (preview) shows a preview of OS updates under the **Selected Updates** section.
+   - Select **Include KB ID/package** to include in the updates. Enter a comma separated list of Knowledge Base article ID numbers to include or exclude for Windows updates. For example,  `3103696, 3134815`. For Windows, you can refer to the [MSRC link](https://msrc.microsoft.com/update-guide/deployments) to get the details of the latest Knowledge Base released. For supported Linux distros, you specify a comma separated list of packages by the package name, and you can include wildcards. For example, `kernel*, glibc, libc=1.0.1`. Based on the options specified, update Manager (preview) shows a preview of OS updates under the **Selected Updates** section.
 
    - To exclude updates that you don't want to install, select **Exclude KB ID/package**. We recommend checking this option because updates that are not displayed here might be installed, as newer updates might be available.
    
@@ -87,7 +87,7 @@ To install one time updates on a single VM, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In **Update management center (Preview)**, **Machine**, choose your **Subscription**, choose your machine and select **One-time update** to install updates.
+1. In **Update Manager (Preview)**, **Machine**, choose your **Subscription**, choose your machine and select **One-time update** to install updates.
 
 1. Select to **Install now** to proceed with installing updates.
 
@@ -99,7 +99,7 @@ To install one time updates on a single VM, follow these steps:
 
 1. Select your virtual machine and the **virtual machines | Updates** page opens.
 1. Under **Operations**, select **Updates**.
-1. In **Updates**, select **Go to Updates using Update Center**.
+1. In **Updates**, select **Go to Updates using Azure Update Manager**.
 1. In **Updates (Preview)**, select **One-time update** to install the updates.
 1. In **Install one-time updates** page, the selected machine appears. Choose the machine, select **Next** and follow the procedure from step 4 listed in **From Overview blade** of [Install updates on single VM](#install-updates-on-single-vm).
  
@@ -119,7 +119,7 @@ You can schedule updates
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In **Update management center (Preview)**, **Overview**, choose your **Subscription**, select **One-time update**, and **Install now** to install updates.
+1. In **Update Manager (Preview)**, **Overview**, choose your **Subscription**, select **One-time update**, and **Install now** to install updates.
 
    :::image type="content" source="./media/deploy-updates/install-updates-now-inline.png" alt-text="Example of installing one-time updates." lightbox="./media/deploy-updates/install-updates-now-expanded.png":::
    
@@ -158,7 +158,7 @@ After your scheduled deployment starts, you can see its status on the **History*
 :::image type="content" source="./media/deploy-updates/updates-history-inline.png" alt-text="Screenshot showing updates history." lightbox="./media/deploy-updates/updates-history-expanded.png":::
 
 > [!NOTE]
-> The **Windows update history** currently doesn't show the updates summary that are installed from Azure Update Management. To view a summary of the updates applied on your machines, go to **Update management center (preview)** > **Manage** > **History**. 
+> The **Windows update history** currently doesn't show the updates summary that are installed from Azure Update Management. To view a summary of the updates applied on your machines, go to **Update manager (preview)** > **Manage** > **History**. 
  
 A list of the deployments created are shown in the update deployment grid and include relevant information about the deployment. Every update deployment has a unique GUID, represented as **Operation ID**, which is listed along with **Status**, **Updates Installed** and **Time** details. You can filter the results listed in the grid.
 
@@ -174,5 +174,5 @@ Select any one of the update deployments from the list to open the **Update depl
 
 ## Next steps
 
-* To view update assessment and deployment logs generated by update management center (preview), see [query logs](query-logs.md).
-* To troubleshoot issues, see the [Troubleshoot](troubleshoot.md) update management center (preview).
+* To view update assessment and deployment logs generated by Update Manager (preview), see [query logs](query-logs.md).
+* To troubleshoot issues, see the [Troubleshoot](troubleshoot.md) Update Manager (preview).

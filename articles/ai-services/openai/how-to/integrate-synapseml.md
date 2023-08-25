@@ -8,7 +8,7 @@ ms.service: cognitive-services
 ms.subservice: openai
 ms.custom: build-2023, build-2023-dataai
 ms.topic: how-to
-ms.date: 08/04/2022
+ms.date: 08/24/2023
 author: ChrisHMSFT
 ms.author: chrhoder
 recommendations: false
@@ -33,6 +33,7 @@ We recommend [creating a Synapse workspace](../../../synapse-analytics/get-start
 
 The next step is to add this code into your Spark cluster. You can either create a notebook in your Spark platform and copy the code into this notebook to run the demo, or download the notebook and import it into Synapse Analytics.
 
+1. [Download this demo as a notebook](https://github.com/microsoft/SynapseML/blob/master/docs/Explore%20Algorithms/OpenAI/OpenAI.ipynb) (select Raw, then save the file)
 1. Import the notebook [into the Synapse Workspace](../../../synapse-analytics/spark/apache-spark-development-using-notebooks.md#create-a-notebook) or, if using Databricks, [into the Databricks Workspace](/azure/databricks/notebooks/notebooks-manage#create-a-notebook)
 1. Install SynapseML on your cluster. See the installation instructions for Synapse at the bottom of [the SynapseML website](https://microsoft.github.io/SynapseML/). This requires pasting another cell at the top of the notebook you imported
 1. Connect your notebook to a cluster and follow along, editing and running the cells below.
