@@ -37,7 +37,7 @@ Import-module -Name "C:\Program Files\Microsoft Azure Active Directory Connect\T
 Or install [PackageManagement PowerShell Modules Preview - March 2016 for PowerShell 3.0/4.0](/powershell/module/PackageManagement) 
 
 - **Show all commands**: `Get-Command -Module AdSyncTools` 
-- **Execute the PowerShell function**: `Connect-ADSyncDatabase` with the following parameters
+- **Execute the PowerShell function**: `Connect-ADSyncToolsSqlDatabase` with the following parameters
     - Server. The SQL Server name.
     - Instance. (Optional) The SQL Server Instance name and optionally Port number, that you would like to use. Do not specify this parameter to use the default instance.
     - UserName. (Optional) The user account to connect with. If left blank the currently logged in user will be used. If you are connecting to a remote SQL Server this should be the custom service account you have created for Azure AD Connect SQL Connectivity. Azure AD Connect uses the Azure AD Connect sync service account as to authenticate to a remote SQL server.
@@ -49,7 +49,7 @@ Example using just a Server name:
 ```
 PS C:\Program Files\Microsoft Azure Active Directory Connect\Tools> import-module .\AdSyncTools.psm1
 
-PS C:\Program Files\Microsoft Azure Active Directory Connect\Tools> Connect-AdSyncDatabase -Server SQL1
+PS C:\Program Files\Microsoft Azure Active Directory Connect\Tools> Connect-ADSyncToolsSqlDatabase -Server SQL1
 Resolving server address : SQL1
     InterNetworkV6 : fe80::6c90:a995:3e70:ef74%17
     InterNetworkV6 : 2001:4898:e0:66:6c90:a995:3e70:ef74
@@ -85,7 +85,7 @@ PS C:\Program Files\Microsoft Azure Active Directory Connect\Tools>
 Example using an Instance and Port number that don’t exist:
 
 ```
-PS C:\Program Files\Microsoft Azure Active Directory Connect\tools> Connect-AdSyncDatabase -Server SQL1 -Instance "INSTANCE1"
+PS C:\Program Files\Microsoft Azure Active Directory Connect\tools> Connect-ADSyncToolsSqlDatabase -Server SQL1 -Instance "INSTANCE1"
 Resolving server address : SQL1
     InterNetworkV6 : fe80::6c90:a995:3e70:ef74%17
     InterNetworkV6 : 2001:4898:e0:66:6c90:a995:3e70:ef74
@@ -93,14 +93,14 @@ Resolving server address : SQL1
 
 Attempting to connect to SQL1\INSTANCE1 using a TCP binding.
    Data Source=tcp:SQL1\INSTANCE1;Integrated Security=True.ConnectionString
-Connect-AdSyncDatabase : Unable to connect using a TCP binding.  A network-related or instance-specific error occurred while establishing a connection 
+Connect-ADSyncToolsSqlDatabase : Unable to connect using a TCP binding.  A network-related or instance-specific error occurred while establishing a connection 
 to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow 
 remote connections. (provider: SQL Network Interfaces, error: 26 - Error Locating Server/Instance Specified)
 At line:1 char:1
-+ Connect-AdSyncDatabase -Server SQL1 -Instance "INSTANCE1"
++ Connect-ADSyncToolsSqlDatabase -Server SQL1 -Instance "INSTANCE1"
 + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     + CategoryInfo          : ConnectionError: (:) [Write-Error], WriteErrorException
-    + FullyQualifiedErrorId : Microsoft.PowerShell.Commands.WriteErrorException,Connect-AdSyncDatabase
+    + FullyQualifiedErrorId : Microsoft.PowerShell.Commands.WriteErrorException,Connect-ADSyncToolsSqlDatabase
  
 
 TROUBLESHOOTING: Attempting to query the SQL Server Browser service configuration on SQL1.
@@ -124,7 +124,7 @@ You must specify both the instance name and the port to connect when the SQL Ser
 	Example: 'MySQLInstance,1234' where 1234 has a matching firewall rule.
 
 PS C:\Program Files\Microsoft Azure Active Directory Connect\tools> 
-PS C:\Program Files\Microsoft Azure Active Directory Connect\tools> Connect-AdSyncDatabase -Server SQL1 -Instance "INSTANCE1,99"
+PS C:\Program Files\Microsoft Azure Active Directory Connect\tools> Connect-ADSyncToolsSqlDatabase -Server SQL1 -Instance "INSTANCE1,99"
 Resolving server address : SQL1
     InterNetworkV6 : fe80::6c90:a995:3e70:ef74%17
     InterNetworkV6 : 2001:4898:e0:66:6c90:a995:3e70:ef74
@@ -132,13 +132,13 @@ Resolving server address : SQL1
 
 Attempting to connect to SQL1\INSTANCE1,99 using a TCP binding.
    Data Source=tcp:SQL1\INSTANCE1,99;Integrated Security=True.ConnectionString
-Connect-AdSyncDatabase : Unable to connect using a TCP binding.  A network-related or instance-specific error occurred while establishing a connection 
+Connect-ADSyncToolsSqlDatabase : Unable to connect using a TCP binding.  A network-related or instance-specific error occurred while establishing a connection 
 to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The remote computer refused the network connection.)
 At line:1 char:1
-+ Connect-AdSyncDatabase -Server SQL1 -Instance "INSTANCE1,99"
++ Connect-ADSyncToolsSqlDatabase -Server SQL1 -Instance "INSTANCE1,99"
 + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     + CategoryInfo          : ConnectionError: (:) [Write-Error], WriteErrorException
-    + FullyQualifiedErrorId : Microsoft.PowerShell.Commands.WriteErrorException,Connect-AdSyncDatabase
+    + FullyQualifiedErrorId : Microsoft.PowerShell.Commands.WriteErrorException,Connect-ADSyncToolsSqlDatabase
  
 
 TROUBLESHOOTING: Attempting to query the SQL Server Browser service configuration on SQL1.
