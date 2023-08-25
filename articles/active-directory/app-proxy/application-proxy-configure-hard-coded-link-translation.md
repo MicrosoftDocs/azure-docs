@@ -127,6 +127,8 @@ If you need to support one of these two scenarios, use the same internal and ext
 
 ## Enable link translation
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Getting started with link translation is as easy as clicking a button:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.

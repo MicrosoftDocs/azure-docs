@@ -21,7 +21,7 @@ ms.custom: enterprise-apps
 
 In this article, you learn how to enable self-service application access using the Azure portal.
 
-Before your users can self-discover applications from the [My Apps portal](my-apps-deployment-plan.md), you need to enable **Self-service application access** for the applications. This functionality is available for applications that were added from the Azure AD Gallery, [Azure AD Application Proxy](../app-proxy/application-proxy.md), or were added using [user or admin consent](../develop/application-consent-experience.md).
+Before your users can self-discover applications from the [My Apps portal](./myapps-overview.md), you need to enable **Self-service application access** for the applications. This functionality is available for applications that were added from the Azure AD Gallery, [Azure AD Application Proxy](../app-proxy/application-proxy.md), or were added using [user or admin consent](../develop/application-consent-experience.md).
 
 Using this feature, you can:
 
@@ -37,8 +37,6 @@ Using this feature, you can:
 
 - Optionally automatically assign self-service assigned users to an application role directly.
 
-[!INCLUDE [portal updates](../includes/portal-update.md)]
-
 ## Prerequisites
 
 To enable self-service application access, you need:
@@ -48,6 +46,8 @@ To enable self-service application access, you need:
 - An Azure Active Directory Premium (P1 or P2) license is required for users to request to join a self-service app and for owners to approve or deny requests. Without an Azure Active Directory Premium license, users can't add self-service apps.
 
 ## Enable self-service application access to allow users to find their own applications
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 Self-service application access is a great way to allow users to self-discover applications, and optionally allow the business group to approve access to those applications. For password single-sign on applications, you can also allow the business group to manage the credentials assigned to those users from their own My Apps portal.
 

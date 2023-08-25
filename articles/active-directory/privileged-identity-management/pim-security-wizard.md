@@ -32,7 +32,9 @@ Also, keep role assignments permanent if a user has a Microsoft account (in othe
 
 ## Open Discovery and insights (preview)
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Open **Azure AD Privileged Identity Management**.
 

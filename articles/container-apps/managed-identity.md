@@ -48,6 +48,8 @@ User-assigned identities are ideal for workloads that:
 
 Using managed identities in scale rules isn't supported. You'll still need to include the connection string or key in the `secretRef` of the scaling rule.
 
+[Init containers](containers.md#init-containers) can't access managed identities.
+
 ## Configure managed identities
 
 You can configure your managed identities through:

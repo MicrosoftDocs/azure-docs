@@ -90,6 +90,11 @@ sections:
           No, installing the agent on server core isn't supported.
 
       - question: |
+          Can I install the cloud provisioning agent on the same server as Azure AD Connect sync?
+        answer: |
+          Yes, installing the agent on the same server is supported.
+
+      - question: |
           Can I use a staging server with the cloud provisioning agent?
         answer: |
           No, staging servers aren't supported.

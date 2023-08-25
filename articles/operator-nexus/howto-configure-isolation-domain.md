@@ -6,7 +6,7 @@ ms.author: jdasari
 ms.service: azure-operator-nexus
 ms.topic: how-to
 ms.date: 04/02/2023
-ms.custom: template-how-to
+ms.custom: template-how-to, devx-track-azurecli
 ---
 
 # Configure L2 and L3 isolation domains by using a managed network fabric
@@ -928,4 +928,3 @@ Use this command to enable a management L3 isolation domain:
 ```azurecli
 az networkfabric l3domain update-admin-state --resource-group "ResourceGroupName" --resource-name "l3mgmt" --state Enable
 ```
-

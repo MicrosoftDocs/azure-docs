@@ -37,7 +37,7 @@ Select the tab for the platform you're interested in:
 
 ## Client secrets or client certificates
 
-[!INCLUDE [web-app-client-credentials.md](./includes/web-app/web-app-client-credentials.md)]
+[!INCLUDE [web-app-client-credentials.md](./includes/web-app-client-credentials.md)]
 
 ## Startup.cs
 
@@ -139,7 +139,7 @@ The following image shows the various possibilities of *Microsoft.Identity.Web* 
 
 ## Client secrets or client certificates
 
-[!INCLUDE [web-app-client-credentials.md](./includes/web-app/web-app-client-credentials.md)]
+[!INCLUDE [web-app-client-credentials.md](./includes/web-app-client-credentials.md)]
 
 ## Startup.Auth.cs
 

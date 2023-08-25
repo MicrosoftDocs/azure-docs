@@ -12,7 +12,7 @@ ms.workload: identity
 ms.date: 06/09/2023
 ms.author: rolyon
 ms.reviewer: anandy
-ms.custom: oldportal;it-pro;
+ms.custom: oldportal, it-pro, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 ---
 
@@ -36,6 +36,8 @@ For more information, see [Prerequisites to use PowerShell or Graph Explorer](pr
 You can remove users, groups, or devices from administrative units individually using the Azure portal. You can also remove users in a bulk operation.
 
 ### Remove a single user, group, or device from administrative units
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 

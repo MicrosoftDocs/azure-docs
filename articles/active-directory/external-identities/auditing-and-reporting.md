@@ -35,6 +35,10 @@ You can dive into each of these events to get the details. For example, let's lo
 
 You can also export these logs from Azure AD and use the reporting tool of your choice to get customized reports.
 
+## Sponsors field for B2B users (preview) 
+
+You can also manage and track your guest users in the organization using the sponsors feature (preview). The **Sponsors** field on the user account displays who is responsible for the guest user. A sponsor can be a user or a group. To learn more about the sponsors feature (preview), see [Add sponsors to a guest user](b2b-sponsors.md).
+
 ### Next steps
 
 - [B2B collaboration user properties](user-properties.md)

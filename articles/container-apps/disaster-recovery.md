@@ -1,16 +1,16 @@
 ---
-title: Disaster recovery guidance for Azure Container Apps
+title: Reliability in Azure Container Apps
 description: Learn how to plan for and recover from disaster recovery scenarios in Azure Container Apps
 services: container-apps
 author: craigshoemaker
 ms.author: cshoe
 ms.service: container-apps
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-linux
 ms.topic: tutorial
-ms.date: 1/18/2023
+ms.date: 08/10/2023
 ---
 
-# Disaster recovery guidance for Azure Container Apps
+# Reliability in Azure Container Apps
 
 Azure Container Apps uses [availability zones](../availability-zones/az-overview.md#availability-zones) in regions where they're available to provide high-availability protection for your applications and data from data center failures.
 

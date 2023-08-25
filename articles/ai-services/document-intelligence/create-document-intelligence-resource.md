@@ -1,5 +1,5 @@
 ---
-title: How to create a Document Intelligence resource
+title: Create a Document Intelligence (formerly Form Recognizer) resource
 titleSuffix: Azure AI services
 description: Create a Document Intelligence resource in the Azure portal
 author: laujan
@@ -25,7 +25,7 @@ The Azure portal is a single platform you can use to create and manage Azure ser
 
 Let's get started:
 
-1. Navigate to the Azure portal home page: [Azure home page](https://portal.azure.com/#home).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Create a resource** from the Azure home page.
 

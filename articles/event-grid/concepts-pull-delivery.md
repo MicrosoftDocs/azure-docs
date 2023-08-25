@@ -5,12 +5,14 @@ ms.topic: conceptual
 ms.date: 05/24/2023
 ---
 
-# Azure Event Grid's pull delivery - Concepts
+# Azure Event Grid's pull delivery (Preview) - Concepts
 
 This article describes the main concepts related to the new resource model that uses namespaces.
 
 > [!NOTE]
 > For Event Grid concepts related to push delivery exclusively used in custom, system, partner, and domain topics, see this [concepts](concepts.md) article.
+
+[!INCLUDE [pull-preview-note](./includes/pull-preview-note.md)]
 
 ## Events
 

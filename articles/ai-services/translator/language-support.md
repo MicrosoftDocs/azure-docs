@@ -136,7 +136,7 @@ ms.author: lajanuar
 | Upper Sorbian | `hsb` |✔|✔||||
 | Urdu | `ur` |✔|✔|✔|✔|✔|
 | Uyghur (Arabic) | `ug` |✔|✔|||
-| Uzbek (Latin | `uz` |✔|✔||✔||
+| Uzbek (Latin) | `uz` |✔|✔||✔||
 | Vietnamese  | `vi` |✔|✔|✔|✔|✔|
 | Welsh | `cy` |✔|✔|✔|✔|✔|
 | Yucatec Maya | `yua` |✔|✔||✔||
@@ -180,7 +180,7 @@ ms.author: lajanuar
 |Galician|`gl`|Yes|Yes|
 |Georgian|`ka`|No|No|
 |German|`de`|Yes|Yes|
-|Greek|`el`|Yes|Yes|
+|Greek|`el`|No|No|
 |Gujarati|`gu`|No|No|
 |Haitian Creole|`ht`|Yes|Yes|
 |Hebrew|`he`|No|No|

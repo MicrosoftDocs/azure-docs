@@ -197,7 +197,7 @@ Service Bus queues provide many advanced features such as the following ones. So
 The following articles provide more guidance and information about using Storage queues or Service Bus queues.
 
 * [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
-* [How to Use the Queue Storage Service](../storage/queues/storage-dotnet-how-to-use-queues.md)
+* [How to Use the Queue Storage Service](/azure/storage/queues/storage-quickstart-queues-dotnet?tabs=passwordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-azure-cli)
 * [Best practices for performance improvements using Service Bus brokered messaging](service-bus-performance-improvements.md)
 
 [Azure portal]: https://portal.azure.com

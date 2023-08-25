@@ -73,6 +73,8 @@ details, see [Resource Graph tables](../concepts/query-language.md#resource-grap
 
 [!INCLUDE [azure-resource-graph-samples-table-resources](../../../../includes/resource-graph/samples/bytable/resources.md)]
 
+[!INCLUDE [virtual-machine-basic-sku-public-ip](../../includes/resource-graph/query/virtual-machine-basic-sku-public-ip.md)]
+
 ## SecurityResources
 
 [!INCLUDE [azure-resource-graph-samples-table-securityresources](../../../../includes/resource-graph/samples/bytable/securityresources.md)]

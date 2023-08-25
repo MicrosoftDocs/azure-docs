@@ -1,7 +1,7 @@
 ---
 title: Azure Policy Regulatory Compliance controls for Azure App Service
 description: Lists Azure Policy Regulatory Compliance controls available for Azure App Service. These built-in policy definitions provide common approaches to managing the compliance of your Azure resources.
-ms.date: 07/06/2023
+ms.date: 08/03/2023
 ms.topic: sample
 ms.service: app-service
 ms.custom: "UpdateFrequency3, subject-policy-compliancecontrols"

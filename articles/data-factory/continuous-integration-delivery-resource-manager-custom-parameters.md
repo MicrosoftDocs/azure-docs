@@ -7,8 +7,7 @@ author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 09/28/2022
-ms.custom:
+ms.date: 08/11/2023
 ---
 
 # Use custom parameters with the Resource Manager template

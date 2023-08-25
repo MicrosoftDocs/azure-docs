@@ -4,7 +4,7 @@ description: Learn how to back up and recover an Oracle Database instance by usi
 author: cro27
 ms.service: virtual-machines
 ms.subservice: oracle
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-linux
 ms.collection: linux
 ms.topic: article
 ms.date: 01/28/2021

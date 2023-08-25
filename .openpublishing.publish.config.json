@@ -231,6 +231,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "functions-docs-python-v2",
+      "url": "https://github.com/Azure-Samples/functions-docs-python-v2",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "functions-docs-powershell",
       "url": "https://github.com/Azure-Samples/functions-docs-powershell",
       "branch": "master",
@@ -414,6 +420,12 @@
       "path_to_root": "azureml-examples-main",
       "url": "https://github.com/azure/azureml-examples",
       "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azureml-examples-archive",
+      "url": "https://github.com/azure/azureml-examples",
+      "branch": "v1-archive",
       "branch_mapping": {}
     },
     {
@@ -1066,6 +1078,7 @@
   ".openpublishing.redirection.sql-database.json",
   ".openpublishing.redirection.virtual-desktop.json",
   ".openpublishing.redirection.devops-project.json",
+  ".openpublishing.redirection.sentinel.json",
   "articles/ai-services/.openpublishing.redirection.ai-services-from-applied.json",
   "articles/ai-services/.openpublishing.redirection.ai-services-from-cog.json",
   "articles/ai-services/.openpublishing.redirection.applied-ai-old.json",

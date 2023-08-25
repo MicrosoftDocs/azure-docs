@@ -5,6 +5,7 @@ description: Integrate your VPN infrastructure with Azure AD MFA by using the Ne
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
+ms.custom: has-azure-ad-ps-ref
 ms.topic: how-to
 ms.date: 01/29/2023
 
@@ -322,6 +323,8 @@ If the value is set to *TRUE* or is blank, all authentication requests are subje
 
 
 ### Obtain the Azure Active Directory tenant ID
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 As part of the configuration of the NPS extension, you must supply administrator credentials and the ID of your Azure AD tenant. To get the tenant ID, complete the following steps:
 

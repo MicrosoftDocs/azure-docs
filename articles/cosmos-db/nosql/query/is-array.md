@@ -48,5 +48,5 @@ The following example checks objects of various types using the function.
 
 ## Next steps
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`IS_OBJECT`](is-object.md)

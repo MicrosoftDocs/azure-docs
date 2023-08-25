@@ -177,8 +177,8 @@ In December 2021, Facebook released a SCIM 2.0 connector. Completing the steps b
 > [!NOTE]
 > Be sure to note any changes that have been made to the settings listed above before completing the steps below. Failure to do so will result in the loss of customized settings. 
 
-1. Sign into the [Azure portal](https://portal.azure.com) 
-2. Navigate to your current Workplace by Facebook app under Azure Active Directory > Enterprise Applications
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. Navigate to your current Workplace by Facebook app under Azure Active Directory > Enterprise Applications.
 3. In the Properties section of your new custom app, copy the Object ID.
 
 	![Screenshot of Workplace by Facebook app in the Azure portal](./media/workplace-by-facebook-provisioning-tutorial/app-properties.png)

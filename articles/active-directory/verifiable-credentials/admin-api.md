@@ -924,6 +924,7 @@ If the property `customStatusEndpoint` property isn't specified, then the `anony
 | -------- | -------- | -------- |
 | `url` | string (url)| the url of the custom status endpoint |
 | `type` | string | the type of the endpoint |
+
 example:
 
 ```
@@ -1229,12 +1230,12 @@ You are able to [search](how-to-issuer-revoke.md) for verifiable credentials wit
   string claimvalue = "Bowen";
   string contractid = "ZjViZjJmYzYtNzEzNS00ZDk0LWE2ZmUtYzI2ZTQ1NDNiYzVhdGVzdDM";
   string output;
-		
+
   using (var sha256 = SHA256.Create())
   {
-	var input = contractid + claimvalue;
-	byte[] inputasbytes = Encoding.UTF8.GetBytes(input);
-	hashedsearchclaimvalue = Convert.ToBase64String(sha256.ComputeHash(inputasbytes));
+    var input = contractid + claimvalue;
+    byte[] inputasbytes = Encoding.UTF8.GetBytes(input);
+    hashedsearchclaimvalue = Convert.ToBase64String(sha256.ComputeHash(inputasbytes));
   }
 ```
 

@@ -37,12 +37,12 @@ To configure linked-based SSO in your Azure AD tenant, you need:
 
 ## Configure linked-based single sign-on
 
-1.	Sign in to the [Azure portal](https://portal.azure.com) with the appropriate role.
-2.	Select **Azure Active Directory** in Azure Services, and then select **Enterprise applications**.
-3.	Search for and select the application that you want to add linked SSO.
-4.	Select **Single sign-on** and then select **Linked**.
-5.	Enter the URL for the sign-in page of the application.
-6.	Select **Save**. 
+1. Sign in to the [Azure portal](https://portal.azure.com) with the appropriate role.
+2. Select **Azure Active Directory** in Azure Services, and then select **Enterprise applications**.
+3. Search for and select the application that you want to add linked SSO.
+4. Select **Single sign-on** and then select **Linked**.
+5. Enter the URL for the sign-in page of the application.
+6. Select **Save**. 
 
 ## Next steps
 

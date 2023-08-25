@@ -390,6 +390,7 @@ By default, cache metrics in Azure Monitor are [stored for 30 days](../azure-mon
 >[!NOTE]
 >In addition to archiving your cache metrics to storage, you can also [stream them to an Event hub or send them to Azure Monitor logs](../azure-monitor/essentials/stream-monitoring-data-event-hubs.md).
 >
+
 ### Advisor recommendations
 
 The **Advisor recommendations** on the left displays recommendations for your cache. During normal operations, no recommendations are displayed.
@@ -406,8 +407,6 @@ Further information can be found on the **Recommendations** in the working pane 
 <!-- How do we trigger an event that causes a good recommendation for the image? -->
 
 You can monitor these metrics on the [Monitoring](cache-how-to-monitor.md) section of the Resource menu.
-
-Each pricing tier has different limits for client connections, memory, and bandwidth. If your cache approaches maximum capacity for these metrics over a sustained period of time, a recommendation is created. For more information about the metrics and limits reviewed by the **Recommendations** tool, see the following table:
 
 | Azure Cache for Redis metric | More information |
 | --- | --- |
@@ -535,12 +534,13 @@ Configuration and management of Azure Cache for Redis instances is managed by Mi
 - ACL
 - BGREWRITEAOF
 - BGSAVE
-- CLUSTER - Cluster write commands are disabled, but read-only Cluster commands are permitted.
+- CLUSTER - Cluster write commands are disabled, but read-only cluster commands are permitted.
 - CONFIG
 - DEBUG
 - MIGRATE
 - PSYNC
 - REPLICAOF
+- REPLCONF - Azure cache for Redis instances don't allow customers to add external replicas. This [command](https://redis.io/commands/replconf/) is normally only sent by servers.
 - SAVE
 - SHUTDOWN
 - SLAVEOF
@@ -560,3 +560,4 @@ For more information about Redis commands, see [https://redis.io/commands](https
 
 - [How can I run Redis commands?](cache-development-faq.yml#how-can-i-run-redis-commands-)
 - [Monitor Azure Cache for Redis](cache-how-to-monitor.md)
+

@@ -8,7 +8,11 @@ ms.author: geguirgu
 ---
 # Access control for MQTT clients
 
-Access control enables you to manage the authorization of clients to publish or subscribe to topics, using a role-based access control model. Given the enormous scale of IoT environments, assigning permission for each client to each topic is incredibly tedious. Event Grid’s flexible access control tackles this scale challenge through grouping clients and topics into client groups and topic spaces. The main components of the access control model are:
+Access control enables you to manage the authorization of clients to publish or subscribe to topics, using a role-based access control model. Given the enormous scale of IoT environments, assigning permission for each client to each topic is incredibly tedious. Event Grid’s flexible access control tackles this scale challenge through grouping clients and topics into client groups and topic spaces. 
+
+[!INCLUDE [mqtt-preview-note](./includes/mqtt-preview-note.md)]
+
+The main components of the access control model are:
 
 A **[client](mqtt-clients.md)** represents the device or application that needs to publish and/or subscribe to MQTT topics.
 
@@ -19,6 +23,8 @@ A **[topic space](mqtt-topic-spaces.md)** represents multiple topics through a s
 A **permission binding** grants access to a specific client group to publish or subscribe on the topics represented by a specific topic space. The permission binding represents the role in the RBAC model.
 
 :::image type="content" source="media/mqtt-overview/access-control-high-res.png" alt-text="Diagram of the access control model." border="false":::
+
+
 
 ## Examples:
 

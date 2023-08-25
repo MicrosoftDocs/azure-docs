@@ -6,7 +6,7 @@ author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
-ms.custom: ignite-2022
+ms.custom: 
 ms.topic: how-to
 ms.date: 12/06/2022
 ---
@@ -54,7 +54,7 @@ Schedules are specified in an indexer definition. To set up a schedule, you can 
 
 ### [**Azure portal**](#tab/portal)
 
-1. [Sign in to Azure portal](https://portal.azure.com) and open the search service page.
+1. Sign in to the [Azure portal](https://portal.azure.com) and open the search service page.
 1. On the **Overview** page, select the **Indexers** tab.
 1. Select an indexer.
 1. Select **Settings**.

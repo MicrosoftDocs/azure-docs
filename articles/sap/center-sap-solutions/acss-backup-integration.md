@@ -44,7 +44,7 @@ Before you can go ahead and use this feature in preview, register for it from th
 ## Register for Backup integration preview feature
 Before you can start configuring Backup from the VIS resource or viewing Backup status on VIS resource in case Backup is already configured, you need to register for the Backup integration feature in Azure Center for SAP solutions. Follow these steps to register for the feature:
 
-1. Sign into the [Azure portal](https://portal.azure.com) as a user with **Contributor** role access.
+1. Sign in to the [Azure portal](https://portal.azure.com) as a user with **Contributor** role access.
 2. Search for **ACSS** and select **Azure Center for SAP solutions** from search results.
 3. On the left navigation, select **Virtual Instance for SAP solutions**.
 4. Select the **Backup (preview)** tab on the left navigation.
@@ -54,7 +54,7 @@ Before you can start configuring Backup from the VIS resource or viewing Backup 
 ## Configure Backup for your SAP system
 You can configure Backup for your Central service and Application server virtual machines and HANA database from the Virtual Instance for SAP solutions resource following these steps:
 
-1. Sign into the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Search for **ACSS** and select **Azure Center for SAP solutions** from search results.
 3. On the left navigation, select **Virtual Instance for SAP solutions**.
 4. Select the **Backup (preview)** tab on the left navigation.
@@ -75,7 +75,7 @@ You can configure Backup for your Central service and Application server virtual
 After you configure Backup for the Virtual Machines and HANA Database of your SAP system either from the Virtual Instance for SAP solutions resource or from the Backup Center, you can monitor the status of Backup from the Virtual Instance for SAP solutions resource.
 
 To monitor Backup status:
-1. Sign into the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Search for **ACSS** and select **Azure Center for SAP solutions** from search results.
 3. On the left navigation, select **Virtual Instance for SAP solutions**.
 4. Select the **Backup (preview)** tab on the left navigation.

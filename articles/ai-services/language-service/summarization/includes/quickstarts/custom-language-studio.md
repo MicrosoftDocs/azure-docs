@@ -23,9 +23,11 @@ Before you can use custom Summarization, you'll need to create an Azure AI Langu
 
 [!INCLUDE [create a new resource from the Azure portal](../../../includes/custom/resource-creation-azure-portal.md)]
 
-## Upload sample data to blob container
+## Download sample data
 
-If you need sample data, we've [provided some](https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/language-service/Custom%20summarization/sample-docs-and-labels) for the purpose of this quickstart.
+If you need sample data, we've provided some for [document summarization](https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/language-service/Custom%20summarization/abstractive-document-samples) and [conversation summarization](https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/language-service/Custom%20summarization/abstractive-conversation-samples) scenarios for the purpose of this quickstart.
+
+## Upload sample data to blob container
 
 [!INCLUDE [Uploading sample data for custom Summarization](../../../includes/custom/language-studio/upload-data-to-storage.md)]
 
