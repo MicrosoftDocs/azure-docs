@@ -34,7 +34,9 @@ items:
       href: quickstart-access-log-with-graph-api.md
     - name: Customize and filter activity logs
       href: howto-customize-filter-logs.md
-    - name: Analyze sign-ins 
+    - name: Configure prerequisites for Reporting API
+      href: howto-configure-prerequisites-for-reporting-api.md
+    - name: Analyze sign-ins with the Microsoft Graph API
       href: quickstart-analyze-sign-in.md
     - name: Download logs
       href: howto-download-logs.md
@@ -147,8 +149,6 @@ items:
     href: reference-azure-ad-sla-performance.md
   - name: Azure AD PowerShell cmdlets for reporting
     href: reference-powershell-reporting.md
-  - name: Configure prerequisites for Reporting API
-    href: howto-configure-prerequisites-for-reporting-api.md
   - name: Audit logs API reference
     href: /graph/api/resources/directoryaudit
   - name: Azure AD recommendations API reference
