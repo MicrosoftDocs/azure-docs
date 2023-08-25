@@ -6,6 +6,7 @@ ms.topic: conceptual
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 08/25/2023
+ms.custom: references_regions
 ---
 
 # Reliability in Azure Deployment Environments 
