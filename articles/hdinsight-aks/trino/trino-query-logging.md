@@ -12,7 +12,7 @@ Trino supports custom [event listeners](https://trino.io/docs/current/develop/ev
 
 You can enable built-in query logging in two ways:
 
-* You can enable built-in query logging during [Trino cluster creation](./trino-create-cluster-portal.md) by enabling hive catalog.
+* You can enable built-in query logging during [Trino cluster creation](./trino-create-cluster.md) by enabling hive catalog.
 
 * You can enable built-in query logging in your cluster using ARM template.
 
