@@ -92,10 +92,10 @@ The first step in creating a customized model is to choose a base model. The cho
 - `ada`
 - `babbage`
 - `curie`
-- `code-cushman-001` \__*__
-- `davinci` \__*__
+- `code-cushman-001` __\*__
+- `davinci` __\*__
 
-\__*__ An asterisk indicates the model is currently unavailable for new customers.
+__\*__ This model is currently unavailable for new customers. 
 
 You can use the [Models API](/rest/api/cognitiveservices/azureopenaistable/models/list) to identify which models are fine-tunable. For more information about our base models, see [Models](../concepts/models.md).
 
@@ -371,7 +371,7 @@ The result file is a CSV file that contains a header row and a row for each trai
 | --- | --- |
 | `step` | The number of the training step. A training step represents a single pass, forward and backward, on a batch of training data. |
 | `elapsed_tokens` | The number of tokens the customized model has seen so far, including repeats. |
-| `elapsed_examples` | The number of examples the model has seen so far, including repeats.<br>Each example represents one element in that step's batch of training data. For example, if the `Batch size` parameter is set to 32 in the [**Advanced options** pane](#choose-advanced-options), this value increments by 32 in each training step. |
+| `elapsed_examples` | The number of examples the model has seen so far, including repeats.<br>Each example represents one element in that step's batch of training data. For example, if the `Batch size` parameter is set to 32 in the [**Advanced options** pane](#configure-advanced-options), this value increments by 32 in each training step. |
 | `training_loss` | The loss for the training batch. |
 | `training_sequence_accuracy` | The percentage of completions in the training batch for which the model's predicted tokens exactly matched the true completion tokens.<br>For example, if the batch size is set to 3 and your data contains completions `[[1, 2], [0, 5], [4, 2]]`, this value is set to 0.67 (2 of 3) if the model predicted `[[1, 1], [0, 5], [4, 2]]`. |
 | `training_token_accuracy` | The percentage of tokens in the training batch correctly predicted by the model.<br>For example, if the batch size is set to 3 and your data contains completions `[[1, 2], [0, 5], [4, 2]]`, this value is set to 0.83 (5 of 6) if the model predicted `[[1, 1], [0, 5], [4, 2]]`. |

@@ -31,7 +31,7 @@ Take a moment to review the fine-tuning workflow for using Azure OpenAI Studio w
     1. [Select a base model](#select-a-base-model).
     1. [Choose your training data](#choose-your-training-data).
     1. Optionally, [choose your validation data](#choose-your-validation-data).
-    1. Optionally, [choose advanced options](#choose-advanced-options) for your fine-tune job.
+    1. Optionally, [choose advanced options](#configure-advanced-options) for your fine-tune job.
     1. [Review your choices and train your new custom model](#review-your-choices-and-train-your-model).
 1. Check the status of your custom model.
 1. Deploy your custom model for use.
@@ -94,7 +94,7 @@ Azure OpenAI Studio provides the **Create custom model** wizard, so you can inte
 
 1. Open Azure OpenAI Studio at <a href="https://oai.azure.com/" target="_blank">https://oai.azure.com/</a> and sign in with credentials that have access to your Azure OpenAI resource. During the sign-in workflow, select the appropriate directory, Azure subscription, and Azure OpenAI resource.
 
-1. In Azure OpenAI Studio, browse to the **Management > Models** page, and select **Create a custom model**.
+1. In Azure OpenAI Studio, browse to the **Management > Models** pane, and select **Create a custom model**.
 
    > [!NOTE]
    > If your resource doesn't have a model already deployed in it, a warning is displayed. For this exercise, you can ignore the warning because you fine-tune and deploy a new custom model.
@@ -133,9 +133,9 @@ The next step is to either choose existing prepared training data or upload new 
 
 - To upload new training data, use one of the following options:
 
-   - Select **Local file** to [upload training data from a local file](#to-upload-training-data-from-a-local-file).
+   - Select **Local file** to [upload training data from a local file](#upload-training-data-from-local-file).
 
-   - Select **Azure blob or other shared web locations** to [import training data from Azure Blob or another shared web location](#to-import-training-data-from-an-azure-blob-store).
+   - Select **Azure blob or other shared web locations** to [import training data from Azure Blob or another shared web location](#import-training-data-from-azure-blob-store).
 
 For large data files, we recommend you import from an Azure Blob store. Large files can become unstable when uploaded through multipart forms because the requests are atomic and can't be retried or resumed. For more information about Azure Blob Storage, see [What is Azure Blob Storage](../../../storage/blobs/storage-blobs-overview.md)?
 
@@ -182,9 +182,9 @@ The **Validation data** pane displays any existing, previously uploaded training
 
 - To upload new validation data, use one of the following options:
 
-   - Select **Local file** to [upload validation data from a local file](#to-upload-validation-data-from-a-local-file).
+   - Select **Local file** to [upload validation data from a local file](#upload-validation-data-from-local-file).
    
-   - Select **Azure blob or other shared web locations** to [import validation data from Azure Blob or another shared web location](#to-import-validation-data-from-an-azure-blob-store).
+   - Select **Azure blob or other shared web locations** to [import validation data from Azure Blob or another shared web location](#import-validation-data-from-azure-blob-store).
 
 For large data files, we recommend you import from an Azure Blob store. Large files can become unstable when uploaded through multipart forms because the requests are atomic and can't be retried or resumed.
 
@@ -240,19 +240,19 @@ For more information about the hyperparameters, see the [Create a Fine tune job]
 
 After you configure the advanced options, select **Next** to [review your choices and train your fine-tuned model](#review-your-choices-and-train-your-model).
 
-### Review your choices
+### Review your choices and train your model
 
 The **Review** pane of the wizard displays information about your configuration choices.
 
 :::image type="content" source="../media/fine-tuning/studio-review.png" alt-text="Screenshot of the Review pane for the Create custom model wizard in Azure OpenAI Studio." lightbox="../media/fine-tuning/studio-review.png":::
 
-If you're ready to train your model, select **Save and close** to start the fine-tune job and return to the [**Models** page](#start-the-wizard-from-the-models-page). 
+If you're ready to train your model, select **Save and close** to start the fine-tune job and return to the **Models** pane. 
 
 ## Check the status of your custom model
 
-The **Models** page displays information about your custom model in the **Customized models** tab. The tab includes information about the status and job ID of the fine-tune job for your custom model. When the job is completed, the file ID of the result file is also displayed.
+The **Models** pane displays information about your custom model in the **Customized models** tab. The tab includes information about the status and job ID of the fine-tune job for your custom model. When the job is completed, the file ID of the result file is also displayed.
 
-:::image type="content" source="../media/fine-tuning/studio-models-job-running.png" alt-text="Screenshot of the Models page from Azure OpenAI Studio, with a custom model displayed." lightbox="../media/fine-tuning/studio-models-job-running.png":::
+:::image type="content" source="../media/fine-tuning/studio-models-job-running.png" alt-text="Screenshot of the Models pane from Azure OpenAI Studio, with a custom model displayed." lightbox="../media/fine-tuning/studio-models-job-running.png":::
 
 After you start a fine-tune job, it can take some time to complete. Your job might be queued behind other jobs on our system, and training your model can take minutes or hours depending on the model and dataset size.
 
@@ -308,7 +308,7 @@ The result file is a CSV file that contains a header row and a row for each trai
 | --- | --- |
 | `step` | The number of the training step. A training step represents a single pass, forward and backward, on a batch of training data. |
 | `elapsed_tokens` | The number of tokens the custom model has seen so far, including repeats. |
-| `elapsed_examples` | The number of examples the model has seen so far, including repeats.<br>Each example represents one element in that step's batch of training data. For example, if the `Batch size` parameter is set to 32 in the [**Advanced options** pane](#choose-advanced-options), this value increments by 32 in each training step. |
+| `elapsed_examples` | The number of examples the model has seen so far, including repeats.<br>Each example represents one element in that step's batch of training data. For example, if the `Batch size` parameter is set to 32 in the [**Advanced options** pane](#configure-advanced-options), this value increments by 32 in each training step. |
 | `training_loss` | The loss for the training batch. |
 | `training_sequence_accuracy` | The percentage of completions in the training batch for which the model's predicted tokens exactly matched the true completion tokens.<br>For example, if the batch size is set to 3 and your data contains completions `[[1, 2], [0, 5], [4, 2]]`, this value is set to 0.67 (2 of 3) if the model predicted `[[1, 1], [0, 5], [4, 2]]`. |
 | `training_token_accuracy` | The percentage of tokens in the training batch correctly predicted by the model.<br>For example, if the batch size is set to 3 and your data contains completions `[[1, 2], [0, 5], [4, 2]]`, this value is set to 0.83 (5 of 6) if the model predicted `[[1, 1], [0, 5], [4, 2]]`. |
