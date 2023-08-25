@@ -72,7 +72,7 @@
 - name: Resources
   items:
   - name: Azure Arc Jumpstart
-    href: https://azurearcjumpstart.io/azure_arc_jumpstart/
+    href: https://azurearcjumpstart.io
   - name: Microsoft Q&A for Azure Arc
     href: /answers/tags/146/azure-arc
   - name: Azure updates
