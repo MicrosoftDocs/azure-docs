@@ -29,7 +29,7 @@ You can only configure one of the load balancing at a time per pooled host pool,
 
 The breadth-first load balancing algorithm aims to distribute user sessions across session hosts to optimize for session performance. Breadth-first is ideal for organizations that want to provide the best experience for users connecting to their remote resources as session host resources, such as CPU, memory, and disk, are generally less contended.
 
-The breadth-first algorithm first queries session hosts in a host pool that allow new connections. The algorithm then selects a session host randomly from half the set of available session hosts with the fewest sessions. For example, if there are nine session hosts with 11, 12, 13, 14, 15, 16, 17, 18, and 19 sessions, a new session can go to any of the first five machines with the lowest number of sessions at random. A new session doesn't automatically go to the session host with the fewest sessions. Due to the randomization, some sessions may not be evenly distributed across all session hosts.
+The breadth-first algorithm first queries session hosts in a host pool that allow new connections. The algorithm then selects a session host randomly from half the set of available session hosts with the fewest sessions. For example, if there are nine session hosts with 11, 12, 13, 14, 15, 16, 17, 18, and 19 sessions, a new session doesn't automatically go to the session host with the fewest sessions. Instead, it can go to any of the first five session hosts with the fewest sessions at random. Due to the randomization, some sessions may not be evenly distributed across all session hosts.
 
 ## Depth-first load balancing algorithm
 
