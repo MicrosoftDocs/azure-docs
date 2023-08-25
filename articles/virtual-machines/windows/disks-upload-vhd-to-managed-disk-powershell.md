@@ -146,11 +146,11 @@ $diskSas = Grant-AzDiskAccess -ResourceGroupName '<yourresourcegroupname>' -Disk
 $disk = Get-AzDisk -ResourceGroupName '<yourresourcegroupname>' -DiskName '<yourdiskname>'
 ```
 
-### Upload a VHD
+### Upload a VHD or VHDX
 
 Now that you have a SAS for your empty managed disk, you can use it to set your managed disk as the destination for your upload command.
 
-Use AzCopy v10 to upload your local VHD file to a managed disk by specifying the SAS URI you generated.
+Use AzCopy v10 to upload your local VHD or VHDX  file to a managed disk by specifying the SAS URI you generated.
 
 This upload has the same throughput as the equivalent [standard HDD](../disks-types.md#standard-hdds). For example, if you have a size that equates to S4, you will have a throughput of up to 60 MiB/s. But, if you have a size that equates to S70, you will have a throughput of up to 500 MiB/s.
 
@@ -165,6 +165,14 @@ Replace `<yourdiskname>`and `<yourresourcegroupname>`, then run the following co
 ```powershell
 Revoke-AzDiskAccess -ResourceGroupName '<yourresourcegroupname>' -DiskName '<yourdiskname>'
 ```
+
+Ultra disk and Premium SSD v2 disk support both 4k sector size and 512e sector size (512-byte-emulation). When importing a VHD or VHDX file from on-premises to Azure, it is important to make sure the file format is compatible to target disk's sector size. Follow guidelines below to align the sector size of target disk with your VHD or VHDX file.
+
+- Import a VHDX file with 4k logical sector size: Sector size of the target disk should be 4k
+
+- Import a VHD file with 512 logical sector size: Sector size of the target disk should be 512e
+
+Note that the import of VHDX file with logical sector size of 512k is not supported.
 
 ## Copy a managed disk
 
