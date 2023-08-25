@@ -7,6 +7,8 @@ items:
       href: overview.md
     - name: What's new?
       href: whats-new.md
+    - name: Choosing the right tier
+      href: choosing-right-tier.md
   - name: MQTT messaging
     items:
     - name: Overview
