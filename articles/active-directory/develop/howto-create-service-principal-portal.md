@@ -36,6 +36,8 @@ You must have sufficient permissions to register an application with your Azure 
 
 ## Register an application with Azure AD and create a service principal
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for and Select **Azure Active Directory**.
 1. Select **App registrations**, then select **New registration**.

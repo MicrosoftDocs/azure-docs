@@ -48,5 +48,5 @@ This example illustrates various ways to truncate a number to the closest intege
 
 ## Next steps
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`TRIM`](trim.md)

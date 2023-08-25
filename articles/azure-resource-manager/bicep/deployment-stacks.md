@@ -2,7 +2,8 @@
 title: Create & deploy deployment stacks in Bicep
 description: Describes how to create deployment stacks in Bicep.
 ms.topic: conceptual
-ms.date: 07/20/2023
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-bicep
+ms.date: 08/07/2023
 ---
 
 # Deployment stacks (Preview)
@@ -39,6 +40,9 @@ Deployment stacks provide the following benefits:
 - Management group deployment stacks are not yet available in the Azure portal.
 
 ## Create deployment stacks
+
+> [!WARNING]
+> The `New-Az*DeploymentStack` cmdlets are incorrectly outputting a warning message regarding the current existence of a stack with the same name as the stack attempting to be created. When the stack exists, the warning message is not shown, which could lead to unintended upsert behavior. Conversely, if the stack doesn't exist, the cmdlets display a warning message, suggesting that the stack exists and requiring user interaction to proceed with the upsert. This behavior will be reversed soon with an upcoming change. In the interim, you can use the `-Force` flag when executing the cmdlets to bypass the warning prompt in case the stack doesn't exist. This way, you can proceed with the upsert process without user intervention.
 
 A deployment stack resource can be created at resource group, subscription, or management group scope. The template passed into a deployment stack defines the resources to be created or updated at the target scope specified for the template deployment.
 
@@ -588,7 +592,7 @@ To delete a managed resource, remove the resource definition from the underlying
 
 ## Protect managed resources against deletion
 
-When creating a deployment stack, it's possible to assign a specific type of permissions to the managed resources, which prevents their deletion by unauthorized security principals. These settings are refereed as deny settings. You want to store the stack at a parent scope.
+When creating a deployment stack, it's possible to assign a specific type of permissions to the managed resources, which prevents their deletion by unauthorized security principals. These settings are referred to as deny settings. You want to store the stack at a parent scope.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -596,8 +600,8 @@ The Azure PowerShell includes these parameters to customize the deny assignment:
 
 - `DenySettingsMode`: Defines the operations that are prohibited on the managed resources to safeguard against unauthorized security principals attempting to delete or update them. This restriction applies to everyone unless explicitly granted access. The values include: `None`, `DenyDelete`, and `DenyWriteAndDelete`.
 - `DenySettingsApplyToChildScopes`: Deny settings are applied to nested resources under managed resources.
-- `DenySettingsExcludedActions`: List of role-based management operations that are excluded from the deny settings. Up to 200 actions are permitted.
-- `DenySettingsExcludedPrincipals`: List of Azure Active Directory (Azure AD) principal IDs excluded from the lock. Up to five principals are permitted.
+- `DenySettingsExcludedAction`: List of role-based management operations that are excluded from the deny settings. Up to 200 actions are permitted.
+- `DenySettingsExcludedPrincipal`: List of Azure Active Directory (Azure AD) principal IDs excluded from the lock. Up to five principals are permitted.
 
 # [CLI](#tab/azure-cli)
 
@@ -624,8 +628,8 @@ New-AzResourceGroupDeploymentStack `
   -ResourceGroupName "<resource-group-name>" `
   -TemplateFile "<bicep-file-name>" `
   -DenySettingsMode "DenyDelete" `
-  -DenySettingsExcludedActions "Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete" `
-  -DenySettingsExcludedPrincipals "<object-id>" "<object-id>"
+  -DenySettingsExcludedAction "Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete" `
+  -DenySettingsExcludedPrincipal "<object-id>" "<object-id>"
 ```
 
 # [CLI](#tab/azure-cli)
@@ -656,8 +660,8 @@ New-AzSubscriptionDeploymentStack `
   -Location "<location>" `
   -TemplateFile "<bicep-file-name>" `
   -DenySettingsMode "DenyDelete" `
-  -DenySettingsExcludedActions "Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete" `
-  -DenySettingsExcludedPrincipals "<object-id>" "<object-id>"
+  -DenySettingsExcludedAction "Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete" `
+  -DenySettingsExcludedPrincipal "<object-id>" "<object-id>"
 ```
 
 Use the `DeploymentResourceGroupName` parameter to specify the resource group name at which the deployment stack is created. If a scope isn't specified, it uses the scope of the deployment stack.
@@ -693,7 +697,7 @@ New-AzManagmentGroupDeploymentStack `
   -TemplateFile "<bicep-file-name>" `
   -DenySettingsMode "DenyDelete" `
   -DenySettingsExcludedActions "Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete" `
-  -DenySettingsExcludedPrincipals "<object-id>" "<object-id>"
+  -DenySettingsExcludedPrincipal "<object-id>" "<object-id>"
 ```
 
 Use the `DeploymentSubscriptionId ` parameter to specify the subscription ID at which the deployment stack is created. If a scope isn't specified, it uses the scope of the deployment stack.

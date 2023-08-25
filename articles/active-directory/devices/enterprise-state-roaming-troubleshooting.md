@@ -144,4 +144,4 @@ Proceed with the steps listed [KB3196528](https://support.microsoft.com/kb/31965
 
 ## Next steps
 
-For an overview, see [enterprise state roaming overview](enterprise-state-roaming-overview.md).
+For an overview, see [enterprise state roaming overview](./enterprise-state-roaming-enable.md).

@@ -8,7 +8,7 @@ manager: amycolannino
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.custom: devx-track-arm-template
+ms.custom: devx-track-arm-template, has-azure-ad-ps-ref
 ms.topic: sample
 ms.date: 06/01/2023
 ms.author: justinha 

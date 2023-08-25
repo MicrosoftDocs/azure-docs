@@ -97,7 +97,8 @@
     href: agent-upgrade.md
   - name: Use Private Link Scope
     href: private-link.md
-  - name: Azure portal Kubernetes resource view
+  - name: View resources in Azure portal
+    displayName: kubernetes, yaml, workload
     href: kubernetes-resource-view.md
   - name: Deploy applications consistently
     displayName: GitOps, flux, configuration, policy
@@ -115,8 +116,10 @@
     items:
     - name: Deploy and manage cluster extensions
       href: extensions.md
-    - name: Monitor using Azure Monitor for containers
+    - name: Monitor using Azure Monitor Container Insights
       href: ../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json&bc=/azure/azure-arc/kubernetes/breadcrumb/toc.json
+    - name: Monitor GitOps (Flux v2) activity
+      href: monitor-gitops-flux-2.md
     - name: Enforce threat protection using Microsoft Defender for Cloud
       displayName: security
       href: ../../defender-for-cloud/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json&bc=/azure/azure-arc/kubernetes/breadcrumb/toc.json

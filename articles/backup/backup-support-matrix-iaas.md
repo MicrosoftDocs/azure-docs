@@ -2,7 +2,7 @@
 title: Support matrix for Azure VM backups
 description: Get a summary of support settings and limitations for backing up Azure VMs by using the Azure Backup service.
 ms.topic: conceptual
-ms.date: 07/05/2023
+ms.date: 08/18/2023
 ms.custom: references_regions 
 ms.reviewer: sharrai
 ms.service: backup
@@ -74,6 +74,7 @@ Back up Linux Azure VMs with the Linux Azure VM agent | Supported for file-consi
 Back up Linux Azure VMs with the MARS agent | Not supported.<br/><br/> The MARS agent can be installed only on Windows machines.
 Back up Linux Azure VMs with DPM or MABS | Not supported.
 Back up Linux Azure VMs with Docker mount points | Currently, Azure Backup doesn't support exclusion of Docker mount points because these are mounted at different paths every time.
+Backup Linux Azure VMs with ZFS Pool Configuration | Not supported
 
 ## Operating system support (Linux)
 

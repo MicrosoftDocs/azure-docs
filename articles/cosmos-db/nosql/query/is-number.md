@@ -48,5 +48,5 @@ The following example various values to see if they're a number.
 
 ## Next steps
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`IS_FINITE_NUMBER`](is-finite-number.md)

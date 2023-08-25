@@ -53,7 +53,7 @@ If the organization has been impacted by an application disabled by Microsoft, t
 Administrators should be in control of application use by providing the right insights and capabilities to control how applications are allowed and used within organizations. While attackers never rest, there are steps organizations can take to improve the security posture. Some best practices to follow include:
 
 - Educate your organization on how our permissions and consent framework works:
-  - Understand the data and the permissions an application is asking for and understand how [permissions and consent](../develop/v2-permissions-and-consent.md) works within the platform.
+  - Understand the data and the permissions an application is asking for and understand how [permissions and consent](../develop/permissions-consent-overview.md) works within the platform.
   - Make sure that administrators know how to [manage and evaluate consent requests](./manage-consent-requests.md).
   - Routinely [audit applications and consented permissions](../../security/fundamentals/steps-secure-identity.md#audit-apps-and-consented-permissions) in the organization to make sure that applications are accessing only the data they need and are adhering to the principles of least privilege.
 - Know how to spot and block common consent phishing tactics:
@@ -73,4 +73,3 @@ Administrators should be in control of application use by providing the right in
 - [Managing access to applications](./what-is-access-management.md)
 - [Restrict user consent operations in Azure AD](../../security/fundamentals/steps-secure-identity.md#restrict-user-consent-operations)
 - [Compromised and malicious applications investigation](/security/compass/incident-response-playbook-compromised-malicious-app)
-

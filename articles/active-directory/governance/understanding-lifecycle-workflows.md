@@ -171,12 +171,9 @@ For a detailed guide on setting the execution conditions for a workflow, see: [C
 
 While newly created workflows are enabled by default, scheduling is an option that must be enabled manually. To verify whether the workflow is scheduled, you can view the **Scheduled** column. 
 
-Once scheduling is enabled, the workflow is evaluated every three hours to determine whether or not it should run based on the execution conditions.
+Once scheduling is enabled, the workflow is evaluated based on the interval that is set within your workflow settings(default of three hours) to determine whether or not it should run based on the execution conditions.
 
  [![Workflow template schedule.](media/understanding-lifecycle-workflows/workflow-10.png)](media/understanding-lifecycle-workflows/workflow-10.png#lightbox)
-
->[!NOTE]
-> For a particular user and workflow version, the scheduled workflow execution is performed only once every 30 days. Also, the execution of on-demand workflows of a particular workflow version in the last 30 days results in the scheduled workflow execution not taking place for a particular user.
 
 To view a detailed guide on scheduling a workflow, see: [Customize the schedule of workflows](customize-workflow-schedule.md).
 

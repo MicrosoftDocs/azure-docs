@@ -30,6 +30,9 @@ For more information, see [License requirements](access-reviews-overview.md#lice
 ## Create a PIM for Groups access review
 
 ### Scope
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 1. Sign in to the [Azure portal](https://portal.azure.com) and open the [Identity Governance](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) page.
 
 2. On the left menu, select **Access reviews**.

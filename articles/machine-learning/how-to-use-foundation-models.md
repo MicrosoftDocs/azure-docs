@@ -76,10 +76,6 @@ Each model can be evaluated for the specific inference task that the model can b
 
 1.  Select **Finish** in the Evaluate wizard to submit your evaluation job. Once the job completes, you can view evaluation metrics for the model. Based on the evaluation metrics, you might decide if you would like to finetune the model using your own training data. Additionally, you can decide if you would like to register the model and deploy it to an endpoint.
 
-**Advanced Evaluation Parameters:**
-
-* The Evaluate UI wizard, allows you to perform basic evaluation by providing your own test data. Additionally, there are several advanced evaluation parameters described [in this reference page](https://github.com/Azure/azureml-assets/blob/main/training/model_evaluation/components/evaluate_model/README.md), such as evaluation config. Each of these settings has default values, but can be customized via code based samples, if needed.
-
 ### Evaluating using code based samples
 
 To enable users to get started with model evaluation, we have published samples (both Python notebooks and CLI examples) in the [Evaluation samples in azureml-examples git repo](https://github.com/Azure/azureml-examples/tree/main/sdk/python/foundation-models/system/evaluation). Each model card also links to evaluation samples for corresponding tasks
@@ -114,10 +110,6 @@ You can invoke the finetune settings form by selecting on the **Finetune** butto
 * Compute: Provide the Azure Machine Learning Compute cluster you would like to use for finetuning the model. Finetuning needs to run on GPU compute. We recommend using compute SKUs with A100 / V100 GPUs when fine tuning. Ensure that you have sufficient compute quota for the compute SKUs you wish to use.
 
 3. Select **Finish** in the finetune form to submit your finetuning job. Once the job completes, you can view evaluation metrics for the finetuned model. You can then register the finetuned model output by the finetuning job and deploy this model to an endpoint for inferencing.
-
-**Advanced finetuning parameters:**
-
-The finetuning feature, allows you to perform basic finetuning by providing your own training data. Additionally, there are several advanced finetuning parameters, such as learning rate, epochs, batch size, etc., described in the Readme file for each task [here](https://github.com/Azure/azureml-assets/tree/main/training/finetune_acft_hf_nlp/components/finetune). Each of these settings has default values, but can be customized via code based samples, if needed.
 
 ### Finetuning using code based samples
 

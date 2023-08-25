@@ -49,7 +49,7 @@ There are some limitations when using the E0 tier with existing/previously creat
 * The Bing Spell check feature isn't supported.
 * Logging end-user traffic is disabled if your application is E0.
 * The Speech priming capability from the Azure AI Bot Service isn't supported for applications in the E0 tier. This feature is available via the Azure AI Bot Service, which doesn't support CMK.
-* The speech priming capability from the portal requires Azure Blob Storage. For more information, see [bring your own storage](../Speech-Service/speech-encryption-of-data-at-rest.md#bring-your-own-storage-byos-for-customization-and-logging).
+* The speech priming capability from the portal requires Azure Blob Storage. For more information, see [bring your own storage](../Speech-Service/speech-encryption-of-data-at-rest.md#bring-your-own-storage-byos).
 
 ### Enable customer-managed keys
 

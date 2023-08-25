@@ -29,7 +29,7 @@ To onboard a customer's tenant, it must have an active Azure subscription. When 
 - The tenant ID of the customer's tenant (which will have resources managed by the service provider).
 - The subscription IDs for each specific subscription in the customer's tenant that will be managed by the service provider (or that contains the resource group(s) that will be managed by the service provider).
 
-If you don't know the ID for a tenant, you can [retrieve it by using the Azure portal, Azure PowerShell, or Azure CLI](../../active-directory/fundamentals/active-directory-how-to-find-tenant.md).
+If you don't know the ID for a tenant, you can [retrieve it by using the Azure portal, Azure PowerShell, or Azure CLI](/azure/active-directory/fundamentals/how-to-find-tenant).
 
 If you [create your template in the Azure portal](#create-your-template-in-the-azure-portal), your tenant ID is provided automatically. You don't need to know the customer's tenant or subscription details in order to create your template in the Azure portal. However, if you plan to onboard one or more resource groups in the customer's tenant (rather than the entire subscription), you'll need to know the names of each resource group.
 

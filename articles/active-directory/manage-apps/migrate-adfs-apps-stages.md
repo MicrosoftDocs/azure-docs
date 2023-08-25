@@ -31,7 +31,7 @@ For more information, see:
 * [Using Azure AD Application Proxy to publish on-premises apps for remote users](../app-proxy/what-is-application-proxy.md).
 * [What is application management?](what-is-application-management.md)
 * [AD FS application activity report to migrate applications to Azure AD](migrate-adfs-application-activity.md).
-* [Monitor AD FS using Azure AD Connect Health](../hybrid/how-to-connect-health-adfs.md).
+* [Monitor AD FS using Azure AD Connect Health](../hybrid/connect/how-to-connect-health-adfs.md).
 
 ## The migration process
 
@@ -65,7 +65,7 @@ Update the configuration of your production app to point to your production Azur
 
 :::image type="content" source="media/migrate-adfs-apps-stages/stage4.jpg" alt-text="Diagram showing migration stage 4.":::
 
- Apps that authenticate with AD FS can use Active Directory groups for permissions. Use [Azure AD Connect sync](../hybrid/how-to-connect-sync-whatis.md) to sync identity data between your on-premises environment and Azure AD before you begin migration. Verify those groups and membership before migration so that you can grant access to the same users when the application is migrated.
+ Apps that authenticate with AD FS can use Active Directory groups for permissions. Use [Azure AD Connect sync](../hybrid/connect/how-to-connect-sync-whatis.md) to sync identity data between your on-premises environment and Azure AD before you begin migration. Verify those groups and membership before migration so that you can grant access to the same users when the application is migrated.
 
 ## Line of business apps
 

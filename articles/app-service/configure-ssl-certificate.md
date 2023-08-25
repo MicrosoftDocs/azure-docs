@@ -6,7 +6,8 @@ tags: buy-ssl-certificates
 ms.topic: tutorial
 ms.date: 07/28/2023
 ms.reviewer: yutlin
-ms.custom: seodec18, devx-track-azurepowershell
+ms.custom: seodec18
+ms.author: msangapu
 ---
 
 # Add and manage TLS/SSL certificates in Azure App Service

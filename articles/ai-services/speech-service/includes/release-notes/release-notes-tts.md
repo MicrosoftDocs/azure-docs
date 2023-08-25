@@ -8,6 +8,13 @@ ms.author: eur
 
 ### July 2023 release
 
+#### Custom neural voice
+
+- [Multi-style voice](../../how-to-custom-voice-create-voice.md?tabs=multistyle#train-your-custom-neural-voice-model) is generally available.
+- Added two new locales in public preview for multi-style voice: `ja-JP` and `zh-CN`. See the [full language and voice list](../../language-support.md?tabs=tts#custom-neural-voice) for more information. Refer to [the preset style list for different languages](../../how-to-custom-voice-create-voice.md?tabs=multistyle#available-preset-styles-across-different-languages).
+- [Cross-lingual voice](../../how-to-custom-voice-create-voice.md?tabs=crosslingual#train-your-custom-neural-voice-model) is generally available. 
+- Added two new locales for cross-lingual voice: `id-ID` and `nl-NL`. See the [full language and voice list](../../language-support.md?tabs=tts#custom-neural-voice) for more information. 
+
 #### Prebuilt Neural TTS Voices
 
 Introducing new `en-US` gender neutral voice for public preview:
@@ -22,6 +29,8 @@ Introducing new multilingual voices for public preview:
 | ----- | ----- | ----- |
 | `en-US` | English (United States) | `en-US-JennyMultilingualV2Neural` (Female) |
 | `en-US` | English (United States) | `en-US-RyanMultilingualNeural` (Male) |
+
+The multilingual voices `en-US-JennyMultilingualV2Neural` and `en-US-RyanMultilingualNeural` auto-detect the language of the input text. However, you can still use the `<lang>` element to adjust the speaking language for these voices.
 
 These new multilingual voices can speak in 41 languages and accents: `Arabic (Egypt)`, `Arabic (Saudi Arabia)`, `Catalan (Spain)`, `Czech (Czechia)`, `Danish (Denmark)`, `German (Austria)`, `German (Switzerland)`, `German (Germany)`, `English (Australia)`, `English (Canada)`, `English (United Kingdom)`, `English (Hong Kong SAR)`, `English (Ireland)`, `English (India)`, `English (United States)`, `Spanish (Spain)`, `Spanish (Mexico)`, `Finnish (Finland)`, `French (Belgium)`, `French (Canada)`, `French (Switzerland)`, `French (France)`, `Hindi (India)`, `Hungarian (Hungary)`, `Indonesian (Indonesia)`, `Italian (Italy)`, `Japanese (Japan)`, `Korean (Korea)`, `Norwegian Bokmål (Norway)`, `Dutch (Belgium)`, `Dutch (Netherlands)`, `Polish (Poland)`, `Portuguese (Brazil)`, `Portuguese (Portugal)`, `Russian (Russia)`, `Swedish (Sweden)`, `Thai (Thailand)`, `Turkish (Turkey)`, `Chinese (Mandarin, Simplified)`, `Chinese (Cantonese, Traditional)`, `Chinese (Taiwanese Mandarin, Traditional)`.
 

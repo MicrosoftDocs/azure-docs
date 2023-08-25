@@ -3,7 +3,7 @@ title: Use an Azure AD workload identities on Azure Kubernetes Service (AKS)
 description: Learn about Azure Active Directory workload identity for Azure Kubernetes Service (AKS) and how to migrate your application to authenticate using this identity.  
 ms.topic: article
 ms.custom: build-2023
-ms.date: 05/23/2023
+ms.date: 08/18/2023
 ---
 
 # Use Azure AD workload identity with Azure Kubernetes Service (AKS)
@@ -25,19 +25,22 @@ This article helps you understand this new authentication feature, and reviews t
 
 In the Azure Identity client libraries, choose one of the following approaches:
 
-- Use `DefaultAzureCredential`, which will attempt to use the `WorkloadIdentityCredential`.
+- Use `DefaultAzureCredential`, which will attempt to use the `WorkloadIdentityCredential`. &dagger;
 - Create a `ChainedTokenCredential` instance that includes `WorkloadIdentityCredential`.
 - Use `WorkloadIdentityCredential` directly.
 
 The following table provides the **minimum** package version required for each language's client library.
 
-| Language   | Library                                                                                      | Minimum Version | Example                                                                                           |
-|------------|----------------------------------------------------------------------------------------------|-----------------|---------------------------------------------------------------------------------------------------|
-| .NET       | [Azure.Identity](/dotnet/api/overview/azure/identity-readme)      | 1.9.0    | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/azure-identity/dotnet) |
-| Go         | [azidentity](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity)            | 1.3.0    | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/azure-identity/go)     |
-| Java       | [azure-identity](/java/api/overview/azure/identity-readme)        | 1.9.0    | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/azure-identity/java)   |
-| JavaScript | [@azure/identity](/javascript/api/overview/azure/identity-readme) | 3.2.0    | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/azure-identity/node)   |
-| Python     | [azure-identity](/python/api/overview/azure/identity-readme)      | 1.13.0        | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/azure-identity/python) |
+| Language   | Library                                                                                                          | Minimum Version | Example                                                                                           |
+|------------|------------------------------------------------------------------------------------------------------------------|-----------------|---------------------------------------------------------------------------------------------------|
+| .NET       | [Azure.Identity](/dotnet/api/overview/azure/identity-readme)                                                     | 1.9.0           | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/azure-identity/dotnet) |
+| C++        | [azure-identity-cpp](https://github.com/Azure/azure-sdk-for-cpp/blob/main/sdk/identity/azure-identity/README.md) | 1.6.0-beta.1    | N/A                                                                                          |
+| Go         | [azidentity](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity)                                | 1.3.0           | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/azure-identity/go)     |
+| Java       | [azure-identity](/java/api/overview/azure/identity-readme)                                                       | 1.9.0           | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/azure-identity/java)   |
+| JavaScript | [@azure/identity](/javascript/api/overview/azure/identity-readme)                                                | 3.2.0           | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/azure-identity/node)   |
+| Python     | [azure-identity](/python/api/overview/azure/identity-readme)                                                     | 1.13.0          | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/azure-identity/python) |
+
+&dagger; In the C++ library, `WorkloadIdentityCredential` isn't part of the `DefaultAzureCredential` authentication flow.
 
 ## Microsoft Authentication Library (MSAL)
 

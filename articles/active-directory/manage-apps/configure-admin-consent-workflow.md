@@ -24,8 +24,6 @@ The admin consent workflow gives admins a secure way to grant access to applicat
 
 To approve requests, a reviewer must have the [permissions required](grant-admin-consent.md#prerequisites) to grant admin consent for the application requested. Simply designating them as a reviewer doesn't elevate their privileges.
 
-[!INCLUDE [portal updates](../includes/portal-update.md)]
-
 ## Prerequisites
 
 To configure the admin consent workflow, you need:
@@ -34,6 +32,8 @@ To configure the admin consent workflow, you need:
 - You must be a global administrator to turn on the admin consent workflow.
 
 ## Enable the admin consent workflow
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 To enable the admin consent workflow and choose reviewers:
 

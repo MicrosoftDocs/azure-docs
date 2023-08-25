@@ -6,7 +6,7 @@ ms.assetid: 14feb4f3-5095-496e-9a40-690e1414bd73
 ms.devlang: php
 ms.topic: tutorial
 ms.date: 06/30/2023
-ms.custom: mvc, cli-validate, seodec18, devdivchpfy22
+ms.custom: mvc, cli-validate, seodec18, devdivchpfy22, AppServiceConnectivity
 ---
 
 # Tutorial: Deploy a PHP, MySQL, and Redis app to Azure App Service

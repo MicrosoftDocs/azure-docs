@@ -94,14 +94,15 @@ For more information, see [configurationAssignments](/azure/templates/microsoft.
 
 ```json
 { 
-  "type": "Microsoft.Maintenance/configurationAssignments", 
-  "apiVersion": "2021-09-01-preview", 
-  "name": "string", 
-  "location": "string", 
-  "properties": { 
-    "maintenanceConfigurationId": "string", 
-    "resourceId": "string" 
-  } 
+"type": "Microsoft.Maintenance/configurationAssignments",
+"apiVersion": "2021-09-01-preview",
+"name": "[variables('maintenanceConfigurationAssignmentName')]",
+"location": "string (e.g. westeurope)", 
+"scope": "Resource Id of the resource that is being assigned to the Maintenance Configuration (e.g. VMSS Id)"
+"properties": {
+  "maintenanceConfigurationId": "Resource Id of the Maintenance Configuration"
+  "resourceId": "Resource Id of the resource that is being assigned to the Maintenance Configuration (e.g. VMSS Id)"
+}
 }
 ```
 

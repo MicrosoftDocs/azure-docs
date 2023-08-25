@@ -12,7 +12,7 @@ ms.workload: identity
 ms.date: 06/09/2023
 ms.author: rolyon
 ms.reviewer: anandy
-ms.custom: oldportal;it-pro;
+ms.custom: oldportal, it-pro, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 ---
 
@@ -43,6 +43,8 @@ For more information, see [Prerequisites to use PowerShell or Graph Explorer](pr
 You can create a new administrative unit by using either the Azure portal, PowerShell or Microsoft Graph.
 
 ### Azure portal
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 

@@ -5,7 +5,7 @@ keywords: azure app service, web app, app settings, environment variables
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 04/21/2023
-ms.custom: devx-track-csharp, seodec18, devx-track-azurecli, devx-track-azurepowershell
+ms.custom: devx-track-csharp, seodec18, devx-track-azurecli, devx-track-azurepowershell, AppServiceConnectivity
 ms.devlang: azurecli
 ---
 # Configure an App Service app
@@ -295,7 +295,7 @@ $webapp=Get-AzWebApp -ResourceGroupName <group-name> -Name <app-name>
 # Copy connection strings to a new hashtable
 $connStrings = @{}
 ForEach ($item in $webapp.SiteConfig.ConnectionStrings) {
-$connStrings[$item.Name] = @{value=$item.Value; type=item.Type}
+    $connStrings[$item.Name] = @{value=$item.ConnectionString; type=$item.Type.ToString()}
 }
 
 # Add or edit one or more connection strings

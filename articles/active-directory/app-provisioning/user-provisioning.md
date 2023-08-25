@@ -15,7 +15,7 @@ ms.reviewer: arvinh
 # What is app provisioning in Azure Active Directory?
 
 In Azure Active Directory (Azure AD), the term *app provisioning* refers to automatically creating user identities and roles for applications.
-	
+
 ![Diagram that shows provisioning scenarios.](../governance/media/what-is-provisioning/provisioning.png)
 
 Azure AD application provisioning refers to automatically creating user identities and roles in the applications that users need access to. In addition to creating user identities, automatic provisioning includes the maintenance and removal of user identities as status or roles change. Common scenarios include provisioning an Azure AD user into SaaS applications like [Dropbox](../../active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial.md), [Salesforce](../../active-directory/saas-apps/salesforce-provisioning-tutorial.md), [ServiceNow](../../active-directory/saas-apps/servicenow-provisioning-tutorial.md), and many more.

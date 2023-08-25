@@ -50,5 +50,5 @@ The following example shows how to get different slices of an array using the fu
 
 ## Next steps
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`ARRAY_LENGTH`](array-length.md)

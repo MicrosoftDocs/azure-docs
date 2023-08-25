@@ -2,8 +2,8 @@
 title: Configure private endpoint in Azure Static Web Apps
 description: Learn to configure private endpoint access for Azure Static Web Apps
 services: static-web-apps
-author: burkeholland
-ms.author: buhollan
+author: craigshoemaker
+ms.author: cshoe
 ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 7/28/2021
@@ -61,6 +61,10 @@ In this section, you create a private endpoint for your static web app.
    :::image type="content" source="media/create-private-link-dialog.png" alt-text="./media/create-private-link-dialog.png":::
 
 4. Select **Ok**.
+
+> [!NOTE]
+> The name of the private DNS zone depends upon the default domain name suffix of the static web app. For example, if the default domain suffix of the app is `3.azurestaticapps.net`, the name of the private DNS zone is `privatelink.3.azurestaticapps.net`. When a new static web app is created, the default domain suffix might be different from the default domain suffix(es) of previous static web apps. If you are using an automated deployment process to create the private DNS zone, you can use the `DefaultHostname` property in your app to programmatically extract the domain suffix. The `DefaultHostname` property value resembles `<STATIC_WEB_APP_DEFAULT_DOMAIN_PREFIX>.<PARTITION_ID>.azurestaticapps.net` or `STATIC_WEB_APP_DEFAULT_DOMAIN_PREFIX.azurestaticapps.net`. The default domain suffix resembles `<PARTITION_ID>.azurestaticapps.net` or `azurestaticapps.net`.
+
 
 ## Testing your private endpoint
 

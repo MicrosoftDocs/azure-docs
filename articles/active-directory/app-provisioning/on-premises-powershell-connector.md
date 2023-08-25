@@ -72,6 +72,8 @@ If you have already downloaded the provisioning agent and configured it for anot
 
 ## Configure the On-premises ECMA app
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
  1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
  2. Go to **Enterprise applications** and select **New application**.
  3. Search for the **On-premises ECMA app** application, give the app a name, and select **Create** to add it to your tenant.
@@ -256,6 +258,7 @@ Follow these steps to confirm that the connector host has started and has identi
 
 
 ## Test the connection from Azure AD to the connector host
+
  1. Return to the web browser window where you were configuring the application provisioning in the portal.
     >[!NOTE]
     >If the window had timed out, then you need to re-select the agent.
@@ -276,6 +279,7 @@ Follow these steps to confirm that the connector host has started and has identi
  5. After the connection test is successful and indicates that the supplied credentials are authorized to enable provisioning, select **Save**.
 
 ## Configure the application connection in the Azure portal
+
 Return to the web browser window where you were configuring the application provisioning.
 
 >[!NOTE]

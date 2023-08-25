@@ -22,7 +22,9 @@ ms.collection: M365-identity-device-management
 ---
 # Change approval and requestor information settings for an access package in entitlement management
 
-As an access package manager, you can change the approval and requestor information settings for an access package at any time by editing an existing policy or adding a new policy for requesting access.
+Each access package must have one or more access package assignment policies, before a user can be assigned access.  When an access package is created in the Entra portal, the Entra portal automatically creates the first access package assignment policy for that access package.  The policy determines who can request access, and who if anyone must approve access.
+
+As an access package manager, you can change the approval and requestor information settings for an access package at any time by editing an existing policy or adding a new additional policy for requesting access.
 
 This article describes how to change the approval and requestor information settings for an existing access package, through an access package's policy.
 
@@ -60,7 +62,7 @@ Follow these steps to specify the approval settings for requests for the access 
 
 1. Go to the **Request** tab.
 
-1. To require approval for requests from the selected users, set the **Require approval** toggle to **Yes**. Or, to have requests automatically approved, set the toggle to **No**.
+1. To require approval for requests from the selected users, set the **Require approval** toggle to **Yes**. Or, to have requests automatically approved, set the toggle to **No**. If the policy allows external users from outside your organization to request access, you should require approval, so there is oversight on who is being added to your organization's directory.
 
 1. To require users to provide a justification to request the access package, set the **Require requestor justification** toggle to **Yes**.
     
@@ -85,7 +87,7 @@ Use the following steps to add approvers after selecting how many stages you req
     
 1. If you selected **Manager** as the first approver, select **Add fallback to select one, or more users or groups in your directory to be a fallback approver. Fallback approvers receive the request if entitlement management can't find the manager for the user requesting access.
 
-    The manager is found by entitlement management using the **Manager** attribute. The attribute is in the user's profile in Azure AD. For more information, see [Add or update a user's profile information using Azure Active Directory](../fundamentals/active-directory-users-profile-azure-portal.md).
+    The manager is found by entitlement management using the **Manager** attribute. The attribute is in the user's profile in Azure AD. For more information, see [Add or update a user's profile information using Azure Active Directory](../fundamentals/how-to-manage-user-profile-info.md).
 
 1. If you selected **Choose specific approvers**, select **Add approvers** to choose one, or more, users or groups in your directory to be approvers.
 

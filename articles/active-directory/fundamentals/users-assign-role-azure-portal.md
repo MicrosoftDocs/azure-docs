@@ -32,7 +32,9 @@ There are two main steps to the role assignment process. First you'll select the
 
 ### Select the role to assign
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) using the Privileged Role Administrator role for the directory.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+1. Sign in to the [Azure portal](https://portal.azure.com) using the Privileged Role Administrator role for the directory.
 
 1. Go to **Azure Active Directory** > **Users**.
 
@@ -91,9 +93,9 @@ You can remove role assignments from the **Administrative roles** page for a sel
 
 ## Next steps
 
-- [Add or delete users](add-users-azure-active-directory.md)
+- [Add or delete users](./add-users.md)
 
-- [Add or change profile information](active-directory-users-profile-azure-portal.md)
+- [Add or change profile information](./how-to-manage-user-profile-info.md)
 
 - [Add guest users from another directory](../external-identities/what-is-b2b.md)
 

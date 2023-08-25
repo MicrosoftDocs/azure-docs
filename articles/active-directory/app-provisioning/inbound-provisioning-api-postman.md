@@ -53,7 +53,7 @@ In this step, you'll configure the Postman app and invoke the API using the conf
 1. Click on **Get New Access Token** to initiate the process to procure an access token. 
 1. Select the option **Use Token** to use the access token with all requests in this collection. 
      >[!NOTE]
-     >The OAuth access token generated using `client_credentials` grant type is valid for one hour. You can decode the token using [https://jwt.io](https://jwt.io) and check when it expires. Requests fail after the token expires. If your access token has expired, click **Get New Access Token** in Postman to get a new access token. 
+     >The OAuth access token generated using `client_credentials` grant type is valid for one hour. You can decode the token using [https://jwt.ms](https://jwt.ms) and check when it expires. Requests fail after the token expires. If your access token has expired, click **Get New Access Token** in Postman to get a new access token. 
    The token is automatically copied into the **Current token** section of the Authorization tab. You can now use the token to make API calls. Let's start with the first call in this collection. 
 1. Open the request **SCIM bulk request upload**.
 1. Under the **Authorization tab**, make sure that type is set to **Inherit auth from parent**.
@@ -98,11 +98,7 @@ Upon successful execution, you'll get a `200 HTTP` response from the server alon
 The bulk request shown below uses the SCIM standard Core User and Enterprise User schema. 
 
 **Request body**
-# [HTTP](#tab/http)
-<!-- {
-  "blockType": "request",
-  "name": "Quick_start_with_Postman"
-}-->
+
 ```http
 {
     "schemas": ["urn:ietf:params:scim:api:messages:2.0:BulkRequest"],

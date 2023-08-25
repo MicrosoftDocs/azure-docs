@@ -3,7 +3,7 @@ title: What is Microsoft Defender for Cloud?
 
 description: Use Microsoft Defender for Cloud to protect your Azure, hybrid, and multicloud resources and workloads.
 ms.topic: overview
-ms.date: 05/21/2023
+ms.date: 07/24/2023
 ---
 
 # What is Microsoft Defender for Cloud?
@@ -63,6 +63,8 @@ When your environment is threatened, security alerts right away indicate the nat
 | [Infrastructure service insights](asset-inventory.md) | Diagnose weaknesses in your application infrastructure that can leave your environment susceptible to attack. | - [Identify attacks targeting applications running over App Service](defender-for-app-service-introduction.md)</br>- [Detect attempts to exploit Key Vault accounts](defender-for-key-vault-introduction.md)</br>- [Get alerted on suspicious Resource Manager operations](defender-for-resource-manager-introduction.md)</br>- [Expose anomalous DNS activities](defender-for-dns-introduction.md) | - Defender for App Service</br></br>- Defender for Key Vault</br></br>- Defender for Resource Manager</br></br>- Defender for DNS |
 | [Security alerts](alerts-overview.md) | Get informed of real-time events that threaten the security of your environment. Alerts are categorized and assigned severity levels to indicate proper responses. | [Manage security alerts]( managing-and-responding-alerts.md) | Any workload protection Defender plan |
 | [Security incidents](alerts-overview.md#what-are-security-incidents) | Correlate alerts to identify attack patterns and integrate with Security Information and Event Management (SIEM), Security Orchestration Automated Response (SOAR), and IT Service Management (ITSM) solutions to respond to threats and limit the risk to your resources. | [Export alerts to SIEM, SOAR, or ITSM systems](export-to-siem.md) | Any workload protection Defender plan |
+
+[!INCLUDE [Defender for DNS note](./includes/defender-for-dns-note.md)]
 
 ## Learn More
 

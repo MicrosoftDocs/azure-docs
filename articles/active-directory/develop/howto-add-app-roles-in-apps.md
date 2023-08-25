@@ -35,6 +35,8 @@ The number of roles you add counts toward application manifest limits enforced b
 
 ### App roles UI
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 To create an app role by using the Azure portal's user interface:
 
 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.

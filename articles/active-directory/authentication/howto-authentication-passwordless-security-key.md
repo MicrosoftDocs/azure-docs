@@ -45,6 +45,8 @@ Registration features for passwordless authentication methods rely on the combin
 
 ### Enable FIDO2 security key method
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Browse to **Azure Active Directory** > **Security** > **Authentication methods** > **Authentication method policy**.
 1. Under the method **FIDO2 Security Key**, click **All users**, or click **Add groups** to select specific groups. *Only security groups are supported*.

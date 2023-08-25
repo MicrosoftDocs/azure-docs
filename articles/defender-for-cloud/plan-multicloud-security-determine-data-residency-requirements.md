@@ -64,9 +64,9 @@ Defender for Containers has both agent-based and agentless components.
 
 - **Agentless collection of Kubernetes audit log data**:  [Amazon CloudWatch](https://aws.amazon.com/cloudwatch/) or GCP Cloud Logging enables and collects audit log data, and sends the collected information to Defender for Cloud for further analysis. Data storage is based on the EKS cluster AWS region, in accordance with GDPR - EU and US.
 - **Agent-based Azure Arc-enabled Kubernetes**: Connects your EKS and GKE clusters to Azure using [Azure Arc agents](../azure-arc/kubernetes/conceptual-agent-overview.md), so that they’re treated as Azure Arc resources.
-- **Microsoft Defender extension**: A DaemonSet that collects signals from hosts using eBPF technology, and provides runtime protection. The extension is registered with a Log Analytics workspace and used as a data pipeline. The audit log data isn't stored in the Log Analytics workspace.
-- **Azure Policy extension**: configuration information is collected by the Azure Policy add-on.
-  - The Azure Policy add-on extends the open-source Gatekeeper v3 admission controller webhook for Open Policy Agent.
+- **[Defender agent](defender-for-cloud-glossary.md#defender-agent)**: A DaemonSet that collects signals from hosts using eBPF technology, and provides runtime protection. The extension is registered with a Log Analytics workspace and used as a data pipeline. The audit log data isn't stored in the Log Analytics workspace.
+- **Azure Policy for Kubernetes**: configuration information is collected by Azure Policy for Kubernetes.
+  - Azure Policy for Kubernetes extends the open-source Gatekeeper v3 admission controller webhook for Open Policy Agent.
   - The extension registers as a web hook to Kubernetes admission control and makes it possible to apply at-scale enforcement, safeguarding your clusters in a centralized, consistent manner.
 
 ## Defender for Databases plan

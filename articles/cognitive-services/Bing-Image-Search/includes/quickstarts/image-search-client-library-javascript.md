@@ -1,6 +1,6 @@
 ---
 title: Bing Image Search JavaScript client library quickstart 
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -90,6 +90,6 @@ Use this quickstart to make your first image search using the Bing Image Search 
 
 * [What is Bing Image Search?](../../overview.md)
 * [Try an online interactive demo](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)
-* [Node.js samples for the Azure Cognitive Services SDK](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
+* [Node.js samples for the Azure AI services SDK](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
 * [Azure AI services documentation](../../../../ai-services/index.yml)
 * [Bing Image Search API reference](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

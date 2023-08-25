@@ -83,7 +83,7 @@ The following example shows an HTTP trigger that returns a "hello world" respons
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Http/HttpFunction.cs" id="docsnippet_http_trigger":::
 
-The following example shows an HTTP trigger that returns a "hello, world" response as an [IActionResult], using [ASP.NET Core integration in .NET Isolated](./dotnet-isolated-process-guide.md#aspnet-core-integration-preview):
+The following example shows an HTTP trigger that returns a "hello, world" response as an [IActionResult], using [ASP.NET Core integration in .NET Isolated]:
 
 ```csharp
 [Function("HttpFunction")]
@@ -95,86 +95,6 @@ public IActionResult Run(
 ```
 
 [IActionResult]: /dotnet/api/microsoft.aspnetcore.mvc.iactionresult
-
-# [C# Script](#tab/csharp-script)
-
-The following example shows a trigger binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function looks for a `name` parameter either in the query string or the body of the HTTP request.
-
-Here's the *function.json* file:
-
-```json
-{
-    "disabled": false,
-    "bindings": [
-        {
-            "authLevel": "function",
-            "name": "req",
-            "type": "httpTrigger",
-            "direction": "in",
-            "methods": [
-                "get",
-                "post"
-            ]
-        },
-        {
-            "name": "$return",
-            "type": "http",
-            "direction": "out"
-        }
-    ]
-}
-```
-
-The [configuration](#configuration) section explains these properties.
-
-Here's C# script code that binds to `HttpRequest`:
-
-```cs
-#r "Newtonsoft.Json"
-
-using System.Net;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Primitives;
-using Newtonsoft.Json;
-
-public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
-{
-    log.LogInformation("C# HTTP trigger function processed a request.");
-
-    string name = req.Query["name"];
-    
-    string requestBody = String.Empty;
-    using (StreamReader streamReader =  new  StreamReader(req.Body))
-    {
-        requestBody = await streamReader.ReadToEndAsync();
-    }
-    dynamic data = JsonConvert.DeserializeObject(requestBody);
-    name = name ?? data?.name;
-    
-    return name != null
-        ? (ActionResult)new OkObjectResult($"Hello, {name}")
-        : new BadRequestObjectResult("Please pass a name on the query string or in the request body");
-}
-```
-
-You can bind to a custom object instead of `HttpRequest`. This object is created from the body of the request and parsed as JSON. Similarly, a type can be passed to the HTTP response output binding and returned as the response body, along with a `200` status code.
-
-```csharp
-using System.Net;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Logging;
-
-public static string Run(Person person, ILogger log)
-{   
-    return person.Name != null
-        ? (ActionResult)new OkObjectResult($"Hello, {person.Name}")
-        : new BadRequestObjectResult("Please pass an instance of Person.");
-}
-
-public class Person {
-     public string Name {get; set;}
-}
-```
 
 ---
 
@@ -553,7 +473,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use the `HttpTriggerAttribute` to define the trigger binding. C# script instead uses a function.json configuration file.  
+Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use the `HttpTriggerAttribute` to define the trigger binding. C# script instead uses a function.json configuration file as described in the [C# scripting guide](./functions-reference-csharp.md#http-trigger).
 
 # [In-process](#tab/in-process)
 
@@ -575,20 +495,6 @@ In [isolated worker process](dotnet-isolated-process-guide.md) function apps, th
 |  **AuthLevel** | Determines what keys, if any, need to be present on the request in order to invoke the function. For supported values, see [Authorization level](#http-auth).  |
 | **Methods** | An array of the HTTP methods to which the function  responds. If not specified, the function responds to all HTTP methods. See [customize the HTTP endpoint](#customize-the-http-endpoint). |
 | **Route** | Defines the route template, controlling to which request URLs your function responds. The default value if none is provided is `<functionname>`. For more information, see [customize the HTTP endpoint](#customize-the-http-endpoint). |
-
-# [C# Script](#tab/csharp-script)
-
-The following table explains the trigger configuration properties that you set in the *function.json* file:
-
-|function.json property | Description|
-|---------|---------------------|
-| **type** | Required - must be set to `httpTrigger`. |
-| **direction** | Required - must be set to `in`. |
-| **name** | Required - the variable name used in function code for the request or request body. |
-| **authLevel** |  Determines what keys, if any, need to be present on the request in order to invoke the function. For supported values, see [Authorization level](#http-auth).  |
-| **methods** | An array of the HTTP methods to which the function  responds. If not specified, the function responds to all HTTP methods. See [customize the HTTP endpoint](#customize-the-http-endpoint). |
-| **route** |  Defines the route template, controlling to which request URLs your function responds. The default value if none is provided is `<functionname>`. For more information, see [customize the HTTP endpoint](#customize-the-http-endpoint). |
-| **webHookType** | _Supported only for the version 1.x runtime._<br/><br/>Configures the HTTP trigger to act as a [webhook](https://en.wikipedia.org/wiki/Webhook) receiver for the specified provider. For supported values, see [WebHook type](#webhook-type).|
 
 ---
 
@@ -681,9 +587,51 @@ The [HttpTrigger](/java/api/com.microsoft.azure.functions.annotation.httptrigger
 + Any plain-old Java object (POJO) type.
 ::: zone-end
 
+::: zone pivot="programming-language-csharp"
+
 ### Payload
 
+# [In-process](#tab/in-process)   
+
 The trigger input type is declared as either `HttpRequest` or a custom type. If you choose `HttpRequest`, you get full access to the request object. For a custom type, the runtime tries to parse the JSON request body to set the object properties.
+
+# [Isolated process](#tab/isolated-process)
+
+The trigger input type is declared as one of the following types:
+
+| Type              | Description | 
+|-|-|
+| [HttpRequestData] | A projection of the full request object. |
+| [HttpRequest]     | _Use of this type requires that the app is configured with [ASP.NET Core integration in .NET Isolated]._<br/>This gives you full access to the request object and overall HttpContext. |
+| A custom type     | When the body of the request is JSON, the runtime will try to parse it to set the object properties. |
+
+When using `HttpRequestData` or `HttpRequest`, custom types can also be bound to additional parameters using `Microsoft.Azure.Functions.Worker.Http.FromBodyAttribute`. Use of this attribute requires [`Microsoft.Azure.Functions.Worker.Extensions.Http` version 3.1.0 or later](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Http). Note that this is a different type than the similar attribute in `Microsoft.AspNetCore.Mvc`, and when using ASP.NET Core integration, you will need a fully qualified reference or `using` statement. The following example shows how to use the attribute to get just the body contents while still having access to the full `HttpRequest`, using the ASP.NET Core integration:
+
+```csharp
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Azure.Functions.Worker;
+using FromBodyAttribute = Microsoft.Azure.Functions.Worker.Http.FromBodyAttribute;
+
+namespace AspNetIntegration
+{
+    public class BodyBindingHttpTrigger
+    {
+        [Function(nameof(BodyBindingHttpTrigger))]
+        public IActionResult Run([HttpTrigger(AuthorizationLevel.Anonymous, "post")] HttpRequest req,
+            [FromBody] Person person)
+        {
+            return new OkObjectResult(person);
+        }
+    }
+
+    public record Person(string Name, int Age);
+}
+```
+
+---
+
+::: zone-end 
 
 ### Customize the HTTP endpoint
 
@@ -732,24 +680,6 @@ FunctionContext executionContext)
     response.WriteString(message);
 
     return response;
-}
-```
-
-# [C# Script](#tab/csharp-script)
-
- The following C# function code makes use of both parameters.
-
-```csharp
-#r "Newtonsoft.Json"
-
-using System.Net;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Primitives;
-
-public static IActionResult Run(HttpRequest req, string category, int? id, ILogger log)
-{
-    var message = String.Format($"Category: {category}, ID: {id}");
-    return (ActionResult)new OkObjectResult(message);
 }
 ```
 
@@ -1007,38 +937,6 @@ public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
 
 The authenticated user is available via [HTTP Headers](../app-service/configure-authentication-user-identities.md#access-user-claims-in-app-code).
 
-# [C# Script](#tab/csharp-script)
-
-```csharp
-using System.Net;
-using Microsoft.AspNetCore.Mvc;
-using System.Security.Claims;
-
-public static IActionResult Run(HttpRequest req, ILogger log)
-{
-    ClaimsPrincipal identities = req.HttpContext.User;
-    // ...
-    return new OkObjectResult();
-}
-```
-
-Alternatively, the ClaimsPrincipal can simply be included as an additional parameter in the function signature:
-
-```csharp
-#r "Newtonsoft.Json"
-
-using System.Net;
-using Microsoft.AspNetCore.Mvc;
-using System.Security.Claims;
-using Newtonsoft.Json.Linq;
-
-public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
-{
-    // ...
-    return;
-}
-```
-
 ---
 
 ::: zone-end 
@@ -1158,3 +1056,9 @@ If a function that uses the HTTP trigger doesn't complete within 230 seconds, th
 - [Return an HTTP response from a function](./functions-bindings-http-webhook-output.md)
 
 [ClaimsPrincipal]: /dotnet/api/system.security.claims.claimsprincipal
+[ASP.NET Core integration in .NET Isolated]: ./dotnet-isolated-process-guide.md#aspnet-core-integration-preview
+[HttpRequestData]: /dotnet/api/microsoft.azure.functions.worker.http.httprequestdata
+[HttpResponseData]: /dotnet/api/microsoft.azure.functions.worker.http.httpresponsedata
+[HttpRequest]: /dotnet/api/microsoft.aspnetcore.http.httprequest
+[HttpResponse]: /dotnet/api/microsoft.aspnetcore.http.httpresponse
+[IActionResult]: /dotnet/api/microsoft.aspnetcore.mvc.iactionresult

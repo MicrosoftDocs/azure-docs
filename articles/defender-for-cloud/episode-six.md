@@ -11,9 +11,7 @@ ms.date: 04/27/2023
 
 Carlos also covers how Microsoft Defender for Cloud is used to fill the gap between cloud security posture management and cloud workload protection, and demonstrates some features related to this scenario. 
 
-<br>
-<br>
-<iframe src="https://aka.ms/docs/player?id=3811455b-cc20-4ee0-b1bf-9d4df5ee4eaf" width="1080" height="530" allowFullScreen="true" frameBorder="0"></iframe>
+> [!VIDEO https://aka.ms/docs/player?id=3811455b-cc20-4ee0-b1bf-9d4df5ee4eaf]
 
 - [1:30](/shows/mdc-in-the-field/lessons-from-the-field#time=01m30s) - Why Microsoft Defender for Cloud is a unique solution when compared with other competitors?
 

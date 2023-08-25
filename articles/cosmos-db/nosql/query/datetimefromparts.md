@@ -57,5 +57,5 @@ The following example uses various combinations of the arguments to create date 
 
 ## Next steps
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`DateTimePart`](datetimepart.md)

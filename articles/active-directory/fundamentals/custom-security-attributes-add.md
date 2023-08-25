@@ -8,6 +8,7 @@ ms.author: rolyon
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
+ms.custom: has-azure-ad-ps-ref
 ms.topic: how-to
 ms.date: 06/29/2023
 ms.collection: M365-identity-device-management
@@ -34,6 +35,8 @@ To add or deactivate custom security attributes definitions, you must have:
 > By default, [Global Administrator](../roles/permissions-reference.md#global-administrator) and other administrator roles do not have permissions to read, define, or assign custom security attributes.
 
 ## Add an attribute set
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 An attribute set is a collection of related attributes. All custom security attributes must be part of an attribute set. Attribute sets cannot be renamed or deleted.
 

@@ -37,6 +37,8 @@ You're not required to assign licenses to the users for them to be members in dy
 
 ## Create a group of guest users
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 First, you'll create a group for your guest users who all are from a single partner company. They need special licensing, so it's often more efficient to create a group for this purpose.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with an account that is the global administrator for your organization.
@@ -101,4 +103,4 @@ In this tutorial, you learned how to:
 
 Advance to the next article to learn more group-based licensing basics
 > [!div class="nextstepaction"]
-> [Group licensing basics](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
+> [Group licensing basics](../fundamentals/licensing-whatis-azure-portal.md)

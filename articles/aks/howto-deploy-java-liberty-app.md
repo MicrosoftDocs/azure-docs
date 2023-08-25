@@ -266,8 +266,13 @@ The following steps deploy and test the application.
       ```
 
       Copy the value of **ADDRESS** from the output, this is the frontend public IP address of the deployed Azure Application Gateway.
-
-   1. Go to `https://<ADDRESS>` to test the application.
+      
+   1. Go to `https://<ADDRESS>` to test the application. For your convenience, this shell command will create an environment variable whose value you can paste straight into the browser.
+      
+      ```bash
+      export APP_URL=https://$(kubectl get ingress | grep javaee-cafe-cluster-agic-ingress | cut -d " " -f14)/
+      echo $APP_URL
+      ```
 
 ## Clean up resources
 

@@ -8,6 +8,7 @@ ms.author: nicktrog
 author: ntrogh
 ms.date: 05/12/2023
 ms.topic: how-to
+ms.custom: references_regions
 ---
 
 # Test private endpoints by deploying Azure Load Testing in an Azure virtual network

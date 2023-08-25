@@ -9,20 +9,20 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 07/12/2023
+ms.date: 08/09/2023
 ms.custom: it-pro
 
 #Customer intent: As a dev, devops, or it admin, I want to learn about how to add customized browser languages to my app's authentication experience.
 ---
 # Customize the language of the authentication experience
 
-You can create a personalized sign-in experience for users who sign in using a specific browser language by customizing the branding elements. If you don't make any changes to the elements, the default elements will be displayed.
+You can create a personalized sign-in experience for users who sign in using a specific browser language by customizing the branding elements for that browser language. This customization overrides any configurations made to the default branding. If you don't make any changes to the elements, the default elements are displayed.
 
 ## Prerequisites
 
 - If you haven't already created your own Azure AD customer tenant, create one now.
 - [Register an application](how-to-register-ciam-app.md).  
-- [Create a user flow](how-to-user-flow-sign-up-sign-in-customers.md)
+- [Create a user flow](how-to-user-flow-sign-up-sign-in-customers.md).
 - Review the file size requirements for each image you want to add. You may need to use a photo editor to create the right-sized images. The preferred image type for all images is PNG, but JPG is accepted.
 
 ## Add browser language under Company branding
@@ -99,7 +99,7 @@ Language customization in the customer tenant allows your user flow to accommoda
 
    :::image type="content" source="media/how-to-customize-languages-customers/language-customization-flow.png" alt-text="Screenshot the shows how to add languages under a user flow." lightbox="media/how-to-customize-languages-customers/language-customization-flow.png":::
 
-The downloaded file will be in JSON format and will include both built-in and custom attributes, as well as other page-level and error strings:
+The downloaded file is in JSON format and includes both built-in and custom attributes, as well as other page-level and error strings:
 
 ```http
 {
@@ -156,12 +156,12 @@ You can modify any or all of these attributes in the downloaded file. For exampl
 }  
 ```
 
-10. After making the necessary changes, you can upload the new overrides file. The changes are saved to your user flow automatically and you'll find the override under the **Configured** tab.
+10. After making the necessary changes, you can upload the new overrides file. The changes are saved to your user flow automatically. The override appears under the **Configured** tab.
 11. To double-check your changes, select the language under the **Configured** tab and expand the **Sign up and sign in (Preview)** option. You can view your customized language file by selecting Download overrides. To remove your customized override file, select **Remove overrides**.
 
    :::image type="content" source="media/how-to-customize-languages-customers/remove-download-override-file.png" alt-text="Screenshot the shows how to remove or download the modified JSON file." lightbox="media/how-to-customize-languages-customers/remove-download-override-file.png":::
    
-12. Go to the sign-in page of your customer tenant. Make sure you have the right locale and market in your URLs, for example: ui_locales=de-DE and  mkt=de-DE. You'll see the updated attributes on the sign-up page:
+12. Go to the sign-in page of your customer tenant. Make sure you have the right locale and market in your URLs, for example: ui_locales=de-DE and  mkt=de-DE. The updated attributes on the sign-up page appear as follows:
 
    :::image type="content" source="media/how-to-customize-languages-customers/customized-attributes.png" alt-text="Screenshot of the modified sign-up page attributes.":::
 
