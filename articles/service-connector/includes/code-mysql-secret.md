@@ -9,7 +9,7 @@ ms.author: yungez
 ### [.NET](#tab/dotnet)
 
 1. Install dependencies. Follow the guidance to [install connector/NET MySQL](https://dev.mysql.com/doc/connector-net/en/connector-net-installation.html)
-1. In code, get MySQL connection string from environment variables added by Service Connector service.
+1. In code, get MySQL connection string from environment variables added by Service Connector service. To establish encrypted connection to MySQL server over SSL, refer to [these steps](/azure/mysql/flexible-server/how-to-connect-tls-ssl#connect-using-mysql-command-line-client-with-tlsssl).
    ```csharp
    using System;
    using System.Data;
@@ -25,7 +25,7 @@ ms.author: yungez
 ### [Java](#tab/java)
 
 1. Install dependencies. Follow the guidance to [install Connector/J](https://dev.mysql.com/doc/connector-j/8.0/en/connector-j-installing.html).
-1. In code, get MySQL connection string from environment variables added by Service Connector service.
+1. In code, get MySQL connection string from environment variables added by Service Connector service. To establish encrypted connection to MySQL server over SSL, refer to [these steps](/azure/mysql/flexible-server/how-to-connect-tls-ssl#connect-using-mysql-command-line-client-with-tlsssl).
     ```java
     import java.sql.Connection;
     import java.sql.DriverManager;
@@ -59,12 +59,12 @@ ms.author: yungez
       </dependencies>
     </dependencyManagement>
     ```
-1. Setup normal Spring App application, more detail in this [section](/azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-mysql?tabs=password%2Cservice-connector).
+1. Setup normal Spring App application, more detail in this [section](/azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-mysql?tabs=password%2Cservice-connector). To establish encrypted connection to MySQL server over SSL, refer to [these steps](/azure/mysql/flexible-server/how-to-connect-tls-ssl#connect-using-mysql-command-line-client-with-tlsssl).
 
 ### [Python](#tab/python)
 
 1. Install dependencies. Follow the guidance to [install Connector/Python](https://dev.mysql.com/doc/connector-python/en/connector-python-installation.html) by following the guidance.
-1. In code, get MySQL connection information from environment variables added by Service Connector service.
+1. In code, get MySQL connection information from environment variables added by Service Connector service. To establish encrypted connection to MySQL server over SSL, refer to [these steps](/azure/mysql/flexible-server/how-to-connect-tls-ssl#connect-using-mysql-command-line-client-with-tlsssl).
    ```python
    import os
    import mysql.connector
@@ -73,7 +73,7 @@ ms.author: yungez
    user = os.getenv('AZURE_MYSQL_USER')
    password = os.getenv('AZURE_MYSQL_PASSWORD')
    database = os.getenv('Azure_MYSQL_NAME')
-   port = os.getenv('AZURE_MYSQL_PORT')
+   port = int(os.getenv('AZURE_MYSQL_PORT'))
    
    cnx = mysql.connector.connect(user=user, password=password,
                                  host=host,
@@ -89,14 +89,14 @@ ms.author: yungez
    ```bash
    pip install django
    ```
-1. In setting file, get MySQL database information from environment variables added by Service Connector service.
+1. In setting file, get MySQL database information from environment variables added by Service Connector service. To establish encrypted connection to MySQL server over SSL, refer to [these steps](/azure/mysql/flexible-server/how-to-connect-tls-ssl#connect-using-mysql-command-line-client-with-tlsssl).
    ```python
    # in your setting file, eg. settings.py
    host = os.getenv('AZURE_MYSQL_HOST')
    user = os.getenv('AZURE_MYSQL_USER')
    password = os.getenv('AZURE_MYSQL_PASSWORD')
    database = os.getenv('AZURE_MYSQL_NAME')
-   port = os.getenv('AZURE_MYSQL_PORT')
+   port = int(os.getenv('AZURE_MYSQL_PORT'))
    
    DATABASES = {
        'default': {
@@ -116,7 +116,7 @@ ms.author: yungez
     ```bash
     go get -u github.com/go-sql-driver/mysql
     ```
-1. In code, get MySQL connection string from environment variables added by Service Connector service.
+1. In code, get MySQL connection string from environment variables added by Service Connector service. To establish encrypted connection to MySQL server over SSL, refer to [these steps](/azure/mysql/flexible-server/how-to-connect-tls-ssl#connect-using-mysql-command-line-client-with-tlsssl).
     ```go
     import (
     "database/sql"
@@ -137,7 +137,7 @@ ms.author: yungez
    ```bash
    npm install mysql2
    ```
-1. In code, get MySQL connection information from environment variables added by Service Connector service.
+1. In code, get MySQL connection information from environment variables added by Service Connector service. To establish encrypted connection to MySQL server over SSL, refer to [these steps](/azure/mysql/flexible-server/how-to-connect-tls-ssl#connect-using-mysql-command-line-client-with-tlsssl).
    ```javascript
    const mysql = require('mysql2')
    
@@ -146,8 +146,8 @@ ms.author: yungez
      user: process.env.AZURE_MYSQL_USER,
      password: process.env.AZURE_MYSQL_PASSWORD,
      database: process.env.AZURE_MYSQL_DATABASE,
-     port: process.env.AZURE_MYSQL_PORT,
-     ssl: process.env.AZURE_MYSQL_SSL
+     port: Number(process.env.AZURE_MYSQL_PORT) ,
+     // ssl: process.env.AZURE_MYSQL_SSL
    });
    
    connection.connect((err) => {
@@ -162,19 +162,19 @@ ms.author: yungez
 ### [PHP](#tab/php)
 
 1. Install dependencies. Follow the guide to [install MySQLi](https://www.php.net/manual/en/mysqli.installation.php).
-1. In code, get MySQL connection information from environment variables added by Service Connector service.
+1. In code, get MySQL connection information from environment variables added by Service Connector service. To establish encrypted connection to MySQL server over SSL, refer to [these steps](/azure/mysql/flexible-server/connect-php?tabs=windows#connecting-to-flexible-server-using-tlsssl-in-php).
    ```php
    <?php
    $host = getenv('AZURE_MYSQL_HOST');
    $username = getenv('AZURE_MYSQL_USER');
    $password = getenv('AZURE_MYSQL_PASSWORD');
    $database = getenv('Azure_MYSQL_DBNAME');
-   $port = getenv('AZURE_MYSQL_PORT');
-   $flag = getenv('AZURE_MYSQL_FLAG');
+   $port = int(getenv('AZURE_MYSQL_PORT'));
+   # $flag = getenv('AZURE_MYSQL_FLAG');
    
    $conn = mysqli_init();
-   mysqli_ssl_set($conn,NULL,NULL,NULL,NULL,NULL);
-   mysqli_real_connect($conn, $host, $username, $password, $database, $port, NULL, $flag);
+   # mysqli_ssl_set($conn,NULL,NULL,NULL,NULL,NULL);
+   mysqli_real_connect($conn, $host, $username, $password, $database, $port, NULL);
    
    if (mysqli_connect_errno($conn)) {
        die('Failed to connect to MySQL: ' . mysqli_connect_error());
@@ -191,7 +191,7 @@ ms.author: yungez
    ```bash
    gem install mysql2
    ```
-1. In code, get MySQL connection information from environment variables added by Service Connector service.
+1. In code, get MySQL connection information from environment variables added by Service Connector service. To establish encrypted connection to MySQL server over SSL, refer to [these steps](/azure/mysql/flexible-server/how-to-connect-tls-ssl#connect-using-mysql-command-line-client-with-tlsssl).
    ```ruby
    require 'mysql2'
    require 'dotenv/load'
@@ -201,7 +201,7 @@ ms.author: yungez
      username: ENV['AZURE_MYSQL_USER'],
      password: ENV['AZURE_MYSQL_PASSWORD'],
      database: ENV['AZURE_MYSQL_DATABASE'],
-     sslca: ENV['AZURE_MYSQL_SSLMODE']
+     # sslca: ca_path
    )
    
    client.close
