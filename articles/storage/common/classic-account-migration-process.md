@@ -3,12 +3,12 @@ title: Understand storage account migration from classic to Azure Resource Manag
 titleSuffix: Azure Storage
 description: Learn about the process of migrating classic storage accounts to the Azure Resource Manager deployment model. All classic accounts must be migrated by August 31, 2024.
 services: storage
-author: tamram
+author: akashdubey-ms
 
 ms.service: azure-storage
 ms.topic: conceptual
 ms.date: 04/28/2023
-ms.author: tamram
+ms.author: akashdubey
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-arm-template
 ---
