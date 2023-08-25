@@ -73,7 +73,7 @@ The following comparison matrix shows basic functionality of different tools tha
 | **Support for open / locked files**       | No | No | Yes | Yes | Yes | Yes |
 | **Incremental migration**                 | Yes | No | Yes | Yes | Yes | Yes |
 | **Switchover support**                    | No  | No | Yes | No (manual only) | Yes | Yes |
-| **[Other features](#other-features)**     | [Link](#azcopy)| [Link](#azure-storage-mover) | [Link](#data-dynamics-data-mobility-and-migration) | [Link](#komprise-elastic-data-migration) | [Link](#atempo-miria) | [Link](#datadobi-dobimigrate) |
+| **[Other features](#other-features)**     | [Link](#azcopy)|  | [Link](#data-dynamics-data-mobility-and-migration) | [Link](#komprise-elastic-data-migration) | [Link](#atempo-miria) | [Link](#datadobi-dobimigrate) |
 
 ## Assessment and reporting
 
@@ -109,8 +109,6 @@ The following comparison matrix shows basic functionality of different tools tha
 - MD5 checks for downloads
 - Customizable transfer rate to preserve bandwidth on the client
 - Tagging
-
-### Azure Storage Mover
 
 
 ### Data Dynamics Data Mobility and Migration
