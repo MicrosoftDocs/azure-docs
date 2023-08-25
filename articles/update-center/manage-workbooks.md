@@ -1,7 +1,7 @@
 ---
 title: Create reports using workbooks in Azure Update Manager (preview).
 description: This article describes how to create and manage workbooks for VM insights.
-ms.service: update-manager
+ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
 ms.date: 05/23/2023

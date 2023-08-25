@@ -1,7 +1,7 @@
 ---
 title: What's upcoming in Azure Update Manager (preview)
 description: Learn about what's upcoming and updates in the Update manager (preview) service.
-ms.service: update-manager
+ms.service: azure-update-manager
 ms.topic: overview
 author: SnehaSudhirG
 ms.author: sudhirsneha

@@ -1,7 +1,7 @@
 ---
 title: Manage update configuration settings in Azure Update Manager (preview)
 description: The article describes how to manage the update settings for your Windows and Linux machines managed by Azure Update Manager (preview).
-ms.service: update-manager
+ms.service: azure-update-manager
 author: snehasudhirG
 ms.author: sudhirsneha
 ms.date: 05/30/2023
