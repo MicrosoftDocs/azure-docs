@@ -93,7 +93,7 @@ Run the script and follow the instructions. The script opens browser windows for
 
 You can choose to either run the code directly from GitHub or you can import a copy of the code into your Azure DevOps project.
 
-To confirm that the project was created, go to the Azure DevOps portal and select the project. Ensure that the repo is populated and that the pipelines were created.
+To confirm that the project was created, go to the Azure DevOps portal and select the project. Ensure that the repo was populated and that the pipelines were created.
 
 > [!IMPORTANT]
 > Run the following steps on your local workstation. Also ensure that you have the latest Azure CLI installed by running the `az upgrade` command.
@@ -215,7 +215,7 @@ To create the service connection, go to **Project Settings** and under the **Pip
 
 :::image type="content" source="./media/devops/automation-create-service-connection.png" alt-text="Screenshot that shows how to create a service connection for GitHub.":::
 
-Select **GitHub** as the service connection type. Select **Azure Pipelines** in the **OAuth Configuration**dropdown.
+Select **GitHub** as the service connection type. Select **Azure Pipelines** in the **OAuth Configuration** dropdown.
 
 Select **Authorize** to sign in to GitHub.
 
@@ -227,7 +227,7 @@ The automation framework optionally provisions a web app as a part of the contro
 
 # [Linux](#tab/linux)
 
-Replace `MGMT` with your environment as necessary.
+Replace `MGMT` with your environment, as necessary.
 
 ```bash
 echo '[{"resourceAppId":"00000003-0000-0000-c000-000000000000","resourceAccess":[{"id":"e1fe6dd8-ba31-4d61-89e7-88639da4683d","type":"Scope"}]}]' >> manifest.json
@@ -243,7 +243,7 @@ rm manifest.json
 
 # [Windows](#tab/windows)
 
-Replace `MGMT` with your environment as necessary.
+Replace `MGMT` with your environment, as necessary.
 
 ```powershell
 Add-Content -Path manifest.json -Value '[{"resourceAppId":"00000003-0000-0000-c000-000000000000","resourceAccess":[{"id":"e1fe6dd8-ba31-4d61-89e7-88639da4683d","type":"Scope"}]}]'
@@ -387,15 +387,15 @@ The pipelines use a custom task to perform cleanup activities post deployment. Y
 
 ## Preparations for a self-hosted agent
 
-1. Create an Agent Pool by going to **Organizational Settings** and under the **Pipelines** section, selecting **Agent Pools**. Select **Add Pool** and select **Self-hosted** as the pool type. Name the pool to align with the control plane environment. For example, use `MGMT-WEEU-POOL`. Ensure that **Grant access permission to all pipelines** is selected and use **Create** to create the pool.
+1. Create an agent pool by going to **Organizational Settings**. Under the **Pipelines** section, select **Agent Pools** > **Add Pool**. Select **Self-hosted** as the pool type. Name the pool to align with the control plane environment. For example, use `MGMT-WEEU-POOL`. Ensure that **Grant access permission to all pipelines** is selected and select **Create** to create the pool.
 
 1. Sign in with the user account you plan to use in your [Azure DevOps](https://dev.azure.com) organization.
 
 1. From your home page, open your user settings and select **Personal access tokens**.
 
-   :::image type="content" source="./media/devops/automation-select-personal-access-tokens.jpg" alt-text="Diagram that shows the creation of the Personal Access Token (PAT).":::
+   :::image type="content" source="./media/devops/automation-select-personal-access-tokens.jpg" alt-text="Diagram that shows the creation of a personal access token.":::
 
-1. Create a personal access token. Use these settings:
+1. Create a personal access token with these settings:
 
    - **Agent Pools**: Select **Read & manage**.
    - **Build**: Select **Read & execute**.
@@ -404,7 +404,7 @@ The pipelines use a custom task to perform cleanup activities post deployment. Y
 
       Write down the created token value.
 
-   :::image type="content" source="./media/devops/automation-new-pat.png" alt-text="Diagram that shows the attributes of the Personal Access Token (PAT).":::
+   :::image type="content" source="./media/devops/automation-new-pat.png" alt-text="Diagram that shows the attributes of the personal access token.":::
 
 ## Variable definitions
 
@@ -422,7 +422,7 @@ Create a new variable group named `SDAF-General` by using the **Library** page i
 | Branch                             | main                                    |                                                                                             |
 | S-Username                         | `<SAP Support user account name>`       |                                                                                             |
 | S-Password                         | `<SAP Support user password>`           | Change the variable type to secret by selecting the lock icon.                                   |
-| `tf_version`                       | 1.3.0                                   | The Terraform version to use. See [Terraform download](https://www.terraform.io/downloads)  |
+| `tf_version`                       | 1.3.0                                   | The Terraform version to use. See [Terraform download](https://www.terraform.io/downloads).  |
 
 Save the variables.
 
@@ -459,14 +459,14 @@ Create a new variable group named `SDAF-MGMT` for the control plane environment 
 | FENCING_SPN_ID                  | `Service principal application ID` for the fencing agent          | Required for highly available deployments that use a service principal for the fencing agent.               |
 | FENCING_SPN_PWD                 | `Service principal password` for the fencing agent                | Required for highly available deployments that use a service principal for the fencing agent.               |
 | FENCING_SPN_TENANT              | `Service principal tenant ID` for the fencing agent               | Required for highly available deployments that use a service principal for the fencing agent.               |
-| PAT                             | `<Personal Access Token>`                                          | Use the Personal Token defined in the previous step.      |
-| POOL                            | `<Agent Pool name>`                                                | The Agent pool to use for this environment.               |
+| PAT                             | `<Personal Access Token>`                                          | Use the personal token defined in the previous step.      |
+| POOL                            | `<Agent Pool name>`                                                | The agent pool to use for this environment.               |
 |                                 |                                                                    |                                                          |
 | APP_REGISTRATION_APP_ID         | `App registration application ID`                                  | Required if deploying the web app.                        |
 | WEB_APP_CLIENT_SECRET           | `App registration password`                                        | Required if deploying the web app.                        |
 |                                 |                                                                    |                                                          |
-| SDAF_GENERAL_GROUP_ID           | The group ID for the SDAF-General group                            | The ID can be retrieved from the URL parameter `variableGroupId` when accessing the variable group by using a browser. For example: `variableGroupId=8` |
-| WORKLOADZONE_PIPELINE_ID        | The ID for the `SAP workload zone deployment` pipeline             | The ID can be retrieved from the URL parameter `definitionId` from the pipeline page in Azure DevOps. For example: `definitionId=31` |
+| SDAF_GENERAL_GROUP_ID           | The group ID for the SDAF-General group                            | The ID can be retrieved from the URL parameter `variableGroupId` when accessing the variable group by using a browser. For example: `variableGroupId=8`. |
+| WORKLOADZONE_PIPELINE_ID        | The ID for the `SAP workload zone deployment` pipeline             | The ID can be retrieved from the URL parameter `definitionId` from the pipeline page in Azure DevOps. For example: `definitionId=31`. |
 | SYSTEM_PIPELINE_ID              | The ID for the `SAP system deployment (infrastructure)` pipeline   | The ID can be retrieved from the URL parameter `definitionId` from the pipeline page in Azure DevOps. For example: `definitionId=32`. |
 
 Save the variables.
@@ -481,17 +481,17 @@ You can use the clone functionality to create the next environment variable grou
 
 To remove the Azure resources, you need an Azure Resource Manager service connection. For more information, see [Manage service connections](/azure/devops/pipelines/library/service-endpoints?view=azure-devops&preserve-view=true).
 
-To create the service connection, go to **Project settings** and go to the **Service connections** setting in the **Pipelines** section.
+To create the service connection, go to **Project Settings**. Under the **Pipelines** section, select **Service connections**.
 
-:::image type="content" source="./media/devops/automation-create-service-connection.png" alt-text="Screenshot that shows how to create a Service connection.":::
+:::image type="content" source="./media/devops/automation-create-service-connection.png" alt-text="Screenshot that shows how to create a service connection.":::
 
-Select **Azure Resource Manager** as the service connection type and **Service principal (manual)** as the authentication method. Enter the target subscription, which is typically the control plane subscription. Enter the service principal details. Validate the credentials by selecting **Verify**. For more information on how to create a service principal, see [Create a service principal](deploy-control-plane.md#prepare-the-deployment-credentials).
+Select **Azure Resource Manager** as the service connection type and **Service principal (manual)** as the authentication method. Enter the target subscription, which is typically the control plane subscription. Enter the service principal details. Select **Verify** to validate the credentials. For more information on how to create a service principal, see [Create a service principal](deploy-control-plane.md#prepare-the-deployment-credentials).
 
-Enter a **Service connection name**, for instance, use `Connection to MGMT subscription`. Ensure that the **Grant access permission to all pipelines** checkbox is selectd. Select **Verify and save** to save the service connection.
+Enter a **Service connection name**, for instance, use `Connection to MGMT subscription`. Ensure that the **Grant access permission to all pipelines** checkbox is selected. Select **Verify and save** to save the service connection.
 
 ## Permissions
 
-Most of the pipelines add files to the Azure Repos and therefore require pull permissions. Assign Contribute permissions to the `Build Service` by using the **Security** tab of the source code repository in the **Repositories** section in **Project settings**.
+Most of the pipelines add files to the Azure repos and therefore require pull permissions. On **Project Settings**, under the **Repositories** section, select the **Security** tab of the source code repository and assign Contribute permissions to the `Build Service`.
 
 :::image type="content" source="./media/devops/automation-repo-permissions.png" alt-text="Screenshot that shows repository permissions.":::
 
@@ -539,7 +539,7 @@ cd sap-automation/deploy/scripts
 ./configure_deployer.sh
 ```
 
-Reboot the deployer and reconnect and run the following script to set up the Azure DevOps agent.
+Reboot the deployer, reconnect, and run the following script to set up the Azure DevOps agent:
 
 ```bash
 cd ~/Azure_SAP_Automated_Deployment/
@@ -547,7 +547,7 @@ cd ~/Azure_SAP_Automated_Deployment/
 $DEPLOYMENT_REPO_PATH/deploy/scripts/setup_ado.sh
 ```
 
-Accept the license and, when you're prompted for the server URL, enter the URL you captured when you created the Azure DevOps project. For authentication, choose **PAT** and enter the token value from the previous step.
+Accept the license and, when you're prompted for the server URL, enter the URL you captured when you created the Azure DevOps project. For authentication, select **PAT** and enter the token value from the previous step.
 
 When prompted, enter the application pool name that you created in the previous step. Accept the default agent name and the default work folder name. The agent is now configured and starts.
 
@@ -555,9 +555,9 @@ When prompted, enter the application pool name that you created in the previous 
 
 Selecting the `deploy the web app infrastructure` parameter when you run the control plane deployment pipeline provisions the infrastructure necessary for hosting the web app. The **Deploy web app** pipeline publishes the application's software to that infrastructure.
 
-Wait for the deployment to finish. Then go to the **Extensions** tab and follow the instructions to finalize the configuration. Update the `reply-url` values for the app registration.
+Wait for the deployment to finish. Select the **Extensions** tab and follow the instructions to finalize the configuration. Update the `reply-url` values for the app registration.
 
-As a result of running the control plane pipeline, part of the web app URL needed is stored in a variable named `WEBAPP_URL_BASE` in your environment-specific variable group. At any time, you can update the URLs of the registered application web app by using the following command.
+As a result of running the control plane pipeline, part of the web app URL that's needed is stored in a variable named `WEBAPP_URL_BASE` in your environment-specific variable group. At any time, you can update the URLs of the registered application web app by using the following command.
 
 # [Linux](#tab/linux)
 
@@ -580,4 +580,4 @@ You should now be able to visit the web app and use it to deploy SAP workload zo
 ## Next step
 
 > [!div class="nextstepaction"]
-> [DevOps hands-on lab](devops-tutorial.md)
+> [Azure DevOps hands-on lab](devops-tutorial.md)
