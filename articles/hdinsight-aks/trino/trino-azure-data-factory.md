@@ -16,10 +16,10 @@ This Azure Blob Storage connector is supported for the following capabilities:
 
 | Supported capabilities|IR | 
 |---------| --------| 
-|[Copy activity](/azure/data-factory/copy-activity-overview) (source/sink)|&#9312; &#9313;|
-|[Script activity](/azure/data-factory/transform-data-using-script)|&#9312; &#9313;|
+|[Copy activity](/azure/data-factory/copy-activity-overview) (source/sink)|&#9312; |
+|[Script activity](/azure/data-factory/transform-data-using-script)|&#9312; |
 
-<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+<small>*&#9312; Azure integration runtime*</small>
 
 ## Create a linked service to Trino using Azure portal
 

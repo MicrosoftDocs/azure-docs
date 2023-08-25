@@ -37,17 +37,17 @@ The following example shows a json for a query using `hive connector` and scan s
 > [!NOTE]
 > The scan statistics summary includes splitInfo which is populated by the connector. This allows users to control what information about the store they would like to include in their custom connectors.
 
-:::image type="content" source="./media/trino-query-performance/operator-summaries.png" alt-text="Screenshot showing query performance summary." border="true" lightbox="./media/trino-query-performance/operator-summaries.png":::
+:::image type="content" source="./media/trino-scan-stats/operator-summaries.png" alt-text="Screenshot showing query performance summary." border="true" lightbox="./media/trino-scan-stats/operator-summaries.png":::
 
 **Scan Statistics UI**
 
 You can find a new tab called `Scan Stats` in Query details page that visualizes the statistics produced by this feature and provides insights in split grain performance of each worker. The page allows users to view trino's execution profile for the query with information like, concurrent reads over time and throughput.
 
-:::image type="content" source="./media/trino-query-performance/scan-stats-tab-show.png" alt-text="Screenshot showing scan status addition." border="true" lightbox="./media/trino-query-performance/scan-stats-tab-show.png":::
+:::image type="content" source="./media/trino-scan-stats/scan-stats-tab-show.png" alt-text="Screenshot showing scan status addition." border="true" lightbox="./media/trino-scan-stats/scan-stats-tab-show.png":::
 
 The following example shows a page for a query with scan statistics enabled.
 
-:::image type="content" source="./media/trino-query-performance/scan-stats-tab-query-details.png" alt-text="Screenshot showing scan status tab." border="true" lightbox="./media/trino-query-performance/scan-stats-tab-query-details.png":::
+:::image type="content" source="./media/trino-scan-stats/scan-stats-tab-query-details.png" alt-text="Screenshot showing scan status tab." border="true" lightbox="./media/trino-scan-stats/scan-stats-tab-query-details.png":::
 
 ## Using Microsoft Query logger**
 

@@ -143,9 +143,9 @@ items:
     - name: Use query scan statistics
       href: ./trino/trino-scan-stats.md
     - name: Use Azure Data Factory (ADF) with Trino cluster
-      href: ./trino/trino-connect-adf.md
+      href: ./trino/trino-azure-data-factory.md
     - name: Use Apache Airflow with Trino cluster
-      href: ./trino/trino-connect-airflow.md
+      href: ./trino/trino-airflow.md
     - name: Use AWS S3 and Glue with Trino cluster
       href: ./trino/trino-catalog-glue.md
 - name: Apache Flink
