@@ -14,6 +14,9 @@ Region affinity lets you run your Playwright tests on hosted browsers in the Azu
 
 When you create a new workspace, the region affinity setting is enabled by default. When region affinity isn't enabled, the service uses remote browsers in the Azure region of the workspace.
 
+> [!IMPORTANT]
+> Microsoft Playwright Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ## Configure region affinity in the Azure portal
 
 You can configure the region affinity setting on the workspace in the Azure portal.
