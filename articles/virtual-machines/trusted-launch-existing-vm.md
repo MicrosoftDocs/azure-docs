@@ -52,7 +52,7 @@ This section steps through using the Azure portal to enable Trusted Launch on ex
 
 :::image type="content" source="./media/trusted-launch/03-g2totl-click-standard.png" alt-text="Screenshot of the Security type Standard":::
 
-4. Select drop-down **Security type** under **Security type** section of **Configuration** tab.
+4. Select drop-down **Security type** under **Security type** section of **Configuration** page.
 
 :::image type="content" source="./media/trusted-launch/04-g2totl-select-dropdown.png" alt-text="Screenshot of the Security type drop-down.":::
 
