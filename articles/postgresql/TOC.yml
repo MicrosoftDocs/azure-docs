@@ -134,7 +134,7 @@
       href: flexible-server/concepts-troubleshooting-guides.md
     - name: Reliability
       items:
-      - name: High Availability
+      - name: High Availability (Reliability)
         href: ../reliability/reliability-postgresql-flexible-server?toc=/azure/postgresql/toc.json&bc=/azure/bread/toc.json
       - name: Business continuity overview
         href: flexible-server/concepts-business-continuity.md
