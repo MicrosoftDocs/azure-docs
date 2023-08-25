@@ -1,0 +1,331 @@
+---
+title: Expose Superset to the internet
+description: Learn how to expose Superset to the internet
+ms.service: hdinsight-aks
+ms.topic: how-to 
+ms.date: 08/14/2023
+---
+
+# Expose Apache Superset to Internet
+
+This article describes how to expose Apache Superset to the Internet.
+
+## Configure ingress
+
+The following instructions add a second layer of authentication in the form of an OAuth authorization proxy using OAuth2 Proxy. It adds more layer of preventative security to your Superset access.
+
+1. Get a TLS certificate for your hostname and place it into your Key Vault and call it `aks-ingress-tls`. Learn how to put a certificate into an [Azure Key Vault](/azure/key-vault/certificates/certificate-scenarios).
+
+1. Add the following secrets to your Key Vault.
+
+   |Secret Name|Description|
+   |-|-|
+   |client-id|Your Azure service principal client ID. OAuth proxy requires this ID to be a secret.|
+   |oauth2proxy-redis-password|Proxy cache password.|
+   |oauth2proxy-cookie-secret|Cookie secret, 32 characters long.|
+
+1. Add these callbacks in your Azure AD application configuration.
+
+   * `https://{{YOUR_HOST_NAME}}/oauth2/callback`
+      - for Oauth2 Proxy
+    * `https://{{YOUR_HOST_NAME}}/oauth-authorized/azure`
+      - for Superset
+
+1. Deploy the basic ingress ngninx controller. For more information, see [here](/azure/aks/ingress-basic?tabs=azure-cli#basic-configuration).
+
+1. Create TLS Secret Provider Class.
+
+   This step describes how the TLS certificate is read from the Key Vault and transformed into a Kubernetes secret to be used by ingress:
+
+   Update in the following yaml:
+   * `{{MSI_CLIENT_ID}}` - The client ID of the managed identity assigned to the Superset cluster (`$MANAGED_IDENTITY_RESOURCE`).
+   * `{{KEY_VAULT_NAME}}` - The name of the Azure Key Vault containing the secrets.
+   * `{{KEY_VAULT_TENANT_ID}}` - The identifier guid of the Azure tenant where the Key Vault is located.
+
+   **tls-secretprovider.yaml**
+   ```yaml
+   apiVersion: secrets-store.csi.x-k8s.io/v1
+   kind: SecretProviderClass
+   metadata:
+     name: azure-tls
+   spec:
+     provider: azure
+     # secretObjects defines the desired state of synced K8s secret objects
+     secretObjects:
+     - secretName: ingress-tls-csi
+       type: kubernetes.io/tls
+       data: 
+       - objectName: aks-ingress-tls
+         key: tls.key
+       - objectName: aks-ingress-tls
+         key: tls.crt
+     parameters:
+       usePodIdentity: "false"
+       useVMManagedIdentity: "true"
+       userAssignedIdentityID: "{{MSI_CLIENT_ID}}"
+       # the name of the AKV instance
+       keyvaultName: "{{KEY_VAULT_NAME}}"
+       objects: |
+         array:
+           - |
+             objectName: aks-ingress-tls
+             objectType: secret
+       # the tenant ID of the AKV instance
+       tenantId: "{{KEY_VAULT_TENANT_ID}}"
+   ```
+
+1. Create OAuth Proxy Secret Provider Class.
+
+   Update in the following yaml:
+   * `{{MSI_CLIENT_ID}}` - The client ID of the managed identity assigned to the Superset cluster (`$MANAGED_IDENTITY_RESOURCE`).
+   * `{{KEY_VAULT_NAME}}` - The name of the Azure Key Vault containing the secrets.
+   * `{{KEY_VAULT_TENANT_ID}}` - The identifier guid of the Azure tenant where the key vault is located.
+
+   **oauth2-secretprovider.yaml**
+   ```yaml
+   # This is a SecretProviderClass example using aad-pod-identity to access the key vault
+   apiVersion: secrets-store.csi.x-k8s.io/v1
+   kind: SecretProviderClass
+   metadata:
+     name: oauth2-secret-provider
+   spec:
+     provider: azure
+     parameters:
+       useVMManagedIdentity: "true" 
+       userAssignedIdentityID: "{{MSI_CLIENT_ID}}"
+       usePodIdentity: "false"              # Set to true for using aad-pod-identity to access your key vault
+       keyvaultName: "{{KEY_VAULT_NAME}}"   # Set to the name of your key vault
+       cloudName: ""                        # [OPTIONAL for Azure] if not provided, the Azure environment defaults to AzurePublicCloud
+       objects: |
+         array:
+           - |
+             objectName: oauth2proxy-cookie-secret
+             objectType: secret
+           - |
+             objectName: oauth2proxy-redis-password
+             objectType: secret
+           - |
+             objectName: client-id
+             objectType: secret
+           - |
+             objectName: client-secret
+             objectType: secret
+       tenantId: "{{KEY_VAULT_TENANT_ID}}"  # The tenant ID of the key vault
+     secretObjects:                             
+     - secretName: oauth2-secret
+       type: Opaque
+       data:
+       # OauthProxy2 Secrets
+       - key: cookie-secret
+         objectName: oauth2proxy-cookie-secret
+       - key: client-id
+         objectName: client-id
+       - key: client-secret
+         objectName: client-secret
+       - key: redis-password
+         objectName: oauth2proxy-redis-password
+     - secretName: oauth2-redis
+       type: Opaque
+       data:
+       - key: redis-password
+         objectName: oauth2proxy-redis-password
+   ```
+
+1. Create configuration for the OAuth Proxy.
+
+   Update in the following yaml:
+   * `{{hostname}}` - The internet facing host name.
+   * `{{tenant-id}}` - The identifier guid of the Azure tenant where your service principal was created.
+
+   **Optional:** update the email_domains list. Example: `email_domains = [ "microsoft.com" ]`
+
+   **oauth2-values.yaml**
+   ```yaml
+   # Force the target Kubernetes version (it uses Helm `.Capabilities` if not set).
+   # This is especially useful for `helm template` as capabilities are always empty
+   # due to the fact that it doesn't query an actual cluster
+   kubeVersion:
+   
+   # OAuth client configuration specifics
+   config:
+     # OAuth client secret
+     existingSecret: oauth2-secret
+     configFile: |-
+       email_domains = [ ]
+       upstreams = [ "file:///dev/null" ]
+   
+   image:
+     repository: "quay.io/oauth2-proxy/oauth2-proxy"
+     tag: "v7.4.0"
+     pullPolicy: "IfNotPresent"
+   
+   extraArgs: 
+       provider: oidc
+       oidc-issuer-url: https://login.microsoftonline.com/<tenant-id>/v2.0
+       login-url: https://login.microsoftonline.com/<tenant-id>/v2.0/oauth2/authorize
+       redeem-url: https://login.microsoftonline.com/<tenant-id>/v2.0/oauth2/token
+       oidc-jwks-url: https://login.microsoftonline.com/common/discovery/keys
+       profile-url: https://graph.microsoft.com/v1.0/me
+       skip-provider-button: true
+   
+   ingress:
+     enabled: true
+     path: /oauth2
+     pathType: ImplementationSpecific
+     hosts:
+     - "{{hostname}}"
+     annotations:
+       kubernetes.io/ingress.class: nginx
+       nginx.ingress.kubernetes.io/proxy_buffer_size: 64k
+       nginx.ingress.kubernetes.io/proxy_buffers_number: "8"
+     tls:
+     - secretName: ingress-tls-csi
+       hosts:
+        - "{{hostname}}"
+   
+   extraVolumes:
+     - name: oauth2-secrets-store
+       csi:
+         driver: secrets-store.csi.k8s.io
+         readOnly: true
+         volumeAttributes:
+           secretProviderClass: oauth2-secret-provider
+     - name: tls-secrets-store
+       csi:
+         driver: secrets-store.csi.k8s.io
+         readOnly: true
+         volumeAttributes:
+           secretProviderClass: azure-tls
+   
+   extraVolumeMounts: 
+     - mountPath: "/mnt/oauth2_secrets"
+       name: oauth2-secrets-store
+       readOnly: true
+     - mountPath: "/mnt/tls-secrets-store"
+       name: tls-secrets-store
+       readOnly: true
+   
+   # Configure the session storage type, between cookie and redis
+   sessionStorage:
+     # Can be one of the supported session storage cookie/redis
+     type: redis
+     redis:
+       # Secret name that holds the redis-password and redis-sentinel-password values
+       existingSecret: oauth2-secret
+       # Can be one of sentinel/cluster/standalone
+       clientType: "standalone"
+   
+   # Enables and configure the automatic deployment of the redis subchart
+   redis:
+     enabled: true
+     auth:
+       existingSecret: oauth2-secret
+   
+   # Enables apiVersion deprecation checks
+   checkDeprecation: true
+   ```
+
+1. Deploy OAuth proxy resources.
+
+   ```bash
+   kubectl apply -f oauth2-secretprovider.yaml
+   kubectl apply -f tls-secretprovider.yaml
+   helm repo add oauth2-proxy https://oauth2-proxy.github.io/manifests
+   helm repo update
+   helm upgrade --install --values oauth2-values.yaml oauth2 oauth2-proxy/oauth2-proxy
+   ```
+
+1. If you're using an Azure subdomain that is, `superset.<region>.cloudapp.azure.com`, update the DNS label in the associated public IP.
+
+   1. Open your Superset Kubernetes cluster in the Azure portal.
+
+   1. Select "Properties" from the left navigation.
+
+   1. Open the "Infrastructure resource group" link.
+
+   1. Find the Public IP address with these tags: 
+
+      ```json
+      {
+        "k8s-azure-cluster-name": "kubernetes",
+        "k8s-azure-service": "default/ingress-nginx-controller"
+      }
+      ```
+    1. Select "Configuration" from the Public IP left navigation.
+
+    1. Enter the DNS name label.
+
+1. Verify that your ingress for OAuth is configured.
+
+      Run `kubectl get ingress` to see the ingresses created. You should see an `EXTERNAL-IP` associated with the ingress.
+      Likewise, when running `kubectl get services` you should see that `ingress-nginx-controller` has been assigned an `EXTERNAL-IP`.
+      You can open `http://<hostname>/oauth2` to test OAuth.
+
+1. Define an ingress to link OAuth and Superset. This step causes any calls to any path to be first redirected to /oauth for authorization, and upon success, allowed to access the Superset service.
+
+    Update in the following yaml:
+    * `{{hostname}}` - The internet facing host name.
+    
+    **ingress.yaml**
+      ```yaml
+      apiVersion: networking.k8s.io/v1
+      kind: Ingress
+      metadata:
+        annotations:
+          kubernetes.io/ingress.class: nginx
+          nginx.ingress.kubernetes.io/auth-signin: https://$host/oauth2/start?rd=$escaped_request_uri
+          nginx.ingress.kubernetes.io/auth-url: http://oauth2-oauth2-proxy.default.svc.cluster.local:80/oauth2/auth
+          nginx.ingress.kubernetes.io/proxy-buffer-size: 64k
+          nginx.ingress.kubernetes.io/proxy-buffers-number: "8"
+          nginx.ingress.kubernetes.io/rewrite-target: /$1
+        generation: 1
+        labels:
+          app.kubernetes.io/name: azure-trino-superset
+        name: azure-trino-superset
+        namespace: default
+      spec:
+        rules:
+        - host: "{{hostname}}"
+          http:
+            paths:
+            - backend:
+                service:
+                  name: superset
+                  port:
+                    number: 8088
+              path: /(.*)
+              pathType: Prefix
+        tls:
+        - hosts:
+          - "{{hostname}}"
+          secretName: ingress-tls-csi
+      ```
+
+1. Deploy your ingress.
+   
+   ```
+         kubectl apply -f ingress.yaml
+   ```
+
+1. Test.
+   
+    Open `https://{{hostname}}/` in your browser.
+
+## Troubleshooting Ingress
+
+#### Invalid security certificate: Kubernetes Ingress Controller Fake Certificate
+
+These issues cause a TLS certificate verification error in your browser/client. 
+The usual cause of this issue is that your certificate is misconfigured.
+
+* Verify you can see your certificate in Kubernetes: `kubectl get secret ingress-tls-csi --output yaml`
+* Verify your CN matches the CN provided in your certificate.
+
+#### 404 / nginx
+
+Nginx can't find the underlying service. Make sure Superset is deployed: `kubectl get services`
+
+#### 503 Service Temporarily Unavailable / nginx
+
+The service is running but inaccessible. Check the service port numbers and service name.
+
