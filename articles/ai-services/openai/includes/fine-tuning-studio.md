@@ -339,5 +339,5 @@ You can optionally delete training and validation files that you uploaded for tr
 
 ## Next steps
 
-- Explore fine-tuning capabilities in the [control plane REST API reference documentation](/rest/api/cognitiveservices/azureopenaistable/deployments). 
+- Explore the fine-tuning capabilities in the [Azure OpenAI Service REST API reference](/azure/ai-services/openai/reference).
 - Review other [Python SDK operations](https://github.com/openai/openai-python/blob/main/examples/azure/finetuning.ipynb).
