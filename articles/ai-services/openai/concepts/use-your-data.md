@@ -75,13 +75,13 @@ Learn more about the [manual approval workflow](/azure/private-link/private-endp
 
 After you approve the request in your search service, you can start using the [chat completions extensions API](/azure/ai-services/openai/reference#completions-extensions). Public network access can be disabled for that search service. Private network access for Azure OpenAI Studio is not currently supported.
 
-### Azure OpenAI resources in private networks
+### Azure OpenAI resources in virtual networks and private endpoints
 
-You can protect Azure OpenAI resource in [private networks](/azure/ai-services/cognitive-services-virtual-networks) the same way as any Azure AI service.
+You can protect Azure OpenAI resource in [virtual networks and private endpoints](/azure/ai-services/cognitive-services-virtual-networks) the same way as any Azure AI service.
 
-### Storage accounts in private networks
+### Storage accounts in virtual networks and private endpoints
 
-Storage accounts in private networks are currently not supported by Azure OpenAI on your data.
+Storage accounts in virtual networks and private endpoints are currently not supported by Azure OpenAI on your data.
 
 ## Azure Role-based access controls (Azure RBAC)
 
@@ -94,9 +94,9 @@ To add a new data source to your Azure OpenAI resource, you need the following A
 |[Search Index Data Contributor](/azure/role-based-access-control/built-in-roles#search-index-data-contributor)     | You have an existing Azure Cognitive Search index that you want to use, instead of creating a new one.        |
 |[Storage Blob Data Contributor](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor)     | You have an existing Blob storage container that you want to use, instead of creating a new one.        |
 
-## Restrict access to sensitive documents
+## document-level access control
 
-Azure OpenAI on your data lets you restrict the documents that can be returned in responses using Azure Cognitive Search [security filters](/search/search-security-trimming-for-azure-search-with-aad). When you enable document level access, the search results returned from Azure Cognitive Search and used to generate a response will be trimmed based on user Azure Active Directory (AD) group membership. You can only enable document level access on existing Azure Cognitive search indexes. To enable document level access:
+Azure OpenAI on your data lets you restrict the documents that can be used in responses for different users with Azure Cognitive Search [security filters](/search/search-security-trimming-for-azure-search-with-aad). When you enable document level access, the search results returned from Azure Cognitive Search and used to generate a response will be trimmed based on user Azure Active Directory (AD) group membership. You can only enable document-level access on existing Azure Cognitive search indexes. To enable document-level access:
 
 1. Follow the steps in the [Azure Cognitive Search documentation](/azure/search/search-security-trimming-for-azure-search-with-aad) to register your application and create users and groups.
 1. [Index your documents with their permitted groups](/azure/search/search-security-trimming-for-azure-search-with-aad#index-document-with-their-permitted-groups). Be sure that your new [security fields](/azure/search/search-security-trimming-for-azure-search#create-security-field) have the schema below:
@@ -116,7 +116,7 @@ Once the Azure Cognitive Search index is connected, your responses in the studio
 
 **Web app**
 
-If you are using a published [web app](#using-the-web-app), you need to republish it to upgrade to the latest version. The latest version of the web app includes the ability to retrieve the groups of the logged in user's Azure AD account, cache it, and include the group IDs in each API request.
+If you are using a published [web app](#using-the-web-app), you need to redeploy it to upgrade to the latest version. The latest version of the web app includes the ability to retrieve the groups of the logged in user's Azure AD account, cache it, and include the group IDs in each API request.
 
 **API**
 
