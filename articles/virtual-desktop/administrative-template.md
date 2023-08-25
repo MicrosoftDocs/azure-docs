@@ -62,7 +62,7 @@ To configure the administrative template, select a tab for your scenario and fol
 
    :::image type="content" source="media/administrative-template/azure-virtual-desktop-intune-settings-catalog.png" alt-text="Screenshot of the Intune admin center showing Azure Virtual Desktop settings." lightbox="media/administrative-template/azure-virtual-desktop-intune-settings-catalog.png":::
 
-1. Apply the configuration profile to your session hosts, then restart your session hosts for the settings to take effect.
+1. Once you've configured settings, apply the configuration profile to your session hosts, then restart your session hosts for the settings to take effect.
 
 # [Group Policy (AD)](#tab/group-policy-domain)
 
@@ -79,7 +79,7 @@ To configure the administrative template, select a tab for your scenario and fol
 
    :::image type="content" source="media/administrative-template/azure-virtual-desktop-gpo.png" alt-text="Screenshot of the Group Policy Management Editor showing Azure Virtual Desktop policy settings." lightbox="media/administrative-template/azure-virtual-desktop-gpo.png":::
 
-1. Apply the policy to your session hosts, then restart your session hosts for the settings to take effect.
+1. Once you've configured settings, apply the policy to your session hosts, then restart your session hosts for the settings to take effect.
 
 # [Local Group Policy](#tab/local-group-policy)
 
@@ -93,7 +93,7 @@ To configure the administrative template, select a tab for your scenario and fol
 
    :::image type="content" source="media/administrative-template/azure-virtual-desktop-gpo.png" alt-text="Screenshot of the Local Group Policy Editor showing Azure Virtual Desktop policy settings." lightbox="media/administrative-template/azure-virtual-desktop-gpo.png":::
 
-1. Restart your session hosts for the settings to take effect.
+1. Once you've configured settings, restart your session hosts for the settings to take effect.
 
 ---
 
