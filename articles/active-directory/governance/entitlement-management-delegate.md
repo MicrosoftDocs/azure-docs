@@ -169,11 +169,11 @@ You can prevent users who are not in administrative roles from inviting individu
 
 To prevent delegated employees from configuring entitlement management to let external users request for external collaboration, then be sure to communicate this constraint to all global administrators, identity governance administrators, catalog creators, and catalog owners, as they are able to change catalogs, so that they do not inadvertently permit new collaboration in new or updated catalogs. They should ensure that catalogs are set with **Enabled for external users** to **No**, and do not have any access packages with policies for allowing a user not in the directory to request.
 
-You can view the list of catalogs currently enabled for external users in the Azure portal.
+You can view the list of catalogs currently enabled for external users in the Microsoft Entra admin center.
 
-1. In the Azure portal, select **Azure Active Directory** > **Identity Governance**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1. On the left menu, select **Catalogs**.
+1. Browse to **Identity governance** > **Entitlement management** > **Catalogs**.
 
 1. Change the filter setting for **Enabled for external users** to **Yes**.
 

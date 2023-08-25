@@ -56,15 +56,13 @@ Then once the access package is created, you can [change the hidden setting](ent
 
 To complete the following steps, you need a role of global administrator, Identity Governance administrator, user administrator, catalog owner, or access package manager.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1. Select **Azure Active Directory**, and then select **Identity Governance**.
-
-1. On the left menu, select **Access packages**.
+1. Browse to **Identity governance** > **Entitlement management** > **Access package**.
 
 1. Select **New access package**.
 
-    ![Screenshot that shows the button for creating a new access package in the Azure portal.](./media/entitlement-management-shared/access-packages-list.png)
+    ![Screenshot that shows the button for creating a new access package in the Microsoft Entra admin center.](./media/entitlement-management-shared/access-packages-list.png)
 
 ## Configure basics
 
