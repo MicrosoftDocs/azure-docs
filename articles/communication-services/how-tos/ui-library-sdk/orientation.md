@@ -1,7 +1,7 @@
 ---
 title: Screen orientation over the UI Library
 titleSuffix: An Azure Communication Services how-to guide
-description: Use Azure Communication Services UI library for Mobile native to set orientation for different library screen
+description: Use Azure Communication Services UI library for Mobile native to set orientation for different library screen.
 author: mbellah
 ms.author: mbellah
 ms.service: azure-communication-services

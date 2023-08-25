@@ -1,5 +1,5 @@
 ---
-description: In this tutorial, you learn how to use the Calling composite on iOS
+description: In this tutorial, you learn how to use the Calling composite on iOS.
 author: mbellah
 
 ms.author: mbellah
@@ -10,7 +10,7 @@ ms.service: azure-communication-services
 
 Azure Communication UI [open source library](https://github.com/Azure/communication-ui-library-ios) for iOS and the sample application code can be found [here](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/ui-calling)
 
-### Available Orientations
+### Available orientations
 
 The following is a table of `OrientationOptions` with out of the box orientations. If you want to set orientation of the different screens of the composite, set the `OrientationOptions` into `CallComposite`.
 
