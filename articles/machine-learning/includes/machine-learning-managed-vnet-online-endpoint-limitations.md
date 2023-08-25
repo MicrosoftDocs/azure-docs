@@ -13,7 +13,7 @@ ms.author: mopeakande
     > [!TIP]
     > To confirm when a workspace was created, you can check the workspace properties.
     >
-    > In the Studio, go to the `Directory + Subscription + Workspace` section (top right of the Studio) and select `View all properties in Azure Portal`. Select the JSON view from the top right of the "Overview" page, then choose the latest API version. FOrm there, you can check the value of `properties.creationTime`.
+    > In the Studio, go to the `Directory + Subscription + Workspace` section (top right of the Studio) and select `View all properties in Azure Portal`. Select the JSON view from the top right of the "Overview" page, then choose the latest API version. From this page, you can check the value of `properties.creationTime`.
     >
     > Alternatively, use `az ml workspace show` with [CLI](../how-to-manage-workspace-cli.md#get-workspace-information), `my_ml_client.workspace.get("my-workspace-name")` with [SDK](../how-to-manage-workspace.md?tabs=python#find-a-workspace), or `curl` on a workspace with [REST API](../how-to-manage-rest.md#drill-down-into-workspaces-and-their-resources).
 
