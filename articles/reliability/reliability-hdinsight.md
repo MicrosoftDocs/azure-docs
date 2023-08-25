@@ -113,6 +113,8 @@ When an availability zone goes down:
 
 ## Disaster recovery and business continuity
 
+[!INCLUDE [introduction to disaster recovery](includes/reliability-disaster-recovery-description-include.md)]
+
 Azure HDInsight clusters depend on many Azure services like storage, databases, Active Directory, Active Directory Domain Services, networking, and Key Vault. A well-designed, highly available, and fault-tolerant analytics application should be designed with enough redundancy to withstand regional or local disruptions in one or more of these services. This section gives an overview of best practices, single and multi region availability, and optimization options for business continuity planning.
 
 
@@ -134,7 +136,7 @@ Improving business continuity using cross region high availability disaster reco
 |Area|Cause of complexity escalation|Optimization strategies|
 |----|------------------------|-----------------------|
 |Read Write patterns |Requiring both primary and secondary to be Read and Write enabled |Design the secondary to be read only|
-|Zero RPO & RTO |Requiring zero data loss (RPO=0) and zero downtime (RTO=0) |Design RPO and RTO in ways to reduce the number of components that need to fail over.|
+|Zero RPO & RTO |Requiring zero data loss (RPO=0) and zero downtime (RTO=0) |Design RPO and RTO in ways to reduce the number of components that need to fail over. For more information on RTO and RPO, see [Recovery objectives](./disaster-recovery-overview.md#recovery-objectives).|
 |Business functionality |Requiring full business functionality of primary in secondary |Evaluate if you can run with bare minimum critical subset of the business functionality in secondary.|
 |Connectivity |Requiring all upstream and downstream systems from primary to connect to the secondary as well|Limit the secondary connectivity to a bare minimum critical subset.|
 

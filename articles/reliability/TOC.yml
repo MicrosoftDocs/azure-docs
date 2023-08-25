@@ -158,6 +158,8 @@
       href: ../vpn-gateway/about-zone-redundant-vnet-gateways.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
 - name: Disaster recovery
   items:
+  - name: What is disaster recovery?
+    href: disaster-recovery-overview.md
   - name: Business continuity management program
     href: business-continuity-management-program.md
   - name: Cross-region replication

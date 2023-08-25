@@ -154,7 +154,9 @@ When Functions allocates instances to a zone redundant Premium plan, it uses bes
 
 ## Disaster recovery and business continuity
 
-When an entire Azure region, including all availability zones within that region, experience downtime, your mission-critical code needs to continue processing in a different region. This section explains some of the strategies that you can use to deploy functions to allow for disaster recovery.
+[!INCLUDE [introduction to disaster recovery](includes/reliability-disaster-recovery-description-include.md)]
+
+This section explains some of the strategies that you can use to deploy Functions to allow for disaster recovery.
 
 ### Multi-region disaster recovery
 

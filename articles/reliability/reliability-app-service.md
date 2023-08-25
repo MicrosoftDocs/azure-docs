@@ -244,14 +244,13 @@ There's no additional cost associated with enabling availability zones. Pricing 
 
 ## Disaster recovery and business continuity
 
-Most organizations have a business continuity plan to maintain availability of their applications during downtime and the preservation of their data in a regional disaster. This section covers some common strategies for web apps deployed to App Service.
+[!INCLUDE [introduction to disaster recovery](includes/reliability-disaster-recovery-description-include.md)]
 
-For example, when you create a web app in App Service and choose an Azure region during resource creation, it's a single-region app. When the region becomes unavailable during a disaster, your application also becomes unavailable. If you create an identical deployment in a secondary Azure region using a multi-region geography architecture, your application becomes less susceptible to a single-region disaster, which guarantees business continuity. Any data replication across the regions lets you recover your last application state.
+This section covers some common strategies for web apps deployed to App Service.
 
-For IT, business continuity plans are largely driven by two metrics:
- 
-- Recovery Time Objective (RTO) – the time duration in which your application must come back online after an outage. 
-- Recovery Point Objective (RPO) – the acceptable amount of data loss in a disaster, expressed as a unit of time (for example, 1 minute of transactional database records). 
+When you create a web app in App Service and choose an Azure region during resource creation, it's a single-region app. When the region becomes unavailable during a disaster, your application also becomes unavailable. If you create an identical deployment in a secondary Azure region using a multi-region geography architecture, your application becomes less susceptible to a single-region disaster, which guarantees business continuity. Any data replication across the regions lets you recover your last application state.
+
+For IT, business continuity plans are largely driven by Recovery Time Objective (RTO) and Recovery Point Objective (RPO). For more information on RTO and RPO, see [Recovery objectives](./disaster-recovery-overview.md#recovery-objectives).
 
 Normally, maintaining an SLA around RTO is impractical for regional disasters, and you would typically design your disaster recovery strategy around RPO alone (i.e. focus on recovering data and not on minimizing interruption). With Azure, however, it's not only practical but can even be straightforward to deploy App Service for automatic geo-failovers. This lets you disaster-proof your applications further by taking care of both RTO and RPO.
 
