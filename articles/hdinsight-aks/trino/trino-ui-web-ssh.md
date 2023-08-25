@@ -33,4 +33,4 @@ This article describes how you can run queries on your Trino cluster using web s
 Now, you can run queries.
 
 ## Next steps
-* [Trino CLI](./trino-ui-cli.md)
+* [Trino CLI](./trino-ui-command-line-interface.md)
