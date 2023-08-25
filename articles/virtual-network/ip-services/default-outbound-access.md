@@ -20,7 +20,7 @@ Examples of explicit outbound connectivity are virtual machines:
 
 * Created within a subnet associated to a NAT gateway.
 
-* In the backend pool of a standard load balancer with outbound rules defined.
+* In the backend pool of a standard load balancer with or without outbound rules defined.
 
 * In the backend pool of a basic public load balancer.
 
