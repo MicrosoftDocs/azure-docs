@@ -27,7 +27,7 @@ To help you troubleshoot certain types of issues, you may be asked for any of th
 * **Short Code Program Brief ID**: This ID is used to identify a short code program brief application.
 * **Email message ID**: This ID is used to identify Send Email requests.
 * **Correlation ID**: This ID is used to identify requests made using Call Automation. 
-* **Call logs**: These logs contain detailed information that issend to our used to troubleshoot calling and network issues.
+* **Call logs**: These logs contain detailed information can be used to troubleshoot calling and network issues.
 
 Also take a look at our [service limits](service-limits.md) documentation for more information on throttling and limitations.
 
