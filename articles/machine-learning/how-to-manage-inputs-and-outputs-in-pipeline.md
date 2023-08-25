@@ -34,7 +34,7 @@ The Input and Output parameters from the interface of a pipeline component. The 
 
 ### Pipeline level Inputs and Outputs 
 
-At the pipeline level, inputs and outputs are useful for submitting pipeline jobs with varying data inputs or parameters that control the training logic, such as `learning_rate`. They're especially useful when invoking the pipeline via a REST endpoint. These inputs and outputs enable you to assign different values to the pipeline input or access the output of pipeline jobs through the REST endpoint. For more information, see the guide on [Creating Jobs and Input Data for Batch Endpoint.]((./how-to-access-data-batch-endpoints-jobs.md))
+At the pipeline level, inputs and outputs are useful for submitting pipeline jobs with varying data inputs or parameters that control the training logic, such as `learning_rate`. They're especially useful when invoking the pipeline via a REST endpoint. These inputs and outputs enable you to assign different values to the pipeline input or access the output of pipeline jobs through the REST endpoint. For more information, see the guide on [Creating Jobs and Input Data for Batch Endpoint.](./how-to-access-data-batch-endpoints-jobs.md)
 
 ### Types of Inputs and Outputs
 
@@ -193,9 +193,10 @@ By default, the output of a component will be stored in `azureml://datastores/${
 
 But you can also customize where to store the output by defining path of an output. Below are example:
 
-[!notebook-python[] (~/azureml-examples-main/sdk/python/jobs/pipelines/1b_pipeline_with_python_function_components/pipeline_with_python_function_components.ipynb?name=custom-path)]
+```python
+# [!notebook-python[] (~/azureml-examples-main/sdk/python/jobs/pipelines/1b_pipeline_with_python_function_components/pipeline_with_python_function_components.ipynb?name=custom-path)]
+```
 
-https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/pipelines/1b_pipeline_with_python_function_components/pipeline_with_python_function_components.ipynb
 
 [to-do] need a CLI example? 
  
