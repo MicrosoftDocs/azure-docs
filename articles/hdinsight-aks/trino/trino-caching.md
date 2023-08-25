@@ -65,11 +65,11 @@ Final result caching can also be controlled through the following session parame
 
 1. Sign in to [Azure portal](https://portal.azure.com).
   
-3. In the Azure portal search bar, type "HDInsight on AKS cluster" and select "Azure HDInsight on AKS clusters" from the drop-down list.
+1. In the Azure portal search bar, type "HDInsight on AKS cluster" and select "Azure HDInsight on AKS clusters" from the drop-down list.
   
    :::image type="content" source="./media/trino-caching/portal-search.png" alt-text="Screenshot showing search option for getting started with HDInsight on AKS Cluster.":::
   
-7. Select your cluster name from the list page.
+1. Select your cluster name from the list page.
   
    :::image type="content" source="./media/trino-caching/portal-search-result.png" alt-text="Screenshot showing selecting the HDInsight on AKS Cluster you require from the list.":::
 
