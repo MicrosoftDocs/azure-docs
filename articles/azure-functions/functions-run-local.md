@@ -61,7 +61,7 @@ In the terminal window or from a command prompt, run the following command to cr
 func init MyProjFolder --worker-runtime dotnet-isolated 
 ```
 
-You can use the `--target-framework` option to target a specific version of .NET. For for information, see the [`func init`](functions-core-tools-reference.md#func-init) reference.
+By default this command creates a project that runs in-process with the Functons host on the current [Long-Term Support (LTS) version of .NET Core]. You can use the `--target-framework` option to target a specific supported version of .NET, including .NET Framework. For for information, see the [`func init`](functions-core-tools-reference.md#func-init) reference.
 
 ### [In-process](#tab/in-process)
 
@@ -69,9 +69,10 @@ You can use the `--target-framework` option to target a specific version of .NET
 func init MyProjFolder --worker-runtime dotnet 
 ```
 
+This command creates a project that runs on the current [Long-Term Support (LTS) version of .NET Core]. For other .NET version, create an app that runs in an isolated worker process from the Functions host. 
 ---
 
-This command creates a project that runs on the current Long-Term Support (LTS) version of .NET Core in the desired [process mode](./dotnet-isolated-in-process-differences.md).
+For a comparison between the two .NET process models, see the [process mode comparison article](./dotnet-isolated-in-process-differences.md).
 ::: zone-end
 ::: zone pivot="programming-language-java"
 Java uses a Maven archetype to create the local project, along with your first HTTP triggered function. Rather than using `func init` and `func new`, you should instead follow the steps in the [Command line quickstart](./create-first-function-cli-java.md).  
@@ -541,3 +542,5 @@ Learn how to [develop, test, and publish Azure functions by using Azure Function
 [extension bundles]: functions-bindings-register.md#extension-bundles
 [func azure functionapp publish]: functions-core-tools-reference.md?tabs=v2#func-azure-functionapp-publish
 
+
+[Long-Term Support (LTS) version of .NET Core]: https://dotnet.microsoft.com/platform/support/policy/dotnet-core#lifecycle
