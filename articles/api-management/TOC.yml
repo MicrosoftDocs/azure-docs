@@ -177,7 +177,7 @@
                 - name: Connect privately using private endpoint
                   href: private-endpoint.md
                 - name: Integrate with VNet for outbound requests
-                  href: integreate-vnet-outbound.md
+                  href: integrate-vnet-outbound.md
                 - name: Retrieve IP addresses
                   href: api-management-howto-ip-addresses.md
                 - name: Defend against DDoS attacks
