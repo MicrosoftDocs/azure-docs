@@ -238,6 +238,10 @@ subscribeToCall = (call) => {
             });
         });
         
+        call.on('isLocalVideoStartedChanged', () => {
+            console.log(`isLocalVideoStarted changed: ${call.isLocalVideoStarted}`);
+        });
+        console.log(`isLocalVideoStarted: ${call.isLocalVideoStarted}`);
         // Inspect the call's current remote participants and subscribe to them.
         call.remoteParticipants.forEach(remoteParticipant => {
             subscribeToRemoteParticipant(remoteParticipant);

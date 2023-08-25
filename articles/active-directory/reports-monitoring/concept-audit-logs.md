@@ -1,7 +1,6 @@
 ---
-
 title: Learn about the audit logs in Azure Active Directory
-description: Overview of the audit logs available in Azure Active Directory.
+description: Learn about the types of identity related events that are captured in Azure Active Directory audit logs.
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -9,7 +8,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/04/2022
+ms.date: 08/24/2023
 ms.author: sarahlipsey
 ms.reviewer: besiler
 
