@@ -14,20 +14,20 @@ AKS now supports an exclusive channel dedicated to controlling node-level OS sec
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-## How does it work with Cluster Auto upgrades?
+## How does node OS auto-upgrade work with cluster auto-upgrade?
 
 Node-level OS security updates come in at a much faster cadence than Kubernetes patch or minor version updates. This is the main reason for introducing a separate, dedicated Node OS auto-upgrade channel. With this feature, you can have a flexible and customized strategy for node-level OS security updates and a separate plan for cluster-level Kubernetes version auto-upgrades [auto-upgrade][Autoupgrade].
 It's highly recommended to use both cluster-level [auto-upgrades][Autoupgrade] and the node OS auto-upgrade channel together. Scheduling can be fine-tuned by applying two separate sets of [maintenance windows][planned-maintenance] - `aksManagedAutoUpgradeSchedule` for the cluster [auto-upgrade][Autoupgrade] channel and `aksManagedNodeOSUpgradeSchedule` for the node OS auto-upgrade channel.
 
 ## Using node OS auto-upgrade
 
-The selected channel determines the timing of upgrades. When making changes to node OS auto-upgrade channels, allow upto 24 hours for the changes to take effect. 
+The selected channel determines the timing of upgrades. When making changes to node OS auto-upgrade channels, allow up to 24 hours for the changes to take effect. 
 
 > [!NOTE]
 > Node OS image auto-upgrade won't affect the cluster's Kubernetes version, but it will only work for a cluster in a [supported version][supported].
 
 
-The following upgrade channels are available, you are allowed to choose one of these options:
+The following upgrade channels are available. You're allowed to choose one of these options:
 
 |Channel|Description|OS-specific behavior|
 |---|---|
@@ -57,13 +57,13 @@ The default cadence means there is no planned maintenance window applied.
 | `SecurityPatch`|AKS|Weekly|
 | `NodeImage`|AKS|Weekly|
 
-## Prerequisites to use `SecurityPatch`
-
+## Prerequisites
+"The following prerequisites are only applicable when using the `SecurityPatch` channel. If you aren't using this channel, you can ignore these requirements.
 - Must be using API version `11-02-preview` or later
 
 - If using Azure CLI, the `aks-preview` CLI extension version `0.5.127` or later must be installed
 
-- The `NodeOsUpgradeChannelPreview` feature flag must be enabled on your subscription, this flag is only for using   `SecurityPatch`.
+- The `NodeOsUpgradeChannelPreview` feature flag must be enabled on your subscription
 
 ### Register the 'NodeOsUpgradeChannelPreview' feature flag 
 
@@ -87,34 +87,34 @@ az provider register --namespace Microsoft.ContainerService
 
 ## Limitations
 
- Currently when you set the [cluster auto-upgrade channel][Autoupgrade] to `node-image`, it automatically also sets the node OS auto-upgrade channel to `NodeImage`. You can't change node OS auto-upgrade channel value if your cluster auto-upgrade channel is `node-image`. In order to set the node OS auto-upgrade channel values, make sure the [cluster auto-upgrade channel][Autoupgrade] isn't `node-image`. 
+- Currently, when you set the [cluster auto-upgrade channel][Autoupgrade] to `node-image`, it also automatically sets the node OS auto-upgrade channel to `NodeImage`. You can't change node OS auto-upgrade channel value if your cluster auto-upgrade channel is `node-image`. In order to set the node OS auto-upgrade channel value, make sure the [cluster auto-upgrade channel][Autoupgrade] value isn't `node-image`. 
 
- The `SecurityPatch` channel isn't supported on Windows OS node pools. 
+- The `SecurityPatch` channel isn't supported on Windows OS node pools. 
  
- [!NOTE]
- >By default, an existing cluster's node OS auto-upgrade channel is set to `None`. Any new  clusters created with API versions on or after `06-01-2022`, shall have the default node os auto-upgrade channel set as `NodeImage`.
+ > [!NOTE]
+ > By default, any new cluster created with an API version of `06-01-2022`or later will set the node OS auto-upgrade channel value to `NodeImage`. Any existing clusters created with an API version earlier than `06-01-2022` will have the node OS auto-upgrade channel value set to `None` by default.
 
 
 ## Using node OS auto-upgrade with Planned Maintenance
 
 If you’re using Planned Maintenance and node OS auto-upgrade, your upgrade starts during your specified maintenance window.
 
- [!NOTE]
+> [!NOTE]
 > To ensure proper functionality, use a maintenance window of four hours or more.
 
 For more information on Planned Maintenance, see [Use Planned Maintenance to schedule maintenance windows for your Azure Kubernetes Service (AKS) cluster][planned-maintenance].
 
 ## FAQ
 
-* How can you check the current nodeOsUpgradeChannel selection on a cluster?
+* How can I check the current nodeOsUpgradeChannel value on a cluster?
 
-Run the `az aks show` command and check the "autoUpgradeProfile" to see what the `nodeOsUpgradeChannel` is. 
+Run the `az aks show` command and check the "autoUpgradeProfile" to determine what value the `nodeOsUpgradeChannel` is set to. 
 
-* How can you monitor the status of the node-os auto upgrades?
+* How can I monitor the status of node OS auto-upgrades?
 
-To view the status of your node os auto upgrades, look up [activity logs][monitor-aks] on your cluster. You may also look up specific upgrade related events as mentioned in [Upgrade an AKS cluster][aks-upgrade]. AKS also emits upgrade related Event Grid events. To learn more, see [AKS as an Event Grid source][aks-eventgrid].
+To view the status of your node OS auto upgrades, look up [activity logs][monitor-aks] on your cluster. You may also look up specific upgrade-related events as mentioned in [Upgrade an AKS cluster][aks-upgrade]. AKS also emits upgrade-related Event Grid events. To learn more, see [AKS as an Event Grid source][aks-eventgrid].
 
-* Can i change node OS auto-upgrade channel value, if my cluster auto-upgrade channel is set to `node-image` ?
+* Can I change the node OS auto-upgrade channel value if my cluster auto-upgrade channel is set to `node-image` ?
 
  No. Currently, when you set the [cluster auto-upgrade channel][Autoupgrade] to `node-image`, it also automatically sets the node OS auto-upgrade channel to `NodeImage`. You can't change the node OS auto-upgrade channel value if your cluster auto-upgrade channel is `node-image`. In order to be able to change the node OS auto-upgrade channel values, make sure the cluster auto-upgrade channel isn't `node-image`.
 
@@ -128,4 +128,7 @@ To view the status of your node os auto upgrades, look up [activity logs][monito
 [unattended-upgrades]: https://help.ubuntu.com/community/AutomaticSecurityUpdates
 [Autoupgrade]: auto-upgrade-cluster.md
 [kured]: node-updates-kured.md
-[supported]:support-policies.md
+[supported]: ./support-policies.md
+[monitor-aks]: ./monitor-aks-reference.md
+[aks-eventgrid]: ./quickstart-event-grid.md
+[aks-upgrade]: ./upgrade-cluster.md
