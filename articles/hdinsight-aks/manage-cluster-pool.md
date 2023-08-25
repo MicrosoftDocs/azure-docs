@@ -25,7 +25,7 @@ This article describes how to manage a cluster pool.
   
 1. Select your cluster pool name from the list page.
   
-   :::image type="content" source="./media/manage-cluster-pool/clusterpool-In-listview.png" alt-text="Screenshot showing cluster pools in a list view." border="true" lightbox="./media/manage-cluster-pool/Clusterpool-In-listview.png":::
+   :::image type="content" source="./media/manage-cluster-pool/clusterpool-in-list-view.png" alt-text="Screenshot showing cluster pools in a list view." border="true" lightbox="./media/manage-cluster-pool/clusterpool-in-list-view.png":::
 
 ## Create new cluster
    
