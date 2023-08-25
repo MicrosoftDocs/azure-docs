@@ -91,6 +91,8 @@ facebook.com | This user has a Facebook account and has signed up by using self-
 mail | This user has signed up by using Azure AD Email one-time passcode (OTP).
 {issuer URI} | This user is homed in an external organization that doesn't use Azure Active Directory as their identity provider, but instead uses a SAML/WS-Fed-based identity provider. The issuer URI is shown when the Identities field is clicked.
 
+`phone` as an identity provider is not supported for B2B accounts. 
+
 ### Directory synced
 
 The **Directory synced** property indicates whether the user is being synced with on-premises Active Directory and is authenticated on-premises. This property is **Yes** if the account is homed in the organization’s on-premises Active Directory and synced with Azure AD, or **No** if the account is a cloud-only Azure AD account. In Microsoft Graph, the Directory synced property corresponds to `onPremisesSyncEnabled`.
