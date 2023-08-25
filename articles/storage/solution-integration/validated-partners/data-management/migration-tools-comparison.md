@@ -73,7 +73,7 @@ The following comparison matrix shows basic functionality of different tools tha
 | **Support for open / locked files**       | No | No | Yes | Yes | Yes | Yes |
 | **Incremental migration**                 | Yes | No | Yes | Yes | Yes | Yes |
 | **Switchover support**                    | No  | No | Yes | Yes | No (manual only) | Yes |
-| **[Other features](#other-features)**     | [Link](#az-copy)| [Link](azure-storage-mover) [Link](#datadobi-dobimigrate) | [Link](#data-dynamics-data-mobility-and-migration) | [Link](#komprise-elastic-data-migration) | [Link](#atempo-miria) |
+| **[Other features](#other-features)**     | [Link](#az-copy)| [Link](#azure-storage-mover) | [Link](#datadobi-dobimigrate) | [Link](#data-dynamics-data-mobility-and-migration) | [Link](#komprise-elastic-data-migration) | [Link](#atempo-miria) |
 
 ## Assessment and reporting
 
