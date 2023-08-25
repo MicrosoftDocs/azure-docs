@@ -33,8 +33,8 @@ Before you start using Azure Virtual Desktop Insights, you'll need to set up the
 
 - Anyone monitoring Azure Virtual Desktop Insights for your environment will also need the have the following Azure role-based access control (RBAC) roles assigned as a minimum:
 
-   - [Desktop Virtualization Reader](../role-based-access-control/built-in-roles#desktop-virtualization-reader) assigned on the resource group or subscription where the host pools, workspaces and session hosts are.
-   - [Log Analytics Reader](../role-based-access-control/built-in-roles#log-analytics-reader) assigned on any Log Analytics workspace used with Azure Virtual Desktop Insights.
+   - [Desktop Virtualization Reader](../role-based-access-control/built-in-roles.md#desktop-virtualization-reader) assigned on the resource group or subscription where the host pools, workspaces and session hosts are.
+   - [Log Analytics Reader](../role-based-access-control/built-in-roles.md#log-analytics-reader) assigned on any Log Analytics workspace used with Azure Virtual Desktop Insights.
 
    You can also create a custom role to reduce the scope of assignment on the Log Analytics workspace. For more information, see [Manage access to Log Analytics workspaces](../azure-monitor/logs/manage-access.md).
 
