@@ -70,6 +70,7 @@ func init MyProjFolder --worker-runtime dotnet
 ```
 
 This command creates a project that runs on the current [Long-Term Support (LTS) version of .NET Core]. For other .NET version, create an app that runs in an isolated worker process from the Functions host. 
+
 ---
 
 For a comparison between the two .NET process models, see the [process mode comparison article](./dotnet-isolated-in-process-differences.md).
