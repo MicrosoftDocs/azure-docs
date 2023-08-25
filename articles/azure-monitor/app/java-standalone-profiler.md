@@ -187,7 +187,7 @@ This value can be one of:
 - `profile`. Uses the `profile.jfc` jfc configuration that ships with JFR.
 - A path to a custom jfc configuration file on the file system, i.e `/tmp/myconfig.jfc`.
 
-`enableRequestTriggering` This will let know the profiler if JFR profiling should be triggered based on request configuration. 
+`enableRequestTriggering` Whether JFR profiling should be triggered based on request configuration.
 This value can be one of:
 
 - `true` Profiling will be triggered if a request trigger threshold is breached.
