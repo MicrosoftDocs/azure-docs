@@ -11,22 +11,30 @@
 - name: Samples
   items:
   - name: Azure Resource Graph queries
+    displayName: arg, query
     href: ./resource-graph-samples.md
 - name: Azure Arc resource bridge
   items:
   - name: About Azure Arc resource bridge
+    displayName: appliance
     href: ./resource-bridge/overview.md
   - name: System requirements
+    displayName: resource bridge
     href: ./resource-bridge/system-requirements.md
   - name: Network requirements
+    displayName: resource bridge
     href: ./resource-bridge/network-requirements.md
   - name: Security overview
+    displayName: resource bridge
     href: ./resource-bridge/security-overview.md
   - name: Deployment overview
+    displayName: resource bridge, arcappliance
     href: ./resource-bridge/deploy-cli.md
   - name: Maintenance
+    displayName: resource bridge, appliance
     href: ./resource-bridge/maintenance.md
   - name: Troubleshoot
+    displayName: resource bridge
     href: ./resource-bridge/troubleshoot-resource-bridge.md
 - name: Azure Arc-enabled servers >
   href: ./servers/overview.md
@@ -45,10 +53,13 @@
 - name: Arc validation program
   items:
    - name: Program overview
+     displayName: validation
      href: validation-program/overview.md
    - name: Validated Kubernetes partners
+     displayName: validation
      href: kubernetes/validation-program.md?toc=/azure/azure-arc/toc.json&bc=/azure/azure-arc/breadcrumb/toc.json
    - name: Validated data services partners
+     displayName: validation
      href: data/validation-program.md?toc=/azure/azure-arc/toc.json&bc=/azure/azure-arc/breadcrumb/toc.json
 - name: Reference
   items:
