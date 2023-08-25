@@ -41,9 +41,9 @@ Follow these steps to assign a user to the catalog creator role.
 
 **Prerequisite role:** Global administrator, Identity Governance administrator or User administrator
 
-1. In the Azure portal, select **Azure Active Directory** and then select **Identity Governance**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1. In the left menu, in the **Entitlement management** section, select **Settings**.
+1. Browse to **Identity governance** > **Entitlement management** > **settings**.
 
 1. Select **Edit**.
 
@@ -55,15 +55,15 @@ Follow these steps to assign a user to the catalog creator role.
 
 1. Select **Save**.
 
-## Allow delegated roles to access the Azure portal
+## Allow delegated roles to access the Microsoft Entra admin center
 
-To allow delegated roles, such as catalog creators and access package managers, to access the Azure portal to manage access packages, you should check the administration portal setting.
+To allow delegated roles, such as catalog creators and access package managers, to access the Microsoft Entra admin center to manage access packages, you should check the administration portal setting.
 
-**Prerequisite role:** Global administrator or User administrator
+**Prerequisite role:** Global administrator, Identity Governance administrator, or User administrator
 
-1. In the Azure portal, select **Azure Active Directory** and then select **Users**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1. In the left menu, select **User settings**.
+1. Browse to **Identity** > **Users** > **User settings**.
 
 1. Make sure **Restrict access to Azure AD administration portal** is set to **No**.
 
