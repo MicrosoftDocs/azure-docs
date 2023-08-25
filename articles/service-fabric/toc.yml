@@ -413,6 +413,8 @@
     href: concepts-managed-identity.md
   - name: Configure container repository credentials
     href: configure-container-repository-credentials.md
+  - name: Managed cluster deny assignment policy
+    href: managed-cluster-deny-assignment.md
 
 - name: How-to guides
   items:

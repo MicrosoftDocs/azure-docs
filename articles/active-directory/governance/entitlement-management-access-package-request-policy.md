@@ -57,17 +57,19 @@ If you have a set of users that should have different request and approval setti
 
 **Prerequisite role:** Global administrator, Identity Governance administrator, User administrator, Catalog owner, or Access package manager
 
-1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1. In the left menu, click **Access packages** and then open the access package.
+1. Browse to **Identity governance** > **Entitlement management** > **Access package**.
 
-1. Click **Policies** and then **Add policy**.
+1. On the **Access packages** page open the access package you want to edit.
+
+1. Select **Policies** and then **Add policy**.
 
 1. You will start on the **Basics** tab. Type a name and a description for the policy.
 
     ![Create policy with name and description](./media/entitlement-management-access-package-request-policy/policy-name-description.png)
 
-1. Click **Next** to open the **Requests** tab.
+1. Select **Next** to open the **Requests** tab.
 
 1. Change the **Users who can request access** setting. Use the steps in the following sections to change the setting to one of the following options: 
     - [For users in your directory](#for-users-in-your-directory) 
@@ -170,21 +172,23 @@ To change the request and approval settings for an access package, you need to o
 
 **Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
 
-1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1. In the left menu, click **Access packages** and then open the access package.
+1. Browse to **Identity governance** > **Entitlement management** > **Access package**.
 
-1. Click **Policies** and then click the policy you want to edit.
+1. On the **Access packages** page open the access package whose policy request settings you want to edit.
+
+1. Select **Policies** and then click the policy you want to edit.
 
     The Policy details pane opens at the bottom of the page.
 
     ![Access package - Policy details pane](./media/entitlement-management-shared/policy-details.png)
 
-1. Click **Edit** to edit the policy.
+1. Select **Edit** to edit the policy.
 
     ![Access package - Edit policy](./media/entitlement-management-shared/policy-edit.png)
 
-1. Click the **Requests** tab to open the request settings.
+1. Select the **Requests** tab to open the request settings.
 
 1. Use the steps in the previous sections to change the request settings as needed.
 
@@ -200,14 +204,14 @@ To change the request and approval settings for an access package, you need to o
 
     ![Access package - Policy- Enable policy setting](./media/entitlement-management-access-package-approval-policy/enable-requests.png)
 
-1. Click **Next**.
+1. Select **Next**.
 
 1. If you want to require requestors to provide additional information when requesting access to an access package, use the steps in [Change approval and requestor information settings for an access package in entitlement management](entitlement-management-access-package-approval-policy.md#collect-additional-requestor-information-for-approval)
  to configure requestor information.
 
 1. Configure lifecycle settings.
 
-1. If you are editing a policy click **Update**. If you are adding a new policy, click **Create**.
+1. If you are editing a policy select **Update**. If you are adding a new policy, select **Create**.
 
 ## Create an access package assignment policy programmatically
 
