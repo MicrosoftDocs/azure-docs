@@ -26,7 +26,7 @@ The Speech SDK is available as a [NuGet package](https://www.nuget.org/packages/
 
 Follow these steps to create a console application and install the Speech SDK.
 
-1. Create a new C++ console project in Visual Studio Community 2022 named `SpeechRecognition`.
+1. Create a new C++ console project in [Visual Studio Community](https://visualstudio.microsoft.com/downloads/) named `SpeechRecognition`.
 1. Install the Speech SDK in your new project with the NuGet package manager.
 
    ```powershell
@@ -107,7 +107,7 @@ Follow these steps to create a console application and install the Speech SDK.
    }
    ```
 
-1. To change the speech recognition language, replace `en-US` with another [supported language](~/articles/ai-services/speech-service/language-support.md). For example, `es-ES` for Spanish (Spain). If you don't specify a language, the default is `en-US`. For details about how to identify one of multiple languages that might be spoken, see [Language identification](~/articles/ai-services/speech-service/language-identification.md).
+1. To change the speech recognition language, replace `en-US` with another [supported language](~/articles/ai-services/speech-service/language-support.md). For example, use `es-ES` for Spanish (Spain). If you don't specify a language, the default is `en-US`. For details about how to identify one of multiple languages that might be spoken, see [Language identification](~/articles/ai-services/speech-service/language-identification.md).
 
 1. [Build and run](/cpp/build/vscpp-step-2-build) your new console application to start speech recognition from a microphone.
 

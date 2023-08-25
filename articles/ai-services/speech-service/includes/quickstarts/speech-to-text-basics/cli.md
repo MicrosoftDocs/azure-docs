@@ -72,7 +72,7 @@ Here are some other considerations:
 
     ***
 
-- To change the speech recognition language, replace `en-US` with another [supported language](~/articles/ai-services/speech-service/language-support.md). For example, `es-ES` for Spanish (Spain). If you don't specify a language, the default is `en-US`.
+- To change the speech recognition language, replace `en-US` with another [supported language](~/articles/ai-services/speech-service/language-support.md). For example, use `es-ES` for Spanish (Spain). If you don't specify a language, the default is `en-US`.
 
     ```console
     spx recognize --microphone --source es-ES

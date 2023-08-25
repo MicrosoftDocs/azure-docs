@@ -16,7 +16,7 @@ ms.author: eur
 
 ## Set up the environment
 
-Install the [Speech SDK for Go](../../../quickstarts/setup-platform.md?pivots=programming-language-go&tabs=dotnet%252cwindows%252cjre%252cbrowser). For any other requirements, see [Install the Speech SDK](../../../quickstarts/setup-platform.md?pivots=programming-language-go).
+Install the Speech SDK for Go. For requirements and instructions, see [Install the Speech SDK](../../../quickstarts/setup-platform.md?pivots=programming-language-go).
 
 ### Set environment variables
 

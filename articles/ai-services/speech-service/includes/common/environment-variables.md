@@ -10,7 +10,7 @@ ms.author: eur
 Your application must be authenticated to access Azure AI services resources. For production, use a secure way of storing and accessing your credentials. For example, after you [get a key](~/articles/ai-services/multi-service-resource.md?pivots=azportal#get-the-keys-for-your-resource) for your Speech resource, write it to a new environment variable on the local machine that runs the application.
 
 > [!TIP]
-> Don't include the key directly in your code, and never post it publicly. See [Azure AI services security](../../../security-features.md) article for more authentication options such as [Azure Key Vault](../../../use-key-vault.md).
+> Don't include the key directly in your code, and never post it publicly. See [Azure AI services security](../../../security-features.md) for more authentication options such as [Azure Key Vault](../../../use-key-vault.md).
 
 To set the environment variable for your Speech resource key, open a console window, and follow the instructions for your operating system and development environment.
 
@@ -62,5 +62,5 @@ For iOS and macOS development, you set the environment variables in Xcode. For e
 
 To set the environment variable for your Speech resource region, follow the same steps. Set `SPEECH_REGION` to the region of your resource. For example, `westus`.
 
-For more configuration options, see [Configuration Settings File (xcconfig) format](https://help.apple.com/xcode/#/dev745c5c974).
+For more configuration options, see [the Xcode documentation](https://help.apple.com/xcode/#/dev745c5c974).
 ***
