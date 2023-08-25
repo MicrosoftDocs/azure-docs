@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 05/30/2023
+ms.date: 08/22/2023
 ms.author: sarahlipsey
 ms.reviewer: madansr7
 ---
@@ -37,7 +37,7 @@ You can access the Usage and insights reports from the Azure portal and using Mi
 ### To access Usage & insights in the portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using the appropriate least privileged role.
-1. Go to **Azure Active Directory** > **Usage & insights**.
+1. Browse to **Azure Active Directory** > **Monitoring** > **Usage & insights**.
 
 The **Usage & insights** reports are also available from the **Enterprise applications** area of Azure AD. All users can access their own sign-ins at the [My Sign-Ins portal](https://mysignins.microsoft.com/security-info).
 
@@ -85,7 +85,7 @@ For more information, see [Application sign-in in Microsoft Graph](/graph/api/re
 
 ## AD FS application activity
 
-The **AD FS application activity** report in Usage & insights lists all Active Directory Federated Services (AD FS) applications in your organization that have had an active user login to authenticate in the last 30 days. These applications have not been migrated to Azure AD for authentication.
+The **AD FS application activity** report in Usage & insights lists all Active Directory Federated Services (AD FS) applications in your organization that have had an active user sign-in to authenticate in the last 30 days. These applications haven't been migrated to Azure AD for authentication.
 
 Viewing the AD FS application activity using Microsoft Graph retrieves a list of the `relyingPartyDetailedSummary` objects, which identifies the relying party to a particular Federation Service.
 
@@ -107,11 +107,11 @@ Are you planning on running a registration campaign to nudge users to sign up fo
 
 Looking for the details of a user and their authentication methods? Look at the **User registration details** report from the side menu and search for a name or UPN. The default MFA method and other methods registered are displayed. You can also see if the user is capable of registering for one of the authentication methods.
 
-Looking for the status of an authentication registration or reset event of a user? Look at the **Registration and reset events** report from the side menu and then search for a name or UPN. You'll be able to see the method used to attempt to register or reset an authentication method.
+Looking for the status of an authentication registration or reset event of a user? Look at the **Registration and reset events** report from the side menu and then search for a name or UPN. You can see the method used to attempt to register or reset an authentication method.
 
 ## Service principal sign-in activity (preview)
 
-The Service principal sign-in activity (preview) report provides the last activity date for every service principal. The report provides you information on the usage of the service principal - whether it was used as a client or resource app and whether it was used in an app-only or delegated context. The report shows the last time the service principal was used.
+The Service principal sign-in activity (preview) report provides the last activity date for every service principal. The report provides you with information on the usage of the service principal - whether it was used as a client or resource app and whether it was used in an app-only or delegated context. The report shows the last time the service principal was used.
 
 [ ![Screenshot of the service principal sign-in activity report.](./media/concept-usage-insights-report/service-principal-sign-ins.png) ](./media/concept-usage-insights-report/service-principal-sign-ins.png#lightbox)
 
@@ -129,7 +129,7 @@ Add the following query to retrieve the service principal sign-in activity, then
 GET https://graph.microsoft.com/beta/reports/servicePrincipalSignInActivities/{id}
 ```
 
-The following is an example of the response:
+Example response:
 
 ```json
 {
@@ -163,7 +163,7 @@ For more information, see [List service principal activity in Microsoft Graph](/
 
 ## Application credential activity (preview)
 
-The Application credential activity (preview) report provides the last credential activity date for every application credential. The report provides the credential type (certificate or client secret), the last used date, and the expiration date. With this report you can view the expiration dates of all your applications in one place. 
+The Application credential activity (preview) report provides the last credential activity date for every application credential. The report provides the credential type (certificate or client secret), the last used date, and the expiration date. With this report, you can view the expiration dates of all your applications in one place. 
 
 To view the details of the application credential activity, select the **View more details** link. These details include the application object, service principal, and resource IDs. You can also see if the credential origin is the application or the service principal. 
 
@@ -187,7 +187,7 @@ To get started, follow these instructions to work with `appCredentialSignInActiv
     ```http
     GET https://graph.microsoft.com/beta/reports/appCredentialSignInActivities/{id}
     ```
-The following is an example of the response:
+Example response:
 
 ```json
 {

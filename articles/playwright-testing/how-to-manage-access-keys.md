@@ -85,8 +85,6 @@ var playwrightServiceConfig = new PlaywrightService({{
 })
 ```
 
-Learn more about [running existing tests with Microsoft Playwright Testing](./how-to-run-with-playwright-testing.md).
-
 ## Delete your access key
 
 You can delete a workspace access key from the Microsoft Playwright Testing portal. Delete a key when it has expired, to replace an access key that you believe has been compromised, or when you no longer need it.
@@ -107,6 +105,3 @@ To delete an existing workspace access key:
 ## Next steps
 
 - Learn more about [managing access to a workspace](./how-to-assign-roles.md).
-- Learn more about [running existing tests with Microsoft Playwright Testing](./how-to-run-with-playwright-testing.md).
-- Learn more about [automating end-to-end tests with GitHub Actions](./quickstart-automate-end-to-end-testing.md).
-- Learn more about [running cross-platform tests](./how-to-cross-platform-tests.md).

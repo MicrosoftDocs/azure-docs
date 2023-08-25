@@ -27,8 +27,8 @@ After you complete this quickstart, you have a CI workflow that runs your Playwr
 - A GitHub Actions workflow. If you need help with getting started with GitHub Actions, see [create your first workflow](https://docs.github.com/en/actions/quickstart)
 
 # [Azure Pipelines](#tab/pipelines)
-- An Azure DevOps organization and project. If you don't have an Azure DevOps organization, you can [create one for free](/azure/devops/organizations/projects/create-project?view=azure-devops&tabs=browser).
-- A pipeline definition. If you need help with getting started with Azure Pipelines, see [create your first pipeline](/azure/devops/pipelines/create-first-pipeline?preserve-view=true&view=azure-devops&tabs=java%2Ctfs-2018-2%2Cbrowser).
+- An Azure DevOps organization and project. If you don't have an Azure DevOps organization, you can [create one for free](/azure/devops/organizations/projects/create-project).
+- A pipeline definition. If you need help with getting started with Azure Pipelines, see [create your first pipeline](/azure/devops/pipelines/create-first-pipeline).
 
 ---
 
@@ -227,4 +227,4 @@ Update the CI workflow definition to run your Playwright tests with the Playwrig
 
 You've successfully set up a continuous end-to-end testing workflow to run your Playwright tests at scale on cloud-hosted browsers.
 
-- Learn more about [managing workspaces in the Azure portal](./how-to-manage-workspace-in-azure-portal.md).
+- Learn more about [managing workspaces in the Azure portal](./how-to-manage-playwright-workspace.md).
