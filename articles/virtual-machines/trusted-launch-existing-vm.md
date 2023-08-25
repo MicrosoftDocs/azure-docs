@@ -48,7 +48,7 @@ This section steps through using the Azure portal to enable Trusted Launch on ex
 
 :::image type="content" source="./media/trusted-launch/02-g2totl-stop-vm.png" alt-text="Screenshot of the Gen2 VM to be de-allocated":::
 
-3. On **Overview** tab in VM **Properties**, Select **Standard** under **Security type**. This navigates to **Configuration** tab of VM.
+3. On **Overview** page in VM **Properties**, Select **Standard** under **Security type**. This navigates to **Configuration** page for VM.
 
 :::image type="content" source="./media/trusted-launch/03-g2totl-click-standard.png" alt-text="Screenshot of the Security type Standard":::
 
