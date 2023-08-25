@@ -9,7 +9,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 # Create and manage a dedicated cluster in Azure Monitor Logs 
 
-Linking a Log Analytics workspace to a dedicated cluster in Azure Monitor provides advanced capabilities and higher query utilization. Clusters require a minimum ingestion commitment of 500 GB per day. You can link and unlink workspaces from a dedicated cluster without any data loss or service interruption. 
+Linking a Log Analytics workspace to a dedicated cluster in Azure Monitor provides advanced capabilities and higher query utilization. You can link and unlink workspaces from a dedicated cluster without any data loss or service interruption. 
 
 ## Advanced capabilities
 Capabilities that require dedicated clusters:
@@ -26,16 +26,24 @@ eligible for commitment tier discount.
 ## Cluster pricing model
 Log Analytics Dedicated Clusters use a commitment tier pricing model of at least 500 GB/day. Any usage above the tier level incurs charges based on the per-GB rate of that commitment tier. See [Azure Monitor Logs pricing details](cost-logs.md#dedicated-clusters) for pricing details for dedicated clusters. The commitment tiers have a 31-day commitment period from the time a commitment tier is selected.
 
+## Prerequisites
+
+- Clusters require a minimum ingestion commitment of 500 GB per day.
+- To link a workspace to a cluster, you need a Log Analytics workspace.
+
 ## Required permissions
 
 To perform cluster-related actions, you need these permissions:
 
 | Action | Permissions or role needed |
 |-|-|
-| Create a dedicate cluster |`Microsoft.Resources/deployments/*`and `Microsoft.OperationalInsights/clusters/write`| 
-| Change cluster properties |`Microsoft.OperationalInsights/clusters/write`| 
-| Link workspaces to a cluster | `Microsoft.OperationalInsights/clusters/write` and `Microsoft.OperationalInsights/workspaces/write`| 
-| Grant the required permissions | Owner or Contributor role that has `*/write` permissions, or a Log Analytics Contributor role that has `Microsoft.OperationalInsights/*` permissions.| 
+| Create a dedicate cluster |`Microsoft.Resources/deployments/*`and `Microsoft.OperationalInsights/clusters/write` permissions, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example. | 
+| Change cluster properties |`Microsoft.OperationalInsights/clusters/write` permissions, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example | 
+| Link workspaces to a cluster | `Microsoft.OperationalInsights/clusters/write` and `Microsoft.OperationalInsights/workspaces/write` permissions, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example | 
+| Get clusters | `Microsoft.OperationalInsights/clusters/read` permissions, as provided by the [Log Analytics Reader built-in role](./manage-access.md#log-analytics-reader), for example | 
+| Update commitment tier in a cluster | `Microsoft.OperationalInsights/clusters/write` permissions, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example |
+| Grant the required permissions | Owner or Contributor role that has `*/write` permissions, or the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), which has `Microsoft.OperationalInsights/*` permissions | 
+| Delete a dedicated cluster | `Microsoft.OperationalInsights/clusters/delete` permissions, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example |
 
 For more information on Log Analytics permissions, see [Manage access to log data and workspaces in Azure Monitor](./manage-access.md). 
 
