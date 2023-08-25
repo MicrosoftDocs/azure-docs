@@ -50,13 +50,15 @@ Visit https://aka.ms/tenant-restrictions-enforcement for more information on ten
 
 ---
 
-### Public Preview - Cross-tenant access settings supports custom RBAC roles
+### Public Preview - Cross-tenant access settings supports custom RBAC roles and protected actions
 
 **Type:** New feature         
 **Service category:** B2B                               
 **Product capability:** B2B/B2C                    
 
-Cross-tenant access settings can be managed with custom roles defined by your organization. This enables you to define your own finely-scoped roles to manage cross-tenant access settings instead of using one of the built-in roles for management. Your organization can define custom roles to manage cross-tenant access settings. This allows you to create your own finely-scoped roles to manage cross-tenant access settings instead of using built-in roles for management. [Learn more about creating your own custom roles](../external-identities/cross-tenant-access-overview.md#custom-roles-for-managing-cross-tenant-access-settings).
+Cross-tenant access settings can be managed with custom roles defined by your organization. This enables you to define your own finely-scoped roles to manage cross-tenant access settings instead of using one of the built-in roles for management. [Learn more about creating your own custom roles](../external-identities/cross-tenant-access-overview.md#custom-roles-for-managing-cross-tenant-access-settings).
+
+You can also now protect privileged actions inside of cross-tenant access settings using Conditional Access. For example, you can require MFA before allowing changes to default settings for B2B collaboration. Learn more about [Protected actions](../roles/protected-actions-overview.md).
 
 ---
 
