@@ -44,7 +44,7 @@ Azure Virtual Machines supports enabling Trusted Launch on existing [Azure Gener
 This section steps through using the Azure portal to enable Trusted Launch on existing Azure Generation 2 VM.
 
 1. Log in to [Azure portal](https://portal.azure.com)
-2. Validate virtual machine generation is **V2** and **Deallocate** VM.
+2. Validate virtual machine generation is **V2** and **Stop** VM.
 
 :::image type="content" source="./media/trusted-launch/02-g2totl-stop-vm.png" alt-text="Screenshot of the Gen2 VM to be de-allocated":::
 
