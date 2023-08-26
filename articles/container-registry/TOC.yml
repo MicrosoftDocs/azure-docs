@@ -194,6 +194,8 @@
         href: container-registry-content-trust.md
       - name: Sign and verify containers with notation (preview)
         href: container-registry-tutorial-sign-build-push.md
+      - name: Sign and verify containers with trusted CA (preview)
+        href: container-registry-tutorial-sign-trusted-ca.md
     - name: Registries and other Azure services
       expanded: false
       items:
