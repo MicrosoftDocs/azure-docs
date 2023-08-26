@@ -1,5 +1,5 @@
 ---
-title: Sign container images using Notation and self-signed certificates in Azure Key Vault
+title: Sign container images with Notation and Azure Key Vault using self-signed certificate
 description: In this tutorial you'll learn to create a signing certificate in Azure Key Vault (AKV), build and sign a container image stored in Azure Container Registry (ACR) using notation and AKV, and then verify the container image using notation.
 author: yizha1
 ms.author: yizha1
@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 4/23/2023
 ---
 
-# Sign container images using Notation and self-signed certificates in Azure Key Vault (Preview)
+# Sign container images with Notation and Azure Key Vault using self-signed certificate
 
 When you sign container images, you ensure their authenticity and integrity. This is done by adding a digital signature to the container image, which can be validated against during deployment to ensure that they are from trusted image publishers and have not been tampered with. [Notation](https://github.com/notaryproject/notation) is an open source supply chain tool developed by [Notary Project](https://notaryproject.dev/), which supports signing and verifying container images and other artifacts. The Azure Key Vault (AKV) is used to store a signing certificate that can be utilized by Notation with the Notation AKV plugin (azure-kv) to sign and verify container images and other artifacts. The Azure Container Registry (ACR) allows you to attach and discover these signatures to container images.
 
@@ -108,7 +108,7 @@ To learn more about Azure CLI and how to sign in with it, see [Sign in with Azur
 
 ## Assign access policy in AKV (Azure CLI)
 
-To create a self-signed certificate and sign a container image in AKV, you must assign proper access policy to a principal. The permissions that you grant for a principal should include at least certificate permissions `Create` and `Get` for creating and fetch certificates, and key permissions `Sign` for signing. A principal can be user principal, service principal or managed identity. In this tutorial, the access policy is assigned to a signed-in Azure user. To learn more about assigning policy to a principal, see [Assign Access Policy](/azure/key-vault/general/assign-access-policy).
+To create a self-signed certificate and sign a container image in AKV, you must assign proper access policy to a principal. The permissions that you grant for a principal should include at least certificate permissions `Create` and `Get` for creating and get certificates, and key permissions `Sign` for signing. A principal can be user principal, service principal or managed identity. In this tutorial, the access policy is assigned to a signed-in Azure user. To learn more about assigning policy to a principal, see [Assign Access Policy](/azure/key-vault/general/assign-access-policy).
 
 ### Set the subscription that contains the AKV resource
 ```azure-cli
