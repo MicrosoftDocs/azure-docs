@@ -22,7 +22,7 @@ In this tutorial:
 > * Install Notation CLI and AKV plugin
 > * Create a self-signed signing certificate in AKV
 > * Build and push a container image using ACR task
-> * Sign a container image using Notation CLI and AKV plugin
+> * Sign a container image with Notation CLI and AKV plugin
 > * Validate a container image against the signature using Notation CLI
 
 ## Prerequisites
@@ -121,11 +121,9 @@ USER_ID=$(az ad signed-in-user show --query id -o tsv)
 az keyvault set-policy -n $AKV_NAME --certificate-permissions create get --key-permissions sign --object-id $USER_ID
 ```
 
-## Create a self-signed signing certificate in AKV
+## Create a self-signed signing certificate in AKV (Azure CLI)
 
-If you have an existing certificate, see [import a certificate in AKV](../key-vault/certificates/tutorial-import-certificate.md). The following steps show how to create a self-signed signing certificate for testing purpose.
-
-### Create a self-signed certificate (Azure CLI)
+The following steps show how to create a self-signed signing certificate for testing purpose.
 
 1. Create a certificate policy file.
 
@@ -164,7 +162,7 @@ If you have an existing certificate, see [import a certificate in AKV](../key-va
     az keyvault certificate create -n $KEY_NAME --vault-name $AKV_NAME -p @my_policy.json
     ```
 
-## Sign a container image using Notation CLI and AKV plugin
+## Sign a container image with Notation CLI and AKV plugin
 
 1. Build and push a new image with ACR Tasks.
 
