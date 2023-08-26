@@ -171,7 +171,11 @@ Before changing a peering, familiarize yourself with the [requirements and const
 Use [Get-AzVirtualNetworkPeering](/powershell/module/az.network/get-azvirtualnetworkpeering) to list peerings of a virtual network and their settings.
 
 ```azurepowershell-interactive
-Get-AzVirtualNetworkPeering -VirtualNetworkName vnet-1 -ResourceGroupName myResourceGroup
+$peer = @{
+        VirtualNetworkName = 'vnet-1'
+        ResourceGroupName = 'test-rg'
+}
+Get-AzVirtualNetworkPeering @peer
 ```
 
 Use [Set-AzVirtualNetworkPeering](/powershell/module/az.network/set-azvirtualnetworkpeering) to change peering settings.
