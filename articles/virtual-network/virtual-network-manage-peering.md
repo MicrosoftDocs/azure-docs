@@ -322,7 +322,7 @@ az network vnet peering delete \
 
   - VirtualNetwork2 and VirtualNetwork3
     
-    There's no connectivity between VirtualNetwork1 and VirtualNetwork3 through VirtualNetwork2. If you want VirtualNetwork1 and VirtualNetwork3 to directly communicate, you have to create an explicit peering between VirtualNetwork1 and VirtualNetwork3, or go through an NVA in the **Hub** network. To learn more, see [**Hub**-spoke network topology in Azure](/azure/architecture/reference-architectures/hybrid-networking/**hub**-spoke).
+    There's no connectivity between VirtualNetwork1 and VirtualNetwork3 through VirtualNetwork2. If you want VirtualNetwork1 and VirtualNetwork3 to directly communicate, you have to create an explicit peering between VirtualNetwork1 and VirtualNetwork3, or go through an NVA in the **Hub** network. To learn more, see [**Hub**-spoke network topology in Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke).
  
 - You can't resolve names in peered virtual networks using default Azure name resolution. To resolve names in other virtual networks, you must use [Azure Private DNS](../dns/private-dns-overview.md) or a custom DNS server. To learn how to set up your own DNS server, see [Name resolution using your own DNS server](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 
@@ -363,7 +363,7 @@ If your account isn't assigned to one of the previous roles, it must be assigned
   |One Resource Manager, one classic  |[Same](create-peering-different-deployment-models.md)|
   |                                   |[Different](create-peering-different-deployment-models-subscriptions.md)|
 
-- Learn how to create a [**hub** and spoke network topology](/azure/architecture/reference-architectures/hybrid-networking/**hub**-spoke)
+- Learn how to create a [**hub** and spoke network topology](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)
 
 - Create a virtual network peering using [PowerShell](powershell-samples.md) or [Azure CLI](cli-samples.md) sample scripts, or using Azure [Resource Manager templates](template-samples.md)
 
