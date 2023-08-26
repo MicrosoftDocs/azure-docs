@@ -20,7 +20,7 @@ You have the ability to enable the **Defender CSPM** plan, which offers extra pr
 
 For availability and to learn more about the features offered by each plan, see the [Defender CSPM plan options](concept-cloud-security-posture-management.md#defender-cspm-plan-options).
 
-You can learn more about Defender for CSPM's pricing on [the pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/). 
+You can learn more about Defender CSPM's pricing on [the pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/). 
 
 ## Prerequisites
 
