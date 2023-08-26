@@ -83,7 +83,7 @@ After you create a vector index, you can add it to a prompt flow from the prompt
 
    :::image type="content" source="media/how-to-create-vector-index/query-example.png" alt-text="Screenshot that shows the Vector Index Lookup tool query.":::
    
-   An example of a plain string you can input in this case would be: `How to use SDK V2?'. Here is an example of an embedding as an input: `${embed_the_question.output}`. 
+   An example of a plain string you can input in this case would be: `How to use SDK V2?'. Here is an example of an embedding as an input: `${embed_the_question.output}`. Passing a plain string will only work when the Vector Index is getting used on the workspace which created it.
 
 ## Next steps
 
