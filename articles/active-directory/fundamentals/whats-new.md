@@ -62,6 +62,16 @@ You can also now protect privileged actions inside of cross-tenant access settin
 
 ---
 
+### General Availability - Additional settings in Entitlement Management auto-assignment policy
+ 
+**Type:** Changed feature    
+**Service category**: Entitlement Management    
+**Product capability:** Entitlement Management    
+
+In the Entra ID Governance entitlement management auto-assignment policy, there are three new settings. This allows a customer to select to not have the policy create assignments, not remove assignments, and to delay assignment removal.
+
+---
+
 ### Public Preview - Setting for guest losing access
 
 **Type:** Changed feature          
