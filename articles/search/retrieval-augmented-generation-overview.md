@@ -17,7 +17,7 @@ Retrieval Augmentation Generation (RAG) is an architecture that augments the cap
 
 The decision about which information retrieval system to use is critical because it determines the inputs to the LLM. The information retrieval system should provide:
 
-+ Indexing strategies for loading and refreshing the corpus, at scale, for all of your content, at the frequency you require.
++ Indexing strategies that load and refresh at scale, for all of your content, at the frequency you require.
 
 + Query capabilities and relevance tuning. The system should return *relevant* results, in the short-form formats necessary for meeting the token length requirements of LLM inputs.
 
@@ -32,15 +32,16 @@ Azure Cognitive Search is a [proven solution for information retrieval](https://
 
 ## Approaches for RAG with Cognitive Search
 
-Microsoft has several built-in implementations for using Cognitive Search in a a RA solution.
+Microsoft has several built-in implementations for using Cognitive Search in a RAG solution.
 
-+ In Azure AI Studio, [use your data with an Azure OpenAI Service](/azure/ai-services/openai/concepts/use-your-data). Azure AI Studio integrates with Azure Cognitive Search for storage and retrieval. If you already have a search index, you can connect to it in Azure AI Studio.
++ Azure AI Studio, [use your data with an Azure OpenAI Service](/azure/ai-services/openai/concepts/use-your-data). Azure AI Studio integrates with Azure Cognitive Search for storage and retrieval. If you already have a search index, you can connect to it in Azure AI Studio.
 
-+ In Azure Machine Learning, a search index can be used as a [vector store](/azure/machine-learning/concept-vector-stores). You can [create a vector index in an Azure Machine Learning prompt flow](/azure/machine-learning/how-to-create-vector-index) that uses your Cognitive Search service for storage and retrieval.
++ Azure Machine Learning, a search index can be used as a [vector store](/azure/machine-learning/concept-vector-stores). You can [create a vector index in an Azure Machine Learning prompt flow](/azure/machine-learning/how-to-create-vector-index) that uses your Cognitive Search service for storage and retrieval.
 
-+ If you need a custom approach, you can roll your own RAG solution.
+If you need a custom approach, you can roll your own RAG solution. The remainder of this article explores how Cognitive Search fits into the solution. 
 
-  The rest of this article describes how Cognitive Search fits into the solution. In addition, you can review the [Azure Cognitive Search OpenAI demo](https://github.com/Azure-Samples/azure-search-openai-demo) for an example.
+> [!NOTE]
+> Prefer to look at code? You can review the [Azure Cognitive Search OpenAI demo](https://github.com/Azure-Samples/azure-search-openai-demo) for an example.
 
 ## RAG pattern for Cognitive Search
 
@@ -65,7 +66,7 @@ Cognitive Search doesn't provide native LLM integration, web front ends, or vect
 
 ## Searchable content in Cognitive Search
 
-In Cognitive Search, all searchable content is stored in a search index that's hosted on your search service in the cloud. A search index is designed for fast queries with millisecond response times, so its internal data structures exist to support that objective. To that end, a search index stores *indexed content*, and not whole content files like entire PDFs or images. Internally, the data structures include inverted indexes of [tokenized text](https://lucene.apache.org/core/7_5_0/test-framework/org/apache/lucene/analysis/Token), vector indexes for embeddings, and unaltered text for cases where verbatim matching is required (for example, in filters, fuzzy search, regular expression queries).
+In Cognitive Search, all searchable content is stored in a search index that's hosted on your search service in the cloud. A search index is designed for fast queries with millisecond response times, so its internal data structures exist to support that objective. To that end, a search index stores *indexed content*, and not whole content files like entire PDFs or images. Internally, the data structures include inverted indexes of [tokenized text](https://lucene.apache.org/core/7_5_0/test-framework/org/apache/lucene/analysis/Token.html), vector indexes for embeddings, and unaltered text for cases where verbatim matching is required (for example, in filters, fuzzy search, regular expression queries).
 
 When you set up the data for your RAG solution, you use the features that create and load an index in Cognitive Search. An index includes fields that duplicate or represent your source content. An index field might be simple transference (a title or description in a source document becomes a title or description in a search index), or a field might contain the output of an external process, such as vectorization or skill processing that generates a text description of an image.
 
@@ -75,7 +76,7 @@ One way to approach indexing is through a content-first approach. The following 
 |--------------|------------|----------|
 | text | tokens, unaltered text | [Indexers](search-indexer-overview.md) can pull content from other Azure resources. You can also [push content](search-what-is-data-import.md) to an index. To modify text in flight, use [analyzers](search-analyzers.md) and [normalizers](search-normalizers.md) to add lexical processing during indexing. [Synonym maps](search-synonyms.md) are useful if source documents are missing terminology that might be used in a query. |
 | text | vectors <sup>1</sup> | Text can be chunked and vectorized externally and then [indexed as vector fields](vector-search-how-to-create-index.md) in your index. |
-| image | tokens, unaltered text <sup>2</sup> | [Skills](ccognitive-search-working-with-skillsets.md) for OCR and Image Analysis process images for text recognition or image characteristics. Image information is converted to searchable text and added to the index. Skills have an indexer requirement. |
+| image | tokens, unaltered text <sup>2</sup> | [Skills](cognitive-search-working-with-skillsets.md) for OCR and Image Analysis process images for text recognition or image characteristics. Image information is converted to searchable text and added to the index. Skills have an indexer requirement. |
 | image | vectors <sup>1</sup> | Images can be vectorized externally and then [indexed as vector fields](vector-search-how-to-create-index.md) in your index. |
 | video | vectors <sup>1</sup> | Video files can be vectorized externally and then [indexed as vector fields](vector-search-how-to-create-index.md) in your index. |
 | audio | vectors <sup>1</sup> | Audio files can be vectorized externally and then [indexed as vector fields](vector-search-how-to-create-index.md) in your index. |
@@ -88,30 +89,32 @@ Vectors provide the best accommodation for dissimilar content (multiple file for
 
 ## Content retrieval in Cognitive Search
 
-Once your data is in a search index, you use the query capabilities of Cognitive Search to return results. In a non-RAG pattern, the results are returned to a client application, and the results would consist exclusively of the verbatim content found in your index. In a RAG pattern, the results are forwarded, through the integration layer, to an LLM. Depending on the LLM, the response is generated by AI models and then passed back to the client.
+Once your data is in a search index, you use the query capabilities of Cognitive Search to retrieve content. 
 
-There's no query type in Cognitive Search - not even semantic search or vector search - that composes new answers. Only the LLM provides generative AI. Here are the capabilities in Cognitive Search that are used in a query response:
+In a non-RAG pattern, queries make a round trip from a search client. The query is submitted to a search engine, with the response returned to the client application. The response, or search results, consist exclusively of the verbatim content found in your index. 
+
+In a RAG pattern, queries and responses are coordinated. A user's question or query is forwarded to both the search engine and to the LLM as a prompt. The search results come back from the search engine and are redirected to an LLM. The response that makes it back to the user is generative AI, either a summation or answer from the LLM.
+
+There's no query type in Cognitive Search - not even semantic search or vector search - that composes new answers. Only the LLM provides generative AI. Here are the capabilities in Cognitive Search that are used to formulate queries:
 
 | Query feature | Purpose | Why use it |
 |---------------|---------|------------|
 | [Simple or full Lucene syntax](search-query-create.md) | Query execution over text and non-vector numeric content | Full text search is best for exact matches, rather than similar matches. Full text search queries are ranked using the [BM25 algorithm](index-similarity-and-scoring.md) and support relevance tuning through scoring profiles. It also supports filters and facets. |
-| [Filters](search-filters.md) and [facets](search-faceted-navigation.md) over text or numeric (non-vector) fields | Reduces the search surface area based on inclusion or exclusion criteria. | Adds precision to your queries. |
+| [Filters](search-filters.md) and [facets](search-faceted-navigation.md) | Applies to text or numeric (non-vector) fields only. Reduces the search surface area based on inclusion or exclusion criteria. | Adds precision to your queries. |
 | [Semantic search](semantic-how-to-query-request.md) | Re-ranks a BM25 result set using semantic models. Produces short-form captions and answers that are useful as LLM inputs. | Easier than scoring profiles, and depending on your content, a more reliable technique for relevance tuning. |
   [Vector search](vector-search-how-to-query.md) | Query execution over vector fields for similarity search, where the query string is one or more vectors. | Vectors can represent all types of content, in any language. |
 | [Hybrid search](vector-search-ranking.md#hybrid-search) | Combines any or all of the above query techniques. Vector and non-vector queries execute in parallel and are returned in a unified result set. | The most significant gains in precision and recall are through hybrid queries. |
 
 ### Structure the query response
 
-A query's response provides the input to the LLM, so the quality of your search results is critical to success.
+A query's response provides the input to the LLM, so the quality of your search results is critical to success. Results are a tabular row set. The composition or structure of the results depends on:
 
-Results are a tabular row set. The composition or structure of the results depends on:
++ On the horizontal, fields determine which parts of the index are included in the response.
++ On the vertical, rows the represent a match from index.
 
-+ Fields that determine which parts of the index are included in the response.
-+ Rows the represent a match from index.
+Fields appear in search results when the attribute is "retrievable". A field definition in the index schema has attributes, and those determine whether a field is used in a response. Only "retrievable" fields are returned in full text or vector query results. By default all "retrievable" fields are returned, but you can use "select" to specify a subset. Besides "retrievable", there are no restrictions on the field. Fields can be of any length or type. Regarding length, there is no maximum field length limit in Cognitive Search, but there are limits on the [size of an API request](search-limits-quotas-capacity.md#api-request-limits).
 
-Fields appear in search results when the attribute is "retrievable". You can also use a select statement. A field definition in the index schema has attributes, and those determine whether a field is used in a response. Only "retrievable" fields are returned in full text or vector query results. By default all "retrievable" fields are returned, but you can use "select" to specify a subset. Fields don't have lengths.
-
-Rows are ranked by relevance, similarity, or both. Results are capped at the top 50 matches for full text search or k-nearest-neighbor matches for vector search. You can change the defaults to increase or decrease the limit. You can also use top and skip paging parameters to retrieve results as a series of paged results.
+Rows are matches to the query, ranked by relevance, similarity, or both. By default, results are capped at the top 50 matches for full text search or k-nearest-neighbor matches for vector search. You can change the defaults to increase or decrease the limit up to the maximum of 1,000 documents. You can also use top and skip paging parameters to retrieve results as a series of paged results.
 
 ### Rank by relevance
 
@@ -124,8 +127,15 @@ Relevance tuning is supported through features that enhance BM25 ranking. These 
 + [Scoring profiles](index-add-scoring-profiles.md) that boost the search score if matches are found in a specific search field or on other criteria.
 + [Semantic ranking](semantic-ranking.md) that re-ranks a BM25 results set, using semantic models from Bing to reorder results for a better semantic fit to the original query.
 
+In comparison and benchmark testing, hybrid queries with text and vector fields, supplemented with semantic ranking over the BM25-ranked results, produce the most relevant results.
+
 ## Integration code and LLMs
 
+In this article, previous sections covered information retrieval in Cognitive Search and which features are used to create searchable content, and to extract a content payload in the form of search results.
+
+This section explains how to pass search results to other components that handle chunking, embedding, and generative AI.
+
+ load and extract text and vector content.
 More description over what the integration layer looks like.
 
 Choose an LLM:
@@ -153,20 +163,10 @@ terminology - is it important to introduce parametric and non-parametric verbiag
 > [!NOTE]
 > Some Cognitive Search features are intended for human interaction and aren't useful in a RAG pattern. Specifically, you can skip autocomplete and suggestions. Other features like facets and orderby might be useful, but would be uncommon in a RAG scenario.
 
-<!-- Vanity URL for this article
+<!-- Vanity URL for this article, currently used only in the vector search overview doc
 https://aka.ms/what-is-rag -->
 
-<!-- Is there a way to work in a link to the meta blog post?  It's a good article.  Maybe something like:  [From its initial conception](https://ai.meta.com/blog/retrieval-augmented-generation-streamlining-the-creation-of-intelligent-natural-language-processing-models/) to the many implementations that have followed, RAG has helped developers overcome the challenges of fine-tuning an LLM for specialized tasks by providing an alternative pattern that supplements, or replaces, the domain knowledge that a general purpose LLM draws from. -->
+## See also
 
-<!-- ## Why use RAG?  FROM AML DOCS
-
-Traditionally, a base model is trained with point-in-time data to ensure its effectiveness in performing specific tasks and adapting to the desired domain. However, sometimes you need to work with newer or more current data. Two approaches can supplement the base model: fine-tuning or further training of the base model with new data, or RAG that uses prompt engineering to supplement or guide the model in real time. 
-
-Fine-tuning is suitable for continuous domain adaptation, enabling significant improvements in model quality but often incurring higher costs. Conversely, RAG offers an alternative approach, allowing the use of the same model as a reasoning engine over new data provided in a prompt. This technique enables in-context learning without the need for expensive fine-tuning, empowering businesses to use LLMs more efficiently. 
-
-RAG allows businesses to achieve customized solutions while maintaining data relevance and optimizing costs. By adopting RAG, companies can use the reasoning capabilities of LLMs, utilizing their existing models to process and generate responses based on new data. RAG facilitates periodic data updates without the need for fine-tuning, thereby streamlining the integration of LLMs into businesses. 
-
-+ Provide supplemental data as a directive or a prompt to the LLM
-+ Adds a fact checking component on your existing models
-+ Train your model on up-to-date data without incurring the extra time and costs associated with fine-tuning
-+ Train on your business specific data -->
++ [Retrieval Augmented Generation: Streamlining the creation of intelligent natural language processing models](https://ai.meta.com/blog/retrieval-augmented-generation-streamlining-the-creation-of-intelligent-natural-language-processing-models/)
++ [Retrieval Augmented Generation using Azure Machine Learning prompt flow](/azure/machine-learning/concept-retrieval-augmented-generation)

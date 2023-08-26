@@ -149,6 +149,8 @@
         href: vector-search-ranking.md
   - name: Indexing
     items:
+    - name: Retrieval Augmented Generation (RAG)
+      href: retrieval-augmented-generation-overview.md
     - name: Search indexes
       href: search-what-is-an-index.md
     - name: Import
@@ -159,8 +161,6 @@
       href: search-analyzers.md
     - name: Indexers
       href: search-indexer-overview.md
-  - name: Retrieval Augmented Generation (RAG)
-    href: retrieval-augmented-generation-overview.md
   - name: Enrichment
     items:
     - name: Enrichment overview
