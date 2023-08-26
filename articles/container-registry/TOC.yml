@@ -192,9 +192,9 @@
         displayName: permissions, authorization
       - name: Content trust
         href: container-registry-content-trust.md
-      - name: Sign and verify containers with notation (preview)
+      - name: Sign container images with Notation and AKV using self-signed certificate (preview)
         href: container-registry-tutorial-sign-build-push.md
-      - name: Sign and verify containers with trusted CA (preview)
+      - name: Sign container images with Notation and AKV using CA issued certificate (preview)
         href: container-registry-tutorial-sign-trusted-ca.md
     - name: Registries and other Azure services
       expanded: false
