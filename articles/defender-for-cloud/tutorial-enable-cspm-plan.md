@@ -32,11 +32,11 @@ You can learn more about Defender CSPM's pricing on [the pricing page](https://a
 
 - In order to gain access to all of the features available from the CSPM plan, the plan must be enabled by the **Subscription Owner**.
 
-## Enable the Defender for CSPM plan
+## Enable the Defender CSPM plan
 
 When you enable Defender for Cloud, you automatically receive the protections offered by the Foundational CSPM capabilities. In order to gain access to the other features provided by Defender CSPM, you need to enable the Defender CSPM plan on your subscription.
 
-**To enable the Defender for CSPM plan on your subscription**:
+**To enable the Defender CSPM plan on your subscription**:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
