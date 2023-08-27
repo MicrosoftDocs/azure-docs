@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article describes features available in Microsoft Defender for IoT, across both OT and Enterprise IoT networks, and both on-premises and in the Azure portal.
 ms.topic: whats-new
-ms.date: 08/09/2023
+ms.date: 08/27/2023
 ms.custom: enterprise-iot
 ---
 
@@ -15,6 +15,30 @@ Features released earlier than nine months ago are described in the [What's new 
 > [!NOTE]
 > Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
+
+## September 2023
+
+|Service area  |Updates  |
+|---------|---------|
+| **OT networks** | **Version 23.1.3**:  |
+
+### Troubleshoot OT sensor connectivity
+
+TBD
+
+### Device inventory enhancements for local subnets
+
+
+### Event timeline access for OT sensor readers
+
+Starting in version 23.1.3, *Read Only* users on the OT sensor can view the **Event Timeline** page. For example:
+
+:::image type="content" source="media/track-sensor-activity/event-timeline-view-events.png" alt-text="Screenshot of events on the event timeline." lightbox="media/track-sensor-activity/event-timeline-view-events.png":::
+
+For more information, see:
+
+- [Track network and sensor activity with the event timeline](how-to-track-sensor-activity.md)
+- [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md)
 
 ## July 2023
 
