@@ -4,7 +4,7 @@ description: Learn how just-in-time VM access (JIT) in Microsoft Defender for Cl
 ms.topic: how-to
 author: dcurwin
 ms.author: dacurwin
-ms.date: 08/21/2023
+ms.date: 08/27/2023
 ---
 
 # Enable just-in-time access on VMs
@@ -49,6 +49,10 @@ In this article, you learn how to include JIT in your security program, includin
 
     > [!TIP]
     > To create a least-privileged role for users that need to request JIT access to a VM, and perform no other JIT operations, use the [Set-JitLeastPrivilegedRole script](https://github.com/Azure/Azure-Security-Center/tree/main/Powershell%20scripts/JIT%20Scripts/JIT%20Custom%20Role) from the Defender for Cloud GitHub community pages. 
+
+
+> [!NOTE]
+> In order to successfully create a custom JIT policy, the policy name, together with the VM targeted by JIT, must not exceed a total of 56 characters. 
 
 ## Work with JIT VM access using Microsoft Defender for Cloud
 
