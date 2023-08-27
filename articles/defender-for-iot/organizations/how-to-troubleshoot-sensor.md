@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot the sensor
 description: Troubleshoot your sensor to eliminate any problems you might be having.
-ms.date: 03/14/2023
+ms.date: 08/27/2023
 ms.topic: troubleshooting
 ---
 # Troubleshoot the sensor
@@ -20,6 +20,9 @@ To perform the procedures in this article, make sure that you have:
 
 - Access to the OT network sensor as a **Support** user. For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
 
+## Troubleshoot sensor connectivity
+
+TBD
 ## Check system health
 
 Check your system health from the sensor.
