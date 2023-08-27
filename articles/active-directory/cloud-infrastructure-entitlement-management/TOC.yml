@@ -8,8 +8,8 @@
   - name: How-to guides
     expanded: true
     items:
-    - name: Trial user guide - Microsoft Entra Permissions Management
-      href: permissions-management-trial-user-guide.md  
+    - name: Quickstart guide - Microsoft Entra Permissions Management
+      href: permissions-management-quickstart-guide.md  
     - name: Onboard Permissions Management on the Azure AD tenant
       expanded: true
       items:
@@ -65,6 +65,8 @@
     - name: Manage roles/policies and permission requests
       expanded: false
       items:
+      - name: Permissions Management roles and permissions
+        href: product-roles-permissions.md
       - name: View privileged role assignments in your organization
         href: product-privileged-role-insights.md
       - name: View roles/policies and requests for permission in the Remediation dashboard
