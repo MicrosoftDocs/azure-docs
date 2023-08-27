@@ -1,14 +1,14 @@
 ---
-title: Configure and manage enhanced soft delete for Azure Backup (preview)
+title: Configure and manage enhanced soft delete for Azure Backup
 description: This article describes about how to configure and manage enhanced soft delete for Azure Backup.
 ms.topic: how-to
-ms.date: 06/12/2023
+ms.date: 09/11/2023
 ms.service: backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Configure and manage enhanced soft delete in Azure Backup (preview)
+# Configure and manage enhanced soft delete in Azure Backup
 
 This article describes how to configure and use enhanced soft delete to protect your data and recover backups, if they're deleted.
 
@@ -16,7 +16,6 @@ This article describes how to configure and use enhanced soft delete to protect 
  
 - Enhanced soft delete is supported for Recovery Services vaults and Backup vaults.
 - It's supported for new and existing vaults.
-- All existing Recovery Services vaults in the [preview regions](backup-azure-enhanced-soft-delete-about.md#supported-scenarios) are upgraded with an option to use enhanced soft delete.
 - For hybrid backups (using MARS, DPM, or MABS), enabling always-on soft delete will disallow server deregistration and  deletion of backups via the Azure portal. If you don't want to retain the backed-up data, we recommend you not to enable *always-on soft-delete* for the vault or perform *stop protection with delete data* before the server is decommissioned.
 
 ## Enable soft delete with always-on state
@@ -198,9 +197,7 @@ Here are some points to note:
 
 ## Delete recovery points
 
-Soft delete of recovery points helps you recover any recovery points that are accidentally or maliciously deleted for some operations that could lead to deletion of one or more recovery points. Recovery points don't move to soft-deleted state immediately and have a *24 hour SLA* (same as before). The example here shows recovery points that were deleted as part of backup policy modifications.
-
-[Soft delete of recovery points](backup-azure-enhanced-soft-delete-about.md#soft-delete-of-recovery-points), a part of enhanced soft delete is currently available in selected Azure regions. [Learn more](backup-azure-enhanced-soft-delete-about.md#supported-regions) on the region availability.
+[Soft delete of recovery points](backup-azure-enhanced-soft-delete-about.md#soft-delete-of-recovery-points) is a part of enhanced soft delete that helps you recover any recovery points that are accidentally or maliciously deleted for some operations that could lead to deletion of one or more recovery points. Recovery points don't move to soft-deleted state immediately and have a *24 hour SLA* (same as before). The example here shows recovery points that were deleted as part of backup policy modifications.
 
 Follow these steps:
 
@@ -254,4 +251,4 @@ Follow these steps:
 
 ## Next steps
 
-[About Enhanced soft delete for Azure Backup (preview)](backup-azure-enhanced-soft-delete-about.md).
+[About Enhanced soft delete for Azure Backup](backup-azure-enhanced-soft-delete-about.md).
