@@ -5,7 +5,7 @@ ms.topic: overview
 author: dcurwin
 ms.author: dacurwin
 ms.custom: ignite-2022
-ms.date: 08/24/2023
+ms.date: 08/27/2023
 ---
 
 # Overview of Microsoft Defender for Containers
@@ -18,9 +18,9 @@ Defender for Containers assists you with four core aspects of container security
 
 - [**Vulnerability assessment**](#vulnerability-assessment) - Vulnerability assessment and management tools for images stored in Azure Container Registry and Elastic Container Registry
 
-- [**Agentless discovery for Kubernetes**](#agentless-discovery-for-kubernetes) - Provides tools that give you visibility into your data plane components, generating security insights based on your Kubernetes and environment configuration and lets you hunt for risks.
-
 - [**Run-time threat protection for nodes and clusters**](#run-time-protection-for-kubernetes-nodes-and-clusters) - Threat protection for clusters and nodes generates security alerts for suspicious activities.
+
+- [**Agentless discovery for Kubernetes**](#agentless-discovery-for-kubernetes) - Provides tools that give you visibility into your data plane components, generating security insights based on your Kubernetes and environment configuration and lets you hunt for risks.
 
 You can learn more by watching this video from the Defender for Cloud in the Field video series: [Microsoft Defender for Containers](episode-three.md).
 
@@ -114,7 +114,7 @@ The discovery process is based on snapshots taken at intervals:
 
 When you enable the agentless discovery for Kubernetes extension, the following process occurs:
 
-- **Create**: Defender for Cloud creates an identity in customer environments called CloudPosture/securityOperator/DefenderForContainersSecurityOperator.
+- **Create**: Defender for Cloud creates an identity in customer environments called CloudPosture/securityOperator/DefenderCSPMSecurityOperator.
 - **Assign**: Defender for Cloud assigns a built-in role called **Kubernetes Agentless Operator** to that identity on subscription scope. The role contains the following permissions:
 
   - AKS read (Microsoft.ContainerService/managedClusters/read)

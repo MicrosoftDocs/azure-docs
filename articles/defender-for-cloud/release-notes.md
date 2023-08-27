@@ -2,7 +2,7 @@
 title: Release notes
 description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 08/22/2023
+ms.date: 08/27/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -37,14 +37,14 @@ Updates in August include:
 
 August 30, 2023
 
-We're excited to introduce to Defender For Containers: the agentless Kubernetes discovery feature. This release marks a significant step forward in container security, empowering you with advanced insights and comprehensive inventory capabilities for Kubernetes environments. The new container offering is powered by the Defender for Cloud contextual security graph.  Here's what you can expect from this latest update:
+We're excited to introduce to Defender For Containers: Agentless discovery for Kubernetes. This release marks a significant step forward in container security, empowering you with advanced insights and comprehensive inventory capabilities for Kubernetes environments. The new container offering is powered by the Defender for Cloud contextual security graph.  Here's what you can expect from this latest update:
 
 - Agentless Kubernetes discovery
 - Comprehensive inventory capabilities
 - Kubernetes-specific security insights
 - Enhanced risk hunting with Cloud Security Explorer
 
-The agentless Kubernetes discovery feature is now available to all Defender For Containers customers. You can start using these advanced capabilities today. For more information, see [Agentless discovery for Kubernetes](defender-for-containers-introduction.md#agentless-discovery-for-kubernetes).
+Agentless discovery for Kubernetes is now available to all Defender For Containers customers. You can start using these advanced capabilities today. For more information, see [Agentless discovery for Kubernetes](defender-for-containers-introduction.md#agentless-discovery-for-kubernetes).
 
 ### Recommendation release: Microsoft Defender for Storage should be enabled with malware scanning and sensitive data threat detection
 

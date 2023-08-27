@@ -126,7 +126,7 @@ sections:
       - question: |
           What's the agentless discovery for Kubernetes refresh interval?
         answer: |
-          Agentless information in Defender for Containers is updated through a snapshot mechanism. It can take up to 6 hours to see results in cloud security explorer.
+          Agentless information in Defender for Containers is updated through a snapshot mechanism. It can take up to **6 hours** to see results in cloud security explorer.
 
 additionalContent: |
 
