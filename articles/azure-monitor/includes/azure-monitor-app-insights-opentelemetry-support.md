@@ -23,7 +23,7 @@ ms.date: 08/26/2023
 ### [Java](#tab/java)
 
 - For Azure support issues, open an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/).
-- For help with troubleshooting, review the [troubleshooting steps](java-standalone-troubleshoot.md).
+- For help with troubleshooting, review the [troubleshooting steps](/troubleshoot/azure/azure-monitor/app-insights/java-standalone-troubleshoot).
 - For OpenTelemetry issues, contact the [OpenTelemetry community](https://opentelemetry.io/community/) directly.
 - For a list of open issues related to Azure Monitor Java Autoinstrumentation, see the [GitHub Issues Page](https://github.com/microsoft/ApplicationInsights-Java/issues).
 
