@@ -20,9 +20,27 @@ To perform the procedures in this article, make sure that you have:
 
 - Access to the OT network sensor as a **Support** user. For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
 
-## Troubleshoot sensor connectivity
+## Check sensor - cloud connectivity issues
 
-TBD
+OT sensors automatically helps you troubleshoot any connectivity issues with the Azure portal. If a sensor isn't connected, an error is indicated in the Azure portal, on the **Sites and sensors** page, and on the sensor's **Overview** page.
+
+To investigate, sign into your OT sensor and use one of the following methods:
+
+- From the sensor's **Overview** page, select the **Cloud connectivity errors** link
+- Select **System settings > System settings > Network monitoring > Customization > Cloud connectivity troubleshooting**
+
+The **Cloud connectivity troubleshooting** pane opens on the right. If the sensor is connected to the Azure portal, the pane indicates that **The sensor is connected to cloud successfully**. If the sensor isn't connected, a description of the issue and any mitigation instructions are listed instead.
+
+The **Cloud connectivity troubleshooting** pane covers the following types of issues:
+
+- **SSL errors when accessing an endpoint**. In such cases, you might have certificate errors, or the time on your sensor may be misconfigured. For more information, see [Manage SSL/TLS certificates](how-to-manage-individual-sensors.md#manage-ssltls-certificates) and [Synchronize time zones on an OT sensor](how-to-manage-individual-sensors.md#synchronize-time-zones-on-an-ot-sensor).
+
+- **General errors when accessing an endpoint**. In such cases, make sure all required endpoints are accessible from your sensor. You may need to configure additional endpoints in your firewall. For more information, see [Provision sensors for cloud management](ot-deploy/provision-cloud-management.md).
+
+- **DNS server unreachable**. In such cases, make sure that your DNS server is reachable from the sensor.
+
+- **Proxy authentication error**. In such cases, make sure that you've configured the required credentials in the **Sensor network settings** pane. For more information, see [Update the OT sensor network configuration](how-to-manage-individual-sensors.md#update-the-ot-sensor-network-configuration).
+
 ## Check system health
 
 Check your system health from the sensor.

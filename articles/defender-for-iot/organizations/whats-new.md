@@ -24,7 +24,9 @@ Features released earlier than nine months ago are described in the [What's new 
 
 ### Troubleshoot OT sensor connectivity
 
-TBD
+Starting in version 23.1.2, OT sensors automatically troubleshoot any connectivity issues with the Azure portal. If a sensor isn't connected, an error is indicated in the Azure portal. On the **Overview** page, select the **Cloud connectivity errors** link to open a side pane listing any connectivity issues.
+
+Alternately, access the same side pane from **System settings > Network monitoring > Customization > Cloud connectivity troubleshooting**.
 
 For more information, see [Troubleshoot sensor connectivity](how-to-troubleshoot-sensor.md#troubleshoot-sensor-connectivity).
 
