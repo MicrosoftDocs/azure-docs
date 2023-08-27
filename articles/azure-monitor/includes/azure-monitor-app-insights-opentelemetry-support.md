@@ -8,6 +8,8 @@ ms.date: 08/26/2023
 
 ## Support
 
+Select a tab for the language of your choice to discover support options.
+
 ### [ASP.NET Core](#tab/aspnetcore)
 
 - For Azure support issues, open an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/).
