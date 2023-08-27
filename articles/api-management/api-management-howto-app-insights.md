@@ -23,20 +23,28 @@ You can easily integrate Azure Application Insights with Azure API Management. A
 
 * To use Application Insights, [create an instance of the Application Insights service](/previous-versions/azure/azure-monitor/app/create-new-resource). To create an instance using the Azure portal, see [Workspace-based Application Insights resources](../azure-monitor/app/create-workspace-resource.md).
 
-> [!NOTE]
-> The Application Insights resource **can be** in a different subscription or even a different tenant than the API Management resource.
+    > [!NOTE]
+    > The Application Insights resource **can be** in a different subscription or even a different tenant than the API Management resource.
 
+* If you plan to configure a managed identity for API Management to use with Application Insights, you need to complete the following steps:
+
+    1. Enable a system-assigned or user-assigned [managed identity for API Management](api-management-howto-use-managed-service-identity.md) in your API Management instance.
+    
+        * If you enable a user-assigned managed identity, take note of the identity's **Client ID**.
+    
+    1. Assign the identity the **Monitoring Metrics Publisher** role, scoped to the Application Insights resource. To assign the role, use the [Azure portal](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md) or other Azure tools.
+    
 ## Scenario overview
 
 1. First, you create a connection between Application Insights and API Management
 
-    You can create a connection between Application Insights and your API Management  using the Azure portal, the REST API, or related Azure tools. API Management configures a *logger* resource for the connection.
+    You can create a connection between Application Insights and your API Management using the Azure portal, the REST API, or related Azure tools. API Management configures a *logger* resource for the connection.
 
     > [!NOTE]
     > If your Application Insights resource is in a different tenant, then you must create the logger using the [REST API](/rest/api/apimanagement/current-ga/logger/create-or-update).
 
     > [!IMPORTANT]
-    > Currently, in the portal, API Management only supports connections to Application Insights using an Application Insights instrumentation key. To use an Application Insights connection string or an API Management managed identity, use the REST API, Bicep, or ARM template to create the logger.
+    > Currently, in the portal, API Management only supports connections to Application Insights using an Application Insights instrumentation key. To use an Application Insights connection string or an API Management managed identity, use the REST API, Bicep, or ARM template to create the logger. [Learn more](../azure-monitor/app/sdk-connection-string.md) about Application Insights connection strings.
     > 
 
 1. Second, you enable Application Insights logging for your API or APIs.
@@ -57,11 +65,12 @@ Follow these steps to use the Azure portal to create a connection between Applic
     * This setting regularly validates whether the API Management gateway endpoint is responding. 
     * Results appear in the **Availability** pane of the Application Insights instance.
 1. Select **Create**.
-1. Check that the new Application Insights logger now appears in the list.  
+1. Check that the new Application Insights logger now appears in the list. 
+
     :::image type="content" source="media/api-management-howto-app-insights/apim-app-insights-logger-2.png" alt-text="Screenshot that shows where to view the newly created Application Insights logger.":::
 
 > [!NOTE]
-> Behind the scenes, a [logger](/rest/api/apimanagement/current-ga/logger/create-or-update) entity is created in your API Management instance, containing the instrumentation key of the Application Insights instance.
+> Behind the scenes, a logger entity is created in your API Management instance, containing the instrumentation key of the Application Insights instance.
 
 > [!TIP]
 > If you need to update the instrumentation key configured in the Application Insights logger, select the logger's row in the list (not the name of the logger). Enter the instrumentation key, and select **Save**.
@@ -70,18 +79,9 @@ Follow these steps to use the Azure portal to create a connection between Applic
 
 Follow these steps to use the REST API, Bicep, or ARM template to create a connection between Application Insights and API Management. You can configure a logger that uses a connection string, system-assigned identity, or user-assigned identity.
 
-The following prerequisites are needed to configure a managed identity for API Management:
-
-1. Enable a system-assigned or user-assigned [managed identity for API Management](api-management-howto-use-managed-service-identity.md) in your API Management instance.
-
-    * If you enable a user-assigned managed identity, take note of the identity's **Client ID**.
-
-1. Assign the identity the **Monitoring Metrics Publisher** role, scoped to the Application Insights resource. To assign the role, use the [Azure portal](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md) or other Azure tools.
-
-
 ### Logger with connection string credentials
 
-Your connection string appears in the **Overview** section of your Application Insights resource.
+The Application Insights connection string appears in the **Overview** section of your Application Insights resource.
 
 #### [REST API](#tab/rest)
 
@@ -109,7 +109,7 @@ resource aiLoggerWithSystemAssignedIdentity 'Microsoft.ApiManagement/service/log
   parent: '<APIManagementInstanceName>'
   properties: {
     loggerType: 'applicationInsights'
-    description: 'Application Insights logger with system-assigned managed identity'
+    description: 'Application Insights logger with connection string'
     credentials: {
       connectionString: 'InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://xxxx.applicationinsights.azure.com/;...'
     }
@@ -128,7 +128,7 @@ Include a JSON snippet similar to the following in your Azure Resource Manager t
   "name": "ContosoLogger1",
   "properties": {
     "loggerType": "applicationInsights",
-    "description": "Application Insights logger with system-assigned managed identity",
+    "description": "Application Insights logger with connection string",
     "resourceId": "<ApplicationInsightsResourceID>",
     "credentials": {
       "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://xxxx.applicationinsights.azure.com/;..."
@@ -140,6 +140,8 @@ Include a JSON snippet similar to the following in your Azure Resource Manager t
 
 ### Logger with system-assigned managed identity credentials
 
+See the [prerequisites](#prerequisites) for using an API Management managed identity.
+
 #### [REST API](#tab/rest)
 
 Use the API Management [REST API](/rest/api/apimanagement/current-preview/logger/create-or-update) with the following request body.
@@ -148,7 +150,7 @@ Use the API Management [REST API](/rest/api/apimanagement/current-preview/logger
 {
   "properties": {
     "loggerType": "applicationInsights",
-    "description": "adding a new logger with system assigned managed identity",
+    "description": "adding a new logger with system-assigned managed identity",
     "credentials": {
          "connectionString":"InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://xxxx.applicationinsights.azure.com/;...",
          "identityClientId":"SystemAssigned"
@@ -200,9 +202,9 @@ Include a JSON snippet similar to the following in your Azure Resource Manager t
 ---
 ### Logger with user-assigned managed identity credentials
 
-For prerequisites, see [Configure API Management managed identity](#option-2-configure-api-management-managed-identity).
+See the [prerequisites](#prerequisites) for using an API Management managed identity.
 
-#### [REST API](#tab/PowerShell)
+#### [REST API](#tab/rest)
 
 Use the API Management [REST API](/rest/api/apimanagement/current-preview/logger/create-or-update) with the following request body.
 
@@ -210,7 +212,7 @@ Use the API Management [REST API](/rest/api/apimanagement/current-preview/logger
 {
   "properties": {
     "loggerType": "applicationInsights",
-    "description": "adding a new logger with system assigned managed identity",
+    "description": "adding a new logger with user-assigned managed identity",
     "credentials": {
          "connectionString":"InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://xxxx.applicationinsights.azure.com/;...",
          "identityClientId":"<ClientID>"
