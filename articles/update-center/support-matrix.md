@@ -109,9 +109,9 @@ United States | Central US </br> East US </br> East US 2</br> North Central US <
 
 Currently, we support a combination of Offer, Publisher, and Sku of the image. Ensure that you match all the three to confirm support. For more information, see [list of supported marketplace OS images](../virtual-machines/automatic-vm-guest-patching.md#supported-os-images). 
 
-**Custom images**
+**Custom images** 
 
-We support [generalized](../virtual-machines/linux/imaging.md#generalized-images) custom images. Table below lists the operating systems that we support for generalized images. Refer to [custom images (preview)](manage-updates-customized-images.md) for instructions on how to start using Update manage center to manage updates on custom images.
+We support [generalized](../virtual-machines/linux/imaging.md#generalized-images) custom images. Table below lists the operating systems that we support for generalized images. Refer to [custom images (preview)](manage-updates-customized-images.md) for instructions on how to start using Update Manager (preview) to manage updates on custom images.
 
    |**Windows Operating System**|
    |-- |
