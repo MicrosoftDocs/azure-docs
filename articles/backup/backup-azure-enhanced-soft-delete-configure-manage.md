@@ -197,9 +197,7 @@ Here are some points to note:
 
 ## Delete recovery points
 
-Soft delete of recovery points helps you recover any recovery points that are accidentally or maliciously deleted for some operations that could lead to deletion of one or more recovery points. Recovery points don't move to soft-deleted state immediately and have a *24 hour SLA* (same as before). The example here shows recovery points that were deleted as part of backup policy modifications.
-
-[Soft delete of recovery points](backup-azure-enhanced-soft-delete-about.md#soft-delete-of-recovery-points), a part of enhanced soft delete is currently available in selected Azure regions. [Learn more](backup-azure-enhanced-soft-delete-about.md#supported-regions) on the region availability.
+[Soft delete of recovery points](backup-azure-enhanced-soft-delete-about.md#soft-delete-of-recovery-points) is a part of enhanced soft delete that helps you recover any recovery points that are accidentally or maliciously deleted for some operations that could lead to deletion of one or more recovery points. Recovery points don't move to soft-deleted state immediately and have a *24 hour SLA* (same as before). The example here shows recovery points that were deleted as part of backup policy modifications.
 
 Follow these steps:
 
