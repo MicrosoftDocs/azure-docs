@@ -20,13 +20,16 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | **Version 23.1.3**:  |
+| **OT networks** | **Version 23.1.3**: <br><br>- [Troubleshoot OT sensor connectivity](#troubleshoot-ot-sensor-connectivity) <br>- [Device inventory enhancements for local subnets](#device-inventory-enhancements-for-local-subnets) <br>- [Event timeline access for OT sensor readers](#event-timeline-access-for-ot-sensor-readers)|
 
 ### Troubleshoot OT sensor connectivity
 
-Starting in version 23.1.2, OT sensors automatically troubleshoot any connectivity issues with the Azure portal. If a sensor isn't connected, an error is indicated in the Azure portal. On the **Overview** page, select the **Cloud connectivity errors** link to open a side pane listing any connectivity issues.
+Starting in version 23.1.2, OT sensors automatically help you troubleshoot connectivity issues with the Azure portal. If a sensor isn't connected, an error is indicated in the Azure portal, and on the sensor's **Overview** page.
 
-Alternately, access the same side pane from **System settings > Network monitoring > Customization > Cloud connectivity troubleshooting**.
+From your sensor, do one of the following to open the **Cloud connectivity troubleshooting** pane, which provides details about the connectivity issues and mitigation steps:
+
+- On the **Overview** page, select the **Cloud connectivity errors** link
+- Select **System settings > Network monitoring > Customization > Cloud connectivity troubleshooting**
 
 For more information, see [Troubleshoot sensor connectivity](how-to-troubleshoot-sensor.md#troubleshoot-sensor-connectivity).
 
