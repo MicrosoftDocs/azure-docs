@@ -109,7 +109,7 @@ To understand whether a feature is supported in your sensor version, check the r
 
 This version includes the following updates and enhancements:
 
-- [Connectivity troubleshooting from the OT sensor](how-to-troubleshoot-sensor.md#check-sensor---cloud-connectivity-issues)
+- [Connectivity troubleshooting enhancements from the OT sensor](how-to-troubleshoot-sensor.md#check-sensor---cloud-connectivity-issues)
 - [Read Only users can access the Event Timeline](roles-on-premises.md)
 - [Non-IP devices are shown in the Device inventory only when they have OT protocols](device-inventory.md)
 - [Fix to keep NTP configuration settings after version update](configure-sensor-settings-portal.md)
