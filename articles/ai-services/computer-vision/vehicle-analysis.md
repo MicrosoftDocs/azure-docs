@@ -661,7 +661,7 @@ For guidelines on where and how to place your camera for vehicle analysis, refer
 
 The vehicle analysis container sends billing information to Azure, using a Vision resource on your Azure account. The use of vehicle analysis in public preview is currently free.
 
-Azure AI services containers aren't licensed to run without being connected to the metering / billing endpoint. You must enable the containers to communicate billing information with the billing endpoint at all times. Azure AI services containers don't send customer data, such as the video or image that's being analyzed, to Microsoft.
+Azure AI containers aren't licensed to run without being connected to the metering / billing endpoint. You must enable the containers to communicate billing information with the billing endpoint at all times. Azure AI containers don't send customer data, such as the video or image that's being analyzed, to Microsoft.
 
 ## Next steps
 
