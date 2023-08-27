@@ -135,7 +135,7 @@ if response_message.get("function_call"):
         {
             "role": response_message["role"],
             "function_call": {
-                "name": response_message["function_call"]["name"],
+                "name": function_name,
                 "arguments": response_message["function_call"]["arguments"],
             },
             "content": None

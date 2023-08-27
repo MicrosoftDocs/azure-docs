@@ -56,8 +56,8 @@ Azure AD terms of use policies use the PDF format to present content. The PDF fi
 
 Once you've completed your terms of use policy document, use the following procedure to add it.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
-1. Browse to **Azure Active Directory** > **Security** > **Conditional Access** > **Terms of use**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Browse to **Protection** > **Conditional Access** > **Terms of use**.
 1. Select, **New terms**.
  
     ![New term of use pane to specify your terms of use settings](./media/terms-of-use/new-tou.png)
@@ -122,8 +122,8 @@ Once you've completed your terms of use policy document, use the following proce
 
 The Terms of use blade shows a count of the users who have accepted and declined. These counts and who accepted/declined are stored for the life of the terms of use policy.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
-1. Browse to **Azure Active Directory** > **Security** > **Conditional Access** > **Terms of use**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Browse to **Protection** > **Conditional Access** > **Terms of use**.
 
     ![Terms of use blade listing the number of user show have accepted and declined](./media/terms-of-use/view-tou.png)
 
@@ -145,8 +145,8 @@ If you want to view more activity, Azure AD terms of use policies include audit 
 
 To get started with Azure AD audit logs, use the following procedure:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
-1. Browse to **Azure Active Directory** > **Security** > **Conditional Access** > **Terms of use**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Browse to **Protection** > **Conditional Access** > **Terms of use**.
 1. Select a terms of use policy.
 1. Select **View audit logs**.
 1. On the Azure AD audit logs screen, you can filter the information using the provided lists to target specific audit log information.
@@ -188,8 +188,8 @@ Users can review and see the terms of use policies that they've accepted by usin
 
 You can edit some details of terms of use policies, but you can't modify an existing document. The following procedure describes how to edit the details.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
-1. Browse to **Azure Active Directory** > **Security** > **Conditional Access** > **Terms of use**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Browse to **Protection** > **Conditional Access** > **Terms of use**.
 1. Select the terms of use policy you want to edit.
 1. Select **Edit terms**.
 1. In the Edit terms of use pane, you can change the following options:
@@ -207,8 +207,8 @@ You can edit some details of terms of use policies, but you can't modify an exis
 
 ## Update the version or pdf of an existing terms of use
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
-1. Browse to **Azure Active Directory** > **Security** > **Conditional Access** > **Terms of use**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Browse to **Protection** > **Conditional Access** > **Terms of use**.
 1. Select the terms of use policy you want to edit.
 1. Select **Edit terms**.
 1. For the language that you would like to update a new version, select **Update** under the action column
@@ -225,8 +225,8 @@ You can edit some details of terms of use policies, but you can't modify an exis
 
 ## View previous versions of a ToU
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
-1. Browse to **Azure Active Directory** > **Security** > **Conditional Access** > **Terms of use**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Browse to **Protection** > **Conditional Access** > **Terms of use**.
 1. Select the terms of use policy for which you want to view a version history.
 1. Select **Languages and version history**
 1. Select **See previous versions.**
@@ -237,8 +237,8 @@ You can edit some details of terms of use policies, but you can't modify an exis
 
 ## See who has accepted each version
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
-1. Browse to **Azure Active Directory** > **Security** > **Conditional Access** > **Terms of use**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Browse to **Protection** > **Conditional Access** > **Terms of use**.
 1. To see who has currently accepted the ToU, select the number under the **Accepted** column for the ToU you want.
 1. By default, the next page will show you the current state of each user's acceptance to the ToU
 1. If you would like to see the previous consent events, you can select **All** from the **Current State** drop-down. Now you can see each user's events in details about each version and what happened.
@@ -248,8 +248,8 @@ You can edit some details of terms of use policies, but you can't modify an exis
 
 The following procedure describes how to add a ToU language.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
-1. Browse to **Azure Active Directory** > **Security** > **Conditional Access** > **Terms of use**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Browse to **Protection** > **Conditional Access** > **Terms of use**.
 1. Select the terms of use policy you want to edit.
 1. Select **Edit Terms**
 1. Select **Add language** at the bottom of the page.
@@ -311,8 +311,8 @@ If a user is using browser that isn't supported, they're asked to use a differen
 
 You can delete old terms of use policies using the following procedure.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
-1. Browse to **Azure Active Directory** > **Security** > **Conditional Access** > **Terms of use**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Browse to **Protection** > **Conditional Access** > **Terms of use**.
 1. Select the terms of use policy you want to remove.
 1. Select **Delete terms**.
 1. In the message that appears asking if you want to continue, select **Yes**.

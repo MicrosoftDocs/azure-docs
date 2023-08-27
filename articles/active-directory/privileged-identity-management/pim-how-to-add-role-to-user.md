@@ -1,6 +1,6 @@
 ---
 title: Assign Azure AD roles in PIM
-description: Learn how to assign Azure AD roles in Azure AD Privileged Identity Management (PIM).
+description: Learn how to assign Azure AD roles in Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -19,7 +19,7 @@ ms.custom: subject-rbac-steps
 
 # Assign Azure AD roles in Privileged Identity Management
 
-With Azure Active Directory (Azure AD), a Global administrator can make **permanent** Azure AD admin role assignments. These role assignments can be created using the [Azure portal](../roles/permissions-reference.md) or using [PowerShell commands](/powershell/module/azuread#directory_roles).
+With Azure Active Directory (Azure AD), a Global administrator can make **permanent** Azure AD admin role assignments. These role assignments can be created using the [Microsoft Entra admin center](../roles/permissions-reference.md) or using [PowerShell commands](/powershell/module/azuread#directory_roles).
 
 The Azure AD Privileged Identity Management (PIM) service also allows Privileged role administrators to make permanent admin role assignments. Additionally, Privileged role administrators can make users **eligible** for Azure AD admin roles. An eligible administrator can activate the role when they need it, and then their permissions expire once they're done.
 
@@ -32,15 +32,11 @@ Privileged Identity Management support both built-in and custom Azure AD roles. 
 
 ## Assign a role
 
-[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
-
 Follow these steps to make a user eligible for an Azure AD admin role.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with a user that is a member of the [Privileged role administrator](../roles/permissions-reference.md#privileged-role-administrator) role.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged role administrator](../roles/permissions-reference.md#privileged-role-administrator).
 
-1. Open **Azure AD Privileged Identity Management**.
-
-1. Select **Azure AD roles**.
+1. Browse to **Identity governance** > **Privileged Identity Management** > **Azure AD roles**.
 
 1. Select **Roles** to see the list of roles for Azure AD permissions.
 
@@ -76,9 +72,9 @@ Follow these steps to make a user eligible for an Azure AD admin role.
 
 For certain roles, the scope of the granted permissions can be restricted to a single admin unit, service principal, or application. This procedure is an example if assigning a role that has the scope of an administrative unit. For a list of roles that support scope via administrative unit, see [Assign scoped roles to an administrative unit](../roles/admin-units-assign-roles.md). This feature is currently being rolled out to Azure AD organizations.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with Privileged Role Administrator permissions.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged role administrator](../roles/permissions-reference.md#privileged-role-administrator).
 
-1. Select **Azure Active Directory** > **Roles and administrators**.
+1. Browse to **Identity** > **Roles & admins** > **Roles & admins**.
 
 1. Select the **User Administrator**.
 
