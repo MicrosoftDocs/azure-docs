@@ -1,6 +1,6 @@
 ---
-title: Sign container images with Notation and Azure Key vault using CA issued certificate (Preview)
-description: In this tutorial learn to create a CA issued certificate in Azure Key Vault, build and sign a container image stored in Azure Container Registry (ACR) with notation and AKV, and then verify the container image using notation.
+title: Sign container images with Notation and Azure Key vault using a CA-issued certificate (Preview)
+description: In this tutorial learn to create a CA-issued certificate in Azure Key Vault, build and sign a container image stored in Azure Container Registry (ACR) with notation and AKV, and then verify the container image using notation.
 author: yizha1
 ms.author: yizha1
 ms.service: container-registry
@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 6/9/2023
 ---
 
-# Sign container images with Notation and Azure Key Vault using CA issued certificate (Preview)
+# Sign container images with Notation and Azure Key Vault using a CA-issued certificate (Preview)
 
 Signing and verifying the container images with a certificate issued by a trusted Certificate Authority (CA) ensures authorizing and validating the identity responsibly with approved CA without any compromise. The trusted CA entities (for example, GoDaddy or DigiCert) ensure to validate the user's and organization's identity and also have the authority to revoke the certificate immediately upon any risk or misuse.
 
@@ -32,7 +32,7 @@ In this article:
 
 > * Create or use an [Azure Container Registry](../container-registry/container-registry-get-started-azure-cli.md) for storing container images and signatures
 > * Create or use an [Azure Key Vault.](../key-vault/general/quick-create-cli.md)
-> * Install and configure the latest [Azure CLI](/cli/azure/install-azure-cli), or Run commands in the [Azure Cloud Shell](https://portal.azure.com/#cloudshell/)
+> * Install and configure the latest [Azure CLI](/cli/azure/install-azure-cli), or run commands in the [Azure Cloud Shell](https://portal.azure.com/#cloudshell/)
 
 > [!NOTE]
 > We recommend creating a new Azure Key Vault for storing signing certificates only.
@@ -56,7 +56,7 @@ In this article:
     mkdir -p ~/.config/notation/plugins/azure-kv
                     
     # Download the plugin
-    curl -Lo notation-azure-kv.tar.gz \https://github.com/Azure/notation-azure-kv/releases/download/v1.0.0/notation-azure-kv_1.0.0_linux_amd64.tar.gz 
+    curl -Lo notation-azure-kv.tar.gz https://github.com/Azure/notation-azure-kv/releases/download/v1.0.0/notation-azure-kv_1.0.0_linux_amd64.tar.gz 
                     
     # Extract to the plugin directory
     tar xvzf notation-azure-kv.tar.gz -C ~/.config/notation/plugins/azure-kv
@@ -74,7 +74,7 @@ In this article:
 ## Configure environment variables 
 
 > [!NOTE]
-> We recommend to provide values for the Azure resources to match the existing ACR and AKV resources for easy execution of commands in the tutorial.
+> We recommend to provide values for the Azure resources to match the existing AKV and ACR resources for easy execution of commands in the tutorial.
 
 1. Configure AKV resource names. 
 
@@ -112,89 +112,42 @@ To learn more about Azure CLI and how to sign in with it, see [Sign in with Azur
 
 ## Create or import a certificate issued by a CA in AKV
 
-### Assign access policy in AKV (Azure CLI)
-
-To create or import a certificate issued by a CA in AKV, you must assign proper access policy to a principal. The permissions that you grant for a principal should include at least certificate permissions `Create`, `Import` and `Get`. A principal can be a user principal, service principal, or managed identity. In this tutorial, we assign access policy to a user principal for creating or importing a certificate. To learn more about assigning policy to a principal, see [Assign Access Policy](/azure/key-vault/general/assign-access-policy).
-
-Set the subscription that contains the AKV resources
-
-```azure-cli
-az account set --subscription <your_subscription_id>
-```
-
-Assign access policy to the signed-in user
-
-```azure-cli
-USER_ID=$(az ad signed-in-user show --query id -o tsv)
-az keyvault set-policy -n $AKV_NAME --certificate-permissions create import get --object-id $USER_ID
-```
-
 ### Certificate requirements
 
-The certificate issued by a CA should meet the [Notary Project certificate requirement](https://github.com/notaryproject/specifications/blob/v1.0.0/specs/signature-specification.md#certificate-requirements). 
+When creating certificates for signing and verification, it is important to ensure that they meet the [Notary Project certificate requirement](https://github.com/notaryproject/specifications/blob/v1.0.0/specs/signature-specification.md#certificate-requirements). 
 
-The private key associated with the certificate should be set to non-exportable, see [Key property](https://learn.microsoft.com/en-us/rest/api/keyvault/certificates/create-certificate/create-certificate?tabs=HTTP#keyproperties).
+The requirements for root and intermediate certificates are as follows:
+- The basicConstraints extension MUST be present and MUST be marked as critical. The cA field MUST be set true.
+- The keyUsage extension MUST be present and MUST be marked critical. Bit positions for keyCertSign MUST be set. 
 
-### Create a certificate issued by a CA (Azure CLI)
+The requirements for signing certificates are as follows:
+- X.509 certificate properties:
+  - Subject MUST contain `country (C)`, `state or province (ST)`, and `organization (O)`.
+  - X.509 key usage flags must be `DigitalSignature`.
+  - Extended Key Usages (EKUs) must be empty or `1.3.6.1.5.5.7.3.3` (for Codesigning).
+- Key properties:
+  - The property "exportable" should be set to `false`
 
-1. Create a certificate policy file
+The certificate created or imported must contain an ordered X.509 certificate chain. The signing certificate must be the first certificate, followed by the intermediate certificates (if any), and root certificate in the correct order.
 
-    Once the certificate policy file is executed as below, it creates a valid signing certificate compatible with [Certificate Requirement](#certificate-requirements) in AKV. 
+### Create a certificate issued by a CA
 
-    - The Key property `exportable` is set to false
-    - The x509 certificate property `ekus` has a value "1.3.6.1.5.5.7.3.3" for code-signing
-    - The x509 certificate property `keyUsage` is set to "digitalSignature"
-    - The `subject` field is used later as trust identity that user trusts during verification.
+To create a certificate issued by a CA, follow these steps:
 
-    ```bash
-    cat <<EOF > ./leafcert.json
-    {
-        "issuerParameters": {
-        "certificateTransparency": null,
-        "name": "Unknown"
-        },
-        "keyProperties": {
-          "exportable": false,
-          "keySize": 2048,
-          "keyType": "RSA",
-          "reuseKey": true
-        },
-        "x509CertificateProperties": {
-        "ekus": [
-            "1.3.6.1.5.5.7.3.3"
-        ],
-        "keyUsage": [
-            "digitalSignature"
-        ],
-        "subject": "$CERT_SUBJECT",
-        "validityInMonths": 12
-        }
-    }
-    EOF
-    ```
+1. Create a certificate signing request (CSR) by following the instructions in [create certificate signing request](../key-vault/certificates/create-certificate-signing-request.md).
+2. When merging the CSR, make sure you merge the entire chain that brought back from the CA vendor.
 
-2. Create the leaf/signing certificate
+### Import a certificate, follow these steps:
 
-```azure-cli
-az keyvault certificate create -n $CERT_NAME --vault-name $AKV_NAME -p @leafcert.json
-```
+To import a certificate, follow these steps:
 
-3. Get the CSR
-
-4. Sign the CSR
-
-5. Merge certificate with an entire chain
-
-
-
-To learn more about creating certificates, see [Create Certificates](../key-vault/certificates/create-certificate.md). 
-
-To learn more about importing certificates, see [Import Certificates](../key-vault/certificates/tutorial-import-certificate.md).
+1. Get the certificate file from CA vendor with entire certificate chain.
+2. Import the certificate into Azure Key Vault by following the instructions in [import a certificate](../key-vault/certificates/tutorial-import-certificate.md).
 
 > [!NOTE]
-> If the certificate doesn’t contain certificate chain after creation or importing, users need to ask the CA vendor to provide the intermediate and root certificates in a bundle file, and use it during signing. 
+> If the certificate does not contain a certificate chain after creation or importing, you can obtain the intermediate and root certificates from your CA vendor. You can ask your vendor to provide you with a file that contains the intermediate certificates first, followed by the root certificate. This file can then be used at step 5 of [signing container images](#sign-a-container-image-with-notation-cli-and-akv-plugin).
 
-## Build and sign a container image 
+## Sign a container image with Notation CLI and AKV plugin 
 
 1. Build and push a new image with ACR Tasks. 
 
@@ -213,39 +166,59 @@ To learn more about importing certificates, see [Import Certificates](../key-vau
     > [!NOTE]
     > If notation login is failing, you may need to Configure a credentials store. Alternatively in development and testing environments, you can use environment variables to authenticate to an OCI-compliant registry. See guide [Authenticate with OCI-compliant registries](https://notaryproject.dev/docs/how-to/registry-authentication/) for details.
 
-3. Authorize access to AKV 
+3. Assign access policy in AKV (Azure CLI)
 
-    >* To sign a container image with a certificate issued by CA with certificate chain, users must have authorized access to AKV with `Sign` permission under key permission group, `Get` permission under both secret permission and certificate permission group, see [guide](/azure/key-vault/general/assign-access-policy?source=recommendations&tabs=azure-portal) for access authorization.  
+   To sign a container image with a certificate in AKV, a principal must have authorized access to AKV. The principal can be a user principal, service principal, or managed identity. In this tutorial, we assign access policy to a signed-in user. To learn more about assigning policy to a principal, see [Assign Access Policy](/azure/key-vault/general/assign-access-policy). 
+    
+   To set the subscription that contains the AKV resources, run the following command:
 
-4. Get the Key ID for the certificate. 
+   ```azure-cli
+   az account set --subscription <your_subscription_id>
+   ```
+    
+   If the certificate contains the entire certificate chain, the principal must be granted key permission `Sign`, secret permission `Get`, and certificate permissions `Get`. To grant these permissions to the principal, run the following command:
 
-    ```azurecli-interactive
-    KEY_ID=$(az keyvault certificate show -n $CERT_NAME --vault-name $AKV_NAME --query 'kid' -o tsv) 
-    ```
+   ```azure-cli
+   USER_ID=$(az ad signed-in-user show --query id -o tsv)
+   az keyvault set-policy -n $AKV_NAME --key-permissions sign --secret-permissions get --certificate-permissions get --object-id $USER_ID
+   ```
+    
+   If the certificate doesn't contain the chain, the principal must be granted key permission `Sign`, and certificate permissions `Get`. To grant these permissions to the principal, run the following command:
+    
+   ```azure-cli
+   USER_ID=$(az ad signed-in-user show --query id -o tsv)
+   az keyvault set-policy -n $AKV_NAME --key-permissions sign --certificate-permissions get --object-id $USER_ID
+   ```
+
+4. Get the Key ID for a certificate, assuming the certificate name is $CERT_NAME
+
+   ```azurecli-interactive
+   KEY_ID=$(az keyvault certificate show -n $CERT_NAME --vault-name $AKV_NAME --query 'kid' -o tsv) 
+   ```
 
 5. Sign the container image with the COSE signature format using the key ID. 
 
-    ```azurecli-interactive
-    notation sign --signature-format cose $IMAGE –id $KEY_ID --plugin azure-kv 
-    ```
+   If the certificate contains the entire certificate chain, run the following command:
 
-7. View the graph of signed images and associated signatures. 
+   ```azurecli-interactive
+   notation sign --signature-format cose $IMAGE –id $KEY_ID --plugin azure-kv 
+   ```
+
+   If the certificate does not contain the chain, you need to use an additional plugin parameter `--plugin-config ca_certs=<ca_bundle_file>` to pass the CA certificates in a bundle file to AKV plugin, run the following command:
+
+   ```azurecli-interactive
+   notation sign --signature-format cose $IMAGE –id $KEY_ID --plugin azure-kv --plugin-config ca_certs=<ca_bundle_file> 
+   ```
+
+6. View the graph of signed images and associated signatures. 
 
     ```azurecli-interactive
     notation ls $IMAGE 
     ```
 
->* To sign a container image with a certificate issued by CA without certificate chain, users must have authorized access to AKV with `Sign` permission under key permission group, and `Get` permission under certificate permission group, see [guide](/azure/key-vault/general/assign-access-policy?source=recommendations&tabs=azure-portal) for access authorization.  
-
-6. If the certificate doesn’t contain certificate chain, users need to use additional plugin config ca_certs to pass the CA bundle fire acquired from the CA vendor. 
-
-    ```azurecli-interactive
-    notation sign --signature-format cose $IMAGE –id $KEY_ID --plugin azure-kv --plugin-config ca_certs=<ca_bundle_file> 
-    ```
-
 ## Verify a container image with Notation CLI 
 
-1. Add root certificate to a named trust store for signature verification. Users need to acquire the root certificate from CA vendor, and assuming the root certificate file is stored in $ROOT_CERT. 
+1. Add root certificate to a named trust store for signature verification. Users need to obtain the root certificate from the CA vendor, and assuming the root certificate file is stored in $ROOT_CERT. 
 
     ```bash
     STORE_TYPE="ca" 
