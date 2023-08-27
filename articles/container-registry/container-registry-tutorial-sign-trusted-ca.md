@@ -82,7 +82,7 @@ In this article:
     # Name of the existing Azure Key Vault used to store the signing keys 
     AKV_NAME=myakv 
     
-    # New desired key name used to sign and verify 
+    # New desired certificate name used to sign and verify 
     CERT_NAME=wabbit-networks-io 
     ```
 
@@ -272,5 +272,7 @@ To import a certificate, follow these steps:
    Upon successful verification of the image using the trust policy, the sha256 digest of the verified image is returned in a successful output message.
 
 ## Next steps
+
+See [Ratify on Azure: Allow only signed images to be deployed on AKS with Notation and Ratify](https://github.com/deislabs/ratify/blob/main/docs/quickstarts/ratify-on-azure.md).
 
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
