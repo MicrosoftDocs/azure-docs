@@ -15,8 +15,9 @@ This article describes how to configure and use enhanced soft delete to protect 
 ## Before you start
  
 - Enhanced soft delete is supported for Recovery Services vaults and Backup vaults.
-- It's supported for new and existing vaults.
-- For hybrid backups (using MARS, DPM, or MABS), enabling always-on soft delete will disallow server deregistration and  deletion of backups via the Azure portal. If you don't want to retain the backed-up data, we recommend you not to enable *always-on soft-delete* for the vault or perform *stop protection with delete data* before the server is decommissioned.
+- Enhanced soft delete applies to all vaulted workloads alike in Recovery Services vaults and Backup vaults. However, it currently doesn't support operational tier workloads, such as Azure Files backup, Operational backup for Blobs, Disk and VM snapshot backups.
+- For hybrid backups (using MARS, DPM, or MABS), enabling always-on soft delete will disallow server deregistration and  deletion of backups via the Azure portal. If you don't want to retain the backed-up data, we recommend you not to enable the *always-on soft-delete* for the vault or perform *stop protection with delete data* before the server is decommissioned.
+- There's no retention cost for the default soft delete duration of 14 days for vaulted backup, after which, it incurs regular backup cost.
 
 ## Enable soft delete with always-on state
 
@@ -215,11 +216,11 @@ Follow these steps:
 
    The impacted recovery points are labeled as *being soft deleted* in the **Recovery type** column and will be retained as per the soft delete retention of the vault.
  
-   :::image type="content" source="./media/backup-azure-enhanced-soft-delete/select-restore-point-for-soft-delete.png" alt-text="Screenshot shows to filter recovery points for soft delete.":::
+   :::image type="content" source="./media/backup-azure-enhanced-soft-delete/select-restore-point-for-soft-delete.png" alt-text="Screenshot shows how to filter recovery points for soft delete.":::
 
 ## Undelete recovery points
 
-You can *undelete* recovery points that are in soft deleted state so that they can last till their expiry by modifying the policy again to increase the retention of backups.
+You can *undelete* recovery points that are in soft deleted state so that they can last until their expiry by modifying the policy again to increase the retention of backups.
 
 Follow these steps:
 
