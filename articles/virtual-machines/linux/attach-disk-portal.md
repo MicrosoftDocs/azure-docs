@@ -5,7 +5,7 @@ author: roygara
 ms.service: azure-disk-storage
 ms.custom: devx-track-linux
 ms.topic: how-to
-ms.date: 07/28/2023
+ms.date: 08/09/2023
 ms.author: rogarana
 ms.collection: linux
 ---

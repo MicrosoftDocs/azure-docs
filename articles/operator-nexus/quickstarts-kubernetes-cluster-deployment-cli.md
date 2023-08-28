@@ -45,15 +45,14 @@ Before you run the commands, you need to set several variables to define the con
 | SERVICE_CIDR               | The network range for the Kubernetes services in the cluster, in CIDR notation.                                          |
 | DNS_SERVICE_IP             | The IP address for the Kubernetes DNS service.                                                                           |
 
-
 Once you've defined these variables, you can run the Azure CLI command to create the cluster. Add the ```--debug``` flag at the end to provide more detailed output for troubleshooting purposes.
 
 To define these variables, use the following set commands and replace the example values with your preferred values. You can also use the default values for some of the variables, as shown in the following example:
 
 ```bash
 RESOURCE_GROUP="myResourceGroup"
-LOCATION="$(az group show --name $RESOURCE_GROUP --query location | tr -d '\"')"
-SUBSCRIPTION_ID="$(az account show -o tsv --query id)"
+SUBSCRIPTION_ID="<Azure subscription ID>"
+LOCATION="$(az group show --name $RESOURCE_GROUP --query location --subscription $SUBSCRIPTION_ID -o tsv)"
 CUSTOM_LOCATION="/subscriptions/<subscription_id>/resourceGroups/<managed_resource_group>/providers/microsoft.extendedlocation/customlocations/<custom-location-name>"
 CSN_ARM_ID="/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.NetworkCloud/cloudServicesNetworks/<csn-name>"
 CNI_ARM_ID="/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.NetworkCloud/l3Networks/<l3Network-name>"
@@ -71,6 +70,7 @@ POD_CIDR="10.244.0.0/16"
 SERVICE_CIDR="10.96.0.0/16"
 DNS_SERVICE_IP="10.96.0.10"
 ```
+
 > [!IMPORTANT]
 > It is essential that you replace the placeholders for CUSTOM_LOCATION, CSN_ARM_ID, CNI_ARM_ID, and AAD_ADMIN_GROUP_OBJECT_ID with your actual values before running these commands.
 
@@ -78,20 +78,20 @@ After defining these variables, you can create the Kubernetes cluster by executi
 
 ```azurecli
 az networkcloud kubernetescluster create \
---name "${CLUSTER_NAME}" \
---resource-group "${RESOURCE_GROUP}" \
---subscription "${SUBSCRIPTION_ID}" \
---extended-location name="${CUSTOM_LOCATION}" type=CustomLocation \
---location "${LOCATION}" \
---kubernetes-version "${K8S_VERSION}" \
---aad-configuration admin-group-object-ids="[${AAD_ADMIN_GROUP_OBJECT_ID}]" \
---admin-username "${ADMIN_USERNAME}" \
---ssh-key-values "${SSH_PUBLIC_KEY}" \
---control-plane-node-configuration \
+  --name "${CLUSTER_NAME}" \
+  --resource-group "${RESOURCE_GROUP}" \
+  --subscription "${SUBSCRIPTION_ID}" \
+  --extended-location name="${CUSTOM_LOCATION}" type=CustomLocation \
+  --location "${LOCATION}" \
+  --kubernetes-version "${K8S_VERSION}" \
+  --aad-configuration admin-group-object-ids="[${AAD_ADMIN_GROUP_OBJECT_ID}]" \
+  --admin-username "${ADMIN_USERNAME}" \
+  --ssh-key-values "${SSH_PUBLIC_KEY}" \
+  --control-plane-node-configuration \
     count="${CONTROL_PLANE_COUNT}" \
     vm-sku-name="${CONTROL_PLANE_VM_SIZE}" \
---initial-agent-pool-configurations "[{count:${INITIAL_AGENT_POOL_COUNT},mode:System,name:${INITIAL_AGENT_POOL_NAME},vm-sku-name:${INITIAL_AGENT_POOL_VM_SIZE}}]" \
---network-configuration \
+  --initial-agent-pool-configurations "[{count:${INITIAL_AGENT_POOL_COUNT},mode:System,name:${INITIAL_AGENT_POOL_NAME},vm-sku-name:${INITIAL_AGENT_POOL_VM_SIZE}}]" \
+  --network-configuration \
     cloud-services-network-id="${CSN_ARM_ID}" \
     cni-network-id="${CNI_ARM_ID}" \
     pod-cidrs="[${POD_CIDR}]" \
@@ -110,6 +110,7 @@ After a few minutes, the command completes and returns information about the clu
 [!INCLUDE [quickstart-cluster-connect](./includes/kubernetes-cluster/quickstart-cluster-connect.md)]
 
 ## Add an agent pool
+
 The cluster created in the previous step has a single node pool. Let's add a second agent pool using the ```az networkcloud kubernetescluster agentpool create``` command. The following example creates an agent pool named ```myNexusAKSCluster-nodepool-2```:
 
 You can also use the default values for some of the variables, as shown in the following example:
@@ -123,6 +124,7 @@ AGENT_POOL_VM_SIZE="NC_M4_v1"
 AGENT_POOL_COUNT="1"
 AGENT_POOL_MODE="User"
 ```
+
 After defining these variables, you can add an agent pool by executing the following Azure CLI command:
 
 ```azurecli
@@ -130,6 +132,7 @@ az networkcloud kubernetescluster agentpool create \
   --name "${AGENT_POOL_NAME}" \
   --kubernetes-cluster-name "${CLUSTER_NAME}" \
   --resource-group "${RESOURCE_GROUP}" \
+  --subscription "${SUBSCRIPTION_ID}" \
   --extended-location name="${CUSTOM_LOCATION}" type=CustomLocation \
   --count "${AGENT_POOL_COUNT}" \
   --mode "${AGENT_POOL_MODE}" \

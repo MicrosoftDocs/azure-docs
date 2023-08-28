@@ -44,6 +44,7 @@ To use the example code in this article with your Spark cluster, you have two op
 
 1. Connect your notebook to a cluster and follow along with editing and running the cells later in this article.
 
+
 ## Fill in your service information
 
 When the notebook is ready, you need to edit a few cells in your notebook to point to your service. Set the `resource_name`, `deployment_name`, `location`, and `key` variables to the corresponding values for your Azure OpenAI resource.

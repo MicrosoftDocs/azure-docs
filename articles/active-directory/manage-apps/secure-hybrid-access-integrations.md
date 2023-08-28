@@ -60,7 +60,7 @@ There are several ways to enable SSO for IT administrators to your solution. See
 
 Microsoft Graph uses OIDC/OAuth. Customers use OIDC to sign in to your solution. Use the JSON Web Token (JWT) Azure AD issues to interact with Microsoft Graph. See, [OpenID Connect on the Microsoft identity platform](../develop/v2-protocols-oidc.md).
 
-If your solution uses SAML for IT administrator SSO, the SAML token won't enable your solution to interact with Microsoft Graph. You can use SAML for IT administrator SSO, but your solution needs to support OIDC integration with Azure AD, so it can get a JWT from Azure AD to interact with Microsoft Graph. See, [How the Microsoft identity platform uses the SAML protocol](../develop/active-directory-saml-protocol-reference.md).
+If your solution uses SAML for IT administrator SSO, the SAML token won't enable your solution to interact with Microsoft Graph. You can use SAML for IT administrator SSO, but your solution needs to support OIDC integration with Azure AD, so it can get a JWT from Azure AD to interact with Microsoft Graph. See, [How the Microsoft identity platform uses the SAML protocol](../develop/saml-protocol-reference.md).
 
 You can use one of the following SAML approaches:
 
@@ -596,7 +596,7 @@ The following VPN solution providers connect with Azure AD to enable modern auth
 The following software-defined perimeter (SDP) solutions providers connect with Azure AD for authentication and authorization methods like SSO and MFA.
 
 * **Datawiza Access Broker**
-  * [Tutorial: Configure Secure Hybrid Access with Azure AD and Datawiza](./datawiza-with-azure-ad.md)
+  * [Tutorial: Configure Secure Hybrid Access with Azure AD and Datawiza](./datawiza-configure-sha.md)
 * **Perimeter 81**
   * [Tutorial: Azure AD SSO integration with Perimeter 81](../saas-apps/perimeter-81-tutorial.md)
 * **Silverfort Authentication Platform**

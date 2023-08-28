@@ -154,7 +154,7 @@ By default, the application is treated as a hybrid rendered Next.js application,
     ### [Azure Pipelines](#tab/azure-pipelines)
 
     ```yaml
-        - task: AzureStaticWebAppLatest@0
+        - task: AzureStaticWebApp@0
           inputs:
             azure_static_web_apps_api_token: $(AZURE_STATIC_WEB_APPS_TOKEN)
             ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######

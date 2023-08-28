@@ -328,11 +328,11 @@ Defining text properties enables you to associate text entities that fall inside
 :::image type="content" source="./media/creator-indoor-maps/onboarding-tool/dwg-layers.png" alt-text="Screenshot showing the 'create a new manifest' screen of the onboarding tool.":::
 
 > [!IMPORTANT]
-> The following feature class should be defined (not case sensitive) in order to use [wayfinding]. `Wall` will be treated as an obstruction for a given path request. `Stair` and `Elevator` will be treated as level connectors to navigate across floors:
+> The following feature classes should be defined (not case sensitive) in order to use [wayfinding]. `Wall` will be treated as an obstruction for a given path request. `Stair` and `Elevator` will be treated as level connectors to navigate across floors:
 >
-> 1. Wall
-> 2. Stair
-> 3. Elevator
+> * Wall
+> * Stair
+> * Elevator
 
 ### Download
 

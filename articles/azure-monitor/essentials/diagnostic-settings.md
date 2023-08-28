@@ -6,7 +6,7 @@ ms.author: robb
 services: azure-monitor
 ms.topic: conceptual
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.date: 02/13/2022
+ms.date: 08/13/2023
 ms.reviewer: lualderm
 ---
 
@@ -74,9 +74,14 @@ Currently, there are two category groups:
 - **All**: Every resource log offered by the resource.
 - **Audit**: All resource logs that record customer interactions with data or the settings of the service. Audit logs are an attempt by each resource provider to provide the most relevant audit data, but may not be considered sufficient from an auditing standards perspective.
 
-The "Audit" category is a subset of "All", but the Azure portal and REST API consider them separate settings. Selecting "All" does collect all audit logs regardless of if the "Audit" category is also selected.    
+The "Audit" category is a subset of "All", but the Azure portal and REST API consider them separate settings. Selecting "All" does collect all audit logs regardless of if the "Audit" category is also selected.  
 
-Note: Enabling *Audit* for Azure SQL Database does not enable auditing for Azure SQL Database. To enable database auditing, you have to enable it from the auditing blade for Azure Database. 
+The following image shows the logs category groups on the add diagnostics settings page.
+   :::image type="content" source="./media/diagnostic-settings/audit-category-group.png" alt-text="A screenshot showing the logs category groups."::: 
+
+
+> [!NOTE] 
+> Enabling *Audit* for Azure SQL Database does not enable auditing for Azure SQL Database. To enable database auditing, you have to enable it from the auditing blade for Azure Database. 
 
 ### Activity log
 
@@ -131,6 +136,13 @@ The following table provides unique requirements for each destination including 
 | Event Hubs | The shared access policy for the namespace defines the permissions that the streaming mechanism has. Streaming to Event Hubs requires Manage, Send, and Listen permissions. To update the diagnostic setting to include streaming, you must have the ListKey permission on that Event Hubs authorization rule.<br><br>The event hub namespace needs to be in the same region as the resource being monitored if the resource is regional. <br><br> Diagnostic settings can't access Event Hubs resources when virtual networks are enabled. You must enable **Allow trusted Microsoft services** to bypass this firewall setting in Event Hubs so that the Azure Monitor diagnostic settings service is granted access to your Event Hubs resources.|
 | Partner integrations | The solutions vary by partner. Check the [Azure Monitor partner integrations documentation](../../partner-solutions/overview.md) for details.
 
+> [!CAUTION]
+> If you want to store diagnostic logs in a Log Analytics workspace, there are two points to consider to avoid seeing duplicate data in Application Insights:
+> * The destination can't be the same Log Analytics workspace that your Application Insights resource is based on.
+> * The Application Insights user can't have access to both workspaces. Set the Log Analytics access control mode to Requires workspace permissions. Through Azure role-based access control, ensure the user only has access to the Log Analytics workspace the Application Insights resource is based on.
+>
+> These steps are necessary because Application Insights accesses telemetry across Application Insight resources, including Log Analytics workspaces, to provide complete end-to-end transaction operations and accurate application maps. Because diagnostic logs use the same table names, duplicate telemetry can be displayed if the user has access to multiple resources that contain the same data.
+
 ## Controlling costs
 
 There is a cost for collecting data in a Log Analytics workspace, so you should only collect the categories you require for each service. The data volume for resource logs varies significantly between services, 
@@ -162,9 +174,9 @@ You can configure diagnostic settings in the Azure portal either from the Azure 
 
         ![Screenshot that shows the Settings section in the Azure Monitor menu with Diagnostic settings highlighted.](media/diagnostic-settings/menu-monitor.png)
 
-   - For the activity log, select **Activity log** on the **Azure Monitor** menu and then select **Diagnostic settings**. Make sure you disable any legacy configuration for the activity log. For instructions, see [Disable existing settings](./activity-log.md#legacy-collection-methods).
+   - For the activity log, select **Activity log** on the **Azure Monitor** menu and then select **Export Activity Logs**. Make sure you disable any legacy configuration for the activity log. For instructions, see [Disable existing settings](./activity-log.md#legacy-collection-methods).
 
-        ![Screenshot that shows the Azure Monitor menu with Activity log selected and Diagnostic settings highlighted in the Monitor-Activity log menu bar.](media/diagnostic-settings/menu-activity-log.png)
+        ![Screenshot that shows the Azure Monitor menu with Activity log selected and Export activity logs highlighted in the Monitor-Activity log menu bar.](media/diagnostic-settings/menu-activity-log.png)
 
 1. If no settings exist on the resource you've selected, you're prompted to create a setting. Select **Add diagnostic setting**.
 

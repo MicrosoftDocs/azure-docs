@@ -1,5 +1,5 @@
 ---
-title: What's new in Document Intelligence?
+title: What's new in Document Intelligence (formerly Form Recognizer)?
 titleSuffix: Azure AI services
 description: Learn the latest changes to the Document Intelligence API.
 author: laujan
@@ -30,9 +30,13 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
 ## July 2023
 
 > [!NOTE]
-> Form Recognizer is now Azure AI Document Intelligence!
+> Form Recognizer is now **Azure AI Document Intelligence**!
 >
-> As of July 2023, Azure AI services encompass all of what were previously known as Cognitive Services and Azure Applied AI Services. There are no changes to pricing. The names _Cognitive Services_ and _Azure Applied AI_ continue to be used in Azure billing, cost analysis, price list, and price APIs. There are no breaking changes to application programming interfaces (APIs) or SDKs.
+> * Document, Azure AI services encompass all of what were previously known as Cognitive Services and Azure Applied AI Services.
+> * There are no changes to pricing.
+> * The names *Cognitive Services* and *Azure Applied AI* continue to be used in Azure billing, cost analysis, price list, and price APIs.
+> * There are no breaking changes to application programming interfaces (APIs) or SDKs.
+> * Some platforms are still awaiting the renaming update. All mention of Form Recognizer or Document Intelligence in our documentation refers to the same Azure service.
 
 **Document Intelligence v3.1 (GA)**
 
@@ -129,7 +133,7 @@ The v3.1 API introduces new and updated capabilities:
 ## March 2023
 
 > [!IMPORTANT]
-> [**`2023-07-31`**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument) capabilities are currently only available in the following regions:
+> [**`2023-02-28-preview`**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-02-28-preview/operations/AnalyzeDocument) capabilities are currently only available in the following regions:
 >
 > * West Europe
 > * West US2
@@ -388,7 +392,7 @@ The v3.1 API introduces new and updated capabilities:
 
   * Document Intelligence SDK version `4.0.0 GA` release
     * **Document Intelligence SDKs version 4.0.0 (.NET/C#, Java, JavaScript) and version 3.2.0 (Python) are generally available and ready for use in production applications!**
-    * For more information on Document Intelligence SDKs, see the [**SDK overview**](sdk-overview.md).
+    * For more information on Document Intelligence SDKs, see the [**SDK overview**](sdk-overview-v3-1.md).
     * Update your applications using your programming language's **migration guide**.
 
 ---
@@ -878,7 +882,7 @@ The v3.1 API introduces new and updated capabilities:
 
 * New option `pages` supported by all document intelligence methods (custom forms and all prebuilt models). The argument allows you to select individual or a range of pages for multi-page PDF and TIFF documents. For individual pages, enter the page number, for example, `3`. For a range of pages (like page 2 and pages 5-7) enter the page numbers and ranges separated by commas: `2, 5-7`.
 
-* Added support for a **[ReadingOrder](/javascript/api/@azure/ai-form-recognizer/formreadingorder?view=azure-node-latest&preserve-view=true to the URL)** type to the content recognition methods. This option enables you to control the algorithm that the service uses to determine how recognized lines of text should be ordered. You can specify which reading order algorithm—`basic` or `natural`—should be applied to order the extraction of text elements. If not specified, the default value is `basic`.
+* Added support for a [ReadingOrder](/javascript/api/@azure/ai-form-recognizer/formreadingorder?view=azure-node-latest&preserve-view=true) type to the content recognition methods. This option enables you to control the algorithm that the service uses to determine how recognized lines of text should be ordered. You can specify which reading order algorithm—`basic` or `natural`—should be applied to order the extraction of text elements. If not specified, the default value is `basic`.
 
 * Split **FormField** type into several different interfaces. This update shouldn't cause any API compatibility issues except in certain edge cases (undefined valueType).
 

@@ -70,7 +70,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Approve requests for Azure AD roles
-            url: azure-ad-pim-approval-workflow.md
+            url: ./pim-approval-workflow.md
           - text: Approve requests for Azure resource roles 
             url: pim-resource-roles-approval-workflow.md
 

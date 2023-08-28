@@ -92,7 +92,7 @@ Before you can set up an MLOps project with Azure Machine Learning, you need to 
     }
     ```
 
-1. Repeat **Step 3.** if you're creating service principals for Dev and Prod environments. For this demo, we'll be creating only one environment, which is Prod.
+1. Repeat **Step 3** if you're creating service principals for Dev and Prod environments. For this demo, we'll be creating only one environment, which is Prod.
 
 1. Close the Cloud Shell once the service principals are created. 
       
@@ -138,10 +138,10 @@ Before you can set up an MLOps project with Azure Machine Learning, you need to 
 5. Select **Azure Resource Manager**, select **Next**, select **Service principal (manual)**, select **Next** and select the Scope Level **Subscription**.
 
      - **Subscription Name** - Use the name of the subscription where your service principal is stored.
-     - **Subscription Id** - Use the `subscriptionId` you used in **Step 1.** input as the Subscription ID
-     - **Service Principal Id** - Use the `appId` from **Step 1.** output as the Service Principal ID
-     - **Service principal key** - Use the `password` from **Step 1.** output as the Service Principal Key
-     - **Tenant ID** - Use the `tenant` from **Step 1.** output as the Tenant ID
+     - **Subscription Id** - Use the `subscriptionId` you used in **Step 1** input as the Subscription ID
+     - **Service Principal Id** - Use the `appId` from **Step 1** output as the Service Principal ID
+     - **Service principal key** - Use the `password` from **Step 1** output as the Service Principal Key
+     - **Tenant ID** - Use the `tenant` from **Step 1** output as the Tenant ID
 
 
 6. Name the service connection **Azure-ARM-Prod**.  

@@ -37,9 +37,11 @@ To use entitlement management and assign users to access packages, you must have
 
 **Prerequisite role:** Global administrator, Identity Governance administrator, User administrator, Catalog owner, Access package manager or Access package assignment manager
 
-1. In the Azure portal, select **Azure Active Directory** and then select **Identity Governance**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1. In the left menu, select **Access packages** and then open the access package.
+1. Browse to **Identity governance** > **Entitlement management** > **Access package**.
+
+1. On the **Access packages** page open an access package.
 
 1. Select **Assignments** to see a list of active assignments.
 
@@ -77,9 +79,11 @@ In some cases, you might want to directly assign specific users to an access pac
 
 **Prerequisite role:** Global administrator, User administrator, Catalog owner, Access package manager or Access package assignment manager
 
-1. In the Azure portal, select **Azure Active Directory** and then select **Identity Governance**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1. In the left menu, select **Access packages** and then open the access package.
+1. Browse to **Identity governance** > **Entitlement management** > **Access package**.
+
+1. On the **Access packages** page open an access package.
 
 1. In the left menu, select **Assignments**.
 
@@ -117,9 +121,11 @@ Entitlement management also allows you to directly assign external users to an a
 
 **Prerequisite role:** Global administrator, User administrator, Catalog owner, Access package manager or Access package assignment manager
 
-1. In the Azure portal, select **Azure Active Directory** and then select **Identity Governance**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1. In the left menu, select **Access packages** and then open the access package in which you want to add a user.
+1. Browse to **Identity governance** > **Entitlement management** > **Access package**.
+
+1. On the **Access packages** page open an access package.
 
 1. In the left menu, select **Assignments**.
 
@@ -189,46 +195,17 @@ $policy = $accesspackage.AccessPackageAssignmentPolicies[0]
 $req = New-MgEntitlementManagementAccessPackageAssignmentRequest -AccessPackageId $accesspackage.Id -AssignmentPolicyId $policy.Id -TargetEmail "sample@example.com"
 ```
 
-## Manage user lifecycle (preview)  
-
-Entitlement management also allows you to get visibility into state of a guest user's lifecycle through the following viewpoints: 
-
-- **Governed** - The user is set to be governed.  
-- **Ungoverned** - The user is set to not be governed.
-- **Blank** - The lifecycle for the user is not determined. This happens when a user had an access package assigned before managing user lifecycle was possible.
-
-> [!NOTE]
-> When a guest user is set as **Governed**, based on ELM tenant settings their account will be deleted or disabled in specified days after their last access package assignment expires.  Learn more about ELM settings here: [Manage external access with Azure Active Directory entitlement management](../fundamentals/6-secure-access-entitlement-managment.md).
-
-You can directly convert ungoverned users to governed by using the **Mark Guests as Governed ( preview)** functionality in the top menu bar. 
-
-To manage user lifecycle, you'd follow these steps:
-
-**Prerequisite role:** Global administrator, User administrator, Catalog owner, Access package manager or Access package assignment manager
-
-1. In the Azure portal, select **Azure Active Directory** and then select **Identity Governance**.
-
-1. In the left menu, select **Access packages** and then open the access package.
-
-1. In the left menu, select **Assignments**.
-
-1. On the assignments screen, select the user you want to manage the lifecycle for, and then select **Mark guest as governed (Preview)**.
-    :::image type="content" source="media/entitlement-management-access-package-assignments/govern-user-lifecycle.png" alt-text="Screenshot of the govern user lifecycle selection.":::
-1. Select save.
-
-## Manage user lifecycle programmatically 
-
-To manage user lifecycle programatically using Microsoft Graph, see: [accessPackageSubject resource type](/graph/api/resources/accesspackagesubject).
-
 ## Remove an assignment
 
 You can remove an assignment that a user or an administrator had previously requested.
 
 **Prerequisite role:** Global administrator, User administrator, Catalog owner, Access package manager or Access package assignment manager
 
-1. In the Azure portal, select **Azure Active Directory** and then select **Identity Governance**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1. In the left menu, select **Access packages** and then open the access package.
+1. Browse to **Identity governance** > **Entitlement management** > **Access package**.
+
+1. On the **Access packages** page open an access package.
 
 1. In the left menu, select **Assignments**.
  
