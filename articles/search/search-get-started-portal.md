@@ -38,7 +38,7 @@ For this quickstart, we'll create and load the index using a built-in sample dat
 
 An indexer is a source-specific crawler that can read metadata and content from supported Azure data sources. Normally, indexers are created programmatically, but in the portal, you can create them through the **Import data wizard**. 
 
-### Step 1 - Start the Import data wizard and create a data source
+### Step 1: Start the Import data wizard and create a data source
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure account.
 
@@ -52,7 +52,7 @@ An indexer is a source-specific crawler that can read metadata and content from 
 
 1. Continue to the next page.
 
-### Step 2 - Skip the "Enrich content" page
+### Step 2: Skip the "Enrich content" page
 
 The wizard supports the creation of an [AI enrichment pipeline](cognitive-search-concept-intro.md) for incorporating the Azure AI services algorithms into indexing. 
 
@@ -63,7 +63,7 @@ We'll skip this step for now, and move directly on to **Customize target index**
 > [!TIP]
 > You can step through an AI-indexing example in a [quickstart](cognitive-search-quickstart-blob.md) or [tutorial](cognitive-search-tutorial-blob.md).
 
-### Step 3 - Configure index
+### Step 3: Configure index
 
 For the built-in hotels sample index, a default index schema is defined for you. Except for a few advanced filter examples, queries in the documentation and samples that target the hotel-samples index will run on this index definition:
 
@@ -88,7 +88,7 @@ By default, the wizard scans the data source for unique identifiers as the basis
 
 1. Continue to the next page.
 
-### Step 4 - Configure indexer
+### Step 4: Configure indexer
 
 Still in the **Import data** wizard, select **Indexer** > **Name**, and type a name for the indexer.
 

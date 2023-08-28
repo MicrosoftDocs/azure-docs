@@ -50,6 +50,8 @@
           href: learn/quick-windows-container-deploy-cli.md
         - name: Use Azure PowerShell
           href: learn/quick-windows-container-deploy-powershell.md
+        - name: Use the Azure portal
+          href: learn/quick-windows-container-deploy-portal.md
     - name: Develop applications
       expanded: true
       items:
@@ -289,6 +291,8 @@
               href: create-node-pools.md
             - name: Manage node pools
               href: manage-node-pools.md
+            - name: Add an Azure Spot node pool
+              href: spot-node-pool.md
             - name: Multi-instance GPU Node pool
               href: gpu-multi-instance.md
             - name: Node pool snapshot

@@ -1,6 +1,6 @@
 ---
 title: Reliability in Azure Virtual Machine Scale Sets
-description: Find out about reliability in Azure Virtual Machine Scale Sets
+description: Learn about reliability in Azure Virtual Machine Scale Sets and information on availability zone support. 
 author: anaharris-ms
 ms.author: anaharris
 ms.topic: overview
@@ -14,7 +14,7 @@ ms.date: 06/12/2023
 This article contains [specific reliability recommendations](#reliability-recommendations) and information on [availability zones support](#availability-zone-support) for Virtual Machine Scale Sets.  
 
 >[!NOTE]
->Virtual Machine scale sets can only be deployed into one region. If you want to deploy VMs across multiple regions, see [Virtual Machines-Disaster recovery: cross-region failover](./reliability-virtual-machines.md#disaster-recovery-cross-region-failover).
+>Virtual Machine Scale Sets can only be deployed into one region. If you want to deploy VMs across multiple regions, see [Virtual Machines-Disaster recovery: cross-region failover](./reliability-virtual-machines.md#disaster-recovery-cross-region-failover).
 
 For an architectural overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
 
@@ -43,7 +43,7 @@ This section contains recommendations for achieving resiliency and availability 
 
 All VMs, including single instance VMs, should be deployed into a scale set using [flexible orchestration mode](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#scale-sets-with-flexible-orchestration) to future-proof your application for scaling and availability. Flexible orchestration offers high availability guarantees (up to 1000 VMs) by spreading VMs across fault domains in a region or within an availability zone.
 
-For more information on when to use scale sets instead of VMs, see [When to use scale sets instead of virtual machines?](../virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview.md#when-to-use-scale-sets-instead-of-virtual-machines)
+For more information on how to use scale sets appropriately, see [When to use Virtual Machine Scale Sets instead of VMs](../virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview.md#when-to-use-scale-sets-instead-of-virtual-machines)
 
 # [Azure Resource Graph](#tab/graph-1)
 
@@ -53,7 +53,7 @@ For more information on when to use scale sets instead of VMs, see [When to use 
 
 #### :::image type="icon" source="../reliability/media/icon-recommendation-high.svg"::: **VMSS-5: Configure Virtual Machine Scale Sets Autoscale to Automatic** 
 
-[Autoscale is a built-in feature of Azure Monitor](../azure-monitor/autoscale/autoscale-overview.md) that helps the performance and cost-effectiveness of your resources by adding and removing scale setVM based on demand. In addition, you can choose to scale your resources manually to a specific instance count or in accordance with metrics thresholds. You can also schedule instance counts that scale during designated time windows.
+[Autoscale is a built-in feature of Azure Monitor](../azure-monitor/autoscale/autoscale-overview.md) that helps the performance and cost-effectiveness of your resources by adding and removing scale set VMs based on demand. In addition, you can choose to scale your resources manually to a specific instance count or in accordance with metrics thresholds. You can also schedule instance counts that scale during designated time windows.
 
 To learn how to enable automatic OS image upgrades, see [Azure Virtual Machine Scale Set automatic OS image upgrades](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md).
 
@@ -142,9 +142,9 @@ Monitoring your application health is an important signal for managing and upgra
 
 [!INCLUDE [Availability zone description](./includes/reliability-availability-zone-description-include.md)]
 
-With [Azure virtual machine scale sets](../virtual-machine-scale-sets/flexible-virtual-machine-scale-sets.md), you can create and manage a group of load balanced VMs. The number of VMs can automatically increase or decrease in response to demand or a defined schedule. Scale sets provide high availability to your applications, and allow you to centrally manage, configure, and update many VMs. There's no cost for the scale set itself. You only pay for each VM instance that you create.
+With [Azure Virtual Machine Scale Sets](../virtual-machine-scale-sets/flexible-virtual-machine-scale-sets.md), you can create and manage a group of load balanced VMs. The number of VMs can automatically increase or decrease in response to demand or a defined schedule. Scale sets provide high availability to your applications, and allow you to centrally manage, configure, and update many VMs. There's no cost for the scale set itself. You only pay for each VM instance that you create.
 
-Virtual machine scale sets supports both zonal and zone-redundant deployments within a region:
+Virtual Machine Scale Sets supports both zonal and zone-redundant deployments within a region:
 
 - **Zonal deployment.** When you create a scale set in a single zone, you control which zone all the VMs of that set run in. The scale set is managed and autoscales only within that zone.
 
@@ -155,7 +155,7 @@ Virtual machine scale sets supports both zonal and zone-redundant deployments wi
 
 1. To use availability zones, your scale set must be created in a [supported Azure region](./availability-zones-service-support.md).
 
-1. All VMs -even single instance VMs - should be deployed into a scale set using [flexible orchestration](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#scale-sets-with-flexible-orchestration) mode to future-proof your application for scaling and availability. 
+1. All VMs - even single instance VMs - should be deployed into a scale set using [flexible orchestration](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#scale-sets-with-flexible-orchestration) mode to future-proof your application for scaling and availability. 
 
 
 ### SLA
@@ -216,14 +216,14 @@ az vmss create \
 ```
 
 
-It may take a few minutes to create and configure all the scale set resources and VMs in the zone(s) that you specify. For a complete example of a zone-redundant scale set and network resources, see [our sample CLI script](../virtual-machine-scale-sets/scripts/cli-sample-zone-redundant-scale-set.md#sample-script)
+It may take a few minutes to create and configure all the scale set resources and VMs in the zone(s) that you specify. For a complete example of a zone-redundant scale set and network resources, see [our sample CLI script](../virtual-machine-scale-sets/scripts/cli-sample-zone-redundant-scale-set.md#sample-script).
 
 # [Azure PowerShell](#tab/powershell)
 
 
 ### Zonal scale set
 
-The following example creates a single-zone scale set named *myScaleSet* in *East US 2* zone *1*. The Azure network resources for virtual network, public IP address, and load balancer are automatically created. When prompted, provide your own desired administrative credentials for the VM VMs in the scale set:
+The following example creates a single-zone scale set named *myScaleSet* in *East US 2* zone *1*. The Azure network resources for virtual network, public IP address, and load balancer are automatically created. When prompted, provide your own desired administrative credentials for the VMs in the scale set:
 
 ```powershell
 New-AzVmss `
@@ -231,6 +231,7 @@ New-AzVmss `
   -Location "EastUS2" `
   -OrchestrationMode "flexible" ``
   -VMScaleSetName "myScaleSet" `
+  -OrchestrationMode "Flexible" `
   -VirtualNetworkName "myVnet" `
   -SubnetName "mySubnet" `
   -PublicIpAddressName "myPublicIPAddress" `
@@ -304,7 +305,7 @@ The following example creates a Linux single-zone scale set named *myScaleSet* i
 }
 ```
 
-For a complete example of a single-zone scale set and network resources, see [our sample Resource Manager template](https://github.com/Azure/vm-scale-sets/blob/master/z_deprecated/preview/zones/singlezone.json)
+For a complete example of a single-zone scale set and network resources, see [our sample Resource Manager template](https://github.com/Azure/vm-scale-sets/blob/master/z_deprecated/preview/zones/singlezone.json).
 
 ### Zone-redundant scale set
 
@@ -325,18 +326,18 @@ To create a zone-redundant scale set, specify multiple values in the `zones` pro
 ```
 If you create a public IP address or a load balancer, specify the *"sku": { "name": "Standard" }"* property to create zone-redundant network resources. You also need to create a Network Security Group and rules to permit any traffic. For more information, see [Azure Load Balancer Standard overview](../load-balancer/load-balancer-overview.md) and [Standard Load Balancer and Availability Zones](../load-balancer/load-balancer-standard-availability-zones.md).
 
-For a complete example of a zone-redundant scale set and network resources, see [our sample Resource Manager template](https://github.com/Azure/vm-scale-sets/blob/master/z_deprecated/preview/zones/multizone.json)
+For a complete example of a zone-redundant scale set and network resources, see [our sample Resource Manager template](https://github.com/Azure/vm-scale-sets/blob/master/z_deprecated/preview/zones/multizone.json).
 
 
 ----
 
 ### Zonal failover support
 
-Virtual Machine Scale Sets are created with five fault domains by default in Azure regions with no zones. For the regions that support availability zone deployment of Virtual Machine Scale Sets and this option is selected, the default value of the fault domain count is 1 for each of the zones. FD=1 in this case implies that the VM instances belonging to the scale set are spread across many racks on a best effort basis. For more information, see [Choosing the right number of fault domains for Virtual Machine Scale Set](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-fault-domains).
+Virtual Machine Scale Sets are created with five fault domains by default in Azure regions with no zones. For the regions that support availability zone deployment of Virtual Machine Scale Sets and this option is selected, the default value of the fault domain count is 1 for each of the zones. In this case, *FD=1* implies that the VM instances belonging to the scale set are spread across many racks on a best effort basis. For more information, see [Choosing the right number of fault domains for Virtual Machine Scale Set](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-fault-domains).
 
 ### Low-latency design
 
-It's recommended that you configure Virtual Machine Scale Sets with zone-redundancy. However, if your application has strict low latency requirements, you may need to implement a zonal for your scale sets VMs. In the case of zonal scale sets deployment,  it's recommended that you create multiple scale sets VMs across more than one zone. For example, you can create one scale sets instance that's pinned to zone 1, as well as one instance pinned to zone 2 or 3. You'll also need to use a load balancer or other application logic to direct traffic to the appropriate scale sets in the case of a zone outage.
+It's recommended that you configure Virtual Machine Scale Sets with zone-redundancy. However, if your application has strict low latency requirements, you may need to implement a zonal for your scale sets VMs. In the case of zonal scale sets deployment, it's recommended that you create multiple scale set VMs across more than one zone. For example, you can create one scale sets instance that's pinned to zone 1, as well as one instance pinned to zone 2 or 3. You'll also need to use a load balancer or other application logic to direct traffic to the appropriate scale sets in the case of a zone outage.
 
 >[!Important]
 >If you opt out of zone-aware deployment, you forego protection from isolation of underlying faults. Opting out from availability zone configuration forces reliance on resources that don't obey zone placement and separation (including underlying dependencies of these resources). These resources shouldn't be expected to survive zone-down scenarios. Solutions that leverage such resources should define a disaster recovery strategy and configure a recovery of the solution in another region.
@@ -372,11 +373,11 @@ For scale sets deployed across multiple zones (zone-redundant), you have the opt
 | Balanced scale set | 2 | 3 | 3 | This scale set is considered balanced. There's only one zone with a different VM count and it's only 1 less than the other zones. | 
 | Unbalanced scale set | 1 | 3 | 3 | This scale set is considered unbalanced. Zone 1 has 2 fewer VMs than zones 2 and 3. |
 
-It's possible that VMs in the scale set are successfully created, but extensions on those VMs fail to deploy. The VMs with extension failures are still counted when determining if a scale set is balanced. For instance, a scale set with 3 VMs in zone 1, 3 VMs in zone 2, and 3 VMs in zone 3 is considered balanced even if all extensions failed in zone 1 and all extensions succeeded in zones 2 and 3.
+It's possible that VMs in the scale set are successfully created, but extensions on those VMs fail to deploy. The VMs with extension failures are still counted when determining if a scale set is balanced. For instance, a scale set with *3 VMs* in **zone 1**, *3 VMs* in **zone 2**, and *3 VMs* in **zone 3** is considered balanced even if all extensions failed in zone 1 and all extensions succeeded in zones 2 and 3.
 
 With best-effort zone balance, the scale set attempts to scale in and out while maintaining balance. However, if for some reason this isn't possible (for example, if one zone goes down, the scale set can't create a new VM in that zone), the scale set allows temporary imbalance to successfully scale in or out. On subsequent scale-out attempts, the scale set adds VMs to zones that need more VMs for the scale set to be balanced. Similarly, on subsequent scale in attempts, the scale set removes VMs from zones that need fewer VMs for the scale set to be balanced. With "strict zone balance", the scale set fails any attempts to scale in or out if doing so would cause unbalance.
 
-To use best-effort zone balance, set *zoneBalance* to *false*. This setting is the default in API version *2017-12-01*. To use strict zone balance, set *zoneBalance* to *true*.
+To use best-effort zone balance, set `zoneBalance` to *false*. This setting is the default in API version *2017-12-01*. To use strict zone balance, set `zoneBalance` to *true*.
 
 
 ### Availability zone redeployment and migration
@@ -392,7 +393,7 @@ To learn how to redeploy a regional scale set to availability zone support, see 
 > [!IMPORTANT]
 > Placement groups only apply to Virtual Machine Scale Sets running in Uniform orchestration mode.
 
-When you deploy a scale set, you also have the option to deploy with a single [placement group](../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) per availability zone, or with multiple per zone. For regional (non-zonal) scale sets, the choice is to have a single placement group in the region or to have multiple placement groups in the region. If the scale set property `singlePlacementGroup` is set to false, the scale set can be composed of multiple placement groups and has a range of 0-1,000 VMs. When set to the default value of true, the scale set is composed of a single placement group, and has a range of 0-100 VMs. For most workloads, we recommend multiple placement groups, which allows for greater scale. In API version *2017-12-01*, scale sets default to multiple placement groups for single-zone and cross-zone scale sets, but they default to single placement group for regional (non-zonal) scale sets.
+When you deploy a Virtual Machine Scale Set, you have the option to deploy with a single or multiple [placement groups](../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) per availability zone. For regional (non-zonal) scale sets, the choice is to have a single placement group in the region or to have multiple placement groups in the region. If the scale set property `singlePlacementGroup` is set to *false*, the scale set can be composed of multiple placement groups and has a range of 0-1000 VMs. When set to the default value of *true*, the scale set is composed of a single placement group and has a range of 0-100 VMs. For most workloads, we recommend multiple placement groups, which allows for greater scale. In API version *2017-12-01*, scale sets default to multiple placement groups for single-zone and cross-zone scale sets, but they default to single placement group for regional (non-zonal) scale sets.
 
 ## Next steps
 > [!div class="nextstepaction"]
