@@ -54,13 +54,13 @@ Use the following steps to create a new VM.
 1. Run the following command to change the `Cores` or `MemoryMb` values for a VM you deploy to your device.
  
    Consider the following requirements and restrictions:
-   1. The `Name` for these sizes cannot be modified.
-   1. `GpuCount` can only be a value compatible with the number of GPUs on your device, which is 1 or 2.
-   1. Make sure to modify the correct GPU custom size that corresponds with the GPU on your device.
-   1. Once a VM is deployed with a custom size, you cannot modify that custom size again. To make a change, you will have to remove that VM first.
-   1. Once an operation kicks off, wait at least five minutes before you deploy any other VMs or workloads; this command takes about 5 minutes to complete.
+   - The `Name` for these sizes cannot be modified.
+   - `GpuCount` can only be a value compatible with the number of GPUs on your device, which is 1 or 2.
+   - Make sure to modify the correct GPU custom size that corresponds with the GPU on your device.
+   - Once a VM is deployed with a custom size, you cannot modify that custom size again. To make a change, you will have to remove that VM first.
+   - Once an operation kicks off, wait at least five minutes before you deploy any other VMs or workloads; this command takes about 5 minutes to complete.
    
-      The following table shows default values for available custom SKUs.
+   The following table shows default values for available custom SKUs.
 
    | Size | vCPU | Memory (GiB) | Temp storage | Max OS disk | Max temp storage | Max data disk throughput | Max data disk | Max NICs |
    |-------|-----|------------ |-------------|--------------|-----|-----|-----|----|
