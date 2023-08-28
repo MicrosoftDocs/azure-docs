@@ -37,7 +37,7 @@ For more information, see [Troubleshoot Web Application Firewall (WAF) for Azure
 
 ### Use prevention mode
 
-After you have tuned your WAF, you should configure it to [run in prevention mode](create-waf-policy-ag.md#configure-waf-rules-optional). By running in prevention mode, you ensure the WAF actually blocks requests that it detects as malicious. Running in detection mode is useful for testing purposes while you tune and configure your WAF, but provides no protection which means it will not take any actions like allow or deny but will log the traffic.
+After you tune your WAF, you should configure it to [run in **prevention** mode](create-waf-policy-ag.md#configure-waf-rules-optional). By running in **prevention** mode, you ensure the WAF actually blocks requests that it detects as malicious. Running in **detection** mode is useful for testing purposes while you tune and configure your WAF but it provides no protection. It logs the traffic, but it doesn't take any actions such as *allow* or *deny*.
 
 ### Define your WAF configuration as code
 
