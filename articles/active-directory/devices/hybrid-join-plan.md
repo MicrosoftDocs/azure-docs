@@ -159,7 +159,7 @@ When you're using AD FS, you need to enable the following WS-Trust endpoints:
 > [!WARNING]
 > Both **adfs/services/trust/2005/windowstransport** or **adfs/services/trust/13/windowstransport** should be enabled as intranet facing endpoints only and must NOT be exposed as extranet facing endpoints through the Web Application Proxy. To learn more on how to disable WS-Trust Windows endpoints, see [Disable WS-Trust Windows endpoints on the proxy](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). You can see what endpoints are enabled through the AD FS management console under **Service** > **Endpoints**.
 
-Beginning with version 1.1.819.0, Azure AD Connect provides you with a wizard to configure hybrid Azure AD join. The wizard enables you to significantly simplify the configuration process. If installing the required version of Azure AD Connect isn't an option for you, see [how to manually configure device registration](hybrid-join-manual.md).
+Beginning with version 1.1.819.0, Azure AD Connect provides you with a wizard to configure hybrid Azure AD join. The wizard enables you to significantly simplify the configuration process. If installing the required version of Azure AD Connect isn't an option for you, see [how to manually configure device registration](hybrid-join-manual.md). If contoso.com is registered as a confirmed custom domain, users can get a PRT even if their syncronized on-premises AD DS UPN suffix is in a subdomain like test.contoso.com.
 
 ## Review on-premises AD users UPN support for hybrid Azure AD join
 
