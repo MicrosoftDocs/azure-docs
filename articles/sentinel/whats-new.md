@@ -28,7 +28,8 @@ See these [important announcements](#announcements) about recent changes to feat
 
 ### Updated MISP2Sentinel solution
 The open source threat intelligence sharing platform, MISP, has an updated solution to push indicators to Microsoft Sentinel. This notable solution utilizes the new [upload indicators API](#connect-threat-intelligence-with-the-upload-indicators-api) to take advantage of workspace granularity and align the MISP ingested TI to STIX-based properties.
-Read the implementation details from the [MISP blog entry for MISP2Sentinel](https://www.misp-project.org/2023/08/26/MISP-Sentinel-UploadIndicatorsAPI.html/). A direct link to the Azure Marketplace is also available here, [MISP2Sentinel](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoftsentinelcommunity.azure-sentinel-solution-misp2sentinel?tab=Overview).
+
+Learn more about the implementation details from the [MISP blog entry for MISP2Sentinel](https://www.misp-project.org/2023/08/26/MISP-Sentinel-UploadIndicatorsAPI.html/).
 
 ## July 2023
 
