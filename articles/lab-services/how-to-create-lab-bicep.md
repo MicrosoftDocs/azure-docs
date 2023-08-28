@@ -85,7 +85,7 @@ More Azure Lab Services template samples can be found in [Azure Quickstart Templ
     2. **adminPassword**.  The password for the administrator user for the lab VM.
     3. **labPlanId**.  The resource ID for the lab plan to be used.  The **Id** is listed in the **Properties** page of the lab plan resource in Azure.
 
-        :::image type="content" source="./media/how-to-create-lab-template/lab-plan-properties-id.png" alt-text="Screenshot of properties page for lab plan in Azure Lab Services with I D property highlighted.":::
+        :::image type="content" source="./media/how-to-create-lab-template/lab-plan-properties-id.png" alt-text="Screenshot of properties page for lab plan in Azure Lab Services with ID property highlighted.":::
 
 5. Select **Review + create**.
 6. Select **Create**.
