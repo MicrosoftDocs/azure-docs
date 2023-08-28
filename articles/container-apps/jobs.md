@@ -367,8 +367,8 @@ Edit the `my-job-template.yaml` file to override the job's configuration. For ex
 
 ```yaml
 containers:
-- image: ubuntu
-  name: print-hello
+- name: print-hello
+  image: ubuntu
   resources:
     cpu: 1
     memory: 2Gi
@@ -384,7 +384,8 @@ containers:
 Start the job using the template:
 
 ```azurecli
-az containerapp job start --name "my-job" --resource-group "my-resource-group" --yaml my-job-template.yaml
+az containerapp job start --name "my-job" --resource-group "my-resource-group" \
+    --yaml my-job-template.yaml
 ```
 
 # [Azure Resource Manager](#tab/azure-resource-manager)
