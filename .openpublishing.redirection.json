@@ -1,6 +1,16 @@
 {
     "redirections": [
         {
+            "source_path": "articles/migrate/tutorial-assess-webapps-physical.md",
+            "redirect_URL": "tutorial-assess-webapps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/migrate/tutorial-assess-webapps-hyper-v.md",
+            "redirect_URL": "tutorial-assess-webapps",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/route-server/tutorial-protect-route-server.md",
             "redirect_URL": "/azure/route-server/tutorial-protect-route-server-ddos",
             "redirect_document_id": false
@@ -2371,6 +2381,11 @@
         {
             "source_path_from_root": "/articles/frontdoor/front-door-geo-filtering.md",
             "redirect_url": "/azure/web-application-firewall/afds/waf-front-door-geo-filtering",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/web-application-firewall/scripts/waf-custom-rules-powershell.md",
+            "redirect_url": "/azure/web-application-firewall/ag/configure-waf-custom-rules",
             "redirect_document_id": false
         },
         {
@@ -24243,6 +24258,7 @@
             "redirect_document_id": false
         },
         {
+<<<<<<< HEAD
             "source_path_from_root": "/articles/app-service/overview-disaster-recovery.md",
             "redirect_url": "/azure/reliability/reliability-app-service",
             "redirect_document_id": false
@@ -24255,6 +24271,10 @@
         {
             "source_path_from_root": "/articles/hdinsight/hdinsight-business-continuity.md",
             "redirect_url": "/azure/reliability/reliability-hdinsight",
+=======
+            "source_path_from_root": "/articles/reliability/reliability-postgre-flexible.md",
+            "redirect_url": "/azure/reliability/reliability-postgresql-flexible-server",
+>>>>>>> 77dad6bad94abab6dd9c2d71c39056f1cd2dec81
             "redirect_document_id": false
         }
     ]

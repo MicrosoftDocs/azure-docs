@@ -160,35 +160,28 @@ This section explains some of the strategies that you can use to deploy Function
 
 ### Multi-region disaster recovery
 
-Because there is no built-in redundancy available, functions run in a function app in a specific Azure region. To avoid loss of execution during outages, you can redundantly deploy the same functions to function apps in multiple regions.  
+Because there is no built-in redundancy available, functions run in a function app in a specific Azure region. To avoid loss of execution during outages, you can redundantly deploy the same functions to function apps in multiple regions.  To learn more about multi-region deployments, see the guidance in [Highly available multi-region web application](/azure/architecture/reference-architectures/app-service-web-app/multi-region).
+ 
+When you run the same function code in multiple regions, there are two patterns to consider, [active-active](#active-active-pattern-for-http-trigger-functions) and [active-passive](#active-passive-pattern-for-non-https-trigger-functions).
 
-When you run the same function code in multiple regions, there are two patterns to consider:
+#### Active-active pattern for HTTP trigger functions
 
-| Pattern | Description |
-| --- | --- |
-|[Active-active](#active-active) | Functions in both regions are actively running and processing events, either in a duplicate manner or in rotation. We recommend using an active/active pattern in combination with [Azure Front Door](../frontdoor/front-door-overview.md) for your critical HTTP triggered functions. |
-|[Active-passive](#active-passive) | Functions run actively in the region that's receiving events; while the same functions in a second region remain idle.  When failover is required, the second region is activated and takes over processing. We recommend this pattern for your event-driven, non-HTTP triggered functions, such as Service Bus and Event Hubs triggered functions.
-
-To learn more about multi-region deployments, see the guidance in [Highly available multi-region web application](/azure/architecture/reference-architectures/app-service-web-app/multi-region).
-
-### Active-active
-
-#### HTTP trigger functions
-
-The active-active pattern is the best deployment model for HTTP trigger functions. For this pattern, use [Azure Front Door](../frontdoor/front-door-overview.md) to coordinate requests between both regions. Azure Front Door can route and round-robin HTTP requests between functions running in multiple regions. Front door can also periodically checks the health of each endpoint. When a function in one region stops responding to health checks, Azure Front Door takes it out of rotation, and only forwards traffic to the remaining healthy functions.  
+With an active-active pattern, functions in both regions are actively running and processing events, either in a duplicate manner or in rotation. It's recommended that you use an active-active pattern in combination with [Azure Front Door](../frontdoor/front-door-overview.md) for your critical HTTP triggered functions, which can route and round-robin HTTP requests between functions running in multiple regions. Front door can also periodically checks the health of each endpoint. When a function in one region stops responding to health checks, Azure Front Door takes it out of rotation, and only forwards traffic to the remaining healthy functions.  
 
 ![Architecture for Azure Front Door and Function](../azure-functions/media/functions-geo-dr/front-door.png)  
 
-#### non-HTTP trigger functions
 
-You can achieve active-active deployments for non-HTTP triggered functions. However, you need to consider how the two active regions interact or coordinate with one another. When you deploy the same function app to two regions with each triggering on the same Service Bus queue, they would act as competing consumers on de-queueing that queue. While this means each message is only being processed by either one of the instances, it also means there's still a single point of failure on the single Service Bus instance. 
+>[!IMPORTANT]
+>Although, it's highly recommended that you use the [active-passive pattern](#active-passive-pattern-for-non-https-trigger-functions) for non-HTTPS trigger functions. You can create active-active deployments for non-HTTP triggered functions. However, you need to consider how the two active regions interact or coordinate with one another. When you deploy the same function app to two regions with each triggering on the same Service Bus queue, they would act as competing consumers on de-queueing that queue. While this means each message is only being processed by either one of the instances, it also means there's still a single point of failure on the single Service Bus instance. 
+>
+>You could instead deploy two Service Bus queues, with one in a primary region, one in a secondary region. In this case, you could have two function apps, with each pointed to the Service Bus queue active in their region. The challenge with this topology is how the queue messages are distributed between the two regions.  Often, this means that each publisher attempts to publish a message to *both* regions, and each message is processed by both active function apps. While this creates the desired active/active pattern, it also creates other challenges around duplication of compute and when or how data is consolidated. 
 
-You could instead deploy two Service Bus queues, with one in a primary region, one in a secondary region. In this case, you could have two function apps, with each pointed to the Service Bus queue active in their region. The challenge with this topology is how the queue messages are distributed between the two regions.  Often, this means that each publisher attempts to publish a message to *both* regions, and each message is processed by both active function apps. While this creates the desired active/active pattern, it also creates other challenges around duplication of compute and when or how data is consolidated. Because of these challenges, we recommend using the [active-passive pattern](#active-passive) for non-HTTPS trigger functions.
 
+### Active-passive pattern for non-HTTPS trigger functions
 
-#### Active-passive
+It's recommended that you use active-passive pattern for your event-driven, non-HTTP triggered functions, such as Service Bus and Event Hubs triggered functions.
 
-To create redundancy for non-HTTP trigger functions, use an active-passive pattern. The active-passive pattern provides a way for only a single function to process each message while providing a mechanism to fail over to a secondary region in a disaster. Function apps work with the failover behaviors of the partner services, such as [Azure Service Bus geo-recovery](../service-bus-messaging/service-bus-geo-dr.md) and [Azure Event Hubs geo-recovery](../event-hubs/event-hubs-geo-dr.md). The secondary function app is considered _passive_ because the failover service to which it's connected isn't currently active, so the function app remains _idle_.
+To create redundancy for non-HTTP trigger functions, use an active-passive pattern. With an active-passive pattern, functions run actively in the region that's receiving events; while the same functions in a second region remain idle. The active-passive pattern provides a way for only a single function to process each message while providing a mechanism to fail over to the secondary region in a disaster. Function apps work with the failover behaviors of the partner services, such as [Azure Service Bus geo-recovery](../service-bus-messaging/service-bus-geo-dr.md) and [Azure Event Hubs geo-recovery](../event-hubs/event-hubs-geo-dr.md). 
 
 Consider an example topology using an Azure Event Hubs trigger. In this case, the active/passive pattern requires involve the following components:
 
