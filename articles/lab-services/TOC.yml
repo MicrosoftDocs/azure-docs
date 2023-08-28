@@ -187,11 +187,9 @@
     items:
     - name: Create labs (ARM/PowerShell/Bicep/Python)
       items:
-      - name: Create a lab (ARM template)
-        href: how-to-create-lab-template.md
       - name: Create a lab (PowerShell)
         href: how-to-create-lab-powershell.md
-      - name: Create a lab (Bicep)
+      - name: Create a lab (Bicep/ARM template)
         href: how-to-create-lab-bicep.md
       - name: Create a lab (Python)
         href: how-to-create-lab-python.md
