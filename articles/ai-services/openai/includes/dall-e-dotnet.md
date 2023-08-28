@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Use Azure OpenAI Service with the C# SDK'
+title: 'Quickstart: Use Azure OpenAI Service with the C# SDK to generate images'
 titleSuffix: Azure OpenAI
-description: Walkthrough on how to get started with Azure OpenAI and make your first completions call with the C# SDK. 
+description: Walkthrough on how to get started with Azure OpenAI and make your first image generation call with the C# SDK. 
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
@@ -21,40 +21,9 @@ keywords:
 - Access granted to Azure OpenAI Service in the desired Azure subscription.
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI Service by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access?azure-portal=true).
 - The [.NET 7 SDK](https://dotnet.microsoft.com/download/dotnet/7.0)
-- The following Python libraries: os.
-- An Azure OpenAI Service resource.
-
-## Set up
-
-### Create a new .NET Core application
-In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `azure-openai-quickstart`. This command creates a simple "Hello World" project with a single C# source file: *Program.cs*.
-
-```dotnetcli
-dotnet new console -n azure-openai-quickstart
-```
-
-Change your directory to the newly created app folder. You can build the application with:
-
-```dotnetcli
-dotnet build
-```
-
-The build output should contain no warnings or errors.
-
-```output
-...
-Build succeeded.
- 0 Warning(s)
- 0 Error(s)
-...
-```
-
-Install the OpenAI .NET client library with:
-
-```dotnetcli
-dotnet add package Azure.AI.OpenAI --version 1.0.0-beta.6
-```
-
+* Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesOpenAI"  title="create an Azure OpenAI resource"  target="_blank">create a Vision resource</a> in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
+    * You need the key and endpoint from the resource you create to connect your application to the Azure AI Vision service.
+    * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
 ### Retrieve key and endpoint
 
@@ -104,6 +73,38 @@ echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/envi
 ```
 ---
 
+## Create a new .NET Core application
+
+In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `azure-openai-quickstart`. This command creates a simple "Hello World" project with a single C# source file: *Program.cs*.
+
+```dotnetcli
+dotnet new console -n azure-openai-quickstart
+```
+
+Change your directory to the newly created app folder. You can build the application with:
+
+```dotnetcli
+dotnet build
+```
+
+The build output should contain no warnings or errors.
+
+```output
+...
+Build succeeded.
+ 0 Warning(s)
+ 0 Error(s)
+...
+```
+
+## Install the OpenAI .NET SDK
+
+Install the client library with:
+
+```dotnetcli
+dotnet add package Azure.AI.OpenAI --version 1.0.0-beta.6
+```
+
 ## Generate images with DALL-E
 
 From the project directory, open the *program.cs* file and replace with the following code:
@@ -143,13 +144,23 @@ namespace Azure.AI.OpenAI.Tests.Samples
 }
 ```
 
+Build and run the application from your application directory with these commands:
+
+```dotnet
+dotnet build
+dotnet run
+```
+
 ## Output
 
 The URL of the generated image is printed to the console.
 
-```output
+```console
 https://dalleproduse.blob.core.windows.net/private/images/552c5522-af4a-4877-a19c-400fac04a422/generated_00.png?se=2023-08-17T16%3A54%3A40Z&sig=XGCIx9r0WvWTJ0LL%2FJGymo2WYp4FDbSQNNrGRUnnUzI%3D&ske=2023-08-19T01%3A10%3A14Z&skoid=09ba021e-c417-441c-b203-c81e5dcd7b7f&sks=b&skt=2023-08-12T01%3A10%3A14Z&sktid=33e01921-4d64-4f8c-a055-5bdaffd5e33d&skv=2020-10-02&sp=r&spr=https&sr=b&sv=2020-10-02
 ```
+
+> [!NOTE]
+> The image generation APIs come with a content moderation filter. If the service recognizes your prompt as harmful content, it won't return a generated image. For more information, see the [content filter](../concepts/content-filter.md) article.
 
 ## Clean up resources
 
@@ -160,5 +171,5 @@ If you want to clean up and remove an OpenAI resource, you can delete the resour
 
 ## Next steps
 
-* Learn more about how to work with GPT-35-Turbo and the GPT-4 models with [our how-to guide](../how-to/chatgpt.md).
-* For more examples, check out the [Azure OpenAI Samples GitHub repository](https://aka.ms/AOAICodeSamples)
+* [Azure OpenAI Overview](../overview.md)
+* For more examples check out the [Azure OpenAI Samples GitHub repository](https://github.com/Azure/openai-samples).

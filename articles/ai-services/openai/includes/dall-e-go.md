@@ -11,12 +11,7 @@ ms.date: 08/28/2023
 keywords: 
 ---
 
-Use this guide to get started calling the image generation APIs using the Go SDK.
-
 [Source code](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/ai/azopenai) | [Package](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/cognitiveservices/azopenai) | [Samples](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/ai/azopenai)
-
-> [!NOTE]
-> The image generation API creates an image from a text prompt. It does not edit existing images or create variations.
 
 ## Prerequisites
 
@@ -24,7 +19,7 @@ Use this guide to get started calling the image generation APIs using the Go SDK
 - Access granted to DALL-E in the desired Azure subscription
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Existing Azure OpenAI customers need to re-enter the form to get access to DALL-E. Open an issue on this repo to contact us if you have an issue.
 * [Go 1.8+](https://go.dev/doc/install)
-* Once you have your Azure subscription, <a href="tbd"  title="create an Azure OpenAI resource"  target="_blank">create a Vision resource</a> in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
+* Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesOpenAI"  title="create an Azure OpenAI resource"  target="_blank">create a Vision resource</a> in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
     * You need the key and endpoint from the resource you create to connect your application to the Azure AI Vision service.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
@@ -73,23 +68,29 @@ echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/envi
 ```
 ---
 
+## Create a new Go application
+
+Open the command prompt and navigate to your project folder. Create a new file *sample.go*.
+
 ## Install the Go SDK
 
-Open the command prompt and navigate to your project folder. Install the OpenAI Go SDK using the following command: 
+Install the OpenAI Go SDK using the following command: 
 
 ```shell
-go get github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai@latest```
+go get github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai@latest
+```
 
-or if you use `dep`, within your repo run:
+Or, if you use `dep`, within your repo run:
+
 ```shell
 dep ensure -add github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai
 ```
 
-## Create the OpenAI project
+## Generate images with DALL-E
 
-Create a new file called *sample.go* in your preferred project directory, and open it in your preferred code editor.
+Open *sample.go* in your preferred code editor.
 
-Add the following code to your script to create a new Custom Vision service project.
+Add the following code to your script:
 
 ```go
 package main
@@ -152,7 +153,7 @@ func main() {
 }
 ```
 
-Run *sample.go*.
+Run the script using the `go run` command:
 
 ```shell
 go run sample.go
@@ -160,12 +161,14 @@ go run sample.go
 
 ## Output
 
+The URL of the generated image is printed to the console.
+
 ```console
 Image generated, HEAD request on URL returned 200
 Image URL: https://dalleproduse.blob.core.windows.net/private/images/d7b28a5c-ca32-4792-8c2a-6a5d8d8e5e45/generated_00.png?se=2023-08-29T17%3A05%3A37Z&sig=loqntaPypYVr9VTT5vpbsjsCz31g1GsdoQi0smbGkks%3D&ske=2023-09-02T18%3A53%3A23Z&skoid=09ba021e-c417-441c-b203-c81e5dcd7b7f&sks=b&skt=2023-08-26T18%3A53%3A23Z&sktid=33e01921-4d64-4f8c-a055-5bdaffd5e33d&skv=2020-10-02&sp=r&spr=https&sr=b&sv=2020-10-02
 ```
-
-The image generation APIs come with a content moderation filter. If the service recognizes your prompt as harmful content, it won't return a generated image. For more information, see the [content filter](../concepts/content-filter.md) article.
+> [!NOTE]
+> The image generation APIs come with a content moderation filter. If the service recognizes your prompt as harmful content, it won't return a generated image. For more information, see the [content filter](../concepts/content-filter.md) article.
 
 ## Clean up resources
 
