@@ -67,7 +67,7 @@ Azure calculates [billing](billing.md#consumption-dedicated) largely based on th
 
 ## Networking
 
-When you use the workload profile environment, extra networking features that fully secure your ingress and egress networking traffic (such as user defined routes) are available. To learn more about what networking features are supported, see [Networking in Azure Container Apps environment](./networking.md). For steps on how to secure your network with Container Apps, see the [lock down your Container App environment section](./networking.md#lock-down-your-container-app-environment).
+When you use the workload profile environment, extra networking features that fully secure your ingress and egress networking traffic (such as user defined routes) are available. To learn more about what networking features are supported, see [Networking in Azure Container Apps environment](./networking.md). For steps on how to secure your network with Container Apps, see the [lock down your Container App environment section](networking.md#environment-security).
 
 ## Next steps
 
