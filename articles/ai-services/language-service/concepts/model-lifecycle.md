@@ -80,9 +80,9 @@ Training configurations are typically available for **six months** after its rel
 > [!Tip]
 > It's recommended to use the latest supported config version.
 
-After the **Training Config Expiration** date, you'll have to use another supported training config version for submitting any training or deployment jobs. After the **Deployment Expiration** date, your deployed model will be unavailable to be used for prediction.
+After the **training config expiration** date, you'll have to use another supported training configuration version to submit any training or deployment jobs. After the **deployment expiration** date, your deployed model will be unavailable to be used for prediction.
 
-After training config version expires, API calls will return an error when called or used if called with an expired config version. By default, training requests use the latest available training config version. To change the config version, use the trainingConfigVersion parameter when submitting a training job and assign the version you want.
+After training config version expires, API calls will return an error when called or used if called with an expired configuration version. By default, training requests use the latest available training configuration version. To change the configuration version, use the `trainingConfigVersion` parameter when submitting a training job and assign the version you want.
 
 
 
