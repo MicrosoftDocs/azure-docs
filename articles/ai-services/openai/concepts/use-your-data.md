@@ -9,7 +9,7 @@ ms.subservice: openai
 ms.topic: quickstart
 author: aahill
 ms.author: aahi
-ms.date: 08/22/2023
+ms.date: 08/25/2023
 recommendations: false
 ---
 
@@ -67,21 +67,22 @@ There is an [upload limit](../quotas-limits.md), and there are some caveats abou
 
 ## Virtual network support & private network support
 
+You can protect Azure OpenAI resources in [virtual networks and private endpoints](/azure/ai-services/cognitive-services-virtual-networks) the same way as any Azure AI service.
+
 If you have Azure OpenAI resource protected by a private network, and want to allow Azure OpenAI on your data to access your search service, complete [an application form](https://aka.ms/applyacsvpnaoaionyourdata). The application will be reviewed in five business days and you will be contacted via email about the results. If you are eligible, we will send a private endpoint request to your search service, and you will need to approve the request.
 
 :::image type="content" source="../media/use-your-data/approve-private-endpoint.png" alt-text="A screenshot showing private endpoint approval screen." lightbox="../media/use-your-data/approve-private-endpoint.png":::
 
 Learn more about the [manual approval workflow](/azure/private-link/private-endpoint-overview#access-to-a-private-link-resource-using-approval-workflow).
 
-After you approve the request in your search service, you can start using the [chat completions extensions API](/azure/ai-services/openai/reference#completions-extensions). Public network access can be disabled for that search service. Private network access for Azure OpenAI Studio is not currently supported.
+After you approve the request in your search service, you can start using the [chat completions extensions API](/azure/ai-services/openai/reference#completions-extensions). Public network access can be disabled for that search service.
 
-### Azure OpenAI resources in private networks
+> [!NOTE]
+> Virtual network support & private networks are only supported for the API, and not currently supported for Azure OpenAI Studio. 
 
-You can protect Azure OpenAI resource in [private networks](/azure/ai-services/cognitive-services-virtual-networks) the same way as any Azure AI services.
+### Storage accounts in private virtual networks
 
-### Storage accounts in private networks
-
-Storage accounts in private networks are currently not supported by Azure OpenAI on your data.
+Storage accounts in virtual networks and private endpoints are currently not supported by Azure OpenAI on your data.
 
 ## Azure Role-based access controls (Azure RBAC)
 
@@ -93,6 +94,90 @@ To add a new data source to your Azure OpenAI resource, you need the following A
 |[Cognitive Services Contributor](../how-to/role-based-access-control.md#cognitive-services-contributor) | You want to use Azure OpenAI on your data. |
 |[Search Index Data Contributor](/azure/role-based-access-control/built-in-roles#search-index-data-contributor)     | You have an existing Azure Cognitive Search index that you want to use, instead of creating a new one.        |
 |[Storage Blob Data Contributor](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor)     | You have an existing Blob storage container that you want to use, instead of creating a new one.        |
+
+## Document-level access control
+
+Azure OpenAI on your data lets you restrict the documents that can be used in responses for different users with Azure Cognitive Search [security filters](/azure/search/search-security-trimming-for-azure-search-with-aad). When you enable document level access, the search results returned from Azure Cognitive Search and used to generate a response will be trimmed based on user Azure Active Directory (AD) group membership. You can only enable document-level access on existing Azure Cognitive search indexes. To enable document-level access:
+
+1. Follow the steps in the [Azure Cognitive Search documentation](/azure/search/search-security-trimming-for-azure-search-with-aad) to register your application and create users and groups.
+1. [Index your documents with their permitted groups](/azure/search/search-security-trimming-for-azure-search-with-aad#index-document-with-their-permitted-groups). Be sure that your new [security fields](/azure/search/search-security-trimming-for-azure-search#create-security-field) have the schema below:
+        
+    ```json
+    {"name": "group_ids", "type": "Collection(Edm.String)", "filterable": true }
+    ```
+
+    `group_ids` is the default field name. If you use a different field name like `my_group_ids`, you can map the field in [index field mapping](#index-field-mapping).
+
+1. Make sure each sensitive document in the index has the value set correctly on this security field to indicate the permitted groups of the document.
+1. In [Azure OpenAI Studio](https://oai.azure.com/portal), add your data source. in the [index field mapping](#index-field-mapping) section, you can map zero or one value to the **permitted groups** field, as long as the schema is compatible. If the **Permitted groups** field isn't mapped, document level access won't be enabled. 
+
+**Azure OpenAI Studio**
+
+Once the Azure Cognitive Search index is connected, your responses in the studio will have document access based on the Azure AD permissions of the logged in user.
+
+**Web app**
+
+If you are using a published [web app](#using-the-web-app), you need to redeploy it to upgrade to the latest version. The latest version of the web app includes the ability to retrieve the groups of the logged in user's Azure AD account, cache it, and include the group IDs in each API request.
+
+**API**
+
+When using the API, pass the `filter` parameter in each API request. For example:
+
+```json
+{
+    "messages": [
+        {
+            "role": "user",
+            "content": "who is my manager?"
+        }
+    ],
+    "dataSources": [
+        {
+            "type": "AzureCognitiveSearch",
+            "parameters": {
+                "endpoint": "'$SearchEndpoint'",
+                "key": "'$SearchKey'",
+                "indexName": "'$SearchIndex'",
+                "filter": "my_group_ids/any(g:search.in(g, 'group_id1, group_id2'))"
+            }
+        }
+    ]
+}
+```
+* `my_group_ids` is the field name that you selected for **Permitted groups** during [fields mapping](#index-field-mapping).
+* `group_id1, group_id2` are groups attributed to the logged in user. The client application can retrieve and cache users' groups.
+
+
+## Schedule automatic index refreshes
+
+To keep your Azure Cognitive Search index up-to-date with your latest data, you can schedule a refresh for it that runs automatically rather than manually updating it every time your data is updated. to enable an automatic index refresh:
+
+1. [Add a data source](../quickstart.md) using Azure OpenAI studio.
+1. Under **Select or add data source** select **Indexer schedule** and choose the refresh cadence you would like to apply.
+
+    :::image type="content" source="../media/use-your-data/indexer-schedule.png" alt-text="A screenshot of the indexer schedule in Azure OpenAI Studio." lightbox="../media/use-your-data/indexer-schedule.png":::
+
+After the data ingestion is set to a cadence other than once, Azure Cognitive Search indexers will be created with a schedule equivalent to `0.5 * the cadence specified`. This means that at the specified cadence, the indexers will pull the documents that were added, modified, or deleted from the storage container, reprocess and index them. This ensures that the updated data gets preprocessed and indexed in the final index at the desired cadence automatically. The intermediate assets created in the Azure Cognitive Search resource will not be cleaned up after ingestion to allow for future runs. These assets are:
+   - `{Index Name}-index`
+   - `{Index Name}-indexer`
+   - `{Index Name}-indexer-chunk`
+   - `{Index Name}-datasource`
+   - `{Index Name}-skillset`
+
+To modify the schedule, you can use the [Azure portal](https://portal.azure.com/).
+
+1. Open your search resource page in the Azure portal
+1. Select **Indexers** from the left pane 
+    
+    :::image type="content" source="../media/use-your-data/indexers-azure-portal.png" alt-text="A screenshot of the indexers tab in the Azure portal." lightbox="../media/use-your-data/indexers-azure-portal.png":::
+
+1. Perform the following steps on the two indexers that have your index name as a prefix.
+    1. Select the indexer to open it. Then select the **settings** tab.
+    1. Update the schedule to the desired cadence from "Schedule" or specify a custom cadence from "Interval (minutes)"
+        
+        :::image type="content" source="../media/use-your-data/indexer-schedule-azure-portal.png" alt-text="A screenshot of the settings page for an individual indexer." lightbox="../media/use-your-data/indexer-schedule-azure-portal.png":::
+
+    1. Select **Save**.
 
 ## Recommended settings
 
@@ -119,13 +204,29 @@ Set a limit on the number of tokens per model response. The upper limit for Azur
 
 This option encourages the model to respond using your data only, and is selected by default. If you unselect this option, the model may more readily apply its internal knowledge to respond. Determine the correct selection based on your use case and scenario. 
 
-### Semantic search 
+### Search options
+
+Azure OpenAI on your data provides several search options you can use when you add your data source, leveraging the following types of search.
+
+* [Simple search](/azure/search/search-lucene-query-architecture)
+* [Semantic search](/azure/search/semantic-search-overview)
+* [Vector search](/azure/search/vector-search-overview) using Ada [embedding](./understand-embeddings.md) models. 
+
+    To enable vector search, you will need a `text-embedding-ada-002` deployment in your Azure OpenAI resource. Select your embedding deployment when connecting your data, then select one of the vector search types under **Data management**.  
 
 > [!IMPORTANT]
-> * Semantic search is subject to [additional pricing](/azure/search/semantic-search-overview#availability-and-pricing)
+> * [Semantic search](/azure/search/semantic-search-overview#availability-and-pricing) and [vector search](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) are subject to additional pricing.
 > * Currently Azure OpenAI on your data supports semantic search for English data only. Only enable semantic search if both your documents and use case are in English.
 
-If [semantic search](/azure/search/semantic-search-overview) is enabled for your Azure Cognitive Search service, you are more likely to produce better retrieval of your data, which can improve response and citation quality.
+| Search option       | Retrieval type | Additional pricing? | 
+|---------------------|------------------------|---------------------|
+| *simple*            | Simple search                       | No additional pricing.                    |
+| *semantic*          |  Semantic search  |  Additional pricing for [semantic search](/azure/search/semantic-search-overview#availability-and-pricing) usage.                  |      
+| *vector*            | Vector search       | [Additional pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) on your Azure OpenAI account from calling the embedding model.                    |   
+| *vector + simple*   | A hybrid of vector search and simple search | [Additional pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) on your Azure OpenAI account from calling the embedding model.            |      
+| *vector + semantic* | A hybrid of vector search and semantic search for retrieval.     | [Additional pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) on your Azure OpenAI account from calling the embedding model, and additional pricing for [semantic search](/azure/search/semantic-search-overview#availability-and-pricing) usage.                    |     
+
+The optimal search option can vary depending on your dataset and use-case. You may need to experiment with multiple options to determine which works best for your use-case.
 
 ### Index field mapping 
 
@@ -216,6 +317,24 @@ When customizing the app, we recommend:
     
     Now users will be asked to sign in with their Azure Active Directory account to be able to access your app. You can follow a similar process to add another identity provider if you prefer. The app doesn't use the user's login information in any other way other than verifying they are a member of your tenant.
 
+### Chat history
+
+You can enable chat history for your users of the web app. By enabling the feature, your users will have access to their individual previous queries and responses. 
+
+To enable chat history, deploy or redeploy your model as a web app using [Azure OpenAI Studio](https://oai.azure.com/portal)
+
+:::image type="content" source="../media/use-your-data/enable-chat-history.png" alt-text="A screenshot of the chat history enablement button on Azure OpenAI studio." lightbox="../media/use-your-data/enable-chat-history.png":::
+
+> [!IMPORTANT]
+> Enabling chat history will create a [Cosmos DB](/azure/cosmos-db/introduction) instance in your resource group, and incur [additional charges](https://azure.microsoft.com/pricing/details/cosmos-db/autoscale-provisioned/) for the storage used. 
+
+Once you've enabled chat history, your users will be able to show and hide it in the top right corner of the app. When the history is shown, they can rename, or delete conversations. As they're logged into the app, conversations will be automatically ordered from newest to oldest, and named based on the first query in the conversation. 
+
+:::image type="content" source="../media/use-your-data/web-app-chat-history.jpg" alt-text="A screenshot of the chat history in the web app." lightbox="../media/use-your-data/web-app-chat-history.jpg":::
+
+#### Deleting your Cosmos DB instance
+
+Deleting your web app does not delete your Cosmos DB instance automatically. To delete your Cosmos DB instance, along with all stored chats, you need to navigate to the associated resource in the [Azure portal](https://portal.azure.com) and delete it. If you delete the Cosmos DB resource but keep the chat history option enabled on the studio, your users will be notified of a connection error, but can continue to use the web app without access to the chat history.
 
 ### Using the API
 

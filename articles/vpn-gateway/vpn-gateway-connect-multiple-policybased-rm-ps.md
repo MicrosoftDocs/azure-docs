@@ -73,7 +73,7 @@ The workflow to enable this connectivity:
 
 This section shows you how to enable policy-based traffic selectors on a connection. Make sure you have completed [Part 3 of the Configure IPsec/IKE policy article](vpn-gateway-ipsecikepolicy-rm-powershell.md). The steps in this article use the same parameters.
 
-### Step 1 - Create the virtual network, VPN gateway, and local network gateway
+### Step 1: Create the virtual network, VPN gateway, and local network gateway
 
 #### Connect to your subscription and declare your variables
 
@@ -131,7 +131,7 @@ This section shows you how to enable policy-based traffic selectors on a connect
     New-AzLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 -Location $Location1 -GatewayIpAddress $LNGIP6 -AddressPrefix $LNGPrefix61,$LNGPrefix62
     ```
 
-### Step 2 - Create an S2S VPN connection with an IPsec/IKE policy
+### Step 2: Create an S2S VPN connection with an IPsec/IKE policy
 
 1. Create an IPsec/IKE policy.
 

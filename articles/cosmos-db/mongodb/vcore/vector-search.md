@@ -4,12 +4,11 @@ titleSuffix: Azure Cosmos DB for MongoDB vCore
 description: Use vector indexing and search to integrate AI-based applications in Azure Cosmos DB for MongoDB vCore.
 author: gahl-levy
 ms.author: gahllevy
-ms.reviewer: nayakshweta
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: mongodb-vcore
-ms.custom: build-2023
 ms.topic: conceptual
-ms.date: 05/10/2023
+ms.date: 08/28/2023
 ---
 
 # Use vector search on embeddings in Azure Cosmos DB for MongoDB vCore
@@ -198,4 +197,4 @@ In this example, `vectorIndex` is returned with all the `cosmosSearch` parameter
 This guide demonstrates how to create a vector index, add documents that have vector data, perform a similarity search, and retrieve the index definition. By using vector search, you can efficiently store, index, and query high-dimensional vector data directly in Azure Cosmos DB for MongoDB vCore. Vector search enables you to unlock the full potential of your data via vector embeddings, and it empowers you to build more accurate, efficient, and powerful applications.
 
 > [!div class="nextstepaction"]
-> [Introduction to Azure Cosmos DB for MongoDB vCore](introduction.md)
+> [Build AI apps with Azure Cosmos DB for MongoDB vCore vector search](vector-search-ai.md)

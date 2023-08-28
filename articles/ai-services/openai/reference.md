@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: conceptual
-ms.date: 08/15/2023
+ms.date: 08/25/2023
 author: mrbullwinkle
 ms.author: mbullwin
 recommendations: false
@@ -387,7 +387,10 @@ The following parameters can be used inside of the `parameters` field inside of 
 | `topNDocuments` | number | Optional | 5 | Number of documents that need to be fetched for document augmentation.  |
 | `queryType` | string | Optional | simple |  Indicates which query option will be used for Azure Cognitive Search. |
 | `semanticConfiguration` | string | Optional | null |  The semantic search configuration. Only available when `queryType` is set to `semantic`.  |
-| `roleInformation` | string | Optional | null |  Gives the model instructions about how it should behave and the context it should reference when generating a response. Corresponds to the “System Message” in Azure OpenAI Studio. <!--See [Using your data](./concepts/use-your-data.md#system-message) for more information.--> There’s a 100 token limit, which counts towards the overall token limit.|
+| `roleInformation` | string | Optional | null |  Gives the model instructions about how it should behave and the context it should reference when generating a response. Corresponds to the "System Message" in Azure OpenAI Studio. See [Using your data](./concepts/use-your-data.md#system-message) for more information. There’s a 100 token limit, which counts towards the overall token limit.|
+| `filter` | string | Optional | null | The filter pattern used for [restricting access to sensitive documents](./concepts/use-your-data.md#document-level-access-control)
+| `embeddingEndpoint` | string | Optional | null | the endpoint URL for an Ada embedding model deployment. Used for [vector search](./concepts/use-your-data.md#search-options). | 
+| `embeddingKey` | string | Optional | null | the API key for an Ada embedding model deployment. Used for [vector search](./concepts/use-your-data.md#search-options). | 
 
 ## Image generation
 
