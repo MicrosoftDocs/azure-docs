@@ -24,6 +24,21 @@ Apps are services that run continuously. If a container in an app fails, it's re
 
 Jobs are tasks that start, run for a finite duration, and exit when finished. Each execution of a job typically performs a single unit of work. Job executions start manually, on a schedule, or in response to events. Examples of jobs include batch processes that run on demand and scheduled tasks.
 
+### Example scenarios
+
+The following table compares common scenarios for apps and jobs:
+
+| Container | Compute resource | Notes |
+|---|---|---|
+| An HTTP server that serves web content and API requests | App | Configure an [HTTP scale rule](scale-app.md#http). |
+| A process that generates financial reports nightly | Job | Use the [`Schedule` job type](#scheduled-jobs) and configure a cron expression. |
+| A continuously-running service that processes messages from an Azure Service Bus queue | App | Configure a [custom scale rule](scale-app.md#custom). |
+| A job that processes a single message or a small batch of messages from an Azure queue and exits | Job | Use the `Event` job type and [configure a custom scale rule](tutorial-event-driven-jobs.md) to trigger job executions. |
+| A background task that's triggered on-demand and exits when finished | Job | Use the `Manual` job type and [start executions](##start-a-job-execution-on-demand) manually or programmatically using an API. |
+| A self-hosted GitHub Actions runner that runs a workflow on demand | Job | Use the `Event` job type and [configure a GitHub Actions scale rule](tutorial-ci-cd-runners-jobs.md?pivots=container-apps-jobs-self-hosted-ci-cd-azure-pipelines). |
+| An Azure Functions app | App | [Deploy Azure Functions to Container Apps](../azure-functions/functions-container-apps-hosting.md). |
+| An event-driven app using the Azure WebJobs SDK | App | [Configure a scale rule](scale-app.md#custom) for each event source. |
+
 ## Job trigger types
 
 A job's trigger type determines how the job is started. The following trigger types are available:
