@@ -2,6 +2,7 @@
   href: index.yml
 
 - name: Get started
+  expanded: true
   items:
     - name: About Azure Container Apps
       href: overview.md
@@ -26,17 +27,14 @@
         - name: Build and deliver apps with Container Apps (video)
           href: https://www.youtube.com/watch?v=b3dopSTnSRg
 - name: Quickstarts
-  expanded: true
   items: 
   - name: Deploy from an existing container image
-    expanded: true
     items:
     - name: Azure portal
       href: quickstart-portal.md
     - name: Command line
       href: get-started.md
   - name: Deploy from code
-    expanded: true
     items:
     - name: Command line
       href: quickstart-code-to-cloud.md
@@ -73,7 +71,6 @@
             - name: Java Quarkus app with Postgres DB
               href: tutorial-java-quarkus-connect-managed-identity-postgresql-database.md
     - name: Build a multiple app scenario
-      expanded: true
       items:
         - name: Deploy a backend microservice app
           href: tutorial-code-to-cloud.md
@@ -96,7 +93,6 @@
     - name: Use health probes
       href: health-probes.md
     - name: Storage mounts
-      expanded: true
       items:
         - name: Use storage mounts
           href: storage-mounts.md
@@ -109,7 +105,7 @@
         - name: With a job
           href: tutorial-event-driven-jobs.md
     - name: Reliability in Azure Container Apps
-      href: ../reliability/reliability-azure-container-apps.md
+      href: disaster-recovery.md
 - name: Logs and monitoring
   items:
     - name: Overview
@@ -133,10 +129,8 @@
     - name: Scale an app
       href: scale-app.md
 - name: Domains & certificates
-  expanded: true
   items:
     - name: Custom domains & certificates
-      expanded: true
       items:
         - name: Set up custom domain with a free certificate
           href: custom-domains-managed-certificates.md
@@ -194,7 +188,6 @@
     - name: Enable token authentication for Dapr requests 
       href: dapr-authentication-token.md
     - name: Deploy microservices
-      expanded: true
       items:
         - name: Microservices with Dapr using the CLI
           href: microservices-dapr.md
@@ -251,7 +244,6 @@
     - name: Use a custom VNET
       href: vnet-custom.md
 - name: Billing and quotas
-  expanded: true
   items:
     - name: Billing
       href: billing.md
