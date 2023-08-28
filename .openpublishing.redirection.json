@@ -24258,7 +24258,6 @@
             "redirect_document_id": false
         },
         {
-<<<<<<< HEAD
             "source_path_from_root": "/articles/app-service/overview-disaster-recovery.md",
             "redirect_url": "/azure/reliability/reliability-app-service",
             "redirect_document_id": false
@@ -24271,10 +24270,8 @@
         {
             "source_path_from_root": "/articles/hdinsight/hdinsight-business-continuity.md",
             "redirect_url": "/azure/reliability/reliability-hdinsight",
-=======
             "source_path_from_root": "/articles/reliability/reliability-postgre-flexible.md",
             "redirect_url": "/azure/reliability/reliability-postgresql-flexible-server",
->>>>>>> 77dad6bad94abab6dd9c2d71c39056f1cd2dec81
             "redirect_document_id": false
         }
     ]
