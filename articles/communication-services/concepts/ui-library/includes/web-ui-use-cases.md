@@ -39,28 +39,24 @@ Get more conceptual documentation, quickstarts, and examples in the [UI Library 
 
 ## Chat use cases
 
-| Area         | Use cases                                        |
-| ------------ | ------------------------------------------------ |
-| Chat types   | Join a Microsoft Teams meeting chat                        |
-|              | Join an Azure Communication Services chat thread |
-| Teams interoperability  | Send and receive chat messages                                               |
-|  | Send typing indicators                                            |
-|                     | Receive rich text messages              |
-|                     | Receive inline images*              |
-|                     | Receive file attachments*              |
-| Chat actions | Send a chat message                                |
-|              | Receive a chat message                             |
-| Chat events  | Show typing indicators                                |
-|              | Show a read receipt                                     |
-|              | Show when a participant is added or removed                        |
-|              | Show changes to the chat title                               |
-| Participants | Show a participant roster                               |
 
-\*Microsoft Teams allows users to share attached image files that are stored behind authenticated servers, which may require additional configuration when using the UI Library. To learn more about this, see the storybook page for [Teams Inline Image](https://azure.github.io/communication-ui-library/?path=/docs/examples-teamsinterop-inlineimage--inline-image#inline-images).
+| Area         | Azure Communication Services Chat | Teams Interoperability Chat |
+| ------------ | ------------------------------------------------ |------------------------------------------------ |
+| Chat types   | Join an Azure Communication Services chat thread | Join a Microsoft Teams meeting chat                        |
+| Chat actions | Send and show text messages        | Send and show text messages          |
+|  | show rich text messages        | show rich text messages          |
+|  | -       | show inline images*        |
+|  | Send and show file attachments          | show file attachments**        |
+|              | Show when a participant is added or removed                        | Show when a participant is added or removed    |
+| Chat events  | Send and show typing indicators | Send and show typing indicators  | 
+|  | Send and show read receipts       | Send and show read receipts          |
+| | Show when a participant is added or removed  | Show when a participant is added or removed | 
+| Participants | Show a participant roster | Show a participant roster |
+
 
 \*Certain GIF images might not be supported by the UI library at this time. The user might receive a static image instead, and this is a known issue. In addition, the Web UI library doesn't support videos at this time.
 
-The Web UI library currently supports the following file permissions:
+\**The Web UI library currently supports the following file permissions:
   - "Anyone", and
   - "People you choose" (with email address)
   
