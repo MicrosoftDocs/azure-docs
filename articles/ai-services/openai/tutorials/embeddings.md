@@ -65,7 +65,7 @@ You can also download the sample data by running the following command on your l
 curl "https://raw.githubusercontent.com/Azure-Samples/Azure-OpenAI-Docs-Samples/main/Samples/Tutorials/Embeddings/data/bill_sum_data.csv" --output bill_sum_data.csv
 ```
 
-[!INCLUDE [get-key-endpoint](get-key-endpoint.md)]
+[!INCLUDE [get-key-endpoint](../includes/get-key-endpoint.md)]
 
 ### Environment variables
 
