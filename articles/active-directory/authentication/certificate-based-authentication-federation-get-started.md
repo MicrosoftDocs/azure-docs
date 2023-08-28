@@ -5,6 +5,7 @@ description: Learn how to configure certificate-based authentication with federa
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
+ms.custom: has-azure-ad-ps-ref
 ms.topic: how-to
 ms.date: 05/04/2022
 
@@ -14,7 +15,6 @@ manager: amycolannino
 ms.reviewer: annaba
 
 ms.collection: M365-identity-device-management
-
 ---
 # Get started with certificate-based authentication in Azure Active Directory with federation
 

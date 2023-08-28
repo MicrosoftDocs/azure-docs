@@ -121,6 +121,7 @@ This section provides references to SAP on Azure solutions.
 * [SAP S/4HANA in Linux on Azure - Azure Architecture Center](/azure/architecture/reference-architectures/sap/sap-s4hana)
 * [Run SAP BW/4HANA with Linux VMs - Azure Architecture Center](/azure/architecture/reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines)
 * [SAP HANA Azure virtual machine storage configurations](../virtual-machines/workloads/sap/hana-vm-operations-storage.md)
+* [SAP on Azure NetApp Files Sizing Best Practices](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-on-azure-netapp-files-sizing-best-practices/ba-p/3895300)
 * [Optimize HANA deployments with Azure NetApp Files application volume group for SAP HANA](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/optimize-hana-deployments-with-azure-netapp-files-application/ba-p/3683417)
 * [Using Azure NetApp Files AVG for SAP HANA to deploy HANA with multiple partitions (MP)](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/using-azure-netapp-files-avg-for-sap-hana-to-deploy-hana-with/ba-p/3742747)
 * [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](../virtual-machines/workloads/sap/hana-vm-operations-netapp.md)

@@ -1,6 +1,6 @@
 ---
-title: Authorize request to Web PubSub resources with Azure AD from managed identities
-description: This article provides information about authorizing request to Web PubSub resources with Azure AD from managed identities
+title: Authorize request to Web PubSub resources with Microsoft Entra ID from managed identities
+description: This article provides information about authorizing request to Web PubSub resources with Microsoft Entra ID from managed identities
 author: terencefan
 
 ms.author: tefa
@@ -9,9 +9,9 @@ ms.service: azure-web-pubsub
 ms.topic: conceptual
 ---
 
-# Authorize request to Web PubSub resources with Azure AD from managed identities
+# Authorize request to Web PubSub resources with Microsoft Entra ID from managed identities
 
-Azure Web PubSub Service supports Azure Active Directory (Azure AD) authorizing requests from [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
+Azure Web PubSub Service supports Microsoft Entra ID for authorizing requests from [managed identities](../active-directory/managed-identities-azure-resources/overview.md).
 
 This article shows how to configure your Web PubSub resource and codes to authorize the request to a Web PubSub resource from a managed identity.
 
@@ -109,6 +109,6 @@ We officially support 4 programming languages:
 
 See the following related articles:
 
-- [Overview of Azure AD for Web PubSub](concept-azure-ad-authorization.md)
-- [Authorize request to Web PubSub resources with Azure AD from Azure applications](howto-authorize-from-application.md)
+- [Overview of Microsoft Entra ID for Web PubSub](concept-azure-ad-authorization.md)
+- [Authorize request to Web PubSub resources with Microsoft Entra ID from Azure applications](howto-authorize-from-application.md)
 - [Disable local authentication](./howto-disable-local-auth.md)

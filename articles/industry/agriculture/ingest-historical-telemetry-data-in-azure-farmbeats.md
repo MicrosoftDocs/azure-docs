@@ -5,7 +5,7 @@ author: RiyazPishori
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: riyazp
-ms.custom: 
+ms.custom: has-azure-ad-ps-ref
 ---
 
 # Ingest historical telemetry data

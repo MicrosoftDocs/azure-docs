@@ -14,7 +14,7 @@ manager: amycolannino
 ms.reviewer: tilarso
 
 ms.collection: M365-identity-device-management 
-ms.custom:
+ms.custom: has-azure-ad-ps-ref
 ---
 # Pre-populate user authentication contact information for Azure Active Directory self-service password reset (SSPR)
 

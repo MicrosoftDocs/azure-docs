@@ -204,7 +204,7 @@ You can collect more data automatically when you include instrumentation librari
 
 ### [ASP.NET Core](#tab/aspnetcore)
 
-To add a community library, use the `ConfigureOpenTelemetryMeterProvider` or `ConfigureOpenTelemetryTraceProvider` methods.
+To add a community library, use the `ConfigureOpenTelemetryMeterProvider` or `ConfigureOpenTelemetryTracerProvider` methods.
 
 The following example demonstrates how the [Runtime Instrumentation](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.Runtime) can be added to collect extra metrics.
 
@@ -1874,6 +1874,8 @@ Get the request trace ID and the span ID in your code:
    ```
 
 ---
+
+[!INCLUDE [azure-monitor-app-insights-opentelemetry-support](../includes/azure-monitor-app-insights-opentelemetry-support.md)]
 
 ## Next steps
 

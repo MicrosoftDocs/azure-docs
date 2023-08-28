@@ -11,7 +11,7 @@ ms.author: billmath
 ms.topic: reference
 
 ms.collection: M365-identity-device-management 
-ms.custom:
+ms.custom: has-azure-ad-ps-ref
 ---
 
 # Azure AD Connect:  ADSyncTools PowerShell Reference

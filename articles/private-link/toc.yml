@@ -33,6 +33,8 @@
   expanded: true
 - name: Tutorials
   items: 
+  - name: Inspect private endpoint traffic with Azure Firewall
+    href: tutorial-inspect-traffic-azure-firewall.md
   - name: Deploy a private endpoint with a private resolver
     href: tutorial-dns-on-premises-private-resolver.md
   - name: Connect to a storage account
