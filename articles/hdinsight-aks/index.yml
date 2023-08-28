@@ -109,8 +109,8 @@ landingContent:
             url: ./flink/flink-create-cluster-portal.md
       - linkListType: tutorial
         links:
-          - name: Configuration Management
-            href: ./flink/flink-configuration-management.md
+          - text: Configuration Management
+            url: ./flink/flink-configuration-management.md
           - text: Using TableAPI
             url: ./flink/assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2.md
       - linkListType: how-to-guide
