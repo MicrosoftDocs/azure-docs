@@ -20,7 +20,7 @@ Virtual Machine (VM) and Virtual Machine Scale Sets are availability zone enable
 
 - **Zone-redundant**. VM resources are replicated to one or more zones within the region to improve the resiliency of the application and data in a High Availability (HA) architecture.
 
-When you migrate resources to availability zone support, we recommend that you select multiple zones for your new VMs and Virtual Machine Scale Sets, to ensure high-availability of your compute resources.
+To ensure high-availability of your compute resources, we recommend that you select multiple zones for your new VMs and Virtual Machine Scale Sets when you migrate to availability zones.
 
 For more information on availability zone support for VM services, see [Reliability in Virtual Machines](./reliability-virtual-machines.md). For availability zone support for Virtual Machine scale sets, see [Reliability in Virtual Machine Scale Sets](./reliability-virtual-machine-scale-sets.md).
 
