@@ -11,17 +11,28 @@ ms.date: 08/22/2023
 
 # Request a core limit increase
 
-This article describes how to collect the information and how to submit a support request for increasing the number of resources for Microsoft Dev Box in your Azure subscription. You can 
-
+This article describes how to submit a support request for increasing the number of resources for Microsoft Dev Box in your Azure subscription. 
 
 When you reach the limit for a resource in your subscription, you can request a limit increase (sometimes called a capacity increase, or a quota increase) to extend the number of resources available. The request process allows the Microsoft Dev Box team to ensure that your subscription isn't involved in any cases of fraud or unintentional, sudden large-scale deployments. 
 
 Learn more about the general [process for creating Azure support requests](/azure/azure-portal/supportability/how-to-create-azure-support-request).
 
-### Prerequisites
+## Prerequisites
 
 - To create a support request, your Azure account needs the [Owner](/azure/role-based-access-control/built-in-roles#owner), [Contributor](/azure/role-based-access-control/built-in-roles#contributor), or [Support Request Contributor](/azure/role-based-access-control/built-in-roles#support-request-contributor) role at the subscription level.
 - Before you create a support request for a limit increase, you need to gather additional information.
+
+## Gather information for your request
+
+You'll find submitting a support request for additional quota is quicker if you gather the required information before you begin the request process. 
+
+- **Determine your current quota usage**
+
+   For each of your subscriptions, you can check your current usage of each Deployment Environments resource type in each region. Determine your current usage by following these steps: [Determine usage and quota](./how-to-determine-your-quota-usage.md).
+
+- **Determine the region for the additional quota**
+
+   Dev Box resources can exist in many regions. You can choose to deploy resources in multiple regions close to your dev box users. For more information about Azure regions, how they relate to global geographies, and which services are available in each region, see [Azure global infrastructure](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/).
 
 ## Submit a new support request
 
@@ -43,9 +54,7 @@ Follow these steps to request a limit increase:
 
 
 
-### Determine the region for the additional quota 
 
-Dev Box resources can exist in many regions. You can choose to deploy resources in multiple regions close to your dev box users. For more information about Azure regions, how they relate to global geographies, and which services are available in each region, see [Azure global infrastructure](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/).
 
 As you complete the **Quota details**, Azure 
 
