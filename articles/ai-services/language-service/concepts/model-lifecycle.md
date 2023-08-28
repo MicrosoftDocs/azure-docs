@@ -75,7 +75,7 @@ Use the table below to find which model versions are supported by each feature:
 
 ** *For latest training config versions, the posted expiration dates are subject to availability of a newer model version. If no newer model versions are available, the expiration date may be extended.*
 
-Training configs are typically available for **six months** after its release. If you've assigned a trained config to a deployment, this deployment expires after **twelve months** from the training config expiration. If your models are about to expire, you can retrain and redeploy your models with the latest training configuration version. 
+Training configurations are typically available for **six months** after its release. If you've assigned a trained configuration to a deployment, this deployment expires after **twelve months** from the training config expiration. If your models are about to expire, you can retrain and redeploy your models with the latest training configuration version. 
 
 > [!Tip]
 > It's recommended to use the latest supported config version.
