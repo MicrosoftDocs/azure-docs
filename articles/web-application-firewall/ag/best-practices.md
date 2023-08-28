@@ -1,23 +1,23 @@
 ---
-title: Best practices for Web Application Firewall on Azure Application Gateway
-description: In this tutorial, you learn about the best practices for using the web application firewall with Application Gateway.
+title: Best practices for Azure Web Application Firewall (WAF) on Azure Application Gateway
+description: In this article, you learn about the best practices for using the Azure Web Application Firewall (WAF) on Azure Application Gateway.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.topic: tutorial
-ms.date: 09/06/2022
+ms.topic: concept-article
+ms.date: 08/28/2023
 ms.author: jodowns
 ---
 
-# Best practices for Web Application Firewall on Application Gateway
+# Best practices for Azure Web Application Firewall (WAF) on Azure Application Gateway
 
-This article summarizes best practices for using the web application firewall (WAF) on Azure Application Gateway.
+This article summarizes best practices for using Azure Web Application Firewall (WAF) on Azure Application Gateway.
 
 ## General best practices
 
 ### Enable the WAF
 
-For internet-facing applications, we recommend you enable a web application firewall (WAF) and configure it to use managed rules. When you use a WAF and Microsoft-managed rules, your application is protected from a range of attacks.
+For Internet-facing applications, we recommend you enable a web application firewall (WAF) and configure it to use managed rules. When you use a WAF and Microsoft-managed rules, your application is protected from a range of attacks.
 
 ### Use WAF policies
 
