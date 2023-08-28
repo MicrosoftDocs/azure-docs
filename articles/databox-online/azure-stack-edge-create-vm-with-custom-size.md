@@ -7,13 +7,13 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/22/2023
+ms.date: 08/28/2023
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to create VM images with custom number of cores, memory, and GPU count.
 ---
 # Create a VM image with custom size
 
-[!INCLUDE [applies-to-GPU-sku](../../includes/azure-stack-edge-applies-to-gpu-sku.md)]
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 This article describes how to create a VM image with custom number of cores, memory, and GPU count.
 
@@ -89,7 +89,9 @@ Use the following steps to create a new VM.
    Get-AzVmSize -Location dbelocal
    ```
 
-   In Azure portal, the VM size dropdown will update after five minutes with the new VM options you just created. 
+   In Azure portal, the VM size dropdown will update after five minutes with the new VM options you just created.
+
+   [![Screenshot of Azure portal dropdown menu with custom VM size](./media/azure-stack-edge-create-vm-with-custom-size/azure-stack-edge-custom-vm-size.png)](./media/azure-stack-edge-create-vm-with-custom-size/azure-stack-edge-custom-vm-size.png#lightbox)
 
 ## Next steps
 
