@@ -32,17 +32,31 @@ Start by creating a [VisionServiceOptions](/dotnet/api/azure.ai.vision.common.vi
 
 ## Select the image to analyze
 
-The code in this guide uses remote images referenced by URL. You may want to try different images on your own to see the full capability of the Image Analysis features.
+You can select an image by providing a publicly accessible URL, a local image file name, or by copying the image into an input buffer. See [Image requirements](../../overview-image-analysis?tabs=4-0#image-requirements) for supported image formats.
 
+### Image URL
 
-Create a new **VisionSource** object from the URL of the image you want to analyze, using the static constructor [VisionSource.FromUrl](/dotnet/api/azure.ai.vision.common.visionsource.fromurl).
+Create a new **VisionSource** object from the URL of the image you want to analyze, using the static constructor [VisionSource.FromUrl](/dotnet/api/azure.ai.vision.common.visionsource.fromurl). **VisionSource** implements **IDisposable**, therefore create the object with a **using** statement or explicitly call **Dispose** method after analysis completes.
 
-**VisionSource** implements **IDisposable**, therefore create the object with a **using** statement or explicitly call **Dispose** method after analysis completes.
+The code in this guide uses an example image URL. You may want to try different images on your own to see the full capability of the Image Analysis service.
 
 [!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/how-to/program.cs?name=vision_source)]
 
-> [!TIP]
-> You can also analyze a local image by passing in the full-path image file name. See [VisionSource.FromFile](/dotnet/api/azure.ai.vision.common.visionsource.fromfile).
+### Image file
+
+Create a new **VisionSource** object from the local image file you want to analyze, using the static constructor [VisionSource.FromFile](/dotnet/api/azure.ai.vision.common.visionsource.fromfile). **VisionSource** implements **IDisposable**, therefore create the object with a **using** statement or explicitly call **Dispose** method after analysis completes.
+
+[!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/how-to/program.cs?name=vision_source)]
+
+### Image buffer
+
+Create a new **VisionSource** object from a memory buffer containing the image data, by using the static constructor [VisionSource.FromImageSourceBuffer](/dotnet/api/azure.ai.vision.common.visionsource.fromimagesourcebuffer).
+
+This is done by first creating a new [ImageSourceBuffer](/dotnet/api/azure.ai.vision.common.imagesourcebuffer), getting access to its [ImageWriter](/dotnet/api/azure.ai.vision.common.imagewriter) object and writing the image data into it.
+
+Both **VisionSource** and **ImageSourceBuffer** implements **IDisposable**, therefore create the object with a **using** statement or explicitly call **Dispose** method after analysis completes.
+
+[!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/how-to/program.cs?name=vision_source)]
 
 
 ## Select analysis options
