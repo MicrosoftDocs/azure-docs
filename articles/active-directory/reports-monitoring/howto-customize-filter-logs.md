@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/22/2023
+ms.date: 08/28/2023
 ms.author: sarahlipsey
 ms.reviewer: besiler
 ---
@@ -128,9 +128,24 @@ Customizing the columns and adjusting the filter helps to look at logs with simi
 
 - **Multifactor authentication:** When a user signs in with MFA, several separate MFA events are actually taking place. For example, if a user enters the wrong validation code or doesn't respond in time, additional MFA events are sent to reflect the latest status of the sign-in attempt. These sign-in events appear as one line item in the Azure AD sign-in logs. That same sign-in event in Azure Monitor, however, appears as multiple line items. These events all have the same `correlationId`.
 
-- **Client app:** The **Client app** filter option has two subcategories: **Modern authentication clients** and **Legacy authentication clients**.
-    - *Browser* and *Mobile apps and desktop clients* are the two options in the Modern authentication clients category.
-    - Review the following table for the *Legacy authentication client* details.
+#### Client app
+
+The **Client app** filter has two subcategories: **Modern authentication clients** and **Legacy authentication clients**. *Browser* and *Mobile apps and desktop clients* are the two options in the Modern authentication clients category.
+
+![Screenshot of the client app filter selected, with the categories highlighted.](media/concept-sign-ins/client-app-filter.png)
+
+*Browser* sign-ins include all sign-in attempts from web browsers. When viewing the details of a sign-in from a browser, the **Basic info** tab shows **Client app: Browser**.
+
+![Screenshot of the sign-in details, with the client app detail highlighted.](media/concept-sign-ins/client-app-browser.png)
+
+
+On the **Device info** tab, **Browser** shows the details of the web browser. The browser type and version appears, but in some cases, the name of the browser and version is not available. You may see something like **Rich Client 4.0.0.0**. 
+
+![Screenshot of the sign-in activity details with a Rich Client browser example highlighted.](media/concept-sign-ins/browser-rich-client.png)
+
+**Legacy authentication client details**
+
+The following table provides the details for each of the *Legacy authentication client* options.
 
 |Name|Description|
 |---|---|

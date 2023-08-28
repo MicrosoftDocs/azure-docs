@@ -71,9 +71,17 @@ In addition to the default fields, the interactive sign-in log also shows:
 
 #### Known limitations
 
+**Non-interactive sign-ins on the interactive sign-in logs**
+
 The interactive user sign-in log previously contain some non-interactive sign-ins from Microsoft Exchange clients. Although those sign-ins are non-interactive, they are included in the interactive user sign-in log for additional visibility. This behavior is expected, because before the non-interactive user sign-in logs entered public preview in November 2020, those non-interactive sign-in logs were included in the interactive user sign-in logs.
 
-For example, some sign-ins using the FIDO2 keys are shown as interactive user sign-ins. The details of this type of sign-in display interactive details, such as **Client credential type: Client assertion** and **Broswer: rich Client 4.0.0.0**.
+For example, some sign-ins using the FIDO2 keys are shown as interactive user sign-ins. The details of this type of sign-in display interactive details, such as **Client credential type: Client assertion** and **Browser: rich Client 4.0.0.0**.
+
+**Passthrough sign-ins**
+
+Azure Active Directory issues tokens for authentication and authorization. In some situations, a user signed in to the Contoso tenant may try to access resources in the Fabrikam tenant, where they don't have access. A no-authorization token, called a passthrough token, is issued to the Fabrikam tenant. The passthrough token doesn't allow the user to access any resources.
+
+When reviewing the logs for this situation, the sign-in logs for the home tenant (in this scenario, Contoso) don't show a sign-in attempt because the token wasn't evaluated against the home tenant's policies. The sign-in token was only used to display the appropriate failure message.
 
 ### Non-interactive user sign-ins
 
