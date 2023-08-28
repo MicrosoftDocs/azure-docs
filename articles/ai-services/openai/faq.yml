@@ -209,7 +209,7 @@ sections:
       - question: |
           How can I add vector embeddings when indexing my data?
         answer:
-          When you select "Azure Blob Container" or "Upload files" as the data source, you can also select an Ada embedding model deployment to use when ingesting your data. This will create an Azure Cognitive Search index with vector embeddings.
+          When you select "Azure Blob Container", "Azure Cognitive Search", or "Upload files" as the data source, you can also select an Ada embedding model deployment to use when ingesting your data. This will create an Azure Cognitive Search index with vector embeddings.
       - question: |
           Why is index creation failing after I added an embedding model?
         answer:
