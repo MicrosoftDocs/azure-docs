@@ -3,7 +3,7 @@ title: Extend remote network connectivity to Azure virtual networks
 description: Configure Azure resources to simulate remote network connectivity to Microsoft's Security Edge Solutions, Microsoft Entra Internet Access and Microsoft Entra Private Access.
 ms.service: network-access
 ms.topic: how-to
-ms.date: 08/15/2023
+ms.date: 08/28/2023
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: amycolannino
