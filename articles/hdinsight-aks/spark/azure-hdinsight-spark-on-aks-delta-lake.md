@@ -12,7 +12,7 @@ ms.date: 07/17/2023
 
 ## Prerequisite
 
-1. Create an [Azure HDInsight on AKS Spark cluster](./hdinsight-on-aks-spark-create-cluster-portal.md)
+1. Create an [Azure HDInsight on AKS Spark cluster](./create-spark-cluster.md)
 
     :::image type="content" source="./media/azure-hdinsight-spark-on-aks-delta-lake/create-spark-cluster.png" alt-text="Screenshot showing spark cluster creation.":::
 

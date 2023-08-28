@@ -66,7 +66,7 @@ While you create the cluster, HDInsight service needs to connect to the external
 
     :::image type="content" source="./media/use-hive-metastore/basic-tab.png" alt-text="Screenshot showing the basic tab.":::
 
-1. The rest of the details are to be filled in as per the cluster creation rules for [HDInsight on AKS Spark cluster](./hdinsight-on-aks-spark-create-cluster-portal.md).
+1. The rest of the details are to be filled in as per the cluster creation rules for [HDInsight on AKS Spark cluster](./create-spark-cluster.md).
 
 1. Click on **Review and Create.**
 

@@ -129,7 +129,7 @@ rm -r $HOME/lib/trino-cli
 ```
 
 ## Authentication
-Trino CLI supports various methods of Azure Active Directory authentication using command line parameters. The following table describes the important parameters and authentication methods, for more information, see [Authentication](./trino-auth.md).
+Trino CLI supports various methods of Azure Active Directory authentication using command line parameters. The following table describes the important parameters and authentication methods, for more information, see [Authentication](./trino-authentication.md).
 
 Parameters description available in CLI as well:
 ```bash
