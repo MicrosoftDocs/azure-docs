@@ -44,7 +44,6 @@ During the preview:
 - A direct shared gallery can't contain encrypted image versions. Encrypted images can't be created within a gallery that is directly shared.
 - Only the owner of a subscription, or a user or service principal assigned to the `Compute Gallery Sharing Admin` role at the subscription or gallery level will be able to enable group-based sharing.
 - You need to create a new gallery,  with the property `sharingProfile.permissions` set to `Groups`. When using the CLI to create a gallery, use the `--permissions groups` parameter. You can't use an existing gallery, the property can't currently be updated.
-- TrustedLaunch and ConfidentialVM are not supported
 - PowerShell, Ansible, and Terraform aren't supported at this time.
 - The image version region in the gallery should be same as the region home region, creating of cross-region version where the home region is different than the gallery is not supported, however once the image is in the home region it can be replicated to other regions
 - Not available in Government clouds

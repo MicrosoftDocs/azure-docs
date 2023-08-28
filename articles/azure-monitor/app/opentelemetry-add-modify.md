@@ -1875,6 +1875,8 @@ Get the request trace ID and the span ID in your code:
 
 ---
 
+[!INCLUDE [azure-monitor-app-insights-opentelemetry-support](../includes/azure-monitor-app-insights-opentelemetry-support.md)]
+
 ## Next steps
 
 ### [ASP.NET Core](#tab/aspnetcore)
