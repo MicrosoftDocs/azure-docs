@@ -1,6 +1,16 @@
 {
     "redirections": [
         {
+            "source_path": "articles/migrate/tutorial-assess-webapps-physical.md",
+            "redirect_URL": "tutorial-assess-webapps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/migrate/tutorial-assess-webapps-hyper-v.md",
+            "redirect_URL": "tutorial-assess-webapps",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/route-server/tutorial-protect-route-server.md",
             "redirect_URL": "/azure/route-server/tutorial-protect-route-server-ddos",
             "redirect_document_id": false
