@@ -12,12 +12,13 @@ ms.date: 08/23/2023
 
 # Architectures to deploy Oracle applications with Oracle database on Azure IaaS 
 
-Oracle workloads comprise not only of Oracle Databases, but also of Oracle first-
--party applications such as Siebel, Peoplesoft, JD Edwards, E-Business Suite, or customized WebLogic Server applications. Deploying Oracle applications on Azure Infrastructure as a Service (IaaS) is a common scenario for organizations looking to use the cloud for their Oracle workloads along with [Oracle database](oracle-reference-architecture.md). Microsoft offers reference architectures and best practices to ease this process. This article provides reference architecture to deploy Oracle application on Azure IaaS where the Oracle database also resides or is colocated.
+This article provides reference architecture to deploy Oracle application on Azure IaaS where the Oracle database also resides or is colocated. 
+
+Oracle workloads comprise not only of Oracle Databases, but also of Oracle first-party applications such as Siebel, Peoplesoft, JD Edwards, E-Business Suite, or customized WebLogic Server applications. Deploying Oracle applications on Azure Infrastructure as a Service (IaaS) is a common scenario for organizations looking to use the cloud for their Oracle workloads along with [Oracle database](oracle-reference-architecture.md). Microsoft offers reference architectures and best practices to ease this process. 
 
 ## General Application Migration Guidelines
 
-As Oracle applications move on Azure IaaS, there are common design considerations, which must be followed irrespective of type of applications. Some considerations are specific to applications. In this section we're listing common design considerations of all applications, and any application specific considerations are covered under each application.
+As Oracle applications move on Azure IaaS, there are common design considerations, which must be followed irrespective of type of applications. Some considerations are specific to applications. In this section, we're listing common design considerations of all applications, and any application specific considerations are covered under each application.
 
 ### Network & Security: 
 
@@ -55,7 +56,7 @@ Database Tier: HA architectures are recommended with Oracle Data Guard for Oracl
 
 Backup - [Backups](https://learn.microsoft.com/azure/backup/backup-azure-vms-introduction) are sent from the application tier and the database tier. It's just one of many reasons why those two tiers shouldn't be separated into two different vendors.  Backups of the database are performed by [Azure Backup Volume Snapshot](https://techcommunity.microsoft.com/t5/data-architecture-blog/azure-backup-volume-snapshots-for-oracle-is-now-ga/ba-p/2820032) on Premium Files to the secondary region.
 
-Disaster Recovery - There are different solutions you can choose from. It very much depends on your requirements. The architecture above is built to be highly available. For replicating the application tier, you can use [Azure Site Recovery](https://learn.microsoft.com/azure/site-recovery/site-recovery-overview). Another solution you can choose is [Redundancy options for managed disks.](https://learn.microsoft.com/azure/virtual-machines/disks-redundancy) Both solutions replicate your data. Redundancy options for managed disks are a solution that can simplify the architecture but also comes with a few limitations.
+Disaster Recovery - There are different solutions you can choose from. It very much depends on your requirements. The architecture is built to be highly available. For replicating the application tier, you can use [Azure Site Recovery](https://learn.microsoft.com/azure/site-recovery/site-recovery-overview). Another solution you can choose is [Redundancy options for managed disks.](https://learn.microsoft.com/azure/virtual-machines/disks-redundancy) Both solutions replicate your data. Redundancy options for managed disks are a solution that can simplify the architecture but also comes with a few limitations.
 
 ## Siebel on Azure
 
