@@ -11,10 +11,9 @@ ms.date: 08/08/2023
 keywords: 
 ---
 
-Use this guide to get started calling the Azure OpenAI Service image generation APIs by using the Python SDK.
+Use this guide to get started generating images with the Azure OpenAI SDK for Python.
 
-> [!NOTE]
-> The image generation API creates an image from a text prompt. It doesn't edit existing images or create variations.
+[Library source code](https://github.com/openai/openai-python/tree/main/openai) | [Package](https://github.com/openai/openai-python) | [Samples](https://github.com/openai/openai-python/tree/main/examples)
 
 ## Prerequisites
 
