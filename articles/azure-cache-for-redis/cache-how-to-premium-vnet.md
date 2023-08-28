@@ -22,6 +22,13 @@ ms.date: 07/22/2022
 > Azure Cache for Redis now supports Azure Private Link, which simplifies the network architecture and secures the connection between endpoints in Azure. You can connect to an Azure Cache instance from your virtual network via a private endpoint, which is assigned a private IP address in a subnet within the virtual network. Azure Private Links is offered on all our tiers, includes Azure Policy support, and simplified NSG rule management. To learn more, see [Private Link Documentation](cache-private-link.md). To migrate your VNet injected caches to Private Link, see [here](cache-vnet-migration.md).
 >
 
+### Limitations of VNet injection
+
+- Due to fragile nature network configuration, creating and maintaining virtual network configurations is often error prone and troubleshooting is challenging. Incorrect virtual network configurations can lead to various issues like obstructed metrics transmission from your cache instances, failure of replica node to replicate data from primary node, potential data loss, failure of management operations like scaling, and in the most severe scenarios, loss of availability.
+- VNet injected caches are only available for Premium Azure Cache for Redis.
+- When using a VNet injected cache, you must change your VNet to cache dependencies such as CRLs/PKI, AKV, Azure Storage, Azure Monitor, and more.
+- You can't inject an existing Azure Cache for Redis instance into a Virtual Network. You can only select this option when you _create_ the cache.
+
 ## Set up virtual network support
 
 Virtual network support is configured on the **New Azure Cache for Redis** pane during cache creation.

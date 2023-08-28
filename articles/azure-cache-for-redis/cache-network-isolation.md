@@ -12,9 +12,9 @@ ms.date: 06/21/2023
 
 # Azure Cache for Redis network isolation options
 
-In this article, you’ll learn how to determine the best network isolation solution for your needs. We’ll discuss the basics of Azure Private Link, Azure Virtual Network (VNet) injection, and Azure Firewall Rules. We'll discuss their advantages and limitations.  
+In this article, you’ll learn how to determine the best network isolation solution for your needs. We’ll discuss the basics of Azure Private Link (recommended), Azure Virtual Network (VNet) injection, and Firewall Rules. We'll discuss their advantages and limitations.  
 
-## Azure Private Link
+## Azure Private Link (recommended)
 
 Azure Private Link provides private connectivity from a virtual network to Azure PaaS services. Private Link simplifies the network architecture and secures the connection between endpoints in Azure. Private Link also secures the connection by eliminating data exposure to the public internet.
 
@@ -31,9 +31,7 @@ Azure Private Link provides private connectivity from a virtual network to Azure
 
 ### Limitations of Private Link
 
-- Network security groups (NSG) are disabled for private endpoints. However, if there are other resources on the subnet, NSG enforcement will apply to those resources.
-- Currently, portal console support, import/export and persistence to firewall storage accounts aren't supported.
-- To connect to a clustered cache, `publicNetworkAccess` needs to be set to `Disabled`, and there can only be one private endpoint connection.
+- Currently, portal console is not supported for caches with private link.
 
 > [!NOTE]
 > When adding a private endpoint to a cache instance, all Redis traffic is moved to the private endpoint because of the DNS.
@@ -52,13 +50,14 @@ VNet is the fundamental building block for your private network in Azure. VNet e
 
 ### Limitations of VNet injection
 
+- Due to fragile nature network configuration, creating and maintaining virtual network configurations is often error prone and troubleshooting is challenging. Incorrect virtual network configurations can lead to various issues like obstructed metrics transmission from your cache instances, failure of replica node to replicate data from primary node, potential data loss, failure of management operations like scaling, and in the most severe scenarios, loss of availability.
 - VNet injected caches are only available for Premium Azure Cache for Redis.
 - When using a VNet injected cache, you must change your VNet to cache dependencies such as CRLs/PKI, AKV, Azure Storage, Azure Monitor, and more.
-- You can't inject an Azure Cache for Redis instance into a Virtual Network. You can only select this option when you _create_ the cache.
+- You can't inject an existing Azure Cache for Redis instance into a Virtual Network. You can only select this option when you _create_ the cache.
 
-## Azure Firewall rules
+## Firewall rules
 
-[Azure Firewall](../firewall/overview.md) is a managed, cloud-based network security service that protects your Azure VNet resources. It’s a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability. You can centrally create, enforce, and log application and network connectivity policies across subscriptions and virtual networks.  
+Azure Cache for Redis allows configuring Firewall rules for specifying IP address that you want to allow to connect to your Azure Cache for Redis instance.
 
 ### Advantages of firewall rules
 
