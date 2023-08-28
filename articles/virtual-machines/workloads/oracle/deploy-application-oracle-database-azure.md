@@ -129,7 +129,7 @@ Oracle's PeopleSoft application suite contains software for human resources and 
 
 Application Tier: The application tier contains several tasks and servers. It runs the business logic and processes but also maintains the connection to the database. As soon as this dependency is cut, it causes latencies.
 
-- Dependency between Application and Database Tiers: It's important to minimize latency between the application and database tiers. Placing them in the same cloud provider (Azure, in this case) is a good idea to reduce network latency. Azure provides various networking options and services like Virtual Network (VNet) peering or ExpressRoute to ensure low-latency connections between tiers.
+- Dependency between Application and Database Tiers: It's important to minimize latency between the application and database tiers. By placing the application and database-tier in the same cloud provider (Azure, in this case), you reduce network latency. Azure provides various networking options and services like Virtual Network (VNet) peering or ExpressRoute to ensure low-latency connections between tiers.
 
 - Operating System Considerations: If the Process Scheduler specifically requires Windows operating systems, you can still run it on Azure VMs. Azure supports various Windows Server versions, allowing you to choose the one that meets your application's requirements.
 
