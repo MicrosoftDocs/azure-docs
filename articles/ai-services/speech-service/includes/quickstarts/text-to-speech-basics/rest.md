@@ -24,7 +24,7 @@ At a command prompt, run the following cURL command. Optionally, you can rename 
 
 # [Windows](#tab/windows)
 
-```terminal
+```console
 curl --location --request POST "https://%SPEECH_REGION%.tts.speech.microsoft.com/cognitiveservices/v1" ^
 --header "Ocp-Apim-Subscription-Key: %SPEECH_KEY%" ^
 --header "Content-Type: application/ssml+xml" ^
@@ -35,7 +35,7 @@ curl --location --request POST "https://%SPEECH_REGION%.tts.speech.microsoft.com
 
 # [Linux](#tab/linux)
 
-```terminal
+```console
 curl --location --request POST "https://${SPEECH_REGION}.tts.speech.microsoft.com/cognitiveservices/v1" \
 --header "Ocp-Apim-Subscription-Key: ${SPEECH_KEY}" \
 --header 'Content-Type: application/ssml+xml' \
@@ -50,7 +50,7 @@ curl --location --request POST "https://${SPEECH_REGION}.tts.speech.microsoft.co
 
 # [macOS](#tab/macos)
 
-```terminal
+```console
 curl --location --request POST "https://${SPEECH_REGION}.tts.speech.microsoft.com/cognitiveservices/v1" \
 --header "Ocp-Apim-Subscription-Key: ${SPEECH_KEY}" \
 --header 'Content-Type: application/ssml+xml' \

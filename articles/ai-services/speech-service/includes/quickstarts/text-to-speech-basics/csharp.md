@@ -16,7 +16,7 @@ ms.author: eur
 
 ## Set up the environment
 
-The Speech SDK is available as a [NuGet package](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech) That implements .NET Standard 2.0. Install the Speech SDK later in this guide. Check the [SDK installation guide](../../../quickstarts/setup-platform.md?pivots=programming-language-csharp) for any requirements.
+The Speech SDK is available as a [NuGet package](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech) that implements .NET Standard 2.0. Install the Speech SDK later in this guide. For any requirements, see [Install the Speech SDK](../../../quickstarts/setup-platform.md?pivots=programming-language-csharp).
 
 ### Set environment variables
 
@@ -120,8 +120,6 @@ Follow these steps to create a new console application and install the Speech SD
    ```
 
 ## Remarks
-
-Here are some other considerations:
 
 This quickstart uses the `SpeakTextAsync` operation to synthesize a short block of text that you enter. You can also get text from files as described in these guides:
 

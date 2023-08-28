@@ -21,7 +21,7 @@ The Speech SDK for Python is available as a [Python Package Index (PyPI) module]
 - On Windows, install the [Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017, 2019, and 2022](/cpp/windows/latest-supported-vc-redist?view=msvc-170&preserve-view=true) for your platform. Installing this package might require a restart.
 - On Linux, you must use the x64 target architecture.
 
-Install a version of [Python from 3.7 or later](https://www.python.org/downloads/). Check the [SDK installation guide](../../../quickstarts/setup-platform.md?pivots=programming-language-python) for any requirements.
+Install a version of [Python from 3.7 or later](https://www.python.org/downloads/). For any requirements, see [Install the Speech SDK](../../../quickstarts/setup-platform.md?pivots=programming-language-python).
 
 ### Set environment variables
 
@@ -91,8 +91,6 @@ Follow these steps to create a console application.
    ```
 
 ## Remarks
-
-Here are some other considerations:
 
 This quickstart uses the `speak_text_async` operation to synthesize a short block of text that you enter. You can also get text from files as described in these guides:
 

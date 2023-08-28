@@ -30,8 +30,6 @@ All neural voices are multilingual and fluent in their own language and English.
 
 ## Remarks
 
-Here are some other considerations:
-
 You can have finer control over voice styles, prosody, and other settings by using [Speech Synthesis Markup Language (SSML)](~/articles/ai-services/speech-service/speech-synthesis-markup.md).
 
 - In the following example, the voice and style, `excited`, are provided in the SSML block.

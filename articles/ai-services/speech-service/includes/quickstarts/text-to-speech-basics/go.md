@@ -24,10 +24,10 @@ Install the Speech SDK for Go. For requirements and instructions, see [Install t
 
 ## Synthesize to speaker output
 
-Follow these steps to create a new GO module.
+Follow these steps to create a new Go module.
 
 1. Open a console window where you want the new module, and then create a new file named *speech-synthesis.go*.
-1. Copy the following code into *speech_synthesis.go*:
+1. Copy the following code into *speech-synthesis.go*:
 
     ```go
     package main
@@ -140,7 +140,7 @@ Follow these steps to create a new GO module.
 
 1. Run the following commands to create a *go.mod* file that links to components hosted on GitHub:
 
-   ```cmd
+   ```console
    go mod init speech-synthesis
    go get github.com/Microsoft/cognitive-services-speech-sdk-go
    ```
@@ -150,7 +150,7 @@ Follow these steps to create a new GO module.
 
 1. Now build and run the code:
 
-   ```cmd
+   ```console
    go build
    go run speech-synthesis
    ```
