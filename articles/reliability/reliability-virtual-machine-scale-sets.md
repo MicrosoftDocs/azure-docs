@@ -45,7 +45,7 @@ All VMs, including single instance VMs, should be deployed into a scale set usin
 
 For more information on when to use scale sets instead of VMs, see [When to use scale sets instead of virtual machines?](../virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview.md#when-to-use-scale-sets-instead-of-virtual-machines)
 
-# [Azure Resource Graph](#tab/graph)
+# [Azure Resource Graph](#tab/graph-1)
 
 :::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/compute/virtual-machine-scale-sets/code/vmss-1/vmss-1.kql":::
 
@@ -57,7 +57,7 @@ For more information on when to use scale sets instead of VMs, see [When to use 
 
 To learn how to enable automatic OS image upgrades, see [Azure Virtual Machine Scale Set automatic OS image upgrades](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md).
 
-# [Azure Resource Graph](#tab/graph)
+# [Azure Resource Graph](#tab/graph-2)
 
 :::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/compute/virtual-machine-scale-sets/code/vmss-5/vmss-5.kql":::
 
@@ -66,8 +66,6 @@ To learn how to enable automatic OS image upgrades, see [Azure Virtual Machine S
 
 #### :::image type="icon" source="../reliability/media/icon-recommendation-low.svg"::: **VMSS-6: Set Virtual Machine Scale Sets custom scale-in policies to default** 
 
->[!IMPORTANT]
->Flexible orchestration for Virtual Machine Scale Sets does not currently support scale-in policy.
 
 The [Virtual Machine Scale Sets custom scale-in policy feature](../virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy.md) gives you a way to configure the order in which virtual machines are scaled-in. There are three scale in policy configurations:
 
@@ -89,7 +87,7 @@ Only use the *Newest* and *Oldest* policies when your workload requires that the
 >Balancing across availability zones or fault domains doesn't move VMs across availability zones or fault domains. The balancing is achieved through the deletion of virtual machines from the unbalanced availability zones or fault domains until the distribution of virtual machines becomes balanced.
 
 
-# [Azure Resource Graph](#tab/graph)
+# [Azure Resource Graph](#tab/graph-3)
 
 :::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/compute/virtual-machine-scale-sets/code/vmss-6/vmss-6.kql":::
 
@@ -104,7 +102,7 @@ To achieve high availability for applications, [enable automatic instance repair
 A grace period can be set using the property `automaticRepairsPolicy.gracePeriod`. The grace period, specified in minutes and in ISO 8601 format, can range between 10 to 90 minutes, and has a default value of 30 minutes.
 
 
-# [Azure Resource Graph](#tab/graph)
+# [Azure Resource Graph](#tab/graph-4)
 
 :::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/compute/virtual-machine-scale-sets/code/vmss-4/vmss-4.kql":::
 
@@ -118,7 +116,7 @@ Use [Virtual Machine Scale Sets Protection Policy](../virtual-machine-scale-sets
 
 As your application processes traffic, there can be situations where you want specific VMs to be treated differently from the rest of the scale set instance. For example, certain VMs in the scale set could be performing long-running operations, and you don’t want these VMs to be scaled-in until the operations complete. You might also have specialized a few VMs in the scale set to perform different tasks than other members of the scale set. You require these special VMs not to be modified with the other VMs in the scale set. Instance protection provides the extra controls to enable these and other scenarios for your application.
 
-# [Azure Resource Graph](#tab/graph)
+# [Azure Resource Graph](#tab/graph-5)
 
 :::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/compute/virtual-machine-scale-sets/code/vmss-2/vmss-2.kql":::
 
@@ -134,7 +132,7 @@ Monitoring your application health is an important signal for managing and upgra
 - [Load Balancer health probes](../load-balancer/load-balancer-custom-probe-overview.md) *or* [Application Health extension](../virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension.md), which both monitors the application health of each VM in your scale set and [performs instance repairs using Automatic Instance Repairs](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs.md).
 
 
-# [Azure Resource Graph](#tab/graph)
+# [Azure Resource Graph](#tab/graph-6)
 
 :::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/compute/virtual-machine-scale-sets/code/vmss-3/vmss-3.kql":::
 
@@ -355,22 +353,24 @@ It's also recommended that you use the max spreading deployment option for your 
 When you deploy a regional (non-zonal) scale set into one or more availability zones, you have the following spreading options (as of API version *2017-12-01*):
 
 - **Max spreading (platformFaultDomainCount = 1)**. This is the recommended deployment option, as it provides the best spreading in most cases. If you to spread replicas across distinct hardware isolation units, we recommend spreading across availability zones and utilize max spreading within each zone.
-
-With max spreading, the scale set spreads your VMs across as many fault domains as possible within each zone. This spreading could be across greater or fewer than five fault domains per zone. 
-
-> [!NOTE]
-> With max spreading, regardless of how many fault domains the VMs are spread across, you can only see one fault domain in both the scale set VM instance view and the instance metadata. The spreading within each zone is implicit.
+    
+  With max spreading, the scale set spreads your VMs across as many fault domains as possible within each zone. This spreading could be across greater or fewer than five fault domains per zone. 
+  
+  > [!NOTE]
+  > With max spreading, regardless of how many fault domains the VMs are spread across, you can only see one fault domain in both the scale set VM instance view and the instance metadata. The spreading within each zone is implicit.
 
 - **Static fixed spreading (platformFaultDomainCount = 5)**. With static fixed spreading, the scale set spreads your VMs exactly across five fault domains per zone. If the scale set cannot find five distinct fault domains per zone to satisfy the allocation request, the request fails.
 
-- **Spreading aligned with managed disks fault domains (platformFaultDomainCount = 2 or 3)** You can consider aligning the number of scale set fault domains with the number of managed disks fault domains. This alignment can help prevent loss of quorum if an entire managed disks fault domain goes down. The fault domain count can be set to less than or equal to the number of managed disks fault domains available in each of the regions. To learn about the number of Managed Disks fault domains by region.
+- **Spreading aligned with managed disks fault domains (platformFaultDomainCount = 2 or 3)** You can consider aligning the number of scale set fault domains with the number of managed disks fault domains. This alignment can help prevent loss of quorum if an entire managed disks fault domain goes down. The fault domain count can be set to less than or equal to the number of managed disks fault domains available in each of the regions. To learn about the number of Managed Disks fault domains by region, see [insert doc here](link here).
 
 #### Zone balancing
 
 For scale sets deployed across multiple zones (zone-redundant), you have the option of choosing "best effort zone balance" or "strict zone balance". A scale set is considered "balanced" if each zone has the same number of VMs (plus or minus 1 VM) as all other zones in the scale set. For example:
 
-- A scale set with 2 VMs in zone 1, 3 VMs in zone 2, and 3 VMs in zone 3 is considered balanced. There's only one zone with a different VM count and it's only 1 less than the other zones.
-- A scale set with 1 VM in zone 1, 3 VMs in zone 2, and 3 VMs in zone 3 is considered unbalanced. Zone 1 has 2 fewer VMs than zones 2 and 3.
+| Scale Set | VMs in Zone 1 | VMs in Zone 2 | VMs in Zone 3 | Zone Balancing | 
+| ---------- | ---------------- | ---------------- | ---------------- | ----------------- | 
+| Balanced scale set | 2 | 3 | 3 | This scale set is considered balanced. There's only one zone with a different VM count and it's only 1 less than the other zones. | 
+| Unbalanced scale set | 1 | 3 | 3 | This scale set is considered unbalanced. Zone 1 has 2 fewer VMs than zones 2 and 3. |
 
 It's possible that VMs in the scale set are successfully created, but extensions on those VMs fail to deploy. The VMs with extension failures are still counted when determining if a scale set is balanced. For instance, a scale set with 3 VMs in zone 1, 3 VMs in zone 2, and 3 VMs in zone 3 is considered balanced even if all extensions failed in zone 1 and all extensions succeeded in zones 2 and 3.
 
@@ -385,6 +385,7 @@ To learn how to redeploy a regional scale set to availability zone support, see 
 
 
 ## Additional guidance
+
 
 ### Placement groups
 
