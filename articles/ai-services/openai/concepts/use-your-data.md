@@ -97,7 +97,7 @@ To add a new data source to your Azure OpenAI resource, you need the following A
 
 ## document-level access control
 
-Azure OpenAI on your data lets you restrict the documents that can be used in responses for different users with Azure Cognitive Search [security filters](/search/search-security-trimming-for-azure-search-with-aad). When you enable document level access, the search results returned from Azure Cognitive Search and used to generate a response will be trimmed based on user Azure Active Directory (AD) group membership. You can only enable document-level access on existing Azure Cognitive search indexes. To enable document-level access:
+Azure OpenAI on your data lets you restrict the documents that can be used in responses for different users with Azure Cognitive Search [security filters](/azure/search/search-security-trimming-for-azure-search-with-aad). When you enable document level access, the search results returned from Azure Cognitive Search and used to generate a response will be trimmed based on user Azure Active Directory (AD) group membership. You can only enable document-level access on existing Azure Cognitive search indexes. To enable document-level access:
 
 1. Follow the steps in the [Azure Cognitive Search documentation](/azure/search/search-security-trimming-for-azure-search-with-aad) to register your application and create users and groups.
 1. [Index your documents with their permitted groups](/azure/search/search-security-trimming-for-azure-search-with-aad#index-document-with-their-permitted-groups). Be sure that your new [security fields](/azure/search/search-security-trimming-for-azure-search#create-security-field) have the schema below:
