@@ -40,7 +40,7 @@ Use one of the following options to perform the settings change at scale:
     $ServiceID = "7971f918-a847-4430-9279-4a52d1efe18d"
     $ServiceManager.AddService2($ServiceId,7,"")
     ```
-- For servers running Server 2016 or later which are not using Update Manager scheduled patching (that has the VM PatchSettings set to AutomaticByOS = Azure-Orchestrated) you can use Group Policy to control this by downloading and using the latest Group Policy [Administrative template files](https://learn.microsoft.com/troubleshoot/windows-client/group-policy/create-and-manage-central-store).
+- For servers running Server 2016 or later which aren't using Update Manager scheduled patching (that has the VM PatchSettings set to AutomaticByOS = Azure-Orchestrated) you can use Group Policy to control this by downloading and using the latest Group Policy [Administrative template files](https://learn.microsoft.com/troubleshoot/windows-client/group-policy/create-and-manage-central-store).
 
 > [!NOTE]
 > Run the following PowerShell script on the server to disable first party updates.
@@ -55,7 +55,7 @@ Use one of the following options to perform the settings change at scale:
 
 **Windows**: Update Manager relies on the locally configured update repository to update supported Windows systems, either WSUS or Windows Update. Tools such as [System Center Updates Publisher](/mem/configmgr/sum/tools/updates-publisher) allow you to import and publish custom updates with WSUS. This scenario allows Update Manager to update machines that use Configuration Manager as their update repository with third-party software. To learn how to configure Updates Publisher, see [Install Updates Publisher](/mem/configmgr/sum/tools/install-updates-publisher).
 
-**Linux**: If you include a specific third party software repository in the Linux package manager repository location, it is scanned when it performs software update operations. The package won't be available for assessment and installation if you remove it.
+**Linux**: If you include a specific third party software repository in the Linux package manager repository location, it's scanned when it performs software update operations. The package won't be available for assessment and installation if you remove it.
 
 > [!NOTE]
 > Update Manager does not support managing the Microsoft Configuration Manager client.
@@ -126,7 +126,7 @@ Azure Update Manager supports the following operating system versions. However, 
 |Microsoft Azure Site Recovery | Windows 2012
 |Microsoft Biz Talk Server | 2016, 2020 |
 |Microsoft DynamicsAx | ax7 |
-|Microsoft PowerBI | 2016, 2017, 2019, 2022 |
+|Microsoft Power BI | 2016, 2017, 2019, 2022 |
 |Microsoft Sharepoint | sp* |
 
 #### Linux operating systems
