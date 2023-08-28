@@ -29,6 +29,7 @@ Configuration of the connection to the application's database is done via a wiza
 - Oracle 10g and 11g
 - Oracle 12c and 18c
 - MySQL 5.x
+- MySQL 8.x
 - Postgres
 
 ### Cloud requirements
