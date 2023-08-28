@@ -391,7 +391,7 @@ NOTE: If DirSync has been disabled on the tenant, you will need to temporarily r
 ### EXAMPLES
 #### EXAMPLE 1
 ```
-Export-ADSyncToolsAadPublicFolders -Credential $(Get-Credential) -Path <filename>
+Export-ADSyncToolsAadPublicFolders -Credential $(Get-Credential) -Path <file_name>
 ```
 ### PARAMETERS
 #### -Credential
