@@ -393,7 +393,7 @@ In this example, we're using a bounded state of delta source.
     }
    ```
 
-1. Call the read class while submitting the job using [Flink CLI](./flink-webssh-on-portal-to-flink-sql.md).
+1. Call the read class while submitting the job using [Flink CLI](./flink-web-ssh-on-portal-to-flink-sql.md).
 
    :::image type="content" source="./media/use-flink-delta-connector/call-the-read-class.png" alt-text="Screenshot showing how to call the read class file." lightbox="./media/use-flink-delta-connector/call-the-read-class.png":::
 
