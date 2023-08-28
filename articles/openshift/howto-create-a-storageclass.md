@@ -3,7 +3,7 @@ title: Create an Azure Files StorageClass on Azure Red Hat OpenShift 4
 description: Learn how to create an Azure Files StorageClass on Azure Red Hat OpenShift
 ms.service: azure-redhat-openshift
 ms.topic: article
-ms.date: 10/16/2020
+ms.date: 08/28/2023
 author: johnmarco
 ms.author: johnmarc
 keywords: aro, openshift, az aro, red hat, cli, azure file
@@ -85,7 +85,7 @@ kind: StorageClass
 apiVersion: storage.k8s.io/v1
 metadata:
   name: azure-file
-provisioner: kubernetes.io/azure-file
+provisioner: file.csi.azure.com
 mountOptions:
   - dir_mode=0777
   - file_mode=0777
