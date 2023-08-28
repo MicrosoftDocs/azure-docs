@@ -30,9 +30,49 @@ landingContent:
             url: quickstart-bicep.md
       - linkListType: tutorial
         links:
+          - text: Perform assessment
+            url: tutorial-perform-assessment.md
+  - title: Vector search and AI
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Vector search
+            url: vector-search.md
+          - text: Build AI apps with vector search
+            url: vector-search-ai.md
+          - text: Vector embeddings
+            url: vector-embeddings.md
+          - text: Vector indexes
+            url: vector-indexes.md
+          - text: Similarity search
+            url: similarity-search.md
+      - linkListType: tutorial
+        links:
+          - text: Vector search tutorial
+            url: tutorial-vector-search.md
+      - linkListType: how-to-guide
+        links:
+          - text: Similarity search
+            url: how-to-similarity-search.md
+  - title: Develop applications
+    linkLists:
+      - linkListType: tutorial
+        links:
           - text: Build a Node.js web application
             url: tutorial-nodejs-web-app.md
-  - title: Use a MongoDB vCore cluster
+      - linkListType: how-to-guide
+        links:
+          - text: Create transactions
+            url: how-to-transactions.md
+          - text: Query geospatial data
+            url: how-to-query-geospatial.md
+          - text: Retrieve request metrics
+            url: how-to-retrieve-request-metrics.md
+          - text: Run command
+            url: how-to-run-command.md
+          - text: Create text search index
+            url: how-to-create-text-index.md
+  - title: Manage a MongoDB vCore cluster
     linkLists:
       - linkListType: how-to-guide
         links:
@@ -40,10 +80,12 @@ landingContent:
             url: how-to-scale-cluster.md
           - text: Restore cluster
             url: how-to-restore-cluster.md
-          - text: Create transactions
-            url: how-to-transactions.md
-          - text: Create text search index
-            url: how-to-create-text-index.md
+          - text: Monitor diagnostics logs
+            url: how-to-monitor-diagnostics-logs.md
+          - text: Use role-based access control
+            url: how-to-use-rbac.md
+          - text: Use Azure Private Link
+            url: how-to-private-link.md
       - linkListType: concept
         links:
           - text: MongoDB feature support
@@ -62,11 +104,15 @@ landingContent:
         links:
           - text: Migrate using native tools
             url: how-to-migrate-native-tools.md
-  - title: Integrate with AI
-    linkLists:
-      - linkListType: concept
+          - text: Migrate using Azure Data Factory
+            url: how-to-migrate-data-factory.md
+          - text: Migrate using Azure Database Migration Service
+            url: how-to-migrate-database-migration-service.md
+      - linkListType: reference
         links:
-          - text: Vector search
-            url: vector-search.md
-          - text: Build AI apps with vector search
-            url: vector-search-ai.md
+          - text: |
+              Industry: Finance
+            url: industry-finance.md
+          - text: |
+              Industry: Retail
+            url: industry-retail.md
