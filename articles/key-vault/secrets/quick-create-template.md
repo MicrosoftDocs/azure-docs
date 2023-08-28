@@ -38,7 +38,7 @@ To complete this article:
         ```azurecli-interactive
         echo "Enter your email address that is used to sign in to Azure:" &&
         read upn &&
-        az ad user show --id $upn --query "objectId" &&
+        az ad user show --id $upn --query "Id" &&
         echo "Press [ENTER] to continue ..."
         ```
 
