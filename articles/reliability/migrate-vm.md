@@ -16,7 +16,7 @@ This guide describes how to migrate Virtual Machines (VMs) and Virtual Machine S
 
 Virtual Machine (VM) and Virtual Machine Scale Sets are availability zone enabled services, which means that VM resources can be deployed by using one of the following methods:
 
-- **Zonal**. VM resources are deployed to a specific, self-selected availability zone to achieve more stringent latency or performance requirements.
+- **Zonal**: VM resources are deployed to a specific, self-selected availability zone to achieve more stringent latency or performance requirements.
 
 - **Zone-redundant**: VM resources are replicated to one or more zones within the region to improve the resiliency of the application and data in a High Availability (HA) architecture.
 
