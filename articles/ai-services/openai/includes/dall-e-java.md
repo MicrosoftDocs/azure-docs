@@ -29,6 +29,8 @@ Use this guide to get started generating images with the Azure OpenAI SDK for Ja
 > [!NOTE]
 > Currently, you must submit an application to access Azure OpenAI Service. To apply for access, complete [this form](https://aka.ms/oai/access). If you need assistance, open an issue on this repo to contact Microsoft.
 
+## Set up
+
 ### Retrieve key and endpoint
 
 To successfully make a call against Azure OpenAI, you need an **endpoint** and a **key**.
@@ -77,7 +79,7 @@ echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/envi
 ```
 ---
 
-## Create a new Java application
+## Generate images with DALL-E
 
 1. Create a new Gradle project.
 

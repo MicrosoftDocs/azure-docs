@@ -26,7 +26,9 @@ Use this guide to get started generating images with the Azure OpenAI SDK for Py
 > [!NOTE]
 > Currently, you must submit an application to access Azure OpenAI Service. To apply for access, complete [this form](https://aka.ms/oai/access). If you need assistance, open an issue on this repo to contact Microsoft.
 
-## Retrieve key and endpoint
+## Set up
+
+### Retrieve key and endpoint
 
 To successfully call the Azure OpenAI APIs, you need the following information about your Azure OpenAI resource:
 
@@ -38,6 +40,41 @@ To successfully call the Azure OpenAI APIs, you need the following information a
 Go to your resource in the Azure portal. On the navigation pane, select **Keys and Endpoint** under **Resource Management**. Copy the **Endpoint** value and an access key value. You can use either the **KEY 1** or **KEY 2** value. Always having two keys allows you to securely rotate and regenerate keys without causing a service disruption.
 
 :::image type="content" source="../media/quickstarts/endpoint.png" alt-text="Screenshot that shows the Keys and Endpoint page for an Azure OpenAI resource in the Azure portal." lightbox="../media/quickstarts/endpoint.png":::
+
+Create and assign persistent environment variables for your key and endpoint.
+
+### Environment variables
+
+# [Command Line](#tab/command-line)
+
+```CMD
+setx AZURE_OPENAI_KEY "REPLACE_WITH_YOUR_KEY_VALUE_HERE" 
+```
+
+```CMD
+setx AZURE_OPENAI_ENDPOINT "REPLACE_WITH_YOUR_ENDPOINT_HERE" 
+```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+[System.Environment]::SetEnvironmentVariable('AZURE_OPENAI_KEY', 'REPLACE_WITH_YOUR_KEY_VALUE_HERE', 'User')
+```
+
+```powershell
+[System.Environment]::SetEnvironmentVariable('AZURE_OPENAI_ENDPOINT', 'REPLACE_WITH_YOUR_ENDPOINT_HERE', 'User')
+```
+
+# [Bash](#tab/bash)
+
+```Bash
+echo export AZURE_OPENAI_KEY="REPLACE_WITH_YOUR_KEY_VALUE_HERE" >> /etc/environment && source /etc/environment
+```
+
+```Bash
+echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/environment && source /etc/environment
+```
+---
 
 ## Install the Python SDK
 
@@ -54,7 +91,7 @@ pip install requests
 pip install pillow 
 ```
 
-## Create a new Python application
+## Generate images with DALL-E
 
 Create a new Python file named _quickstart.py_. Open the new file in your preferred editor or IDE.
 
@@ -66,8 +103,9 @@ Create a new Python file named _quickstart.py_. Open the new file in your prefer
     import requests
     from PIL import Image
 
-    openai.api_base = '<your_endpoint>'  # Enter your endpoint here
-    openai.api_key = '<your_key>'        # Enter your API key here
+    # Get endpoint and key from environment variables
+    openai.api_base = os.environ['AZURE_OPENAI_ENDPOINT']
+    openai.api_key = os.environ['AZURE_OPENAI_KEY']     
 
     # Assign the API version (DALL-E is currently supported for the 2023-06-01-preview API version only)
     openai.api_version = '2023-06-01-preview'
