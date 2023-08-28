@@ -28,6 +28,7 @@ Azure Private Link provides private connectivity from a virtual network to Azure
    > [!IMPORTANT]
    > Enterprise/Enterprise Flash tier does not support `publicNetworkAccess` flag.
 - All external cache dependencies won't affect the VNet's NSG rules.
+- Persistence to Storage accounts protected with firewall rules is supported when using managed identity to connect to Storage account, see more [here](cache-how-to-import-export-data.md#how-to-export-if-i-have-firewall-enabled-on-my-storage-account)
 
 ### Limitations of Private Link
 
