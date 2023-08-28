@@ -19,7 +19,7 @@ ms.custom: sdkv2, build-2023
 
 An Azure ML managed feature store lets you discover, create and operationalize features. Features serve as the connective tissue in the machine learning lifecycle, starting from the prototyping phase, where you experiment with various features. That lifecycle continues to the operationalization phase, where you deploy your models, and inference looks up feature data. See [feature store concepts](./concept-what-is-managed-feature-store.md) for more information about feature stores.
 
-In this tutorial you will learn how to configure secure ingress through private endpoint and secure egress through managed VNET.
+In this tutorial you will learn how to configure secure ingress through a private endpoint and secure egress through a managed VNET.
 
 Part 1 of this tutorial showed how to create a feature set spec with custom transformations, and use that feature set to generate training data. Part 2 of the tutorial showed how to enable materialization and perform a backfill. Part 3 of this tutorial showed how to experiment with features, as a way to improve model performance. Part 3 also showed how a feature store increases agility in the experimentation and training flows. Tutorial 4 described how to run batch inference. Tutorial 5 explained how to **_TBD_**. Tutorial 6 shows how to
 
@@ -34,14 +34,31 @@ Part 1 of this tutorial showed how to create a feature set spec with custom tran
 ## Prerequisites
 
 > [!NOTE]
-> This tutorial uses Azure Machine Learning spark notebook for development.
+> This tutorial uses an Azure Machine Learning spark notebook for development.
 
 * Make sure you complete parts 1 through 5 of this tutorial series.
-* An Azure Machine Learning workspace, enabled with Managed VNet for **serverless spark jobs**. See [Configure for serverless spark job](./how-to-managed-network?view=azureml-api-2&tabs=azure-cli#configure-for-serverless-spark-jobs) for more information.
+* An Azure Machine Learning workspace, enabled with Managed VNet for **serverless spark jobs**.
+* If your workspace has an **Azure Container Registry**, it must use **Premium SKU** to successfully complete the workspace configuration. To configure your project workspace:
+  1. Create a YAML file named `network.yml`:
+     ```YAML
+     managed_network:
+     isolation_mode: allow_internet_outbound
+     ```
+  1. Execute these commands to update the workspace and provision the managed virual network for serverless Spark jobs:
+
+     ```cli
+     az ml workspace update --file network.yml --resource-group my_resource_group --name
+     my_workspace_name
+     az ml workspace provision-network --resource-group my_resource_group --name my_workspace_name
+     --include-spark
+     ```
+
+   See [Configure for serverless spark job](./how-to-managed-network?view=azureml-api-2&tabs=azure-cli#configure-for-serverless-spark-jobs) for more information.
+     
 * Your user account must have the `owner` or `contributor` role assigned to the resource group where the feature store will be created. Your user account also needs the `User Access Administrator` role.
 
 > [!IMPORTANT]
-> For your Azure Machine Learning workspace, set the isolation_mode to `allow_internet_outbound`. This is the only isolation_mode option available at this time. However, we are actively working to add `allow_only_approved_outbound` isolation_mode functionality. As a workaround, this notebook will show how to connect to sources, materialization store and observation data securely through private endpoints.
+> For your Azure Machine Learning workspace, set the `isolation_mode` to `allow_internet_outbound`. This is the only isolation_mode option available at this time. However, we are actively working to add `allow_only_approved_outbound` isolation_mode functionality. As a workaround, this notebook will show how to connect to sources, materialization store and observation data securely through private endpoints.
 
 ## Set up
 
