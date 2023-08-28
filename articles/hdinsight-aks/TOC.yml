@@ -180,13 +180,13 @@ items:
         href: ./flink/process-and-consume-data.md
     - name: Flink SQL
       items:
-      - name:  CDC - Azure PostgreSQL & FlinkSQL 
+      - name: CDC - Azure PostgreSQL & FlinkSQL 
         href: ./flink/monitor-changes-postgres-table-flink.md
-      - name: Using CDC - SQL Server & FlinkSQL 
+      - name: CDC - SQL Server & FlinkSQL 
         href: ./flink/sink-sql-server-table-using-flink-sql.md
-      - name: Using Kafka table on FlinkSQL
+      - name: Kafka table on FlinkSQL
         href: ./flink/create-kafka-table-flink-kafka-sql-connector.md
-      - name: Using Hive Catalog & FlinkSQL
+      - name: Hive Catalog & FlinkSQL
         href: ./flink/use-hive-catalog.md
       - name: Flink-Iceberg Catalog
         href: ./flink/flink-catalog-iceberg-hive.md
@@ -194,21 +194,21 @@ items:
         href: ./flink/flink-catalog-delta-hive.md
     - name: Flink Streaming
       items:
-      - name: Using ADLSGen2 - Write with DStream API
+      - name: ADLS Gen2 - Write with Flink DataStream 
         href: ./flink/assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2.md
-      - name: Using Apache NiFi with DStream API
+      - name: Apache NiFi with Flink DataStream 
         href: ./flink/use-apache-nifi-with-datastream-api.md
-      - name: Using CDC - SQL Server & DStream API
+      - name: CDC - SQL Server & Flink DataStream 
         href: ./flink/change-data-capture-connectors-for-apache-flink.md
-      - name: Using Hivemetastore with Flink DataStream
+      - name: Hive metastore with Flink DataStream
         href: ./flink/use-hive-metastore-datastream.md
-      - name: Using HBase - Write with DStream API
+      - name: HBase - Write with Flink DataStream 
         href: ./flink/use-flink-to-sink-kafka-message-into-hbase.md
-      - name: MongoDB as a source and Sink with DataStream API
+      - name: MongoDB as a source and Sink with Flink DataStream 
         href: ./flink/datastream-api-mongodb.md
       - name: Join stream from Kafka with Table on ADLS Gen2
         href: ./flink/join-stream-kafka-table-filesystem.md
-      - name: Use Microsoft Fabric with DataStream API
+      - name: Microsoft Fabric with Flink DataStream 
         href: ./flink/fabric-lakehouse-flink-datastream-api.md
     - name: Use cases
       items:
