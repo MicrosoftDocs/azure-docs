@@ -102,7 +102,8 @@ United States | Central US </br> East US </br> East US 2</br> North Central US <
 > Currently, Update Manager has the following limitation regarding the operating system support: 
 > - [Specialized images](../virtual-machines/linux/imaging.md#specialized-images) and **VMs created by Azure Migrate, Azure Backup, Azure Site Recovery** aren't fully supported for now. However, you can **use on-demand operations such as one-time update and check for updates** in Update Manager (preview). 
 >
-> For the above limitation, we recommend that you use [Automation update management](../automation/update-management/overview.md) till the support is available in Update Manager (preview).
+> For the above limitation, we recommend that you use [Automation Update management](../automation/update-management/overview.md) till the support is available in Update Manager (preview).
+
 
 ### Marketplace/PIR images
 
@@ -161,7 +162,7 @@ The following table lists the operating systems for marketplace images that aren
 
 ### Custom images
 
-We support [generalized](../virtual-machines/linux/imaging.md#generalized-images) custom images. Table below lists the operating systems that we support for generalized images. Refer to [custom images (preview)](manage-updates-customized-images.md) for instructions on how to start using Update manage center to manage updates on custom images.
+We support [generalized](../virtual-machines/linux/imaging.md#generalized-images) custom images. Table below lists the operating systems that we support for generalized images. Refer to [custom images (preview)](manage-updates-customized-images.md) for instructions on how to start using Update Manager (preview) to manage updates on custom images.
 
    |**Windows Operating System**|
    |-- |

@@ -12,7 +12,7 @@ ms.author: kpunjabi
 ---
 
 ## Download code 
-Find the project for this sample on [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/callautomation-openai-sample-csharp/callautomation-openai-sample-csharp). You can download this code and run it locally to try it for yourself. 
+Find the project for this sample on [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/callautomation-openai-sample-csharp). You can download this code and run it locally to try it for yourself. 
 
 ## Overview 
 

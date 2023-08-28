@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/22/2023
+ms.date: 08/24/2023
 ms.author: sarahlipsey
 ms.reviewer: dhanyahk 
 ---
@@ -36,8 +36,8 @@ You need:
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a Report Reader.
-1. Browse to **Azure AD** > **Monitoring** > **Sign-in logs**. 
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Reports Reader](../roles/permissions-reference.md#reports-reader).
+1. Browse to **Identity** > **Monitoring & health** > **Sign-in logs**. 
 1. Use the filters to narrow down the results
     - Search by username if you're troubleshooting a specific user.
     - Search by application if you're troubleshooting issues with a specific app.

@@ -103,6 +103,16 @@ Run an assessment as follows:
 
 3. Review the assessment summary. You can also edit the assessment settings or recalculate the assessment.
 
+### Review support status
+
+The assessment summary displays the support status of the database instance licenses.
+
+1. Select the graph in the **Supportability** section to view a list of the assessed VMs.
+2. The **Database instance license support status** column displays the support status of the Operating system, whether it is in mainstream support, extended support, or out of support. Selecting the support status opens a pane on the right which shows the type of support status, duration of support, and the recommended steps to secure their workloads. 
+   - To view the remaining duration of support, that is, the number of months for which the license is valid, 
+select **Columns** > **Support ends in** > **Submit**. The **Support ends in** column displays the duration in months. 
+
+
 ### Discovered entities
 
 This indicates the number of SQL servers, instances, and databases that were assessed in this assessment.
