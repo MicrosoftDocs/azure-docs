@@ -173,7 +173,7 @@ The inputs are required by default, which means you need to assign a value to it
 Below are examples about how to define optional input.
 
 
-:::code language="yaml" source="~/azureml-examples/blob/main/cli/assets/component/train.yml" range="1-34" highlight="12-22,31-33":::
+:::code language="yaml" source="~/azureml-examples-main/cli/assets/component/train.yml" range="1-34" highlight="12-22,31-33":::
 
 When the input is set as `optional = true`, you need use `$[[]]` to embrace the command line with inputs. See highlighted line in above example. 
 
@@ -193,7 +193,7 @@ By default, the output of a component will be stored in `azureml://datastores/${
 But you can also customize where to store the output by defining path of an output. Below are example:
 
 
-[!notebook-python[] (~/azureml-examples-main/sdk/python/jobs/pipelines/1b_pipeline_with_python_function_components/pipeline_with_python_function_components.ipynb?name=custom-path)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/jobs/pipelines/1b_pipeline_with_python_function_components/pipeline_with_python_function_components.ipynb?name=custom-output-path)]
 
 
 
