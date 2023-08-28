@@ -381,7 +381,7 @@ PATCH  https://management.azure.com/subscriptions/{subscription}/resourceGroups/
    }
 }
 ```
-
+Please refer https://learn.microsoft.com/en-us/rest/api/redis/Redis/Update?tabs=HTTP for more information.
 ### How can I migrate my VNet injected cache to a Private Link cache?
 
 Refer to our [migration guide](cache-vnet-migration.md) for different approaches on how to migrate your VNet injected caches to Private Link caches.
