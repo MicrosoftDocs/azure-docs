@@ -46,7 +46,7 @@
         href: migrate-storage.md
       - name: Azure SQL managed instance
         href: migrate-sql-managed-instance.md
-      - name: Azure Virtual machines and Virtual machine scale sets
+      - name: Azure Virtual Machines and Virtual Machine Scale Sets
         href: migrate-vm.md
       - name: Workload - Azure Kubernetes and MySQL
         href: migrate-workload-aks-mysql.md
