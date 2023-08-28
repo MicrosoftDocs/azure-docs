@@ -1,6 +1,6 @@
 ---
-title: Configure SAP parameters file for Ansible
-description: Define SAP parameters for Ansible
+title: Configure SAP parameters files for Ansible
+description: Learn how to define SAP parameters for Ansible.
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
@@ -11,20 +11,20 @@ ms.subservice: sap-automation
 ms.custom: devx-track-ansible
 ---
 
-# Configure SAP Installation parameters
+# Configure SAP installation parameters
 
 The Ansible playbooks use a combination of default parameters and parameters defined by the Terraform deployment for the SAP installation.
 
 ## Default parameters
 
-This table contains the default parameters defined by the framework.
+The following tables contain the default parameters defined by the framework.
 
 ### User IDs
 
 This table contains the IDs for the SAP users and groups for the different platforms.
 
 > [!div class="mx-tdCol2BreakAll "]
-> | Parameter                       | Description                                                                | Default Value                |
+> | Parameter                       | Description                                                                | Default value                |
 > | ------------------------------- | -------------------------------------------------------------------------- | ---------------------------- | 
 > | HANA                            |                                                                            |                              |
 > | `sapadm_uid`                    | The UID for the sapadm account                                            | 2100                         |
@@ -60,13 +60,13 @@ This table contains the IDs for the SAP users and groups for the different platf
 This table contains the information pertinent to Windows deployments.
 
 > [!div class="mx-tdCol2BreakAll "]
-> | Parameter                       | Description                                                                | Default Value                |
+> | Parameter                       | Description                                                                | Default value                |
 > | ------------------------------- | -------------------------------------------------------------------------- | ---------------------------- | 
 > | `mssserver_version`             | SQL Server version                                                         | `mssserver2019`              |
 
 ## Parameters
 
-This table contains the parameters stored in the *sap-parameters.yaml* file. Most of the values are prepopulated via the Terraform deployment.
+The following tables contain the parameters stored in the *sap-parameters.yaml* file. Most of the values are prepopulated via the Terraform deployment.
 
 ### Infrastructure
 
@@ -98,12 +98,12 @@ This table contains the parameters stored in the *sap-parameters.yaml* file. Mos
 > [!div class="mx-tdCol2BreakAll "]
 > | Parameter                 | Description                                                                                                      | Type       |
 > | ------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------- | 
-> | `db_sid`                  | The SID of the SAP database                                                                                      | Required   |
-> | `db_instance_number`      | Defines the instance number for the database                                                                     | Required   |
-> | `db_high_availability`    | Defines if the database is deployed highly available                                                             | Required   |
-> | `db_lb_ip`                | IP address of the database load balancer                                                                         | Optional   |
-> | `platform`                | The database platform. Valid values are: ASE, DB2, HANA, ORACLE, SQLSERVER                                       | Required   |
-> | `db_clst_lb_ip`           | IP address of database cluster for Windows                                                                       | Optional   |
+> | `db_sid`                  | The SID of the SAP database.                                                                                      | Required   |
+> | `db_instance_number`      | Defines the instance number for the database.                                                                     | Required   |
+> | `db_high_availability`    | Defines if the database is deployed highly available.                                                             | Required   |
+> | `db_lb_ip`                | IP address of the database load balancer.                                                                         | Optional   |
+> | `platform`                | The database platform. Valid values are ASE, DB2, HANA, ORACLE, and SQLSERVER.                                       | Required   |
+> | `db_clst_lb_ip`           | IP address of database cluster for Windows.                                                                       | Optional   |
 
 ### NFS
 
@@ -129,10 +129,10 @@ This table contains the parameters stored in the *sap-parameters.yaml* file. Mos
 > [!div class="mx-tdCol2BreakAll "]
 > | Parameter                    | Description                                                                                                      | Type       |
 > | ---------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------- | 
-> | `domain_name`                | Defines the Windows domain name, for example sap.contoso.net.                                                    | Required   |
-> | `domain`                     | Defines the Windows domain Netbios name, for example sap.                                                        | Optional   |
+> | `domain_name`                | Defines the Windows domain name, for example, sap.contoso.net                                                    | Required   |
+> | `domain`                     | Defines the Windows domain Netbios name, for example, sap                                                        | Optional   |
 > | SQL                          |                                                                                                                  |            |
-> | `use_sql_for_SAP`            | Uses the SAP defined SQL Server media, defaults to 'true'                                                        | Optional   |
+> | `use_sql_for_SAP`            | Uses the SAP-defined SQL Server media, defaults to `true`                                                        | Optional   |
 > | `win_cluster_share_type`     | Defines the cluster type (CSD/FS), defaults to CSD                                                               | Optional   |
 
 ### Miscellaneous
@@ -140,17 +140,17 @@ This table contains the parameters stored in the *sap-parameters.yaml* file. Mos
 > [!div class="mx-tdCol2BreakAll "]
 > | Parameter                    | Description                                                                                                      | Type       |
 > | ---------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------- | 
-> | `kv_name`                    | The name of the Azure key vault containing the system credentials                                                | Required   |
-> | `secret_prefix`              | The prefix for the name of the secrets for the SID stored in key vault                                           | Required   |
-> | `upgrade_packages`           | Update all installed packages on the virtual machines                                                            | Required   |
-> | `use_msi_for_clusters`       | Use managed identities for fencing                                                                               | Required   |
+> | `kv_name`                    | The name of the Azure key vault that contains the system credentials                                                | Required   |
+> | `secret_prefix`              | The prefix for the name of the secrets for the SID stored in the key vault                                           | Required   |
+> | `upgrade_packages`           | Updates all installed packages on the virtual machines                                                            | Required   |
+> | `use_msi_for_clusters`       | Uses managed identities for fencing                                                                               | Required   |
 
 ### Disks
 
 Disks define a dictionary with information about the disks of all the virtual machines in the SAP application virtual machines.
 
 > [!div class="mx-tdCol2BreakAll "]
-> | attribute                    | Description                                                                                                      | Type       |
+> | Attribute                    | Description                                                                                                      | Type       |
 > | ---------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------- | 
 > | `host`                       | The computer name of the virtual machine.                                                                         | Required   |
 > | `LUN`                        | Defines the LUN number that the disk is attached to.                                                              | Required   |
@@ -189,14 +189,14 @@ disks:
 
 From the v3.4 release, it's possible to deploy SAP on Azure systems in a shared home configuration by using an Oracle database back end. For more information on running SAP on Oracle in Azure, see [Azure Virtual Machines Oracle DBMS deployment for SAP workload](../workloads/dbms-guide-oracle.md).
 
-To install the Oracle back-end by using SAP Deployment Automation Framework, you need to provide the following parameters:
+To install the Oracle back end by using SAP Deployment Automation Framework, you need to provide the following parameters:
 
 > [!div class="mx-tdCol2BreakAll "]
 > | Parameter                    | Description                                                                                                      | Type       |
 > | ---------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------- | 
-> | `platform`                   | The database backend, 'ORACLE'                                                                                   | Required   |
-> | `ora_release`                | The Oracle release version, for example 19                                                                       | Required   |
-> | `ora_release`                | The Oracle release version, for example 19.0.0                                                                   | Required   |
+> | `platform`                   | The database back end, `ORACLE`                                                                                   | Required   |
+> | `ora_release`                | The Oracle release version, for example, 19                                                                       | Required   |
+> | `ora_release`                | The Oracle release version, for example, 19.0.0                                                                   | Required   |
 > | `oracle_sbp_patch`           | The Oracle SBP patch file name                                                                                   | Required   |
 
 #### Shared home support
