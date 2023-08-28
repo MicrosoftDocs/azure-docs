@@ -24,7 +24,7 @@ To initiate the spacecraft licensing process, you'll need:
 - A spacecraft object that corresponds to the spacecraft in orbit or slated for launch. The links in this object must match all current and planned filings.
 - A list of ground stations that you wish to use to communicate with your satellite.
 
-## Step 1 - Initiate the request
+## Step 1: Initiate the request
 
 The process starts by initiating the licensing request via the Azure portal.
 
@@ -48,19 +48,19 @@ The process starts by initiating the licensing request via the Azure portal.
 1. Click next to Review + Create.
 1. Click Create.
 
-## Step 2 - Provide more details
+## Step 2: Provide more details
 
 When the request is generated, our regulatory team will investigate the request and determine if more detail is required. If so, a customer support representative will reach out to you with a regulatory intake form. You'll need to input information regarding relevant filings, call signs, orbital parameters, link details, antenna details, point of contacts, etc.
 
 Fill out all relevant fields in this form as it helps speeds up the process. When you're done entering information, email this form back to the customer support representative.
 
-## Step 3 - Await feedback from our regulatory team
+## Step 3: Await feedback from our regulatory team
 
 Based on the details provided in the steps above, our regulatory team will make an assessment on time and cost to onboard your spacecraft to all requested ground stations. This step will take a few weeks to execute.
 
 Once the determination is made, we'll confirm the cost with you and ask you to authorize before proceeding.
 
-## Step 4 - Azure Orbital requests the relevant licensing
+## Step 4: Azure Orbital requests the relevant licensing
 
 Upon authorization, you will be billed the fees associated with each relevant ground station. Our regulatory team will seek the relevant licenses to enable your spacecraft to communicate with the desired ground stations. Refer to the following table for an estimated timeline for execution: 
 
@@ -68,7 +68,7 @@ Upon authorization, you will be billed the fees associated with each relevant gr
 | ----------- | ---------- | --------- | ---------- | ---------------- | ------------- |
 | Onboarding Timeframe | 3-6 months | 3-6 months | 3-6 months | <1 month | 3-6 months |
 
-## Step 5 - Spacecraft is authorized
+## Step 5: Spacecraft is authorized
 
 Once the licenses are in place, the spacecraft object will be updated by Azure Orbital to represent the licenses held at the specified ground stations. To understand how the authorizations are applied, see [Spacecraft Object](./spacecraft-object.md).
 
