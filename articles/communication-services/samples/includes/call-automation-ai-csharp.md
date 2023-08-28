@@ -36,7 +36,7 @@ Before running this sample, you need to set up the resources mentioned in the 'P
 
 ##### 1. Setup and host your Azure DevTunnel
 
-[Azure DevTunnels](https://learn.microsoft.com/azure/developer/dev-tunnels/overview) is an Azure service that enables you to share local web services hosted on the internet. Use the commands below to connect your local development environment to the public internet. This creates a tunnel with a persistent endpoint URL and which allows anonymous access. We'll then use this endpoint to notify your application of calling events from the Azure Communication Services Call Automation service.
+[Azure DevTunnels](/azure/developer/dev-tunnels/overview) is an Azure service that enables you to share local web services hosted on the internet. Use the commands below to connect your local development environment to the public internet. This creates a tunnel with a persistent endpoint URL and which allows anonymous access. We'll then use this endpoint to notify your application of calling events from the Azure Communication Services Call Automation service.
 
 ```bash
 devtunnel create --allow-anonymous
@@ -47,7 +47,7 @@ devtunnel host
 <a name='2-add-a-managed-identity-to-the-acs-resource-that-connects-to-the-cognitive-services-resource'></a>
 
 ##### 2. Add a Managed Identity to the ACS Resource that connects to the Azure AI services resource
-Follow the instructions in this [documentation](https://learn.microsoft.com/azure/communication-services/concepts/call-automation/azure-communication-services-azure-cognitive-services-integration).
+Follow the instructions in this [documentation](/azure/communication-services/concepts/call-automation/azure-communication-services-azure-cognitive-services-integration).
 
 ##### 3. Add the required API Keys and endpoints
 Open the appsettings.json file to configure the following settings:
@@ -64,7 +64,7 @@ Open the appsettings.json file to configure the following settings:
 
 1. Azure DevTunnel: Ensure your AzureDevTunnel URI is active and points to the correct port of your localhost application
 2. Run `dotnet run` to build and run the sample application
-3. Register an Event Grid Webhook for the IncomingCall Event that points to your DevTunnel URI. Instructions [here](https://learn.microsoft.com/azure/communication-services/concepts/call-automation/incoming-call-notification).
+3. Register an Event Grid Webhook for the IncomingCall Event that points to your DevTunnel URI. Instructions [here](/azure/communication-services/concepts/call-automation/incoming-call-notification).
 
 
 Once that's completed, you should have a running application. The best way to test this sample is to place a call to your ACS phone number and talk to your intelligent agent.

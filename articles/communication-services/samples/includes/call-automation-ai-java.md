@@ -26,11 +26,11 @@ This Azure Communication Services Call Automation AI sample demonstrates how to 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - A deployed Communication Services resource. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
 - A [phone number](../../quickstarts/telephony/get-phone-number.md) in your Azure Communication Services resource that can make outbound calls. NB: phone numbers aren't available in free subscriptions.
-- [Java Development Kit (JDK) Microsoft.OpenJDK.17](https://learn.microsoft.com/java/openjdk/download)
+- [Java Development Kit (JDK) Microsoft.OpenJDK.17](/java/openjdk/download)
 - [Apache Maven](https://maven.apache.org/download.cgi)
-- Create and host an Azure Dev Tunnel. Instructions [here](https://learn.microsoft.com/azure/developer/dev-tunnels/get-started)
+- Create and host an Azure Dev Tunnel. Instructions [here](/azure/developer/dev-tunnels/get-started)
 - Create an Azure AI services resource. For details, see Create an Azure AI services Resource.
-- An Azure OpenAI Resource and Deployed Model. See [instructions](https://learn.microsoft.com/azure/ai-services/openai/how-to/create-resource?pivots=web-portal).
+- An Azure OpenAI Resource and Deployed Model. See [instructions](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal).
 
 ## Before running the sample for the first time
 
@@ -46,7 +46,7 @@ This Azure Communication Services Call Automation AI sample demonstrates how to 
 
 ### Setup and host your Azure DevTunnel
 
-[Azure DevTunnels](https://learn.microsoft.com/azure/developer/dev-tunnels/overview) is an Azure service that enables you to share local web services hosted on the internet. Use the commands provided to connect your local development environment to the public internet. This creates a tunnel with a persistent endpoint URL and which allows anonymous access. We'll then use this endpoint to notify your application of calling events from the ACS Call Automation service.
+[Azure DevTunnels](/azure/developer/dev-tunnels/overview) is an Azure service that enables you to share local web services hosted on the internet. Use the commands provided to connect your local development environment to the public internet. This creates a tunnel with a persistent endpoint URL and which allows anonymous access. We'll then use this endpoint to notify your application of calling events from the ACS Call Automation service.
 
 ```bash
 devtunnel create --allow-anonymous
