@@ -37,7 +37,7 @@ In this tutorial:
 
 To complete registration, provide the application a name and specify the supported account types. Once registered, the application **Overview** page will display the identifiers needed in the application source code.
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Developer](../roles/permissions-reference.md#application-developer). 
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Application Developer](../roles/permissions-reference.md#application-developer). 
 1. If access to multiple tenants is available, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
 1. Browse to **Identity** > **Applications** > **Application registrations**.
 1. Select **New registration**.
