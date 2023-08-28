@@ -13,7 +13,7 @@ ms.date: 08/25/2023
 
 # Retrieval Augmented Generation (RAG) in Azure Cognitive Search
 
-Retrieval Augmentation Generation (RAG) is an architecture that augments the capabilities of a Large Language Model (LLM) like ChatGPT with an information retrieval system that provides the data. Adding an information retrieval system gives you more control over the data used by an LLM. For an enterprise solution, RAG means that you can constrain natural language processing to *your enterprise content* sourced from documents, images, audio, and video.
+Retrieval Augmentation Generation (RAG) is an architecture that augments the capabilities of a Large Language Model (LLM) like ChatGPT by adding an information retrieval system that provides the data. Adding an information retrieval system gives you control over the data used by an LLM. For an enterprise solution, RAG means that you can constrain natural language processing to *your enterprise content* sourced from documents, images, audio, and video.
 
 The decision about which information retrieval system to use is critical because it determines the inputs to the LLM. The information retrieval system should provide:
 
@@ -25,7 +25,7 @@ The decision about which information retrieval system to use is critical because
 
 + Integration with LLMs and other components that provide data chunking and embedding.
 
-Azure Cognitive Search is a [proven solution for information retrieval](https://github.com/Azure-Samples/azure-search-openai-demo) in a RAG architecture because it provides indexing and query capabilities, with the infrastructure and security of the Azure cloud. Through code and other components, you can design a comprehensive RAG solution that includes all of the elements for generative AI over your proprietary content.
+Azure Cognitive Search is a [proven solution for information retrieval](https://github.com/Azure-Samples/azure-search-openai-demo) in a RAG architecture because it provides compatible indexing and query capabilities, with the infrastructure and security of the Azure cloud. Through code and other components, you can design a comprehensive RAG solution that includes all of the elements for generative AI over your proprietary content.
 
 > [!NOTE]
 > New to LLM and RAG concepts? This [video clip](https://youtu.be/2meEvuWAyXs?t=404) from a Microsoft presentation offers a simple explanation.
@@ -34,7 +34,7 @@ Azure Cognitive Search is a [proven solution for information retrieval](https://
 
 Microsoft has several built-in implementations for using Cognitive Search in a RAG solution.
 
-+ Azure AI Studio, [use your data with an Azure OpenAI Service](/azure/ai-services/openai/concepts/use-your-data). Azure AI Studio integrates with Azure Cognitive Search for storage and retrieval. If you already have a search index, you can connect to it in Azure AI Studio.
++ Azure AI Studio, [using your data with an Azure OpenAI Service](/azure/ai-services/openai/concepts/use-your-data). Azure AI Studio integrates with Azure Cognitive Search for storage and retrieval. If you already have a search index, you can connect to it in Azure AI Studio and start chatting right away.
 
 + Azure Machine Learning, a search index can be used as a [vector store](/azure/machine-learning/concept-vector-stores). You can [create a vector index in an Azure Machine Learning prompt flow](/azure/machine-learning/how-to-create-vector-index) that uses your Cognitive Search service for storage and retrieval.
 
@@ -91,9 +91,9 @@ Vectors provide the best accommodation for dissimilar content (multiple file for
 
 Once your data is in a search index, you use the query capabilities of Cognitive Search to retrieve content. 
 
-In a non-RAG pattern, queries make a round trip from a search client. The query is submitted to a search engine, with the response returned to the client application. The response, or search results, consist exclusively of the verbatim content found in your index. 
+In a non-RAG pattern, queries make a round trip from a search client. The query is submitted, it executes on a search engine, and the response returned to the client application. The response, or search results, consist exclusively of the verbatim content found in your index. 
 
-In a RAG pattern, queries and responses are coordinated. A user's question or query is forwarded to both the search engine and to the LLM as a prompt. The search results come back from the search engine and are redirected to an LLM. The response that makes it back to the user is generative AI, either a summation or answer from the LLM.
+In a RAG pattern, queries and responses are coordinated between the search engine and the LLM. A user's question or query is forwarded to both the search engine and to the LLM as a prompt. The search results come back from the search engine and are redirected to an LLM. The response that makes it back to the user is generative AI, either a summation or answer from the LLM.
 
 There's no query type in Cognitive Search - not even semantic search or vector search - that composes new answers. Only the LLM provides generative AI. Here are the capabilities in Cognitive Search that are used to formulate queries:
 
@@ -109,8 +109,8 @@ There's no query type in Cognitive Search - not even semantic search or vector s
 
 A query's response provides the input to the LLM, so the quality of your search results is critical to success. Results are a tabular row set. The composition or structure of the results depends on:
 
-+ On the horizontal, fields determine which parts of the index are included in the response.
-+ On the vertical, rows the represent a match from index.
++ Fields that determine which parts of the index are included in the response.
++ Rows the represent a match from index.
 
 Fields appear in search results when the attribute is "retrievable". A field definition in the index schema has attributes, and those determine whether a field is used in a response. Only "retrievable" fields are returned in full text or vector query results. By default all "retrievable" fields are returned, but you can use "select" to specify a subset. Besides "retrievable", there are no restrictions on the field. Fields can be of any length or type. Regarding length, there is no maximum field length limit in Cognitive Search, but there are limits on the [size of an API request](search-limits-quotas-capacity.md#api-request-limits).
 
