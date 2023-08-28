@@ -66,7 +66,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 ## Enhanced soft delete for Azure Backup is now generally available
 
-Enhanced soft delete provides improvements to the existing [soft delete](backup-azure-security-feature-cloud.md) feature. With enhanced soft delete, you can now make soft delete irreversible to prevent malicious actors from disabling it and deleting backups.
+Enhanced soft delete provides improvements to the existing [soft delete](backup-azure-security-feature-cloud.md) feature. With enhanced soft delete, you now get the ability to make soft delete irreversible, thus protecting it from being disabled by any malicious actors.
 
 You can also customize soft delete retention period (for which soft deleted data must be retained). Enhanced soft delete is available for Recovery Services vaults and Backup vaults.
 
