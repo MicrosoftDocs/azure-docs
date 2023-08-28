@@ -190,12 +190,11 @@ By default, the output of a component will be stored in `azureml://datastores/${
 
 But you can also customize where to store the output by defining path of an output. Below are example:
 
-
-[!notebook-python[] (~/azureml-examples-main/sdk/python/jobs/pipelines/1b_pipeline_with_python_function_components/pipeline_with_python_function_components.ipynb?name=custom-output-path)]
-
+:::code language="python" source="~/azureml-examples-main/sdk/python/jobs/pipelines/1b_pipeline_with_python_function_components/pipeline_with_python_function_components.ipynb?name=custom-output-path":::
 
 
-[to-do] need a CLI example? 
+
+[to-do] need a CLI example?? 
  
 
 

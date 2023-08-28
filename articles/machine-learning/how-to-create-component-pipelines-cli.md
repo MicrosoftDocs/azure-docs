@@ -163,6 +163,8 @@ Input and output define the interface of a component. Input and output could be 
 
 If you want to add an input to a component, remember to edit three places:  1)`inputs` field in component YAML 2) `command` field in component YAML. 3) component source code to handle the command line input. It's marked in green box in above screenshot.  
 
+To learn more about input and output, check [this article](./how-to-manage-inputs-and-outputs-in-pipeline.md)
+
 ### Environment
 
 Environment defines the environment to execute the component. It could be an Azure Machine Learning environment(curated or custom registered), docker image or conda environment. See examples below.
