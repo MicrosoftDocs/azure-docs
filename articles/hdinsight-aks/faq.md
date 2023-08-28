@@ -119,4 +119,4 @@ This article addresses some common questions about Azure HDInsight on AKS.
 
 * What are the various ways to submit jobs in HDInsight on AKS Spark? 
 
-   You can submit jobs on HDInsight on AKS Spark using Jupyter Notebook, Zeppelin Notebook, SDK and cluster terminal. For more information, see [Submit and Manage Jobs on a Spark cluster in HDInsight on AKS](./spark/submit-and-manage-jobs.md)
+   You can submit jobs on HDInsight on AKS Spark using Jupyter Notebook, Zeppelin Notebook, SDK and cluster terminal. For more information, see [Submit and Manage Jobs on a Spark cluster in HDInsight on AKS](./spark/submit-manage-jobs.md)
