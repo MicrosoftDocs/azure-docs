@@ -34,4 +34,4 @@ ms.date: 08/08/2023
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Capabilities to counter identity-based supply chain attacks](episode-thirty-seven.md)
+> [Defender CSPM support for GCP and more updates](episode-thirty-six.md)
