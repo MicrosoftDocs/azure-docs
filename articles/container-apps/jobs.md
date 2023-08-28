@@ -363,7 +363,7 @@ Retrieve the job's current configuration with the `az containerapp job show` com
 az containerapp job show --name "my-job" --resource-group "my-resource-group" --query "properties.template" --output yaml > my-job-template.yaml
 ```
 
-Edit the `my-job-template.yaml` file to override the job's configuration. For example, to override the startup command, modify the `args` section:
+Edit the `my-job-template.yaml` file to override the job's configuration. For example, to override the environment variables, modify the `env` section:
 
 ```yaml
 containers:
