@@ -44,8 +44,8 @@ This table shows the parameters that define the resource naming.
 > | ------------------------------- | ------------------------------------------------- | ---------- | ------------------------------------------------------------------------------------------- |
 > | `environment`                   | Identifier for the control plane (maximum of five characters).    | Mandatory  | For example, `PROD` for a production environment and `NP` for a nonproduction environment. |
 > | `location`                      | Azure region in which to deploy.              | Required   | Use lowercase.                                                                              |
-> | 'name_override_file'            | Name override file.                                | Optional   | See [Custom naming](naming-module.md).                                            |
-> | 'place_delete_lock_on_resources | Place a delete lock on the key resources.          | Optional   |
+> | `name_override_file`            | Name override file.                                | Optional   | See [Custom naming](naming-module.md).                                            |
+> | `place_delete_lock_on_resources` | Place a delete lock on the key resources.          | Optional   |
 
 ### Resource group
 
@@ -60,10 +60,10 @@ This table shows the parameters that define the resource group.
 
 ### Network parameters
 
-The automation framework supports both creating the virtual network and the subnets (green field) or using an existing virtual network and existing subnets (brown field) or a combination of green field and brown field.
+The automation framework supports both creating the virtual network and the subnets (green field) or using an existing virtual network and existing subnets (brown field) or a combination of green field and brown field:
 
- - For the green-field scenario, the virtual network address space and the subnet address prefixes must be specified.
- - For the brown-field scenario, the Azure resource identifier for the virtual network and the subnets must be specified.
+ - **Green-field scenario**: The virtual network address space and the subnet address prefixes must be specified.
+ - **Brown-field scenario**: The Azure resource identifier for the virtual network and the subnets must be specified.
 
 The recommended CIDR of the virtual network address space is /27, which allows space for 32 IP addresses. A CIDR value of /28 only allows 16 IP addresses. If you want to include Azure Firewall, use a CIDR value of /25, because Azure Firewall requires a range of /26.
 
@@ -75,26 +75,26 @@ This table shows the networking parameters.
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                                    | Description                                                      | Type       | Notes  |
 > | ------------------------------------------  | ---------------------------------------------------------------- | ---------- | ------ |
-> | `management_network_name`                   | The name of the virtual network into which the deployer will be deployed.    | Optional   | For green-field deployments |
-> | `management_network_logical_name`           | The logical name of the network (DEV-WEEU-MGMT01-INFRASTRUCTURE). | Required   | |
-> | `management_network_arm_id`                 | The Azure resource identifier for the virtual network.            | Optional   | For brown-field deployments  |
-> | `management_network_address_space`          | The address range for the virtual network.                        | Mandatory  | For green-field deployments  |
+> | `management_network_name`                   | The name of the virtual network into which the deployer will be deployed    | Optional   | For green-field deployments |
+> | `management_network_logical_name`           | The logical name of the network (DEV-WEEU-MGMT01-INFRASTRUCTURE) | Required   | |
+> | `management_network_arm_id`                 | The Azure resource identifier for the virtual network            | Optional   | For brown-field deployments  |
+> | `management_network_address_space`          | The address range for the virtual network                        | Mandatory  | For green-field deployments  |
 > |                                             |                                                                  |            | |
-> | `management_subnet_name`                    | The name of the subnet.                                           | Optional   | |
-> | `management_subnet_address_prefix`          | The address range for the subnet.                                 | Mandatory  | For green-field deployments  |
-> | `management_subnet_arm_id`	                | The Azure resource identifier for the subnet.                     | Mandatory  | For brown-field deployments  |
-> | `management_subnet_nsg_name`                | The name of the network security group.                      | Optional   | |
-> | `management_subnet_nsg_arm_id`              | The Azure resource identifier for the network security group.     | Mandatory  | For brown-field deployments  |
-> | `management_subnet_nsg_allowed_ips`	        | Range of allowed IP addresses to add to Azure Firewall.           | Optional   | |
+> | `management_subnet_name`                    | The name of the subnet                                           | Optional   | |
+> | `management_subnet_address_prefix`          | The address range for the subnet                                 | Mandatory  | For green-field deployments  |
+> | `management_subnet_arm_id`	                | The Azure resource identifier for the subnet                     | Mandatory  | For brown-field deployments  |
+> | `management_subnet_nsg_name`                | The name of the network security group                      | Optional   | |
+> | `management_subnet_nsg_arm_id`              | The Azure resource identifier for the network security group     | Mandatory  | For brown-field deployments  |
+> | `management_subnet_nsg_allowed_ips`	        | Range of allowed IP addresses to add to Azure Firewall           | Optional   | |
 > |                                             |                                                                  |            | |
-> | `management_firewall_subnet_arm_id`		      | The Azure resource identifier for the Azure Firewall subnet.            | Mandatory  | For brown-field deployments  |
-> | `management_firewall_subnet_address_prefix` | The address range for the subnet.                                 | Mandatory  | For green-field deployments  |
+> | `management_firewall_subnet_arm_id`		      | The Azure resource identifier for the Azure Firewall subnet            | Mandatory  | For brown-field deployments  |
+> | `management_firewall_subnet_address_prefix` | The address range for the subnet                                 | Mandatory  | For green-field deployments  |
 > |                                             |                                                                  |            | |
-> | `management_bastion_subnet_arm_id`		      | The Azure resource identifier for the Azure Bastion subnet.             | Mandatory  | For brown-field deployments  |
-> | `management_bastion_subnet_address_prefix`  | The address range for the subnet.                                 | Mandatory  | For green-field deployments  |
+> | `management_bastion_subnet_arm_id`		      | The Azure resource identifier for the Azure Bastion subnet             | Mandatory  | For brown-field deployments  |
+> | `management_bastion_subnet_address_prefix`  | The address range for the subnet                                 | Mandatory  | For green-field deployments  |
 > |                                             |                                                                  |            | |
-> | `webapp_subnet_arm_id`		                  | The Azure resource identifier for the web app subnet.             | Mandatory  | For brown-field deployments by using the web app |
-> | `webapp_subnet_address_prefix`              | The address range for the subnet.                                 | Mandatory  | For green-field deployments by using the web app |
+> | `webapp_subnet_arm_id`		                  | The Azure resource identifier for the web app subnet             | Mandatory  | For brown-field deployments by using the web app |
+> | `webapp_subnet_address_prefix`              | The address range for the subnet                                 | Mandatory  | For green-field deployments by using the web app |
 
 > [!NOTE]
 > When you use an existing subnet for the web app, the subnet must be empty, in the same region as the resource group being deployed, and delegated to Microsoft.Web/serverFarms.
@@ -106,16 +106,16 @@ This table shows the parameters related to the deployer VM.
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                        | Description                                                                            | Type       |
 > | ------------------------------- | -------------------------------------------------------------------------------------- | ---------- |
-> | `deployer_size`                 | Defines the VM SKU to use, for example, Standard_D4s_v3.                    | Optional   |
-> | `deployer_count`                | Defines the number of deployers.                                                        | Optional   |
-> | `deployer_image`	              | Defines the VM image to use.                                               | Optional	  |
-> | `plan`	                        | Defines the plan associated to the VM image.                               | Optional	  |
-> | `deployer_disk_type`            | Defines the disk type, for example, Premium_LRS.                                         | Optional   |
-> | `deployer_use_DHCP`             | Controls if the Azure subnet-provided IP addresses should be used (dynamic) true.           | Optional   |
-> | `deployer_private_ip_address`   | Defines the private IP address to use.                                                  | Optional   |
-> | `deployer_enable_public_ip`     | Defines if the deployer has a public IP.                                                | Optional   |
-> | `auto_configure_deployer`       | Defines if the deployer is configured with the required software (Terraform and Ansible). | Optional   |
-> | `add_system_assigned_identity`  | Defines if the deployer is assigned a system identity.                                    | Optional   |
+> | `deployer_size`                 | Defines the VM SKU to use, for example, Standard_D4s_v3                    | Optional   |
+> | `deployer_count`                | Defines the number of deployers                                                        | Optional   |
+> | `deployer_image`	              | Defines the VM image to use                                               | Optional	  |
+> | `plan`	                        | Defines the plan associated to the VM image                               | Optional	  |
+> | `deployer_disk_type`            | Defines the disk type, for example, Premium_LRS                                         | Optional   |
+> | `deployer_use_DHCP`             | Controls if the Azure subnet-provided IP addresses should be used (dynamic) true           | Optional   |
+> | `deployer_private_ip_address`   | Defines the private IP address to use                                                  | Optional   |
+> | `deployer_enable_public_ip`     | Defines if the deployer has a public IP                                                | Optional   |
+> | `auto_configure_deployer`       | Defines if the deployer is configured with the required software (Terraform and Ansible) | Optional   |
+> | `add_system_assigned_identity`  | Defines if the deployer is assigned a system identity                                    | Optional   |
 
 The VM image is defined by using the following structure:
 
@@ -142,11 +142,11 @@ This section defines the parameters used for defining the VM authentication.
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                                         | Description                                         | Type      |
 > | ------------------------------------------------ | --------------------------------------------------- | --------- |
-> | `deployer_vm_authentication_type`                | Defines the default authentication for the deployer. | Optional  |
-> | `deployer_authentication_username`               | Administrator account name.                          | Optional  |
-> | `deployer_authentication_password`               | Administrator password.                              | Optional  |
-> | `deployer_authentication_path_to_public_key`     | Path to the public key used for authentication.      | Optional  |
-> | `deployer_authentication_path_to_private_key`    | Path to the private key used for authentication.     | Optional  |
+> | `deployer_vm_authentication_type`                | Defines the default authentication for the deployer | Optional  |
+> | `deployer_authentication_username`               | Administrator account name                          | Optional  |
+> | `deployer_authentication_password`               | Administrator password                              | Optional  |
+> | `deployer_authentication_path_to_public_key`     | Path to the public key used for authentication      | Optional  |
+> | `deployer_authentication_path_to_private_key`    | Path to the private key used for authentication     | Optional  |
 
 ### Key vault parameters
 
@@ -240,7 +240,7 @@ This table shows the parameters that define the resource naming.
 > | ----------------------- | ------------------------------------------------- | ---------- | ------------------------------------------------------------------------------------------- |
 > | `environment`           | Identifier for the control plane (maximum of five characters)    | Mandatory  | For example, `PROD` for a production environment and `NP` for a nonproduction environment. |
 > | `location`              | Azure region in which to deploy              | Required   | Use lowercase.                                                                              |
-> | 'name_override_file'    | Name override file                                | Optional   | See [Custom naming](naming-module.md).                                            |
+> | `name_override_file`    | Name override file                                | Optional   | See [Custom naming](naming-module.md).                                            |
 
 ### Resource group
 
