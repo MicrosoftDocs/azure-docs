@@ -201,6 +201,31 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/cosmos-db/mongodb/vcore/migrate-with-mongo-tools.md",
+      "redirect_url": "/azure/cosmos-db/mongodb/vcore/how-to-migrate-native-tools",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/mongodb/vcore/tutorial-vector-search-in-ai-apps.md",
+      "redirect_url": "/azure/cosmos-db/mongodb/vcore/vector-search-ai",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/mongodb/vcore/how-to-text-indexes.md",
+      "redirect_url": "/azure/cosmos-db/mongodb/vcore/how-to-create-text-index",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/mongodb/vcore/transactions.md",
+      "redirect_url": "/azure/cosmos-db/mongodb/vcore/how-to-transactions",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/mongodb/vcore/connect-using-robomongo.md",
+      "redirect_url": "/azure/cosmos-db/mongodb/vcore/how-to-connect-studio-3t",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/cosmos-db/nosql/troubleshoot-dot-net-sdk-request-timeout.md",
       "redirect_url": "/azure/cosmos-db/nosql/troubleshoot-dotnet-sdk-request-timeout",
       "redirect_document_id": true
