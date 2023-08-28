@@ -6,14 +6,14 @@ ms.reviewer: kyleikeda
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 08/15/2023
+ms.date: 08/28/2023
 ms.author: banders
 ms.custom: references_regions
 ---
 
 # Save on select VMs in US West for a limited time
 
-Save up to 50 percent compared to pay-as-you-go pricing when you purchase one-year [Azure Reserved Virtual Machine (VM) Instances](../../virtual-machines/prepay-reserved-vm-instances.md?toc=%2Fazure%2Fcost-management-billing%2Freservations%2Ftoc.json) for `Dv3s` VMs in US West for a limited time. This offer is available between September 1, 2023 – November 30, 2023.
+Save up to 50 percent compared to pay-as-you-go pricing when you purchase one-year [Azure Reserved Virtual Machine (VM) Instances](../../virtual-machines/prepay-reserved-vm-instances.md?toc=/azure/cost-management-billing/reservations/toc.json&source=azlto3) for `Dv3s` VMs in US West for a limited time. This offer is available between September 1, 2023 – November 30, 2023.
 
 ## Purchase the limited time offer
 
@@ -46,7 +46,7 @@ The offer provides them with a discount up to 50% compared to pay-as-you-go pric
 - Cloud solution providers can use the Azure portal or [Partner Center](/partner-center/azure-reservations?source=azlto1) to purchase Azure Reservations. You won't be able to purchase a reservation if you have a custom role that mimics owner role or reservation purchaser role on an Azure subscription. You must use the built-in owner or built-in reservation purchaser role.
 - For more information about who can purchase a reservation visit, see [Buy an Azure reservation](prepare-buy-reservation.md?source=azlto2).
 
-**Offer details** - Upon successful purchase and payment for the one-year Azure Reserved VM Instance in US West for one or more of the qualified VMs during the specified period, the discount applies automatically to the number of running virtual machines in US West that match the reservation scope and attributes. You don't need to assign a reservation to a virtual machine to get the discounts. A reserved instance purchase covers only the compute part of your VM usage. For more information about how to pay and save with an Azure Reserved VM Instance, see [Prepay for Azure virtual machines to save money](../../virtual-machines/prepay-reserved-vm-instances.md?toc=%2Fazure%2Fcost-management-billing%2Freservations%2Ftoc.json?source=azlto3).
+**Offer details** - Upon successful purchase and payment for the one-year Azure Reserved VM Instance in US West for one or more of the qualified VMs during the specified period, the discount applies automatically to the number of running virtual machines in US West that match the reservation scope and attributes. You don't need to assign a reservation to a virtual machine to get the discounts. A reserved instance purchase covers only the compute part of your VM usage. For more information about how to pay and save with an Azure Reserved VM Instance, see [Prepay for Azure virtual machines to save money](../../virtual-machines/prepay-reserved-vm-instances.md?toc=/azure/cost-management-billing/reservations/toc.json&source=azlto3).
 
 - Additional taxes may apply.
 - Payment will be processed using the payment method on file for the selected subscriptions.
@@ -61,6 +61,8 @@ The offer provides them with a discount up to 50% compared to pay-as-you-go pric
 - D32v3
 - D48v3
 - D64v3
+
+Instance size flexibility is available for these VMs. For more information about Instance Size Flexibility, see [Virtual machine size flexibility](../../virtual-machines/reserved-vm-instance-size-flexibility.md?source=azlto7).
 
 **Discount limitations**
 
@@ -87,4 +89,5 @@ By participating in the offer, customers agree to be bound by these terms and th
 
 ## Next steps
 
-- [Understand Azure Reserved VM Instances discount](../manage/understand-vm-reservation-charges.md)
+- [Understand Azure Reserved VM Instances discount](../manage/understand-vm-reservation-charges.md?source=azlto4)
+- [Purchase Azure Reserved VM instances in the Azure portal](https://aka.ms/azure/pricing/USWest/Purchase)
