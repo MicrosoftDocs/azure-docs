@@ -354,7 +354,7 @@
           href: /security/benchmark/azure/baselines/functions-security-baseline?toc=/azure/azure-functions/TOC.json
     - name: Reliability
       items:
-        - name: Reliability - Availability zones and disaster recovery 
+        - name: Availability zones and disaster recovery 
           href: ../reliability/reliability-functions.md?toc=/azure/azure-functions/TOC.json
           displayName: availability zones, high-availability, zone redundancy, disaster recovery
         - name: Migrate to a zone-redundant plan
