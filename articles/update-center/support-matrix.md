@@ -99,11 +99,10 @@ United States | Central US </br> East US </br> East US 2</br> North Central US <
 # [Azure VMs](#tab/azurevm-os)
 
 > [!NOTE]
-> Currently, Update Manager has the following limitations regarding the operating system support: 
-> - Marketplace images other than the [list of supported marketplace OS images](../virtual-machines/automatic-vm-guest-patching.md#supported-os-images) are currently not supported.
+> Currently, Update Manager has the following limitation regarding the operating system support: 
 > - [Specialized images](../virtual-machines/linux/imaging.md#specialized-images) and **VMs created by Azure Migrate, Azure Backup, Azure Site Recovery** aren't fully supported for now. However, you can **use on-demand operations such as one-time update and check for updates** in Update Manager (preview). 
 >
-> For the above limitations, we recommend that you use [Automation update management](../automation/update-management/overview.md) till the support is available in Update Manager (preview).
+> For the above limitation, we recommend that you use [Automation update management](../automation/update-management/overview.md) till the support is available in Update Manager (preview).
 
 ### Marketplace/PIR images
 
