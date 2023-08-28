@@ -5,7 +5,7 @@ ms.author: hannahhunter
 author: hhunter-ms
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 06/26/2023
+ms.date: 08/28/2023
 ---
 
 # What's new with Dapr in Azure Container Apps
