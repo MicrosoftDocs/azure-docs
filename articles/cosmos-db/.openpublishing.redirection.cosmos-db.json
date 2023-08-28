@@ -207,7 +207,7 @@
     },
     {
       "source_path_from_root": "/articles/cosmos-db/mongodb/vcore/tutorial-vector-search-in-ai-apps.md",
-      "redirect_url": "/azure/cosmos-db/mongodb/vcore/tutorial-ai-vector-search",
+      "redirect_url": "/azure/cosmos-db/mongodb/vcore/vector-search-ai",
       "redirect_document_id": true
     },
     {

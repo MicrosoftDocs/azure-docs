@@ -16,12 +16,14 @@
       items:
         - name: Node.js
           href: tutorial-nodejs-web-app.md
-    - name: Build AI Apps with vector search
-      href: tutorial-ai-vector-search.md
 - name: Concepts
   items:
     - name: Vector search
-      href: vector-search.md
+      items:
+        - name: Vector search overview
+          href: vector-search.md
+        - name: Build AI Apps with vector search
+          href: vector-search-ai.md
     - name: MongoDB feature support
       href: compatibility.md
     - name: High availability
