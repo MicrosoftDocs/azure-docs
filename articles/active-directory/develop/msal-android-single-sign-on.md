@@ -179,6 +179,9 @@ If the application uses a `WebView` strategy without integrating Microsoft Authe
 
 If the application uses MSAL with a broker like Microsoft Authenticator or Intune Company Portal, then users can have SSO experience across applications if they have an active sign-in with one of the apps.
 
+> [!NOTE]
+> MSAL with broker utilizes WebViews instead of Custom Tabs. As a result, the Single Sign-On (SSO) state is not extended to other apps that use Custom Tabs.
+
 ### WebView
 
 To use the in-app WebView, put the following line in the app configuration JSON that is passed to MSAL:

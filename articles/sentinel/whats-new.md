@@ -22,6 +22,15 @@ See these [important announcements](#announcements) about recent changes to feat
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
+## August 2023
+
+- [Updated MISP2Sentinel solution utilizes the new upload indicators API.](#updated-misp2sentinel-solution)
+
+### Updated MISP2Sentinel solution
+The open source threat intelligence sharing platform, MISP, has an updated solution to push indicators to Microsoft Sentinel. This notable solution utilizes the new [upload indicators API](#connect-threat-intelligence-with-the-upload-indicators-api) to take advantage of workspace granularity and align the MISP ingested TI to STIX-based properties.
+
+Learn more about the implementation details from the [MISP blog entry for MISP2Sentinel](https://www.misp-project.org/2023/08/26/MISP-Sentinel-UploadIndicatorsAPI.html/).
+
 ## July 2023
 
 - [Higher limits for entities in alerts and entity mappings in analytics rules](#higher-limits-for-entities-in-alerts-and-entity-mappings-in-analytics-rules)
