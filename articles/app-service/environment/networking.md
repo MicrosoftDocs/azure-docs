@@ -25,20 +25,22 @@ The size of the subnet can affect the scaling limits of the App Service plan ins
 >
 > Sample calculation:
 >
-> For each App Service plan instance, you need:  
-> 5 Windows Container apps = 5 IP addresses  
-> 1 IP address per App Service plan instance  
+> For each App Service plan instance, you need:
+> 5 Windows Container apps = 5 IP addresses
+> 1 IP address per App Service plan instance
 > 5 + 1 = 6 IP addresses
 >
-> For 25 instances:  
+> For 25 instances:
 > 6 x 25 = 150 IP addresses per App Service plan
 >
 > Since you have 2 App Service plans, 2 x 150 = 300 IP addresses.
 
 If you use a smaller subnet, be aware of the following limitations:
 
-- Any particular subnet has five addresses reserved for management purposes. In addition to the management addresses, App Service Environment dynamically scales the supporting infrastructure, and uses between 4 and 27 addresses, depending on the configuration and load. You can use the remaining addresses for instances in the App Service plan. The minimal size of your subnet is a `/27` address space (32 addresses).
-
+- Any particular subnet has five addresses reserved for management purposes. In addition to the management addresses, App Service Environment dynamically scales the supporting infrastructure, and uses between 7 and 27 addresses, depending on the configuration and load. You can use the remaining addresses for instances in the App Service plan. The minimal size of your subnet is a `/27` address space (32 addresses).
+- For any App Service plan OS/SKU combination used in your App Service Environment like I1v2 Windows, one standby instance is created for every 20 active instances. The standby instances will also require IP addresses.
+- When scaling App Service plans in the App Service Environment up/down, the amount of IP addresses used by the App Service plan is temporarily doubled while the scale operation completes. The new instances need to be fully operational before the existing instances are deprovisioned.
+- Platform upgrades need free IP addresses to ensure upgrades can happen without interruptions to outbound traffic. Finally, after scale up, down, or in operations complete, there might be a short period of time before IP addresses are released.
 - If you run out of addresses within your subnet, you can be restricted from scaling out your App Service plans in the App Service Environment. Another possibility is that you can experience increased latency during intensive traffic load, if Microsoft isn't able to scale the supporting infrastructure.
 
 ## Addresses
