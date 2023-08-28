@@ -20,7 +20,7 @@ When indexing or [reindexing](https://api-portal.videoindexer.ai/api-details#api
 
 When using portal, go to your **Account videos** on the [Azure AI Video Indexer](https://www.videoindexer.ai/) home page and hover over the name of the video that you want to reindex. On the right-bottom corner, select the **Re-index** button. In the **Re-index video** dialog, choose *Auto detect* from the **Video source language** drop-down box.
 
-:::image type="content" source="./media/language-identification-model/auto-detect.png" alt-text="auto detect":::
+:::image type="content" source="./media/language-identification-model/auto-detect.png" alt-text="Screenshot showing where to select auto detect.":::
 
 ## Model output
 
