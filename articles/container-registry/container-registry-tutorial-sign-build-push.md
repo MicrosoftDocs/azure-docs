@@ -33,7 +33,7 @@ In this tutorial:
 
 ## Install Notation CLI and AKV plugin
 
-1. Install Notation v1.0.0 on a Linux environment. You can also download the package for other environments by following the [Notation installation guide](https://notaryproject.dev/docs/installation/cli/).
+1. Install Notation v1.0.0 on a Linux amd64 environment. You can also download the package for other environments by following the [Notation installation guide](https://notaryproject.dev/docs/installation/cli/).
 
     ```bash
     # Download, extract and install
@@ -44,7 +44,7 @@ In this tutorial:
     cp ./notation /usr/local/bin
     ```
 
-2. Install the Notation Azure Key Vault plugin on a Linux environment. You can also download the package for other environments by following the [Notation AKV plugin installation guide](https://github.com/Azure/notation-azure-kv#installation-the-akv-plugin).
+2. Install the Notation Azure Key Vault plugin on a Linux amd64 environment. You can also download the package for other environments by following the [Notation AKV plugin installation guide](https://github.com/Azure/notation-azure-kv#installation-the-akv-plugin).
 
     > [!NOTE]
     > The plugin directory varies depending upon the operating system being used. The directory path below assumes Ubuntu. Please read the [Notation directory structure for system configuration](https://notaryproject.dev/docs/concepts/directory-structure/) for more information.
@@ -79,7 +79,7 @@ In this tutorial:
     AKV_NAME=myakv
     # New desired key name used to sign and verify
     CERT_NAME=wabbit-networks-io
-    CERT_SUBJECT="CN=wabbit-networks.io,O=Notary,L=Seattle,ST=WA,C=US"
+    CERT_SUBJECT="CN=wabbit-networks.io,O=Notation,L=Seattle,ST=WA,C=US"
     CERT_PATH=./${CERT_NAME}.pem
     ```
 
