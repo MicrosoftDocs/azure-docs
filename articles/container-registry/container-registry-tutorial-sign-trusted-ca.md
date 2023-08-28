@@ -39,7 +39,7 @@ In this article:
 
 ## Install the notation CLI and AKV plugin
 
-1. Install `Notation v1.0.0` on a Linux environment. Follow the [Notation installation guide](https://notaryproject.dev/docs/installation/cli/) to download the package for other environments.
+1. Install `Notation v1.0.0` on a Linux amd64 environment. Follow the [Notation installation guide](https://notaryproject.dev/docs/installation/cli/) to download the package for other environments.
 
     ```bash
     # Download, extract and install
@@ -84,6 +84,9 @@ In this article:
     
     # New desired certificate name used to sign and verify 
     CERT_NAME=wabbit-networks-io 
+    
+    # X.509 certificate subject
+    CERT_SUBJECT="CN=wabbit-networks.io,O=Notation,L=Seattle,ST=WA,C=US"
     ```
 
 2. Configure ACR and image resource names. 
@@ -96,7 +99,6 @@ In this article:
     # Container name inside ACR where image will be stored 
     REPO=net-monitor 
     TAG=v1 
-    IMAGE=$REGISTRY/${REPO}:$TAG 
     # Source code directory containing Dockerfile to build 
     IMAGE_SOURCE=https://github.com/wabbit-networks/net-monitor.git#main  
     ```
@@ -122,11 +124,12 @@ The requirements for root and intermediate certificates are as follows:
 
 The requirements for signing certificates are as follows:
 - X.509 certificate properties:
-  - Subject MUST contain `country (C)`, `state or province (ST)`, and `organization (O)`.
+  - Subject MUST contain `common name (CN)`, `country (C)`, `state or province (ST)`, and `organization (O)`.
   - X.509 key usage flags must be `DigitalSignature`.
   - Extended Key Usages (EKUs) must be empty or `1.3.6.1.5.5.7.3.3` (for Codesigning).
 - Key properties:
   - The property "exportable" should be set to `false`
+  - Select [supported key type and size](https://github.com/notaryproject/specifications/blob/v1.0.0/specs/signature-specification.md#algorithm-selection)
 
 The certificate created or imported must contain an ordered X.509 certificate chain. The signing certificate must be the first certificate, followed by the intermediate certificates (if any), and root certificate in the correct order.
 
@@ -145,14 +148,15 @@ To import a certificate, follow these steps:
 2. Import the certificate into Azure Key Vault by following the instructions in [import a certificate](../key-vault/certificates/tutorial-import-certificate.md).
 
 > [!NOTE]
-> If the certificate does not contain a certificate chain after creation or importing, you can obtain the intermediate and root certificates from your CA vendor. You can ask your vendor to provide you with a file that contains the intermediate certificates first, followed by the root certificate. This file can then be used at step 5 of [signing container images](#sign-a-container-image-with-notation-cli-and-akv-plugin).
+> If the certificate does not contain a certificate chain after creation or importing, you can obtain the intermediate and root certificates from your CA vendor. You can ask your vendor to provide you with a PEM file that contains the intermediate certificates first, followed by the root certificate. This file can then be used at step 5 of [signing container images](#sign-a-container-image-with-notation-cli-and-akv-plugin).
 
 ## Sign a container image with Notation CLI and AKV plugin 
 
-1. Build and push a new image with ACR Tasks. 
+1. Build and push a new image with ACR Tasks. Always use `digest` to identify the image for signing, because tags are mutable and and can be overwritten.
 
     ```azurecli-interactive
-    az acr build -r $ACR_NAME -t $IMAGE $IMAGE_SOURCE 
+    DIGEST=$(az acr build -r $ACR_NAME -t $REGISTRY/${REPO}:$TAG $IMAGE_SOURCE --no-logs --query "outputImages[0].digest" -o tsv)
+    IMAGE=$REGISTRY/${REPO}@$DIGEST
     ```
 
 2. Authenticate with your individual Azure AD identity to use an ACR token. 
@@ -190,7 +194,7 @@ To import a certificate, follow these steps:
    az keyvault set-policy -n $AKV_NAME --key-permissions sign --certificate-permissions get --object-id $USER_ID
    ```
 
-4. Get the Key ID for a certificate, assuming the certificate name is $CERT_NAME
+4. Get the Key ID for a certificate, assuming the certificate name is $CERT_NAME. A certificate in AKV can have multiple versions, the following command get the Key Id for the latest version.
 
    ```azurecli-interactive
    KEY_ID=$(az keyvault certificate show -n $CERT_NAME --vault-name $AKV_NAME --query 'kid' -o tsv) 
@@ -204,7 +208,7 @@ To import a certificate, follow these steps:
    notation sign --signature-format cose $IMAGE –id $KEY_ID --plugin azure-kv 
    ```
 
-   If the certificate does not contain the chain, you need to use an additional plugin parameter `--plugin-config ca_certs=<ca_bundle_file>` to pass the CA certificates in a bundle file to AKV plugin, run the following command:
+   If the certificate does not contain the chain, you need to use an additional plugin parameter `--plugin-config ca_certs=<ca_bundle_file>` to pass the CA certificates in a PEM file to AKV plugin, run the following command:
 
    ```azurecli-interactive
    notation sign --signature-format cose $IMAGE –id $KEY_ID --plugin azure-kv --plugin-config ca_certs=<ca_bundle_file> 
@@ -234,7 +238,7 @@ To import a certificate, follow these steps:
 
 3. Configure trust policy before verification.
 
-   Trust policies allow users to specify fine-tuned verification policies. Use the following command to configure trust policy. Upon successful execution of the command, one trust policy named `wabbit-networks-images` is created. This trust policy applies to all the artifacts stored in repositories defined in `$REGISTRY/$REPO`. The trust identity that user trusts has the x509 subject `$CERT_SUBJECT` from previous step, and stored under trust store named `$STORE_NAME` of type `$STORE_TYPE`. See [Trust store and trust policy specification](https://github.com/notaryproject/notaryproject/blob/main/specs/trust-store-trust-policy.md) for details.
+   Trust policies allow users to specify fine-tuned verification policies. Use the following command to configure trust policy. Upon successful execution of the command, one trust policy named `wabbit-networks-images` is created. This trust policy applies to all the artifacts stored in repositories defined in `$REGISTRY/$REPO`. Assuming that the user trusts a specific identity with the X.509 subject `$CERT_SUBJECT`, which is used for the signing certificate. The named trust store `$STORE_NAME` of type `$STORE_TYPE` contains the root certificates. See [Trust store and trust policy specification](https://github.com/notaryproject/notaryproject/blob/v1.0.0/specs/trust-store-trust-policy.md) for details.
 
     ```bash
     cat <<EOF > ./trustpolicy.json
