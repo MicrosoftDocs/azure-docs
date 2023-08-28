@@ -88,10 +88,7 @@ After the command finishes execution, you should have a *.crt* and a *.key* file
 
 [!INCLUDE [active-directory-customers-app-integration-add-user-flow](./includes/register-app/add-client-app-certificate.md)]
 
-If you have a client secret already in place for your application, it needs to be deleted to avoid a malicious application to impersonate your application. There is no reason to keep secrets in a tenant if they are no longer needed.
-
-1. Go to the **Client secrets** tab, and select the **Delete** icon.
-2. In the pop-up window that appears, select **Yes**.
+[!INCLUDE [remove-client-secret](./inlcudes/remove-client-secret.md)]
 
 ## Configure your Node.js app to use certificate
 
