@@ -71,7 +71,7 @@ items:
         displayName: container instances, container, containers, images
       - name: Use containers in disconnected environments
         href: ../containers/disconnected-containers.md
-      - name: All Azure AI services containers
+      - name: All Azure AI containers
         href: ../containers/index.yml
         maintainContext: true
   - name: Reference
@@ -386,7 +386,7 @@ items:
         href: spatial-analysis-zone-line-placement.md
       - name: Camera placement
         href: spatial-analysis-camera-placement.md
-      - name: All Azure AI services containers
+      - name: All Azure AI containers
         href: ../containers/index.yml?context=%2fazure%2fcognitive-services%2fcomputer-vision%2fcontext%2fcontext
 - name: How-to guides
   items:
