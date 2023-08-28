@@ -86,4 +86,4 @@ Deploy the updated ARM template to reflect the changes in your cluster. Learn ho
 
 ## Next steps
 
-[Read Delta Lakes tables (Synapse or External Location)](./trino-create-deltalake-tables-synapse.md)
+[Read Delta Lakes tables (Synapse or External Location)](./trino-create-delta-lake-tables-synapse.md)

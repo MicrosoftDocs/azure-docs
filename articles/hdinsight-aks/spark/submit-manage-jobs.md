@@ -17,7 +17,7 @@ Once the cluster is created, user can use various interfaces to submit and manag
 ## Using Jupyter
 
 ### Prerequisites
-An Apache Spark cluster on HDInsight on AKS. For more information, see [Create an Apache Spark cluster](./hdinsight-on-aks-spark-create-cluster-portal.md).
+An Apache Spark cluster on HDInsight on AKS. For more information, see [Create an Apache Spark cluster](./create-spark-cluster.md).
 
 Jupyter Notebook is an interactive notebook environment that supports various programming languages.
 
@@ -106,7 +106,7 @@ Jupyter Notebook is an interactive notebook environment that supports various pr
 
 HDInsight on AKS Spark clusters include [Apache Zeppelin notebooks](https://zeppelin.apache.org/). Use the notebooks to run Apache Spark jobs. In this article, you learn how to use the Zeppelin notebook on an HDInsight on AKS cluster.
 ### Prerequisites
-An Apache Spark cluster on HDInsight on AKS. For instructions, see [Create an Apache Spark cluster](./hdinsight-on-aks-spark-create-cluster-portal.md).
+An Apache Spark cluster on HDInsight on AKS. For instructions, see [Create an Apache Spark cluster](./create-spark-cluster.md).
 
 #### Launch an Apache Zeppelin notebook
 

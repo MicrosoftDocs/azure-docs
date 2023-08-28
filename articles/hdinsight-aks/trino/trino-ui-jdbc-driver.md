@@ -12,13 +12,13 @@ HDInsight on AKS Trino provides JDBC driver, which supports Azure Active Directo
 
 ## Install
 
-JDBC driver jar is included in the Trino CLI package, [install HDInsight on AKS Trino CLI](./trino-ui-cli.md). If CLI is already installed, you can find it on your file system at following path:
+JDBC driver jar is included in the Trino CLI package, [Install HDInsight on AKS Trino CLI](./trino-ui-command-line-interface.md). If CLI is already installed, you can find it on your file system at following path:
 > Windows: `C:\Program Files (x86)\Microsoft SDKs\Azure\TrinoCli-<version>\lib`
 >
 > Linux: `~/lib/trino-cli`
 
 ## Authentication
-Trino JDBC driver supports various methods of Azure Active Directory authentication. The following table describes the important parameters and authentication methods. For more information, see [Authentication](./trino-auth.md).
+Trino JDBC driver supports various methods of Azure Active Directory authentication. The following table describes the important parameters and authentication methods. For more information, see [Authentication](./trino-authentication.md).
 
 |Parameter|Meaning|Required|Description|
 |----|----|----|----|
