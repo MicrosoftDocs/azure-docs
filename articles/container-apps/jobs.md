@@ -351,11 +351,41 @@ Starting a job execution using the Azure portal isn't supported.
 
 ---
 
-When you start a job execution, you can choose to override the job's configuration. For example, you can override an environment variable or the startup command to pass specific data to the job.
+When you start a job execution, you can choose to override the job's configuration. For example, you can override an environment variable or the startup command to run the same job with different inputs. The overridden configuration is only used for the current execution and doesn't change the job's configuration.
 
 # [Azure CLI](#tab/azure-cli)
 
-Azure CLI doesn't support overriding a job's configuration when starting a job execution.
+To override the job's configuration while starting an execution, use the `az containerapp job start` command and pass a YAML file containing the template to use for the execution. The following example starts an execution of a job named `my-job` in a resource group named `my-resource-group`.
+
+Retrieve the job's current configuration with the `az containerapp job show` command and save the template to a file named `my-job-template.yaml`:
+
+```azurecli
+az containerapp job show --name "my-job" --resource-group "my-resource-group" --query "properties.template" --output yaml > my-job-template.yaml
+```
+
+Edit the `my-job-template.yaml` file to override the job's configuration. For example, to override the startup command, modify the `args` section:
+
+```yaml
+containers:
+- image: ubuntu
+  name: print-hello
+  resources:
+    cpu: 1
+    memory: 2Gi
+  env:
+  - name: MY_NAME
+    value: Azure Container Apps jobs
+  args:
+  - /bin/bash
+  - -c
+  - echo "Hello, $MY_NAME!"
+```
+
+Start the job using the template:
+
+```azurecli
+az containerapp job start --name "my-job" --resource-group "my-resource-group" --yaml my-job-template.yaml
+```
 
 # [Azure Resource Manager](#tab/azure-resource-manager)
 
