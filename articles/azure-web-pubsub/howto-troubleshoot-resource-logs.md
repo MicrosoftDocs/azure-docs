@@ -35,7 +35,7 @@ The Azure Web PubSub service live trace tool has ability to collect resource log
 
 > [!NOTE]
 > When enable access key, you'll use access token to authenticate live trace tool.
-> Otherwise, you'll use Azure AD to authenticate live trace tool.
+> Otherwise, you'll use Microsoft Entra ID to authenticate live trace tool.
 > You can check whether you enable access key or not in your SignalR Service's Keys page in Azure portal.
 
 ### Steps for access key enabled
