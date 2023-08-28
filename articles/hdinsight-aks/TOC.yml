@@ -174,19 +174,19 @@ items:
         href: ./flink/flink-how-to-setup-event-hub.md  
       - name:  Delta Connectors
         href: ./flink/use-flink-delta-connector.md  
-      - name:  Elastic & Kibana
+      - name:  Elastic and Kibana
         href: ./flink/sink-kafka-to-kibana.md
       - name:  HDInsight Kafka
         href: ./flink/process-and-consume-data.md
     - name: Flink SQL
       items:
-      - name: CDC - Azure PostgreSQL & FlinkSQL 
+      - name: CDC - Azure PostgreSQL and FlinkSQL 
         href: ./flink/monitor-changes-postgres-table-flink.md
-      - name: CDC - SQL Server & FlinkSQL 
+      - name: CDC - SQL Server and FlinkSQL 
         href: ./flink/sink-sql-server-table-using-flink-sql.md
       - name: Kafka table on FlinkSQL
         href: ./flink/create-kafka-table-flink-kafka-sql-connector.md
-      - name: Hive Catalog & FlinkSQL
+      - name: Hive Catalog and FlinkSQL
         href: ./flink/use-hive-catalog.md
       - name: Flink-Iceberg Catalog
         href: ./flink/flink-catalog-iceberg-hive.md
@@ -198,7 +198,7 @@ items:
         href: ./flink/assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2.md
       - name: Apache NiFi with Flink DataStream 
         href: ./flink/use-apache-nifi-with-datastream-api.md
-      - name: CDC - SQL Server & Flink DataStream 
+      - name: CDC - SQL Server and Flink DataStream 
         href: ./flink/change-data-capture-connectors-for-apache-flink.md
       - name: Hive metastore with Flink DataStream
         href: ./flink/use-hive-metastore-datastream.md
