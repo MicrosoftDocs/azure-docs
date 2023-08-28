@@ -191,7 +191,7 @@ In this article, you learned concepts and workflow for downloading, installing, 
 * You must specify billing information when instantiating a container.
 
 > [!IMPORTANT]
-> Azure AI services containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times. Azure AI services containers do not send customer data (e.g., the time series data that is being analyzed) to Microsoft.
+> Azure AI containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times. Azure AI containers do not send customer data (e.g., the time series data that is being analyzed) to Microsoft.
 
 ## Next steps
 

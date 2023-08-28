@@ -528,7 +528,7 @@ Go to **Azure portal** -> Find your Function App resource -> **Authentication**.
 
 Here we choose `Microsoft` as identify provider, which uses `x-ms-client-principal-name` as `userId` in the `negotiate` function. Besides, you can configure other identity providers following the links, and don't forget update the `userId` value in `negotiate` function accordingly.
 
-- [Microsoft(Azure AD)](../app-service/configure-authentication-provider-aad.md)
+- [Microsoft Entra ID](../app-service/configure-authentication-provider-aad.md)
 - [Facebook](../app-service/configure-authentication-provider-facebook.md)
 - [Google](../app-service/configure-authentication-provider-google.md)
 - [Twitter](../app-service/configure-authentication-provider-twitter.md)
