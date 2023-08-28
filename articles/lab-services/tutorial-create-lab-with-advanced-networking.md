@@ -141,6 +141,7 @@ To create a rule that allows both RDP and SSH traffic for the subnet you created
     1. Select **Add**.
 
     :::image type="content" source="media/tutorial-create-lab-with-advanced-networking/nsg-add-inbound-rule.png" alt-text="Screenshot of Add inbound rule window for Network security group.":::
+
 1. Wait for the rule to be created.
 1. Select **Refresh** on the menu bar.  The new rule now shows in the list of rules.
 
