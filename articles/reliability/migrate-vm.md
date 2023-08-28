@@ -18,7 +18,7 @@ Virtual Machine (VM) and Virtual Machine Scale Sets are availability zone enable
 
 - **Zonal**. VM resources are deployed to a specific, self-selected availability zone to achieve more stringent latency or performance requirements.
 
-- **Zone-redundant**. VM resources are replicated to one or more zones within the region to improve the resiliency of the application and data in a High Availability (HA) architecture.
+- **Zone-redundant**: VM resources are replicated to one or more zones within the region to improve the resiliency of the application and data in a High Availability (HA) architecture.
 
 To ensure high-availability of your compute resources, we recommend that you select multiple zones for your new VMs and Virtual Machine Scale Sets when you migrate to availability zones.
 
