@@ -276,8 +276,9 @@ az aks get-credentials --name myAKSCluster --resource-group myResourceGroup
         --namespace kube-system
     ```
 
-1. Azure Monitor pods should restart themselves, if they do not please rollout restart with following command:
-    ```azurecli-interactive
+1. Azure Monitor pods should restart themselves, if they don't, rollout restart with following command:
+    
+```azurecli-interactive
     kubectl rollout restart deploy -n kube-system ama-metrics
     ```
 
