@@ -78,9 +78,9 @@ In this tutorial:
     # Name of the existing Azure Key Vault used to store the signing keys
     AKV_NAME=myakv
     # New desired key name used to sign and verify
-    KEY_NAME=wabbit-networks-io
+    CERT_NAME=wabbit-networks-io
     CERT_SUBJECT="CN=wabbit-networks.io,O=Notary,L=Seattle,ST=WA,C=US"
-    CERT_PATH=./${KEY_NAME}.pem
+    CERT_PATH=./${CERT_NAME}.pem
     ```
 
 2. Configure ACR and image resource names.
@@ -159,15 +159,16 @@ The following steps show how to create a self-signed signing certificate for tes
 2. Create the certificate.
 
     ```azure-cli
-    az keyvault certificate create -n $KEY_NAME --vault-name $AKV_NAME -p @my_policy.json
+    az keyvault certificate create -n $CERT_NAME --vault-name $AKV_NAME -p @my_policy.json
     ```
 
 ## Sign a container image with Notation CLI and AKV plugin
 
-1. Build and push a new image with ACR Tasks.
+1. Build and push a new image with ACR Tasks. Always use digest to identify the image for signing, because tags are mutable and and can be overwritten.
 
     ```azure-cli
-    az acr build -r $ACR_NAME -t $IMAGE $IMAGE_SOURCE
+    DIGEST=$(az acr build -r $ACR_NAME -t $REGISTRY/${REPO}:$TAG $IMAGE_SOURCE --no-logs --query "outputImages[0].digest" -o tsv)
+    IMAGE=$REGISTRY/${REPO}@$DIGEST
     ```
 
 2. Authenticate with your individual Azure AD identity to use an ACR token. 
@@ -181,10 +182,10 @@ The following steps show how to create a self-signed signing certificate for tes
 > [!NOTE]
 > If notation login is failing, you may need to Configure a credentials store. Alternatively in development and testing environments, you can use environment variables to authenticate to an OCI-compliant registry. See guide [Authenticate with OCI-compliant registries](https://notaryproject.dev/docs/how-to/registry-authentication/) for details.
 
-3. Get the Key ID of the signing key.
+3. Get the Key ID of the signing key. A certificate in AKV can have multiple versions, the following command get the Key Id of the latest version.
 
     ```bash
-    KEY_ID=$(az keyvault certificate show -n $KEY_NAME --vault-name $AKV_NAME --query 'kid' -o tsv)
+    KEY_ID=$(az keyvault certificate show -n $CERT_NAME --vault-name $AKV_NAME --query 'kid' -o tsv)
     ```
 
 4. Sign the container image with the [COSE](https://datatracker.ietf.org/doc/html/rfc8152) signature format using the signing key id. To sign with a self-signed certificate, you need to pass a plugin configuration `self_signed=true` in the command line.
@@ -226,7 +227,7 @@ To verify the container image, you need to add the root certificate that signs t
  
 4. Configure trust policy before verification.
 
-   Trust policies allow users to specify fine-tuned verification policies. Use the following command to configure trust policy. Upon successful execution of the command, one trust policy named `wabbit-networks-images` is created. This trust policy applies to all the artifacts stored in repositories defined in `$REGISTRY/$REPO`. The trust identity that user trusts has the x509 subject `$CERT_SUBJECT` from previous step, and stored under trust store named `$STORE_NAME` of type `$STORE_TYPE`. See [Trust store and trust policy specification](https://github.com/notaryproject/notaryproject/blob/v1.0.0/specs/trust-store-trust-policy.md) for details.
+   Trust policies allow users to specify fine-tuned verification policies. Use the following command to configure trust policy. Upon successful execution of the command, one trust policy named `wabbit-networks-images` is created. This trust policy applies to all the artifacts stored in repositories defined in `$REGISTRY/$REPO`. Assuming that the user trusts a specific identity with the X.509 subject `$CERT_SUBJECT`, which is used for the signing certificate. The named trust store `$STORE_NAME` of type `$STORE_TYPE` contains the root certificates. See [Trust store and trust policy specification](https://github.com/notaryproject/notaryproject/blob/v1.0.0/specs/trust-store-trust-policy.md) for details.
 
     ```bash
     cat <<EOF > ./trustpolicy.json
