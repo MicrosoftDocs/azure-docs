@@ -60,7 +60,7 @@ This section steps through using the Azure portal to enable Trusted Launch on ex
 > [!NOTE]
 > - After enabling Trusted Launch, currently virtual machine cannot be rolled back to security type **Standard** (Non-Trusted Launch configuration).
 > - **vTPM** is enabled by default.
-> - **Secure Boot** is disabled by default and recommended to be enabled if you are not using custom unsigned kernel or drivers. Secure Boot preserves boot integrity and enables foundational security for VM.
+> - **Secure Boot** is recommended to be enabled (not enabled by default) if you are not using custom unsigned kernel or drivers. Secure Boot preserves boot integrity and enables foundational security for VM.
 
 :::image type="content" source="./media/trusted-launch/05-g2totl-select-uefi-settings.png" alt-text="Screenshot of the Secure boot and vTPM settings.":::
 
@@ -95,7 +95,7 @@ az vm deallocate \
 > [!NOTE]
 > - After enabling Trusted Launch, currently virtual machine cannot be rolled back to security type **Standard** (Non-Trusted Launch configuration).
 > - **vTPM** is enabled by default.
-> - **Secure Boot** is disabled by default and recommended to be enabled if you are not using custom unsigned kernel or drivers. Secure Boot preserves boot integrity and enables foundational security for VM.
+> - **Secure Boot** is recommended to be enabled (not enabled by default) if you are not using custom unsigned kernel or drivers. Secure Boot preserves boot integrity and enables foundational security for VM.
 
 ```azurecli-interactive
 az vm update \
@@ -147,7 +147,7 @@ Stop-AzVM -ResourceGroupName myResourceGroup -Name myVm
 > [!NOTE]
 > - After enabling Trusted Launch, currently virtual machine cannot be rolled back to security type **Standard** (Non-Trusted Launch configuration).
 > - **vTPM** is enabled by default.
-> - **Secure Boot** is disabled by default and recommended to be enabled if you are not using custom unsigned kernel or drivers. Secure Boot preserves boot integrity and enables foundational security for VM.
+> - **Secure Boot** is recommended to be enabled (not enabled by default) if you are not using custom unsigned kernel or drivers. Secure Boot preserves boot integrity and enables foundational security for VM.
 
 ```azurepowershell-interactive
 Get-AzVM -ResourceGroupName myResourceGroup -VMName myVm `
@@ -268,7 +268,7 @@ secureBootEnabled    |    Enable secure boot with Trusted Launch security type  
 > [!NOTE]
 > - After enabling Trusted Launch, currently virtual machine cannot be rolled back to security type **Standard** (Non-Trusted Launch configuration).
 > - **vTPM** is enabled by default.
-> - **Secure Boot** is disabled by default and recommended to be enabled if you are not using custom unsigned kernel or drivers. Secure Boot preserves boot integrity and enables foundational security for VM.
+> - **Secure Boot** is recommended to be enabled (not enabled by default) if you are not using custom unsigned kernel or drivers. Secure Boot preserves boot integrity and enables foundational security for VM.
 
 3. **Deallocate** all Azure Generation 2 VM(s) to be updated.
 
@@ -310,4 +310,4 @@ The required **Guest Attestation VM extension** is installed post which Integrit
 
 ## Next steps
 
-Learn more about [trusted launch](trusted-launch.md) and [Boot integrity monitoring](boot-integrity-monitoring-overview.md) VMs.
+Learn more about [trusted launch](trusted-launch.md) and review [frequently asked questions](trusted-launch-faq.md)
