@@ -1,7 +1,7 @@
 ---
 title: Create data mining queries and reports in Defender for IoT
 description: Learn how to create granular reports about network devices.
-ms.date: 12/05/2022
+ms.date: 08/28/2023
 ms.topic: how-to
 ---
 
