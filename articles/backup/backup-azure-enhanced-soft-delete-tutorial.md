@@ -187,5 +187,5 @@ Follow these steps:
 
 ## Next steps
 
-- Learn more about [Enhanced soft delete for Azure Backup](backup-azure-enhanced-soft-delete-about.md).
-- Learn more about [Soft delete of recovery points](backup-azure-enhanced-soft-delete-about.md#soft-delete-of-recovery-points).
+- Learn more about [enhanced soft delete for Azure Backup](backup-azure-enhanced-soft-delete-about.md).
+- Learn more about [soft delete of recovery points](backup-azure-enhanced-soft-delete-about.md#soft-delete-of-recovery-points).

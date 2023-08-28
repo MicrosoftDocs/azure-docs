@@ -252,4 +252,4 @@ Follow these steps:
 
 ## Next steps
 
-[About Enhanced soft delete for Azure Backup](backup-azure-enhanced-soft-delete-about.md).
+[About enhanced soft delete for Azure Backup](backup-azure-enhanced-soft-delete-about.md).
