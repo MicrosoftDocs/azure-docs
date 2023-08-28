@@ -7,7 +7,7 @@ ms.author: gahllevy
 ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: mongodb-vcore
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/28/2023
 ---
 
@@ -23,6 +23,12 @@ It's common to want to group multiple operations into a single transaction to ei
 - **Durability**: Finished transactions are permanent, ensuring data remains consistent, even during system failures.
 
 The ACID principles in database management ensure transactions are processed reliably. Azure Cosmos DB for MongoDB vCore implements these principles, enabling you to create transactions for multiple operations.
+
+## Prerequisites
+
+- An existing Azure Cosmos DB for MongoDB vCore cluster.
+  - If you don't have an Azure subscription, [create an account for free](https://azure.microsoft.com/free).
+  - If you have an existing Azure subscription, [create a new Azure Cosmos DB for MongoDB vCore cluster](quickstart-portal.md).
 
 ## Create a transaction
 
@@ -124,6 +130,8 @@ Create a new transaction using the appropriate methods from the developer langua
 ---
 
 ## Roll back a transaction
+
+Occasionally, you may be required to undo a transaction before it is committed.
 
 ### [JavaScript](#tab/javascript)
 
