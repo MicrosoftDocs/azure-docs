@@ -49,9 +49,9 @@ To enable and use Azure Policy with your Kubernetes cluster, take the following 
 
 The following general limitations apply to the Azure Policy Add-on for Kubernetes clusters:
 
-- Azure Policy Add-on for Kubernetes is supported on [supported Kubernetes versions in Azure Kubernetes Service (AKS)](../../../aks/supported-kubernetes-versions.md).
+- Azure Policy Add-on for Kubernetes is supported on [supported AKS cluster version](../../../aks/supported-kubernetes-versions.md)).
 - Azure Policy Add-on for Kubernetes can only be deployed to Linux node pools.
-- Maximum number of pods supported by the Azure Policy Add-on: **10,000**
+- Maximum number of pods supported by the Azure Policy Add-on per cluster: **10,000**
 - Maximum number of Non-compliant records per policy per cluster: **500**
 - Maximum number of Non-compliant records per subscription: **1 million**
 - Installations of Gatekeeper outside of the Azure Policy Add-on aren't supported. Uninstall any

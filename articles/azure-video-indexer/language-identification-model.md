@@ -45,7 +45,7 @@ Model dominant language is available in the insights JSON as the `sourceLanguage
 * Automatic language identification (LID) supports the following languages: 
 
    See the list of supported by Azure AI Video Indexer languages in [supported langues](language-support.md).
-* Even though Azure AI Video Indexer supports Arabic (Modern Standard and Levantine), Hindi, and Korean, these languages are not supported in LID.
+
 * If the audio contains languages other than the supported list above, the result is unexpected.
 * If Azure AI Video Indexer can't identify the language with a high enough confidence (`>0.6`), the fallback language is English.
 * Currently, there isn't support for file with mixed languages audio. If the audio contains mixed languages, the result is unexpected. 
