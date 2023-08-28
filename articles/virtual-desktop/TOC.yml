@@ -119,8 +119,9 @@
         href: delegated-access-virtual-desktop.md
     - name: Azure Virtual Desktop Agent
       href: agent-overview.md
-    - name: Host pool load-balancing methods
+    - name: Host pool load balancing methods
       href: host-pool-load-balancing.md
+      displayName: load-balancing, lb
     - name: FSLogix Profile Container
       items:
       - name: FSLogix Profile Container and Azure Files
@@ -380,8 +381,8 @@
       items:
       - name: Customize RDP properties
         href: customize-rdp-properties.md
-      - name: Configure load-balancing method
-        displayName: load balancing
+      - name: Configure load balancing method
+        displayName: load-balancing, lb
         href: configure-host-pool-load-balancing.md
       - name: Configure personal desktop assignment
         displayName: friendly name, reassign, unassign

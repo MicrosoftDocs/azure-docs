@@ -78,12 +78,13 @@ Africa | South Africa North
 Asia Pacific | East Asia </br> South East Asia
 Australia | Australia East
 Brazil | Brazil South
-Canada | Canada Central
+Canada | Canada Central </br> Canada East
 Europe | North Europe </br> West Europe
 France | France Central
 India | Central India
 Japan | Japan East
 Korea | Korea Central
+Sweden | Sweden Central
 Switzerland | Switzerland North
 United Kingdom | UK South </br> UK West
 United States | Central US </br> East US </br> East US 2</br> North Central US </br> South Central US </br> West Central US </br> West US </br> West US 2 </br> West US 3  
@@ -103,15 +104,15 @@ United States | Central US </br> East US </br> East US 2</br> North Central US <
 > - Marketplace images other than the [list of supported marketplace OS images](../virtual-machines/automatic-vm-guest-patching.md#supported-os-images) are currently not supported.
 > - [Specialized images](../virtual-machines/linux/imaging.md#specialized-images) and **VMs created by Azure Migrate, Azure Backup, Azure Site Recovery** aren't fully supported for now. However, you can **use on-demand operations such as one-time update and check for updates** in Update Manager (preview). 
 >
-> For the above limitations, we recommend that you use [Automation update management](../automation/update-management/overview.md) till the support is available in Update Manager (preview).
+> For the above limitations, we recommend that you use [Automation Update management](../automation/update-management/overview.md) till the support is available in Update Manager (preview).
 
 **Marketplace/PIR images**
 
 Currently, we support a combination of Offer, Publisher, and Sku of the image. Ensure that you match all the three to confirm support. For more information, see [list of supported marketplace OS images](../virtual-machines/automatic-vm-guest-patching.md#supported-os-images). 
 
-**Custom images**
+**Custom images** 
 
-We support [generalized](../virtual-machines/linux/imaging.md#generalized-images) custom images. Table below lists the operating systems that we support for generalized images. Refer to [custom images (preview)](manage-updates-customized-images.md) for instructions on how to start using Update manage center to manage updates on custom images.
+We support [generalized](../virtual-machines/linux/imaging.md#generalized-images) custom images. Table below lists the operating systems that we support for generalized images. Refer to [custom images (preview)](manage-updates-customized-images.md) for instructions on how to start using Update Manager (preview) to manage updates on custom images.
 
    |**Windows Operating System**|
    |-- |
