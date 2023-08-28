@@ -13,6 +13,8 @@ ms.date: 08/28/2023
 
 # Security in Azure Cosmos DB for MongoDB vCore
 
+[!INCLUDE[MongoDB vCore](../../includes/appliesto-mongodb-vcore.md)]
+
 This page outlines the multiple layers of security available to protect the data in your cluster.
 
 ## In transit

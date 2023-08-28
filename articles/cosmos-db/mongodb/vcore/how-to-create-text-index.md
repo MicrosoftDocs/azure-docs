@@ -9,6 +9,7 @@ ms.service: cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: how-to
 ms.date: 08/28/2023
+# CustomerIntent: As a database query developer, I want to create a text index so that I can perform full-text searches.
 ---
 
 # Search and query with text indexes in Azure Cosmos DB for MongoDB vCore
@@ -136,7 +137,7 @@ To drop a text index in MongoDB, you can use the `dropIndex()` method on the col
 - Sort operations can't use the ordering of the text index in MongoDB.
 - Text indexes can be relatively large, consuming significant storage space compared to other index types.
 
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
 > [Build a Node.js web application](tutorial-nodejs-web-app.md)

@@ -9,6 +9,7 @@ ms.service: cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: how-to
 ms.date: 08/28/2023
+# CustomerIntent: As a developer, I want to use transactions so that I can group multiple operations together.
 ---
 
 # Group multiple operations in transactions in Azure Cosmos DB for MongoDB vCore
@@ -131,7 +132,7 @@ Create a new transaction using the appropriate methods from the developer langua
 
 ## Roll back a transaction
 
-Occasionally, you may be required to undo a transaction before it is committed.
+Occasionally, you may be required to undo a transaction before it's committed.
 
 ### [JavaScript](#tab/javascript)
 
@@ -165,7 +166,7 @@ Occasionally, you may be required to undo a transaction before it is committed.
 
 ---
 
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
 > [Build a Node.js web application](tutorial-nodejs-web-app.md)
