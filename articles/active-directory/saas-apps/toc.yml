@@ -1,5 +1,5 @@
   items:
-  - name: SaaS application tutorials
+  - name: Application tutorials
     href: tutorial-list.md
   - name: Single sign-on tutorials
     expanded: true
