@@ -14,7 +14,7 @@ In this article, we learn how Flink SQL/TableAPI is used to implement a Delta ca
 
 ### Prerequisites
 - You're required to have an operational Flink cluster with secure shell, learn how to [create a cluster](../flink/flink-create-cluster-portal.md)
-- You can refer this article on how to use CLI from [Secure Shell](../flink/flink-webssh-on-portal-to-flink-sql.md) on Azure portal.
+- You can refer this article on how to use CLI from [Secure Shell](../flink/flink-web-ssh-on-portal-to-flink-sql.md) on Azure portal.
 
 ### Add dependencies
 
