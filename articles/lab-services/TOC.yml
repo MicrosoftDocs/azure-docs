@@ -134,11 +134,9 @@
       items:
       - name: Create & manage lab plans (Azure portal)
         href: how-to-manage-lab-plans.md
-      - name: Create a lab plan (ARM template)
-        href: how-to-create-lab-plan-template.md
       - name: Create a lab plan (PowerShell)
         href: how-to-create-lab-plan-powershell.md
-      - name: Create a lab plan (Bicep)
+      - name: Create a lab plan (Bicep/ARM template)
         href: how-to-create-lab-plan-bicep.md
       - name: Create a lab plan (Python)
         href: how-to-create-lab-plan-python.md
