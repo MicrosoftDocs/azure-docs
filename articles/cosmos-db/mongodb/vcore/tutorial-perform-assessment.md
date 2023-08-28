@@ -1,6 +1,5 @@
 ---
-title: |
-  Tutorial: Perform assessment on existing MongoDB data
+title: "Tutorial: Perform assessment on existing MongoDB data"
 titleSuffix: Azure Cosmos DB for MongoDB vCore
 description: Perform an assessment on your existing MongoDB data to determine capability prior to migrating to Azure Cosmos DB for MongoDB vCore.
 author: gahl-levy

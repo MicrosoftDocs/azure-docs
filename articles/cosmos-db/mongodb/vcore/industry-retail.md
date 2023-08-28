@@ -1,6 +1,5 @@
 ---
-title: |
-  Solutions: Retail industry
+title: "Solutions: Retail industry"
 titleSuffix: Azure Cosmos DB for MongoDB vCore
 description: Review a common solution architecture used for the retail industry with Azure Cosmos DB for MongoDB vCore.
 author: gahl-levy

@@ -1,6 +1,5 @@
 ---
-title: |
-  Tutorial: Vector search
+title: "Tutorial: Vector search"
 titleSuffix: Azure Cosmos DB for MongoDB vCore
 description: Store and query high-dimensional vector data using vector search in Azure Cosmos DB for MongoDB vCore.
 author: gahl-levy

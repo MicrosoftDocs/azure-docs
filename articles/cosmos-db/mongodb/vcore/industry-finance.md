@@ -1,6 +1,5 @@
 ---
-title: |
-  Solutions: Finance industry
+title: "Solutions: Finance industry"
 titleSuffix: Azure Cosmos DB for MongoDB vCore
 description: Review a common solution architecture used for the finance industry with Azure Cosmos DB for MongoDB vCore.
 author: gahl-levy
