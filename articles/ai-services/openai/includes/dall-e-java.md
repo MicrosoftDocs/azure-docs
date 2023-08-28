@@ -79,46 +79,49 @@ echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/envi
 ```
 ---
 
+## Create a new Java application
+
+Create a new Gradle project.
+
+In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app, and navigate to it. 
+
+```console
+mkdir myapp && cd myapp
+```
+
+Run the `gradle init` command from your working directory. This command will create essential build files for Gradle, including *build.gradle.kts*, which is used at runtime to create and configure your application.
+
+```console
+gradle init --type basic
+```
+
+When prompted to choose a **DSL**, select **Kotlin**.
+
+## Install the Java SDK
+
+
+This quickstart uses the Gradle dependency manager. You can find the client library and information for other dependency managers on the [Maven Central Repository](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-computervision).
+
+Locate *build.gradle.kts* and open it with your preferred IDE or text editor. Then copy in the following build configuration. This configuration defines the project as a Java application whose entry point is the class **OpenAIQuickstart**. It imports the Azure AI Vision library.
+
+```kotlin
+plugins {
+    java
+    application
+}
+application { 
+    mainClass.set("OpenAIQuickstart")
+}
+repositories {
+    mavenCentral()
+}
+dependencies {
+    implementation(group = "com.azure", name = "azure-ai-openai", version = "1.0.0-beta.3")
+    implementation("org.slf4j:slf4j-simple:1.7.9")
+}
+```
+
 ## Generate images with DALL-E
-
-1. Create a new Gradle project.
-
-    In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app, and navigate to it. 
-    
-    ```console
-    mkdir myapp && cd myapp
-    ```
-    
-    Run the `gradle init` command from your working directory. This command will create essential build files for Gradle, including *build.gradle.kts*, which is used at runtime to create and configure your application.
-    
-    ```console
-    gradle init --type basic
-    ```
-
-    When prompted to choose a **DSL**, select **Kotlin**.
-
-1. Install the client library.
-
-    This quickstart uses the Gradle dependency manager. You can find the client library and information for other dependency managers on the [Maven Central Repository](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-computervision).
-
-    Locate *build.gradle.kts* and open it with your preferred IDE or text editor. Then copy in the following build configuration. This configuration defines the project as a Java application whose entry point is the class **OpenAIQuickstart**. It imports the Azure AI Vision library.
-
-    ```kotlin
-    plugins {
-        java
-        application
-    }
-    application { 
-        mainClass.set("OpenAIQuickstart")
-    }
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        implementation(group = "com.azure", name = "azure-ai-openai", version = "1.0.0-beta.3")
-        implementation("org.slf4j:slf4j-simple:1.7.9")
-    }
-    ```
 
 1. Create a Java file.
 

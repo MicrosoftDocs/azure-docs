@@ -80,13 +80,13 @@ Open the command prompt and navigate to your project folder. Create a new file *
 
 Install the OpenAI Go SDK using the following command: 
 
-```shell
+```console
 go get github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai@latest
 ```
 
 Or, if you use `dep`, within your repo run:
 
-```shell
+```console
 dep ensure -add github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai
 ```
 
@@ -159,7 +159,7 @@ func main() {
 
 Run the script using the `go run` command:
 
-```shell
+```console
 go run sample.go
 ```
 
