@@ -36,9 +36,9 @@ The MCM in Azure and Azure Update Manager can fulfill your patching requirements
 
 ## Map MCM capabilities to Azure Update Manager
 
-The following table explains the mapping capabilities of MCM software Update Management to AUM.
+The following table explains the mapping capabilities of MCM software Update Management to Azure Update Manager.
 
-| **Capability**  | **MCM** | **AUM**|
+| **Capability**  | **Microsoft Configuration Manager** | **Azure Update Manager**|
 | --- | --- | --- |
 |Synchronize software updates between sites(Central Admin site, Primary, Secondary sites)| The top site (either central admin site or stand-alone primary site) connects to Microsoft Update to retrieve software updates.[Learn more](https://learn.microsoft.com/mem/configmgr/sum/understand/software-updates-introduction). After the top sites are synchronized, the child sites are synchronized. | There's no hierarchy of machines in Azure and therefore all machines connected to Azure receive updates from the source repository. |
 |Synchronize software updates/check for updates (retrieve patch metadata). | You can scan for updates periodically by setting configuration on the Software update point. [Learn more](https://learn.microsoft.com/mem/configmgr/sum/get-started/synchronize-software-updates#to-schedule-software-updates-synchronization). | You can enable periodic assessment to enable scan of patches every 24 hours. [Learn more](assessment-options.md). |
@@ -49,27 +49,29 @@ The following table explains the mapping capabilities of MCM software Update Man
 
 The following are the current limitations:
 
-- **Orchestration groups with Pre/Post scripts** - [Orchestration groups](https://learn.microsoft.com/mem/configmgr/sum/deploy-use/orchestration-groups) can't be created in AUM to specify a maintenance sequence, allow some machines for updates at the same time and so on. (The orchestration groups allow you to use the pre/post scripts to run tasks before and after a patch deployment).
-- **Patching machines** - After you setup configurations for assessment and patching, you can deploy/install either through [on-demand updates](deploy-updates.md) (one time or manual update) or [schedule updates](scheduled-patching.md) (automatic update) only. You can also deploy updates using [AUM's API](manage-vms-programmatically.md).
+- **Orchestration groups with Pre/Post scripts** - [Orchestration groups](https://learn.microsoft.com/mem/configmgr/sum/deploy-use/orchestration-groups) can't be created in Azure Update Manager to specify a maintenance sequence, allow some machines for updates at the same time and so on. (The orchestration groups allow you to use the pre/post scripts to run tasks before and after a patch deployment).
+
+### Patching machines 
+After you setup configurations for assessment and patching, you can deploy/install either through [on-demand updates](deploy-updates.md) (one time or manual update) or [schedule updates](scheduled-patching.md) (automatic update) only. You can also deploy updates using [Azure Update Manager's API](manage-vms-programmatically.md).
 
 ## Frequently asked questions
 
-### Where does AUM get its updates from?
+### Where does Azure Update Manager get its updates from?
 
-AUM refers to the repository that the machines point to. Most Windows machines by default point to the Windows Update catalog and Linux machines are configured to get updates from the `apt` or `yum` repositories. If the machines point to another repository such as [WSUS](https://learn.microsoft.com/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus) or a local repository then AUM gets the updates from that repository.
+Azure Update Manager refers to the repository that the machines point to. Most Windows machines by default point to the Windows Update catalog and Linux machines are configured to get updates from the `apt` or `yum` repositories. If the machines point to another repository such as [WSUS](https://learn.microsoft.com/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus) or a local repository then Azure Update Manager gets the updates from that repository.
 
-### Can AUM patch OS, SQL and Third party software?
+### Can Azure Update Manager patch OS, SQL and Third party software?
 
-AUM refers to the repositories that the VMs point to. If the repository contains third party and SQL patches, AUM can install SQL and third party patches.
+Azure Update Manager refers to the repositories that the VMs point to. If the repository contains third party and SQL patches, Azure Update Manager can install SQL and third party patches.
 > [!NOTE]
-> By default, Windows VMs point to Windows Update repository that does not contain SQL and third party patches. If the VMs point to Microsoft Update, AUM will patch OS, SQL, and third party updates.
+> By default, Windows VMs point to Windows Update repository that does not contain SQL and third party patches. If the VMs point to Microsoft Update, Azure Update Manager will patch OS, SQL, and third party updates.
 
-### Do I need to configure WSUS to use AUM?
+### Do I need to configure WSUS to use Azure Update Manager?
 
-You don't need WSUS to deploy patches in AUM. Typically, all the machines connect to the internet repository to get updates (unless the machines point to WSUS or local repository that isn't connected to the internet). [Learn more](https://learn.microsoft.com/mem/configmgr/sum/).
+You don't need WSUS to deploy patches in Azure Update Manager. Typically, all the machines connect to the internet repository to get updates (unless the machines point to WSUS or local repository that isn't connected to the internet). [Learn more](https://learn.microsoft.com/mem/configmgr/sum/).
  
 ## Next steps
 - [An overview on Azure Update Manager](overview.md)
-- [View updates for single machine](view-updates.md) 
+- [Check update compliance](view-updates.md) 
 - [Deploy updates now (on-demand) for single machine](deploy-updates.md) 
 - [Schedule recurring updates](scheduled-patching.md)

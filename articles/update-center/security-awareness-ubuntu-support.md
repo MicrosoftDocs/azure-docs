@@ -22,11 +22,11 @@ You can either upgrade to [Ubuntu Pro](https://ubuntu.com/azure/pro) or migrate 
 
 ## Ubuntu Pro on Azure Update Manager
  
-Azure Update Manager (AUM) assesses both Azure and Arc-enabled VMs to indicate any action. AUM helps to identify Ubuntu instances that don't have the available security updates and allows an upgrade to Ubuntu Pro from the Azure portal. For example, an Ubuntu server 18.04 LTS instance on Azure Update Manager has information about upgrading to Ubuntu Pro.
+Azure Update Manager assesses both Azure and Arc-enabled VMs to indicate any action. AUM helps to identify Ubuntu instances that don't have the available security updates and allows an upgrade to Ubuntu Pro from the Azure portal. For example, an Ubuntu server 18.04 LTS instance on Azure Update Manager has information about upgrading to Ubuntu Pro.
 
 :::image type="content" source="./media/security-awareness-ubuntu-support/ubuntu-pro-subscription-inline.png" alt-text="Screenshot of recommendation to subscribe to Ubuntu Pro in Azure Update Manager." lightbox="./media/security-awareness-ubuntu-support/ubuntu-pro-subscription-inline.png":::
 
-You can continue to use the AUM [capabilities](updates-maintenance-schedules.md) to remain secure after migrating to a supported model from Canonical.
+You can continue to use the Azure Update Manager [capabilities](updates-maintenance-schedules.md) to remain secure after migrating to a supported model from Canonical.
 
 > [!NOTE]
 > - [Ubuntu Pro](https://ubuntu.com/azure/pro) will provide the support on 18.04 LTS from Canonical until 2028 through Expanded Security Maintenance (ESM). You can also [upgrade to Ubuntu Pro from Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/canonical.0001-com-ubuntu-pro-bionic?tab=Overview) as well.
