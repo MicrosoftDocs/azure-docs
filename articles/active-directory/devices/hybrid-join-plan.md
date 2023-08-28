@@ -165,7 +165,7 @@ Beginning with version 1.1.819.0, Azure AD Connect provides you with a wizard to
 
 Sometimes, on-premises AD users UPNs are different from your Azure AD UPNs. In these cases, Windows 10 or newer hybrid Azure AD join provides limited support for on-premises AD UPNs based on the [authentication method](../hybrid/connect/choose-ad-authn.md), domain type, and Windows version. There are two types of on-premises AD UPNs that can exist in your environment:
 
-- Routable users UPN: A routable UPN has a valid verified domain that is registered with a domain registrar. For example, if contoso.com is the primary domain in Azure AD, contoso.org is the primary domain in on-premises AD owned by Contoso and [verified in Azure AD](../fundamentals/add-custom-domain.md).
+- Routable users UPN: A routable UPN has a valid verified domain that is registered with a domain registrar. For example, if contoso.com is the primary domain in Azure AD, contoso.org is the primary domain in on-premises AD owned by Contoso and [verified in Azure AD](../fundamentals/add-custom-domain.md). If contoso.com is registered as a confirmed custom domain in Azure AD, you can get a PRT even if the UPN suffix of the on-premise AD user you are syncing from is a subdomain like test.contoso.com.
 - Non-routable users UPN: A non-routable UPN doesn't have a verified domain and is applicable only within your organization's private network. For example, if contoso.com is the primary domain in Azure AD and contoso.local is the primary domain in on-premises AD but isn't a verifiable domain in the internet and only used within Contoso's network.
 
 > [!NOTE]
