@@ -3,7 +3,7 @@ title: Manage runbooks in Azure Automation
 description: This article tells how to manage runbooks in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/29/2023
+ms.date: 08/28/2023
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
 ---
@@ -501,6 +501,7 @@ foreach ($item in $output) {
 
 ## Next steps
 
+* For sample queries, see [Sample queries for job logs and job streams](automation-manage-send-joblogs-log-analytics.md#job-streams)
 * To learn details of runbook management, see [Runbook execution in Azure Automation](automation-runbook-execution.md).
 * To prepare a PowerShell runbook, see [Edit textual runbooks in Azure Automation](automation-edit-textual-runbook.md).
 * To troubleshoot issues with runbook execution, see [Troubleshoot runbook issues](troubleshoot/runbooks.md).
