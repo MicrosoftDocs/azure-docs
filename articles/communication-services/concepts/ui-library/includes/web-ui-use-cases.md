@@ -40,18 +40,18 @@ Get more conceptual documentation, quickstarts, and examples in the [UI Library 
 ## Chat use cases
 
 
-| Area         | Azure Communication Services Chat | Teams Interoperability Chat |
-| ------------ | ------------------------------------------------ |------------------------------------------------ |
-| Chat types   | Join an Azure Communication Services chat thread | Join a Microsoft Teams meeting chat                        |
-| Chat actions | Send and show text messages        | Send and show text messages          |
-|  | show rich text messages        | show rich text messages          |
-|  | -       | show inline images*        |
-|  | Send and show file attachments          | show file attachments**        |
-|              | Show when a participant is added or removed                        | Show when a participant is added or removed    |
-| Chat events  | Send and show typing indicators | Send and show typing indicators  | 
-|  | Send and show read receipts       | Send and show read receipts          |
-| | Show when a participant is added or removed  | Show when a participant is added or removed | 
-| Participants | Show a participant roster | Show a participant roster |
+| Area         | Azure Communication Services Chat                | Teams Interoperability Chat                 |
+| ------------ | ------------------------------------------------ | ------------------------------------------- |
+| Chat types   | Join an Azure Communication Services chat thread | Join a Microsoft Teams meeting chat         |
+| Chat actions | Send and show text messages                      | Send and show text messages                 |
+|              | show rich text messages                          | show rich text messages                     |
+|              | -                                                | show inline images\*                        |
+|              | Send and show file attachments                   | show file attachments\*\*                   |
+|              | Show when a participant is added or removed      | Show when a participant is added or removed |
+| Chat events  | Send and show typing indicators                  | Send and show typing indicators             |
+|              | Send and show read receipts                      | Send and show read receipts                 |
+|              | Show when a participant is added or removed      | Show when a participant is added or removed |
+| Participants | Show a participant roster                        | Show a participant roster                   |
 
 
 \*Certain GIF images might not be supported by the UI library at this time. The user might receive a static image instead, and this is a known issue. In addition, the Web UI library doesn't support videos at this time.
