@@ -7,7 +7,7 @@ ms.subservice: openai
 ms.topic: include
 author: aahill
 ms.author: aahi
-ms.date: 08/11/2023
+ms.date: 08/25/2023
 recommendations: false
 ---
 
@@ -38,6 +38,14 @@ Navigate to [Azure OpenAI Studio](https://oai.azure.com/) and sign-in with crede
 
 1. On the **Upload files** pane, select **Browse for a file** and select the files you want to upload. Then select **Upload files**. Then select **Next**.
 
+1. On the **Data management** pane, you can choose whether to enable [semantic search or vector search](../concepts/use-your-data.md#search-options) for your index.
+    
+    > [!IMPORTANT]
+    > * Semantic search and vector search are subject to [additional pricing](../concepts/use-your-data.md#search-options).
+    >    * You can use *Simple* search as the search type for no additional cost.
+    > * To enable vector search, you will need a `text-embedding-ada-002` deployment in your Azure OpenAI resource.
+    > * Currently Azure OpenAI on your data supports semantic search for English data only. Only enable semantic search if both your documents and use case are in English.
+    
 1. Review the details you entered, and select **Save and close**. You can now chat with the model and it will use information from your data to construct the response.
 
 > [!div class="nextstepaction"]
