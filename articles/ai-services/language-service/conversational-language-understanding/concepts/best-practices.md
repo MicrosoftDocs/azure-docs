@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: best-practice
-ms.date: 10/11/2022
+ms.date: 08/25/2023
 ms.author: aahi
 ms.custom: language-service-clu
 ---
@@ -38,10 +38,59 @@ Make sure to avoid trying to funnel all the concepts into just intents, for exam
 
 You also want to avoid mixing different schema designs. Do not build half of your application with actions as intents and the other half with information as intents. Ensure it is consistent to get the possible results.
 
+## Use standard training before advanced training
+
+[Standard training](../how-to/train-model.md#training-modes) is free and faster than Advanced training, making it useful to quickly understand the effect of changing your training set or schema while building the model. Once you are satisfied with the schema, consider using advanced training to get the best AIQ out of your model. 
+
+## Machine-learning components and composition
+
+See [Component types](./entity-components.md#component-types).
 
 
+## Addressing casing inconsistencies
 
+If you have poor AI quality and determine the casing used in your training data is dissimilar to the testing data, you can use the `normalizeCasing` project setting. This normalizes the casing of utterances when training and testing the model. If you've migrated from LUIS, you might recognize that LUIS did this by default.
 
+```json
+{
+  "projectFileVersion": "2022-10-01-preview",
+    ...
+    "settings": {
+      "confidenceThreshold": 0.5,
+      "normalizeCasing": true
+    }
+...
+```
 
+## Addressing model overconfidence
 
+Customers can use the LoraNorm  recipe version in case the model is being incorrectly overconfident. An example of this can be like the below (note that the model predicts the incorrect intent with 100% confidence). This makes the confidence threshold project setting unusable.
 
+| Text |	Predicted intent |	Confidence score |
+|----|----|----|
+| "*Who built the Eiffel Tower?*" |	 `Sports` | 1.00 |
+| "*Do I look good to you today?*" | `QueryWeather` |	1.00 |
+| "*I hope you have a good evening.*" | `Alarm` | 1.00 |
+
+To address this, use the `2023-04-15` configuration version that normalizes confidence scores. The confidence threshold project setting can then be adjusted to achieve the desired result.
+
+```console
+curl --location 'https://<your-resource>.cognitiveservices.azure.com/language/authoring/analyze-conversations/projects/<your-project>/:train?api-version=2022-10-01-preview' \
+--header 'Ocp-Apim-Subscription-Key: <your subscription key>' \
+--header 'Content-Type: application/json' \
+--data '{
+      "modelLabel": "<modelLabel>",
+      "trainingMode": "advanced",
+      "trainingConfigVersion": "2023-04-15",
+      "evaluationOptions": {
+            "kind": "percentage",
+            "testingSplitPercentage": 0,
+            "trainingSplitPercentage": 100
+      }
+}
+```
+
+Once the request is sent, you can track the progress of the training job in Language Studio as usual.
+
+> [!NOTE]
+> You have to retrain your model after updating the `confidenceThreshold` project setting. Afterwards, you'll need to republish the app for the new threshold to take effect.
