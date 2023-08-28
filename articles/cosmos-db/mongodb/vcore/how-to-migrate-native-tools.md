@@ -147,4 +147,4 @@ Migrate a collection from the source MongoDB instance to the target Azure Cosmos
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Connect a Node.js web app with Azure Cosmos DB for MongoDB vCore](tutorial-nodejs-web-app.md)
+> [Build a Node.js web application](tutorial-nodejs-web-app.md)
