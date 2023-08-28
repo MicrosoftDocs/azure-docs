@@ -575,11 +575,11 @@ By default, Administrators and SYSTEM receive Full Control.
 
 The extension relies on the default behavior of the [PFXImportCertStore API](/windows/win32/api/wincrypt/nf-wincrypt-pfximportcertstore). By default, if a certificate has a Provider Name attribute that matches with CAPI1, then the certificate is imported by using CAPI1 APIs. Otherwise, the certificate is imported by using CNG APIs.
 
-#### Does the extension support IIS certificate autobinding?
+#### Does the extension support certificate auto-rebinding?
 
-Yes. The Azure Key Vault VM extension supports IIS automatic rebinding. Azure Key Vault VM extension generates Certificate Lifecycle Notification when certificate is downloaded, which triggers binding new certificate in IIS.
+Yes, the Azure Key Vault VM extension supports certificate auto-rebinding. The Key Vault VM extension does support S-channel binding on certificate renewal when the `linkOnRenewal` property is set to true.
 
-The recommended approach is to use the Key Vault VM extension schema's `linkOnRenewal` property. Upon installation, when the `linkOnRenewal` property is set to `true`, the previous version of a certificate is chained to its successor via the `CERT_RENEWAL_PROP_ID` certificate extension property. The chaining enables the S-channel to pick up the most recent (latest) valid certificate with a matching SAN. This feature enables autorotation of SSL certificates without necessitating a redeployment or binding.
+For IIS, you can configure auto-rebind by enabling automatic rebinding of certificate renewals in IIS. The Azure Key Vault VM extension generates Certificate Lifecycle Notifications when a certificate with a matching SAN is installed. IIS uses this event to auto-rebind the certificate. For more information, see [Certifcate Rebind in IIS](https://statics.teams.cdn.office.net/evergreen-assets/safelinks/1/atp-safelinks.html)
 
 ### View extension status
 
