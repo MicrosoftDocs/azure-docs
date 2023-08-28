@@ -8,7 +8,7 @@ ms.date: 08/22/2023
 
 # Vertical Pod Autoscaling in Azure Kubernetes Service (AKS)
 
-This article provides an overview of Vertical Pod Autoscaler (VPA) in Azure Kubernetes Service (AKS), which is based on the open source [Kubernetes](https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler) version. When configured, it automatically sets resource requests and limits on containers per workload based on past usage. VPA makes certain pods are scheduled onto nodes that have the required CPU and memory resources.
+This article provides an overview of Vertical Pod Autoscaler (VPA) in Azure Kubernetes Service (AKS), which is based on the open source [Kubernetes](https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler) version. When configured, it automatically sets resource requests and limits on containers per workload based on past usage. VPA makes certain pods are scheduled onto nodes that have the required CPU and memory resources. This frees up CPU and Memory for the other pods and helps make effective utilization of your AKS cluster.
 
 Vertical Pod autoscaling provides recommendations for resource usage over time. To manage sudden increases in resource usage, use the [Horizontal Pod Autoscaler][horizontal-pod-autoscaling].
 
@@ -18,7 +18,7 @@ Vertical Pod Autoscaler provides the following benefits:
 
 * It analyzes and adjusts processor and memory resources to *right size* your applications. VPA isn't only responsible for scaling up, but also for scaling down based on their resource use over time.
 
-* A Pod is evicted if it needs to change its resource requests if its scaling mode is set to *auto* or *recreate*.
+* A pod is evicted if it needs to change its resource requests if its scaling mode is set to *auto* or *recreate*.
 
 * Set CPU and memory constraints for individual containers by specifying a resource policy
 
@@ -52,7 +52,7 @@ The Vertical Pod Autoscaler is an API resource in the Kubernetes autoscaling API
 
 The VPA object consists of three components:
 
-- **Recommender** - it monitors the current and past resource consumption and, based on it, provides recommended values for the containers' cpu and memory requests.
+- **Recommender** - it monitors the current and past resource consumption and, based on it, provides recommended values for the containers' cpu and memory requests. The **Recommender** monitors the metric history, OOM events, and the VPA deployment spec, and suggests fair requests. By providing a proper resource request and limits configuration, the limits are raised and lowered.
 
 - **Updater** - it checks which of the managed pods have correct resources set and, if not, kills them so that they can be recreated by their controllers with the updated requests.
 
@@ -68,7 +68,7 @@ For high availability, AKS supports two admission controller replicas.
 
 A Vertical Pod Autoscaler resource is inserted for each controller that you want to have automatically computed resource requirements. This is most commonly a *deployment*. There are four modes in which VPAs operate:
 
-* `Auto` - VPA assigns resource requests during pod creation as well as update existing pods using the preferred update mechanism. Currently, this is equivalent to `Recreate`. Once restart free ("in-place") update of pod requests is available, it may be used as the preferred update mechanism by the `Auto` mode.
+* `Auto` - VPA assigns resource requests during pod creation as well as update existing pods using the preferred update mechanism. Currently, this is equivalent to `Recreate`. Once restart free ("in-place") update of pod requests is available, it may be used as the preferred update mechanism by the `Auto` mode. When using this mode, VPA evicts a pod if it needs to change it's resource requests. This may cause the pods to be restarted all at once, thereby causing application inconsistencies. You can limit restarts and maintain consistency in this situation by using a [PodDisruptionBudget][pod-disruption-budget].
 * `Recreate` - VPA assigns resource requests during pod creation as well as update existing pods by evicting them when the requested resources differ significantly from the new recommendation (respecting the Pod Disruption Budget, if defined). This mode should be used rarely, only if you need to ensure that the pods are restarted whenever the resource request changes. Otherwise, the `Auto` mode is preferred, which may take advantage of restart-free updates once they are available.
 * `Initial` - VPA only assigns resource requests during pod creation and never changes afterwards.
 * `Off` - VPA doesn't automatically change the resource requirements of the pods. The recommendations are calculated and can be inspected in the VPA object.
@@ -79,7 +79,7 @@ A common deployment pattern recommended for you if you're unfamiliar with VPA is
 
 1. Set `updateMode = off` in your production cluster and run VPA in recommendation mode so you can test and gain familiarity with VPA. This can avoid introducing a misconfiguration that can cause an outage.
 
-2. Establish observability first by collecting actual resource utilization telemetry over a given period of time. This will help you understand the behavior and signs of symptoms or issues from container and pod resources influenced by the workloads running on them.
+2. Establish observability first by collecting actual resource utilization telemetry over a given period of time. This helps you understand the behavior and signs of symptoms or issues from container and pod resources influenced by the workloads running on them.
 
 3. Get familiar with the monitoring data to understand the performance characteristics. Based on this insight, set the desired requests/limits accordingly and then in the next deployment or upgrade
 
@@ -235,7 +235,7 @@ The following steps create a deployment with two pods, each running a single con
 
 ## Set Pod Autoscaler requests automatically
 
-Vertical Pod autoscaling uses the `VerticalPodAutoscaler` object to automatically set resource requests on Pods when the updateMode is set to **Auto** or **Recreate**.
+Vertical Pod autoscaling uses the `VerticalPodAutoscaler` object to automatically set resource requests on pods when the updateMode is set to **Auto** or **Recreate**.
 
 1. Enable VPA for your cluster by running the following command. Replace cluster name `myAKSCluster` with the name of your AKS cluster and replace `myResourceGroup` with the name of the resource group the cluster is hosted in.
 
@@ -271,7 +271,7 @@ Vertical Pod autoscaling uses the `VerticalPodAutoscaler` object to automaticall
             args: ["-c", "while true; do timeout 0.5s yes >/dev/null; sleep 0.5s; done"]
     ```
 
-    This manifest describes a deployment that has two Pods. Each Pod has one container that requests 100 milliCPU and 50 MiB of memory.
+    This manifest describes a deployment that has two pods. Each pod has one container that requests 100 milliCPU and 50 MiB of memory.
 
 3. Create the pod with the [kubectl create][kubectl-create] command, as shown in the following example:
 
@@ -311,7 +311,7 @@ Vertical Pod autoscaling uses the `VerticalPodAutoscaler` object to automaticall
         updateMode: "Auto"
     ```
 
-    The `targetRef.name` value specifies that any Pod that is controlled by a deployment named `vpa-auto-deployment` belongs to this `VerticalPodAutoscaler`. The `updateMode` value of `Auto` means that the Vertical Pod Autoscaler controller can delete a Pod, adjust the CPU and memory requests, and then start a new Pod.
+    The `targetRef.name` value specifies that any pod that is controlled by a deployment named `vpa-auto-deployment` belongs to this `VerticalPodAutoscaler`. The `updateMode` value of `Auto` means that the Vertical Pod Autoscaler controller can delete a pod, adjust the CPU and memory requests, and then start a new pod.
 
 6. Apply the manifest to the cluster using the [kubectl apply][kubectl-apply] command:
 
@@ -319,7 +319,7 @@ Vertical Pod autoscaling uses the `VerticalPodAutoscaler` object to automaticall
     kubectl create -f azure-vpa-auto.yaml
     ```
 
-7. Wait a few minutes, and view the running Pods again by running the following [kubectl get][kubectl-get] command:
+7. Wait a few minutes, and view the running pods again by running the following [kubectl get][kubectl-get] command:
 
     ```bash
     kubectl get pods
@@ -333,7 +333,7 @@ Vertical Pod autoscaling uses the `VerticalPodAutoscaler` object to automaticall
     vpa-auto-deployment-54465fb978-vbj68   1/1     Running   0          109s
     ```
 
-8. Get detailed information about one of your running Pods by using the [Kubectl get][kubectl-get] command. Replace `podName` with the name of one of your Pods that you retrieved in the previous step.
+8. Get detailed information about one of your running pods by using the [Kubectl get][kubectl-get] command. Replace `podName` with the name of one of your pods that you retrieved in the previous step.
 
     ```bash
     kubectl get pod podName --output yaml
@@ -398,7 +398,7 @@ Vertical Pod autoscaling uses the `VerticalPodAutoscaler` object to automaticall
 
     The results show the `target` attribute specifies that for the container to run optimally, it doesn't need to change the CPU or the memory target. Your results may vary where the target CPU and memory recommendation are higher.
 
-    The Vertical Pod Autoscaler uses the `lowerBound` and `upperBound` attributes to decide whether to delete a Pod and replace it with a new Pod. If a Pod has requests less than the lower bound or greater than the upper bound, the Vertical Pod Autoscaler deletes the Pod and replaces it with a Pod that meets the target attribute.
+    The Vertical Pod Autoscaler uses the `lowerBound` and `upperBound` attributes to decide whether to delete a pod and replace it with a new pod. If a pod has requests less than the lower bound or greater than the upper bound, the Vertical Pod Autoscaler deletes the pod and replaces it with a pod that meets the target attribute.
 
 ## Customized Recommender for Vertical Pod Autoscaler
 
@@ -519,7 +519,7 @@ You can simplify VPA object by using Auto mode and computing recommendations for
 
 4. Deploy the `hamster_customized-recomender.yaml` example using the [kubectl apply][kubectl-apply] command and specify the name of your YAML manifest.
 
-    ``bash
+    ```bash
     kubectl apply -f hamster_customized_recommender.yaml
     ```
 
@@ -581,6 +581,7 @@ This article showed you how to automatically scale resource utilization, such as
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
 [github-autoscaler-repo-v011]: https://github.com/kubernetes/autoscaler/blob/vpa-release-0.11/vertical-pod-autoscaler/pkg/apis/autoscaling.k8s.io/v1/types.go
+[pod-disruption-budget]: https://kubernetes.io/docs/concepts/workloads/pods/disruptions/
 
 <!-- INTERNAL LINKS -->
 [get-started-with-aks]: /azure/architecture/reference-architectures/containers/aks-start-here
