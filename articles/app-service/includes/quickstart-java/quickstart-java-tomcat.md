@@ -2,7 +2,7 @@
 author: cephalin
 ms.service: app-service
 ms.devlang: java
-ms.topic: quickstart
+ms.topic: include
 ms.date: 08/30/2023
 ms.author: cephalin
 ---
@@ -10,8 +10,6 @@ ms.author: cephalin
 In this quickstart, you'll use the [Maven Plugin for Azure App Service Web Apps](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md) to deploy a Java web application to a Linux Tomcat server in [Azure App Service](/azure/app-service/). App Service provides a highly scalable, self-patching web app hosting service. Use the tabs to switch between Tomcat, JBoss, or embedded server (Java SE) instructions.
 
 ![Screenshot of Maven Hello World web app running in Azure App Service.](../../media/quickstart-java/java-hello-world-in-browser-azure-app-service.png)
-
----
 
 If Maven isn't your preferred development tool, check out our similar tutorials for Java developers:
 + [Gradle](../../configure-language-java.md?pivots=platform-linux#gradle)

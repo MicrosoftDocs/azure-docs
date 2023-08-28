@@ -2,7 +2,7 @@
 author: cephalin
 ms.service: app-service
 ms.devlang: java
-ms.topic: quickstart
+ms.topic: include
 ms.date: 08/30/2023
 ms.author: cephalin
 ---
@@ -14,9 +14,7 @@ The quickstart uses a [Quarkus](https://quarkus.io) sample, which comes with a b
 > [!NOTE]
 > For Spring apps that requires all the Spring services, try [Azure Spring Apps](../../../spring-apps/quickstart.md) instead. However, you can deploy Spring Boot apps to App Service.
 
-![Screenshot of Maven Hello World web app running in Azure App Service in introduction.](../../media/quickstart-java/quarkus-hello-world-in-browser-azure-app-service.png)
-
----
+:::image type="content" source="../../media/quickstart-java/quarkus-hello-world-in-browser-azure-app-service.png" alt-text="Screenshot of Maven Hellow World web app running in Azure App Service in introduction.":::
 
 If Maven isn't your preferred development tool, check out our similar tutorials for Java developers:
 + [Gradle](../../configure-language-java.md?pivots=platform-linux#gradle)
@@ -159,7 +157,7 @@ With all the configuration ready in your *pom.xml* file, you can deploy your Jav
 
 Once deployment is completed, your application is ready at `http://<appName>.azurewebsites.net/` (`http://quarkus-hello-azure-1690375364238.azurewebsites.net` in the demo). Open the url with your local web browser, you should see
 
-![Screenshot of Maven Hello World web app running in Azure App Service.](../../media/quickstart-java/quarkus-hello-world-in-browser-azure-app-service.png)
+:::image type="content" source="../../media/quickstart-java/quarkus-hello-world-in-browser-azure-app-service.png" alt-text="Screenshot of Maven Hellow World web app running in Azure App Service.":::
 
 **Congratulations!** You've deployed your first Java app to App Service.
 
