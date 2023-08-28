@@ -96,6 +96,8 @@ landingContent:
             url: how-to-create-custom-image-confidential-vm.md
           - text: Harden a Linux image to remove sudo users
             url: harden-the-linux-image-to-remove-sudo-users.md
+          - text: Harden a Linux image to remove azure guest agent
+            url: harden-a-linux-image-to-remove-azure-guest-agent.md
       - linkListType: reference
         links:
           - text: AMD confidential VMs FAQ 

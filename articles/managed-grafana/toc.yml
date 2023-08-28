@@ -80,7 +80,7 @@ items:
     items:
     - name: Use service accounts
       href: how-to-service-accounts.md
-    - name: Create and manage API keys
+    - name: Create and manage API keys (Deprecated)
       href: how-to-create-api-keys.md
     - name: Monitor Azure Managed Grafana
       href: how-to-monitor-managed-grafana-workspace.md

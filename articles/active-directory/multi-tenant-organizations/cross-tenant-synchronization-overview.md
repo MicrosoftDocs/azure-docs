@@ -36,7 +36,6 @@ The following diagram shows how you can use cross-tenant synchronization to enab
 :::image type="content" source="./media/cross-tenant-synchronization-overview/cross-tenant-synchronization-diagram.png" alt-text="Diagram that shows synchronization of users for multiple tenants." lightbox="./media/cross-tenant-synchronization-overview/cross-tenant-synchronization-diagram.png":::
 
 ## Who should use?
-
 - Organizations that own multiple Azure AD tenants and want to streamline intra-organization cross-tenant application access.
 - Cross-tenant synchronization is **not** currently suitable for use across organizational boundaries.
 

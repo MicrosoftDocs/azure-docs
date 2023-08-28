@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Manage access to resources in entitlement management
-description: Step-by-step tutorial for how to create your first access package using the Azure portal in entitlement management.
+description: Step-by-step tutorial for how to create your first access package using the Microsoft Entra admin center in entitlement management.
 services: active-directory
 documentationCenter: ''
 author: owinfreyATL
@@ -35,11 +35,11 @@ In this tutorial, you learn how to:
 > * Allow a user in your directory to request access
 > * Demonstrate how an internal user can request the access package
 
-For a step-by-step demonstration of the process of deploying Azure Active Directory entitlement management, including creating your first access package, view the following video:
+For a step-by-step demonstration of the process of deploying Microsoft Entra entitlement management, including creating your first access package, view the following video:
 
 >[!VIDEO https://www.youtube.com/embed/zaaKvaaYwI4]
 
-This rest of this article uses the Azure portal to configure and demonstrate entitlement management. 
+This rest of this article uses the Microsoft Entra admin center to configure and demonstrate entitlement management. 
 
 ## Prerequisites
 
@@ -60,9 +60,9 @@ A resource directory has one or more resources to share. In this step, you creat
 
 ![Diagram that shows the users and groups for this tutorial.](./media/entitlement-management-access-package-first/elm-users-groups.png)
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a Global administrator or User administrator.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a Global administrator or User administrator.
 
-1. In the left navigation, select **Azure Active Directory**.
+1. In the left navigation, select **Identity**.
 
 1. [Create two users](../fundamentals/add-users.md). Use the following names or different names.
 
@@ -82,11 +82,13 @@ An *access package* is a bundle of resources that a team or project needs and is
 
 ![Diagram that describes the relationship between the access package elements.](./media/entitlement-management-access-package-first/elm-access-package.png)
 
-1. In the Azure portal, in the left navigation, select **Azure Active Directory**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1. In the left menu, select **Identity Governance**
+1. Browse to **Identity governance** > **Entitlement management** > **Access package**.
 
-1. In the left menu, select **Access packages**.  If you see **Access denied**, ensure that a Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance license is present in your directory.
+1. On the **Access packages** page open an access package.
+
+1. When opening the access package if you see **Access denied**, ensure that a Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance license is present in your directory.
 
 1. Select **New access package**.
 
@@ -183,7 +185,7 @@ In this step, you perform the steps as the **internal requestor** and request ac
 
 **Prerequisite role:** Internal requestor
 
-1. Sign out of the Azure portal.
+1. Sign out of the Microsoft Entra admin center.
 
 1. In a new browser window, navigate to the My Access portal link you copied in the previous step.
 
@@ -209,9 +211,9 @@ In this step, you confirm that the **internal requestor** was assigned the acces
 
 1. Sign out of the My Access portal.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as **Admin1**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as **Admin1**.
 
-1. Select **Azure Active Directory** and then select **Identity Governance**.
+1. Select **Identity Governance**.
 
 1. In the left menu, select **Access packages**.
 
@@ -225,7 +227,7 @@ In this step, you confirm that the **internal requestor** was assigned the acces
 
     :::image type="content" source="./media/entitlement-management-access-package-first/request-details.png" alt-text="Screenshot of the access package request details." lightbox="./media/entitlement-management-access-package-first/request-details.png":::
 
-1. In the left navigation, select **Azure Active Directory**.
+1. In the left navigation, select **Identity**.
 
 1. Select **Groups** and open the **Marketing resources** group.
 
@@ -241,7 +243,7 @@ In this step, you remove the changes you made and delete the **Marketing Campaig
 
 **Prerequisite role:**  Global administrator or User administrator
 
-1. In the Azure portal, select **Azure Active Directory** and then select **Identity Governance**.
+1. In the Microsoft Entra admin center **Identity Governance**.
 
 1. Open the **Marketing Campaign** access package.
 
@@ -259,7 +261,7 @@ In this step, you remove the changes you made and delete the **Marketing Campaig
 
 1. For **Marketing Campaign**, select the ellipsis (**...**) and then select **Delete**. In the message that appears, select **Yes**.
 
-1. In Azure Active Directory, delete any users you created such as **Requestor1** and **Admin1**.
+1. In **Identity**, delete any users you created such as **Requestor1** and **Admin1**.
 
 1. Delete the **Marketing resources** group.
 

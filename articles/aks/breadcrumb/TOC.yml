@@ -41,3 +41,15 @@
   - name: Azure Kubernetes Service
     tocHref: /azure/storage/
     topicHref: /azure/aks/index
+  - name: Azure Kubernetes Service
+    tocHref: /azure/architecture/
+    topicHref: /azure/aks/index
+  - name: Azure Kubernetes Service
+    tocHref: /azure/backup/
+    topicHref: /azure/aks/index
+  - name: Azure Kubernetes Service
+    tocHref: /azure/security/
+    topicHref: /azure/aks/index
+  - name: Azure Kubernetes Service
+    tocHref: /compliance/regulatory/
+    topicHref: /azure/aks/index
