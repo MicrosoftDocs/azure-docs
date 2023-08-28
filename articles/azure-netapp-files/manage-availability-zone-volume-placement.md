@@ -71,8 +71,6 @@ You can deploy new volumes in the logical availability zone of your choice. You 
 1. The Populate Availability Zone window appears and displays the availability zone in which the Azure NetApp Files volume is deployed.
 1. Click **Save** if you want to populate this availability zone to the volume, or click **Cancel** if you want to keep the volume regional.
 
-
-
 :::image type="content" source="../media/azure-netapp-files/populate-availability-zone.png" alt-text="Screenshot of the Populate Availability Zone window." lightbox="../media/azure-netapp-files/populate-availability-zone.png":::
     
 ## Next steps  
