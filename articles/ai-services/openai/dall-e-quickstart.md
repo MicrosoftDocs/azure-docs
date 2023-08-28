@@ -25,9 +25,27 @@ zone_pivot_groups: openai-quickstart-dall-e
 
 ::: zone-end
 
-::: zone pivot="rest-api"
+::: zone pivot="programming-language-csharp"
 
-[!INCLUDE [REST API quickstart](includes/dall-e-rest.md)]
+[!INCLUDE [C# SDK quickstart](includes/dall-e-dotnet.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-java"
+
+[!INCLUDE [Java SDK quickstart](includes/dall-e-java.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+
+[!INCLUDE [JavaScript SDK quickstart](includes/dall-e-javascript.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-go"
+
+[!INCLUDE [Go SDK quickstart](includes/dall-e-go.md)]
 
 ::: zone-end
 
@@ -36,3 +54,10 @@ zone_pivot_groups: openai-quickstart-dall-e
 [!INCLUDE [Python SDK quickstart](includes/dall-e-python.md)]
 
 ::: zone-end
+
+::: zone pivot="rest-api"
+
+[!INCLUDE [REST API quickstart](includes/dall-e-rest.md)]
+
+::: zone-end
+
