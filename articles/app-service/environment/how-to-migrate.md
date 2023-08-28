@@ -4,13 +4,17 @@ description: Learn how to migrate your App Service Environment to App Service En
 author: seligj95
 ms.topic: tutorial
 ms.custom: devx-track-azurecli
-ms.date: 8/25/2023
+ms.date: 8/28/2023
 ms.author: jordanselig
 zone_pivot_groups: app-service-cli-portal
 ---
-# Use the migration feature to migrate App Service Environment v1 and v2 to App Service Environment v3
+# Use the in-place migration feature to migrate App Service Environment v1 and v2 to App Service Environment v3
 
-An App Service Environment v1 and v2 can be automatically migrated to an [App Service Environment v3](overview.md) using the migration feature. To learn more about the migration process and to see if your App Service Environment supports migration at this time, see the [Migration to App Service Environment v3 Overview](migrate.md).
+> [!NOTE]
+> The migration feature described in this article is used for in-place (same subnet) automated migration of App Service Environment v1 and v2 to App Service Environment v3. If you're looking for information on the side by side migration feature, see [Migrate to App Service Environment v3 by using the side by side migration feature](side-by-side-migrate.md). If you're looking for information on manual migration options, see [Manual migration options](migration-alternatives.md). For help deciding which migration option is right for you, see [Migration path decision tree](upgrade-to-asev3.md#migration-path-decision-tree). For more information on App Service Environment v3, see [App Service Environment v3 overview](overview.md).
+>
+
+An App Service Environment v1 and v2 can be automatically migrated to an [App Service Environment v3](overview.md) using the in-place migration feature. To learn more about the migration process using this feature and to see if your App Service Environment supports migration at this time, see [Migration to App Service Environment v3 using the in-place migration-feature](migrate.md).
 
 > [!IMPORTANT]
 > It is recommended to use this feature for dev environments first before migrating any production environments to ensure there are no unexpected issues. Please provide any feedback related to this article or the feature using the buttons at the bottom of the page.
@@ -24,7 +28,7 @@ Ensure there are no locks on your virtual network, resource group, resource, or 
 
 ::: zone pivot="experience-azcli"
 
-The recommended experience for the migration feature is using the [Azure portal](how-to-migrate.md?pivots=experience-azp). If you decide to use the Azure CLI to carry out the migration, you should follow the steps described here in order and as written since you're making Azure REST API calls. The recommended way for making these API calls is by using the [Azure CLI](/cli/azure/). For information about other methods, see [Getting Started with Azure REST](/rest/api/azure/).
+The recommended experience for the in-place migration feature is using the [Azure portal](how-to-migrate.md?pivots=experience-azp). If you decide to use the Azure CLI to carry out the migration, you should follow the steps described here in order and as written since you're making Azure REST API calls. The recommended way for making these API calls is by using the [Azure CLI](/cli/azure/). For information about other methods, see [Getting Started with Azure REST](/rest/api/azure/).
 
 For this guide, [install the Azure CLI](/cli/azure/install-azure-cli) or use the [Azure Cloud Shell](https://shell.azure.com/).
 
@@ -198,7 +202,7 @@ From the [Azure portal](https://portal.azure.com), navigate to the **Migration**
 
 :::image type="content" source="./media/migration/portal-overview.png" alt-text="Migration access points.":::
 
-On the migration page, the platform validates if migration is supported for your App Service Environment. Select "Validate" and then confirm that you want to proceed with the validation. The validation process takes a few seconds to complete.
+On the migration page, select the in-place migration option. Next, the platform validates if migration is supported for your App Service Environment. Select "Validate" and then confirm that you want to proceed with the validation. The validation process takes a few seconds to complete.
 
 :::image type="content" source="./media/migration/migration-validation.png" alt-text="Screenshot that shows how to validate migration eligibility.":::
 
