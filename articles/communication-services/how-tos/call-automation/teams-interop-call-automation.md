@@ -1,7 +1,7 @@
 ---
 title: Azure Communication Services Call Automation how-to for adding Microsoft Teams User into an existing call
 titleSuffix: An Azure Communication Services how-to document
-description: ProvIDes a how-to for adding a Microsoft Teams user to a call with Call Automation.
+description: Provides a how-to for adding a Microsoft Teams user to a call with Call Automation.
 author: visho
 
 ms.service: azure-communication-services
@@ -9,17 +9,15 @@ ms.subservice: call-automation
 ms.topic: include
 ms.date: 03/28/2023
 ms.author: visho
-ms.custom: private_preview
+ms.custom: public_preview
 services: azure-communication-services
 ---
 
 # Add a Microsoft Teams user to an existing call using Call Automation
 
-[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 In this quickstart, we use the Azure Communication Services Call Automation APIs to add, remove and transfer call to a Teams user.
-
-You need to be part of the Azure Communication Services TAP program. It's likely that you’re already part of this program, and if you aren't, sign-up using https://aka.ms/acs-tap-invite. To access to the specific Teams Interop functionality for Call Automation, submit your Teams Tenant IDs and Azure Communication Services Resource IDs by filling this form – https://aka.ms/acs-ca-teams-tap. You need to fill the form every time you need a new tenant ID and new resource ID allow-listed.
 
 ## Prerequisites
 
