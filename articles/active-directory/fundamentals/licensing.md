@@ -167,68 +167,10 @@ The required roles and licenses may vary based on the report. Global Administrat
 
 *The level of access and capabilities for Identity Protection varies with the role and license. For more information, see the [license requirements for Identity Protection](../identity-protection/overview-identity-protection.md#license-requirements).
 
-## Roles
 
-### Administrative units
+[!INCLUDE [Verified ID](../includes/licensing-roles.md)]
 
-Using administrative units requires an Azure AD Premium P1 license for each administrative unit administrator who is assigned directory roles over the scope of the administrative unit, and an Azure AD Free license for each administrative unit member. Creating administrative units is available with an Azure AD Free license. If you are using dynamic membership rules for administrative units, each administrative unit member requires an Azure AD Premium P1 license. To find the right license for your requirements, see [Comparing generally available features of the Free and Premium editions](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
-
-### Restricted management administrative units
-
-Restricted management administrative units require an Azure AD Premium P1 license for each administrative unit administrator, and Azure AD Free licenses for administrative unit members. To find the right license for your requirements, see [Comparing generally available features of the Free and Premium editions](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
-
-
-
-## SaaS apps
-
-
-|Feature|Free|Microsoft Entra ID P1|Microsoft Entra ID P2|Microsoft Entra ID Governance|
-|-----|-----|-----|-----|-----|
-|Cloud authentication (Pass-through authentication, password hash synchronization)|x|x|x||
-|Federated authentication (Active Directory Federation Services or federation with other identity providers)|x|x|x||
-|Single sign-on (SSO) unlimited|x|x|x||
-|Software as a service (SaaS) apps with modern authentication (Microsoft Entra ID application gallery apps, SAML, and OAUTH 2.0)|x|x|x||
-|Group assignment to applications||x|x||
-|Cloud app discovery (Microsoft Defender for Cloud Apps)||x|x||
-|Application proxy for on-premises, header-based, and integrated Windows authentication||x|x||
-|Secure hybrid access partnerships (Kerberos, NTLM, LDAP, RDP, and SSH authentication)|x|x|x||
-|Service level agreement||x|x||
-|Customizable user sign-in page|x|x|x||
-
-
-[!INCLUDE [Managed identities](../includes/licensing-managed-identities.md)]
-
-## Workload Identities
-
-[Microsoft Entra Workload Identities](../workload-identities/workload-identities-overview.md) is now available in two editions: **Free** and **Workload Identities Premium**. The free edition of workload identities is included with a subscription of a commercial online service such as [Azure](https://azure.microsoft.com/) and [Power Platform](https://powerplatform.microsoft.com/). The Workload
-Identities Premium offering is available through a Microsoft representative, the [Open Volume License
-Program](https://www.microsoft.com/licensing/how-to-buy/how-to-buy), and the [Cloud Solution Providers program](../../lighthouse/concepts/cloud-solution-provider.md). Azure and Microsoft 365 subscribers can also purchase Workload
-Identities Premium online.
-
-For more information, see [what are workload identities?](../workload-identities/workload-identities-overview.md)
-
->[!NOTE]
->Workload Identities Premium is a standalone product and isn't included in other premium product plans. All subscribers require a license to use Workload Identities Premium features.
-
-Learn more about [Workload Identities
-pricing](https://www.microsoft.com/security/business/identity-access/microsoft-entra-workload-identities#office-StandaloneSKU-k3hubfz).
-
-### What features are included in Workload Identities Premium plan and which features are free? 
-
-|Capabilities | Description | Free | Premium |                 
-|:--------|:----------|:------------|:-----------|
-| **Authentication and authorization**|  | | |
-| Create, read, update, delete workload identities  | Create and update identities for securing service to service access  | Yes |  Yes |
-| Authenticate workload identities and tokens to access resources |  Use Azure Active Directory (Azure AD) to protect resource access |  Yes|  Yes |
-| Workload identities sign-in activity and audit trail |   Monitor and track workload identity behavior  |  Yes |  Yes |
-| **Managed identities**| Use Azure AD identities in Azure without handling credentials |  Yes| Yes |
-| Workload identity federation | Use workloads tested by external Identity Providers (IdPs) to access Azure AD protected resources | Yes | Yes |
-|  **Conditional Access (CA)**     |   |   |    
-| CA policies for workload identities |Define the condition in which a workload can access a resource, such as an IP range | |  Yes | 
-|**Lifecycle Management**|    |    |   |
-|Access reviews for service provider-assigned privileged roles  |   Closely monitor workload identities with impactful permissions |    |  Yes |
-|**Identity Protection**  |  | |
-|Identity Protection for workload identities  | Detect and remediate compromised workload identities | | Yes |                                                                            
+[!INCLUDE [Verified ID](../includes/licensing-verified-id.md)]
 
 
 ## Features in preview
