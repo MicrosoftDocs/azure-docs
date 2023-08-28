@@ -7,16 +7,98 @@ ms.author: glenga
 ms.custom: include file
 ---
 
-|Language                                 |1.x         | 4.x |
-|-----------------------------------------|------------| --- |
-|[C#](../articles/azure-functions/functions-dotnet-class-library.md)|GA (.NET Framework 4.8)| GA (.NET 6.0)<br/>[GA (.NET 7.0)](../articles/azure-functions/dotnet-isolated-process-guide.md)<br/>[GA (.NET Framework 4.8)](../articles/azure-functions/dotnet-isolated-process-guide.md) |
-|[JavaScript](../articles/azure-functions/functions-reference-node.md?tabs=javascript)|GA (Node.js 6)| GA (Node.js 18, 16, & 14) |
-|[Java](../articles/azure-functions/functions-reference-java.md)|N/A| GA (Java 11 & 8) <br/> GA (Java 17)|
-|[PowerShell](../articles/azure-functions/functions-reference-powershell.md) |N/A | GA (PowerShell 7.2)|
-|[Python](../articles/azure-functions/functions-reference-python.md#python-version)|N/A| Preview (Python 3.11)<br/>GA (Python 3.10, 3.9, 3.8, 3.7) |
-|[TypeScript](../articles/azure-functions/functions-reference-node.md?tabs=typescript)<sup>1</sup> |N/A| GA |
+::: zone pivot="programming-language-csharp"
+The supported version of .NET depends on both your Functions runtime version and your chosen .NET worker process model:
 
-<sup>1</sup> Supported through transpiling to JavaScript.
+### [Isolated process](#tab/isolated-process)
 
-See the language-specific developer guide article for more details about supported language versions.   
+Your function code runs in a separate .NET worker process. Use with [supported versions of .NET and .NET Framework](../articles/azure-functions/dotnet-isolated-process-guide.md#supported-versions). To learn more, see [Develop .NET isolated worker process functions](../articles/azure-functions/dotnet-isolated-process-guide.md).
+
+### [In-process](#tab/in-process)
+
+Your function code runs in the same process as the Functions host process. Supports only [Long Term Support (LTS) versions of .NET](../articles/azure-functions/functions-dotnet-class-library.md#supported-versions). To learn more, see [Develop .NET class library functions](../articles/azure-functions/functions-dotnet-class-library.md).  
+
+---
+
+### [v4.x](#tab/v4/in-process)
+
+| Supported version | Support level | Expected community EOL date |
+| ---- | ---- |--- |
+| .NET 6 (LTS) | GA | `<<TBD>>` |
+
+For more information, see [Develop C# class library functions using Azure Functions](../articles/azure-functions/functions-dotnet-class-library.md). Also supports [C# script functions](../articles/azure-functions/functions-reference-csharp.md).
+
+### [v1.x](#tab/v1/in-process)
+
+| Supported version | Support level | Expected community EOL date |
+| ---- | ---- |--- |
+| .NET Framework 4.8 | GA | `<<TBD>>` |
+ 
+For more information, see [Develop C# class library functions using Azure Functions](../articles/azure-functions/functions-dotnet-class-library.md). Also supports [C# script functions](../articles/azure-functions/functions-reference-csharp.md).
+
+### [v4.x](#tab/v4/isolated-process)
+
+| Supported version | Support level | Expected community EOL date |
+| ---- | ---- |--- |
+| .NET 7 | GA | `<<TBD>>` |
+| .NET 6 (LTS) | GA | `<<TBD>>` |
+| .NET Framework 4.8 | GA | `<<TBD>>` |
+
+For more information, see [Guide for running C# Azure Functions in an isolated worker process](../articles/azure-functions/dotnet-isolated-process-guide.md).
+
+### [v1.x](#tab/v1/isolated-process)
+
+Running C# functions in an isolated worker process isn't supported by version 1.x of the Functions runtime. Instead choose the **In-process** tab or choose **v4.x**. 
+
+--- 
+
+::: zone-end
+::: zone pivot="programming-language-java"  
+| Supported version | Support level | Expected community EOL date |
+| ---- | ---- |--- |
+| Java 17 | GA | `<<TBD>>` |
+| Java 11 | GA | `<<TBD>>` |
+| Java 8 | GA | `<<TBD>>` |
+
+For more information, see [Azure Functions Java developer guide](../articles/azure-functions/functions-reference-java.md).
+
+::: zone-end
+::: zone pivot="programming-language-javascript,programming-language-typescript"  
+### [v4.x](#tab/v4)
+
+| Supported version | Support level | Expected community EOL date |
+| ---- | ---- |--- |
+| Node.js 18 | GA | `<<TBD>>` |
+| Node.js 16 | GA | `<<TBD>>` |
+| Node.js 14 | GA | `<<TBD>>` |
+
+### [v1.x](#tab/v1)
+
+| Supported version | Support level | Expected community EOL date |
+| ---- | ---- |--- |
+| Node.js 6 | GA | `<<TBD>>` |
+ 
+---
+
+TypeScript is supported through transpiling to JavaScript. For more information, see the [Azure Functions Node.js developer guide](../articles/azure-functions/functions-reference-node.md#supported-versions).
+::: zone-end  
+::: zone pivot="programming-language-powershell"  
+| Supported version | Support level | Expected community EOL date |
+| ---- | ---- |--- |
+| PowerShell 7.2 | GA | `<<TBD>>` |
+
+For more information, see [Azure Functions PowerShell developer guide](../articles/azure-functions/functions-reference-powershell.md).
+::: zone-end
+::: zone pivot="programming-language-python"
+| Supported version | Support level | Expected community EOL date |
+| ---- | ---- |--- |
+| Python 3.11 | Preview | N/A |
+| Python 3.10 | GA |`<<TBD>>` |
+| Python 3.9 | GA | `<<TBD>>` |
+| Python 3.8 | GA | `<<TBD>>` |
+| Python 3.7 | GA | `<<TBD>>` |
+
+For more information, see [Azure Functions Python developer guide](../articles/azure-functions/functions-reference-python.md#python-version).
+::: zone-end
+
 For information about planned changes to language support, see [Azure roadmap](https://azure.microsoft.com/roadmap/?tag=functions).

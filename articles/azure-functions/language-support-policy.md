@@ -56,6 +56,20 @@ To learn more about specific language version support policy timeline, visit the
 |PowerShell |[link](./functions-reference-powershell.md#changing-the-powershell-version)|
 |Python |[link](./functions-reference-python.md#python-version)|
 
+## Retired runtime versions
+
+This historical table shows the highest language level for specific Azure Functions runtime versions that are no longer supported: 
+
+|Language                                 |2.x | 3.x | 
+|-----------------------------------------|---| --- | 
+|[C#](functions-dotnet-class-library.md)|GA (.NET Core 2.1)| GA (.NET Core 3.1)<br/> | 
+|[JavaScript/TypeScript](functions-reference-node.md?tabs=javascript)|GA (Node.js 10 & 8)| GA (Node.js 14, 12, & 10) | 
+|[Java](functions-reference-java.md)|GA (Java 8)| GA (Java 11 & 8)| 
+|[PowerShell](functions-reference-powershell.md) |N/A|N/A| 
+|[Python](functions-reference-python.md#python-version)|GA (Python 3.7)| GA (Python 3.9, 3.8, 3.7)| 
+|[TypeScript](functions-reference-node.md?tabs=typescript) |GA| GA | 
+
+For the language levels currently supported by Azure Functions, see [Languages by runtime version](supported-languages.md#languages-by-runtime-version). 
 
 ## Next steps
 

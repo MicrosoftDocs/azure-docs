@@ -1,9 +1,9 @@
 ---
 title: Supported languages in Azure Functions
-description: Learn which languages are supported (GA) and which are in preview, and ways to extend Functions development to other languages.
+description: Learn which languages are supported for developing your Functions in Azure, the support level of the various language versions, and potential end-of-life dates.
 ms.topic: conceptual
-ms.date: 11/27/2019
-
+ms.date: 08/27/2023
+zone_pivot_groups: programming-languages-set-functions
 ---
 
 # Supported languages in Azure Functions
