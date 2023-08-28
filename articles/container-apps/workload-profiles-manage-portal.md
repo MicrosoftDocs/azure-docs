@@ -38,7 +38,7 @@ Learn to manage a [workload profile](./workload-profiles-overview.md) environmen
 
 1. Configure the new environment.
 
-    :::image type="content" source="media/workload-profiles/azure-container-apps-dedicated-environment.png" alt-text="Screenshot of create an Azure Container Apps Dedicated plan environment window.":::
+    :::image type="content" source="media/workload-profiles/azure-container-apps-workload-profiles-environment.png" alt-text="Screenshot of create an Azure Container Apps workload profiles environment window.":::
 
     Enter the following values to create your environment.
 
