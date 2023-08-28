@@ -64,7 +64,7 @@
       href: tutorial-sap-hana-manage-cli.md
   - name: Configure Multi-user authorization (MUA) on Recovery Services vault
     href: multi-user-authorization-tutorial.md
-  - name: Recover deleted items using enhanced soft delete
+  - name: Recover soft deleted items using enhanced soft delete
     href: backup-azure-enhanced-soft-delete-tutorial.md
 - name: Concepts
   items:
