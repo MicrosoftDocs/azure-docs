@@ -25,7 +25,7 @@ Update Manager will be declared GA soon.
 The prescript and postscript will be available soon.
 
 ## SQL Server patching
-SQL Server patching via Update Manager will be available soon.
+SQL Server patching using Update Manager will be available soon.
 
 ## Next steps
 
