@@ -35,11 +35,11 @@ A catalog is a container of resources and access packages. You create a catalog 
 
 To create a catalog:
 
-1. In the Azure portal, select **Azure Active Directory** > **Identity Governance**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1. On the left menu, select **Catalogs**.
+1. Browse to **Identity governance** > **Entitlement management** > **Catalogs**.
 
-    ![Screenshot that shows entitlement management catalogs in the Azure portal.](./media/entitlement-management-catalog-create/catalogs.png)
+    ![Screenshot that shows entitlement management catalogs in the Entra admin center.](./media/entitlement-management-catalog-create/catalogs.png)
 
 1. Select **New catalog**.
 
@@ -95,9 +95,11 @@ To include resources in an access package, the resources must exist in a catalog
 
 To add resources to a catalog:
 
-1. In the Azure portal, select **Azure Active Directory** > **Identity Governance**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1. On the left menu, select **Catalogs** and then open the catalog you want to add resources to.
+1. Browse to **Identity governance** > **Catalogs**.
+
+1. On the **Catalogs** page open the catalog you want to add resources to.
 
 1. On the left menu, select **Resources**.
 
@@ -203,9 +205,11 @@ You can remove resources from a catalog. A resource can be removed from a catalo
 
 To remove resources from a catalog:
 
-1. In the Azure portal, select **Azure Active Directory** > **Identity Governance**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1. On the left menu, select **Catalogs** and then open the catalog you want to remove resources from.
+1. Browse to **Identity governance** > **Catalogs**.
+
+1. On the **Catalogs** page open the catalog you want to remove resources from.
 
 1. On the left menu, select **Resources**.
 
@@ -221,9 +225,11 @@ The user who created a catalog becomes the first catalog owner. To delegate mana
 
 To assign a user to the catalog owner role:
 
-1. In the Azure portal, select **Azure Active Directory** > **Identity Governance**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1. On the left menu, select **Catalogs** and then open the catalog you want to add administrators to.
+1. Browse to **Identity governance** > **Catalogs**.
+
+1. On the **Catalogs** page open the catalog you want to add administrators to.
 
 1. On the left menu, select **Roles and administrators**.
 
@@ -241,9 +247,11 @@ You can edit the name and description for a catalog. Users see this information 
 
 To edit a catalog:
 
-1. In the Azure portal, select **Azure Active Directory** > **Identity Governance**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1. On the left menu, select **Catalogs** and then open the catalog you want to edit.
+1. Browse to **Identity governance** > **Catalogs**.
+
+1. On the **Catalogs** page open the catalog you want to edit.
 
 1. On the catalog's **Overview** page, select **Edit**.
 
@@ -261,9 +269,11 @@ You can delete a catalog, but only if it doesn't have any access packages.
 
 To delete a catalog:
 
-1. In the Azure portal, select **Azure Active Directory** > **Identity Governance**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1. On the left menu, select **Catalogs** and then open the catalog you want to delete.
+1. Browse to **Identity governance** > **Catalogs**.
+
+1. On the **Catalogs** page open the catalog you want to delete.
 
 1. On the catalog's **Overview** page, select **Delete**.
 

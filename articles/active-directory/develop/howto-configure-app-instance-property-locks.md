@@ -13,7 +13,7 @@ ms.author: henrymbugua
 ms.reviewer: madansr7
 # Customer intent: As an application developer, I want to learn how to protect properties of my application instance of being modified.
 ---
-# How to configure app instance property lock for your applications (Preview)
+# How to configure app instance property lock for your applications
 
 Application instance lock is a feature in Azure Active Directory (Azure AD) that allows sensitive properties of a multi-tenant application object to be locked for modification after the application is provisioned in another tenant. 
 This feature provides application developers with the ability to lock certain properties if the application doesn't support scenarios that require configuring those properties.  
@@ -26,6 +26,9 @@ The following property usage scenarios are considered as sensitive:
 - Credentials (`keyCredentials`, `passwordCredentials`) where usage type is `Sign`. This is a scenario where your application supports a SAML flow.
 - Credentials (`keyCredentials`, `passwordCredentials`) where usage type is `Verify`. In this scenario, your application supports an OIDC client credentials flow.
 - `TokenEncryptionKeyId` which specifies the keyId of a public key from the keyCredentials collection. When configured, Azure AD encrypts all the tokens it emits by using the key to which this property points. The application code that receives the encrypted token must use the matching private key to decrypt the token before it can be used for the signed-in user.
+
+> [!NOTE]
+> App instance lock is enabled by default for all new applications created using the Microsoft Entra admin center. 
 
 ## Configure an app instance lock
 

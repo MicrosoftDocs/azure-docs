@@ -101,7 +101,7 @@ After the request has been submitted, resource administrators are notified of a 
 
 ### Admin approves
 
-Resource administrators can access the renewal request from the link in the email notification or by accessing Privileged Identity Management from the Azure portal and selecting **Approve requests** from the left pane.
+Resource administrators can access the renewal request from the link in the email notification or by accessing Privileged Identity Management from the Microsoft Entra admin center and selecting **Approve requests** from the left pane.
 
 When an administrator selects **Approve** or **Deny**, the details of the request are shown along with a field to provide a business justification for the audit logs.
 

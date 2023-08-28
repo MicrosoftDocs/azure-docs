@@ -325,6 +325,9 @@ items:
       - name: Verify if an application is active in multiple tabs of a browser
         href: how-tos/calling-sdk/is-sdk-active-in-multiple-tabs.md
         displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
+      - name: Collect and Share Log Files
+        href: tutorials/log-file-retrieval-tutorial.md
+        displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
       - name: Get users ready for their call with UI Library
         items:
         - name: Call readiness overview
@@ -722,6 +725,8 @@ items:
         href: concepts/ui-library/ui-library-use-cases.md
       - name: Design with UI Library Design Kit
         href: quickstarts/ui-library/get-started-ui-kit.md  
+    - name: Log File Access
+      href: ./concepts/voice-video-calling/retrieve-support-files.md
     - name: User experience
       href: concepts/voice-video-calling/user-experience.md
     - name: Known issues
