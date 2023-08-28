@@ -10,7 +10,7 @@ ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
 
-ms.date: 04/16/2023
+ms.date: 08/28/2023
 ms.author: cwerner
 
 ms.reviewer: jmprieur
@@ -21,22 +21,20 @@ ms.custom: "devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-
 # Quickstart: Sign in users and call the Microsoft Graph API from an ASP.NET Core web app
 
 
-This quickstart uses a sample ASP.NET Core web app to show the fundamentals of <!--What type of auth code flow--> modern authentication using the [Microsoft Authentication Library for .NET](/entra/msal/dotnet/) and [Microsoft Identity Web](/entra/msal/dotnet/microsoft-identity-web/) for ASP.NET to handle authentication.
+This quickstart uses a sample ASP.NET Core web app to show you how to sign in users by using the [authorization code flow](./v2-oauth2-auth-code-flow.md) and call the Microsoft Graph API. The sample uses [Microsoft Authentication Library for .NET](/entra/msal/dotnet/) and [Microsoft Identity Web](/entra/msal/dotnet/microsoft-identity-web/) for ASP.NET to handle authentication.
 
 In this article you register a web application in the Microsoft Entra admin center, and download a sample ASP.NET web application. You'll run the sample application, sign in with your personal Microsoft account or a work or school account, and sign out.
 
 ## Prerequisites
 
-* An Azure account with an active subscription. Use the link to [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
-* [Visual Studio 2022](https://visualstudio.microsoft.com/vs/) or [Visual Studio Code](https://code.visualstudio.com/)
+* An Azure account with an active subscription. Use the link to [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [.NET Core SDK 6.0+](https://dotnet.microsoft.com/download)
+* [Visual Studio 2022](https://visualstudio.microsoft.com/vs/) or [Visual Studio Code](https://code.visualstudio.com/)
 
 ## Register the application in the Microsoft Entra admin center
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
-    1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which to register the application. We recommend that you use your default tenant for this quickstart.
-1. On the left blade, search for and select **Identity**.
-1. Select **Applications** > **App registrations**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) as at least an [Application Developer](../roles/permissions-reference#application-developer.md).
+1. Browse to **Identity** > **Applications** > **App registrations**.
 1. On the page that appears, select **+ New registration**.
 1. For **Name**, enter a name for the application. For example, enter *identity-client-app*. App users can see this name, and it can be changed later in **Manage** > **Branding & properties**.
 1. Under **Supported account types**, select *Accounts in this organizational directory only*.
@@ -78,37 +76,10 @@ To obtain the sample application, you can either clone it from GitHub or downloa
 
 ## Configure the project
 
-1. In your IDE, for example, **Visual Studio Code**, to open the correct project folder, *ms-identity-docs-code-dotnet\web-app-aspnet*.
+1. In your IDE, open the project folder, *ms-identity-docs-code-dotnet\web-app-aspnet*, containing the sample.
 1. Open *appsettings.json* and replace the file contents with the following snippet;
 
-    ```json
-    {
-      "AzureAd": {
-        "Instance": "https://login.microsoftonline.com/",
-        "TenantId": "Enter the tenant ID obtained from the Microsoft Entra admin center",
-        "ClientId": "Enter the client ID obtained from the Microsoft Entra admin center",
-        "ClientCertificates": [
-          {
-            "SourceType": "StoreWithThumbprint",
-            "CertificateStorePath": "CurrentUser/My",
-            "CertificateThumbprint": "Enter the certificate thumbprint obtained from the Microsoft Entra admin center"
-          }   
-        ],
-        "CallbackPath": "/signin-oidc"
-      },
-      "DownstreamApi": {
-        "BaseUrl": "https://graph.microsoft.com/v1.0/me",
-        "Scopes": "user.read"
-      },
-      "Logging": {
-        "LogLevel": {
-          "Default": "Information",
-          "Microsoft.AspNetCore": "Warning"
-        }
-      },
-      "AllowedHosts": "*"
-    }
-    ```
+    :::code language="csharp" source="~/ms-identity-docs-code-dotnet/web-app-aspnet/appsettings.json" :::
 
     * `TenantId` - The identifier of the tenant where the application is registered. Replace the text in quotes with the `Directory (tenant) ID` that was recorded earlier from the overview page of the registered application.
     * `ClientId` - The identifier of the application, also referred to as the client. Replace the text in quotes with the `Application (client) ID` value that was recorded earlier from the overview page of the registered application.
@@ -116,7 +87,7 @@ To obtain the sample application, you can either clone it from GitHub or downloa
 
 ## Run the application and sign in
 
-1. In your project directory, use the terminal, to enter the following command;
+1. In your project directory, use the terminal to enter the following command;
 
     ```console
     dotnet run
@@ -127,6 +98,8 @@ To obtain the sample application, you can either clone it from GitHub or downloa
 1. The application will request permission to maintain access to data you have given it access to, and to sign you in and read your profile. Select **Accept**.
 1. The following screenshot appears, indicating that you have signed in to the application and have accessed your profile details from the Microsoft Graph API.
 
+    ![Screenshot of the application showing the user's profile details.](media/quickstarts/quickstart-dotnet-webapp-sign-in.png)
+
 ## Sign-out from the application
 
 1. Find the **Sign out** link in the top right corner of the page, and select it.
@@ -134,7 +107,7 @@ To obtain the sample application, you can either clone it from GitHub or downloa
 1. A message appears indicating that you have signed out.
 1. Although you have signed out, the application is still running from your terminal. To stop the application in your terminal, press **Ctrl+C**. 
 
-## See also
+## Related content
 
 - [Quickstart: Protect an ASP.NET Core web API with the Microsoft identity platform](./quickstart-web-api-aspnet-core-protect-api.md)
 - Create an ASP.NET web app from scratch with the series [Tutorial: Register an application with the Microsoft identity platform](./web-app-tutorial-01-register-application.md)
