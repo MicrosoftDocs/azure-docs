@@ -1,6 +1,6 @@
 ---
 title: Create an access review of Azure resource and Azure AD roles in PIM
-description: Learn how to create an access review of Azure resource and Azure AD roles in Azure AD Privileged Identity Management (PIM).
+description: Learn how to create an access review of Azure resource and Azure AD roles in Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -30,20 +30,16 @@ For more information about licenses for PIM, refer to [License requirements to u
 
 Access Reviews for **Service Principals** requires an Entra Workload Identities Premium plan in addition to Microsoft Entra Premium P2 or Microsoft Entra ID Governance licenses. 
 
-- Workload Identities Premium licensing: You can view and acquire licenses on the [Workload Identities blade](https://portal.azure.com/#view/Microsoft_Azure_ManagedServiceIdentity/WorkloadIdentitiesBlade) in the Azure portal.
+- Workload Identities Premium licensing: You can view and acquire licenses on the [Workload Identities blade](https://portal.azure.com/#view/Microsoft_Azure_ManagedServiceIdentity/WorkloadIdentitiesBlade) in the Microsoft Entra admin center.
 
 
 ## Create access reviews
 
-[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a user that is assigned to one of the prerequisite role(s).
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a user that is assigned to one of the prerequisite role(s).
+1. Browse to **Identity governance** > **Privileged Identity Management** > For **Azure AD roles**, select **Azure AD roles**. For **Azure resources**, select **Azure resources**
 
-2. Select **Identity Governance**.
- 
-3. For **Azure AD roles**, select **Azure AD roles** under **Privileged Identity Management**. For **Azure resources**, select **Azure resources** under **Privileged Identity Management**.
-
-    :::image type="content" source="./media/pim-create-azure-ad-roles-and-resource-roles-review/identity-governance.png" alt-text="Select Identity Governance in the Azure portal screenshot." lightbox="./media/pim-create-azure-ad-roles-and-resource-roles-review/identity-governance.png"::: 
+    :::image type="content" source="./media/pim-create-azure-ad-roles-and-resource-roles-review/identity-governance.png" alt-text="Select Identity Governance in the Microsoft Entra admin center screenshot." lightbox="./media/pim-create-azure-ad-roles-and-resource-roles-review/identity-governance.png"::: 
  
 4. For **Azure AD roles**, select **Azure AD roles** again under **Manage**. For **Azure resources**, select the subscription you want to manage.
 
