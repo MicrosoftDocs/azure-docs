@@ -12,6 +12,9 @@ ms.author: v-abhmallick
 
 This article describes how to configure and use enhanced soft delete to protect your data and recover backups, if they're deleted.
 
+>[!Note]
+>Once you enable enhanced soft delete by enabling soft delete state to *always-on*, you can't disable it for that vault.
+
 ## Before you start
  
 - Enhanced soft delete is supported for Recovery Services vaults and Backup vaults.

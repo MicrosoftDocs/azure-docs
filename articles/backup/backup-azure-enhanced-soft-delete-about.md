@@ -18,6 +18,9 @@ ms.author: v-abhmallick
 
 *Basic soft delete* is available for Recovery Services vaults for a while; *enhanced soft delete* now provides additional data protection capabilities.
 
+>[!Note]
+>Once you enable enhanced soft delete by enabling soft delete state to *always-on*, you can't disable it for that vault.
+
 ## What's soft delete?
 
 [Soft delete](backup-azure-security-feature-cloud.md) primarily delays permanent deletion of backup data and gives you an opportunity to recover data after deletion. This deleted data is retained for a specified duration (*14*-*180* days) called soft delete retention period.
