@@ -32,7 +32,7 @@ The following table compares common scenarios for apps and jobs:
 |---|---|---|
 | An HTTP server that serves web content and API requests | App | Configure an [HTTP scale rule](scale-app.md#http). |
 | A process that generates financial reports nightly | Job | Use the [*Schedule* job type](#scheduled-jobs) and configure a cron expression. |
-| A continuously-running service that processes messages from an Azure Service Bus queue | App | Configure a [custom scale rule](scale-app.md#custom). |
+| A continuously running service that processes messages from an Azure Service Bus queue | App | Configure a [custom scale rule](scale-app.md#custom). |
 | A job that processes a single message or a small batch of messages from an Azure queue and exits | Job | Use the *Event* job type and [configure a custom scale rule](tutorial-event-driven-jobs.md) to trigger job executions. |
 | A background task that's triggered on-demand and exits when finished | Job | Use the *Manual* job type and [start executions](#start-a-job-execution-on-demand) manually or programmatically using an API. |
 | A self-hosted GitHub Actions runner that runs a workflow on demand | Job | Use the *Event* job type and [configure a GitHub Actions scale rule](tutorial-ci-cd-runners-jobs.md?pivots=container-apps-jobs-self-hosted-ci-cd-azure-pipelines). |
@@ -537,7 +537,7 @@ To configure advanced settings using the Azure portal, search for *Container App
 
 ## Jobs restrictions
 
-The following features are not supported:
+The following features aren't supported:
 
 - Dapr
 - Ingress and related features such as custom domains and SSL certificates
