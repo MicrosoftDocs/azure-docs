@@ -32,6 +32,10 @@ The [Application Map](app-map.md) allows a high-level, top-down view of the appl
 
 To understand the number of Application Insights resources required to cover your application or components across environments, see the [Application Insights deployment planning guide](separate-resources.md).
 
+:::image type="content" source="media/app-insights-overview/app-insights-overview-blowout.svg" alt-text="Diagram that shows the path of data as it flows through the layers of the Application Insights service." border="false" lightbox="media/app-insights-overview/app-insights-overview-blowout.svg":::
+
+Firewall settings must be adjusted for data to reach ingestion endpoints. For more information, see [IP addresses used by Azure Monitor](./ip-addresses.md).
+
 ## How do I use Application Insights?
 
 Application Insights is enabled through either [autoinstrumentation](codeless-overview.md) (agent) or by adding the [Application Insights SDK](sdk-support-guidance.md) or [Azure Monitor OpenTelemetry Distro](opentelemetry-enable.md) to your application code. [Many languages](#supported-languages) are supported. The applications could be on Azure, on-premises, or hosted by another cloud. To figure out which type of instrumentation is best for you, see [How do I instrument an application?](#how-do-i-instrument-an-application).
@@ -45,7 +49,7 @@ Consider starting with the [Application Map](app-map.md) for a high-level view. 
 Two views are especially useful:
 
 - [Performance view](tutorial-performance.md): Get deep insights into how your application or API and downstream dependencies are performing. You can also find a representative sample to [explore end to end](transaction-diagnostics.md).
-- [Failure view](tutorial-runtime-exceptions.md): Understand which components or actions are generating failures and triage errors and exceptions. The built-in views are helpful to track application health proactively and for reactive root-cause analysis.
+- [Failures view](tutorial-runtime-exceptions.md): Understand which components or actions are generating failures and triage errors and exceptions. The built-in views are helpful to track application health proactively and for reactive root-cause analysis.
 
 [Create Azure Monitor alerts](tutorial-alert.md) to signal potential issues in case your application or components parts deviate from the established baseline.
 
