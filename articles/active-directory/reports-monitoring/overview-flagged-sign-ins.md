@@ -9,12 +9,11 @@ ms.service: active-directory
 ms.topic: overview
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/01/2022
+ms.date: 08/25/2023
 ms.author: sarahlipsey
 ms.reviewer: tspring  
 
 # Customer intent: As an Azure AD administrator, I want a tool that gives me the right level of insights into the sign-in activities in my system so that I can easily diagnose and solve problems when they occur.
-ms.collection: M365-identity-device-management
 ---
 
 # What are flagged sign-ins in Azure Active Directory?
@@ -57,9 +56,9 @@ With flagging enabled, the same browser application and client must be used or t
 
 ### Admin: Find flagged events in reports
 
-1. In the Azure portal, go to **Sign-in logs** > **Add Filters**.
-1. From the **Pick a field** menu, select **Flagged for review** and **Apply**.
-1. All events that were flagged by users are shown.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Reader](../roles/permissions-reference.md#global-reader).
+1. Browse to **Identity** > **Monitoring & health** > **Sign-in logs**.
+1. Open the **Add filters** menu and select **Flagged for review**. All events that were flagged by users are shown.
 1. If needed, apply more filters to refine the event view.
 1. Select the event to review what happened.
 

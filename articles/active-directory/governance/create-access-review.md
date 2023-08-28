@@ -44,11 +44,9 @@ If you're reviewing access to an application, then before creating the review, s
 
 ### Scope
 
-[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and open the [Identity Governance](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) page.
-
-2. On the left menu, select **Access reviews**.
+1. Browse to **Identity governance** > **Access Reviews**.
 
 3. Select **New access review** to create a new access review.
 
@@ -236,11 +234,9 @@ B2B direct connect users and teams are included in access reviews of the Teams-e
 
 Use the following instructions to create an access review on a team with shared channels:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a Global Administrator, User Admin or Identity Governance Admin.
-  
-1. Open the [Identity Governance](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) page.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1. On the left menu, select **Access reviews**.
+1. Browse to **Identity governance** > **Access Reviews**.
 
 1. Select **+ New access review**.
 
@@ -271,9 +267,9 @@ Use the following instructions to create an access review on a team with shared 
 
 The prerequisite role is a Global or User administrator.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and open the [Identity Governance page](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1. On the menu on the left, under **Access reviews**, select **Settings**.
+1. Browse to **Identity governance** > **Access Reviews** > **Settings**.
 
 1. On the **Delegate who can create and manage access reviews** page, set **Group owners can create and manage access reviews for groups they own** to **Yes**.
 

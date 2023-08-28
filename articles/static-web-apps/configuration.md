@@ -344,7 +344,7 @@ Define each IPv4 address block in Classless Inter-Domain Routing (CIDR) notation
 
 When one or more IP address blocks are specified, requests originating from IP addresses that don't match a value in `allowedIpRanges` are denied access.
 
-In addition to IP address blocks, you can also specify [service tags](../virtual-network/service-tags-overview.md) in the `allowedIpRanges` array to restrict traffic to certain Azure services.
+In addition to IP address blocks, you can also specify [service tags](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) in the `allowedIpRanges` array to restrict traffic to certain Azure services.
 
 ```json
 "networking": {

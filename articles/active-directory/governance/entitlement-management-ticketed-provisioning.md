@@ -104,9 +104,9 @@ After setting up custom extensibility in the catalog, administrators can create 
 
 With Azure, you're able to use [Azure Key Vault](/azure/key-vault/secrets/about-secrets) to store application secrets such as passwords. To register an application with secrets within the Azure portal, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1. Search for and select Azure Active Directory.
+1. Browse to **Identity** > **Applications** > **App registrations**.
 
 1. Under Manage, select App registrations > New registration.
 
@@ -155,7 +155,7 @@ At this point it's time to configure ServiceNow for resuming the entitlement man
     1. Sign in to ServiceNow and navigate to the Application Registry.
     1. Select “*New*” and then select “**Connect to a third party OAuth Provider**”.
     1. Provide a name for the application, and select Client Credentials in the Default Grant type.
-    1. Enter the Client Name, ID, Client Secret, Authorization URL, Token URL that were generated when you registered the Azure Active Directory application in the Azure portal.
+    1. Enter the Client Name, ID, Client Secret, Authorization URL, Token URL that were generated when you registered the Azure Active Directory application in the Microsoft Entra admin center.
     1. Submit the application.
         :::image type="content" source="media/entitlement-management-servicenow-integration/entitlement-management-servicenow-application-registry.png" alt-text="Screenshot of the application registry within ServiceNow." lightbox="media/entitlement-management-servicenow-integration/entitlement-management-servicenow-application-registry.png":::
 1. Create a System Web Service REST API message by following these steps: 

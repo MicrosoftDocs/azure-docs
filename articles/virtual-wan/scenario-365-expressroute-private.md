@@ -7,7 +7,7 @@ author: floklaffenbach
 
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 04/08/2022
+ms.date: 08/24/2023
 ms.author: flofox
 
 ---
