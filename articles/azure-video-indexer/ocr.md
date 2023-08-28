@@ -136,7 +136,7 @@ When used responsibly and carefully, Azure AI Video Indexer is a valuable tool f
 
 ## Learn more about OCR
 
-- [Cognitive Services documentation](/azure/ai-services/computer-vision/overview-ocr)
+- [Azure AI services documentation](/azure/ai-services/computer-vision/overview-ocr)
 - [Transparency note](/legal/cognitive-services/computer-vision/ocr-transparency-note)  
 - [Use cases](/legal/cognitive-services/computer-vision/ocr-transparency-note#example-use-cases) 
 - [Capabilities and limitations](/legal/cognitive-services/computer-vision/ocr-characteristics-and-limitations) 
