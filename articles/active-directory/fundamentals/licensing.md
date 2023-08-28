@@ -172,10 +172,7 @@ The required roles and licenses may vary based on the report. Global Administrat
 
 [!INCLUDE [Verified ID](../includes/licensing-verified-id.md)]
 
-
-## Features in preview
-
-Licensing information for any features currently in preview is included here when applicable. For more information about preview features, see [Microsoft Entra ID preview features](../fundamentals/whats-new.md).
+[!INCLUDE [features-preview](../includes/licensing-features-preview.md)]
 
 ## Next steps
 
