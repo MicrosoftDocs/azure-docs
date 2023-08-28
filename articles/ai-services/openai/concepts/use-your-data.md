@@ -108,7 +108,8 @@ For example, if you're creating a chatbot where the data consists of transcripti
 
 This system message can help improve the quality of the response by specifying the domain (in this case finance) and mentioning that the data consists of call transcriptions. It helps set the necessary context for the model to respond appropriately. 
 
-> [!NOTE] 
+> [!NOTE]
+> The system message is used to modify how gpt assistant responds to user question based on retrieved documentation. It does not affect the retrieval process. If you would love to provide instruction for the retrieval process, it is better to include in the questions.
 > The system message is only guidance. The model might not adhere to every instruction specified because it has been primed with certain behaviors such as objectivity, and avoiding controversial statements. Unexpected behavior may occur if the system message contradicts with these behaviors. 
 
 ### Maximum response 
@@ -189,6 +190,8 @@ You can also use the available standalone web app to interact with your model us
 
 ![A screenshot of the web app interface.](../media/use-your-data/web-app.png)
 
+##### Web app customization
+
 You can also customize the app's frontend and backend logic. For example, you could change the icon that appears in the center of the app by updating `/frontend/src/assets/Azure.svg` and then redeploying the app [using the Azure CLI](https://github.com/microsoft/sample-app-aoai-chatGPT#deploy-with-the-azure-cli).  See the source code for the web app, and more information [on GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT).
 
 When customizing the app, we recommend:
@@ -201,11 +204,10 @@ When customizing the app, we recommend:
 
 - Pulling changes from the `main` branch for the web app's source code frequently to ensure you have the latest bug fixes and improvements.
 
-#### Important considerations
+##### Important considerations
 
 - Publishing creates an Azure App Service in your subscription. It may incur costs depending on the 
 [pricing plan](https://azure.microsoft.com/pricing/details/app-service/windows/) you select. When you're done with your app, you can delete it from the Azure portal.
-- You can customize the frontend and backend logic of the web app.
 - By default, the app will only be accessible to you. To add authentication (for example, restrict access to the app to members of your Azure tenant):
 
     1. Go to the [Azure portal](https://portal.azure.com/#home) and search for the app name you specified during publishing. Select the web app, and go to the **Authentication** tab on the left navigation menu. Then select **Add an identity provider**. 
@@ -219,7 +221,7 @@ When customizing the app, we recommend:
 
 ### Using the API
 
-Consider setting the following parameters even if they are optional for using the API.
+After you upload your data through Azure OpenAI studio, you can make a call against Azure OpenAI models through APIs. Consider setting the following parameters even if they are optional for using the API.
 
 
 |Parameter  |Recommendation  |
