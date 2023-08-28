@@ -8,7 +8,7 @@ author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Quickstart: Configure and manage enhanced soft delete in Azure Backup
+# Quickstart: Enable enhanced soft delete in Azure Backup
 
 This quickstart describes how to enable enhanced soft delete to protect your data and recover backups, if they're deleted.
 
@@ -91,5 +91,5 @@ Follow these steps:
 
 ## Next steps
 
-- Learn more about [Enhanced soft delete for Azure Backup](backup-azure-enhanced-soft-delete-about.md).
-- Learn more about [Soft delete of recovery points](backup-azure-enhanced-soft-delete-about.md#soft-delete-of-recovery-points).
+- Learn more about [enhanced soft delete for Azure Backup](backup-azure-enhanced-soft-delete-about.md).
+- Learn more about [soft delete of recovery points](backup-azure-enhanced-soft-delete-about.md#soft-delete-of-recovery-points).
