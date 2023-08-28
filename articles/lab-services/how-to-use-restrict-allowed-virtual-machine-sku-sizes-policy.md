@@ -56,24 +56,24 @@ In this article, you learn how to restrict the list of allowed lab virtual machi
     |CLASSIC_NVV4_8_28GB_128_S_SSD|	Small GPU (Visualization)	|8vCPUs, 28 GB RAM, 128 GB, Standard SSD
     |CLASSIC_NVV3_12_112GB_128_S_SSD|	Medium GPU (Visualization)	|12vCPUs, 112 GB RAM, 128 GB, Standard SSD
 
-1.	In **Effect**, select **Deny** to prevent a lab from being created when a VM SKU is not allowed.
+1.	In **Effect**, select **Deny** to prevent a lab from being created when a VM SKU isn't allowed.
 
     :::image type="content" source="./media/how-to-use-restrict-allowed-virtual-machine-sku-sizes-policy/assign-policy-parameters-effect.png" alt-text="Screenshot showing the effect list.":::
 
-1.	Optionally, on the **Non-compliance messages** tab, enter a non-compliance message.
+1.	Optionally, on the **Non-compliance messages** tab, enter a noncompliance message.
 
-    :::image type="content" source="./media/how-to-use-restrict-allowed-virtual-machine-sku-sizes-policy/assign-policy-message.png" alt-text="Screenshot showing the Non-compliance tab with an example non-compliance message.":::
+    :::image type="content" source="./media/how-to-use-restrict-allowed-virtual-machine-sku-sizes-policy/assign-policy-message.png" alt-text="Screenshot showing the Non-compliance tab with an example noncompliance message.":::
 
 1.	On the **Review + Create** tab, select **Create** to create the policy assignment.
 
-You've created a policy assignment to allow only specific virtual machine sizes for creating labs. If a lab creators attempts to create a lab with any other SKU, the creation fails.
+You've created a policy assignment to allow only specific virtual machine sizes for creating labs. If a lab creator attempts to create a lab with any other SKU, the creation fails.
 
 > [!NOTE]
 > New policy assignments can take up to 30 minutes to take effect.
 
 ## Exclude resources
 
-When applying a built-in policy, you can choose to exclude certain resources, with the exception of lab plans.  For example, if the scope of your policy assignment is a subscription, you can exclude resources in a specified resource group.
+When applying a built-in policy, you can choose to exclude certain resources, except for lab plans.  For example, if the scope of your policy assignment is a subscription, you can exclude resources in a specified resource group.
 
 You can configure exclusions when creating a policy definition by specifying the **Exclusions** property on the **Basics** tab.
 
@@ -91,7 +91,7 @@ You can exclude a lab plan from a policy assignment by specifying the lab plan I
 
         :::image type="content" source="./media/how-to-use-restrict-allowed-virtual-machine-sku-sizes-policy/resource-id.png" alt-text="Screenshot showing the lab plan properties with Id highlighted.":::
 
-1. To exclude the lab plan for a assigning a policy:
+1. To exclude the lab plan from the policy assignment:
 
     1. Assign a new policy definition.
     1. On the **Parameters** tab, clear **Only show parameters that need input or review**.

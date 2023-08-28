@@ -12,7 +12,7 @@ A lab template is a base VM image from which all lab users' virtual machines are
 
 When you [publish a lab](./tutorial-setup-lab.md#publish-lab), Azure Lab Services creates the lab VMs, based on the template VM image. If you modify the template VM at a later stage, when you republish the template VM, all lab VMs are updated to match the new template. When you republish a template VM, Azure Lab Services reimages the lab VMs and removes all changes and data on the VM.
 
-When you create a lab, the template VM is created but it's not started. You can start it, connect to it, and install any pre-requisite software for the lab, and then publish it. When you publish the template VM, it's automatically shut down for you if you haven't done so.
+When you create a lab, the template VM is created but it's not started. You can start it, connect to it, and install any prerequisite software for the lab, and then publish it. When you publish the template VM, it's automatically shut down for you if you haven't done so.
 
 The number of VMs created during publish equals lab capacity.  If you're using [Teams integration](lab-services-within-teams-overview.md), or [Canvas integration](lab-services-within-canvas-overview.md), the number of VMs created during publish equals the number of users in the lab.
 
@@ -39,7 +39,7 @@ Use the following steps to update a template VM:
 
 1. Wait until the template VM is started, and then select **Connect to template** on the toolbar to connect to the template VM.
 
-    Depending on the setting for the lab, you'll connect using Remote Desktop Protocol (RDP) or Secure Shell (SSH).
+    Depending on the setting for the lab, you connect using Remote Desktop Protocol (RDP) or Secure Shell (SSH).
 
     :::image type="content" source="./media/how-to-create-manage-template/connect-template-vm.png" alt-text="Screenshot that shows the Template page in the Lab Service portal, highlighting the Connect to template button.":::
 
@@ -78,7 +78,7 @@ In this step, you publish the template VM. When you publish the template VM, Azu
 
 ## Known issues
 
-When you create a new lab from an exported lab VM image, you’re unable to login with the credentials you used for creating the lab. Follow these steps to [troubleshoot the login problem](./troubleshoot-access-lab-vm.md#unable-to-login-with-the-credentials-you-used-for-creating-the-lab).
+When you create a new lab from an exported lab VM image, you’re unable to sign in with the credentials you used for creating the lab. Follow these steps to [troubleshoot the sign-in problem](./troubleshoot-access-lab-vm.md#unable-to-login-with-the-credentials-you-used-for-creating-the-lab).
 
 ## Related content
 
