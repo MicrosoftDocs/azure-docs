@@ -111,7 +111,7 @@ To create a custom neural voice in Speech Studio, follow these steps for one of 
 1. Select **Next**.
 1. Optionally, you can add other custom speaking styles. The maximum number of custom styles varies by languages: `English (United States)` allows up to 10 custom styles, `Chinese (Mandarin, Simplified)` allows up to four custom styles, and `Japanese (Japan)` allows up to five custom styles.
 
-   1. Select **Add a custom style** and enter a custom style name of your choice. This name is used by your application within the `style` element of [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup-voice.md#speaking-styles-and-roles). You can also use the custom style name as SSML via the [Audio Content Creation](how-to-audio-content-creation.md) tool in [Speech Studio](https://speech.microsoft.com/portal/audiocontentcreation).
+   1. Select **Add a custom style** and enter a custom style name of your choice. This name is used by your application within the `style` element of [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup-voice.md#speaking-styles-and-roles). You can also use the custom style name as SSML by using the [Audio Content Creation](how-to-audio-content-creation.md) tool in [Speech Studio](https://speech.microsoft.com/portal/audiocontentcreation).
    1. Select style samples as training data. The style samples should be all from the same voice talent profile.
 
 1. Select **Next**.
@@ -174,7 +174,7 @@ You can use the [Audio Content Creation](how-to-audio-content-creation.md) tool 
 
    :::image type="content" source="media/custom-voice/cnv-clone-model.png" alt-text="Screenshot of selecting the Clone model button.":::
 
-1. Enter the new name on the **Clone voice model** window, then select **Submit**. The text 'Neural' is automatically added as a suffix to your new model name.
+1. Enter the new name on the **Clone voice model** window, then select **Submit**. The text *Neural* is automatically added as a suffix to your new model name.
 
    :::image type="content" source="media/custom-voice/cnv-clone-model-rename.png" alt-text="Screenshot of cloning a model with a new name.":::
 
@@ -197,7 +197,7 @@ If you want to upload your own test scripts to further test your model, select *
 
 :::image type="content" source="media/custom-voice/cnv-model-add-testscripts.png" alt-text="Screenshot of adding model test scripts.":::
 
-Before uploading test script, check the [Test script requirements](#test-script-requirements). You're charged for the extra testing with the batch synthesis based on the number of billable characters. See [Azure AI Speech pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+Before you upload test script, check the [Test script requirements](#test-script-requirements). You're charged for the extra testing with the batch synthesis based on the number of billable characters. See [Azure AI Speech pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 Under **Add test scripts**, select **Browse for a file** to select your own script, then select **Add** to upload it.
 
@@ -224,7 +224,7 @@ Each paragraph of the utterance results in a separate audio. If you want to comb
 
 ### Update engine version for your voice model
 
-Azure Text to speech engines are updated from time to time to capture the latest language model that defines the pronunciation of the language. After you've trained your voice, you can apply your voice to the new language model by updating to the latest engine version.
+Azure Text to speech engines are updated from time to time to capture the latest language model that defines the pronunciation of the language. After you train your voice, you can apply your voice to the new language model by updating to the latest engine version.
 
 1. When a new engine is available, you're prompted to update your neural voice model.
 
@@ -250,11 +250,11 @@ Azure Text to speech engines are updated from time to time to capture the latest
 
 If you want to test each engine version of your voice model, you can select a version from the list, then select **DefaultTests** under **Testing** to listen to the sample audio files. If you want to upload your own test scripts to further test your current engine version, first make sure the version is set as default, then follow the steps in [Test your voice model](#test-your-voice-model).
 
-Updating the engine creates a new version of the model at no extra cost. After you've updated the engine version for your voice model, you need to deploy the new version to [create a new endpoint](how-to-deploy-and-use-endpoint.md#add-a-deployment-endpoint). You can only deploy the default version.
+Updating the engine creates a new version of the model at no extra cost. After you update the engine version for your voice model, you need to deploy the new version to [create a new endpoint](how-to-deploy-and-use-endpoint.md#add-a-deployment-endpoint). You can only deploy the default version.
 
 :::image type="content" source="media/custom-voice/cnv-engine-redeploy.png" alt-text="Screenshot that shows how to redeploy a new version of your voice model.":::
 
-After you've created a new endpoint, you need to [transfer the traffic to the new endpoint in your product](how-to-deploy-and-use-endpoint.md#switch-to-a-new-voice-model-in-your-product).
+After you create a new endpoint, you need to [transfer the traffic to the new endpoint in your product](how-to-deploy-and-use-endpoint.md#switch-to-a-new-voice-model-in-your-product).
 
 To learn more about the capabilities and limits of this feature, and the best practice to improve your model quality, see [Characteristics and limitations for using Custom Neural Voice](/legal/cognitive-services/speech-service/custom-neural-voice/characteristics-and-limitations-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext).
 
