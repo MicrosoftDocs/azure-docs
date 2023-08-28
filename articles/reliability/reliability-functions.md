@@ -160,7 +160,7 @@ This section explains some of the strategies that you can use to deploy Function
 
 ### Multi-region disaster recovery
 
-Because there is no built-in redundancy available, Functions run in a function app in a specific Azure region. To avoid loss of execution during outages, you can redundantly deploy the same functions to function apps in multiple regions.  
+Because there is no built-in redundancy available, functions run in a function app in a specific Azure region. To avoid loss of execution during outages, you can redundantly deploy the same functions to function apps in multiple regions.  
 
 When you run the same function code in multiple regions, there are two patterns to consider:
 
