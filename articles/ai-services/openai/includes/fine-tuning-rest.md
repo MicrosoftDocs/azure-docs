@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: include
-ms.date: 08/25/2023
+ms.date: 08/28/2023
 author: ChrisHMSFT
 ms.author: chrhoder
 keywords: 
@@ -50,19 +50,19 @@ Here's an example of the training data format:
 {"prompt": "<prompt text>", "completion": "<ideal generated text>"}
 ```
 
-In addition to the JSONL format, training and validation data files must be encoded in UTF-8 and include a byte-order mark (BOM), and the file must be less than 200 MB in size. For more information about formatting your training data, see [Learn how to prepare your dataset for fine-tuning](../how-to/prepare-dataset.md).
+In addition to the JSONL format, training and validation data files must be encoded in UTF-8 and include a byte-order mark (BOM). The file must be less than 200 MB in size. For more information about formatting your training data, see [Learn how to prepare your dataset for fine-tuning](../how-to/prepare-dataset.md).
 
 ### Create your training and validation datasets
 
-Designing your prompts and completions for fine tuning is different from designing your prompts for use with any of [our GPT-3 base models](../concepts/legacy-models.md#gpt-3-models). Prompts for completion calls often use either detailed instructions or few-shot learning techniques, and consist of multiple examples. For fine-tuning, we recommend that each training example consists of a single input prompt and its desired completion output. You don't need to give detailed instructions or multiple completion examples for the same prompt.
+Designing your prompts and completions for fine tuning is different from designing your prompts for use with any of [our GPT-3 base models](../concepts/legacy-models.md#gpt-3-models). Prompts for completion calls often use either detailed instructions or few-shot learning techniques, and consist of multiple examples. For fine-tuning, each training example should consist of a single input prompt and its desired completion output. You don't need to give detailed instructions or multiple completion examples for the same prompt.
 
-The more training examples you have, the better. We recommend having at least 200 training examples. In general, doubling the dataset size leads to a linear increase in model quality.
+The more training examples you have, the better. It's a best practice to have at least 200 training examples. In general, doubling the dataset size leads to a linear increase in model quality.
 
 For more information about preparing training data for various tasks, see [Learn how to prepare your dataset for fine-tuning](../how-to/prepare-dataset.md).
 
 ### Use the OpenAI CLI data preparation tool
 
-We recommend using OpenAI's command-line interface (CLI) to assist with many of the data preparation steps. OpenAI has developed a tool that validates, gives suggestions, and reformats your data into a JSONL file ready for fine-tuning.
+We recommend that you use OpenAI's CLI to assist with many of the data preparation steps. OpenAI has developed a tool that validates, gives suggestions, and reformats your data into a JSONL file ready for fine-tuning.
 
 To install the OpenAI CLI, run the following Python command:
 
@@ -88,28 +88,28 @@ The tool guides you through suggested changes for your training data. It reforma
 
 ## Select a base model
 
-The first step in creating a customized model is to choose a base model. The choice influences both the performance and the cost of your model. You can create a customized model from one of the following available base models:
+The first step in creating a customized model is to choose a base model. The choice influences both the performance and the cost of your model.
+
+You can create a customized model from one of the following available base models:
 - `ada`
 - `babbage`
 - `curie`
-- `code-cushman-001` __\*__
-- `davinci` __\*__
+- `code-cushman-001` (Currently unavailable for new customers)
+- `davinci` (Currently unavailable for new customers)
 
-__\*__ This model is currently unavailable for new customers. 
-
-You can use the [Models API](/rest/api/cognitiveservices/azureopenaistable/models/list) to identify which models are fine-tunable. For more information about our base models, see [Models](../concepts/models.md).
+You can use the [Models API](/rest/api/cognitiveservices/azureopenaistable/models/list) to identify which models are fine-tunable. For more information about our base models, see [Azure OpenAI Service models](../concepts/models.md).
 
 ## Upload your training data
 
-The next step is to either choose existing prepared training data or upload new prepared training data to use when customizing your model. After you prepare your training data, you can upload your files to the service. We offer two ways to upload training data:
+The next step is to either choose existing prepared training data or upload new prepared training data to use when customizing your model. After you prepare your training data, you can upload your files to the service. There are two ways to upload training data:
 
 - [From a local file](/rest/api/cognitiveservices/azureopenaistable/files/upload)
 - [Import from an Azure Blob store or other web location](/rest/api/cognitiveservices/azureopenaistable/files/import)
 
-For large data files, we recommend you import from an Azure Blob store. Large files can become unstable when uploaded through multipart forms because the requests are atomic and can't be retried or resumed. For more information about Azure Blob storage, see [What is Azure Blob storage?](../../../storage/blobs/storage-blobs-overview.md)
+For large data files, we recommend that you import from an Azure Blob store. Large files can become unstable when uploaded through multipart forms because the requests are atomic and can't be retried or resumed. For more information about Azure Blob storage, see [What is Azure Blob storage?](../../../storage/blobs/storage-blobs-overview.md)
 
 > [!NOTE]
-> Training data files must be formatted as JSONL files, encoded in UTF-8 with a byte-order mark (BOM), and less than 200 MB in size.
+> Training data files must be formatted as JSONL files, encoded in UTF-8 with a byte-order mark (BOM). The file must be less than 200 MB in size.
 
 The following Python example locally creates sample training and validation dataset files, then uploads the local files by using the Python SDK, and retrieves the returned file IDs. Make sure to save the IDs returned by the example because you need them for the fine-tuning training job creation.
 
@@ -152,7 +152,7 @@ with open(training_file_name, 'w') as training_file:
 
 # Copy the validation dataset file from the training dataset file.
 # Typically, your training data and validation data should be mutually exclusive.
-# For the purposes of this example, we use the same data.
+# For the purposes of this example, you use the same data.
 print(f'Copying the training file to the validation file')
 shutil.copy(training_file_name, validation_file_name)
 
@@ -213,11 +213,11 @@ status = (r.json())["status"]
 print(f'Fine-tuning model with job ID: {job_id}.')
 ```
 
-You can either use default values for the hyperparameters of the fine-tune job, or you can adjust those hyperparameters for your customization needs. In the previous Python example, we set the `n_epochs` hyperparameter to 1, indicating that we want just one full cycle through the training data. For more information about these hyperparameters, see the [Create a Fine tune job](/rest/api/cognitiveservices/azureopenaistable/fine-tunes/create) section of the [REST API](/rest/api/cognitiveservices/azureopenaistable/fine-tunes) documentation.
+You can either use default values for the hyperparameters of the fine-tune job, or you can adjust those hyperparameters for your customization needs. In this example, you set the `n_epochs` hyperparameter to 1, indicating that you want just one full cycle through the training data. For more information about these hyperparameters, see [Create a Fine tune job](/rest/api/cognitiveservices/azureopenaistable/fine-tunes/create).
 
 ## Check the status of your customized model
 
-After you start a fine-tune job, it can take some time to complete. Your job might be queued behind other jobs on our system, and training your model can take minutes or hours depending on the model and dataset size. The following Python example uses the REST API to check the status of your fine-tune job. The example retrieves information about your job by using the job ID returned from the previous example:
+After you start a fine-tune job, it can take some time to complete. Your job might be queued behind other jobs on the system. Training your model can take minutes or hours depending on the model and dataset size. The following Python example uses the REST API to check the status of your fine-tune job. The example retrieves information about your job by using the job ID returned from the previous example:
 
 ```python
 # Get the status of our fine-tune job.
@@ -251,7 +251,7 @@ When the fine-tune job succeeds, the value of the `fine_tuned_model` variable in
 [!INCLUDE [Fine-tuning deletion](fine-tune.md)]
 
 > [!NOTE]
-> As with all applications, we require a review process prior to going live.
+> As with all applications, Microsoft requires a review process for your custom model before it's available live.
 
 You can use either the [REST API](#deploy-a-model-with-the-rest-api) or the [Azure CLI](#deploy-a-model-with-azure-cli) to deploy your customized model.
 
@@ -289,7 +289,7 @@ deployment_id = (r.json())["id"]
 
 ### Deploy a model with Azure CLI
 
-The following example shows how to use the Azure CLI to deploy your customized model. With the Azure CLI, you must specify a name for the deployment of your customized model. For more information about how to use the Azure CLI to deploy customized models, see [az cognitiveservices account deployment](/cli/azure/cognitiveservices/account/deployment) in the [Azure CLI documentation](/cli/azure).
+The following example shows how to use the Azure CLI to deploy your customized model. With the Azure CLI, you must specify a name for the deployment of your customized model. For more information about how to use the Azure CLI to deploy customized models, see [az cognitiveservices account deployment](/cli/azure/cognitiveservices/account/deployment).
 
 To run this Azure CLI command in a console window, you must replace the following _\<placeholders>_ with the corresponding values for your customized model:
 
@@ -304,8 +304,8 @@ To run this Azure CLI command in a console window, you must replace the followin
 ```console
 az cognitiveservices account deployment create 
     --subscription <YOUR_AZURE_SUBSCRIPTION>
-    -g <YOUR_RESOURCE_GROUP>
-    -n <YOUR_RESOURCE_NAME> 
+    --resource-group <YOUR_RESOURCE_GROUP>
+    --name <YOUR_RESOURCE_NAME> 
     --deployment-name <YOUR_DEPLOYMENT_NAME>
     --model-name <YOUR_FINE_TUNED_MODEL_ID>
     --model-version "1" 
@@ -338,7 +338,7 @@ print(f'"{start_phrase} {text}"')
 
 ## Analyze your customized model
 
-Azure OpenAI attaches a result file named _results.csv_ to each fine-tune job after it's complete. You can use the result file to analyze the training and validation performance of your customized model. The file ID for the result file is listed for each customized model, and you can use the REST API to retrieve the file ID and download the result file for analysis.
+Azure OpenAI attaches a result file named _results.csv_ to each fine-tune job after it completes. You can use the result file to analyze the training and validation performance of your customized model. The file ID for the result file is listed for each customized model, and you can use the REST API to retrieve the file ID and download the result file for analysis.
 
 The following Python example uses the REST API to retrieve the file ID of the first result file attached to the fine-tune job for your customized model, and then downloads the file to your working directory for analysis.
 

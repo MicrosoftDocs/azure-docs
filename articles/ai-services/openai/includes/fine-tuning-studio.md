@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: include
-ms.date: 08/25/2023
+ms.date: 08/28/2023
 author: ChrisHMSFT
 ms.author: chrhoder
 keywords: 
@@ -52,19 +52,19 @@ Here's an example of the training data format:
 {"prompt": "<prompt text>", "completion": "<ideal generated text>"}
 ```
 
-In addition to the JSONL format, training and validation data files must be encoded in UTF-8 and include a byte-order mark (BOM), and the file must be less than 200 MB in size. For more information about formatting your training data, see [Learn how to prepare your dataset for fine-tuning](../how-to/prepare-dataset.md).
+In addition to the JSONL format, training and validation data files must be encoded in UTF-8 and include a byte-order mark (BOM). The file must be less than 200 MB in size. For more information about formatting your training data, see [Learn how to prepare your dataset for fine-tuning](../how-to/prepare-dataset.md).
 
 ### Create your training and validation datasets
 
-Designing your prompts and completions for fine-tuning is different from designing your prompts for use with any of [our GPT-3 base models](../concepts/legacy-models.md#gpt-3-models). Prompts for completion calls often use either detailed instructions or few-shot learning techniques, and consist of multiple examples. For fine-tuning, we recommend that each training example consists of a single input prompt and its desired completion output. You don't need to give detailed instructions or multiple completion examples for the same prompt.
+Designing your prompts and completions for fine-tuning is different from designing your prompts for use with any of [our GPT-3 base models](../concepts/legacy-models.md#gpt-3-models). Prompts for completion calls often use either detailed instructions or few-shot learning techniques, and consist of multiple examples. For fine-tuning, each training example should consist of a single input prompt and its desired completion output. You don't need to give detailed instructions or multiple completion examples for the same prompt.
 
-The more training examples you have, the better. We recommend having at least 200 training examples. In general, doubling the dataset size leads to a linear increase in model quality.
+The more training examples you have, the better. It's a best practice to have at least 200 training examples. In general, doubling the dataset size leads to a linear increase in model quality.
 
 For more information about preparing training data for various tasks, see [Learn how to prepare your dataset for fine-tuning](../how-to/prepare-dataset.md).
 
 ### OpenAI CLI data preparation tool
 
-We recommend using OpenAI's command-line interface (CLI) to assist with many of the data preparation steps. OpenAI has developed a tool that validates, gives suggestions, and reformats your data into a JSONL file ready for fine-tuning.
+We recommend that you use OpenAI's CLI to assist with many of the data preparation steps. OpenAI has developed a tool that validates, gives suggestions, and reformats your data into a JSONL file ready for fine-tuning.
 
 To install the OpenAI CLI, run the following Python command:
 
@@ -85,8 +85,8 @@ This tool accepts files in the following data formats, if they contain a prompt 
 - Microsoft Excel workbook (XLSX)
 - JavaScript Object Notation (JSON)
 - JSON Lines (JSONL)
- 
-The tool reformats your training data and saves output into a JSONL file ready for fine-tuning, after guiding you through the process of implementing suggested changes.
+
+After it guides you through the process of implementing suggested changes, the tool reformats your training data and saves output into a JSONL file ready for fine-tuning.
 
 ## Use the Create custom model wizard
 
@@ -97,7 +97,7 @@ Azure OpenAI Studio provides the **Create custom model** wizard, so you can inte
 1. In Azure OpenAI Studio, browse to the **Management > Models** pane, and select **Create a custom model**.
 
    > [!NOTE]
-   > If your resource doesn't have a model already deployed in it, a warning is displayed. For this exercise, you can ignore the warning because you fine-tune and deploy a new custom model.
+   > If your resource doesn't have a model already deployed in it, OpenAI Studio displays a warning. For this exercise, you can ignore the warning because you fine-tune and deploy a new custom model.
 
    :::image type="content" source="../media/fine-tuning/studio-create-custom-model.png" alt-text="Screenshot that shows how to access the Create custom model wizard in Azure OpenAI Studio." lightbox="../media/fine-tuning/studio-create-custom-model.png":::
 
@@ -105,25 +105,24 @@ The **Create custom model** wizard opens.
 
 ### Select the base model
 
-The first step in creating a custom model is to choose a base model. The **Base model** pane lets you choose a base model to use for your custom model. Your choice influences both the performance and the cost of your model. You can create a custom model from one of the following available base models:
+The first step in creating a custom model is to choose a base model. The **Base model** pane lets you choose a base model to use for your custom model. Your choice influences both the performance and the cost of your model.
 
+Select the base model from the **Base model type** dropdown, and then select **Next** to continue.
+
+You can create a custom model from one of the following available base models:
 - `ada`
 - `babbage`
 - `curie`
-- `code-cushman-001` __\*__
-- `davinci` __\*__
-
-__\*__ This model is currently unavailable for new customers. 
+- `code-cushman-001` (Currently unavailable for new customers)
+- `davinci` (Currently unavailable for new customers)
 
 For more information about our base models that can be fine-tuned, see [Models](../concepts/models.md).
-
-Select the base model from the **Base model type** dropdown, and then select **Next** to continue.
 
 :::image type="content" source="../media/fine-tuning/studio-base-model.png" alt-text="Screenshot that shows how to select the base model in the Create custom model wizard in Azure OpenAI Studio." lightbox="../media/fine-tuning/studio-base-model.png":::
 
 ### Choose your training data
 
-The next step is to either choose existing prepared training data or upload new prepared training data to use when customizing your model. The **Training data** pane displays any existing, previously uploaded datasets and provides options by which you can upload new training data. 
+The next step is to either choose existing prepared training data or upload new prepared training data to use when customizing your model. The **Training data** pane displays any existing, previously uploaded datasets and also provides options to upload new training data. 
 
 :::image type="content" source="../media/fine-tuning/studio-training-data.png" alt-text="Screenshot of the Training data pane for the Create custom model wizard in Azure OpenAI Studio." lightbox="../media/fine-tuning/studio-training-data.png":::
 
@@ -137,10 +136,10 @@ The next step is to either choose existing prepared training data or upload new 
 
    - Select **Azure blob or other shared web locations** to [import training data from Azure Blob or another shared web location](#import-training-data-from-azure-blob-store).
 
-For large data files, we recommend you import from an Azure Blob store. Large files can become unstable when uploaded through multipart forms because the requests are atomic and can't be retried or resumed. For more information about Azure Blob Storage, see [What is Azure Blob Storage](../../../storage/blobs/storage-blobs-overview.md)?
+For large data files, we recommend that you import from an Azure Blob store. Large files can become unstable when uploaded through multipart forms because the requests are atomic and can't be retried or resumed. For more information about Azure Blob Storage, see [What is Azure Blob Storage](../../../storage/blobs/storage-blobs-overview.md)?
 
 > [!NOTE]
-> Training data files must be formatted as JSONL files, encoded in UTF-8 with a byte-order mark (BOM), and less than 200 MB in size.
+> Training data files must be formatted as JSONL files, encoded in UTF-8 with a byte-order mark (BOM). The file must be less than 200 MB in size.
 
 #### Upload training data from local file
 
@@ -186,10 +185,10 @@ The **Validation data** pane displays any existing, previously uploaded training
    
    - Select **Azure blob or other shared web locations** to [import validation data from Azure Blob or another shared web location](#import-validation-data-from-azure-blob-store).
 
-For large data files, we recommend you import from an Azure Blob store. Large files can become unstable when uploaded through multipart forms because the requests are atomic and can't be retried or resumed.
+For large data files, we recommend that you import from an Azure Blob store. Large files can become unstable when uploaded through multipart forms because the requests are atomic and can't be retried or resumed.
 
 > [!NOTE]
-> Similar to training data files, validation data files must be formatted as JSONL files, encoded in UTF-8 with a byte-order mark (BOM), and less than 200 MB in size. 
+> Similar to training data files, validation data files must be formatted as JSONL files, encoded in UTF-8 with a byte-order mark (BOM). The file must be less than 200 MB in size. 
 
 #### Upload validation data from local file
 
@@ -236,7 +235,7 @@ The **Advanced** option lets you configure the following hyperparameters:
 
 :::image type="content" source="../media/fine-tuning/studio-advanced-options-advanced.png" alt-text="Screenshot of the Advanced options pane for the Create custom model wizard, with advanced options selected." lightbox="../media/fine-tuning/studio-advanced-options-advanced.png":::
 
-For more information about the hyperparameters, see the [Create a Fine tune job](/rest/api/cognitiveservices/azureopenaistable/fine-tunes/create) section of the [REST API](/rest/api/cognitiveservices/azureopenaistable/fine-tunes) documentation.
+For more information about the hyperparameters, see [Create a Fine tune job](/rest/api/cognitiveservices/azureopenaistable/fine-tunes/create).
 
 After you configure the advanced options, select **Next** to [review your choices and train your fine-tuned model](#review-your-choices-and-train-your-model).
 
@@ -250,11 +249,11 @@ If you're ready to train your model, select **Save and close** to start the fine
 
 ## Check the status of your custom model
 
-The **Models** pane displays information about your custom model in the **Customized models** tab. The tab includes information about the status and job ID of the fine-tune job for your custom model. When the job is completed, the file ID of the result file is also displayed.
+The **Models** pane displays information about your custom model in the **Customized models** tab. The tab includes information about the status and job ID of the fine-tune job for your custom model. When the job completes, the tab displays the file ID of the result file.
 
 :::image type="content" source="../media/fine-tuning/studio-models-job-running.png" alt-text="Screenshot of the Models pane from Azure OpenAI Studio, with a custom model displayed." lightbox="../media/fine-tuning/studio-models-job-running.png":::
 
-After you start a fine-tune job, it can take some time to complete. Your job might be queued behind other jobs on our system, and training your model can take minutes or hours depending on the model and dataset size.
+After you start a fine-tune job, it can take some time to complete. Your job might be queued behind other jobs on the system. Training your model can take minutes or hours depending on the model and dataset size.
 
 Here are some of the tasks you can do on the **Models** pane:
 
@@ -283,7 +282,7 @@ To deploy your custom model, select the custom model to deploy, and then select 
 
 :::image type="content" source="../media/fine-tuning/studio-models-deploy.png" alt-text="Screenshot that shows how to deploy a custom model in Azure OpenAI Studio." lightbox="../media/fine-tuning/studio-models-deploy.png":::
 
-The **Deploy model** dialog opens. In the dialog, enter your **Deployment name** and then select **Create** to start the deployment of your custom model. 
+The **Deploy model** dialog box opens. In the dialog box, enter your **Deployment name** and then select **Create** to start the deployment of your custom model. 
 
 :::image type="content" source="../media/fine-tuning/studio-models-deploy-model.png" alt-text="Screenshot of the Deploy Model dialog in Azure OpenAI Studio." lightbox="../media/fine-tuning/studio-models-deploy-model.png":::
 
@@ -300,7 +299,7 @@ After your custom model deploys, you can use it like any other deployed model. Y
 
 ## Analyze your custom model
 
-Azure OpenAI attaches a result file named _results.csv_ to each fine-tune job after it's complete. You can use the result file to analyze the training and validation performance of your custom model. The file ID for the result file is listed for each custom model in the **Result file Id** column on the **Models** pane for Azure OpenAI Studio. You can use the file ID to identify and download the result file from the **File Management** pane of Azure OpenAI Studio. 
+Azure OpenAI attaches a result file named _results.csv_ to each fine-tune job after it completes. You can use the result file to analyze the training and validation performance of your custom model. The file ID for the result file is listed for each custom model in the **Result file Id** column on the **Models** pane for Azure OpenAI Studio. You can use the file ID to identify and download the result file from the **File Management** pane of Azure OpenAI Studio. 
 
 The result file is a CSV file that contains a header row and a row for each training step performed by the fine-tune job. The result file contains the following columns:
 
@@ -340,4 +339,4 @@ You can optionally delete training and validation files that you uploaded for tr
 ## Next steps
 
 - Explore the fine-tuning capabilities in the [Azure OpenAI Service REST API reference](/azure/ai-services/openai/reference).
-- Review other [Python SDK operations](https://github.com/openai/openai-python/blob/main/examples/azure/finetuning.ipynb).
+- Review [Python SDK operations](https://github.com/openai/openai-python/blob/main/examples/azure/finetuning.ipynb).
