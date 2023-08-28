@@ -113,7 +113,7 @@ The Marketplace image in Azure has the following attributes:
 - **SKU**- An instance of an offer, such as a major release of a distribution. Examples: 18.04LTS, 2019-Datacenter
 - **Version** - The version number of an image SKU.
 
-Azure Update Manager supports the following operating system versions:
+Azure Update Manager supports the following operating system versions. However, you could experience failures if there are any configuration changes on the VMs such as package or repository.
 
 #### Windows operating systems
 
@@ -149,8 +149,9 @@ The following table lists the operating systems for marketplace images that aren
 |----------|-------------|-----|
 |OpenLogic | CentOS | 8* |
 |OpenLogic | centos-hpc| * |
-|Oracle | Oracle-Linux | 8, 8-ci, 81, 81-ci , 81-gen2, ol82, ol8_2-gen2,ol82-gen2, ol83-lvm, ol83-lvm-gen2, ol84-lvm,ol84-lvm-gen2 | 
-|Red Hat | RHEL-HA | 7.4, 7.5, 7.6, 8.1, 81_gen2 |
+|Oracle | Oracle-Linux | 8, 8-ci, 81, 81-ci , 81-gen2, ol82, ol8_2-gen2,ol82-gen2, ol83-lvm, ol83-lvm-gen2, ol84-lvm,ol84-lvm-gen2 |
+|Red Hat | RHEL | 74-gen2 |
+|Red Hat | RHEL-HANA | 7.4, 7.5, 7.6, 8.1, 81_gen2 |
 |Red Hat | 	RHEL-SAP | 7.4, 7.5, 7.7 |
 |Red Hat | 	RHEL-SAP-HANA | 7.5 |
 |Microsoft SQL Server | SQL 2019-SLES* | * |
