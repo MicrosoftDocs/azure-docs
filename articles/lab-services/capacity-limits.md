@@ -85,9 +85,7 @@ You can contact Azure support and create a support ticket to lift the region res
 ## Best practices for requesting a limit increase
 [!INCLUDE [lab-services-request-capacity-best-practices](includes/lab-services-request-capacity-best-practices.md)]
 
-## Next steps
-
-See the following articles:
+## Related content
 
 - As an admin, see [VM sizing](administrator-guide.md#vm-sizing).
 - As an admin, see [Request a capacity increase](./how-to-request-capacity-increase.md)
