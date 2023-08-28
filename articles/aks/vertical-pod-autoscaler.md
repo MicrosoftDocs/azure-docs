@@ -30,7 +30,11 @@ Vertical Pod Autoscaler provides the following benefits:
 
 ## Limitations
 
-Vertical Pod autoscaling supports a maximum of 500 `VerticalPodAutoscaler` objects per cluster.
+* Vertical Pod autoscaling supports a maximum of 500 `VerticalPodAutoscaler` objects per cluster.
+
+* VPA might recommend more resources than available in the cluster. As a result, this prevents the pod from being assigned to a node and run, because the node doesn't have sufficient resources. You can overcome this limitation by setting the *LimitRange* to the maximum available resources per namespace, which ensures pods don't ask for more resources than specified. Additionally, you can set maximum allowed resource recommendations per pod in a `VerticalPodAutoscaler` object.
+
+* We don't recommend using Vertical Pod Autoscaler with [Horizontal Pod Autoscaler][horizontal-pod-autoscaler-overview], which scales based on the same CPU and memory usage metrics.
 
 ## Before you begin
 
@@ -126,7 +130,7 @@ vpa-updater-56f9bfc96f-jgq2g                1/1     Running   0          41m
 
 ## Test your Vertical Pod Autoscaler installation
 
-The following steps create a deployment with two pods, each running a single container that requests 100 millicores and tries to utilize slightly above 500 millicores. Also created is a VPA config pointing at the deployment. The VPA observes the behavior of the pods, and after about five minutes, they're updated with a higher CPU request.
+The following steps create a deployment with two pods, each running a single container that requests 100 millicores and tries to utilize slightly above 500 millicores. Also a VPA config is created, pointing at the deployment. The VPA observes the behavior of the pods, and after about five minutes, they're updated with a higher CPU request.
 
 1. Create a file named `hamster.yaml` and copy in the following manifest of the Vertical Pod Autoscaler example from the [kubernetes/autoscaler][kubernetes-autoscaler-github-repo] GitHub repository.
 
@@ -588,3 +592,4 @@ This article showed you how to automatically scale resource utilization, such as
 [az-provider-register]: /cli/azure/provider#az-provider-register
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-feature-show]: /cli/azure/feature#az-feature-show
+[horizontal-pod-autoscaler-overview]: concepts-scale.md#horizontal-pod-autoscaler
