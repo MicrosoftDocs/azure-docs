@@ -52,7 +52,7 @@ In this article, you learn how to include JIT in your security program, includin
 
 
 > [!NOTE]
-> In order to successfully create a custom JIT policy, the policy name, together with the VM targeted by JIT, must not exceed a total of 56 characters. 
+> In order to successfully create a custom JIT policy, the policy name, together with the targeted VM name, must not exceed a total of 56 characters. 
 
 ## Work with JIT VM access using Microsoft Defender for Cloud
 
