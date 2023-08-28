@@ -1,33 +1,163 @@
 ---
-title: ACID Transactions in Azure Cosmos DB for MongoDB vCore
-description: Delve deep into the importance and functionality of ACID transactions in Azure Cosmos DB's MongoDB vCore.
+title: Group multiple operations in transactions
+titleSuffix: Azure Cosmos DB for MongoDB vCore
+description: Support atomicity, consistency, isolation, and durability with transactions in Azure Cosmos DB for MongoDB vCore.
+author: gahl-levy
+ms.author: gahllevy
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: conceptual
-ms.date: 08/08/2023
-author: gahl-levy
-ms.author: gahllevy
+ms.date: 08/28/2023
 ---
-# ACID Transactions in Azure Cosmos DB for MongoDB vCore
+
+# Group multiple operations in transactions in Azure Cosmos DB for MongoDB vCore
 
 [!INCLUDE[MongoDB vCore](../../includes/appliesto-mongodb-vcore.md)]
 
-ACID stands for Atomicity, Consistency, Isolation, and Durability. These principles in database management ensure transactions are processed reliably:
+It's common to want to group multiple operations into a single transaction to either commit or rollback together. In database principles, transactions typically implement four key **ACID** principles. ACID stands for:
 
 - **Atomicity**: Transactions complete entirely or not at all.
 - **Consistency**: Databases transition from one consistent state to another.
 - **Isolation**: Individual transactions are shielded from simultaneous ones.
 - **Durability**: Finished transactions are permanent, ensuring data remains consistent, even during system failures.
 
-Azure Cosmos DB for MongoDB vCore builds off these principles, enabling developers to harness the advantages of ACID properties while benefiting from the innate flexibility and performance of Cosmos DB. This native feature is pivotal for a range of applications, from basic ones to comprehensive enterprise-grade solutions, especially when it comes to preserving transactional data integrity across distributed sharded clusters.
+The ACID principles in database management ensure transactions are processed reliably. Azure Cosmos DB for MongoDB vCore implements these principles, enabling you to create transactions for multiple operations.
 
-## Why Use Azure Cosmos DB for MongoDB vCore?
-- **Native Vector Search**: Power your AI apps directly within Azure Cosmos DB, leveraging native high-dimensional data search and bypassing pricier external solutions.
-- **Fully-Managed Azure Service**: Rely on a unified, dedicated support team for seamless database operations.
-- **Effortless Azure Integrations**: Easily connect with a wide range of Azure services without the typical maintenance hassles.
+## Create a transaction
 
-## Next Steps
+Create a new transaction using the appropriate methods from the developer language of your choice. These methods typically include some wrapping mechanism to group multiple transactions together, and a method to commit the transaction.
 
-- Begin your journey with ACID transactions in Azure Cosmos DB for MongoDB vCore by accessing our [guide and tutorials](quickstart-portal.md).
-- Explore further capabilities and benefits of Azure Cosmos DB for MongoDB vCore in our [documentation](introduction.md).
+### [JavaScript](#tab/javascript)
 
+> [!NOTE]
+> The samples in this section assume you have a collection variable named `collection`.
+
+1. Use `startSession()` to create a client session for the transaction operation.
+
+    ```javascript
+    const transactionSession = client.startSession();
+    ```
+
+1. Create a transaction using `withTransaction()` and place all relevant transaction operations within the callback.
+
+    ```javascript
+    await transactionSession.withTransaction(async () => {
+        await collection.insertOne({ name: "Coolarn shirt", price: 38.00 }, transactionSession);
+        await collection.insertOne({ name: "Coolarn shirt button", price: 1.50 }, transactionSession);
+    });
+    ```
+
+1. Commit the transaction using `commitTransaction()`.
+
+    ```javascript
+    transactionSession.commitTransaction();
+    ```
+
+1. Use `endSession()` to end the transaction session.
+
+    ```javascript
+    transactionSession.endSession();
+    ```
+
+### [Java](#tab/java)
+
+> [!NOTE]
+> The samples in this section assume you have a collection variable named `databaseCollection`.
+
+1. Use `startSession()` to create a client session for the transaction operation within a `try` block.
+
+    ```java
+    try (ClientSession session = client.startSession()) {
+    }
+    ```
+
+1. Create a transaction using `startTransaction()`.
+
+    ```java
+    session.startTransaction();
+    ```
+
+1. Include all relevant transaction operations.
+
+    ```java
+    collection.insertOne(session, new Document().append("name", "Coolarn shirt").append("price", 38.00));
+    collection.insertOne(session, new Document().append("name", "Coolarn shirt button").append("price", 1.50));
+    ```
+
+1. Commit the transaction using `commitTransaction()`.
+
+    ```java
+    clientSession.commitTransaction();
+    ```
+
+### [Python](#tab/python)
+
+> [!NOTE]
+> The samples in this section assume you have a collection variable named `coll`.
+
+1. Use `start_session()` to create a client session for the transaction operation.
+
+    ```python
+    with client.start_session() as ts:
+    ```
+
+1. Within the session block, create a transaction using `start_transaction()`.
+
+    ```python
+    ts.start_transaction()
+    ```
+
+1. Include all relevant transaction operations.
+
+    ```python
+    coll.insert_one({ 'name': 'Coolarn shirt', 'price': 38.00 }, session=ts)
+    coll.insert_one({ 'name': 'Coolarn shirt button', 'price': 1.50 }, session=ts)
+    ```
+
+1. Commit the transaction using `commit_transaction()`.
+
+    ```python
+    ts.commit_transaction()
+    ```
+
+---
+
+## Roll back a transaction
+
+### [JavaScript](#tab/javascript)
+
+1. Using an existing transaction session, abort the transaction with `abortTransaction()`.
+
+    ```javascript
+    transactionSession.abortTransaction();
+    ```
+
+1. End the transaction session.
+
+    ```javascript
+    transactionSession.endSession();
+    ```
+
+### [Java](#tab/java)
+
+1. Using an existing transaction session, abort the transaction with `()`.
+
+    ```java
+    clientSession.abortTransaction();
+    ```
+
+### [Python](#tab/python)
+
+1. Using an existing transaction session, abort the transaction with `abort_transaction()`.
+
+    ```javascript
+    ts.abort_transaction()
+    ```
+
+---
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Build a Node.js web application](tutorial-nodejs-web-app.md)
