@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/01/2023
+ms.date: 08/28/2023
 ms.subservice: hybrid
 ms.author: barclayn
 ---
@@ -99,10 +99,9 @@ When licenses required for Conditional Access expire, policies aren't automatica
 
 
 
-## Managed identities for Azure resources
 
- There are no licensing requirements for using managed identities for Azure resources. Managed identities is a feature of Azure Active Directory (Azure AD) that provides an automatically managed identity for applications to use when connecting to resources that support Azure AD authentication. One of the benefits of using managed identities is that you don’t need to manage credentials, and they can be used at no extra cost. For more information, see [What is managed identities for Azure resources?](../managed-identities-azure-resources/overview.md).
 
+[!INCLUDE [Managed identities](../includes/licensing-managed-identities.md)]
 ## Multi tenant organizations
 
 In the source tenant: Using this feature requires Azure AD Premium P1 licenses. Each user who is synchronized with cross-tenant synchronization must have a P1 license in their home/source tenant. To find the right license for your requirements, see [Compare generally available features of Azure AD](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
