@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rohithah, laveeshb, rarayudu, azla
 ms.topic: reference
-ms.date: 07/24/2023
+ms.date: 08/29/2023
 ---
 
 # Limits and configuration reference for Azure Logic Apps
@@ -425,7 +425,6 @@ Each Azure subscription has these integration account limits:
   |---------|----------------------------|
   | **Premium** | 20 total accounts, including one Standard account at no extra cost. With this SKU, you can have only [Standard](../logic-apps/logic-apps-pricing.md#integration-accounts) accounts. No Free or Basic accounts are permitted. |
   | **Developer** | 20 total accounts, including one [Free](../logic-apps/logic-apps-pricing.md#integration-accounts) account (limited to 1). With this SKU, you can have either combination: <p>- A Free account and up to 19 [Standard](../logic-apps/logic-apps-pricing.md#integration-accounts) accounts. <br>- No Free account and up to 20 Standard accounts. <p>No Basic or more Free accounts are permitted. <p><p>**Important**: Use the [Developer SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) for experimenting, development, and testing, but not for production or performance testing. |
-  |||
 
 To learn how pricing and billing work for ISEs, see the [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#ise-pricing). For pricing rates, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/).
 
@@ -439,16 +438,16 @@ The following tables list the values for the number of artifacts limited to each
 > Use the Free tier only for exploratory scenarios, not production scenarios. 
 > This tier restricts throughput and usage, and has no service-level agreement (SLA).
 
-| Artifact | Free | Basic | Standard |
-|----------|------|-------|----------|
-| EDI trading agreements | 10 | 1 | 1,000 |
-| EDI trading partners | 25 | 2 | 1,000 |
-| Maps | 25 | 500 | 1,000 |
-| Schemas | 25 | 500 | 1,000 |
-| Assemblies | 10 | 25 | 1,000 |
-| Certificates | 25 | 2 | 1,000 |
-| Batch configurations | 5 | 1 | 50 |
-| RosettaNet partner interface process (PIP) | 10 | 1 | 500 |
+| Artifact | Free | Basic | Standard | Premium (preview) |
+|----------|------|-------|----------|-------------------|
+| EDI trading agreements | 10 | 1 | 1,000 | Unlimited |
+| EDI trading partners | 25 | 2 | 1,000 | Unlimited |
+| Maps | 25 | 500 | 1,000 | Unlimited |
+| Schemas | 25 | 500 | 1,000 | Unlimited |
+| Assemblies | 10 | 25 | 1,000 | Unlimited, but currently unsupported for export from an ISE. |
+| Certificates | 25 | 2 | 1,000 | Unlimited |
+| Batch configurations | 5 | 1 | 50 | Unlimited |
+| RosettaNet partner interface process (PIP) | 10 | 1 | 500 | Unlimited, but currently unsupported for export from an ISE. |
 
 <a name="artifact-capacity-limits"></a>
 
