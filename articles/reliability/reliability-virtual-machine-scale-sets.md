@@ -376,7 +376,7 @@ It's possible that VMs in the scale set are successfully created, but extensions
 
 With best-effort zone balance, the scale set attempts to scale in and out while maintaining balance. However, if for some reason this isn't possible (for example, if one zone goes down, the scale set can't create a new VM in that zone), the scale set allows temporary imbalance to successfully scale in or out. On subsequent scale-out attempts, the scale set adds VMs to zones that need more VMs for the scale set to be balanced. Similarly, on subsequent scale in attempts, the scale set removes VMs from zones that need fewer VMs for the scale set to be balanced. With "strict zone balance", the scale set fails any attempts to scale in or out if doing so would cause unbalance.
 
-To use best-effort zone balance, set *zoneBalance* to *false*. This setting is the default in API version *2017-12-01*. To use strict zone balance, set *zoneBalance* to *true*.
+To use best-effort zone balance, set `zoneBalance` to *false*. This setting is the default in API version *2017-12-01*. To use strict zone balance, set `zoneBalance` to *true*.
 
 
 ### Availability zone redeployment and migration
