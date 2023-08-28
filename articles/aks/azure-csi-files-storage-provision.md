@@ -33,7 +33,10 @@ This section provides guidance for cluster administrators who want to provision 
 |Name | Meaning | Available Value | Mandatory | Default value
 |--- | --- | --- | --- | ---
 |skuName | Azure Files storage account type (alias: `storageAccountType`)| `Standard_LRS`, `Standard_ZRS`, `Standard_GRS`, `Standard_RAGRS`, `Standard_RAGZRS`,`Premium_LRS`, `Premium_ZRS` | No | `StandardSSD_LRS`<br> Minimum file share size for Premium account type is 100 GB.<br> ZRS account type is supported in limited regions.<br> NFS file share only supports Premium account type.|
+|storageAccount | specify Azure storage account name| STORAGE_ACCOUNT_NAME | No | It will try to create new storage account if we dont specify existing one |
+|enableLargeFileShares | specify whether to use a storage account with large file shares enabled or not. If this flag is set to true and a storage account with large file shares enabled doesn't exist, a new storage account with large file shares enabled will be created. This flag should be used with the standard sku as the storage accounts created with premium sku have largeFileShares option enabled by default.| true,false | No | 
 |protocol | Specify file share protocol. | `smb`, `nfs` | No | `smb` |
+|networkEndpointType | specify network endpoint type for the storage account created by driver. If privateEndpoint is specified, a private endpoint will be created for the storage account. For other cases, a service endpoint will be created by default.| "",privateEndpoint | No |
 |location | Specify the Azure region of the Azure storage account.| For example, `eastus`. | No | If empty, driver uses the same location name as current AKS cluster.|
 |resourceGroup | Specify the resource group for the Azure Disks.| Existing resource group name | No | If empty, driver uses the same resource group name as current AKS cluster.|
 |shareName | Specify Azure file share name. | Existing or new Azure file share name. | No | If empty, driver generates an Azure file share name. |
@@ -49,12 +52,17 @@ This section provides guidance for cluster administrators who want to provision 
 |storageEndpointSuffix | Specify Azure storage endpoint suffix. | `core.windows.net`, `core.chinacloudapi.cn`, etc. | No | If empty, driver uses default storage endpoint suffix according to cloud environment. For example, `core.windows.net`. |
 |tags | [Tags][tag-resources] are created in new storage account. | Tag format: 'foo=aaa,bar=bbb' | No | "" |
 |matchTags | Match tags when driver tries to find a suitable storage account. | `true` or `false` | No | `false` |
+|selectRandomMatchingAccount | whether randomly selecting a matching account, by default, the driver would always select the first matching account in alphabetical order. | true,false | No |
+|accountQuota | to limit the quota for an account, you can specify a maximum quota in GB (102400GB by default). If the account exceeds the specified quota, the driver would skip selecting the account. | `` | No |
 |--- | **Following parameters are only for SMB protocol** | --- | --- |
 |subscriptionID | Specify Azure subscription ID where Azure file share is created. | Azure subscription ID | No | If not empty, `resourceGroup` must be provided. |
 |storeAccountKey | Specify whether to store account key to Kubernetes secret. | `true` or `false`<br>`false` means driver uses kubelet identity to get account key. | No | `true` |
+|getLatestAccountKey | whether getting the latest account key based on the creation time, this driver would get the first key by default. | true,false | No | 
 |secretName | Specify secret name to store account key. | | No |
 |secretNamespace | Specify the namespace of secret to store account key. <br><br> **Note:** <br> If `secretNamespace` isn't specified, the secret is created in the same namespace as the pod. | `default`,`kube-system`, etc. | No | PVC namespace, for example `csi.storage.k8s.io/pvc/namespace` |
 |useDataPlaneAPI | Specify whether to use [data plane API][data-plane-api] for file share create/delete/resize, which could solve the SRP API throttling issue because the data plane API has almost no limit, while it would fail when there's firewall or Vnet settings on storage account. | `true` or `false` | No | `false` |
+|enableMultichannel | specify whether enable SMB multi-channel for Premium storage account
+Note: this feature is used with max_channels=4 (or 2,3) mount option. | true,false | No | 
 |--- | **Following parameters are only for NFS protocol** | --- | --- |
 |rootSquashType | Specify root squashing behavior on the share. The default is `NoRootSquash` | `AllSquash`, `NoRootSquash`, `RootSquash` | No |
 |mountPermissions | Mounted folder permissions. The default is `0777`. If set to `0`, driver doesn't perform `chmod` after mount | `0777` | No |
