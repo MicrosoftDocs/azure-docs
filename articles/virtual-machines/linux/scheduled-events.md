@@ -97,7 +97,7 @@ User-initiated VM maintenance via the Azure portal, API, CLI, or PowerShell resu
 
 If you restart a VM, an event with the type `Reboot` is scheduled. If you redeploy a VM, an event with the type `Redeploy` is scheduled. Typically events with a user event source can be immediately approved to avoid a delay on user-initiated actions. We advise having a primary and secondary VM communicating and approving user generated scheduled events in case the primary VM becomes unresponsive. Immediately approving events prevents delays in recovering your application back to a good state.  
 	
-Scheduled events are disabled by default for [Virtual Machine Scale Set Guest OS upgrades or reimages](../../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md). To enable scheduled events for these operations, first enable them using [OSImageNotificationProfile](https://learn.microsoft.com/rest/api/compute/virtual-machine-scale-sets/create-or-update?tabs=HTTP#osimagenotificationprofile). 
+Scheduled events for [VMSS Guest OS upgrades or reimages](../../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) are supported for general purpose VM sizes that [support memory preserving updates](../maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot) only. It doesn't work for G, M, N, and H series. Scheduled events for VMSS Guest OS upgrades and reimages are disabled by default. To enable scheduled events for these operations on supported VM sizes, first enable them using [OSImageNotificationProfile](/rest/api/compute/virtual-machine-scale-sets/create-or-update?tabs=HTTP). 
 
 ## Use the API
 
