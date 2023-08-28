@@ -2,7 +2,7 @@
 title: Redact faces by using Azure AI Video Indexer API 
 description: Learn how to use the Azure AI Video Indexer face redaction feature by using API.
 ms.topic: how-to
-ms.date: 07/03/2023
+ms.date: 08/11/2023
 ---
 
 # Redact faces by using Azure AI Video Indexer API
@@ -46,21 +46,21 @@ You can specify the kind of blurring in the request body by using the `blurringK
 Here's an example:
 
 ```json
-{ 
-    "faces": { 
-        "blurringKind": "HighBlur" 
-    } 
-} 
+{
+    "faces": {
+        "blurringKind": "HighBlur"
+    }
+}
 ```
 
 Or, use a number that represents the type of blurring that's described in the preceding table:
 
 ```json
-{ 
-    "faces": { 
-        "blurringKind": 1 
-    } 
-} 
+{
+    "faces": {
+        "blurringKind": 1
+    }
+}
 ```
 
 ## Filters
@@ -72,15 +72,15 @@ You can apply filters to set which face IDs to blur. You can specify the IDs of 
 In the following example, to redact all faces except face IDs 1001 and 1016, use the `Exclude` scope:
 
 ```json
-{ 
-    "faces": { 
-        "blurringKind": "HighBlur", 
-        "filter": { 
-            "ids": [1001, 1016], 
-            "scope": "Exclude" 
-        } 
-    } 
-} 
+{
+    "faces": {
+        "blurringKind": "HighBlur",
+        "filter": {
+            "ids": [1001, 1016],
+            "scope": "Exclude"
+        }
+    }
+}
 ```
 
 ### Include scope
@@ -88,15 +88,15 @@ In the following example, to redact all faces except face IDs 1001 and 1016, use
 In the following example, to redact only face IDs 1001 and 1016, use the `Include` scope:
 
 ```json
-{ 
-    "faces": { 
-        "blurringKind": "HighBlur", 
-        "filter": { 
-            "ids": [1001, 1016], 
-            "scope": "Include" 
-        } 
-    } 
-} 
+{
+    "faces": {
+        "blurringKind": "HighBlur",
+        "filter": {
+            "ids": [1001, 1016],
+            "scope": "Include"
+        }
+    }
+}
 ```
 
 ### Redact all faces
@@ -104,11 +104,11 @@ In the following example, to redact only face IDs 1001 and 1016, use the `Includ
 To redact all faces, remove the scope filter:
 
 ```json
-{ 
-    "faces": { 
-        "blurringKind": "HighBlur", 
-    } 
-} 
+{
+    "faces": {
+        "blurringKind": "HighBlur",
+    }
+}
 ```
 
 To retrieve a face ID, you can go to the indexed video and retrieve the [artifact file](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Artifact-Download-Url). The artifact contains a *faces.json* file and a thumbnail .zip file that has all the faces that were detected in the video. You can match the face to the ID and decide which face IDs to redact.
@@ -142,11 +142,11 @@ You can specify the token as an authorization header that has a key value type o
 You also need to add a request body in JSON format with the redaction job options to apply. Here's an example:
 
 ```json
-{ 
-    "faces": { 
-        "blurringKind": "HighBlur" 
-    } 
-} 
+{
+    "faces": {
+        "blurringKind": "HighBlur"
+    }
+}
 ```
 
 When the request is successful, you receive the response `HTTP 202 ACCEPTED`.
@@ -164,13 +164,13 @@ https://api.videoindexer.ai/westeurope/Accounts/<id>/Jobs/<id>
 Here's an example response:
 
 ```json
-{ 
-    "creationTime": "2023-05-11T11:22:57.6114155Z", 
-    "lastUpdateTime": "2023-05-11T11:23:01.7993563Z", 
-    "progress": 20, 
-    "jobType": "Redaction", 
-    "state": "Processing" 
-} 
+{
+    "creationTime": "2023-05-11T11:22:57.6114155Z",
+    "lastUpdateTime": "2023-05-11T11:23:01.7993563Z",
+    "progress": 20,
+    "jobType": "Redaction",
+    "state": "Processing"
+}
 ```
 
 If you call the same URL when the redaction job is completed, in the `Location` header, you get a storage shared access signature (SAS) URL to the redacted video. For example:
@@ -219,13 +219,15 @@ The account wasn't found or the video wasn't found.
 #### Default JSON
 
 ```json
-{ 
-    "ErrorType": "GENERAL", 
-    "Message": "string" 
-} 
+{
+    "ErrorType": "GENERAL",
+    "Message": "string"
+}
 ```
 
-### Response: 400 Bad Request  
+### Response: 400 Bad Request
+
+Invalid input or can't redact the video since its original upload failed. Please upload the video again.
 
 Invalid input or can't redact the video because its original upload failed. Upload the video again.
 
@@ -245,10 +247,10 @@ Invalid input or can't redact the video because its original upload failed. Uplo
 #### Default JSON
 
 ```json
-{ 
-    "ErrorType": "GENERAL", 
-    "Message": "string" 
-} 
+{
+    "ErrorType": "GENERAL",
+    "Message": "string"
+}
 ```
 
 ### Response: 409 Conflict  
@@ -271,10 +273,10 @@ The video is already being indexed.
 #### Default JSON
 
 ```json
-{ 
-    "ErrorType": "GENERAL", 
-    "Message": "string" 
-} 
+{
+    "ErrorType": "GENERAL",
+    "Message": "string"
+}
 ```
 
 ### Response: 401 Unauthorized
@@ -297,10 +299,10 @@ The access token isn't authorized to access the account.
 #### Default JSON
 
 ```json
-{ 
-    "ErrorType": "USER_NOT_ALLOWED", 
-    "Message": "Access token is not authorized to access account 'SampleAccountId'." 
-} 
+{
+    "ErrorType": "USER_NOT_ALLOWED",
+    "Message": "Access token is not authorized to access account 'SampleAccountId'."
+}
 ```
 
 ### Response: 500 Internal Server Error
@@ -323,10 +325,10 @@ An error occurred on the server.
 #### Default JSON
 
 ```json
-{ 
-    "ErrorType": "GENERAL", 
-    "Message": "There was an error." 
-} 
+{
+    "ErrorType": "GENERAL",
+    "Message": "There was an error."
+}
 ```
 
 ### Response: 429 Too many requests  
@@ -339,7 +341,7 @@ Too many requests were sent. Use the `Retry-After` response header to decide whe
 | ---- | ---- | ---- | ---- |
 | `Retry-After` | false | integer | A non-negative decimal integer that indicates the number of seconds to delay after the response is received. |
 
-### Response: 504 Gateway Timeout  
+### Response: 504 Gateway Timeout
 
 The server didn't respond to the gateway within the expected time.  
 
@@ -352,10 +354,10 @@ The server didn't respond to the gateway within the expected time.
 #### Default JSON
 
 ```json
-{ 
-    "ErrorType": "SERVER_TIMEOUT", 
-    "Message": "Server did not respond to gateway within expected time" 
-} 
+{
+    "ErrorType": "SERVER_TIMEOUT",
+    "Message": "Server did not respond to gateway within expected time"
+}
 ```
 
 ## Next steps

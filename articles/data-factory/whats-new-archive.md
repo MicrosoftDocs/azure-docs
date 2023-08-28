@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: concepts
 ms.topic: overview
 ms.custom: references_regions
-ms.date: 09/27/2022
+ms.date: 08/11/2023
 ---
 # What's new archive for Azure Data Factory
 
@@ -22,6 +22,20 @@ Azure Data Factory is improved on an ongoing basis. To stay up to date with the 
 This archive page retains updates from older months.  
 
 Check out our [What's New video archive](https://www.youtube.com/playlist?list=PLt4mCx89QIGS1rQlNt2-7iuHHAKSomVLv) for all of our monthly update
+
+## December 2022
+
+### Data flow
+
+SQL change data capture (CDC) incremental extract - supports numeric columns in mapping dataflow [Learn more](connector-azure-sql-database.md?tabs=data-factory#source-transformation)
+
+### Data movement
+
+Express virtual network injection for SSIS in Azure Data Factory is generally available [Learn more](https://techcommunity.microsoft.com/t5/sql-server-integration-services/general-availability-of-express-virtual-network-injection-for/ba-p/3699993)
+
+### Region expansion
+
+Continued region expansion - Azure Data Factory is now available in China North 3 [Learn more](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=data-factory)
 
 ## November 2022
  

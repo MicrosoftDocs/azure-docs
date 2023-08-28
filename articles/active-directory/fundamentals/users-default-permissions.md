@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # What are the default user permissions in Azure Active Directory?
 
-In Azure Active Directory (Azure AD), all users are granted a set of default permissions. A user's access consists of the type of user, their [role assignments](active-directory-users-assign-role-azure-portal.md), and their ownership of individual objects. 
+In Azure Active Directory (Azure AD), all users are granted a set of default permissions. A user's access consists of the type of user, their [role assignments](./how-subscriptions-associated-directory.md), and their ownership of individual objects. 
 
 This article describes those default permissions and compares the member and guest user defaults. The default user permissions can be changed only in user settings in Azure AD.
 
@@ -38,7 +38,7 @@ Users and contacts | <ul><li>Enumerate the list of all users and contacts<li>Rea
 Groups | <ul><li>Create security groups<li>Create Microsoft 365 groups<li>Enumerate the list of all groups<li>Read all properties of groups<li>Read non-hidden group memberships<li>Read hidden Microsoft 365 group memberships for joined groups<li>Manage properties, ownership, and membership of groups that the user owns<li>Add guests to owned groups<li>Manage dynamic membership settings<li>Delete owned groups<li>Restore owned Microsoft 365 groups</li></ul> | <ul><li>Read properties of non-hidden groups, including membership and ownership (even non-joined groups)<li>Read hidden Microsoft 365 group memberships for joined groups<li>Search for groups by display name or object ID (if allowed)</li></ul> | <ul><li>Read object ID for joined groups<li>Read membership and ownership of joined groups in some Microsoft 365 apps (if allowed)</li></ul>
 Applications | <ul><li>Register (create) new applications<li>Enumerate the list of all applications<li>Read properties of registered and enterprise applications<li>Manage application properties, assignments, and credentials for owned applications<li>Create or delete application passwords for users<li>Delete owned applications<li>Restore owned applications<li>List permissions granted to applications</ul> | <ul><li>Read properties of registered and enterprise applications<li>List permissions granted to applications</ul> | <ul><li>Read properties of registered and enterprise applications</li><li>List permissions granted to applications</li></ul>
 Devices</li></ul> | <ul><li>Enumerate the list of all devices<li>Read all properties of devices<li>Manage all properties of owned devices</li></ul> | No permissions | No permissions
-Organization | <ul><li>Read all company information<li>Read all domains<li>Read configuration of certificate-based authentication<li>Read all partner contracts</li></ul> | <ul><li>Read company display name<li>Read all domains<li>Read configuration of certificate-based authentication</li></ul> | <ul><li>Read company display name<li>Read all domains</li></ul>
+Organization | <ul><li>Read all company information<li>Read all domains<li>Read configuration of certificate-based authentication<li>Read all partner contracts</li><li>Read multi-tenant organization basic details and active tenants</li></ul> | <ul><li>Read company display name<li>Read all domains<li>Read configuration of certificate-based authentication</li></ul> | <ul><li>Read company display name<li>Read all domains</li></ul>
 Roles and scopes | <ul><li>Read all administrative roles and memberships<li>Read all properties and membership of administrative units</li></ul> | No permissions | No permissions
 Subscriptions | <ul><li>Read all licensing subscriptions<li>Enable service plan memberships</li></ul> | No permissions | No permissions
 Policies | <ul><li>Read all properties of policies<li>Manage all properties of owned policies</li></ul> | No permissions | No permissions
@@ -100,7 +100,7 @@ When a user creates a group, they're automatically added as an owner for that gr
 
 An owner can also add or remove other owners. Unlike global administrators and user administrators, owners can manage only the groups that they own. 
 
-To assign a group owner, see [Managing owners for a group](active-directory-accessmanagement-managing-group-owners.md).
+To assign a group owner, see [Managing owners for a group](./how-to-manage-groups.md).
 
 ### Ownership permissions
 
@@ -177,7 +177,7 @@ Users can perform the following actions on owned groups.
 ## Next steps
 
 * To learn more about the **Guest user access restrictions** setting, see [Restrict guest access permissions in Azure Active Directory](../enterprise-users/users-restrict-guest-permissions.md).
-* To learn more about how to assign Azure AD administrator roles, see [Assign a user to administrator roles in Azure Active Directory](active-directory-users-assign-role-azure-portal.md).
+* To learn more about how to assign Azure AD administrator roles, see [Assign a user to administrator roles in Azure Active Directory](./how-subscriptions-associated-directory.md).
 * To learn more about how resource access is controlled in Microsoft Azure, see [Understanding resource access in Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md).
-* For more information on how Azure AD relates to your Azure subscription, see [How Azure subscriptions are associated with Azure Active Directory](active-directory-how-subscriptions-associated-directory.md).
-* [Manage users](add-users-azure-active-directory.md).
+* For more information on how Azure AD relates to your Azure subscription, see [How Azure subscriptions are associated with Azure Active Directory](./how-subscriptions-associated-directory.md).
+* [Manage users](./add-users.md).

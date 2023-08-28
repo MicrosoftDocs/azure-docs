@@ -138,7 +138,7 @@ param taints array = []
 //   value: 'string:NoSchedule|PreferNoSchedule|NoExecute'
 // }
 
-resource kubernetescluster 'Microsoft.NetworkCloud/kubernetesClusters@2023-05-01-preview' = {
+resource kubernetescluster 'Microsoft.NetworkCloud/kubernetesClusters@2023-07-01' = {
   name: kubernetesClusterName
   location: location
   tags: tags

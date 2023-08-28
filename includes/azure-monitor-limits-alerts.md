@@ -21,10 +21,12 @@ ms.custom: "include file"
 
 ### Alerts API
 Azure Monitor alerts have several throttling limits to protect against users making an excessive number of calls. Such behavior can potentially overload the system back-end resources and jeopardize service responsiveness. The following limits are designed to protect customers from interruptions and ensure a consistent service level. The user throttling and limits are designed to affect only extreme usage scenarios. They shouldn't be relevant for typical usage.
+>[!Note]
+>There is a limit of API calls per instance. The exact limit number depands on the number of instances.
 
 | Resource | Default limit | Maximum limit |
 | --- | --- | --- |
 | [Alerts - Get Summary](/rest/api/monitor/alertsmanagement/alerts/get-summary) | 50 calls per minute per subscription | Same as default | 
-|	[Alerts - Get All](/rest/api/monitor/alertsmanagement/alerts/get-all) (not "Get By Id") | 100 calls per minute per subscription | Same as default | 
+|	[Alerts - Get All](/rest/api/monitor/alertsmanagement/alerts/get-all) (not "Get By ID") | 100 calls per minute per subscription | Same as default | 
 |	[All other alerts calls](/rest/api/monitor/alertsmanagement/alerts) | 1,000 calls per minute per subscription | Same as default | 
 

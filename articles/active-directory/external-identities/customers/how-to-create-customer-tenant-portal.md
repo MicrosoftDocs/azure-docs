@@ -34,9 +34,8 @@ In this article, you learn how to:
 
 ## Create a new customer tenant  
 
-1. Sign in to your organization's [Microsoft Entra admin center](https://entra.microsoft.com/).
-1. From the left menu, select **Azure Active Directory** > **Overview**.
-1. On the overview page, select **Manage tenants**
+1. Sign in to your organization's [Microsoft Entra admin center](https://entra.microsoft.com/) as at least a [Contributor](/azure/role-based-access-control/built-in-roles#contributor). 
+1. Browse to **Identity** > **Overview** > **Manage tenants**.
 1. Select **Create**.
 
     :::image type="content" source="media/how-to-create-customer-tenant-portal/create-tenant.png" alt-text="Screenshot of the create tenant option.":::

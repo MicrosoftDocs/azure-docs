@@ -4,7 +4,7 @@ description: Learn how to upload a VHD to an Azure managed disk and copy a manag
 services: "virtual-machines,storage"
 author: roygara
 ms.author: rogarana
-ms.date: 01/03/2023
+ms.date: 08/16/2023
 ms.topic: how-to
 ms.service: azure-disk-storage
 ms.custom: devx-track-azurecli
@@ -109,11 +109,11 @@ Sample returned value:
 }
 ```
 
-## Upload a VHD
+## Upload a VHD or VHDX
 
 Now that you have a SAS for your empty managed disk, you can use it to set your managed disk as the destination for your upload command.
 
-Use AzCopy v10 to upload your local VHD file to a managed disk by specifying the SAS URI you generated.
+Use AzCopy v10 to upload your local VHD or VHDX file to a managed disk by specifying the SAS URI you generated.
 
 This upload has the same throughput as the equivalent [standard HDD](../disks-types.md#standard-hdds). For example, if you have a size that equates to S4, you will have a throughput of up to 60 MiB/s. But, if you have a size that equates to S70, you will have a throughput of up to 500 MiB/s.
 
@@ -128,6 +128,14 @@ Replace `<yourdiskname>`and `<yourresourcegroupname>`, then use the following co
 ```azurecli
 az disk revoke-access -n <yourdiskname> -g <yourresourcegroupname>
 ```
+
+Ultra disk and Premium SSD v2 disk support both 4k sector size and 512e sector size (512-byte-emulation). When importing a VHD or VHDX file from on-premises to Azure, it is important to make sure the file format is compatible to target disk's sector size. Follow guidelines below to align the sector size of target disk with your VHD or VHDX file.
+
+- Import a VHDX file with 4k logical sector size: Sector size of the target disk should be 4k
+
+- Import a VHD file with 512 logical sector size: Sector size of the target disk should be 512e
+
+Note that the import of VHDX file with logical sector size of 512k is not supported.
 
 ## Copy a managed disk
 
@@ -156,7 +164,7 @@ sourceDiskSizeBytes=$(az disk show -g $sourceRG -n $sourceDiskName --query '[dis
 
 az disk create -g $targetRG -n $targetDiskName -l $targetLocation --os-type $targetOS --for-upload --upload-size-bytes $(($sourceDiskSizeBytes+512)) --sku standard_lrs
 
-targetSASURI=$(az disk grant-access -n $targetDiskName -g $targetRG  --access-level Write --duration-in-seconds 86400 -o tsv)
+targetSASURI=$(az disk grant-access -n $targetDiskName -g $targetRG  --access-level Write --duration-in-seconds 86400 --query [accessSas] -o tsv)
 
 sourceSASURI=$(az disk grant-access -n $sourceDiskName -g $sourceRG --duration-in-seconds 86400 --query [accessSas] -o tsv)
 

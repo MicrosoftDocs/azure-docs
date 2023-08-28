@@ -50,6 +50,10 @@ The steps for this task use a VNet based on the values in the following configur
 
 ## Add a gateway
 
+> [!IMPORTANT]
+> If you plan to use IPv6-based private peering over ExpressRoute, make sure to select an AZ SKU (ErGw1AZ, ErGw2AZ, ErGw3AZ) for **-GatewaySku** or use Non-AZ SKU (Standard, HighPerformance, UltraPerformance) for -GatewaySKU with Standard and Static Public IP.
+> 
+
 1. To connect with Azure, run `Connect-AzAccount`.
 
 1. Declare your variables for this tutorial. Be sure to edit the sample to reflect the settings that you want to use.
@@ -108,10 +112,6 @@ The steps for this task use a VNet based on the values in the following configur
    ```azurepowershell-interactive
    New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG -Location $Location -IpConfigurations $ipconf -GatewayType Expressroute -GatewaySku Standard
    ```
-> [!IMPORTANT]
-> If you plan to use IPv6-based private peering over ExpressRoute, make sure to select an AZ SKU (ErGw1AZ, ErGw2AZ, ErGw3AZ) for **-GatewaySku** or use Non-AZ SKU (Standard, HighPerformance, UltraPerformance) for -GatewaySKU with Standard and Static Public IP.
-> 
-> 
 
 ## Verify the gateway was created
 Use the following commands to verify that the gateway has been created:

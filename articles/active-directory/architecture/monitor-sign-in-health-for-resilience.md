@@ -65,7 +65,7 @@ Use the following instructions to create email alerts based on the queries refle
 - The successful usage drops by 90% from the same hour two days ago, as shown in the preceding hourly usage graph example.
 - The failure rate increases by 90% from the same hour two days ago, as shown in the preceding hourly failure rate graph example.
 
-To configure the underlying query and set alerts, complete the following steps using the sample query as the basis for your configuration. The query structure description appears at the end of this section. Learn how to create, view, and manage log alerts using Azure Monitor in [Manage log alerts](../../azure-monitor/alerts/alerts-log.md).
+To configure the underlying query and set alerts, complete the following steps using the sample query as the basis for your configuration. The query structure description appears at the end of this section. Learn how to create, view, and manage log alerts using Azure Monitor in [Manage log alerts](../../azure-monitor/alerts/alerts-create-new-alert-rule.md).
 
 1. In the workbook, select **Edit** as shown in the following screenshot. Select the **query icon** in the upper right corner of the graph.
 

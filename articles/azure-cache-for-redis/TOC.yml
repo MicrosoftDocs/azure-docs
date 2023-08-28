@@ -205,7 +205,7 @@
     - name: Management FAQs
       href: cache-management-faq.yml
     - name: Azure Functions
-      href: cache-how-to-functions.md
+      href: ../azure-functions/functions-bindings-cache.md
     - name: Role-based access control
       href: cache-configure-role-based-access-control.md
     - name: Azure AD for authentication

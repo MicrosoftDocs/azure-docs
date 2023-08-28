@@ -32,8 +32,10 @@ There are few exceptions to the retirement policy outlined above. Here is a list
 
 |Language Versions                        |EOL Date         |Retirement Date|
 |-----------------------------------------|-----------------|----------------|
+|Python 3.7|27 June 2023|30 September 2023|
 |Node 14|30 April 2023|30 June 2024|
 |Node 16|11 September 2023|30 June 2024|
+
 
 ## Language version support timeline
 
