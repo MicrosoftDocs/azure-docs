@@ -1,7 +1,7 @@
 ---
 title: Set up support information (lab account owner)
 description: Describes how a lab account owner can set support contact information. Lab creators and lab users can view and use it to get help. 
-ms.date: 04/25/2022
+ms.date: 08/28/2023
 ms.topic: how-to
 ms.custom: devdivchpfy22
 ---
