@@ -45,28 +45,12 @@ Prior to starting the migration, make sure you have prepared your Azure Cosmos D
 
 There are some high-level considerations when choosing the right MongoDB native tool for your offline migration.
 
-> [!NOTE]
-> The MongoDB native tools can move data only as fast as the host hardware allows.
+## Perform the migration
 
-| Scenario | MongoDB native tool |
-| --- | --- |
-| Move subset of database data (JSON/CSV-based) | *mongoexport/mongoimport* |
-| Move whole database (BSON-based) | *mongodump/mongorestore* |
-
-- *mongoexport/mongoimport* is the best pair of migration tools for migrating a subset of your MongoDB database.
-  - *mongoexport* exports your existing data to a human-readable JSON or CSV file. *mongoexport* takes an argument specifying the subset of your existing data to export. 
-  - *mongoimport* opens a JSON or CSV file and inserts the content into the target database instance (Azure Cosmos DB for MongoDB vCore in this case.). 
-  - JSON and CSV aren't a compact format; you may incur excess network charges as *mongoimport* sends data to Azure Cosmos DB for MongoDB vCore.
-- *mongodump/mongorestore* is the best pair of migration tools for migrating your entire MongoDB database. The compact BSON format makes more efficient use of network resources as the data is inserted into Azure Cosmos DB for MongoDB vCore.
-  - *mongodump* exports your existing data as a BSON file.
-  - *mongorestore* imports your BSON file dump into Azure Cosmos DB for MongoDB vCore.
+Migrate a collection from the source MongoDB instance to the target Azure Cosmos DB for MongoDB vCore account using your preferred native tool. For more information on selecting a tool, see [native MongoDB tools](migration-options.md#native-mongodb-tools-offline)
 
 > [!TIP]
 > If you simply have a small JSON file that you want to import into Azure Cosmos DB for MongoDB vCore, the *mongoimport* tool is a quick solution for ingesting the data.
-
-## Perform the migration
-
-Migrate a collection from the source MongoDB instance to the target Azure Cosmos DB for MongoDB vCore account using your preferred native tool.
 
 ### [mongoexport/mongoimport](#tab/export-import)
 
