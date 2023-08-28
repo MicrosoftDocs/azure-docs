@@ -88,7 +88,7 @@ After the command finishes execution, you should have a *.crt* and a *.key* file
 
 [!INCLUDE [active-directory-customers-app-integration-add-user-flow](./includes/register-app/add-client-app-certificate.md)]
 
-[!INCLUDE [remove-client-secret](./inlcudes/remove-client-secret.md)]
+[!INCLUDE [remove-client-secret](./includes/remove-client-secret.md)]
 
 ## Configure your Node.js app to use certificate
 
