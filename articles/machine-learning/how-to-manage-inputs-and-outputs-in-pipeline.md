@@ -19,6 +19,7 @@ In this article you learn:
 
 > [!div class="checklist"]
 > - Overview of inputs and outputs in component and pipeline
+> - How to promote component inputs/outputs to pipeline inputs/outputs
 > - How to define optional input
 > - How to customize output path
 > - How to download output
@@ -60,7 +61,7 @@ When you hover the mouse on an input/output port, the type is displayed.
  :::image type="content" source="./media/how-to-manage-pipeline-input-output/hover-port.png" lightbox="./media/how-to-manage-pipeline-input-output/hover-port.png" alt-text="Screenshot highlighting the port type when hovering the mouse.":::
 
 
-Note that the primitive type inputs will not be displayed on the graph. It can be found in the **Settings** tab of the pipeline (for pipeline level inputs) or the component panel(for component level inputs). Below screenshot shows the **Settings** tab of a pipeline job, it can be opened by click the **Job Overview link**. If you want to check inputs for a component, double click on the component to open component panel.
+Note that the primitive type inputs will not be displayed on the graph. It can be found in the **Settings** tab of the pipeline job overview panel (for pipeline level inputs) or the component panel(for component level inputs). Below screenshot shows the **Settings** tab of a pipeline job, it can be opened by click the **Job Overview link**. If you want to check inputs for a component, double click on the component to open component panel.
 
  :::image type="content" source="./media/how-to-manage-pipeline-input-output/job-overview-setting.png" lightbox="./media/how-to-manage-pipeline-input-output/job-overview-setting.png" alt-text="Screenshot highlighting the job overview setting panel":::
 
@@ -72,12 +73,13 @@ Similarly, when editing a pipeline in designer, you can find the pipeline inputs
 
 ## How to promote input& output to pipeline level
 
-Following is sample code to promote a component input/output to pipeline level input/output.
+Following are examples to promote component inputs/outputs to pipeline level inputs/outputs.
 
 # [Azure CLI](#tab/cli)
 
-[This](https://github.com/Azure/azureml-examples/blob/main/cli/jobs/pipelines-with-components/nyc_taxi_data_regression/pipeline.yml) is a pipeline yaml example that promotes three outputs to pipeline level outputs. Let's take `pipeline_job_trained_model` as example. It's declared under `outputs` section on root level, which means's its pipeline level output. Under `jobs -> train_job -> outputs` section, the output is referenced as `{{parent.outputs.pipeline_job_trained_model}}`, which indicates the `train_job` output is promoted to pipeline level output. Similarly, you can promote pipeline input using the same schema. 
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines-with-components/nyc_taxi_data_regression/pipeline.yml" range="1-69" highlight="8-16":::
 
+The full pipeline yaml can be found [here](https://github.com/Azure/azureml-examples/blob/main/cli/jobs/pipelines-with-components/nyc_taxi_data_regression/pipeline.yml).  This pipeline promotes three outputs to pipeline level outputs. Let's take `pipeline_job_trained_model` as example. It's declared under `outputs` section on root level, which means's its pipeline level output. Under `jobs -> train_job -> outputs` section, the output is referenced as `{{parent.outputs.pipeline_job_trained_model}}`, which indicates the `train_job` output is promoted to pipeline level output. Similarly, you can promote pipeline input using the same schema. 
 
 # [Python SDK](#tab/python)
 
@@ -99,7 +101,6 @@ ml_client = MLClient(
     DefaultAzureCredential(), subscription_id, resource_group, workspace
 )
 
-
 # define the dirtory that stores the input data 
 parent_dir = ""
 
@@ -112,8 +113,8 @@ score_data = load_component(source=parent_dir + "./score.yml")
 
 # Construct pipeline. 
 # Below code snippet defines nyc_taxi_data_regression pipeline.
-# The pipeline takes 1 input (pipeline_job_input) and generates 6      outputs as defined in return statement.
-# The pipeline outputs are promoted from the child component using schema in `step_name.outputs.output_name`.
+# The pipeline takes 1 input (pipeline_job_input) and generates 6 outputs as defined in return statement.
+# The pipeline outputs are promoted from the child component using schema as <step_name.outputs.output_name>.
 # for example `prepare_sample_data.outputs.prep_data`.  
 @pipeline()
 def nyc_taxi_data_regression(pipeline_job_input):
@@ -141,7 +142,6 @@ def nyc_taxi_data_regression(pipeline_job_input):
         "pipeline_job_predictions": predict_with_sample_data.outputs.predictions,
         "pipeline_job_score_report": score_with_sample_data.outputs.score_report,
     }
-
 # 
 pipeline_job = nyc_taxi_data_regression(
     Input(type="uri_folder", path=parent_dir + "./data/")
@@ -156,7 +156,6 @@ pipeline_job.settings.default_datastore = "workspaceblobstore"
 ```
 
 The working notebook example in [azureml-example repo](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/pipelines/2c_nyc_taxi_data_regression/nyc_taxi_data_regression.ipynb)
-
 
 # [Studio](#tab/azure-studio)
 
@@ -183,7 +182,6 @@ When the input is set as `optional = true`, you need use `$[[]]` to embrace the 
 In the pipeline graph, the Data/Model type optional input renders as dotted circle. the primitive type optional inputs can be found under **Settings** tab, there won't be a red star for optional input, which indicates this input isn't required. 
 
  :::image type="content" source="./media/how-to-manage-pipeline-input-output/optional-input.png" lightbox="./media/how-to-manage-pipeline-input-output/optional-input.png" alt-text="Screenshot highlighting the optional input":::
-
 
 
 ## How to customize output path?
@@ -359,4 +357,3 @@ pipeline = register_node_output()
 pipeline.settings.default_compute = "azureml:cpu-cluster"
 ```
 ---
-
