@@ -29,7 +29,7 @@ Once you launch the Secure Shell (SSH), let us start downloading the dependencie
    ```
 
 ### Start the Flink SQL Client
-A detailed explanation is given on how to get started with Flink SQL Client using [Secure Shell](../flink/flink-webssh-on-portal-to-flink-sql.md) on Azure portal. You're required to start the SQL Client as described on the article by running the following command. 
+A detailed explanation is given on how to get started with Flink SQL Client using [Secure Shell](./flink-web-ssh-on-portal-to-flink-sql.md) on Azure portal. You're required to start the SQL Client as described on the article by running the following command. 
 ```
 ./bin/sql-client.sh
 ```
