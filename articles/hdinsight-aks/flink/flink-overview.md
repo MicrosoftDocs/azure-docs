@@ -69,7 +69,7 @@ Backends determine where state is stored. Stream processing applications are oft
 
 When checkpointing is activated, such state is persisted upon checkpoints to guard against data loss and recover consistently. How the state is represented internally, and how and where it's persisted upon checkpoints depends on the chosen **State Backend**. HDInsight on AKS uses the RocksDB  as default StateBackend.
 
-**Supported statebackends:**
+**Supported state backends:**
 
 * HashMapStateBackend
 * EmbeddedRocksDBStateBackend
