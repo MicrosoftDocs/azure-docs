@@ -57,7 +57,7 @@ Use the connection details below to connect compute services to Blob Storage. Fo
 | azure.storage.blob-endpoint | Your Blob Storage endpoint     | `https://<storage-account-name>.blob.core.windows.net/` |
 
 
-### system-assigned managed identity
+### System-assigned managed identity
 
 | Default environment variable name  | Description           | Example value                                           |
 |------------------------------------|-----------------------|---------------------------------------------------------|

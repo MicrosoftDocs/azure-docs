@@ -32,7 +32,7 @@ Supported authentication and clients for App Service, Container Apps and Azure S
 
 Use the connection details below to connect compute services to Azure Table Storage. For each example below, replace the placeholder texts `<account-name>` and `<account-key>` with your own account name and account key.
 
-### .NET, Java, Node.JS and Python secret / connection string
+### Secret / connection string
 
 | Default environment variable name   | Description                     | Example value                                                                                                        |
 |-------------------------------------|---------------------------------|----------------------------------------------------------------------------------------------------------------------|

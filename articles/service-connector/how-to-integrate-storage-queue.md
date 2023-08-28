@@ -46,7 +46,7 @@ Use the connection details below to connect compute services to Queue Storage. F
 |-------------------------------------|---------------------------------|----------------------------------------------------------------------------------------------------------------------|
 | AZURE_STORAGEQUEUE_CONNECTIONSTRING | Queue storage connection string | `DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net` |
 
-#### Java - Spring Boot secret / connection string
+#### Java - Spring Boot
 
 | Application properties                 | Description                | Example value            |
 |----------------------------------------|----------------------------|--------------------------|
