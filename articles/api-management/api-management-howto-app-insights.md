@@ -77,7 +77,7 @@ Follow these steps to use the Azure portal to create a connection between Applic
 
 ## Create a connection using the REST API, Bicep, or ARM template
 
-Follow these steps to use the REST API, Bicep, or ARM template to create a connection between Application Insights and API Management. You can configure a logger that uses a connection string, system-assigned identity, or user-assigned identity.
+Follow these steps to use the REST API, Bicep, or ARM template to create a connection between Application Insights and API Management. You can configure a logger that uses a connection string, system-assigned managed identity, or user-assigned managed identity.
 
 ### Logger with connection string credentials
 
@@ -104,7 +104,7 @@ Use the API Management [REST API](/rest/api/apimanagement/current-preview/logger
 Include a snippet similar to the following in your Bicep template.
 
 ```Bicep
-resource aiLoggerWithSystemAssignedIdentity 'Microsoft.ApiManagement/service/loggers@2022-04-01-preview' = {
+resource aiLoggerWithSystemAssignedIdentity 'Microsoft.ApiManagement/service/loggers@2022-08-01' = {
   name: 'ContosoLogger1'
   parent: '<APIManagementInstanceName>'
   properties: {
@@ -124,7 +124,7 @@ Include a JSON snippet similar to the following in your Azure Resource Manager t
 ```JSON
 {
   "type": "Microsoft.ApiManagement/service/loggers",
-  "apiVersion": "2022-04-01-preview",
+  "apiVersion": "2022-08-01",
   "name": "ContosoLogger1",
   "properties": {
     "loggerType": "applicationInsights",
@@ -165,7 +165,7 @@ Use the API Management [REST API](/rest/api/apimanagement/current-preview/logger
 Include a snippet similar to the following in your Bicep template.
 
 ```Bicep
-resource aiLoggerWithSystemAssignedIdentity 'Microsoft.ApiManagement/service/loggers@2022-04-01-preview' = {
+resource aiLoggerWithSystemAssignedIdentity 'Microsoft.ApiManagement/service/loggers@2022-08-01' = {
   name: 'ContosoLogger1'
   parent: '<APIManagementInstanceName>'
   properties: {
@@ -186,7 +186,7 @@ Include a JSON snippet similar to the following in your Azure Resource Manager t
 ```JSON
 {
   "type": "Microsoft.ApiManagement/service/loggers",
-  "apiVersion": "2022-04-01-preview",
+  "apiVersion": "2022-08-01",
   "name": "ContosoLogger1",
   "properties": {
     "loggerType": "applicationInsights",
@@ -195,7 +195,7 @@ Include a JSON snippet similar to the following in your Azure Resource Manager t
     "credentials": {
       "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://xxxx.applicationinsights.azure.com/;...",
       "identityClientId": "SystemAssigned"
-    },
+    }
   }
 }
 ```
@@ -227,7 +227,7 @@ Use the API Management [REST API](/rest/api/apimanagement/current-preview/logger
 Include a snippet similar the following in your Bicep template.
 
 ```Bicep
-resource aiLoggerWithUserAssignedIdentity 'Microsoft.ApiManagement/service/loggers@2022-04-01-preview' = {
+resource aiLoggerWithUserAssignedIdentity 'Microsoft.ApiManagement/service/loggers@2022-08-01' = {
   name: 'ContosoLogger1'
   parent: '<APIManagementInstanceName>'
   properties: {
@@ -248,7 +248,7 @@ Include a JSON snippet similar to the following in your Azure Resource Manager t
 ```JSON
 {
   "type": "Microsoft.ApiManagement/service/loggers",
-  "apiVersion": "2022-04-01-preview",
+  "apiVersion": "2022-08-01",
   "name": "ContosoLogger1",
   "properties": {
     "loggerType": "applicationInsights",
@@ -257,7 +257,7 @@ Include a JSON snippet similar to the following in your Azure Resource Manager t
     "credentials": {
       "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://xxxx.applicationinsights.azure.com/;...",
       "identityClientId": "<ClientID>"
-    },
+    }
   }
 }
 ```
