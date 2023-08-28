@@ -48,8 +48,8 @@
       href: how-to-scale-cluster.md
     - name: Restore cluster
       href: how-to-restore-cluster.md
-    - name: Perform text search
-      href: how-to-text-indexes.md
+    - name: Search and query text
+      href: how-to-create-text-index.md
 - name: Reference
   items:
     - name: Troubleshoot common issues
