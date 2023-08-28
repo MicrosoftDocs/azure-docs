@@ -288,6 +288,9 @@
       - name: Build queries with cloud security explorer
         displayName: queries, security explorer, explorer, templates, query
         href: how-to-manage-cloud-security-explorer.md
+      - name: Testing the attack path and security explorer
+        displayName: attack paths, paths, security explorer, test 
+        href: how-to-test-attack-path-and-security-explorer-with-vulnerable-container-image.md
   - name: Data-aware security posture
     items:
     - name: Enable data-aware security posture

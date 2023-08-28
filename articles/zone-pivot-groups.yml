@@ -1103,18 +1103,16 @@ groups:
     title: Linux
   - id: platform-sphere
     title: Azure Sphere
-- id: app-service-platform-environment
-  title: App Service platform and development tool
-  prompt: Choose a hosting platform and development tool
+- id: app-service-java-hosting
+  title: App Service Java hosting
+  prompt: Choose how you want to deploy your Java app
   pivots:
-  - id: platform-linux-development-environment-maven
-    title: Linux with Maven
-  - id: platform-linux-development-environment-azure-portal
-    title: Linux with Azure portal
-  - id: platform-windows-development-environment-maven
-    title: Windows with Maven
-  - id: platform-windows-development-environment-azure-portal
-    title: Windows with Azure portal
+  - id: java-maven-quarkus
+    title: Embed your own server
+  - id: java-maven-tomcat
+    title: To a Tomcat server
+  - id: java-maven-jboss
+    title: To a JBoss server
 - id: app-service-containers-windows-linux
   title: App Service with custom containers
   prompt: Choose a custom container platform

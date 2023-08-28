@@ -20,7 +20,7 @@ Live trace tool is a single web application for capturing and displaying live tr
 
 > [!NOTE]
 > When enable access key, you'll use access token to authenticate live trace tool.
-> Otherwise, you'll use Azure AD to authenticate live trace tool.
+> Otherwise, you'll use Microsoft Entra ID to authenticate live trace tool.
 > You can check whether you enable access key or not in your SignalR Service's Keys page in Azure portal.
 
 ### Steps for access key enabled

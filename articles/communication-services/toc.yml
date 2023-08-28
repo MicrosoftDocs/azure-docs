@@ -144,6 +144,8 @@ items:
       href: quickstarts/telephony/get-trial-phone-number.md
     - name: Make an outbound call
       href: quickstarts/call-automation/quickstart-make-an-outbound-call.md
+    - name: Add a Microsoft Teams user to an existing call
+      href: how-tos/call-automation/teams-interop-call-automation.md
     - name: Add outbound phone calling to your app
       href: quickstarts/telephony/pstn-call.md
     - name: Configure direct routing
@@ -809,6 +811,8 @@ items:
         href: concepts/call-automation/play-action.md
       - name: Gathering user input 
         href: concepts/call-automation/recognize-action.md
+      - name: Add Microsoft Teams users in Call Automation workflows
+        href: concepts/call-automation/call-automation-teams-interop.md
     - name: Call recording
       href: concepts/voice-video-calling/call-recording.md
     - name: Events
