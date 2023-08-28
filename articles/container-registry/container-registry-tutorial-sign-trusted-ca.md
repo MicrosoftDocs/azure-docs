@@ -275,6 +275,20 @@ To import a certificate, follow these steps:
     ```
    Upon successful verification of the image using the trust policy, the sha256 digest of the verified image is returned in a successful output message.
 
+## FAQ
+
+- What should I do if the certificate is expired? 
+  
+  If the certificate has expired, it invalidates the signature. To resolve this issue, you should renew the certificate and re-sign container images. Learn more about [Renew your Azure Key Vault certificates](../key-vault/certificates/overview-renew-certificate.md).
+
+- What should I do if the root certificate is expired? 
+
+  If the root certificate has expired, it invalidates the signature. To resolve this issue, you should obtain a new certificate from a trusted CA vendor and re-sign the container images. Replace the expired root certificate with the new one from the CA vendor.
+
+- What should I do if the certificate is revoked?
+
+  If the certificate is revoked, it invalidates the signature. The most common reason for revoking a certificate is when the certificate’s private key has been compromised. To resolve this issue, you should obtain a new certificate from a trusted CA vendor and re-sign container images.
+
 ## Next steps
 
 See [Ratify on Azure: Allow only signed images to be deployed on AKS with Notation and Ratify](https://github.com/deislabs/ratify/blob/main/docs/quickstarts/ratify-on-azure.md).
