@@ -69,12 +69,12 @@ Backends determine where state is stored. Stream processing applications are oft
 
 When checkpointing is activated, such state is persisted upon checkpoints to guard against data loss and recover consistently. How the state is represented internally, and how and where it's persisted upon checkpoints depends on the chosen **State Backend**. HDInsight on AKS uses the RocksDB  as default StateBackend.
 
-### Supported `statebackends`:
+**Supported state backends:**
 
 * HashMapStateBackend
 * EmbeddedRocksDBStateBackend
 
-### The `HashMapStateBackend`
+### The HashMapStateBackend
 
 The `HashMapStateBackend` holds data internally as objects on the Java heap. Key/value state and window operators hold hash tables that store the values, triggers, etc.
 
@@ -86,7 +86,7 @@ The HashMapStateBackend is encouraged for:
 it 's also recommended to set managed memory to zero. This value ensures that the maximum amount of memory is allocated for user code on the JVM.
 Unlike `EmbeddedRocksDBStateBackend`, the `HashMapStateBackend` stores data as objects on the heap so that it 's unsafe to reuse objects.
 
-### The `EmbeddedRocksDBStateBackend`
+### The EmbeddedRocksDBStateBackend
 
 The `EmbeddedRocksDBStateBackend` holds in-flight data in a [RocksDB](http://rocksdb.org) database that is (per default). Unlike storing java objects in `HashMapStateBackend`, data is stored as serialized byte arrays, which mainly define the type serializer, resulting in key comparisons being byte-wise instead of using Java’s `hashCode()` and `equals()` methods.
 

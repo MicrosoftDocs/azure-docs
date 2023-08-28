@@ -45,8 +45,8 @@ Submitting a job means to upload the job’s JAR to the SSH pod and initiating t
 > For managing dependencies, the expectation is to build and submit a fat jar for the job. 
 
 - Upload the fat job jar from ABFS to webssh.
-- Based on your use case, you're required to edit client configurations at `conf/flink-conf.yaml`
-  :::image type="content" source="./media/flink-web-ssh-on-portal-to-flink-sql/flink-configuration-yaml.png" alt-text="Screenshot showing how to configure the Flink config yaml on CLI.":::
+- Based on your use case, you’re required to edit the client configurations using [Flink configuration management](../flink/flink-configuration-management.md) under flink-client-configs.
+ 
 - Let us run StateMachineExample.jar
 
   ```

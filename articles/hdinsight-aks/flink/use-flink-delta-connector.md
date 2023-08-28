@@ -393,7 +393,7 @@ In this example, we're using a bounded state of delta source.
     }
    ```
 
-1. Call the read class while submitting the job using [Flink CLI](../flink/flink-webssh-on-portal-to-flink-sql.md).
+1. Call the read class while submitting the job using [Flink CLI](./flink-web-ssh-on-portal-to-flink-sql.md).
 
    :::image type="content" source="./media/use-flink-delta-connector/call-the-read-class.png" alt-text="Screenshot showing how to call the read class file." lightbox="./media/use-flink-delta-connector/call-the-read-class.png":::
 
@@ -445,9 +445,7 @@ The delta sink is used for writing the data to a delta table in ADLS gen2. The d
     }
    ```
 1. Call the delta sink class while submitting the job via Flink CLI. 
-1. Specify the account key of the storage account in `flink-conf.yaml` file of the client `ssh` machine.
-
-   :::image type="content" source="./media/use-flink-delta-connector/view-storage-account-in-flink-conf-yaml.png" alt-text="Screenshot showing storage account in flink.conf.yaml file." lightbox="./media/use-flink-delta-connector/view-storage-account-in-flink-conf-yaml.png":::
+1. Specify the account key of the storage account in `flink-client-config` using [Flink configuration management](../flink/flink-configuration-management.md). You can specify the account key of the storage account in Flink config. `fs.azure.<storagename>.dfs.core.windows.net : <KEY >`
 
    :::image type="content" source="./media/use-flink-delta-connector/call-the-delta-sink-class.png" alt-text="Screenshot showing how to call the delta sink class." lightbox="./media/use-flink-delta-connector/call-the-delta-sink-class.png":::
 
