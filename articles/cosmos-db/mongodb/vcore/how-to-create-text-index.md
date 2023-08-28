@@ -17,7 +17,7 @@ ms.date: 08/28/2023
 
 One of the key features that Azure Cosmos DB for MongoDB vCore provides is text indexing, which allows for efficient searching and querying of text-based data. The service implements **version 2** text indexes. Version 2 supports case sensitivity but not diacritic sensitivity.
 
-Text indexes in Azure Cosmos DB for MongoDB are special data structures that optimize text-based queries, making them faster and more efficient. They are designed to handle textual content like documents, articles, comments, or any other text-heavy data. Text indexes use techniques such as tokenization, stemming, and stop words to create an index that improves the performance of text-based searches.
+Text indexes in Azure Cosmos DB for MongoDB are special data structures that optimize text-based queries, making them faster and more efficient. They're designed to handle textual content like documents, articles, comments, or any other text-heavy data. Text indexes use techniques such as tokenization, stemming, and stop words to create an index that improves the performance of text-based searches.
 
 ## Prerequisites
 
@@ -27,10 +27,10 @@ Text indexes in Azure Cosmos DB for MongoDB are special data structures that opt
 
 ## Define a text index
 
-For simplicity let us consider an example of a blog application with the following setup:
+For simplicity, let us consider an example of a blog application with the following setup:
 
-- **Database name**: `publishing`
-- **Collection name**: `articles`
+- **Database name**: `cosmicworks`
+- **Collection name**: `products`
 
 This example application stores articles as documents with the following structure:
 
@@ -48,9 +48,9 @@ This example application stores articles as documents with the following structu
 1. Use the `createIndex` method with the `text` option to create a text index on the `title` field.
 
     ```javascript
-    use test;
+    use cosmicworks;
 
-    db.articles.createIndex({ title: "text" })
+    db.products.createIndex({ title: "text" })
     ```
 
     > [!NOTE]
@@ -59,17 +59,17 @@ This example application stores articles as documents with the following structu
 1. Optionally, create an index to support search on both the `title` and `content` fields.
 
     ```javascript
-    db.articles.createIndex({ title: "text", content: "text" })
+    db.products.createIndex({ title: "text", content: "text" })
     ```
 
 ## Configure text index options
 
 Text indexes in Azure Cosmos DB for MongoDB come with several options to customize their behavior. For example, you can specify the language for text analysis, set weights to prioritize certain fields, and configure case-insensitive searches. Here's an example of creating a text index with options:
 
-1. Create an index to support search on both the `title` and `content` fields with English language support. Also, assign assign higher weights to the `title` field to prioritize it in search results.
+1. Create an index to support search on both the `title` and `content` fields with English language support. Also, assign higher weights to the `title` field to prioritize it in search results.
 
     ```javascript
-    db.articles.createIndex(
+    db.products.createIndex(
         { title: "text", content: "text" },
         { default_language: "english", weights: { title: 10, content: 5 }, caseSensitive: false }
     )
@@ -77,12 +77,12 @@ Text indexes in Azure Cosmos DB for MongoDB come with several options to customi
 
 ### Weights in text indexes
 
-When creating a text index, you have the option to assign different weights to individual fields in the index. These weights represent the importance or relevance of each field in the search. When executing a text search query, Azure Cosmos DB for MongoDB vCore will calculate a score for each document based on the search terms and the assigned weights of the indexed fields. The score represents the relevance of the document to the search query.
+When creating a text index, you can assign different weights to individual fields in the index. These weights represent the importance or relevance of each field in the search. Azure Cosmos DB for MongoDB vCore calculates a score and assigned weights for each document based on the search terms when executing a text search query. The score represents the relevance of the document to the search query.
 
 1. Create an index to support search on both the `title` and `content` fields. Assign a weight of 2 to the "title" field and a weight of 1 to the "content" field.
 
     ```javascript 
-    db.articles.createIndex(
+    db.products.createIndex(
     { title: "text", content: "text" },
     { weights: { title: 2, content: 1 } }
     )
@@ -98,7 +98,7 @@ Once the text index is created, you can perform text searches using the "text" o
 1. Perform a text search for the phrase `Cosmos DB`.
 
     ```javascript
-    db.articles.find(
+    db.products.find(
         { $text: { $search: "Cosmos DB" } }
     )
     ```
@@ -106,7 +106,7 @@ Once the text index is created, you can perform text searches using the "text" o
 1. Optionally, use the `$meta` projection operator along with the `textScore` field in a query to see the weight
 
     ```javascript
-    db.articles.find(
+    db.products.find(
         { $text: { $search: "Cosmos DB" } },
         { score: { $meta: "textScore" } }
     )
@@ -119,21 +119,21 @@ To drop a text index in MongoDB, you can use the `dropIndex()` method on the col
 1. Drop a text index by explicitly specifying the key.
 
     ```javascript
-    db.articles.dropIndex({ title: "text" })
+    db.products.dropIndex({ title: "text" })
     ```
 
 1. Optionally, drop a text index by specifying the autogenerated unique name.
 
     ```javascript
-    db.articles.dropIndex("title_text")
+    db.products.dropIndex("title_text")
     ```
 
 ## Text index limitations
 
 - Only one text index can be defined on a collection.
-- Text indexes support simple text searches and do not provide advanced search capabilities like regular expression searches.
-- Hint() is not supported in combination with a query using $text expression.
-- Sort operations cannot leverage the ordering of the text index in MongoDB.
+- Text indexes support simple text searches and don't provide advanced search capabilities like regular expression searches.
+- Hint() isn't supported in combination with a query using $text expression.
+- Sort operations can't use the ordering of the text index in MongoDB.
 - Text indexes can be relatively large, consuming significant storage space compared to other index types.
 
 ## Next steps
