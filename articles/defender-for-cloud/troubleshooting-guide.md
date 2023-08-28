@@ -161,7 +161,7 @@ You should [check which account](https://app.vssps.visualstudio.com/profile/view
 
     :::image type="content" source="./media/troubleshooting-guide/authorize-select-tenant.png" alt-text="Screenshot of the Azure DevOps profile page that is used to select an account.":::
 
-The first time you authorize the Microsoft Security application, you are given the ability to select an account. However, each time you login after that, the page defaults to the logged in account without giving you the chance to select an account.
+The first time you authorize the Microsoft Security application, you are given the ability to select an account. However, each time you log in after that, the page defaults to the logged in account without giving you the chance to select an account.
 
 **To change the default account**:
 

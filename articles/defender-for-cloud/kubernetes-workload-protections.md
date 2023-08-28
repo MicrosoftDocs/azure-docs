@@ -5,7 +5,7 @@ ms.topic: how-to
 author: dcurwin
 ms.author: dacurwin
 ms.custom: ignite-2022
-ms.date: 07/11/2023
+ms.date: 08/28/2023
 ---
 
 # Protect your Kubernetes data plane hardening
@@ -75,6 +75,7 @@ You can manually configure the Azure Policy for Kubernetes on existing Kubernete
 
 > [!NOTE]
 > For AWS it isn't possible to do onboarding at scale using the connector, but it can be installed on all existing clusters or on specific clusters using the recommendation [Azure Arc-enabled Kubernetes clusters should have the Azure policy extension for Kubernetes should be installed](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/0642d770-b189-42ef-a2ce-9dcc3ec6c169/subscriptionIds~/%5B%22212f9889-769e-45ae-ab43-6da33674bd26%22%2C%2204cd6fff-ef34-415e-b907-3c90df65c0e5%22%5D/showSecurityCenterCommandBar~/false/assessmentOwners~/null).
+
 **To deploy the** **Azure Policy for Kubernetes** **to specified clusters**:
 
 1. From the recommendations page, search for the relevant recommendation:
