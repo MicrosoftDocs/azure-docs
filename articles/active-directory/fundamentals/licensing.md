@@ -196,10 +196,7 @@ Restricted management administrative units require an Azure AD Premium P1 licens
 |Customizable user sign-in page|x|x|x||
 
 
-## Verified ID
-
-Verified ID is currently included with any Azure Active Directory subscription, including Azure AD Free, at no additional cost. For information about Verified ID and how to enable it, see [Verified ID overview](../verifiable-credentials/decentralized-identifier-overview.md).
-
+[!INCLUDE [Managed identities](../includes/licensing-managed-identities.md)]
 
 ## Workload Identities
 
