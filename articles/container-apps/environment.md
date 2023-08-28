@@ -27,23 +27,22 @@ Environments include the following features:
 
 Depending on your needs, you may want to use one or more Container Apps environments. Use the following criteria to help you decide if you should use a single or multiple environments.
 
-:::row:::
-   :::column span="":::
-      ### Single environment
-      Use a single environment when you want to:
-      - Manage related services
-      - Deploy different applications to the same virtual network
-      - Instrument Dapr applications that communicate via the Dapr service invocation API
-      - Have applications to share the same Dapr configuration
-      - Have applications share the same log analytics workspace
-   :::column-end:::
-   :::column span="":::
-      ### Multiple environments
-      Use more than one environment when you want two or more applications to:
-      - Never share the same compute resources
-      - Not communicate via the Dapr service invocation API
-   :::column-end:::
-:::row-end:::
+### Single environment
+
+Use a single environment when you want to:
+
+- Manage related services
+- Deploy different applications to the same virtual network
+- Instrument Dapr applications that communicate via the Dapr service invocation API
+- Have applications to share the same Dapr configuration
+- Have applications share the same log analytics workspace
+
+### Multiple environments
+
+Use more than one environment when you want two or more applications to:
+
+- Never share the same compute resources
+- Not communicate via the Dapr service invocation API
 
 ## Types
 
