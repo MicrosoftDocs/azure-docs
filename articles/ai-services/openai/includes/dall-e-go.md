@@ -1,17 +1,19 @@
 ---
-title: 'Quickstart: Use the OpenAI Service image generation REST APIs'
+title: 'Quickstart: Use the OpenAI Service image generation Go SDK'
 titleSuffix: Azure OpenAI Service
-description: Walkthrough on how to get started with Azure OpenAI image generation using the REST API. 
+description: Walkthrough on how to get started with Azure OpenAI image generation using the Go SDK. 
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: include
-ms.date: 06/04/2023
+ms.date: 08/28/2023
 keywords: 
 ---
 
-Use this guide to get started calling the image generation APIs using the Python SDK.
+Use this guide to get started calling the image generation APIs using the Go SDK.
+
+[Source code](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/ai/azopenai) | [Package](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/cognitiveservices/azopenai) | [Samples](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/ai/azopenai)
 
 > [!NOTE]
 > The image generation API creates an image from a text prompt. It does not edit existing images or create variations.
@@ -21,9 +23,10 @@ Use this guide to get started calling the image generation APIs using the Python
 - An Azure subscription - <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>
 - Access granted to DALL-E in the desired Azure subscription
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Existing Azure OpenAI customers need to re-enter the form to get access to DALL-E. Open an issue on this repo to contact us if you have an issue.
-- <a href="https://www.python.org/" target="_blank">Python 3.7.1 or later version</a>
-- The following Python libraries: os, requests, json
-- An Azure OpenAI resource created in the East US region. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
+* [Go 1.8+](https://go.dev/doc/install)
+* Once you have your Azure subscription, <a href="tbd"  title="create an Azure OpenAI resource"  target="_blank">create a Vision resource</a> in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
+    * You need the key and endpoint from the resource you create to connect your application to the Azure AI Vision service.
+    * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
 ## Retrieve key and endpoint
 
@@ -36,80 +39,131 @@ To successfully make a call against Azure OpenAI, you'll need the following:
 
 Go to your resource in the Azure portal. The **Endpoint and Keys** can be found in the **Resource Management** section. Copy your endpoint and access key as you'll need both for authenticating your API calls. You can use either `KEY1` or `KEY2`. Always having two keys allows you to securely rotate and regenerate keys without causing a service disruption.
 
-## Install the Python SDK
 
-Open the command prompt and navigate to your project folder. Install the OpenAI Python SDK using the following command: 
+### Environment variables
 
-```bash
-pip install openai
-```
-Install the following libraries as well:
+# [Command Line](#tab/command-line)
 
-```bash
-pip install requests
-pip install pillow 
+```CMD
+setx AZURE_OPENAI_KEY "REPLACE_WITH_YOUR_KEY_VALUE_HERE" 
 ```
 
-## Create a new Python application
+```CMD
+setx AZURE_OPENAI_ENDPOINT "REPLACE_WITH_YOUR_ENDPOINT_HERE" 
+```
 
-Create a new Python file called quickstart.py. Then open it in your preferred editor or IDE.
+# [PowerShell](#tab/powershell)
 
-1. Replace the contents of quickstart.py with the following code. Enter your endpoint URL and key in the appropriate fields.
+```powershell
+[System.Environment]::SetEnvironmentVariable('AZURE_OPENAI_KEY', 'REPLACE_WITH_YOUR_KEY_VALUE_HERE', 'User')
+```
 
-    ```python
-    import openai
-    import os
-    import requests
-    from PIL import Image
+```powershell
+[System.Environment]::SetEnvironmentVariable('AZURE_OPENAI_ENDPOINT', 'REPLACE_WITH_YOUR_ENDPOINT_HERE', 'User')
+```
 
-    openai.api_base = '<your_openai_endpoint>' # Add your endpoint here
-    openai.api_key = '<your_openai_key>'  # Add your api key here
+# [Bash](#tab/bash)
 
-    # At the moment Dall-E is only supported by the 2023-06-01-preview API version
-    openai.api_version = '2023-06-01-preview'
+```Bash
+echo export AZURE_OPENAI_KEY="REPLACE_WITH_YOUR_KEY_VALUE_HERE" >> /etc/environment && source /etc/environment
+```
 
-    openai.api_type = 'azure'
+```Bash
+echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/environment && source /etc/environment
+```
+---
 
-    # Create an image using the image generation API
-    generation_response = openai.Image.create(
-        prompt='A painting of a dog',
-        size='1024x1024',
-        n=2
-    )
+## Install the Go SDK
 
-    # Set the directory where we'll store the image
-    image_dir = os.path.join(os.curdir, 'images')
-    # If the directory doesn't exist, create it
-    if not os.path.isdir(image_dir):
-        os.mkdir(image_dir)
+Open the command prompt and navigate to your project folder. Install the OpenAI Go SDK using the following command: 
 
-    # With the directory in place, we can initialize the image path (note that filetype should be png)
-    image_path = os.path.join(image_dir, 'generated_image.png')
+```shell
+go get github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai@latest```
 
-    # Now we can retrieve the generated image
-    image_url = generation_response["data"][0]["url"]  # extract image URL from response
-    generated_image = requests.get(image_url).content  # download the image
-    with open(image_path, "wb") as image_file:
-        image_file.write(generated_image)
+or if you use `dep`, within your repo run:
+```shell
+dep ensure -add github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai
+```
 
-    # Display the image in the default image viewer
-    display(Image.open(image_path))
-    ```
+## Create the OpenAI project
 
-    > [!IMPORTANT]
-    > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials. For example, [Azure Key Vault](../../../key-vault/general/overview.md).
+Create a new file called *sample.go* in your preferred project directory, and open it in your preferred code editor.
 
-1. Run the application with the `python` command:
+Add the following code to your script to create a new Custom Vision service project.
 
-    ```console
-    python quickstart.py
-    ```
+```go
+package main
 
-    The script will loop until the generated image is ready.
+import (
+	"context"
+	"fmt"
+	"net/http"
+	"os"
+
+	"github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai"
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore/to"
+)
+
+func main() {
+	azureOpenAIKey := os.Getenv("AZURE_OPENAI_KEY")
+
+	// Ex: "https://<your-azure-openai-host>.openai.azure.com"
+	azureOpenAIEndpoint := os.Getenv("AZURE_OPENAI_KEY")
+
+	if azureOpenAIKey == "" || azureOpenAIEndpoint == "" {
+		fmt.Fprintf(os.Stderr, "Skipping example, environment variables missing\n")
+		return
+	}
+
+	keyCredential, err := azopenai.NewKeyCredential(azureOpenAIKey)
+
+	if err != nil {
+		// handle error
+	}
+
+	client, err := azopenai.NewClientWithKeyCredential(azureOpenAIEndpoint, keyCredential, nil)
+
+	if err != nil {
+		// handle error
+	}
+
+	resp, err := client.CreateImage(context.TODO(), azopenai.ImageGenerationOptions{
+		Prompt:         to.Ptr("a painting of a cat in the style of Dali"),
+		ResponseFormat: to.Ptr(azopenai.ImageGenerationResponseFormatURL),
+	}, nil)
+
+	if err != nil {
+		// handle error
+	}
+
+	for _, generatedImage := range resp.Data {
+		// the underlying type for the generatedImage is dictated by the value of
+		// ImageGenerationOptions.ResponseFormat. In this example we used `azopenai.ImageGenerationResponseFormatURL`,
+		// so the underlying type will be ImageLocation.
+
+		resp, err := http.Head(*generatedImage.URL)
+
+		if err != nil {
+			// handle error
+		}
+
+		fmt.Fprintf(os.Stderr, "Image generated, HEAD request on URL returned %d\nImage URL: %s\n", resp.StatusCode, *generatedImage.URL)
+	}
+}
+```
+
+Run *sample.go*.
+
+```shell
+go run sample.go
+```
 
 ## Output
 
-The output image will be downloaded to _generated_image.png_ at your specified location. The script will also display the image in your default image viewer.
+```console
+Image generated, HEAD request on URL returned 200
+Image URL: https://dalleproduse.blob.core.windows.net/private/images/d7b28a5c-ca32-4792-8c2a-6a5d8d8e5e45/generated_00.png?se=2023-08-29T17%3A05%3A37Z&sig=loqntaPypYVr9VTT5vpbsjsCz31g1GsdoQi0smbGkks%3D&ske=2023-09-02T18%3A53%3A23Z&skoid=09ba021e-c417-441c-b203-c81e5dcd7b7f&sks=b&skt=2023-08-26T18%3A53%3A23Z&sktid=33e01921-4d64-4f8c-a055-5bdaffd5e33d&skv=2020-10-02&sp=r&spr=https&sr=b&sv=2020-10-02
+```
 
 The image generation APIs come with a content moderation filter. If the service recognizes your prompt as harmful content, it won't return a generated image. For more information, see the [content filter](../concepts/content-filter.md) article.
 
