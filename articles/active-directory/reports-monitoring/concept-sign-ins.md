@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/22/2023
+ms.date: 08/28/2023
 ms.author: sarahlipsey
 ms.reviewer: besiler
 ---
@@ -56,9 +56,6 @@ Interactive user sign-ins provide an authentication factor to Azure AD. That aut
 
 :::image type="content" source="media/concept-sign-ins/sign-in-logs-user-interactive.png" alt-text="Screenshot of the interactive user sign-ins log." lightbox="media/concept-sign-ins/sign-in-logs-user-interactive-expanded.png":::
 
-> [!NOTE] 
-> The interactive user sign-in log previously contained some non-interactive sign-ins from Microsoft Exchange clients. Although those sign-ins were non-interactive, they were included in the interactive user sign-in log for additional visibility. Once the non-interactive user sign-in log entered public preview in November 2020, those non-interactive sign-in logs were moved to the non-interactive user sign-in log for increased accuracy. 
-
 **Report size:** small </br>
 **Examples:**
 
@@ -71,6 +68,12 @@ In addition to the default fields, the interactive sign-in log also shows:
 
 - The sign-in location
 - Whether Conditional Access has been applied
+
+#### Known limitations
+
+The interactive user sign-in log previously contain some non-interactive sign-ins from Microsoft Exchange clients. Although those sign-ins are non-interactive, they are included in the interactive user sign-in log for additional visibility. This behavior is expected, because before the non-interactive user sign-in logs entered public preview in November 2020, those non-interactive sign-in logs were included in the interactive user sign-in logs.
+
+For example, some sign-ins using the FIDO2 keys are shown as interactive user sign-ins. The details of this type of sign-in display interactive details, such as **Client credential type: Client assertion** and **Broswer: rich Client 4.0.0.0**.
 
 ### Non-interactive user sign-ins
 
