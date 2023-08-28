@@ -186,7 +186,7 @@ The run conditions are based on age. Current versions use the last modified time
 
 The platform runs the lifecycle policy once a day. Once you configure or edit a policy, it can take up to 24 hours for changes to go into effect. Once the policy is in effect, it could take up to 24 hours for some actions to run. Therefore, the policy actions may take up to 48 hours to complete. 
 
-If you disable a policy, then no new policy runs will be scheduled, but if a run is already in progress, that run will continue until it completes.
+If you disable a policy, then no new policy runs will be scheduled, but if a run is already in progress, that run will continue until it completes and you're billed for any actions that are required to complete the run. See [Regional availability and pricing](#regional-availability-and-pricing).  
 
 ### Lifecycle policy completed event
 
@@ -272,6 +272,7 @@ When last access time tracking is enabled, the blob property called `LastAccessT
 If last access time tracking is enabled, lifecycle management uses `LastAccessTime` to determine whether the run condition **daysAfterLastAccessTimeGreaterThan** is met. Lifecycle management uses the date the lifecycle policy was enabled instead of `LastAccessTime` in the following cases:
 
 - The value of the `LastAccessTime` property of the blob is a null value.
+
   > [!NOTE]
   > The `LastAccessTime` property of the blob is null if a blob hasn't been accessed since last access time tracking was enabled.
 
@@ -280,6 +281,9 @@ If last access time tracking is enabled, lifecycle management uses `LastAccessTi
 To minimize the effect on read access latency, only the first read of the last 24 hours updates the last access time. Subsequent reads in the same 24-hour period don't update the last access time. If a blob is modified between reads, the last access time is the more recent of the two values.
 
 In the following example, blobs are moved to cool storage if they haven't been accessed for 30 days. The `enableAutoTierToHotFromCool` property is a Boolean value that indicates whether a blob should automatically be tiered from cool back to hot if it's accessed again after being tiered to cool.
+
+> [!TIP]
+> If a blob is moved to the cool tier, and then is automatically moved back before 30 days has elapsed, an early deletion fee is charged. Before you set the `enablAutoTierToHotFromCool` property, make sure to analyze the access patterns of your data so you can reduce unexpected charges.
 
 ```json
 {
