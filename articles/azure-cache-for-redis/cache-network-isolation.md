@@ -50,7 +50,7 @@ VNet is the fundamental building block for your private network in Azure. VNet e
 
 ### Limitations of VNet injection
 
-- Due to fragile nature network configuration, creating and maintaining virtual network configurations is often error prone and troubleshooting is challenging. Incorrect virtual network configurations can lead to various issues like obstructed metrics transmission from your cache instances, failure of replica node to replicate data from primary node, potential data loss, failure of management operations like scaling, and in the most severe scenarios, loss of availability.
+- Creating and maintaining virtual network configurations is often error prone and troubleshooting is challenging. Incorrect virtual network configurations can lead to various issues like obstructed metrics transmission from your cache instances, failure of replica node to replicate data from primary node, potential data loss, failure of management operations like scaling, and in the most severe scenarios, loss of availability.
 - VNet injected caches are only available for Premium Azure Cache for Redis.
 - When using a VNet injected cache, you must change your VNet to cache dependencies such as CRLs/PKI, AKV, Azure Storage, Azure Monitor, and more.
 - You can't inject an existing Azure Cache for Redis instance into a Virtual Network. You can only select this option when you _create_ the cache.
