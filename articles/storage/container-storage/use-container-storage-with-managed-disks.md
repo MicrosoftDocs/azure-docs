@@ -4,7 +4,7 @@ description: Configure Azure Container Storage Preview for use with Azure manage
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: how-to
-ms.date: 07/03/2023
+ms.date: 08/14/2023
 ms.author: kendownie
 ms.custom: references_regions
 ---
@@ -20,12 +20,7 @@ ms.custom: references_regions
 
 ## Regional availability
 
-Azure Container Storage Preview is only available in the following Azure regions:
-
-- East US
-- West Europe
-- West US 2
-- West US 3
+Azure Container Storage Preview is only available in the following Azure regions: East US, East US 2, West US 2, West US 3, South Central US, Southeast Asia, Australia East, West Europe, North Europe, UK South, Sweden Central, and France Central.
 
 ## Create a storage pool
 

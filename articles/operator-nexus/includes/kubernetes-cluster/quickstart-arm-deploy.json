@@ -271,7 +271,7 @@
     "resources": [
       {
         "type": "Microsoft.NetworkCloud/kubernetesClusters",
-        "apiVersion": "2023-05-01-preview",
+        "apiVersion": "2023-07-01",
         "name": "[parameters('kubernetesClusterName')]",
         "location": "[parameters('location')]",
         "tags": "[parameters('tags')]",

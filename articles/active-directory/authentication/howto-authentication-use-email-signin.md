@@ -5,6 +5,7 @@ description: Learn how to enable users to sign in to Azure Active Directory with
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
+ms.custom: has-azure-ad-ps-ref
 ms.topic: how-to
 ms.date: 06/01/2023
 
@@ -12,12 +13,11 @@ ms.author: justinha
 author: calui
 manager: amycolannino
 ms.reviewer: calui
-
 ---
 # Sign-in to Azure AD with email as an alternate login ID (Preview)
 
 > [!NOTE]
-> Sign-in to Azure AD with email as an alternate login ID is a public preview feature of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Sign-in to Azure AD with email as an alternate login ID is a public preview feature of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://aka.ms/EntraPreviewsTermsOfUse).
 
 Many organizations want to let users sign in to Azure Active Directory (Azure AD) using the same credentials as their on-premises directory environment. With this approach, known as hybrid authentication, users only need to remember one set of credentials.
 

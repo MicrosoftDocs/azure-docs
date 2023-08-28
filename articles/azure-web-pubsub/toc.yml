@@ -84,7 +84,7 @@
           href: howto-secure-shared-private-endpoints-key-vault.md
         - name: Use a managed identity
           href: howto-use-managed-identity.md
-        - name: Configure Azure AD Authorizations
+        - name: Configure Microsoft Entra authorizations
           items:
             - name: Authorize from Azure applications
               href: howto-authorize-from-application.md
@@ -188,7 +188,7 @@
       href: concept-performance.md
     - name: Billing model
       href: concept-billing-model.md
-    - name: Azure AD Authorization
+    - name: Microsoft Entra ID Authorization
       href: concept-azure-ad-authorization.md
     - name: Metrics
       href: concept-metrics.md

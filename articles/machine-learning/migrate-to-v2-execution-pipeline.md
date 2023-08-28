@@ -263,6 +263,6 @@ For more information, see the documentation here:
 
 * [steps in SDK v1](/python/api/azureml-pipeline-steps/azureml.pipeline.steps?view=azure-ml-py&preserve-view=true)
 * [Create and run machine learning pipelines using components with the Azure Machine Learning SDK v2](how-to-create-component-pipeline-python.md)
-* [Build a simple ML pipeline for image classification (SDK v1)](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/using-pipelines/image-classification.ipynb)
+* [Build a simple ML pipeline for image classification (SDK v1)](https://github.com/Azure/azureml-examples/blob/v1-archive/v1/python-sdk/tutorials/using-pipelines/image-classification.ipynb)
 * [OutputDatasetConfig](/python/api/azureml-core/azureml.data.output_dataset_config.outputdatasetconfig?view=azure-ml-py&preserve-view=true)
 * [`mldesigner`](https://pypi.org/project/mldesigner/)

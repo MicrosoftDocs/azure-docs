@@ -19,7 +19,7 @@ If you want to listen to your [client events](concept-service-internals.md#terms
 
 This tutorial shows you how to authorize your Web PubSub service to connect to Event Hubs and how to add an event listener rule to your service settings.
 
-Web PubSub service uses Azure Active Directory (Azure AD) authentication with managed identity to connect to Event Hubs. Therefore, you should enable the managed identity of the service and make sure it has proper permissions to connect to Event Hubs. You can grant the built-in [Azure Event Hubs Data sender](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender) role to the managed identity so that it has enough permissions.
+Web PubSub service uses Microsoft Entra ID with managed identity to connect to Event Hubs. Therefore, you should enable the managed identity of the service and make sure it has proper permissions to connect to Event Hubs. You can grant the built-in [Azure Event Hubs Data sender](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender) role to the managed identity so that it has enough permissions.
 
 To configure an Event Hubs listener, you need to:
 

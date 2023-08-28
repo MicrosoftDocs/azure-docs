@@ -5,6 +5,7 @@ description: If you have internal user accounts for partners, distributors, supp
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
+ms.custom: has-azure-ad-ps-ref
 ms.topic: how-to
 ms.date: 07/27/2023
 
@@ -13,7 +14,6 @@ author: csmulligan
 manager: CelesteDG
 
 ms.collection: engagement-fy23, M365-identity-device-management
-
 # Customer intent: As a tenant administrator, I want to know how to invite internal users to B2B collaboration.
 ---
 
