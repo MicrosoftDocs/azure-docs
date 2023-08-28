@@ -247,8 +247,6 @@
       href: how-to-reset-and-redeploy-vm.md  
     - name: Set or reset passwords for lab VMs 
       href: how-to-set-virtual-machine-passwords-student.md 
-    - name: View support information
-      href: lab-user-support-information.md
   - name: Use labs within Teams & Canvas
     items:
       - name: Configure Canvas to use the service

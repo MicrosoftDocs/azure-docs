@@ -30,9 +30,3 @@ The support information includes:
     1. Select **Save** on the toolbar.
 
         :::image type="content" source="./media/lab-account-owner-support-information/lab-account-internal-support-page.png" alt-text="Screenshot of the Internal support page.":::
-
-## Next steps
-
-See the following articles:
-
-- [View contact information (lab user)](lab-user-support-information.md)
