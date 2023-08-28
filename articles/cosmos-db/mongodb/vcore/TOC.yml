@@ -34,12 +34,10 @@
       href: security.md
 - name: How to
   items:
-    - name: Use developer tools
+    - name: Use community tools
       items:
-        - name: Community tools
-          items:
-            - name: Connect using Studio 3T
-              href: connect-using-robomongo.md
+        - name: Connect using Studio 3T
+          href: how-to-connect-robomongo.md
     - name: Migrate using native tools
       href: how-to-migrate-native-tools.md
     - name: Scale cluster
