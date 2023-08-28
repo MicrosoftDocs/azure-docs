@@ -150,7 +150,7 @@ Process server capacity is affected by data churn rates, and not by the number o
 
 **CPU** | **Memory** | **Cache disk** | **Churn rate**
  --- | --- | --- | --- 
-12 vCPUs<br> 2 sockets*6 cores @ 2.5 Ghz | 24 GB | 1 GB | Up to 2 TB a day
+12 vCPUs<br> 2 sockets*6 cores @ 2.5 Ghz | 24 GB | 1 TB | Up to 2 TB a day
 
 Set up the process server as follows:
 

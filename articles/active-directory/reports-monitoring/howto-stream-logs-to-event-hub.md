@@ -1,6 +1,6 @@
 ---
 title: Stream Azure Active Directory logs to an event hub
-description: Learn how to stream Azure Active Directory logs to an event hub for SIEM tool integration.
+description: Learn how to stream Azure Active Directory activity logs to an event hub for SIEM tool integration and analysis.
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/08/2023
+ms.date: 08/24/2023
 ms.author: sarahlipsey
 ms.reviewer: besiler
 ---
