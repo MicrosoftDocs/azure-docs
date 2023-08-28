@@ -79,7 +79,7 @@ The advanced section contains several important settings for Azure file shares:
 
     :::image type="content" source="media/storage-how-to-create-file-share/files-create-smb-share-secure-transfer.png" alt-text="A screenshot of secure transfer enabled in the advanced settings for the storage account.":::
 
-- **Large file shares**: This field enables the storage account for file shares spanning up to 100 TiB. Enabling this feature will limit your storage account to only locally redundant and zone redundant storage options. Once a GPv2 storage account has been enabled for large file shares, you cannot disable the large file share capability. FileStorage storage accounts (storage accounts for premium file shares) don't have this option, as all premium file shares can scale up to 100 TiB. 
+- **Large file shares**: This field enables the storage account for file shares spanning up to 100 TiB. Enabling this feature will limit your storage account to only locally redundant and zone redundant storage options. Once a GPv2 storage account has been enabled for large file shares, you can't disable the large file share capability. FileStorage storage accounts (storage accounts for premium file shares) don't have this option, as all premium file shares can scale up to 100 TiB. 
 
     :::image type="content" source="media/storage-how-to-create-file-share/files-create-smb-share-large-file-shares.png" alt-text="A screenshot of the large file share setting in the storage account's advanced blade.":::
 
@@ -92,12 +92,12 @@ The other settings that are available in the advanced tab (hierarchical namespac
 Tags are name/value pairs that enable you to categorize resources and view consolidated billing by applying the same tag to multiple resources and resource groups. These are optional and can be applied after storage account creation.
 
 #### Review + create
-The final step to create the storage account is to select the **Create** button on the **Review + create** tab. This button won't be available if all of the required fields for a storage account are not filled.
+The final step to create the storage account is to select the **Create** button on the **Review + create** tab. This button won't be available unless all the required fields for a storage account are filled.
 
 # [PowerShell](#tab/azure-powershell)
-To create a storage account using PowerShell, we will use the `New-AzStorageAccount` cmdlet. This cmdlet has many options; only the required options are shown. To learn more about advanced options, see the [`New-AzStorageAccount` cmdlet documentation](/powershell/module/az.storage/new-azstorageaccount).
+To create a storage account using PowerShell, use the `New-AzStorageAccount` cmdlet. This cmdlet has many options; only the required options are shown. To learn more about advanced options, see the [`New-AzStorageAccount` cmdlet documentation](/powershell/module/az.storage/new-azstorageaccount).
 
-To simplify the creation of the storage account and subsequent file share, we will store several parameters in variables. You may replace the variable contents with whatever values you wish; however, note that the storage account name must be globally unique.
+To simplify creating the storage account and subsequent file share, we'll store several parameters in variables. You may replace the variable contents with whatever values you wish; however, note that the storage account name must be globally unique.
 
 ```powershell
 $resourceGroupName = "myResourceGroup"
@@ -105,7 +105,7 @@ $storageAccountName = "mystorageacct$(Get-Random)"
 $region = "westus2"
 ```
 
-To create a storage account capable of storing standard Azure file shares, we will use the following command. The `-SkuName` parameter relates to the type of redundancy desired; if you desire a geo-redundant or geo-zone-redundant storage account, remove the `-EnableLargeFileShare` parameter.
+To create a storage account capable of storing standard Azure file shares, use the following command. The `-SkuName` parameter relates to the type of redundancy desired; if you desire a geo-redundant or geo-zone-redundant storage account, remove the `-EnableLargeFileShare` parameter.
 
 ```powershell
 $storAcct = New-AzStorageAccount `
@@ -117,7 +117,7 @@ $storAcct = New-AzStorageAccount `
     -EnableLargeFileShare
 ```
 
-To create a storage account capable of storing premium Azure file shares, we will use the following command. Note that the `-SkuName` parameter has changed to include both `Premium` and the desired redundancy level of locally redundant (`LRS`). The `-Kind` parameter is `FileStorage` instead of `StorageV2` because premium file shares must be created in a FileStorage storage account instead of a GPv2 storage account.
+To create a storage account capable of storing premium Azure file shares, use the following command. Note that the `-SkuName` parameter has changed to include both `Premium` and the desired redundancy level of locally redundant storage (`LRS`). The `-Kind` parameter is `FileStorage` instead of `StorageV2` because premium file shares must be created in a FileStorage storage account instead of a GPv2 storage account.
 
 ```powershell
 $storAcct = New-AzStorageAccount `
@@ -129,9 +129,9 @@ $storAcct = New-AzStorageAccount `
 ```
 
 # [Azure CLI](#tab/azure-cli)
-To create a storage account using Azure CLI, we will use the az storage account create command. This command has many options; only the required options are shown. To learn more about the advanced options, see the [`az storage account create` command documentation](/cli/azure/storage/account).
+To create a storage account using Azure CLI, use the az storage account create command. This command has many options; only the required options are shown. To learn more about the advanced options, see the [`az storage account create` command documentation](/cli/azure/storage/account).
 
-To simplify the creation of the storage account and subsequent file share, we will store several parameters in variables. You may replace the variable contents with whatever values you wish, however note that the storage account name must be globally unique.
+To simplify the creation of the storage account and subsequent file share, we'll store several parameters in variables. You may replace the variable contents with whatever values you wish, however note that the storage account name must be globally unique.
 
 ```azurecli
 resourceGroupName="myResourceGroup"
@@ -139,7 +139,7 @@ storageAccountName="mystorageacct$RANDOM"
 region="westus2"
 ```
 
-To create a storage account capable of storing standard Azure file shares, we will use the following command. The `--sku` parameter relates to the type of redundancy desired; if you desire a geo-redundant or geo-zone-redundant storage account, you must also remove the `--enable-large-file-share` parameter.
+To create a storage account capable of storing standard Azure file shares, use the following command. The `--sku` parameter relates to the type of redundancy desired; if you desire a geo-redundant or geo-zone-redundant storage account, remove the `--enable-large-file-share` parameter.
 
 ```azurecli
 az storage account create \
@@ -151,7 +151,7 @@ az storage account create \
     --output none
 ```
 
-To create a storage account capable of storing premium Azure file shares, we will use the following command. Note that the `--sku` parameter has changed to include both `Premium` and the desired redundancy level of locally redundant (`LRS`). The `--kind` parameter is `FileStorage` instead of `StorageV2` because premium file shares must be created in a FileStorage storage account instead of a GPv2 storage account.
+To create a storage account capable of storing premium Azure file shares, use the following command. Note that the `--sku` parameter has changed to include both `Premium` and the desired redundancy level of locally redundant storage (`LRS`). The `--kind` parameter is `FileStorage` instead of `StorageV2` because premium file shares must be created in a FileStorage storage account instead of a GPv2 storage account.
 
 ```azurecli
 az storage account create \
@@ -195,14 +195,14 @@ az storage account update --name <yourStorageAccountName> -g <yourResourceGroup>
 ## Create a file share
 Once you've created your storage account, you can create your file share. This process is mostly the same regardless of whether you're using a premium file share or a standard file share. You should consider the following differences:
 
-Standard file shares may be deployed into one of the standard tiers: transaction optimized (default), hot, or cool. This is a per file share tier that is not affected by the **blob access tier** of the storage account (this property only relates to Azure Blob storage - it does not relate to Azure Files at all). You can change the tier of the share at any time after it has been deployed. Premium file shares cannot be directly converted to any standard tier.
+Standard file shares can be deployed into one of the standard tiers: transaction optimized (default), hot, or cool. This is a per file share tier that isn't affected by the **blob access tier** of the storage account (this property only relates to Azure Blob storage - it doesn't relate to Azure Files at all). You can change the tier of the share at any time after it has been deployed. Premium file shares can't be directly converted to any standard tier.
 
 > [!Important]  
 > You can move file shares between tiers within GPv2 storage account types (transaction optimized, hot, and cool). Share moves between tiers incur transactions: moving from a hotter tier to a cooler tier will incur the cooler tier's write transaction charge for each file in the share, while a move from a cooler tier to a hotter tier will incur the cool tier's read transaction charge for each file the share.
 
 The **quota** property means something slightly different between premium and standard file shares:
 
-- For standard file shares, it's an upper boundary of the Azure file share, beyond which end-users cannot go. If a quota isn't specified, standard file shares can span up to 100 TiB (or 5 TiB if the large file shares property is not set for a storage account). If you did not create your storage account with large file shares enabled, see [Enable large files shares on an existing account](#enable-large-file-shares-on-an-existing-account) for how to enable 100 TiB file shares.
+- For standard file shares, it's an upper boundary of the Azure file share. If a quota isn't specified, standard file shares can span up to 100 TiB (or 5 TiB if the large file shares property isn't set for a storage account). If you didn't create your storage account with large file shares enabled, see [Enable large files shares on an existing account](#enable-large-file-shares-on-an-existing-account) for how to enable 100 TiB file shares.
 
 - For premium file shares, quota means **provisioned size**. The provisioned size is the amount that you will be billed for, regardless of actual usage. The IOPS and throughput available on a premium file share is based on the provisioned size. For more information on how to plan for a premium file share, see [provisioning premium file shares](understanding-billing.md#provisioned-model).
 
