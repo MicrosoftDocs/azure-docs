@@ -37,7 +37,7 @@
     - name: Use community tools
       items:
         - name: Connect using Studio 3T
-          href: how-to-connect-robomongo.md
+          href: how-to-connect-studio-3t.md
     - name: Migrate using native tools
       href: how-to-migrate-native-tools.md
     - name: Scale cluster
