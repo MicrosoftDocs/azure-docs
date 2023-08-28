@@ -78,12 +78,13 @@ Africa | South Africa North
 Asia Pacific | East Asia </br> South East Asia
 Australia | Australia East
 Brazil | Brazil South
-Canada | Canada Central
+Canada | Canada Central </br> Canada East
 Europe | North Europe </br> West Europe
 France | France Central
 India | Central India
 Japan | Japan East
 Korea | Korea Central
+Sweden | Sweden Central
 Switzerland | Switzerland North
 United Kingdom | UK South </br> UK West
 United States | Central US </br> East US </br> East US 2</br> North Central US </br> South Central US </br> West Central US </br> West US </br> West US 2 </br> West US 3  
