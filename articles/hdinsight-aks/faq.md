@@ -101,7 +101,7 @@ This article addresses some common questions about Azure HDInsight on AKS.
 
 * What is state backend management and how it's done in HDInsight on AKS? 
 
-   Backends determine where state is stored. When checkpointing is activated, state is persisted upon checkpoints to guard against data loss and recover consistently. How the state is represented internally, and how and where it's persisted upon checkpoints depends on the chosen State Backend. For more information,see [State Backends](./flink/flink-state-backends.md)
+   Backends determine where state is stored. When checkpointing is activated, state is persisted upon checkpoints to guard against data loss and recover consistently. How the state is represented internally, and how and where it's persisted upon checkpoints depends on the chosen State Backend. For more information,see [Flink overview](./flink/flink-overview.md)
 
 ### Apache Spark 
 
@@ -119,4 +119,4 @@ This article addresses some common questions about Azure HDInsight on AKS.
 
 * What are the various ways to submit jobs in HDInsight on AKS Spark? 
 
-   You can submit jobs on HDInsight on AKS Spark using Jupyter Notebook, Zeppelin Notebook, SDK and cluster terminal. For more information, see [Submit and Manage Jobs on a Spark cluster in HDInsight on AKS](./spark/submit-and-manage-jobs.md)
+   You can submit jobs on HDInsight on AKS Spark using Jupyter Notebook, Zeppelin Notebook, SDK and cluster terminal. For more information, see [Submit and Manage Jobs on a Spark cluster in HDInsight on AKS](./spark/submit-manage-jobs.md)
