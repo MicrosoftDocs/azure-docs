@@ -1,6 +1,6 @@
 ---
 title: Configure group owner consent to apps accessing group data
-description: Manage group and team owners consent to applications that will have access to the group or team's data.
+description: Manage group and team owners consent to applications that should be granted access to the group or team's data.
 services: active-directory
 author: omondiatieno
 manager: CelesteDG
@@ -23,9 +23,9 @@ In this article, you'll learn how to configure the way group and team owners con
 
 Group and team owners can authorize applications, such as applications published by third-party vendors, to access your organization's data associated with a group. For example, a team owner in Microsoft Teams can allow an app to read all Teams messages in the team, or list the basic profile of a group's members. See [Resource-specific consent in Microsoft Teams](/microsoftteams/resource-specific-consent) to learn more.
 
-Group owner consent can be managed in two separate ways: through *directory settings* and *app consent policy*. In the directory settings, you have the option to enable all groups owner, enable selected group owner, or disable group owners' ability to give consent to applications. On the other hand, by utilizing the app consent policy, you can specify which app consent policy will govern the group owner consent for applications. This means you have the flexibility to assign either a Microsoft built-in policy or create your own custom policy to effectively manage the consent process for group owners.
+Group owner consent can be managed in two separate ways: through *directory settings* and *app consent policy*. In the directory settings, you can enable all groups owner, enable selected group owner, or disable group owners' ability to give consent to applications. On the other hand, by utilizing the app consent policy, you can specify which app consent policy governs the group owner consent for applications. You then have the flexibility to assign either a Microsoft built-in policy or create your own custom policy to effectively manage the consent process for group owners.
 
-Before utilizing the app consent policy to manage your group owner consent, you need to disable the group owner consent setting that is managed by directory settings to allow group owner consent subject to app consent policies. You can learn how to disable the group owner consent setting in various ways in this article. Learn more about [managing group owner consent by app consent policies](manage-group-owner-consent-policies.md) tailored to your needs. 
+Before utilizing the app consent policy to manage your group owner consent, you need to disable the group owner consent setting that is managed by directory settings. Disabling this setting allows for group owner consent subject to app consent policies. You can learn how to disable the group owner consent setting in various ways in this article. Learn more about [managing group owner consent by app consent policies](manage-group-owner-consent-policies.md) tailored to your needs. 
 
 [!INCLUDE [portal updates](../includes/portal-update.md)]
 
@@ -40,7 +40,7 @@ To configure group and team owner consent, you need:
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-You can configure which users are allowed to consent to apps accessing their groups' or teams' data, or you can disable this for all users.
+You can configure which users are allowed to consent to apps accessing their groups' or teams' data, or you can disable the setting for all users.
 
 :::zone pivot="portal"
 
@@ -328,7 +328,7 @@ PATCH https://graph.microsoft.com/beta/settings/{directorySettingId}
 
 ## Manage group owner consent to apps by app consent policy
 
-You can configure which users are allowed to consent to apps accessing their groups' or teams' data through app consent policies. To allow group owner consent subject to app consent policies, the group owner consent setting **must** be disabled. Once disabled, your current policy will be read from app consent policies.
+You can configure which users are allowed to consent to apps accessing their groups' or teams' data through app consent policies. To allow group owner consent subject to app consent policies, the group owner consent setting **must** be disabled. Once disabled, your current policy is read from app consent policies.
 
 :::zone pivot="ms-powershell"
 
@@ -362,7 +362,7 @@ Connect-MgGraph -Scopes "Policy.ReadWrite.Authorization"
     ```
     If `resourceScopeType` == `group`, your group owner consent setting **has been** governed by the app consent policy.
 
-2. To disable group owner consent to utilize app consent policies, please ensure that the consent policies (`PermissionGrantPoliciesAssigned`) include the current `ManagePermissionGrantsForSelf.*` policy and other current `ManagePermissionGrantsForOwnedResource.*` policies if any that are not applicable to groups while updating the collection. This way, you can maintain your current configuration for user consent settings and other resource consent settings.
+2. To disable group owner consent to utilize app consent policies, ensure that the consent policies (`PermissionGrantPoliciesAssigned`) include the current `ManagePermissionGrantsForSelf.*` policy and other current `ManagePermissionGrantsForOwnedResource.*` policies if any that aren't applicable to groups while updating the collection. This way, you can maintain your current configuration for user consent settings and other resource consent settings.
 
 ```powershell
 # only exclude policies that are scoped in group
@@ -378,7 +378,7 @@ Update-MgPolicyAuthorizationPolicy -AuthorizationPolicyId authorizationPolicy -B
 
 ### Assign an app consent policy to group owners 
 
-To allow group owner consent subject to an app consent policy, choose which app consent policy should govern group owners' authorization to grant consent to apps. Please ensure that the consent policies (`PermissionGrantPoliciesAssigned`) include the current `ManagePermissionGrantsForSelf.*` policy and other `ManagePermissionGrantsForOwnedResource.*` policies if any while updating the collection. This way, you can maintain your current configuration for user consent settings and other resource consent settings.
+To allow group owner consent subject to an app consent policy, choose which app consent policy should govern group owners' authorization to grant consent to apps. Ensure that the consent policies (`PermissionGrantPoliciesAssigned`) include the current `ManagePermissionGrantsForSelf.*` policy and other `ManagePermissionGrantsForOwnedResource.*` policies if any while updating the collection. This way, you can maintain your current configuration for user consent settings and other resource consent settings.
 
 ```powershell
 $body = @{
@@ -395,8 +395,8 @@ Replace `{app-consent-policy-id-for-group}` with the ID of the policy you want t
 
 | ID | Description |
 |:---|:------------|
-| microsoft-pre-approval-apps-for-group | **Allow group owner consent to pre-approved apps only**<br/> Allow group owners consent only for apps pre-approved by admins for the groups they own.  |
-| microsoft-all-application-permissions-for-group | **Allow group owner consent to apps**<br/> This option allows all group owners to consent to any permission that doesn't require admin consent, for any application, for the groups they own. It includes apps that have been pre-approved by permission grant pre-approval policy for group resource-specific-consent.  |
+| microsoft-pre-approval-apps-for-group | **Allow group owner consent to pre-approved apps only**<br/> Allow group owners consent only for apps preapproved by admins for the groups they own.  |
+| microsoft-all-application-permissions-for-group | **Allow group owner consent to apps**<br/> This option allows all group owners to consent to any permission that doesn't require admin consent, for any application, for the groups they own. It includes apps that have been preapproved by permission grant preapproval policy for group resource-specific-consent.  |
 
 For example, to enable group owner consent subject to the built-in policy `microsoft-all-application-permissions-for-group`, run the following commands:
 
@@ -414,6 +414,7 @@ Update-MgPolicyAuthorizationPolicy -AuthorizationPolicyId authorizationPolicy -B
 :::zone-end
 
 :::zone pivot="ms-graph"
+
 Use the [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) to choose which group owner consent policy governs user consent group owners' ability to consent to applications accessing your organization's data for the groups they own.
 
 ### Disable group owner consent to use app consent policies
@@ -432,7 +433,7 @@ Use the [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) t
     ```
     If `resourceScopeType` == `group`, your group owner consent setting **has been** governed by the app consent policy.
 
-2. To disable group owner consent to utilize app consent policies, please ensure that the consent policies (`PermissionGrantPoliciesAssigned`) include the current `ManagePermissionGrantsForSelf.*` policy and other current `ManagePermissionGrantsForOwnedResource.*` policies if any that are not applicable to groups. This way, you can maintain your current configuration for user consent settings and other resource consent settings.
+2. To disable group owner consent to utilize app consent policies, ensure that the consent policies (`PermissionGrantPoliciesAssigned`) include the current `ManagePermissionGrantsForSelf.*` policy and other current `ManagePermissionGrantsForOwnedResource.*` policies if any that aren't applicable to groups. This way, you can maintain your current configuration for user consent settings and other resource consent settings.
    ```http
    PATCH https://graph.microsoft.com/beta/policies/authorizationPolicy
    {
@@ -447,7 +448,7 @@ Use the [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) t
 
 ### Assign an app consent policy to group owners 
 
-To allow group owner consent subject to an app consent policy, choose which app consent policy should govern group owners' authorization to grant consent to apps. Please ensure that the consent policies (`PermissionGrantPoliciesAssigned`) include the current `ManagePermissionGrantsForSelf.*` policy and other current `ManagePermissionGrantsForOwnedResource.*` policies if any while updating the collection. This way, you can maintain your current configuration for user consent settings and other resource consent settings.
+To allow group owner consent subject to an app consent policy, choose which app consent policy should govern group owners' authorization to grant consent to apps. Ensure that the consent policies (`PermissionGrantPoliciesAssigned`) include the current `ManagePermissionGrantsForSelf.*` policy and other current `ManagePermissionGrantsForOwnedResource.*` policies if any while updating the collection. This way, you can maintain your current configuration for user consent settings and other resource consent settings.
 
 ```http
 PATCH https://graph.microsoft.com/v1.0/policies/authorizationPolicy
@@ -465,8 +466,8 @@ Replace `{app-consent-policy-id-for-group}` with the ID of the policy you want t
 
 | ID | Description |
 |:---|:------------|
-| microsoft-pre-approval-apps-for-group | **Allow group owner consent to pre-approved apps only**<br/> Allow group owners consent only for apps pre-approved by admins for the groups they own.  |
-| microsoft-all-application-permissions-for-group | **Allow group owner consent to apps**<br/> This option allows all group owners to consent to any permission that doesn't require admin consent, for any application, for the groups they own. It includes apps that have been pre-approved by permission grant pre-approval policy for group resource-specific-consent.  |
+| microsoft-pre-approval-apps-for-group | **Allow group owner consent to pre-approved apps only**<br/> Allow group owners consent only for apps preapproved by admins for the groups they own.  |
+| microsoft-all-application-permissions-for-group | **Allow group owner consent to apps**<br/> This option allows all group owners to consent to any permission that doesn't require admin consent, for any application, for the groups they own. It includes apps that have been preapproved by permission grant preapproval policy for group resource-specific-consent.  |
 
 For example, to enable group owner consent subject to the built-in policy `microsoft-pre-approval-apps-for-group`, use the following PATCH command:
 

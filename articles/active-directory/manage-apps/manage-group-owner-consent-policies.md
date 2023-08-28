@@ -18,8 +18,10 @@ zone_pivot_groups: enterprise-apps-minus-portal-aad
 ---
 
 # Manage app consent policies for group owners 
- 
-In this article, you'll learn how to manage group owner consent by app consent policies.
+
+App consent policies are a way to manage the permissions that apps have to access data in your organization. They're used to control what apps users can consent to and to ensure that apps meet certain criteria before they can access data. These policies help organizations maintain control over their data and ensure that it's being accessed only by trusted apps.
+
+In this article, you learn how to manage built-in and custom app consent policies to control when group owner consent can be granted. 
 
 With [Microsoft Graph](/graph/overview) and [Microsoft Graph PowerShell](/powershell/microsoftgraph/get-started?view=graph-powershell-1.0&preserve-view=true), you can view and manage group owner consent policies.
 
@@ -27,20 +29,20 @@ A group owner consent policy consists of zero or more "include" condition sets a
 
 Each condition set consists of several conditions. For an event to match a condition set, *all* conditions in the condition set must be met.
 
-Group owner consent policies where the ID begins with "microsoft-" are built-in policies. For example, the `microsoft-pre-approval-apps-for-group` group owner consent policy describes the conditions under which the group owners are allowed to grant consent to applications from the pre-approved list by the admin to access data for the groups they own. Built-in policies can be used in custom directory roles and to configure user consent settings, but can't be edited or deleted.
+Group owner consent policies where the ID begins with "microsoft-" are built-in policies. For example, the `microsoft-pre-approval-apps-for-group` group owner consent policy describes the conditions under which the group owners are allowed to grant consent to applications from the preapproved list by the admin to access data for the groups they own. Built-in policies can be used in custom directory roles and to configure user consent settings, but can't be edited or deleted.
 
-## Pre-requisites
+## Prerequisites
 
-1. A user or service with one of the following roles:
+- A user or service with one of the following roles:
    - Global Administrator directory role
    - Privileged Role Administrator directory role
    - A custom directory role with the necessary [permissions to manage group owner consent policies](../roles/custom-consent-permissions.md#managing-app-consent-policies)
    - The Microsoft Graph app role (application permission) Policy.ReadWrite.PermissionGrant (when connecting as an app or a service)
-2. To allow group owner consent subject to app consent policies, the group owner consent setting **must** be disabled. Once disabled, your current policy will be read from the app consent policy. To learn how to disable group owner consent, see [Disable group owner consent setting](configure-user-consent-groups.md)
+- To allow group owner consent subject to app consent policies, the group owner consent setting must be disabled. Once disabled, your current policy is read from the app consent policy. To learn how to disable group owner consent, see [Disable group owner consent setting](configure-user-consent-groups.md)
  
 :::zone pivot="ms-powershell"
 
-To manage group owner consent policies for applications with Microsoft Graph PowerShell, connect to [Microsoft Graph PowerShell](/powershell/microsoftgraph/get-started?view=graph-powershell-1.0&preserve-view=true) and sign in with one of the roles listed in the pre-requisites section. You also need to consent to the `Policy.ReadWrite.PermissionGrant` permission.
+To manage group owner consent policies for applications with Microsoft Graph PowerShell, connect to [Microsoft Graph PowerShell](/powershell/microsoftgraph/get-started?view=graph-powershell-1.0&preserve-view=true) and sign in with one of the roles listed in the prerequisites section. You also need to consent to the `Policy.ReadWrite.PermissionGrant` permission.
 
    ```powershell
    # change the profile to beta by using the `Select-MgProfile` command
@@ -59,13 +61,13 @@ Learn how to verify if your group owner consent setting has been authorized in o
     ```powershell
       Get-MgPolicyAuthorizationPolicy | select -ExpandProperty DefaultUserRolePermissions | ft PermissionGrantPoliciesAssigned
     ```
-If `ManagePermissionGrantPoliciesForOwnedResource` is returned in `PermissionGrantPoliciesAssigned`, your group owner consent setting **might** have been authorized in other ways.
+If `ManagePermissionGrantPoliciesForOwnedResource` is returned in `PermissionGrantPoliciesAssigned`, your group owner consent setting might have been authorized in other ways.
 
 1. Check if the policy is scoped to `group` 
 ```powershell
     Get-MgPolicyPermissionGrantPolicy -PermissionGrantPolicyId {"microsoft-all-application-permissions-for-group"} | Select -ExpandProperty AdditionalProperties
 ```
-If `ResourceScopeType` == `group`, your group owner consent setting **has been** authorized in other ways. In addition, if the app consent policy for groups has been assigned `microsoft-pre-approval-apps-for-group`, it means the [pre-approval]() feature is enabled for your tenant.
+If `ResourceScopeType` == `group`, your group owner consent setting has been authorized in other ways. In addition, if the app consent policy for groups has been assigned `microsoft-pre-approval-apps-for-group`, it means the preapproval feature is enabled for your tenant.
 
 
 ## List existing group owner consent policies
@@ -135,7 +137,7 @@ Once the app consent policy for group has been created, you can [allow group own
 
 ## Delete a custom group owner consent policy
 
-1. The following shows how you can delete a custom group owner consent policy. **This action can't be undone.**
+1. The following shows how you can delete a custom group owner consent policy.
 
    ```powershell
    Remove-MgPolicyPermissionGrantPolicy -PermissionGrantPolicyId "my-custom-app-consent-policy-for-group"
@@ -154,13 +156,13 @@ Learn how to verify if your group owner consent setting has been authorized in o
    ```http
    GET /policies/authorizationPolicy
    ```
-   If `ManagePermissionGrantPoliciesForOwnedResource` appears, your group owner consent setting **might** have been authorized in other ways.
+   If `ManagePermissionGrantPoliciesForOwnedResource` appears, your group owner consent setting might have been authorized in other ways.
 
-2. Check if the policy is scoped to `group`
+1. Check if the policy is scoped to `group`
    ```http
    GET /policies/permissionGrantPolicies/{ microsoft-all-application-permissions-for-group }
    ```
-   If `resourceScopeType` == `group`, your group owner consent setting **has been** authorized in other ways. In addition, if the app consent policy for groups has been assigned `microsoft-pre-approval-apps-for-group`, it means the [pre-approval]() feature is enabled for your tenant.
+   If `resourceScopeType` == `group`, your group owner consent setting has been authorized in other ways. In addition, if the app consent policy for groups has been assigned `microsoft-pre-approval-apps-for-group`, it means the preapproval feature is enabled for your tenant.
 
 ## List existing group owner consent policies
 
@@ -204,7 +206,7 @@ Follow these steps to create a custom group owner consent policy:
 
 1. Add "include" condition sets.
 
-    Include delegated permissions classified "low", for apps from verified publishers
+    Include delegated permissions classified "low" for apps from verified publishers
 
    ```http
    POST https://graph.microsoft.com/v1.0/policies/permissionGrantPolicies/{ my-custom-app-consent-policy-for-group }/includes
@@ -235,11 +237,11 @@ Once the group owner consent policy has been created, you can [allow group owner
 
 ## Delete a custom group owner consent policy
 
-1. The following shows how you can delete a custom group owner consent policy. **This action can’t be undone.**
+1. The following shows how you can delete a custom group owner consent policy.
 
-```http
-DELETE https://graph.microsoft.com/v1.0/policies/permissionGrantPolicies/ my-custom-policy
-```
+    ```http
+    DELETE https://graph.microsoft.com/v1.0/policies/permissionGrantPolicies/ my-custom-policy
+    ```
 
 :::zone-end
 
@@ -264,17 +266,6 @@ The following table provides the list of supported conditions for group owner co
 > [!WARNING]
 > Deleted group owner consent policies can't be restored. If you accidentally delete a custom group owner consent policy, you will need to re-create the policy.
 
-## Next steps
-
-To learn more:
-
-* [Manage group owner consent policies using Microsoft Graph](/graph/api/resources/permissiongrantpolicy)
-* [Configure user consent settings](configure-user-consent.md)
-* [Configure the admin consent workflow](configure-admin-consent-workflow.md)
-* [Learn how to manage consent to applications and evaluate consent requests](manage-consent-requests.md)
-* [Grant tenant-wide admin consent to an application](grant-admin-consent.md)
-* [Permissions and consent in the Microsoft identity platform](../develop/v2-permissions-and-consent.md)
-
 To get help or find answers to your questions:
 
-* [Azure AD on Microsoft Q&A](/answers/products/)
+- [Azure AD on Microsoft Q&A](/answers/products/)
