@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 11/04/2022
+ms.date: 08/23/2023
 ---
 
 # Manage your integration service environment (ISE) in Azure Logic Apps
@@ -200,8 +200,6 @@ If you change your DNS server or DNS server settings, you have to restart your I
 1. In the [Azure portal](https://portal.azure.com), go to your ISE.
 
 1. On the ISE menu, select **Overview**. On the Overview toolbar, **Restart**.
-
-   ![Restart integration service environment](./media/connect-virtual-network-vnet-isolated-environment/restart-integration-service-environment.png)
 
 <a name="delete-ise"></a>
 

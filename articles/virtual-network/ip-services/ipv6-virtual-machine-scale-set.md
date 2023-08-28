@@ -3,17 +3,17 @@ title: Deploy virtual machine scale sets with IPv6 in Azure
 titlesuffix: Azure Virtual Network
 description: This article shows how to deploy virtual machine scale sets with IPv6 in an Azure virtual network.
 services: virtual-network
-author: asudbring
+author: mbender-ms
+ms.author: mbender
+ms.date: 08/24/2023
 ms.service: virtual-network
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 03/31/2020
-ms.author: allensu
 ---
 
 # Deploy virtual machine scale sets with IPv6 in Azure
 
-This article shows you how to deploy a dual stack (IPv4 + IPv6) Virtual Machine Scale Set with a dual stack external load balancer in an Azure virtual network. The process to create an IPv6-capable virtual machine scale set is nearly identical to the process for creating individual VMs described [here](../../load-balancer/ipv6-configure-standard-load-balancer-template-json.md). You'll start with the steps that are similar to ones described for individual VMs:
+This article shows you how to deploy a dual stack (IPv4 + IPv6) Virtual Machine Scale Set with a dual stack external load balancer in an Azure virtual network. The process to create an IPv6-capable virtual machine scale set is nearly identical to the process for creating individual VMs described [here](../../load-balancer/ipv6-configure-standard-load-balancer-template-json.md). You start with the steps that are similar to ones described for individual VMs:
 1.    Create IPv4 and IPv6 Public IPs.
 2.    Create a dual stack load balancer.  
 3.    Create network security group (NSG) rules.  

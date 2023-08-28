@@ -44,7 +44,7 @@ If your data isn't displaying properly, check the following common solutions:
       - [Log Analytics Firewall Requirements](../azure-monitor/agents/log-analytics-agent.md#firewall-requirements). 
 - Not seeing data from recent activity? You may want to wait for 15 minutes and refresh the feed. Azure Monitor has a 15-minute latency period for populating log data. To learn more, see [Log data ingestion time in Azure Monitor](../azure-monitor/logs/data-ingestion-time.md).
 
-If you're not missing any information but your data still isn't displaying properly, there may be an issue in the query or the data sources. Review [known issues and limitations](#known-issues-and-limitations). 
+If you're not missing any information but your data still isn't displaying properly, there may be an issue in the query or the data sources. For more information, see [known issues and limitations](#known-issues-and-limitations). 
 
 # [Azure Monitor Agent (preview)](#tab/monitor)
 
@@ -106,6 +106,8 @@ If this article doesn't have the data point you need to resolve an issue, you ca
 - To learn how to leave feedback, see [Troubleshooting overview, feedback, and support for Azure Virtual Desktop](troubleshoot-set-up-overview.md).
 - You can also leave feedback for Azure Virtual Desktop at the [Azure Virtual Desktop feedback hub](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app).
 
+---
+
 ## Known issues and limitations
 
 The following are issues and limitations we're aware of and working to fix:
@@ -117,8 +119,6 @@ The following are issues and limitations we're aware of and working to fix:
 - Available sessions count doesn't reflect scaling policies on the host pool. 	
 - Do you see contradicting or unexpected connection times? While rare, a connection's completion event can go missing and can impact some visuals and metrics.
 - Time to connect includes the time it takes users to enter their credentials; this correlates to the experience but in some cases can show false peaks.
-
----
 
 ## Next steps
 

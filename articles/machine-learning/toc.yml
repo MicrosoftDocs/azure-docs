@@ -62,7 +62,7 @@
         - name: Set up a reusable pipeline
           href: tutorial-pipeline-python-sdk.md
     - name: Build models
-      items: 
+      items:
         - name: Automated ML
           items:
             - name: Object detection with AutoML (SDK)
@@ -171,7 +171,7 @@
           - name: Manage compute sessions
             href: how-to-manage-compute-sessions.md
       - name: VS Code
-        items: 
+        items:
           - name: Launch VS Code remote
             displayName: Visual Studio Code, VSCode, debug, bugs
             href: how-to-launch-vs-code-remote.md
@@ -266,7 +266,7 @@
   - name: Import Data from external sources
     items:
     - name: Create connections to external data sources
-      displayName: 
+      displayName:
       href: how-to-connection.md
     - name: Import data
       href: how-to-import-data-assets.md
@@ -357,7 +357,7 @@
     items:
     - name: Overview
       href: apache-spark-azure-ml-concepts.md
-    - name: Configure Apache Spark jobs 
+    - name: Configure Apache Spark jobs
       href: quickstart-spark-jobs.md
     - name: Submit Spark Jobs
       displayName: Submit Spark jobs in Azure Machine Learning
@@ -492,6 +492,8 @@
       - name: Inference image models with ONNX model
         displayName: automl, image, image model, computer vision
         href: how-to-inference-onnx-automl-image-models.md
+      - name: Troubleshoot automated ML
+        href: how-to-troubleshoot-auto-ml.md
       # v1
       - name: Local inference using ONNX
         displayName: SDK, automl
@@ -518,7 +520,7 @@
     href: how-to-train-with-ui.md
   - name: CLI and Python SDK v2 expressions
     href: concept-expressions.md
-  - name: Using secrets in training 
+  - name: Using secrets in training
     href: how-to-use-secrets-in-runs.md
   - name: Custom Training
     items:
@@ -586,16 +588,16 @@
       href: how-to-use-foundation-models.md
     - name: Hugging Face Hub community partner models
       href: how-to-deploy-models-from-huggingface.md
-    - name: How to use Azure OpenAI models 
+    - name: How to use Azure OpenAI models
       href: how-to-use-openai-models-in-azure-ml.md
 - name: Use Generative AI
   items:
-    - name: Build AI solutions with Prompt flow 
+    - name: Build AI solutions with Prompt flow
       items:
-        - name: What is Prompt flow? 
+        - name: What is Prompt flow?
           href: ./prompt-flow/overview-what-is-prompt-flow.md
         - name: Concepts
-          items: 
+          items:
             - name: Connections
               href: ./prompt-flow/concept-connections.md
             - name: Runtimes
@@ -609,7 +611,7 @@
         - name: Get started in Prompt flow
           href: ./prompt-flow/get-started-prompt-flow.md
         - name: Set up infrastructure
-          items: 
+          items:
             - name: Create and manage runtime
               href: ./prompt-flow/how-to-create-manage-runtime.md
             - name: Customize environment for runtime
@@ -667,7 +669,7 @@
         - name: How to create an RAG pipeline
           href: how-to-use-pipelines-prompt-flow.md
 - name: Responsibly develop & monitor
-  items: 
+  items:
   - name: Responsible AI overview
     items:
       - name: What is Responsible AI?
@@ -691,7 +693,7 @@
         href: concept-data-analysis.md
       - name: Counterfactuals analysis and what-if
         href: concept-counterfactual-analysis.md
-  - name: Configure Responsible AI insights and evaluation 
+  - name: Configure Responsible AI insights and evaluation
     items:
     - name: Generate responsible AI insights (UI)
       href: how-to-responsible-ai-insights-ui.md
@@ -701,7 +703,7 @@
       href: how-to-responsible-ai-vision-insights.md
     - name: Responsible AI text insights
       href: how-to-responsible-ai-text-insights.md
-  - name: Configure Responsible AI dashboards 
+  - name: Configure Responsible AI dashboards
     items:
     - name: Responsible AI dashboard overview
       href: concept-responsible-ai-dashboard.md
@@ -754,7 +756,7 @@
         href: ./v1/how-to-designer-python.md
     # end v1
   - name: How to create pipelines with components
-    items: 
+    items:
     - name: Create ML pipelines using components (Python SDK v2)
       href: how-to-create-component-pipeline-python.md
     - name: Create ML pipelines using components (CLI v2)
@@ -762,12 +764,12 @@
     - name: Create ML pipelines using components (UI)
       href: how-to-create-component-pipelines-ui.md
   - name: Use Azure Machine Learning jobs in pipelines
-    items: 
+    items:
     - name: How to use parallel job in pipeline
       href: how-to-use-parallel-job-in-pipeline.md
     - name: How to do hyperparameter sweep in pipeline
       href: how-to-use-sweep-in-pipeline.md
-  - name: How to use pipeline components in pipeline 
+  - name: How to use pipeline components in pipeline
     href: how-to-use-pipeline-component.md
   - name: Schedule a pipeline job
     href: how-to-schedule-pipeline-job.md
@@ -846,9 +848,12 @@
               href: how-to-deploy-automl-endpoint.md
         - name: Security
           items:
-            - name: Authenticate to endpoints
+            - name: Authentication for endpoints
               href: how-to-authenticate-online-endpoint.md
             - name: Network isolation with managed online endpoints
+              displayName: network, vnet, secure
+              href: concept-secure-online-endpoint.md
+            - name: Secure your managed online endpoints with network isolation
               displayName: network, vnet, secure
               href: how-to-secure-online-endpoint.md
             - name: Access Azure resources from online endpoints
@@ -881,10 +886,10 @@
               href: how-to-use-batch-scoring-pipeline.md
             - name: Create batch endpoints from pipeline jobs
               href: how-to-use-batch-pipeline-from-job.md
-        - name: Create jobs and input data for batch endpoints	
+        - name: Create jobs and input data for batch endpoints
           href: how-to-access-data-batch-endpoints-jobs.md
         - name: Troubleshoot batch endpoints
-          href: how-to-troubleshoot-batch-endpoints.md	
+          href: how-to-troubleshoot-batch-endpoints.md
         - name: Security
           items:
           - name: Authorization on batch endpoints
@@ -974,7 +979,7 @@
       href: ./v1/how-to-deploy-package-models.md
     # end v1
 - name: Operationalize with MLOps
-  items: 
+  items:
     - name: Overview
       items:
         - name: MLOps capabilities
@@ -1046,6 +1051,7 @@
     - name: Tutorials & templates
       items:
         - name: "Tutorial: Create a secure workspace in Azure portal"
+          displayName: managed virtual network
           href: tutorial-create-secure-workspace.md
         - name: "Tutorial: Create a secure workspace with templates"
           href: tutorial-create-secure-workspace-template.md
@@ -1094,8 +1100,16 @@
           href: how-to-managed-network.md
         - name: Troubleshoot managed virtual network
           href: how-to-troubleshoot-managed-network.md
+        - name: Use private endpoint
+          displayName: private endpoint
+          href: how-to-configure-private-link.md
+        - name: Use custom DNS
+          href: how-to-custom-dns.md
         - name: Use Azure Virtual Network
           items:
+            - name: "Tutorial: Create a secure workspace with a VNet"
+              displayName: azure virtual network
+              href: tutorial-create-secure-workspace-vnet.md
             - name: Secure workspace resources
               displayName: vnet, workspace, network isolation, container registry
               href: how-to-secure-workspace-vnet.md
@@ -1121,9 +1135,6 @@
             - name: Use studio in a virtual network
               displayName: vnet
               href: how-to-enable-studio-virtual-network.md
-            - name: Use private endpoint
-              displayName: private endpoint
-              href: how-to-configure-private-link.md
             # v1
             - name: Use private endpoint
               displayName: private endpoint
@@ -1132,8 +1143,6 @@
               displayName: ssl, tls
               href: ./v1/how-to-secure-web-service.md
             # end v1
-            - name: Use custom DNS
-              href: how-to-custom-dns.md
             - name: Configure required network traffic
               displayName: firewall, user-defined route, udr
               href: how-to-access-azureml-behind-firewall.md
@@ -1368,7 +1377,7 @@
         - name: Model
           href: reference-yaml-model.md
         - name: Schedule
-          items: 
+          items:
             - name: Job
               href: reference-yaml-schedule.md
             - name: Data Import
@@ -1455,7 +1464,7 @@
               href: reference-yaml-component-spark.md
             - name: Command
               href: reference-yaml-component-command.md
-            - name: Pipeline 
+            - name: Pipeline
               href: reference-yaml-component-pipeline.md
         - name: Registry
           items:
@@ -1484,7 +1493,7 @@
     - name: Curated environments
       displayName: environments, curated environments
       href: resource-curated-environments.md
-    - name: Azure Container for PyTorch 
+    - name: Azure Container for PyTorch
       href: resource-azure-container-for-pytorch.md
       displayName: acpt
     - name: Azure CLI
@@ -1498,7 +1507,7 @@
     - name: Image data schemas for AutoML (v1)
       href: ./v1/reference-automl-images-schema.md
     - name: Migrate from ML Studio (classic)
-      items: 
+      items:
       - name: Migration overview
         href: ./v1/migrate-overview.md
       - name: Migrate datasets

@@ -1,5 +1,5 @@
 ---
-title: Migrate Azure Cosmos DB extension version 3.x to 4.x 
+title: Migrate Azure Cosmos DB extension for Azure Functions to version 4.x 
 description: This article shows you how to upgrade your existing function apps using the Azure Cosmos DB extension version 3.x to be able to use version 4.x of the extension. 
 ms.service: azure-functions
 ms.topic: how-to 
@@ -7,7 +7,7 @@ ms.date: 08/16/2023
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
-# Migrate apps from Azure Cosmos DB extension version 3.x to version 4.x 
+# Migrate function apps from Azure Cosmos DB extension version 3.x to version 4.x 
 
 This article highlights considerations for upgrading your existing Azure Functions applications that use the Azure Cosmos DB extension version 3.x to use the newer [extension version 4.x](./functions-bindings-cosmosdb-v2.md?tabs=extensionv4). Migrating from version 3.x to version 4.x of the Azure Cosmos DB extension has breaking changes for your application. 
 
