@@ -229,8 +229,6 @@
       href: how-to-set-virtual-machine-passwords.md
     - name: Configure auto-shutdown settings
       href: how-to-enable-shutdown-disconnect.md      
-    - name: View support information
-      href: lab-creator-support-information.md
   - name: Connect to lab VMs (student)
     items:
     - name: Access a lab VM

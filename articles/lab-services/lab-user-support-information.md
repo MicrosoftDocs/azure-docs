@@ -33,4 +33,3 @@ You can use this information to get help when you run into any technical issues 
 See the following article to learn about how a lab user views the support contact information:
 
 - [How a lab account owner can set support contact information](lab-account-owner-support-information.md)
-- [How a lab creator can view support contact information](lab-creator-support-information.md)
