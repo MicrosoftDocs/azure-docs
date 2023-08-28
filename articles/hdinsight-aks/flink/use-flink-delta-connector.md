@@ -445,7 +445,7 @@ The delta sink is used for writing the data to a delta table in ADLS gen2. The d
     }
    ```
 1. Call the delta sink class while submitting the job via Flink CLI. 
-1. Specify the account key of the storage account in `flink-client-config` using [Flink configuration management](../flink/flink-configuration-management.md). You can specify the account key of the storage account in flink config. `fs.azure.<storagename>.dfs.core.windows.net : <KEY >`
+1. Specify the account key of the storage account in `flink-client-config` using [Flink configuration management](../flink/flink-configuration-management.md). You can specify the account key of the storage account in Flink config. `fs.azure.<storagename>.dfs.core.windows.net : <KEY >`
 
    :::image type="content" source="./media/use-flink-delta-connector/call-the-delta-sink-class.png" alt-text="Screenshot showing how to call the delta sink class." lightbox="./media/use-flink-delta-connector/call-the-delta-sink-class.png":::
 
