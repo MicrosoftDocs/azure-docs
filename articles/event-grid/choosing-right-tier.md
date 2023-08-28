@@ -7,7 +7,12 @@ ms.date: 08/25/2023
 
 # Choosing the right Event Grid tier for your solution
 
-**Standard tier offers namespaces.**
+Azure Event Grid has two tiers with different capabilities. This article will share details on both. 
+
+## Standard tier offers namespaces
+
+Offers:
+- Event Grid namespaces.
 
 Use this tier:
 
@@ -17,7 +22,10 @@ Use this tier:
 
 For more information, see quotas and limits for [namespaces](quotas-limits.md#namespace-resource-limits).
 
-**Basic tier offers custom topics, system topics, event domains and partner topics.**
+## Basic tier
+
+Offers:
+- Event Grid custom topics, Event Grid system topics, Event domains and Event Grid partner topics.
 
 Use this tier:
 
@@ -37,7 +45,7 @@ The standard tier of Event Grid is focused on providing support for higher ingre
 | MQTT v5 and v3.1.1                                                                                                                 | Yes                                                |                                        |
 | Pull delivery                                                                                                                      | Yes                                                |                                        |
 | Publish and subscribe to custom events                                                                                             | Yes                                                |                                        |
-| Push delivery to Event Hubs                                                                                                        | Yes                                                |                                        |
+| Push delivery to Event Hubs                                                                                                        | Yes                                                | Yes                                    |
 | Push delivery to Azure services (Functions, Webhooks, Service Bus queues and topics, relay hybrid connections, and storage queues) |                                                    | Yes                                    |
 | Subscribe to Azure system events                                                                                                   |                                                    | Yes                                    |
 | Subscribe to partner events                                                                                                        |                                                    | Yes                                    |
