@@ -102,6 +102,7 @@ When licenses required for Conditional Access expire, policies aren't automatica
 
 
 [!INCLUDE [Managed identities](../includes/licensing-managed-identities.md)]
+
 ## Multi tenant organizations
 
 In the source tenant: Using this feature requires Azure AD Premium P1 licenses. Each user who is synchronized with cross-tenant synchronization must have a P1 license in their home/source tenant. To find the right license for your requirements, see [Compare generally available features of Azure AD](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
