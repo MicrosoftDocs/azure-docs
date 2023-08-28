@@ -1,5 +1,5 @@
 ---
-title: Tutorial: Recover data and recovery points using enhanced soft delete in Azure Backup
+title: Tutorial - Recover data and recovery points using enhanced soft delete in Azure Backup
 description: Learb how to enable enhanced soft delete and recover your data and recover backups, if they're deleted..
 ms.topic: tutorial
 ms.date: 09/11/2023
