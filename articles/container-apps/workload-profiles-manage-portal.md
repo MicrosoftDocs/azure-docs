@@ -10,9 +10,9 @@ ms.author: cshoe
 ms.custom: references_regions
 ---
 
-# Manage workload profiles in the Azure portal
+# Manage a workload profiles in the Azure portal
 
-Learn to manage a [workload profile](./workload-profiles-overview.md) environment in the Azure portal.
+Learn to manage a [workload profiles](./workload-profiles-overview.md) environment in the Azure portal.
 
 ## Create a container app in a workload profile
 

@@ -232,7 +232,7 @@ When you configure a NAT Gateway on your subnet, the NAT Gateway provides a stat
 
 You can fully secure your ingress and egress networking traffic workload profiles environment by taking the following actions:
 
-- Create your internal container app environment in a workload profiles environment. For steps, refer to [Manage workload profiles with the Azure CLI](./workload-profiles-manage-cli.md).
+- Create your internal container app environment in a workload profiles environment. For steps, refer to [Manage workload profiles with the Azure CLI](./workload-profiles-manage-cli.md#create).
 
 - Integrate your Container Apps with an [Application Gateway](./waf-app-gateway.md).
 
@@ -316,6 +316,8 @@ For external environments, the resource group contains a public IP address used 
 In addition to the standard [Azure Container Apps billing](./billing.md), you're billed for:
 
 - One standard static [public IP](https://azure.microsoft.com/pricing/details/ip-addresses/) for egress if using an internal or external environment, plus one standard static [public IP](https://azure.microsoft.com/pricing/details/ip-addresses/) for ingress if using an external environment. If you need more public IPs for egress due to SNAT issues, [open a support ticket to request an override](https://azure.microsoft.com/support/create-ticket/).
+
+- One standard [load balancer](https://azure.microsoft.com/pricing/details/load-balancer/).
 
 - The cost of data processed (in GBs) includes both ingress and egress for management operations.
 

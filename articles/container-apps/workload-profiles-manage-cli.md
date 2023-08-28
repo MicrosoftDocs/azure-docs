@@ -86,7 +86,7 @@ Use the following commands to create a workload profiles environment.
 
       - There are 11 IP addresses reserved for Container Apps infrastructure. Therefore, a `/27` CIDR has a maximum of 21 available IP addresses.
 
-      - IP addresses are allocated differently between Consumption only and Dedicated profiles:
+      - IP addresses are allocated differently between Consumption only and Dedicated plans:
 
         | Consumption only | Dedicated |
         |---|---|  
