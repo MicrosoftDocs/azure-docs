@@ -61,7 +61,7 @@ Use the table below to find which model versions are supported by each feature:
 
 ### Expiration timeline
 
-For custom features, there are two key parts of the AI implementation: training and deployment. New configs are released every few months with regular AI improvements, so older and less accurate configs are retired. 
+For custom features, there are two key parts of the AI implementation: training and deployment. New configurations are released regularly with regular AI improvements, so older and less accurate configurations are retired. 
 
 Use the table below to find which model versions are supported by each feature:
 
