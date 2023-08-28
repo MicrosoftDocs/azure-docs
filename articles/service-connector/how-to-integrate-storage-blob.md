@@ -41,28 +41,36 @@ Supported authentication and clients for App Service, Container Apps and Azure S
 Use the connection details below to connect compute services to Blob Storage. For each example below, replace the placeholder texts
 `<account name>`, `<account-key>`, `<client-ID>`,  `<client-secret>`, `<tenant-ID>`, and `<storage-account-name>` with your own account name, account key, client ID, client secret, tenant ID and storage account name.
 
-### Azure App Service and Azure Container Apps
+### Secret / connection string
 
-#### Secret / connection string
-
+#### .NET, Java, Node.JS, Python
 | Default environment variable name  | Description                    | Example value                                                                                                       |
 |------------------------------------|--------------------------------|---------------------------------------------------------------------------------------------------------------------|
 | AZURE_STORAGEBLOB_CONNECTIONSTRING | Blob Storage connection string | `DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net` |
 
-#### system-assigned managed identity
+#### Java - SpringBoot
+
+| Application properties      | Description                    | Example value                                           |
+|-----------------------------|--------------------------------|---------------------------------------------------------|
+| azure.storage.account-name  | Your Blob storage-account-name | `<storage-account-name>`                                |
+| azure.storage.account-key   | Your Blob Storage account key  | `<account-key>`                                          |
+| azure.storage.blob-endpoint | Your Blob Storage endpoint     | `https://<storage-account-name>.blob.core.windows.net/` |
+
+
+### system-assigned managed identity
 
 | Default environment variable name  | Description           | Example value                                           |
 |------------------------------------|-----------------------|---------------------------------------------------------|
 | AZURE_STORAGEBLOB_RESOURCEENDPOINT | Blob Storage endpoint | `https://<storage-account-name>.blob.core.windows.net/` |
 
-#### User-assigned managed identity
+### User-assigned managed identity
 
 | Default environment variable name  | Description           | Example value                                           |
 |------------------------------------|-----------------------|---------------------------------------------------------|
 | AZURE_STORAGEBLOB_RESOURCEENDPOINT | Blob Storage endpoint | `https://<storage-account-name>.blob.core.windows.net/` |
 | AZURE_STORAGEBLOB_CLIENTID         | Your client ID        | `<client-ID>`                                           |
 
-#### Service principal
+### Service principal
 
 | Default environment variable name  | Description           | Example value                                           |
 |------------------------------------|-----------------------|---------------------------------------------------------|
@@ -71,15 +79,6 @@ Use the connection details below to connect compute services to Blob Storage. Fo
 | AZURE_STORAGEBLOB_CLIENTSECRET     | Your client secret    | `<client-secret>`                                       |
 | AZURE_STORAGEBLOB_TENANTID         | Your tenant ID        | `<tenant-ID>`                                           |
 
-### Azure Spring Apps
-
-#### secret / connection string
-
-| Application properties      | Description                    | Example value                                           |
-|-----------------------------|--------------------------------|---------------------------------------------------------|
-| azure.storage.account-name  | Your Blob storage-account-name | `<storage-account-name>`                                |
-| azure.storage.account-key   | Your Blob Storage account key  | `<account-key>`                                          |
-| azure.storage.blob-endpoint | Your Blob Storage endpoint     | `https://<storage-account-name>.blob.core.windows.net/` |
 
 ## Next steps
 
