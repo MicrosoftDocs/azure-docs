@@ -4,7 +4,7 @@ description: Describes how to deploy a Java Native Image application to Azure Sp
 author: KarlErickson
 ms.service: spring-apps
 ms.topic: quickstart
-ms.date: 08/03/2023
+ms.date: 08/29/2023
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, mode-other, event-tier1-build-2022, engagement-fy23, references_regions
 ms.author: yili7
 ---
@@ -19,11 +19,13 @@ ms.author: yili7
 
 **This article applies to:** ❌ Basic/Standard ✔️ Enterprise
 
-[Native Image](https://www.graalvm.org/latest/reference-manual/native-image/) capability allows you to compile Java applications to standalone executables, known as native images. These executables can provide significant benefits, including faster startup times and lower runtime memory overhead compared to a traditional JVM (Java Virtual Machine). 
+This quickstart shows how to deploy a Spring Boot application to Azure Spring Apps as a Native Image.
 
-This quickstart shows how to deploy a Spring Boot application to Azure Spring Apps as native image. The sample project is the Spring Petclinic application. The following screenshot shows the application:
+[Native Image](https://www.graalvm.org/latest/reference-manual/native-image/) capability enables you to compile Java applications to standalone executables, known as Native Images. These executables can provide significant benefits, including faster startup times and lower runtime memory overhead compared to a traditional JVM (Java Virtual Machine).
 
-:::image type="content" source="./media/quickstart-deploy-java-native-image-app/spring-petclnic-app.png" alt-text="Screenshot of a Spring Petclinic application in Azure Spring Apps." lightbox="./media/quickstart-deploy-java-native-image-app/spring-petclnic-app.png":::
+The sample project is the Spring Petclinic application. The following screenshot shows the application:
+
+:::image type="content" source="./media/quickstart-deploy-java-native-image-app/spring-petclinic-app.png" alt-text="Screenshot of a Spring Petclinic application in Azure Spring Apps." lightbox="./media/quickstart-deploy-java-native-image-app/spring-petclinic-app.png":::
 
 ## 1. Prerequisites
 
@@ -31,26 +33,25 @@ This quickstart shows how to deploy a Spring Boot application to Azure Spring Ap
 - [Git](https://git-scm.com/downloads).
 - [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
 - [Azure CLI](/cli/azure/install-azure-cli) version 2.45.0 or higher. Use the following command to install the Azure Spring Apps extension: `az extension add --name spring`
-
 - If you're deploying an Azure Spring Apps Enterprise plan instance for the first time in the target subscription, see the [Requirements](./how-to-enterprise-marketplace-offer.md#requirements) section of [View Azure Spring Apps Enterprise tier offering in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
 
 [!INCLUDE [deploy-to-azure-spring-apps-enterprise-plan](includes/quickstart-deploy-java-native-image-app/deploy-enterprise-plan.md)]
 
 ## 5. Validate Native Image App
 
-Now you can access the deployed native image app to see whether it works. Use the following steps to validate:
+Now you can access the deployed Native Image app to see whether it works. Use the following steps to validate:
 
-1. After the deployment has completed, you can run the following command to get the app URL: 
+1. After the deployment has completed, you can run the following command to get the app URL:
 
    ```azurecli
    az spring app show \
        --service ${AZURE_SPRING_APPS_NAME} \
        --name ${NATIVE_APP_NAME} \
-        -o table
+       --output table
    ```
-   
-   You can access the app with the URL from `Public Url`. The page should appear as you saw in localhost.
-   
+
+   You can access the app with the URL shown in the output as `Public Url`. The page should appear as you saw it o localhost.
+
 1. Use the following command to check the app's log to investigate any deployment issue:
 
    ```azurecli
@@ -59,32 +60,35 @@ Now you can access the deployed native image app to see whether it works. Use th
        --name ${NATIVE_APP_NAME}
    ```
 
-## 6. Compare performance for Jar and Native Image
+## 6. Compare performance for JAR and Native Image
+
+The following sections describe how to compare the performance between JAR and Native Image deployment.
 
 ### Server startup time
-1. Use the following command to check the app's log `Started PetClinicApplication in XXX seconds` to get server startup time for jar app:
 
-   ```azurecli
-   az spring app logs \
-       --service ${AZURE_SPRING_APPS_NAME} \
-       --name ${JAR_APP_NAME}
-   ```
+Use the following command to check the app's log `Started PetClinicApplication in XXX seconds` to get the server startup time for a JAR app:
 
-   Server startup time is around 25 s for jar app.
-   
-1. Use the following command to check the app's log to get server startup time for Native Image app:
+```azurecli
+az spring app logs \
+    --service ${AZURE_SPRING_APPS_NAME} \
+    --name ${JAR_APP_NAME}
+```
 
-   ```azurecli
-   az spring app logs \
-       --service ${AZURE_SPRING_APPS_NAME} \
-       --name ${NATIVE_APP_NAME}
-   ```
+The server startup time is around 25 s for a JAR app.
 
-   Server startup time is less than 0.5 s for Native Image app, it's much faster than the jar app.
-   
+Use the following command to check the app's log to get the server startup time for a Native Image app:
+
+```azurecli
+az spring app logs \
+    --service ${AZURE_SPRING_APPS_NAME} \
+    --name ${NATIVE_APP_NAME}
+```
+
+The server startup time is less than 0.5 s for a Native Image app.
+
 ### Memory usage
 
-Use the following command to scale down memory size to `512Mi` for Native Image app:
+Use the following command to scale down the memory size to 512 Mi for a Native Image app:
 
 ```azurecli
 az spring app scale \
@@ -93,9 +97,9 @@ az spring app scale \
     --memory 512Mi
 ```
 
-Native image app started successfully.
+The command output should show that the Native Image app started successfully.
 
-Use the following command to scale down memory size to `512Mi` for jar app:
+Use the following command to scale down the memory size to 512 Mi for the JAR app:
 
 ```azurecli
 az spring app scale \
@@ -104,12 +108,13 @@ az spring app scale \
     --memory 512Mi
 ```
 
-Jar app failed to start due to insufficient memory: `Terminating due to java.lang.OutOfMemoryError: Java heap space`.
+The command output should show that the JAR app failed to start due to insufficient memory. The output message should be similar to the following example: `Terminating due to java.lang.OutOfMemoryError: Java heap space`.
 
-In Figure below, it shows the optimized memory usage of the native image deployment – which is about 1/5th of the memory consumed by its equivalent JAR deployment - for a constant workload of 400 requests per second into the Petclinic application.
-:::image type="content" source="./media/quickstart-deploy-java-native-image-app/optimized-memory-usage-native-vs-jar-app.jpg" alt-text="Screenshot of the optimized memory usage of a native image deployment in Azure Spring Apps." lightbox="./media/quickstart-deploy-java-native-image-app/optimized-memory-usage-native-vs-jar-app.jpg":::
+The following figure shows the optimized memory usage for the Native Image deployment for a constant workload of 400 requests per second into the Petclinic application. The memory usage is about 1/5th of the memory consumed by its equivalent JAR deployment.
 
-Native images offer quicker startup times and reduced runtime memory overhead when compared to the conventional Java Virtual Machine (JVM).
+:::image type="content" source="./media/quickstart-deploy-java-native-image-app/optimized-memory-usage-native-vs-jar-app.jpg" alt-text="Screenshot of the optimized memory usage of a Native Image deployment in Azure Spring Apps." lightbox="./media/quickstart-deploy-java-native-image-app/optimized-memory-usage-native-vs-jar-app.jpg":::
+
+Native Images offer quicker startup times and reduced runtime memory overhead when compared to the conventional Java Virtual Machine (JVM).
 
 ## 7. Clean up resources
 

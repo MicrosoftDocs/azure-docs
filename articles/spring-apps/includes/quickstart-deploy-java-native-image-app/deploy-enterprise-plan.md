@@ -60,21 +60,21 @@ export JAR_PATH=target/spring-petclinic-3.1.0-SNAPSHOT.jar
 
 ### 3.2. Create a new resource group
 
-Use the following steps to create a new resource group.
+Use the following steps to create a new resource group:
 
-1. Use the following command to sign in to the Azure CLI.
+1. Use the following command to sign in to the Azure CLI:
 
    ```azurecli
    az login
    ```
 
-1. Use the following command to set the default location.
+1. Use the following command to set the default location:
 
    ```azurecli
    az configure --defaults location=${LOCATION}
    ```
 
-1. Use the following command to list all available subscriptions to determine the subscription ID to use.
+1. Use the following command to list all available subscriptions to determine the subscription ID to use:
 
    ```azurecli
    az account list --output table
@@ -86,13 +86,13 @@ Use the following steps to create a new resource group.
    az account set --subscription <subscription-ID>
    ```
 
-1. Use the following command to create a resource group.
+1. Use the following command to create a resource group:
 
    ```azurecli
    az group create --resource-group ${RESOURCE_GROUP}
    ```
 
-1. Use the following command to set the newly created resource group as the default resource group.
+1. Use the following command to set the newly created resource group as the default resource group:
 
    ```azurecli
    az configure --defaults group=${RESOURCE_GROUP}
@@ -100,17 +100,19 @@ Use the following steps to create a new resource group.
 
 ### 3.3. Create an Azure Spring Apps instance
 
-Azure Spring Apps is used to host the Spring Petclinic app. Create an Azure Spring Apps instance and two applications inside it.
+Azure Spring Apps is used to host the Spring Petclinic app. Use the following steps to create an Azure Spring Apps instance and two applications inside it:
 
-1. Use the following command to create an Azure Spring Apps service instance, configure build pool size to S7 as native image build requires 16Gi memory during image build.
+1. Use the following command to create an Azure Spring Apps service instance. A native image build requires 16 Gi of memory during image build, so configure the build pool size as S7.
 
    ```azurecli
-   az spring create --name ${AZURE_SPRING_APPS_NAME} --sku enterprise \
-       --build-pool-size S7    
+   az spring create \
+       --name ${AZURE_SPRING_APPS_NAME} \
+       --sku enterprise \
+       --build-pool-size S7
    ```
 
-1. Create a file builder-native.json with the content below in the current directory:
-   
+1. Create a *builder-native.json* file in the current directory and then add the following content:
+
    ```json
    {
       "stack": {
@@ -129,15 +131,16 @@ Azure Spring Apps is used to host the Spring Petclinic app. Create an Azure Spri
       ]
     }  
    ```
-   
-1. Use the following command to create an custom builder to build Native Image application.
-   
+
+1. Use the following command to create a custom builder to build the Native Image application:
+
    ```azurecli
-   az spring build-service builder create -n ${NATIVE_BUILDER} \
-       --builder-file builder-native.json    
+   az spring build-service builder create \
+       --name ${NATIVE_BUILDER} \
+       --builder-file builder-native.json
    ```
-   
-1. Use the following command to create an application in the Azure Spring Apps instance to deploy Spring Petclinic application as jar, confgure memory limit to `1Gi`.
+
+1. Use the following command to create an application in the Azure Spring Apps instance in which to deploy the Spring Petclinic application as a JAR file. Configure the memory limit to 1 Gi.
 
    ```azurecli
    az spring app create \
@@ -147,8 +150,8 @@ Azure Spring Apps is used to host the Spring Petclinic app. Create an Azure Spri
        --memory 1Gi \
        --assign-endpoint true
    ```
-   
-1. Use the following command to create an application in the Azure Spring Apps instance to deploy Spring Petclinic application as Native Image.
+
+1. Use the following command to create an application in the Azure Spring Apps instance in which to deploy the Spring Petclinic application as a Native Image:
 
    ```azurecli
    az spring app create \
@@ -161,9 +164,9 @@ Azure Spring Apps is used to host the Spring Petclinic app. Create an Azure Spri
 
 ## 4. Deploy the app to Azure Spring Apps
 
-Now that the cloud environment is prepared, the applications are ready to deploy. 
+Now that the cloud environment is prepared, the applications are ready to deploy.
 
-Use the following command to deploy Spring Petclinic application as jar:
+Use the following command to deploy the Spring Petclinic application as a JAR file:
 
 ```azurecli
 az spring app deploy \
@@ -173,7 +176,7 @@ az spring app deploy \
     --build-env BP_JVM_VERSION=17
 ```
 
-Use the following command to deploy Spring Petclinic application as Native Image:
+Use the following command to deploy the Spring Petclinic application as a Native Image:
 
 ```azurecli
 az spring app deploy \
