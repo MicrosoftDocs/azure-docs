@@ -325,6 +325,9 @@ items:
       - name: Verify if an application is active in multiple tabs of a browser
         href: how-tos/calling-sdk/is-sdk-active-in-multiple-tabs.md
         displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
+      - name: Collect and Share Log Files
+        href: tutorials/log-file-retrieval-tutorial.md
+        displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
       - name: Get users ready for their call with UI Library
         items:
         - name: Call readiness overview
@@ -531,6 +534,10 @@ items:
       href: samples/chat-hero-sample.md
     - name: Authentication service hero sample
       href: samples/trusted-auth-sample.md
+  - name: Call Automation
+    items:
+    - name: Call Automation AI sample
+      href: samples/call-automation-ai.md
 - name: Concepts 
   items:
   - name: Identity
@@ -718,6 +725,8 @@ items:
         href: concepts/ui-library/ui-library-use-cases.md
       - name: Design with UI Library Design Kit
         href: quickstarts/ui-library/get-started-ui-kit.md  
+    - name: Log File Access
+      href: ./concepts/voice-video-calling/retrieve-support-files.md
     - name: User experience
       href: concepts/voice-video-calling/user-experience.md
     - name: Known issues
@@ -794,6 +803,8 @@ items:
         href: https://azure.microsoft.com/pricing/details/communication-services/
       - name: Learn about inbound calls
         href: concepts/call-automation/incoming-call-notification.md
+      - name: Connecting Azure Communication Services to Azure Cognitive Services
+        href: concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md
       - name: Play audio in call
         href: concepts/call-automation/play-action.md
       - name: Gathering user input 

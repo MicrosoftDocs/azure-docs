@@ -11,9 +11,9 @@ ms.author: saralipsey
 ms.custom: include file
 ---
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a **Security Administrator**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Security Administrator](../roles/permissions-reference.md#security-administrator).
 
-1. Go to **Azure Active Directory** > **Diagnostic settings**. You can also select **Export Settings** from either the **Audit Logs** or **Sign-ins** page.
+1. Browse to **Identity** > **Monitoring & health** > **Diagnostic settings**. You can also select **Export Settings** from either the **Audit Logs** or **Sign-ins** page.
 
 1. Select **+ Add diagnostic setting** to create a new integration or select **Edit setting** for an existing integration.
 
