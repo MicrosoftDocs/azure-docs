@@ -48,7 +48,7 @@ Use this article to learn which natural languages are supported by the PII and c
 |Portuguese (Portugal)|`pt-PT`      |2021-01-15                 |`pt` also accepted|
 |Russian              |`ru`         |2023-01-01-preview         |                  |
 |Spanish              |`es`         |2020-04-01                 |                  |
-|Swazi                |`ss`         |2023-01-01-preview         |                  |
+|Swazi                |`ss`         |2023-04-15-preview         |                  |
 |Swedish              |`sv`         |2023-01-01-preview         |                  |
 |Turkish              |`tr`         |2023-01-01-preview         |                  |
 

@@ -19,7 +19,7 @@ Use this article to learn which natural languages are supported by the NER featu
 
 > [!NOTE]
 > * Languages are added as new [model versions](how-to-call.md#specify-the-ner-model) are released. 
-> * The language support below is for model version `2023-02-01-preview` for the Generally Available API.
+> * The language support below is for model version `2023-04-15-preview` for the Generally Available API.
 > * You can additionally find the language support for the Preview API in the second tab.
 
 ## NER language support
