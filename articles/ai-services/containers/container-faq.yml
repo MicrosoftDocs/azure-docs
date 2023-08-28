@@ -82,6 +82,7 @@ sections:
           | `BillingEndpointBusy` | The billing endpoint is currently busy. Check the `Retry-After` value and wait for this period to end before you make more requests. |
           | `ContainerUseUnauthorized` | The provided API key isn't authorized for use with this container. You're likely using a gated container, so make sure your Azure subscription ID is approved by submitting an [online request](https://aka.ms/csgate). |
           | `[ERROR] Failed to download: context deadline exceeded` | The model file download request to our servers timed out. Make sure you have a strong internet connection to download all required files within one hour. Model downloads apply to Text Translation and some Speech service containers. |
+          | `The provided license path was not found. Please ensure a volume is mounted and a directory exists at the location specified by Mounts:License` | **Disconnected containers only.** There is no license file stored locally at the location specified in your docker run command. You may have mounted the license volume incorrectly. Please be sure to check your local file system and provide a valid filepath to the desired local storage location for the license file and specify that using the -v argument in your docker run command. |
           | `Unknown` | The server is currently unable to process billing requests. |
 
       - question: How do I get support?
