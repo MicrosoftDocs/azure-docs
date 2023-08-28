@@ -77,7 +77,7 @@ After you create a vector index, you can add it to a prompt flow from the prompt
 
     :::image type="content" source="media/how-to-create-vector-index/vector-index-lookup-tool.png" alt-text="Screenshot that shows the Vector Index Lookup tool.":::
 
-1. Enter the path to your vector index, along with the query that you want to perform against the index. The 'path' is the location for the MLIndex created in the create a vector index section of this tutorial. To know this location select the desired Vector Index, select 'Details', and select 'Index Data'. Then on the 'Index data' page, copy the 'Datasore URI' in the Data sources section.
+1. Enter the path to your vector index, along with the query that you want to perform against the index. The 'path' is the location for the MLIndex created in the create a vector index section of this tutorial. To know this location select the desired Vector Index, select 'Details', and select 'Index Data'. Then on the 'Index data' page, copy the 'Datasource URI' in the Data sources section.
 
 1. Enter a query that you want to perform against the index. A query is a question either as plain string or an embedding from the input cell of the previous step. If you choose to enter an embedding, be sure your query is defined in the input section of your prompt flow like the example here:
 
