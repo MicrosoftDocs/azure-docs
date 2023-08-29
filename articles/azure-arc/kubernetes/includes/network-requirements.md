@@ -24,6 +24,7 @@ ms.date: 08/15/2023
 |`https://graph.microsoft.com/` | Required when [Azure RBAC](../azure-rbac.md) is configured. |
 | `*.arc.azure.net`| Required to manage connected clusters in Azure portal. |
 |`https://<region>.obo.arc.azure.com:8084/` | Required when [Cluster Connect](../cluster-connect.md) is configured. |
+|`dl.k8s.io`| Required when [automatic agent upgrade](../agent-upgrade.md#toggle-automatic-upgrade-on-or-off-when-connecting-a-cluster-to-azure-arc) is enabled. |
 
 To translate the `*.servicebus.windows.net` wildcard into specific endpoints, use the command:
 
@@ -52,6 +53,7 @@ GET https://guestnotificationservice.azure.com/urls/allowlist?api-version=2020-0
 |`*.servicebus.usgovcloudapi.net` | For [Cluster Connect](../cluster-connect.md) and for [Custom Location](../custom-locations.md) based scenarios. |
 |`https://graph.microsoft.com/` | Required when [Azure RBAC](../azure-rbac.md) is configured. |
 |`https://usgovvirginia.obo.arc.azure.us:8084/` | Required when [Cluster Connect](../cluster-connect.md) is configured. |
+|`dl.k8s.io`| Required when [automatic agent upgrade](../agent-upgrade.md#toggle-automatic-upgrade-on-or-off-when-connecting-a-cluster-to-azure-arc) is enabled. |
 
 To translate the `*.servicebus.usgovcloudapi.net` wildcard into specific endpoints, use the command:
 
@@ -81,3 +83,4 @@ GET https://guestnotificationservice.azure.us/urls/allowlist?api-version=2020-01
 |`https://graph.chinacloudapi.cn/` | Required when [Azure RBAC](../azure-rbac.md) is configured. |
 | `*.arc.azure.net`| Required to manage connected clusters in Azure portal. |
 |`https://<region>.obo.arc.azure.cn:8084/` | Required when [Cluster Connect](../cluster-connect.md) is configured. |
+|`dl.k8s.io`| Required when [automatic agent upgrade](../agent-upgrade.md#toggle-automatic-upgrade-on-or-off-when-connecting-a-cluster-to-azure-arc) is enabled. |

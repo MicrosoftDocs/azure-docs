@@ -107,45 +107,46 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for G Suite in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**. Users will need to log in to `portal.azure.com` and won't be able to use `aad.portal.azure.com`.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Browse to **Azure Active Directory** > **Enterprise Applications** > **All applications**.
 
 	![Enterprise applications blade](./media/g-suite-provisioning-tutorial/enterprise-applications.png)
 
 	![All applications blade](./media/g-suite-provisioning-tutorial/all-applications.png)
 
-2. In the applications list, select **G Suite**.
+1. In the applications list, select **G Suite**.
 
 	![The G Suite link in the Applications list](common/all-applications.png)
 
-3. Select the **Provisioning** tab. Click on **Get started**.
+1. Select the **Provisioning** tab. Click on **Get started**.
 
 	![Screenshot of the Manage options with the Provisioning option called out.](common/provisioning.png)
 
       ![Get started blade](./media/g-suite-provisioning-tutorial/get-started.png)
 
-4. Set the **Provisioning Mode** to **Automatic**.
+1. Set the **Provisioning Mode** to **Automatic**.
 
 	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
-5. Under the **Admin Credentials** section, click on **Authorize**. You'll be redirected to a Google authorization dialog box in a new browser window.
+1. Under the **Admin Credentials** section, click on **Authorize**. You'll be redirected to a Google authorization dialog box in a new browser window.
 
       ![G Suite authorize](./media/g-suite-provisioning-tutorial/authorize-1.png)
 
-6. Confirm that you want to give Azure AD permissions to make changes to your G Suite tenant. Select **Accept**.
+1. Confirm that you want to give Azure AD permissions to make changes to your G Suite tenant. Select **Accept**.
 
      ![G Suite Tenant Auth](./media/g-suite-provisioning-tutorial/gapps-auth.png)
 
-7. In the Azure portal, click **Test Connection** to ensure Azure AD can connect to G Suite. If the connection fails, ensure your G Suite account has Admin permissions and try again. Then try the **Authorize** step again.
+1. In the Azure portal, click **Test Connection** to ensure Azure AD can connect to G Suite. If the connection fails, ensure your G Suite account has Admin permissions and try again. Then try the **Authorize** step again.
 
-6. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
+1. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
 
 	![Notification Email](common/provisioning-notification-email.png)
 
-7. Select **Save**.
+1. Select **Save**.
 
-8. Under the **Mappings** section, select **Provision Azure Active Directory Users**.
+1. Under the **Mappings** section, select **Provision Azure Active Directory Users**.
 
-9. Review the user attributes that are synchronized from Azure AD to G Suite in the **Attribute-Mapping** section. Select the **Save** button to commit any changes.
+1. Review the user attributes that are synchronized from Azure AD to G Suite in the **Attribute-Mapping** section. Select the **Save** button to commit any changes.
 
 > [!NOTE]
 > GSuite Provisioning currently only supports the use of primaryEmail as the matching attribute. 
@@ -225,9 +226,9 @@ This section guides you through the steps to configure the Azure AD provisioning
    |websites.[type eq "work"].value|String|
    
 
-10. Under the **Mappings** section, select **Provision Azure Active Directory Groups**.
+1. Under the **Mappings** section, select **Provision Azure Active Directory Groups**.
 
-11. Review the group attributes that are synchronized from Azure AD to G Suite in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the groups in G Suite for update operations. Select the **Save** button to commit any changes.
+1. Review the group attributes that are synchronized from Azure AD to G Suite in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the groups in G Suite for update operations. Select the **Save** button to commit any changes.
 
       |Attribute|Type|
       |---|---|
@@ -236,17 +237,17 @@ This section guides you through the steps to configure the Azure AD provisioning
       |name|String|
       |description|String|
 
-12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+1. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-13. To enable the Azure AD provisioning service for G Suite, change the **Provisioning Status** to **On** in the **Settings** section.
+1. To enable the Azure AD provisioning service for G Suite, change the **Provisioning Status** to **On** in the **Settings** section.
 
 	![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
 
-14. Define the users and/or groups that you would like to provision to G Suite by choosing the desired values in **Scope** in the **Settings** section.
+1. Define the users and/or groups that you would like to provision to G Suite by choosing the desired values in **Scope** in the **Settings** section.
 
 	![Provisioning Scope](common/provisioning-scope.png)
 
-15. When you're ready to provision, click **Save**.
+1. When you're ready to provision, click **Save**.
 
 	![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
 
