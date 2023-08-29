@@ -5,7 +5,7 @@ services: container-apps
 author: cachai
 ms.service: container-apps
 ms.topic:  conceptual
-ms.date: 08/10/2023
+ms.date: 08/29/2023
 ms.author: cachai
 ---
 
@@ -173,10 +173,10 @@ In addition, a workload profiles environment reserves the following addresses:
 
 User Defined Routes (UDR) and controlled egress through a NAT Gateway are only supported in a workload profiles environment.
 
-### User defined routes (UDR) - preview
+### User defined routes (UDR)
 
 > [!NOTE]
-> When using UDR with Azure Firewall in Azure Container Apps, you need to add certain FQDN's and service tags to the allowlist for the firewall. To learn more, see [configuring UDR with Azure Firewall](./networking.md#configuring-udr-with-azure-firewall-preview).
+> When using UDR with Azure Firewall in Azure Container Apps, you need to add certain FQDN's and service tags to the allowlist for the firewall. To learn more, see [configuring UDR with Azure Firewall](./networking.md#configuring-udr-with-azure-firewall).
 
 - You can use UDR with workload profiles environments to restrict outbound traffic from your container app through Azure Firewall or other network appliances.
 
@@ -188,9 +188,9 @@ User Defined Routes (UDR) and controlled egress through a NAT Gateway are only s
 
 Azure creates a default route table for your virtual networks upon create. By implementing a user-defined route table, you can control how traffic is routed within your virtual network. For example, you can create a UDR that routes all traffic to the firewall.
 
-#### Configuring UDR with Azure Firewall (preview)
+#### Configuring UDR with Azure Firewall
 
-UDR is only supported in a workload profiles environment. The following application and network rules must be added to the allowlist for your firewall depending on which resources you're using.
+User defined routes is only supported in a workload profiles environment. The following application and network rules must be added to the allowlist for your firewall depending on which resources you're using.
 
 > [!NOTE]
 > For a guide on how to setup UDR with Container Apps to restrict outbound traffic with Azure Firewall, visit the [how to for Container Apps and Azure Firewall](./user-defined-routes.md).
@@ -220,7 +220,7 @@ Network rules allow or deny traffic based on the network and transport layer. Th
 > [!NOTE]
 > For Azure resources you are using with Azure Firewall not listed in this article, please refer to the [service tags documentation](../virtual-network/service-tags-overview.md#available-service-tags).
 
-### NAT gateway integration (preview)
+### NAT gateway integration
 
 You can use NAT Gateway to simplify outbound connectivity for your outbound internet traffic in your virtual network in a workload profiles environment.
 
