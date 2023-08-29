@@ -23,17 +23,21 @@ Azure Active Directory (Azure AD) has roles and permissions that are identified 
 
 ## Which roles and permissions are privileged?
 
-For a list of privileged roles and permissions, see [Azure AD built-in roles](permissions-reference.md). You can also use the Azure portal, Microsoft Graph PowerShell, or Microsoft Graph API to identify roles, permissions, and role assignments that are identified as privileged.
+For a list of privileged roles and permissions, see [Azure AD built-in roles](permissions-reference.md). You can also use the Microsoft Entra admin center, Microsoft Graph PowerShell, or Microsoft Graph API to identify roles, permissions, and role assignments that are identified as privileged.
 
-# [Portal](#tab/portal)
+# [Admin center](#tab/admin-center)
 
-In the Azure portal, look for the **PRIVILEGED** label.
+In the Microsoft Entra admin center, look for the **PRIVILEGED** label.
 
 ![Privileged label icon.](./media/permissions-reference/privileged-label.png)
 
 On the **Roles and administrators** page, privileged roles are identified in the **Privileged** column. The **Assignments** column lists the number or role assignments. You can also filter privileged roles. 
 
 :::image type="content" source="./media/privileged-roles-permissions/privileged-roles-portal.png" alt-text="Screenshot of the Azure AD Roles and administrators page that shows the Privileged and Assignments columns." lightbox="./media/privileged-roles-permissions/privileged-roles-portal.png":::
+
+When you view the permissions for a privileged role, you can see which permissions are privileged. If you view the permissions as a default user, you won't be able to see which permissions are privileged.
+
+:::image type="content" source="./media/privileged-roles-permissions/privileged-roles-permissions.png" alt-text="Screenshot of the Azure AD Roles and administrators page that shows the privileged permissions for a role." lightbox="./media/privileged-roles-permissions/privileged-roles-permissions.png":::
 
 When you create a custom role, you can see which permissions are privileged and the custom role will be labeled as privileged.
 
