@@ -12,7 +12,7 @@ ms.author: rolyon
 ms.custom: include file
 ---
 
-The following table compares the capabilities of this role with related roles.
+The following table compares the capabilities of authentication-related roles.
 
 | Role | Manage user's auth methods | Manage per-user MFA | Manage MFA settings | Manage auth method policy | Manage password protection policy | Update sensitive properties | Delete and restore users |
 | ---- | ---- | ---- | ---- | ---- | ---- | ---- | --- |
