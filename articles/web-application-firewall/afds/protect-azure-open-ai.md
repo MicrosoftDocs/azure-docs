@@ -1,6 +1,6 @@
 ---
-title: Protect Azure Open AI using Azure Web Application Firewall on Azure Front Door
-description: Learn how to Protect Azure Open AI using Azure Web Application Firewall on Azure Front Door
+title: Protect Azure OpenAI using Azure Web Application Firewall on Azure Front Door
+description: Learn how to Protect Azure OpenAI using Azure Web Application Firewall on Azure Front Door
 author: sowmyam2019
 ms.author: victorh
 ms.service: web-application-firewall
@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 08/28/2023
 ---
 
-# Protect Azure Open AI using Azure Web Application Firewall on Azure Front Door
+# Protect Azure OpenAI using Azure Web Application Firewall on Azure Front Door
 
 There are a growing number of enterprises using Azure OpenAI APIs, and the number and complexity of security attacks against web applications is constantly evolving. A strong security strategy is necessary to protect Azure OpenAI APIs from various web application attacks.
 
@@ -21,19 +21,19 @@ This article describes how to use Azure Web Application Firewall (WAF) on Azure 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 
-## Create Azure Open AI instance using the gpt-35-turbo model
-First, create an Open AI instance.
+## Create Azure OpenAI instance using the gpt-35-turbo model
+First, create an OpenAI instance.
 
 
-1. Create an Azure Open AI instance and deploy a gpt-35-turbo model using [Create and deploy an Azure OpenAI Service resource](../../ai-services/openai/how-to/create-resource.md).
+1. Create an Azure OpenAI instance and deploy a gpt-35-turbo model using [Create and deploy an Azure OpenAI Service resource](../../ai-services/openai/how-to/create-resource.md).
 1. Identify the Azure OpenAI endpoint and the API key.
 
-   Open the Azure Open AI studio and open the **Chat** option under **Playground**.
+   Open the Azure OpenAI studio and open the **Chat** option under **Playground**.
    Use the **View code** option to display the endpoint and the API key.
    :::image type="content" source="../media/protect-azure-open-ai/view-code.png" alt-text="Screenshot showing Azure AI Studio Chat playground.":::
    <br>
 
-   :::image type="content" source="../media/protect-azure-open-ai/sample-code.png" alt-text="Screenshot showing Azure Open AI sample code with Endpoint and Key.":::
+   :::image type="content" source="../media/protect-azure-open-ai/sample-code.png" alt-text="Screenshot showing Azure OpenAI sample code with Endpoint and Key.":::
 
 1. Validate Azure OpenAI call using [Postman](https://www.postman.com/).
    Use the Azure OpenAPI endpoint and api-key values found in the earlier steps.
@@ -83,8 +83,8 @@ Now verify your Azure Front Door endpoint.
 
    :::image type="content" source="../media/protect-azure-open-ai/front-door-endpoint.png" alt-text="Screenshot show the Azure Front Door endpoint.":::
 2. Use Postman to send a POST request to the Azure Front Door endpoint.
-   1. Replace the Azure Open AI endpoint with the AFD endpoint in Postman POST request.
-   :::image type="content" source="../media/protect-azure-open-ai/post-first-query.png" alt-text="Screenshot showing the first POST.":::
+   1. Replace the Azure OpenAI endpoint with the AFD endpoint in Postman POST request.
+   :::image type="content" source="../media/protect-azure-open-ai/test-final.png" alt-text="Screenshot showing the final POST." lightbox="../media/protect-azure-open-ai/test-final.png":::
 
    Azure OpenAI also generates a response using the GPT model.
 
