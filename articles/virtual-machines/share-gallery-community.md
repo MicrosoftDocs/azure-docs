@@ -22,7 +22,7 @@ Sharing images to the community is a new capability in [Azure Compute Gallery](.
 
 > [!IMPORTANT]
 > Microsoft does not provide support for images you share to the community.
-> 
+> <a>disclaimer</a>
 > [!INCLUDE [community-gallery-artifacts](./includes/community-gallery-artifacts.md)]
 > 
 
