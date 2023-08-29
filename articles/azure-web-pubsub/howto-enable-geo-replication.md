@@ -113,9 +113,9 @@ To ensure effective failover management, it is recommended to set each replica's
 For more performance evaluation, refer to [Performance](concept-performance.md).
 
 ## Breaking issues
-* **Using replica, event handler and Azure Function Web PubSub extension together**
+* **Using replica and event handler together**
 
-  If you integrate the Web PubSub event handler with an Azure Function that utilizes the Web PubSub extension, you may encounter issues with the abuse protection once replicas are enabled. To address this, you can either **disable the abuse protection** or upgrade to the latest SDK/extension versions.
+  If you use the Web PubSub event handler with Web PubSub C# server SDK or an Azure Function that utilizes the Web PubSub extension, you may encounter issues with the abuse protection once replicas are enabled. To address this, you can either **disable the abuse protection** or **upgrade to the latest SDK/extension versions**.
   
   For a detailed explanation and potential solutions, please refer to this [issue](https://github.com/Azure/azure-webpubsub/issues/598).
  
