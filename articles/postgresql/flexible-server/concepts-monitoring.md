@@ -209,7 +209,7 @@ Is-db-alive is an database server availability metric for Azure Postgres Flexibl
 
 #### Considerations when using the Database availability metrics
 
-- Aggregating this metric with `MAX()` will allow customers to determine weather the server has been up or down in the last minute.
+- Aggregating this metric with `MAX()` will allow customers to determine whether the server has been up or down in the last minute.
 - Customers have option to further aggregate these metrics with any desired frequency (5m, 10m, 30m etc.) to suit their alerting requirements and avoid any false positive.
 - Other possible aggregations are `AVG()` and `MIN()`
 
