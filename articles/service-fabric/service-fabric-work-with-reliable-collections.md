@@ -216,7 +216,17 @@ Furthermore, service code is upgraded one upgrade domain at a time. So, during a
 > While you can modify the schema of a key, you must ensure that your key's hash code and equals algorithms are stable. If you change how either of these algorithms operate, you will not be able to look up the key within the reliable dictionary ever again.
 > .NET Strings can be used as a key but use the string itself as the key--do not use the result of String.GetHashCode as the key.
 
-Alternatively, you can perform what is typically referred to as a two upgrade. With a two-phase upgrade, you upgrade your service from V1 to V2: V2 contains the code that knows how to deal with the new schema change but this code doesn't execute. When the V2 code reads V1 data, it operates on it and writes V1 data. Then, after the upgrade is complete across all upgrade domains, you can somehow signal to the running V2 instances that the upgrade is complete. (One way to signal this is to roll out a configuration upgrade; this is what makes this a two-phase upgrade.) Now, the V2 instances can read V1 data, convert it to V2 data, operate on it, and write it out as V2 data. When other instances read V2 data, they do not need to convert it, they just operate on it, and write out V2 data.
+Alternatively, you can perform a multi-phase upgrade. 
+- Phase 1. Deploy a new service version that has both the original, V1 of the data contracts, and the new V2 of the data contracts. During this phase, service should not use the V2 data contracts.
+- Phase 2: Deploy a new service version that adds data to "TestDicV1" (which uses Class1) and "TestDicV2" (which uses Class2). You can do this by attaching to rebuild and change notifications for TestDicV1. In the notification handlers, update TestDicV2. (Edit: See below)
+- Phase 2: Deploy a new version where all writes (adds and updates) go to "TestDicV2" (which uses Class2). Reads first check "TestDicV1" then "TestDicV2". Concurrently, enumerate "TestDicV1" and copy to "TestDicV2" with TryAdd API.
+- Phase 3. Deploy a new service version that switches to using the V2 collection and removes V1 collection from the [StateManager](/dotnet/api/microsoft.servicefabric.services.runtime.statefulservice.statemanager).
+- Wait for log truncation. By default, this happens every 50MB of writes (adds, updates, and removes) to reliable collections.
+
+Phase 4: Deploy a new version that removes Class1.
+
+
+With a two-phase upgrade, you upgrade your service from V1 to V2: V2 contains the code that knows how to deal with the new schema change but this code doesn't execute. When the V2 code reads V1 data, it operates on it and writes V1 data. Then, after the upgrade is complete across all upgrade domains, you can somehow signal to the running V2 instances that the upgrade is complete. (One way to signal this is to roll out a configuration upgrade; this is what makes this a two-phase upgrade.) Now, the V2 instances can read V1 data, convert it to V2 data, operate on it, and write it out as V2 data. When other instances read V2 data, they do not need to convert it, they just operate on it, and write out V2 data.
 
 ## Next steps
 To learn about creating forward compatible data contracts, see [Forward-Compatible Data Contracts](/dotnet/framework/wcf/feature-details/forward-compatible-data-contracts)
@@ -226,3 +236,5 @@ To learn best practices on versioning data contracts, see [Data Contract Version
 To learn how to implement version tolerant data contracts, see [Version-Tolerant Serialization Callbacks](/dotnet/framework/wcf/feature-details/version-tolerant-serialization-callbacks)
 
 To learn how to provide a data structure that can interoperate across multiple versions, see [IExtensibleDataObject](/dotnet/api/system.runtime.serialization.iextensibledataobject)
+
+To learn how to configure reliable collections, see [Replicator Configuration](/azure/service-fabric/service-fabric-reliable-services-configuration#replicator-configuration)
