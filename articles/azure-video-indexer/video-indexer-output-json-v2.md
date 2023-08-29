@@ -645,7 +645,7 @@ Videos that contain adult or racy content might be available for private view on
 
 ## Learn more about visualContentModeration
 
-- [Cognitive services documentation](/azure/ai-services/computer-vision/concept-detecting-adult-content)
+- [Azure AI services documentation](/azure/ai-services/computer-vision/concept-detecting-adult-content)
 - [Transparency note](/legal/cognitive-services/computer-vision/imageanalysis-transparency-note?context=%2Fazure%2Fai-services%2Fcomputer-vision%2Fcontext%2Fcontext#features)  
 - [Use cases](/legal/cognitive-services/computer-vision/imageanalysis-transparency-note?context=%2Fazure%2Fai-services%2Fcomputer-vision%2Fcontext%2Fcontext#use-cases) 
 - [Capabilities and limitations](/legal/cognitive-services/computer-vision/imageanalysis-transparency-note?context=%2Fazure%2Fai-services%2Fcomputer-vision%2Fcontext%2Fcontext#system-performance-and-limitations-for-image-analysis) 
@@ -689,7 +689,7 @@ Videos that contain adult or racy content might be available for private view on
 
 ##### Learn more about textualContentModeration
 
-- [Cognitive Services documentation](/azure/ai-services/content-moderator/text-moderation-api)
+- [Azure AI services documentation](/azure/ai-services/content-moderator/text-moderation-api)
 - [Supported languages](/azure/ai-services/content-moderator/language-support) 
 - [Capabilities and limitations](/azure/ai-services/content-moderator/text-moderation-api) 
 - [Data, privacy and security](/azure/ai-services/content-moderator/overview#data-privacy-and-security)
@@ -871,4 +871,3 @@ Azure AI Video Indexer makes an inference of main topics from transcripts. When 
 Explore the [Azure AI Video Indexer API developer portal](https://api-portal.videoindexer.ai).
 
 For information about how to embed widgets in your application, see [Embed Azure AI Video Indexer widgets into your applications](video-indexer-embed-widgets.md). 
-

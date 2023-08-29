@@ -1,5 +1,5 @@
 ---
-title: Identity document (ID) processing – Document Intelligence
+title: Identity document (ID) processing – Document Intelligence (formerly Form Recognizer)
 titleSuffix: Azure AI services
 description: Automate identity document (ID) processing of driver licenses, passports, and more with Document Intelligence.
 author: laujan

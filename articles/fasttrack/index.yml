@@ -20,7 +20,7 @@ productDirectory:
     - title: Watch Live
       imageSrc: ./media/azure-cloud.png
       summary: Register on Reactor to join upcoming interactive live sessions and webcasts to get your questions answered real time by Azure engineers
-      url: https://developer.microsoft.com/reactor/?search=fasttrack
+      url: https://developer.microsoft.com/en-us/reactor/?search=fasttrack
     # Card
     - title: Watch on-demand recordings
       imageSrc: ./media/productivity.png

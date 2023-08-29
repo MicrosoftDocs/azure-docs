@@ -38,7 +38,6 @@ The following list shows the resource requirements for Azure Spring Apps service
 | Destination Endpoint                                                                                                                                                    | Port             | Use                                       | Note                                                                                                                                                            |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------|-------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | \*:443 *or* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - AzureCloud:443                                                           | TCP:443          | Azure Spring Apps Service Management.     | Information of service instance "requiredTraffics" could be known in resource payload, under "networkProfile" section.                                          |
-| \*:123 *or* ntp.ubuntu.com:123                                                                                                                                          | UDP:123          | NTP time synchronization on Linux nodes.  |                                                                                                                                                                 |
 | \*.azurecr.io:443 *or* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - AzureContainerRegistry:443                                      | TCP:443          | Azure Container Registry.                 | Can be replaced by enabling *Azure Container Registry* [service endpoint in virtual network](../virtual-network/virtual-network-service-endpoints-overview.md). |
 | \*.core.windows.net:443 and \*.core.windows.net:445 *or* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - Storage:443 and Storage:445 | TCP:443, TCP:445 | Azure Files                               | Can be replaced by enabling *Azure Storage* [service endpoint in virtual network](../virtual-network/virtual-network-service-endpoints-overview.md).            |
 | \*.servicebus.windows.net:443 *or* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - EventHub:443                                      | TCP:443          | Azure Event Hubs.                         | Can be replaced by enabling *Azure Event Hubs* [service endpoint in virtual network](../virtual-network/virtual-network-service-endpoints-overview.md).         |
@@ -51,18 +50,11 @@ Azure Firewall provides the FQDN tag **AzureKubernetesService** to simplify the 
 |-----------------------------------|-----------|------------------------------------------------------------------------------|
 | <i>*.azmk8s.io</i>                | HTTPS:443 | Underlying Kubernetes Cluster management.                                    |
 | <i>mcr.microsoft.com</i>          | HTTPS:443 | Microsoft Container Registry (MCR).                                          |
-| <i>*.cdn.mscr.io</i>              | HTTPS:443 | MCR storage backed by the Azure CDN.                                         |
 | <i>*.data.mcr.microsoft.com</i>   | HTTPS:443 | MCR storage backed by the Azure CDN.                                         |
 | <i>management.azure.com</i>       | HTTPS:443 | Underlying Kubernetes Cluster management.                                    |
-| <i>*login.microsoftonline.com</i> | HTTPS:443 | Azure Active Directory authentication.                                       |
-| <i>*login.microsoft.com</i>       | HTTPS:443 | Azure Active Directory authentication.                                       |
+| <i>login.microsoftonline.com</i>  | HTTPS:443 | Azure Active Directory authentication.                                       |
 | <i>packages.microsoft.com</i>     | HTTPS:443 | Microsoft packages repository.                                               |
 | <i>acs-mirror.azureedge.net</i>   | HTTPS:443 | Repository required to install required binaries like kubenet and Azure CNI. |
-| *mscrl.microsoft.com*<sup>1</sup> | HTTPS:80  | Required Microsoft Certificate Chain Paths.                                  |
-| *crl.microsoft.com*<sup>1</sup>   | HTTPS:80  | Required Microsoft Certificate Chain Paths.                                  |
-| *crl3.digicert.com*<sup>1</sup>   | HTTPS:80  | Third-Party TLS/SSL Certificate Chain Paths.                                 |
-
-<sup>1</sup> Please note that these FQDNs aren't included in the FQDN tag.
 
 ## Azure Spring Apps optional FQDN for third-party application performance management
 

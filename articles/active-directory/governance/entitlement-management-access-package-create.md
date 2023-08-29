@@ -1,6 +1,6 @@
 ---
 title: Create an access package in entitlement management
-description: Learn how to create an access package of resources that you want to share in Azure Active Directory entitlement management.
+description: Learn how to create an access package of resources that you want to share in Microsoft Entra entitlement management.
 services: active-directory
 documentationCenter: ''
 author: owinfreyATL
@@ -56,15 +56,13 @@ Then once the access package is created, you can [change the hidden setting](ent
 
 To complete the following steps, you need a role of global administrator, Identity Governance administrator, user administrator, catalog owner, or access package manager.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1. Select **Azure Active Directory**, and then select **Identity Governance**.
-
-1. On the left menu, select **Access packages**.
+1. Browse to **Identity governance** > **Entitlement management** > **Access package**.
 
 1. Select **New access package**.
 
-    ![Screenshot that shows the button for creating a new access package in the Azure portal.](./media/entitlement-management-shared/access-packages-list.png)
+    ![Screenshot that shows the button for creating a new access package in the Microsoft Entra admin center.](./media/entitlement-management-shared/access-packages-list.png)
 
 ## Configure basics
 
@@ -153,7 +151,7 @@ You can create an access package by using Microsoft Graph. A user in an appropri
 
 ### Create an access package by using Microsoft PowerShell
 
-You can also create an access package in PowerShell by using the cmdlets from the [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) module version 1.16.0 or later. This script illustrates using the Microsoft Graph `beta` profile.
+You can also create an access package in PowerShell by using the cmdlets from the [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) module version 1.16.0 or a later 1.x.x module version, or Microsoft Graph PowerShell cmdlets beta module version 2.1.x or later beta module version.  This script illustrates using the Graph `beta` profile and Microsoft Graph PowerShell cmdlets module version 1.x.x.
 
 First, retrieve the ID of the catalog (and of the resources and their roles in that catalog) that you want to include in the access package. Use a script similar to the following example:
 

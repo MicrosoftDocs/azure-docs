@@ -52,6 +52,11 @@ See [Azure Machine Learning monitoring data reference](monitor-resource-referenc
 
 ## Collection and routing
 
+> [!TIP]
+> Logs are grouped into _Category groups_. Category groups are a collection of different logs to help you achieve different monitoring goals. These groups are defined dynamically and may change over time as new resource logs become available and are added to the category group. Note that this may incur additional charges.
+> 
+> The __audit__ resource log category group allows you to select the resource logs that are necessary for auditing your resource. For more information, see [Diagnostic settings in Azure Monitor Resource logs](/azure/azure-monitor/essentials/diagnostic-settings#resource-logs).
+
 Platform metrics and the Activity log are collected and stored automatically, but can be routed to other locations by using a diagnostic setting.  
 
 Resource Logs are not collected and stored until you create a diagnostic setting and route them to one or more locations. When you need to manage multiple Azure Machine Learning workspaces, you could route logs for all workspaces into the same logging destination and query all logs from a single place.

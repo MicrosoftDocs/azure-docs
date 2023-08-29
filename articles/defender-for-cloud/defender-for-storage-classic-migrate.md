@@ -41,7 +41,9 @@ Storage accounts that were previously excluded from protected subscriptions in t
 
 ### Migrating from the classic Defender for Storage plan enabled with per-storage account pricing
 
-If the classic Defender for Storage plan is enabled with per-storage account pricing, you can switch to the new plan at either the subscription or resource level. The pricing plan remains the same in the new Defender for Storage, except for extra charges for malware scanning, which are charged per GB scanned (free during preview).
+If the classic Defender for Storage plan is enabled with per-storage account pricing, you can switch to the new plan at either the subscription or resource level. The new Defender for Storage plan has the same pricing plan with the exception of malware scanning which may incur extra charges and is billed per GB scanned.
+
+You can learn more about Defender for Storage's pricing model on the [Defender for Cloud pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/?v=17.23h).
 
  You can also [exclude specific storage accounts](../storage/common/azure-defender-storage-configure.md#) from protected subscriptions.
 
@@ -79,3 +81,4 @@ In this article, you learned about migrating to the new Microsoft Defender for S
 
 > [!div class="nextstepaction"]
 > [Enable Defender for Storage](enable-enhanced-security.md)
+

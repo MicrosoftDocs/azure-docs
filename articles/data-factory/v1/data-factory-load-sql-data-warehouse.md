@@ -21,7 +21,7 @@ Getting started with Azure Synapse Analytics is now easier than ever using **Azu
 * **Easy to set up**: 5-step intuitive wizard with no scripting required.
 * **Rich data store support**: built-in support for a rich set of on-premises and cloud-based data stores.
 * **Secure and compliant**: data is transferred over HTTPS or ExpressRoute, and global service presence ensures your data never leaves the geographical boundary
-* **Unparalleled performance by using PolyBase** – Using Polybase is the most efficient way to move data into Azure Synapse Analytics. Using the staging blob feature, you can achieve high load speeds from all types of data stores besides Azure Blob storage, which the Polybase supports by default.
+* **Unparalleled performance by using PolyBase** - Using Polybase is the most efficient way to move data into Azure Synapse Analytics. Using the staging blob feature, you can achieve high load speeds from all types of data stores besides Azure Blob storage, which the Polybase supports by default.
 
 This article shows you how to use Data Factory Copy Wizard to load 1-TB data from Azure Blob Storage into Azure Synapse Analytics in under 15 minutes, at over 1.2 GBps throughput.
 

@@ -72,10 +72,9 @@ Install the Microsoft Monitoring Agent on your Linux machine and configure the m
 2. Forward Symantec DLP logs to a Syslog agent
 
 Configure Symantec DLP to forward Syslog messages in CEF format to your Microsoft Sentinel workspace via the Syslog agent.
-1. [Follow these instructions](https://help.symantec.com/cs/DLP15.7/DLP/v27591174_v133697641/Configuring-the-Log-to-a-Syslog-Server-action?locale=EN_US) to configure the Symantec DLP to forward syslog
-2. Use the IP address or hostname for the Linux device with the Linux agent installed as the Destination IP address.
+1. Use the IP address or hostname for the Linux device with the Linux agent installed as the Destination IP address.
 
-3. Validate connection
+2. Validate connection
 
 Follow the instructions to validate your connectivity:
 
