@@ -9,7 +9,7 @@ ms.date: 08/25/2023
 
 Azure Event Grid has two tiers with different capabilities. This article will share details on both. 
 
-## Standard tier offers namespaces
+## Standard Tier
 
 Offers:
 - Event Grid namespaces.
@@ -22,7 +22,7 @@ Use this tier:
 
 For more information, see quotas and limits for [namespaces](quotas-limits.md#namespace-resource-limits).
 
-## Basic tier
+## Basic Tier
 
 Offers:
 - Event Grid custom topics, Event Grid system topics, Event domains and Event Grid partner topics.
