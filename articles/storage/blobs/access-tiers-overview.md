@@ -84,6 +84,9 @@ To change the redundancy configuration for a storage account that contains blobs
 
 Migrating a storage account from LRS to GRS is supported as long as no blobs were moved to the archive tier while the account was configured for LRS. An account can be moved back to GRS if the update is performed less than 30 days from the time the account became LRS, and no blobs were moved to the archive tier while the account was set to LRS.
 
+> [!NOTE]
+>Beginning with version 2021-02-12, you can copy an archived blob to an online tier in a different storage account, as long as the destination account is in the same region as the source account
+
 ## Default account access tier setting
 
 Storage accounts have a default access tier setting that indicates the online tier in which a new blob is created. The default access tier setting can be set to either hot or cool. Users can override the default setting for an individual blob when uploading the blob or changing its tier.
