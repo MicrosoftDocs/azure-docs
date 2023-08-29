@@ -22,7 +22,7 @@ Use the following steps to clone and run the app locally.
 1. Use the following command to clone the Spring Petclinic project from GitHub:
 
    ```bash
-   git clone https://github.com/spring-projects/spring-petclinic.git
+   git clone https://github.com/Azure-Samples/spring-petclinic.git
    ```
 
 2. Use the following command to build the Spring Petclinic project:
