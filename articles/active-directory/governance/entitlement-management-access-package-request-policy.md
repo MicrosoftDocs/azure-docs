@@ -222,37 +222,49 @@ You can create a policy using Microsoft Graph. A user in an appropriate role wit
 
 ### Create an access package assignment policy through PowerShell
 
-You can also create an access package in PowerShell with the cmdlets from the [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) module version 1.16.0 or a later 1.x.x module version, or Microsoft Graph PowerShell cmdlets beta module version 2.1.x or later beta module version.  This script illustrates using the Graph `beta` profile and Microsoft Graph PowerShell cmdlets module version 1.x.x.
+You can also create an access package in PowerShell with the cmdlets from the [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) module version 2.1.x or later module version.
 
-This script below illustrates using the `beta` profile, to create a policy for direct assignment to an access package. In this policy, only the administrator can assign access, and there are no access reviews. See [Create an automatic assignment policy](entitlement-management-access-package-auto-assignment-policy.md#create-an-access-package-assignment-policy-through-powershell) for an example of how to create an automatic assignment policy, and [create an accessPackageAssignmentPolicy](/graph/api/entitlementmanagement-post-assignmentpolicies?tabs=http&view=graph-rest-beta&preserve-view=true) for more examples.
+This script below illustrates creating a policy for direct assignment to an access package. In this policy, only the administrator can assign access, and there are no approvals or access reviews. See [Create an automatic assignment policy](entitlement-management-access-package-auto-assignment-policy.md#create-an-access-package-assignment-policy-through-powershell) for an example of how to create an automatic assignment policy, and [create an accessPackageAssignmentPolicy](/graph/api/entitlementmanagement-post-assignmentpolicies?tabs=http&view=graph-rest-v1.0&preserve-view=true) for more examples.
 
 ```powershell
 Connect-MgGraph -Scopes "EntitlementManagement.ReadWrite.All"
-Select-MgProfile -Name "beta"
 
 $apid = "cdd5f06b-752a-4c9f-97a6-82f4eda6c76d"
 
-$pparams = @{
-    AccessPackageId = $apid
-    DisplayName = "direct"
-    Description = "direct assignments by administrator"
-    AccessReviewSettings = $null
-    RequestorSettings = @{
-        ScopeType = "NoSubjects"
-        AcceptRequests = $true
-        AllowedRequestors = @(
-        )
-    }
-    RequestApprovalSettings = @{
-        IsApprovalRequired = $false
-        IsApprovalRequiredForExtension = $false
-        IsRequestorJustificationRequired = $false
-        ApprovalMode = "NoApproval"
-        ApprovalStages = @(
-        )
-    }
+$params = @{
+	displayName = "New Policy"
+	description = "policy for assignment"
+	allowedTargetScope = "notSpecified"
+	specificAllowedTargets = @(
+	)
+	expiration = @{
+		endDateTime = $null
+		duration = $null
+		type = "noExpiration"
+	}
+	requestorSettings = @{
+		enableTargetsToSelfAddAccess = $false
+		enableTargetsToSelfUpdateAccess = $false
+		enableTargetsToSelfRemoveAccess = $false
+		allowCustomAssignmentSchedule = $true
+		enableOnBehalfRequestorsToAddAccess = $false
+		enableOnBehalfRequestorsToUpdateAccess = $false
+		enableOnBehalfRequestorsToRemoveAccess = $false
+		onBehalfRequestors = @(
+		)
+	}
+	requestApprovalSettings = @{
+		isApprovalRequiredForAdd = $false
+		isApprovalRequiredForUpdate = $false
+		stages = @(
+		)
+	}
+	accessPackage = @{
+		id = $apid
+	}
 }
-New-MgEntitlementManagementAccessPackageAssignmentPolicy -BodyParameter $pparams
+
+New-MgEntitlementManagementAssignmentPolicy -BodyParameter $params
 ```
 
 ## Prevent requests from users with incompatible access
