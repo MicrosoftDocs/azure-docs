@@ -86,6 +86,10 @@ A robust mechanism is necessary to identify the most relevant data from the exte
 
 Prior to sending a request to Azure OpenAI, the user input/query/request is also transformed into an embedding, and vector search techniques are employed to locate the most similar embeddings within the database. This technique enables the identification of the most relevant data records in the database. These retrieved records are then supplied as input to the model request using prompt engineering.
 
+There are multiple ways to use RAG and vector search with your data stored in Azure Cosmos DB. 
+
+:::image type="content" source="media/rag-data-openai/Vector-Search-Datasheet.png" alt-text="Options for Vector Search with Azure Cosmos DB":::
+
 ## Azure Cosmos DB for NoSQL and Azure Cognitive Search
 
 Implement RAG-patterns with Azure Cosmos DB for NoSQL and Azure Cognitive Search. This approach enables powerful integration of your data residing in Azure Cosmos DB for NoSQL into your AI-oriented applications. Azure Cognitive Search empowers you to efficiently index, and query high-dimensional vector data, which is stored in Azure Cosmos DB for NoSQL.
@@ -124,6 +128,5 @@ You can employ RAG by utilizing native vector search within Azure Cosmos DB for 
 - [Vector search with Azure Cosmos DB for MongoDB vCore](mongodb/vcore/vector-search.md)
 - [Vector search with Azure Cosmos DB PostgreSQL](postgresql/howto-use-pgvector.md)
 
-:::image type="content" source="media/rag-data-openai/Vector-Search-Datasheet.png" alt-text="Options for Vector Search with Azure Cosmos DB":::
 
 
