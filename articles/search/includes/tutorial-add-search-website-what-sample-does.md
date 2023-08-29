@@ -7,7 +7,7 @@ ms.service: cognitive-search
 ---
 This sample website provides access to a catalog of 10,000 books. A user can search the catalog by entering text in the search bar. While the user enters text, the website uses the search index's suggest feature to complete the text. Once the query finishes, the list of books is displayed with a portion of the details. A user can select a book to see all the details, stored in the search index, of the book. 
 
-:::image type="content" source="../media/tutorial-javascript-overview/cognitive-search-enabled-book-website-2.png" alt-text="Screeshot of the sample app in a browser window.":::
+:::image type="content" source="../media/tutorial-javascript-overview/cognitive-search-enabled-book-website-2.png" alt-text="Screenshot of the sample app in a browser window.":::
 
 The search experience includes:
 
