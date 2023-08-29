@@ -21,14 +21,14 @@ Apache Airflow provides a range of backends for storing sensitive information li
 ## Prerequisites 
 
 - **Azure subscription** - If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin. 
-- **Azure storage account** - If you don't have a storage account, see [Create an Azure storage account](/storage/common/storage-account-create?tabs=azure-portal) for steps to create one. Ensure the storage account allows access only from selected networks.
+- **Azure storage account** - If you don't have a storage account, see [Create an Azure storage account](/storage/common/storage-account-create.md?tabs=azure-portal) for steps to create one. Ensure the storage account allows access only from selected networks.
 - **Azure Data Factory pipeline** - You can follow any of the tutorials and create a new data factory pipeline in case you don't already have one or create one with one select in [Get started and try out your first data factory pipeline](quickstart-get-started.md).
-- **Azure Key Vault** - You can follow [this tutorial to create a new Azure Key Vault](/key-vault/general/quick-create-portal) if you don’t have one.
-- **Service Principal** - You'll need to [create a new service principal](/active-directory/develop/howto-create-service-principal-portal) or use an existing one and grant it permission to access Azure Key Vault (example - grant the **key-vault-contributor role** to the SPN for the key vault, so the SPN can manage it). Additionally, you'll need to get the service principal **Client ID** and **Client Secret** (API Key) to add them as environment variables, as described later in this article.
+- **Azure Key Vault** - You can follow [this tutorial to create a new Azure Key Vault](/key-vault/general/quick-create-portal.md) if you don’t have one.
+- **Service Principal** - You'll need to [create a new service principal](/active-directory/develop/howto-create-service-principal-portal.md) or use an existing one and grant it permission to access Azure Key Vault (example - grant the **key-vault-contributor role** to the SPN for the key vault, so the SPN can manage it). Additionally, you'll need to get the service principal **Client ID** and **Client Secret** (API Key) to add them as environment variables, as described later in this article.
 
 ## Permissions
 
-Assign your SPN the following roles in your key vault from the [Built-in roles](azure/role-based-access-control/built-in-roles).
+Assign your SPN the following roles in your key vault from the [Built-in roles](azure/role-based-access-control/built-in-roles.md).
 
 - Key Vault Contributor
 - Key Vault Secrets User
@@ -45,15 +45,15 @@ Follow these steps to enable the Azure Key Vault as the secret backend for your 
 1. Add the following settings for the **Airflow configuration overrides** in integrated runtime properties:
 
    - **AIRFLOW__SECRETS__BACKEND**: "airflow.providers.microsoft.azure.secrets.key_vault.AzureKeyVaultBackend"
-   - **AIRFLOW__SECRETS__BACKEND_KWARGS**: "{"connections_prefix": "airflow-connections", "variables_prefix": "airflow-variables", "vault_url": <your keyvault uri>}”
+   - **AIRFLOW__SECRETS__BACKEND_KWARGS**: "{"connections_prefix": "airflow-connections", "variables_prefix": "airflow-variables", "vault_url": \<your keyvault uri\>}”
 
    :::image type="content" source="media/enable-azure-key-vault-for-managed-airflow/airflow-configuration-overrides.png" alt-text="Screenshot showing the configuration of the Airflow configuration overrides setting in the Airflow environment setup.":::
 
 1. Add the following for the **Environment variables** configuration in the Airflow integrated runtime properties:
 
-   - **AZURE_CLIENT_ID** = <Client Id of SPN>
-   - **AZURE_TENANT_ID** = <Tenant Id>
-   - **AZURE_CLIENT_SECRET** = <Client Secret of SPN>
+   - **AZURE_CLIENT_ID** = \<Client Id of SPN\>
+   - **AZURE_TENANT_ID** = \<Tenant Id\>
+   - **AZURE_CLIENT_SECRET** = \<Client Secret of SPN\>
 
    :::image type="content" source="media/enable-azure-key-vault-for-managed-airflow/environment-variables.png" alt-text="Screenshot showing the Environment variables section of the Airflow integrated runtime properties.":::
 
