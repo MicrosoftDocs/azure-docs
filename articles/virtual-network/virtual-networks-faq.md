@@ -19,17 +19,17 @@ ms.author: allensu
 
 A virtual network is a representation of your own network in the cloud, as provided by the Azure Virtual Network service. A virtual network is a logical isolation of the Azure cloud that's dedicated to your subscription.
 
-You can use virtual networks to provision and manage virtual private networks (VPNs) in Azure. Optionally, you can link the virtual networks with other virtual networks in Azure, or with your on-premises IT infrastructure, to create hybrid or cross-premises solutions.
+You can use virtual networks to provision and manage virtual private networks (VPNs) in Azure. Optionally, you can link virtual networks with other virtual networks in Azure, or with your on-premises IT infrastructure, to create hybrid or cross-premises solutions.
 
 Each virtual network that you create has its own CIDR block. You can link a virtual network to other virtual networks and on-premises networks as long as the CIDR blocks don't overlap. You also have control of DNS server settings for virtual networks, along with segmentation of the virtual network into subnets.
 
 Use virtual networks to:
 
-* Create a dedicated private cloud-only virtual network. Sometimes you don't require a cross-premises configuration for your solution. When you create a virtual network, your services and virtual machines (VMs) within your virtual network can communicate directly and securely with each other in the cloud. You can still configure endpoint connections for the VMs and services that require internet communication, as part of your solution.
+* Create a dedicated, private, cloud-only virtual network. Sometimes you don't require a cross-premises configuration for your solution. When you create a virtual network, your services and virtual machines (VMs) within your virtual network can communicate directly and securely with each other in the cloud. You can still configure endpoint connections for the VMs and services that require internet communication, as part of your solution.
 
 * Securely extend your datacenter. With virtual networks, you can build traditional site-to-site (S2S) VPNs to securely scale your datacenter capacity. S2S VPNs use IPsec to provide a secure connection between your corporate VPN gateway and Azure.
 
-* Enable hybrid cloud scenarios. Virtual networks give you the flexibility to support a range of hybrid cloud scenarios. You can securely connect cloud-based applications to any type of on-premises system, including mainframes and Unix systems.
+* Enable hybrid cloud scenarios. You can securely connect cloud-based applications to any type of on-premises system, including mainframes and Unix systems.
 
 ### How do I get started?
 
@@ -49,9 +49,9 @@ Yes. You can deploy a [network virtual appliance for WAN optimization](https://a
 
 You can use the following tools to create or configure a virtual network:
 
-* Azure portal
-* PowerShell
-* Azure CLI
+* Azure portal.
+* PowerShell.
+* Azure CLI.
 * Network configuration file (`netcfg`, for classic virtual networks only). For more information, see [Configure a virtual network using a network configuration file](/previous-versions/azure/virtual-network/virtual-networks-using-network-configuration-file).
 
 ### What address ranges can I use in my virtual networks?
@@ -62,7 +62,7 @@ We recommend that you use the following address ranges, which are enumerated in 
 * 172.16.0.0 to 172.31.255.255  (172.16/12 prefix)
 * 192.168.0.0 to 192.168.255.255 (192.168/16 prefix)
 
-You can also deploy the shared address space reserved in [RFC 6598](https://datatracker.ietf.org/doc/html/rfc6598), which is treated as a pvate IP address space in Azure:
+You can also deploy the shared address space reserved in [RFC 6598](https://datatracker.ietf.org/doc/html/rfc6598), which is treated as a private IP address space in Azure:
 
 * 100.64.0.0 to 100.127.255.255 (100.64/10 prefix)
 
@@ -73,7 +73,7 @@ In addition, you can't add the following address ranges:
 * 224.0.0.0/4 (multicast)
 * 255.255.255.255/32 (broadcast)
 * 127.0.0.0/8 (loopback)
-* 169.254.0.0/16 (link-local)
+* 169.254.0.0/16 (link local)
 * 168.63.129.16/32 (internal DNS)
 
 ### Can I have public IP addresses in my virtual networks?
@@ -82,9 +82,9 @@ Yes. For more information about public IP address ranges, see [Create a virtual 
 
 ### Is there a limit to the number of subnets in my virtual network?
 
-Yes. See [Azure limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) for details. Subnet address spaces can't overlap one another.
+Yes. See [Networking limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) for details. Subnet address spaces can't overlap one another.
 
-### Are there any restrictions on using IP addresses within these subnets?
+### Are there any restrictions on using IP addresses within subnets?
 
 Yes. Azure reserves the first four addresses and the last IP address, for a total of five IP addresses within each subnet.
 
@@ -92,7 +92,7 @@ For example, the IP address range of 192.168.1.0/24 has the following reserved a
 
 * 192.168.1.0: Network address.
 * 192.168.1.1: Reserved by Azure for the default gateway.
-* 192.168.1.2, 192.168.1.3: Reserved by Azure to map the Azure DNS IPs to the virtual network space.
+* 192.168.1.2, 192.168.1.3: Reserved by Azure to map the Azure DNS IP addresses to the virtual network space.
 * 192.168.1.255: Network broadcast address.
 
 ### How small and how large can virtual networks and subnets be?
@@ -101,11 +101,11 @@ The smallest supported IPv4 subnet is /29, and the largest is /2 (using CIDR sub
 
 ### Can I bring my VLANs to Azure by using virtual networks?
 
-No. Virtual networks are Layer-3 overlays. Azure does not support any Layer-2 semantics.
+No. Virtual networks are Layer 3 overlays. Azure does not support any Layer 2 semantics.
 
 ### Can I specify custom routing policies on my virtual networks and subnets?
 
-Yes. You can create a route table and associate it with a subnet. For more information about routing in Azure, see [Routing overview](virtual-networks-udr-overview.md#custom-routes).
+Yes. You can create a route table and associate it with a subnet. For more information about routing in Azure, see [Custom routes](virtual-networks-udr-overview.md#custom-routes).
 
 ### What's the behavior when I apply both an NSG and a UDR at the subnet?
 
@@ -115,16 +115,16 @@ For inbound traffic, network security group (NSG) inbound rules are processed. F
 
 When you apply NSGs at both a network adapter (NIC) and a subnet for a VM:
 
-* A subnet-level NSG, followed by a NIC-level NSG, is processed for inbound.
+* A subnet-level NSG, followed by a NIC-level NSG, is processed for inbound traffic.
 * A NIC-level NSG, followed by a subnet-level NSG, is processed for outbound traffic.
 
 ### Do virtual networks support multicast or broadcast?
 
 No. Multicast and broadcast are not supported.
 
-### What protocols can I use within virtual networks?
+### What protocols can I use in virtual networks?
 
-You can use TCP, UDP, ESP, AH, and ICMP TCP/IP protocols within virtual networks.
+You can use TCP, UDP, ESP, AH, and ICMP TCP/IP protocols in virtual networks.
 
 Unicast is supported in virtual networks. Multicast, broadcast, IP-in-IP encapsulated packets, and Generic Routing Encapsulation (GRE) packets are blocked in virtual networks. You can't use Dynamic Host Configuration Protocol (DHCP) via Unicast (source port UDP/68, destination port UDP/67). UDP source port 65330 is reserved for the host.
 
@@ -134,7 +134,7 @@ For more information about what is and isn't supported for DHCP, see [Can I depl
 
 Azure virtual networks provide DHCP service and DNS to VMs and client/server DHCP (source port UDP/68, destination port UDP/67) not supported in a virtual network.
 
-You can't deploy your own DHCP service to receive and provide unicast or broadcast client/server DHCP traffic for endpoints inside a virtual network. Deploying a DHCP server VM with the intent to receive unicast DHCP relay (source port UDP/67, destination port UDP/67) DHCP traffic is also an *unsupported* scenario.
+You can't deploy your own DHCP service to receive and provide unicast or broadcast client/server DHCP traffic for endpoints inside a virtual network. Deploying a DHCP server VM with the intent to receive unicast DHCP relay (source port UDP/67, destination port UDP/67) traffic is also an *unsupported* scenario.
 
 ### Can I ping a default gateway in a virtual network?
 
@@ -161,28 +161,28 @@ Yes. You can add, remove, and modify the CIDR blocks that a virtual network uses
 
 ### If I'm running my services in a virtual network, can I connect to the internet?
 
-Yes. All services deployed in a virtual network can connect outbound to the internet. To learn more about outbound internet connections in Azure, see [Outbound connections](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Yes. All services deployed in a virtual network can connect outbound to the internet. To learn more about outbound internet connections in Azure, see [Use Source Network Address Translation (SNAT) for outbound connections](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-If you want to connect inbound to a resource deployed through Azure Resource Manager, the resource must have a public IP address assigned to it. For more information, see [Public IP addresses](./ip-services/virtual-network-public-ip-address.md).
+If you want to connect inbound to a resource deployed through Azure Resource Manager, the resource must have a public IP address assigned to it. For more information, see [Create, change, or delete an Azure public IP address](./ip-services/virtual-network-public-ip-address.md).
 
 Every cloud service deployed in Azure has a publicly addressable virtual IP (VIP) assigned to it. You define input endpoints for platform as a service (PaaS) roles and endpoints for virtual machines to enable these services to accept connections from the internet.
 
 ### Do virtual networks support IPv6?
 
-Yes, virtual networks can be IPv4-only or dual stack (IPv4 + IPv6).  For details, see [What is IPv6 for Azure Virtual Network?](./ip-services/ipv6-overview.md).
+Yes, virtual networks can be IPv4 only or dual stack (IPv4 + IPv6).  For details, see [What is IPv6 for Azure Virtual Network?](./ip-services/ipv6-overview.md).
 
 ### Can a virtual network span regions?
 
 No. A virtual network is limited to a single region. But a virtual network does span availability zones. To learn more about availability zones, see [What are Azure regions and availability zones?](../reliability/availability-zones-overview.md).
 
-You can connect virtual networks in different regions by using virtual network peering. For details, see [Virtual network peering overview](virtual-network-peering-overview.md).
+You can connect virtual networks in different regions by using virtual network peering. For details, see [Virtual network peering](virtual-network-peering-overview.md).
 
 ### Can I connect a virtual network to another virtual network in Azure?
 
 Yes. You can connect one virtual network to another virtual network by using either:
 
-* Virtual network peering. For details, see [Virtual network peering overview](virtual-network-peering-overview.md).
-* An Azure VPN gateway. For details, see [Configure a network-to-network connection](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+* Virtual network peering. For details, see [Virtual network peering](virtual-network-peering-overview.md).
+* An Azure VPN gateway. For details, see [Configure a network-to-network VPN gateway connection](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## Name resolution (DNS)
 
@@ -202,22 +202,22 @@ See [Networking limits](../azure-resource-manager/management/azure-subscription-
 
 Yes. You can change the DNS server list for your virtual network at any time.
 
-If you change your DNS server list, you need to perform a DHCP lease renewal on all affected VMs in the virtual network. The new DNS settings take effect after lease renewal. For VMs running Windows, you can do the lease renewal by entering `ipconfig /renew` directly on the VM. For other OS types, refer to the DHCP lease renewal documentation.
+If you change your DNS server list, you need to perform a DHCP lease renewal on all affected VMs in the virtual network. The new DNS settings take effect after lease renewal. For VMs running Windows, you can renew the lease by entering `ipconfig /renew` directly on the VM. For other OS types, refer to the documentation for the DHCP lease renewal.
 
 ### What is Azure-provided DNS, and does it work with virtual networks?
 
-Azure-provided DNS is a multi-tenant DNS service from Microsoft. Azure registers all of your VMs and cloud service role instances in this service. This service provides name resolution:
+Azure-provided DNS is a multitenant DNS service from Microsoft. Azure registers all of your VMs and cloud service role instances in this service. This service provides name resolution:
 
-* By host name for VMs and role instances contained in the same cloud service
+* By host name for VMs and role instances in the same cloud service.
 * By FQDN for VMs and role instances in the same virtual network.
 
-To learn more about DNS, see [Name Resolution for VMs and Cloud Services role instances](virtual-networks-name-resolution-for-vms-and-role-instances.md).
+To learn more about DNS, see [Name resolution for resources in Azure virtual networks](virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 There's a limitation to the first 100 cloud services in a virtual network for cross-tenant name resolution through Azure-provided DNS. If you're using your own DNS server, this limitation doesn't apply.
 
-### Can I override my DNS settings on a per-VM or cloud service basis?
+### Can I override my DNS settings for each VM or cloud service?
 
-Yes. You can set DNS servers per VM or cloud service to override the default network settings. However, we recommend that you use network-wide DNS as much as possible.
+Yes. You can set DNS servers for each VM or cloud service to override the default network settings. However, we recommend that you use network-wide DNS as much as possible.
 
 ### Can I bring my own DNS suffix?
 
@@ -229,14 +229,14 @@ No. You can't specify a custom DNS suffix for your virtual networks.
 
 Yes. All network adapters (NICs) attached to a VM that's deployed through the Resource Manager deployment model must be connected to a virtual network. Optionally, you can connect VMs deployed through the classic deployment model to a virtual network.
 
-### What are the types of IP addresses I can assign to VMs?
+### What are the types of IP addresses that I can assign to VMs?
 
 * **Private**: Assigned to each NIC within each VM. The address is assigned through the static or dynamic method. Private IP addresses are assigned from the range that you specified in the subnet settings of your virtual network.
 
   Resources deployed through the classic deployment model are assigned private IP addresses, even if they're not connected to a virtual network. The behavior of the allocation method is different depending on whether you deployed a resource by using the Resource Manager or classic deployment model:
 
-  * **Resource Manager**: A private IP address assigned with the dynamic or static method remains assigned to a virtual machine (Resource Manager) until the resource is deleted. The difference is that you select the address to assign when you're using the static method, and Azure chooses when you're using the dynamic method.
-  * **Classic**: A private IP address assigned with the dynamic method may change when a virtual machine (classic) VM is restarted after having been in the stopped (deallocated) state. If you need to ensure that the private IP address for a resource deployed through the classic deployment model never changes, assign a private IP address with the static method.
+  * **Resource Manager**: A private IP address assigned through the dynamic or static method remains assigned to a virtual machine (Resource Manager) until the resource is deleted. The difference is that you select the address to assign when you're using the static method, and Azure chooses when you're using the dynamic method.
+  * **Classic**: A private IP address assigned through the dynamic method might change when a virtual machine (classic) is restarted after being in the stopped (deallocated) state. If you need to ensure that the private IP address for a resource deployed through the classic deployment model never changes, assign a private IP address by using the static method.
 
 * **Public**: Optionally assigned to NICs attached to VMs deployed through the Resource Manager deployment model. You can assign the address by using the static or dynamic allocation method.
 
@@ -250,7 +250,7 @@ No. You can't reserve a private IP address. If a private IP address is available
 
 ### Do private IP addresses change for VMs in a virtual network?
 
-It depends. If you deployed the VM by using Resource Manager, IP addresses can't change, regardless of whether you assigned the addresses with the static or dynamic allocation method. If you deployed the VM by using the classic deployment model, dynamic IP addresses can change when you start a VM that was in the stopped (deallocated) state.
+It depends. If you deployed the VM by using Resource Manager, IP addresses can't change, regardless of whether you assigned the addresses by using the static or dynamic allocation method. If you deployed the VM by using the classic deployment model, dynamic IP addresses can change when you start a VM that was in the stopped (deallocated) state.
 
 The address is released from a VM deployed through either deployment model when you delete the VM.
 
@@ -272,7 +272,7 @@ Yes. You can find more information in [Move a VM or role instance to a different
 
 No. You can't statically configure a MAC address.
 
-### Will the MAC address remain the same for my VM after it's created?
+### Does the MAC address remain the same for my VM after it's created?
 
 Yes, the MAC address remains the same for a VM that you deployed through both the Resource Manager and classic deployment models until you delete it.
 
@@ -291,19 +291,19 @@ Yes. All VMs and Cloud Services role instances deployed within a virtual network
 
 Yes. You can deploy the Web Apps feature of Azure App Service inside a virtual network by using an App Service Environment. You can then:
 
-* Connect the back end of your apps to your virtual networks with by using virtual network integration
+* Connect the back end of your apps to your virtual networks with by using virtual network integration.
 * Lock down inbound traffic to your app by using service endpoints.
 
 For more information, see the following articles:
 
 * [App Service networking features](../app-service/networking-features.md)
-* [Create web apps in an App Service Environment](../app-service/environment/using.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+* [Use an App Service Environment](../app-service/environment/using.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 * [Integrate your app with an Azure virtual network](../app-service/overview-vnet-integration.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-* [App Service access restrictions](../app-service/app-service-ip-restrictions.md)
+* [Set up Azure App Service access restrictions](../app-service/app-service-ip-restrictions.md)
 
 ### Can I deploy Cloud Services with web and worker roles (PaaS) in a virtual network?
 
-Yes. You can (optionally) deploy Cloud Services role instances within virtual networks. To do so, you specify the virtual network name and the role/subnet mappings in the network configuration section of your service configuration. You don't need to update any of your binaries.
+Yes. You can (optionally) deploy Cloud Services role instances in virtual networks. To do so, you specify the virtual network name and the role/subnet mappings in the network configuration section of your service configuration. You don't need to update any of your binaries.
 
 ### Can I connect a virtual machine scale set to a virtual network?
 
@@ -335,13 +335,13 @@ Yes. You can apply [network security groups](./network-security-groups-overview.
 
 Yes. You can deploy a [firewall network virtual appliance](https://azure.microsoft.com/marketplace/?term=firewall) from several vendors through Azure Marketplace.
 
-### Is there information available about securing virtual networks?
+### Is information available about securing virtual networks?
 
 Yes. See [Azure network security overview](../security/fundamentals/network-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ### Do virtual networks store customer data?
 
-No. Virtual networks doesn't store any customer data.
+No. Virtual networks don't store any customer data.
 
 ### Can I set the FlowTimeoutInMinutes property for an entire subscription?
 
@@ -377,13 +377,13 @@ Yes. Learn more about using:
 
 Virtual network peering enables you to connect virtual networks. A peering connection between virtual networks enables you to route traffic between them privately through IPv4 addresses.
 
-Virtual machines in the peered virtual networks can communicate with each other as if they're within the same network. These virtual networks can be in the same region or in different regions (also known as global virtual network peering).
+Virtual machines in peered virtual networks can communicate with each other as if they're within the same network. These virtual networks can be in the same region or in different regions (also known as global virtual network peering).
 
 You can also create virtual network peering connections across Azure subscriptions.
 
 ### Can I create a peering connection to a virtual network in a different region?
 
-Yes. global virtual network peering enables you to peer virtual networks in different regions. Global virtual network peering is available in all Azure public regions, China cloud regions, and government cloud regions. You can't globally peer from Azure public regions to national cloud regions.
+Yes. Global virtual network peering enables you to peer virtual networks in different regions. Global virtual network peering is available in all Azure public regions, China cloud regions, and government cloud regions. You can't globally peer from Azure public regions to national cloud regions.
 
 ### What are the constraints related to global virtual network peering and load balancers?
 
@@ -394,9 +394,9 @@ The following resources can use Basic load balancers, which means you can't reac
 * VMs behind Basic load balancers
 * Virtual machine scale sets with Basic load balancers
 * Azure Cache for Redis
-* Azure Application Gateway (v1)
+* Azure Application Gateway v1
 * Azure Service Fabric
-* Azure API Management (stv1)
+* Azure API Management stv1
 * Azure Active Directory Domain Services (AD DS)
 * Azure Logic Apps
 * Azure HDInsight
@@ -411,9 +411,9 @@ Yes. It's possible to establish virtual network peering (whether local or global
 
 ### My virtual network peering connection is in an Initiated state. Why can't I connect?
 
-If your peering connection is in an **Initiated** state, you've created only one link. You must create a bidirectional link to establish a successful connection.
+If your peering connection is in an **Initiated** state, you created only one link. You must create a bidirectional link to establish a successful connection.
 
-For example, to peer VNetA to VNetB, a link must be created from VNetA to VNetB and from VNetB to VNetA. Creating both links changes the state to *Connected*.
+For example, to peer VNetA to VNetB, you must create a link from VNetA to VNetB and from VNetB to VNetA. Creating both links changes the state to *Connected*.
 
 ### My virtual network peering connection is in a Disconnected state. Why can't I create a peering connection?
 
@@ -441,7 +441,7 @@ When Azure traffic moves between datacenters (outside physical boundaries not co
 
 ### Why is my peering connection in a Disconnected state?
 
-Virtual network peering connections go into **Disconnected** state when one virtual network peering link is deleted. You must delete both links to re-establish a successful peering connection.
+Virtual network peering connections go into a **Disconnected** state when one virtual network peering link is deleted. You must delete both links to re-establish a successful peering connection.
 
 ### If I peer VNetA to VNetB and I peer VNetB to VNetC, does that mean VNetA and VNetC are peered?
 
@@ -451,9 +451,9 @@ No. Transitive peering is not supported. You must manually peer VNetA to VNetC.
 
 No. Virtual network peering, whether local or global, does not impose any bandwidth restrictions. Bandwidth is limited only by the VM or the compute resource.
 
-### How can I troubleshoot virtual network peering issues?
+### How can I troubleshoot problems with virtual network peering?
 
-You can try the [troubleshooting guide](https://support.microsoft.com/help/4486956/troubleshooter-for-virtual-network-peering-issues).
+Try the [troubleshooting guide](https://support.microsoft.com/help/4486956/troubleshooter-for-virtual-network-peering-issues).
 
 ## Virtual network TAP
 
@@ -499,15 +499,15 @@ The first step is a network-side operation, and the second step is a service res
 We recommend that you turn on service endpoints for your virtual network before you set up virtual network ACLs on the Azure service side. To set up virtual network service endpoints, you must perform the steps in the preceding sequence.
 
 >[!NOTE]
-> You must complete both of the preceding operations before you can limit the Azure service access to the allowed virtual network and subnet. Only turning on service endpoints for the Azure service on the network side does not give you the limited access. In addition, you must set up virtual network ACLs on the Azure service side.
+> You must complete both of the preceding operations before you can limit the Azure service access to the allowed virtual network and subnet. Only turning on service endpoints for the Azure service on the network side does not give you the limited access. You must also set up virtual network ACLs on the Azure service side.
 
-Certain services (such as Azure SQL and Azure Cosmos DB) allow exceptions to the preceding sequence through the `IgnoreMissingVnetServiceEndpoint` flag. After you set the flag to `True`, you can set virtual network ACLs on the Azure service side before setting up the service endpoints on the network side.
+Certain services (such as Azure SQL and Azure Cosmos DB) allow exceptions to the preceding sequence through the `IgnoreMissingVnetServiceEndpoint` flag. After you set the flag to `True`, you can set up virtual network ACLs on the Azure service side before turning on the service endpoints on the network side. Azure services provide this flag to help customers in cases where the specific IP firewalls are configured on Azure services.
 
-Azure services provide this flag to help customers in cases where the specific IP firewalls are configured on Azure services. Turning on the service endpoints on the network side can lead to a connectivity drop, because the source IP changes from a public IPv4 address to a private address. Setting up virtual network ACLs on the Azure service side before setting service endpoints on the network side can help avoid a connectivity drop.
+Turning on the service endpoints on the network side can lead to a connectivity drop, because the source IP changes from a public IPv4 address to a private address. Setting up virtual network ACLs on the Azure service side before turning on service endpoints on the network side can help avoid a connectivity drop.
 
-### Do all Azure services reside in the Azure virtual network that the customer provides? How does virtual network service endpoint work with Azure services?
+### Do all Azure services reside in the Azure virtual network that the customer provides? How does a virtual network service endpoint work with Azure services?
 
-No, not all Azure services reside in the customer's virtual network. The majority of Azure data services (such as Azure Storage, Azure SQL, and Azure Cosmos DB) are multitenant services that can be accessed over public IP addresses. For more information, see [Deploy dedicated Azure services into virtual networks](virtual-network-for-azure-services.md).
+Not all Azure services reside in the customer's virtual network. The majority of Azure data services (such as Azure Storage, Azure SQL, and Azure Cosmos DB) are multitenant services that can be accessed over public IP addresses. For more information, see [Deploy dedicated Azure services into virtual networks](virtual-network-for-azure-services.md).
 
 When you turn on virtual network service endpoints on the network side and set up appropriate virtual network ACLs on the Azure service side, access to an Azure service is restricted from an allowed virtual network and subnet.
 
@@ -527,7 +527,7 @@ No, there's no additional cost for using virtual network service endpoints.
 
 ### Can I turn on virtual network service endpoints and set up virtual network ACLs if the virtual network and the Azure service resources belong to different subscriptions?
 
-Yes, it's possible. Virtual networks and Azure service resources can be in the same subscription or in different subscriptions. The only requirement is that both the virtual network and Azure service resources must be under the same Microsoft Entra tenant.
+Yes, it's possible. Virtual networks and Azure service resources can be in the same subscription or in different subscriptions. The only requirement is that both the virtual network and the Azure service resources must be under the same Microsoft Entra tenant.
 
 ### Can I turn on virtual network service endpoints and set up virtual network ACLs if the virtual network and the Azure service resources belong to different Microsoft Entra tenants?
 
@@ -567,13 +567,13 @@ Deletion of virtual networks and deletion of subnets are independent operations.
 
 If you set up virtual network ACLs for Azure services, the ACL information associated with those Azure services is disabled when you delete a virtual network or subnet that has virtual network service endpoints turned on.
 
-### What happens if I delete an Azure service account that has a virtual network service endpoint enabled?
+### What happens if I delete an Azure service account that has a virtual network service endpoint turned on?
 
-The deletion of an Azure service account is an independent operation. It's supported even when you enabled the service endpoint on the network side and set up virtual network ACLs on the Azure service side.
+The deletion of an Azure service account is an independent operation. It's supported even if you turned on the service endpoint on the network side and set up virtual network ACLs on the Azure service side.
 
-### What happens to the source IP address of a resource (like a VM in a subnet) that has virtual network service endpoints enabled?
+### What happens to the source IP address of a resource (like a VM in a subnet) that has virtual network service endpoints turned on?
 
-When you enable virtual network service endpoints, the source IP addresses of the resources in your virtual network's subnet switch from using public IPv4 addresses to the Azure virtual network's private IP addresses for traffic to Azure service. This switch can cause specific IP firewalls that are set to public IPv4 address earlier on the Azure services to fail.
+When you turn on virtual network service endpoints, the source IP addresses of the resources in your virtual network's subnet switch from using public IPv4 addresses to the Azure virtual network's private IP addresses for traffic to Azure services. This switch can cause specific IP firewalls that are set to a public IPv4 address earlier on the Azure services to fail.
 
 ### Does the service endpoint route always take precedence?
 
@@ -583,7 +583,7 @@ For more information about how Azure selects a route, see [Virtual network traff
 
 ### Do service endpoints work with ICMP?
 
-No, ICMP traffic that's sourced from a subnet with service endpoints enabled won't take the service tunnel path to the desired endpoint. Service endpoints handle only TCP traffic. If you want to test latency or connectivity to an endpoint via service endpoints, tools like Ping and Traceroute won't show the true path that the resources within the subnet will take.
+No, ICMP traffic that's sourced from a subnet with service endpoints enabled won't take the service tunnel path to the desired endpoint. Service endpoints handle only TCP traffic. If you want to test latency or connectivity to an endpoint via service endpoints, tools like ping and tracert won't show the true path that the resources within the subnet will take.
 
 ### How do NSGs on a subnet work with service endpoints?
 
@@ -595,108 +595,108 @@ You can configure service endpoints on a virtual network independently if you ha
 
 To secure Azure service resources to a virtual network, you must have **Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action** permission for the subnets that you're adding. This permission is included in the built-in service administrator role by default and can be modified through the creation of custom roles.
 
-Learn more about built-in roles and assigning specific permissions to [custom roles](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+For more information about built-in roles and assigning specific permissions to custom roles, see [Azure custom roles](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ### Can I filter virtual network traffic to Azure services, allowing only specific Azure service resources, over virtual network service endpoints?
 
-Virtual network service endpoint policies allow you to filter virtual network traffic to Azure services, allowing only specific Azure service resources over the service endpoints. Endpoint policies provide granular access control from the virtual network traffic to the Azure services.
+You can use virtual network service endpoint policies to filter virtual network traffic to Azure services, allowing only specific Azure service resources over the service endpoints. Endpoint policies provide granular access control from the virtual network traffic to the Azure services.
 
-You can learn more about the service endpoint policies [here](virtual-network-service-endpoint-policies-overview.md).
+To learn more, see [Virtual network service endpoint policies for Azure Storage](virtual-network-service-endpoint-policies-overview.md).
 
 ### Does Microsoft Entra ID support virtual network service endpoints?
 
-Microsoft Entra ID doesn't support service endpoints natively. Complete list of Azure services supporting virtual network service endpoints can be seen [here](./virtual-network-service-endpoints-overview.md).
+Microsoft Entra ID doesn't support service endpoints natively. For a complete list of Azure services that support virtual network service endpoints, see [Virtual network service endpoint policies for Azure Storage](./virtual-network-service-endpoints-overview.md).
 
-Note that the "Microsoft.AzureActiveDirectory" tag listed under services supporting service endpoints is used for supporting service endpoints to ADLS Gen 1. For ADLS Gen 1, virtual network integration for Azure Data Lake Storage Gen1 makes use of the virtual network service endpoint security between your virtual network and Microsoft Entra ID to generate additional security claims in the access token. These claims are then used to authenticate your virtual network to your Data Lake Storage Gen1 account and allow access.
+In that list, the *Microsoft.AzureActiveDirectory* tag listed under services that support service endpoints is used for supporting service endpoints to Azure Data Lake Storage Gen1. Virtual network integration for Data Lake Storage Gen1 makes use of the virtual network service endpoint security between your virtual network and Microsoft Entra ID to generate additional security claims in the access token. These claims are then used to authenticate your virtual network to your Data Lake Storage Gen1 account and allow access.
 
-Learn more about [Azure Data Lake Store Gen 1 virtual network Integration](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+[Learn more about virtual network integration for Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-### Are there any limits on how many virtual network service endpoints I can set up from my virtual network?
+### Are there any limits on how many service endpoints I can set up from my virtual network?
 
-There is no limit on the total number of virtual network service endpoints in a virtual network. For an Azure service resource (such as an Azure Storage account), services may enforce limits on the number of subnets used for securing the resource. The following table shows some example limits:
+There is no limit on the total number of service endpoints in a virtual network. For an Azure service resource (such as an Azure Storage account), services might enforce limits on the number of subnets used for securing the resource. The following table shows some example limits:
 
 |Azure service|    Limits on virtual network rules|
 |---|---|
 |Azure Storage|    200|
 |Azure SQL|    128|
 |Azure Synapse Analytics|    128|
-|Azure KeyVault|    200 |
+|Azure Key Vault|    200 |
 |Azure Cosmos DB|    64|
-|Azure Event Hub|    128|
+|Azure Event Hubs|    128|
 |Azure Service Bus|    128|
-|Azure Data Lake Store V1|    100|
+|Azure Data Lake Storage Gen1|    100|
 
 >[!NOTE]
-> The limits are subjected to changes at the discretion of the Azure service. Refer to the respective service documentation for services details.
+> The limits are subject to change at the discretion of the Azure services. Refer to the respective service documentation for details.
 
-## Migrate classic network resources to Resource Manager
+## Migration of classic network resources to Resource Manager
 
-### What is Azure Service Manager and the term classic mean?
+### What is Azure Service Manager, and what does the term "classic" mean?
 
-Azure Service Manager is the old deployment model of Azure responsible for creating, managing, and deleting resources. The word *classic* in a networking service refers to resources managed by the Azure Service Manager model. For more information, see [Comparison between deployment models](../azure-resource-manager/management/deployment-models.md).
+Azure Service Manager is the old deployment model of Azure that was responsible for creating, managing, and deleting resources. The word *classic* in a networking service refers to resources managed by the Azure Service Manager model. For more information, see the [comparison of deployment models](../azure-resource-manager/management/deployment-models.md).
 
 ### What is Azure Resource Manager?
 
-Azure Resource Manager is the latest deployment and management model in Azure responsible for creating, managing, deleting resources in your Azure subscription. For more information, see [What is Azure Resource Manager?](../azure-resource-manager/management/overview.md)
+Azure Resource Manager is the latest deployment and management model in Azure that's responsible for creating, managing, and deleting resources in your Azure subscription. For more information, see [What is Azure Resource Manager?](../azure-resource-manager/management/overview.md)
 
 ### Can I revert the migration after resources have been committed to Resource Manager?
 
-You can cancel the migration as long as resources are still in the prepared state. Rolling back to the previous deployment model isn't supported after resources have been successfully migrated through the commit operation.
+You can cancel the migration as long as resources are still in the prepared state. Rolling back to the previous deployment model isn't supported after you successfully migrate resources through the commit operation.
 
 ### Can I revert the migration if the commit operation failed?
 
-You can't reverse a migration if the commit operation failed. All migration operations, including the commit operation can't be changed once started. It's recommended that you retry the operation again after a short period. If the operation continues to fail, submit a support request.
+You can't reverse a migration if the commit operation failed. All migration operations, including the commit operation, can't be changed after you start it. We recommend that you retry the operation after a short period. If the operation continues to fail, submit a support request.
 
 ### Can I validate my subscription or resources to see if they're capable of migration?
 
-Yes. As part of the migration procedure, the first step in preparing for migration is to validate if resources are capable of being migrated. In the case the validate operation fails, you'll receive messages for all the reasons the migration can't be completed.
+Yes. The first step in preparing for migration is to validate if resources can be migrated. If the validate operation fails, you'll receive messages for all the reasons why the migration can't be completed.
 
-### Are Application Gateway resources migrated as part of the classic to Resource Manager virtual network migration?  
+### Are Application Gateway resources migrated as part of the virtual network migration from classic to Resource Manager?  
 
-Application Gateway resources won't be migrated automatically as part of the virtual network migration process. If one is present in the virtual network, the migration won't be successful. In order to migrate an Application Gateway resource to Resource Manager, you'll have to remove and recreate the Application Gateway once the migration is complete.
+Application Gateway resources aren't migrated automatically as part of the virtual network migration process. If one is present in the virtual network, the migration won't be successful. To migrate an Application Gateway resource to Resource Manager, you have to remove and re-create the Application Gateway instance after the migration is complete.
 
-### Does the VPN Gateway get migrated as part of the classic to Resource Manager virtual network migration?
+### Are VPN Gateway resources migrated as part of the virtual network migration from classic to Resource Manager?
 
-VPN Gateway resources are migrated as part of virtual network migration process. The migration is completed one virtual network at a time with no other requirements. The migration steps are the same as migrating a virtual network without a VPN gateway.
+Azure VPN Gateway resources are migrated as part of virtual network migration process. The migration is completed one virtual network at a time with no other requirements. The migration steps are the same as for migrating a virtual network without a VPN gateway.
 
-### Is there a service interruption associated with migrating classic VPN gateways to Resource Manager?  
+### Is a service interruption associated with migrating classic VPN gateways to Resource Manager?  
 
-You won't experience any service interruption with your VPN connection when migrating to Resource Manager. Therefore existing workloads will continue to function without loss of on-premises connectivity during the migration.
+You won't experience any service interruption with your VPN connection when you're migrating to Resource Manager. Existing workloads will continue to function without loss of on-premises connectivity during the migration.
 
-### Do I need to reconfigure my on-premises device after the VPN Gateway has been migrated to Resource Manager?
+### Do I need to reconfigure my on-premises device after the VPN gateway is migrated to Resource Manager?
 
-The public IP address associated with the VPN gateway will remain the same even after the migration. You don't need to reconfigure your on-premises router.
+The public IP address associated with the VPN gateway remains the same after the migration. You don't need to reconfigure your on-premises router.
 
-### What are the supported scenarios for classic VPN Gateway migration to Resource Manager?
+### What are the supported scenarios for VPN gateway migration from classic to Resource Manager?
 
-Most of the common VPN connectivity scenarios are covered by the classic to Resource Manager migration. The supported scenarios include:
+The migration from classic to Resource Manager covers most of the common VPN connectivity scenarios. The supported scenarios include:
 
-* Point-to-site connectivity
+* Point-to-site connectivity.
 
-* Site-to-site connectivity with a VPN Gateway connected to an on-premises location
+* Site-to-site connectivity with a VPN gateway connected to an on-premises location.
 
-* Network-to-network connectivity between two virtual networks using VPN gateways
+* Network-to-network connectivity between two virtual networks that use VPN gateways.
 
-* Multiple virtual networks connected to same on-premises location
+* Multiple virtual networks connected to same on-premises location.
 
-* Multi-site connectivity
+* Multiple-site connectivity.
 
-* Forced tunneling enabled virtual networks
+* Virtual networks with forced tunneling enabled.
 
-### Which scenarios aren't supported for classic VPN Gateway migration to Resource Manager?
+### Which scenarios aren't supported for VPN gateway migration from classic to Resource Manager?
 
 Scenarios that aren't supported include:
 
-* Virtual network with both an ExpressRoute Gateway and a VPN Gateway is currently not supported.
+* A virtual network with both an ExpressRoute gateway and a VPN gateway.
 
-* Virtual network with an ExpressRoute Gateway connected to a circuit in a different subscription.
+* A virtual network with an ExpressRoute gateway connected to a circuit in a different subscription.
 
 * Transit scenarios where VM extensions are connected to on-premises servers.
 
-### Where can I find more information regarding classic to Azure Resource Manager migration?
+### Where can I find more information about migration from classic to Resource Manager?
 
-For more information, see [FAQ about classic to Azure Resource Manager migration](../virtual-machines/migration-classic-resource-manager-faq.yml).
+See [Frequently asked questions about classic to Azure Resource Manager migration](../virtual-machines/migration-classic-resource-manager-faq.yml).
 
-### How can I report an issue?
+### How can I report a problem?
 
-You can post your questions about your migration issues to the [Microsoft Q&A](/answers/topics/azure-virtual-network.html) page. It's recommended that you post all your questions on this forum. If you have a support contract, you can also file a support request.
+You can post questions about migration problems to the [Microsoft Q&A](/answers/topics/azure-virtual-network.html) page. We recommend that you post all your questions on this forum. If you have a support contract, you can also file a support request.
