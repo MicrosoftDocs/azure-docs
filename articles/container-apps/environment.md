@@ -43,7 +43,7 @@ Use more than one environment when you want two or more applications to:
 
 - Never share the same compute resources
 - Not communicate via the Dapr service invocation API
-- Be isolated due to team, environment usage (i.e. Test vs Prod), etc.
+- Be isolated due to team or environment usage (for example, test vs. production)
 
 ## Types
 

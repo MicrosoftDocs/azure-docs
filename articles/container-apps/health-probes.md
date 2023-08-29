@@ -26,8 +26,6 @@ Container Apps supports the following probes:
 
 For a full list of the probe specification supported in Azure Container Apps, refer to [Azure REST API specs](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/app/resource-manager/Microsoft.App/stable/2022-03-01/CommonDefinitions.json#L119-L236).
 
-> TCP startup probes are not supported when using the consumption profile in a Dedicated workload profiles environment.
-
 ## HTTP probes
 
 HTTP probes allow you to implement custom logic to check the status of application dependencies before reporting a healthy status.

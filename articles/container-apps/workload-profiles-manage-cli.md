@@ -15,15 +15,6 @@ zone_pivot_groups: container-apps-vnet-types
 
 Learn to manage a workload profiles environment using the Azure CLI.
 
-## Supported regions
-
-The following regions support workload profiles during preview:
-
-- North Central US
-- North Europe
-- West Europe
-- East US
-
 <a id="create"></a>
 
 ## Create a container app in a profile
