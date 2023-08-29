@@ -18,7 +18,8 @@ When migrating Microsoft SQL Server Standalone to Azure VMware Solution, VMware 
 - HCX vMotion
 - HCX Cold Migration
 
-In both cases, consider the size and criticality of the database being migrated. For this how-to procedure, we have validated VMware HCX vMotion. VMware HCX Cold Migration is also valid, but it requires a longer downtime period. 
+In both cases, consider the size and criticality of the database being migrated. 
+For this how-to procedure, we have validated VMware HCX vMotion. VMware HCX Cold Migration is also valid, but it requires a longer downtime period. 
 
 :::image type="content" source="media/sql-server-hybrid-benefit/migrated-sql-standalone-cluster.png" alt-text="Diagram showing the architecture of standalone SQL server for  Azure VMware Solution." border="false" lightbox="media/sql-server-hybrid-benefit/migrated-sql-standalone-cluster.png"::: 
 
@@ -29,8 +30,8 @@ In both cases, consider the size and criticality of the database being migrated.
 - Back up the virtual machine running the Microsoft SQL Server instance. 
 - Remove all cluster node VMs from any Distributed Resource Scheduler (DRS) groups and rules. 
 
-- Configure VMware HCX  between your on-premises datacenter and the Azure VMware Solution private cloud that runs the migrated workloads. For more information about configuring VMware HCX, see [Azure VMware Solution documentation](install-vmware-hcx.md) .
-- Ensure that all the network segments in use by the Microsoft SQL Server are extended into your Azure VMware Solution private cloud. For verify this step in the procedure, see [Configure VMware HCX network extension](configure-hcx-network-extension.md).
+- Configure VMware HCX between your on-premises datacenter and the Azure VMware Solution private cloud that runs the migrated workloads. For more information about configuring VMware HCX, see [Azure VMware Solution documentation](install-vmware-hcx.md).
+- Ensure that all the network segments in use by the SQL Server are extended into your Azure VMware Solution private cloud. Tp verify this step in the procedure, see [Configure VMware HCX network extension](configure-hcx-network-extension.md).
 
 VMware HCX over VPN is supported in Azure VMware Solution for workload migration. However, due to the size of database workloads, VMware HCX over VPN isn't recommended for Microsoft SQL Server Failover Cluster Instance and Microsoft SQL Server Always-On migrations, especially for production workloads. ExpressRoute connectivity is recommended as more performant and reliable. 
 For Microsoft SQL Server Standalone and non-production workloads HCX over VPN can be suitable, depending on the size of the database, to migrate. 
@@ -41,8 +42,8 @@ The on-premises source infrastructure was VMware vSphere 7.0 Update 3 and VMware
 
 ## Downtime considerations
 
-Predicting downtime during a migration depends upon the size of the database to be migrated and the speed of the private network connection to Azure cloud. 
-Migration of Microsoft SQL Server standalone instance doesn't require database downtime since it will be done using the VMware HCX vMotion mechanism. We recommend the migration during off-peak hours with an pre-approved change window.
+Predicting downtime during a migration depends upon the size of the database to be migrated and the speed of the private network connection to Azure cloud.
+Migration of the Microsoft SQL Server Standalone instance doesn't require database downtime since it will be done using the VMware HCX vMotion mechanism. We recommend migrating during off-peak hours with a pre-approved change window.
 
 This table indicates the estimated downtime for each Microsoft SQL Server topology.
 
@@ -59,7 +60,7 @@ This table indicates the estimated downtime for each Microsoft SQL Server topolo
    - Select the Microsoft SQL Server virtual machine.
    - Set the vSphere cluster in the remote private cloud of the migrated SQL cluster as the **Compute Container**.
    - Select the vSAN Datastore as remote storage.
-   - Select a folder. This isn't mandatory, but we recommended separating the different workloads in your Azure VMware Solution private cloud.
+   - Select a folder. This isn't mandatory, but we recommend separating the different workloads in your Azure VMware Solution private cloud.
    - Keep **Same format as source**.
    - Select **vMotion** as Migration profile. 
    - In **Extended Options** select **Migrate Custom Attributes**.
