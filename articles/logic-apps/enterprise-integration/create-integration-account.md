@@ -420,17 +420,15 @@ You can move your integration account to another Azure resource group or Azure s
 
 For this task, you can use either the Azure portal by following the steps in this section or the [Azure CLI](/cli/azure/resource#az-resource-move).
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account credentials.
-
-1. In the main Azure search box, enter `integration accounts`, and select **Integration accounts**.
+1. In the [Azure portal](https://portal.azure.com) search box, enter **integration accounts**, and select **Integration accounts**.
 
    Azure shows all the integration accounts in your Azure subscriptions.
 
 1. Under **Integration accounts**, select the integration account that you want to move. On your integration account menu, select **Overview**.
 
-1. On the Overview pane, next to either **Resource group** or **Subscription name**, select **change**.
+1. On the **Overview** page, next to either **Resource group** or **Subscription name**, select **change**.
 
-   ![Screenshot that shows the Azure portal and the Overview page, selected change option, which is next to Resource group or Subscription name.](./media/create-integration-account/change-resource-group-subscription.png)
+   ![Screenshot shows Azure portal, integration account, Overview page, and selected change option, which is next to Resource group or Subscription name.](./media/create-integration-account/change-resource-group-subscription.png)
 
 1. Select any related resources that you also want to move.
 
@@ -450,19 +448,17 @@ For this task, you can use either the Azure portal by following the steps in thi
 
 ### [Portal](#tab/azure-portal)
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account credentials.
-
-1. In the main Azure search box, enter **integration accounts**, and select **Integration accounts**.
+1. In to the [Azure portal](https://portal.azure.com) search box, enter **integration accounts**, and select **Integration accounts**.
 
    Azure shows all the integration accounts in your Azure subscriptions.
 
 1. Under **Integration accounts**, select the integration account that you want to delete. On your integration account menu, select **Overview**.
 
-   ![Screenshot that shows Azure portal with integration accounts list and integration account menu with Overview selected.](./media/create-integration-account/integration-account-overview.png)
+   ![Screenshot shows Azure portal with integration accounts list and integration account menu with Overview selected.](./media/create-integration-account/integration-account-overview.png)
 
-1. On the Overview pane, select **Delete**.
+1. On the **Overview** page, select **Delete**.
 
-   ![Screenshot that shows Overview page with Delete selected.](./media/create-integration-account/delete-integration-account.png)
+   ![Screenshot shows Overview page with Delete selected.](./media/create-integration-account/delete-integration-account.png)
 
 1. To confirm that you want to delete your integration account, select **Yes**.
 
