@@ -109,7 +109,7 @@ class DependencyInjectionExample
     {
         foreach (var refresher in _refreshers)
         {
-            await refresher.TryRefreshAsync();
+            _ = refresher.TryRefreshAsync();
         }
     }
 }
