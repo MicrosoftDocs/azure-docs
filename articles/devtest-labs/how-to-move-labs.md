@@ -314,7 +314,7 @@ Use the following steps to export and redeploy your schedule in another Azure re
 
 ## Discard or clean up
 
-After the deployment, if you want to start over, you can delete the target lab, and repeat the steps described in the [Prepare](#prepare-to-move) and [Move](#deploy-to-move) sections of this article.
+After the deployment, if you want to start over, you can delete the target lab, and repeat the steps described in the [Prepare](#prepare-to-move-a-lab) and [Move](#deploy-the-template-to-move-the-lab) sections of this article.
 
 To commit the changes and complete the move, you must delete the original lab.
 
