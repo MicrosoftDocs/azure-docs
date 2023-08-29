@@ -2,13 +2,13 @@
 title: Azure Monitor Dependency virtual machine extension for Windows
 description: Deploy the Azure Monitor Dependency agent on Windows virtual machine by using a virtual machine extension.
 ms.topic: article
-ms.service: virtual-machines
+ms.service: azure-monitor
 ms.subservice: extensions
-author: mgoedtel
-ms.author: magoedte
+author: guywild
+ms.author: guywi-ms
 ms.reviewer: erd
 ms.collection: windows
-ms.date: 03/27/2023
+ms.date: 08/29/2023
 ---
 # Azure Monitor Dependency virtual machine extension for Windows
 
@@ -49,7 +49,8 @@ The following JSON shows the schema for the Azure VM Dependency agent extension 
         "publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
         "type": "DependencyAgentWindows",
         "typeHandlerVersion": "9.10",
-        "autoUpgradeMinorVersion": true
+        "autoUpgradeMinorVersion": true,
+        "enableAMA": true
       }
     }
   ],
@@ -87,9 +88,10 @@ The following example assumes the Dependency agent extension is nested inside th
 	],
 	"properties": {
 		"publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
-        "type": "DependencyAgentWindows",
-        "typeHandlerVersion": "9.10",
-        "autoUpgradeMinorVersion": true
+	        "type": "DependencyAgentWindows",
+	        "typeHandlerVersion": "9.10",
+	        "autoUpgradeMinorVersion": true,
+	        "enableAMA": true
 	}
 }
 ```
@@ -107,9 +109,10 @@ When you place the extension JSON at the root of the template, the resource name
 	],
 	"properties": {
 		"publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
-        "type": "DependencyAgentWindows",
-        "typeHandlerVersion": "9.10",
-        "autoUpgradeMinorVersion": true
+	        "type": "DependencyAgentWindows",
+	        "typeHandlerVersion": "9.10",
+	        "autoUpgradeMinorVersion": true,
+	        "enableAMA": true
 	}
 }
 ```
