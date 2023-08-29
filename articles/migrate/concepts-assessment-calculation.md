@@ -6,8 +6,8 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 08/02/2023
-ms.custom: engagement-fy23
+ms.date: 08/29/2023
+ms.custom: engagement-fy24
 ---
 
 # Assessment overview (migrate to Azure VMs)
@@ -121,7 +121,7 @@ Here's what's included in an Azure VM assessment:
 --- | ---
 **Target location** | The location to which you want to migrate. The assessment currently supports these target Azure regions:<br><br> Australia Central, Australia Central 2, Australia East, Australia Southeast, Brazil South, Canada Central, Canada East, Central India, Central US, China East, China East 2,  China North, China North 2, East Asia, East US, East US 2, France Central, France South, Germany North, Germany West Central, Japan East, Japan West, Korea Central, Korea South, North Central US, North Europe, Norway East, Norway West, South Africa North, South Africa West, South Central US, Southeast Asia, South India, Switzerland North, Switzerland West, UAE Central, UAE North, UK South, UK West, West Central US, West Europe, West India, West US, West US 2, JioIndiaCentral, JioIndiaWest, US Gov Arizona, US Gov Iowa, US Gov Texas, US Gov Virginia.
 **Target storage disk (as-is sizing)** | The type of disk to use for storage in Azure. <br><br> Specify the target storage disk as Premium-managed, Standard SSD-managed, Standard HDD-managed, or Ultra disk.
-**Target storage disk (performance-based sizing)** | Specifies the type of target storage disk as automatic, Premium-managed, Standard HDD-managed, Standard SSD-managed, or Ultra disk.<br><br> **Automatic**: The disk recommendation is based on the performance data of the disks, meaning the IOPS and throughput.<br><br>**Premium or Standard or Ultra disk**:  The assessment recommends a disk SKU within the storage type selected.<br><br> If you want a single-instance VM service-level agreement (SLA) of 99.9%, consider using Premium-managed disks. This use ensures that all disks in the assessment are recommended as Premium-managed disks.<br><br> If you're looking to run data-intensive workloads that need high throughput, high IOPS, and consistent low latency disk storage, consider using Ultra disks.<br><br> Azure Migrate supports only managed disks for migration assessment.
+**Target storage disk (performance-based sizing)** | Specifies the type of target storage disk as Premium-managed, Standard HDD-managed, Standard SSD-managed, or Ultra disk.<br><br> **Premium or Standard or Ultra disk**:  The assessment recommends a disk SKU within the storage type selected.<br><br> If you want a single-instance VM service-level agreement (SLA) of 99.9%, consider using Premium-managed disks. This use ensures that all disks in the assessment are recommended as Premium-managed disks.<br><br> If you're looking to run data-intensive workloads that need high throughput, high IOPS, and consistent low latency disk storage, consider using Ultra disks.<br><br> Azure Migrate supports only managed disks for migration assessment.
 **Savings options (compute)** | Specify the savings option that you want the assessment to consider to help optimize your Azure compute cost. <br><br> [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) (1 year or 3 year reserved) are a good option for the most consistently running resources.<br><br> [Azure Savings Plan](../cost-management-billing/savings-plan/savings-plan-compute-overview.md) (1 year or 3 year savings plan) provide additional flexibility and automated cost optimization. Ideally post migration, you could use Azure reservation and savings plan at the same time (reservation will be consumed first), but in the Azure Migrate assessments, you can only see cost estimates of 1 savings option at a time. <br><br> When you select 'None', the Azure compute cost is based on the Pay as you go rate or based on actual usage.<br><br> You need to select pay-as-you-go in offer/licensing program to be able to use Reserved Instances or Azure Savings Plan. When you select any savings option other than 'None', the 'Discount (%)' and 'VM uptime' properties are not applicable.The monthly cost estimates are calculated by multiplying 744 hours in the VM uptime field with the hourly price of the recommended SKU.
 **Sizing criteria** | Used to rightsize the Azure VM.<br><br> Use as-is sizing or performance-based sizing.
 **Performance history** | Used with performance-based sizing. Performance history specifies the duration used when performance data is evaluated.
@@ -239,7 +239,6 @@ For storage sizing in an Azure VM assessment, Azure Migrate tries to map each di
 
 1. Assessment adds the read and write IOPS of a disk to get the total IOPS required. Similarly, it adds the read and write throughput values to get the total throughput of each disk. In the case of import-based assessments, you have the option to provide the total IOPS, total throughput and total no. of disks in the imported file without specifying individual disk settings. If you do this, individual disk sizing is skipped and the supplied data is used directly to compute sizing, and select an appropriate VM SKU.
 
-1. If you've specified the storage type as automatic, the selected type is based on the effective IOPS and throughput values. The Assessment determines whether to map the disk to a Standard HDD, Standard SSD, Premium disk, or Ultra disk in Azure. If the storage type is set to one of those disk types, the assessment tries to find a disk SKU within the storage type selected.
 1. Disks are selected as follows:
     - If assessment can't find a disk with the required IOPS and throughput, it marks the server as unsuitable for Azure.
     - If assessment finds a set of suitable disks, it selects the disks that support the location specified in the assessment settings.
@@ -361,6 +360,30 @@ Assessment calculates the total monthly storage costs by aggregating the storage
 For servers recommended for Azure VM, if they're ready to run Defender for Server, the Defender for Server cost (Plan 2) per server for that region is added. The assessment aggregates the cost across all servers to calculate the total monthly security cost.
 
 Costs are displayed in the currency specified in the assessment settings.
+
+## Common Assessment Errors
+Assessment service uses the [configuration data](discovered-metadata.md) and the [performance data](#how-does-the-appliance-calculate-performance-data) for calculating the assessments. The data is fetched by the Azure Migrate appliance at specific intervals in case of appliance-based discovery and assessments.
+The following table summarizes the errors encountered while fetching the data by the assessment service. 
+
+**Error** | **Cause** | **Action**
+--- | --- | ---
+60001:UnableToConnectToPhysicalServer | Either the prerequisites to connect to the server have not been met or there are network issues in connecting to the server, for instance some proxy settings. | - Ensure that the server meets the prerequisites and port access requirements. <br/><br/>- Add the IP addresses of the remote machines (discovered servers) to the WinRM TrustedHosts list on the Azure Migrate appliance, and retry the operation. This is to allow remote inbound connections on servers - Windows: WinRM port 5985 (HTTP) and Linux: SSH port 22 (TCP).
+- Ensure that you have chosen the correct authentication method on the appliance to connect to the server.
+- If the issue persists, submit a Microsoft support case, providing the appliance machine ID (available in the footer of the appliance configuration manager)
+
+Windows Server 2012 R2 and all SPs | Azure provides full support. | Ready for Azure.
+Windows Server 2012 and all SPs | Azure provides full support. | Ready for Azure.
+Windows Server 2008 R2 with all SPs | Azure provides full support.| Ready for Azure.
+Windows Server 2008 (32-bit and 64-bit) | Azure provides full support. | Ready for Azure.
+Windows Server 2003 and Windows Server 2003 R2 | These operating systems have passed their end-of-support dates and need a [Custom Support Agreement (CSA)](/troubleshoot/azure/virtual-machines/server-software-support) for support in Azure. | Conditionally ready for Azure. Consider upgrading the OS before migrating to Azure.
+Windows 2000, Windows 98, Windows 95, Windows NT, Windows 3.1, and MS-DOS | These operating systems have passed their end-of-support dates. The server might start in Azure, but Azure provides no OS support. | Conditionally ready for Azure. We recommend that you upgrade the OS before migrating to Azure.
+Windows 7, Windows 8, and Windows 10 | Azure provides support with a [Visual Studio subscription only.](../virtual-machines/windows/client-images.md) | Conditionally ready for Azure.
+Windows 10 Pro | Azure provides support with [Multitenant Hosting Rights.](../virtual-machines/windows/windows-desktop-multitenant-hosting-deployment.md) | Conditionally ready for Azure.
+Windows Vista and Windows XP Professional | These operating systems have passed their end-of-support dates. The server might start in Azure, but Azure provides no OS support. | Conditionally ready for Azure. We recommend that you upgrade the OS before migrating to Azure.
+Linux | See the [Linux operating systems](../virtual-machines/linux/endorsed-distros.md) that Azure endorses. Other Linux operating systems might start in Azure. But we recommend that you upgrade the OS to an endorsed version before you migrate to Azure. | Ready for Azure if the version is endorsed.<br><br>Conditionally ready if the version isn't endorsed.
+Other operating systems like Oracle Solaris, Apple macOS, and FreeBSD | Azure doesn't endorse these operating systems. The server might start in Azure, but Azure provides no OS support. | Conditionally ready for Azure. We recommend that you install a supported OS before migrating to Azure.  
+OS specified as **Other** in vCenter Server | Azure Migrate can't identify the OS in this case. | Unknown readiness. Ensure that Azure supports the OS running inside the VM.
+32-bit operating systems | The server might start in Azure, but Azure might not provide full support. | Conditionally ready for Azure. Consider upgrading to a 64-bit OS before migrating to Azure.
 
 ## Next steps
 
