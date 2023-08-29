@@ -19,7 +19,7 @@ HDInsight on AKS provides the following methods to manually scale clusters:
 |Azure portal| Open your HDInsight on AKS cluster pane, select **Cluster size** on the left-hand menu, then on the Cluster size pane, type in the number of worker nodes, and select Save |
 |REST API|To scale a running HDInsight on AKS cluster using the REST API, make a subsequent POST request on the same resource with the updated count in the compute profile.|
 
-You can use the Azure portal to access the “Cluster size” menu in the cluster navigation page. In Cluster size blade, change the “Number of nodes,” and save the change to scale up or down the cluster.
+You can use the Azure portal to access the “Cluster size” menu in the cluster navigation page. In Cluster size blade, change the “Number of worker nodes,” and save the change to scale up or down the cluster.
 
 :::image type="content" source="./media/manual-scale/manual-scale-configuration.png" alt-text="Screenshot showing the UI for selecting cluster size and configuring manual scale." border="true" lightbox="./media/manual-scale/manual-scale-configuration.png":::
 
