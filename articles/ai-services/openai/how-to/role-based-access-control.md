@@ -114,7 +114,7 @@ This role provides little value by itself and is instead typically assigned in c
 
 #### Cognitive Services Usages Reader + Cognitive Services OpenAI User
 
-All the capabilities of Cognitive Services OpenAI plus the ability to:
+All the capabilities of Cognitive Services OpenAI User plus the ability to:
 
 ✅ View quota allocations in Azure OpenAI Studio
 
