@@ -1,6 +1,7 @@
 ---
 title: Overview of Web PubSub for Socket.IO
 description: Get an overview of Azure Web PubSub support for the open-source Socket.IO library.
+keywords: Socket.IO, Socket.IO on Azure, multi-node Socket.IO, scaling Socket.IO
 author: kevinguo-ed
 ms.author: kevinguo
 ms.date: 07/27/2023
