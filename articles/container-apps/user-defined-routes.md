@@ -11,6 +11,9 @@ ms.date: 08/29/2023
 
 # Control outbound traffic with user defined routes
 
+> [!NOTE]
+> This feature is only supported for the workload profiles environment type. User defined routes only work with an internal Azure Container Apps environment.
+
 This article shows you how to use user defined routes (UDR) with [Azure Firewall](../firewall/overview.md) to lock down outbound traffic from your Container Apps to back-end Azure resources or other network resources.
 
 Azure creates a default route table for your virtual networks on create. By implementing a user-defined route table, you can control how traffic is routed within your virtual network. In this guide, your setup UDR on the Container Apps virtual network to restrict outbound traffic with Azure Firewall.
