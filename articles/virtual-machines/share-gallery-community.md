@@ -19,12 +19,11 @@ To share a gallery with all Azure users, you can create a [community gallery](az
 
 Sharing images to the community is a new capability in [Azure Compute Gallery](./azure-compute-gallery.md#community). You can make your image galleries public, and share them to all Azure customers. When a gallery is marked as a community gallery, all images under the gallery become available to all Azure customers as a new resource type under Microsoft.Compute/communityGalleries. All Azure customers can see the galleries and use them to create VMs. Your original resources of the type `Microsoft.Compute/galleries` are still under your subscription, and private.
 
-<a>disclaimer</a>
+
 > [!IMPORTANT]
 > Microsoft does not provide support for images you share to the community.
 > 
-> [!INCLUDE [community-gallery-artifacts](./includes/community-gallery-artifacts.md)]
-> 
+
 
 
 
@@ -35,6 +34,10 @@ There are three main ways to share images in an Azure Compute Gallery, depending
 | [RBAC Sharing](share-gallery.md) | Yes | Yes | Yes | No | No |
 | RBAC + [Direct shared gallery](./share-gallery-direct.md)  | Yes | Yes | Yes | Yes | No |
 | RBAC + [Community gallery](./share-gallery-community.md) | Yes | Yes | Yes | No | Yes |
+
+## Disclaimer
+
+[!INCLUDE [community-gallery-artifacts](./includes/community-gallery-artifacts.md)]
 
 ## Limitations for images shared to the community
 
