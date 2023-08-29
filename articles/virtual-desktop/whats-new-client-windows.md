@@ -29,10 +29,7 @@ Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Wi
 In this release, we've made the following changes:
 
 - Teams VDI 2.0 plugin now gets loaded for RDP connections.
-- Fixed an issue where the connection bar doesn't show when all the following conditions were true:
-   - When hovering over the top of the screen after it is hidden.
-   - When a change is made to system display settings.
-   - While default display settings are in use in the client.
+- Fixed an issue when using the default display settings and a change is made to the system display settings, where the bar does not show when hovering over top of screen after it is hidden.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
 - Accessibility improvements:
    - Narrator now announces the view mode selector as "*View combo box*", instead of "*Tile view combo box*" or "*List view combo box*".
