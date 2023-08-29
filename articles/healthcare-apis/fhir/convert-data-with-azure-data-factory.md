@@ -146,7 +146,7 @@ For the **Transform HL7v2 health data to FHIR R4 format and write to ADLS Gen2
 > [!NOTE] 
 > If no value is supplied during configuration, then the previously configured default value will be used for each parameter. 
 
-1. In the Trigger run parameters pane:
+1. In the **New trigger** pane, within the **Trigger Run Parameters** options, use the following values:
    * For **inputStorageFolder** use `@triggerBody.folderPath`. This parameter provides the runtime value for this parameter based on the folder path associated with the event triggered (for example: folder path of the new HL7v2 blob created/updated in the storage account configured in the trigger).
    * For **inputStorageFile** use `@triggerBody.fileName`. This parameter provides the runtime value for this parameter based on the file associated with the event triggered (for example: file name of the new HL7v2 blob created/updated in the storage account configured in the trigger).
    * For **rootTemplate** specify the name of the template to be used for the pipeline executions associated with this trigger (for example: `ADT_A01`).
@@ -176,6 +176,8 @@ Successful pipeline executions result in the transformed FHIR R4 bundles as JSON
 Errors encountered during conversion, as part of the pipeline execution, results in error details captured as JSON file in the configured error destination ADLS Gen2 storage account and container.
 
 :::image type="content" source="media/convert-data/convert-data-with-azure-data-factory/adf-errors.png" alt-text="Screenshot of Azure Data Factory errors." lightbox="media/convert-data/convert-data-with-azure-data-factory/adf-errors.png":::
+
+## Next Steps
 
 In this article, you learned how to use Azure Data Factory templates to create a pipeline to transform HL7v2 data to FHIR R4 persisting the results within an Azure Data Lake Storage Gen2 account. You also learned how to configure a trigger to automate the pipeline execution based on incoming HL7v2 data to be transformed.
 
