@@ -57,11 +57,11 @@ To create a vector index, use the following `createIndexes` template:
 | `dimensions` | integer | Number of dimensions for vector similarity. The maximum number of supported dimensions is `2000`. |
 
 > [!IMPORTANT]
-> Setting the _numLists_ parameter correctly is critical to achieving good accuracy and perormance. We recommend that `numLists` is set to `rowCount()/1000` for up to 1 million rows and to `sqrt(rowCount)` for more than 1 million rows.
+> Setting the _numLists_ parameter correctly is important for acheiving good accuracy and performance. We recommend that `numLists` is set to `rowCount()/1000` for up to 1 million rows and to `sqrt(rowCount)` for more than 1 million rows.
 >
 > As the number of items in your database grows, you should tune _numLists_ to be larger in order to achieve good latency performance for vector search.
 >
-> If you're experimenting with a new scenario or creating a small demo, you can start with `numLists` set to `1` to perform a brute-force search across all vectors. This should provdie you with the most accurate results from the vector search. 
+> If you're experimenting with a new scenario or creating a small demo, you can start with `numLists` set to `1` to perform a brute-force search across all vectors. This should provide you with the most accurate results from the vector search. After your initial setup, you should go ahead and tune the `numLists` parameter using the above guidance.
 
 ## Examples
 
