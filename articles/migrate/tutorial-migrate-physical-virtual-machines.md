@@ -6,7 +6,7 @@ ms.author: vijain
 ms.manager: kmadnani
 ms.topic: tutorial
 ms.service: azure-migrate
-ms.date: 08/24/2023
+ms.date: 07/26/2023
 ms.custom: MVC, engagement-fy23
 ---
 
@@ -139,7 +139,7 @@ The first step of migration is to set up the replication appliance. To set up th
 
     ![Download provider](media/tutorial-migrate-physical-virtual-machines/download-provider.png)
 
-8. Copy the appliance setup file and key file to the Windows Server 2022 machine you created for the appliance.
+8. Copy the appliance setup file and key file to the Windows Server 2016 machine you created for the appliance.
 
 9. After the installation completes, the Appliance configuration wizard will be launched automatically (You can also launch the wizard manually by using the cspsconfigtool shortcut that is created on the desktop of the appliance). In this tutorial, we'll be manually installing the Mobility Service on source VMs to be replicated, so create a dummy account in this step and proceed. You can provide the following details for creating the dummy account - "guest" as the friendly name, "username" as the username, and "password" as the password for the account. You will be using this dummy account in the Enable Replication stage.
 
