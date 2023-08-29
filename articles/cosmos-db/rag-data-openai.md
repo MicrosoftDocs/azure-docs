@@ -116,8 +116,14 @@ You can employ RAG by utilizing native vector search within Azure Cosmos DB for 
 
 - Python: [Python notebook tutorial - food review chatbot](https://github.com/microsoft/AzureDataRetrievalAugmentedGenerationSamples/tree/main/Python/CosmosDB-PostgreSQL_CognitiveSearch)
 
+
 ## Next steps
 
+
 - [Vector search with Azure Cognitive Search](../search/vector-search-overview.md)
-- [Vector search with Azure Cosmos DB for MongoDB vCore(mongodb/vcore/vector-search.md)
+- [Vector search with Azure Cosmos DB for MongoDB vCore](mongodb/vcore/vector-search.md)
 - [Vector search with Azure Cosmos DB PostgreSQL](postgresql/howto-use-pgvector.md)
+
+:::image type="content" source="media/rag-data-openai/Vector-Search-Datasheet.png" alt-text="Options for Vector Search with Azure Cosmos DB":::
+
+
