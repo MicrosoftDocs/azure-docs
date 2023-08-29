@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/18/2023
+ms.date: 08/22/2023
 ms.author: sarahlipsey
 ms.reviewer: besiler
 ---
@@ -36,10 +36,8 @@ You can always access your own sign-in history at [https://mysignins.microsoft.c
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-
-1. Sign in to the [Azure portal](https://portal.azure.com) using the appropriate least privileged role.
-1. Go to **Azure Active Directory** > **Monitoring and health**.
-1. Select the logs from the side menu.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Reports Reader](../roles/permissions-reference.md#reports-reader).
+1. Browse to **Identity** > **Monitoring & health** > **Audit logs**/**Sign-in logs**/**Provisioning logs**.
 
 ## Audit logs
 

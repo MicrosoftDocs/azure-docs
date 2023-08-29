@@ -29,8 +29,8 @@ Configuration of the connection to the application's database is done via a wiza
 - Oracle 10g and 11g
 - Oracle 12c and 18c
 - MySQL 5.x
-
-The table-based method of the generic SQL connector requires that column names are case-insensitive. MySQL is case-sensitive on Linux and Postgres is case-sensitive across platforms. As a result, they aren't currently supported with table-based method and configuring provisioning users into those databases is outside the scope of this article.
+- MySQL 8.x
+- Postgres
 
 ### Cloud requirements
 

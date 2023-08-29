@@ -28,13 +28,15 @@ In entitlement management, you can see who has requested access packages, the po
 
 **Prerequisite role:** Global administrator, Identity Governance administrator, User administrator, Catalog owner, Access package manager or Access package assignment manager
 
-1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1. In the left menu, click **Access packages** and then open the access package.
+1. Browse to **Identity governance** > **Entitlement management** > **Access package**.
 
-1. Click **Requests**.
+1. On the **Access packages** page open the access package you want to view requests of.
 
-1. Click a specific request to see additional details.
+1. Select **Requests**.
+
+1. Select a specific request to see additional details.
 
     ![List of requests for an access package](./media/entitlement-management-access-package-requests/requests-list.png)
 
@@ -49,11 +51,13 @@ You can also retrieve requests for an access package using Microsoft Graph.  A u
 
 You can also remove a completed request that is no longer needed. To remove a request:
 
-1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1. In the left menu, click **Access packages** and then open the access package.
+1. Browse to **Identity governance** > **Entitlement management** > **Access package**.
 
-1. Click **Requests**.
+1. On the **Access packages** page open the access package you want to remove requests for.
+
+1. Select **Requests**.
 
 1. Find the request you want to remove from the access package.
 
