@@ -22,7 +22,7 @@ This article explains how to deploy a small application to run on Azure Spring A
 
 The application code used in this tutorial is a simple app. When you've completed this example, the application is accessible online, and you can manage it through the Azure portal.
 
-::: zone pivot="sc-standard"
+::: zone pivot="sc-consumption-plan,sc-standard"
 
 [!INCLUDE [quickstart-tool-introduction](includes/quickstart/quickstart-tool-introduction.md)]
 
@@ -30,16 +30,7 @@ The application code used in this tutorial is a simple app. When you've complete
 
 ## 1. Prerequisites
 
-::: zone pivot="sc-consumption-plan"
-
-- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-- [Git](https://git-scm.com/downloads).
-- [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
-- [Azure CLI](/cli/azure/install-azure-cli) version 2.45.0 or higher.
-
-::: zone-end
-
-::: zone pivot="sc-standard"
+::: zone pivot="sc-consumption-plan,sc-standard"
 
 ### [Azure portal](#tab/Azure-portal)
 
@@ -109,19 +100,7 @@ The application code used in this tutorial is a simple app. When you've complete
 
 After deployment, you can access the app at `https://<your-Azure-Spring-Apps-instance-name>-demo.azuremicroservices.io`. When you open the app, you get the response `Hello World`.
 
-::: zone pivot="sc-consumption-plan"
-
-Use the following command to check the app's log to investigate any deployment issue:
-
-```azurecli
-az spring app logs \
-    --service ${SERVICE_NAME} \
-    --name ${APP_NAME}
-```
-
-::: zone-end
-
-::: zone pivot="sc-standard"
+::: zone pivot="sc-consumption-plan,sc-standard"
 
 From the navigation pane of the Azure Spring Apps instance overview page, select **Logs** to check the app's logs.
 

@@ -805,7 +805,7 @@ items:
         href: https://azure.microsoft.com/pricing/details/communication-services/
       - name: Learn about inbound calls
         href: concepts/call-automation/incoming-call-notification.md
-      - name: Connecting Azure Communication Services to Azure Cognitive Services
+      - name: Connecting Azure Communication Services to Azure AI services
         href: concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md
       - name: Play audio in call
         href: concepts/call-automation/play-action.md
@@ -1041,6 +1041,8 @@ items:
       href: concepts/numbers/phone-number-management-for-latvia.md      
     - name: Phone number management for Luxembourg
       href: concepts/numbers/phone-number-management-for-luxembourg.md
+    - name: Phone number management for Malaysia
+      href: concepts/numbers/phone-number-management-for-malaysia.md
     - name: Phone number management for Netherlands
       href: concepts/numbers/phone-number-management-for-netherlands.md
     - name: Phone number management for New Zealand
