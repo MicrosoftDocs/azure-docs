@@ -9,10 +9,10 @@ ms.date: 08/28/2023
 ms.author: jasteppe
 ---
 
+# Transform HL7v2 health data to FHIR R4 format with the $convert-data operation and Azure Data Factory
+
 > [!NOTE]
 > [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
-
-# Transform HL7v2 health data to FHIR R4 format with the $convert-data operation and Azure Data Factory
 
 This article details how to transform HL7v2 data to FHIR R4 format, persist the transformed results within an Azure Data Lake Storage (ADLS) Gen2 account with the `$convert-data` operation and Azure Data Factory (ADF) as an orchestrator. 
 
@@ -21,7 +21,7 @@ This article details how to transform HL7v2 data to FHIR R4 format, persist the 
 Before getting started, ensure you have taken the following steps:
 
 1. Deploy an instance of the [FHIR service](fhir-portal-quickstart.md). The FHIR service is used to invoke the [$convert-data](overview-of-convert-data.md) operation.
-2. Set up your [Azure Container Registry instance to host your own templates](convert-data-with-azure-data-factory.md#host-your-own-templates) to be used for the conversion operation. By default, the pipeline uses the [predefined templates provided by Microsoft](convert-data-with-azure-data-factory.md#default-templates) for conversion.
+2. Set up your [Azure Container Registry instance to host your own templates](configure-settings-convert-data.md#host-your-own-templates) to be used for the conversion operation. By default, the pipeline uses the [predefined templates provided by Microsoft](configure-settings-convert-data.md#default-templates) for conversion.
 3. Create [storage account(s) with Azure Data Lake Storage Gen2 (ADLS Gen2) capabilities](../../storage/blobs/create-data-lake-storage-account.md) by enabling a hierarchical namespace and container(s) to store the data to read from and write to.
 
    > [!NOTE]
@@ -55,7 +55,7 @@ Azure Data Factory pipelines are a collection of activities that perform a t
 
 3. Select **Use this template** to create the new pipeline.
 
-   :::image type="content" source="media/convert-data/convert-data-with-azure-data-factory/use-this-template.png" alt-text="Screenshot of the search for the Transform HL7v2 health data to FHIR R4 format and write to ADLS Gen2 template." lightbox="media/convert-data/use-this-template.png"::: 
+   :::image type="content" source="media/convert-data/convert-data-with-azure-data-factory/use-this-adf-template.png" alt-text="Screenshot of the search for the Transform HL7v2 health data to FHIR R4 format and write to ADLS Gen2 template." lightbox="media/convert-data/convert-data-with-azure-data-factory/use-this-adf-template.png"::: 
   
    ADF imports a set of pipelines with the main end-to-end pipeline for this scenario within **Pipelines** and titled **Transform HL7v2 health data to FHIR R4 format and write to ADLS Gen2**. The pipeline internally invokes the other pipelines/activities under the subcategories of **Extract**, **Load**, and **Transform**.
 
