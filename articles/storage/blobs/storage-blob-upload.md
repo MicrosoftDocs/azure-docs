@@ -97,7 +97,7 @@ The following table shows the available options for the checksum algorithm, as d
 | StorageCrc64 | 3 | Azure Storage custom 64-bit CRC. |
 
 > [!NOTE]
-> If the checksum specified in the request doesn't match the checksum calculated by the service, the upload operation fails. In .NET, a `RequestFailedException` is thrown with status code 400 and error code `Md5Mismatch` or `Crc64Mismatch`, depending on which algorithm is used.
+> If the checksum specified in the request doesn't match the checksum calculated by the service, the upload operation fails. The operation is not retried when using a default retry policy. In .NET, a `RequestFailedException` is thrown with status code 400 and error code `Md5Mismatch` or `Crc64Mismatch`, depending on which algorithm is used.
 
 ### Upload with index tags
 
