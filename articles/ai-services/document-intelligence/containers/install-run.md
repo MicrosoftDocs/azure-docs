@@ -88,12 +88,6 @@ You also need an **Azure AI Vision API resource to process business cards, ID do
   * **{COMPUTER_VISION_ENDPOINT_URI}**: the endpoint for the resource used to track billing information.
 :::moniker-end
 
-## Request approval to run container
-
-Complete and submit the [**Azure AI services application for Gated Services**](https://aka.ms/csgate) to request access to the container.
-
-[!INCLUDE [Request access to public preview](../../../../includes/cognitive-services-containers-request-access.md)]
-
 ## Host computer requirements
 
 The host is a x64-based computer that runs the Docker container. It can be a computer on your premises or a Docker hosting service in Azure, such as:
