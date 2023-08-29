@@ -59,10 +59,10 @@ Azure Monitor Agent will be used to collect the syslog data into Microsoft senti
 5. On the Tags page, review the default Physical location tags suggested and enter a value, or specify one or more Custom tags to support your standards. Then select Next
 6. Select Download to save the script file. 
 7. Now that you have generated the script, the next step is to run it on the server that you want to onboard to Azure Arc. 
-8. If you have Azure VM follow the steps mentioned in the [link](https://learn.microsoft.com/azure/azure-arc/servers/plan-evaluate-on-azure-virtual-machine) before running the script. 
+8. If you have Azure VM follow the steps mentioned in the [link](/azure/azure-arc/servers/plan-evaluate-on-azure-virtual-machine) before running the script. 
 9. Run the script by the following command: `./<ScriptName>.sh`
 10. After you install the agent and configure it to connect to Azure Arc-enabled servers, go to the Azure portal to verify that the server has successfully connected. View your machine in the Azure portal.
-> **Reference link:** [https://learn.microsoft.com/azure/azure-arc/servers/learn/quick-enable-hybrid-vm](https://learn.microsoft.com/azure/azure-arc/servers/learn/quick-enable-hybrid-vm)
+> **Reference link:** [https://learn.microsoft.com/azure/azure-arc/servers/learn/quick-enable-hybrid-vm](/azure/azure-arc/servers/learn/quick-enable-hybrid-vm)
 
 1.2 Steps to Create Data Collection Rule (DCR)
 
@@ -78,7 +78,7 @@ Azure Monitor Agent will be used to collect the syslog data into Microsoft senti
 10. Select Add destination and add Destination type, Subscription and Account or namespace.
 11. Select Add data source. Select Next: Review + create.
 12. Select Create. Wait for 20 minutes. In Microsoft Sentinel or Azure Monitor, verify that the Azure Monitor agent is running on your VM.
-> **Reference link:** [https://learn.microsoft.com/azure/sentinel/forward-syslog-monitor-agent](https://learn.microsoft.com/azure/sentinel/forward-syslog-monitor-agent)
+> **Reference link:** [https://learn.microsoft.com/azure/sentinel/forward-syslog-monitor-agent](/azure/sentinel/forward-syslog-monitor-agent)
 
 2. Steps to ingest Netflow data to Microsoft sentinel
 
