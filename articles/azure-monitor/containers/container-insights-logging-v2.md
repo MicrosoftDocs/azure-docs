@@ -6,14 +6,15 @@ ms.author: bwren
 ms.subservice: logs
 ms.custom: event-tier1-build-2022
 ms.topic: conceptual
-ms.date: 07/18/2023
+ms.date: 08/28/2023
 ms.reviewer: aul
 ---
 
 # Enable the ContainerLogV2 schema 
 Azure Monitor Container insights offers a schema for container logs, called ContainerLogV2. As part of this schema, there are fields to make common queries to view Azure Kubernetes Service (AKS) and Azure Arc-enabled Kubernetes data. In addition, this schema is compatible with [Basic Logs](../logs/basic-logs-configure.md), which offers a low-cost alternative to standard analytics logs.
 
-ContainerLogV2 will be default schema for customers who will be onboarding container insights with Managed Identity Auth using ARM, Bicep, Terraform, Policy and Portal onboarding. ContainerLogV2 can be explicitly enabled through CLI version 2.51.0 or higher using Data collection settings.
+>[!NOTE]
+> ContainerLogV2 will be default schema for customers who will be onboarding container insights with Managed Identity Auth using ARM, Bicep, Terraform, Policy and Portal onboarding. ContainerLogV2 can be explicitly enabled through CLI version 2.51.0 or higher using Data collection settings.
 
 The new fields are:
 * `ContainerName`
