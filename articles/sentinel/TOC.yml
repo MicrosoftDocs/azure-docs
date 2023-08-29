@@ -301,7 +301,7 @@
         href: data-connectors/alicloud-using-azure-functions.md
       - name: Amazon Web Services
         href: data-connectors/amazon-web-services.md
-      - name: Amazon Web Services S3
+      - name: Amazon Web Services S3 (preview)
         href: data-connectors/amazon-web-services-s3.md
       - name: Apache HTTP Server
         href: data-connectors/apache-http-server.md
@@ -375,7 +375,7 @@
         href: data-connectors/cisco-asa-ftd-via-ama.md
       - name: Cisco Duo Security (using Azure Functions)
         href: data-connectors/cisco-duo-security-using-azure-functions.md
-      - name: Cisco Firepower eStreamer
+      - name: Cisco Firepower eStreamer (preview)
         href: data-connectors/cisco-firepower-estreamer.md
       - name: Cisco Identity Services Engine
         href: data-connectors/cisco-identity-services-engine.md
@@ -569,13 +569,13 @@
         href: data-connectors/microsoft-defender-for-identity.md
       - name: Microsoft Defender for IoT
         href: data-connectors/microsoft-defender-for-iot.md
-      - name: Microsoft Defender for Office 365
+      - name: Microsoft Defender for Office 365 (preview)
         href: data-connectors/microsoft-defender-for-office-365.md
       - name: Microsoft Defender Threat Intelligence
         href: data-connectors/microsoft-defender-threat-intelligence.md
-      - name: Microsoft Power BI
+      - name: Microsoft Power BI (preview)
         href: data-connectors/microsoft-powerbi.md
-      - name: Microsoft Project
+      - name: Microsoft Project (preview)
         href: data-connectors/microsoft-project.md
       - name: Microsoft Purview (Preview)
         href: data-connectors/microsoft-purview.md
