@@ -53,7 +53,7 @@ Part 1 of this tutorial series showed how to create a feature set specification 
      --include-spark
      ```
 
-   For more information, see [Configure for serverless spark job](./how-to-managed-network?view=azureml-api-2&tabs=azure-cli#configure-for-serverless-spark-jobs).
+   For more information, see [Configure for serverless spark job](./how-to-managed-network.md#configure-for-serverless-spark-jobs).
      
 * Your user account must have the `Owner` or `Contributor` role assigned to the resource group where the feature store will be created. Your user account also needs the `User Access Administrator` role.
 
