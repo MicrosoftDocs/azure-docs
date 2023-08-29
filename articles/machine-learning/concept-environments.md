@@ -120,7 +120,7 @@ For more information on the base images, see the following links:
 
 * [Azure Machine Learning base images](https://github.com/Azure/AzureML-Containers) GitHub repository.
 * [Use a custom container to deploy a model to an online endpoint](how-to-deploy-custom-container.md)
-* [Managing enivornments and container images](https://learn.microsoft.com/en-us/azure/machine-learning/concept-vulnerability-management?view=azureml-api-2#managing-environments-and-container-images)
+* [Managing enivornments and container images](https://learn.microsoft.com/azure/machine-learning/concept-vulnerability-management?view=azureml-api-2#managing-environments-and-container-images)
 
 ## Next steps
 
