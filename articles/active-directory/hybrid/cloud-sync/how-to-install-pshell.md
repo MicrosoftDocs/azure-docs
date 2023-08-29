@@ -31,7 +31,7 @@ The Windows server must have TLS 1.2 enabled before you install the Azure AD Con
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-[!INCLUDE [sign in](~/articles/active-directory/includes/cloud-sync-sign-in.md)]
+[!INCLUDE [sign in](../../../../includes/cloud-sync-sign-in.md)]
  4. Select **Manage cloud sync**.
      [![Screenshot that shows manage cloud sync](media/how-to-install/new-install-1.png)](media/how-to-install/new-install-1.png#lightbox)</br>
  5. At the top, click **Download agent**.
