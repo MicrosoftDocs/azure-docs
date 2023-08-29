@@ -82,6 +82,7 @@ Don't rename the following features, functionality, or services.
 | PowerShell <br/><br/>&#8226; Azure Active Directory PowerShell <br/>&#8226; Azure AD PowerShell <br/>&#8226; Microsoft Graph PowerShell | Azure AD PowerShell for Graph is planned for deprecation on March 30, 2024. For more info on the deprecation plans, see the deprecation update. We encourage you to migrate to Microsoft Graph PowerShell, which is the recommended module for interacting with Azure AD. <br/><br/>[Microsoft Graph PowerShell](/powershell/microsoftgraph/overview) - Acts as an API wrapper for the Microsoft Graph APIs and helps administer every Microsoft Entra ID feature that has an API in Microsoft Graph. |
 | Accounts <br/><br/>&#8226; Microsoft account <br/>&#8226; Work or school account | For end user sign-ins and account experiences, follow guidance for work and school accounts in [Sign in with Microsoft branding guidelines](../develop/howto-add-branding-in-apps.md). |
 | Microsoft identity platform | The Microsoft identity platform encompasses all our identity and access developer assets. It will continue to provide the resources to help you build applications that your users and customers can sign in to using their Microsoft identities or social accounts. |
+| <br/>&#8226; Azure AD Sync <br/>&#8226; DirSync | DirSync and Azure AD Sync aren't supported and no longer work. If you're still using DirSync or Azure AD Sync, you must upgrade to Microsoft Entra Connect to resume your sync process. For more info, see [Microsoft Entra Connect](/azure/active-directory/hybrid/connect/how-to-dirsync-upgrade-get-started). |
 
 ## Glossary of updated terminology
 
@@ -277,7 +278,7 @@ We'd like your help spreading the word about the name change and implementing it
 
 | Date | Change description |
 |------|--------------------|
-| August 29, 2023 | Made the following updates to the [glossary](#glossary-of-updated-terminology):<br/><br/>&#8226; Removed "Azure AD Sync" as this feature was previously deprecated and replaced with Azure AD Connect Sync.<br/>&#8226; Corrected the entry for "Azure AD activity logs" to separate "Azure AD audit log", which is a distinct type of activity log. |
+| August 29, 2023 | <br/>&#8226; In the [glossary](#glossary-of-updated-terminology), corrected the entry for "Azure AD activity logs" to separate "Azure AD audit log", which is a distinct type of activity log. <br/>&#8226; Added Azure AD Sync and DirSync to the [Azure AD renaming exceptions and clarifications](#azure-ad-renaming-exceptions-and-clarifications) section. |
 | August 18, 2023 | <br/>&#8226; Updated the article to include a new section [Glossary of updated terminology](#glossary-of-updated-terminology), which includes the old and new terminology.<br/>&#8226; Updated info and added link to usage of the Microsoft Entra ID icon, and updates to verbiage in some sections.  |
 | July 11, 2023 | Published the original guidance as part of the [Microsoft Entra moment and related announcement](https://www.microsoft.com/security/blog/2023/07/11/microsoft-entra-expands-into-security-service-edge-and-azure-ad-becomes-microsoft-entra-id/?culture=en-us&country=us). |
 
