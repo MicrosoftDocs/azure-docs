@@ -24,7 +24,7 @@ Conversations between a WhatsApp Business Account and a WhatsApp user can be ini
 - The business sends a template message to the WhatsApp user.
 - The WhatsApp user sends any message to the business number.
 
-A business can only send template messages until the user sends a message to the business. Only then can the business send text or media messages to the user. Once the 24 hour conversation window has expired, the conversation must be reinitiated. To learn more about conversations, see the definition at [WhatsApp Business Platform](https://developers.facebook.com/docs/whatsapp/pricing#conversations)
+A business can send only template messages until the user sends a message to the business. Only then can the business send text or media messages to the user. Once the 24 hour conversation window has expired, the conversation must be reinitiated. To learn more about conversations, see the definition at [WhatsApp Business Platform](https://developers.facebook.com/docs/whatsapp/pricing#conversations)
 
 Refer to the guidelines in the [WhatsApp Business Platform API reference](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates) for further requirements on templates.
 Businesses must also adhere to [opt-in requirements](https://developers.facebook.com/docs/whatsapp/overview/getting-opt-in) before sending messages to WhatsApp users.
@@ -57,16 +57,20 @@ To list out your templates programmatically, you can fetch all templates for you
 
 [!INCLUDE [List templates with .NET](./includes/template-messages-list-templates-net.md)]
 
+## Quick reference
+
+[!INCLUDE [Template usage quick reference with .NET](./includes/template-messages-quick-reference-net.md)]
+
 ## Examples
 
 These examples utilize sample templates available to WhatsApp Business Accounts created through the Azure portal embedded signup.
 
-[!INCLUDE [Template Examples with .NET](./includes/template-messages-examples-net.md)]
+[!INCLUDE [Template examples with .NET](./includes/template-messages-examples-net.md)]
 
 ## Full code example
 
-[!INCLUDE [Full Code Example with .NET](./includes/template-messages-full-code-example-net.md)]
+[!INCLUDE [Full code example with .NET](./includes/template-messages-full-code-example-net.md)]
 
 ## Next steps
 
--   [Get Started With Advanced Communication Messages SDK](../../../quickstarts/advanced-messaging/whatsapp/get-started.md)
+-   [Get started with advanced communication messages SDK](../../../quickstarts/advanced-messaging/whatsapp/get-started.md)

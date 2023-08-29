@@ -67,7 +67,7 @@ namespace AdvancedMessagingQuickstart
     {
         public static async Task Main(string[] args)
         {
-            Console.WriteLine("Azure Communication Services - Send Advanced Messaging Messages");
+            Console.WriteLine("Azure Communication Services - Send WhatsApp Messages");
 
             // Quickstart code goes here
         }
@@ -244,3 +244,7 @@ Then send the media message:
 ```csharp
 Response<SendMessageResult> sendMediaMessageResult = await notificationMessagesClient.SendMessageAsync(sendMediaMessageOptions);
 ```
+
+## Full code example
+
+[!INCLUDE [Full Code Example with .NET](./messages-get-started-full-example-net.md)]
