@@ -78,7 +78,9 @@ You can embed Boolean operators in a query string to improve the precision of a 
 
 ### <a name="bkmk_boolean_not"></a> NOT Boolean operator
 
-It's important to note that the NOT operator (`NOT`, `!`, or `-`) behaves differently in full syntax than it does in simple syntax.
+> [!Important]
+> 
+> The NOT operator (`NOT`, `!`, or `-`) behaves differently in full syntax than it does in simple syntax.
 
 * In simple syntax, queries with negation always have a wildcard automatically added. For example, the query `-luxury` is automatically expanded to `-luxury *`.
 * In full syntax, queries with negation cannot be combined with a wildcard. For example, the queries `-luxury *` is not allowed.
