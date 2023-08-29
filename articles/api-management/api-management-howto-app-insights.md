@@ -1,7 +1,7 @@
 ---
 title: Integrate Azure API Management with Application Insights
 titleSuffix: Azure API Management
-description: Learn how to log and view events from Azure API Management in Azure Application Insights.
+description: Learn how to set up a connection to Application Insights and enable logging for APIs in your Azure API Management instance.
 author: dlepow
 
 ms.service: api-management
@@ -35,6 +35,8 @@ You can easily integrate Azure Application Insights with Azure API Management. A
     1. Assign the identity the **Monitoring Metrics Publisher** role, scoped to the Application Insights resource. To assign the role, use the [Azure portal](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md) or other Azure tools.
     
 ## Scenario overview
+
+The following are high level steps for this scenario.
 
 1. First, you create a connection between Application Insights and API Management
 
