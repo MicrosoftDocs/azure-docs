@@ -214,7 +214,7 @@ In the pipeline graph, optional inputs of the Data/Model type are represented by
  :::image type="content" source="./media/how-to-manage-pipeline-input-output/optional-input.png" lightbox="./media/how-to-manage-pipeline-input-output/optional-input.png" alt-text="Screenshot highlighting the optional input":::
 
 
-## How to customize output path?
+## How to customize output path
 
 By default, the output of a component will be stored in `azureml://datastores/${{default_datastore}}/paths/${{name}}/${{output_name}}`. The `{default_datastore}` is default datastore customer set for the pipeline. If not set it's workspace blob storage. The `{name}` is the job name, which will be resolved at job execution time. The `{output_name}` is the output name customer defined in the component YAML. 
 
@@ -242,7 +242,7 @@ az ml job create -f ./pipeline.yml --set outputs.pipeline_job_trained_model.path
  
 
 
-## How to download the output?
+## How to download the output
 
 You can download a component's output or pipeline output following below example.
 
