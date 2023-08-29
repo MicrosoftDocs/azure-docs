@@ -855,6 +855,8 @@ groups:
     title: Azure portal
   - id: azcli
     title: Azure CLI
+  - id: azps
+    title: Azure PowerShell
   - id: programming-language-csharp
     title: C#
   - id: programming-language-java
@@ -1734,6 +1736,8 @@ groups:
     title: JavaScript
   - id: programming-language-python
     title: Python
+  - id: programming-language-powershell
+    title: PowerShell
   - id: rest-api
     title: REST
 - id: openai-chat
@@ -1793,6 +1797,8 @@ groups:
     title: REST
   - id: programming-language-python
     title: Python
+  - id: programming-language-powershell
+    title: PowerShell
 # Owner: diberry
 - id: app-service-webjob
   title: WebJob types
