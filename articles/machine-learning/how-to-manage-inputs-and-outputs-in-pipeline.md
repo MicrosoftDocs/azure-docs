@@ -15,15 +15,15 @@ ms.custom: devplatv2, pipeline
 # Manage inputs and outputs of component and pipeline
 
 
-In this article you learn:
+In this article you will learn:
 
 > [!div class="checklist"]
 > - Overview of inputs and outputs in component and pipeline
 > - How to promote component inputs/outputs to pipeline inputs/outputs
-> - How to define optional input
-> - How to customize output path
-> - How to download output
-> - How to register output as named asset
+> - How to define optional inputs
+> - How to customize outputs path
+> - How to download outputs
+> - How to register outputs as named asset
  
 ## Overview of inputs & outputs
 
@@ -45,13 +45,41 @@ Inputs could be either of below types:
 
 Outputs need to be asset types. 
 
-For data asset input/output, you can choose from various modes to define how the data will be consumed in the job. Refer to [data asset modes](./how-to-read-write-data-v2.md#modes) for the possible combinations of modes and input/output type. 
+### Path and mode for data inputs/outputs
+
+For data asset input/output, you must specify a `path` parameter that points to the data location. This table shows the different data locations that Azure Machine Learning pipeline supports, and also shows path parameter examples:
+
+|Location  | Examples  | Input | Output|
+|---------|---------|---------|---------|
+|A path on your local computer     | `./home/username/data/my_data`         | ✓ | |
+|A path on a public http(s) server    |  `https://raw.githubusercontent.com/pandas-dev/pandas/main/doc/data/titanic.csv`    | ✓ | |
+|A path on Azure Storage     |   `wasbs://<container_name>@<account_name>.blob.core.windows.net/<path>`<br>`abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>`    | ✓ | Only work for command and spark job|
+|A path on an Azure Machine Learning Datastore   |   `azureml://datastores/<data_store_name>/paths/<path>`  | ✓ | ✓ |
+|A path to a Data Asset  |  `azureml:<my_data>:<version>`  |✓ | ✓ |
+
+> [!NOTE]
+> For output, we highly suggest to use Azure Machine Learning Datastore path since it's supported across various job types.  
+
+For data input/output, you can choose from various modes (download or mount) to define how the data is accessed in the compute target.
+This table shows the possible modes for different type/mode/input/output combinations. Refer to [data asset modes](./how-to-read-write-data-v2.md#modes) to learn more. 
+
+Type | Input/Output | `upload` | `download` | `ro_mount` | `rw_mount` | `direct` | `eval_download` | `eval_mount` 
+------ | ------ | :---: | :---: | :---: | :---: | :---: | :---: | :---:
+`uri_folder` | Input  |   | ✓  |  ✓  |   | ✓  |  | 
+`uri_file`   | Input |   | ✓  |  ✓  |   | ✓  |  | 
+`mltable`   | Input |   | ✓  |  ✓  |   | ✓  | ✓ | ✓
+`uri_folder` | Output  | ✓  |   |    | ✓  |   |  | 
+`uri_file`   | Output | ✓  |   |    | ✓  |   |  | 
+`mltable`   | Output | ✓  |   |    | ✓  | ✓  |  | 
+
 
 ### Visual representation in Azure Machine Learning studio
 
-The following screenshot provides an example of how inputs and outputs are displayed in a pipeline job in Azure Machine Learning studio. This particular job, named `nyc-taxi-data-regression`, can be found in [azureml-example.](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/pipelines-with-components/nyc_taxi_data_regression) 
+The following screenshots provide an example of how inputs and outputs are displayed in a pipeline job in Azure Machine Learning studio. This particular job, named `nyc-taxi-data-regression`, can be found in [azureml-example.](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/pipelines-with-components/nyc_taxi_data_regression) 
 
-In the pipeline job page of Studio, the asset type inputs/output of a component is shown as a small circle in the corresponding component, known as the Input/Output port. These ports represent the data flow in a pipeline. The pipeline level input/output is displayed as a purple box for easy identification.
+In the pipeline job page of Studio, the asset type inputs/output of a component is shown as a small circle in the corresponding component, known as the Input/Output port. These ports represent the data flow in a pipeline. 
+
+The pipeline level input/output is displayed as a purple box for easy identification.
 
 
 :::image type="content" source="./media/how-to-manage-pipeline-input-output/input-output-port.png" lightbox="./media/how-to-manage-pipeline-input-output/input-output-port.png" alt-text="Screenshot highlighting the pipeline input and output port.":::
@@ -61,7 +89,9 @@ When you hover the mouse on an input/output port, the type is displayed.
  :::image type="content" source="./media/how-to-manage-pipeline-input-output/hover-port.png" lightbox="./media/how-to-manage-pipeline-input-output/hover-port.png" alt-text="Screenshot highlighting the port type when hovering the mouse.":::
 
 
-Note that the primitive type inputs will not be displayed on the graph. It can be found in the **Settings** tab of the pipeline job overview panel (for pipeline level inputs) or the component panel(for component level inputs). Below screenshot shows the **Settings** tab of a pipeline job, it can be opened by click the **Job Overview link**. If you want to check inputs for a component, double click on the component to open component panel.
+The primitive type inputs won't be displayed on the graph. It can be found in the **Settings** tab of the pipeline job overview panel (for pipeline level inputs) or the component panel(for component level inputs). Following screenshot shows the **Settings** tab of a pipeline job, it can be opened by clicking the **Job Overview** link. 
+
+If you want to check inputs for a component, double click on the component to open component panel.
 
  :::image type="content" source="./media/how-to-manage-pipeline-input-output/job-overview-setting.png" lightbox="./media/how-to-manage-pipeline-input-output/job-overview-setting.png" alt-text="Screenshot highlighting the job overview setting panel":::
 
@@ -71,15 +101,15 @@ Similarly, when editing a pipeline in designer, you can find the pipeline inputs
  :::image type="content" source="./media/how-to-manage-pipeline-input-output/pipeline-interface.png" lightbox="./media/how-to-manage-pipeline-input-output/pipeline-interface.png" alt-text="Screenshot highlighting the pipeline interface in designer":::
 
 
-## How to promote input& output to pipeline level
+## How to promote inputs & outputs to pipeline level
 
 Following are examples to promote component inputs/outputs to pipeline level inputs/outputs.
 
 # [Azure CLI](#tab/cli)
 
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines-with-components/nyc_taxi_data_regression/pipeline.yml" range="1-69" highlight="8-16":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobspipelines-with-components/basics/1b_e2e_registered_components/pipeline.yml" range="1-65" highlight="6-17":::
 
-The full pipeline yaml can be found [here](https://github.com/Azure/azureml-examples/blob/main/cli/jobs/pipelines-with-components/nyc_taxi_data_regression/pipeline.yml).  This pipeline promotes three outputs to pipeline level outputs. Let's take `pipeline_job_trained_model` as example. It's declared under `outputs` section on root level, which means's its pipeline level output. Under `jobs -> train_job -> outputs` section, the output is referenced as `{{parent.outputs.pipeline_job_trained_model}}`, which indicates the `train_job` output is promoted to pipeline level output. Similarly, you can promote pipeline input using the same schema. 
+The full example can be found [here](https://github.com/Azure/azureml-examples/blob/main/cli/jobs/pipelines-with-components/basics/1b_e2e_registered_components/pipeline.yml).  This pipeline promotes three inputs and three outputs to pipeline level. Let's take `pipeline_job_training_max_epocs` as example. It's declared under `inputs` section on root level, which means's its pipeline level input. Under `jobs -> train_job` section, the input named `max_epocs` is referenced as `${{parent.inputs.pipeline_job_training_max_epocs}}`, which indicates the `train_job`'s input `max_epocs` is promoted to pipeline level input. Similarly, you can promote pipeline output using the same schema. 
 
 # [Python SDK](#tab/python)
 
@@ -167,9 +197,9 @@ You can promote a component's input to pipeline level input in designer authorin
 
 ## Optional input
 
-The inputs are required by default, which means you need to assign a value to it (or define a default value) every time when you submit a pipeline job. But there are cases that you may need optional input, which you can skip assign a value to the input when submitting a pipeline job.
+By default, all inputs are required and must be assigned a value (or a default value) each time you submit a pipeline job. However, there may be instances where you need optional inputs. In such cases, you have the flexibility to not assign a value to the input when submitting a pipeline job.
 
-Below are examples about how to define optional input.
+Following are examples about how to define optional input.
 
 
 :::code language="yaml" source="~/azureml-examples-main/cli/assets/component/train.yml" range="1-34" highlight="12-22,31-33":::
@@ -179,22 +209,36 @@ When the input is set as `optional = true`, you need use `$[[]]` to embrace the 
 > [!NOTE]
 > Optional output is not supported. 
 
-In the pipeline graph, the Data/Model type optional input renders as dotted circle. the primitive type optional inputs can be found under **Settings** tab, there won't be a red star for optional input, which indicates this input isn't required. 
+In the pipeline graph, optional inputs of the Data/Model type are represented by a dotted circle. Optional inputs of primitive types can be located under the **Settings** tab. Unlike required inputs, optional inputs don't have an asterisk next to them, signifying that they aren't mandatory.
 
  :::image type="content" source="./media/how-to-manage-pipeline-input-output/optional-input.png" lightbox="./media/how-to-manage-pipeline-input-output/optional-input.png" alt-text="Screenshot highlighting the optional input":::
 
 
 ## How to customize output path?
 
-By default, the output of a component will be stored in `azureml://datastores/${{default_datastore}}/paths/${{name}}/${{output_name}}`. The `{default_datastore}` is default datastore customer set for the pipeline. If not set it is workspace blob storage. The `{name}` is the job name, which which will be resolved at job execution time. The `{output_name}` is the output name customer defined in the component YAML. 
+By default, the output of a component will be stored in `azureml://datastores/${{default_datastore}}/paths/${{name}}/${{output_name}}`. The `{default_datastore}` is default datastore customer set for the pipeline. If not set it's workspace blob storage. The `{name}` is the job name, which will be resolved at job execution time. The `{output_name}` is the output name customer defined in the component YAML. 
 
-But you can also customize where to store the output by defining path of an output. Below are example:
+But you can also customize where to store the output by defining path of an output. Following are example:
 
-:::code language="python" source="~/azureml-examples-main/sdk/python/jobs/pipelines/1b_pipeline_with_python_function_components/pipeline_with_python_function_components.ipynb?name=custom-output-path":::
+# [Python SDK](#tab/python)
 
+[!notebook-python[] (~/azureml-examples-main/sdk/python/jobs/pipelines/1b_pipeline_with_python_function_components/pipeline_with_python_function_components.ipynb?name=custom-output-path)] 
 
+# [Azure CLI](#tab/cli)
 
-[to-do] need a CLI example?? 
+The `pipeline.yaml` defines a pipeline that has three pipeline level outputs. The full YAML can be found [here](https://github.com/Azure/azureml-examples/blob/main/cli/jobs/pipelines-with-components/basics/1b_e2e_registered_components/pipeline.yml)
+You can use following command to set custom output path for the `pipeline_job_trained_model`output.
+
+```azurecli
+# define the custom output path using datastore uri
+# add relative path to your blob container after "azureml://datastores/<datastore_name>/paths"
+output_path="azureml://datastores/{datastore_name}/paths/{relative_path_of_container}"  
+
+# create job and define path using --outputs.<outputname>
+az ml job create -f ./pipeline.yml --set outputs.pipeline_job_trained_model.path=$output_path  
+
+```
+---
  
 
 
@@ -202,11 +246,11 @@ But you can also customize where to store the output by defining path of an outp
 
 You can download a component's output or pipeline output following below example.
 
-### Download pipeline output
+### Download pipeline level output
 
 # [Azure CLI](#tab/cli)
 
-```yaml
+```azurecli
 # Download all the outputs of the job
 az ml job download --all -n <JOB_NAME> -g <RESOURCE_GROUP_NAME> -w <WORKSPACE_NAME> --subscription <SUBSCRIPTION_ID>
 
@@ -228,13 +272,12 @@ output = client.jobs.download(name=job.name, download_path=tmp_path, output_name
 
 ### Download child job's output 
 
-When you need to download the output of a child job (not promote to pipeline level output), you should first list all child job entity of a pipeline job and then use similar code above to download the output. 
+When you need to download the output of a child job (a component output that not promotes to pipeline level), you should first list all child job entity of a pipeline job and then use similar code to download the output. 
 
-Use following instruction to download output of child jobs. 
 
 # [Azure CLI](#tab/cli)
 
-```yaml
+```azurecli
 # List all child jobs in the job and print job details in table format
 az ml job list --parent-job-name <JOB_NAME> -g <RESOURCE_GROUP_NAME> -w <WORKSPACE_NAME> --subscription <SUBSCRIPTION_ID> -o table
 
@@ -254,7 +297,7 @@ for child_job in child_jobs:
 
 ## How to register output as named asset
 
-You can register output of a component or pipeline as named asset by assigning `name` and `version` to the output. The registered asset can be list in your workspace through Studio UI/CLI/SDK and also be referenced in your following jobs.
+You can register output of a component or pipeline as named asset by assigning `name` and `version` to the output. The registered asset can be list in your workspace through Studio UI/CLI/SDK and also be referenced in your future jobs.
 
 ### Register pipeline output
 
