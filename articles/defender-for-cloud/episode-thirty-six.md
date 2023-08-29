@@ -1,11 +1,11 @@
 ---
-title: Defender CSPM support for GCP and additional updates | Defender for Cloud in the Field
-description: Learn about Defender for CSPM's support for GCP and additional updates for Defender for Cloud.
+title: Defender CSPM support for GCP and more updates | Defender for Cloud in the Field
+description: Learn about Defender for CSPM's support for GCP and more updates for Defender for Cloud.
 ms.topic: reference
 ms.date: 08/29/2023
 ---
 
-# Defender CSPM support for GCP and additional updates
+# Defender CSPM support for GCP and more updates
 
 **Episode description**: In this episode of Defender for Cloud in the Field, Amit Biton joins Yuri Diogenes to talk about the new Defender CSPM support for GCP. Amit talks about the recent investments in multicloud and the alignment with Microsoft CNAPP strategy. Amit covers the capabilities that were released in Defender CSPM to cover GCP, including the new Microsoft Cloud Security Benchmark for GCP. Amit also demonstrate the use of Attack Path and Cloud Security explorer in a multicloud environment.
 
