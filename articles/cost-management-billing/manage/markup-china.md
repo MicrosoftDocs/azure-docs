@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 06/28/2023
+ms.date: 08/08/2023
 ms.author: banders
 ms.custom: references_regions, subject-reliability
 ---
@@ -126,4 +126,5 @@ If you don't configure or define markup rules, end customers see retail prices a
 
 ## Next Steps
 
-[Use Cost analysis for common tasks](../costs/cost-analysis-common-uses.md).
+- [Use Cost analysis for common tasks](../costs/cost-analysis-common-uses.md).
+- Read about the [Markup Rules - REST API](/rest/api/cost-management/markup-rules).

@@ -5,6 +5,7 @@ description: Get protected from common identity threats using Azure AD security 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
+ms.custom: has-azure-ad-ps-ref
 ms.topic: conceptual
 ms.date: 07/31/2023
 
@@ -135,7 +136,7 @@ After security defaults are enabled in your tenant, all authentication requests 
 Organizations use various Azure services managed through the Azure Resource Manager API, including:
 
 - Azure portal 
-- Microsoft Entra Admin Center
+- Microsoft Entra admin center
 - Azure PowerShell 
 - Azure CLI
 
@@ -146,6 +147,7 @@ It's important to verify the identity of users who want to access Azure Resource
 After you enable security defaults in your tenant, any user accessing the following services must complete multifactor authentication: 
 
 - Azure portal
+- Microsoft Entra admin center
 - Azure PowerShell 
 - Azure CLI 
 

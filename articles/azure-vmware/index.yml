@@ -228,6 +228,8 @@ landingContent:
             url: ecosystem-os-vms.md
           - text: Backup solutions for VMs
             url: ecosystem-back-up-vms.md
+          - text: External storage solutions
+            url: ecosystem-external-storage-solutions.md
           - text: Migration solutions for VMs
             url: ecosystem-migration-vms.md
           - text: Security solutions for Azure VMware Solution

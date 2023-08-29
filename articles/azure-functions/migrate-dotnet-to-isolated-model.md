@@ -65,10 +65,10 @@ To upgrade the application, you will:
 
 ## Upgrade your local project
 
-The section outlines the various changes that you need to make to your local project to move it to the isolated worker model. Some of the steps change based on your target version of .NET. Use the tabs to select the instructions which match your desired version.
+The section outlines the various changes that you need to make to your local project to move it to the isolated worker model. Some of the steps change based on your target version of .NET. Use the tabs to select the instructions which match your desired version. These steps assume a local C# project, and if your app is instead using C# script (`.csx` files), you should [convert to the project model](./functions-reference-csharp.md#convert-a-c-script-app-to-a-c-project) before continuing.
 
 > [!TIP]
-> The [.NET Upgrade Assistant] can be used to automatically make many of the changes mentioned in the following sections.
+> If you are moving to an LTS or STS version of .NET, the [.NET Upgrade Assistant] can be used to automatically make many of the changes mentioned in the following sections.
 
 ### .csproj file
 
@@ -98,7 +98,7 @@ The following example is a .csproj project file that uses .NET 6 on version 4.x:
 
 Use one of the following procedures to update this XML file to run in the isolated worker model:
 
-# [.NET 6 (isolated)](#tab/net6-isolated)
+# [.NET 6](#tab/net6-isolated)
 
 [!INCLUDE [functions-dotnet-migrate-project-v4-isolated](../../includes/functions-dotnet-migrate-project-v4-isolated.md)]
 
@@ -122,7 +122,7 @@ Use one of the following procedures to update this XML file to run in the isolat
 
 When migrating to run in an isolated worker process, you must add the following program.cs file to your project:
 
-# [.NET 6 (isolated)](#tab/net6-isolated)
+# [.NET 6](#tab/net6-isolated)
 
 :::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/Program.cs" range="23-29":::
 
@@ -168,7 +168,7 @@ The differences between in-process and isolated worker process can be seen in HT
 
 The HTTP trigger template for the migrated version looks like the following example:
 
-# [.NET 6 (isolated)](#tab/net6-isolated)
+# [.NET 6](#tab/net6-isolated)
 
 :::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-CSharp-Isolated/HttpTriggerCSharp.cs":::
 

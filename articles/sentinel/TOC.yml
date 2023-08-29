@@ -339,7 +339,7 @@
         href: data-connectors/azure-data-lake-storage-gen1.md
       - name: Azure DDoS Protection
         href: data-connectors/azure-ddos-protection.md
-      - name: Azure Event Hub
+      - name: Azure Event Hubs
         href: data-connectors/azure-event-hub.md
       - name: Azure Firewall
         href: data-connectors/azure-firewall.md
@@ -567,7 +567,7 @@
         href: data-connectors/microsoft-defender-for-office-365.md
       - name: Microsoft Defender Threat Intelligence
         href: data-connectors/microsoft-defender-threat-intelligence.md
-      - name: Microsoft PowerBI
+      - name: Microsoft Power BI
         href: data-connectors/microsoft-powerbi.md
       - name: Microsoft Project
         href: data-connectors/microsoft-project.md
@@ -805,8 +805,6 @@
       href: connect-azure-stack.md
     - name: Connect Azure Virtual Desktop
       href: connect-azure-virtual-desktop.md
-    - name: Integrate Azure Data Explorer
-      href: store-logs-in-azure-data-explorer.md
     - name: Stream Microsoft Purview Information Protection data
       href: connect-microsoft-purview.md
     - name: Integrate Microsoft Purview

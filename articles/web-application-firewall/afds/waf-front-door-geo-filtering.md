@@ -5,7 +5,7 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: conceptual
-ms.date: 08/31/2021
+ms.date: 08/25/2023
 ms.author: victorh
 ---
 
@@ -251,7 +251,7 @@ You can configure a geo-filtering policy for your Azure Front Door instance by u
 | TM | Turkmenistan|
 | TN | Tunisia|
 | TO | Tonga|
-| TR | Turkey|
+| TR | Türkiye|
 | TT | Trinidad and Tobago|
 | TV | Tuvalu|
 | TW | Taiwan|

@@ -3,7 +3,7 @@ title: Azure portal - Enable customer-managed keys with SSE - managed disks
 description: Enable customer-managed keys on your managed disks through the Azure portal.
 author: roygara
 
-ms.date: 08/02/2023
+ms.date: 02/22/2023
 ms.topic: how-to
 ms.author: rogarana
 ms.service: azure-disk-storage
@@ -51,12 +51,11 @@ The VM deployment process is similar to the standard deployment process, the onl
 
     :::image type="content" source="media/virtual-machines-disk-encryption-portal/server-side-encryption-stop-vm-to-encrypt-disk-fix.png" alt-text="Screenshot of the main overlay for your example VM, with the Stop button highlighted." lightbox="media/virtual-machines-disk-encryption-portal/server-side-encryption-stop-vm-to-encrypt-disk-fix.png":::
 
-1. After the VM has finished stopping, select **Disks** under **Settings**, and then select the disk you want to encrypt.
+1. After the VM has finished stopping, select **Disks**, and then select the disk you want to encrypt.
 
     :::image type="content" source="media/virtual-machines-disk-encryption-portal/server-side-encryption-existing-disk-select.png" alt-text="Screenshot of your example VM, with the Disks pane open, the OS disk is highlighted, as an example disk for you to select." lightbox="media/virtual-machines-disk-encryption-portal/server-side-encryption-existing-disk-select.png":::
 
-1. Select **Encryption** under **Settings**.
-1. Under **Key management** select your key vault and key in the drop-down list, under **Customer-managed key**.
+1. Select **Encryption** and under **Key management** select your key vault and key in the drop-down list, under **Customer-managed key**.
 1. Select **Save**.
 
     :::image type="content" source="media/virtual-machines-disk-encryption-portal/server-side-encryption-encrypt-existing-disk-customer-managed-key.png" alt-text="Screenshot of your example OS disk, the encryption pane is open, encryption at rest with a customer-managed key is selected, as well as your example Azure Key Vault." lightbox="media/virtual-machines-disk-encryption-portal/server-side-encryption-encrypt-existing-disk-customer-managed-key.png":::

@@ -112,7 +112,7 @@ Self-service app management requires some initial setup by a Global Administrato
 3. Under **Manage**, select **Enterprise applications** > **All applications**.
 4. In the application list, find and open the app.
 5. Under **Manage**, select **Single sign-on**, and configure the application for single sign-on. (For details, see [how to manage single sign-on for enterprise apps](../manage-apps/add-application-portal-setup-sso.md).)
-6. Under **Manage**, select **Self-service**, and set up self-service app access. (For details, see [how to use self-service app access](../manage-apps/access-panel-manage-self-service-access.md).) 
+6. Under **Manage**, select **Self-service**, and set up self-service app access. (For details, see [how to use self-service app access](../manage-apps/manage-self-service-access.md).) 
 
     > [!NOTE]
     > For the setting **To which group should assigned users be added?** select the group you created in the previous section.

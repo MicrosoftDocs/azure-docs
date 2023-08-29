@@ -106,7 +106,7 @@ The **Usage** report shows which authentication methods are used to sign-in and 
 Using the controls at the top of the list, you can search for a user and filter the list of users based on the columns shown.
 
 >[!NOTE]
->User accounts that were recently deleted, also known as [soft-deleted users](../fundamentals/active-directory-users-restore.md), are not listed in user registration details.  
+>User accounts that were recently deleted, also known as [soft-deleted users](../fundamentals/users-restore.md), are not listed in user registration details.  
 
 The registration details report shows the following information for each user:
 

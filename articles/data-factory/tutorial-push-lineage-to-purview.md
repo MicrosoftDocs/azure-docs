@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: [seo-lt-2019, references_regions]
-ms.date: 09/26/2022
+ms.date: 08/10/2023
 ---
 
 # Push Data Factory lineage data to Microsoft Purview

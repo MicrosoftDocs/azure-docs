@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/07/2023
+ms.date: 08/22/2023
 ms.custom: references_regions
 ---
 
@@ -17,13 +17,13 @@ ms.custom: references_regions
 > [!IMPORTANT]
 > Semantic search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and beta SDKs. These features are billable (see [Availability and pricing](semantic-search-overview.md#availability-and-pricing)).
 
-Currently in Azure Cognitive Search, "semantic search" is a collection of query-related capabilities that bring semantic relevance and language understanding to textual search results. This article is a high-level introduction to semantic search. The [embedded video](#how-semantic-ranking-works) describes the technology, and the section at the end covers availability and pricing.
+Currently in Azure Cognitive Search, "semantic search" is a collection of query-related capabilities that returns more relevant results by applying language understanding to an initial search result. This article is a high-level introduction to semantic search. The [embedded video](#how-semantic-ranking-works) describes the technology, and the section at the end covers availability and pricing.
 
 Semantic search is a premium feature that's billed by usage. We recommend this article for background, but if you'd rather get started, follow these steps:
 
 > [!div class="checklist"]
 > * [Check regional and service tier requirements](#availability-and-pricing).
-> * [Enable semantic search for semantic ranking](#enable-semantic-search) on your search service.
+> * [Enable semantic search for semantic ranking](semantic-how-to-enable-disable.md) on your search service.
 > * Create or modify queries to [return semantic captions and highlights](semantic-how-to-query-request.md).
 > * Add a few more query properties to also [return semantic answers](semantic-answers.md).
 
@@ -32,13 +32,13 @@ Semantic search is a premium feature that's billed by usage. We recommend this a
 
 ## What is semantic search?
 
-Semantic search is a collection of features that improve the quality of initial search results for text-based queries. When you enable it on your search service, semantic search extends the query execution pipeline in two ways: 
+Semantic search is a collection of features that improve the quality of an initial BM25-ranked search result for text-based queries. When you enable it on your search service, semantic search extends the query execution pipeline in two ways: 
 
-* First, it adds secondary ranking over an initial result set, promoting the most semantically relevant results to the top of the list. 
+* First, it adds secondary ranking over an initial result set that was scored using the BM25 algorithm, promoting the most semantically relevant results to the top of the list. 
 
 * Second, it extracts and returns captions and answers in the response, which you can render on a search page to improve the user's search experience.
 
-Although semantic search and vector search are closely related, this particular feature doesn't provide vector search.
+Although semantic search and vector search are closely related, this particular feature in Cognitive Search doesn't perform similarity search.
 
 | Feature | Description |
 |---------|-------------|
@@ -88,7 +88,7 @@ Although semantic search isn't beneficial in every scenario, certain content can
 
 ## Availability and pricing
 
-Semantic search and spell check are available on services that meet the criteria in the table below. To use semantic search, your first need to [enable the capabilities](#enable-semantic-search) on your search service.
+Semantic search and spell check are available on services that meet the criteria in the table below. To use semantic search, your first need to [enable the capabilities](semantic-how-to-enable-disable.md) on your search service.
 
 | Feature | Tier | Region | Sign up | Pricing |
 |---------|------|--------|---------|---------|
@@ -101,49 +101,6 @@ Semantic search and spell check are available on services that meet the criteria
 
 Charges for semantic search are levied when query requests include "queryType=semantic" and the search string isn't empty (for example, "search=pet friendly hotels in New York"). If your search string is empty ("search=*"), you won't be charged, even if the queryType is set to "semantic".
 
-## Enable semantic search
-
-By default, semantic search is disabled on all services. To enable semantic search for your search service:
-
-1. Open the [Azure portal](https://portal.azure.com).
-1. Navigate to your Standard tier search service.
-1. Determine whether the service region supports semantic search. Search service region is noted on the overview page. Semantic search regions are noted on the [Products Available by Region](https://azure.microsoft.com/global-infrastructure/services/?products=search) page.
-1. On the left-nav pane, select **Semantic Search (Preview)**.
-1. Select either the **Free plan** or the **Standard plan**. You can switch between the free plan and the standard plan at any time.
-
-:::image type="content" source="media/semantic-search-overview/semantic-search-billing.png" alt-text="Screenshot of enabling semantic search in the Azure portal" border="true":::
-
-Semantic Search's free plan is capped at 1,000 queries per month. After the first 1,000 queries in the free plan, you'll receive an error message letting you know you've exhausted your quota whenever you issue a semantic query. When this happens, you need to upgrade to the standard plan to continue using semantic search.
-
-Alternatively, you can also enable semantic search using the [Create or Update Service API](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#searchsemanticsearch) that's described in the next section.
-
-## Disable semantic search
-
-To reverse feature enablement, or for full protection against accidental usage and charges, you can [disable semantic search](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#searchsemanticsearch) using the Create or Update Service API on your search service. After the feature is disabled, any requests that include the semantic query type will be rejected.
-
-* Management REST API version 2021-04-01-Preview provides this option
-
-* Owner or Contributor permissions are required to disable features
-
-```http
-PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-Preview
-    {
-      "location": "{{region}}",
-      "sku": {
-        "name": "standard"
-      },
-      "properties": {
-        "semanticSearch": "disabled"
-      }
-    }
-```
-
-To re-enable semantic search, rerun the above request, setting "semanticSearch" to either "free" (default) or "standard".
-
-> [!TIP]
-> Management REST API calls are authenticated through Azure Active Directory. For guidance on setting up a security principal and a request, see this blog post [Azure REST APIs with Postman (2021)](https://blog.jongallant.com/2021/02/azure-rest-apis-postman-2021/). The previous example was tested using the instructions and Postman collection provided in the blog post.
-
 ## Next steps
 
-[Enable semantic search](#enable-semantic-search) for your search service and follow the steps in [Configure semantic ranking](semantic-how-to-query-request.md) so that you can test out semantic search on your content.
-
+[Enable semantic search](semantic-how-to-enable-disable.md) for your search service and follow the steps in [Configure semantic ranking](semantic-how-to-query-request.md) so that you can test out semantic search on your content.

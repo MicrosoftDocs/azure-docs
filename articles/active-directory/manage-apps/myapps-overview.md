@@ -73,7 +73,7 @@ In the Azure portal, define the logo and name for the application to represent c
 
 :::image type="content" source="./media/myapps-overview/banner-logo.png" alt-text="Screenshot that shows the banner logo in the My Apps portal.":::
 
-For more information, see [Add branding to your organization's sign-in page](../fundamentals/customize-branding.md).
+For more information, see [Add branding to your organization's sign-in page](../fundamentals/how-to-customize-branding.md).
 
 ## Manage access to applications
 

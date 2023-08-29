@@ -1,5 +1,5 @@
 ---
-title: Custom document models - Document Intelligence
+title: Custom document models - Document Intelligence (formerly Form Recognizer)
 titleSuffix: Azure AI services
 description: Label and train customized models for your documents and compose multiple models into a single model identifier.
 author: laujan
@@ -653,7 +653,7 @@ The following table lists the supported languages for print text by the most rec
 ### Try signature detection
 
 * **Custom model v 3.1 and v3.0 APIs** supports signature detection for custom forms. When you train custom models, you can specify certain fields as signatures. When a document is analyzed with your custom model, it indicates whether a signature was detected or not.
-* [Document Intelligence v3.0 migration guide](v3-migration-guide.md): This guide shows you how to use the v3.0 version in your applications and workflows.
+* [Document Intelligence v3.1 migration guide](v3-1-migration-guide.md): This guide shows you how to use the v3.0 version in your applications and workflows.
 * [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument): This API shows you more about the v3.0 version and new capabilities.
 
 1. Build your training dataset.

@@ -1,7 +1,7 @@
 ---
 title: Azure Container Apps hosting of Azure Functions 
 description: Learn about how you can use Azure Container Apps to host containerized function apps in Azure Functions.
-ms.date: 05/04/2023
+ms.date: 07/30/2023
 ms.topic: conceptual
 ms.custom: references_regions, build-2023
 # Customer intent: As a cloud developer, I want to learn more about hosting my function apps in Linux containers by using Azure Container Apps.
@@ -29,7 +29,7 @@ Azure Functions currently supports the following methods of deployment to Azure 
 + Azure Pipeline tasks
 + ARM templates
 + [Bicep templates](https://github.com/Azure/azure-functions-on-container-apps/tree/main/samples/Biceptemplates)
-+ Azure Functions core tools
++ [Azure Functions Core Tools](functions-run-local.md#deploy-containers)
 
 To learn how to create and deploy a function app container to Container Apps using the Azure CLI, see [Create your first containerized functions on Azure Container Apps](functions-deploy-container-apps.md). 
 
@@ -59,12 +59,12 @@ Keep in mind the following considerations when deploying your function app conta
     + Australia East
     + Central US 
     + East US 
-    + East Us 2 
+    + East US 2 
     + North Europe 
     + South Central US 
     + UK South 
     + West Europe 
-    + West US3 
+    + West US 3 
 + When your container is hosted in a [Consumption + Dedicated plan structure](../container-apps/plans.md#consumption-dedicated), only the default Consumption plan is currently supported. Dedicated plans in this structure aren't yet supported for Functions. When running functions on Container Apps, you're charged only for the Container Apps usage. For more information, see the [Azure Container Apps pricing page](https://azure.microsoft.com/pricing/details/container-apps/). 
 + While all triggers can be used, only the following triggers can dynamically scale (from zero instances) when running on Container Apps:
     + HTTP 

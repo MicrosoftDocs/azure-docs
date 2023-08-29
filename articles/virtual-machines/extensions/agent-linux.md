@@ -86,7 +86,7 @@ Testing has confirmed that the following systems work with the Azure Linux VM Ag
 
 Other supported systems:
 
-- The Agent works on more systems than those listed in the documentation. However, we do not test or provide support for distros that are not on the endorsed list. In particular, FreeBSD is not endorsed. The customer can try FreeBSD 8 and if they  run into problems they can open an issue in our [Github repository](https://github.com/Azure/WALinuxAgent) and we may be able to help.
+- The Agent works on more systems than those listed in the documentation. However, we do not test or provide support for distros that are not on the endorsed list. In particular, FreeBSD is not endorsed. The customer can try FreeBSD 8 and if they  run into problems they can open an issue in our [GitHub repository](https://github.com/Azure/WALinuxAgent) and we may be able to help.
 
 The Linux agent depends on these system packages to function properly:
 

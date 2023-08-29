@@ -11,26 +11,30 @@ ms.topic: conceptual
 
 ---
 
-# Load testing for Azure App Service
+# Load testing your Azure App Service applications
 
-Azure App Service is a fully managed service that enables you to build, deploy, and scale web applications and APIs in the cloud. This article provides an overview of the key capabilities of Azure Load Testing that are relevant for applications hosted on Azure App Service.
+In this article, you'll learn about how Azure Load Testing can be used to test applications hosted on Azure App Service.  Azure App Service is a fully managed service that enables you to build, deploy, and scale web applications and APIs in the cloud. 
 
-With Azure Load Testing, you can simulate real-world, large-scale traffic to your application and services. Even though [Azure App Service](/azure/app-service/overview) is a fully managed service that can scale automatically, load testing can offer significant benefits in terms of reliability, performance, and cost optimization:
+With Azure Load Testing, you can simulate real-world, large-scale traffic to your application and services. Even though [Azure App Service](/azure/app-service/overview) can scale automatically, when you run load tests with Azure Load Testing, you'll experience **increased reliability, performance, and cost optimization** and you'll:
 
 - Ensure that all application components, not only the web application, can handle the expected load.
+  
 - Verify that the application meets your performance and stability requirements.
+
 - Use application resource metrics and diagnostics to identify performance bottleneck across the entire application.
+  
 - Avoid over-allocation of computing resources and reduce cost inefficiencies.
+  
 - Detect performance regressions early by integrating load testing in your CI/CD pipeline and specifying test fail criteria.
 
-## Create a load test
+## Traffic simulation with load tests 
 
 You can create a load test to simulate traffic to your application on Azure App Service. Azure Load Testing provides two options to create a load test:
 
 - Create a URL-based quick test
 - Use an Apache JMeter script (JMX file)
 
-After you create and run a load test, you can [monitor the resource metrics](#monitor-application-metrics) for the web application and all dependent Azure components to identify performance and scalability issues.
+After you create and run a load test, you can [monitor the resource metrics](#monitor) for the web application and all dependent Azure components to identify performance and scalability issues.
 
 ### Create a URL-based quick test
 
@@ -59,7 +63,8 @@ Get started [create a load test by uploading a JMeter script](./how-to-create-an
 
 If you previously created a [URL-based test](#create-a-url-based-quick-test), Azure Load Testing generates a JMeter test script. You can download this generated test script, modify or extend it, and then reupload the script.
 
-## Monitor application metrics
+<a name="monitor"/>
+## Monitor your apps for bottlenecks and provisioning issues 
 
 During a load test, Azure Load Testing collects [metrics](./concept-load-testing-concepts.md#metrics) about the test run:
 
@@ -77,31 +82,31 @@ For applications that are hosted on Azure App Service, you can use [App Service 
 
 :::image type="content" source="media/concept-load-test-app-service/test-result-app-service-diagnostics.png" alt-text="Screenshot that shows the 'App Service' section on the load testing dashboard in the Azure portal." lightbox="media/concept-load-test-app-service/test-result-app-service-diagnostics.png":::
 
-## Set criteria for test failures
+## Customize your load test's failure criteria
 
-Test fail criteria enable you to configure conditions for load test client-side metrics. If a load test run doesn't meet these conditions, the test is considered to fail. For example, specify that the average response time of requests, or that the percentage of failed requests is above a given threshold. You can add fail criteria to your load test at any time, regardless if it's a quick test or if you uploaded a JMeter script.
+Test fail criteria enable you to configure conditions for load test client-side metrics. If a load test run doesn't meet these conditions, the test is considered to fail.  Start [configuring fail criteria for your load test](./how-to-define-test-criteria.md).
 
-:::image type="content" source="./media/concept-load-test-app-service/load-test-configure-test-criteria.png" alt-text="Screenshot that shows the test criteria page for a load test in the Azure portal." lightbox="./media/concept-load-test-app-service/load-test-configure-test-criteria.png":::
+For example, you can specify that the average response time of requests, or that the percentage of failed requests is above a given threshold. You can add fail criteria to your load test at any time, regardless if it's a quick test or if you uploaded a JMeter script.
 
 When you run load tests as part of your CI/CD pipeline, you can use test fail criteria to identify performance regressions with an application build.
 
-Learn how to [configure test fail criteria](./how-to-define-test-criteria.md) for your load test.
+:::image type="content" source="./media/concept-load-test-app-service/load-test-configure-test-criteria.png" alt-text="Screenshot that shows the test criteria page for a load test in the Azure portal." lightbox="./media/concept-load-test-app-service/load-test-configure-test-criteria.png":::
 
 ## Use parameters to test across deployment slots
 
-When you configure a load test, you can specify parameters to pass environment variables or secrets to the load test script. For example, to avoid that you need to store the application endpoint URL in the test script, you can use an environment variable. By using parameters, you can make your test script configurable.
+When you configure a load test, you can specify parameters to pass environment variables or secrets to the load test script. These parameters make your test script reusable and reconfigurable. Learn how to [use parameters to pass environment variables to a load test](./how-to-parameterize-load-tests.md).
 
-With [Azure App Service deployment slots](/azure/app-service/deploy-staging-slots) you can set up staging environments for your application. Each deployment slot has a separate URL. To reuse your test script across multiple deployment slots, use a parameter for the application endpoint.
+One example is using a parameter as an environment variable so you can avoid storing the application endpoint URL in the test script. You can also use environment variables to pass other configuration settings to the JMeter test script. For example, you might pass the number of virtual users, or the file name of a [CSV input file](./how-to-read-csv-data.md) to the test script.
+
+Another use for parameters is when you want to reuse your test script across multiple [Azure App Service deployment slots](/azure/app-service/deploy-staging-slots). Deployment slots are live apps with their own host names and separate URLs. Use a parameter for the application endpoint and then you can set up staging environments for your application. 
 
 :::image type="content" source="media/concept-load-test-app-service/quick-test-parameters.png" alt-text="Screenshot that shows the Parameters page of a quick test in the Azure portal, highlighting the parameters for the target URL." lightbox="media/concept-load-test-app-service/quick-test-parameters.png":::
 
-Learn how to [use parameters to pass environment variables to a load test](./how-to-parameterize-load-tests.md).
-
-You can also use environment variables to pass other configuration settings to the JMeter test script. For example, you might pass the number of virtual users, or the file name of a [CSV input file](./how-to-read-csv-data.md) to the test script.
 
 ## Next steps
 
-- Get started by [creating a URL-based load test](./quickstart-create-and-run-load-test.md).
-- Learn how to [identify performance bottlenecks](./tutorial-identify-bottlenecks-azure-portal.md) for Azure applications.
-- Learn how to [configure your test for high-scale load](./how-to-high-scale-load.md).
-- Learn how to [configure automated performance testing](./tutorial-identify-performance-regression-with-cicd.md).
+Learn how to:
+- [Start create a URL-based load test](./quickstart-create-and-run-load-test.md).
+- [Identify performance bottlenecks](./tutorial-identify-bottlenecks-azure-portal.md) for Azure applications.
+- [Configure your test for high-scale load](./how-to-high-scale-load.md).
+- [Configure automated performance testing](./tutorial-identify-performance-regression-with-cicd.md).
