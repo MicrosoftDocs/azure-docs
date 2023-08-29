@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 08/22/2023
+ms.date: 08/29/2023
 ms.author: sarahlipsey
 ms.reviewer: almars
 ---
@@ -69,9 +69,6 @@ The branding elements are called out in the following example. Text descriptions
 
 There are some scenarios you to consider when you customize the sign-in pages for your organization's tenant-specific applications.
 
-> [!NOTE]
-> To manage the settings of the 'Stay signed in?' prompt, go to **Azure AD** > **Users** > **User settings**.
-
 For Microsoft, Software as a Service (SaaS), and multi-tenant applications such as <https://myapps.microsoft.com>, or <https://outlook.com>, the customized sign-in page appears only after the user types their **Email** or **Phone number** and selects the **Next** button. 
 
 Some Microsoft applications support [Home Realm Discovery](../manage-apps/home-realm-discovery-policy.md) for authentication. In these scenarios, when a customer signs in to an Azure AD common sign-in page, Azure AD can use the customer's user name to determine where they should sign in. 
@@ -85,7 +82,7 @@ In the following examples, replace the contoso.com with your own tenant name, or
 - For my app portal `https://myapps.microsoft.com/?whr=contoso.com` 
 - Self-service password reset `https://passwordreset.microsoftonline.com/?whr=contoso.com`
 
-Beginning September 30, 2023, when B2B collaboration end-users perform cross-tenant sign-ins, they'll notice a change in branding. Instead of seeing the resource tenant's branding, their home tenant branding appears, even if there isn't custom branding specified. We're making this change to highlight that the user is signing into their home account. No action is needed from you to enable this change.
+For B2B collaboration end-users who perform cross-tenant sign-ins, their home tenant branding appears, even if there isn't custom branding specified.
 
 ## How to navigate the company branding process
 
