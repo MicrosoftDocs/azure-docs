@@ -123,7 +123,7 @@ Along with data migration, the tool automatically provides the following built-i
 > The following limitations are applicable only for flexible servers on which the migration of users/roles functionality is enabled.
 
 - AAD users present on your source server will not be migrated to target server. To mitigate this limitation, manually create all AAD users on your target server using this [link](../flexible-server/how-to-manage-azure-ad-users.md) before triggering a migration. If AAD users are not created on target server, migration will fail with appropriate error message.
-- If the target flexible server uses SCRAM-SHA-256 password encrpytion method, connection to flexible server using the users/roles on single server will fail since the passwords are encrypted using md5 algorithm. To mitigate this limitation, please choose the option **MD5** for **password_encryption** server parameter on your flexible server.
+- If the target flexible server uses SCRAM-SHA-256 password encryption method, connection to flexible server using the users/roles on single server will fail since the passwords are encrypted using md5 algorithm. To mitigate this limitation, please choose the option **MD5** for **password_encryption** server parameter on your flexible server.
 - Though the ownership of database objects such as tables, views, sequences, etc. are copied to the target server, the owner of the database in your target server will be the migration user of your target server. The limitation can be mitigated by executing the following command 
 
 ```sql
