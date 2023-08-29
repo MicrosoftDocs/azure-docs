@@ -21,6 +21,9 @@ This article provides the details on how to integrate [Azure Update Manager](ove
 Azure Update Manager designed as a standalone Azure service to provide SaaS experience to manage hybrid environments in Azure.
 
 Using Azure Update Manager you can manage and govern updates for all your SQL Server instances at scale. Unlike with [Automated Patching](https://learn.microsoft.com/azure/azure-sql/virtual-machines/windows/automated-patching?view=azuresql-vm&branch=main), Update Manager installs cumulative updates for SQL server.
+
+
+
  
 ## Next steps
 - [An overview on Azure Update Manager](overview.md)

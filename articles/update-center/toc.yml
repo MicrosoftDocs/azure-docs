@@ -46,6 +46,12 @@
       href: configure-wu-agent.md
   - name: Manage
     items:
+    - name: SQL Server Patching
+      items:
+      - name: Overview
+        href: guidance-patching-sql-server-azure-vm.md
+      - name: Guidance on patching for SQL Server on Azure VMs
+        href: ../sql-docs-pr/azure-sql/virtual-machines/azure-update-manager-sql-vm.md?toc=/azure/update-center/toc.json&bc=/azure/update-center/breadcrumb/toc.json
     - name: Check update compliance 
       href: view-updates.md
     - name: Deploy updates and track results
@@ -66,12 +72,6 @@
       href: manage-workbooks.md
     - name: Manage updates for customized images
       href: manage-updates-customized-images.md
-    - name: Guidance on patching for SQL Server on Azure VMs
-      items:
-      - name: Overview
-        href: guidance-patching-sql-server-azure-vm.md
-      - name: Enable Azure Update Manager
-        href: ../azure-sql/virtual-machines/azure-update-manager-sql-vm.md?toc=/azure/update-center/toc.json&bc=/azure/update-center/breadcrumb/toc.json
   - name: Troubleshoot
     items:
     - name: Troubleshoot issues
