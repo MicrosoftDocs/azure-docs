@@ -35,7 +35,7 @@ items:
         href: on-premises-web-services-connector.md
       - name: Provisioning with custom connectors
         href: on-premises-custom-connector.md
-      - name: Provisioning to SAP ECC 7.0
+      - name: Provisioning to SAP ECC (formerly SAP R/3)
         href: on-premises-sap-connector-configure.md
     - name: API-driven inbound provisioning tutorials
       items:
