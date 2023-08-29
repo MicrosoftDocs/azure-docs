@@ -6,12 +6,11 @@ author: CelesteDG
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: fundamentals
-ms.custom: has-azure-ad-ps-ref
+ms.custom: has-azure-ad-ps-ref, docutune-disable
 ms.topic: overview
 ms.date: 08/29/2023
 ms.author: celested
 ms.reviewer: nicholepet
-ms.custom: docutune-disable
 # Customer intent: As a new or existing customer, I want to learn more about the new name for Azure Active Directory (Azure AD) and understand the impact the name change may have on other products, new or existing license(s), what I need to do, and where I can learn more about Microsoft Entra products.
 ---
 
