@@ -1,5 +1,5 @@
 ---
-title: Patching guidance overview for Microsoft Configuration Manager (MCM) to Azure
+title: Patching guidance overview for Microsoft Configuration Manager to Azure
 description: Patching guidance overview for Microsoft Configuration Manager to Azure. View on how to get started with Azure Update Manager, mapping capabilities of MCM software and FAQs.
 author: snehasudhirG
 ms.service: azure-update-manager
@@ -28,10 +28,14 @@ The MCM in Azure and Azure Update Manager can fulfill your patching requirements
 ## Manage software updates using Azure Update Manager
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and search for Azure Update Manager (preview).
-   :::image type="content" source="./media/guidance-migration-azure/update-manager-service-selection-inline.png" alt-text="Screenshot of selecting the Azure Update Manager from Azure portal." lightbox="./media/manage-multiple-machines/overview-page-expanded.png":::
+
+   :::image type="content" source="./media/guidance-migration-azure/update-manager-service-selection-inline.png" alt-text="Screenshot of selecting the Azure Update Manager from Azure portal." lightbox=""./media/guidance-migration-azure/update-manager-service-selection-expanded.png":::
+
 1. In the **Azure Update Manager (Preview)** home page, under **Manage** > **Machines**, select your subscription to view all your machines.
 1. Filter as per the available options to know the status of your specific machines.
+
    :::image type="content" source="./media/guidance-migration-azure/filter-machine-status-inline.png" alt-text="Screenshot of selecting the filters in Azure Update Manager to view the machines." lightbox="./media/guidance-migration-azure/filter-machine-status-expanded.png":::
+
 1. Select the suitable [assessment](assessment-options.md) and [patching](updates-maintenance-schedules.md) options as per your requirement.
 
 ## Map MCM capabilities to Azure Update Manager
@@ -40,7 +44,7 @@ The following table explains the mapping capabilities of MCM software Update Man
 
 | **Capability**  | **Microsoft Configuration Manager** | **Azure Update Manager**|
 | --- | --- | --- |
-|Synchronize software updates between sites(Central Admin site, Primary, Secondary sites)| The top site (either central admin site or stand-alone primary site) connects to Microsoft Update to retrieve software updates.[Learn more](https://learn.microsoft.com/mem/configmgr/sum/understand/software-updates-introduction). After the top sites are synchronized, the child sites are synchronized. | There's no hierarchy of machines in Azure and therefore all machines connected to Azure receive updates from the source repository. |
+|Synchronize software updates between sites(Central Admin site, Primary, Secondary sites)| The top site (either central admin site or stand-alone primary site) connects to Microsoft Update to retrieve software update. [Learn more](https://learn.microsoft.com/mem/configmgr/sum/understand/software-updates-introduction). After the top sites are synchronized, the child sites are synchronized. | There's no hierarchy of machines in Azure and therefore all machines connected to Azure receive updates from the source repository. |
 |Synchronize software updates/check for updates (retrieve patch metadata). | You can scan for updates periodically by setting configuration on the Software update point. [Learn more](https://learn.microsoft.com/mem/configmgr/sum/get-started/synchronize-software-updates#to-schedule-software-updates-synchronization). | You can enable periodic assessment to enable scan of patches every 24 hours. [Learn more](assessment-options.md). |
 |Configuring classifications/products to synchronize/scan/assess | You can choose the update classifications (security or critical updates) to synchronize/scan/assess. [Learn more](https://learn.microsoft.com/mem/configmgr/sum/get-started/configure-classifications-and-products). | There's no such capability here. The entire software metadata is scanned.| 
 |Deploy software updates (install patches)| Provides three modes of deploying updates: </br> Manual deployment </br> Automatic deployment </br> Phased deployment [Learn more](https://learn.microsoft.com/mem/configmgr/sum/deploy-use/deploy-software-updates).| Manual deployment is mapped to deploying [one-time updates](deploy-updates.md) and Automatic deployment is mapped to [scheduled updates](scheduled-patching.md). (The [Automatic Deployment Rules (ADRs)](https://learn.microsoft.com/mem/configmgr/sum/deploy-use/automatically-deploy-software-updates#BKMK_CreateAutomaticDeploymentRule) can be mapped to schedules). There's no phased deployment option. |
@@ -52,7 +56,7 @@ The following are the current limitations:
 - **Orchestration groups with Pre/Post scripts** - [Orchestration groups](https://learn.microsoft.com/mem/configmgr/sum/deploy-use/orchestration-groups) can't be created in Azure Update Manager to specify a maintenance sequence, allow some machines for updates at the same time and so on. (The orchestration groups allow you to use the pre/post scripts to run tasks before and after a patch deployment).
 
 ### Patching machines 
-After you setup configurations for assessment and patching, you can deploy/install either through [on-demand updates](deploy-updates.md) (one time or manual update) or [schedule updates](scheduled-patching.md) (automatic update) only. You can also deploy updates using [Azure Update Manager's API](manage-vms-programmatically.md).
+After you set up configurations for assessment and patching, you can deploy/install either through [on-demand updates](deploy-updates.md) (one time or manual update) or [schedule updates](scheduled-patching.md) (automatic update) only. You can also deploy updates using [Azure Update Manager's API](manage-vms-programmatically.md).
 
 ## Frequently asked questions
 
