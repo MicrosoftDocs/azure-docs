@@ -158,7 +158,7 @@ For managing external collaboration, where the individual external users for a c
 
 * To allow users in external directories from connected organizations to be able to request access packages in a catalog, the catalog setting of **Enabled for external users** needs to be set to **Yes**.  Changing this setting can be done by an administrator or a catalog owner of the catalog.
 * The access package must also have a policy set [for users not in your directory](entitlement-management-access-package-request-policy.md#for-users-not-in-your-directory).  This policy can be created by an administrator, catalog owner or access package manager of the catalog.
-* An access package with that policy will allow users in scope to be able to request access, including users not already in your directory. If their request is approved, or does not require approval, then the user will be automatically be added to your directory.
+* An access package with that policy will allow users in scope to be able to request access, including users not already in your directory. If their request is approved, or does not require approval, then the user will be automatically added to your directory.
 * If the policy setting was for **All users**, and the user was not part of an existing connected organization, then a new proposed connected organization is automatically created.  You can [view the list of connected organizations](entitlement-management-organization.md#view-the-list-of-connected-organizations) and remove organizations that are no longer needed.
 
 You can also configure what happens when an external user brought in by entitlement management loses their last assignment to any access packages. You can block them from signing in to this directory, or have their guest account removed, in the settings to [manage the lifecycle of external users](entitlement-management-external-users.md#manage-the-lifecycle-of-external-users).
@@ -169,11 +169,11 @@ You can prevent users who are not in administrative roles from inviting individu
 
 To prevent delegated employees from configuring entitlement management to let external users request for external collaboration, then be sure to communicate this constraint to all global administrators, identity governance administrators, catalog creators, and catalog owners, as they are able to change catalogs, so that they do not inadvertently permit new collaboration in new or updated catalogs. They should ensure that catalogs are set with **Enabled for external users** to **No**, and do not have any access packages with policies for allowing a user not in the directory to request.
 
-You can view the list of catalogs currently enabled for external users in the Azure portal.
+You can view the list of catalogs currently enabled for external users in the Microsoft Entra admin center.
 
-1. In the Azure portal, select **Azure Active Directory** > **Identity Governance**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1. On the left menu, select **Catalogs**.
+1. Browse to **Identity governance** > **Entitlement management** > **Catalogs**.
 
 1. Change the filter setting for **Enabled for external users** to **Yes**.
 

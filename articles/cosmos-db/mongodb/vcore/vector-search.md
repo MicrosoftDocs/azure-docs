@@ -4,12 +4,11 @@ titleSuffix: Azure Cosmos DB for MongoDB vCore
 description: Use vector indexing and search to integrate AI-based applications in Azure Cosmos DB for MongoDB vCore.
 author: gahl-levy
 ms.author: gahllevy
-ms.reviewer: nayakshweta
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: mongodb-vcore
-ms.custom: build-2023
 ms.topic: conceptual
-ms.date: 05/10/2023
+ms.date: 08/28/2023
 ---
 
 # Use vector search on embeddings in Azure Cosmos DB for MongoDB vCore
@@ -53,9 +52,16 @@ To create a vector index, use the following `createIndexes` template:
 | `index_name` | string | Unique name of the index. |
 | `path_to_property` | string | Path to the property that contains the vector. This path can be a top-level property or a dot notation path to the property. If a dot notation path is used, then all the nonleaf elements can't be arrays. |
 | `kind` | string | Type of vector index to create. Currently, `vector-ivf` is the only supported index option. |
-| `numLists` | integer | This integer is the number of clusters that the inverted file (IVF) index uses to group the vector data. We recommend that `numLists` is set to `rowCount()/1000` for up to 1 million rows and to `sqrt(rowCount)` for more than 1 million rows. |
+| `numLists` | integer | This integer is the number of clusters that the inverted file (IVF) index uses to group the vector data. We recommend that `numLists` is set to `rowCount()/1000` for up to 1 million rows and to `sqrt(rowCount)` for more than 1 million rows. Using a `numLists` value of `1` is akin to performing brute-force search. |
 | `similarity` | string | Similarity metric to use with the IVF index. Possible options are `COS` (cosine distance), `L2` (Euclidean distance), and `IP` (inner product). |
 | `dimensions` | integer | Number of dimensions for vector similarity. The maximum number of supported dimensions is `2000`. |
+
+> [!IMPORTANT]
+> Setting the _numLists_ parameter correctly is important for acheiving good accuracy and performance. We recommend that `numLists` is set to `rowCount()/1000` for up to 1 million rows and to `sqrt(rowCount)` for more than 1 million rows.
+>
+> As the number of items in your database grows, you should tune _numLists_ to be larger in order to achieve good latency performance for vector search.
+>
+> If you're experimenting with a new scenario or creating a small demo, you can start with `numLists` set to `1` to perform a brute-force search across all vectors. This should provide you with the most accurate results from the vector search. After your initial setup, you should go ahead and tune the `numLists` parameter using the above guidance.
 
 ## Examples
 
@@ -78,7 +84,7 @@ db.runCommand({
       },
       cosmosSearchOptions: {
         kind: 'vector-ivf',
-        numLists: 100,
+        numLists: 3,
         similarity: 'COS',
         dimensions: 3
       }
@@ -177,7 +183,7 @@ In this example, `vectorIndex` is returned with all the `cosmosSearch` parameter
     name: 'vectorSearchIndex',
     cosmosSearch: {
       kind: 'vector-ivf',
-      numLists: 100,
+      numLists: 3,
       similarity: 'COS',
       dimensions: 3
     },
@@ -198,4 +204,4 @@ In this example, `vectorIndex` is returned with all the `cosmosSearch` parameter
 This guide demonstrates how to create a vector index, add documents that have vector data, perform a similarity search, and retrieve the index definition. By using vector search, you can efficiently store, index, and query high-dimensional vector data directly in Azure Cosmos DB for MongoDB vCore. Vector search enables you to unlock the full potential of your data via vector embeddings, and it empowers you to build more accurate, efficient, and powerful applications.
 
 > [!div class="nextstepaction"]
-> [Introduction to Azure Cosmos DB for MongoDB vCore](introduction.md)
+> [Build AI apps with Azure Cosmos DB for MongoDB vCore vector search](vector-search-ai.md)
