@@ -77,7 +77,7 @@ echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/envi
 
 1. Create a new PowerShell file called quickstart.ps1. Then open it up in your preferred editor or IDE.
 
-2. Replace the contents of quickstart.ps1 with the following code. Modify the code to add your key, endpoint, and deployment name:
+1. Replace the contents of quickstart.ps1 with the following code. Modify the code to add your key, endpoint, and deployment name:
 
    ```powershell
    $openai = @{
@@ -98,7 +98,7 @@ echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/envi
        max_tokens = 10
        temperature = 2
        top_p = 0.5
-   } | ConvertTo-json
+   } | ConvertTo-Json
 
    $url = "$($openai.api_base)/openai/deployments/$($openai.name)/completions?api-version=$($openai.api_version)"
 
@@ -109,7 +109,7 @@ echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/envi
    > [!IMPORTANT]
    > For production, use a secure way of storing and accessing your credentials like [The PowerShell Secret Management with Azure Key Vault](/powershell/utility-modules/secretmanagement/how-to/using-azure-keyvault). For more information about credential security, see the Azure AI services [security](../../security-features.md) article.
 
-3. Run the script using PowerShell:
+1. Run the script using PowerShell:
 
    ```powershell
    ./quickstart.ps1
@@ -139,7 +139,7 @@ Azure OpenAI also performs content moderation on the prompt inputs and generated
 If you want to clean up and remove an OpenAI resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
 - [Portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
-- [Azure PS](../../multi-service-resource.md?pivots=azps#clean-up-resources)
+- [Azure PowerShell](../../multi-service-resource.md?pivots=azps#clean-up-resources)
 
 ## Next steps
 

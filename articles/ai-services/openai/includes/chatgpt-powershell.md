@@ -81,7 +81,7 @@ echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/envi
 
 1. Create a new PowerShell file called quickstart.ps1. Then open it up in your preferred editor or IDE.
 
-2. Replace the contents of quickstart.ps1 with the following code. You need to set the `engine` variable to the deployment name you chose when you deployed the GPT-35-Turbo or GPT-4 models. Entering the model name will result in an error unless you chose a deployment name that is identical to the underlying model name.
+1. Replace the contents of quickstart.ps1 with the following code. You need to set the `engine` variable to the deployment name you chose when you deployed the GPT-35-Turbo or GPT-4 models. Entering the model name will result in an error unless you chose a deployment name that is identical to the underlying model name.
 
    ```powershell
    $openai = @{
@@ -115,7 +115,7 @@ echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/envi
 
    $body = [ordered]@{
       messages = $messages
-   } | ConvertTo-json
+   } | ConvertTo-Json
 
    $url = "$($openai.api_base)/openai/deployments/$($openai.name)/chat/completions?api-version=$($openai.api_version)"
 
@@ -126,7 +126,7 @@ echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/envi
    > [!IMPORTANT]
    > For production, use a secure way of storing and accessing your credentials like [The PowerShell Secret Management with Azure Key Vault](/powershell/utility-modules/secretmanagement/how-to/using-azure-keyvault). For more information about credential security, see the Azure AI services [security](../../security-features.md) article.
 
-3. Run the script using PowerShell:
+1. Run the script using PowerShell:
 
    ```powershell
    ./quickstart.ps1
@@ -144,7 +144,7 @@ choices : {@{index=0; finish_reason=stop; message=}}
 usage   : @{completion_tokens=67; prompt_tokens=55; total_tokens=122}
 
 # convert the output to JSON
-./quickstart.ps1 | convertto-json -depth 3
+./quickstart.ps1 | ConvertTo-Json -Depth 3
 
 # or to view the text returned, select the specific object property
 $reponse = ./quickstart.ps1)
@@ -164,7 +164,7 @@ The [GPT-35-Turbo & GPT-4 how-to guide](../how-to/chatgpt.md) provides an in-dep
 If you want to clean up and remove an OpenAI resource, you can delete the resource. Before deleting the resource, you must first delete any deployed models.
 
 - [Portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
-- [Azure PS](../../multi-service-resource.md?pivots=azps#clean-up-resources)
+- [Azure PowerShell](../../multi-service-resource.md?pivots=azps#clean-up-resources)
 
 ## Next steps
 

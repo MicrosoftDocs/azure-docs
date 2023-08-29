@@ -30,16 +30,16 @@ keywords:
 
 To create an Azure OpenAI resource, you need an Azure resource group. When you create a new resource through Azure PowerShell, you can also create a new resource group or instruct Azure to use an existing group. The following example shows how to create a new resource group named _OAIResourceGroup_ with the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) command. The resource group is created in the East US location. 
 
-```powershell
-New-AzResourceGroup -Name OAIResourceGroup -Location "EastUS"
+```azurepowershell-interactive
+New-AzResourceGroup -Name OAIResourceGroup -Location eastus
 ```
 
 ## Create a resource
 
 Use the [New-AzCognitiveServicesAccount](/powershell/module/az.cognitiveservices/new-azcognitiveservicesaccount) command to create an Azure OpenAI resource in the resource group. In the following example, you create a resource named _MyOpenAIResource_ in the _OAIResourceGroup_ resource group. When you try the example, update the code to use your desired values for the resource group and resource name, along with your Azure subscription ID _\<subscriptionID>_.
 
-```powershell
-New-AzCognitiveServicesAccount -ResourceGroupName OAIResourceGroup -name MyOpenAIResource -Type OpenAI -SkuName S0 -Location 'EastUS'
+```azurepowershell-interactive
+New-AzCognitiveServicesAccount -ResourceGroupName OAIResourceGroup -Name MyOpenAIResource -Type OpenAI -SkuName S0 -Location eastus
 ```
 
 ## Retrieve information about the resource
@@ -50,10 +50,11 @@ After you create the resource, you can use different commands to find useful inf
 
 Use the [Get-AzCognitiveServicesAccount](/powershell/module/az.cognitiveservices/get-azcognitiveservicesaccount) command to retrieve the REST API endpoint base URL for the resource. In this example, we direct the command output through the [Select-Object](/powershell/module/microsoft.powershell.utility/select-object) cmdlet to locate the `endpoint` value.
 
-When you try the example, update the code to use your values for the resource group _\<myResourceGroupName>_ and resource _\<myResourceName>_.
+When you try the example, update the code to use your values for the resource group `<myResourceGroupName>` and resource `<myResourceName>`.
 
-```powershell
-Get-AzCognitiveServicesAccount -ResourceGroupName OAIResourceGroup -name MyOpenAIResource | Select-Object endpoint
+```azurepowershell-interactive
+Get-AzCognitiveServicesAccount -ResourceGroupName OAIResourceGroup -Name MyOpenAIResource |
+  Select-Object -Property endpoint
 ```
 
 ### Get the primary API key
@@ -62,27 +63,30 @@ To retrieve the access keys for the resource, use the [Get-AzCognitiveServicesAc
 
 When you try the example, update the code to use your values for the resource group and resource.
 
-```powershell
-Get-AzCognitiveServicesAccountKey -Name MyOpenAIResource -ResourceGroupName OAIResourceGroup | Select-Object Key1
+```azurepowershell-interactive
+Get-AzCognitiveServicesAccountKey -Name MyOpenAIResource -ResourceGroupName OAIResourceGroup |
+  Select-Object -Property Key1
 ```
 
 ## Deploy a model
 
 To deploy a model, use the [New-AzCognitiveServicesAccountDeployment](/powershell/module/az.cognitiveservices/new-azcognitiveservicesaccountdeployment) command. In the following example, you deploy an instance of the `text-embedding-ada-002` model and give it the name _MyModel_. When you try the example, update the code to use your values for the resource group and resource. You don't need to change the `model-version`, `model-format` or `sku-capacity`, and `sku-name` values. 
 
-```powershell
+```azurepowershell-interactive
 $model = New-Object -TypeName 'Microsoft.Azure.Management.CognitiveServices.Models.DeploymentModel' -Property @{
     Name = 'text-embedding-ada-002'
     Version = '1'
     Format = 'OpenAI'
-    }
+}
 
-$properties = new-object -TypeName 'Microsoft.Azure.Management.CognitiveServices.Models.DeploymentProperties' -Property @{Model = $model}
+$properties = New-Object -TypeName 'Microsoft.Azure.Management.CognitiveServices.Models.DeploymentProperties' -Property @{
+    Model = $model
+}
 
-$sku = New-Object -typename "Microsoft.Azure.Management.CognitiveServices.Models.Sku" -Property @{
+$sku = New-Object -TypeName "Microsoft.Azure.Management.CognitiveServices.Models.Sku" -Property @{
     Name = 'Standard'
     Capacity = '1'
-    }
+}
 
 New-AzCognitiveServicesAccountDeployment -ResourceGroupName OAIResourceGroup -AccountName MyOpenAIResource -Name MyModel -Properties $properties -Sku $sku
 ```
@@ -91,7 +95,7 @@ New-AzCognitiveServicesAccountDeployment -ResourceGroupName OAIResourceGroup -Ac
 
 You can delete any model deployed from your resource with the [Remove-AzCognitiveServicesAccountDeployment](/powershell/module/az.cognitiveservices/remove-azcognitiveservicesaccountdeployment) command. In the following example, you delete a model named _MyModel_. When you try the example, update the code to use your values for the resource group, resource, and deployed model. 
 
-```powershell
+```azurepowershell-interactive
 Remove-AzCognitiveServicesAccountDeployment -ResourceGroupName OAIResourceGroup -AccountName MyOpenAIResource -Name MyModel
 ```
 
@@ -103,6 +107,6 @@ To remove the resource group and its associated resources, use the [Remove-AzCog
 
 If you're not going to continue to use the resources created in these exercises, run the following command to delete your resource group. Be sure to update the example code to use your values for the resource group and resource.
 
-```powershell
+```azurepowershell-interactive
 Remove-AzCognitiveServicesAccount -Name MyOpenAIResource -ResourceGroupName OAIResourceGroup
 ```

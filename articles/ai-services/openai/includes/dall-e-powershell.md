@@ -44,7 +44,7 @@ Go to your resource in the Azure portal. On the navigation pane, select **Keys a
 
 1. Create a new PowerShell file named _quickstart.ps1_. Open the new file in your preferred editor or IDE.
 
-2. Replace the contents of _quickstart.ps1_ with the following code. Enter your endpoint URL and key in the appropriate fields. Change the value of `prompt` to your preferred text.
+1. Replace the contents of _quickstart.ps1_ with the following code. Enter your endpoint URL and key in the appropriate fields. Change the value of `prompt` to your preferred text.
 
    ```powershell
    $openai = @{
@@ -61,7 +61,7 @@ Go to your resource in the Azure portal. On the navigation pane, select **Keys a
       prompt='A painting of a dog'    # Enter your prompt text here
       size='1024x1024'
       n=1
-   } | ConvertTo-json
+   } | ConvertTo-Json
 
    $url = "$($openai.api_base)/openai/images/generations:submit?api-version=$($openai.api_version)"
 
@@ -69,23 +69,23 @@ Go to your resource in the Azure portal. On the navigation pane, select **Keys a
 
     # Call the API to generate the image and retrieve the response
     $operation_location = $submissionHeaders['operation-location'][0]
-    $status = ""
-    while ($status -ne "succeeded") {
+    $status = ''
+    while ($status -ne 'succeeded') {
         Start-Sleep -Seconds 1
         $response = Invoke-RestMethod -Uri $operation_location -Headers $headers
         $status = $response.status
     }
 
    # Set the directory for the stored image
-   $image_dir = Join-Path $pwd 'images'
+   $image_dir = Join-Path -Path $pwd -ChildPath 'images'
 
    # If the directory doesn't exist, create it
-   if (!(Resolve-Path $image_dir -ErrorAction Ignore)) {
+   if (-not(Resolve-Path $image_dir -ErrorAction Ignore)) {
        New-Item -Path $image_dir -ItemType Directory
    }
 
    # Initialize the image path (note the filetype should be png)
-   $image_path = Join-Path $image_dir 'generated_image.png'
+   $image_path = Join-Path -Path $image_dir -ChildPath 'generated_image.png'
 
    # Retrieve the generated image
    $image_url = $response.result.data[0].url  # extract image URL from response
@@ -96,7 +96,7 @@ Go to your resource in the Azure portal. On the navigation pane, select **Keys a
    > [!IMPORTANT]
    > For production, use a secure way of storing and accessing your credentials like [The PowerShell Secret Management with Azure Key Vault](/powershell/utility-modules/secretmanagement/how-to/using-azure-keyvault). For more information about credential security, see the Azure AI services [security](../../security-features.md) article.
 
-3. Run the script using PowerShell:
+1. Run the script using PowerShell:
 
    ```powershell
    ./quickstart.ps1
