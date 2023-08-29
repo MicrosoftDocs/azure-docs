@@ -481,7 +481,7 @@
   - name: Container Instances
     tocHref: /azure/container-instances/
     topicHref: /azure/container-instances/
-  - name: AKS
+  - name: Azure Kubernetes Service
     tocHref: /azure/aks/
     topicHref: /azure/aks/
   - name: Kubernetes Fleet Manager

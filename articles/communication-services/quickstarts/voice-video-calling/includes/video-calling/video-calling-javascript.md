@@ -250,6 +250,10 @@ subscribeToCall = (call) => {
             }   
         });
 
+        call.on('isLocalVideoStartedChanged', () => {
+            console.log(`isLocalVideoStarted changed: ${call.isLocalVideoStarted}`);
+        });
+        console.log(`isLocalVideoStarted: ${call.isLocalVideoStarted}`);
         call.localVideoStreams.forEach(async (lvs) => {
             localVideoStream = lvs;
             await displayLocalVideoStream();
@@ -331,11 +335,6 @@ subscribeToRemoteVideoStream = async (remoteVideoStream) => {
     let remoteVideoContainer = document.createElement('div');
     remoteVideoContainer.className = 'remote-video-container';
 
-    /**
-     * isReceiving API is currently a @beta feature.
-     * To use this api, please use 'beta' version of Azure Communication Services Calling Web SDK.
-     * Create a CSS class to style your loading spinner.
-     *
     let loadingSpinner = document.createElement('div');
     loadingSpinner.className = 'loading-spinner';
     remoteVideoStream.on('isReceivingChanged', () => {
@@ -353,7 +352,6 @@ subscribeToRemoteVideoStream = async (remoteVideoStream) => {
             console.error(e);
         }
     });
-    */
 
     const createView = async () => {
         // Create a renderer view for the remote video stream.

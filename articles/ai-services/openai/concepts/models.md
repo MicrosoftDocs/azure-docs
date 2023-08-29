@@ -5,7 +5,7 @@ description: Learn about the different model capabilities that are available wit
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: conceptual 
-ms.date: 08/02/2023
+ms.date: 08/22/2023
 ms.custom: event-tier1-build-2022, references_regions, build-2023, build-2023-dataai
 manager: nitinme
 author: mrbullwinkle #ChrisHMSFT
@@ -71,7 +71,6 @@ The DALL-E models, currently in preview, generate images from text prompts that 
 > Due to high demand:
 >
 > - South Central US is temporarily unavailable for creating new resources and deployments.
-> - In East US and France Central, customers with existing deployments of GPT-4 can create additional deployments of GPT-4 version 0613.  For customers new to GPT-4 on Azure OpenAI, please use one of the other available regions.
 
 ### GPT-4 models
 
@@ -85,8 +84,8 @@ These models can only be used with the Chat Completion API.
 | `gpt-4-32k` <sup>1</sup><sup>3</sup> (0613)  |  Australia East, Canada East, East US, East US 2, France Central, Japan East, UK South |  N/A                | 32,768               | September 2021         |
 
 <sup>1</sup> The model is [only available by request](https://aka.ms/oai/get-gpt4).<br>
-<sup>2</sup> Version `0314` of gpt-4 and gpt-4-32k will be retired no earlier than July 5, 2024.  See [model updates](#model-updates) for model upgrade behavior.<br>
-<sup>3</sup> We are adding regions and rolling out availability to customers gradually to ensure a smooth experience.
+<sup>2</sup> Version `0314` of gpt-4 and gpt-4-32k will be retired no earlier than July 5, 2024. See [model updates](#model-updates) for model upgrade behavior.<br>
+<sup>3</sup> We are rolling out availability of new regions to customers gradually to ensure a smooth experience. In East US and France Central, customers with existing deployments of GPT-4 can create additional deployments of GPT-4 version 0613. For customers new to GPT-4 on Azure OpenAI, please use one of the other available regions.
 
 ### GPT-3.5 models
 
@@ -110,7 +109,7 @@ These models can only be used with Embedding API requests.
 
 |  Model ID  |  Base model Regions   | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to)  |
 |  --- | --- | --- | --- | --- |
-| text-embedding-ada-002 (version 2) | Canada East, East US, France Central, Japan East, North Central US, South Central US, West Europe | N/A |8,191 | Sep 2021 |
+| text-embedding-ada-002 (version 2) | Canada East, East US, France Central, Japan East, North Central US, South Central US, UK South, West Europe | N/A |8,191 | Sep 2021 |
 | text-embedding-ada-002 (version 1) | East US, South Central US, West Europe | N/A |2,046 | Sep 2021 |
 
 ### DALL-E models (Preview)

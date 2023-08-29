@@ -5,7 +5,7 @@ author: gourdsay
 ms.author: angour 
 ms.service: data-manager-for-agri 
 ms.topic: conceptual 
-ms.date: 06/25/2023 
+ms.date: 08/23/2023 
 ms.custom: template-concept 
 ---
 
@@ -22,6 +22,17 @@ Azure Data Manager for Agriculture Preview is updated on an ongoing basis. To st
  We provide information on latest releases, bug fixes, & deprecated functionality for Azure Data Manager for Agriculture Preview monthly.
 
 [!INCLUDE [public-preview-notice.md](includes/public-preview-notice.md)]
+
+## July 2023
+
+### Weather API update: 
+We deprecated the old weather APIs from API version 2023-07-01. The old weather APIs have been replaced with new simple yet powerful provider agnostic weather APIs. Have a look at the API documentation [here](/rest/api/data-manager-for-agri/#weather). 
+
+### New farm operations connector: 
+We've added support for Climate FieldView as a built-in data source. You can now auto sync planting, application and harvest activity files from FieldView accounts directly into Azure Data Manager for Agriculture. Learn more about this [here](concepts-farm-operations-data.md).
+
+### Common Data Model now with geo-spatial support:
+We’ve updated our data model to improve flexibility. The boundary object has been deprecated in favor of a geometry property that is now supported in nearly all data objects. This change brings consistency to how space is handled across hierarchy, activity and observation themes. It allows for more flexible integration when ingesting data from a provider with strict hierarchy requirements. You can now sync data that may not perfectly align with an existing hierarchy definition and resolve the conflicts with spatial overlap queries. Learn more [here](concepts-hierarchy-model.md).
 
 ## June 2023
 

@@ -3,8 +3,8 @@ title: Backup and restore - Azure PowerShell - Azure Database for MySQL
 description: Learn how to backup and restore a server in Azure Database for MySQL by using Azure PowerShell.
 ms.service: mysql
 ms.subservice: single-server
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.devlang: azurepowershell
 ms.topic: how-to
 ms.date: 06/20/2022

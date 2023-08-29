@@ -88,6 +88,8 @@ Traces | Logs
 Requests | Server Spans
 Dependencies | Other Span Types (Client, Internal, etc.)
 
+[!INCLUDE [azure-monitor-app-insights-opentelemetry-support](../includes/azure-monitor-app-insights-opentelemetry-support.md)]
+
 ## Next steps
 
 Select your enablement approach:

@@ -5,6 +5,7 @@ description: Troubleshoot Azure AD Multi-Factor Authentication and self-service 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
+ms.custom: has-azure-ad-ps-ref
 ms.topic: troubleshooting
 ms.date: 01/29/2023
 

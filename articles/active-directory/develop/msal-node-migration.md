@@ -152,7 +152,7 @@ However, some methods in ADAL Node are deprecated, while MSAL Node offers new me
 | `acquireUserCode`                   | N/A                             | Merged with `acquireTokeByDeviceCode` (see above)|
 | N/A                               | `acquireTokenOnBehalfOf`          | A new method that abstracts [OBO flow](./v2-oauth2-on-behalf-of-flow.md) |
 | `acquireTokenWithClientCertificate` | N/A                             | No longer needed as certificates are assigned during initialization now (see [configuration options](#configure-msal)) |
-| N/A                               | `getAuthCodeUrl`                  | A new method that abstracts [authorize endpoint](./active-directory-v2-protocols.md#endpoints) URL construction |
+| N/A                               | `getAuthCodeUrl`                  | A new method that abstracts [authorize endpoint](./v2-protocols.md#endpoints) URL construction |
 
 ## Use scopes instead of resources
 

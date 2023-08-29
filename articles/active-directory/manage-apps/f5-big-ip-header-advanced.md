@@ -71,7 +71,7 @@ For the scenario you need:
   * F5 BIG-IP Access Policy Manager™ (APM) add-on license on a BIG-IP F5 BIG-IP® Local Traffic Manager™ (LTM)
   * 90-day BIG-IP full feature trial. See, [Free Trials](https://www.f5.com/trial/big-ip-trial.php).
 * User identities synchronized from an on-premises directory to Azure AD
-  * [Azure AD Connect sync: Understand and customize synchronization](../hybrid/how-to-connect-sync-whatis.md)
+  * [Azure AD Connect sync: Understand and customize synchronization](../hybrid/connect/how-to-connect-sync-whatis.md)
 * An SSL certificate to publish services over HTTPS, or use default certificates while testing
   * See, [SSL profile](./f5-bigip-deployment-guide.md#ssl-profile)
 * A header-based application or an IIS header app for testing
@@ -145,7 +145,7 @@ Learn more: [What is Conditional Access?](../conditional-access/overview.md)
    ![Screenshot of User Attributes and Claims information such as surname, email address, identity, etc.](./media/f5-big-ip-header-advanced/user-attributes-claims.png)
 
    > [!NOTE]
-   > Add other claims the BIG-IP published application expects as headers. More defined claims are issued if they're in Azure AD. Define directory memberships and user objects in Azure AD before claims can be issued. See, [Configure group claims for applications by using Azure AD](../hybrid/how-to-connect-fed-group-claims.md).
+   > Add other claims the BIG-IP published application expects as headers. More defined claims are issued if they're in Azure AD. Define directory memberships and user objects in Azure AD before claims can be issued. See, [Configure group claims for applications by using Azure AD](../hybrid/connect/how-to-connect-fed-group-claims.md).
 
 22. In the **SAML Signing Certificate** section, select **Download**. 
 23. The **Federation Metadata XML** file is saved on your computer.

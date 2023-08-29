@@ -8,12 +8,10 @@ ms.date: 04/27/2023
 # Protecting containers in GCP with Defender for Containers
 
 **Episode description**: In this episode of Defender for Cloud in the field, Nadav Wolfin joins Yuri Diogenes to talk about how to use Defender for Containers to protect Containers that are located at Google Cloud (GCP).  
- 
-Nadav gives insights about workload protection for GKE and how to obtain visibility of this type of workload across Azure and AWS. Nadav also demonstrates the overall onboarding experience and provides an overview of the architecture of this solution. 
 
-<br>
-<br>
-<iframe src="https://aka.ms/docs/player?id=078af1f2-1f12-4030-bd3f-3e7616150562" width="1080" height="530" allowFullScreen="true" frameBorder="0"></iframe>
+Nadav gives insights about workload protection for GKE and how to obtain visibility of this type of workload across Azure and AWS. Nadav also demonstrates the overall onboarding experience and provides an overview of the architecture of this solution.
+
+> [!VIDEO https://aka.ms/docs/player?id=078af1f2-1f12-4030-bd3f-3e7616150562]
 
 - [00:55](/shows/mdc-in-the-field/gcp-containers#time=00m55s) - Architecture solution for Defender for Containers and support for GKE
 

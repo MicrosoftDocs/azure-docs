@@ -17,6 +17,8 @@ Connection strings, environment variables, and other application settings are de
 
 ## Get started in the Azure portal
 
+[!INCLUDE [Don't mix development environments](../../includes/functions-mixed-dev-environments.md)]
+
 1. To begin, sign in to the [Azure portal] using your Azure account. In the search bar at the top of the portal, enter the name of your function app and select it from the list. 
 
 2. Under **Settings** in the left pane, select **Configuration**.
@@ -139,7 +141,7 @@ You can use either the Azure portal or Azure CLI commands to migrate a function 
 + Migration isn't supported on Linux. 
 + The source plan and the target plan must be in the same resource group and geographical region. For more information, see [Move an app to another App Service plan](../app-service/app-service-plan-manage.md#move-an-app-to-another-app-service-plan).
 + The specific CLI commands depend on the direction of the migration.
-+ Downtime in your function executions occur as the function app is migrated between plans.
++ Downtime in your function executions occurs as the function app is migrated between plans.
 + State and other app-specific content is maintained, since the same Azure Files share is used by the app both before and after migration.
 
 ### Migration in the portal
@@ -258,12 +260,12 @@ In this script, replace `<SUBSCRIPTION_ID>` and `<APP_NAME>` with the ID of your
 
 ## Manually install extensions
 
-C# class library functions can include the NuGet packages for [binding extensions](functions-bindings-register.md) directly in the class library project. For other non-.NET languages and C# script, the recommended way to install extensions is either by [using extension bundles](functions-bindings-register.md#extension-bundles) or by [using Azure Functions Core Tools](functions-run-local.md#install-extensions) locally.  If you can't use extension bundles and are only able to work in the portal, you need to use [Advanced Tools (Kudu)](#kudu) to manually create the extensions.csproj file directly in the site. Make sure to first remove the `extensionBundle` element from the host.json file.
+C# class library functions can include the NuGet packages for [binding extensions](functions-bindings-register.md) directly in the class library project. For other non-.NET languages and C# script, you should [use extension bundles](functions-bindings-register.md#extension-bundles). If you must manually install extensions you can do this by [using Azure Functions Core Tools](./functions-core-tools-reference.md#func-extensions-install) locally. If you can't use extension bundles and are only able to work in the portal, you need to use [Advanced Tools (Kudu)](#kudu) to manually create the extensions.csproj file directly in the site. Make sure to first remove the `extensionBundle` element from the host.json file.
 
 This same process works for any other file you need to add to your app. 
 
 > [!IMPORTANT]
-> When possible, you shouldn't edit files directly in your function app in Azure. We recommend [downloading your app files locally](deployment-zip-push.md#download-your-function-app-files), using [Core Tools to install extensions](functions-run-local.md#install-extensions) and other packages, validating your changes, and then [republishing your app using Core Tools](functions-run-local.md#publish) or one of the other [supported deployment methods](functions-deployment-technologies.md#deployment-methods). 
+> When possible, you shouldn't edit files directly in your function app in Azure. We recommend [downloading your app files locally](deployment-zip-push.md#download-your-function-app-files), using [Core Tools to install extensions](./functions-core-tools-reference.md#func-extensions-install) and other packages, validating your changes, and then [republishing your app using Core Tools](functions-run-local.md#publish) or one of the other [supported deployment methods](functions-deployment-technologies.md#deployment-methods). 
 
 The Functions editor built into the Azure portal lets you update your function code and configuration (function.json) files directly in the portal. 
 

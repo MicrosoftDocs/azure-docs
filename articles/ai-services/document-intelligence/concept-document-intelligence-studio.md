@@ -1,5 +1,5 @@
 ---
-title: "Document Intelligence Studio"
+title: "Document Intelligence (formerly Form Recognizer) Studio"
 titleSuffix: Azure AI services
 description: "Concept: Form and document processing, data extraction, and analysis using Document Intelligence Studio "
 author: laujan
