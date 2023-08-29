@@ -29,7 +29,7 @@ The MCM in Azure and Azure Update Manager can fulfill your patching requirements
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and search for Azure Update Manager (preview).
 
-   :::image type="content" source="./media/guidance-migration-azure/update-manager-service-selection-inline.png" alt-text="Screenshot of selecting the Azure Update Manager from Azure portal." lightbox=""./media/guidance-migration-azure/update-manager-service-selection-expanded.png":::
+   :::image type="content" source="./media/guidance-migration-azure/update-manager-service-selection-inline.png" alt-text="Screenshot of selecting the Azure Update Manager from Azure portal." lightbox="./media/guidance-migration-azure/update-manager-service-selection-expanded.png":::
 
 1. In the **Azure Update Manager (Preview)** home page, under **Manage** > **Machines**, select your subscription to view all your machines.
 1. Filter as per the available options to know the status of your specific machines.
