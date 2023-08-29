@@ -371,7 +371,7 @@ public class MongoDBSourceDemo {
 ```
 ### Package the maven jar, and submit to Flink UI
 
-Package the maven jar, upload it to Storage and then wget it to [Flink CLI](../flink/flink-webssh-on-portal-to-flink-sql.md) or directly upload to Flink UI to run.
+Package the maven jar, upload it to Storage and then wget it to [Flink CLI](./flink-web-ssh-on-portal-to-flink-sql.md) or directly upload to Flink UI to run.
 
 :::image type="content" source="./media/datastream-api-mongodb/step-3-1-maven-jar-upload-abfs.png" alt-text="Screenshot displays how to upload package to storage." border="true" lightbox="./media/datastream-api-mongodb/step-3-1-maven-jar-upload-abfs.png":::
 

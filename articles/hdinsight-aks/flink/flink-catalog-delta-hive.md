@@ -13,8 +13,8 @@ ms.date: 08/17/2023
 In this article, we learn how Flink SQL/TableAPI is used to implement a Delta catalog for Flink, with Hive Catalog. Delta Catalog delegates all metastore communication to Hive Catalog. It uses the existing logic for Hive or In-Memory metastore communication that is already implemented in Flink.
 
 ### Prerequisites
-- You're required to have an operational Flink cluster with secure shell, learn how to [create a cluster](../flink/flink-create-cluster-portal.md)
-- You can refer this article on how to use CLI from [Secure Shell](../flink/flink-web-ssh-on-portal-to-flink-sql.md) on Azure portal.
+- You're required to have an operational Flink cluster with secure shell, learn how to [create a cluster](./flink-create-cluster-portal.md)
+- You can refer this article on how to use CLI from [Secure Shell](./flink-web-ssh-on-portal-to-flink-sql.md) on Azure portal.
 
 ### Add dependencies
 

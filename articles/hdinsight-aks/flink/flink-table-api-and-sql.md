@@ -20,7 +20,7 @@ Flink data processing pipelines begin with source tables and end with sink table
 
 ## Using SQL Client in HDInsight on AKS - Flink
 
-You can refer this article on how to use CLI from [Secure Shell](../flink/flink-webssh-on-portal-to-flink-sql.md) on Azure portal. Here are some quick samples of how to get started.
+You can refer this article on how to use CLI from [Secure Shell](./flink-web-ssh-on-portal-to-flink-sql.md) on Azure portal. Here are some quick samples of how to get started.
   
 - To start the SQL client
   
@@ -138,7 +138,7 @@ The *HiveCatalog* serves two purposes; as persistent storage for pure Flink meta
 
 ## How to Create and Register Flink Databases to Catalogs
 
-You can refer this article on how to use CLI and get started with Flink SQL Client from [Secure Shell](../flink/flink-webssh-on-portal-to-flink-sql.md) on Azure portal.
+You can refer this article on how to use CLI and get started with Flink SQL Client from [Secure Shell](./flink-web-ssh-on-portal-to-flink-sql.md) on Azure portal.
 
 - Start `sql-client.sh` session
   

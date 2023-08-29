@@ -25,7 +25,7 @@ Now, let's learn how to monitor changes on PostgreSQL table using Flink-SQL CDC.
 ## Prerequisites
 
 * [Azure PostgresSQL flexible server Version 14.7](https://learn.microsoft.com/azure/postgresql/flexible-server/overview)
-* [HDInsight on AKS Flink 1.16.0](../flink/flink-create-cluster-portal.md) 
+* [HDInsight on AKS Flink 1.16.0](./flink-create-cluster-portal.md) 
 * Linux virtual Machine to use PostgreSQL client
 * Add the NSG rule that allows inbound and outbound connections on port 5432 in HDInsight on AKS pool subnet.
 
@@ -107,7 +107,7 @@ Now, let's learn how to monitor changes on PostgreSQL table using Flink-SQL CDC.
     > * In order to download jsr jar file use the following command
     >     * `wget https://repo1.maven.org/maven2/net/java/loci/jsr308-all/1.1.2/jsr308-all-1.1.2.jar`
 
--  Once the dependent jars are downloaded start the [Flink Sql client](../flink/flink-webssh-on-portal-to-flink-sql.md), with these jars to be imported into the session. Complete command as follows,
+-  Once the dependent jars are downloaded start the [Flink Sql client](./flink-web-ssh-on-portal-to-flink-sql.md), with these jars to be imported into the session. Complete command as follows,
 
     ```sql
     /opt/flink-webssh/bin/sql-client.sh -j
