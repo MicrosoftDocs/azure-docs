@@ -73,7 +73,7 @@ This function API is called in the React app at `\src\pages\Details\Detail.js` a
 
 ## Next steps
 
-In this tutorial series, you learned how to create and load a search index in JavaScript, and you built a web app that provides a search experience that includes a search bar, faceted navigation and filters, suggestions, pagination, and document look up.
+In this tutorial series, you learned how to create and load a search index in JavaScript, and you built a web app that provides a search experience that includes a search bar, faceted navigation and filters, suggestions, pagination, and document lookup.
 
 As a next step, you can extend this sample in several directions:
 

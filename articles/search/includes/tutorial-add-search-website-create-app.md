@@ -32,14 +32,14 @@ The static web app pulls the information and files for deployment from GitHub us
 
     |Prompt|Enter|
     |--|--|
-    |Select a resource group for new resources.|Use the resource group you created for this tutorial.|
-    |Enter the name for the new Static Web App.|Create a unique name for your resource. For example, you can prepend your name to the repository name such as, `my-demo-static-web-app`. |
-    |Select a SKU| Select the free SKU for this tutorial.|
-    |Select a location for new resources.|For Node.js: Select `West US 2` during the Azure Function programming model (PM) v4 preview. For C# and Python, select a region near you.|
-    |Choose build preset to configure default project structure.|Select **Custom**|
-    |Select the location of your client application code|`search-website-functions-v4/client-v4`<br><br>This is the path, from the root of the repository, to your static web app. |
-    |Select the location of your Azure Functions code|`search-website-functions-v4/api-v4`<br><br>This is the path, from the root of the repository, to your static web app. If there are no other functions in the repository, you won't be prompted for the function code location. Currently, you'll need to perform extra steps to ensure the function code location is correct. These steps are performed after the resource is created and are documented in this article. |
-    |Enter the path of your build output...|`build`<br><br>This is the path, from your static web app, to your generated files.|
+    |Select a resource group for new resources. | Use the resource group you created for this tutorial.|
+    |Enter the name for the new Static Web App. | Create a unique name for your resource. For example, you can prepend your name to the repository name such as, `my-demo-static-web-app`. |
+    |Select a SKU | Select the free SKU for this tutorial.|
+    |Select a location for new resources. | For Node.js: Select `West US 2` during the Azure Function programming model (PM) v4 preview. For C# and Python, select a region near you. |
+    |Choose build preset to configure default project structure. |Select **Custom**. |
+    |Select the location of your client application code | `search-website-functions-v4/client-v4`<br><br>This is the path, from the root of the repository, to your static web app. |
+    |Select the location of your Azure Functions code | `search-website-functions-v4/api-v4`<br><br>This is the path, from the root of the repository, to your static web app. If there are no other functions in the repository, you won't be prompted for the function code location. Currently, you'll need to perform extra steps to ensure the function code location is correct. These steps are performed after the resource is created and are documented in this article. |
+    |Enter the path of your build output... | `build`<br><br>This is the path, from your static web app, to your generated files.|
 
     If you get an error about an incorrect region, make sure the resource group and static web app resource are in one of the supported regions listed in the error response. 
 
