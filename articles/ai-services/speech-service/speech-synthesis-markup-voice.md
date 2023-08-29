@@ -24,14 +24,16 @@ At least one `voice` element must be specified within each SSML [speak](speech-s
 
 You can include multiple `voice` elements in a single SSML document. Each `voice` element can specify a different voice. You can also use the same voice multiple times with different settings, such as when you [change the silence duration](speech-synthesis-markup-structure.md#add-silence) between sentences.
 
-### Voice examples
-
 The following table describes the usage of the `voice` element's attributes:
 
 | Attribute | Description | Required or optional |
 | ---------- | ---------- | ---------- |
 | `name`    | The voice used for text to speech output. For a complete list of supported prebuilt voices, see [Language support](language-support.md?tabs=tts).| Required|
 | `effect` |The audio effect processor that's used to optimize the quality of the synthesized speech output for specific scenarios on devices. <br/><br/>For some scenarios in production environments, the auditory experience might be degraded due to the playback distortion on certain devices. For example, the synthesized speech from a car speaker might sound dull and muffled due to environmental factors such as speaker response, room reverberation, and background noise. The passenger might have to turn up the volume to hear more clearly. To avoid manual operations in such a scenario, the audio effect processor can make the sound clearer by compensating the distortion of playback.<br/><br/>The following values are supported:<br/><ul><li>`eq_car` – Optimize the auditory experience when providing high-fidelity speech in cars, buses, and other enclosed automobiles.</li><li>`eq_telecomhp8k` – Optimize the auditory experience for narrowband speech in telecom or telephone scenarios. You should use a sampling rate of 8 kHz. If the sample rate isn't 8 kHz, the auditory quality of the output speech isn't optimized.</li></ul><br/>If the value is missing or invalid, this attribute is ignored and no effect is applied.|  Optional |
+
+### Voice examples
+
+For information about the supported values for attributes of the `voice` element, see [Use voice elements](#use-voice-elements).
 
 #### Single voice example
 
@@ -95,14 +97,12 @@ By default, neural voices have a neutral speaking style. You can adjust the spea
 > [!NOTE]
 > The Speech service supports styles, style degree, and roles for a subset of neural voices as described in [Voice styles and roles](language-support.md?tabs=tts#voice-styles-and-roles) documentation. To determine the supported styles and roles for each voice, you can also use the [list voices](rest-text-to-speech.md#get-a-list-of-voices) API and the [Audio Content Creation](https://aka.ms/audiocontentcreation) web application.
 
-### mstts express-as examples
-
 The following table describes the usage of the `mstts:express-as` element's attributes:
 
 | Attribute | Description | Required or optional |
 | ---------- | ---------- | ---------- |
 | `style` | The voice-specific speaking style. You can express emotions like cheerfulness, empathy, and calmness. You can also optimize the voice for different scenarios like customer service, newscast, and voice assistant. If the style value is missing or invalid, the entire `mstts:express-as` element is ignored and the service uses the default neutral speech. For custom neural voice styles, see the [custom neural voice style example](#custom-neural-voice-style-example). | Required |
-| `styledegree` | The intensity of the speaking style. You can specify a stronger or softer style to make the speech more expressive or subdued. The range of accepted values are: 0.01 to 2 inclusive. The default value is 1, which means the predefined style intensity. The minimum unit is 0.01, which results in a slight tendency for the target style. A value of two results in a doubling of the default style intensity. If the style degree is missing or isn't supported for your voice, this attribute is ignored.| Optional |
+| `styledegree` | The intensity of the speaking style. You can specify a stronger or softer style to make the speech more expressive or subdued. The range of accepted values are: `0.01` to `2` inclusive. The default value is `1`, which means the predefined style intensity. The minimum unit is `0.01`, which results in a slight tendency for the target style. A value of `2` results in a doubling of the default style intensity. If the style degree is missing or isn't supported for your voice, this attribute is ignored.| Optional |
 | `role`| The speaking role-play. The voice can imitate a different age and gender, but the voice name isn't changed. For example, a male voice can raise the pitch and change the intonation to imitate a female voice, but the voice name isn't be changed. If the role is missing or isn't supported for your voice, this attribute is ignored. | Optional |
 
 The following table describes each supported `style` attribute:
@@ -156,6 +156,10 @@ The following table has descriptions of each supported `role` attribute:
 | `role="OlderAdultMale"`   | The voice imitates an older adult male.   |
 | `role="SeniorFemale"`     | The voice imitates a senior female.       |
 | `role="SeniorMale"`       | The voice imitates a senior male.         |
+
+### mstts express-as examples
+
+For information about the supported values for attributes of the `mstts:express-as` element, see [Use speaking styles and roles](#use-speaking-styles-and-roles).
 
 #### Style and degree example
 
@@ -289,8 +293,6 @@ You can use the `prosody` element to specify changes to pitch, contour, range, r
 
 Because prosodic attribute values can vary over a wide range, the speech recognizer interprets the assigned values as a suggestion of what the actual prosodic values of the selected voice should be. Text to speech limits or substitutes values that aren't supported. Examples of unsupported values are a pitch of 1 MHz or a volume of 120.
 
-### Prosody examples
-
 The following table describes the usage of the `prosody` element's attributes:
 
 | Attribute | Description | Required or optional |
@@ -298,8 +300,12 @@ The following table describes the usage of the `prosody` element's attributes:
 | `contour` | Contour represents changes in pitch. These changes are represented as an array of targets at specified time positions in the speech output. Sets of parameter pairs define each target. For example: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>The first value in each set of parameters specifies the location of the pitch change as a percentage of the duration of the text. The second value specifies the amount to raise or lower the pitch by using a relative value or an enumeration value for pitch (see `pitch`). | Optional |
 | `pitch`   | Indicates the baseline pitch for the text. Pitch changes can be applied at the sentence level. The pitch changes should be within 0.5 to 1.5 times the original audio. You can express the pitch as:<ul><li>An absolute value: Expressed as a number followed by "Hz" (Hertz). For example, `<prosody pitch="600Hz">some text</prosody>`.</li><li>A relative value:<ul><li>As a relative number: Expressed as a number preceded by "+" or "-" and followed by "Hz" or "st" that specifies an amount to change the pitch. For example: `<prosody pitch="+80Hz">some text</prosody>` or `<prosody pitch="-2st">some text</prosody>`. The "st" indicates the change unit is semitone, which is half of a tone (a half step) on the standard diatonic scale.<li>As a percentage: Expressed as a number preceded by "+" (optionally) or "-" and followed by "%", indicating the relative change. For example: `<prosody pitch="50%">some text</prosody>` or `<prosody pitch="-50%">some text</prosody>`.</li></ul></li><li>A constant value:<ul><li>x-low</li><li>low</li><li>medium</li><li>high</li><li>x-high</li><li>default</li></ul></li></ul> | Optional |
 | `range`| A value that represents the range of pitch for the text. You can express `range` by using the same absolute values, relative values, or enumeration values used to describe `pitch`.| Optional |
-| `rate` | Indicates the speaking rate of the text. Speaking rate can be applied at the word or sentence level. The rate changes should be within 0.5 to two times the original audio. You can express `rate` as:<ul><li>A relative value: <ul><li>As a relative number: Expressed as a number that acts as a multiplier of the default. For example, a value of `1` results in no change in the original rate. A value of `0.5` results in a halving of the original rate. A value of `2` results in twice the original rate.</li><li>As a percentage: Expressed as a number preceded by "+" (optionally) or "-" and followed by "%", indicating the relative change. For example: `<prosody rate="50%">some text</prosody>` or `<prosody rate="-50%">some text</prosody>`.</li></ul><li>A constant value:<ul><li>x-slow</li><li>slow</li><li>medium</li><li>fast</li><li>x-fast</li><li>default</li></ul></li></ul> | Optional |
-| `volume`  | Indicates the volume level of the speaking voice. Volume changes can be applied at the sentence level. You can express the volume as:<ul><li>An absolute value: Expressed as a number in the range of 0.0 to 100.0, from *quietest* to *loudest*. An example is 75. The default is 100.0.</li><li>A relative value: <ul><li>As a relative number: Expressed as a number preceded by "+" or "-" that specifies an amount to change the volume. Examples are +10 or -5.5.</li><li>As a percentage: Expressed as a number preceded by "+" (optionally) or "-" and followed by "%", indicating the relative change. For example: `<prosody volume="50%">some text</prosody>` or `<prosody volume="+3%">some text</prosody>`.</li></ul><li>A constant value:<ul><li>silent</li><li>x-soft</li><li>soft</li><li>medium</li><li>loud</li><li>x-loud</li><li>default</li></ul></li></ul> | Optional |
+| `rate` | Indicates the speaking rate of the text. Speaking rate can be applied at the word or sentence level. The rate changes should be within `0.5` to `2` times the original audio. You can express `rate` as:<ul><li>A relative value: <ul><li>As a relative number: Expressed as a number that acts as a multiplier of the default. For example, a value of `1` results in no change in the original rate. A value of `0.5` results in a halving of the original rate. A value of `2` results in twice the original rate.</li><li>As a percentage: Expressed as a number preceded by "+" (optionally) or "-" and followed by "%", indicating the relative change. For example: `<prosody rate="50%">some text</prosody>` or `<prosody rate="-50%">some text</prosody>`.</li></ul><li>A constant value:<ul><li>x-slow</li><li>slow</li><li>medium</li><li>fast</li><li>x-fast</li><li>default</li></ul></li></ul> | Optional |
+| `volume`  | Indicates the volume level of the speaking voice. Volume changes can be applied at the sentence level. You can express the volume as:<ul><li>An absolute value: Expressed as a number in the range of `0.0` to `100.0`, from *quietest* to *loudest*, such as `75`. The default value is `100.0`.</li><li>A relative value: <ul><li>As a relative number: Expressed as a number preceded by "+" or "-" that specifies an amount to change the volume. Examples are `+10` or `-5.5`.</li><li>As a percentage: Expressed as a number preceded by "+" (optionally) or "-" and followed by "%", indicating the relative change. For example: `<prosody volume="50%">some text</prosody>` or `<prosody volume="+3%">some text</prosody>`.</li></ul><li>A constant value:<ul><li>silent</li><li>x-soft</li><li>soft</li><li>medium</li><li>loud</li><li>x-loud</li><li>default</li></ul></li></ul> | Optional |
+
+### Prosody examples
+
+For information about the supported values for attributes of the `prosody` element, see [Adjust prosody](#adjust-prosody).
 
 #### Change speaking rate example
 
@@ -372,6 +378,8 @@ The following table describes the `emphasis` element's attributes:
 
 ### Emphasis examples
 
+For information about the supported values for attributes of the `emphasis` element, see [Adjust emphasis](#adjust-emphasis).
+
 This SSML snippet demonstrates how you can use the `emphasis` element to add moderate level emphasis for the word "meetings."
 
 ```xml
@@ -402,6 +410,8 @@ The following table describes the usage of the `audio` element's attributes:
 
 ### Audio examples
 
+For information about the supported values for attributes of the `audio` element, see [Add recorded audio](#add-recorded-audio).
+
 This SSML snippet illustrates how to use `src` attribute to insert audio from two .wav files.
 
 ```xml
@@ -420,7 +430,7 @@ This SSML snippet illustrates how to use `src` attribute to insert audio from tw
 
 ## Adjust the audio duration
 
-Use the `mstts:audioduration` element to set the duration of the output audio. Use this element to help synchronize the timing of audio output completion. The audio duration can be decreased or increased between 0.5 to two times the rate of the original audio. The original audio is the audio without any other rate settings. The speaking rate is slowed down or sped up accordingly based on the set value. 
+Use the `mstts:audioduration` element to set the duration of the output audio. Use this element to help synchronize the timing of audio output completion. The audio duration can be decreased or increased between `0.5` to `2` times the rate of the original audio. The original audio is the audio without any other rate settings. The speaking rate is slowed down or sped up accordingly based on the set value. 
 
 The audio duration setting applies to all input text within its enclosing `voice` element. To reset or change the audio duration setting again, you must use a new `voice` element with either the same voice or a different voice.
 
@@ -428,9 +438,11 @@ The following table describes the usage of the `mstts:audioduration` element's a
 
 | Attribute | Description | Required or optional |
 | ---------- | ---------- | ---------- |
-| `value` | The requested duration of the output audio in either seconds, such as `2s`, or milliseconds, such as `2000ms`.<br/><br/>This value should be within 0.5 to two times the original audio without any other rate settings. For example, if the requested duration of your audio is `30s`, then the original audio must have otherwise been between 15 and 60 seconds. If you set a value outside of these boundaries, the duration is set according to the respective minimum or maximum multiple.<br/><br/>Given your requested output audio duration, the Speech service adjusts the speaking rate accordingly. Use the [voice list](rest-text-to-speech.md#get-a-list-of-voices) API and check the `WordsPerMinute` attribute to find out the speaking rate of the neural voice that you're using. You can divide the number of words in your input text by the value of the `WordsPerMinute` attribute to get the approximate original output audio duration. The output audio sounds most natural when you set the audio duration closest to the estimated duration.| Required |
+| `value` | The requested duration of the output audio in either seconds, such as `2s`, or milliseconds, such as `2000ms`.<br/><br/>This value should be within `0.5` to `2` times the original audio without any other rate settings. For example, if the requested duration of your audio is `30s`, then the original audio must have otherwise been between 15 and 60 seconds. If you set a value outside of these boundaries, the duration is set according to the respective minimum or maximum multiple.<br/><br/>Given your requested output audio duration, the Speech service adjusts the speaking rate accordingly. Use the [voice list](rest-text-to-speech.md#get-a-list-of-voices) API and check the `WordsPerMinute` attribute to find out the speaking rate of the neural voice that you're using. You can divide the number of words in your input text by the value of the `WordsPerMinute` attribute to get the approximate original output audio duration. The output audio sounds most natural when you set the audio duration closest to the estimated duration.| Required |
 
 ### mstts audio duration examples
+
+For information about the supported values for attributes of the `mstts:audioduration` element, see [Adjust the audio duration](#adjust-the-audio-duration).
 
 In this example, the original audio is around 15 seconds. The `mstts:audioduration` element is used to set the audio duration to 20 seconds or `20s`.
 
@@ -444,7 +456,7 @@ A good place to start is by trying out the slew of educational apps that are hel
 </speak>
 ```
 
-## Background audio
+## Add background audio
 
 You can use the `mstts:backgroundaudio` element to add background audio to your SSML documents or mix an audio file with text to speech. With `mstts:backgroundaudio`, you can loop an audio file in the background, fade in at the beginning of text to speech, and fade out at the end of text to speech.
 
@@ -467,6 +479,8 @@ The following table describes the usage of the `mstts:backgroundaudio` element's
 | `fadeout` | The duration of the background audio fade-out in milliseconds. The default value is `0`, which is the equivalent to no fade out. Accepted values: `0` to `10000` inclusive. | Optional|
 
 ### mstss backgroundaudio examples
+
+For information about the supported values for attributes of the `mstts:backgroundaudi` element, see [Add background audio](#add-background-audio).
 
 ```xml
 <speak version="1.0" xml:lang="en-US" xmlns:mstts="http://www.w3.org/2001/mstts">
