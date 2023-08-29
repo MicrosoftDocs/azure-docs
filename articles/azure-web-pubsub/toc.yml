@@ -130,10 +130,6 @@
           href: howto-troubleshoot-common-issues.md
     - name: Move across regions
       href: howto-move-across-regions.md
-    - name: Scale
-      items:
-        - name: Autoscale
-          href: howto-scale-autoscale.md
 - name: Socket.IO
   expanded: false
   items: 

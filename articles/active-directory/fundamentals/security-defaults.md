@@ -147,6 +147,7 @@ It's important to verify the identity of users who want to access Azure Resource
 After you enable security defaults in your tenant, any user accessing the following services must complete multifactor authentication: 
 
 - Azure portal
+- Microsoft Entra admin center
 - Azure PowerShell 
 - Azure CLI 
 
