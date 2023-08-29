@@ -17,7 +17,10 @@ ms.author: barclayn
 
 # Microsoft Entra ID licensing
 
-This article discusses Entra services' licensing. It is intended for IT decision makers, IT administrators, and IT professionals who are considering Entra services for their organizations. This article is not intended for end users. For detailed licensing information, review [Microsoft Entra Plans & Pricing](https://www.microsoft.com/en-us/security/business/microsoft-entra-pricing?rtc=1)
+This article discusses Entra services' licensing. It is intended for IT decision makers, IT administrators, and IT professionals who are considering Entra services for their organizations. This article isn't intended for end users. For detailed licensing information, review [Microsoft Entra Plans & Pricing.](https://www.microsoft.com/en-us/security/business/microsoft-entra-pricing?rtc=1)
+
+>[!IMPORTANT]
+> For licensing information on services not listed here, refer to the service's documentation or [Azure Active Directory pricing](https://azure.microsoft.com/pricing/details/active-directory/) page.
 
 ## Types of licenses
 
@@ -28,8 +31,7 @@ The following licenses are available for use with Microsoft Entra ID.  The type 
 - **Microsoft Azure AD P2** - Azure Active Directory P2 (becoming Microsoft Entra ID P2) is available as a standalone or included with Microsoft 365 E5 for enterprise customers.
 - **Microsoft Entra ID Governance** - Entra ID Governance is an advanced set of identity governance capabilities available for Microsoft Entra ID P1 and P2 customers.
 
->[!NOTE]
->Microsoft Entra ID Governance scenarios may depends upon other features that aren't covered by Microsoft Entra ID Governance.  These features may have additional licensing requirements.  See [Governance capabilities in other Microsoft Entra features](../governance/identity-governance-overview.md#governance-capabilities-in-other-microsoft-entra-features) for more information on governance scenarios that rely on additional features.
+
 
 [!INCLUDE [Access reviews](../includes/licensing-access-reviews.md)]
 
@@ -41,16 +43,9 @@ The following licenses are available for use with Microsoft Entra ID.  The type 
 
 [!INCLUDE [Conditional access](../includes/licensing-conditional-access.md)]
 
+[!INCLUDE [governance](../includes/licensing-governance.md)]
 
-
-## Hybrid
-
-### Azure AD connect
-
-### What else?
-
-
-## Identity protection
+[!INCLUDE [Identity protection](../includes/licensing-identity-protection.md)]
 
 
 [!INCLUDE [Managed identities](../includes/licensing-managed-identities.md)]
@@ -79,4 +74,5 @@ The following licenses are available for use with Microsoft Entra ID.  The type 
 
 - [Azure AD pricing](https://azure.microsoft.com/pricing/details/active-directory/)
 - [Azure AD B2C pricing](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
+- [Microsoft Entra Plans & Pricing](https://www.microsoft.com/en-us/security/business/microsoft-entra-pricing?rtc=1)
 
