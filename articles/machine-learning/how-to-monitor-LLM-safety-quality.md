@@ -1,20 +1,20 @@
 ---
-title: Monitor performance of models deployed to production (preview)
+title: Monitor your Large Language Models (LLMs) for safety & quality (preview)
 titleSuffix: Azure Machine Learning
-description: Monitor the performance of models deployed to production on Azure Machine Learning
+description: Monitor the performance of your Large Language Models (LLMs) deployed to production for safety & quality on Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: how-to
-author: Bozhong68
-ms.author: bozhlin
+author: buchananwp
+ms.author: buchananwp
 ms.reviewer: mopeakande
 reviewer: msakande
-ms.date: 05/23/2023
+ms.date: 05/29/2023
 ms.custom: devplatv2
 ---
 
-# Monitor performance of models deployed to production (preview)
+# Monitor performance of Large Language Model (LLM) applications deployed to production (preview)
 
 Once a machine learning model is in production, it's important to critically evaluate the inherent risks associated with it and identify blind spots that could adversely affect your business. Azure Machine Learning's model monitoring continuously tracks the performance of models in production by providing a broad view of monitoring signals and alerting you to potential issues. In this article, you'll learn to perform out-of box and advanced monitoring setup for models that are deployed to Azure Machine Learning online endpoints. You'll also learn to set up model monitoring for models that are deployed outside Azure Machine Learning or deployed to Azure Machine Learning batch endpoints.
 
@@ -78,10 +78,6 @@ You can use Azure CLI, the Python SDK, or Azure Machine Learning studio for out-
   * the recent past production inference dataset as the comparison baseline dataset.
   * smart defaults for metrics and thresholds.
 * A monitoring job is scheduled to run daily at 3:15am (for this example) to acquire monitoring signals and evaluate each metric result against its corresponding threshold. By default, when any threshold is exceeded, an alert email is sent to the user who set up the monitoring.
-
-## Configure feature importance
-
-For feature importance to be enabled with any of your signals (such as data drift or data quality,) you need to provide both the 'baseline_dataset' (typically training) dataset and 'target_column_name' fields. 
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -501,353 +497,6 @@ created_monitor = poller.result()
 
 ---
 
-## Set up model monitoring by bringing your own production data to Azure Machine Learning
-
-You can also set up model monitoring for models deployed to Azure Machine Learning batch endpoints or deployed outside of Azure Machine Learning. If you have production data but no deployment, you can use the data to perform continuous model monitoring. To monitor these models, you must meet the following requirements:
-
-* You have a way to collect production inference data from models deployed in production.
-* You can register the collected production inference data as an Azure Machine Learning data asset, and ensure continuous updates of the data.
-* You can provide a data preprocessing component and register it as an Azure Machine Learning component. The Azure Machine Learning component must have these input and output signatures:
-
-  | input/output | signature name | type | description | example value |
-  |---|---|---|---|---|
-  | input | data_window_start | literal, string | data window start-time in ISO8601 format. | 2023-05-01T04:31:57.012Z |
-  | input | data_window_end | literal, string | data window end-time in ISO8601 format. | 2023-05-01T04:31:57.012Z |
-  | input | input_data | uri_folder | The collected production inference data, which is registered as Azure Machine Learning data asset. | azureml:myproduction_inference_data:1 |
-  | output | preprocessed_data | mltable | A tabular dataset, which matches a subset of baseline data schema. | |
-
-# [Azure CLI](#tab/azure-cli)
-
-Once you've satisfied the previous requirements, you can set up model monitoring with the following CLI command and YAML definition:
-
-```azurecli
-az ml schedule create -f ./model-monitoring-with-collected-data.yaml
-```
-
-The following YAML contains the definition for model monitoring with production inference data that you've collected.
-
-```yaml
-# model-monitoring-with-collected-data.yaml
-$schema:  http://azureml/sdk-2-0/Schedule.json
-name: fraud_detection_model_monitoring
-display_name: Fraud detection model monitoring
-description: Fraud detection model monitoring with your own production data
-
-trigger:
-  # perform model monitoring activity daily at 3:15am
-  type: recurrence
-  frequency: day #can be minute, hour, day, week, month
-  interval: 1 # #every day
-  schedule: 
-    hours: 3 # at 3am
-    minutes: 15 # at 15 mins after 3am
-
-create_monitor:
-  compute: 
-    instance_type: standard_e4s_v3
-    runtime_version: 3.2
-  
-  monitoring_signals:
-    advanced_data_drift: # monitoring signal name, any user defined name works
-      type: data_drift
-      # define target dataset with your collected data
-      target_dataset:
-        dataset:
-          input_dataset:
-            path: azureml:my_production_inference_data_model_inputs:1  # your collected data is registered as Azure Machine Learning asset
-            type: uri_folder
-          dataset_context: model_inputs
-          pre_processing_component: azureml:production_data_preprocessing:1
-      baseline_dataset:
-        input_dataset:
-          path: azureml:my_model_training_data:1 # use training data as comparison baseline
-          type: mltable
-        dataset_context: training
-        target_column_name: fraud_detected
-      features: 
-        top_n_feature_importance: 20 # monitor drift for top 20 features
-      metric_thresholds:
-        - applicable_feature_type: numerical
-          metric_name: jensen_shannon_distance
-          threshold: 0.01
-        - applicable_feature_type: categorical
-          metric_name: pearsons_chi_squared_test
-          threshold: 0.02
-    advanced_prediction_drift: # monitoring signal name, any user defined name works
-      type: prediction_drift
-      # define target dataset with your collected data
-      target_dataset:
-        dataset:
-          input_dataset:
-            path: azureml:my_production_inference_data_model_outputs:1  # your collected data is registered as Azure Machine Learning asset
-            type: uri_folder
-          dataset_context: model_outputs
-          pre_processing_component: azureml:production_data_preprocessing:1
-      baseline_dataset:
-        input_dataset:
-          path: azureml:my_model_validation_data:1 # use training data as comparison baseline
-          type: mltable
-        dataset_context: validation
-      metric_thresholds:
-        - applicable_feature_type: categorical
-          metric_name: pearsons_chi_squared_test
-          threshold: 0.02
-    advanced_data_quality:
-      type: data_quality
-      target_dataset:
-        dataset:
-          input_dataset:
-            path: azureml:my_production_inference_data_model_inputs:1  # your collected data is registered as Azure Machine Learning asset
-            type: uri_folder
-          dataset_context: model_inputs
-          pre_processing_component: azureml:production_data_preprocessing:1
-      baseline_dataset:
-        input_dataset:
-          path: azureml:my_model_training_data:1
-          type: mltable
-        dataset_context: training
-      metric_thresholds:
-        - applicable_feature_type: numerical
-          metric_name: null_value_rate
-          # use default threshold from training data baseline
-        - applicable_feature_type: categorical
-          metric_name: out_of_bounds_rate
-          # use default threshold from training data baseline
-  
-  alert_notification:
-    emails:
-      - abc@example.com
-      - def@example.com
-
-```
-
-# [Python](#tab/python)
-
-Once you've satisfied the previous requirements, you can set up model monitoring using the following Python code:
-
-```python
-from azure.identity import InteractiveBrowserCredential
-from azure.ai.ml import Input, MLClient
-from azure.ai.ml.constants import (
-    MonitorFeatureType,
-    MonitorMetricName,
-    MonitorDatasetContext
-)
-from azure.ai.ml.entities import (
-    AlertNotification,
-    DataDriftSignal,
-    DataQualitySignal,
-    DataDriftMetricThreshold,
-    DataQualityMetricThreshold,
-    MonitorFeatureFilter,
-    MonitorInputData,
-    MonitoringTarget,
-    MonitorDefinition,
-    MonitorSchedule,
-    RecurrencePattern,
-    RecurrenceTrigger,
-    SparkResourceConfiguration,
-    TargetDataset
-)
-
-# get a handle to the workspace
-ml_client = MLClient(
-   InteractiveBrowserCredential(),
-   subscription_id,
-   resource_group,
-   workspace
-)
-
-spark_configuration = SparkResourceConfiguration(
-    instance_type="standard_e4s_v3",
-    runtime_version="3.2"
-)
-
-#define target dataset (production dataset)
-input_data = MonitorInputData(
-    input_dataset=Input(
-        type="uri_folder",
-        path="azureml:my_model_production_data:1"
-    ),
-    dataset_context=MonitorDatasetContext.MODEL_INPUTS,
-    pre_processing_component="azureml:production_data_preprocessing:1"
-)
-
-input_data_target = TargetDataset(dataset=input_data)
-
-# training data to be used as baseline dataset
-input_data_baseline = MonitorInputData(
-    input_dataset=Input(
-        type="mltable",
-        path="azureml:my_model_training_data:1"
-    ),
-    dataset_context=MonitorDatasetContext.TRAINING
-)
-
-# create an advanced data drift signal
-features = MonitorFeatureFilter(top_n_feature_importance=20)
-numerical_metric_threshold = DataDriftMetricThreshold(
-    applicable_feature_type=MonitorFeatureType.NUMERICAL,
-    metric_name=MonitorMetricName.JENSEN_SHANNON_DISTANCE,
-    threshold=0.01
-)
-categorical_metric_threshold = DataDriftMetricThreshold(
-    applicable_feature_type=MonitorFeatureType.CATEGORICAL,
-    metric_name=MonitorMetricName.PEARSONS_CHI_SQUARED_TEST,
-    threshold=0.02
-)
-metric_thresholds = [numerical_metric_threshold, categorical_metric_threshold]
-
-advanced_data_drift = DataDriftSignal(
-    target_dataset=input_data_target,
-    baseline_dataset=input_data_baseline,
-    features=features,
-    metric_thresholds=metric_thresholds
-)
-
-
-# create an advanced data quality signal
-features = ['feature_A', 'feature_B', 'feature_C']
-numerical_metric_threshold = DataQualityMetricThreshold(
-    applicable_feature_type=MonitorFeatureType.NUMERICAL,
-    metric_name=MonitorMetricName.NULL_VALUE_RATE,
-    threshold=0.01
-)
-categorical_metric_threshold = DataQualityMetricThreshold(
-    applicable_feature_type=MonitorFeatureType.CATEGORICAL,
-    metric_name=MonitorMetricName.OUT_OF_BOUND_RATE,
-    threshold=0.02
-)
-metric_thresholds = [numerical_metric_threshold, categorical_metric_threshold]
-
-advanced_data_quality = DataQualitySignal(
-    target_dataset=input_data_target,
-    baseline_dataset=input_data_baseline,
-    features=features,
-    metric_thresholds=metric_thresholds,
-    alert_enabled="False"
-)
-
-# put all monitoring signals in a dictionary
-monitoring_signals = {
-    'data_drift_advanced': advanced_data_drift,
-    'data_quality_advanced': advanced_data_quality
-}
-
-# create alert notification object
-alert_notification = AlertNotification(
-    emails=['abc@example.com', 'def@example.com']
-)
-
-# Finally monitor definition
-monitor_definition = MonitorDefinition(
-    compute=spark_configuration,
-    monitoring_signals=monitoring_signals,
-    alert_notification=alert_notification
-)
-
-recurrence_trigger = RecurrenceTrigger(
-    frequency="day",
-    interval=1,
-    schedule=RecurrencePattern(hours=3, minutes=15)
-)
-
-model_monitor = MonitorSchedule(
-    name="fraud_detection_model_monitoring_advanced",
-    trigger=recurrence_trigger,
-    create_monitor=monitor_definition
-)
-
-poller = ml_client.schedules.begin_create_or_update(model_monitor)
-created_monitor = poller.result()
-
-```
-
-# [Studio](#tab/azure-studio)
-
-The studio currently doesn't support monitoring for models that are deployed outside of Azure Machine Learning. See the Azure CLI or Python tabs instead.
-
----
-
-## Set up model monitoring with custom signals and metrics
-
-With Azure Machine Learning model monitoring, you have the option to define your own custom signal and implement any metric of your choice to monitor your model. You can register this signal as an Azure Machine Learning component. When your Azure Machine Learning model monitoring job runs on the specified schedule, it will compute the metric(s) you have defined within your custom signal, just as it does for the prebuilt signals (data drift, prediction drift, data quality, & feature attribution drift). To get started with defining your own custom signal, you must meet the following requirement:
-
-* You must define your custom signal and register it as an Azure Machine Learning component. The Azure Machine Learning component must have these input and output signatures:
-
-### Component input signature
-
-The component input DataFrame should contain a `mltable` with the processed data from the preprocessing component and any number of literals, each representing an implemented metric as part of the custom signal component. For example, if you have implemented one metric, `std_deviation`, then you will need an input for `std_deviation_threshold`. Generally, there should be one input per metric with the name {metric_name}_threshold.
-
-  | signature name | type | description | example value |
-  |---|---|---|---|
-  | production_data | mltable | A tabular dataset, which matches a subset of baseline data schema. | |
-  | std_deviation_threshold | literal, string | Respective threshold for the implemented metric. | 2 |
-
-### Component output signature
-
-The component output DataFrame should contain four columns: `group`, `metric_name`, `metric_value`, and `threshold_value`:
-
-  | signature name | type | description | example value |
-  |---|---|---|---|
-  | group | literal, string | Top level logical grouping to be applied to this custom metric. | TRANSACTIONAMOUNT |
-  | metric_name | literal, string | The name of the custom metric. | std_deviation |
-  | metric_value | mltable | The value of the custom metric. | 44,896.082 |
-  | threshold_value | | The threshold for the custom metric. | 2 |
-
-Here is an example output from a custom signal component computing the metric, `std_deviation`:
-
-  | group | metric_value | metric_name | threshold_value |
-  |---|---|---|---|
-  | TRANSACTIONAMOUNT | 44,896.082 | std_deviation | 2 |
-  | LOCALHOUR | 3.983 | std_deviation | 2 |
-  | TRANSACTIONAMOUNTUSD | 54,004.902 | std_deviation | 2 |
-  | DIGITALITEMCOUNT | 7.238 | std_deviation | 2 |
-  | PHYSICALITEMCOUNT | 5.509 | std_deviation | 2 |
-
-An example custom signal component definition and metric computation code can be found in our GitHub repo at [https://github.com/Azure/azureml-examples/tree/main/cli/monitoring/components/custom_signal](https://github.com/Azure/azureml-examples/tree/main/cli/monitoring/components/custom_signal).
-
-# [Azure CLI](#tab/azure-cli)
-
-Once you've satisfied the previous requirements, you can set up model monitoring with the following CLI command and YAML definition:
-
-```azurecli
-az ml schedule create -f ./custom-monitoring.yaml
-```
-
-The following YAML contains the definition for model monitoring with a custom signal. It is assumed that you have already created and registered your component with the custom signal definition to Azure Machine Learning. In this example, the `component_id` of the registered custom signal component is `azureml:my_custom_signal:1.0.0`:
-
-```yaml
-# custom-monitoring.yaml
-$schema:  http://azureml/sdk-2-0/Schedule.json
-name: my-custom-signal
-trigger:
-  type: recurrence
-  frequency: day # can be minute, hour, day, week, month
-  interval: 7 # #every day
-create_monitor:
-  compute:
-    instance_type: "standard_e8s_v3"
-    runtime_version: "3.2"
-  monitoring_signals:
-    customSignal:
-      type: custom
-      data_window_size: 360
-      component_id: azureml:my_custom_signal:1.0.0
-      input_datasets:
-        production_data:
-          input_dataset:
-            type: uri_folder
-            path: azureml:custom_without_drift:1
-          dataset_context: test
-          pre_processing_component: azureml:custom_preprocessor:1.0.0
-      metric_thresholds:
-        - metric_name: std_dev
-          threshold: 2
-  alert_notification:
-    emails:
-      - abc@example.com
-```
 
 # [Python](#tab/python)
 
@@ -858,6 +507,14 @@ The Python SDK currently doesn't support monitoring for custom signals. See the 
 The studio currently doesn't support monitoring for custom signals. See the Azure CLI tab instead.
 
 ---
+
+## Metric requirements: configuration
+For generation safety and quality, the following data collection is required:
+
+* **prompt (aka question) text** - the original prompt given by user
+* **completion (aka answer) text** - the final completion from LLM API call that is returned to user
+* **context text** - any context data that is sent to LLM API call together with original prompt (optional)
+* **ground truth text** - the user-defined text as the source of truth (optional)
 
 ## Next steps
 
