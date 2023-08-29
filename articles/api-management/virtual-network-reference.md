@@ -127,7 +127,7 @@ The following settings and FQDNs are required to maintain and diagnose API Manag
 * Allow outbound TCP access on port `12000` for diagnostics.
 * Allow outbound access on port `443` to the following endpoints for internal diagnostics: `azurewatsonanalysis-prod.core.windows.net`, `*.data.microsoft.com`, `azureprofiler.trafficmanager.net`, `shavamanifestazurecdnprod1.azureedge.net`, `shavamanifestcdnprod1.azureedge.net`.
 * Allow outbound access on port `443` to the following endpoint for internal PKI: `issuer.pki.azure.com`.
-* Enable outbound access on ports `80` and `443` to the following endpoints for Windows Update: `*.update.microsoft.com`, `*.ctldl.windowsupdate.com`, `ctldl.windowsupdate.com`, `download.windowsupdate.com`.
+* Allow outbound access on ports `80` and `443` to the following endpoints for Windows Update: `*.update.microsoft.com`, `*.ctldl.windowsupdate.com`, `ctldl.windowsupdate.com`, `download.windowsupdate.com`.
 * Allow outbound access on ports `80` and `443` to the endpoint `go.microsoft.com`.
 * Allow outbound access on port `443` to the following endpoints for Windows Defender: `wdcp.microsoft.com`, `wdcpalt.microsoft.com `.
 
