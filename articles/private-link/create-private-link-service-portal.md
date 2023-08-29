@@ -6,7 +6,7 @@ services: private-link
 author: asudbring
 ms.service: private-link
 ms.topic: quickstart
-ms.date: 06/22/2023
+ms.date: 08/29/2023
 ms.author: allensu
 ms.custom: mode-ui, template-quickstart
 #Customer intent: As someone with a basic network background who's new to Azure, I want to create an Azure Private Link service by using the Azure portal
@@ -169,6 +169,7 @@ Repeat steps in [Create a virtual network](#create-a-virtual-network) to create 
 | Setting | Value |
 | ------- | ----- |
 | Name | **vnet-pe** |
+| Location | **East US 2** |
 | Address space | **10.1.0.0/16** |
 | Subnet name | **subnet-pe** |
 | Subnet address range | **10.1.0.0/24** |
