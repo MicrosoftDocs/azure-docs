@@ -49,7 +49,7 @@ The task uses the Dockerfile in `appSourcePath` to build the container image. If
 
 #### Deploy an existing container image to Container Apps
 
-The following snippet shows how to deploy an existing container image to Container Apps. The task attempts to authenticate with the registry using the service connection. If the service connection's identity is assigned the `AcrPush` role for the registry, supply the credentials using `acrUsername` and `acrPassword` input parameters.
+The following snippet shows how to deploy an existing container image to Container Apps. The task attempts to authenticate with the registry using the service connection. If the service connection's identity is assigned the `AcrPush` role for the registry, supply the credentials using the `acrUsername` and `acrPassword` input parameters.
 
 ```yaml
 steps:
