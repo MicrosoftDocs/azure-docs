@@ -2,7 +2,7 @@
 title: Release notes
 description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 08/22/2023
+ms.date: 08/29/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -26,11 +26,32 @@ Updates in August include:
 
 |Date |Update  |
 |----------|----------|
-| August 22 | [Recommendation release: Microsoft Defender for Storage should be enabled with malware scanning and sensitive data threat detection](#recommendation-release-microsoft-defender-for-storage-should-be-enabled-with-malware-scanning-and-sensitive-data-threat-detection)
-| August 17 | [Extended properties in Defender for Cloud security alerts are masked from activity logs](#extended-properties-in-defender-for-cloud-security-alerts-are-masked-from-activity-logs)
+| September 1 | [General Availability (GA): malware scanning in Defender for Storage](#general-availability-ga-malware-scanning-in-defender-for-storage)|
+| August 22 | [Recommendation release: Microsoft Defender for Storage should be enabled with malware scanning and sensitive data threat detection](#recommendation-release-microsoft-defender-for-storage-should-be-enabled-with-malware-scanning-and-sensitive-data-threat-detection) |
+| August 17 | [Extended properties in Defender for Cloud security alerts are masked from activity logs](#extended-properties-in-defender-for-cloud-security-alerts-are-masked-from-activity-logs) |
 | August 15 | [Preview release of GCP support in Defender CSPM](#preview-release-of-gcp-support-in-defender-cspm)|
 | August 7 | [New security alerts in Defender for Servers Plan 2: Detecting potential attacks abusing Azure virtual machine extensions](#new-security-alerts-in-defender-for-servers-plan-2-detecting-potential-attacks-abusing-azure-virtual-machine-extensions)
 | August 1 | [Business model and pricing updates for Defender for Cloud plans](#business-model-and-pricing-updates-for-defender-for-cloud-plans) |
+
+### General Availability (GA): malware scanning in Defender for Storage
+
+September 1, 2023
+
+Malware Scanning in Defender for Storage is now generally available. The new modern approach helps overcome traditional challenges in non-compute malware protection, providing a scalable solution tailored for high-compliance industries. Malware Scanning is available as an add-on to Defender for Storage and is a significant enhancement to Microsoft Defender for Cloud’s security offerings for Azure Blob Storage. Malware Scanning offers: 
+
+**Near real-time agentless protection**: full malware scan on uploaded content in near real time, using Microsoft Defender Antivirus capabilities. Catching polymorphic and metamorphic malware. 
+
+**Cost-effective security**: [control costs](https://learn.microsoft.com/azure/defender-for-cloud/defender-for-storage-malware-scan#cost-control) with flexible pricing based on the amount of data scanned and resource level granularity. Optional data capping allows you to align usage with your security budget. 
+
+**Simple enablement at scale**: [enabling malware scanning](tutorial-enable-storage-plan.md#set-up-and-configure-microsoft-defender-for-storage) requires zero maintenance and supports [automated responses at scale](defender-for-storage-configure-malware-scan.md). It offers multiple options to enable at scale via an [Azure built-in policy](defender-for-storage-policy-enablement.md), [Bicep](defender-for-storage-infrastructure-as-code-enablement.md?tabs=enable-subscription#bicep-template), [ARM](defender-for-storage-infrastructure-as-code-enablement.md?tabs=enable-subscription#azure-resource-manager-template), [Terraform](defender-for-storage-infrastructure-as-code-enablement.md?tabs=enable-subscription#terraform-template), the [REST API](defender-for-storage-rest-api-enablement.md), or the [Azure portal UI](defender-for-storage-azure-portal-enablement.md).  
+
+**Use-case versatility**: over the past two years, beta users have applied malware scanning in [various scenarios](defender-for-storage-malware-scan.md#common-use-cases-and-scenarios), including web applications, content protection, compliance, third-party integrations, collaborative platforms, data pipelines, and machine learning (ML) training data. 
+
+Malware scanning is priced per gigabyte of data scanned. Billing begins on September 3, 2023. Visit the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/) for more information. 
+
+Learn more about [malware scanning in Defender for Storage](defender-for-storage-malware-scan.md).
+
+Read the [Microsoft Defender for Cloud blog](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/malware-scanning-for-cloud-storage-ga-pre-announcement-prevent/ba-p/3884470). 
 
 ### Recommendation release: Microsoft Defender for Storage should be enabled with malware scanning and sensitive data threat detection
 
