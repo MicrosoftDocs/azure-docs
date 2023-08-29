@@ -3,7 +3,7 @@ title: How to use Hive metastore in Spark
 description: Learn how to use Hive metastore in Spark
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 07/27/2023
+ms.date: 08/29/2023
 ---
 
 # How to use Hive metastore in Spark

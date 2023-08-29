@@ -3,7 +3,7 @@ title: Troubleshoot cluster configuration
 description: How to understand and fix errors for Trino clusters for HDInsight on AKS.
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/04/2023
+ms.date: 08/29/2023
 ---
 
 

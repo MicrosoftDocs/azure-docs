@@ -3,7 +3,7 @@ title: How to use Delta Lake scenario in Azure HDInsight on AKS Spark cluster.
 description: Learn how to use Delta Lake scenario in Azure HDInsight on AKS Spark cluster. 
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 07/17/2023
+ms.date: 08/29/2023
 ---
 
 # Use Delta Lake scenario in Azure HDInsight on AKS Spark cluster

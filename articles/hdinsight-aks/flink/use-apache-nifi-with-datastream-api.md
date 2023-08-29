@@ -3,7 +3,7 @@ title: Use Apache NiFi with HDInsight on AKS Flink to publish into ADLS Gen2
 description: Learn how to use  Apache NiFi to consume Processed Kafka topic from HDInsight Flink on AKS and publish into ADLS Gen2
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/16/2023
+ms.date: 08/29/2023
 ---
 
 # Use Apache NiFi to consume processed Kafka topics from Flink and publish into ADLS Gen2

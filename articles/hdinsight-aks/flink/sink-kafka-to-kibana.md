@@ -3,7 +3,7 @@ title: Use Elasticsearch along with HDInsight on AKS - Flink
 description: Learn how to use Elasticsearch along HDInsight on AKS - Flink
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 07/29/2023
+ms.date: 08/29/2023
 ---
 # Using Elasticsearch with HDInsight on AKS - Flink
 

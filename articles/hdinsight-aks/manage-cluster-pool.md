@@ -3,7 +3,7 @@ title: Manage cluster pools
 description: Manage cluster pools in HDInsight on AKS.
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/03/2023
+ms.date: 08/29/2023
 ---
 
 # Manage cluster pools

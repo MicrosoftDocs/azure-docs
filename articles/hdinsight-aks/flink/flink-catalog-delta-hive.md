@@ -3,7 +3,7 @@ title: Table API and SQL - Use Delta Catalog type with Hive in HDInsight on AKS 
 description: Learn about how to create Flink-Delta Catalog in HDInsight on AKS - Flink
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/17/2023
+ms.date: 08/29/2023
 ---
 
 # Create Flink-Delta Catalog 

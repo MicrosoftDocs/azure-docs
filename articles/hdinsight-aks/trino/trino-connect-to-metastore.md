@@ -3,7 +3,7 @@ title: Add external Hive metastore database
 description: Connecting to the HIVE metastore for Trino clusters in HDInsight on AKS
 ms.service: hdinsight-aks
 ms.topic: how-to 
-ms.date: 07/17/2023
+ms.date: 08/29/2023
 ---
 
 # Use external Hive metastore database

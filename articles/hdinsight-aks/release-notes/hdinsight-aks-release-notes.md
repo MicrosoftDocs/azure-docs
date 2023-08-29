@@ -3,7 +3,7 @@ title: Release notes for Azure HDInsight on AKS
 description: Latest release notes for Azure HDInsight  on AKS. Get development tips and details for Trino, Flink, Spark, and more.
 ms.service: hdinsight-aks
 ms.topic: conceptual
-ms.date: 07/21/2023
+ms.date: 08/29/2023
 ---
 
 # Azure HDInsight on AKS release notes

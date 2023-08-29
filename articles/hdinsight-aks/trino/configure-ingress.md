@@ -3,7 +3,7 @@ title: Expose Superset to the internet
 description: Learn how to expose Superset to the internet
 ms.service: hdinsight-aks
 ms.topic: how-to 
-ms.date: 08/14/2023
+ms.date: 08/29/2023
 ---
 
 # Expose Apache Superset to Internet

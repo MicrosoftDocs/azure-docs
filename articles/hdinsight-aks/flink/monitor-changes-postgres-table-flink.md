@@ -3,7 +3,7 @@ title: Change Data Capture (CDC) of PostgreSQL table using FlinkSQL
 description: Learn how to perform CDC on PostgreSQL table using FlinkSQL CDC
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 07/30/2023
+ms.date: 08/29/2023
 ---
 
 # Change Data Capture (CDC) of PostgreSQL table using FlinkSQL

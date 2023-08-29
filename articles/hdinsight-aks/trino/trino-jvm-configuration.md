@@ -3,7 +3,7 @@ title: Modifying JVM heap settings
 description: How to modify initial and max heap size for Trino pods.
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 07/27/2023
+ms.date: 08/29/2023
 ---
 
 # Configure JVM heap size

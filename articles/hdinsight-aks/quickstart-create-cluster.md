@@ -3,7 +3,7 @@ title: Create cluster pool and cluster
 description: Creating a cluster pool and cluster in HDInsight on AKS.
 ms.service: hdinsight-aks
 ms.topic: quickstart
-ms.date: 08/19/2023
+ms.date: 08/29/2023
 ---
 
 # Create cluster pool and cluster

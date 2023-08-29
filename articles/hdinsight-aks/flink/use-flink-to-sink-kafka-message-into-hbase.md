@@ -3,7 +3,7 @@ title: Write messages to HBase with DataStream API
 description: Learn how to write messages to HBase with DataStream API
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/16/2023
+ms.date: 08/29/2023
 ---
 
 # Write messages to HBase with DataStream API

@@ -3,7 +3,7 @@ title: How to submit and manage jobs on a Spark cluster in Azure HDInsight on AK
 description: Learn how to submit and manage jobs on a Spark cluster in HDInsight on AKS
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/17/2023
+ms.date: 08/29/2023
 ---
 
 # Submit and manage jobs on a Spark cluster in HDInsight on AKS

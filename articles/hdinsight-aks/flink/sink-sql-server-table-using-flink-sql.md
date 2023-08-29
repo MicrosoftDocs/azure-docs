@@ -3,7 +3,7 @@ title: Change Data Capture (CDC) of SQL Server using Flink SQL
 description: Learn how to perform CDC of SQL Server using Flink SQL
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/16/2023
+ms.date: 08/29/2023
 ---
 
 # Change Data Capture (CDC) of SQL Server using Flink SQL

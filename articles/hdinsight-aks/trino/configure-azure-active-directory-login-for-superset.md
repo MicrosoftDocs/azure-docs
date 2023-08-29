@@ -3,7 +3,7 @@ title: Configure Azure Active Directory OAuth2 login for Apache Superset
 description: Learn how to configure Azure Active Directory OAuth2 login for Superset
 ms.service: hdinsight-aks
 ms.topic: how-to 
-ms.date: 08/16/2023
+ms.date: 08/29/2023
 ---
 
 # Configure Azure Active Directory OAuth2 login

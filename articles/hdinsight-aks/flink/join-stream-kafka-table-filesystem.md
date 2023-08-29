@@ -3,7 +3,7 @@ title: Enrich the events from Kafka with the attributes from FileSystem with Apa
 description: Learn how to join stream from Kafka with table from fileSystem using DataStream API
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/16/2023
+ms.date: 08/29/2023
 ---
 
 # Enrich the events from Kafka with attributes from ADLS Gen2 with Apache Flink

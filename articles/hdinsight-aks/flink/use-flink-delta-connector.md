@@ -3,7 +3,7 @@ title: How to use Apache Flink & Delta connector in HDInsight on AKS
 description: Learn how to use Flink-Delta connector
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 07/30/2023
+ms.date: 08/29/2023
 ---
 
 # How to use Flink-Delta connector

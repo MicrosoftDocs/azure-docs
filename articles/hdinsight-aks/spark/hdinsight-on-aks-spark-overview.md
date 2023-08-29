@@ -3,7 +3,7 @@ title: What is Apache Spark in HDInsight on AKS
 description: An introduction to Apache Spark in HDInsight on AKS
 ms.service: hdinsight-aks
 ms.topic: conceptual
-ms.date: 08/14/2023
+ms.date: 08/29/2023
 ---
 
 # What is Apache Spark in HDInsight on AKS?

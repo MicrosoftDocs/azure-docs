@@ -3,7 +3,7 @@ title: How to perform Change Data Capture of SQL Server with DataStream API and 
 description: Learn how to perform Change Data Capture of SQL Server with DataStream API and DataStream Source.
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/17/2023
+ms.date: 08/29/2023
 ---
 
 # Change Data Capture of SQL Server with DataStream API and DataStream Source

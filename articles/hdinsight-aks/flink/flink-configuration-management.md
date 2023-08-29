@@ -3,7 +3,7 @@ title: Apache Flink Configuration Management in HDInsight on AKS
 description: Learn about Apache Flink Configuration Management in HDInsight on AKS
 ms.service: hdinsight-aks
 ms.topic: tutorial
-ms.date: 08/04/2023
+ms.date: 08/29/2023
 ---
 
 # Flink Configuration Management

@@ -3,7 +3,7 @@ title: Use Airflow with Trino cluster
 description: How to create Airflow DAG connecting to Azure HDInsight on AKS Trino
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 07/29/2023
+ms.date: 08/29/2023
 ---
 
 # Use Airflow with Trino cluster
