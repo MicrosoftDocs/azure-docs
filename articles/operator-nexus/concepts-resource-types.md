@@ -23,9 +23,9 @@ The Operator Nexus Cluster (or Instance) platform components include the infrast
 
 ### Network Fabric Controller
 
-Network Fabric Controller (NFC) is an Operator Nexus resource which runs in your subscription in your desired resource group and [Virtual Network](../virtual-network/virtual-networks-overview.md). The Network Fabric Controller acts as a bridge between the Azure control plane and your on-premises infrastructure to manage the lifecycle and configuration of the Network Devices in a Network Fabric instance.
+Network Fabric Controller (NFC) is an Operator Nexus resource that runs in your subscription in your desired resource group and [Virtual Network](../virtual-network/virtual-networks-overview.md). The Network Fabric Controller acts as a bridge between the Azure control plane and your on-premises infrastructure to manage the lifecycle and configuration of the Network Devices in a Network Fabric instance.
 
-The Network Fabric Controller achieves this by establishing a private connectivity channel between your Azure environment and on-premises using [Azure ExpressRoute](../expressroute/expressroute-introduction.md) and other supporting resources which are deployed in a managed resource group. The NFC is typically the first resource which you would create to establish this connectivity to bootstrap and configure your management and workload networks.
+The Network Fabric Controller achieves this by establishing a private connectivity channel between your Azure environment and on-premises using [Azure ExpressRoute](../expressroute/expressroute-introduction.md) and other supporting resources which are deployed in a managed resource group. The NFC is typically the first resource that you would create to establish this connectivity to bootstrap and configure your management and workload networks.
 
 The Network Fabric Controller enables you to manage all the Network resources within your Operator Nexus instance like Network Fabric, Network Racks, Network Devices, Isolation Domains, Route Policies, etc.
 
@@ -33,41 +33,41 @@ You can manage the lifecycle of a Network Fabric Controller via Azure using any 
 
 ### Network Fabric
 
-Network Fabric (NF) resource is a representation of your on-premises network topology in Azure. Every Network Fabric must be associated to and controlled by a Network Fabric Controller which is deployed in the same Azure region. You can associate multiple Network Fabric resources per Network Fabric Controller, see [Nexus Limits and Quotas](./reference-limits-and-quotas.md). A single deployment of the infrastructure is considered a Network Fabric instance.
+Network Fabric (NF) resource is a representation of your on-premises network topology in Azure. Every Network Fabric must be associated with and controlled by a Network Fabric Controller that is deployed in the same Azure region. You can associate multiple Network Fabric resources per Network Fabric Controller, see [Nexus Limits and Quotas](./reference-limits-and-quotas.md). A single deployment of the infrastructure is considered a Network Fabric instance.
 
 Operator Nexus allows you to create Network Fabrics based on specific SKU types, where each SKU represents the number of network racks and compute servers in each rack deployed on-premises.
 
-Each Network Fabric resource can contain a collection of network racks, network devices, isolation domains for their interconnections. Once a Network Fabric is created and you've validated that your network devices are connected, then it can be Provisioned. Provisioning a Network Fabric is the process of bootstrapping the Network Fabric instance to get the management network up.
+Each Network Fabric resource can contain a collection of network racks, network devices, and isolation domains for their interconnections. Once a Network Fabric is created and you've validated that your network devices are connected, then it can be Provisioned. Provisioning a Network Fabric is the process of bootstrapping the Network Fabric instance to get the management network up.
 
 You can manage the lifecycle of a Network Fabric via Azure using any of the supported interfaces - Azure CLI, REST API, etc. See [how to create and provision a Network Fabric](./howto-configure-network-fabric.md) to learn more.
 
 ### Network racks
 
-Network Rack resource is a representation of your on-premises racks from the networking perspective. The number of network racks in an Operator Nexus instance depends on the Network Fabric SKU which was chosen while creation. 
+Network Rack resource is a representation of your on-premises racks from the networking perspective. The number of network racks in an Operator Nexus instance depends on the Network Fabric SKU that was chosen during creation. 
 
-Each network rack consists of Network Devices which are part of that rack. For example - Customer Edge (CE) routers, Top of Rack (ToR) Switches, Management Switches, Network Packet Brokers (NPB).
+Each network rack consists of Network Devices that are part of that rack. For example - Customer Edge (CE) routers, Top of Rack (ToR) Switches, Management Switches, and Network Packet Brokers (NPB).
 
 The Network Rack also models the connectivity to the operator's Physical Edge switches (PEs) and the ToRs on the other racks via Network to Network Interconnect (NNI) resource.
 
-The lifecycle of Network Rack resources is tied to the Network Fabric resource. The Network Racks are automatically created when you create the Network Fabric and the number of racks depends on the SKU which was chosen. When the Network Fabric resource is deleted, all the associated Network Racks are also deleted along with it.
+The lifecycle of Network Rack resources is tied to the Network Fabric resource. The Network Racks are automatically created when you create the Network Fabric and the number of racks depends on the SKU that was chosen. When the Network Fabric resource is deleted, all the associated Network Racks are also deleted along with it.
 
 ### Network devices
 
-Network Devices represent the Customer Edge (CE) routers, Top of Rack (ToR) Switches, Management Switches, and Network Packet Brokers (NPB) which are deployed as part of the Network Fabric instance. Each Network Device resource is associated to a specific Network Rack where it is deployed.
+Network Devices represent the Customer Edge (CE) routers, Top of Rack (ToR) Switches, Management Switches, and Network Packet Brokers (NPB) which are deployed as part of the Network Fabric instance. Each Network Device resource is associated with a specific Network Rack where it is deployed.
 
-Each network device resource has a SKU, Role, Host Name, and Serial Number as properties, and can have multiple network interfaces associated. Network Interfaces contain the IPv4 and IPv6 addresses, physical identifier, interface type, and the associated connections. Network Interfaces also has the administrativeState property which indicates whether the interface is enabled or disabled.
+Each network device resource has a SKU, Role, Host Name, and Serial Number as properties, and can have multiple network interfaces associated. Network Interfaces contain the IPv4 and IPv6 addresses, physical identifier, interface type, and the associated connections. Network Interfaces also have the `administrativeState` property that indicates whether the interface is enabled or disabled.
 
-The lifecycle of the Network Interface depends on the Network Device and can exist as long as the parent network device resource exists. However, you can perform certain operations on a network interface resource like enable/disable the administrativeState via Azure using any of the supported interfaces - Azure CLI, REST API, etc.
+The lifecycle of the Network Interface depends on the Network Device and can exist as long as the parent network device resource exists. However, you can perform certain operations on a network interface resource like enable/disable the `administrativeState` via Azure using any of the supported interfaces - Azure CLI, REST API, etc.
 
 The lifecycle of the Network Device resources depends on the network rack resource and will exist as long as the parent Network Fabric resource exists. However, before provisioning the Network Fabric, you can perform certain operations on a network device like setting a custom hostname and updating the serial number of the device via Azure using any of the supported interfaces - Azure CLI, REST API, etc.
 
 ### Isolation domains
 
-Isolation Domains enable east-west or north-south connectivity across Operator Nexus instance. They provide the required network connectivity between infrastructure components and also workload components. In principle, there are two types of networks which are established by isolation domains - management network and workload or tenant network. 
+Isolation Domains enable east-west or north-south connectivity across Operator Nexus instance. They provide the required network connectivity between infrastructure components and also workload components. In principle, there are two types of networks that are established by isolation domains - management network and workload or tenant network. 
 
-Management network is the private connectivity that enables communication between the Network Fabric instance which is deployed on-premises and Azure Virtual Network. You can create workload or tenant networks to enable communication between the workloads which are deployed across the Operator Nexus instance.
+A management network provides private connectivity that enables communication between the Network Fabric instance that is deployed on-premises and Azure Virtual Network. You can create workload or tenant networks to enable communication between the workloads that are deployed across the Operator Nexus instance.
 
-Each isolation domain is associated to a specific Network Fabric resource and has the option to be enabled/disabled. Only when an isolation domain is enabled, it's configured on the network devices and the configuration is removed once the isolation domain is removed.
+Each isolation domain is associated with a specific Network Fabric resource and has the option to be enabled/disabled. Only when an isolation domain is enabled, it's configured on the network devices, and the configuration is removed once the isolation domain is removed.
 
 Primarily, there are two types of isolation domains:
 
@@ -99,7 +99,7 @@ Infra cluster capacity examples include the number of vCPUs, the amount of memor
 
 ### Rack
 
-The Rack (or a compute rack) resource represents the compute servers (Bare Metal Machines), management servers, management switch and ToRs. The Rack is created, updated or deleted as part of the infra cluster lifecycle management.
+The Rack (or a compute rack) resource represents the compute servers (Bare Metal Machines), management servers, management switches, and ToRs. The Rack is created, updated, or deleted as part of the infra cluster lifecycle management.
 
 ### Storage appliance
 
@@ -107,7 +107,7 @@ Storage Appliances represent storage arrays used for persistent data storage in 
 
 ### Bare Metal Machine
 
-Bare Metal Machines represent the physical servers in a rack. They're lifecycle managed by the Cluster Manager.
+Bare Metal Machines represent the physical servers in a rack. They are lifecycle managed by the Cluster Manager.
 Bare Metal Machines are used by workloads to host Virtual Machines and Kubernetes clusters.
 
 ## Workload components
