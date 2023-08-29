@@ -73,7 +73,7 @@ Now use the Azure portal to create an Azure Front Door instance with Azure WAF.
 
 Enable the WAF policy in prevention mode and ensure **Microsoft_DefaultRuleSet_2.1** and **Microsoft_BotManagerRuleSet_1.0** are enabled.
 
-:::image type="content" source="../media/protect-azure-open-ai/waf-policy.png" alt-text="Screenshot showing a WAF policy." lightbox="../media/protect-azure-open-ai/waf-policy.png":::
+:::image type="content" source="../media/protect-azure-open-ai/web-application-firewall-policy.png" alt-text="Screenshot showing a WAF policy." lightbox="../media/protect-azure-open-ai/web-application-firewall-policy.png":::
 
 ## Verify access to Azure OpenAI via Azure Front Door endpoint
 
@@ -81,7 +81,7 @@ Now verify your Azure Front Door endpoint.
 
 1. Retrieve the Azure Front Door endpoint from the Front Door Manager.
 
-   :::image type="content" source="../media/protect-azure-open-ai/front-door-endpoint.png" alt-text="Screenshot show the Azure Front Door endpoint." lightbox="../media/protect-azure-open-ai/front-door-endpoint.png":::
+   :::image type="content" source="../media/protect-azure-open-ai/front-door-endpoint.png" alt-text="Screenshot showing the Azure Front Door endpoint." lightbox="../media/protect-azure-open-ai/front-door-endpoint.png":::
 2. Use Postman to send a POST request to the Azure Front Door endpoint.
    1. Replace the Azure OpenAI endpoint with the AFD endpoint in Postman POST request.
    :::image type="content" source="../media/protect-azure-open-ai/test-final.png" alt-text="Screenshot showing the final POST." lightbox="../media/protect-azure-open-ai/test-final.png":::
