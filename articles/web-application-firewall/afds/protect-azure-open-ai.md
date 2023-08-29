@@ -63,7 +63,7 @@ Now use the Azure portal to create an Azure Front Door instance with Azure WAF.
 
 1. Create an Azure Front Door premium optimized tier with an associated WAF security policy in the same resource group. Use the **Custom create** option.
 
-   1. [Quickstart: Create an Azure Front Door profile - Azure portal](../../frontdoor/create-front-door-portal.md#create-front-door-profile---custom-create)
+   1. [Quickstart: Create an Azure Front Door profile - Azure portal](../../frontdoor/create-front-door-portal.md#create-a-front-door-for-your-application)
 1. Add endpoints and routes.
 1. Add the origin hostname: The origin hostname is `testazureopenai.openai.azure.com`.
 1. Add the WAF policy.
@@ -94,16 +94,16 @@ Send a POST request simulating an OWASP attack on the Azure OpenAI endpoint. WAF
 
 ## Configure IP restriction rules using WAF
 
-To restrict access to the OpenAI endpoint to the required IP addresses, see [Configure an IP restriction rule with a WAF for Azure Front Door](waf-front-door-configure-ip-restriction.md).
+To restrict access to the Azure OpenAI endpoint to the required IP addresses, see [Configure an IP restriction rule with a WAF for Azure Front Door](waf-front-door-configure-ip-restriction.md).
 
 ## Common issues
 
 The following items are common issues you may encounter when using Azure OpenAI with Azure Front Door and Azure WAF.
 
-- You get a *401: Access Denied* message when you send a POST request to your OpenAI endpoint.
+- You get a *401: Access Denied* message when you send a POST request to your Azure OpenAI endpoint.
 
    If you attempt to send a POST request to your Azure OpenAI endpoint immediately after you create it, you may receive a *401: Access Denied* message even if you have the correct API key in your request. This issue will usually resolve itself after some time without any direct intervention.
 
-- You get a *415: Unsupported Media Type* message when you send a POST request to your OpenAI endpoint.
+- You get a *415: Unsupported Media Type* message when you send a POST request to your Azure OpenAI endpoint.
 
    If you attempt to send a POST request to your Azure OpenAI endpoint with the Content-Type header `text/plain`, you get this message. Make sure to update your Content-Type header to `application/json` in the header section in Postman.
