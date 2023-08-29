@@ -5,7 +5,7 @@ author: htaubenfeld
 ms.author: htaubenfeld
 ms.service: microsoft-linux
 ms.topic: overview
-ms.date: 06/01/2023
+ms.date: 08/29/2023
 ---
 
 # What is the Azure Linux Container Host for AKS?
@@ -20,10 +20,20 @@ To learn more about Azure Linux, see the [Azure Linux GitHub repository](https:/
 
 The Azure Linux Container Host offers the following key benefits:
 
-- **Secure supply chain**: Microsoft builds, signs, and validates the Azure Linux Container Host packages from source, and hosts its packages and sources in Microsoft-owned and secured platforms.
-- **Small and lightweight**: The Azure Linux Container Host only includes the necessary set of packages needed to run container workloads. As a result, it consumes limited disk and memory resources.
-- **Secure by default**: The Azure Linux Container Host has an emphasis on security and follows the secure-by-default principles, including using a hardened Linux kernel with Azure cloud optimizations and flags tuned for Azure. It also provides a reduced attack surface and eliminates patching and maintenance of unnecessary packages. For more information on Azure Linux Container Host security principles, see the [AKS security concepts](../../articles/aks/concepts-security.md).
-- **Extensively validated**: The AKS and Azure Linux teams run a suite of functional and performance regression tests with the Azure Linux Container Host before releasing to customers, which enables earlier issue detection and mitigation.​
+- **Small and lightweight**
+  - The Azure Linux Container Host only includes the necessary set of packages needed to run container workloads. As a result, it consumes limited disk and memory resources.
+  - Azure Linux has only 500 packages, and as a result takes up the least disk space by up to *5 GB* on AKS.
+- **Reliable supply chain**
+  - The Linux and AKS teams at Microsoft build, sign, and validate the Azure Linux Container Host packages from source, and host packages and sources in Microsoft-owned and secured platforms.
+  - Each package update runs through a full set of unit tests and end-to-end testing on the existing image to prevent regressions. This, in combination with the smaller package count, reduces the chances of disruptive updates to applications.
+- **Secure by default**
+  - The Azure Linux Container Host has an emphasis on security and follows the secure-by-default principles, including using a hardened Linux kernel with Azure cloud optimizations and flags tuned for Azure. It also provides a reduced attack surface and eliminates patching and maintenance of unnecessary packages.
+  - Microsoft monitors the CVE database and releases security patches monthly and critical updates within days if required.
+  - Azure Linux passes all the CIS Level 1 benchmarks, making it the only Linux distribution on AKS that does so.
+  - For more information on Azure Linux Container Host security principles, see the [AKS security concepts](../../articles/aks/concepts-security.md).
+- **Extensive compatibility**
+  - All existing and future AKS extensions, add-ons, and open-source projects on AKS support both Ubuntu and Azure Linux. This includes support for runtime components like Dapr, IaC tools like Terraform, and monitoring solutions like Dynatrace.
+  - Azure Linux ships with containerd as its container runtime and the upstream Linux kernel, which enables existing containers based on Linux images (like Alpine) to work seamlessly on Azure Linux.
 
 > [!NOTE]
 >
