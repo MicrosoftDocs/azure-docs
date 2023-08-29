@@ -91,6 +91,37 @@ In the `ConfigureRefresh` method, a key within your App Configuration store is r
 
 Calling the `ConfigureRefresh` method alone won't cause the configuration to refresh automatically. You call the `TryRefreshAsync` method from the interface `IConfigurationRefresher` to trigger a refresh. This design is to avoid phantom requests sent to App Configuration even when your application is idle. You will want to include the `TryRefreshAsync` call where you consider your application active. For example, it can be when you process an incoming message, an order, or an iteration of a complex task. It can also be in a timer if your application is active all the time. In this example, you call `TryRefreshAsync` every time you press the Enter key. Note that, even if the call `TryRefreshAsync` fails for any reason, your application will continue to use the cached configuration. Another attempt will be made when the configured cache expiration time has passed and the `TryRefreshAsync` call is triggered by your application activity again. Calling `TryRefreshAsync` is a no-op before the configured cache expiration time elapses, so its performance impact is minimal, even if it's called frequently.
 
+### Configuration refresh using dependency injection
+
+In addition to the instructions above, you can refresh the configuration by resolving the instance of `IConfigurationRefresherProvider` that is added by `AddAzureAppConfiguration` and calling `TryRefreshAsync` on each of its refreshers. This can be seen in `ExampleClass.RefreshConfiguration` in the following code.
+
+```csharp
+using Microsoft.Extensions.Configuration.AzureAppConfiguration;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+namespace TestConsole
+{
+    class ExampleClass
+    {
+        private readonly IEnumerable<IConfigurationRefresher> _refreshers;
+
+        public ExampleClass(IConfigurationRefresherProvider refresherProvider)
+        {
+            _refreshers = refresherProvider.Refreshers;
+        }
+
+        public async Task RefreshConfiguration()
+        {
+            foreach (var refresher in _refreshers)
+            {
+                await refresher.TryRefreshAsync();
+            }
+        }
+    }
+}
+```
+
 ## Build and run the app locally
 
 1. Set an environment variable named **ConnectionString**, and set it to the access key to your App Configuration store. If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
