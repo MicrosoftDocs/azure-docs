@@ -79,7 +79,7 @@ $assignments | ft Id,AssignmentState,TargetId,{$_.Target.DisplayName}
 
 In some cases, you might want to directly assign specific users to an access package so that users don't have to go through the process of requesting the access package. To directly assign users, the access package must have a policy that allows administrator direct assignments.
 
-**Prerequisite role:** Global administrator, User administrator, Catalog owner, Access package manager or Access package assignment manager
+**Prerequisite role:** Global Administrator, User Administrator, Identity Governance Administrator, Catalog owner, Access package manager or Access package assignment manager
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 

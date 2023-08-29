@@ -207,7 +207,7 @@ To remove resources from a catalog:
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1. Browse to **Identity governance** > **Catalogs**.
+1. Browse to **Identity governance** > **Entitlement management** > **Catalogs**.
 
 1. On the **Catalogs** page open the catalog you want to remove resources from.
 
