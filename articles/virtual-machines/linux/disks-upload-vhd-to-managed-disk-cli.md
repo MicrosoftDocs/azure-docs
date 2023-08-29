@@ -4,7 +4,7 @@ description: Learn how to upload a VHD to an Azure managed disk and copy a manag
 services: "virtual-machines,storage"
 author: roygara
 ms.author: rogarana
-ms.date: 08/16/2023
+ms.date: 08/25/2023
 ms.topic: how-to
 ms.service: azure-disk-storage
 ms.custom: devx-track-azurecli
@@ -14,7 +14,7 @@ ms.custom: devx-track-azurecli
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
 
-This article explains how to either upload a VHD from your local machine to an Azure managed disk or copy a managed disk to another region, using AzCopy. This process, direct upload, enables you to upload a VHD up to 32 TiB in size directly into a managed disk. Currently, direct upload is supported for standard HDD, standard SSD, and premium SSD managed disks. It isn't supported for ultra disks, yet.
+This article explains how to either upload a VHD from your local machine to an Azure managed disk or copy a managed disk to another region, using AzCopy. This process, direct upload, enables you to upload a VHD up to 32 TiB in size directly into a managed disk. Currently, direct upload is supported for Ultra Disks, Premium SSD v2, Premium SSD, Standard SSD, and Standard HDD.
 
 If you're providing a backup solution for IaaS VMs in Azure, you should use direct upload to restore customer backups to managed disks. When uploading a VHD from a source external to Azure, speeds depend on your local bandwidth. When uploading or copying from an Azure VM, your bandwidth would be the same as standard HDDs.
 
@@ -70,16 +70,21 @@ Create an empty standard HDD for uploading by specifying both the **-–for-uplo
 
 Replace `<yourdiskname>`, `<yourresourcegroupname>`, `<yourregion>` with values of your choosing. The `--upload-size-bytes` parameter contains an example value of `34359738880`, replace it with a value appropriate for you.
 
-> [!TIP]
+> [!IMPORTANT]
 > If you're creating an OS disk, add `--hyper-v-generation <yourGeneration>` to `az disk create`.
 > 
 > If you're using Azure AD to secure disk uploads, add `-dataAccessAuthmode 'AzureActiveDirectory'`.
+> When uploading to an Ultra Disk or Premium SSD v2 you need to select the correct sector size of the target disk. If you're using a VHDX file with a 4k logical sector size, the target disk must be set to 4k. If you're using a VHD file with a 512 logical sector size, the target disk must be set to 512.
+>
+> VHDX files with logical sector size of 512k aren't supported.
 
 ```azurecli
+##For Ultra Disk or Premium SSD v2, add --logical-sector-size and specify either 512 or 4096, depending on if you're using a VHD or VHDX
+
 az disk create -n <yourdiskname> -g <yourresourcegroupname> -l <yourregion> --os-type Linux --for-upload --upload-size-bytes 34359738880 --sku standard_lrs
 ```
 
-If you would like to upload either a premium SSD or a standard SSD, replace **standard_lrs** with either **premium_LRS** or **standardssd_lrs**. Ultra disks are not supported for now.
+If you would like to upload a different disk type, replace **standard_lrs** with **premium_lrs**, **premium_zrs**, **standardssd_lrs**, **standardssd_zrs**, **premiumv2_lrs**, or **ultrassd_lrs**.
 
 ### (Optional) Grant access to the disk
 
@@ -128,14 +133,6 @@ Replace `<yourdiskname>`and `<yourresourcegroupname>`, then use the following co
 ```azurecli
 az disk revoke-access -n <yourdiskname> -g <yourresourcegroupname>
 ```
-
-Ultra disk and Premium SSD v2 disk support both 4k sector size and 512e sector size (512-byte-emulation). When importing a VHD or VHDX file from on-premises to Azure, it is important to make sure the file format is compatible to target disk's sector size. Follow guidelines below to align the sector size of target disk with your VHD or VHDX file.
-
-- Import a VHDX file with 4k logical sector size: Sector size of the target disk should be 4k
-
-- Import a VHD file with 512 logical sector size: Sector size of the target disk should be 512e
-
-Note that the import of VHDX file with logical sector size of 512k is not supported.
 
 ## Copy a managed disk
 
