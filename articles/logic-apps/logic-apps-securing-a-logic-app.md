@@ -1222,8 +1222,6 @@ This list includes information about TLS/SSL self-signed certificates:
 
   If you want to use client certificate or Azure Active Directory Open Authentication (Azure AD OAuth) with the "Certificate" credential type instead, you still have to complete a few extra steps for this authentication type. Otherwise, the call fails. For more information, review [Client certificate or Azure Active Directory Open Authentication (Azure AD OAuth) with the "Certificate" credential type for single-tenant Azure Logic Apps](../connectors/connectors-native-http.md#client-certificate-authentication).
 
-* For logic app workflows in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), the HTTP connector permits self-signed certificates for TLS/SSL handshakes. However, you must first [enable self-signed certificate support](../logic-apps/create-integration-service-environment-rest-api.md#request-body) for an existing ISE or new ISE by using the Azure Logic Apps REST API, and install the public certificate at the `TrustedRoot` location.
-
 Here are more ways that you can help secure endpoints that handle calls sent from your logic app workflows:
 
 * [Add authentication to outbound requests](#add-authentication-outbound).
@@ -1550,22 +1548,21 @@ You can use Azure Logic Apps in [Azure Government](../azure-government/documenta
   * [Virtual machine isolation in Azure](../virtual-machines/isolation.md)
   * [Deploy dedicated Azure services into virtual networks](../virtual-network/virtual-network-for-azure-services.md)
 
-* Based on whether you have Consumption or Standard logic apps, you have these options:
+* Based on whether you have Consumption or Standard logic app workflows, you have these options:
 
-  * For Standard logic apps, you can privately and securely communicate between logic app workflows and an Azure virtual network by setting up private endpoints for inbound traffic and use virtual network integration for outbound traffic. For more information, review [Secure traffic between virtual networks and single-tenant Azure Logic Apps using private endpoints](secure-single-tenant-workflow-virtual-network-private-endpoint.md).
+  * Standard logic app workflows can privately and securely communicate with an Azure virtual network through private endpoints that you set up for inbound traffic and virtual network integration for outbound traffic. For more information, review [Secure traffic between virtual networks and single-tenant Azure Logic Apps using private endpoints](secure-single-tenant-workflow-virtual-network-private-endpoint.md).
 
-  * For Consumption logic apps, you can create and deploy those logic apps in an [integration service environment (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md). That way, your logic apps run on dedicated resources and can access resources protected by an Azure virtual network. For more control over the encryption keys used by Azure Storage, you can set up, use, and manage your own key by using [Azure Key Vault](../key-vault/general/overview.md). This capability is also known as "Bring Your Own Key" (BYOK), and your key is called a "customer-managed key". For more information, review [Set up customer-managed keys to encrypt data at rest for integration service environments (ISEs) in Azure Logic Apps](../logic-apps/customer-managed-keys-integration-service-environment.md).
+  * Consumption logic app workflows can run in an [integration service environment (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md) where they can use dedicated resources and access resources protected by an Azure virtual network. However, the ISE resource retires on August 31, 2024, due to its dependency on Azure Cloud Services (classic), which retires at the same time.
 
-  > [!IMPORTANT]
-  > Some Azure virtual networks use private endpoints ([Azure Private Link](../private-link/private-link-overview.md)) 
-  > for providing access to Azure PaaS services, such as Azure Storage, Azure Cosmos DB, or Azure SQL Database, 
-  > partner services, or customer services that are hosted on Azure.
-  >
-  > If your workflows need access to virtual networks that use private endpoints, and you want to develop those workflows 
-  > using the **Logic App (Consumption)** resource type, you *must create and run your logic apps in an ISE*. However, 
-  > if you want to develop those workflows using the **Logic App (Standard)** resource type, *you don't need an ISE*. 
-  > Instead, your workflows can communicate privately and securely with virtual networks by using private endpoints 
-  > for inbound traffic and virtual network integration for outbound traffic. For more information, review 
+    > [!IMPORTANT]
+    > Some Azure virtual networks use private endpoints ([Azure Private Link](../private-link/private-link-overview.md)) 
+    > for providing access to Azure PaaS services, such as Azure Storage, Azure Cosmos DB, or Azure SQL Database, 
+    > partner services, or customer services that are hosted on Azure.
+    >
+    > If you want to create Consumption logic app workflows that need access to virtual networks with private endpoints, 
+  > you *must create and run your Consumption workflows in an ISE*. Or, you can create Standard workflows instead, 
+  > which don't need an ISE. Instead, your workflows can communicate privately and securely with virtual networks 
+  > by using private endpoints for inbound traffic and virtual network integration for outbound traffic. For more information, see 
   > [Secure traffic between virtual networks and single-tenant Azure Logic Apps using private endpoints](secure-single-tenant-workflow-virtual-network-private-endpoint.md).
 
 For more information about isolation, review the following documentation:
