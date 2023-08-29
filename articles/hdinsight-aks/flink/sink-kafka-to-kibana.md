@@ -286,7 +286,7 @@ public class kafkaSinkToElastic {
 
 **Package the jar and submit to Flink to run on WebSSH**
 
-On [Secure Shell for Flink](./flink-webssh-on-portal-to-flink-sql.md), you can use the following commands
+On [Secure Shell for Flink](./flink-web-ssh-on-portal-to-flink-sql.md), you can use the following commands
 
 ```
 msdata@pod-0 [ ~ ]$ ls -l FlinkElasticSearch-1.0-SNAPSHOT.jar 
