@@ -25,4 +25,4 @@ HDInsight on AKS also offers an out-of-box monitoring feature that provides prem
 
 For more information
 - [How to enable log analytics](how-to-azure-monitor-integration.md).
-- [Using Azure managed Prometheus & Grafana](monitoring-with-prometheus-and-grafana.md)
+- [Using Azure managed Prometheus & Grafana](monitor-with-prometheus-grafana.md)

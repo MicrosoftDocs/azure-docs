@@ -347,7 +347,7 @@ public class KafkaSinkToHbase {
 
 ### Submit job on Secure Shell
 
-We use [Flink CLI](../flink/flink-webssh-on-portal-to-flink-sql.md) from Azure portal to submit jobs
+We use [Flink CLI](./flink-web-ssh-on-portal-to-flink-sql.md) from Azure portal to submit jobs
 
 :::image type="content" source="./media/use-flink-to-sink-kafka-message-into-hbase/submit-job-on-web-ssh.png" alt-text="Screenshot showing how to submit job on web ssh." lightbox="./media/use-flink-to-sink-kafka-message-into-hbase/submit-job-on-web-ssh.png":::
 

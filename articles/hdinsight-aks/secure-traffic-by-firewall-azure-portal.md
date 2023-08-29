@@ -90,7 +90,7 @@ Add new routes to route table to redirect the traffic to the firewall.
 
 In the previous steps, we have routed the traffic to firewall. 
 
-The following steps provide details about the specific network and application rules needed by each cluster type. You can refer to the cluster creation pages for creating [Apache Flink](./flink-create-cluster-portal.md), [Trino](./trino/trino-create-cluster-portal.md), and [Apache Spark](./spark/hdinsight-on-aks-spark-create-cluster-portal.md) clusters based on your need.
+The following steps provide details about the specific network and application rules needed by each cluster type. You can refer to the cluster creation pages for creating [Apache Flink](./flink/flink-create-cluster-portal.md), [Trino](./trino/trino-create-cluster.md), and [Apache Spark](./spark/hdinsight-on-aks-spark-overview.md) clusters based on your need.
 
 > [!IMPORTANT]
 > Before creating the cluster, make sure to add the following cluster specific rules to allow the traffic.
