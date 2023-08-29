@@ -20,7 +20,7 @@ If your organization has set up an Azure network to oversee user access to the w
 
 ### Add VPN/Express Route connection
 
-1. Before you create a [connector](./concept-connector.md) for Private IP networking via VPN or Azure Express Route, perform this role assignment. The Azure Modeling and Simulation Workbench needs **Network Contributor** role set for the resource group in which you wish to deploy the Workbench.
+1. Before you create a [connector](./concept-connector.md) for Private IP networking via VPN or Azure Express Route, perform this role assignment. The Azure Modeling and Simulation Workbench needs **Network Contributor** role set for the resource group in which you are hosting your virtual network connected with ExpressRoute or VPN.
 
    | Setting          | Value                                   |
    | :--------------- | :-------------------------------------- |
