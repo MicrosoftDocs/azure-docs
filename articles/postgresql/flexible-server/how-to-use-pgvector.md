@@ -19,7 +19,7 @@ ms.date: 05/09/2023
 
 ## Enable extension
 
-Before you can enable `pgvector` on your Flexible Server, you need to add it to your allowlist as described in [how to use PostgreSQL extensions](./concepts-extensions.md#how-to-use-postgresql-extensions) and check if it's correctly added by running `SHOW azure.extensions;`
+Before you can enable `pgvector` on your Flexible Server, you need to add it to your allowlist as described in [how to use PostgreSQL extensions](./concepts-extensions.md#how-to-use-postgresql-extensions) and check if it's correctly added by running `SHOW azure.extensions;`.
 
 Then you can install the extension, by connecting to your target database and running the [CREATE EXTENSION](https://www.postgresql.org/docs/current/static/sql-createextension.html) command. You need to repeat the command separately for every database you want the extension to be available in.
 
