@@ -37,6 +37,12 @@ In this article, you review examples for creating and deploying resources in the
 
 ::: zone-end
 
+::: zone pivot="cli"
+
+[!INCLUDE [Azure PowerShell resource](../includes/create-resource-powershell.md)]
+
+::: zone-end
+
 ## Next steps
 
 - Make API calls and generate text with [Azure OpenAI Service quickstarts](../quickstart.md).
