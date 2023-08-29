@@ -37,10 +37,15 @@ The new fields are:
 > [Export](../logs/logs-data-export.md) to Event Hub and Storage Account is not supported if the incoming LogMessage is not a valid JSON. For best performance, we recommend emitting container logs in JSON format.
 
 ## Enable the ContainerLogV2 schema
-Customers can enable the ContainerLogV2 schema at the cluster level through either the cluster's Data Collection Rule or ConfigMap. To enable the ContainerLogV2 schema, configure the cluster's ConfigMap. Learn more about ConfigMap in [Kubernetes documentation](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/)  and in [Azure Monitor documentation](./container-insights-agent-config.md#configmap-file-settings-overview).
+Customers can enable the ContainerLogV2 schema at the cluster level through either the cluster's Data Collection Rule (DCR) or ConfigMap. To enable the ContainerLogV2 schema, configure the cluster's ConfigMap. Learn more about ConfigMap in [Kubernetes documentation](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/)  and in [Azure Monitor documentation](./container-insights-agent-config.md#configmap-file-settings-overview).
 Follow the instructions to configure an existing ConfigMap or to use a new one.
 
-### Configure via an existing Data Collection Rule
+>[!NOTE]
+> Because ContainerLogV2 can be enabled through either the DCR and ConfigMap, the ContainerLogV2 setting of the ConfigMap will take precedence. Stdout and stderr logs will only be ingested to the ContainerLog table when both the DCR and ConfigMap are set to off.
+
+### Configure via an existing Data Collection Rule (DCR)
+
+## [Azure portal](#tab/configure-portal)
 
 1. In the Insights section of your Kubernetes cluster, select the **Monitoring Settings** button from the top toolbar
 
@@ -58,7 +63,10 @@ Follow the instructions to configure an existing ConfigMap or to use a new one.
 
 ![Screenshot that shows ContainerLogV2 enabled.](./media/container-insights-logging-v2/container-insights-v2-monitoring-settings-configured.png)
 
+## [CLI](#tab/configure-CLI)
 
+1. For configuring via CLI, use the corresponding [config file](./container-insights-cost-config.md#configuring-aks-data-collection-settings-using-azure-cli), update the `enableContainerLogV2` field in the config file to be true.
+ 
 ### Configure an existing ConfigMap
 This applies to the scenario where you have already enabled container insights for your AKS cluster and have [configured agent data collection settings](./container-insights-agent-config.md#configure-and-deploy-configmaps) using ConfigMap "_container-azm-ms-agentconfig.yaml_". If this ConfigMap doesn't yet have the `log_collection_settings.schema` field, you'll need to append the following section in this existing ConfigMap .yaml file:
 
