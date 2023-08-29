@@ -59,7 +59,7 @@ HDInsight on AKS version can connect seamlessly with HDInsight. You can reap the
 **The following scenarios are supported.**
 
 * [Flink connecting to HBase](./flink/use-flink-to-sink-kafka-message-into-hbase.md)
-* [Flink connecting to Kafka](./flink/join-stream-from-kafka-with-table-from-filesystem.md)
+* [Flink connecting to Kafka](./flink/join-stream-kafka-table-filesystem.md)
 * Spark connecting to HBase
 * Spark connecting to Kafka
 

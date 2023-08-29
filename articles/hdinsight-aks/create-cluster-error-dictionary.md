@@ -19,4 +19,4 @@ This article describes resolutions to troubleshoot errors, that you might come a
 
 [comment]: <> (|5|InvalidClusterSpec ServiceDependencyFailure||Note to be provided in the documentation.|)
 
-For more information, see [Troubleshoot cluster configuration](./trino/trino-config-troubleshoot.md).
+For more information, see [Troubleshoot cluster configuration](./trino/trino-configuration-troubleshoot.md).
