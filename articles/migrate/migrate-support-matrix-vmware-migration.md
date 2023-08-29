@@ -6,7 +6,7 @@ ms.author: piyushdhore
 ms.manager: vijain
 ms.topic: conceptual
 ms.service: azure-migrate
-ms.date: 07/11/2023
+ms.date: 07/12/2023
 ms.custom: engagement-fy23
 ---
 
@@ -52,8 +52,7 @@ The table summarizes agentless migration requirements for VMware vSphere VMs.
 **Boot requirements** | **Windows VMs:**<br/>OS Drive (C:\\) and System Reserved Partition (EFI System Partition for UEFI VMs) should reside on the same disk.<br/>If `/boot` is on a dedicated partition, it should reside on the OS disk and not be spread across multiple disks. <br/> If `/boot` is part of the root (/) partition, then the '/' partition should be on the OS disk and not span other disks. <br/><br/> **Linux VMs:**<br/> If `/boot` is on a dedicated partition, it should reside on the OS disk and not be spread across multiple disks.<br/> If `/boot` is part of the root (/) partition, then the '/' partition should be on the OS disk and not span other disks.
 **UEFI boot** | Supported. UEFI-based VMs will be migrated to Azure generation 2 VMs.
 **Disk size** | Up to 2-TB OS disk for gen 1 VM and gen 2 VMs; 32 TB for data disks. Changing the size of the source disk after initiating replication is supported and will not impact ongoing replication cycle.
-**Dynamic disk** | An OS disk as a dynamic disk is not supported. Ongoing replications need to be disabled and re-enabled after converting a dynamic OS disk to basic to start replication of the disk successfully.
-**Disk limits** |  Up to 60 disks per VM.
+**Dynamic disk** | - An OS disk as a dynamic disk is not supported. <br/> - If a VM with OS disk as dynamic disk is replicating, convert the disk type from dynamic to basic and allow the new cycle to complete, before triggering test migration or migration. Note that you will need help from OS support for conversion of dynamic to basic disk type.
 **Encrypted disks/volumes** | VMs with encrypted disks/volumes aren't supported for migration.
 **Shared disk cluster** | Not supported.
 **Independent disks** | Not supported.

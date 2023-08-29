@@ -23,6 +23,9 @@ If you have existing Windows virtual machines (VMs) that use unmanaged disks, yo
 
 * Review [the FAQ about migration to Managed Disks](../faq-for-disks.yml).
 
+* Ensure the VM is in a healthy sate before converting.
+
+
 [!INCLUDE [virtual-machines-common-convert-disks-considerations](../../../includes/virtual-machines-common-convert-disks-considerations.md)]
 
 * The original VHDs and the storage account used by the VM before migration are not deleted. They continue to incur charges. To avoid being billed for these artifacts, delete the original VHD blobs after you verify that the migration is complete. If you need to find these unattached disks in order to delete them, see our article [Find and delete unattached Azure managed and unmanaged disks](find-unattached-disks.md).

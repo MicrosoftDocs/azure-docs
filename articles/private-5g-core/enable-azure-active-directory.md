@@ -1,11 +1,11 @@
 ---
 title: Enable Azure Active Directory (Azure AD) for local monitoring tools
 titleSuffix: Azure Private 5G Core
-description: Complete the prerequisite tasks for enabling Azure Active Directory to access Azure Private 5G Core's local monitoring tools. 
+description: Complete the prerequisite tasks for enabling Azure Active Directory to access Azure Private 5G Core's local monitoring tools.
 author: robswain
 ms.author: robswain
 ms.service: private-5g-core
-ms.topic: how-to 
+ms.topic: how-to
 ms.date: 12/29/2022
 ms.custom: template-how-to
 ---
@@ -15,6 +15,9 @@ ms.custom: template-how-to
 Azure Private 5G Core provides the [distributed tracing](distributed-tracing.md) and [packet core dashboards](packet-core-dashboards.md) tools for monitoring your deployment at the edge. You can access these tools using [Azure Active Directory (Azure AD)](../active-directory/authentication/overview-authentication.md) or a local username and password. We recommend setting up Azure AD authentication to improve security in your deployment.
 
 In this how-to guide, you'll carry out the steps you need to complete after deploying or configuring a site that uses Azure AD to authenticate access to your local monitoring tools. You don't need to follow this if you decided to use local usernames and passwords to access the distributed tracing and packet core dashboards.
+
+> [!CAUTION]
+> Azure AD for local monitoring tools is not supported when a web proxy is enabled on the Azure Stack Edge device on which Azure Private 5G Core is running. If you have configured a firewall that blocks traffic not transmitted via the web proxy, then enabling Azure AD will cause the Azure Private 5G Core installation to fail.
 
 ## Prerequisites
 
@@ -32,13 +35,13 @@ In the authoritative DNS server for the DNS zone you want to create the DNS reco
 
 ## Register application
 
-You'll now register a new local monitoring application with Azure AD to establish a trust relationship with the Microsoft identity platform. 
+You'll now register a new local monitoring application with Azure AD to establish a trust relationship with the Microsoft identity platform.
 
 If your deployment contains multiple sites, you can use the same two redirect URIs for all sites, or create different URI pairs for each site. You can configure a maximum of two redirect URIs per site. If you've already registered an application for your deployment and you want to use the same URIs across your sites, you can skip this step.
 
 1. Follow [Quickstart: Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md) to register a new application for your local monitoring tools with the Microsoft identity platform.
     1. In *Add a redirect URI*, select the **Web** platform and add the following two redirect URIs, where *\<local monitoring domain\>* is the domain name for your local monitoring tools that you set up in [Configure domain system name (DNS) for local monitoring IP](#configure-domain-system-name-dns-for-local-monitoring-ip):
-    
+
         - https://*\<local monitoring domain\>*/sas/auth/aad/callback
         - https://*\<local monitoring domain\>*/grafana/login/azuread
 
@@ -74,7 +77,7 @@ To support Azure AD on Azure Private 5G Core applications, you'll need a YAML fi
 
 1. Convert each of the values you collected in [Collect the information for Kubernetes Secret Objects](#collect-the-information-for-kubernetes-secret-objects) into Base64 format. For example, you can run the following command in an Azure Cloud Shell **Bash** window:
 
-    ```bash    
+    ```bash
     echo -n <Value> | base64
     ```
 
@@ -115,7 +118,7 @@ You'll need to apply your Kubernetes Secret Objects if you're enabling Azure AD 
 
 1. Sign in to [Azure Cloud Shell](../cloud-shell/overview.md) and select **PowerShell**. If this is your first time accessing your cluster via Azure Cloud Shell, follow [Access your cluster](../azure-arc/kubernetes/cluster-connect.md?tabs=azure-cli) to configure kubectl access.
 1. Apply the Secret Object for both distributed tracing and the packet core dashboards, specifying the core kubeconfig filename.
-    
+
     `kubectl apply -f  /home/centos/secret-azure-ad-local-monitoring.yaml --kubeconfig=<core kubeconfig>`
 
 1. Use the following commands to verify if the Secret Objects were applied correctly, specifying the core kubeconfig filename. You should see the correct **Name**, **Namespace**, and **Type** values, along with the size of the encoded values.
@@ -127,7 +130,7 @@ You'll need to apply your Kubernetes Secret Objects if you're enabling Azure AD 
 1. Restart the distributed tracing and packet core dashboards pods.
 
     1. Obtain the name of your packet core dashboards pod:
-        
+
         `kubectl get pods -n core --kubeconfig=<core kubeconfig>" | grep "grafana"`
 
     1. Copy the output of the previous step and replace it into the following command to restart your pods.

@@ -4,12 +4,23 @@ description: Learn about new and updated articles to the Azure Virtual Desktop d
 ms.topic: release-notes
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 07/03/2023
+ms.date: 08/01/2023
 ---
 
 # What's new in documentation for Azure Virtual Desktop
 
-We update documentation for Azure Virtual Desktop on a regular basis. In this article we highlight articles for new features and where there have been important updates to existing articles.
+We update documentation for Azure Virtual Desktop regularly. In this article we highlight articles for new features and where there have been important updates to existing articles.
+
+## July 2023
+
+In July 2023, we published the following changes:
+
+- Updated autoscale articles for the preview of autoscale for personal host pools. Learn more at [Autoscale scaling plans and example scenarios](autoscale-scenarios.md) and [Create an autoscale scaling plan](autoscale-scaling-plan.md).
+- Updated multimedia redirection articles for the preview of call redirection. Learn more at [Understanding multimedia redirection](multimedia-redirection-intro.md).
+- Updated [Watermarking](watermarking.md) for general availability.
+- Updated [Security best practices](security-guide.md#azure-confidential-computing-virtual-machines) to include the general availability of Azure Confidential computing virtual machines with Azure Virtual Desktop.
+- Updated [Set up Private Link with Azure Virtual Desktop](private-link-setup.md) for general availability, made the configuration process clearer, and added commands for Azure PowerShell and Azure CLI.
+- Improved the search experience of the table of contents, allowing you to search for articles by alternative search terms. For example, searching for *SSO* shows entries for *single sign-on*.
 
 ## June 2023
 
@@ -55,13 +66,14 @@ In March 2023, we published the following changes:
 
 In February 2023, we published the following changes:
 
-- Updated [RDP Shortpath](rdp-shortpath.md?tabs=public-networks) and [Configure RDP Shortpath](configure-rdp-shortpath.md?tabs=public-networks) articles with the public preview information for an indirect UDP connection using the Traversal Using Relay NAT (TURN) protocol with a relay between a client and session host.
+- Updated [RDP Shortpath](rdp-shortpath.md?tabs=public-networks) and [Configure RDP Shortpath](configure-rdp-shortpath.md?tabs=public-networks) articles with the preview information for an indirect UDP connection using the Traversal Using Relay NAT (TURN) protocol with a relay between a client and session host.
 - Reorganized the table of contents.
 - Published the following articles for deploying Azure Virtual Desktop:
   - [Tutorial to create and connect to a Windows 11 desktop with Azure Virtual Desktop](tutorial-create-connect-personal-desktop.md).
   - [Create a host pool](create-host-pool.md).
   - [Create an application group, a workspace, and assign users](create-application-group-workspace.md).
   - [Add session hosts to a host pool](add-session-hosts-host-pool.md).
+- Published an article providing guidance to [Apply Zero Trust principles to an Azure Virtual Desktop deployment](/security/zero-trust/azure-infrastructure-avd).
 
 ## January 2023
 
@@ -71,4 +83,4 @@ In January 2023, we published the following change:
 
 ## Next steps
 
- Learn [What's new for Azure Virtual Desktop](whats-new.md).
+Learn [What's new for Azure Virtual Desktop](whats-new.md).

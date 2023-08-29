@@ -196,7 +196,7 @@ The response to this request looks like the following example:
 
 ## Update the file upload storage account configuration
 
-Use the following request to update a file upload blob storage account configuration in your IoT Central application:
+Use the following request to update a file upload blob storage account connection string in your IoT Central application:
 
 ```http
 PATCH https://{your-app-subdomain}.azureiotcentral.com/api/fileUploads?api-version=2022-07-31
@@ -204,10 +204,7 @@ PATCH https://{your-app-subdomain}.azureiotcentral.com/api/fileUploads?api-versi
 
 ```json
 {
-  "account": "yourAccountName",
-  "connectionString": "DefaultEndpointsProtocol=https;AccountName=yourAccountName;AccountKey=*****;BlobEndpoint=https://yourAccountName.blob.core.windows.net/",
-  "container": "yourContainerName2",
-  "sasTtl": "PT1H"
+  "connectionString": "DefaultEndpointsProtocol=https;AccountName=yourAccountName;AccountKey=*****;BlobEndpoint=https://yourAccountName.blob.core.windows.net/"
 }
 ```
 
@@ -218,10 +215,10 @@ The response to this request looks like the following example:
 {
   "account": "yourAccountName",
   "connectionString": "DefaultEndpointsProtocol=https;AccountName=yourAccountName;AccountKey=*****;BlobEndpoint=https://yourAccountName.blob.core.windows.net/",
-  "container": "yourContainerName2",
+  "container": "yourContainerName",
   "sasTtl": "PT1H",
-    "state": "succeeded",
-    "etag": "\"7502ac89-0000-0300-0000-627eaf100000\""
+  "state": "succeeded",
+  "etag": "\"7502ac89-0000-0300-0000-627eaf100000\""
 }
 ```
 

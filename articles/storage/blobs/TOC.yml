@@ -667,7 +667,7 @@ items:
             href: storage-blobs-tune-upload-download.md
           - name: Implement a retry policy
             href: storage-retry-policy.md
-          - name: Logging
+          - name: Configure logging
             href: /dotnet/azure/sdk/logging?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
           - name: Manage concurrency
             href: concurrency-manage.md
@@ -957,6 +957,8 @@ items:
           items:
           - name: Performance tuning for uploads and downloads
             href: storage-blobs-tune-upload-download-python.md
+          - name: Configure logging
+            href: /azure/developer/python/sdk/azure-sdk-logging?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Test with a storage emulator
         items:
         - name: Use the Azurite open-source emulator
@@ -1127,6 +1129,8 @@ items:
       href: ../common/policy-reference.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
   - name: Resources
     items:
+    - name: FAQ
+      href: storage-blob-faq.yml
     - name: Azure updates
       href: https://azure.microsoft.com/updates/?product=storage
     - name: Azure Storage Explorer

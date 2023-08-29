@@ -74,7 +74,7 @@ To [set up a new metric alert rule](../../azure-monitor/alerts/alerts-create-new
 > [!IMPORTANT]
 > The resources you select must be within the same resource type, location, and subscription. Resources that do not fit these criteria are not selectable.
 
-You can also use [Azure Resource Manager templates](../../azure-monitor/alerts/alerts-create-new-alert-rule.md#create-a-new-alert-rule-using-an-arm-template) to deploy multi-resource metric alerts. Learn more in our documentation, [Understand how metric alerts work in Azure Monitor](../../azure-monitor/alerts/alerts-types.md).
+You can also use [Azure Resource Manager templates](../../azure-monitor/alerts/alerts-create-new-alert-rule.md#create-a-new-alert-rule-using-an-arm-template) to deploy multi-resource metric alerts. To learn more about multi-resource alerts, refer our blog [Scale Monitoring with Azure PostgreSQL Multi-Resource Alert](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/scale-monitoring-with-azure-postgresql-multi-resource-alerts/ba-p/3866526).
 
 ## Manage your alerts
 

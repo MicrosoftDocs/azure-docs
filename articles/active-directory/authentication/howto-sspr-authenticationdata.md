@@ -14,7 +14,7 @@ manager: amycolannino
 ms.reviewer: tilarso
 
 ms.collection: M365-identity-device-management 
-ms.custom:
+ms.custom: has-azure-ad-ps-ref
 ---
 # Pre-populate user authentication contact information for Azure Active Directory self-service password reset (SSPR)
 
@@ -23,7 +23,7 @@ To use Azure Active Directory (Azure AD) self-service password reset (SSPR), aut
 You can pre-populate authentication contact information if you meet the following requirements:
 
 * You have properly formatted the data in your on-premises directory.
-* You have configured [Azure AD Connect](../hybrid/how-to-connect-install-express.md) for your Azure AD tenant.
+* You have configured [Azure AD Connect](../hybrid/connect/how-to-connect-install-express.md) for your Azure AD tenant.
 
 Phone numbers must be in the format *+CountryCode PhoneNumber*, such  as *+1 4251234567*.
 

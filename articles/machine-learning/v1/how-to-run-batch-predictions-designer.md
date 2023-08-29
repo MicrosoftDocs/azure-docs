@@ -10,7 +10,7 @@ author: likebupt
 ms.reviewer: lagayhar
 ms.date: 05/10/2022
 ms.topic: how-to
-ms.custom: designer, event-tier1-build-2022
+ms.custom: UpdateFrequency5, designer, event-tier1-build-2022
 ---
 
 # Run batch predictions using Azure Machine Learning designer

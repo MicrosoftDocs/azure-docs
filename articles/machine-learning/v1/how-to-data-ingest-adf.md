@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn the available options for building a data ingestion pipeline with Azure Data Factory and the benefits of each.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: mldata
+ms.subservice: mlops
 ms.author: iefedore
 author: eedorenko
 manager: davete

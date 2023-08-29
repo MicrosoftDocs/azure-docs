@@ -241,6 +241,12 @@ After your account and the materialized view builder are set up, you should be a
         databaseName="<database-that-contains-source-collection>"
         ```
 
+    1. If you haven't already, get the identifier of the account and store it in a shell variable named `$accountId`.
+
+        ```azurecli
+        accountId="/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.DocumentDB/databaseAccounts/$accountName"
+        ```
+
     1. Make a REST API call to create the materialized view:
 
         ```azurecli

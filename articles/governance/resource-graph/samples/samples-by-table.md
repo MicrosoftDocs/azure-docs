@@ -27,6 +27,8 @@ details, see [Resource Graph tables](../concepts/query-language.md#resource-grap
 
 [!INCLUDE [authorization-resources-role-definitions-permissions-list](../../includes/resource-graph/query/authorization-resources-role-definitions-permissions-list.md)]
 
+[!INCLUDE [authorization-resources-classic-administrators-key-properties](../../includes/resource-graph/query/authorization-resources-classic-administrators-key-properties.md)]
+
 [!INCLUDE [authorization-resources-troubleshoot-rbac-limits](../../includes/resource-graph/query/authorization-resources-troubleshoot-rbac-limits.md)]
 
 ## ExtendedLocationResources
@@ -72,6 +74,8 @@ details, see [Resource Graph tables](../concepts/query-language.md#resource-grap
 ## Resources
 
 [!INCLUDE [azure-resource-graph-samples-table-resources](../../../../includes/resource-graph/samples/bytable/resources.md)]
+
+[!INCLUDE [virtual-machine-basic-sku-public-ip](../../includes/resource-graph/query/virtual-machine-basic-sku-public-ip.md)]
 
 ## SecurityResources
 

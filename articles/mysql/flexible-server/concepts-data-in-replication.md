@@ -1,6 +1,6 @@
 ---
 title: Data-in replication - Azure Database for MySQL - Flexible Server
-description: Learn about using Data-in replication to synchronize from an external server into the Azure Database for MySQL Flexible service.
+description: Learn about using Data-in replication to synchronize from an external server into the Azure Database for MySQL Flexible Server.
 author: VandhanaMehta
 ms.author: vamehta
 ms.reviewer: maghan
@@ -14,7 +14,7 @@ ms.topic: conceptual
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-Data-in replication allows you to synchronize data from an external MySQL server into an Azure Database for MySQL flexible server. The external server can be on-premises, in virtual machines, Azure Database for MySQL single server, or a database service hosted by other cloud providers. Data-in replication is based on the binary log (binlog) file position or GTID-based replication. To learn more about binlog replication, see the [MySQL Replication](https://dev.mysql.com/doc/refman/5.7/en/replication-configuration.html).
+Data-in replication allows you to synchronize data from an external MySQL server into an Azure Database for MySQL Flexible Server. The external server can be on-premises, in virtual machines, Azure Database for MySQL single server, or a database service hosted by other cloud providers. Data-in replication is based on the binary log (binlog) file position or GTID-based replication. To learn more about binlog replication, see the [MySQL Replication](https://dev.mysql.com/doc/refman/5.7/en/replication-configuration.html).
 
 > [!NOTE]  
 > Configuring Data-in replication for servers enabled with high-availability, is supported only through GTID-based replication.
@@ -43,7 +43,7 @@ The stored procedure for replication using GTID is available on all HA-enabled s
 
 ### Filter
 
-The parameter `replicate_wild_ignore_table` creates a replication filter for tables on the replica server. To modify this parameter from the Azure portal, navigate to Azure Database for MySQL flexible server used as replica and select "Server Parameters" to view/edit the `replicate_wild_ignore_table` parameter.
+The parameter `replicate_wild_ignore_table` creates a replication filter for tables on the replica server. To modify this parameter from the Azure portal, navigate to Azure Database for MySQL Flexible Server used as replica and select "Server Parameters" to view/edit the `replicate_wild_ignore_table` parameter.
 
 ### Requirements
 

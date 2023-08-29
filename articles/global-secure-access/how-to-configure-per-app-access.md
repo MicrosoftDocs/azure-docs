@@ -1,11 +1,11 @@
 ---
 title: How to configure Per-app Access using Global Secure Access applications
-description: Learn how to configure Per-app Access using Global Secure Access applications for Microsoft Entra Private Access
+description: Learn how to configure per-app access to your private, internal resources using Global Secure Access applications for Microsoft Entra Private Access.
 author: shlipsey3
 ms.author: sarahlipsey
 manager: amycolannino
 ms.topic: how-to
-ms.date: 07/07/2023
+ms.date: 07/27/2023
 ms.service: network-access
 ms.custom: 
 ms.reviewer: katabish
@@ -38,11 +38,11 @@ To manage App Proxy connector groups, which is required for Global Secure Access
 
 Per-App Access is configured by creating a new Global Secure Access app. You create the app, select a connector group, and add network access segments. These settings make up the individual app that you can assign users and groups to.
 
-To configure Per-App Access, you need to have a connector group with at least one active [Microsoft Entra ID Application Proxy](../active-directory/app-proxy/application-proxy.md) connector. This connector group handles the traffic to this new application. With Connectors, you can isolate apps per network and connector.
+To configure Per-App Access, you need to have a connector group with at least one active [Microsoft Entra ID Application Proxy](/azure/active-directory/app-proxy/application-proxy) connector. This connector group handles the traffic to this new application. With Connectors, you can isolate apps per network and connector.
 
 To summarize, the overall process is as follows:
 
-1. Create an App Proxy connector group, if you don't already have one.
+1. Create a connector group with at least one active App Proxy connector, if you don't already have one. If you already have a connector group, make sure you're on the latest version.
 1. Create a Global Secure Access app.
 1. Assign users and groups to the app.
 1. Configure Conditional Access policies.
@@ -56,6 +56,10 @@ To configure a Global Secure Access app, you must have a connector group with at
 
 If you don't already have a connector set up, see [Configure connectors](how-to-configure-connectors.md).
 
+> [!NOTE]
+> If you've previously installed a connector, reinstall it to get the latest version. When upgrading, uninstall the existing connector and delete any related folders.
+>
+> The minimum version of connector required for Private Access is **1.5.3417.0**.
 ## Create a Global Secure Access application
 
 To create a new app, you provide a name, select a connector group, and then add application segments. App segments include the fully qualified domain names (FQDNs) and IP addresses you want to tunnel through the service. You can complete all three steps at the same time, or you can add them after the initial setup is complete. 
@@ -109,7 +113,7 @@ You can add fully qualified domain names (FQDN), IP addresses, and IP address ra
 
 ### Assign users and groups
 
-You need to grant access to the app you created by assigning users and/or groups to the app. For more information, see [Assign users and groups to an application.](../active-directory/manage-apps/assign-user-or-group-access-portal.md)
+You need to grant access to the app you created by assigning users and/or groups to the app. For more information, see [Assign users and groups to an application.](/azure/active-directory/manage-apps/assign-user-or-group-access-portal)
 
 1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)**.
 1. Go to **Global Secure Access** > **Applications** > **Enterprise applications**.

@@ -21,7 +21,7 @@ There are also IDE versions of this article. Check out [Azure Toolkit for Intell
 
 Before you begin, you must have the following:
 
-+ An <abbr title="The profile that maintains billing information for Azure usage.">Azure account</abbr> with an active <abbr title="The basic organizational structure in which you manage resources in Azure, typically associated with an individual or department within an organization.">subscription</abbr>. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
++ An Azure account (The profile that maintains billing information for Azure usage.) with an active subscription (The basic organizational structure in which you manage resources in Azure, typically associated with an individual or department within an organization.). [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 + The [Azure CLI](/cli/azure/install-azure-cli).
 
@@ -222,7 +222,7 @@ Property | Required | Description | Version
 ---|---|---|---
 `<schemaVersion>` | false | Specify the version of the configuration schema. Supported values are: `v1`, `v2`. | 1.5.2
 `<subscriptionId>` | false | Specify the subscription ID. | 0.1.0+
-`<resourceGroup>` | true | Azure <abbr title="A logical container for related Azure resources that you can manage as a unit.">resource group</abbr> for your Web App. | 0.1.0+
+`<resourceGroup>` | true | Azure  resource group (A logical container for related Azure resources that you can manage as a unit.) for your Web App. | 0.1.0+
 `<appName>` | true | The name of your Web App. | 0.1.0+
 `<region>` | true | Specifies the region where your Web App will be hosted; the default value is **westeurope**. All valid regions at [Supported Regions](https://azure.microsoft.com/global-infrastructure/services/?products=app-service) section. | 0.1.0+
 `<pricingTier>` | false | The pricing tier for your Web App. The default value is **P1V2** for production workload, while **B2** is the recommended minimum for Java dev/test. [Learn more](https://azure.microsoft.com/pricing/details/app-service/linux/)| 0.1.0+

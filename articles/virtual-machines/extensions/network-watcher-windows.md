@@ -8,7 +8,7 @@ ms.author: halkazwini
 author: halkazwini
 ms.collection: windows
 ms.date: 06/09/2023
-ms.custom: template-concept, devx-track-azurepowershell, engagement-fy23
+ms.custom: template-concept, engagement-fy23
 ---
 
 # Network Watcher Agent virtual machine extension for Windows

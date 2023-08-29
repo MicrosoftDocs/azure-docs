@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
-ms.custom: automl, sdkv1, event-tier1-build-2022, ignite-2022
+ms.custom: UpdateFrequency5, automl, sdkv1, event-tier1-build-2022, ignite-2022
 ms.author: cesardl
 author: CESARDELATORRE
 ms.reviewer: ssalgado

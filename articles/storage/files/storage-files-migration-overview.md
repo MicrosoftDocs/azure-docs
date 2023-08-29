@@ -4,7 +4,7 @@ description: Learn how to migrate to Azure file shares and find your migration g
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 05/30/2023
+ms.date: 07/13/2023
 ms.author: kendownie
 ---
 
@@ -30,7 +30,7 @@ Here are the two basic components of a file:
 - **File metadata**: The file metadata has these subcomponents:
    * File attributes like read-only
    * File permissions, which can be referred to as *NTFS permissions* or *file and folder ACLs*
-   * Timestamps, most notably the creation, and last-modified timestamps
+   * Timestamps, most notably the creation and last-modified timestamps
    * An alternative data stream, which is a space to store larger amounts of nonstandard properties
 
 File fidelity in a migration can be defined as the ability to:
@@ -44,6 +44,9 @@ To ensure your migration proceeds smoothly, identify [the best copy tool for you
 Taking the previous information into account, you can see that the target storage for general-purpose files in Azure is [Azure file shares](storage-files-introduction.md).
 
 Unlike object storage in Azure blobs, an Azure file share can natively store file metadata. Azure file shares also preserve the file and folder hierarchy, attributes, and permissions. NTFS permissions can be stored on files and folders because they're on-premises.
+
+> [!IMPORTANT]
+> If you're migrating on-premises file servers to Azure File Sync, set the ACLs for the root directory of the file share **before** copying a large number of files, as changes to permissions for root ACLs can take up to a day to propagate if done after a large file migration.
 
 A user of Active Directory, which is their on-premises domain controller, can natively access an Azure file share. So can a user of Azure Active Directory Domain Services (Azure AD DS). Each uses their current identity to get access based on share permissions and on file and folder ACLs. This behavior is similar to a user connecting to an on-premises file share.
 

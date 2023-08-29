@@ -268,11 +268,11 @@ This playbooks downloads the installation media from the control plane to the in
 # [Linux](#tab/linux)
 
 The following tasks are executed on the Central services instance virtual machine:
-- Download the software
+- Download the software from the storage account and make it available for the other virtual machines
 
 # [Windows](#tab/windows)
 
 The following tasks are executed on the Central services instance virtual machine:
-- Download the software
+- Download the software from the storage account and make it available for the other virtual machines
 
 ---

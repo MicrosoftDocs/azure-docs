@@ -4,15 +4,22 @@ description: Learn how to view DDoS protection diagnostic logs in Log Analytics 
 services: ddos-protection
 author: AbdullahBell
 ms.service: ddos-protection
-ms.topic: how-to
+ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 05/11/2023
+ms.date: 08/08/2023
 ms.author: abell
 ---
 
 # View Azure DDoS Protection logs in Log Analytics workspace
 
-In this guide, you'll learn how to view Azure DDoS Protection diagnostic logs, including notifications, mitigation reports and mitigation flow logs.
+DDoS Protection diagnostic logs provide you with the ability to view DDoS Protection notifications, mitigation reports and mitigation flow logs after a DDoS attack. You can view these logs in your Log Analytics workspace.
+
+
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * view Azure DDoS Protection diagnostic logs including notifications, mitigation reports and mitigation flow logs.
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -117,7 +124,7 @@ The following table lists the field names and descriptions:
 | **AttackVectors** | Degradation of attack types. The keys include `TCP SYN flood`, `TCP flood`, `UDP flood`, `UDP reflection`, and `Other packet flood`. |
 | **TrafficOverview** | Degradation of attack traffic. The keys include `Total packets`, `Total packets dropped`, `Total TCP packets`, `Total TCP packets dropped`, `Total UDP packets`, `Total UDP packets dropped`, `Total Other packets`, and `Total Other packets dropped`. | 
 | **Protocols**  | Breakdown of protocols included. The keys include `TCP`, `UDP`, and `Other`.   |  
-| **DropReasons** | Analysis of causes of dropped packets. The keys include `Protocol violation invalid TCP`. `syn Protocol violation invalid TCP`, `Protocol violation invalid UDP`, `UDP reflection`, `TCP rate limit exceeded`, `UDP rate limit exceeded`, `Destination limit exceeded`, `Other packet flood Rate limit exceeded`, and `Packet was forwarded to service`. |
+| **DropReasons** | Analysis of causes of dropped packets. The keys include `Protocol violation invalid TCP`. `syn Protocol violation invalid TCP`, `Protocol violation invalid UDP`, `UDP reflection`, `TCP rate limit exceeded`, `UDP rate limit exceeded`, `Destination limit exceeded`, `Other packet flood Rate limit exceeded`, and `Packet was forwarded to service`. Protocol violation invalid drop reasons refer to malformed packets. |
 | **TopSourceCountries** | Breakdown of the top 10 source countries into inbound traffic. |
 | **TopSourceCountriesForDroppedPackets** | Analysis of the top 10 source countries for attack traffic that have been throttled. |
 | **TopSourceASNs** | Analysis of the top 10 sources of autonomous system numbers (ASNs) of incoming traffic.  | 
@@ -127,4 +134,8 @@ The following table lists the field names and descriptions:
 
 ## Next steps
 
-* [Engage DDoS Rapid Response](ddos-rapid-response.md)
+In this tutorial you learned how to view DDoS Protection diagnostic logs in a Log Analytics workspace. To learn more about the recommended steps to take when you receive a DDoS attack, see these next steps.
+
+> [!div class="nextstepaction"]
+> [Engage with Azure DDoS Rapid Response](ddos-rapid-response.md)
+> [components of a DDoS Rapid Response Strategy](ddos-response-strategy.md)

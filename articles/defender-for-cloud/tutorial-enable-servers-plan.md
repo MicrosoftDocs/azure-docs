@@ -1,6 +1,5 @@
 ---
-title: Protect your servers with Defender for Servers - Microsoft Defender for Cloud
-titleSuffix: Microsoft Defender for Cloud
+title: Protect your servers with Defender for Servers
 description: Learn how to enable the Defender for Servers on your Azure subscription for Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
 ms.date: 06/29/2023

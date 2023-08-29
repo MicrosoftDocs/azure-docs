@@ -7,6 +7,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
+ms.custom:
 ms.topic: sample
 ms.date: 07/11/2023
 ms.author: jomondi

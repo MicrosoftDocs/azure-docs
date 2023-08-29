@@ -59,7 +59,7 @@ You can set up the GCP environment in one of two ways:
     terraform apply 
     ```
 
-1. Type your Microsoft tenant ID. Learn how to [find your tenant ID](../active-directory/fundamentals/active-directory-how-to-find-tenant.md). 
+1. Type your Microsoft tenant ID. Learn how to [find your tenant ID](/azure/active-directory-b2c/tenant-management-read-tenant-name). 
 1. When asked if a workload Identity Pool has already been created for Azure, type *yes* or *no*.  
 1. When asked if you want to create the resources listed, type *yes*.
 1. Save the resources parameters for later use. 	

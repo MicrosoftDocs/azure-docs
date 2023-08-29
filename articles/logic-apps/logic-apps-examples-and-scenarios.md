@@ -10,7 +10,7 @@ ms.date: 03/07/2023
 
 # Common scenarios, examples, tutorials, and walkthroughs for Azure Logic Apps
 
-[Azure Logic Apps](logic-apps-overview.md) helps you orchestrate and integrate different services by providing hundreds of prebuilt and ready-to-use connectors, ranging from SQL Server and SAP to Azure Cognitive Services. Azure Logic Apps is "serverless", so you don't have to worry about scale or instances. All you have to do is define a workflow with a trigger and the actions that the workflow performs. The underlying platform handles scale, availability, and performance. Azure Logic Apps is especially useful for use cases and scenarios where you need to coordinate actions across multiple systems and services.
+[Azure Logic Apps](logic-apps-overview.md) helps you orchestrate and integrate different services by providing hundreds of prebuilt and ready-to-use connectors, ranging from SQL Server and SAP to Azure AI services. Azure Logic Apps is "serverless", so you don't have to worry about scale or instances. All you have to do is define a workflow with a trigger and the actions that the workflow performs. The underlying platform handles scale, availability, and performance. Azure Logic Apps is especially useful for use cases and scenarios where you need to coordinate actions across multiple systems and services.
 
 To help you learn about the capabilities and patterns that Azure Logic Apps supports, this guide describes common starting points, examples, and scenarios.
 
@@ -141,7 +141,7 @@ Azure Logic Apps integrates with many services, such as Azure Functions, Azure A
 * [Call Azure Functions from Azure Logic Apps](../logic-apps/logic-apps-azure-functions.md)
 * [Tutorial: Call or trigger logic app workflows by using Azure Functions and Azure Service Bus](../logic-apps/logic-apps-scenario-function-sb-trigger.md)
 * [Tutorial: Create a streaming customer insights dashboard with Azure Logic Apps and Azure Functions](../logic-apps/logic-apps-scenario-social-serverless.md)
-* [Tutorial: Create a function that integrates with Azure Logic Apps and Azure Cognitive Services to analyze Twitter post sentiment](../azure-functions/functions-twitter-email.md)
+* [Tutorial: Create a function that integrates with Azure Logic Apps and Azure AI services to analyze Twitter post sentiment](../azure-functions/functions-twitter-email.md)
 * [Tutorial: Build an AI-powered social dashboard by using Power BI and Azure Logic Apps](/shows/)
 * [Tutorial: Monitor virtual machine changes by using Azure Event Grid and Logic Apps](../event-grid/monitor-virtual-machine-changes-logic-app.md)
 * [Tutorial: IoT remote monitoring and notifications with Azure Logic Apps connecting your IoT hub and mailbox](../iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md)

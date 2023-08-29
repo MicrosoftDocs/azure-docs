@@ -73,11 +73,11 @@ This section outlines the basic workflow for Route-maps. You can [configure rout
 1. [Configure a route map and route map rules](route-maps-how-to.md), then save.
 1. Once a route map is configured, the virtual hub router and gateways begin an upgrade needed to support the Route-maps feature.
 
-   * The upgrade process takes between X – Y mins.
+   * The upgrade process takes around 30 minutes.
    * The upgrade process only happens the first time a route map is created on a hub.
    * If the route map is deleted, the virtual hub router remains on the new version of software.
    * Using Route-maps will incur an additional charge. For more information, see the [Pricing](https://azure.microsoft.com/pricing/details/virtual-wan/) page.
-1. The process is complete when the Provisioning state is 'Succeeded'. Reach out to preview-route-maps@microsoft.com if the process failed.
+1. The process is complete when the Provisioning state is 'Succeeded'. Open a support case if the process failed.
 1. The route map can now be applied to connections (ExpressRoute, S2S VPN, P2S VPN, VNet).
 1. Once the route map has been applied in the correct direction, use the [Route-map dashboard](route-maps-dashboard.md) to verify that the route map is working as expected.
 
@@ -152,7 +152,7 @@ The following section describes all the match conditions and actions supported f
 
 ## Troubleshooting
 
-The following section describes common issues encountered when you configure Route-maps on your Virtual WAN hub. Read this section and, if your issue is still unresolved, reach out to preview-route-maps@microsoft.com for support. Expect a response within 48 business hours (Monday through Friday 9:00am - 5:00 PM PST).
+The following section describes common issues encountered when you configure Route-maps on your Virtual WAN hub. Read this section and, if your issue is still unresolved, please open a support case. 
 
 [!INCLUDE [Route-maps troubleshooting](../../includes/virtual-wan-route-maps-troubleshoot.md)]
 

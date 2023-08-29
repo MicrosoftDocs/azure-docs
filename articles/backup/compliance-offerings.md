@@ -5,8 +5,8 @@ ms.topic: reference
 ms.date: 11/29/2022
 ms.service: backup
 ms.custom: engagement-fy23
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Azure Backup compliance offerings

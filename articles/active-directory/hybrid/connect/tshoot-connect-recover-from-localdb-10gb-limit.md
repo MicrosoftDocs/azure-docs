@@ -81,9 +81,9 @@ By default, Azure AD Connect retains up to seven days’ worth of run history da
 
 2. Go to the **Operations** tab.
 
-3. Under **Actions**, select **Clear Runs**…
+3. Under **Actions**, select **Clear Runs**.
 
-4. You can either choose **Clear all runs** or **Clear runs before… \<date>** option. It is recommended that you start by clearing run history data that are older than two days. If you continue to run into DB size issue, then choose the **Clear all runs** option.
+4. You can either choose **Clear all runs** or **Clear runs before... \<date>** option. It is recommended that you start by clearing run history data that are older than two days. If you continue to run into DB size issue, then choose the **Clear all runs** option.
 
 ### Shorten retention period for run history data
 This step is to reduce the likelihood of running into the 10-GB limit issue after multiple sync cycles.

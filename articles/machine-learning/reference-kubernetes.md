@@ -394,6 +394,7 @@ More information about how to use ARM template can be found from [ARM template d
 
 | Date | Version |Version description |
 |---|---|---|
+|July 18, 2023 | 1.1.29|  Add new identity operator errors. Bug fixes. |
 |June 4, 2023 | 1.1.28 | Improve auto-scaler to handle multiple node pool. Bug fixes. |
 | Apr 18 , 2023| 1.1.26 | Bug fixes and vulnerabilities fix. | 
 | Mar 27, 2023| 1.1.25 | Add Azure machine learning job throttle. Fast fail for training job when SSH setup failed. Reduce Prometheus scrape interval to 30s. Improve error messages for inference. Fix vulnerable image. |

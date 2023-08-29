@@ -9,7 +9,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 06/20/2023
+ms.date: 07/17/2023
 ms.author: radeltch
 ---
 
@@ -704,12 +704,19 @@ The instructions in this section are applicable only if you're using Azure NetAp
     sudo crm configure property maintenance-mode="false"
     ```
 
-    SAP introduced support for [ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html), including replication, in SAP NetWeaver 7.52. Starting with ABAP Platform 1809, ENSA2 is installed by default. For ENSA2 support, see SAP Note [2630416](https://launchpad.support.sap.com/#/notes/2630416).  
+    SAP introduced support for [ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html), including replication, in SAP NetWeaver 7.52. Starting with ABAP Platform 1809, ENSA2 is installed by default. For ENSA2 support, see SAP Note [2630416](https://launchpad.support.sap.com/#/notes/2630416).
+
+    > [!NOTE]
+    > If you have a two-node cluster running ENSA2, you have the option to configure priority-fencing-delay cluster property. This property introduces additional delay in fencing a node that has higher total resoure priority when a split-brain scenario occurs. For more information, see [SUSE Linux Enteprise Server high availability extension administration guide](https://documentation.suse.com/sle-ha/15-SP3/single-html/SLE-HA-administration/#pro-ha-storage-protect-fencing).
+    >
+    > The property priority-fencing-delay is only applicable for ENSA2 running on two-node cluster. For more information, see [Enqueue Replication 2 High Availability cluster with simple mount](https://documentation.suse.com/sbp/sap/html/SAP-S4HA10-setupguide-simplemount-sle15/index.html#multicluster)
 
     If you're using an ENSA2 architecture, define the resources as follows.
 
     ```bash
     sudo crm configure property maintenance-mode="true"
+
+    sudo crm configure property priority-fencing-delay=30
    
     sudo crm configure primitive rsc_sapstartsrv_NW1_ASCS00 ocf:suse:SAPStartSrv \
      params InstanceName=NW1_ASCS00_sapascs
@@ -722,7 +729,7 @@ The instructions in this section are applicable only if you're using Azure NetAp
      op monitor interval=11 timeout=60 on-fail=restart \
      params InstanceName=NW1_ASCS00_sapascs START_PROFILE="/sapmnt/NW1/profile/NW1_ASCS00_sapascs" \
      AUTOMATIC_RECOVER=false MINIMAL_PROBE=true \
-     meta resource-stickiness=5000
+     meta resource-stickiness=5000 priority=100
 
     # If you're using NFS on Azure Files or NFSv3 on Azure NetApp Files:   
     sudo crm configure primitive rsc_sap_NW1_ERS01 SAPInstance \
@@ -735,7 +742,7 @@ The instructions in this section are applicable only if you're using Azure NetAp
      op monitor interval=11 timeout=105 on-fail=restart \
      params InstanceName=NW1_ASCS00_sapascs START_PROFILE="/sapmnt/NW1/profile/NW1_ASCS00_sapascs" \
      AUTOMATIC_RECOVER=false MINIMAL_PROBE=true \
-     meta resource-stickiness=5000
+     meta resource-stickiness=5000 priority=100
 
     # If you're using NFSv4.1 on Azure NetApp Files:   
     sudo crm configure primitive rsc_sap_NW1_ERS01 SAPInstance \
