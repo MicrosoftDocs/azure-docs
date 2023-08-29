@@ -98,7 +98,7 @@ As an alternative to the instructions for getting `IConfigurationRefresher` abov
 ```csharp
 class DependencyInjectionExample
 {
-    private readonly IEnumerable<IConfigurationRefresher> _refreshers;
+    private readonly IEnumerable<IConfigurationRefresher> _refreshers = null;
 
     public DependencyInjectionExample(IConfigurationRefresherProvider refresherProvider)
     {
