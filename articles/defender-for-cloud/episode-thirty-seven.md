@@ -2,7 +2,7 @@
 title: Capabilities to counter identity-based supply chain attacks | Defender for Cloud in the Field 
 description: Learn about Defender for Cloud's capability to counter identity-based supply chain attacks.
 ms.topic: reference
-ms.date: 08/27/2023
+ms.date: 08/29/2023
 ---
 
 # Capabilities to counter identity-based supply chain attacks
@@ -11,11 +11,11 @@ ms.date: 08/27/2023
 
 > [!VIDEO https://aka.ms/docs/player?id=d69fb652-46a7-4f8c-8632-8cf2cbc3685a]
 
-- [01:41](/shows/mdc-in-the-field/#time=01m41s) - Intro
-- [04:04](/shows/mdc-in-the-field/#time=04m04s) - Understanding identity-based supply chain attacks
-- [06:50](/shows/mdc-in-the-field/#time=06m50s) - Identity-based supply chain attacks sample scenario
-- [08:26](/shows/mdc-in-the-field/#time=08m26s) - Best practices to prevent identity-based supply chain attacks
-- [10:29](/shows/mdc-in-the-field/#time=10m29s) - Demonstration
+- [01:41](/shows/mdc-in-the-field/counter-identity-based-supply-chain-attacks#time=01m41s) - Intro
+- [04:04](/shows/mdc-in-the-field/counter-identity-based-supply-chain-attacks#time=04m04s) - Understanding identity-based supply chain attacks
+- [06:50](/shows/mdc-in-the-field/counter-identity-based-supply-chain-attacks#time=06m50s) - Identity-based supply chain attacks sample scenario
+- [08:26](/shows/mdc-in-the-field/counter-identity-based-supply-chain-attacks#time=08m26s) - Best practices to prevent identity-based supply chain attacks
+- [10:29](/shows/mdc-in-the-field/counter-identity-based-supply-chain-attacks#time=10m29s) - Demonstration
 
 ## Recommended resources
 

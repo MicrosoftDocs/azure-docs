@@ -2,7 +2,7 @@
 title: Defender CSPM support for GCP and more updates | Defender for Cloud in the Field
 description: 
 ms.topic: reference
-ms.date: 08/28/2023
+ms.date: 08/29/2023
 ---
 
 # Security alert correlation
