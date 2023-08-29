@@ -1,6 +1,16 @@
 {
     "redirections": [
         {
+            "source_path": "articles/migrate/tutorial-assess-webapps-physical.md",
+            "redirect_URL": "tutorial-assess-webapps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/migrate/tutorial-assess-webapps-hyper-v.md",
+            "redirect_URL": "tutorial-assess-webapps",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/route-server/tutorial-protect-route-server.md",
             "redirect_URL": "/azure/route-server/tutorial-protect-route-server-ddos",
             "redirect_document_id": false
@@ -23375,6 +23385,11 @@
         {
             "source_path_from_root": "/articles/azure/devtest-labs/scripts/stop-delete-virtual-machine-in-lab-cli.md",
             "redirect_url": "/azure/devtest-labs/samples-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/devtest-labs/how-to-move-schedule-to-new-region.md",
+            "redirect_url": "/azure/devtest-labs/how-to-move-labs",
             "redirect_document_id": false
         },
         {

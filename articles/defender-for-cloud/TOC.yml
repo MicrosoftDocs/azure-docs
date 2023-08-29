@@ -288,6 +288,9 @@
       - name: Build queries with cloud security explorer
         displayName: queries, security explorer, explorer, templates, query
         href: how-to-manage-cloud-security-explorer.md
+      - name: Testing the attack path and security explorer
+        displayName: attack paths, paths, security explorer, test 
+        href: how-to-test-attack-path-and-security-explorer-with-vulnerable-container-image.md
   - name: Data-aware security posture
     items:
     - name: Enable data-aware security posture
@@ -874,7 +877,11 @@
     - name: Understanding the DevOps Threat Matrix
       href: episode-thirty-four.md
     - name: Security alert correlation
-      href: episode-thirty-five.md                 
+      href: episode-thirty-five.md
+    - name: Defender CSPM support for GCP and more updates
+      href: episode-thirty-six.md
+    - name: Capabilities to counter identity-based supply chain attacks
+      href: episode-thirty-seven.md               
   - name: Manage user data
     href: privacy.md
   - name: Microsoft Defender for IoT documentation
