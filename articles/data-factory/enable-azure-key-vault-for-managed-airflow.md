@@ -6,7 +6,7 @@ ms.service: data-factory
 ms.topic: how-to
 author: nabhishek
 ms.author: abnarain
-ms.date: 01/20/2023
+ms.date: 08/29/2023
 ---
 
 # Enable Azure Key Vault for Managed Airflow in Azure Data Factory
