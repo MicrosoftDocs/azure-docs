@@ -70,3 +70,9 @@
     items:
     - name: Troubleshoot issues
       href: troubleshoot.md
+- name: Guidance
+  items:
+  - name: Migration from Microsoft Configuration Manager to Azure Update Manager
+    href: guidance-migration-azure.md
+  - name: Security awareness and Ubuntu Pro support
+    href: security-awareness-ubuntu-support.md
