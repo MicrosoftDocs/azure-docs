@@ -54,7 +54,7 @@ Create a new **VisionSource** object from a memory buffer containing the image d
 
 This is done by first creating a new [ImageSourceBuffer](/dotnet/api/azure.ai.vision.common.imagesourcebuffer), getting access to its [ImageWriter](/dotnet/api/azure.ai.vision.common.imagewriter) object and writing the image data into it.
 
-Both **VisionSource** and **ImageSourceBuffer** implements **IDisposable**, therefore create the object with a **using** statement or explicitly call **Dispose** method after analysis completes.
+Both **VisionSource** and **ImageSourceBuffer** implement **IDisposable**, therefore create the objects with a **using** statement or explicitly call their **Dispose** method after analysis completes.
 
 [!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/how-to/program.cs?name=vision_source)]
 

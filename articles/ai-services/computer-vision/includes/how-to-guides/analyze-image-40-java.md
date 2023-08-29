@@ -33,17 +33,31 @@ Start by creating a [VisionServiceOptions](TBD) object using one of the construc
 
 ## Select the image to analyze
 
-The code in this guide uses remote images referenced by URL. You may want to try different images on your own to see the full capability of the Image Analysis features.
+You can select an image by providing a publicly accessible URL, a local image file name, or by copying the image into an input buffer. See [Image requirements](../../overview-image-analysis?tabs=4-0#image-requirements) for supported image formats.
 
+### Image URL
 
-Create a new **VisionSource** object from the URL of the image you want to analyze, using the static constructor [VisionSource.fromUrl](TBD).
+Create a new **VisionSource** object from the URL of the image you want to analyze, using the static constructor [VisionSource.fromUrl](TBD). **VisionSource** implements **AutoCloseable**, therefore declare it in a try-with-resource statement, or explicitly call the **close** method after analysis completes.
 
-**VisionSource** implements **AutoCloseable**, therefore declare it in a try-with-resource statement, or explicitly call the **close** method after analysis completes.
+The code in this guide uses an example image URL. You may want to try different images on your own to see the full capability of the Image Analysis service.
 
 [!code-java[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/java/image-analysis/main.java?name=vision_source)]
 
-> [!TIP]
-> You can also analyze a local image by passing in the full-path image file name. See [VisionSource.fromFile](TBD).
+### Image file
+
+Create a new **VisionSource** object from the local image file you want to analyze, using the static constructor [VisionSource.fromFile](TBD). **VisionSource** implements **AutoCloseable**, therefore declare it in a try-with-resource statement, or explicitly call the **close** method after analysis completes.
+
+[!code-java[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/java/image-analysis/main.java?name=vision_source)]
+
+### Image buffer
+
+Create a new **VisionSource** object from a memory buffer containing the image data, using the static constructor [VisionSource.fromImageSourceBuffer](TBD).
+
+This is done by first creating a new [ImageSourceBuffer](TBD), getting access to its [ImageWriter](TBD) object and writing the image data into it.
+
+**VisionSource** and **ImageSourceBuffer** implement **AutoCloseable**, therefore declare them in a try-with-resource statement, or explicitly call their **close** method after analysis completes.
+
+[!code-java[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/java/image-analysis/main.java?name=vision_source)]
 
 
 ## Select analysis options

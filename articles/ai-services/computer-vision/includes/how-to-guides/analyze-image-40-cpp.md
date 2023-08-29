@@ -35,14 +35,30 @@ Where we used this helper function to read the value of an environment variable:
 
 ## Select the image to analyze
 
-The code in this guide uses remote images referenced by URL. You may want to try different images on your own to see the full capability of the Image Analysis features.
+You can select an image by providing a publicly accessible URL, a local image file name, or by copying the image into an input buffer. See [Image requirements](../../overview-image-analysis?tabs=4-0#image-requirements) for supported image formats.
+
+
+### Image URL
 
 Create a new **VisionSource** object from the URL of the image you want to analyze, using the static constructor [VisionSource::FromUrl](/cpp/cognitive-services/vision/input-visionsource#fromurl).
 
+The code in this guide uses an example image URL. You may want to try different images on your own to see the full capability of the Image Analysis service.
+
 [!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/how-to/how-to.cpp?name=vision_source)]
 
-> [!TIP]
-> You can also analyze a local image by passing in the full-path image file name. See [VisionSource::FromFile](/cpp/cognitive-services/vision/input-visionsource#fromfile).
+### Image file
+
+Create a new **VisionSource** object from the local image file you want to analyze, using the static constructor [VisionSource::FromFile](/cpp/cognitive-services/vision/input-visionsource#fromufile).
+
+[!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/how-to/how-to.cpp?name=vision_source)]
+
+### Image buffer
+
+Create a new **VisionSource** object from a memory buffer containing the image data, by using the static constructor [VisionSource::FromImageSourceBuffer](/cpp/cognitive-services/vision/input-visionsource#fromimagesourcebuffer).
+
+This is done by first creating a new [ImageSourceBuffer](/cpp/cognitive-services/vision/input-imagesourcebuffer), getting access to its [ImageWriter](/cpp/cognitive-services/input-imagewriter) object and writing the image data into it.
+
+[!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/how-to/how-to.cpp?name=vision_source)]
 
 
 ## Select analysis options
