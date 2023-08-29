@@ -3,7 +3,7 @@ title: Connect to OneLake Storage
 description: Learn how to connect to OneLake storage
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 07/11/2023
+ms.date: 08/29/2023
 ---
 
 # Connect to OneLake Storage

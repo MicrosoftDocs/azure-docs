@@ -3,7 +3,7 @@ title: Use Apache Superset with HDInsight on AKS Trino
 description: Deploying Superset and connecting to HDInsight on AKS Trino
 ms.service: hdinsight-aks
 ms.topic: how-to 
-ms.date: 08/07/2023
+ms.date: 08/29/2023
 ---
 
 # Deploy Apache Superset

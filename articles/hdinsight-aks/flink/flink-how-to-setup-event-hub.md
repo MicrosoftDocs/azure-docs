@@ -3,7 +3,7 @@ title: How to connect HDInsight on AKS Flink with Azure Event Hubs for Apache Ka
 description: Learn how to connect HDInsight on AKS Flink with Azure Event Hubs for Apache Kafka®
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/04/2023
+ms.date: 08/29/2023
 ---
 
 # Connect HDInsight on AKS Flink with Azure Event Hubs for Apache Kafka®

@@ -3,7 +3,7 @@ title: Table API and SQL - Use Iceberg Catalog type with Hive in HDInsight on AK
 description: Learn how to create Flink-Iceberg Catalog in HDInsight on AKS - Flink
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/17/2023
+ms.date: 08/29/2023
 ---
 
 # Create Flink-Iceberg Catalog

@@ -3,7 +3,7 @@ title: Trino UI
 description: Using Trino UI
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 07/25/2023
+ms.date: 08/29/2023
 ---
 
 # Trino UI

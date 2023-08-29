@@ -3,7 +3,7 @@ title: How to create Kafka table on FlinkSQL - Azure portal
 description: Learn how to create Kafka table on FlinkSQL
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/17/2023
+ms.date: 08/29/2023
 ---
 
 # Create Kafka table on FlinkSQL

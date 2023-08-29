@@ -3,7 +3,7 @@ title: Create a Flink cluster - Azure portal
 description: Creating a Flink cluster in HDInsight on AKS in the Azure portal.
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/01/2023
+ms.date: 08/29/2023
 ---
 
 # Create a Flink cluster in the Azure portal

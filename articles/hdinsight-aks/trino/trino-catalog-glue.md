@@ -3,7 +3,7 @@ title: Query data from AWS S3 and with Glue
 description: How to configure HDInsight on AKS Trino catalogs with Glue as metastore
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 07/31/2023
+ms.date: 08/29/2023
 ---
 
 

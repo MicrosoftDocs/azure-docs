@@ -3,7 +3,7 @@ title: Metrics and monitoring in HDInsight on AKS
 description: Learn about how HDInsight on AKS interacts with Azure Monitoring. 
 ms.service: hdinsight-aks
 ms.topic: conceptual
-ms.date: 06/07/2023
+ms.date: 08/29/2023
 ---
 
 # Azure Monitor integration

@@ -3,7 +3,7 @@ title: Connect Trino to Azure Data Factory
 description: Azure HDInsight on AKS Trino connector in Azure Data Factory
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/08/2023
+ms.date: 08/29/2023
 ---
 
 # Connect Trino to Azure Data Factory 

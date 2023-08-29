@@ -3,7 +3,7 @@ title: Export cluster ARM template
 description: Learn how to Create cluster ARM template
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/03/2023
+ms.date: 08/29/2023
 ---
 
 # Export cluster ARM template

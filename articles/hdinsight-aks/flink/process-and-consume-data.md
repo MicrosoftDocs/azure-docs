@@ -3,7 +3,7 @@ title: Using HDInsight Kafka with HDInsight on AKS Flink
 description: Learn how to use HDInsight Kafka with HDInsight on AKS Flink
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/24/2023
+ms.date: 08/29/2023
 ---
  
 # Using HDInsight Kafka with HDInsight on AKS - Flink

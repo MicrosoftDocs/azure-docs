@@ -2,7 +2,7 @@
 title: Manage cluster configuration
 description: How to update cluster configuration for HDInsight on AKS.
 ms.topic: how-to
-ms.date: 07/26/2023
+ms.date: 08/29/2023
 ---
 
 # Manage cluster configuration

@@ -3,7 +3,7 @@ title: Add custom plugins in Azure HDInsight on AKS
 description: Add custom plugins to an existing Trino cluster in HDInsight on AKS
 ms.service: hdinsight-aks
 ms.topic: how-to 
-ms.date: 08/07/2023
+ms.date: 08/29/2023
 ---
 
 # Custom plugins

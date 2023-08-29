@@ -3,7 +3,7 @@ title: Configure Iceberg catalog
 description: How to configure iceberg catalog in a Trino cluster.
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/16/2023
+ms.date: 08/29/2023
 ---
 
 # Configure Iceberg catalog
