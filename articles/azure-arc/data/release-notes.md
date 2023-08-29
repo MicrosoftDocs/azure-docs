@@ -27,7 +27,7 @@ For complete release version information, review [Version log](version-log.md#se
 
 ### Release notes
 
-- Portal automatically refreshes status of failover group every 2 seconds.
+- Portal automatically refreshes status of failover group every 2 seconds. [Monitor failover group status in the portal](managed-instance-disaster-recovery-portal.md#monitor-failover-group-status-in-the-portal).
 
 ### Image tag
 
