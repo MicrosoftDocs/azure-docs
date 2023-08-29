@@ -149,7 +149,13 @@
     - name: Prerequisites  
       href: azure-kubernetes-service-cluster-backup-concept.md      
   - name: Azure Blob backup
-    href: blob-backup-overview.md          
+    href: blob-backup-overview.md 
+  - name: Windows backup using MARS agent
+    items:
+    - name: Overview
+      href: backup-azure-about-mars.md
+    - name: Restore
+      href: about-restore-microsoft-azure-recovery-services.md        
   - name: Monitor and Alerts
     href: monitoring-and-alerts-overview.md
   - name: Security
@@ -179,7 +185,7 @@
     - name: Recovery Services vault
       items:
       - name: Create
-        href: backup-create-rs-vault.md
+        href: backup-create-recovery-services-vault.md
       - name: Delete
         href: backup-azure-delete-vault.md
       - name: Move
@@ -332,8 +338,6 @@
         href: azure-kubernetes-service-cluster-restore-using-cli.md      
   - name: Windows backup using MARS agent
     items:
-    - name: Overview
-      href: backup-azure-about-mars.md
     - name: Install or upgrade
       items:
       - name: Install MARS agent
@@ -348,8 +352,6 @@
         href: backup-azure-system-state.md
     - name: Restore
       items:
-      - name: Overview
-        href: about-restore-microsoft-azure-recovery-services.md
       - name: Recover files from Azure to Windows Server
         href: backup-azure-restore-windows-server.md
       - name: Restore all files in a volume
@@ -638,6 +640,8 @@
     items:
     - name: Overview
       href: security-overview.md
+    - name: Save and manage MARS agent passphrase in Azure Key Vault
+      href: save-backup-passphrase-securely-in-azure-key-vault.md
     - name: Azure role-based access control
       href: backup-rbac-rs-vault.md
     - name: Configure Multi-user authorization using Resource Guard
