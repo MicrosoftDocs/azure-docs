@@ -111,3 +111,11 @@ Specifically, if your application typically broadcasts to larger groups (size >1
 To ensure effective failover management, it is recommended to set each replica's unit size to handle all traffic. Alternatively, you could enable [autoscaling](howto-scale-autoscale.md) to manage this.
 
 For more performance evaluation, refer to [Performance](concept-performance.md).
+
+## Breaking issues
+* **Using replica, event handlers and Azure Function Web PubSub extension together**
+
+  If you integrate the Web PubSub event handler with an Azure Function that utilizes the Web PubSub extension, you may encounter issues with the abuse protection once replicas are enabled. To address this, you can either **disable the abuse protection** or upgrade to the latest SDK/extension versions.
+  
+  For a detailed explanation and potential solutions, please refer to this [issue](https://github.com/Azure/azure-webpubsub/issues/598).
+ 
