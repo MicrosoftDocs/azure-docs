@@ -11,10 +11,10 @@ ms.date: 08/28/2023
 
 > [!VIDEO https://aka.ms/docs/player?id=673a8d91-3b0e-4bfb-986c-888ae7532320]
 
-- [01:23](/shows/mdc-in-the-field/#time=01m23s) - Overview of the new announcements for multicloud
-- [05:09](/shows/mdc-in-the-field/#time=05m09s) - Microsoft CNAPP strategy
-- [08:55](/shows/mdc-in-the-field/#time=08m55s) - Agentless capability
-- [12:54](/shows/mdc-in-the-field/#time=12m54s) - Demonstration
+- [01:23](/shows/mdc-in-the-field/support-gcp#time=01m23s) - Overview of the new announcements for multicloud
+- [05:09](/shows/mdc-in-the-field/support-gcp#time=05m09s) - Microsoft CNAPP strategy
+- [08:55](/shows/mdc-in-the-field/support-gcp#time=08m55s) - Agentless capability
+- [12:54](/shows/mdc-in-the-field/support-gcp#time=12m54s) - Demonstration
 
 ## Recommended resources
 
