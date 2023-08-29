@@ -20,9 +20,9 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | [Defender for IoT's CVE's align to CVSS v3](#defender-for-iots-cves-align-to-cvss-v3) |
+| **OT networks** | [Defender for IoT's CVEs align to CVSS v3](#defender-for-iots-cves-align-to-cvss-v3) |
 
-### Defender for IoT's CVE's align to CVSS v3
+### Defender for IoT's CVEs align to CVSS v3
 
 CVE scores shown in the OT sensor and on the Azure portal are aligned with the [National Vulnerability Database (NVD)](https://nvd.nist.gov/vuln-metrics/cvss), and starting with Defender for IoT's August threat intelligence update, CVSS v3 scores are shown if they're relevant. If there's no CVSS v3 score relevant, the CVSS v2 score is shown instead.
 
