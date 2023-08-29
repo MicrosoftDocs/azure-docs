@@ -27,7 +27,7 @@ Before you can build business-to-business (B2B) and enterprise integration workf
 You also need an integration account to electronically exchange B2B messages with other organizations. When other organizations use protocols and message formats different from your organization, you have to convert these formats so your organization's system can process those messages. With Azure Logic Apps, you can build workflows that support the following industry-standard protocols:
 
 * [AS2](../logic-apps-enterprise-integration-as2.md)
-* [EDIFACT]../(logic-apps-enterprise-integration-edifact.md)
+* [EDIFACT](../logic-apps-enterprise-integration-edifact.md)
 * [RosettaNet](../logic-apps-enterprise-integration-rosettanet.md)
 * [X12](../logic-apps-enterprise-integration-x12.md)
 
