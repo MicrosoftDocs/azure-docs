@@ -21,7 +21,7 @@ Azure AI services are cloud-based artificial intelligence (AI) services that hel
 ## Prerequisites
 
 * A valid Azure subscription - [Create one](https://azure.microsoft.com/free/cognitive-services) for free.
-* The [Azure PowerShell](/powershell/azure/install-azure-powershell)
+* [Azure PowerShell](/powershell/azure/install-azure-powershell)
 * [!INCLUDE [contributor-requirement](contributor-requirement.md)]
 * [!INCLUDE [terms-azure-portal](terms-azure-portal.md)]
 
@@ -29,7 +29,7 @@ Azure AI services are cloud-based artificial intelligence (AI) services that hel
 
 Install [Azure PowerShell](/powershell/azure/install-azure-powershell). To sign in, run the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) command:
 
-```powershell
+```azurepowershell
 Connect-AzAccount
 ```
 
@@ -47,14 +47,14 @@ To create a resource, you'll need one of the Azure locations available for your 
 > * Remember your Azure location, as you will need it when calling the Azure AI services resources.
 > * The availability of some Azure AI services can vary by region. For more information, see [Azure products by region](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services).
 
-```powershell
-Get-AzLocation | Select Location, DisplayName
+```azurepowershell-interactive
+Get-AzLocation | Select-Object -Property Location, DisplayName
 ```
 
-After you have your Azure location, create a new resource group in the Azure CLI using the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) command. In the example below, replace the Azure location `westus2` with one of the Azure locations available for your subscription.
+After you have your Azure location, create a new resource group in Azure PowerShell using the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) command. In the example below, replace the Azure location `westus2` with one of the Azure locations available for your subscription.
 
-```powershell
-New-AzResourceGroup -Name OAIResourceGroup -Location "WestUS2"
+```azurepowershell-interactive
+New-AzResourceGroup -Name ai-services-resource-group -Location westus2
 ```
 
 ## Create an Azure AI services resource
@@ -67,7 +67,7 @@ When you create a new resource, you'll need to know the kind of service you want
 
 You can find a list of available Azure AI services "kinds" with the [Get-AzCognitiveServicesAccountType](/powershell/module/az.cognitiveservices/get-azcognitiveservicesaccounttype) command:
 
-```powershell
+```azurepowershell-interactive
 Get-AzCognitiveServicesAccountType
 ```
 
@@ -77,19 +77,19 @@ To create and subscribe to a new Azure AI services resource, use the [New-AzCogn
 
 You can create a Standard S0 multi-service resource named `multi-service-resource` with the command below.
 
-```powershell
-New-AzCognitiveServicesAccount -ResourceGroupName ai-services-resource-group -name multi-service-resource -Type CognitiveServices -SkuName S0 -Location 'Westus2'
+```azurepowershell-interactive
+New-AzCognitiveServicesAccount -ResourceGroupName ai-services-resource-group -Name multi-service-resource -Type CognitiveServices -SkuName F0 -Location westus2
 ```
 
 > [!Tip]
-> If your subscription doesn't allow you to create an Azure AI services resource, you may need to enable the privilege of that [Azure resource provider](../../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) using the [Azure portal](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal), [PowerShell command](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell) or an [Azure CLI command](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli). If you are not the subscription owner, ask the *Subscription Owner* or someone with a role of *admin* to complete the registration for you or ask for the **/register/action** privileges to be granted to your account.
+> If your subscription doesn't allow you to create an Azure AI services resource, you may need to enable the privilege of that [Azure resource provider](../../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) using the [Azure portal](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal), an [Azure PowerShell command](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell) or an [Azure CLI command](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli). If you are not the subscription owner, ask the *Subscription Owner* or someone with a role of *admin* to complete the registration for you or ask for the **/register/action** privileges to be granted to your account.
 
 ## Get the keys for your resource
 
 Use the [Get-AzCognitiveServicesAccountKey](/powershell/module/az.cognitiveservices/get-azcognitiveservicesaccountkey) command to get the keys for your resource.
 
-```powershell
-Get-AzCognitiveServicesAccountKey -Name multi-service-resource -ResourceGroupName OAIResourceGroup ai-services-resource-group
+```azurepowershell-interactive
+Get-AzCognitiveServicesAccountKey -Name multi-service-resource -ResourceGroupName ai-services-resource-group
 ```
 
 [!INCLUDE [environment-variables](environment-variables.md)]
@@ -105,7 +105,7 @@ Pricing tiers (and the amount you get billed) are based on the number of transac
 
 Use the [Get-AzCognitiveServicesAccountUsage](/powershell/module/az.cognitiveservices/get-azcognitiveservicesaccountusage) command to get the usage for your resource.
 
-```powershell
+```azurepowershell-interactive
 Get-AzCognitiveServicesAccountUsage -ResourceGroupName ai-services-resource-group -Name multi-service-resource
 ```
 
@@ -115,7 +115,7 @@ If you want to clean up and remove an Azure AI services resource, you can delete
 
 To remove the resource group and its associated resources, use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) command.
 
-```azurecli-interactive
+```azurepowershell-interactive
 Remove-AzResourceGroup -Name ai-services-resource-group
 ```
 
