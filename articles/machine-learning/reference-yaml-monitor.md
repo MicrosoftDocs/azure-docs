@@ -95,25 +95,30 @@ As the data used to train the model evolves in production, the distribution of t
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ------------| ---------------| ------------- |
 | `type` | String | **Required**. Type of monitoring signal. Prebuilt monitoring signal processing component is automatically loaded according to the `type` specified here. | `data_drift` | `data_drift` |
-| `target_dataset` | Object | **Optional**. Description of production data to be analyzed for monitoring signal. | | |
-| `target_dataset.dataset` | Object | **Optional**. Description of production data to be analyzed for monitoring signal. | | |
-| `target_dataset.dataset.input_dataset` | Object | **Optional**. Description of input data source, see [job input data](./reference-yaml-job-command.md#job-inputs) specification. | | |
-| `target_dataset.dataset.dataset_context` | String | The context of data, it refers model production data and could be model inputs or model outputs | `model_inputs` |  |
-| `target_dataset.dataset.pre_processing_component` | String | Component ID in the format of `azureml:myPreprocessing@latest` for a registered component. This is required if `target_dataset.dataset.input_dataset.type` is `uri_folder`, see [preprocessing component specification](./how-to-monitor-model-performance.md#set-up-model-monitoring-by-bringing-your-own-production-data-to-azure-machine-learning). | | |
-| `target_dataset.data_window_size` | Integer |**Optional**. Data window size in days. This is the production data window to be computed for data drift. | By default the data window size is the last monitoring period. | |
-| `baseline_dataset` | Object | **Optional**. Recent past production data is used as comparison baseline data if this isn't specified. Recommendation is to use training data as comparison baseline. | | |
-| `baseline_dataset.input_dataset` | Object | Description of input data source, see [job input data](./reference-yaml-job-command.md#job-inputs) specification. | | |
-| `baseline_dataset.dataset_context` | String | The context of data, it refers to the context that dataset was used before | `model_inputs`, `training`, `test`, `validation` |  |
-| `baseline_dataset.pre_processing_component` | String | Component ID in the format of `azureml:myPreprocessing@latest` for a registered component. This is **required** if `baseline_dataset.input_dataset.type` is `uri_folder`, see [preprocessing component specification](./how-to-monitor-model-performance.md#set-up-model-monitoring-by-bringing-your-own-production-data-to-azure-machine-learning). | | |
+| `production_data` | Object | **Optional**. Description of production data to be analyzed for monitoring signal. | | |
+| `production_data.input_data` | Object | **Optional**. Description of input data source, see [job input data](./reference-yaml-job-command.md#job-inputs) specification. | | |
+| `production_data.data_context` | String | The context of data, it refers model production data and could be model inputs or model outputs | `model_inputs` |  |
+| `production_data.pre_processing_component` | String | Component ID in the format of `azureml:myPreprocessing@latest` for a registered component. This is required if `target_dataset.dataset.input_dataset.type` is `uri_folder`, see [preprocessing component specification](./how-to-monitor-model-performance.md#set-up-model-monitoring-by-bringing-your-own-production-data-to-azure-machine-learning). | | |
+| `production_data.data_window_size` | Integer |**Optional**. Data window size in days. This is the production data window to be computed for data drift. | By default the data window size is the last monitoring period. | |
+| `reference_data` | Object | **Optional**. Recent past production data is used as comparison baseline data if this isn't specified. Recommendation is to use training data as comparison baseline. | | |
+| `reference_data.input_data` | Object | Description of input data source, see [job input data](./reference-yaml-job-command.md#job-inputs) specification. | | |
+| `reference_data.data_context` | String | The context of data, it refers to the context that dataset was used before | `model_inputs`, `training`, `test`, `validation` |  |
+| `reference_data.target_column_name` | Object | **Optional**. If the 'reference_data' is training data, this property is required for monitoring top N features for data drift. | | |
+| `reference_data.data_window` | Object | **Optional**. Data window of the reference data to be used as comparison baseline data. | | |
+| `reference_data.data_window.trailing_window_offset` | Object | **Optional**. Data window of the reference data to be used as comparison baseline data. | | |
+| `reference_data.data_window.trailing_window_size` | Object | **Optional**. Data window of the reference data to be used as comparison baseline data. | | |
+| `reference_data.data_window.window_end` | Object | **Optional**. Data window of the reference data to be used as comparison baseline data. | | |
+| `reference_data.data_window.window_start` | Object | **Optional**. Data window of the reference data to be used as comparison baseline data. | | |
+| `reference_data_data.pre_processing_component` | String | Component ID in the format of `azureml:myPreprocessing@latest` for a registered component. This is **required** if `baseline_dataset.input_dataset.type` is `uri_folder`, see [preprocessing component specification](./how-to-monitor-model-performance.md#set-up-model-monitoring-by-bringing-your-own-production-data-to-azure-machine-learning). | | |
 | `features` | Object | **Optional**. Target features to be monitored for data drift. Some models might have hundreds or thousands of features, it's always recommended to specify interested features for monitoring. | One of following values: list of feature names, `features.top_n_feature_importance`, or `all_features` | Default `features.top_n_feature_importance = 10` if `baseline_dataset.dataset_context` is `training`, otherwise, default is `all_features` |
+| `feature_type_override` | Object | **Optional**. List of features and their feature types to be overriden in `key:value` format, `key` is the feature name and `value` is either `categorical` or `numerical` feature type. | | |
 | `data_segment` | Object | **Optional**. Description of specific data segment to be monitored for data drift. | | |
 | `data_segment.feature_name` | String | The name of feature used to filter for data segment. | | |
 | `data_segment.feature_values` | Array | list of feature values used to filter for data segment | | |
-| `alert_notification` | Boolean | Turn on/off alert notification for the monitoring signal. `True` or `False` | | |
-| `metric_thresholds` | Object | List of metrics and thresholds properties for the monitoring signal. When threshold is exceeded and `alert_notification` is on, user will receive alert notification. | | By default, the object contains `numerical` metric `population_stability_index` with threshold of `0.02` and `categorical` metric `normalized_wasserstein_distance` with threshold of `0.02`|
-| `metric_thresholds.applicable_feature_type` | String | Feature type that the metric will be applied to. | `numerical` or `categorical`| |
-| `metric_thresholds.metric_name` | String | The metric name for the specified feature type. | Allowed `numerical` metric names: `jensen_shannon_distance`, `population_stability_index`, `two_sample_kolmogorov_test`. Allowed `categorical` metric names: `normalized_wasserstein_distance`, `chi_squared_test` | |
-| `metric_thresholds.threshold` | Number | The threshold for the specified metric. | | |
+| `alert_enabled` | Boolean | Turn on/off alert notification for the monitoring signal. `True` or `False` | | |
+| `metric_thresholds` | Object | List of metrics and thresholds properties for the monitoring signal. When threshold is exceeded and `alert_enabled` is `true`, user will receive alert notification. | | |
+| `metric_thresholds.numerical` | Object | Optional. List of metrics and thresholds in `key:value` format, `key` is the metric name, `value` is the threshold. | Allowed numberical metric names: `jensen_shannon_distance`, `normalized_wasserstein_distance`, `population_stability_index`, `two_sample_kolmogorov_smirnov_test`| |
+| `metric_thresholds.categorical` | Object | Optional. List of metrics and thresholds in 'key:value' format, 'key' is the metric name, 'value' is the threshold. | Allowed `categorical` metric names: `jensen_shannon_distance`, `chi_squared_test`, `population_stability_index`| |
 
 
 #### Prediction drift
@@ -123,22 +128,25 @@ Prediction drift tracks changes in the distribution of a model's prediction outp
 | Key | Type | Description | Allowed values | Default value |
 | --- | --- | ------------| --------------| ----------|
 | `type` | String | **Required**. Type of monitoring signal. Prebuilt monitoring signal processing component is automatically loaded according to the `type` specified here | `prediction_drift` | `prediction_drift`|
-| `target_dataset` | Object | **Optional**. Description of production data to be analyzed for monitoring signal. | | |
-| `target_dataset.dataset` | Object | **Optional**. Description of production data to be analyzed for monitoring signal. | | |
-| `target_dataset.dataset.input_dataset` | Object | **Optional**. Description of input data source,  see [job input data](./reference-yaml-job-command.md#job-inputs) specification.| | |
-| `target_dataset.dataset.dataset_context` | String | The context of data, it refers model production data and could be model inputs or model outputs | `model_outputs` |  |
-| `target_dataset.dataset.pre_processing_component` | String | Component ID in the format of `azureml:myPreprocessing@latest` for a registered component. This is required if `target_dataset.dataset.input_dataset.type` is `uri_folder`, see [preprocessing component specification](./how-to-monitor-model-performance.md#set-up-model-monitoring-by-bringing-your-own-production-data-to-azure-machine-learning). | | |
-| `target_dataset.data_window_size` | Integer | **Optional**. Data window size in days. This is the production data window to be computed for prediction drift. | By default the data window size is the last monitoring period.| |
-| `baseline_dataset` | Object | **Optional**. Recent past production data is used as comparison baseline data if this isn't specified. Recommendation is to use training data as comparison baseline. | | |
-| `baseline_dataset.input_dataset` | Object | Description of input data source, see [job input data](./reference-yaml-job-command.md#job-inputs) specification. | | |
-| `baseline_dataset.dataset_context` | String | The context of data, it refers to the context that dataset come from. | `model_inputs`, `model_outputs`, `test`, `validation` |  |
-| `baseline_dataset.target_column_name` | String | The name of target column. | | |
-| `baseline_dataset.pre_processing_component` | String | Component ID in the format of `azureml:myPreprocessing@latest` for a registered component. This is required if `baseline_dataset.input_dataset.type` is `uri_folder`, see [preprocessing component specification](./how-to-monitor-model-performance.md#set-up-model-monitoring-by-bringing-your-own-production-data-to-azure-machine-learning). | | |
-| `alert_notification` | Boolean | Turn on/off alert notification for the monitoring signal. `True` or `False` | | |
-| `metric_thresholds` | Object | List of metrics and thresholds properties for the monitoring signal. When threshold is exceeded and `alert_notification` is on, user will receive alert notification. | | By default, the object contains `numerical` metric `population_stability_index` with threshold of `0.02` and `categorical` metric `normalized_wasserstein_distance` with threshold of `0.02`|
-|`metric_thresholds.applicable_feature_type` | String | Feature type that the metric will be applied to. | `numerical` or `categorical`| |
-| `metric_thresholds.metric_name` | String | The metric name for the specified feature type. | Allowed `numerical` metric names: `jensen_shannon_distance`, `population_stability_index`, `two_sample_kolmogorov_test`. Allowed `categorical` metric names: `normalized_wasserstein_distance`, `chi_squared_test` | |
-| `metric_thresholds.threshold` | Number | The threshold for the specified metric. | | |
+| `production_data` | Object | **Optional**. Description of production data to be analyzed for monitoring signal. | | |
+| `production_data.input_data` | Object | **Optional**. Description of input data source,  see [job input data](./reference-yaml-job-command.md#job-inputs) specification.| | |
+| `production_data.data_context` | String | The context of data, it refers model production data and could be model inputs or model outputs | `model_outputs` |  |
+| `production_data.pre_processing_component` | String | Component ID in the format of `azureml:myPreprocessing@latest` for a registered component. This is required if `production_data.input_data.type` is `uri_folder`, see [preprocessing component specification](./how-to-monitor-model-performance.md#set-up-model-monitoring-by-bringing-your-own-production-data-to-azure-machine-learning). | | |
+| `production_data.data_window_size` | Integer | **Optional**. Data window size in days. This is the production data window to be computed for prediction drift. | By default the data window size is the last monitoring period.| |
+| `reference_data` | Object | **Optional**. Recent past production data is used as comparison baseline data if this isn't specified. Recommendation is to use validation or testing data as comparison baseline. | | |
+| `reference_data.input_data` | Object | Description of input data source, see [job input data](./reference-yaml-job-command.md#job-inputs) specification. | | |
+| `reference_data.data_context` | String | The context of data, it refers to the context that dataset come from. | `model_outputs`, `testing`, `validation` |  |
+| `reference_data.target_column_name` | String | The name of target column, **Required** if the `reference_data.data_context` is `testing` or `validation` | | |
+| `reference_data.data_window` | Object | **Optional**. Data window of the reference data to be used as comparison baseline data. | | |
+| `reference_data.data_window.trailing_window_offset` | Object | **Optional**. Data window of the reference data to be used as comparison baseline data. | | |
+| `reference_data.data_window.trailing_window_size` | Object | **Optional**. Data window of the reference data to be used as comparison baseline data. | | |
+| `reference_data.data_window.window_end` | Object | **Optional**. Data window of the reference data to be used as comparison baseline data. | | |
+| `reference_data.data_window.window_start` | Object | **Optional**. Data window of the reference data to be used as comparison baseline data. | | |
+| `reference_data.pre_processing_component` | String | Component ID in the format of `azureml:myPreprocessing@latest` for a registered component. **Required** if `reference_data.input_data.type` is `uri_folder`, see [preprocessing component specification](./how-to-monitor-model-performance.md#set-up-model-monitoring-by-bringing-your-own-production-data-to-azure-machine-learning). | | |
+| `alert_enabled` | Boolean | Turn on/off alert notification for the monitoring signal. `True` or `False` | | |
+| `metric_thresholds` | Object | List of metrics and thresholds properties for the monitoring signal. When threshold is exceeded and `alert_enabled` is `true`, user will receive alert notification. | | |
+| `metric_thresholds.numerical` | Object | Optional. List of metrics and thresholds in `key:value` format, `key` is the metric name, `value` is the threshold. | Allowed numberical metric names: `jensen_shannon_distance`, `normalized_wasserstein_distance`, `population_stability_index`, `two_sample_kolmogorov_smirnov_test`| |
+| `metric_thresholds.categorical` | Object | Optional. List of metrics and thresholds in `key:value` format, `key` is the metric name, `value` is the threshold. | Allowed `categorical` metric names: `jensen_shannon_distance`, `chi_squared_test`, `population_stability_index`| |
 
 
 #### Data quality
@@ -148,22 +156,27 @@ Data quality signal tracks data quality issues in production by comparing to tra
 | Key | Type | Description | Allowed values | Default value |
 | --- | --- | ------------ | -------------- | ----------  |
 | `type` | String | **Required**. Type of monitoring signal. Prebuilt monitoring signal processing component is automatically loaded according to the `type` specified here |`data_quality` | `data_quality`|
-| `target_dataset` | Object | **Optional**. Description of production data to be analyzed for monitoring signal. | | |
-| `target_dataset.dataset` | Object | **Optional**. Description of production data to be analyzed for monitoring signal. | | |
-| `target_dataset.dataset.input_dataset` | Object | **Optional**. Description of input data source,  see [job input data](./reference-yaml-job-command.md#job-inputs) specification.| | |
-| `target_dataset.dataset.dataset_context` | String | The context of data, it refers model production data and could be model inputs or model outputs | `model_inputs`, `model_outputs` | |
-| `target_dataset.dataset.pre_processing_component` | String | Component ID in the format of `azureml:myPreprocessing@latest` for a registered component. This is required if `target_dataset.dataset.input_dataset.type` is `uri_folder`, see [preprocessing component specification](./how-to-monitor-model-performance.md#set-up-model-monitoring-by-bringing-your-own-production-data-to-azure-machine-learning). | | |
-| `target_dataset.data_window_size` | Integer | **Optional**. Data window size in days. This is the production data window to be computed for data quality issues. | By default the data window size is the last monitoring period.| |
-| `baseline_dataset` | Object | **Optional**. Recent past production data is used as comparison baseline data if this isn't specified. Recommendation is to use training data as comparison baseline. | | |
-| `baseline_dataset.input_dataset` | Object | Description of input data source, see [job input data](./reference-yaml-job-command.md#job-inputs) specification. | | |
-| `baseline_dataset.dataset_context` | String | The context of data, it refers to the context that dataset was used before | `model_inputs`, `model_outputs`, `training`, `test`, `validation` |  |
-| `baseline_dataset.pre_processing_component` | String | Component ID in the format of `azureml:myPreprocessing@latest` for a registered component. This is required if `baseline_dataset.input_dataset.type` is `uri_folder`, see [preprocessing component specification](./how-to-monitor-model-performance.md#set-up-model-monitoring-by-bringing-your-own-production-data-to-azure-machine-learning). | | |
+| `production_data` | Object | **Optional**. Description of production data to be analyzed for monitoring signal. | | |
+| `production_data.input_data` | Object | **Optional**. Description of input data source,  see [job input data](./reference-yaml-job-command.md#job-inputs) specification.| | |
+| `production_data.data_context` | String | The context of data, it refers model production data and could be model inputs or model outputs | `model_inputs`, `model_outputs` | |
+| `production_data.pre_processing_component` | String | Component ID in the format of `azureml:myPreprocessing@latest` for a registered component. This is required if `production_data.input_data.type` is `uri_folder`, see [preprocessing component specification](./how-to-monitor-model-performance.md#set-up-model-monitoring-by-bringing-your-own-production-data-to-azure-machine-learning). | | |
+| `production_data.data_window_size` | Integer | **Optional**. Data window size in days. This is the production data window to be computed for data quality issues. | By default the data window size is the last monitoring period.| |
+| `reference_data` | Object | **Optional**. Recent past production data is used as comparison baseline data if this isn't specified. Recommendation is to use training data as comparison baseline. | | |
+| `reference_data.input_data` | Object | Description of input data source, see [job input data](./reference-yaml-job-command.md#job-inputs) specification. | | |
+| `reference_data.data_context` | String | The context of data, it refers to the context that dataset was used before | `model_inputs`, `model_outputs`, `training`, `test`, `validation` |  |
+| `reference_data.target_column_name` | Object | **Optional**. If the 'reference_data' is training data, this property is required for monitoring top N features for data drift. | | |
+| `reference_data.data_window` | Object | **Optional**. Data window of the reference data to be used as comparison baseline data. | | |
+| `reference_data.data_window.trailing_window_offset` | Object | **Optional**. Data window of the reference data to be used as comparison baseline data. | | |
+| `reference_data.data_window.trailing_window_size` | Object | **Optional**. Data window of the reference data to be used as comparison baseline data. | | |
+| `reference_data.data_window.window_end` | Object | **Optional**. Data window of the reference data to be used as comparison baseline data. | | |
+| `reference_data.data_window.window_start` | Object | **Optional**. Data window of the reference data to be used as comparison baseline data. | | |
+| `reference_data.pre_processing_component` | String | Component ID in the format of `azureml:myPreprocessing@latest` for a registered component. This is required if `reference_data.input_data.type` is `uri_folder`, see [preprocessing component specification](./how-to-monitor-model-performance.md#set-up-model-monitoring-by-bringing-your-own-production-data-to-azure-machine-learning). | | |
 | `features` | Object | **Optional**. Target features to be monitored for data quality. Some models might have hundreds or thousands of features. It's always recommended to specify interested features for monitoring. | One of following values: list of feature names, `features.top_n_feature_importance`, or `all_features` | Default to `features.top_n_feature_importance = 10` if `baseline_dataset.dataset_context` is `training`, otherwise default is `all_features` |
-| `alert_notification` | Boolean | Turn on/off alert notification for the monitoring signal. `True` or `False` | | |
-| `metric_thresholds` | Object | List of metrics and thresholds properties for the monitoring signal. When threshold is exceeded and `alert_notification` is on, user will receive alert notification. | |By default, the object contains following `numerical` and ` categorical` metrics: `null_value_rate`, `data_type_error_rate`, and `out_of_bounds_rate` |
-| `metric_thresholds.applicable_feature_type` | String | Feature type that the metric will be applied to. | `numerical` or `categorical`| |
-| `metric_thresholds.metric_name` | String | The metric name for the specified feature type. | Allowed `numerical` and `categorical` metric names are: `null_value_rate`, `data_type_error_rate`, `out_of_bounds_rate` | |
-| `metric_thresholds.threshold` | Number | The threshold for the specified metric. | | |
+| `feature_type_override` | Object | **Optional**. List of features and their feature types to be overriden in `key:value` format, `key` is the feature name and `value` is either `categorical` or `numerical` feature type. | | |
+| `alert_enabled` | Boolean | Turn on/off alert notification for the monitoring signal. `True` or `False` | | |
+| `metric_thresholds` | Object | List of metrics and thresholds properties for the monitoring signal. When threshold is exceeded and `alert_enabled` is `true`, user will receive alert notification. | | |
+| `metric_thresholds.numerical` | Object | Optional. List of metrics and thresholds in `key:value` format, `key` is the metric name, `value` is the threshold. | Allowed numberical metric names: `data_type_error_rate`, `null_value_rate`, `out_of_bounds_rate`| |
+| `metric_thresholds.categorical` | Object | Optional. List of metrics and thresholds in `key:value` format, `key` is the metric name, `value` is the threshold. | Allowed `categorical` metric names: `data_type_error_rate`, `null_value_rate`, `out_of_bounds_rate`| |
 
 #### Feature attribution drift
 
@@ -172,21 +185,19 @@ The feature attribution of a model may change over time due to changes in the di
 | Key | Type | Description | Allowed values | Default value |
 | --- | --- | ------------| --------------| ----------|
 | `type` | String | **Required**. Type of monitoring signal. Prebuilt monitoring signal processing component is automatically loaded according to the `type` specified here | `feature_attribution_drift` |  `feature_attribution_drift` |
-| `target_dataset` | Object | **Optional**. Description of production data to be analyzed for monitoring signal. | | |
-| `target_dataset.dataset` | Object | **Optional**. Description of production data to be analyzed for monitoring signal. | | |
-| `target_dataset.dataset.input_dataset` | Object | **Optional**. Description of input data source,  see [job input data](./reference-yaml-job-command.md#job-inputs) specification.| | |
-| `target_dataset.dataset.dataset_context` | String | The context of data. It refers to production model inputs data. | `model_inputs` |  |
-| `target_dataset.dataset.pre_processing_component` | String | Component ID in the format of `azureml:myPreprocessing@latest` for a registered component. This is required if `target_dataset.dataset.input_dataset.type` is `uri_folder`, see [preprocessing component specification](./how-to-monitor-model-performance.md#set-up-model-monitoring-by-bringing-your-own-production-data-to-azure-machine-learning). | | |
-| `target_dataset.lookback_period_days` | Integer |Lookback window to include extra data in current monitoring run, this is useful if you want model monitoring to run more frequently but the production data within monitoring period isn't enough or skewed. | | |
-| `baseline_dataset` | Object | **Required**. It must be `training` data. | | |
-| `baseline_dataset.input_dataset` | Object | Description of input data source, see [job input data](./reference-yaml-job-command.md#job-inputs) specification. | | |
-| `baseline_dataset.dataset_context` | String | The context of data, it refers to the context that dataset was used before. | `training` |  |
-| `baseline_dataset.pre_processing_component` | String | Component ID in the format of `azureml:myPreprocessing@latest` for a registered component. This is required if `baseline_dataset.input_dataset.type` is `uri_folder`, see [preprocessing component specification](./how-to-monitor-model-performance.md#set-up-model-monitoring-by-bringing-your-own-production-data-to-azure-machine-learning). | | |
-| `alert_notification` | Boolean | Turn on/off alert notification for the monitoring signal. `True` or `False` | | |
-| `metric_thresholds` | Object | List of metrics and thresholds properties for the monitoring signal. When threshold is exceeded and `alert_notification` is on, user will receive alert notification. | | By default, the object contains `normalized_discounted_cumulative_gain` metric with threshold of `0.02`|
-|`metric_thresholds.applicable_feature_type` | String | Feature type that the metric will be applied to. | `all_feature_types` | `all feature_types` |
-| `metric_thresholds.metric_name` | String | The metric name for the specified feature type. | `normalized_discounted_cumulative_gain` | `normalized_discounted_cumulative_gain` |
-| `metric_thresholds.threshold` | Number | The threshold for the specified metric. | | `0.02` |
+| `production_data` | Array | **Optional**, default to collected data associated with AzureML endpoint if this is not provided. The `production_data` is a list of dataset and its associated meta data, it must include both model inputs and model outputs data. It could be a single dataset with both model inputs and outputs, or it could be two seperate datasets containing one model inputs and one model outputs.| | |
+| `production_data.input_data` | Object | **Optional**. Description of input data source,  see [job input data](./reference-yaml-job-command.md#job-inputs) specification.| | |
+| `production_data.data_context` | String | The context of data. It refers to production model inputs data. | `model_inputs`, `model_outputs`, `model_inputs_outputs` |  |
+| `production_data.data_column_names` | Object | Correlation column name and prediction colum names in `key:value` format, needed for data joining. | Allowed keys are: `correlation_id`, `prediction`, `prediction_probability`  |
+| `production_data.pre_processing_component` | String | Component ID in the format of `azureml:myPreprocessing@latest` for a registered component. This is required if `production_data.input_data.type` is `uri_folder`, see [preprocessing component specification](./how-to-monitor-model-performance.md#set-up-model-monitoring-by-bringing-your-own-production-data-to-azure-machine-learning). | | |
+| `production_data.data_window_size` | Integer | **Optional**. Data window size in days. This is the production data window to be computed for data quality issues. | By default the data window size is the last monitoring period.| |
+| `reference_data` | Object | **Optional**. Recent past production data is used as comparison baseline data if this isn't specified. Recommendation is to use training data as comparison baseline. | | |
+| `reference_data.input_data` | Object | Description of input data source, see [job input data](./reference-yaml-job-command.md#job-inputs) specification. | | |
+| `reference_data.data_context` | String | The context of data, it refers to the context that dataset was used before | `model_inputs`, `model_outputs`, `training`, `test`, `validation` |  |
+| `reference_data.target_column_name` | Object | **Optional**. If the 'reference_data' is training data, this property is required for monitoring top N features for data drift. | | |
+| `reference_data.pre_processing_component` | String | Component ID in the format of `azureml:myPreprocessing@latest` for a registered component. This is required if `reference_data.input_data.type` is `uri_folder`, see [preprocessing component specification](./how-to-monitor-model-performance.md#set-up-model-monitoring-by-bringing-your-own-production-data-to-azure-machine-learning). | | |
+| `alert_enabled` | Boolean | Turn on/off alert notification for the monitoring signal. `True` or `False` | | |
+| `metric_thresholds` | Object | Metric name and threshold for feature attribution drift in `key:value` format. When threshold is exceeded and `alert_enabled` is on, user will receive alert notification. | Allowed metric name: `normalized_discounted_cumulative_gain` | Defaut threshold of `0.02`|
 
 ## Remarks
 
