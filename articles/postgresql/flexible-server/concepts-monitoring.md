@@ -77,45 +77,45 @@ You can choose from the following categories of enhanced metrics:
 
 |Display name|Metric ID|Unit|Description|Dimension|Default enabled|
 |---|---|---|---|---|---|
-|**Sessions By State** (Preview)|`sessions_by_state` |Count|Overall state of the back ends. |State|No|
-|**Sessions By WaitEventType** (Preview)|`sessions_by_wait_event_type` |Count|Sessions by the type of event for which the back end is waiting.|Wait Event Type|No|
-|**Oldest Backend** (Preview) |`oldest_backend_time_sec` |Seconds|Age in seconds of the oldest back end (irrespective of the state).|Doesn't apply|No|
-|**Oldest Query** (Preview) |`longest_query_time_sec`|Seconds|Age in seconds of the longest query that's currently running. |Doesn't apply|No|
-|**Oldest Transaction** (Preview) |`longest_transaction_time_sec`|Seconds|Age in seconds of the longest transaction (including idle transactions).|Doesn't apply|No|
-|**Oldest xmin** (Preview)|`oldest_backend_xmin`|Count|The actual value of the oldest `xmin`. If `xmin` isn't increasing, it indicates that there are some long-running transactions that can potentially hold dead tuples from being removed. |Doesn't apply|No|
-|**Oldest xmin Age** (Preview)|`oldest_backend_xmin_age`|Count|Age in units of the oldest `xmin`. Indicates how many transactions passed since the oldest `xmin`. |Doesn't apply|No|
+|**Sessions By State** |`sessions_by_state` |Count|Overall state of the back ends. |State|No|
+|**Sessions By WaitEventType** |`sessions_by_wait_event_type` |Count|Sessions by the type of event for which the back end is waiting.|Wait Event Type|No|
+|**Oldest Backend** |`oldest_backend_time_sec` |Seconds|Age in seconds of the oldest back end (irrespective of the state).|Doesn't apply|No|
+|**Oldest Query** |`longest_query_time_sec`|Seconds|Age in seconds of the longest query that's currently running. |Doesn't apply|No|
+|**Oldest Transaction** |`longest_transaction_time_sec`|Seconds|Age in seconds of the longest transaction (including idle transactions).|Doesn't apply|No|
+|**Oldest xmin** |`oldest_backend_xmin`|Count|The actual value of the oldest `xmin`. If `xmin` isn't increasing, it indicates that there are some long-running transactions that can potentially hold dead tuples from being removed. |Doesn't apply|No|
+|**Oldest xmin Age** |`oldest_backend_xmin_age`|Count|Age in units of the oldest `xmin`. Indicates how many transactions passed since the oldest `xmin`. |Doesn't apply|No|
 
 #### Database
 
 |Display name|Metric ID|Unit|Description|Dimension|Default enabled|
 |---|---|---|---|---|---|
-|**Backends** (Preview) |`numbackends`|Count|Number of back ends that are connected to this database.|DatabaseName|No|
-|**Deadlocks** (Preview)|`deadlocks` |Count|Number of deadlocks that are detected in this database.|DatabaseName|No|
-|**Disk Blocks Hit** (Preview)|`blks_hit` |Count|Number of times disk blocks were found already in the buffer cache, so that a read wasn't necessary.|DatabaseName|No|
-|**Disk Blocks Read** (Preview) |`blks_read`|Count|Number of disk blocks that were read in this database.|DatabaseName|No|
-|**Temporary Files** (Preview)|`temp_files` |Count|Number of temporary files that were created by queries in this database. |DatabaseName|No|
-|**Temporary Files Size** (Preview) |`temp_bytes` |Bytes|Total amount of data that's written to temporary files by queries in this database. |DatabaseName|No|
-|**Total Transactions** (Preview) |`xact_total` |Count|Number of total transactions that executed in this database.     |DatabaseName|No|
-|**Transactions Committed** (Preview) |`xact_commit`|Count|Number of transactions in this database that have been committed.|DatabaseName|No|
-|**Transactions Rolled back** (Preview) |`xact_rollback`|Count|Number of transactions in this database that have been rolled back.|DatabaseName|No|
-|**Tuples Deleted** (Preview) |`tup_deleted`|Count|Number of rows that were deleted by queries in this database. |DatabaseName|No|
-|**Tuples Fetched** (Preview) |`tup_fetched`|Count|Number of rows that were fetched by queries in this database. |DatabaseName|No|
-|**Tuples Inserted** (Preview)|`tup_inserted` |Count|Number of rows that were inserted by queries in this database.|DatabaseName|No|
-|**Tuples Returned** (Preview)|`tup_returned` |Count|Number of rows that were returned by queries in this database.|DatabaseName|No|
-|**Tuples Updated** (Preview) |`tup_updated`|Count|Number of rows that were updated by queries in this database. |DatabaseName|No|
+|**Backends** |`numbackends`|Count|Number of back ends that are connected to this database.|DatabaseName|No|
+|**Deadlocks** |`deadlocks` |Count|Number of deadlocks that are detected in this database.|DatabaseName|No|
+|**Disk Blocks Hit** |`blks_hit` |Count|Number of times disk blocks were found already in the buffer cache, so that a read wasn't necessary.|DatabaseName|No|
+|**Disk Blocks Read** |`blks_read`|Count|Number of disk blocks that were read in this database.|DatabaseName|No|
+|**Temporary Files** |`temp_files` |Count|Number of temporary files that were created by queries in this database. |DatabaseName|No|
+|**Temporary Files Size** |`temp_bytes` |Bytes|Total amount of data that's written to temporary files by queries in this database. |DatabaseName|No|
+|**Total Transactions** |`xact_total` |Count|Number of total transactions that executed in this database.     |DatabaseName|No|
+|**Transactions Committed** |`xact_commit`|Count|Number of transactions in this database that have been committed.|DatabaseName|No|
+|**Transactions Rolled back** |`xact_rollback`|Count|Number of transactions in this database that have been rolled back.|DatabaseName|No|
+|**Tuples Deleted** |`tup_deleted`|Count|Number of rows that were deleted by queries in this database. |DatabaseName|No|
+|**Tuples Fetched** |`tup_fetched`|Count|Number of rows that were fetched by queries in this database. |DatabaseName|No|
+|**Tuples Inserted** |`tup_inserted` |Count|Number of rows that were inserted by queries in this database.|DatabaseName|No|
+|**Tuples Returned** |`tup_returned` |Count|Number of rows that were returned by queries in this database.|DatabaseName|No|
+|**Tuples Updated** |`tup_updated`|Count|Number of rows that were updated by queries in this database. |DatabaseName|No|
 
 #### Logical replication
 
 |Display name|Metric ID|Unit|Description|Dimension|Default enabled|
 |---|---|---|---|---|---|
-|**Max Logical Replication Lag** (Preview)|`logical_replication_delay_in_bytes`|Bytes|Maximum lag across all logical replication slots.|Doesn't apply|Yes |
+|**Max Logical Replication Lag** |`logical_replication_delay_in_bytes`|Bytes|Maximum lag across all logical replication slots.|Doesn't apply|Yes |
 
 #### Replication
 
 |Display name|Metric ID|Unit|Description|Dimension|Default enabled|
 |---|---|---|---|---|---|
-|**Max Physical Replication Lag** (Preview)|`physical_replication_delay_in_bytes`|Bytes|Maximum lag across all asynchronous physical replication slots.|Doesn't apply|Yes |
-|**Read Replica Lag** (Preview)|`physical_replication_delay_in_seconds`|Seconds|Read replica lag in seconds. |Doesn't apply|Yes |
+|**Max Physical Replication Lag** |`physical_replication_delay_in_bytes`|Bytes|Maximum lag across all asynchronous physical replication slots.|Doesn't apply|Yes |
+|**Read Replica Lag** |`physical_replication_delay_in_seconds`|Seconds|Read replica lag in seconds. |Doesn't apply|Yes |
 
 #### Saturation
 
@@ -153,18 +153,18 @@ Autovaccum metrics can be used to monitor and tune autovaccum performance for Az
 
 |Display name|Metric ID|Unit|Description|Dimension|Default enabled|
 |---|---|---|---|---|---|
-|**Analyze Counter User Tables** (Preview)|`analyze_count_user_tables`|Count|Number of times user-only tables have been manually analyzed in this database. |DatabaseName|No |
-|**AutoAnalyze Counter User Tables** (Preview)|`autoanalyze_count_user_tables`|Count|Number of times user-only tables have been analyzed by the autovacuum daemon in this database. |DatabaseName|No |
-|**AutoVacuum Counter User Tables** (Preview) |`autovacuum_count_user_tables` |Count|Number of times user-only tables have been vacuumed by the autovacuum daemon in this database. |DatabaseName|No |
-|**Estimated Dead Rows User Tables** (Preview)|`n_dead_tup_user_tables` |Count|Estimated number of dead rows for user-only tables in this database. |DatabaseName|No |
-|**Estimated Live Rows User Tables** (Preview)|`n_live_tup_user_tables` |Count|Estimated number of live rows for user-only tables in this database. |DatabaseName|No |
-|**Estimated Modifications User Tables** (Preview)|`n_mod_since_analyze_user_tables`|Count|Estimated number of rows that were modified since user-only tables were last analyzed. |DatabaseName|No |
-|**User Tables Analyzed** (Preview) |`tables_analyzed_user_tables`|Count|Number of user-only tables that have been analyzed in this database. |DatabaseName|No |
-|**User Tables AutoAnalyzed** (Preview) |`tables_autoanalyzed_user_tables`|Count|Number of user-only tables that have been analyzed by the autovacuum daemon in this database.|DatabaseName|No |
-|**User Tables AutoVacuumed** (Preview) |`tables_autovacuumed_user_tables`|Count|Number of user-only tables that have been vacuumed by the autovacuum daemon in this database.|DatabaseName|No |
-|**User Tables Counter** (Preview)|`tables_counter_user_tables` |Count|Number of user-only tables in this database.|DatabaseName|No |
-|**User Tables Vacuumed** (Preview) |`tables_vacuumed_user_tables`|Count|Number of user-only tables that have been vacuumed in this database. |DatabaseName|No |
-|**Vacuum Counter User Tables** (Preview) |`vacuum_count_user_tables` |Count|Number of times user-only tables have been manually vacuumed in this database (not counting `VACUUM FULL`).|DatabaseName|No |
+|**Analyze Counter User Tables** |`analyze_count_user_tables`|Count|Number of times user-only tables have been manually analyzed in this database. |DatabaseName|No |
+|**AutoAnalyze Counter User Tables** |`autoanalyze_count_user_tables`|Count|Number of times user-only tables have been analyzed by the autovacuum daemon in this database. |DatabaseName|No |
+|**AutoVacuum Counter User Tables** |`autovacuum_count_user_tables` |Count|Number of times user-only tables have been vacuumed by the autovacuum daemon in this database. |DatabaseName|No |
+|**Estimated Dead Rows User Tables** |`n_dead_tup_user_tables` |Count|Estimated number of dead rows for user-only tables in this database. |DatabaseName|No |
+|**Estimated Live Rows User Tables** |`n_live_tup_user_tables` |Count|Estimated number of live rows for user-only tables in this database. |DatabaseName|No |
+|**Estimated Modifications User Tables** |`n_mod_since_analyze_user_tables`|Count|Estimated number of rows that were modified since user-only tables were last analyzed. |DatabaseName|No |
+|**User Tables Analyzed** |`tables_analyzed_user_tables`|Count|Number of user-only tables that have been analyzed in this database. |DatabaseName|No |
+|**User Tables AutoAnalyzed** |`tables_autoanalyzed_user_tables`|Count|Number of user-only tables that have been analyzed by the autovacuum daemon in this database.|DatabaseName|No |
+|**User Tables AutoVacuumed** |`tables_autovacuumed_user_tables`|Count|Number of user-only tables that have been vacuumed by the autovacuum daemon in this database.|DatabaseName|No |
+|**User Tables Counter** |`tables_counter_user_tables` |Count|Number of user-only tables in this database.|DatabaseName|No |
+|**User Tables Vacuumed** |`tables_vacuumed_user_tables`|Count|Number of user-only tables that have been vacuumed in this database. |DatabaseName|No |
+|**Vacuum Counter User Tables** |`vacuum_count_user_tables` |Count|Number of times user-only tables have been manually vacuumed in this database (not counting `VACUUM FULL`).|DatabaseName|No |
 
 ### Considerations for using autovacuum metrics
 
@@ -186,12 +186,12 @@ You can use PgBouncer metrics to monitor the performance of the PgBouncer proces
 
 |Display name|Metric ID|Unit|Description|Dimension|Default enabled|
 |---|---|---|---|---|---|
-|**Active client connections** (Preview) |`client_connections_active` |Count|Connections from clients that are associated with an Azure Database for PostgreSQL connection. |DatabaseName|No |
-|**Waiting client connections** (Preview)|`client_connections_waiting`|Count|Connections from clients that are waiting for an Azure Database for PostgreSQL connection to service them.|DatabaseName|No |
-|**Active server connections** (Preview) |`server_connections_active` |Count|Connections to Azure Database for PostgreSQL that are in use by a client connection. |DatabaseName|No |
-|**Idle server connections** (Preview) |`server_connections_idle` |Count|Connections to Azure Database for PostgreSQL that are idle and ready to service a new client connection. |DatabaseName|No |
-|**Total pooled connections** (Preview)|`total_pooled_connections`|Count|Current number of pooled connections. |DatabaseName|No |
-|**Number of connection pools** (Preview)|`num_pools` |Count|Total number of connection pools. |DatabaseName|No |
+|**Active client connections** |`client_connections_active` |Count|Connections from clients that are associated with an Azure Database for PostgreSQL connection. |DatabaseName|No |
+|**Waiting client connections** |`client_connections_waiting`|Count|Connections from clients that are waiting for an Azure Database for PostgreSQL connection to service them.|DatabaseName|No |
+|**Active server connections** |`server_connections_active` |Count|Connections to Azure Database for PostgreSQL that are in use by a client connection. |DatabaseName|No |
+|**Idle server connections** |`server_connections_idle` |Count|Connections to Azure Database for PostgreSQL that are idle and ready to service a new client connection. |DatabaseName|No |
+|**Total pooled connections** |`total_pooled_connections`|Count|Current number of pooled connections. |DatabaseName|No |
+|**Number of connection pools** |`num_pools` |Count|Total number of connection pools. |DatabaseName|No |
 
 ### Considerations for using the PgBouncer metrics
 
@@ -205,11 +205,11 @@ Is-db-alive is an database server availability metric for Azure Postgres Flexibl
 
 |Display Name                                     |Metric ID                      |Unit   |Description                                                                                             |Dimension   |Default enabled|
 |-------------------------------------------------|-------------------------------|-------|--------------------------------------------------------------------------------------------------------|------------|---------------|
-|**Database Is Alive** (Preview)                  |`is_db_alive`                  |Count  |Indicates if the database is up or not				                                                   |N/a		    |Yes            |
+|**Database Is Alive**                  |`is_db_alive`                  |Count  |Indicates if the database is up or not				                                                   |N/a		    |Yes            |
 
 #### Considerations when using the Database availability metrics
 
-- Aggregating this metric with `MAX()` will allow customers to determine weather the server has been up or down in the last minute.
+- Aggregating this metric with `MAX()` will allow customers to determine whether the server has been up or down in the last minute.
 - Customers have option to further aggregate these metrics with any desired frequency (5m, 10m, 30m etc.) to suit their alerting requirements and avoid any false positive.
 - Other possible aggregations are `AVG()` and `MIN()`
 
