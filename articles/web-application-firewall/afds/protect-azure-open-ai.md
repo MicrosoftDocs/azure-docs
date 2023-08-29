@@ -20,26 +20,8 @@ This article describes how to use Azure Web Application Firewall (WAF) on Azure 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-<!-- 4. Task H2s ------------------------------------------------------------------------------
 
-Required: Multiple procedures should be organized in H2 level sections. A section contains a major grouping of steps that help users complete a task. Each section is represented as an H2 in the article.
-
-For portal-based procedures, minimize bullets and numbering.
-
-* Each H2 should be a major step in the task.
-* Phrase each H2 title as "<verb> * <noun>" to describe what they'll do in the step.
-* Don't start with a gerund.
-* Don't number the H2s.
-* Begin each H2 with a brief explanation for context.
-* Provide a ordered list of procedural steps.
-* Provide a code block, diagram, or screenshot if appropriate
-* An image, code block, or other graphical element comes after numbered step it illustrates.
-* If necessary, optional groups of steps can be added into a section.
-* If necessary, alternative groups of steps can be added into a section.
-
--->
-
-## Create Azure Open AI instance using gpt-35-turbo model
+## Create Azure Open AI instance using the gpt-35-turbo model
 First, create an Open AI instance.
 
 
