@@ -43,7 +43,7 @@ You can grant a user access to a Microsoft Playwright Testing workspace by using
 
 1. On the left pane, select **Access Control (IAM)**, and then select **Add > Add role assignment**.
 
-    If you don't have permissions to assign roles, the Add role assignment option will be disabled.
+    If you don't have permissions to assign roles, the Add role assignment option is disabled.
 
     :::image type="content" source="media/how-to-manage-workspace-access/add-role-assignment.png" alt-text="Screenshot that shows how to add a role assignment to your workspace in the Azure portal.":::
 
@@ -101,9 +101,9 @@ To use Azure AD security groups:
 
 Here are a few things to be aware of while you use Azure role-based access control (Azure RBAC):
 
-- When you create a resource in Azure, such as a workspace, you are not automatically the owner of the resource. Your role is inherited from the highest scope role that you are authorized against in that subscription. As an example, if you are a Contributor for the subscription, you have the permissions to create a Microsoft Playwright Testing workspace. However, you would be assigned the Contributor role against that workspace, and not the Owner role.
+- When you create a resource in Azure, such as a workspace, you are not automatically the owner of the resource. Your role is inherited from the highest scope role that you're authorized against in that subscription. As an example, if you're a Contributor for the subscription, you have the permissions to create a Microsoft Playwright Testing workspace. However, you would be assigned the Contributor role against that workspace, and not the Owner role.
 
-- When there are two role assignments to the same Azure Active Directory user with conflicting sections of Actions/NotActions, your operations listed in NotActions from one role might not take effect if they are also listed as Actions in another role. To learn more about how Azure parses role assignments, read [How Azure RBAC determines if a user has access to a resource](/azure/role-based-access-control/overview#how-azure-rbac-determines-if-a-user-has-access-to-a-resource).
+- When there are two role assignments to the same Azure Active Directory user with conflicting sections of Actions/NotActions, your operations listed in NotActions from one role might not take effect if they're also listed as Actions in another role. To learn more about how Azure parses role assignments, read [How Azure RBAC determines if a user has access to a resource](/azure/role-based-access-control/overview#how-azure-rbac-determines-if-a-user-has-access-to-a-resource).
 
 - It can sometimes take up to 1 hour for your new role assignments to take effect over cached permissions.
 
