@@ -31,15 +31,11 @@ The following licenses are available for use with Microsoft Entra ID.  The type 
 - **Microsoft Azure AD P2** - Azure Active Directory P2 (becoming Microsoft Entra ID P2) is available as a standalone or included with Microsoft 365 E5 for enterprise customers.
 - **Microsoft Entra ID Governance** - Entra ID Governance is an advanced set of identity governance capabilities available for Microsoft Entra ID P1 and P2 customers.
 
-
-
 [!INCLUDE [Access reviews](../includes/licensing-access-reviews.md)]
 
 [!INCLUDE [App provisioning](../includes/licensing-app-provisioning.md)]
 
-
 [!INCLUDE [Authentication](../includes/licensing-authentication.md)]
-
 
 [!INCLUDE [Conditional access](../includes/licensing-conditional-access.md)]
 
@@ -47,20 +43,13 @@ The following licenses are available for use with Microsoft Entra ID.  The type 
 
 [!INCLUDE [Identity protection](../includes/licensing-identity-protection.md)]
 
-
 [!INCLUDE [Managed identities](../includes/licensing-managed-identities.md)]
-
-
 
 [!INCLUDE [Multi-tenant organizations](../includes/licensing-multi-tenant-organizations.md)]
 
-
-
 [!INCLUDE [PIM](../includes/licensing-pim.md)]
 
-
 [!INCLUDE [Roles based access control](../includes/licensing-role-based-access-control.md)]
-
 
 [!INCLUDE [reports and monitoring](../includes/licensing-reports-monitoring.md)]
 
