@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 07/12/2023
+ms.date: 08/28/2023
 ms.author: mimart
 ms.custom: it-pro
 
@@ -85,6 +85,28 @@ You can choose the order in which the attributes are displayed on the sign-up pa
    :::image type="content" source="media/how-to-define-custom-attributes/page-layouts.png" alt-text="Screenshot of page layout options for a user flow." lightbox="media/how-to-define-custom-attributes/page-layouts.png":::   
 
 1. Select **Save**.
+
+## About referencing the custom attribute
+
+The custom attributes you create are added to the `b2c-extensions-app` registered in your tenant. You can refer to custom attributes from applications and you can manage custom attributes using the Microsoft Graph API. To refer to a custom attribute, use the following format:
+
+`extensions extension_<b2c-extensions-app-id>_<custom-attribute-name>`
+
+where:
+
+- `<extensions-app-id>` is the `b2c-extensions-app` application ID with no hyphens.
+- `<custom-attribute-name>` is the name you assigned to the attribute.
+
+To find the application ID for `b2c-extensions-app`:
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
+1. Browse to **Identity** > **App registrations** > **All applications**.
+1. Select the application `b2c-extensions-app. Do not modify. Used by AADB2C for storing user data.`
+2. Find the **Application (client) ID** value, for example: `12345678-abcd-1234-1234-ab123456789`.
+
+**Example**: If you create a custom attribute named **loyaltyNumber**, refer to it as follows:
+
+`extensions extension_12345678abcd12341234ab123456789_loyaltyNumber`
 
 ## Next steps
 
