@@ -158,6 +158,7 @@ iops | 500 | Number of IOPS to be allocated for the target Azure Database for My
 ## How long does MySQL Import take to migrate my Single Server instance?
 
 Below is the benchmarked performance based on storage size.
+
   | Single Server Storage Size | MySQL Import time |
   | ------------- |:-------------:|
   | 1 GiB | 0 min 23 secs |
@@ -170,8 +171,9 @@ Below is the benchmarked performance based on storage size.
 From the table above, as the storage size increases, the time required for data copying also increases, almost in a linear relationship. However, it's important to note that copy speed can be significantly impacted by network fluctuations. Therefore, the data provided here should be taken as a reference only.
 
 Below is the benchmarked performance based on varying number of tables for 10 GiB storage size.
+
   | Number of tables in Single Server instance | MySQL Import time |
-  | ------------- |:-------------:|
+  | ------------- | :-------------: |
   | 100 | 4 min 24 secs |
   | 200 | 4 min 40 secs |
   | 800 | 4 min 52 secs |

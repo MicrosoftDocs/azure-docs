@@ -171,9 +171,11 @@ In addition, a workload profiles environment reserves the following addresses:
 
 ## Routes
 
-User Defined Routes (UDR) and controlled egress through a NAT Gateway are only supported in a workload profiles environment.
+<a name="udr"></a>
 
 ### User defined routes (UDR)
+
+User Defined Routes (UDR) and controlled egress through NAT Gateway are supported in the workload profiles environment, which is in preview. In the Consumption only environment, these features aren't supported.
 
 > [!NOTE]
 > When using UDR with Azure Firewall in Azure Container Apps, you need to add certain FQDN's and service tags to the allowlist for the firewall. To learn more, see [configuring UDR with Azure Firewall](./networking.md#configuring-udr-with-azure-firewall).
@@ -219,6 +221,8 @@ Network rules allow or deny traffic based on the network and transport layer. Th
 
 > [!NOTE]
 > For Azure resources you are using with Azure Firewall not listed in this article, please refer to the [service tags documentation](../virtual-network/service-tags-overview.md#available-service-tags).
+
+<a name="nat"></a>
 
 ### NAT gateway integration
 
