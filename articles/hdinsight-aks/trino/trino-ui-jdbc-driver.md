@@ -48,7 +48,7 @@ Locate JDBC jar file and install it into local maven repository:
 mvn install:install-file -Dfile=<trino-jdbc-*.jar> -DgroupId=io.trino -DartifactId=trino-jdbc -Dversion=<trino-jdbc-version> -Dpackaging=jar -DgeneratePom=true
 ```
 
-Download and unpack [sample java code connecting to Trino using JDBC](https://aka.ms/hdihilotrinosamples). See included README.md for details and examples.
+Download and unpack [sample java code connecting to Trino using JDBC](https://github.com/Azure-Samples/hdinsight-aks/blob/main/src/trino/JdbcSample.tar.gz). See included README.md for details and examples.
    
 ## Using open-source Trino JDBC driver
 
