@@ -67,9 +67,9 @@ Follow the instructions to configure an existing ConfigMap or to use a new one.
 
 1. For configuring via CLI, use the corresponding [config file](./container-insights-cost-config.md#configuring-aks-data-collection-settings-using-azure-cli), update the `enableContainerLogV2` field in the config file to be true.
 
-
+---
  
-### Configure an existing ConfigMap
+## Configure an existing ConfigMap
 This applies to the scenario where you have already enabled container insights for your AKS cluster and have [configured agent data collection settings](./container-insights-agent-config.md#configure-and-deploy-configmaps) using ConfigMap "_container-azm-ms-agentconfig.yaml_". If this ConfigMap doesn't yet have the `log_collection_settings.schema` field, you'll need to append the following section in this existing ConfigMap .yaml file:
 
 ```yaml
@@ -80,7 +80,7 @@ This applies to the scenario where you have already enabled container insights f
           containerlog_schema_version = "v2"
 ```
 
-### Configure a new ConfigMap
+## Configure a new ConfigMap
 1. [Download the new ConfigMap](https://aka.ms/container-azm-ms-agentconfig). For the newly downloaded ConfigMap, the default value for `containerlog_schema_version` is `"v1"`.
 1. Update `containerlog_schema_version` to `"v2"`:
 
