@@ -33,6 +33,7 @@ ms.custom: references_regions
 > - [Norway](../concepts/numbers/phone-number-management-for-norway.md)
 > - [Poland](../concepts/numbers/phone-number-management-for-poland.md)
 > - [Portugal](../concepts/numbers/phone-number-management-for-portugal.md)
+> - [Saudi Arabia](../concepts/numbers/phone-number-management-for-saudi-arabia.md)
 > - [Singapore](../concepts/numbers/phone-number-management-for-singapore.md)
 > - [Slovakia](../concepts/numbers/phone-number-management-for-slovakia.md)
 > - [Spain](../concepts/numbers/phone-number-management-for-spain.md)
