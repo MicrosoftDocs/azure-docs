@@ -6,7 +6,7 @@ author: asudbring
 ms.author: allensu
 ms.service: private-link
 ms.topic: tutorial
-ms.date: 12/01/2022
+ms.date: 08/29/2023
 ms.custom: template-tutorial
 ---
 
@@ -38,7 +38,7 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
 ## Overview
 
-A virtual network for the Azure Web App and simulated on-premises network is used for the resources in the tutorial. You'll create two virtual networks and peer them to simulate an Express Route or VPN connection between on-premises and Azure. An Azure Bastion host is deployed in the simulated on-premises network to connect to the test virtual machine. The test virtual machine is used to test the private endpoint connection to the web app and DNS resolution.
+A virtual network for the Azure Web App and simulated on-premises network is used for the resources in the tutorial. You create two virtual networks and peer them to simulate an Express Route or VPN connection between on-premises and Azure. An Azure Bastion host is deployed in the simulated on-premises network to connect to the test virtual machine. The test virtual machine is used to test the private endpoint connection to the web app and DNS resolution.
 
 The following resources are used in this tutorial to simulate an on-premises and cloud network infrastructure:
 
@@ -53,7 +53,7 @@ The following resources are used in this tutorial to simulate an on-premises and
 
 [!INCLUDE [virtual-network-create-with-bastion.md](../../includes/virtual-network-create-with-bastion.md)]
 
-It will take a few minutes for the Bastion host deployment to complete. The Bastion host is used later in the tutorial to connect to the "on-premises" virtual machine to test the private endpoint. You can proceed to the next steps when the virtual network is created.
+It takes a few minutes for the Bastion host deployment to complete. The Bastion host is used later in the tutorial to connect to the "on-premises" virtual machine to test the private endpoint. You can proceed to the next steps when the virtual network is created.
 
 ## Create cloud virtual network
 
@@ -79,7 +79,7 @@ Repeat the previous steps to create a cloud virtual network for the Azure Web Ap
 
 An Azure private endpoint creates a network interface for a supported Azure service in your virtual network. The private endpoint enables the Azure service to be accessed from a private connection in your Azure Virtual Network or on-premises network.
 
-You'll create a private endpoint for the web app you created previously.
+You create a private endpoint for the web app you created previously.
 
 1. In the search box at the top of the portal, enter **Private endpoint**. Select **Private endpoints** in the search results.
 
@@ -133,7 +133,7 @@ You'll create a private endpoint for the web app you created previously.
 
 ## Create a private resolver
 
-You'll create a private resolver in the virtual network where the private endpoint resides. The resolver will receive DNS requests from the simulated on-premises workload. Those requests are forwarded to the Azure provided DNS. The Azure provided DNS will resolve the Azure Private DNS zone for the private endpoint and return the IP address to the on-premises workload.
+You create a private resolver in the virtual network where the private endpoint resides. The resolver receives DNS requests from the simulated on-premises workload. Those requests are forwarded to the Azure provided DNS. The Azure provided DNS resolves the Azure Private DNS zone for the private endpoint and return the IP address to the on-premises workload.
 
 1. In the search box at the top of the portal, enter **DNS private resolver**. Select **DNS private resolvers** in the search results.
 
@@ -173,9 +173,9 @@ When the private resolver deployment is complete, continue to the next steps.
 
 ### Set up DNS for simulated network
 
-The following steps will set the private resolver as the primary DNS server for the simulated on-premises network **vnet-1**. 
+The following steps set the private resolver as the primary DNS server for the simulated on-premises network **vnet-1**. 
 
-In a production environment, these steps aren't needed and are only to simulate the DNS resolution for the private endpoint. Your local DNS server will have a conditional forwarder to this IP address to resolve the private endpoint DNS records from the on-premises network.
+In a production environment, these steps aren't needed and are only to simulate the DNS resolution for the private endpoint. Your local DNS server has a conditional forwarder to this IP address to resolve the private endpoint DNS records from the on-premises network.
 
 1. In the search box at the top of the portal, enter **DNS private resolver**. Select **DNS private resolvers** in the search results.
 
@@ -201,7 +201,7 @@ In a production environment, these steps aren't needed and are only to simulate 
 
 ## Test connectivity to private endpoint
 
-In this section, you'll use the virtual machine you created in the previous step to connect to the web app across the private endpoint.
+In this section, you use the virtual machine you created in the previous step to connect to the web app across the private endpoint.
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
@@ -215,9 +215,9 @@ In this section, you'll use the virtual machine you created in the previous step
 
 6. Open Windows PowerShell on the server after you connect.
 
-7. Enter `nslookup <webapp-name>.azurewebsites.net`. Replace **\<webapp-name>** with the name of the web app you created in the previous steps.  You'll receive a message similar to what is displayed below:
+7. Enter `nslookup <webapp-name>.azurewebsites.net`. Replace **\<webapp-name>** with the name of the web app you created in the previous steps. You receive a message similar to the following output:
 
-    ```powershell
+    ```output
     Server:  UnKnown
     Address:  168.63.129.16
 
