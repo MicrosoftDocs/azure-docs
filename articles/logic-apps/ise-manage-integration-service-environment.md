@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/23/2023
+ms.date: 08/29/2023
 ---
 
 # Manage your integration service environment (ISE) in Azure Logic Apps
@@ -82,7 +82,8 @@ You can view and manage the logic apps that are in your ISE.
 
 > [!NOTE]
 > If you delete and recreate a child logic app, you must resave the parent logic app. The recreated child app will have different metadata.
-> If you don't resave the parent logic app after recreating its child, your calls to the child logic app will fail with an error of "unauthorized." This behavior applies to parent-child logic apps, for example, those that use artifacts in integration accounts or call Azure functions.
+> If you don't resave the parent logic app after recreating its child, your calls to the child logic app will fail with an error of "unauthorized". 
+> This behavior applies to parent-child logic apps, for example, those that use artifacts in integration accounts or call Azure functions.
 
 <a name="find-api-connections"></a>
 
@@ -129,6 +130,48 @@ You can view and manage the custom connectors that you deployed to your ISE.
    ![Find integration accounts](./media/ise-manage-integration-service-environment/ise-find-integration-accounts.png)
 
 1. To remove integration accounts from your ISE when no longer needed, select those integration accounts, and then select **Delete**.
+
+<a name="export-integration-account"></a>
+
+## Export integration account (preview)
+
+You can export a Standard integration account from an ISE to an existing Premium integration account. The export process has two steps: export the artifacts, and then export the agreement states. Artifacts include trading partners, agreements, certificates, schemas, and maps. Your integration account stores the states for specific B2B actions, such as MIC number for the AS2 actions and the control numbers for X12 actions. If you configured your agreements to update these states every time that a transaction is processed and to use these states for message reconciliation and duplicate detection, make sure that you also export these states. You can export these states either in bulk or per agreement.
+
+> [!IMPORTANT]
+>
+> Make sure to choose a time window when your source integration account doesn't have any activity in your agreements to avoid inconsistencies.
+
+### Prerequisites
+
+If you don't have a Premium integration account, [create a Premimum integration account](./enterprise-integration/create-integration-account.md).
+
+### Export artifacts
+
+This process copies artifacts from the source to the destination.
+
+1. In the [Azure portal](https://portal.azure.com), open your Standard integration account.
+
+1. On the integration account menu, under **Settings**, select **Export**.
+
+1. On the **Export** page toolbar, select **Export Artifacts**.
+
+1. Open the **Target integration account** list, which contains all the Premium accounts in your Azure subscription, select the Premium integration account that you want, and then select **OK**.
+
+   The **Export** page now shows the export status for your artifacts.
+
+1. To confirm the exported artifacts, open your destination Premium integration account.
+
+1. When you're ready, continue with the next section to export the agreement state.
+
+### Export agreement state
+
+1. On the **Export** page toolbar, select **Export Agreement State**.
+
+1. On the **Export Agreement State** pane, open the **Target integration account** list, and select the Premium integration account that you want.
+
+1. Open the **Agreement** list, select an agreement state to export, and then select **OK**.
+
+1. Either wait for the export to finish, or repeat the previous steps to export another agreement state.
 
 <a name="add-capacity"></a>
 

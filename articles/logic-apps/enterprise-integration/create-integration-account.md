@@ -2,7 +2,10 @@
 title: Create and manage integration accounts
 description: Create and manage integration accounts for building B2B enterprise integration workflows in Azure Logic Apps with the Enterprise Integration Pack.
 services: logic-apps
+ms.service: logic-apps
 ms.suite: integration
+author: ecfan
+ms.author: estfan
 ms.reviewer: estfan, divyaswarnkar, azla
 ms.topic: how-to
 ms.custom: devx-track-azurecli
@@ -28,7 +31,7 @@ You also need an integration account to electronically exchange B2B messages wit
 * [RosettaNet](../logic-apps-enterprise-integration-rosettanet.md)
 * [X12](../logic-apps-enterprise-integration-x12.md)
 
-This article shows how to complete the following tasks:
+This guide shows how to complete the following tasks:
 
 * Create an integration account.
 * Link your integration account to a logic app resource.
@@ -36,12 +39,6 @@ This article shows how to complete the following tasks:
 * Unlink your integration account from a logic app resource.
 * Move an integration account to another Azure resource group or subscription.
 * Delete an integration account.
-
-> [!NOTE]
->
-> If you use an [integration service environment (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md), 
-> and you need to create an integration account to use with that ISE, review 
-> [Create integration accounts in an ISE](../add-artifacts-integration-service-environment-ise.md#create-integration-account-environment).
 
 If you're new to creating B2B enterprise integration workflows in Azure Logic Apps, see [B2B enterprise integration workflows with Azure Logic Apps and Enterprise Integration Pack](../logic-apps-enterprise-integration-overview.md).
 
@@ -77,10 +74,10 @@ Based on your requirements and scenarios, determine the appropriate integration 
 
 | Tier | Description |
 |------|-------------|
-| **Premium** (preview) | For scenarios with the following criteria: <br><br>- Unlimited artifacts, such as partners, agreements, schemas, certificates, and so on. <br><br>- Bring and use your own local storage. You can access this storage using a managed identity for your integration account. You can also apply more governance and policies to data, such as customer-managed ("Bring Your Own") keys for data encryption. To store these keys, you'll need a key vault. <br><br>- Set up and use a key vault to store private certificates or customer-managed keys. To access these keys, your Premium integration account uses a managed identity, not an Azure Logic Apps shared service principal. <br><br>Pricing follows Standard integration account pricing. <br><br>**Note**: During preview, your Azure bill uses the same meter name and ID as a Standard integration account, but changes when the Premimum level becomes generally available. <br><br>**Limitations and known issues**: <br><br>- Currently doesn't support virtual networks. <br>- If you use a key vault to store private certificates, the managed identity for your integration account might not work. For now, use the managed identity for your logic app resource instead. <br><br>Supported by the Azure Logic Apps SLA. |
+| **Premium** (preview) | For scenarios with the following criteria: <br><br>- Store and use unlimited artifacts, such as partners, agreements, schemas, certificates, and so on. <br><br>- Bring and use your own local storage. You can access this storage using a managed identity for your integration account. You can also apply more governance and policies to data, such as customer-managed ("Bring Your Own") keys for data encryption. To store these keys, you'll need a key vault. <br><br>- Set up and use a key vault to store private certificates or customer-managed keys. To access these keys, your Premium integration account uses a managed identity, not an Azure Logic Apps shared service principal. <br><br>Pricing follows [Standard integration account pricing](https://azure.microsoft.com/pricing/details/logic-apps/). <br><br>**Note**: During preview, your Azure bill uses the same meter name and ID as a Standard integration account, but changes when the Premium level becomes generally available. <br><br>**Limitations and known issues**: <br><br>- Currently doesn't support virtual networks. <br>- If you use a key vault to store private certificates, the managed identity for your integration account might not work. For now, use the managed identity for your logic app resource instead. <br><br>Supported by the Azure Logic Apps SLA. |
 | **Standard** | For scenarios where you have more complex B2B relationships and increased numbers of entities that you must manage. <br><br>Supported by the Azure Logic Apps SLA. |
 | **Basic** | For scenarios where you want only message handling or to act as a small business partner that has a trading partner relationship with a larger business entity. <br><br>Supported by the Azure Logic Apps SLA. |
-| **Free** | For exploratory scenarios, not production scenarios. This tier has limits on region availability, throughput, and usage. For example, the Free tier is available only for public regions in Azure, for example, West US or Southeast Asia, but not for [Microsoft Azure operated by 21Vianet](/azure/china/overview-operations) or [Azure Government](../azure-government/documentation-government-welcome.md). <br><br>**Note**: Not supported by the Azure Logic Apps SLA. |
+| **Free** | For exploratory scenarios, not production scenarios. This tier has limits on region availability, throughput, and usage. For example, the Free tier is available only for public regions in Azure, for example, West US or Southeast Asia, but not for [Microsoft Azure operated by 21Vianet](/azure/china/overview-operations) or [Azure Government](../../azure-government/documentation-government-welcome.md). <br><br>**Note**: Not supported by the Azure Logic Apps SLA. |
 
 For this task, you can use the Azure portal, [Azure CLI](/cli/azure/resource#az-resource-create), or [Azure PowerShell](/powershell/module/Az.LogicApp/New-AzIntegrationAccount).
 
@@ -106,7 +103,7 @@ For this task, you can use the Azure portal, [Azure CLI](/cli/azure/resource#az-
    | **Integration account name** | Yes | <*integration-account-name*> | Your integration account's name, which can contain only letters, numbers, hyphens (`-`), underscores (`_`), parentheses (`()`), and periods (`.`). This example uses **Fabrikam-Integration**. |
    | **Pricing Tier** | Yes | <*pricing-level*> | The pricing tier for the integration account, which you can change later. For this example, select **Free**. For more information, review the following documentation: <br><br>- [Logic Apps pricing model](../logic-apps-pricing.md#integration-accounts) <br>- [Logic Apps limits and configuration](../logic-apps-limits-and-config.md#integration-account-limits) <br>- [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/) |
    | **Storage account** | Available only with Premium (preview) integration account | None | The name for an existing Azure storage account. For this example, this option doesn't apply. |
-   | **Region** | Yes | <*Azure-region*> | The Azure region where to store your integration account metadata. Either select the same location as your logic app resource, or create your logic apps in the same location as your integration account. For this example, use **West US**. <br><br>**Note**: To create an integration account inside an [integration service environment (ISE)](../connect-virtual-network-vnet-isolated-environment-overview.md), select **Associate with integration service environment** and select your ISE as the location. For more information, see [Create integration accounts in an ISE](../add-artifacts-integration-service-environment-ise.md#create-integration-account-environment). |
+   | **Region** | Yes | <*Azure-region*> | The Azure region where to store your integration account metadata. Either select the same location as your logic app resource, or create your logic apps in the same location as your integration account. For this example, use **West US**. <br><br>To use your integration account with an [integration service environment (ISE)](../connect-virtual-network-vnet-isolated-environment-overview.md), select **Associate with integration service environment**, and then select your ISE as the location. To create an integration account directly from an ISE, see [Create integration accounts in an ISE](../add-artifacts-integration-service-environment-ise.md#create-integration-account-environment). <br><br>**Note**: The ISE resource will retire on August 31, 2024, due to its dependency on Azure Cloud Services (classic), which retires at the same time. Currently in preview, the capability is available for you to [export a Standard integration account from an ISE to a Premium integration account](../ise-manage-integration-service-environment.md#export-integration-account). |
    | **Enable log analytics** | No | Unselected | For this example, don't select this option. |
 
 1. When you're done, select **Review + create**.
@@ -296,7 +293,7 @@ To make this change, you can use either the Azure portal or the Azure CLI.
 
 1. If you haven't done so already, [install the Azure CLI prerequisites](/cli/azure/get-started-with-azure-cli).
 
-1. In the Azure portal, open the [Azure Cloud Shell](../cloud-shell/overview.md) environment.
+1. In the Azure portal, open the [Azure Cloud Shell](../../cloud-shell/overview.md) environment.
 
    ![Screenshot shows Azure portal toolbar with selected Cloud Shell optiond.](./media/create-integration-account/open-azure-cloud-shell-window.png)
 
@@ -322,7 +319,7 @@ To make this change, use the [Azure CLI](/cli/azure/get-started-with-azure-cli).
 
 1. If you haven't done so already, [install the Azure CLI prerequisites](/cli/azure/get-started-with-azure-cli).
 
-1. In the Azure portal, open the [Azure Cloud Shell](../cloud-shell/overview.md) environment.
+1. In the Azure portal, open the [Azure Cloud Shell](../../cloud-shell/overview.md) environment.
 
    ![Screenshot shows Azure portal toolbar with selected Cloud Shell.](./media/create-integration-account/open-azure-cloud-shell-window.png)
 
