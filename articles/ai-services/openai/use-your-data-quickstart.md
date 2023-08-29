@@ -35,7 +35,7 @@ In this quickstart you can use your own data with Azure OpenAI models. Using Azu
 > [!div class="nextstepaction"]
 > [I ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=OVERVIEW&Pillar=AOAI&Product=ownData&Page=quickstart&Section=Prerequisites)
 
-[!INCLUDE [Connect your data to OpenAI](./connect-your-data-studio.md)]
+[!INCLUDE [Connect your data to OpenAI](includes/connect-your-data-studio.md)]
 
 ::: zone pivot="programming-language-studio"
 
