@@ -86,5 +86,5 @@ If enabled Azure Active Directory will validate the requests against the public 
 
 ## Next steps  
 
-* Find out [How Azure AD uses the SAML protocol](../develop/active-directory-saml-protocol-reference.md) 
+* Find out [How Azure AD uses the SAML protocol](../develop/saml-protocol-reference.md) 
 * Learn the format, security characteristics, and contents of [SAML tokens in Azure AD](../develop/reference-saml-tokens.md) 
