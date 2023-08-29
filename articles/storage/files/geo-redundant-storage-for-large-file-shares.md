@@ -66,6 +66,7 @@ Azure Files geo-redundancy for large file shares preview is currently available 
 - China North 2
 - China North 3
 - East Asia
+- East US
 - East US 2
 - France Central
 - France South
@@ -76,6 +77,7 @@ Azure Files geo-redundancy for large file shares preview is currently available 
 - Korea Central
 - Korea South
 - North Central US
+- North Europe
 - Norway East
 - Norway West
 - South Africa North
@@ -95,8 +97,11 @@ Azure Files geo-redundancy for large file shares preview is currently available 
 - US Gov Texas
 - US Gov Virginia
 - West Central US
+- West Europe
 - West India
+- West US
 - West US 2
+- West US 3
 
 ## Pricing
 

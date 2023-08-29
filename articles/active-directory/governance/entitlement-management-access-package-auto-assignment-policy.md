@@ -42,25 +42,27 @@ To create a policy for an access package, you need to start from the access pack
 
 **Prerequisite role:** Global administrator or Identity Governance administrator
 
-1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1. In the left menu, click **Access packages** and then open the access package.
+1. Browse to **Identity governance** > **Entitlement management** > **Access package**.
 
-1. Click **Policies** and then **Add auto-assignment policy** to create a new policy.
+1. On the **Access packages** page open an access package.
 
-1. In the first tab, you'll specify the rule.  Click **Edit**.
+1. Select **Policies** and then **Add auto-assignment policy** to create a new policy.
+
+1. In the first tab, you'll specify the rule. Select **Edit**.
 
 1. Provide a dynamic membership rule, using the [membership rule builder](../enterprise-users/groups-dynamic-membership.md) or by clicking **Edit** on the rule syntax text box.
 
    > [!NOTE]
-   > The rule builder might not be able to display some rules constructed in the text box, and validating a rule currently requires the you to be in the Global administrator role. For more information, see [rule builder in the Azure portal](../enterprise-users/groups-create-rule.md#rule-builder-in-the-azure-portal).
+   > The rule builder might not be able to display some rules constructed in the text box, and validating a rule currently requires the you to be in the Global administrator role. For more information, see [rule builder in the Entra admin center](../enterprise-users/groups-create-rule.md#rule-builder-in-the-azure-portal).
 
     ![Screenshot of an access package automatic assignment policy rule configuration.](./media/entitlement-management-access-package-auto-assignment-policy/auto-assignment-rule-configuration.png)
 
-1. Click **Save** to close the dynamic membership rule editor.
+1. Select **Save** to close the dynamic membership rule editor.
 1. By default, the checkboxes to automatically create and remove assignments should remain checked.
 1. If you wish users to retain access for a limited time after they go out of scope, you can specify a duration in hours or days. For example, when an employee leaves the sales department, you may wish to allow them to continue to retain access for 7 days to allow them to use sales apps and transfer ownership of their resources in those apps to another employee.
-1. Click **Next** to open the **Custom Extensions** tab.
+1. Select **Next** to open the **Custom Extensions** tab.
 
 1. If you have [custom extensions](entitlement-management-logic-apps-integration.md) in your catalog you wish to have run when the policy assigns or removes access, you can add them to this policy.  Then click next to open the **Review** tab.
 
@@ -68,7 +70,7 @@ To create a policy for an access package, you need to start from the access pack
 
     ![Screenshot of an access package automatic assignment policy review tab.](./media/entitlement-management-access-package-auto-assignment-policy/auto-assignment-review.png)
 
-1. Click **Create** to save the policy.
+1. Select **Create** to save the policy.
 
    > [!NOTE]
    > At this time, Entitlement management will automatically create a dynamic security group corresponding to each policy, in order to evaluate the users in scope. This group should not be modified except by Entitlement Management itself.  This group may also be modified or deleted automatically by Entitlement Management, so don't use this group for other applications or scenarios.

@@ -50,6 +50,8 @@
           href: learn/quick-windows-container-deploy-cli.md
         - name: Use Azure PowerShell
           href: learn/quick-windows-container-deploy-powershell.md
+        - name: Use the Azure portal
+          href: learn/quick-windows-container-deploy-portal.md
     - name: Develop applications
       expanded: true
       items:
