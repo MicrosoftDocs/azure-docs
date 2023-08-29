@@ -20,7 +20,6 @@ Using Azure CLI, use the following steps to create three separate JSON files in 
 
 1. Create a JSON file named `rules.json` by copying and pasting the following content:
 
-
     ```
     Unset
     {
