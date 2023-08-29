@@ -2,7 +2,7 @@
 author: yulin-li
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/13/2022
+ms.date: 08/30/2023
 ms.author: yulili
 ---
 
@@ -20,106 +20,106 @@ Before you can do anything, you need to install the [Speech SDK for Go](../../..
 
 ## Text to speech to speaker
 
-Use the following code sample to run speech synthesis to your default audio output device. Replace the variables `subscription` and `region` with your speech key and location/region. Running the script will speak your input text to the default speaker.
+Use the following code sample to run speech synthesis to your default audio output device. Replace the variables `subscription` and `region` with your speech key and location/region. Running the script speaks your input text to the default speaker.
 
 ```go
 package main
 
 import (
-	"bufio"
-	"fmt"
-	"os"
-	"strings"
-	"time"
+    "bufio"
+    "fmt"
+    "os"
+    "strings"
+    "time"
 
-	"github.com/Microsoft/cognitive-services-speech-sdk-go/audio"
-	"github.com/Microsoft/cognitive-services-speech-sdk-go/common"
-	"github.com/Microsoft/cognitive-services-speech-sdk-go/speech"
+    "github.com/Microsoft/cognitive-services-speech-sdk-go/audio"
+    "github.com/Microsoft/cognitive-services-speech-sdk-go/common"
+    "github.com/Microsoft/cognitive-services-speech-sdk-go/speech"
 )
 
 func synthesizeStartedHandler(event speech.SpeechSynthesisEventArgs) {
-	defer event.Close()
-	fmt.Println("Synthesis started.")
+    defer event.Close()
+    fmt.Println("Synthesis started.")
 }
 
 func synthesizingHandler(event speech.SpeechSynthesisEventArgs) {
-	defer event.Close()
-	fmt.Printf("Synthesizing, audio chunk size %d.\n", len(event.Result.AudioData))
+    defer event.Close()
+    fmt.Printf("Synthesizing, audio chunk size %d.\n", len(event.Result.AudioData))
 }
 
 func synthesizedHandler(event speech.SpeechSynthesisEventArgs) {
-	defer event.Close()
-	fmt.Printf("Synthesized, audio length %d.\n", len(event.Result.AudioData))
+    defer event.Close()
+    fmt.Printf("Synthesized, audio length %d.\n", len(event.Result.AudioData))
 }
 
 func cancelledHandler(event speech.SpeechSynthesisEventArgs) {
-	defer event.Close()
-	fmt.Println("Received a cancellation.")
+    defer event.Close()
+    fmt.Println("Received a cancellation.")
 }
 
 func main() {
     subscription := "YourSpeechKey"
     region := "YourSpeechRegion"
 
-	audioConfig, err := audio.NewAudioConfigFromDefaultSpeakerOutput()
-	if err != nil {
-		fmt.Println("Got an error: ", err)
-		return
-	}
-	defer audioConfig.Close()
-	speechConfig, err := speech.NewSpeechConfigFromSubscription(subscription, region)
-	if err != nil {
-		fmt.Println("Got an error: ", err)
-		return
-	}
-	defer speechConfig.Close()
-	speechSynthesizer, err := speech.NewSpeechSynthesizerFromConfig(speechConfig, audioConfig)
-	if err != nil {
-		fmt.Println("Got an error: ", err)
-		return
-	}
-	defer speechSynthesizer.Close()
+    audioConfig, err := audio.NewAudioConfigFromDefaultSpeakerOutput()
+    if err != nil {
+        fmt.Println("Got an error: ", err)
+        return
+    }
+    defer audioConfig.Close()
+    speechConfig, err := speech.NewSpeechConfigFromSubscription(subscription, region)
+    if err != nil {
+        fmt.Println("Got an error: ", err)
+        return
+    }
+    defer speechConfig.Close()
+    speechSynthesizer, err := speech.NewSpeechSynthesizerFromConfig(speechConfig, audioConfig)
+    if err != nil {
+        fmt.Println("Got an error: ", err)
+        return
+    }
+    defer speechSynthesizer.Close()
 
-	speechSynthesizer.SynthesisStarted(synthesizeStartedHandler)
-	speechSynthesizer.Synthesizing(synthesizingHandler)
-	speechSynthesizer.SynthesisCompleted(synthesizedHandler)
-	speechSynthesizer.SynthesisCanceled(cancelledHandler)
+    speechSynthesizer.SynthesisStarted(synthesizeStartedHandler)
+    speechSynthesizer.Synthesizing(synthesizingHandler)
+    speechSynthesizer.SynthesisCompleted(synthesizedHandler)
+    speechSynthesizer.SynthesisCanceled(cancelledHandler)
 
-	for {
-		fmt.Printf("Enter some text that you want to speak, or enter empty text to exit.\n> ")
-		text, _ := bufio.NewReader(os.Stdin).ReadString('\n')
-		text = strings.TrimSuffix(text, "\n")
-		if len(text) == 0 {
-			break
-		}
+    for {
+        fmt.Printf("Enter some text that you want to speak, or enter empty text to exit.\n> ")
+        text, _ := bufio.NewReader(os.Stdin).ReadString('\n')
+        text = strings.TrimSuffix(text, "\n")
+        if len(text) == 0 {
+            break
+        }
 
-		task := speechSynthesizer.SpeakTextAsync(text)
-		var outcome speech.SpeechSynthesisOutcome
-		select {
-		case outcome = <-task:
-		case <-time.After(60 * time.Second):
-			fmt.Println("Timed out")
-			return
-		}
-		defer outcome.Close()
-		if outcome.Error != nil {
-			fmt.Println("Got an error: ", outcome.Error)
-			return
-		}
+        task := speechSynthesizer.SpeakTextAsync(text)
+        var outcome speech.SpeechSynthesisOutcome
+        select {
+        case outcome = <-task:
+        case <-time.After(60 * time.Second):
+            fmt.Println("Timed out")
+            return
+        }
+        defer outcome.Close()
+        if outcome.Error != nil {
+            fmt.Println("Got an error: ", outcome.Error)
+            return
+        }
 
-		if outcome.Result.Reason == common.SynthesizingAudioCompleted {
-			fmt.Printf("Speech synthesized to speaker for text [%s].\n", text)
-		} else {
-			cancellation, _ := speech.NewCancellationDetailsFromSpeechSynthesisResult(outcome.Result)
-			fmt.Printf("CANCELED: Reason=%d.\n", cancellation.Reason)
+        if outcome.Result.Reason == common.SynthesizingAudioCompleted {
+            fmt.Printf("Speech synthesized to speaker for text [%s].\n", text)
+        } else {
+            cancellation, _ := speech.NewCancellationDetailsFromSpeechSynthesisResult(outcome.Result)
+            fmt.Printf("CANCELED: Reason=%d.\n", cancellation.Reason)
 
-			if cancellation.Reason == common.Error {
-				fmt.Printf("CANCELED: ErrorCode=%d\nCANCELED: ErrorDetails=[%s]\nCANCELED: Did you set the speech resource key and region values?\n",
-					cancellation.ErrorCode,
-					cancellation.ErrorDetails)
-			}
-		}
-	}
+            if cancellation.Reason == common.Error {
+                fmt.Printf("CANCELED: ErrorCode=%d\nCANCELED: ErrorDetails=[%s]\nCANCELED: Did you set the speech resource key and region values?\n",
+                    cancellation.ErrorCode,
+                    cancellation.ErrorDetails)
+            }
+        }
+    }
 }
 ```
 
@@ -143,11 +143,11 @@ For detailed information about the classes, see the [`SpeechConfig`](https://pkg
 
 You can use the resulting audio data as an in-memory stream rather than directly writing to a file. With in-memory stream, you can build custom behavior, including:
 
-* Abstract the resulting byte array as a seekable stream for custom downstream services.
-* Integrate the result with other APIs or services.
-* Modify the audio data, write custom .wav headers, and do related tasks.
+- Abstract the resulting byte array as a seekable stream for custom downstream services.
+- Integrate the result with other APIs or services.
+- Modify the audio data, write custom .wav headers, and do related tasks.
 
-It's simple to make this change from the previous example. First, remove the `AudioConfig` block, because you'll manage the output behavior manually from this point onward for increased control. Then pass `nil` for `AudioConfig` in the `SpeechSynthesizer` constructor.
+It's simple to make this change from the previous example. First, remove the `AudioConfig` block, because you manage the output behavior manually from this point onward for increased control. Then pass `nil` for `AudioConfig` in the `SpeechSynthesizer` constructor.
 
 > [!NOTE]
 > Passing `NULL` for `AudioConfig`, rather than omitting it as you did in the previous speaker output example, will not play the audio by default on the current active output device.
@@ -161,104 +161,104 @@ Replace the variables `subscription` and `region` with your speech key and locat
 package main
 
 import (
-	"bufio"
-	"fmt"
-	"io"
-	"os"
-	"strings"
-	"time"
+    "bufio"
+    "fmt"
+    "io"
+    "os"
+    "strings"
+    "time"
 
-	"github.com/Microsoft/cognitive-services-speech-sdk-go/speech"
+    "github.com/Microsoft/cognitive-services-speech-sdk-go/speech"
 )
 
 func synthesizeStartedHandler(event speech.SpeechSynthesisEventArgs) {
-	defer event.Close()
-	fmt.Println("Synthesis started.")
+    defer event.Close()
+    fmt.Println("Synthesis started.")
 }
 
 func synthesizingHandler(event speech.SpeechSynthesisEventArgs) {
-	defer event.Close()
-	fmt.Printf("Synthesizing, audio chunk size %d.\n", len(event.Result.AudioData))
+    defer event.Close()
+    fmt.Printf("Synthesizing, audio chunk size %d.\n", len(event.Result.AudioData))
 }
 
 func synthesizedHandler(event speech.SpeechSynthesisEventArgs) {
-	defer event.Close()
-	fmt.Printf("Synthesized, audio length %d.\n", len(event.Result.AudioData))
+    defer event.Close()
+    fmt.Printf("Synthesized, audio length %d.\n", len(event.Result.AudioData))
 }
 
 func cancelledHandler(event speech.SpeechSynthesisEventArgs) {
-	defer event.Close()
-	fmt.Println("Received a cancellation.")
+    defer event.Close()
+    fmt.Println("Received a cancellation.")
 }
 
 func main() {
-	subscription := "YourSpeechKey"
-	region := "YourSpeechRegion"
+    subscription := "YourSpeechKey"
+    region := "YourSpeechRegion"
 
-	speechConfig, err := speech.NewSpeechConfigFromSubscription(subscription, region)
-	if err != nil {
-		fmt.Println("Got an error: ", err)
-		return
-	}
-	defer speechConfig.Close()
-	speechSynthesizer, err := speech.NewSpeechSynthesizerFromConfig(speechConfig, nil)
-	if err != nil {
-		fmt.Println("Got an error: ", err)
-		return
-	}
-	defer speechSynthesizer.Close()
+    speechConfig, err := speech.NewSpeechConfigFromSubscription(subscription, region)
+    if err != nil {
+        fmt.Println("Got an error: ", err)
+        return
+    }
+    defer speechConfig.Close()
+    speechSynthesizer, err := speech.NewSpeechSynthesizerFromConfig(speechConfig, nil)
+    if err != nil {
+        fmt.Println("Got an error: ", err)
+        return
+    }
+    defer speechSynthesizer.Close()
 
-	speechSynthesizer.SynthesisStarted(synthesizeStartedHandler)
-	speechSynthesizer.Synthesizing(synthesizingHandler)
-	speechSynthesizer.SynthesisCompleted(synthesizedHandler)
-	speechSynthesizer.SynthesisCanceled(cancelledHandler)
+    speechSynthesizer.SynthesisStarted(synthesizeStartedHandler)
+    speechSynthesizer.Synthesizing(synthesizingHandler)
+    speechSynthesizer.SynthesisCompleted(synthesizedHandler)
+    speechSynthesizer.SynthesisCanceled(cancelledHandler)
 
-	for {
-		fmt.Printf("Enter some text that you want to speak, or enter empty text to exit.\n> ")
-		text, _ := bufio.NewReader(os.Stdin).ReadString('\n')
-		text = strings.TrimSuffix(text, "\n")
-		if len(text) == 0 {
-			break
-		}
+    for {
+        fmt.Printf("Enter some text that you want to speak, or enter empty text to exit.\n> ")
+        text, _ := bufio.NewReader(os.Stdin).ReadString('\n')
+        text = strings.TrimSuffix(text, "\n")
+        if len(text) == 0 {
+            break
+        }
 
-		// StartSpeakingTextAsync sends the result to channel when the synthesis starts.
-		task := speechSynthesizer.StartSpeakingTextAsync(text)
-		var outcome speech.SpeechSynthesisOutcome
-		select {
-		case outcome = <-task:
-		case <-time.After(60 * time.Second):
-			fmt.Println("Timed out")
-			return
-		}
-		defer outcome.Close()
-		if outcome.Error != nil {
-			fmt.Println("Got an error: ", outcome.Error)
-			return
-		}
+        // StartSpeakingTextAsync sends the result to channel when the synthesis starts.
+        task := speechSynthesizer.StartSpeakingTextAsync(text)
+        var outcome speech.SpeechSynthesisOutcome
+        select {
+        case outcome = <-task:
+        case <-time.After(60 * time.Second):
+            fmt.Println("Timed out")
+            return
+        }
+        defer outcome.Close()
+        if outcome.Error != nil {
+            fmt.Println("Got an error: ", outcome.Error)
+            return
+        }
 
-		// In most cases, we want to streaming receive the audio to lower the latency.
-		// We can use AudioDataStream to do so.
-		stream, err := speech.NewAudioDataStreamFromSpeechSynthesisResult(outcome.Result)
-		defer stream.Close()
-		if err != nil {
-			fmt.Println("Got an error: ", err)
-			return
-		}
+        // In most cases, we want to streaming receive the audio to lower the latency.
+        // We can use AudioDataStream to do so.
+        stream, err := speech.NewAudioDataStreamFromSpeechSynthesisResult(outcome.Result)
+        defer stream.Close()
+        if err != nil {
+            fmt.Println("Got an error: ", err)
+            return
+        }
 
-		var all_audio []byte
-		audio_chunk := make([]byte, 2048)
-		for {
-			n, err := stream.Read(audio_chunk)
+        var all_audio []byte
+        audio_chunk := make([]byte, 2048)
+        for {
+            n, err := stream.Read(audio_chunk)
 
-			if err == io.EOF {
-				break
-			}
+            if err == io.EOF {
+                break
+            }
 
-			all_audio = append(all_audio, audio_chunk[:n]...)
-		}
+            all_audio = append(all_audio, audio_chunk[:n]...)
+        }
 
-		fmt.Printf("Read [%d] bytes from audio data stream.\n", len(all_audio))
-	}
+        fmt.Printf("Read [%d] bytes from audio data stream.\n", len(all_audio))
+    }
 }
 ```
 
@@ -287,8 +287,8 @@ Specify the language or voice of `SpeechConfig` to match your input text and use
 ```go
 speechConfig, err := speech.NewSpeechConfigFromSubscription(key, region)
 if err != nil {
-	fmt.Println("Got an error: ", err)
-	return
+    fmt.Println("Got an error: ", err)
+    return
 }
 defer speechConfig.Close()
 
@@ -296,16 +296,17 @@ speechConfig.SetSpeechSynthesisLanguage("en-US")
 speechConfig.SetSpeechSynthesisVoiceName("en-US-JennyNeural")
 ```
 
-All neural voices are multilingual and fluent in their own language and English. For example, if the input text in English is "I'm excited to try text to speech" and you set `es-ES-ElviraNeural`, the text is spoken in English with a Spanish accent. If the voice does not speak the language of the input text, the Speech service won't output synthesized audio. See the [full list](../../../language-support.md?tabs=tts) of supported neural voices.
+All neural voices are multilingual and fluent in their own language and English. For example, if the input text in English is "I'm excited to try text to speech" and you set `es-ES-ElviraNeural`, the text is spoken in English with a Spanish accent. If the voice doesn't speak the language of the input text, the Speech service doesn't create synthesized audio. For a full list of supported neural voices, see [Language and voice support for the Speech service](../../../language-support.md?tabs=tts).
 
 > [!NOTE]
-> The default voice is the first voice returned per locale via the [Voice List API](../../../rest-text-to-speech.md#get-a-list-of-voices).
+> The default voice is the first voice returned per locale from the [Voice List API](../../../rest-text-to-speech.md#get-a-list-of-voices).
 
 The voice that speaks is determined in order of priority as follows:
-- If you don't set `SpeechSynthesisVoiceName` or `SpeechSynthesisLanguage`, the default voice for `en-US` will speak. 
-- If you only set `SpeechSynthesisLanguage`, the default voice for the specified locale will speak. 
-- If both `SpeechSynthesisVoiceName` and `SpeechSynthesisLanguage` are set, the `SpeechSynthesisLanguage` setting is ignored. The voice that you specified via `SpeechSynthesisVoiceName` will speak.
-- If the voice element is set via [Speech Synthesis Markup Language (SSML)](../../../speech-synthesis-markup.md), the `SpeechSynthesisVoiceName` and `SpeechSynthesisLanguage` settings are ignored.
+
+- If you don't set `SpeechSynthesisVoiceName` or `SpeechSynthesisLanguage`, the default voice for `en-US` speaks. 
+- If you only set `SpeechSynthesisLanguage`, the default voice for the specified locale speaks. 
+- If both `SpeechSynthesisVoiceName` and `SpeechSynthesisLanguage` are set, the `SpeechSynthesisLanguage` setting is ignored. The voice that you specified by using `SpeechSynthesisVoiceName` speaks.
+- If the voice element is set by using [Speech Synthesis Markup Language (SSML)](../../../speech-synthesis-markup.md), the `SpeechSynthesisVoiceName` and `SpeechSynthesisLanguage` settings are ignored.
 
 ## Use SSML to customize speech characteristics
 
@@ -342,144 +343,144 @@ Here's an example that shows how to subscribe to events for speech synthesis. Yo
 package main
 
 import (
-	"fmt"
-	"os"
-	"time"
+    "fmt"
+    "os"
+    "time"
 
-	"github.com/Microsoft/cognitive-services-speech-sdk-go/audio"
-	"github.com/Microsoft/cognitive-services-speech-sdk-go/common"
-	"github.com/Microsoft/cognitive-services-speech-sdk-go/speech"
+    "github.com/Microsoft/cognitive-services-speech-sdk-go/audio"
+    "github.com/Microsoft/cognitive-services-speech-sdk-go/common"
+    "github.com/Microsoft/cognitive-services-speech-sdk-go/speech"
 )
 
 func bookmarkReachedHandler(event speech.SpeechSynthesisBookmarkEventArgs) {
-	defer event.Close()
-	fmt.Println("BookmarkReached event")
+    defer event.Close()
+    fmt.Println("BookmarkReached event")
 }
 
 func synthesisCanceledHandler(event speech.SpeechSynthesisEventArgs) {
-	defer event.Close()
-	fmt.Println("SynthesisCanceled event")
+    defer event.Close()
+    fmt.Println("SynthesisCanceled event")
 }
 
 func synthesisCompletedHandler(event speech.SpeechSynthesisEventArgs) {
-	defer event.Close()
-	fmt.Println("SynthesisCompleted event")
-	fmt.Printf("\tAudioData: %d bytes\n", len(event.Result.AudioData))
-	fmt.Printf("\tAudioDuration: %d\n", event.Result.AudioDuration)
+    defer event.Close()
+    fmt.Println("SynthesisCompleted event")
+    fmt.Printf("\tAudioData: %d bytes\n", len(event.Result.AudioData))
+    fmt.Printf("\tAudioDuration: %d\n", event.Result.AudioDuration)
 }
 
 func synthesisStartedHandler(event speech.SpeechSynthesisEventArgs) {
-	defer event.Close()
-	fmt.Println("SynthesisStarted event")
+    defer event.Close()
+    fmt.Println("SynthesisStarted event")
 }
 
 func synthesizingHandler(event speech.SpeechSynthesisEventArgs) {
-	defer event.Close()
-	fmt.Println("Synthesizing event")
-	fmt.Printf("\tAudioData %d bytes\n", len(event.Result.AudioData))
+    defer event.Close()
+    fmt.Println("Synthesizing event")
+    fmt.Printf("\tAudioData %d bytes\n", len(event.Result.AudioData))
 }
 
 func visemeReceivedHandler(event speech.SpeechSynthesisVisemeEventArgs) {
-	defer event.Close()
-	fmt.Println("VisemeReceived event")
-	fmt.Printf("\tAudioOffset: %dms\n", (event.AudioOffset+5000)/10000)
-	fmt.Printf("\tVisemeID %d\n", event.VisemeID)
+    defer event.Close()
+    fmt.Println("VisemeReceived event")
+    fmt.Printf("\tAudioOffset: %dms\n", (event.AudioOffset+5000)/10000)
+    fmt.Printf("\tVisemeID %d\n", event.VisemeID)
 }
 
 func wordBoundaryHandler(event speech.SpeechSynthesisWordBoundaryEventArgs) {
-	defer event.Close()
-	boundaryType := ""
-	switch event.BoundaryType {
-	case 0:
-		boundaryType = "Word"
-	case 1:
-		boundaryType = "Punctuation"
-	case 2:
-		boundaryType = "Sentence"
-	}
-	fmt.Println("WordBoundary event")
-	fmt.Printf("\tBoundaryType %v\n", boundaryType)
-	fmt.Printf("\tAudioOffset: %dms\n", (event.AudioOffset+5000)/10000)
-	fmt.Printf("\tDuration %d\n", event.Duration)
-	fmt.Printf("\tText %s\n", event.Text)
-	fmt.Printf("\tTextOffset %d\n", event.TextOffset)
-	fmt.Printf("\tWordLength %d\n", event.WordLength)
+    defer event.Close()
+    boundaryType := ""
+    switch event.BoundaryType {
+    case 0:
+        boundaryType = "Word"
+    case 1:
+        boundaryType = "Punctuation"
+    case 2:
+        boundaryType = "Sentence"
+    }
+    fmt.Println("WordBoundary event")
+    fmt.Printf("\tBoundaryType %v\n", boundaryType)
+    fmt.Printf("\tAudioOffset: %dms\n", (event.AudioOffset+5000)/10000)
+    fmt.Printf("\tDuration %d\n", event.Duration)
+    fmt.Printf("\tText %s\n", event.Text)
+    fmt.Printf("\tTextOffset %d\n", event.TextOffset)
+    fmt.Printf("\tWordLength %d\n", event.WordLength)
 }
 
 func main() {
     // This example requires environment variables named "SPEECH_KEY" and "SPEECH_REGION"
-	speechKey := os.Getenv("SPEECH_KEY")
-	speechRegion := os.Getenv("SPEECH_REGION")
+    speechKey := os.Getenv("SPEECH_KEY")
+    speechRegion := os.Getenv("SPEECH_REGION")
 
-	audioConfig, err := audio.NewAudioConfigFromDefaultSpeakerOutput()
-	if err != nil {
-		fmt.Println("Got an error: ", err)
-		return
-	}
-	defer audioConfig.Close()
-	speechConfig, err := speech.NewSpeechConfigFromSubscription(speechKey, speechRegion)
-	if err != nil {
-		fmt.Println("Got an error: ", err)
-		return
-	}
-	defer speechConfig.Close()
+    audioConfig, err := audio.NewAudioConfigFromDefaultSpeakerOutput()
+    if err != nil {
+        fmt.Println("Got an error: ", err)
+        return
+    }
+    defer audioConfig.Close()
+    speechConfig, err := speech.NewSpeechConfigFromSubscription(speechKey, speechRegion)
+    if err != nil {
+        fmt.Println("Got an error: ", err)
+        return
+    }
+    defer speechConfig.Close()
 
-	// Required for WordBoundary event sentences.
-	speechConfig.SetProperty(common.SpeechServiceResponseRequestSentenceBoundary, "true")
+    // Required for WordBoundary event sentences.
+    speechConfig.SetProperty(common.SpeechServiceResponseRequestSentenceBoundary, "true")
 
-	speechSynthesizer, err := speech.NewSpeechSynthesizerFromConfig(speechConfig, audioConfig)
-	if err != nil {
-		fmt.Println("Got an error: ", err)
-		return
-	}
-	defer speechSynthesizer.Close()
+    speechSynthesizer, err := speech.NewSpeechSynthesizerFromConfig(speechConfig, audioConfig)
+    if err != nil {
+        fmt.Println("Got an error: ", err)
+        return
+    }
+    defer speechSynthesizer.Close()
 
-	speechSynthesizer.BookmarkReached(bookmarkReachedHandler)
-	speechSynthesizer.SynthesisCanceled(synthesisCanceledHandler)
-	speechSynthesizer.SynthesisCompleted(synthesisCompletedHandler)
-	speechSynthesizer.SynthesisStarted(synthesisStartedHandler)
-	speechSynthesizer.Synthesizing(synthesizingHandler)
-	speechSynthesizer.VisemeReceived(visemeReceivedHandler)
-	speechSynthesizer.WordBoundary(wordBoundaryHandler)
+    speechSynthesizer.BookmarkReached(bookmarkReachedHandler)
+    speechSynthesizer.SynthesisCanceled(synthesisCanceledHandler)
+    speechSynthesizer.SynthesisCompleted(synthesisCompletedHandler)
+    speechSynthesizer.SynthesisStarted(synthesisStartedHandler)
+    speechSynthesizer.Synthesizing(synthesizingHandler)
+    speechSynthesizer.VisemeReceived(visemeReceivedHandler)
+    speechSynthesizer.WordBoundary(wordBoundaryHandler)
 
-	speechSynthesisVoiceName := "en-US-JennyNeural"
+    speechSynthesisVoiceName := "en-US-JennyNeural"
 
-	ssml := fmt.Sprintf(`<speak version='1.0' xml:lang='en-US' xmlns='http://www.w3.org/2001/10/synthesis' xmlns:mstts='http://www.w3.org/2001/mstts'>
+    ssml := fmt.Sprintf(`<speak version='1.0' xml:lang='en-US' xmlns='http://www.w3.org/2001/10/synthesis' xmlns:mstts='http://www.w3.org/2001/mstts'>
             <voice name='%s'>
                 <mstts:viseme type='redlips_front'/>
                 The rainbow has seven colors: <bookmark mark='colors_list_begin'/>Red, orange, yellow, green, blue, indigo, and violet.<bookmark mark='colors_list_end'/>.
             </voice>
         </speak>`, speechSynthesisVoiceName)
 
-	// Synthesize the SSML
-	fmt.Printf("SSML to synthesize: \n\t%s\n", ssml)
-	task := speechSynthesizer.SpeakSsmlAsync(ssml)
+    // Synthesize the SSML
+    fmt.Printf("SSML to synthesize: \n\t%s\n", ssml)
+    task := speechSynthesizer.SpeakSsmlAsync(ssml)
 
-	var outcome speech.SpeechSynthesisOutcome
-	select {
-	case outcome = <-task:
-	case <-time.After(60 * time.Second):
-		fmt.Println("Timed out")
-		return
-	}
-	defer outcome.Close()
-	if outcome.Error != nil {
-		fmt.Println("Got an error: ", outcome.Error)
-		return
-	}
+    var outcome speech.SpeechSynthesisOutcome
+    select {
+    case outcome = <-task:
+    case <-time.After(60 * time.Second):
+        fmt.Println("Timed out")
+        return
+    }
+    defer outcome.Close()
+    if outcome.Error != nil {
+        fmt.Println("Got an error: ", outcome.Error)
+        return
+    }
 
-	if outcome.Result.Reason == common.SynthesizingAudioCompleted {
-		fmt.Println("SynthesizingAudioCompleted result")
-	} else {
-		cancellation, _ := speech.NewCancellationDetailsFromSpeechSynthesisResult(outcome.Result)
-		fmt.Printf("CANCELED: Reason=%d.\n", cancellation.Reason)
+    if outcome.Result.Reason == common.SynthesizingAudioCompleted {
+        fmt.Println("SynthesizingAudioCompleted result")
+    } else {
+        cancellation, _ := speech.NewCancellationDetailsFromSpeechSynthesisResult(outcome.Result)
+        fmt.Printf("CANCELED: Reason=%d.\n", cancellation.Reason)
 
-		if cancellation.Reason == common.Error {
-			fmt.Printf("CANCELED: ErrorCode=%d\nCANCELED: ErrorDetails=[%s]\nCANCELED: Did you set the speech resource key and region values?\n",
-				cancellation.ErrorCode,
-				cancellation.ErrorDetails)
-		}
-	}
+        if cancellation.Reason == common.Error {
+            fmt.Printf("CANCELED: ErrorCode=%d\nCANCELED: ErrorDetails=[%s]\nCANCELED: Did you set the speech resource key and region values?\n",
+                cancellation.ErrorCode,
+                cancellation.ErrorDetails)
+        }
+    }
 }
 ```
 
@@ -489,5 +490,4 @@ You can find more text to speech samples at [GitHub](https://github.com/microsof
 
 Speech containers provide websocket-based query endpoint APIs that are accessed through the Speech SDK and Speech CLI. By default, the Speech SDK and Speech CLI use the public Speech service. To use the container, you need to change the initialization method. Use a container host URL instead of key and region.
 
-For more information about containers, see the [speech containers](../../../speech-container-howto.md#host-urls) how-to guide.
-
+For more information about containers, see [Install and run Speech containers with Docker](../../../speech-container-howto.md).

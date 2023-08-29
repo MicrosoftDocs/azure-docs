@@ -2,7 +2,7 @@
 author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/25/2020
+ms.date: 08/30/2023
 ms.author: eur
 ms.custom: devx-track-csharp
 ---
@@ -27,20 +27,21 @@ static async Task SynthesizeAudioAsync()
 }
 ```
 
-All neural voices are multilingual and fluent in their own language and English. For example, if the input text in English is "I'm excited to try text to speech" and you set `es-ES-ElviraNeural`, the text is spoken in English with a Spanish accent. If the voice doesn't speak the language of the input text, the Speech service won't output synthesized audio. See the [full list](../../../language-support.md?tabs=tts) of supported neural voices.
+All neural voices are multilingual and fluent in their own language and English. For example, if the input text in English is "I'm excited to try text to speech" and you set `es-ES-ElviraNeural`, the text is spoken in English with a Spanish accent. If the voice doesn't speak the language of the input text, the Speech service doesn't create synthesized audio. For a full list of supported neural voices, see [Language and voice support for the Speech service](../../../language-support.md?tabs=tts).
 
 > [!NOTE]
-> The default voice is the first voice returned per locale via the [Voice List API](../../../rest-text-to-speech.md#get-a-list-of-voices).
+> The default voice is the first voice returned per locale from the [Voice List API](../../../rest-text-to-speech.md#get-a-list-of-voices).
 
 The voice that speaks is determined in order of priority as follows:
-- If you don't set `SpeechSynthesisVoiceName` or `SpeechSynthesisLanguage`, the default voice for `en-US` will speak. 
-- If you only set `SpeechSynthesisLanguage`, the default voice for the specified locale will speak. 
-- If both `SpeechSynthesisVoiceName` and `SpeechSynthesisLanguage` are set, the `SpeechSynthesisLanguage` setting is ignored. The voice that you specified via `SpeechSynthesisVoiceName` will speak.
-- If the voice element is set via [Speech Synthesis Markup Language (SSML)](../../../speech-synthesis-markup.md), the `SpeechSynthesisVoiceName` and `SpeechSynthesisLanguage` settings are ignored.
+
+- If you don't set `SpeechSynthesisVoiceName` or `SpeechSynthesisLanguage`, the default voice for `en-US` speaks. 
+- If you only set `SpeechSynthesisLanguage`, the default voice for the specified locale speaks. 
+- If both `SpeechSynthesisVoiceName` and `SpeechSynthesisLanguage` are set, the `SpeechSynthesisLanguage` setting is ignored. The voice that you specified by using `SpeechSynthesisVoiceName` speaks.
+- If the voice element is set by using [Speech Synthesis Markup Language (SSML)](../../../speech-synthesis-markup.md), the `SpeechSynthesisVoiceName` and `SpeechSynthesisLanguage` settings are ignored.
 
 ## Synthesize speech to a file
 
-Next, you create a [`SpeechSynthesizer`](/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesizer) object. This object executes text to speech conversions and outputs to speakers, files, or other output streams. `SpeechSynthesizer` accepts as parameters:
+Next, you create a [`SpeechSynthesizer`](/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesizer) object. This object runs text to speech conversions and outputs to speakers, files, or other output streams. `SpeechSynthesizer` accepts as parameters:
 
 - The [`SpeechConfig`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig) object that you created in the previous step
 - An [`AudioConfig`](/dotnet/api/microsoft.cognitiveservices.speech.audio.audioconfig) object that specifies how output results should be handled
@@ -55,7 +56,7 @@ static async Task SynthesizeAudioAsync()
 }
 ```
 
-Next, instantiate a `SpeechSynthesizer` instance with another `using` statement. Pass your `speechConfig` object and the `audioConfig` object as parameters. Then, the process of executing speech synthesis and writing to a file is as simple as running `SpeakTextAsync()` with a string of text.
+Next, instantiate a `SpeechSynthesizer` instance with another `using` statement. Pass your `speechConfig` object and the `audioConfig` object as parameters. Then, the process of doing speech synthesis and writing to a file is as simple as running `SpeakTextAsync()` with a string of text.
 
 ```csharp
 static async Task SynthesizeAudioAsync()
@@ -67,7 +68,7 @@ static async Task SynthesizeAudioAsync()
 }
 ```
 
-Run the program. A synthesized .wav file is written to the location that you specified. This is a good example of the most basic usage. Next, you look at customizing output and handling the output response as an in-memory stream for working with custom scenarios.
+Run the program. A synthesized .wav file is written to the location that you specified. This result is a good example of the most basic usage. Next, you look at customizing output and handling the output response as an in-memory stream for working with custom scenarios.
 
 ## Synthesize to speaker output
 
@@ -86,11 +87,11 @@ static async Task SynthesizeAudioAsync()
 
 You can use the resulting audio data as an in-memory stream rather than directly writing to a file. With in-memory stream, you can build custom behavior, including:
 
-* Abstract the resulting byte array as a seekable stream for custom downstream services.
-* Integrate the result with other APIs or services.
-* Modify the audio data, write custom .wav headers, and do related tasks.
+- Abstract the resulting byte array as a seekable stream for custom downstream services.
+- Integrate the result with other APIs or services.
+- Modify the audio data, write custom .wav headers, and do related tasks.
 
-It's simple to make this change from the previous example. First, remove the `AudioConfig` block, because you'll manage the output behavior manually from this point onward for increased control. Then pass `null` for `AudioConfig` in the `SpeechSynthesizer` constructor.
+It's simple to make this change from the previous example. First, remove the `AudioConfig` block, because you manage the output behavior manually from this point onward for increased control. Then pass `null` for `AudioConfig` in the `SpeechSynthesizer` constructor.
 
 > [!NOTE]
 > Passing `null` for `AudioConfig`, rather than omitting it as you did in the previous speaker output example, will not play the audio by default on the current active output device.
@@ -114,9 +115,9 @@ From here, you can implement any custom behavior by using the resulting `stream`
 
 You can customize audio output attributes, including:
 
-* Audio file type
-* Sample rate
-* Bit depth
+- Audio file type
+- Sample rate
+- Bit depth
 
 To change the audio format, you use the `SetSpeechSynthesisOutputFormat()` function on the `SpeechConfig` object. This function expects an `enum` instance of type [`SpeechSynthesisOutputFormat`](/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesisoutputformat), which you use to select the output format. See the [list of audio formats](/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesisoutputformat) that are available.
 
@@ -141,7 +142,7 @@ static async Task SynthesizeAudioAsync()
 }
 ```
 
-Running your program again will write a .wav file to the specified path.
+Running your program again writes a .wav file to the specified path.
 
 ## Use SSML to customize speech characteristics
 
@@ -306,5 +307,4 @@ You can find more text to speech samples at [GitHub](https://aka.ms/csspeech/sam
 
 Speech containers provide websocket-based query endpoint APIs that are accessed through the Speech SDK and Speech CLI. By default, the Speech SDK and Speech CLI use the public Speech service. To use the container, you need to change the initialization method. Use a container host URL instead of key and region.
 
-For more information about containers, see the [speech containers](../../../speech-container-howto.md#host-urls) how-to guide.
-
+For more information about containers, see [Install and run Speech containers with Docker](../../../speech-container-howto.md).

@@ -2,7 +2,7 @@
 author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 01/16/2022
+ms.date: 08/30/2023
 ms.author: eur
 ---
 
@@ -22,20 +22,21 @@ speech_config.speech_synthesis_language = "en-US"
 speech_config.speech_synthesis_voice_name ="en-US-JennyNeural"
 ```
 
-All neural voices are multilingual and fluent in their own language and English. For example, if the input text in English is "I'm excited to try text to speech" and you set `es-ES-ElviraNeural`, the text is spoken in English with a Spanish accent. If the voice does not speak the language of the input text, the Speech service won't output synthesized audio. See the [full list](../../../language-support.md?tabs=tts) of supported neural voices.
+All neural voices are multilingual and fluent in their own language and English. For example, if the input text in English is "I'm excited to try text to speech" and you set `es-ES-ElviraNeural`, the text is spoken in English with a Spanish accent. If the voice doesn't speak the language of the input text, the Speech service doesn't create synthesized audio. For a full list of supported neural voices, see [Language and voice support for the Speech service](../../../language-support.md?tabs=tts).
 
 > [!NOTE]
-> The default voice is the first voice returned per locale via the [Voice List API](../../../rest-text-to-speech.md#get-a-list-of-voices).
+> The default voice is the first voice returned per locale from the [Voice List API](../../../rest-text-to-speech.md#get-a-list-of-voices).
 
 The voice that speaks is determined in order of priority as follows:
-- If you don't set `SpeechSynthesisVoiceName` or `SpeechSynthesisLanguage`, the default voice for `en-US` will speak. 
-- If you only set `SpeechSynthesisLanguage`, the default voice for the specified locale will speak. 
-- If both `SpeechSynthesisVoiceName` and `SpeechSynthesisLanguage` are set, the `SpeechSynthesisLanguage` setting is ignored. The voice that you specified via `SpeechSynthesisVoiceName` will speak.
-- If the voice element is set via [Speech Synthesis Markup Language (SSML)](../../../speech-synthesis-markup.md), the `SpeechSynthesisVoiceName` and `SpeechSynthesisLanguage` settings are ignored.
+
+- If you don't set `SpeechSynthesisVoiceName` or `SpeechSynthesisLanguage`, the default voice for `en-US` speaks. 
+- If you only set `SpeechSynthesisLanguage`, the default voice for the specified locale speaks. 
+- If both `SpeechSynthesisVoiceName` and `SpeechSynthesisLanguage` are set, the `SpeechSynthesisLanguage` setting is ignored. The voice that you specified by using `SpeechSynthesisVoiceName` speaks.
+- If the voice element is set by using [Speech Synthesis Markup Language (SSML)](../../../speech-synthesis-markup.md), the `SpeechSynthesisVoiceName` and `SpeechSynthesisLanguage` settings are ignored.
 
 ## Synthesize speech to a file
 
-Next, you create a [`SpeechSynthesizer`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesizer) object. This object executes text to speech conversions and outputs to speakers, files, or other output streams. `SpeechSynthesizer` accepts as parameters:
+Next, you create a [`SpeechSynthesizer`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesizer) object. This object runs text to speech conversions and outputs to speakers, files, or other output streams. `SpeechSynthesizer` accepts as parameters:
 
 - The [`SpeechConfig`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig) object that you created in the previous step
 - An [`AudioOutputConfig`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.audio.audiooutputconfig) object that specifies how output results should be handled
@@ -46,14 +47,14 @@ To start, create an `AudioOutputConfig` instance to automatically write the outp
 audio_config = speechsdk.audio.AudioOutputConfig(filename="path/to/write/file.wav")
 ```
 
-Next, instantiate `SpeechSynthesizer` by passing your `speech_config` object and the `audio_config` object as parameters. Then, executing speech synthesis and writing to a file is as simple as running `speak_text_async()` with a string of text.
+Next, instantiate `SpeechSynthesizer` by passing your `speech_config` object and the `audio_config` object as parameters. Then, doing speech synthesis and writing to a file is as simple as running `speak_text_async()` with a string of text.
 
 ```python
 speech_synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=audio_config)
 speech_synthesizer.speak_text_async("I'm excited to try text to speech")
 ```
 
-Run the program. A synthesized .wav file is written to the location that you specified. This is a good example of the most basic usage. Next, you look at customizing output and handling the output response as an in-memory stream for working with custom scenarios.
+Run the program. A synthesized .wav file is written to the location that you specified. This result is a good example of the most basic usage. Next, you look at customizing output and handling the output response as an in-memory stream for working with custom scenarios.
 
 ## Synthesize to speaker output
 
@@ -67,11 +68,11 @@ audio_config = speechsdk.audio.AudioOutputConfig(use_default_speaker=True)
 
 You can use the resulting audio data as an in-memory stream rather than directly writing to a file. With in-memory stream, you can build custom behavior, including:
 
-* Abstract the resulting byte array as a seekable stream for custom downstream services.
-* Integrate the result with other APIs or services.
-* Modify the audio data, write custom .wav headers, and do related tasks.
+- Abstract the resulting byte array as a seekable stream for custom downstream services.
+- Integrate the result with other APIs or services.
+- Modify the audio data, write custom .wav headers, and do related tasks.
 
-It's simple to make this change from the previous example. First, remove `AudioConfig`, because you'll manage the output behavior manually from this point onward for increased control. Then pass `None` for `AudioConfig` in the `SpeechSynthesizer` constructor.
+It's simple to make this change from the previous example. First, remove `AudioConfig`, because you manage the output behavior manually from this point onward for increased control. Then pass `None` for `AudioConfig` in the `SpeechSynthesizer` constructor.
 
 > [!NOTE]
 > Passing `None` for `AudioConfig`, rather than omitting it as you did in the previous speaker output example, will not play the audio by default on the current active output device.
@@ -90,19 +91,18 @@ From here, you can implement any custom behavior by using the resulting `stream`
 
 You can customize audio output attributes, including:
 
-* Audio file type
-* Sample rate
-* Bit depth
+- Audio file type
+- Sample rate
+- Bit depth
 
 To change the audio format, you use the `set_speech_synthesis_output_format()` function on the `SpeechConfig` object. This function expects an `enum` instance of type [`SpeechSynthesisOutputFormat`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesisoutputformat), which you use to select the output format. See the [list of audio formats](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesisoutputformat) that are available.
 
-There are various options for different file types, depending on your requirements. By definition, raw formats like `Raw24Khz16BitMonoPcm` don't include audio headers. Use raw formats only in one of these situations: 
+There are various options for different file types, depending on your requirements. By definition, raw formats like `Raw24Khz16BitMonoPcm` don't include audio headers. Use raw formats only in one of these situations:
 
 - You know that your downstream implementation can decode a raw bitstream.
 - You plan to manually build headers based on factors like bit depth, sample rate, and number of channels.
 
 In this example, you specify the high-fidelity RIFF format `Riff24Khz16BitMonoPcm` by setting `SpeechSynthesisOutputFormat` on the `SpeechConfig` object. Similar to the example in the previous section, you use [`AudioDataStream`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.audiodatastream) to get an in-memory stream of the result, and then write it to a file.
-
 
 ```python
 speech_config.set_speech_synthesis_output_format(speechsdk.SpeechSynthesisOutputFormat.Riff24Khz16BitMonoPcm)
@@ -113,7 +113,7 @@ stream = speechsdk.AudioDataStream(result)
 stream.save_to_wav_file("path/to/write/file.wav")
 ```
 
-Running your program again will write a customized .wav file to the specified path.
+Running your program again writes a customized .wav file to the specified path.
 
 ## Use SSML to customize speech characteristics
 
@@ -246,5 +246,4 @@ You can find more text to speech samples at [GitHub](https://aka.ms/csspeech/sam
 
 Speech containers provide websocket-based query endpoint APIs that are accessed through the Speech SDK and Speech CLI. By default, the Speech SDK and Speech CLI use the public Speech service. To use the container, you need to change the initialization method. Use a container host URL instead of key and region.
 
-For more information about containers, see the [speech containers](../../../speech-container-howto.md#host-urls) how-to guide.
-
+For more information about containers, see [Install and run Speech containers with Docker](../../../speech-container-howto.md).
