@@ -23388,7 +23388,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure/devtest-labs/how-to-move-schedule-to-new-region.md",
+            "source_path_from_root": "/articles/devtest-labs/how-to-move-schedule-to-new-region.md",
             "redirect_url": "/azure/devtest-labs/how-to-move-labs",
             "redirect_document_id": false
         },
