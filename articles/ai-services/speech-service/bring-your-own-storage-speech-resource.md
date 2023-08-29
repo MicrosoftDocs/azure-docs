@@ -154,7 +154,7 @@ General rule is that you need to pass this JSON string as a value of `--storage`
 
 To create a BYOS-enabled Speech resource with a REST Request to Cognitive Services API, we use [Accounts - Create](/rest/api/cognitiveservices/accountmanagement/accounts/create) request.
 
-You need to have a meaning of authentication. The example in this section uses [Microsoft Azure Active Directory token](/azure/active-directory/develop/access-tokens).
+You need to have a means of authentication. The example in this section uses [Microsoft Azure Active Directory token](/azure/active-directory/develop/access-tokens).
 
 This code snippet generates Azure AD token using interactive browser sign-in. It requires [Azure Identity client library](/dotnet/api/overview/azure/identity-readme):
 ```csharp

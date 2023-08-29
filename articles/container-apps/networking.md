@@ -148,7 +148,7 @@ In addition, Container Apps on the workload profiles environment reserve the fol
 ## Routes
 
 User Defined Routes (UDR) and controlled egress through NAT Gateway are supported in the workload profiles environment, which is in preview. In the Consumption only environment, these features aren't supported.
-
+<a name="udr"></a>
 ### User defined routes (UDR) - preview
 
 > [!NOTE]
@@ -176,6 +176,7 @@ Application rules allow or deny traffic based on the application layer. The foll
 | All scenarios | *mcr.microsoft.com*, **.data.mcr.microsoft.com* | These FQDNs for Microsoft Container Registry (MCR) are used by Azure Container Apps and either these application rules or the network rules for MCR must be added to the allowlist when using Azure Container Apps with Azure Firewall. | 
 | Azure Container Registry (ACR) | *Your-ACR-address*, **.blob.windows.net* | These FQDNs are required when using Azure Container Apps with ACR and Azure Firewall. | 
 | Azure Key Vault | *Your-Azure-Key-Vault-address*, *login.microsoft.com* | These FQDNs are required in addition to the service tag required for the network rule for Azure Key Vault. | 
+| Managed Identities | **.identity.azure.net*, *login.microsoftonline.com*, **.login.microsoftonline.com*, **.login.microsoft.com* | These FQDNs are required when using managed identities with Azure Firewall in Azure Container Apps.
 | Docker Hub Registry | *hub.docker.com*, *registry-1.docker.io*, *production.cloudflare.docker.com* | If you're using [Docker Hub registry](https://docs.docker.com/desktop/allow-list/) and want to access it through the firewall, you need to add these FQDNs to the firewall. | 
 
 ##### Azure Firewall - Network Rules
@@ -190,7 +191,7 @@ Network rules allow or deny traffic based on the network and transport layer. Th
 
 > [!Note]
 > For Azure resources you are using with Azure Firewall not listed in this article, please refer to the [service tags documentation](../virtual-network/service-tags-overview.md#available-service-tags).
-
+<a name="nat"></a>
 ### NAT gateway integration - preview
 
 You can use NAT Gateway to simplify outbound connectivity for your outbound internet traffic in your virtual network on the workload profiles environment. NAT Gateway is used to provide a static public IP address, so when you configure NAT Gateway on your Container Apps subnet, all outbound traffic from your container app is routed through the NAT Gateway's static public IP address. 

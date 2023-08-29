@@ -48,13 +48,13 @@ For the past release history, see [Kubernetes history](https://github.com/kubern
 | 1.25 | Aug 2022 | Oct 2022 | Dec 2022 | Dec 2023
 | 1.26 | Dec 2022 | Feb 2023 | Apr 2023 | Mar 2024
 | 1.27 | Apr 2023 | Jun 2023 | Jul 2023 | Jul 2024
-| 1.28 | Aug 2023 | Aug 2023 | Sep 2023 ||
+| 1.28 | Aug 2023 | Sep 2023 | Oct 2023 ||
 
 ### AKS Kubernetes release schedule Gantt chart
 
 If you prefer to see this information visually, here's a Gantt chart with all the current releases displayed:
 
-:::image type="content" source="./media/supported-kubernetes-versions/kubernetes-versions-gantt.png" alt-text="Gantt chart showing the lifecycle of all Kubernetes versions currently active in AKS." lightbox="./media/supported-kubernetes-versions/kubernetes-versions-gantt.png":::
+:::image type="content" source="./media/supported-kubernetes-versions/kubernetes-versions-gantt.svg" alt-text="Gantt chart showing the lifecycle of all Kubernetes versions currently active in AKS." lightbox="./media/supported-kubernetes-versions/kubernetes-versions-gantt.svg":::
 
 ## AKS Components Breaking Changes by Version
 

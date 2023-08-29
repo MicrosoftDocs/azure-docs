@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 04/19/2023
+ms.date: 08/21/2023
 ms.author: jricketts
 ms.custom: it-pro, seodec18, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
@@ -129,19 +129,43 @@ Additionally, while you can use the following Conditional Access conditions, be 
 - **Sign-in risk and user risk.** User behavior in their home tenant determines, in part, the sign-in risk and user risk. The home tenant stores the data and risk score. If resource tenant policies block an external user, a resource tenant admin might not be able to enable access. [Identity Protection and B2B users](../identity-protection/concept-identity-protection-b2b.md) explains how Identity Protection detects compromised credentials for Azure AD users.
 - **Locations.** The named location definitions in the resource tenant determine the scope of the policy. The scope of the policy doesn't evaluate trusted locations managed in the home tenant. If your organization wants to share trusted locations across tenants, define the locations in each tenant where you define the resources and Conditional Access policies.
 
-## Other access control considerations
+## Securing your multi-tenant environment
+Review the [security checklist](/azure/security/fundamentals/steps-secure-identity) and [best practices](/azure/security/fundamentals/operational-best-practices) for guidance on securing your tenant. Ensure these best practices are followed and review them with any tenants that you collaborate closely with.
 
+### Conditional access
 The following are considerations for configuring access control.
 
 - Define [access control policies](../external-identities/authentication-conditional-access.md) to control access to resources.
 - Design Conditional Access policies with external users in mind.
 - Create policies specifically for external users.
-- If your organization is using the [**all users** dynamic group](../external-identities/use-dynamic-groups.md) condition in your existing Conditional Access policy, this policy affects external users because they are in scope of **all users**.
 - Create dedicated Conditional Access policies for external accounts.
 
-### Require user assignment
+### Monitoring your multi-tenant environment
+- Monitor for changes to cross-tenant access policies using the [audit logs UI](../reports-monitoring/concept-audit-logs.md), [API](/graph/api/resources/azure-ad-auditlog-overview), or [Azure Monitor integration](../reports-monitoring/tutorial-configure-log-analytics-workspace.md) (for proactive alerts). The audit events use the categories "CrossTenantAccessSettings" and "CrossTenantIdentitySyncSettings." By monitoring for audit events under these categories, you can identify any cross-tenant access policy changes in your tenant and take action. When creating alerts in Azure Monitor, you can create a query such as the one below to identify any cross-tenant access policy changes.   
+
+```
+AuditLogs
+| where Category contains "CrossTenant"
+```
+
+- Monitor application access in your tenant using the [cross-tenant access activity](../reports-monitoring/workbook-cross-tenant-access-activity.md) dashboard. This allows you to see who is accessing resources in your tenant and where those users are coming from. 
+
+
+### Dynamic groups
+
+If your organization is using the [**all users** dynamic group](../external-identities/use-dynamic-groups.md) condition in your existing Conditional Access policy, this policy affects external users because they are in scope of **all users**.
+
+### Require user assignment for applications
 
 If an application has the **User assignment required?** property set to **No**, external users can access the application. Application admins must understand access control impacts, especially if the application contains sensitive information. [Restrict your Azure AD app to a set of users in an Azure AD tenant](../develop/howto-restrict-your-app-to-a-set-of-users.md) explains how registered applications in an Azure Active Directory (Azure AD) tenant are, by default, available to all users of the tenant who successfully authenticate.
+
+### Privileged Identity Management
+Minimize persistent administrator access by enabling [privileged identity management](/azure/security/fundamentals/steps-secure-identity#implement-privilege-access-management). 
+
+### Restricted Management Units
+When you're using security groups to control who is in scope for cross-tenant synchronization, you will want to limit who can make changes to the security group. Minimize the number of owners of the security groups assigned to the cross-tenant synchronization job and include the groups in a [restricted management unit](../roles/admin-units-restricted-management.md). This will limit the number of people that can add or remove group members and provision accounts across tenants. 
+
+## Other access control considerations
 
 ### Terms and conditions
 
