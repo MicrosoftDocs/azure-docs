@@ -20,8 +20,9 @@ Azure Virtual Machines supports enabling Trusted Launch on existing [Azure Gener
 [Trusted launch](trusted-launch.md) is a way to enable foundational compute security on [Azure Generation 2 VMs](generation-2.md). Trusted launch protects your Virtual Machines against advanced and persistent attack techniques like boot kits and rootkits by combining infrastructure technologies like Secure Boot, vTPM and Boot Integrity Monitoring on your VM.
 
 > [!IMPORTANT]
+>
 > - Enabling Trusted Launch on existing Azure Generation 1 VMs is currently not supported.
-> - Enabling Trusted Launch on existing Azure Virtual Machine Scale Sets (VMSS) is currently not supported.
+> - Enabling Trusted Launch on existing Azure Virtual Machine Scale Sets (VMSS) Uniform & Flex is currently not supported.
 
 ## Prerequisites
 
