@@ -47,9 +47,9 @@ The image version must meet the following requirements:
     - You must create the image using these three sysprep options: `/generalize /oobe /mode:vm`. </br>
       For more information, see: [Sysprep Command-Line Options](/windows-hardware/manufacture/desktop/sysprep-command-line-options?view=windows-11#modevm&preserve-view=true).
     - To speed up the Dev Box creation time:
-      - you can disable the reserved storage state feature in the image by using the following command: `DISM.exe /Online /Set-ReservedStorageState /State:Disabled`. </br>
+      - Disable the reserved storage state feature in the image by using the following command: `DISM.exe /Online /Set-ReservedStorageState /State:Disabled`. </br>
         For more information, see: [DISM Storage reserve command-line options](/windows-hardware/manufacture/desktop/dism-storage-reserve?view=windows-11#set-reservedstoragestate&preserve-view=true).
-      -	run `defrag` and `chkdsk` during image creation, wait for them to finish. And disable `chkdisk` and `defrag` scheduled task.
+      -	Run `defrag` and `chkdsk` during image creation, wait for them to finish. And disable `chkdisk` and `defrag` scheduled task.
 - Single-session virtual machine (VM) images. (Multiple-session VM images aren't supported.)
 - No recovery partition.
     - For information about how to remove a recovery partition, see the [Windows Server command: delete partition](/windows-server/administration/windows-commands/delete-partition).
