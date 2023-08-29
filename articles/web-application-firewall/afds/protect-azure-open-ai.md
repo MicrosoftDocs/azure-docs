@@ -30,7 +30,7 @@ First, create an OpenAI instance.
 
    Open the Azure OpenAI studio and open the **Chat** option under **Playground**.
    Use the **View code** option to display the endpoint and the API key.
-   :::image type="content" source="../media/protect-azure-open-ai/view-code.png" alt-text="Screenshot showing Azure AI Studio Chat playground.":::
+   :::image type="content" source="../media/protect-azure-open-ai/view-code.png" alt-text="Screenshot showing Azure AI Studio Chat playground." lightbox="../media/protect-azure-open-ai/view-code.png":::
    <br>
 
    :::image type="content" source="../media/protect-azure-open-ai/sample-code.png" alt-text="Screenshot showing Azure OpenAI sample code with Endpoint and Key.":::
@@ -51,9 +51,9 @@ First, create an OpenAI instance.
    }
 
    ```
-   :::image type="content" source="../media/protect-azure-open-ai/postman-body.png" alt-text="Screenshot showing the post body.":::
+   :::image type="content" source="../media/protect-azure-open-ai/postman-body.png" alt-text="Screenshot showing the post body." lightbox="../media/protect-azure-open-ai/postman-body.png":::
 1. In response to the POST, you should receive a *200 OK*:
-   :::image type="content" source="../media/protect-azure-open-ai/post-200-ok.jpg" alt-text="Screenshot showing the POST 200 OK.":::
+   :::image type="content" source="../media/protect-azure-open-ai/post-200-ok.png" alt-text="Screenshot showing the POST 200 OK." lightbox="../media/protect-azure-open-ai/post-200-ok.png":::
 
    The Azure OpenAI also generates a response using the GPT model.
 
@@ -73,7 +73,7 @@ Now use the Azure portal to create an Azure Front Door instance with Azure WAF.
 
 Enable the WAF policy in prevention mode and ensure **Microsoft_DefaultRuleSet_2.1** and **Microsoft_BotManagerRuleSet_1.0** are enabled.
 
-:::image type="content" source="../media/protect-azure-open-ai/waf-policy.png" alt-text="Screenshot showing a WAF policy.":::
+:::image type="content" source="../media/protect-azure-open-ai/waf-policy.png" alt-text="Screenshot showing a WAF policy." lightbox="../media/protect-azure-open-ai/waf-policy.png":::
 
 ## Verify access to Azure OpenAI via Azure Front Door endpoint
 
@@ -81,7 +81,7 @@ Now verify your Azure Front Door endpoint.
 
 1. Retrieve the Azure Front Door endpoint from the Front Door Manager.
 
-   :::image type="content" source="../media/protect-azure-open-ai/front-door-endpoint.png" alt-text="Screenshot show the Azure Front Door endpoint.":::
+   :::image type="content" source="../media/protect-azure-open-ai/front-door-endpoint.png" alt-text="Screenshot show the Azure Front Door endpoint." lightbox="../media/protect-azure-open-ai/front-door-endpoint.png":::
 2. Use Postman to send a POST request to the Azure Front Door endpoint.
    1. Replace the Azure OpenAI endpoint with the AFD endpoint in Postman POST request.
    :::image type="content" source="../media/protect-azure-open-ai/test-final.png" alt-text="Screenshot showing the final POST." lightbox="../media/protect-azure-open-ai/test-final.png":::
