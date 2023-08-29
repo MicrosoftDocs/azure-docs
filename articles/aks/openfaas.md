@@ -10,7 +10,7 @@ ms.custom: mvc, devx-track-azurecli, ignite-2022
 
 # Use OpenFaaS on Azure Kubernetes Service (AKS)
 
-[OpenFaaS][open-faas] is a framework for building serverless functions through the use of containers. As an open source project, it has gained large-scale adoption within the community. This document details installing and using OpenFaas on an Azure Kubernetes Service (AKS) cluster.
+[OpenFaaS][open-faas] is a framework that uses containers to build serverless functions. As an open source project, it has gained large-scale adoption within the community. This document details installing and using OpenFaas on an Azure Kubernetes Service (AKS) cluster.
 
 ## Before you begin
 
@@ -95,7 +95,7 @@ As a good practice, OpenFaaS and OpenFaaS functions should be stored in their ow
     gateway-external   LoadBalancer   10.0.28.18     52.186.64.52   8080:30800/TCP   7m
     ```
 
-6. Test the OpenFaaS system by browsing to the external IP address on port 8080, `http://52.186.64.52:8080` in this example. You will be prompted to log in. The default user is `admin` and your password can be retrieved using `echo $PASSWORD`.
+6. Test the OpenFaaS system by browsing to the external IP address on port 8080, `http://52.186.64.52:8080` in this example, where you're prompted to log in. The default user is `admin` and your password can be retrieved using `echo $PASSWORD`.
 
     ![OpenFaaS UI](media/container-service-serverless/openfaas.png)
 
@@ -112,7 +112,7 @@ As a good practice, OpenFaaS and OpenFaaS functions should be stored in their ow
 2. Create a function using the OpenFaas portal by selecting **Deploy A New Function** and search for **Figlet**.
 3. Select the **Figlet** function, and then select **Deploy**.
 
-    ![Screenshot shows the Deploy A New Function dialog box with the text figlet on the search line.](media/container-service-serverless/figlet.png)
+    ![Screenshot shows the Deploy A New Function dialog box with the text Figlet on the search line.](media/container-service-serverless/figlet.png)
 
 4. Invoke the function using the following `curl` command. Make sure you replace the IP address in the following example with your OpenFaaS gateway address.
 
@@ -224,7 +224,7 @@ As a good practice, OpenFaaS and OpenFaaS functions should be stored in their ow
 
 ## Next steps
 
-Continue to learn with the [OpenFaaS workshop][openfaas-workshop], which includes a set of hands-on labs that cover topics such as how to create your own GitHub bot, consuming secrets, viewing metrics, and auto-scaling.
+Continue to learn with the [OpenFaaS workshop][openfaas-workshop], which includes a set of hands-on labs that cover topics such as how to create your own GitHub bot, consuming secrets, viewing metrics, and autoscaling.
 
 <!-- LINKS - external -->
 [install-mongo]: https://docs.mongodb.com/manual/installation/
