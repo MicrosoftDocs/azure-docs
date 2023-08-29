@@ -103,7 +103,7 @@ Use the following PowerShell commands to install Azure Monitor Agent on Azure vi
   Set-AzVMExtension -Name AzureMonitorLinuxAgent -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion <version-number> -EnableAutomaticUpgrade $true
   ```
 
-### Install on Azure virtual machines scale set (VMSS)
+### Install on Azure virtual machines scale set 
 
 Use the [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension) PowerShell cmdlet to install Azure Monitor Agent on Azure virtual machines scale sets.
 
@@ -152,7 +152,7 @@ Use the following CLI commands to install Azure Monitor Agent on Azure virtual m
   ```azurecli
   az vm extension set --name AzureMonitorLinuxAgent --publisher Microsoft.Azure.Monitor --ids <vm-resource-id> --enable-auto-upgrade true
   ```
-### Install on Azure virtual machines scale set (VMSS)
+### Install on Azure virtual machines scale set 
 
 Use the [az vmss extension set](/cli/azure/vmss/extension) CLI cmdlet to install Azure Monitor Agent on Azure virtual machines scale sets.
 
@@ -214,7 +214,7 @@ Use the following PowerShell commands to uninstall Azure Monitor Agent on Azure 
   ```powershell
   Remove-AzVMExtension -Name AzureMonitorLinuxAgent -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> 
   ```
-### Uninstall on Azure virtual machines scale set (VMSS)
+### Uninstall on Azure virtual machines scale set 
 
 Use the [Remove-AzVmssExtension](/powershell/module/az.compute/remove-azvmssextension) PowerShell cmdlet to uninstall Azure Monitor Agent on Azure virtual machines scale sets.
 
@@ -247,7 +247,7 @@ Use the following CLI commands to uninstall Azure Monitor Agent on Azure virtual
   ```azurecli
   az vm extension delete --resource-group <resource-group-name> --vm-name <virtual-machine-name> --name AzureMonitorLinuxAgent
   ```
-### Uninstall on Azure virtual machines scale set (VMSS)
+### Uninstall on Azure virtual machines scale set 
 
 Use the [az vmss extension delete](/cli/azure/vmss/extension) CLI cmdlet to uninstall Azure Monitor Agent on Azure virtual machines scale sets.
 
