@@ -57,7 +57,7 @@ Learn more about [Assigning the access to Azure Key Vault][az-keyvault-set-polic
 
 ### Cache rule Limit
 
-If you're facing issues while creating a Cache rule, we recommend verifying if you have more than 1k cache rules created. 
+If you're facing issues while creating a Cache rule, we recommend verifying if you have more than 1000 cache rules created. 
 
 We recommend deleting any unwanted cache rules to avoid hitting the limit. 
 
@@ -73,10 +73,9 @@ Artifact Cache currently supports the following upstream registries:
 | Microsoft Artifact Registry | Supports unauthenticated pulls only.                         | Azure CLI, Azure portal |
 | ECR Public                  | Supports unauthenticated pulls only.                         | Azure CLI, Azure portal |
 | GitHub Container Registry   | Supports both authenticated pulls and unauthenticated pulls. | Azure CLI, Azure portal |
-| Nivida   | Supports both authenticated pulls and unauthenticated pulls. | Azure CLI, Azure portal |
-| k8s.io  | Supports both authenticated pulls and unauthenticated pulls. | Azure CLI, Azure portal |
-| k8s.gcr.io  | Supports both authenticated pulls and unauthenticated pulls. | Azure CLI, Azure portal |
-| registry.k8s.io  | Supports both authenticated pulls and unauthenticated pulls. | Azure CLI, Azure portal |
+| Nivida                      | Supports both authenticated pulls and unauthenticated pulls. | Azure CLI               |
+| Quay                        | Supports both authenticated pulls and unauthenticated pulls. | Azure CLI, Azure portal |
+| registry.k8s.io             | Supports both authenticated pulls and unauthenticated pulls. | Azure CLI               |
 
 
 <!-- LINKS - External -->

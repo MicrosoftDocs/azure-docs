@@ -65,10 +65,9 @@ Artifact Cache currently supports the following upstream registries:
 | Microsoft Artifact Registry | Supports unauthenticated pulls only.                         | Azure CLI, Azure portal |
 | ECR Public                  | Supports unauthenticated pulls only.                         | Azure CLI, Azure portal |
 | GitHub Container Registry   | Supports both authenticated pulls and unauthenticated pulls. | Azure CLI, Azure portal |
-| Nivida   | Supports both authenticated pulls and unauthenticated pulls. | Azure CLI, Azure portal |
-| k8s.io  | Supports both authenticated pulls and unauthenticated pulls. | Azure CLI, Azure portal |
-| k8s.gcr.io  | Supports both authenticated pulls and unauthenticated pulls. | Azure CLI, Azure portal |
-| registry.k8s.io  | Supports both authenticated pulls and unauthenticated pulls. | Azure CLI, Azure portal |
+| Nivida                      | Supports both authenticated pulls and unauthenticated pulls. | Azure CLI               |
+| Quay                        | Supports both authenticated pulls and unauthenticated pulls. | Azure CLI, Azure portal |
+| registry.k8s.io             | Supports both authenticated pulls and unauthenticated pulls. | Azure CLI               |
 
 ## Limitations
 
@@ -76,7 +75,7 @@ Artifact Cache currently supports the following upstream registries:
 
 - Cache will only occur after at least one image pull is complete on the available container image. For every new image available, a new image pull must be complete. Artifact Cache doesn't automatically pull new tags of images when a new tag is available. It is on the roadmap but not supported in this release. 
 
-- Artifact Cache only supports 1k cache rules.
+- Artifact Cache only supports 1000 cache rules.
 
 ## Next steps
 
