@@ -31,7 +31,7 @@ For more information, refer
 
 ## Prerequisites
 
-* [HDInsight on AKS Flink 1.16.0](../flink/flink-create-cluster-portal.md) 
+* [HDInsight on AKS Flink 1.16.0](./flink-create-cluster-portal.md) 
 * Elasticsearch-7.13.2 
 * Kibana-7.13.2 
 * [HDInsight 5.0 - Kafka 2.4.1](../hdinsight/kafka/apache-kafka-get-started.md)

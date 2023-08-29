@@ -113,7 +113,7 @@ sshuser@hn0-contsk:~$ /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.s
 
 ### Flink SQL client
 
-Detailed instructions are provided on how to use Secure Shell for [Flink SQL client](./flink-webssh-on-portal-to-flink-sql.md)
+Detailed instructions are provided on how to use Secure Shell for [Flink SQL client](./flink-web-ssh-on-portal-to-flink-sql.md)
 
 ### Download Kafka SQL Connector & Dependencies into SSH
 
