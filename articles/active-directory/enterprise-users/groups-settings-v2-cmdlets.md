@@ -12,7 +12,7 @@ ms.topic: how-to
 ms.date: 06/24/2022
 ms.author: barclayn
 ms.reviewer: krbain
-ms.custom: it-pro
+ms.custom: it-pro, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 ---
 # Azure Active Directory version 2 cmdlets for group management
@@ -354,7 +354,7 @@ Microsoft 365 groups are created and managed in the cloud. The writeback capabil
 
 For more details, please refer to documentation for the [Azure AD Connect sync service](../hybrid/connect/how-to-connect-syncservice-features.md).
 
-Microsoft 365 group writeback is a public preview feature of Azure Active Directory (Azure AD) and is available with any paid Azure AD license plan. For some legal information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Microsoft 365 group writeback is a public preview feature of Azure Active Directory (Azure AD) and is available with any paid Azure AD license plan. For more information about previews, see [Universal License Terms For Online Services](https://www.microsoft.com/licensing/terms/product/ForOnlineServices/all).
 
 ## Next steps
 

@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Configure SAP Cloud Identity Services for automatic user provisioning with Microsoft Entra ID'
-description: Learn how to configure Microsoft Entra ID to automatically provision and de-provision user accounts to SAP Cloud Identity Services.
+description: Learn how to configure Microsoft Entra ID to automatically provision and deprovision user accounts to SAP Cloud Identity Services.
 services: active-directory
 author: twimmers
 writer: twimmers
@@ -15,7 +15,7 @@ ms.author: thwimmer
 
 # Tutorial: Configure SAP Cloud Identity Services for automatic user provisioning
 
-The objective of this tutorial is to demonstrate the steps to be performed in SAP Cloud Identity Services and Microsoft Entra ID (Azure AD) to configure Microsoft Entra ID to automatically provision and de-provision users to SAP Cloud Identity Services.
+This tutorial aims to demonstrate the steps for configuring Microsoft Entra ID (Azure AD) and SAP Cloud Identity Services. The goal is to set up Microsoft Entra ID to automatically provision and deprovision users to SAP Cloud Identity Services.
 
 > [!NOTE]
 > This tutorial describes a connector built on top of the Microsoft Entra ID User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Microsoft Entra ID](../app-provisioning/user-provisioning.md).
@@ -41,7 +41,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 ## Important tips for assigning users to SAP Cloud Identity Services
 
-* It is recommended that a single Microsoft Entra ID user is assigned to SAP Cloud Identity Services to test the automatic user provisioning configuration. Additional users may be assigned later.
+* It's recommended that a single Microsoft Entra ID user is assigned to SAP Cloud Identity Services to test the automatic user provisioning configuration. More users may be assigned later.
 
 * When assigning a user to SAP Cloud Identity Services, you must select any valid application-specific role (if available) in the assignment dialog. Users with the **Default Access** role are excluded from provisioning.
 
@@ -60,9 +60,10 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 	![Screenshot of the SAP Cloud Identity Services Add SCIM.](media/sap-cloud-platform-identity-authentication-provisioning-tutorial/configurationauth.png)
 
-1. You will receive an email to activate your account and set a password for **SAP Cloud Identity Services Service**.
+1.  You'll get an email to activate your account and set up a password for the **SAP Cloud Identity Services Service**.
 
-1. Copy the **User ID** and **Password**. These values will be entered in the Admin Username and Admin Password fields respectively in the Provisioning tab of your SAP Cloud Identity Services application in the Azure portal.
+1. Copy the **User ID** and **Password**. These values are entered in the Admin Username and Admin Password fields respectively.
+This is done in the Provisioning tab of your SAP Cloud Identity Services application in the Azure portal.
 
 ## Add SAP Cloud Identity Services from the gallery
 
@@ -127,7 +128,45 @@ This section guides you through the steps to configure the Microsoft Entra ID pr
 
 1. Review the user attributes that are synchronized from Microsoft Entra ID to SAP Cloud Identity Services in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in SAP Cloud Identity Services for update operations. Select the **Save** button to commit any changes.
 
-	![Screenshot of the SAP Business Technology Platform Identity Authentication User Attributes.](media/sap-cloud-platform-identity-authentication-provisioning-tutorial/userattributes.png)
+	|Attribute|Type|Supported for filtering|Required by SAP Cloud Identity Services|
+	|---|---|---|---|
+	|userName|String|&check;|&check;
+	|emails[type eq "work"].value|String||&check;
+	|active|Boolean||
+	|displayName|String||
+	|urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Reference||
+	|addresses[type eq "work"].country|String||
+	|addresses[type eq "work"].locality|String||
+	|addresses[type eq "work"].postalCode|String||
+	|addresses[type eq "work"].region|String||
+	|addresses[type eq "work"].streetAddress|String||
+	|name.givenName|String||
+	|name.familyName|String||
+	|name.honorificPrefix|String||
+	|phoneNumbers[type eq "fax"].value|String||
+	|phoneNumbers[type eq "mobile"].value|String||
+	|phoneNumbers[type eq "work"].value|String||
+	|urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:costCenter|String||
+	|urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String||
+	|urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|String||
+	|urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|String||
+	|urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|String||
+	|locale|String||
+	|timezone|String||
+	|userType|String||
+	|company|String||
+	|urn:sap:cloud:scim:schemas:extension:custom:2.0:User:attributes:customAttribute1|String||
+	|urn:sap:cloud:scim:schemas:extension:custom:2.0:User:attributes:customAttribute2|String||
+	|urn:sap:cloud:scim:schemas:extension:custom:2.0:User:attributes:customAttribute3|String||
+	|urn:sap:cloud:scim:schemas:extension:custom:2.0:User:attributes:customAttribute4|String||
+	|urn:sap:cloud:scim:schemas:extension:custom:2.0:User:attributes:customAttribute5|String||
+	|urn:sap:cloud:scim:schemas:extension:custom:2.0:User:attributes:customAttribute6|String||
+	|urn:sap:cloud:scim:schemas:extension:custom:2.0:User:attributes:customAttribute7|String||
+	|urn:sap:cloud:scim:schemas:extension:custom:2.0:User:attributes:customAttribute8|String||
+	|urn:sap:cloud:scim:schemas:extension:custom:2.0:User:attributes:customAttribute9|String||
+	|urn:sap:cloud:scim:schemas:extension:custom:2.0:User:attributes:customAttribute10|String||
+	|sendMail|String||
+	|mailVerified|String||
 
 1. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -139,7 +178,7 @@ This section guides you through the steps to configure the Microsoft Entra ID pr
 
 	![Screenshot of Provisioning Scope.](common/provisioning-scope.png)
 
-1. When you are ready to provision, click **Save**.
+1. When you're ready to provision, click **Save**.
 
 	![Screenshot of Saving Provisioning Configuration.](common/provisioning-configuration-save.png)
 
@@ -151,7 +190,7 @@ For more information on how to read the Microsoft Entra ID provisioning logs, se
 
 * SAP Cloud Identity Services's SCIM endpoint requires certain attributes to be of specific format. You can know more about these attributes and their specific format [here](https://help.sap.com/viewer/6d6d63354d1242d185ab4830fc04feb1/Cloud/en-US/b10fc6a9a37c488a82ce7489b1fab64c.html#).
 
-## Additional resources
+## More resources
 
 * [Managing user account provisioning for Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Microsoft Entra ID?](../manage-apps/what-is-single-sign-on.md)

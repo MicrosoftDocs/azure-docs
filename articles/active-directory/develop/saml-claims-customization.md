@@ -24,9 +24,10 @@ By default, the Microsoft identity platform issues a SAML token to an applicatio
 
 ## View or edit claims
 
-To view or edit the claims issued in the SAML token to the application, open the application in Azure portal. Then open the **Attributes & Claims** section.
-
-:::image type="content" source="./media/saml-claims-customization/sso-saml-user-attributes-claims.png" alt-text="Screenshot of opening the Attributes & Claims section in the Azure portal.":::
+To view or edit the claims issued in the SAML token to the application:
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**.
+1. Select the application, select **Single sign-on** in the left-hand menu, and then select **Edit** in the **Attributes & Claims** section.
 
 You might need to edit the claims issued in the SAML token for the following reasons:
 
@@ -39,8 +40,6 @@ To edit the name identifier value claim:
 
 1. Open the **Name identifier value** page.
 1. Select the attribute or transformation that you want to apply to the attribute. Optionally, you can specify the format that you want the `nameID` claim to have.
-
-    :::image type="content" source="./media/saml-claims-customization/saml-sso-manage-user-claims.png" alt-text="Screenshot of editing the nameID (name identifier) value in the Azure portal.":::
 
 ### NameID format
 
@@ -81,31 +80,15 @@ For more information about identifier values, see the table that lists the valid
 
 Any constant (static) value can be assigned to any claim. Use the following steps to assign a constant value:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. In the **User Attributes & Claims** section, select **Edit** to edit the claims.
-1. Select the required claim that you want to modify.
-1. Enter the constant value without quotes in the **Source attribute** as per your organization and select **Save**.
-
-    :::image type="content" source="./media/saml-claims-customization/organization-attribute.png" alt-text="Screenshot of the organization Attributes & Claims section in the Azure portal.":::
-
-1. The constant value is displayed as shown in the following image.
-
-    :::image type="content" source="./media/saml-claims-customization/edit-attributes-claims.png" alt-text="Screenshot of editing in the Attributes & Claims section in the Azure portal.":::
+1. On the **Attributes & Claims** blade, select the required claim that you want to modify.
+1. Enter the constant value without quotes in the **Source attribute** as per your organization and select **Save**. The constant value is displayed.
 
 ### Directory Schema extensions (Preview)
 
 You can also configure directory schema extension attributes as non-conditional/conditional attributes. Use the following steps to configure the single or multi-valued directory schema extension attribute as a claim:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. In the **User Attributes & Claims** section, select **Edit** to edit the claims.
-1. Select **Add new claim** or edit an existing claim.
-
-    :::image type="content" source="./media/saml-claims-customization/mv-extension-1.jpg" alt-text="Screenshot of the MultiValue extension configuration section in the Azure portal.":::
-
+1. On the **Attributes & Claims** blade, select **Add new claim** or edit an existing claim.
 1. Select source application from application picker where extension property is defined. 
-    :::image type="content" source="./media/saml-claims-customization/mv-extension-2.jpg" alt-text="Screenshot of the source application selection in MultiValue extension configuration section in the Azure portal.":::
-
 1. Select **Add** to add the selection to the claims.
 1. Click **Save** to commit the changes. 
 
@@ -123,7 +106,7 @@ You can use the following special claims transformations functions.
 
 To add application-specific claims:
 
-1. In **User Attributes & Claims**, select **Add new claim** to open the **Manage user claims** page.
+1. On the **Attributes & Claims** blade, select **Add new claim** to open the **Manage user claims** page.
 1. Enter the **name** of the claims. The value doesn't strictly need to follow a URI pattern, per the SAML spec. If you need a URI pattern, you can put that in the **Namespace** field.
 1. Select the **Source** where the claim is going to retrieve its value. You can select a user attribute from the source attribute dropdown or apply a transformation to the user attribute before emitting it as a claim.
 
@@ -134,13 +117,8 @@ To apply a transformation to a user attribute:
 1. In **Manage claim**, select *Transformation* as the claim source to open the **Manage transformation** page.
 1. Select the function from the transformation dropdown. Depending on the function selected, provide parameters and a constant value to evaluate in the transformation.
 1. Select the source of the attribute by clicking on the appropriate radio button. Directory schema extension source is in preview currently.
-
-    :::image type="content" source="./media/saml-claims-customization/mv-extension-4.png" alt-text="Screenshot of claims transformation.":::
-
 1. Select the attribute name from the dropdown.
-
 1. **Treat source as multivalued** is a checkbox indicating whether the transform should be applied to all values or just the first. By default, transformations are only applied to the first element in a multi-value claim, by checking this box it ensures it's applied to all. This checkbox is only be enabled for multi-valued attributes, for example `user.proxyaddresses`.
-
 1. To apply multiple transformations, select **Add transformation**. You can apply a maximum of two transformations to a claim. For example, you could first extract the email prefix of the `user.mail`. Then, make the string upper case.
 
 
@@ -263,11 +241,7 @@ For example, Britta Simon is a guest user in the Contoso tenant. Britta belongs 
 
 First, the Microsoft identity platform verifies whether Britta's user type is **All guests**. Because the type is **All guests**, the Microsoft identity platform assigns the source for the claim to `user.extensionattribute1`. Second, the Microsoft identity platform verifies whether Britta's user type is **AAD guests**. Because the type is **All guests**, the Microsoft identity platform assigns the source for the claim to `user.mail`. Finally, the claim is emitted with a value of `user.mail` for Britta.
 
-:::image type="content" source="./media/saml-claims-customization/mv-extension-3.png" alt-text="Screenshot of claims conditional configuration.":::
-
 As another example, consider when Britta Simon tries to sign in and the following configuration is used. All conditions are first evaluated with the source of `Attribute`. Because Britta's user type is **AAD guests**, `user.mail` is assigned as the source for the claim. Next, the transformations are evaluated. Because Britta is a guest, `user.extensionattribute1` is now the new source for the claim. Because Britta is in **AAD guests**, `user.othermail` is now the source for this claim. Finally, the claim is emitted with a value of `user.othermail` for Britta.
-
-:::image type="content" source="./media/saml-claims-customization/sso-saml-user-conditional-claims-2.png" alt-text="Screenshot of more claims conditional configuration.":::
 
 As a final example, consider what happens if Britta has no `user.othermail` configured or it's empty. In both cases the condition entry is ignored, and the claim falls back to `user.extensionattribute1` instead.
 
