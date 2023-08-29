@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/28/2023
+ms.date: 08/29/2023
 ms.subservice: hybrid
 ms.author: barclayn
 ---
@@ -32,11 +32,6 @@ The following licenses are available for use with Microsoft Entra ID.  The type 
 >Microsoft Entra ID Governance scenarios may depends upon other features that aren't covered by Microsoft Entra ID Governance.  These features may have additional licensing requirements.  See [Governance capabilities in other Microsoft Entra features](../governance/identity-governance-overview.md#governance-capabilities-in-other-microsoft-entra-features) for more information on governance scenarios that rely on additional features.
 
 [!INCLUDE [Access reviews](../includes/licensing-access-reviews.md)]
-## App provisioning
-
-An Azure AD tenant with Azure AD Premium P1 or Premium P2 (or EMS E3 or E5). [!INCLUDE [active-directory-p1-license.md](../../../includes/active-directory-p1-license.md)]
-
-
 
 [!INCLUDE [App provisioning](../includes/licensing-app-provisioning.md)]
 
