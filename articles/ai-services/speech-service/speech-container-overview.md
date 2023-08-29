@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 04/18/2023
+ms.date: 08/29/2023
 ms.author: eur
 keywords: on-premises, Docker, container
 ---
@@ -16,9 +16,6 @@ keywords: on-premises, Docker, container
 # Speech containers overview
 
 By using containers, you can use a subset of the Speech service features in your own environment. With Speech containers, you can build a speech application architecture that's optimized for both robust cloud capabilities and edge locality. Containers are great for specific security and data governance requirements. 
-
-> [!NOTE]
-> You must [request and get approval](#request-approval-to-run-the-container) to use a Speech container. 
 
 ## Available Speech containers
 
