@@ -8,7 +8,8 @@ author: terrylanfear
 manager: rkarlin
 
 ms.assetid:
-ms.service: security-fundamentals
+ms.service: security
+ms.subservice: security-fundamentals
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na

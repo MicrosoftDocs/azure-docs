@@ -5,7 +5,7 @@ author: TerryLanfear
 manager: rkarlin
 ms.author: terrylan
 ms.service: security
-ms.service: security-fundamentals
+ms.subservice: security-fundamentals
 ms.custom: ignite-2022
 ms.topic: reference
 ms.date: 01/13/2023

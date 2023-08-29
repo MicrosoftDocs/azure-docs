@@ -9,13 +9,13 @@ manager: rkarlin
 
 
 ms.assetid:
-ms.service: security-fundamentals
-ms.subservice: aiplabels
+ms.service: security
+ms.subservice: security-fundamentals
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2023
-ms.author: tomsh
+ms.author: terrylan
 
 ---
 
