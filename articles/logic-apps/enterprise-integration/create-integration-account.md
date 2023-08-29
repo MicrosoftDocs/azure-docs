@@ -72,9 +72,11 @@ Integration accounts are available in different tiers that [vary in pricing](htt
 
 Based on your requirements and scenarios, determine the appropriate integration account tier to create. The following table describes the available tiers:
 
+Your integration account uses an automatically-created system-assigned managed identity to authenticate access.
+
 | Tier | Description |
 |------|-------------|
-| **Premium** (preview) | For scenarios with the following criteria: <br><br>- Store and use unlimited artifacts, such as partners, agreements, schemas, certificates, and so on. <br><br>- Bring and use your own local storage. You can access this storage using a managed identity for your integration account. You can also apply more governance and policies to data, such as customer-managed ("Bring Your Own") keys for data encryption. To store these keys, you'll need a key vault. <br><br>- Set up and use a key vault to store private certificates or customer-managed keys. To access these keys, your Premium integration account uses a managed identity, not an Azure Logic Apps shared service principal. <br><br>Pricing follows [Standard integration account pricing](https://azure.microsoft.com/pricing/details/logic-apps/). <br><br>**Note**: During preview, your Azure bill uses the same meter name and ID as a Standard integration account, but changes when the Premium level becomes generally available. <br><br>**Limitations and known issues**: <br><br>- Currently doesn't support virtual networks. <br>- If you use a key vault to store private certificates, the managed identity for your integration account might not work. For now, use the managed identity for your logic app resource instead. <br><br>Supported by the Azure Logic Apps SLA. |
+| **Premium** (preview) | For scenarios with the following criteria: <br><br>- Store and use unlimited artifacts, such as partners, agreements, schemas, maps, certificates, and so on. <br><br>- Bring and use your own storage, which contains the relevant runtime states for specific B2B actions and EDI standards. For example, these states include the MIC number for AS2 actions and the control numbers for X12 actions, if configured on your agreements. <br><br>To access this storage, your integration account uses its system-assigned managed identity, which is automatically created and enabled for your integration account. <br><br>You can also apply more governance and policies to data, such as customer-managed ("Bring Your Own") keys for data encryption. To store these keys, you'll need a key vault. <br><br>- Set up and use a key vault to store private certificates or customer-managed keys. To access these keys, your Premium integration account uses its system-assigned managed identity, not an Azure Logic Apps shared service principal. <br><br>Pricing follows [Standard integration account pricing](https://azure.microsoft.com/pricing/details/logic-apps/). <br><br>**Note**: During preview, your Azure bill uses the same meter name and ID as a Standard integration account, but changes when the Premium level becomes generally available. <br><br>**Limitations and known issues**: <br><br>- Currently doesn't support virtual networks. <br>- If you use a key vault to store private certificates, your integration account's managed identity might not work. For now, use the linked logic app's managed identity instead. <br><br>Supported by the Azure Logic Apps SLA. |
 | **Standard** | For scenarios where you have more complex B2B relationships and increased numbers of entities that you must manage. <br><br>Supported by the Azure Logic Apps SLA. |
 | **Basic** | For scenarios where you want only message handling or to act as a small business partner that has a trading partner relationship with a larger business entity. <br><br>Supported by the Azure Logic Apps SLA. |
 | **Free** | For exploratory scenarios, not production scenarios. This tier has limits on region availability, throughput, and usage. For example, the Free tier is available only for public regions in Azure, for example, West US or Southeast Asia, but not for [Microsoft Azure operated by 21Vianet](/azure/china/overview-operations) or [Azure Government](../../azure-government/documentation-government-welcome.md). <br><br>**Note**: Not supported by the Azure Logic Apps SLA. |
@@ -88,9 +90,7 @@ For this task, you can use the Azure portal, [Azure CLI](/cli/azure/resource#az-
 
 ### [Portal](#tab/azure-portal)
 
-1. In the [Azure portal](https://portal.azure.com), sign in with your Azure account credentials.
-
-1. In the Azure portal search box, enter **integration accounts**, and select **Integration accounts**.
+1. In the [Azure portal](https://portal.azure.com) search box, enter **integration accounts**, and select **Integration accounts**.
 
 1. Under **Integration accounts**, select **Create**.
 
@@ -102,13 +102,15 @@ For this task, you can use the Azure portal, [Azure CLI](/cli/azure/resource#az-
    | **Resource group** | Yes | <*Azure-resource-group-name*> | The name for the [Azure resource group](../../azure-resource-manager/management/overview.md) to use for organizing related resources. For this example, create a new resource group named **FabrikamIntegration-RG**. |
    | **Integration account name** | Yes | <*integration-account-name*> | Your integration account's name, which can contain only letters, numbers, hyphens (`-`), underscores (`_`), parentheses (`()`), and periods (`.`). This example uses **Fabrikam-Integration**. |
    | **Pricing Tier** | Yes | <*pricing-level*> | The pricing tier for the integration account, which you can change later. For this example, select **Free**. For more information, review the following documentation: <br><br>- [Logic Apps pricing model](../logic-apps-pricing.md#integration-accounts) <br>- [Logic Apps limits and configuration](../logic-apps-limits-and-config.md#integration-account-limits) <br>- [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/) |
-   | **Storage account** | Available only with Premium (preview) integration account | None | The name for an existing Azure storage account. For this example, this option doesn't apply. |
-   | **Region** | Yes | <*Azure-region*> | The Azure region where to store your integration account metadata. Either select the same location as your logic app resource, or create your logic apps in the same location as your integration account. For this example, use **West US**. <br><br>To use your integration account with an [integration service environment (ISE)](../connect-virtual-network-vnet-isolated-environment-overview.md), select **Associate with integration service environment**, and then select your ISE as the location. To create an integration account directly from an ISE, see [Create integration accounts in an ISE](../add-artifacts-integration-service-environment-ise.md#create-integration-account-environment). <br><br>**Note**: The ISE resource will retire on August 31, 2024, due to its dependency on Azure Cloud Services (classic), which retires at the same time. Currently in preview, the capability is available for you to [export a Standard integration account from an ISE to a Premium integration account](../ise-manage-integration-service-environment.md#export-integration-account). |
+   | **Storage account** | Available only for the Premium (preview) integration account | None | The name for an existing [Azure storage account](../../storage/common/storage-account-create.md). For the example in this guide, this option doesn't apply. |
+   | **Region** | Yes | <*Azure-region*> | The Azure region where to store your integration account metadata. Either select the same location as your logic app resource, or create your logic apps in the same location as your integration account. For this example, use **West US**. <br><br>To use your integration account with an [integration service environment (ISE)](../connect-virtual-network-vnet-isolated-environment-overview.md), select **Associate with integration service environment**, and then select your ISE as the location. To create an integration account directly from an ISE, see [Create integration accounts in an ISE](../add-artifacts-integration-service-environment-ise.md#create-integration-account-environment). <br><br>**Note**: The ISE resource will retire on August 31, 2024, due to its dependency on Azure Cloud Services (classic), which retires at the same time. Currently in preview, the capability is available for you to [export a Standard integration account for an ISE to a Premium integration account](../ise-manage-integration-service-environment.md#export-integration-account). |
    | **Enable log analytics** | No | Unselected | For this example, don't select this option. |
 
 1. When you're done, select **Review + create**.
 
    After deployment completes, Azure opens your integration account.
+
+1. If you created a Premium integration account, make sure to [set up access to the associated Azure storage account](#set-up-access-storage-account).
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -169,6 +171,31 @@ az logic integration-account import --name integration_account_01 \
 
 ---
 
+<a name="set-up-access-storage-account"></a>
+
+## Set up storage access for Premium integration account
+
+To read artifacts and write any state information, your Premium integration account needs access to the selected and associated Azure storage account. Your integration account uses its automatically created and enabled system-assigned managed identity to authenticate access.
+
+1. In the [Azure portal](https://portal.azure.com), open your Premium integration account.
+
+1. On the integration account menu, under **Settings**, select **Identity**.
+
+1. On the **System assigned** tab, which shows the enabled system-assigned managed identity, under **Permissions**, select **Azure role assignments**.
+
+1. On the **Azure role assignments** toolbar, select **Add role assignment (preview)**, provide the following information, select **Save**, and then repeat for each required role:
+
+   | Parameter | Value | Description |
+   |-----------|-------|-------------|
+   | **Scope** | **Storage** | For more information, see [Understand scope for Azure RBAC](../../role-based-access-control/scope-overview.md). |
+   | **Subscription** | <*Azure-subscription*> | The Azure subscription for the resource to access. |
+   | **Resource** | <*Azure-storage-account-name*> | The name for the Azure storage account to access. <br><br>**Note** If you get an error that you don't have permissions to add role assignments at this scope, you need to get those permissions. For more information, see [Azure AD built-in roles](../../active-directory/roles/permissions-reference.md). |
+   | **Role** | - **Storage Account Contributor** <br><br>- **Storage Blob Data Contributor** <br><br>- **Storage Table Data Contributor** | The roles that your Premium integration account requires to access your storage account. |
+
+   For more information, see [Assign Azure role to system-assigned managed identity](../../role-based-access-control/role-assignments-portal-managed-identity.md)
+
+1. Next, link your integration account to your logic app resource.
+
 <a name="link-account"></a>
 
 ## Link to logic app
@@ -201,9 +228,7 @@ Now your logic app workflow can use the artifacts in your integration account pl
 
 Before you can link your integration account to a Standard logic app resource, you need to have your integration account's **callback URL**.
 
-1. In the [Azure portal](https://portal.azure.com), sign in with your Azure account credentials.
-
-1. In the Azure portal search box, find and select your integration account. To browse existing accounts, enter **integration accounts**, and then select **Integration accounts**.
+1. In the [Azure portal](https://portal.azure.com) search box, enter **integration accounts**, and then select **Integration accounts**.
 
 1. From the **Integration accounts** list, select your integration account.
 

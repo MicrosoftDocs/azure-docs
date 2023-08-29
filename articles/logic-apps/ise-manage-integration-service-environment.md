@@ -135,15 +135,17 @@ You can view and manage the custom connectors that you deployed to your ISE.
 
 ## Export integration account (preview)
 
-You can export a Standard integration account from an ISE to an existing Premium integration account. The export process has two steps: export the artifacts, and then export the agreement states. Artifacts include trading partners, agreements, certificates, schemas, and maps. Your integration account stores the states for specific B2B actions, such as MIC number for the AS2 actions and the control numbers for X12 actions. If you configured your agreements to update these states every time that a transaction is processed and to use these states for message reconciliation and duplicate detection, make sure that you also export these states. You can export these states either in bulk or per agreement.
+You can export a Standard integration account from an ISE to an existing Premium integration account. The export process has two steps: export the artifacts, and then export the agreement states. Artifacts include partners, agreements, certificates, schemas, and maps. However, the export process currently doesn't support assemblies and RosettaNet PIPs.
+
+Your integration account also stores the runtime states for specific B2B actions and EDI standards, such as the MIC number for AS2 actions and the control numbers for X12 actions. If you configured your agreements to update these states every time that a transaction is processed and to use these states for message reconciliation and duplicate detection, make sure that you also export these states. You can export these states either per agreement or in bulk.
 
 > [!IMPORTANT]
 >
-> Make sure to choose a time window when your source integration account doesn't have any activity in your agreements to avoid inconsistencies.
+> Make sure to choose a time window when your source integration account doesn't have any activity in your agreements to avoid state inconsistencies.
 
 ### Prerequisites
 
-If you don't have a Premium integration account, [create a Premimum integration account](./enterprise-integration/create-integration-account.md).
+If you don't have a Premium integration account, [create a Premium integration account](./enterprise-integration/create-integration-account.md).
 
 ### Export artifacts
 
