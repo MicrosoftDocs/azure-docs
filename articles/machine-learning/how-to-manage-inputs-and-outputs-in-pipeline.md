@@ -107,7 +107,7 @@ Following are examples to promote component inputs/outputs to pipeline level inp
 
 # [Azure CLI](#tab/cli)
 
-:::code language="yaml" source="~/azureml-examples-main/cli/jobspipelines-with-components/basics/1b_e2e_registered_components/pipeline.yml" range="1-65" highlight="6-17":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines-with-components/basics/1b_e2e_registered_components/pipeline.yml" range="1-65" highlight="6-17":::
 
 The full example can be found [here](https://github.com/Azure/azureml-examples/blob/main/cli/jobs/pipelines-with-components/basics/1b_e2e_registered_components/pipeline.yml).  This pipeline promotes three inputs and three outputs to pipeline level. Let's take `pipeline_job_training_max_epocs` as example. It's declared under `inputs` section on root level, which means's its pipeline level input. Under `jobs -> train_job` section, the input named `max_epocs` is referenced as `${{parent.inputs.pipeline_job_training_max_epocs}}`, which indicates the `train_job`'s input `max_epocs` is promoted to pipeline level input. Similarly, you can promote pipeline output using the same schema. 
 
