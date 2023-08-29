@@ -2577,7 +2577,7 @@ groups:
   - id: ms-graph
     title: Microsoft Graph
 # Owner: daknappe (Azure Virtual Desktop)
-- id: azure-virtual-desktop-host-pool-types
+- id: azure-virtual-desktop-host-pool-management-types
   title: Azure Virtual Desktop host pool management type
   prompt: "Choose a host pool management type:"
   pivots:
@@ -2587,7 +2587,7 @@ groups:
     title: Automated (preview)
 - id: azure-virtual-desktop-app-attach
   title: Azure Virtual Desktop app attach version
-  prompt: Choose an app attach version
+  prompt: "Choose an app attach version:"
   pivots:
   - id: msix-app-attach
     title: MSIX app attach
