@@ -80,19 +80,20 @@ You can embed Boolean operators in a query string to improve the precision of a 
 
 It's important to note that the NOT operator (`NOT`, `!`, or `-`) behaves differently in full syntax than it does in simple syntax.
 
-* In simple syntax, a wildcard is implicitly added to any query with a negation. This means that a single negation such as the query `-luxury` is allowed in simple syntax, but isn't allowed in full syntax.
-* In full syntax, wildcards cannot be combined with negations.
-* In full syntax, negations will behave as if they are always be ANDed onto the query regardless of the search mode.
+* In simple syntax, queries with negation always have a wildcard automatically added. For example, the query `-luxury` is automatically expanded to `-luxury *`.
+* In full syntax, queries with negation cannot be combined with a wildcard. For example, the queries `-luxury *` is not allowed.
+* In full syntax, queries with a single negation are not allowed. For example, the query `-luxury` is not allowed.
+* In full syntax, negations will behave as if they are always ANDed onto the query regardless of the search mode.
    * For example, the full syntax query `wifi -luxury` in full syntax only fetches documents that contain the term `wifi`, and then applies the negation `-luxury` to those documents.
-* If you want to use negations to search over all documents in the index, simple syntax is recommended.
-* If you want to use negations to search over a subset of documents in the index, full syntax might be a better choice.
+* If you want to use negations to search over all documents in the index, simple syntax with the any search mode is recommended.
+* If you want to use negations to search over a subset of documents in the index, full syntax or the simple syntax with the all search mode are recommended.
 
 | Query Type | Search Mode | Example Query | Behavior |
 | ---------- | ----------- | ------------- | -------- |
-| Simple     | any         | `wifi -luxury`| Returns all documents in the index. Documents with the term "wifi" or documents missing the term "luxury" are ranked higher than other documents. A wildcard is implicitly added to the query. |
-| Simple     | all         | `wifi -luxury`| Returns only documents in the index that contain the term "wifi" and don't contain the term "luxury". A wilcard is implicitly added to the query. |
-| Full       | any         | `wifi -luxury`| Returns only documents in the index that contain the term "wifi", and then documents that contain the term "luxury" are removed from the results. No wildcard is implicitly added to the query. |
-| Full       | all         | `wifi -luxury`| Returns only documents in the index that contain the term "wifi", and then documents that contain the term "luxury" are removed from the results. No wildcard is implicitly added to the query. |
+| Simple     | any         | `wifi -luxury`| Returns all documents in the index. Documents with the term "wifi" or documents missing the term "luxury" are ranked higher than other documents. The query is expanded to `wifi OR -luxury OR *`. |
+| Simple     | all         | `wifi -luxury`| Returns only documents in the index that contain the term "wifi" and don't contain the term "luxury". The query is expanded to `wifi AND -luxury AND *`. |
+| Full       | any         | `wifi -luxury`| Returns only documents in the index that contain the term "wifi", and then documents that contain the term "luxury" are removed from the results. |
+| Full       | all         | `wifi -luxury`| Returns only documents in the index that contain the term "wifi", and then documents that contain the term "luxury" are removed from the results. |
 
 ##  <a name="bkmk_fields"></a> Fielded search
 
