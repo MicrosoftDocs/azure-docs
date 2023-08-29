@@ -175,7 +175,13 @@ For complete, detailed information about recommendations to configure DNS for pr
 
 ## Limitations
 
-The following information lists the known limitations to the use of private endpoints: 
+The following information lists the known limitations to the use of private endpoints:
+
+### Static IP address
+
+| Limitation | Description |
+| --------- | ------------ |
+| Static IP address configuration currently unsupported. | **Azure Kubernetes Service (AKS)** </br> **Azure Application Gateway** </br> **HD Insight**. |
 
 ### Network security group
 
