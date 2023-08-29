@@ -105,7 +105,7 @@ Use the following PowerShell commands to install Azure Monitor Agent on Azure vi
 
 ### Install on Azure virtual machines scale set (VMSS)
 
-Use the [Add-AzVmssExtension](https://learn.microsoft.com/powershell/module/az.compute/add-azvmssextension) PowerShell cmdlet to install Azure Monitor Agent on Azure virtual machines scale sets.
+Use the [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension) PowerShell cmdlet to install Azure Monitor Agent on Azure virtual machines scale sets.
 
 ### Install on Azure Arc-enabled servers
 
@@ -154,7 +154,7 @@ Use the following CLI commands to install Azure Monitor Agent on Azure virtual m
   ```
 ### Install on Azure virtual machines scale set (VMSS)
 
-Use the [az vmss extension set](https://learn.microsoft.com/cli/azure/vmss/extension?view=azure-cli-latest#az-vmss-extension-set) CLI cmdlet to install Azure Monitor Agent on Azure virtual machines scale sets.
+Use the [az vmss extension set](/cli/azure/vmss/extension) CLI cmdlet to install Azure Monitor Agent on Azure virtual machines scale sets.
 
 ### Install on Azure Arc-enabled servers
 
@@ -216,7 +216,7 @@ Use the following PowerShell commands to uninstall Azure Monitor Agent on Azure 
   ```
 ### Uninstall on Azure virtual machines scale set (VMSS)
 
-Use the [Remove-AzVmssExtension](https://learn.microsoft.com/powershell/module/az.compute/remove-azvmssextension) PowerShell cmdlet to uninstall Azure Monitor Agent on Azure virtual machines scale sets.
+Use the [Remove-AzVmssExtension](/powershell/module/az.compute/remove-azvmssextension) PowerShell cmdlet to uninstall Azure Monitor Agent on Azure virtual machines scale sets.
 
 ### Uninstall on Azure Arc-enabled servers
 
@@ -249,7 +249,7 @@ Use the following CLI commands to uninstall Azure Monitor Agent on Azure virtual
   ```
 ### Uninstall on Azure virtual machines scale set (VMSS)
 
-Use the [az vmss extension delete](https://learn.microsoft.com/cli/azure/vmss/extension?view=azure-cli-latest#az-vmss-extension-delete) CLI cmdlet to uninstall Azure Monitor Agent on Azure virtual machines scale sets.
+Use the [az vmss extension delete](/cli/azure/vmss/extension) CLI cmdlet to uninstall Azure Monitor Agent on Azure virtual machines scale sets.
 
 ### Uninstall on Azure Arc-enabled servers
 
