@@ -135,7 +135,7 @@ You can view and manage the custom connectors that you deployed to your ISE.
 
 ## Export integration account (preview)
 
-You can export a Standard integration account from an ISE to an existing Premium integration account. The export process has two steps: export the artifacts, and then export the agreement states. Artifacts include partners, agreements, certificates, schemas, and maps. However, the export process currently doesn't support assemblies and RosettaNet PIPs.
+For a Standard integration account created from inside an ISE, you can export that integration account to an existing Premium integration account. The export process has two steps: export the artifacts, and then export the agreement states. Artifacts include partners, agreements, certificates, schemas, and maps. However, the export process currently doesn't support assemblies and RosettaNet PIPs.
 
 Your integration account also stores the runtime states for specific B2B actions and EDI standards, such as the MIC number for AS2 actions and the control numbers for X12 actions. If you configured your agreements to update these states every time that a transaction is processed and to use these states for message reconciliation and duplicate detection, make sure that you also export these states. You can export these states either per agreement or in bulk.
 
@@ -154,6 +154,10 @@ This process copies artifacts from the source to the destination.
 1. In the [Azure portal](https://portal.azure.com), open your Standard integration account.
 
 1. On the integration account menu, under **Settings**, select **Export**.
+
+   > [!NOTE]
+   >
+   > If the **Export** option doesn't appear, make sure that you selected a Standard integration account that was created from inside an ISE.
 
 1. On the **Export** page toolbar, select **Export Artifacts**.
 
