@@ -21,7 +21,7 @@ The following video shows how to redact a video by using Azure AI Video Indexer 
 
 As an important [reminder](limited-access-features.md), you must comply with all applicable laws in your use of analytics or insights that you derive by using Video Indexer.  
 
-Face service access is limited based on eligibility and usage criteria to support the Microsoft Responsible AI principles. Face service is available only to Microsoft managed customers and partners. Use the [Face Recognition intake form](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUQjA5SkYzNDM4TkcwQzNEOE1NVEdKUUlRRCQlQCN0PWcu) to apply for access. For more information, see the [Face limited access page](https://learn.microsoft.com/legal/cognitive-services/computer-vision/limited-access-identity?context=%2Fazure%2Fcognitive-services%2Fcomputer-vision%2Fcontext%2Fcontext).
+Face service access is limited based on eligibility and usage criteria to support the Microsoft Responsible AI principles. Face service is available only to Microsoft managed customers and partners. Use the [Face Recognition intake form](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUQjA5SkYzNDM4TkcwQzNEOE1NVEdKUUlRRCQlQCN0PWcu) to apply for access. For more information, see the [Face limited access page](/legal/cognitive-services/computer-vision/limited-access-identity?context=%2Fazure%2Fcognitive-services%2Fcomputer-vision%2Fcontext%2Fcontext).
 
 ## Face redaction terminology and hierarchy
 
