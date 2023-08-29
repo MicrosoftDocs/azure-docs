@@ -87,7 +87,7 @@ Internal networks enable layer 3 east-west connectivity across racks within the 
 
 ### Cluster manager
 
-The Cluster Manager (CM) is hosted on Azure and manages the lifecycle of all on-premises infrastructure (also referred to as infra)clusters.
+The Cluster Manager (CM) is hosted on Azure and manages the lifecycle of all on-premises infrastructure (also referred to as infra clusters).
 Like NFC, a CM can manage multiple Operator Nexus instances.
 The CM and the NFC are hosted in the same Azure subscription.
 
