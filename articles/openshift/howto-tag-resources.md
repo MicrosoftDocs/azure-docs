@@ -16,9 +16,9 @@ This article shows you how to use Azure Policy to tag the resources in an ARO cl
 
 ## Create JSON files
 
-Using Azure CLI, follow the steps below to create three JSON files in your current working directory:
+Using Azure CLI, use the following steps to create three separate JSON files in your current working directory:
 
-1. Create a JSON file named `rules.json` by copying and pasting the content below:
+1. Create a JSON file named `rules.json` by copying and pasting the following content:
 
 
     ```
@@ -121,8 +121,7 @@ Using Azure CLI, follow the steps below to create three JSON files in your curre
     }
     ```
     
-
-1. Create a JSON file named `param-defs.json` by copying and pasting the content below:
+1. Create a JSON file named `param-defs.json` by copying and pasting the following content:
 
     ```
     Unset
@@ -387,7 +386,7 @@ Using Azure CLI, follow the steps below to create three JSON files in your curre
     }
     ```
     
-1. Create a JSON file named `param-values.json` by copying, pasting, **and modifying** the content below:
+1. Create a JSON file named `param-values.json` by copying, pasting, **and modifying** the following content:
     
     ```
     Unset
@@ -406,15 +405,15 @@ Using Azure CLI, follow the steps below to create three JSON files in your curre
     }
     ```
  
-    This is the only one of the three JSON files that needs to be modified. In the content, specify the values for the tags you want to apply to the cluster's resources.
+    This JSON file the only one of the three files that must be modified. In the content, specify the values for the tags you want to apply to the cluster's resources.
 
     > [!IMPORTANT]
-    >     The file content provided above only provides a value for the tag0 parameter. The policy allows you to provide up to 10 tags, so if you want to set more than one tag, add values for parameters tag1 through tag 9.
+    > The file content provided above only provides a value for the `tag0` parameter. The policy allows you to provide up to 10 tags, so if you want to set more than one tag, add values for parameters tag1 through tag 9.
 > 
 
 ## Set environmental variables
 
-Open a shell session and run the following commands to set some environmental variables to be used in later steps:
+Open a shell session and run the following commands to set environmental variables to be used in later steps:
 
 ```
 Unset
@@ -456,7 +455,7 @@ export LOCATION=<the Azure region you want to use here>
     	--params param-values.json
     ```
     
-## Create an ARO cluster
+## Create the ARO cluster
 
 Follow the [instructions to create a new ARO cluster](tutorial-create-cluster.md). Be sure to pass the parameter `--cluster-resource-group $MANAGED_RESOURCE_GROUP` to the `az aro create` command when creating the cluster.
 
@@ -469,7 +468,7 @@ Follow the [instructions to create a new ARO cluster](tutorial-create-cluster.md
 You can remediate previously assigned tags and add new tags using an Azure Policy remediation task.
 
 > [!NOTE]
-> These instructions assume you've followed the previous steps to create a Policy assignment and a cluster, and you're in the directory containing the JSON files created in those steps.
+> These instructions assume you've followed the previous steps to create a Policy assignment and a cluster, and that you're in the directory containing the JSON files created in those steps.
 > 
 1. Set some environmental variables to be used in later steps. You can skip this step if you're still in the same shell session you were using to create the Policy assignment and the cluster:
 
@@ -496,4 +495,4 @@ You can remediate previously assigned tags and add new tags using an Azure Polic
     	--params param-values.json
     ```
 
-1. Allow the remediation task time to run and observe the tags being updated on the managed resource group and its resources. Note that a remediation task never removes tags - it only adds or updates tags.
+1. Allow the remediation task time to run and observe the tags being updated on the managed resource group and its resources. Note that remediation tasks never remove tags - they only add or update tags.
