@@ -24,106 +24,65 @@ To enable this preview, modify your project's [bicepconfig.json](./bicep-config.
 
 ## Define the function
 
-You can use the `func` statement to define user-defined functions.
+Use the `func` statement to define user-defined functions.
 
 ```bicep
 func <user-defined-function-name> (<argument> <data-type>, <argument> <date-type>, ...) <function-data-type> => <expression>
 ```
 
-Your functions require a namespace value to avoid naming conflicts with template functions. The following example shows a function that returns a unique name:
+## Examples
+
+The following examples show how to define and use user-defined functions:
 
 ```bicep
 func buildUrl(https bool, hostname string, path string) string => '${https ? 'https' : 'http'}://${hostname}${empty(path) ? '' : '/${path}'}'
 
-func sayHello(name string) string => 'Hi ${name}!'
+func sayHelloString(name string) string => 'Hi ${name}!'
 
-func objReturnType(name string) object => {
+func sayHelloObject(name string) object => {
   hello: 'Hi ${name}!'
 }
 
-func arrayReturnType(name string) array => [
+func nameArray(name string) array => [
   name
 ]
 
-func asdf(name string) array => [
-  'asdf'
+func addNameArray(name string) array => [
+  'Mary'
+  'Bob'
   name
 ]
 
-@minValue(0)
-type positiveInt = int
+output azureUrl string = buildUrl(true, 'microsoft.com', 'azure')
+output greetingArray array = map(['Evie', 'Casper'], name => sayHelloString(name))
+output greetingObject object = sayHelloObject('John')
+output nameArray array = nameArray('John')
+output addNameArray array = addNameArray('John')
 
-func typedArg(input string[]) positiveInt => length(input)
 ```
 
-## Use the function
+The outputs from the preceding examples are:
 
-The following example shows a template that includes a user-defined function to get a unique name for a storage account. The template has a parameter named `storageNamePrefix` that is passed as a parameter to the function.
 
-```json
-{
- "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
- "contentVersion": "1.0.0.0",
- "parameters": {
-   "storageNamePrefix": {
-     "type": "string",
-     "maxLength": 11
-   }
- },
- "functions": [
-  {
-    "namespace": "contoso",
-    "members": {
-      "uniqueName": {
-        "parameters": [
-          {
-            "name": "namePrefix",
-            "type": "string"
-          }
-        ],
-        "output": {
-          "type": "string",
-          "value": "[concat(toLower(parameters('namePrefix')), uniqueString(resourceGroup().id))]"
-        }
-      }
-    }
-  }
-],
- "resources": [
-   {
-     "type": "Microsoft.Storage/storageAccounts",
-     "apiVersion": "2022-09-01",
-     "name": "[contoso.uniqueName(parameters('storageNamePrefix'))]",
-     "location": "South Central US",
-     "sku": {
-       "name": "Standard_LRS"
-     },
-     "kind": "StorageV2",
-     "properties": {
-       "supportsHttpsTrafficOnly": true
-     }
-   }
- ]
-}
-```
-
-During deployment, the `storageNamePrefix` parameter is passed to the function:
-
-* The template defines a parameter named `storageNamePrefix`.
-* The function uses `namePrefix` because you can only use parameters defined in the function. For more information, see [Limitations](#limitations).
-* In the template's `resources` section, the `name` element uses the function and passes the `storageNamePrefix` value to the function's `namePrefix`.
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| azureUrl | String | https://microsoft.com/azure |
+| greetingArray | Array | ["Hi Evie!","Hi Casper!"] |
+| greetingObject | Object | {"hello":"Hi John!"} |
+| nameArray | Array | ["John"] |
+| addNameArray | Array | ["Mary","Bob","John"] |
 
 ## Limitations
 
 When defining a user function, there are some restrictions:
 
 * The function can't access variables.
-* The function can only use parameters that are defined in the function. When you use the [parameters](template-functions-deployment.md#parameters) function within a user-defined function, you're restricted to the parameters for that function.
+* The function can only use parameters that are defined in the function.
 * The function can't call other user-defined functions.
-* The function can't use the [reference](template-functions-resource.md#reference) function or any of the [list](template-functions-resource.md#list) functions.
+* The function can't use the [reference](bicep-functions-resource.md#reference) function or any of the [list](bicep-functions-resource.md#list) functions.
 * Parameters for the function can't have default values.
 
 ## Next steps
 
-* To learn about the available properties for user-defined functions, see [Understand the structure and syntax of ARM templates](./syntax.md).
-* For a list of the available template functions, see [ARM template functions](template-functions.md).
+* To learn about the Bicep file structure and syntax, see [Understand the structure and syntax of Bicep files](./file.md).
+* For a list of the available Bicep functions, see [Bicep functions](./bicep-functions.md).

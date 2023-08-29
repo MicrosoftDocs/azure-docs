@@ -23,6 +23,8 @@ metadata <metadata-name> = ANY
 
 targetScope = '<scope>'
 
+func <user-defined-function-name> (<argument> <data-type>, <argument> <date-type>, ...) <function-data-type> => <expression>
+
 @<decorator>(<argument>)
 param <parameter-name> <parameter-data-type> = <default-value>
 
@@ -94,6 +96,18 @@ The allowed values are:
 * **tenant** - used for [tenant deployments](deploy-to-tenant.md).
 
 In a module, you can specify a scope that is different than the scope for the rest of the Bicep file. For more information, see [Configure module scope](modules.md#set-module-scope)
+
+## Functions
+
+Within your Bicep file, you can create your own functions in addition to using the [standard Bicep functions](./bicep-functions.md) that are automatically available within your Bicep files. Create your own functions when you have complicated expressions that are used repeatedly in your Bicep files.
+
+```bicep
+func buildUrl(https bool, hostname string, path string) string => '${https ? 'https' : 'http'}://${hostname}${empty(path) ? '' : '/${path}'}'
+
+output azureUrl string = buildUrl(true, 'microsoft.com', 'azure')
+```
+
+For more information, see [User-defined functions](./user-defined-functions.md).
 
 ## Parameters
 
