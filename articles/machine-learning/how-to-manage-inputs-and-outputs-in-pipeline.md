@@ -109,6 +109,7 @@ Following are examples to promote component inputs/outputs to pipeline level inp
 
 :::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines-with-components/basics/1b_e2e_registered_components/pipeline.yml" range="1-65" highlight="6-17":::
 
+
 The full example can be found [here](https://github.com/Azure/azureml-examples/blob/main/cli/jobs/pipelines-with-components/basics/1b_e2e_registered_components/pipeline.yml).  This pipeline promotes three inputs and three outputs to pipeline level. Let's take `pipeline_job_training_max_epocs` as example. It's declared under `inputs` section on root level, which means's its pipeline level input. Under `jobs -> train_job` section, the input named `max_epocs` is referenced as `${{parent.inputs.pipeline_job_training_max_epocs}}`, which indicates the `train_job`'s input `max_epocs` is promoted to pipeline level input. Similarly, you can promote pipeline output using the same schema. 
 
 # [Python SDK](#tab/python)
@@ -187,13 +188,14 @@ pipeline_job.settings.default_datastore = "workspaceblobstore"
 
 The working notebook example in [azureml-example repo](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/pipelines/2c_nyc_taxi_data_regression/nyc_taxi_data_regression.ipynb)
 
-# [Studio](#tab/azure-studio)
+---
+
+### Studio
 
 You can promote a component's input to pipeline level input in designer authoring page. Go to the component's setting panel by double click the component -> find the input you'd like to promote -> Click the three dots on the right -> Click Add to pipeline input. 
 
  :::image type="content" source="./media/how-to-manage-pipeline-input-output/promote-pipeline-input.png" lightbox="./media/how-to-manage-pipeline-input-output/promote-pipeline-input.png" alt-text="Screenshot highlighting how to promote to pipeline input in designer":::
 
----
 
 ## Optional input
 
