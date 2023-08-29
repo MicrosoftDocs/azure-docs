@@ -34,6 +34,7 @@ You also need an integration account to electronically exchange B2B messages wit
 This guide shows how to complete the following tasks:
 
 * Create an integration account.
+* Set up storage access for a Premium integration account.
 * Link your integration account to a logic app resource.
 * Change the pricing tier for your integration account.
 * Unlink your integration account from a logic app resource.
