@@ -153,7 +153,7 @@ You can create an access package by using Microsoft Graph. A user in an appropri
 
 You can also create an access package in PowerShell by using the cmdlets from the [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) beta module version 2.1.x or later beta module version.  This script illustrates using the Graph `beta` profile and Microsoft Graph PowerShell cmdlets module version 2.4.0.
 
-First, retrieve the ID of the catalog (and of the resource and their roles in that catalog) that you want to include in the access package. Use a script similar to the following example:
+First, retrieve the ID of the catalog (and of the resource and its roles in that catalog) that you want to include in the access package. Use a script similar to the following example:
 
 ```powershell
 Connect-MgGraph -Scopes "EntitlementManagement.ReadWrite.All"
