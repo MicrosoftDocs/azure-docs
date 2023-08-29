@@ -35,7 +35,9 @@ You have two options to start your quickstart application: Express (Option 1 bel
 
 ### Option 1: Register and auto configure your app and then download your code sample
 
-1. Go to the [Azure portal - App registrations](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/JavaDaemonQuickstartPage/sourceType/docs) quickstart experience.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Application Developer](../roles/permissions-reference.md#application-developer).
+1. Browse to **Identity** > **Applications** > **Application registrations**.
+1. Select **New registration**.
 1. Enter a name for your application and select **Register**.
 1. Follow the instructions to download and automatically configure your new application with just one click.
 
@@ -47,10 +49,10 @@ You have two options to start your quickstart application: Express (Option 1 bel
 
 To register your application and add the app's registration information to your solution manually, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Application Developer](../roles/permissions-reference.md#application-developer).
 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
-1. Search for and select **Azure Active Directory**.
-1. Under **Manage**, select **App registrations** > **New registration**.
+1. Browse to **Identity** > **Applications** > **Application registrations**.
+1. Select **New registration**.
 1. Enter a **Name** for your application, for example `Daemon-console`. Users of your app might see this name, and you can change it later.
 1. Select **Register**.
 1. Under **Manage**, select  **Certificates & secrets**.
