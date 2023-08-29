@@ -191,4 +191,4 @@ This example demonstrates basic steps required to connect Airflow to HDInsight o
 * [Airflow Trino provider](https://airflow.apache.org/docs/apache-airflow-providers-trino/stable/index.html)
 * [Airflow secrets](https://airflow.apache.org/docs/apache-airflow/stable/security/secrets/index.html)
 * [HDInsight on AKS Trino authentication](./trino-authentication.md)
-* [MSAL for Python](https://learn.microsoft.com/entra/msal/python)
+* [MSAL for Python](/entra/msal/python)

@@ -15,10 +15,10 @@ Flink provides a CLI (Command Line Interface) **bin/flink** to run jobs (program
 To install Flink CLI on linux, you will need **linux VM** to execute the installation script. You need to run bash environment if you are on **Windows**. 
 
 > [!NOTE]
-> This does NOT work on Windows **GIT BASH**, you need to install [WSL](https://learn.microsoft.com/windows/wsl/install) to make this work on Windows. 
+> This does NOT work on Windows **GIT BASH**, you need to install [WSL](/windows/wsl/install) to make this work on Windows. 
 
 ### Requirements
-* Install JRE 11.  If not installed, follow the steps from here https://learn.microsoft.com/java/openjdk/download
+* Install JRE 11.  If not installed, follow the steps from here /java/openjdk/download
 * Add java to PATH or define JAVA_HOME environment variable pointing to JRE installation directory, such that `$JAVA_HOME/bin/java` exists.
 
 ### Install or update

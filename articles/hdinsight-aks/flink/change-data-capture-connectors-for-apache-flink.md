@@ -15,7 +15,7 @@ In this article, learn how to perform Change Data Capture of SQL Server using Da
 ## Prerequisites
 
 * [HDInsight on AKS Flink 1.16.0](../flink/flink-create-cluster-portal.md)
-* [HDInsight Kafka](https://learn.microsoft.com/azure/hdinsight/kafka/apache-kafka-get-started)
+* [HDInsight Kafka](/azure/hdinsight/kafka/apache-kafka-get-started)
   * You're required to ensure the network settings are taken care as described on [Using HDInsight Kafka](../flink/process-and-consume-data.md); that's to make sure HDInsight on AKS Flink and HDInsight Kafka are in the same VNet 
 * Azure SQLServer 
 * HDInsight Kafka cluster and HDInsight on AKS Flink clusters are located in the same VNet

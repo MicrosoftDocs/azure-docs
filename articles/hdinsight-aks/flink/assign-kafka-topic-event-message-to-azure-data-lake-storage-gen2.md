@@ -13,7 +13,7 @@ Apache Flink uses file systems to consume and persistently store data, both for 
 ## Prerequisites
 
 * [HDInsight on AKS Flink 1.16.0](../flink/flink-create-cluster-portal.md)
-* [HDInsight Kafka](https://learn.microsoft.com/azure/hdinsight/kafka/apache-kafka-get-started)
+* [HDInsight Kafka](/azure/hdinsight/kafka/apache-kafka-get-started)
   * You're  required to ensure the network settings are taken care as described on [Using HDInsight Kafka](../flink/process-and-consume-data.md); that's to make sure HDInsight on AKS Flink and HDInsight Kafka are in the same Virtual Network 
 * Use MSI to access ADLS Gen2 
 * IntelliJ for development on an Azure VM in HDInsight on AKS Virtual Network 
@@ -101,7 +101,7 @@ Flink provides an Apache Kafka connector for reading data from and writing data 
 *abfsGen2.java*
 
 > [!Note]
-> Replace [HDInsight Kafka](https://learn.microsoft.com/azure/hdinsight/kafka/apache-kafka-get-started) bootStrapServers with your own brokers for Kafka 2.4 or 3.2
+> Replace [HDInsight Kafka](/azure/hdinsight/kafka/apache-kafka-get-started) bootStrapServers with your own brokers for Kafka 2.4 or 3.2
 
 ``` java
 package contoso.example;
