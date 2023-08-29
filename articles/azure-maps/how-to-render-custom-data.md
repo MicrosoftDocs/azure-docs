@@ -65,156 +65,6 @@ To get a static image with custom pins and labels:
 
     :::image type="content" source="./media/how-to-render-custom-data/render-pins.png" alt-text="A custom pushpin with a label.":::
 
-## Upload pins and path data
-
-> [!NOTE]
-> The procedure in this section requires an Azure Maps account Gen 1 (S1) or Gen 2 pricing tier.
-
-In this section, you upload path and pin data to Azure Map data storage.
-
-To upload pins and path data:
-
-1. In the Postman app, select **New**.
-
-2. In the **Create New** window, select **HTTP Request**.
-
-3. Enter a **Request name** for the request, such as *POST Path and Pin Data*.
-
-4. Select the **POST** HTTP method.
-
-5. Enter the following URL:
-
-    ```HTTP
-    https://us.atlas.microsoft.com/mapData?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=2.0&dataFormat=geojson
-    ```
-
-6. Select the **Body** tab.
-
-7. In the dropdown lists, select **raw** and **JSON**.
-
-8. Copy the following JSON data as data to be uploaded, and then paste them in the **Body** window:
-  
-    ```JSON
-    {
-      "type": "FeatureCollection",
-      "features": [
-        {
-          "type": "Feature",
-          "properties": {},
-          "geometry": {
-            "type": "Polygon",
-            "coordinates": [
-              [
-                [
-                  -73.98235,
-                  40.76799
-                ],
-                [
-                  -73.95785,
-                  40.80044
-                ],
-                [
-                  -73.94928,
-                  40.7968
-                ],
-                [
-                  -73.97317,
-                  40.76437
-                ],
-                [
-                  -73.98235,
-                  40.76799
-                ]
-              ]
-            ]
-          }
-        },
-        {
-          "type": "Feature",
-          "properties": {},
-          "geometry": {
-            "type": "LineString",
-            "coordinates": [
-              [
-                -73.97624731063843,
-                40.76560773817073
-              ],
-              [
-                -73.97914409637451,
-                40.766826609362575
-              ],
-              [
-                -73.98513078689575,
-                40.7585866048861
-              ]
-            ]
-          }
-        }
-      ]
-    }
-    ```
-
-9. Select **Send**.
-
-10. In the response window, select the **Headers** tab.
-
-11. Copy the value of the **Operation-Location** key, which is the `status URL`. We'll use the `status URL` to check the status of the upload request in the next section. The `status URL` has the following format:
-
-   ```HTTP
-   https://us.atlas.microsoft.com/mapData/operations/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx?api-version=2.0
-   ```
-
->[!TIP]
->To obtain your own path and pin location information, use [Data Upload].
-
-### Check pins and path data upload status
-
-To check the status of the data upload and retrieve its unique ID (`udid`):
-
-1. In the Postman app, select **New**.
-
-2. In the **Create New** window, select **HTTP Request**.
-
-3. Enter a **Request name** for the request, such as *GET Data Upload Status*.
-
-4. Select the **GET** HTTP method.
-
-5. Enter the `status URL` you copied in [Upload pins and path data](#upload-pins-and-path-data). The request should look like the following URL:
-
-   ```HTTP
-     https://us.atlas.microsoft.com/mapData/operations/{statusUrl}?api-version=2.0&subscription-key={Your-Azure-Maps-Subscription-key}
-   ```
-
-6. Select **Send**.
-
-7. In the response window, select the **Headers** tab.
-
-8. Copy the value of the **Resource-Location** key, which is the `resource location URL`. The `resource location URL` contains the unique identifier (`udid`) of the drawing package resource.
-
-    :::image type="content" source="./media/how-to-render-custom-data/resource-location-url.png" alt-text="Copy the resource location URL.":::
-
-### Render uploaded features on the map
-
-To render the uploaded pins and path data on the map:
-
-1. In the Postman app, select **New**.
-
-2. In the **Create New** window, select **HTTP Request**.
-
-3. Enter a **Request name** for the request, such as *GET Data Upload Status*.
-
-4. Select the **GET** HTTP method.
-
-5. Enter the following URL to the [Render service] (replace {Your-Azure-Maps-Subscription-key} with your Azure Maps subscription key and `udid` with the `udid` of the uploaded data):
-
-    ```HTTP
-    https://atlas.microsoft.com/map/static/png?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=1.0&layer=basic&style=main&zoom=12&center=-73.96682739257812%2C40.78119135317995&pins=default|la-35+50|ls12|lc003C62|co9B2F15||'Times Square'-73.98516297340393 40.758781646381024|'Central Park'-73.96682739257812 40.78119135317995&path=lc0000FF|fc0000FF|lw3|la0.80|fa0.30||udid-{udId}
-    ```
-
-6. The service returns the following image:
-
-    :::image type="content" source="./media/how-to-render-custom-data/uploaded-path.png" alt-text="Render uploaded data in static map image.":::
-
 ## Render a polygon with color and opacity
 
 > [!NOTE]
@@ -294,11 +144,9 @@ Similarly, you can change, add, and remove other style modifiers.
 > [!div class="nextstepaction"]
 > [Data registry service]
 
-
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [Render - Get Map Image]: /rest/api/maps/render/getmapimage
 [Data registry service]: /rest/api/maps/data-registry
-[Data Upload]: /rest/api/maps/data-v2/upload
 [path parameter]: /rest/api/maps/render/getmapimage#uri-parameters
 [Postman]: https://www.postman.com/
 [Render service]: /rest/api/maps/render/get-map-image
