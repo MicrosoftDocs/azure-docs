@@ -12,7 +12,7 @@ ms.custom: template-how-to
 
 # Deploy container networking for a stand-alone Windows Docker host
 
-The Azure CNI plugin enables per container/pod networking for stand-alone docker hosts and Kubernetes clusters. In this article, you'll learn how to install and configure the CNI plugin for a standalone Windows Docker host.
+The Azure CNI plugin enables per container/pod networking for stand-alone docker hosts and Kubernetes clusters. In this article, you learn how to install and configure the CNI plugin for a standalone Windows Docker host.
 
 ## Prerequisites
 
@@ -26,9 +26,9 @@ It can take a few minutes for the network and Bastion host to deploy. Continue w
 
 ## Add IP configuration
 
-The Azure CNI plugin allocates IP addresses to containers based on a pool of IP addresses you create on the virtual network interface of the virtual machine. For every container on the host, an IP configuration must exist on the virtual network interface. If the number of containers on the server outnumber the IP configurations on the virtual network interface, the container will start but won't have an IP address. 
+The Azure CNI plugin allocates IP addresses to containers based on a pool of IP addresses you create on the virtual network interface of the virtual machine. For every container on the host, an IP configuration must exist on the virtual network interface. If the number of containers on the server outnumber the IP configurations on the virtual network interface, the container starts but doesn't have an IP address. 
 
-In this section, you'll add an IP configuration to the virtual network interface of the virtual machine you created previously.
+In this section, you add an IP configuration to the virtual network interface of the virtual machine you created previously.
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
@@ -122,7 +122,7 @@ To assign multiple IP addresses to a Windows virtual machine, the IP addressees 
 
 1. Select **OK**.
 
-The Bastion connection will drop for a few seconds as the network configuration is applied. Wait a few seconds then attempt to reconnect. Continue when a reconnection is successful.
+The Bastion connection drops for a few seconds as the network configuration is applied. Wait a few seconds then attempt to reconnect. Continue when a reconnection is successful.
 
 ## Install Docker
 
@@ -150,7 +150,7 @@ Sign-in to the virtual machine you created previously with the Azure Bastion hos
     .\install-docker-ce.ps1
     ```
 
-The virtual machine will reboot to install the container support in Windows. Reconnect to the virtual machine and the Docker install will continue.
+The virtual machine reboots to install the container support in Windows. Reconnect to the virtual machine and the Docker install continues.
 
 For more information about Windows containers, see, [Get started: Prep Windows for containers](/virtualization/windowscontainers/quick-start/set-up-environment?tabs=dockerce#windows-server-1).
 
@@ -158,7 +158,7 @@ After Docker is installed on your virtual machine, continue with the steps in th
 
 ## Install CNI plugin and jq
 
-The Azure CNI plugin is maintained as a GitHub project and is available for download from the project's GitHub page. For this article, you'll download the CNI plugin repository within the virtual machine and then install and configure the plugin.
+The Azure CNI plugin is maintained as a GitHub project and is available for download from the project's GitHub page. For this article, you download the CNI plugin repository within the virtual machine and then install and configure the plugin.
 
 For more information about the Azure CNI plugin, see [Microsoft Azure Container Networking](https://github.com/Azure/azure-container-networking).
 
@@ -204,14 +204,14 @@ The script that creates the containers with the Azure CNI plugin requires the ap
 
 ## Create test container
 
-1. To start a container with the CNI plugin, you must use a special script that comes with the plugin to create and start the container. The following example will create a Windows Server container with the CNI plugin script:
+1. To start a container with the CNI plugin, you must use a special script that comes with the plugin to create and start the container. The following example creates a Windows Server container with the CNI plugin script:
 
     ```powershell
     cd .\azure-container-networking\azure-container-networking-master\scripts\
     .\docker-exec.ps1 vnetdocker1 default mcr.microsoft.com/windows/servercore/iis add
     ```
 
-    It can take a few minutes for the image for the container to download for the first time. When the container starts and initializes the network, the Bastion connection will disconnect. Wait a few seconds and the connection will reestablish.
+    It can take a few minutes for the image for the container to download for the first time. When the container starts and initializes the network, the Bastion connection disconnects. Wait a few seconds and the connection reestablish.
 
 1. To verify that the container received the IP address you previously configured, connect to the container and view the IP:
 
