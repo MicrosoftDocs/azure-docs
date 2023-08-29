@@ -7,18 +7,16 @@ author: diberry
 ms.author: diberry
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 07/18/2023
+ms.date: 08/29/2023
 ms.custom: devx-track-js
 ms.devlang: javascript
 ---
 
 # 1 - Overview of adding search to a website
 
-This tutorial builds a website to search through a catalog of books then deploys the website to an Azure Static Web Apps resource. 
+In this Azure Cognitive Search tutorial, create a web app that searches through a catalog of books, and then deploy the website to an Azure Static Web Apps resource. This tutorial is for JavaScript developers who want to know more about creating a client app that includes user interactions like faceted navigation, typeahead, and pagination. It also demonstrates the `@azure/search-documents` library in the Azure SDK for JavaScript for calls to Azure Cognitive Search for indexing and query workflows.
 
-The application is available: 
-* [Sample](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/search-website-functions-v4)
-* [Demo website - aka.ms/azs-good-books](https://aka.ms/azs-good-books)
+The source code is available in the [azure-search-javascript-samples](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/search-website-functions-v4) GitHub repository.
 
 ## What does the sample do? 
 
@@ -26,7 +24,7 @@ The application is available:
 
 ## How is the sample organized?
 
-The [sample](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/search-website-functions-v4) includes the following:
+The [sample](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/search-website-functions-v4) includes the following components:
 
 |App|Purpose|GitHub<br>Repository<br>Location|
 |--|--|--|
@@ -36,7 +34,7 @@ The [sample](https://github.com/Azure-Samples/azure-search-javascript-samples/tr
 
 ## Set up your development environment
 
-Install the following for your local development environment. 
+Install the following software in your local development environment. 
 
 - [Node.js LTS](https://nodejs.org/en/download)
     - Select latest runtime and version from this [list of supported language versions](../azure-functions/functions-versions.md?pivots=programming-language-javascript&tabs=azure-cli%2clinux%2cin-process%2cv4#languages).
@@ -69,5 +67,4 @@ Forking the sample repository is critical to be able to deploy the Static Web Ap
 
 ## Next steps
 
-* [Create a Search Index and load with documents](tutorial-javascript-create-load-index.md)
-* [Deploy your Static Web App](tutorial-javascript-deploy-static-web-app.md)
+[Create a Search Index and load with documents](tutorial-javascript-create-load-index.md)
