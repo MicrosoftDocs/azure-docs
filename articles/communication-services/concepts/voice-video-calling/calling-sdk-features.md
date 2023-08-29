@@ -93,8 +93,7 @@ The Azure Communication Services Calling SDK supports the following streaming co
 | Limit                                                         | Web                         | Windows/Android/iOS        |
 | ------------------------------------------------------------- | --------------------------- | -------------------------- |
 | **Maximum # of outgoing local streams that can be sent simultaneously**     | 1 video and 1 screen sharing | 1 video + 1 screen sharing |
-| **Maximum # of incoming remote streams that can be rendered simultaneously** | 4 videos + 1 screen sharing | 6 videos + 1 screen sharing |
-| **Maximum # of incoming remote streams that can be rendered simultaneousl - Public preview WebSDK or greater [1.14.1](https://github.com/Azure/Communication/blob/master/releasenotes/acs-javascript-calling-library-release-notes.md#1141-beta1-2023-06-01)** | 9 videos + 1 screen sharing  |
+| **Maximum # of incoming remote streams that can be rendered simultaneously** | 9 videos + 1 screen sharing  WebSDK version [1.16.3](https://github.com/Azure/Communication/blob/master/releasenotes/acs-javascript-calling-library-release-notes.md#1163-stable-2023-08-24) or greater | 6 videos + 1 screen sharing |
 
 While the Calling SDK don't enforce these limits, your users may experience performance degradation if they're exceeded.
 
