@@ -217,7 +217,7 @@
     - name: Integration account and artifacts
       items:
       - name: Create integration account
-        href: /enterprise-integration/create-integration-account.md
+        href: ./enterprise-integration/create-integration-account.md
       - name: Trading partners
         href: logic-apps-enterprise-integration-partners.md
       - name: Agreements
