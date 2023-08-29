@@ -6,7 +6,7 @@ author: CaryChai
 ms.service: container-apps
 ms.custom: event-tier1-build-2022
 ms.topic:  reference
-ms.date: 03/29/2023
+ms.date: 08/29/2023
 ms.author: cachai
 ---
 

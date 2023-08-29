@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: container-apps
 ms.custom: devx-track-azurecli
 ms.topic:  how-to
-ms.date: 08/10/2023
+ms.date: 08/29/2023
 ms.author: cshoe
 zone_pivot_groups: container-apps-vnet-types
 ---

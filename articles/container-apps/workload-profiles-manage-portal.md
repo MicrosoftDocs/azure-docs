@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic:  how-to
-ms.date: 08/10/2023
+ms.date: 08/29/2023
 ms.author: cshoe
 ms.custom: references_regions
 ---

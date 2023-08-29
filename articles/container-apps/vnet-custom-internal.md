@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: container-apps
 ms.custom: event-tier1-build-2022, devx-track-azurepowershell, devx-track-azurecli, devx-track-linux
 ms.topic:  how-to
-ms.date: 08/31/2022
+ms.date: 08/29/2023
 ms.author: cshoe
 zone_pivot_groups: azure-cli-or-portal
 ---
