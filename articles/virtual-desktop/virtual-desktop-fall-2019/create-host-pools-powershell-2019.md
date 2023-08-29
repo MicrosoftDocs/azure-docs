@@ -101,7 +101,7 @@ To register the Azure Virtual Desktop agents, do the following on each virtual m
 
 ## Next steps
 
-Now that you've made a host pool, you can populate it with RemoteApps. To learn more about how to manage apps in Azure Virtual Desktop, see the Manage application groups tutorial.
+Now that you've made a host pool, you can populate it with applications. To learn more about how to manage applications in Azure Virtual Desktop, see the Manage application groups tutorial.
 
 > [!div class="nextstepaction"]
 > [Manage application groups tutorial](../manage-app-groups.md)

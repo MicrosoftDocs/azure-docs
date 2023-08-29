@@ -7,6 +7,7 @@ author: fanche
 ms.topic: how-to
 ms.service: azure-communication-services
 ms.subservice: call-automation
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.date: 06/19/2023
 ms.author: askaur
 manager: visho

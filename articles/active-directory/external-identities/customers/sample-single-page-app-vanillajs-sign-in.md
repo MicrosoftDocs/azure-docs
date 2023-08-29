@@ -1,16 +1,15 @@
 ---
 title: Sign in users in a sample vanilla JavaScript single-page application
-description: Learn how to configure a sample JavaSCript single-page application (SPA) to sign in and sign out users.
+description: Learn how to configure a sample JavaScript single-page application (SPA) to sign in and sign out users.
 services: active-directory
 author: OwenRichards1
 manager: CelesteDG
 ms.author: owenrichards
 ms.service: active-directory
 ms.subservice: ciam
+ms.custom: devx-track-js
 ms.topic: sample
-ms.date: 06/23/2023
-
-
+ms.date: 08/17/2023
 #Customer intent: As a dev, devops, I want to learn about how to configure a sample vanilla JS SPA to sign in and sign out users with my Azure Active Directory (Azure AD) for customers tenant
 ---
 
@@ -85,10 +84,8 @@ If you choose to download the `.zip` file, extract the sample app file to a fold
     ```
 
 1. Open a web browser and navigate to `http://localhost:3000/`.
-1. Select **No account? Create one**, which starts the sign-up flow.
-1. In the **Create account** window, enter the email address registered to your customer tenant, which starts the sign-up flow as a user for your application.
-1. After entering a one-time passcode from the customer tenant, enter a new password and more account details, this sign-up flow is completed.
-1. If a window appears prompting you to **Stay signed in**, choose either **Yes** or **No**.
+1. Sign-in with an account registered to the customer tenant.
+1. Once signed in the display name is shown next to the **Sign out** button as shown in the following screenshot.
 1. The SPA will now display a button saying **Request Profile Information**. Select it to display profile data.
 
     :::image type="content" source="media/how-to-spa-vanillajs-sign-in-sign-in-out/display-vanillajs-welcome.png" alt-text="Screenshot of sign in into a vanilla JS SPA." lightbox="media/how-to-spa-vanillajs-sign-in-sign-in-out/display-vanillajs-welcome.png":::

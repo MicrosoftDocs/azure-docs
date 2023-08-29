@@ -1,6 +1,6 @@
 ### YamlMime:FAQ
 metadata:
-  title: Microsoft Defender for Cloud common questions -  Defender for DevOps
+  title: Common questions -  Defender for DevOps
   description: Get answers to frequently asked questions about Microsoft Defender for DevOps.
   ms.topic: faq
   ms.service: defender-for-cloud
@@ -103,6 +103,14 @@ sections:
 
           You must have more than a [stakeholder license](https://azure.microsoft.com/pricing/details/devops/azure-devops-services/) to the repos to onboard them, and you need to be at least the security reader on the subscription where the connector is created. You can confirm if you've onboarded the repositories by seeing them in the inventory list in Microsoft Defender for Cloud.
 
+
+      - question: |
+          I successfully onboarded a connector, where can I find my DevOps recommendations?
+        answer: |
+          We recommend navigating to the DevOps Security page to see an overview of your DevOps recommendations and posture. You can sort and filter by the repos you care about to dive into the recommendation details.
+          
+          You can also view your DevOps recommendations on the Recommendations page.  Navigate to Recommendations, select the "All recommendations" tab, and filter the `environment` by the relevant DevOps sources (e.g., AzureDevOps and/or GitHub).  
+          
 
       - question: |
           What information does Defender for DevOps store about me and my enterprise, and where is the data stored and processed?

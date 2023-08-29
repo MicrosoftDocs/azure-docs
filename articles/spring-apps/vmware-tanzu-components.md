@@ -6,7 +6,7 @@ ms.author: taoxu
 ms.service: spring-apps
 ms.topic: conceptual
 ms.date: 06/01/2023
-ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, event-tier1-build-2022, engagement-fy23, references_regions
+ms.custom: devx-track-java, event-tier1-build-2022, engagement-fy23, references_regions
 ---
 
 # VMware Tanzu components in the Azure Spring Apps Enterprise plan

@@ -6,6 +6,7 @@ manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python
 ms.topic: quickstart
 ms.date: 06/09/2023
 ---
@@ -27,9 +28,9 @@ This quickstart has [steps](#create-load-and-query-an-index) for the following S
 
 + An Azure Cognitive Search service. [Create a service](search-create-service-portal.md) if you don't have one. You can use a free tier for this quickstart.
 
-+ An API key and search endpoint:
++ An API key and service endpoint:
 
-  [Sign in to the Azure portal](https://portal.azure.com/) and [find your search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
+  Sign in to the [Azure portal](https://portal.azure.com) and [find your search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
 
   In **Overview**, copy the URL and save it to Notepad for a later step. An example endpoint might look like `https://mydemo.search.windows.net`.
 

@@ -1,6 +1,6 @@
 ---
 title: Get trending images with the Bing Image Search API
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Search for today's trending images from the web with the Bing Image Search API.
 services: cognitive-services
 
@@ -16,7 +16,7 @@ ms.custom: seodec2018
 
 # Get trending images from the web
 
-[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 
 To get today's trending images, send the following GET request:  
 

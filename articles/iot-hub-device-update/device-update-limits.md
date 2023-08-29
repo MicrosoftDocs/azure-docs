@@ -39,7 +39,22 @@ The following table shows the enforced throttles for operations that are availab
 |CreateOrUpdateDeployment| 7/min |
 |DeleteDeployment| 7/min |
 |ProcessSubgroupDeployment | 7/min|
+|Delete Update | 510/min*|
+|Get File| 510/min*|
+|Get Operation Status| 510/min*|
+|Get Update| 510/min*|
+|Import Update| 510/min*|
+|List Files| 510/min*|
+|List Names| 510/min*|
+|List Providers| 510/min*|
+|List Updates| 510/min*|
+|List Versions| 510/min*|
+|List Operation Statuses| 50/min|
 
+
+\* = the number of calls per minute is shared across all the listed operations
+
+Additionally, the number of concurrent asynchronous import and/or delete operations is limited to 10 total operation jobs. 
 
 ## Next steps
 

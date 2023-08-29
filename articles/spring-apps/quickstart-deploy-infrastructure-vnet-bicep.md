@@ -4,7 +4,7 @@ description: This quickstart shows you how to use Bicep to deploy an Azure Sprin
 author: KarlErickson
 ms.service: spring-apps
 ms.topic: quickstart
-ms.custom: devx-track-java, devx-track-extended-java, mode-other, event-tier1-build-2022, devx-track-bicep
+ms.custom: devx-track-java, mode-other, event-tier1-build-2022, devx-track-bicep
 ms.author: karler
 ms.date: 05/31/2022
 ---
@@ -107,4 +107,4 @@ In this quickstart, you deployed an Azure Spring Apps instance into an existing 
   * [Simple Hello World](./quickstart.md?pivots=programming-language-java&tabs=Azure-CLI).
 * Use [custom domains](how-to-custom-domain.md) with Azure Spring Apps.
 * Expose applications in Azure Spring Apps to the internet using Azure Application Gateway. For more information, see [Expose applications with end-to-end TLS in a virtual network](expose-apps-gateway-end-to-end-tls.md).
-* View the secure end-to-end [Azure Spring Apps reference architecture](reference-architecture.md), which is based on the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/).
+* View the secure end-to-end [Azure Spring Apps reference architecture](/previous-versions/azure/spring-apps/reference-architecture), which is based on the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/).

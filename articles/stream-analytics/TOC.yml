@@ -41,7 +41,7 @@
     href: no-code-power-bi-tutorial.md
   - name: Visualize fraudulent calls in Power BI
     href: stream-analytics-real-time-fraud-detection.md
-  - name: Integrate 3rd party services using Azure Functions
+  - name: Integrate third party services using Azure Functions
     href: stream-analytics-with-azure-functions.md
   - name: Create a custom .NET deserializer
     href: visual-studio-code-custom-deserializer.md
@@ -324,6 +324,10 @@
       href: geospatial-scenarios.md
   - name: Monitor
     items:
+    - name: Monitor Azure Stream Analytics
+      href: monitor-azure-stream-analytics.md
+    - name: Monitoring data reference
+      href: monitor-azure-stream-analytics-reference.md
     - name: Monitor jobs - Azure portal
       href: stream-analytics-monitoring.md
     - name: Monitor jobs - PowerShell
@@ -340,7 +344,7 @@
       href: stream-analytics-job-logical-diagram-with-metrics.md
   - name: Automate
     items:
-    - name: Using PowerShell for auto-pausing
+    - name: Using PowerShell for auto pausing
       href: automation-powershell.md
     - name: Using .NET SDK for management
       href: stream-analytics-dotnet-management-sdk.md

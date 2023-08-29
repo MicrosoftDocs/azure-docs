@@ -27,7 +27,7 @@ There are two environments in Container Apps: the Consumption only environment s
 
 | Environment Type | Description |
 |-----------|-------------|
-| Workload profiles environment (preview) | Supports user defined routes (UDR) and egress through NAT Gateway. The minimum required subnet size is /27. <br /> <br /> As workload profiles are currently in preview, the number of supported regions is limited. To learn more, visit the [workload profiles overview](./workload-profiles-overview.md#supported-regions).|
+| Workload profiles environment (preview) | Supports user defined routes (UDR) and egress through NAT Gateway. The minimum required subnet size is /27. <br /> <br /> As workload profiles are currently in preview, the number of supported regions is limited. To learn more, visit the [workload profiles overview](./workload-profiles-overview.md).|
 | Consumption only environment | Doesn't support user defined routes (UDR) and egress through NAT Gateway. The minimum required subnet size is /23. |
 
 ## Accessibility Levels
@@ -176,6 +176,7 @@ Application rules allow or deny traffic based on the application layer. The foll
 | All scenarios | *mcr.microsoft.com*, **.data.mcr.microsoft.com* | These FQDNs for Microsoft Container Registry (MCR) are used by Azure Container Apps and either these application rules or the network rules for MCR must be added to the allowlist when using Azure Container Apps with Azure Firewall. | 
 | Azure Container Registry (ACR) | *Your-ACR-address*, **.blob.windows.net* | These FQDNs are required when using Azure Container Apps with ACR and Azure Firewall. | 
 | Azure Key Vault | *Your-Azure-Key-Vault-address*, *login.microsoft.com* | These FQDNs are required in addition to the service tag required for the network rule for Azure Key Vault. | 
+| Managed Identities | **.identity.azure.net*, *login.microsoftonline.com*, **.login.microsoftonline.com*, **.login.microsoft.com* | These FQDNs are required when using managed identities with Azure Firewall in Azure Container Apps.
 | Docker Hub Registry | *hub.docker.com*, *registry-1.docker.io*, *production.cloudflare.docker.com* | If you're using [Docker Hub registry](https://docs.docker.com/desktop/allow-list/) and want to access it through the firewall, you need to add these FQDNs to the firewall. | 
 
 ##### Azure Firewall - Network Rules
@@ -204,6 +205,54 @@ With the workload profiles environment (preview), you can fully secure your ingr
 - Integrate your Container Apps with an Application Gateway. For steps, see [here](./waf-app-gateway.md).
 - Configure UDR to route all traffic through Azure Firewall. For steps, see [here](./user-defined-routes.md).
 
+## <a name="mtls"></a> Environment level network encryption - preview
+
+Azure Container Apps supports environment level network encryption using mutual transport layer security (mTLS). When end-to-end encryption is required, mTLS will encrypt data transmitted between applications within an environment. Applications within a Container Apps environment are automatically authenticated. However, Container Apps currently does not support authorization for access control between applications using the built-in mTLS.
+
+When your apps are communicating with a client outside of the environment, two-way authentication with mTLS is supported, to learn more see [configure client certificates](client-certificate-authorization.md).
+
+> [!NOTE]
+> Enabling mTLS for your applications may increase response latency and reduce maximum throughput in high-load scenarios.
+
+# [Azure CLI](#tab/azure-cli)
+
+You can enable mTLS using the following commands.
+
+On create:
+```azurecli
+az containerapp env create \
+    --name <environment-name> \
+    --resource-group <resource-group> \
+    --location <location> \
+    --enable-mtls
+```
+
+For an existing container app:
+```azurecli
+az containerapp env update \
+    --name <environment-name> \
+    --resource-group <resource-group> \
+    --enable-mtls
+```
+
+# [ARM template](#tab/arm-template)
+
+You can enable mTLS in the ARM template for Container Apps environments using the following configuration.
+
+```json
+{
+  ...
+  "properties": {
+       "peerAuthentication":{
+            "mtls": {
+                "enabled": "true|false"
+            }
+        }
+  ...
+}
+```
+---
+
 ## DNS
 
 -	**Custom DNS**: If your VNet uses a custom DNS server instead of the default Azure-provided DNS server, configure your DNS server to forward unresolved DNS queries to `168.63.129.16`. [Azure recursive resolvers](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) uses this IP address to resolve requests. When configuring your NSG or Firewall, don't block the `168.63.129.16` address, otherwise, your Container Apps environment won't function.
@@ -212,7 +261,7 @@ With the workload profiles environment (preview), you can fully secure your ingr
 
     1. **Non-custom domains**: If you don't plan to use custom domains, create a private DNS zone that resolves the Container Apps environment's default domain to the static IP address of the Container Apps environment. You can use [Azure Private DNS](../dns/private-dns-overview.md) or your own DNS server.  If you use Azure Private DNS, create a Private DNS Zone named as the Container App environment’s default domain (`<UNIQUE_IDENTIFIER>.<REGION_NAME>.azurecontainerapps.io`), with an `A` record. The A record contains the name `*<DNS Suffix>` and the static IP address of the Container Apps environment.
 
-    1. **Custom domains**: If you plan to use custom domains, use a publicly resolvable domain to [add a custom domain and certificate](./custom-domains-certificates.md#add-a-custom-domain-and-certificate) to the container app. Additionally, create a private DNS zone that resolves the apex domain to the static IP address of the Container Apps environment. You can use [Azure Private DNS](../dns/private-dns-overview.md) or your own DNS server. If you use Azure Private DNS, create a Private DNS Zone named as the apex domain, with an `A` record that points to the static IP address of the Container Apps environment.
+    1. **Custom domains**: If you plan to use custom domains and are using an external Container Apps environment, use a publicly resolvable domain to [add a custom domain and certificate](./custom-domains-certificates.md#add-a-custom-domain-and-certificate) to the container app. If you are using an internal Container Apps environment, there is no validation for the DNS binding, as the cluster can only be accessed from within the virtual network. Additionally, create a private DNS zone that resolves the apex domain to the static IP address of the Container Apps environment. You can use [Azure Private DNS](../dns/private-dns-overview.md) or your own DNS server. If you use Azure Private DNS, create a Private DNS Zone named as the apex domain, with an `A` record that points to the static IP address of the Container Apps environment.
 
 The static IP address of the Container Apps environment can be found in the Azure portal in  **Custom DNS suffix** of the container app page or using the Azure CLI `az containerapp env list` command.
 
@@ -225,7 +274,7 @@ The name of the resource group created in the Azure subscription where your envi
 
 In addition to the [Azure Container Apps billing](./billing.md), you're billed for:
 
-- One standard static [public IP](https://azure.microsoft.com/pricing/details/ip-addresses/) for egress. If you need more IPs for egress due to SNAT issues, [open a support ticket to request an override](https://azure.microsoft.com/support/create-ticket/).
+- One standard static [public IP](https://azure.microsoft.com/pricing/details/ip-addresses/) for egress if using an internal or external environment, plus one standard static [public IP](https://azure.microsoft.com/pricing/details/ip-addresses/) for ingress if using an external environment. If you need more public IPs for egress due to SNAT issues, [open a support ticket to request an override](https://azure.microsoft.com/support/create-ticket/).
 
 - Two standard [Load Balancers](https://azure.microsoft.com/pricing/details/load-balancer/) if using an internal environment, or one standard [Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/) if using an external environment. Each load balancer has fewer than six rules. The cost of data processed (GB) includes both ingress and egress for management operations.
 

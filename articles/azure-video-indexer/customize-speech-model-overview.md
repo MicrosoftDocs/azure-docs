@@ -1,6 +1,6 @@
 ---
-title: Customize a speech model in Azure Video Indexer  
-description: This article gives an overview of what is a speech model in Azure Video Indexer. 
+title: Customize a speech model in Azure AI Video Indexer  
+description: This article gives an overview of what is a speech model in Azure AI Video Indexer. 
 ms.topic: conceptual
 ms.date: 03/06/2023
 ---
@@ -9,7 +9,7 @@ ms.date: 03/06/2023
 
 [!INCLUDE [speech model](./includes/speech-model.md)]
 
-Through Azure Video Indexer integration with [Azure speech services](../cognitive-services/speech-service/captioning-concepts.md), a Universal Language Model is utilized as a base model that is trained with Microsoft-owned data and reflects commonly used spoken language. The base model is pretrained with dialects and phonetics representing various common domains. The base model works well in most speech recognition scenarios. 
+Through Azure AI Video Indexer integration with [Azure AI Speech services](../ai-services/speech-service/captioning-concepts.md), a Universal Language Model is utilized as a base model that is trained with Microsoft-owned data and reflects commonly used spoken language. The base model is pretrained with dialects and phonetics representing various common domains. The base model works well in most speech recognition scenarios. 
 
 However, sometimes the base model’s transcription doesn't accurately handle some content. In these situations, a customized speech model can be used to improve recognition of domain-specific vocabulary or pronunciation that is specific to your content by providing text data to train the model. Through the process of creating and adapting speech customization models, your content can be properly transcribed. There is no additional charge for using Video Indexers speech customization. 
 
@@ -17,13 +17,13 @@ However, sometimes the base model’s transcription doesn't accurately handle so
 
 If your content contains industry specific terminology or when reviewing Video Indexer transcription results you notice inaccuracies, you can create and train a custom speech model to recognize the terms and improve the transcription quality. It may only be worthwhile to create a custom model if the relevant words and names are expected to appear repeatedly in the content you plan to index. Training a model is sometimes an iterative process and you might find that after the initial training, results could still use improvement and would benefit from additional training, see [How to Improve your custom model](#how-to-improve-your-custom-models) section for guidance.  
 
-However, if you notice a few words or names transcribed incorrectly in the transcript, a custom speech model might not be needed, especially if the words or names aren’t expected to be commonly used in content you plan on indexing in the future. You can just edit and correct the transcript in the Video Indexer website (see [View and update transcriptions in Azure Video Indexer website](edit-transcript-lines-portal.md)) and don’t have to address it through a custom speech model.  
+However, if you notice a few words or names transcribed incorrectly in the transcript, a custom speech model might not be needed, especially if the words or names aren’t expected to be commonly used in content you plan on indexing in the future. You can just edit and correct the transcript in the Video Indexer website (see [View and update transcriptions in Azure AI Video Indexer website](edit-transcript-lines-portal.md)) and don’t have to address it through a custom speech model.  
 
-For a list of languages that support custom models and pronunciation, see the Customization and Pronunciation columns of the language support table in [Language support in Azure Video Indexer](language-support.md).
+For a list of languages that support custom models and pronunciation, see the Customization and Pronunciation columns of the language support table in [Language support in Azure AI Video Indexer](language-support.md).
 
 ## Train datasets 
 
-When indexing a video, you can use a customized speech model to improve the transcription. Models are trained by loading them with [datasets](../cognitive-services/speech-service/how-to-custom-speech-test-and-train.md) that can include plain text data and pronunciation data.   
+When indexing a video, you can use a customized speech model to improve the transcription. Models are trained by loading them with [datasets](../ai-services/speech-service/how-to-custom-speech-test-and-train.md) that can include plain text data and pronunciation data.   
 
 Text used to test and train a custom model should include samples from a diverse set of content and scenarios that you want your model to recognize. Consider the following factors when creating and training your datasets: 
 

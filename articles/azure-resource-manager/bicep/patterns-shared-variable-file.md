@@ -5,7 +5,7 @@ author: johndowns
 ms.author: jodowns
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 07/01/2022
+ms.date: 07/28/2023
 ---
 # Shared variable file pattern
 
@@ -39,7 +39,7 @@ When you define your resource names, use string interpolation to concatenate the
 
 ## Example 2: Network security group rules
 
-Suppose you have multiple Bicep file that define their own network security groups (NSG). You have a common set of security rules that must be applied to each NSG, and then you have application-specific rules that must be added.
+Suppose you have multiple Bicep files that define their own network security groups (NSG). You have a common set of security rules that must be applied to each NSG, and then you have application-specific rules that must be added.
 
 Define a JSON file that includes the common security rules that apply across your company:
 

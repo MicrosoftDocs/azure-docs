@@ -107,45 +107,46 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for G Suite in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**. Users will need to log in to `portal.azure.com` and won't be able to use `aad.portal.azure.com`.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Browse to **Azure Active Directory** > **Enterprise Applications** > **All applications**.
 
 	![Enterprise applications blade](./media/g-suite-provisioning-tutorial/enterprise-applications.png)
 
 	![All applications blade](./media/g-suite-provisioning-tutorial/all-applications.png)
 
-2. In the applications list, select **G Suite**.
+1. In the applications list, select **G Suite**.
 
 	![The G Suite link in the Applications list](common/all-applications.png)
 
-3. Select the **Provisioning** tab. Click on **Get started**.
+1. Select the **Provisioning** tab. Click on **Get started**.
 
 	![Screenshot of the Manage options with the Provisioning option called out.](common/provisioning.png)
 
       ![Get started blade](./media/g-suite-provisioning-tutorial/get-started.png)
 
-4. Set the **Provisioning Mode** to **Automatic**.
+1. Set the **Provisioning Mode** to **Automatic**.
 
 	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
-5. Under the **Admin Credentials** section, click on **Authorize**. You'll be redirected to a Google authorization dialog box in a new browser window.
+1. Under the **Admin Credentials** section, click on **Authorize**. You'll be redirected to a Google authorization dialog box in a new browser window.
 
       ![G Suite authorize](./media/g-suite-provisioning-tutorial/authorize-1.png)
 
-6. Confirm that you want to give Azure AD permissions to make changes to your G Suite tenant. Select **Accept**.
+1. Confirm that you want to give Azure AD permissions to make changes to your G Suite tenant. Select **Accept**.
 
      ![G Suite Tenant Auth](./media/g-suite-provisioning-tutorial/gapps-auth.png)
 
-7. In the Azure portal, click **Test Connection** to ensure Azure AD can connect to G Suite. If the connection fails, ensure your G Suite account has Admin permissions and try again. Then try the **Authorize** step again.
+1. In the Azure portal, click **Test Connection** to ensure Azure AD can connect to G Suite. If the connection fails, ensure your G Suite account has Admin permissions and try again. Then try the **Authorize** step again.
 
-6. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
+1. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
 
 	![Notification Email](common/provisioning-notification-email.png)
 
-7. Select **Save**.
+1. Select **Save**.
 
-8. Under the **Mappings** section, select **Provision Azure Active Directory Users**.
+1. Under the **Mappings** section, select **Provision Azure Active Directory Users**.
 
-9. Review the user attributes that are synchronized from Azure AD to G Suite in the **Attribute-Mapping** section. Select the **Save** button to commit any changes.
+1. Review the user attributes that are synchronized from Azure AD to G Suite in the **Attribute-Mapping** section. Select the **Save** button to commit any changes.
 
 > [!NOTE]
 > GSuite Provisioning currently only supports the use of primaryEmail as the matching attribute. 
@@ -225,9 +226,9 @@ This section guides you through the steps to configure the Azure AD provisioning
    |websites.[type eq "work"].value|String|
    
 
-10. Under the **Mappings** section, select **Provision Azure Active Directory Groups**.
+1. Under the **Mappings** section, select **Provision Azure Active Directory Groups**.
 
-11. Review the group attributes that are synchronized from Azure AD to G Suite in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the groups in G Suite for update operations. Select the **Save** button to commit any changes.
+1. Review the group attributes that are synchronized from Azure AD to G Suite in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the groups in G Suite for update operations. Select the **Save** button to commit any changes.
 
       |Attribute|Type|
       |---|---|
@@ -236,17 +237,17 @@ This section guides you through the steps to configure the Azure AD provisioning
       |name|String|
       |description|String|
 
-12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+1. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-13. To enable the Azure AD provisioning service for G Suite, change the **Provisioning Status** to **On** in the **Settings** section.
+1. To enable the Azure AD provisioning service for G Suite, change the **Provisioning Status** to **On** in the **Settings** section.
 
 	![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
 
-14. Define the users and/or groups that you would like to provision to G Suite by choosing the desired values in **Scope** in the **Settings** section.
+1. Define the users and/or groups that you would like to provision to G Suite by choosing the desired values in **Scope** in the **Settings** section.
 
 	![Provisioning Scope](common/provisioning-scope.png)
 
-15. When you're ready to provision, click **Save**.
+1. When you're ready to provision, click **Save**.
 
 	![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
 
@@ -271,19 +272,19 @@ With PIM for Groups, you can provide just-in-time access to groups in Google Clo
 **Configure your enterprise application for SSO and provisioning**
 1. Add Google Cloud / Google Workspace to your tenant, configure it for provisioning as described in the tutorial above, and start provisioning. 
 1. Configure [single sign-on](google-apps-tutorial.md) for Google Cloud / Google Workspace.
-1. Create a [group](https://learn.microsoft.com/azure/active-directory/fundamentals/how-to-manage-groups) that provides all users access to the application.
+1. Create a [group](/azure/active-directory/fundamentals/how-to-manage-groups) that provides all users access to the application.
 1. Assign the group to the Google Cloud / Google Workspace application.
 1. Assign your test user as a direct member of the group created in the previous step, or provide them access to the group through an access package. This group can be used for persistent, nonadmin access in Google Cloud / Google Workspace.
 
 **Enable PIM for groups**
 1. Create a second group in Azure AD. This group provides access to admin permissions in Google Cloud / Google Workspace. 
-1. Bring the group under [management in Azure AD PIM](https://learn.microsoft.com/azure/active-directory/privileged-identity-management/groups-discover-groups).
-1. Assign your test user as [eligible for the group in PIM](https://learn.microsoft.com/azure/active-directory/privileged-identity-management/groups-assign-member-owner) with the role set to member.
+1. Bring the group under [management in Azure AD PIM](/azure/active-directory/privileged-identity-management/groups-discover-groups).
+1. Assign your test user as [eligible for the group in PIM](/azure/active-directory/privileged-identity-management/groups-assign-member-owner) with the role set to member.
 1. Assign the second group to the Google Cloud / Google Workspace application.
 1. Use on-demand provisioning to create the group in Google Cloud / Google Workspace.
 1. Sign-in to Google Cloud / Google Workspace and assign the second group the necessary permissions to perform admin tasks.  
 
-Now any end user that was made eligible for the group in PIM can get JIT access to the group in Google Cloud / Google Workspace by [activating their group membership](https://learn.microsoft.com/azure/active-directory/privileged-identity-management/groups-activate-roles#activate-a-role). 
+Now any end user that was made eligible for the group in PIM can get JIT access to the group in Google Cloud / Google Workspace by [activating their group membership](/azure/active-directory/privileged-identity-management/groups-activate-roles#activate-a-role). 
 
 > [!IMPORTANT]
 > The group membership is provisioned roughly a minute after the activation is complete. Please wait before attempting to sign-in to Google Cloud / Google Workspace. If the user is unable to access the necessary group in Google Cloud / Google Workspace, please review the provisioning logs to ensure that the user was successfully provisioned. 
@@ -293,7 +294,6 @@ Now any end user that was made eligible for the group in PIM can get JIT access 
 * 10/17/2020 - Added support for more G Suite user and group attributes.
 * 10/17/2020 - Updated G Suite target attribute names to match what is defined [here](https://developers.google.com/admin-sdk/directory).
 * 10/17/2020 - Updated default attribute mappings.
-* 03/18/2021 - Manager email is now synchronized instead of ID for all new users. For any existing users that were provisioned with a manager as an ID, you can do a restart through [Microsoft Graph](/graph/api/synchronization-synchronizationjob-restart?preserve-view=true&tabs=http&view=graph-rest-beta) with scope "full" to ensure that the email is provisioned. This change only impacts the GSuite provisioning job and not the older provisioning job beginning with Goov2OutDelta. Note, the manager email is provisioned when the user is first created or when the manager changes. The manager email isn't provisioned if the manager changes their email address. 
 
 ## More resources
 

@@ -26,7 +26,7 @@ Microsoft has deployed a new endpoint (API) for Azure AD Connect that improves t
 >[!NOTE]
 > The Azure AD Connect sync V2 endpoint API is Generally Available but currently can only be used in these Azure environments:
 > - Azure Commercial
-> - Azure China cloud
+> - Microsoft Azure operated by 21Vianet cloud
 > - Azure US Government cloud
 > It will not be made available in the Azure German cloud
 

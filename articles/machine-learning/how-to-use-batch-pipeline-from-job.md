@@ -191,7 +191,7 @@ To deploy the pipeline component, we have to create a batch deployment from the 
         endpoint_name=endpoint.name,
         job_definition=pipeline_job_run,
         settings={
-            "default_comput": "batch-cluster",
+            "default_compute": "batch-cluster",
             "continue_on_step_failure": False
         }
     )

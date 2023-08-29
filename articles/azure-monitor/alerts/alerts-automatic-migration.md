@@ -6,9 +6,9 @@ ms.date: 06/20/2023
 ---
 # Understand the automatic migration process for your classic alert rules
 
-As [previously announced](monitoring-classic-retirement.md), classic alerts in Azure Monitor are retired for public cloud users, though still in limited use until **31 May 2021**. Classic alerts for Azure Government cloud and Azure China 21Vianet will retire on **29 February 2024**.
+As [previously announced](monitoring-classic-retirement.md), classic alerts in Azure Monitor are retired for public cloud users, though still in limited use until **31 May 2021**. Classic alerts for Azure Government cloud and Microsoft Azure operated by 21Vianet will retire on **29 February 2024**.
 
-[A migration tool](alerts-using-migration-tool.md) is available in the Azure portal for customers to trigger migration themselves. This article explains the automatic migration process in public cloud, that will start after 31 May 2021. It also details issues and solutions you might run into.
+A migration tool is available in the Azure portal for customers to trigger migration themselves. This article explains the automatic migration process in public cloud, that will start after 31 May 2021. It also details issues and solutions you might run into.
 
 ## Important things to note
 

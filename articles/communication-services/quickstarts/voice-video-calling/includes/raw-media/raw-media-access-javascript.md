@@ -364,7 +364,8 @@ bwVideoElem.srcObject = null;
 Use the following code to stop sending a custom screen share stream after it has been set during a call.
 
 ```js
-await call.stopScreenSharing();
+// Stop sending raw screen sharing stream
+await call.stopScreenSharing(localScreenSharingStream);
 ```
 
 ### Access incoming screen share stream from a remote participant

@@ -5,8 +5,8 @@ ms.topic: conceptual
 ms.date: 09/14/2022
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Monitoring Azure Backup workloads

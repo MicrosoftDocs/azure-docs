@@ -2,6 +2,7 @@
 title: Use Container Storage Interface (CSI) driver for Azure Files on Azure Kubernetes Service (AKS)
 description: Learn how to use the Container Storage Interface (CSI) driver for Azure Files in an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
+ms.custom: devx-track-linux
 ms.date: 04/19/2023
 ---
 
@@ -460,6 +461,8 @@ The output of the commands resembles the following example:
 [kubectl-exec]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#exec
 [csi-specification]: https://github.com/container-storage-interface/spec/blob/master/spec.md
 [data-plane-api]: https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/azcore/internal/shared/shared.go
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
+
 
 <!-- LINKS - internal -->
 [csi-drivers-overview]: csi-storage-drivers.md

@@ -90,7 +90,7 @@ You can specify loggers on different levels:
  
 Specifying *both*:
 - By default, the single API logger (more granular level) overrides the one for all APIs.
-- If the loggers configured at the two levels are different, and you need both loggers to receive telemetry (multiplexing), please contact Microsoft Support. 
+- If the loggers configured at the two levels are different, and you need both loggers to receive telemetry (multiplexing), please contact Microsoft Support. Please note that multiplexing is not supported if you're using the same logger (Application Insights destination) at the "All APIs" level and the single API level. For multiplexing to work correctly, you must configure different loggers at the "All APIs" and individual API level and request assistance from Microsoft support to enable multiplexing for your service.
 
 ## What data is added to Application Insights
 
@@ -173,6 +173,11 @@ To improve performance issues, skip:
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2pkXv]
 >
 >
+
+## Troubleshooting
+
+Addressing the issue of telemetry data flow from API Management to Application Insights:
++ Investigate whether a linked Azure Monitor Private Link Scope (AMPLS) resource exists within the VNet where the API Management resource is connected. AMPLS resources have a global scope across subscriptions and are responsible for managing data query and ingestion for all Azure Monitor resources. It's possible that the AMPLS has been configured with a Private-Only access mode specifically for data ingestion. In such instances, include the Application Insights resource and its associated Log Analytics resource in the AMPLS. Once this addition is made, the API Management data will be successfully ingested into the Application Insights resource, resolving the telemetry data transmission issue.
 
 ## Next steps
 

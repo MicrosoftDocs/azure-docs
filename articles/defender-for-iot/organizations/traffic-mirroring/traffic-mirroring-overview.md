@@ -1,7 +1,7 @@
 ---
 title: Configure traffic mirroring overview - Microsoft Defender for IoT
 description: This article serves as an overview for configuring traffic mirroring for Microsoft Defender for IoT.
-ms.date: 03/22/2023
+ms.date: 07/04/2023
 ms.topic: install-set-up-deploy
 ---
 
@@ -23,7 +23,7 @@ Use one of the following procedures to configure traffic mirroring in your netwo
 
 - [Configure mirroring with a switch SPAN port](configure-mirror-span.md)
 - [Configure traffic mirroring with a Remote SPAN (RSPAN) port](configure-mirror-rspan.md)
-- [Configure traffic mirroring with an encapsulated remote switched port analyzer (ERSPAN)](configure-mirror-erspan.md)
+- [Update a sensor's monitoring interfaces (configure ERSPAN)](../how-to-manage-individual-sensors.md#update-a-sensors-monitoring-interfaces-configure-erspan)
 
 **Virtual switches**:
 

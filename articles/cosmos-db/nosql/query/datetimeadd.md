@@ -1,118 +1,72 @@
 ---
-title: DateTimeAdd in Azure Cosmos DB query language
-description: Learn about SQL system function DateTimeAdd in Azure Cosmos DB.
-author: seesharprun
+title: DateTimeAdd
+titleSuffix: Azure Cosmos DB for NoSQL
+description: An Azure Cosmos DB for NoSQL system function that returns a datetime that's the resulting of adding a number to a part of the specified datetime.
+author: jcodella
+ms.author: jacodel
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.topic: conceptual
-ms.date: 07/09/2020
-ms.author: sidandrews
-ms.reviewer: jucocchi
-ms.custom: query-reference, ignite-2022
+ms.topic: reference
+ms.date: 07/19/2023
+ms.custom: query-reference
 ---
-# DateTimeAdd (Azure Cosmos DB)
+
+# DateTimeAdd (NoSQL query)
+
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
-Returns DateTime string value resulting from adding a specified number value (as a signed integer) to a specified DateTime string  
+Returns a date and time string value that is the result of adding a specified number value to the provided date and time string.
   
 ## Syntax
   
 ```sql
-DateTimeAdd (<DateTimePart> , <numeric_expr> ,<DateTime>)
+DateTimeAdd(<date_time_part>, <numeric_expr> ,<date_time>)
 ```
 
 ## Arguments
-  
-*DateTimePart*  
-   The part of date to which DateTimeAdd adds an integer number. This table lists all valid DateTimePart arguments:
 
-| DateTimePart | abbreviations        |
-| ------------ | -------------------- |
-| Year         | "year", "yyyy", "yy" |
-| Month        | "month", "mm", "m"   |
-| Day          | "day", "dd", "d"     |
-| Hour         | "hour", "hh"         |
-| Minute       | "minute", "mi", "n"  |
-| Second       | "second", "ss", "s"  |
-| Millisecond  | "millisecond", "ms"  |
-| Microsecond  | "microsecond", "mcs" |
-| Nanosecond   | "nanosecond", "ns"   |
+| | Description |
+| --- | --- |
+| **`date_time_part`** | A string representing a part of an ISO 8601 date format specification. This part is used to indicate which aspect of the date to modify by the related numeric expression. |
+| **`numeric_expr`** | A numeric expression resulting in a signed integer. |
+| **`date_time`** | A Coordinated Universal Time (UTC) date and time string in the ISO 8601 format `YYYY-MM-DDThh:mm:ss.fffffffZ`. |
 
-*numeric_expr*  
-   Is a signed integer value that will be added to the DateTimePart of the specified DateTime
-
-*DateTime*  
-   UTC date and time ISO 8601 string value in the format `YYYY-MM-DDThh:mm:ss.fffffffZ` where:
-  
-|Format|Description|
-|-|-|
-|YYYY|four-digit year|
-|MM|two-digit month (01 = January, etc.)|
-|DD|two-digit day of month (01 through 31)|
-|T|signifier for beginning of time elements|
-|hh|two-digit hour (00 through 23)|
-|mm|two-digit minutes (00 through 59)|
-|ss|two-digit seconds (00 through 59)|
-|.fffffff|seven-digit fractional seconds|
-|Z|UTC (Coordinated Universal Time) designator|
-  
-  For more information on the ISO 8601 format, see [ISO_8601](https://en.wikipedia.org/wiki/ISO_8601)
+> [!NOTE]
+> For more information on the ISO 8601 format, see [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
 
 ## Return types
 
-Returns a UTC date and time ISO 8601 string value in the format `YYYY-MM-DDThh:mm:ss.fffffffZ` where:
-  
-|Format|Description|
-|-|-|
-|YYYY|four-digit year|
-|MM|two-digit month (01 = January, etc.)|
-|DD|two-digit day of month (01 through 31)|
-|T|signifier for beginning of time elements|
-|hh|two-digit hour (00 through 23)|
-|mm|two-digit minutes (00 through 59)|
-|ss|two-digit seconds (00 through 59)|
-|.fffffff|seven-digit fractional seconds|
-|Z|UTC (Coordinated Universal Time) designator|
+Returns a UTC date and time string in the ISO 8601 format `YYYY-MM-DDThh:mm:ss.fffffffZ`.
+
+## Examples
+
+The following example adds various values (one year, one month, one day, one hour) to the date **July 3, 2020** at **midnight (00:00 UTC)**. The example also subtracts various values (two years, two months, two days, two hours) from the same date. Finally, this example uses an expression to modify the seconds of the same date.
+
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/datetimeadd/query.sql" highlight="2-10":::
+
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/datetimeadd/result.json":::
 
 ## Remarks
 
-DateTimeAdd will return `undefined` for the following reasons:
-
-- The DateTimePart value specified is invalid
-- The numeric_expr specified is not a valid integer
-- The DateTime in the argument or result is not a valid ISO 8601 DateTime.
-
-## Examples
-  
-The following example adds 1 month to the DateTime: `2020-07-09T23:20:13.4575530Z`
-
-```sql
-SELECT DateTimeAdd("mm", 1, "2020-07-09T23:20:13.4575530Z") AS OneMonthLater
-```
-
-```json
-[
-    {
-        "OneMonthLater": "2020-08-09T23:20:13.4575530Z"
-    }
-]
-```  
-
-The following example subtracts 2 hours from the DateTime: `2020-07-09T23:20:13.4575530Z`
-
-```sql
-SELECT DateTimeAdd("hh", -2, "2020-07-09T23:20:13.4575530Z") AS TwoHoursEarlier
-```
-
-```json
-[
-    {
-        "TwoHoursEarlier": "2020-07-09T21:20:13.4575530Z"
-    }
-]
-```  
+- This function returns `undefined` for these reasons:
+  - The specified date and time part is invalid.
+  - The numeric expression isn't a valid integer.
+  - The date and time in the argument isn't a valid ISO 8601 date and time string.
+- The ISO 8601 date format specifies valid date and time parts to use with this function:
+    | | Format |
+    | --- | --- |
+    | **Year** | `year`, `yyyy`, `yy` |
+    | **Month** | `month`, `mm`, `m` |
+    | **Day** | `day`, `dd`, `d` |
+    | **Hour** | `hour`, `hh` |
+    | **Minute** | `minute`, `mi`, `n` |
+    | **Second** | `second`, `ss`, `s` |
+    | **Millisecond** | `millisecond`, `ms` |
+    | **Microsecond** | `microsecond`, `mcs` |
+    | **Nanosecond** | `nanosecond`, `ns` |
 
 ## Next steps
 
-- [System functions Azure Cosmos DB](system-functions.yml)
-- [Introduction to Azure Cosmos DB](../../introduction.md)
+- [System functions](system-functions.yml)
+- [`DateTimeBin`](datetimebin.md)

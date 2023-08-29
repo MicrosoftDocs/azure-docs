@@ -40,7 +40,7 @@ az group create -n NFCResourceGroupName -l "East US"
 Here's an example of how you can create an NFC by using the Azure CLI:
 
 ```azurecli
-az nf controller create \
+az networkfabric controller create \
   --resource-group "NFCResourceGroupName" \
   --location "eastus"  \
   --resource-name "nfcname" \
@@ -86,7 +86,7 @@ NFC creation takes 30 to 45 minutes. Use the `show` command to monitor the progr
 ## Get a network fabric controller
 
 ```azurecli
-  az nf controller show --resource-group "NFCResourceGroupName" --resource-name "nfcname"
+  az networkfabric controller show --resource-group "NFCResourceGroupName" --resource-name "nfcname"
 ```
 
 Expected output:
@@ -146,7 +146,7 @@ Expected output:
 You should delete an NFC only after deleting all associated network fabrics. Use this command to delete an NFC:
 
 ```azurecli
-  az nf controller delete --resource-group "NFCResourceGroupName" --resource-name "nfcname"
+  az networkfabric controller delete --resource-group "NFCResourceGroupName" --resource-name "nfcname"
 ```
 
 Expected output:

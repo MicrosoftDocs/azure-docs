@@ -12,18 +12,7 @@ ms.custom: references_regions
 
 # Manage workload profiles in a Consumption + Dedicated workload profiles plan structure (preview) in the Azure portal
 
-Learn to manage Container Apps environments with workload profile support.
-
-## Supported regions
-
-The following regions support workload profiles during preview:
-
-- North Central US
-- North Europe
-- West Europe
-- East US
-
-<a id="create"></a>
+Learn to manage Container Apps environments with [workload profile](./workload-profiles-overview.md) support.
 
 ## Create a container app in a workload profile
 

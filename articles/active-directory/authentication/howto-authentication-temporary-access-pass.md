@@ -76,7 +76,7 @@ These roles can perform the following actions related to a Temporary Access Pass
 - Authentication Administrators can create, delete, and view a Temporary Access Pass on members  (except themselves)
 - Global Reader can view the Temporary Access Pass details on the user (without reading the code itself).
 
-1. Sign in to the Azure portal by using one of the preceding roles. 
+1. Sign in to the [Azure portal](https://portal.azure.com) by using one of the preceding roles. 
 1. Select **Azure Active Directory**, browse to Users, select a user, such as *Chris Green*, then choose **Authentication methods**.
 1. If needed, select the option to **Try the new user authentication methods experience**.
 1. Select the option to **Add authentication methods**.

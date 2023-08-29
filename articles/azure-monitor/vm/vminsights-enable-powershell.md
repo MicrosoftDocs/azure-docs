@@ -3,8 +3,8 @@ title: Enable VM insights by using PowerShell
 description: This article describes how to enable VM insights for Azure virtual machines or virtual machine scale sets by using Azure PowerShell.
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-author: bwren
-ms.author: bwren
+author: guywi-ms
+ms.author: guywild
 ms.date: 06/08/2022
 ---
 

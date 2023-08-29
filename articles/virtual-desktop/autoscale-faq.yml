@@ -4,7 +4,7 @@ metadata:
   description: Frequently asked questions and best practices for Azure Virtual Desktop.
   author: Heidilohr
   ms.topic: faq
-  ms.date: 02/13/2023
+  ms.date: 07/18/2023
   ms.author: helohr 
   ms.custom:
   manager: femila
@@ -13,13 +13,8 @@ summary: This article answers frequently asked questions about how to use autosc
 
 
 sections:
-  - name: Ignored
+  - name: General questions
     questions:
-      - question: |
-         How do I configure autoscale so I run zero session hosts after working hours?
-        answer: |
-         Ramp-down mode always uses the lowest possible number of session hosts. However, if there are existing user sessions, the lowest number of usable session hosts won't be zero. To configure the time limit policy to sign out all disconnected users to avoid having usable session hosts after hours, go to **Local Computer Policy** > **Computer Configuration** > **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Session Time Limits** > **Set time limit for disconnected sessions**.
-
       - question: |
          Does autoscale create or delete virtual machines (VMs) based on service load?
         answer: |
@@ -33,57 +28,22 @@ sections:
       - question: |
          Can I configure scaling for specific dates like holidays?
         answer: |
-         No. Autoscale doesn’t currently support ramping down on specific dates.
+         No. Autoscale doesn't currently support ramping down on specific dates.
 
       - question: |
          Will I be charged extra for using autoscale?
         answer: |
          No. For more information on rates, see [our pricing page](https://azure.microsoft.com/pricing/details/virtual-desktop/).
-      
-      - question: |
-         What happens if the host pool capacity is equal to the capacity threshold?
-        answer: |
-         Nothing. Autoscale only reacts when the host pool capacity is greater than or less than the capacity threshold. The feature won't do anything when the host pool capacity is the same as the capacity threshold.
-
-      - question: |
-         If I set drain mode on session hosts, will autoscale change my configured setting?
-        answer: |
-         Yes, autoscale still turns VMs in drain mode on or off, no matter who put it in drain mode. Autoscale overrides drain mode on all VMs included in scaling, so if you want to exclude a VM from scaling actions, you must use exclusion tags.
-      
+           
       - question: |
          How often does autoscale monitor the session hosts and perform scaling evaluations?
         answer: |
-         Autoscale monitors for when users sign in or out of their session hosts and categorizes this activity as session change events. Session change events trigger a scaling evaluation that creates logs. If there aren't any session change events or the event service has an outage, autoscale then checks to see if it missed any events. When several session change events happen within a short time period, the feature batches the scaling evaluations. This batching allows autoscale to process large numbers of events quickly without overloading the system.
-
-      - question: |
-         Can force sign-out happen in any phase of the day?
-        answer: |
-         No. If you've enabled autoscale, you can only force users to sign out during the ramp-down phase. If you put a session host in drain mode during ramp-down to prepare it to be shut down but not all users sign out before the phase changes to off-peak, the remaining user sessions won't be forced to sign out from their session. The reason users aren't signed out is because autoscale doesn't force users to sign out of their sessions during off-peak hours. Instead, autoscale waits until all users have signed out before deallocating the VM. For example, if the ramp-down phase is 15 minutes long, and the wait time before signing out users and shutting down VMs is 20 minutes long, the schedule shifts to the off-peak phase and the user sessions won't be forced to sign out.
-      
-      - question: |
-         If I configure autoscale to force users to sign out during ramp-down, will it also sign out users with active sessions?
-        answer: |
-         Yes. Idle, disconnected, and active sessions are forced to sign out if the users don't sign out during the ramp-down phase wait time.
-
-      - question: |
-         If an active session is forced to sign out, but the user tries to reconnect, is there a way to prevent them from starting a new session on a session host that autoscale is about to turn off?
-        answer: |
-         After autoscale selects a session host to be shut down, it puts the session host in drain mode. Once all the user sessions have been signed out, autoscale deallocates the VM. After deallocating the VM, autoscale sets the AllowNewSessions setting to true, which turns off drain mode. Because sessions hosts that are about to be shut down are put in drain mode, a user who is forced to sign out of their session won't connect to a session host that is about to be shut down if they try to reconnect.
-
-      - question: |
-         Can autoscale turn off all the VMs in a host pool, or does it need to keep at least a few VMs on to work properly?
-        answer: |
-         Autoscale can turn off all VMs in a host pool if the minimum percentage of hosts is set to **0%** and there are no user sessions on the session hosts in the host pool.
+         Autoscale monitors for when users sign in or out of their session hosts and categorizes this activity as session change events. Session change events trigger a scaling evaluation that creates logs. If there aren't any session change events or the event service has an outage, autoscale then checks to see if it missed any events. When several session change events happen within a short time period, then the feature will batch the scaling evaluations. This batching allows autoscale to process large numbers of events quickly without overloading the system.
 
       - question: |
          How many VMs need to be in a host pool for autoscale to work properly?
         answer: |
          At least one.
-
-      - question: |
-         Why would I want to configure the load balancing algorithm differently during different phases of the scaling plan schedule?
-        answer: |
-         When you set up your scaling plan schedule, you can specify different load balancing algorithms for different phases of the day. For example, during the ramp-up and peak phases, you can use the breadth-first load balancing algorithm. This algorithm ensures you have an even distribution of user sessions during the first two phases of the day, which optimizes performance. Likewise, during the ramp-down and off-peak phases, you can use the depth-first load balancing algorithm to help the autsocale feature consolidate user sessions until it reaches the minimal possible number of session hosts in the host pool.
 
       - question: |
          Can you use Azure CLI to configure autoscale?
@@ -96,11 +56,80 @@ sections:
          No. Customers need to set up their own disaster recovery strategy to manage outages. Autoscale only handles scaling existing VMs within the region they're created in.
          
       - question: |
-         Does autoscale consider availability zones during scaling operations if session hosts are created in multiple zones within a region?
+         Does autoscale consider availability zones during scaling operations if I create session hosts in multiple zones within a region?
         answer: |
-         No. Autoscale does not know what availability zone a VM was created in and so may not perform scaling operations across all zones equally. 
+         No. Autoscale doesn't track which availability zone you create VMs in, so it may not perform scaling operations across all zones equally.
+
+  - name: Autoscale for pooled host pools
+    questions:
+      - question: |
+         How do I configure autoscale so I run zero session hosts after working hours?
+        answer: |
+         Ramp-down mode always uses the lowest possible number of session hosts. However, if there are existing user sessions, the lowest number of usable session hosts won't be zero. To configure the time limit policy to sign out all disconnected users to avoid having usable session hosts after hours, go to **Local Computer Policy** > **Computer Configuration** > **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Session Time Limits** > **Set time limit for disconnected sessions**.
 
       - question: |
-         Can autoscale turn off all VMs in a host pool and still work properly?
+         What happens if the host pool capacity is equal to the capacity threshold?
         answer: |
-         Autoscale can turn off all VMs in a host pool if the minimum percentage of hosts is set to 0% and there are no active user sessions in the host pool. However, if the last session host that’s been turned on in the host pool still has active user sessions on it, those users won’t be forced to sign out. The final VM won’t turn off until after those users sign out.
+         Nothing. Autoscale only reacts when the host pool capacity is greater than or less than the capacity threshold. The feature won't do anything when the host pool capacity is the same as the capacity threshold.
+
+      - question: |
+         If I already configured drain mode on session hosts myself, does autoscale still change my configured drain mode settings?
+        answer: |
+         Yes, autoscale still turns VMs in drain mode on or off, no matter who put it in drain mode. Autoscale overrides drain mode on all VMs included in scaling, so if you want to exclude a VM from scaling actions, you must use exclusion tags.
+      
+      - question: |
+         How often does autoscale monitor the session hosts and perform scaling evaluations?
+        answer: |
+         Autoscale monitors for when users sign in or out of their session hosts and categorizes this activity as session change events. Session change events trigger a scaling evaluation that creates logs. If there aren't any session change events or the event service has an outage, autoscale then checks to see if it missed any events. When several session change events happen within a short time period, the feature batches the scaling evaluations. This batching allows autoscale to process large numbers of events quickly without overloading the system.
+
+      - question: |
+         Can forced sign out happen in any phase of the day?
+        answer: |
+         No. If you've enabled autoscale, you can only force users to sign out during the ramp-down phase. If you put a session host in drain mode during ramp-down to prepare it to be shut down but not all users sign out before the phase changes to off-peak, the remaining user sessions won't be forced to sign out from their session. The reason users aren't signed out is because autoscale doesn't force users to sign out of their sessions during off-peak hours. Instead, autoscale waits until all users have signed out before deallocating the VM. For example, if the ramp-down phase is 15 minutes long, and the wait time before signing out users and shutting down VMs is 20 minutes long, the schedule shifts to the off-peak phase and the user sessions won't be forced to sign out.
+      
+      - question: |
+         If I configure autoscale to force users to sign out during ramp-down, will it also sign out users with active sessions?
+        answer: |
+         Yes. Idle, disconnected, and active sessions are forced to sign out if the users don't sign out during the ramp-down phase wait time.
+
+      - question: |
+         If an active session is forced to sign out, but the user tries to reconnect, is there a way to prevent that user from starting a new session on a session host that autoscale is about to shut down?
+        answer: |
+         After autoscale selects a session host to be shut down, it puts the session host in drain mode. Once all the user sessions have been signed out, autoscale deallocates the VM. After autoscale deallocates the VM, it sets the AllowNewSessions setting to true, which turns off drain mode. Because autoscale puts the sessions hosts that it's about to shut down in drain mode, a user who's forced to sign out of their session won't be able to connect to a session host that's about to be shut down if they try to reconnect after being signed out.
+
+      - question: |
+         Can autoscale turn off all the VMs in a host pool, or does it need to keep at least a few VMs on to work properly?
+        answer: |
+         Autoscale can turn off all VMs in a host pool if the minimum percentage of hosts is set to **0%** and there are no user sessions on the session hosts in the host pool.
+
+      - question: |
+         Why would I want to configure the load balancing algorithm differently during different phases of the scaling plan schedule?
+        answer: |
+         When you set up your scaling plan schedule, you can specify different load balancing algorithms for different phases of the day. For example, during the ramp-up and peak phases, you can use the breadth-first load balancing algorithm. This algorithm ensures you have an even distribution of user sessions during the first two phases of the day, which optimizes performance. Likewise, during the ramp-down and off-peak phases, you can use the depth-first load balancing algorithm to help the autoscale feature consolidate user sessions until it reaches the minimal possible number of session hosts in the host pool.
+
+  - name: Autoscale for personal host pools (preview)
+    questions:
+      - question: |
+         What happens to session hosts that get turned on but don't ever get signed into?
+        answer: |
+         If a session host is turned on (either by autoscale, Start VM on Connect, or by the admin) and a user never signs into it, autoscale will deallocate that session host after a period of inactivity to prevent from incurring unnecessary compute costs.
+
+      - question: |
+         If I opt out of having a ramp-up, how will my personal desktops get started?
+        answer: |
+         If you choose not to have personal desktops started by autoscale during the ramp-up phase, autoscale won't start your personal desktops. Instead you must either enable [Start VM on Connect](start-virtual-machine-connect.md) to ensure that personal desktops start up when users sign into them or manually start up the personal desktops yourself. 
+         
+      - question: |
+         Can I configure autoscale to force users to sign out of their personal desktop?
+        answer: |
+         No. Autoscale for personal desktops only deallocates session hosts if the user has signed out of their user session.
+      
+      - question: |
+         What is the difference between a disconnected user session and a user session that has been signed out?
+        answer: |
+         For more information, see [User session definitions](environment-setup.md#user-sessions).
+
+      - question: |
+         Does autoscale for personal desktops overwrite the drain mode of session hosts?
+        answer: |
+         No. When autoscale is ready to deallocate a personal desktop due to the user session being signed out or disconnected, autoscale doesn't put the session host in drain mode. If the user tries to connect while autoscale is deallocating the session host, they'll receive an error message that says "No resources available."

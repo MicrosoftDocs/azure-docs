@@ -14,43 +14,10 @@ ms.date: 06/30/2023
 
 # Customize environment for runtime (preview)
 
-We have following approaches to customize environment for runtime:
-
-- Manually customize conda packages in CI runtime
-- Customize environment with docker context for runtime
-
-Meanwhile, you can also create custom application on compute instance and managed online endpoint then use them as runtime.
 
 > [!IMPORTANT]
 > Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-## Manually customize conda packages in CI runtime
-
-1. Go to runtime list page find the compute instance linked with runtime.
-
-    :::image type="content" source="./media/how-to-customize-environment-runtime/runtime-creation-ci-runtime-list-compute-link.png" alt-text="Screenshot of flows highlighting the linked compute column. " lightbox = "./media/how-to-customize-environment-runtime/runtime-creation-ci-runtime-list-compute-link.png":::
-
-1. Under `applications` in the detail page of the compute instance, select `terminal`.
-
-     :::image type="content" source="./media/how-to-customize-environment-runtime/runtime-creation-ci-runtime-list-compute-terminal.png" alt-text="Screenshot of compute detail page with terminal highlighted. " lightbox = "./media/how-to-customize-environment-runtime/runtime-creation-ci-runtime-list-compute-terminal.png":::
-
-1. Jump to terminal on this compute instance
-
-     :::image type="content" source="./media/how-to-customize-environment-runtime/runtime-creation-ci-runtime-list-compute-jump-to-terminal.png" alt-text="Screenshot of notebooks with the compute highlighted. " lightbox = "./media/how-to-customize-environment-runtime/runtime-creation-ci-runtime-list-compute-jump-to-terminal.png":::
-
-1. Retrieve the container name of the runtime using the command `docker ps`.
-
-    :::image type="content" source="./media/how-to-customize-environment-runtime/runtime-creation-ci-runtime-list-compute-terminal-docker-ps.png" alt-text="Screenshot of notebooks highlighting the container name of the runtime. " lightbox = "./media/how-to-customize-environment-runtime/runtime-creation-ci-runtime-list-compute-terminal-docker-ps.png":::
-
-1. Jump into the container using the command `docker exec -it <container_id/container_name> /bin/bash`.
-
-    :::image type="content" source="./media/how-to-customize-environment-runtime/runtime-creation-ci-runtime-list-compute-terminal-docker-exec.png" alt-text="Screenshot of notebooks showing the docker command. " lightbox = "./media/how-to-customize-environment-runtime/runtime-creation-ci-runtime-list-compute-terminal-docker-exec.png":::
-
-1. You can now install packages using `conda install` or `pip install` in this conda environment.
-
-> [!NOTE]
-> Any package installed in this way may be lost after a compute instance restart. If you want to keep these packages,follow the instructions in the section titled [Customize Environment with Docker Context for Runtime](#customize-environment-with-docker-context-for-runtime).
 
 ## Customize environment with docker context for runtime
 
@@ -99,7 +66,7 @@ RUN pip install -r requirements.txt
 ```
 
 > [!NOTE]
-> This docker image should be built from Prompt flow base image that is `mcr.microsoft.com/azureml/promptflow/promptflow-runtime:<newest_version>`. If possible use the [latest version of the base image](https://mcr.microsoft.com/v2/azureml/promptflow/promptflow-runtime/tags/list). 
+> This docker image should be built from prompt flow base image that is `mcr.microsoft.com/azureml/promptflow/promptflow-runtime:<newest_version>`. If possible use the [latest version of the base image](https://mcr.microsoft.com/v2/azureml/promptflow/promptflow-runtime/tags/list). 
 
 ### Step 2: Use Azure Machine Learning environment to build image
 
@@ -156,47 +123,6 @@ Find the image in ACR.
 > Make sure the `Environment image build status` is `Succeeded`  before using it in the next step.
 
 ### Step 3: Create a custom Azure Machine Learning environment for runtime
-
-#### Create a custom Azure Machine Learning environment for runtime in docker hub - compute instance runtime
-
-> [!NOTE]
-> Compute instance only support image in public docker hub or MCR, so you need push the image to docker hub or MCR, then use them to create custom environment.
-
-```shell
-docker login <the_acr_you_build_image_in_previous_step>
-docker pull <image_build_in_acr>
-docker login <your_public_docker_hub>
-docker tag <image_build_in_acr> <image_in_your_public_docker_hub>
-docker push <image_in_your_public_docker_hub>
-```
-
-Open the `environment.yaml` file and add the following content. Replace the `<environment_name>` placeholder with your desired environment name and change `<image_build_in_acr>` to the ACR image found in the previous step.
-
-```yaml
-$schema: https://azuremlschemas.azureedge.net/latest/environment.schema.json
-name: <environment_name>
-image: <image_in_your_public_docker_hub>
-inference_config:
-  liveness_route:
-    port: 8080
-    path: /health
-  readiness_route:
-    port: 8080
-    path: /health
-  scoring_route:
-    port: 8080
-    path: /score
-```
-
-Using following CLI command to create the environment:
-
-```bash
-cd image_build # optional if you already in this folder
-az login(optional)
-az ml environment create -f environment.yaml --subscription <sub-id> -g <resource-group> -w <workspace>
-```
-
-#### Create a custom Azure Machine Learning environment for runtime in ACR - Managed online deployment runtime
 
 Open the `environment.yaml` file and add the following content. Replace the `<environment_name>` placeholder with your desired environment name and change `<image_build_in_acr>` to the ACR image found in the step 2.3.
 

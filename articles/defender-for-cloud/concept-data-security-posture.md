@@ -1,5 +1,5 @@
 ---
-title: Data-aware security posture in Microsoft Defender for Cloud
+title: Data-aware security posture 
 description: Learn how Defender for Cloud helps improve data security posture in a multicloud environment.
 author: dcurwin
 ms.author: dacurwin

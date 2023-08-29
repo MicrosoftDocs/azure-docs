@@ -1,5 +1,5 @@
 ---
-title: Support for the Defender for Servers plan in Microsoft Defender for Cloud
+title: Support for the Defender for Servers plan
 description: Review support requirements for the Defender for Servers plan in Microsoft Defender for Cloud.
 ms.topic: limits-and-quotas
 author: dcurwin
@@ -36,7 +36,7 @@ Validate the following endpoints are configured for outbound access so that Azur
 
 This table summarizes Azure cloud support for Defender for Servers features.
 
-**Feature/Plan** | **Azure** | **Azure Government** | **Azure China**<br/>**21Vianet**
+**Feature/Plan** | **Azure** | **Azure Government** | **Microsoft Azure operated by 21Vianet**<br/>**21Vianet**
 --- | --- | --- | ---
 [Microsoft Defender for Endpoint integration](./integration-defender-for-endpoint.md) | GA | GA | NA
 [Compliance standards](./regulatory-compliance-dashboard.md)<br/>Compliance standards might differ depending on the cloud type.| GA | GA | GA
@@ -48,7 +48,8 @@ This table summarizes Azure cloud support for Defender for Servers features.
 [File integrity monitoring](./file-integrity-monitoring-overview.md)  | GA | GA | GA
 [Adaptive application controls](./adaptive-application-controls.md)  | GA | GA | GA
 [Adaptive network hardening](./adaptive-network-hardening.md) | GA | NA | NA
-[Docker host hardening](./harden-docker-hosts.md)  | GA | GA | GA
+[Docker host hardening](./harden-docker-hosts.md)  | GA | GA | GA 
+[Agentless secret scanning](secret-scanning.md) | Preview | NA | NA
 
 ## Windows machine support
 
@@ -125,6 +126,7 @@ The following table shows feature support for AWS and GCP machines.
 | Third-party vulnerability assessment | - | - |
 | [Network security assessment](protect-network-resources.md) | - | - |
 | [Cloud security explorer](how-to-manage-cloud-security-explorer.md) | ✔ | - |
+| [Agentless secret scanning](secret-scanning.md) | ✔ | - |
 
 ## Endpoint protection support
 

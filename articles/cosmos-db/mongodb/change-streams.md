@@ -43,22 +43,46 @@ while (!cursor.isExhausted()) {
 # [C#](#tab/csharp)
 
 ```csharp
+var collection = new MongoClient("<connection-string>")
+    .GetDatabase("<database-name>")
+    .GetCollection<BsonDocument>("<collection-name>");
+
 var pipeline = new EmptyPipelineDefinition<ChangeStreamDocument<BsonDocument>>()
-    .Match(change => change.OperationType == ChangeStreamOperationType.Insert || change.OperationType == ChangeStreamOperationType.Update || change.OperationType == ChangeStreamOperationType.Replace)
+    .Match(change => 
+        change.OperationType == ChangeStreamOperationType.Insert || 
+        change.OperationType == ChangeStreamOperationType.Update || 
+        change.OperationType == ChangeStreamOperationType.Replace
+    )
     .AppendStage<ChangeStreamDocument<BsonDocument>, ChangeStreamDocument<BsonDocument>, BsonDocument>(
-    "{ $project: { '_id': 1, 'fullDocument': 1, 'ns': 1, 'documentKey': 1 }}");
+        @"{ 
+            $project: { 
+                '_id': 1, 
+                'fullDocument': 1, 
+                'ns': 1, 
+                'documentKey': 1 
+            }
+        }"
+    );
 
-var options = new ChangeStreamOptions{
-        FullDocument = ChangeStreamFullDocumentOption.UpdateLookup
-    };
+ChangeStreamOptions options = new ()
+{
+    FullDocument = ChangeStreamFullDocumentOption.UpdateLookup
+};
 
-var enumerator = coll.Watch(pipeline, options).ToEnumerable().GetEnumerator();
+using IChangeStreamCursor<BsonDocument> enumerator = collection.Watch(
+    pipeline, 
+    options
+);
 
-while (enumerator.MoveNext()){
-        Console.WriteLine(enumerator.Current);
-    }
-
-enumerator.Dispose();
+Console.WriteLine("Waiting for changes...");
+while (enumerator.MoveNext())
+{
+    IEnumerable<BsonDocument> changes = enumerator.Current;
+    foreach(BsonDocument change in changes)
+    {
+        Console.WriteLine(change);
+    }  
+}
 ```
 
 # [Java](#tab/java)
