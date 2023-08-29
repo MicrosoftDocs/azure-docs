@@ -44,7 +44,12 @@ We're excited to introduce to Defender For Containers: Agentless discovery for K
 - Kubernetes-specific security insights
 - Enhanced risk hunting with Cloud Security Explorer
 
-Agentless discovery for Kubernetes is now available to all Defender For Containers customers. You can start using these advanced capabilities today. For more information, see [Agentless discovery for Kubernetes](defender-for-containers-introduction.md#agentless-discovery-for-kubernetes).
+Agentless discovery for Kubernetes is now available to all Defender For Containers customers. You can start using these advanced capabilities today. We encourage you to update your subscriptions to have the full set of extensions enabled, and benefit from the latest additions and features. Visit the **Environment and settings** pane of your Defender for Containers subscription to enable the extension. 
+
+> [!NOTE]
+> Enabling the latest additions won't incur new costs to active Defender for Containers customers.
+
+For more information, see [Agentless discovery for Kubernetes](defender-for-containers-introduction.md#agentless-discovery-for-kubernetes).
 
 ### Recommendation release: Microsoft Defender for Storage should be enabled with malware scanning and sensitive data threat detection
 

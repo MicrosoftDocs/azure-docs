@@ -114,7 +114,9 @@ The discovery process is based on snapshots taken at intervals:
 
 When you enable the agentless discovery for Kubernetes extension, the following process occurs:
 
-- **Create**: Defender for Cloud creates an identity in customer environments called CloudPosture/securityOperator/DefenderCSPMSecurityOperator.
+- **Create**:
+  - If the extension is enabled from Defender CSPM, Defender for Cloud creates an identity in customer environments called `CloudPosture/securityOperator/DefenderCSPMSecurityOperator`.
+  - If the extension is enabled from Defender for Containers, Defender for Cloud creates an identity in customer environments called `CloudPosture/securityOperator/DefenderForContainersSecurityOperator`.
 - **Assign**: Defender for Cloud assigns a built-in role called **Kubernetes Agentless Operator** to that identity on subscription scope. The role contains the following permissions:
 
   - AKS read (Microsoft.ContainerService/managedClusters/read)
