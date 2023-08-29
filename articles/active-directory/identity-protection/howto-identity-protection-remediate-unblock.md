@@ -66,7 +66,7 @@ Administrators are given two options when resetting a password for their users:
 
 If after investigation and confirming that the user account isn't at risk of being compromised, then you can choose to dismiss the risky user.
 
-To **Dismiss user risk**, search for and select **Azure AD Risky users** in the Azure portal or the Entra portal, select the affected user, and select **Dismiss user(s) risk**.
+To Dismiss user risk in the [Microsoft Entra admin center](https://entra.microsoft.com), browse to **Protection** > **Identity Protection** > **Risky users**, select the affected user, and select **Dismiss user(s) risk**.
 
 When you select **Dismiss user risk**, the user is no longer at risk, and all the risky sign-ins of this user and corresponding risk detections are dismissed as well. 
 
@@ -89,7 +89,7 @@ If after investigation, an account is confirmed compromised:
       1. [Request a password reset](#manual-password-reset).
       1. Block the user if you suspect the attacker can reset the password or do multifactor authentication for the user.
       1. Revoke refresh tokens.
-      1. [Disable any devices](../devices/device-management-azure-portal.md) that are considered compromised.
+      1. [Disable any devices](../devices/manage-device-identities.md) that are considered compromised.
       1. If using [continuous access evaluation](../conditional-access/concept-continuous-access-evaluation.md), revoke all access tokens.
 
 For more information about what happens when confirming compromise, see the section [How should I give risk feedback and what happens under the hood?](howto-identity-protection-risk-feedback.md#how-should-i-give-risk-feedback-and-what-happens-under-the-hood).

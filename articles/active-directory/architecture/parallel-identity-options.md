@@ -132,7 +132,7 @@ Litware may have many existing Active Directory-based apps that they rely on, an
 
 ### Option 3 - Forest trust with the acquired forest
 
-Using an [Active Directory forest trust](/windows-server/identity/ad-ds/plan/forest-design-models), Contoso and Litware can connect their Active Directory domains. This trust enables Litware users to authenticate Contoso's Active Directory-integrated apps. Also [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md) can also read from Litware's Active Directory forest so that Litware users authenticate with Contoso's Azure AD integrated apps. This deployment topology requires a network route set up between the two domains, and TCP/IP network connectivity between any Litware user and Contoso Active Directory-integrated app. It's also straightforward to set up bidirectional trusts, so that Contoso users can access Litware AD-integrated apps (if any).
+Using an [Active Directory forest trust](/windows-server/identity/ad-ds/plan/forest-design-models), Contoso and Litware can connect their Active Directory domains. This trust enables Litware users to authenticate Contoso's Active Directory-integrated apps. Also [Azure AD Connect](../hybrid/connect/whatis-azure-ad-connect.md) can also read from Litware's Active Directory forest so that Litware users authenticate with Contoso's Azure AD integrated apps. This deployment topology requires a network route set up between the two domains, and TCP/IP network connectivity between any Litware user and Contoso Active Directory-integrated app. It's also straightforward to set up bidirectional trusts, so that Contoso users can access Litware AD-integrated apps (if any).
 
 ![forest trust with single tenant](media/parallel-identity-options/identity-combined-3.png)
 
@@ -162,7 +162,7 @@ A customer can also configure Azure AD Connect to read from another forest. This
 
 ### Option 5 - Deploy Azure AD Connect cloud sync in the acquired forest
 
-[Azure AD Connect cloud provisioning](../cloud-sync/what-is-cloud-sync.md) removes the network connectivity requirement, but you can only have one Active Directory to Azure AD linking for a given user with cloud sync. Litware users can authenticate Contoso's Azure AD integrated apps, but not Contoso's Active Directory-integrated apps. This topology doesn't require any TCP/IP connectivity between Litware and Contoso's on-premises environments.
+[Azure AD Connect cloud provisioning](../hybrid/cloud-sync/what-is-cloud-sync.md) removes the network connectivity requirement, but you can only have one Active Directory to Azure AD linking for a given user with cloud sync. Litware users can authenticate Contoso's Azure AD integrated apps, but not Contoso's Active Directory-integrated apps. This topology doesn't require any TCP/IP connectivity between Litware and Contoso's on-premises environments.
 
 ![Deploy Azure AD Connect cloud sync in the acquired forest](media/parallel-identity-options/identity-combined-5.png)
 
@@ -260,7 +260,7 @@ In this approach, Contoso would configure a [direct federation](../external-iden
 
 ## Next steps
 
-- [What is Azure AD Connect cloud sync](../cloud-sync/what-is-cloud-sync.md)
+- [What is Azure AD Connect cloud sync](../hybrid/cloud-sync/what-is-cloud-sync.md)
 - [Setup Inbound provisioning for Azure AD](../app-provisioning/plan-cloud-hr-provision.md)
 - [Setup B2B direct federation](../external-identities/direct-federation.md)
 - [Multi-tenant user management options](multi-tenant-user-management-introduction.md)

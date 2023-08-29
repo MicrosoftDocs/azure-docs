@@ -9,13 +9,10 @@ ms.topic: how-to
 ms.date: 11/17/2022
 ---
 
-# Generate and manage Grafana API keys in Azure Managed Grafana
+# Create and manage Grafana API keys in Azure Managed Grafana (Deprecated)
 
-> [!NOTE]
-> This document is deprecated as the API keys feature has been replaced by a new feature in Grafana 9.1. Go to [Service accounts](./how-to-service-accounts.md) to access the current recommended method to create and manage API keys.
-
-> [!TIP]
-> To switch to using service accounts, in Grafana instances created before the release of Grafana 9.1, go to **Configuration > API keys and select Migrate to service accounts now**.  Select **Yes, migrate now**. Each existing API keys will be automatically migrated into a service account with a token. The service account will be created with the same permission as the API Key and current API keys will continue to work as before.
+> [!IMPORTANT]
+> This document is deprecated as the API keys feature has been replaced by [service accounts](./how-to-service-accounts.md) in Grafana 9.1. To switch to using service accounts, in Grafana instances created before the release of Grafana 9.1, go to **Configuration > API keys and select Migrate to service accounts now**.  Select **Yes, migrate now**. Each existing API keys will be automatically migrated into a service account with a token. The service account will be created with the same permission as the API Key and current API keys will continue to work as before.
 
 In this guide, learn how to generate and manage API keys, and start making API calls to the Grafana server. Grafana API keys will enable you to create integrations between Azure Managed Grafana and other services.
 

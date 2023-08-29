@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 05/24/2023
+ms.date: 08/01/2023
 ms.author: jasteppe
 ---
 
@@ -228,9 +228,9 @@ For an overview of the MedTech service FHIR destination mapping, see
 > [!div class="nextstepaction"]
 > [Overview of the MedTech service FHIR destination mapping](overview-of-fhir-destination-mapping.md)
 
-To learn about the MedTech service frequently asked questions (FAQs), see
+For an overview of the MedTech service scenario-based mappings samples, see
 
 > [!div class="nextstepaction"]
-> [Frequently asked questions about the MedTech service](frequently-asked-questions.md)
+> [Overview of the MedTech service scenario-based mappings samples](overview-of-samples.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

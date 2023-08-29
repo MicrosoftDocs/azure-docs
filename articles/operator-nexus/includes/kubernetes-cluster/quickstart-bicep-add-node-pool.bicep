@@ -77,7 +77,7 @@ param trunkedNetworks array = []
 //   pluginType: 'SRIOV|DPDK|OSDevice|MACVLAN|IPVLAN'
 // }
 
-resource agentPools 'Microsoft.NetworkCloud/kubernetesClusters/agentPools@2023-05-01-preview' = {
+resource agentPools 'Microsoft.NetworkCloud/kubernetesClusters/agentPools@2023-07-01' = {
   name: '${kubernetesClusterName}/${kubernetesClusterName}-${agentPoolName}'
   location: location
   tags: tags
@@ -93,7 +93,7 @@ resource agentPools 'Microsoft.NetworkCloud/kubernetesClusters/agentPools@2023-0
           keyData: sshPublicKey
         }
       ]
-    }: null
+    }: {}
     attachedNetworkConfiguration: {
       l2Networks: empty(l2Networks) ? null : l2Networks
       l3Networks: empty(l3Networks) ? null : l3Networks

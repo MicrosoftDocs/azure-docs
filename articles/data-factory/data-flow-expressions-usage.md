@@ -2000,13 +2000,13 @@ ___
 Rounds a number given an optional scale and an optional rounding mode. If the scale is omitted, it's defaulted to 0. If the mode is omitted, it's defaulted to ROUND_HALF_UP(5). The values for rounding include
  
 1. ROUND_UP - Rounding mode to round away from zero.
-1. ROUND_DOWN – Rounding mode to round towards zero.
+1. ROUND_DOWN - Rounding mode to round towards zero.
 1. ROUND_CEILING - Rounding mode to round towards positive infinity. [Same as ROUND_UP if input is positive. If negative, behaves as ROUND_DOWN. Ex =  -1.1 would be -1.0 with ROUND_CEILING and -2 with ROUND_UP]
 1. ROUND_FLOOR - Rounding mode to round towards negative infinity. [Same as ROUND_DOWN if input is positive. If negative, behaves as ROUND_UP]
-1. ROUND_HALF_UP – Rounding mode to round towards “nearest neighbor” unless both neighbors are equidistant, in which case ROUND_UP. [Most common + default for Dataflow].
-1. ROUND_HALF_DOWN – Rounding mode to round towards “nearest neighbor” unless both neighbors are equidistant, in which case ROUND_DOWN.
+1. ROUND_HALF_UP - Rounding mode to round towards “nearest neighbor” unless both neighbors are equidistant, in which case ROUND_UP. [Most common + default for Dataflow].
+1. ROUND_HALF_DOWN - Rounding mode to round towards “nearest neighbor” unless both neighbors are equidistant, in which case ROUND_DOWN.
 1. ROUND_HALF_EVEN - Rounding mode to round towards the “nearest neighbor” unless both neighbors are equidistant, in which case, round towards the even neighbor.
-1. ROUND_UNNECESSARY – Rounding mode to assert that the round operation has an exact result, hence no rounding is necessary.   
+1. ROUND_UNNECESSARY - Rounding mode to assert that the round operation has an exact result, hence no rounding is necessary.   
       
 * ``round(100.123) -> 100.0``  
 * ``round(2.5, 0) -> 3.0``  

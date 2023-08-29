@@ -2,8 +2,8 @@
 title: Use PowerShell to back up Windows Server to Azure
 description: In this article, learn how to use PowerShell to set up Azure Backup on Windows Server or a Windows client, and manage backup and recovery.
 ms.topic: how-to
-ms.date: 08/14/2023
-ms.custom: devx-track-azurepowershell
+ms.date: 08/29/2021 
+ms.custom: devx-track-azurepowershell, has-azure-ad-ps-ref
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---

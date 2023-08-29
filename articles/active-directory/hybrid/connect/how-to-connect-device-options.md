@@ -40,5 +40,5 @@ The following documentation provides information about the various device option
 
 ## Next steps
 
-* [Configure Hybrid Azure AD join](../../devices/hybrid-azuread-join-plan.md)
+* [Configure Hybrid Azure AD join](../../devices/hybrid-join-plan.md)
 * [Configure / Disable device writeback](how-to-connect-device-writeback.md)

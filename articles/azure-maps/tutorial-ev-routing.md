@@ -403,7 +403,7 @@ To learn more about Azure Notebooks, see
 
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [Azure Maps Jupyter Notebook repository]: https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook
-[Azure Maps REST APIs]: ./consumption-model.md
+[Azure Maps REST APIs]: /rest/api/maps
 [Azure Notebooks]: https://notebooks.azure.com
 [Data Upload API]: /rest/api/maps/data-v2/upload
 [Data Upload]: /rest/api/maps/data-v2/upload

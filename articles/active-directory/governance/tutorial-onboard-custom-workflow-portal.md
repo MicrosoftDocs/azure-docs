@@ -1,6 +1,6 @@
 ---
-title: 'Automate employee onboarding tasks before their first day of work with Azure portal'
-description: Tutorial for onboarding users to an organization using Lifecycle workflows with Azure portal.
+title: 'Automate employee onboarding tasks before their first day of work with the Microsoft Entra admin center'
+description: Tutorial for onboarding users to an organization using Lifecycle workflows with the Microsoft Entra admin center.
 services: active-directory
 author: owinfreyATL
 manager: amycolannino
@@ -14,9 +14,9 @@ ms.reviewer: krbain
 ms.custom: template-tutorial
 ---
 
-# Automate employee onboarding tasks before their first day of work with Azure portal
+# Automate employee onboarding tasks before their first day of work with the Microsoft Entra admin center
 
-This tutorial provides a step-by-step guide on how to automate prehire tasks with Lifecycle workflows using the Azure portal. 
+This tutorial provides a step-by-step guide on how to automate prehire tasks with Lifecycle workflows using the Microsoft Entra admin center. 
 
 This prehire scenario generates a temporary access pass for our new employee and sends it via email to the user's new manager.  
 
@@ -35,7 +35,7 @@ Two accounts are required for this tutorial, one account for the new hire and an
 -	Department must be set to sales
 -	Manager attribute must be set, and the manager account should have a mailbox to receive an email
 
-For more comprehensive instructions on how to complete these prerequisite steps, you may refer to the [Preparing user accounts for Lifecycle workflows tutorial](tutorial-prepare-azure-ad-user-accounts.md). The [TAP policy](../authentication/howto-authentication-temporary-access-pass.md#enable-the-temporary-access-pass-policy) must also be enabled to run this tutorial.
+For more comprehensive instructions on how to complete these prerequisite steps, you may refer to the [Preparing user accounts for Lifecycle workflows tutorial](tutorial-prepare-user-accounts.md). The [TAP policy](../authentication/howto-authentication-temporary-access-pass.md#enable-the-temporary-access-pass-policy) must also be enabled to run this tutorial.
 
 Detailed breakdown of the relevant attributes:
 
@@ -48,7 +48,7 @@ Detailed breakdown of the relevant attributes:
 
 The pre-hire scenario can be broken down into the following:
   - **Prerequisite:** Create two user accounts, one to represent an employee and one to represent a manager
-  - **Prerequisite:** Editing the attributes required for this scenario in the portal
+  - **Prerequisite:** Editing the attributes required for this scenario in the admin center
   - **Prerequisite:** Edit the attributes for this scenario using Microsoft Graph Explorer
   - **Prerequisite:** Enabling and using Temporary Access Pass (TAP)
   - Creating the lifecycle management workflow
@@ -57,32 +57,29 @@ The pre-hire scenario can be broken down into the following:
 
 ## Create a workflow using prehire template
 
-[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+Use the following steps to create a pre-hire workflow that generates a TAP and send it via email to the user's manager using the Microsoft Entra admin center.
 
-Use the following steps to create a pre-hire workflow that generates a TAP and send it via email to the user's manager using the Azure portal.
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the right, select **Azure Active Directory**.
-3. Select **Identity Governance**.
-4. Select **Lifecycle workflows**.
-5. On the **Overview** page, select **New workflow**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Lifecycle Workflows Administrator](../roles/permissions-reference.md#lifecycle-workflows-administrator).
+2. Select **Identity Governance**.
+3. Select **Lifecycle workflows**.
+4. On the **Overview** page, select **New workflow**.
     :::image type="content" source="media/tutorial-lifecycle-workflows/new-workflow.png" alt-text="Screenshot of selecting a new workflow." lightbox="media/tutorial-lifecycle-workflows/new-workflow.png":::
 
-6. From the templates, select **select** under **Onboard pre-hire employee**.
+5. From the templates, select **select** under **Onboard pre-hire employee**.
     :::image type="content" source="media/tutorial-lifecycle-workflows/select-template.png" alt-text="Screenshot of selecting workflow template." lightbox="media/tutorial-lifecycle-workflows/select-template.png":::
 
-7. Next, you configure the basic information about the workflow.  This information includes when the workflow triggers, known as **Days from event**.  So in this case, the workflow triggers two days before the employee's hire date.  On the onboard pre-hire employee screen, add the following settings and then select **Next: Configure Scope**.
+6. Next, you configure the basic information about the workflow.  This information includes when the workflow triggers, known as **Days from event**.  So in this case, the workflow triggers two days before the employee's hire date.  On the onboard pre-hire employee screen, add the following settings and then select **Next: Configure Scope**.
 
     :::image type="content" source="media/tutorial-lifecycle-workflows/configure-scope.png" alt-text="Screenshot of selecting a configuration scope." lightbox="media/tutorial-lifecycle-workflows/configure-scope.png":::
 
-8. Next, you configure the scope. The scope determines which users this workflow runs against.  In this case, it is on all users in the Sales department.  On the configure scope screen, under **Rule** add the following settings and then select **Next: Review tasks**. For a full list of supported user properties, see [Supported user properties and query parameters](/graph/api/resources/identitygovernance-rulebasedsubjectset?view=graph-rest-beta&preserve-view=true#supported-user-properties-and-query-parameters).
+7. Next, you configure the scope. The scope determines which users this workflow runs against.  In this case, it is on all users in the Sales department.  On the configure scope screen, under **Rule** add the following settings and then select **Next: Review tasks**. For a full list of supported user properties, see [Supported user properties and query parameters](/graph/api/resources/identitygovernance-rulebasedsubjectset?view=graph-rest-beta&preserve-view=true#supported-user-properties-and-query-parameters).
 
     :::image type="content" source="media/tutorial-lifecycle-workflows/review-tasks.png" alt-text="Screenshot of selecting review tasks." lightbox="media/tutorial-lifecycle-workflows/review-tasks.png":::
 
-9. On the following page, you may inspect the task if desired but no additional configuration is needed. Select **Next: Review + Create** when you're finished.
+8. On the following page, you may inspect the task if desired but no additional configuration is needed. Select **Next: Review + Create** when you're finished.
     :::image type="content" source="media/tutorial-lifecycle-workflows/onboard-review-create.png" alt-text="Screenshot of reviewing an on-board workflow." lightbox="media/tutorial-lifecycle-workflows/onboard-review-create.png":::
 
-10. On the review blade, verify the information is correct and select **Create**.
+9. On the review blade, verify the information is correct and select **Create**.
     :::image type="content" source="media/tutorial-lifecycle-workflows/onboard-create.png" alt-text="Screenshot of creating an onboard workflow." lightbox="media/tutorial-lifecycle-workflows/onboard-create.png":::
 
 ## Run the workflow 
@@ -91,7 +88,7 @@ Now that the workflow is created, it will automatically run the workflow every 3
 >[!NOTE]
 >Be aware that you currently cannot run a workflow on-demand if it is set to disabled.  You need to set the workflow to enabled to use the on-demand feature.
 
-To run a workflow on-demand, for users using the Azure portal, do the following steps:
+To run a workflow on-demand, for users using the Microsoft Entra admin center, do the following steps:
 
  1. On the workflow screen, select the specific workflow you want to run.
  2. Select **Run on demand**.
@@ -126,5 +123,5 @@ After running your workflow on-demand and checking that everything is working fi
 :::image type="content" source="media/tutorial-lifecycle-workflows/enable-schedule.png" alt-text="Screenshot of enabling workflow schedule." lightbox="media/tutorial-lifecycle-workflows/enable-schedule.png":::
 
 ## Next steps
-- [Tutorial: Preparing user accounts for Lifecycle workflows](tutorial-prepare-azure-ad-user-accounts.md)
+- [Tutorial: Preparing user accounts for Lifecycle workflows](tutorial-prepare-user-accounts.md)
 - [Automate employee onboarding tasks before their first day of work using Lifecycle Workflows APIs](/graph/tutorial-lifecycle-workflows-onboard-custom-workflow)

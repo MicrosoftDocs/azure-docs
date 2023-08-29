@@ -9,28 +9,27 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 07/12/2023
+ms.date: 08/09/2023
 ms.custom: it-pro
 
 #Customer intent: As a dev, devops, or it admin, I want to learn about how to add customized browser languages to my app's authentication experience.
 ---
 # Customize the language of the authentication experience
 
-You can create a personalized sign-in experience for users who sign in using a specific browser language by customizing the branding elements. If you don't make any changes to the elements, the default elements will be displayed.
+You can create a personalized sign-in experience for users who sign in using a specific browser language by customizing the branding elements for that browser language. This customization overrides any configurations made to the default branding. If you don't make any changes to the elements, the default elements are displayed.
 
 ## Prerequisites
 
 - If you haven't already created your own Azure AD customer tenant, create one now.
 - [Register an application](how-to-register-ciam-app.md).  
-- [Create a user flow](how-to-user-flow-sign-up-sign-in-customers.md)
+- [Create a user flow](how-to-user-flow-sign-up-sign-in-customers.md).
 - Review the file size requirements for each image you want to add. You may need to use a photo editor to create the right-sized images. The preferred image type for all images is PNG, but JPG is accepted.
 
 ## Add browser language under Company branding
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the customer tenant you created earlier.
-1. In the search bar, type and select **Company branding**.
-1. Under **Browser language customizations**, select **Add browser language**. 
+1. Browse to **Company branding** > **Browser language customizations** > **Add browser language**. 
 
    :::image type="content" source="media/how-to-customize-languages-customers/company-branding-add-browser-language.png" alt-text="Screenshot of the browser language customizations tab." lightbox="media/how-to-customize-languages-customers/company-branding-add-browser-language.png":::
 
@@ -77,7 +76,7 @@ The following languages are supported in the customer tenant:
    - Spanish (Spain)
    - Swedish (Sweden)
    - Thai (Thailand)
-   - Turkish (Turkey)
+   - Turkish (Türkiye)
    - Ukrainian (Ukraine)
    
 6. Customize the elements on the **Basics**, **Layout**, **Header**, **Footer**, **Sign-in form**, and **Text** tabs. For detailed instructions, see [Customize the branding and end-user experience](how-to-customize-branding-customers.md).
@@ -87,10 +86,9 @@ The following languages are supported in the customer tenant:
 
 Language customization in the customer tenant allows your user flow to accommodate different languages to suit your customer's needs.  You can use languages to modify the strings displayed to your customers as part of the attribute collection process during sign-up.
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
 2. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the customer tenant you created earlier.
-3. In the left menu, select **Azure Active Directory** > **External Identities**.
-4. Select **User flows**.
+3. Browse to **Identity** > **External Identities** > **User flows**.
 5. Select the user flow that you want to enable for translations.
 6. Select **Languages**.
 7. On the **Languages** page for the user flow, select the language that you want to customize.
@@ -99,7 +97,7 @@ Language customization in the customer tenant allows your user flow to accommoda
 
    :::image type="content" source="media/how-to-customize-languages-customers/language-customization-flow.png" alt-text="Screenshot the shows how to add languages under a user flow." lightbox="media/how-to-customize-languages-customers/language-customization-flow.png":::
 
-The downloaded file will be in JSON format and will include both built-in and custom attributes, as well as other page-level and error strings:
+The downloaded file is in JSON format and includes both built-in and custom attributes, as well as other page-level and error strings:
 
 ```http
 {
@@ -156,12 +154,12 @@ You can modify any or all of these attributes in the downloaded file. For exampl
 }  
 ```
 
-10. After making the necessary changes, you can upload the new overrides file. The changes are saved to your user flow automatically and you'll find the override under the **Configured** tab.
+10. After making the necessary changes, you can upload the new overrides file. The changes are saved to your user flow automatically. The override appears under the **Configured** tab.
 11. To double-check your changes, select the language under the **Configured** tab and expand the **Sign up and sign in (Preview)** option. You can view your customized language file by selecting Download overrides. To remove your customized override file, select **Remove overrides**.
 
    :::image type="content" source="media/how-to-customize-languages-customers/remove-download-override-file.png" alt-text="Screenshot the shows how to remove or download the modified JSON file." lightbox="media/how-to-customize-languages-customers/remove-download-override-file.png":::
    
-12. Go to the sign-in page of your customer tenant. Make sure you have the right locale and market in your URLs, for example: ui_locales=de-DE and  mkt=de-DE. You'll see the updated attributes on the sign-up page:
+12. Go to the sign-in page of your customer tenant. Make sure you have the right locale and market in your URLs, for example: ui_locales=de-DE and  mkt=de-DE. The updated attributes on the sign-up page appear as follows:
 
    :::image type="content" source="media/how-to-customize-languages-customers/customized-attributes.png" alt-text="Screenshot of the modified sign-up page attributes.":::
 

@@ -11,8 +11,7 @@ ms.workload: identity
 ms.subservice: ciam
 ms.topic: tutorial
 ms.date: 07/27/2023
-ms.custom: developer
-
+ms.custom: developer, devx-track-dotnet
 #Customer intent: As a dev, I want to secure my ASP.NET Core web API registered in the Azure AD customer's tenant.
 ---
 
