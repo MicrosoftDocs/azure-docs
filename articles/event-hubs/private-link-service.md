@@ -197,7 +197,7 @@ There are four provisioning states:
 2. In the search bar, type in **event hubs**.
 3. Select the **namespace** that you want to manage.
 4. Select the **Networking** tab.
-5. Go to the appropriate section below based on the operation you want to: approve, reject, or remove.
+5. Go to the appropriate following section based on the operation you want to: approve, reject, or remove.
 
 ### Approve a private endpoint connection
 1. If there are any connections that are pending, you see a connection listed with **Pending** in the provisioning state. 
@@ -252,11 +252,10 @@ Aliases:  <event-hubs-namespace-name>.servicebus.windows.net
 
 ## Limitations and design considerations
 
-**Pricing**: For pricing information, see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/).
-
-**Limitations**:  This feature is available in all Azure public regions.
-
-**Maximum number of private endpoints per Event Hubs namespace**: 120.
+- For pricing information, see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/).
+- This feature is available in all Azure public regions.
+- Maximum number of private endpoints per Event Hubs namespace: 120.
+- The traffic is blocked at the application layer, not at the TCP layer. Therefore, you see TCP connections or `nslookup` operations succeeding against the public endpoint even though the public access is disabled. 
 
 For more, see [Azure Private Link service: Limitations](../private-link/private-link-service-overview.md#limitations)
 
