@@ -11,7 +11,7 @@ ms.custom: template-how-to, devx-track-azurecli
 
 # Route Policy in Network Fabric
 
-Route policies provides Operators the capability to allow or deny routes in regards to Layer 3 isolation domains in Network Fabric.
+Route policies provide Operators the capability to allow or deny routes in regards to Layer 3 isolation domains in Network Fabric.
 
 With route policies, routes are tagged with certain attributes via community values
 and extended community values when they're distributed via Border Gateway Patrol (BGP).
