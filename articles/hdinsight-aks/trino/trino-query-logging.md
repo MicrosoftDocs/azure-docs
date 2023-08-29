@@ -79,7 +79,7 @@ The plugin creates three tables and three views, which can be used to query the 
  
  > [!NOTE]
  > 
- > Users are encouraged to use the views as they are immune to underlying schema changes and account for table described as follows.
+ > Users are encouraged to use the views as they are immune to underlying schema changes and account for table described.
  
 ## Table archival
 The plugin supports archiving (N-1)th table in the scenario where user decides to the change the `path` or external location of the logs. 
