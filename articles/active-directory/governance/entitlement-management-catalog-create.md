@@ -219,6 +219,8 @@ To remove resources from a catalog:
 
 ## Add more catalog owners
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 The user who created a catalog becomes the first catalog owner. To delegate management of a catalog, add users to the catalog owner role. Adding more catalog owners helps to share the catalog management responsibilities.
 
 **Prerequisite roles:** Global administrator, Identity Governance administrator, User administrator, or Catalog owner
