@@ -408,8 +408,8 @@ Privileged permissions and protected actions are security-related capabilities t
 
 | Capability | Privileged permission | Protected action |
 | --- | --- | --- |
-| Identify permissions that should be used in a secure manner | :heavy_check_mark: |  |
-| Require additional security to perform an action  |  | :heavy_check_mark: |
+| Identify permissions that should be used in a secure manner | :white_check_mark: |  |
+| Require additional security to perform an action  |  | :white_check_mark: |
 
 ## Terminology
 
