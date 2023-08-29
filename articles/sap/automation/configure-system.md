@@ -13,7 +13,7 @@ ms.custom: devx-track-terraform
 
 # Configure SAP system parameters
 
-Configuration for [SAP Deployment Automation Framework](deployment-framework.md)] happens through parameters files. You provide information about your SAP system infrastructure in a `tfvars` file, which the automation framework uses for deployment. You can find examples of the variable file in the `samples` repository.
+Configuration for [SAP Deployment Automation Framework](deployment-framework.md) happens through parameters files. You provide information about your SAP system infrastructure in a `tfvars` file, which the automation framework uses for deployment. You can find examples of the variable file in the `samples` repository.
 
 The automation supports creating resources (green-field deployment) or using existing resources (brown-field deployment):
 
@@ -44,7 +44,7 @@ To configure this topology, define the database tier values and define `scs_serv
 
 The distributed (highly available) deployment is similar to the distributed architecture. In this deployment, the database and/or SAP central services can both be configured by using a highly available configuration that uses two virtual machines, each with Pacemaker clusters or Windows failover clustering.
 
-To configure this topology, define the database tier values and set `database_high_availability` to true. Set `scs_server_count = 1` and `scs_high_availability` = true and `application_server_count` >= 1.
+To configure this topology, define the database tier values and set `database_high_availability` to true. Set `scs_server_count` = 1 and `scs_high_availability` = true and `application_server_count` >= 1.
 
 ## Environment parameters
 
@@ -73,7 +73,7 @@ This section contains the parameters that define the resource group.
 > | `resourcegroup_tags`    | Tags to be associated to the resource group              | Optional   |
 
 
-## SAP Virtual Hostname parameters
+## SAP virtual hostname parameters
 
 In SAP Deployment Automation Framework, the SAP virtual hostname is defined by specifying the `use_secondary_ips` parameter.
 
@@ -387,7 +387,7 @@ This section contains the Terraform parameters. These parameters need to be ent
 
 ## High-availability configuration
 
-The high-availability configuration for the database tier and the SCS tier is configured by using the `database_high_availability` and `scs_high_availability`	flags. For Red Hat and SUSE should use the appropriate 'HA' version of the virtual machine images (RHEL-SAP-HA, sles-sap-15-sp?).
+The high-availability configuration for the database tier and the SCS tier is configured by using the `database_high_availability` and `scs_high_availability`	flags. Red Hat and SUSE should use the appropriate HA version of the virtual machine images (RHEL-SAP-HA, sles-sap-15-sp?).
 
 High-availability configurations use Pacemaker with Azure fencing agents.
 
