@@ -1,12 +1,12 @@
 ---
-title: Manage workspaces in Azure portal
-description: Learn how to create and manage Microsoft Playwright Testing workspaces in the Azure portal.
+title: Manage workspaces
+description: Learn how to create and manage Microsoft Playwright Testing workspaces. Use the Playwright portal or Azure portal to manage workspaces.
 ms.topic: how-to
-ms.date: 08/18/2022
+ms.date: 08/29/2023
 ms.custom: playwright-testing-preview
 ---
 
-# Manage Microsoft Playwright Testing Preview workspaces in the Azure portal
+# Manage Microsoft Playwright Testing Preview workspaces
 
 In this article, you create, view, and delete Microsoft Playwright Testing Preview workspaces, using the Azure portal.
 
