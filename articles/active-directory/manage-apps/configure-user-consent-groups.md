@@ -324,11 +324,11 @@ PATCH https://graph.microsoft.com/beta/settings/{directorySettingId}
 :::zone-end
 
 > [!NOTE]
-> "User can consent to apps accessing company data on their behalf" setting, when turned off, does not disable the "Users can consent to apps accessing company data for groups they own" option
+> **User can consent to apps accessing company data on their behalf** setting, when turned off, doesn't disable the **Users can consent to apps accessing company data for groups they own** option.
 
 ## Manage group owner consent to apps by app consent policy
 
-You can configure which users are allowed to consent to apps accessing their groups' or teams' data through app consent policies. To allow group owner consent subject to app consent policies, the group owner consent setting **must** be disabled. Once disabled, your current policy is read from app consent policies.
+You can configure which users are allowed to consent to apps accessing their groups' or teams' data through app consent policies. To allow group owner consent subject to app consent policies, the group owner consent setting must be disabled. Once disabled, your current policy is read from app consent policies.
 
 :::zone pivot="ms-powershell"
 
@@ -348,7 +348,7 @@ Connect-MgGraph -Scopes "Policy.ReadWrite.Authorization"
 
 ### Disable group owner consent to use app consent policies
 
-1. check if the `ManagePermissionGrantPoliciesForOwnedResource` is scoped in `group`
+1. Check if the `ManagePermissionGrantPoliciesForOwnedResource` is scoped in `group`
 
     1. Retrieve the current value for the group owner consent setting 
     ```powershell
@@ -356,13 +356,13 @@ Connect-MgGraph -Scopes "Policy.ReadWrite.Authorization"
     ```
     If `ManagePermissionGrantPoliciesForOwnedResource` is returned in `PermissionGrantPoliciesAssigned`, your group owner consent setting **might** have been governed by the app consent policy.
 
-    2.Check if the policy is scoped to `group` 
+    1. Check if the policy is scoped to `group` 
     ```powershell
         Get-MgPolicyPermissionGrantPolicy -PermissionGrantPolicyId {"microsoft-all-application-permissions-for-group"} | ft AdditionalProperties
     ```
     If `resourceScopeType` == `group`, your group owner consent setting **has been** governed by the app consent policy.
 
-2. To disable group owner consent to utilize app consent policies, ensure that the consent policies (`PermissionGrantPoliciesAssigned`) include the current `ManagePermissionGrantsForSelf.*` policy and other current `ManagePermissionGrantsForOwnedResource.*` policies if any that aren't applicable to groups while updating the collection. This way, you can maintain your current configuration for user consent settings and other resource consent settings.
+1. To disable group owner consent to utilize app consent policies, ensure that the consent policies (`PermissionGrantPoliciesAssigned`) include the current `ManagePermissionGrantsForSelf.*` policy and other current `ManagePermissionGrantsForOwnedResource.*` policies if any that aren't applicable to groups while updating the collection. This way, you can maintain your current configuration for user consent settings and other resource consent settings.
 
 ```powershell
 # only exclude policies that are scoped in group
@@ -419,19 +419,19 @@ Use the [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) t
 
 ### Disable group owner consent to use app consent policies
 
-1. check if the `ManagePermissionGrantPoliciesForOwnedResource` is scoped in `group`
+1. Check if the `ManagePermissionGrantPoliciesForOwnedResource` is scoped in `group`
 
     1. Retrieve the current value for the group owner consent setting 
     ```http
     GET https://graph.microsoft.com/v1.0/policies/authorizationPolicy
     ```
-    If `ManagePermissionGrantsForOwnedResource` is returned in `permissionGrantPolicyIdsAssignedToDefaultUserRole`, your group owner consent setting **might** have been governed by the app consent policy.
+    If `ManagePermissionGrantsForOwnedResource` is returned in `permissionGrantPolicyIdsAssignedToDefaultUserRole`, your group owner consent setting might have been governed by the app consent policy.
 
     2.Check if the policy is scoped to `group` 
     ```http
     GET https://graph.microsoft.com/beta/policies/permissionGrantPolicies/{microsoft-all-application-permissions-for-group}
     ```
-    If `resourceScopeType` == `group`, your group owner consent setting **has been** governed by the app consent policy.
+    If `resourceScopeType` == `group`, your group owner consent setting has been governed by the app consent policy.
 
 2. To disable group owner consent to utilize app consent policies, ensure that the consent policies (`PermissionGrantPoliciesAssigned`) include the current `ManagePermissionGrantsForSelf.*` policy and other current `ManagePermissionGrantsForOwnedResource.*` policies if any that aren't applicable to groups. This way, you can maintain your current configuration for user consent settings and other resource consent settings.
    ```http
@@ -488,15 +488,8 @@ PATCH https://graph.microsoft.com/v1.0/policies/authorizationPolicy
 
 ## Next steps
 
-To learn more:
-
-* [Managing group owner consent by app consent policies](manage-group-owner-consent-policies.md)
-* [Configure user consent settings](configure-user-consent.md)
-* [Configure the admin consent workflow](configure-admin-consent-workflow.md)
-* [Learn how to manage consent to applications and evaluate consent requests](manage-consent-requests.md)
-* [Grant tenant-wide admin consent to an application](grant-admin-consent.md)
-* [Permissions and consent in the Microsoft identity platform](../develop/permissions-consent-overview.md)
+- [Manage group owner consent policies](manage-group-owner-consent-policies.md)
 
 To get help or find answers to your questions:
 
-* [Azure AD on Microsoft Q&A](/answers/topics/azure-active-directory.html)
+- [Azure AD on Microsoft Q&A](/answers/topics/azure-active-directory.html)

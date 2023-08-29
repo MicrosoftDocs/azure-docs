@@ -52,7 +52,7 @@ To manage group owner consent policies for applications with Microsoft Graph Pow
    Connect-MgGraph -Scopes "Policy.ReadWrite.PermissionGrant"
    ```
 
-## Retrieve the current value for the Group Owner Consent Policy 
+## Retrieve the current value for the group owner consent policy 
 
 Learn how to verify if your group owner consent setting has been authorized in other ways.
 
@@ -149,7 +149,7 @@ Once the app consent policy for group has been created, you can [allow group own
 
 To manage group owner consent policies, sign in to [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) with one of the roles listed in the prerequisite section. You also need to consent to the `Policy.ReadWrite.PermissionGrant` permission. 
 
-## Retrieve the current value for the Group Owner Consent Policy
+## Retrieve the current value for the group owner consent policy
 
 Learn how to verify if your group owner consent setting has been authorized in other ways.
 1. Retrieve the current policy value
@@ -257,7 +257,7 @@ The following table provides the list of supported conditions for group owner co
 | PermissionClassification | The [permission classification](configure-permission-classifications.md) for the permission being granted, or "all" to match with any permission classification (including permissions that aren't classified). Default is "all". |
 | PermissionType | The permission type of the permission being granted. Use "application" for application permissions (for example, app roles) or "delegated" for delegated permissions. <br><br>**Note**: The value "delegatedUserConsentable" indicates delegated permissions that haven't been configured by the API publisher to require admin consent. This value may be used in built-in permission grant policies, but can't be used in custom permission grant policies. Required. |
 | ResourceApplication | The **AppId** of the resource application (for example, the API) for which a permission is being granted, or "any" to match with any resource application or API. Default is "any". |
-| Permissions | The list of permission IDs for the specific permissions to match with, or a list with the single value "all" to match with any permission. Default is the single value "all". <ul><li>Delegated permission IDs can be found in the **OAuth2Permissions** property of the API's ServicePrincipal object.</li><li>Application permission IDs can be found in the **AppRoles** property of the API's ServicePrincipal object.</li></ol> |
+| Permissions | The list of permission IDs for the specific permissions to match with, or a list with the single value "all" to match with any permission. Default is the single value "all". <br> - Delegated permission IDs can be found in the **OAuth2Permissions** property of the API's ServicePrincipal object.<br> - Application permission IDs can be found in the **AppRoles** property of the API's ServicePrincipal object. |
 | ClientApplicationIds | A list of **AppId** values for the client applications to match with, or a list with the single value "all" to match any client application. Default is the single value "all". |
 | ClientApplicationTenantIds | A list of Azure Active Directory tenant IDs in which the client application is registered, or a list with the single value "all" to match with client apps registered in any tenant. Default is the single value "all". |
 | ClientApplicationPublisherIds | A list of Microsoft Partner Network (MPN) IDs for [verified publishers](../develop/publisher-verification-overview.md) of the client application, or a list with the single value "all" to match with client apps from any publisher. Default is the single value "all". |
