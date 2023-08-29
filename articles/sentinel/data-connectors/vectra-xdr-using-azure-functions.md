@@ -178,7 +178,7 @@ If you're already signed in, go to the next step.
 3. Add each of the following application settings individually, with their respective values (case-sensitive): 
 		Workspace ID 
 		Workspace Key 
-		Vectra Base URL (https://<vectra-portal-url>) 
+		Vectra Base URL (`https://<vectra-portal-url>`) 
 		Vectra Client Id - Health 
 		Vectra Client Secret Key - Health 
 		Vectra Client Id - Entity Scoring 
