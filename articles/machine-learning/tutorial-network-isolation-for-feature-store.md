@@ -1,7 +1,7 @@
 ---
 title: "Tutorial 6: Network isolation for feature store (preview)"
 titleSuffix: Azure Machine Learning managed feature store - basics
-description: This is part 6 of a tutorial series on managed feature store.. 
+description: This is part 6 of a tutorial series on managed feature store. 
 services: machine-learning
 ms.service: machine-learning
 
@@ -9,7 +9,7 @@ ms.subservice: core
 ms.topic: tutorial
 author: ynpandey
 ms.author: yogipandey
-ms.date: 08/17/2023
+ms.date: 08/29/2023
 ms.reviewer: franksolomon
 ms.custom: sdkv2
 #Customer intent: As a professional data scientist, I want to know how to build and deploy a model with Azure Machine Learning by using Python in a Jupyter Notebook.
@@ -19,9 +19,9 @@ ms.custom: sdkv2
 
 [!INCLUDE [preview disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
-An Azure Machine Learning managed feature store lets you discover, create and operationalize features. Features serve as the connective tissue in the machine learning lifecycle, starting from the prototyping phase, where you experiment with various features. That lifecycle continues to the operationalization phase, where you deploy your models, and use inference to look up feature data. See [feature store concepts](./concept-what-is-managed-feature-store.md) for more information about feature stores.
+An Azure Machine Learning managed feature store lets you discover, create and operationalize features. Features serve as the connective tissue in the machine learning lifecycle, starting from the prototyping phase, where you experiment with various features. That lifecycle continues to the operationalization phase, where you deploy your models, and use inference to look up feature data. For more information about feature stores, see [feature store concepts](./concept-what-is-managed-feature-store.md).
 
-In this tutorial, you'll learn how to configure secure ingress through a private endpoint, and secure egress through a managed virtual network.
+This tutorial describes how to configure secure ingress through a private endpoint, and secure egress through a managed virtual network.
 
 Part 1 of this tutorial series showed how to create a feature set specification with custom transformations, and use that feature set to generate training data. Part 2 of the tutorial series showed how to enable materialization and perform a backfill. Part 3 of this tutorial series showed how to experiment with features, as a way to improve model performance. Part 3 also showed how a feature store increases agility in the experimentation and training flows. Tutorial 4 described how to run batch inference. Tutorial 5 explained how to use feature store for online/realtime inference use cases. Tutorial 6 shows how to
 
@@ -44,7 +44,7 @@ Part 1 of this tutorial series showed how to create a feature set specification 
      managed_network:
      isolation_mode: allow_internet_outbound
      ```
-  2. Execute these commands to update the workspace and provision the managed virual network for serverless Spark jobs:
+  2. Execute these commands to update the workspace and provision the managed virtual network for serverless Spark jobs:
 
      ```cli
      az ml workspace update --file network.yml --resource-group my_resource_group --name
@@ -53,7 +53,7 @@ Part 1 of this tutorial series showed how to create a feature set specification 
      --include-spark
      ```
 
-   See [Configure for serverless spark job](./how-to-managed-network?view=azureml-api-2&tabs=azure-cli#configure-for-serverless-spark-jobs) for more information.
+   For more information, see [Configure for serverless spark job](./how-to-managed-network?view=azureml-api-2&tabs=azure-cli#configure-for-serverless-spark-jobs).
      
 * Your user account must have the `Owner` or `Contributor` role assigned to the resource group where the feature store will be created. Your user account also needs the `User Access Administrator` role.
 
@@ -64,7 +64,7 @@ Part 1 of this tutorial series showed how to create a feature set specification 
 
 This tutorial uses the Python feature store core SDK (`azureml-featurestore`). The Python SDK is used for feature set development and testing only. The CLI is used for create, read, update, and delete (CRUD) operations, on feature stores, feature sets, and feature store entities. This is useful in continuous integration and continuous delivery (CI/CD) or GitOps scenarios where CLI/YAML is preferred.
 
-You don't need to explicitly install these resources for this tutorial, because in these set up instructions, the `conda.yaml` file will cover them.
+You don't need to explicitly install these resources for this tutorial, because in the set-up instructions shown here, the `conda.yaml` file covers them.
 
 To prepare the notebook environment for development:
 
@@ -85,7 +85,7 @@ To prepare the notebook environment for development:
 3. Run the tutorial
 
    * Option 1: Create a new notebook, and execute the instructions in this document, step by step.
-   * Option 2: Open existing notebook `featurestore_sample/notebooks/sdk_and_cli/network_isolation/Network Isolation for Feature store.ipynb`. You may keep this document open and refer to it for additional explanation and documentation links.
+   * Option 2: Open existing notebook `featurestore_sample/notebooks/sdk_and_cli/network_isolation/Network Isolation for Feature store.ipynb`. You may keep this document open and refer to it for more explanation and documentation links.
 
        1. Select **Serverless Spark Compute** in the top navigation **Compute** dropdown. This operation might take one to two minutes. Wait for a status bar in the top to display **Configure session**.
        2. Select **Configure session** in the top status bar.
@@ -94,7 +94,7 @@ To prepare the notebook environment for development:
        5. Select file `azureml-examples/sdk/python/featurestore-sample/project/env/conda.yml` located on your local device.
        6. (Optional) Increase the session time-out (idle time in minutes) to reduce the serverless spark cluster startup time.
 
-4. Execute the following code cell to start the Spark session. It wil take approximately 10 minutes to install all dependencies and start the Spark session.
+4. This code cell starts the Spark session. It needs about 10 minutes to install all dependencies and start the Spark session.
 
       [!notebook-python[] (~/azureml-examples/sdk/python/featurestore_sample/notebooks/sdk_and_cli/network_isolation/Network Isolation for Feature store.ipynb?name=start-spark-session)]
 
@@ -131,32 +131,32 @@ For this tutorial, we'll create three separate storage containers in the same AD
 
 1. Create an ADLS Gen2 storage account for source data, offline store and observation data.
 
-   1. Provide the name of an Azure Data Lake Storage Gen2 storage account in the following code sample. Beyond that, you can execute the following code cell with the provided default settings. Optionally, you can override the default settings.  
+   1. Provide the name of an Azure Data Lake Storage Gen2 storage account in the following code sample. You can execute the following code cell with the provided default settings. Optionally, you can override the default settings.  
 
       [!notebook-python[] (~/azureml-examples/sdk/python/featurestore_sample/notebooks/sdk_and_cli/network_isolation/Network Isolation for Feature store.ipynb?default-settings)]
 
-   1. Execute the following code cell to create the ADLS Gen2 storage account defined in the above code cell.
+   1. This code cell creates the ADLS Gen2 storage account defined in the above code cell.
 
       [!notebook-python[] (~/azureml-examples/sdk/python/featurestore_sample/notebooks/sdk_and_cli/network_isolation/Network Isolation for Feature store.ipynb?name=create-storage-cli)]
 
-   1. Execute the following code cell to create a new storage container for offline store.
+   1. This code cell creates a new storage container for offline store.
 
       [!notebook-python[] (~/azureml-examples/sdk/python/featurestore_sample/notebooks/sdk_and_cli/network_isolation/Network Isolation for Feature store.ipynb?create-offline-cli)]
 
-   1. Execute the following code cell to create a new storage container for source data.
+   1. This code cell creates a new storage container for source data.
 
       [!notebook-python[] (~/azureml-examples/sdk/python/featurestore_sample/notebooks/sdk_and_cli/network_isolation/Network Isolation for Feature store.ipynb?name=create-source-cli)]
 
-   1. Execute the following code cell to create a new storage container for observation data.
+   1. This code cell creates a new storage container for observation data.
 
       [!notebook-python[] (~/azureml-examples/sdk/python/featurestore_sample/notebooks/sdk_and_cli/network_isolation/Network Isolation for Feature store.ipynb?name=create-obs-cli)]
 
 2. Copy the sample data required for this tutorial series into the newly created storage containers.
 
-   1. To write data to the storage containers, please ensure that **Contributor** and **Storage Blob Data Contributor** roles are assigned to the user identity on the created ADLS Gen2 storage account in the Azure portal [following these steps](https://learn.microsoft.com/azure/role-based-access-control/role-assignments-portal). 
+   1. To write data to the storage containers, ensure that **Contributor** and **Storage Blob Data Contributor** roles are assigned to the user identity on the created ADLS Gen2 storage account in the Azure portal [following these steps](../role-based-access-control/role-assignments-portal.md).
 
-      > [!IMPORTANT] 
-      > Once you have ensured that the **Contributor** and **Storage Blob Data Contributor** roles are assigned to the user identity, wait for a few minutes after role assignment to let permissions propagate before proceeding with the next steps. To learn more about access control, see [role-based access control (RBAC) for Azure storage accounts](https://learn.microsoft.com/azure/storage/blobs/data-lake-storage-access-control-model#role-based-access-control-azure-rbac)
+      > [!IMPORTANT]
+      > Once you have ensured that the **Contributor** and **Storage Blob Data Contributor** roles are assigned to the user identity, wait for a few minutes after role assignment to let permissions propagate before proceeding with the next steps. To learn more about access control, see [role-based access control (RBAC) for Azure storage accounts](../storage/blobs/data-lake-storage-access-control-model.md#role-based-access-control-azure-rbac)
 
       The following code cells copy sample source data for transactions feature set used in this tutorial from a public storage account to the newly created storage account.
 
@@ -176,7 +176,7 @@ For this tutorial, we'll create three separate storage containers in the same AD
 
 1. Disable the public network access on the newly created storage account.
 
-   1. Execute the following code cell to disable public network access for the above created ADLS Gen2 storage account.
+   1. This code cell disables public network access for the ADLS Gen2 storage account created earlier.
 
       [!notebook-python[] (~/azureml-examples/sdk/python/featurestore_sample/notebooks/sdk_and_cli/network_isolation/Network Isolation for Feature store.ipynb?name=disable-pna-gen2-cli)]
 
@@ -192,25 +192,25 @@ For this tutorial, we'll create three separate storage containers in the same AD
 
       [!notebook-python[] (~/azureml-examples/sdk/python/featurestore_sample/notebooks/sdk_and_cli/network_isolation/Network Isolation for Feature store.ipynb?name=define-uai-name)]
 
-   2. Execute the following cell to create the UAI.
+   2. This code cell creates the UAI.
 
       [!notebook-python[] (~/azureml-examples/sdk/python/featurestore_sample/notebooks/sdk_and_cli/network_isolation/Network Isolation for Feature store.ipynb?name=create-uai-cli)]
 
-   3. Execute the following code cell to retrieve principal ID, client ID, and ARM ID property values for the created UAI.
+   3. This code cell retrieves the principal ID, client ID, and ARM ID property values for the created UAI.
 
       [!notebook-python[] (~/azureml-examples/sdk/python/featurestore_sample/notebooks/sdk_and_cli/network_isolation/Network Isolation for Feature store.ipynb?name=retrieve-uai-props)]
 
    ### Grant RBAC permission to the user-assigned managed identity (UAI)
 
-   The UAI will be assigned to the feature store, and requires the following permissions:
+   The UAI is assigned to the feature store, and requires the following permissions:
 
    |Scope|	Action/Role|
    |--|--|
-   |Feature store	|AzureML Data Scientist role|
+   |Feature store	|Azure Machine Learning Data Scientist role|
    |Storage account of feature store offline store	|Storage Blob Data Contributor role|
    |Storage accounts of source data	|Storage Blob Data Contributor role|
 
-   The next CLI commands will assign the **Storage Blob Data Contributor** role to the UAI. In this example, "Storage accounts of source data" doesn't apply because we read the sample data from a public access blob storage. To use your own data sources, you must assign the required roles to the UAI. To learn more about access control, see role-based access control for [Azure storage accounts](https://learn.microsoft.com/azure/storage/blobs/data-lake-storage-access-control-model#role-based-access-control-azure-rbac) and [Azure Machine Learning workspace](https://learn.microsoft.com/azure/machine-learning/how-to-assign-roles).
+   The next CLI commands will assign the **Storage Blob Data Contributor** role to the UAI. In this example, "Storage accounts of source data" doesn't apply because we read the sample data from a public access blob storage. To use your own data sources, you must assign the required roles to the UAI. To learn more about access control, see role-based access control for [Azure storage accounts](../storage/blobs/data-lake-storage-access-control-model.md#role-based-access-control-azure-rbac) and [Azure Machine Learning workspace](./how-to-assign-roles.md).
 
    [!notebook-python[] (~/azureml-examples/sdk/python/featurestore_sample/notebooks/sdk_and_cli/network_isolation/Network Isolation for Feature store.ipynb?name=uai-offline-role-cli)]
 
@@ -232,11 +232,11 @@ For this tutorial, we'll create three separate storage containers in the same AD
 
    ### Create the feature store
 
-   Execute the following code cell to create a feature store with materialization enabled by using the YAML specification file generated in the previous step.
+   This code cell creates a feature store with materialization enabled by using the YAML specification file generated in the previous step.
 
    [!notebook-python[] (~/azureml-examples/sdk/python/featurestore_sample/notebooks/sdk_and_cli/network_isolation/Network Isolation for Feature store.ipynb?name=create-fs-cli)]
 
-   ### Initialize the Azure ML feature store core SDK client
+   ### Initialize the Azure Machine Learning feature store core SDK client
 
    The SDK client initialized in this cell facilitates development and consumption of features:
 
@@ -244,11 +244,11 @@ For this tutorial, we'll create three separate storage containers in the same AD
 
    ### Grant UAI access to the feature store
 
-   This code cell assigns **AzureML Data Scientist** role to the UAI on the created feature store. To learn more about access control, see role-based access control for [Azure storage accounts](https://learn.microsoft.com/azure/storage/blobs/data-lake-storage-access-control-model#role-based-access-control-azure-rbac) and [Azure Machine Learning workspace](https://learn.microsoft.com/azure/machine-learning/how-to-assign-roles).
+   This code cell assigns **AzureML Data Scientist** role to the UAI on the created feature store. To learn more about access control, see role-based access control for [Azure storage accounts](../storage/blobs/data-lake-storage-access-control-model.md#role-based-access-control-azure-rbac) and [Azure Machine Learning workspace](./how-to-assign-roles.md).
 
    [!notebook-python[] (~/azureml-examples/sdk/python/featurestore_sample/notebooks/sdk_and_cli/network_isolation/Network Isolation for Feature store.ipynb?name=uai-fs-role-cli)]
 
-   Follow these instructions to [get you Azure Active Directory (AAD) Object ID for your user identity](https://learn.microsoft.com/partner-center/find-ids-and-domain-names#find-the-user-object-id). Then use your AAD Object ID in the following command to assign **AzureML Data Scientist** role to your user identity on the created feature store. 
+   Follow these instructions to [get the Azure Active Directory Object ID for your user identity](/partner-center/find-ids-and-domain-names#find-the-user-object-id). Then, use your Azure Active Directory Object ID in the following command to assign **AzureML Data Scientist** role to your user identity on the created feature store.
 
    [!notebook-python[] (~/azureml-examples/sdk/python/featurestore_sample/notebooks/sdk_and_cli/network_isolation/Network Isolation for Feature store.ipynb?name=aad-fs-role-cli)]
 
@@ -262,7 +262,7 @@ For this tutorial, we'll create three separate storage containers in the same AD
 
    [!notebook-python[] (~/azureml-examples/sdk/python/featurestore_sample/notebooks/sdk_and_cli/network_isolation/Network Isolation for Feature store.ipynb?name=copy-storage-kv-props)]
 
-   Execute the following code cell to disable public network access to the default storage account for the feature store.
+   This code cell disables public network access to the default storage account for the feature store.
 
    [!notebook-python[] (~/azureml-examples/sdk/python/featurestore_sample/notebooks/sdk_and_cli/network_isolation/Network Isolation for Feature store.ipynb?name=disable-pna-fs-gen2-cli)]
 
@@ -284,19 +284,17 @@ For this tutorial, we'll create three separate storage containers in the same AD
 
    [!notebook-python[] (~/azureml-examples/sdk/python/featurestore_sample/notebooks/sdk_and_cli/network_isolation/Network Isolation for Feature store.ipynb?name=create-fs-vnet-yaml)]
 
-   Execute the following code cell to update the feature store using the generated YAML specification file with the outbound rules.
+   This code cell updates the feature store using the generated YAML specification file with the outbound rules.
 
    [!notebook-python[] (~/azureml-examples/sdk/python/featurestore_sample/notebooks/sdk_and_cli/network_isolation/Network Isolation for Feature store.ipynb?name=create-fs-vnet-cli)]
 
    ### Create private endpoints for the defined outbound rules
 
-   **TODO: Sentence two needs clarification**
-
-   A `provision-network` command creates private endpoints from the managed virtual network where the materialization job will execute to the source, offline store, observation data, default storage account and the default key vault for the feature store. This command may need approximately 20 minutes to complete.
+   A `provision-network` command creates private endpoints from the managed virtual network where the materialization job executes to the source, offline store, observation data, default storage account and the default key vault for the feature store. This command may need about 20 minutes to complete.
 
    [!notebook-python[] (~/azureml-examples/sdk/python/featurestore_sample/notebooks/sdk_and_cli/network_isolation/Network Isolation for Feature store.ipynb?name=fs-vnet-provision-cli)]
 
-   Execute the following code cell to confirm that private endpoints defined by the outbound rules have been created.
+   This code cell confirms that private endpoints defined by the outbound rules have been created.
 
    [!notebook-python[] (~/azureml-examples/sdk/python/featurestore_sample/notebooks/sdk_and_cli/network_isolation/Network Isolation for Feature store.ipynb?name=fs-show-cli)]
 
@@ -313,18 +311,18 @@ For this tutorial, we'll create three separate storage containers in the same AD
    * Source data
    * Offline store
    * Observation data
-   * Featurestore
-   * Default storage account of featurestore
+   * Feature store
+   * Default storage account of feature store
 
-   Execute the following code cell to update the project workspace using the generated YAML specification file with required outbound rules.
+   This code cell updates the project workspace using the generated YAML specification file with required outbound rules.
 
    [!notebook-python[] (~/azureml-examples/sdk/python/featurestore_sample/notebooks/sdk_and_cli/network_isolation/Network Isolation for Feature store.ipynb?name=create-fs-prjws-vnet-yaml)]
 
-   Execute the following code cell to update the project workspace using the generated YAML specification file with the outbound rules.
+   This code cell updates the project workspace using the generated YAML specification file with the outbound rules.
 
    [!notebook-python[] (~/azureml-examples/sdk/python/featurestore_sample/notebooks/sdk_and_cli/network_isolation/Network Isolation for Feature store.ipynb?name=create-fs-prjws-vnet-cli)]
 
-   Execute the following code cell to confirm that private endpoints defined by the outbound rules have been created.
+   This code cell confirms that private endpoints defined by the outbound rules have been created.
 
    [!notebook-python[] (~/azureml-examples/sdk/python/featurestore_sample/notebooks/sdk_and_cli/network_isolation/Network Isolation for Feature store.ipynb?name=show-prjws-cli)]
 
@@ -345,18 +343,18 @@ For this tutorial, we'll create three separate storage containers in the same AD
 
    A feature set specification is a self-contained feature set definition that can be developed and tested locally.
 
-   Here we want to create the following rolling window aggregate features:
+   Here, we want to create the following rolling window aggregate features:
 
-   * transactions 3-day count
-   * transactions amount 3-day sum
-   * transactions amount 3-day avg
-   * transactions 7-day count
-   * transactions amount 7-day sum
-   * transactions amount 7-day avg
+   * transactions three-day count
+   * transactions amount three-day sum
+   * transactions amount three-day avg
+   * transactions seven-day count
+   * transactions amount seven-day sum
+   * transactions amount seven-day avg
 
    Inspect the feature transformation code file `featurestore/featuresets/transactions/spec/transformation_code/transaction_transform.py`. This spark transformer performs the rolling aggregation defined for the features.
 
-   To understand the feature set and transformations in more detail, see [feature store concepts](https://learn.microsoft.com/azure/machine-learning/concept-what-is-managed-feature-store).
+   To understand the feature set and transformations in more detail, see [feature store concepts](./concept-what-is-managed-feature-store.md).
 
    [!notebook-python[] (~/azureml-examples/sdk/python/featurestore_sample/notebooks/sdk_and_cli/network_isolation/Network Isolation for Feature store.ipynb?name=develop-txn-fset-locally)]
 
@@ -370,21 +368,19 @@ For this tutorial, we'll create three separate storage containers in the same AD
 
    The specification contains these elements:
 
-   * `source`: a reference to a storage, in this case a parquet file in a blob storage resource
+   * `source`: a reference to a storage resource - in this case a parquet file in a blob storage resource
    * `features`: a list of features and their datatypes. If you provide transformation code
    * `index_columns`: the join keys required to access values from the feature set
 
-   As an additional benefit of persisting a feature set specification as an YAML file, the specification can be version controlled. Learn more about feature set specification in the [top level feature store entities document](https://learn.microsoft.com/azure/machine-learning/concept-top-level-entities-in-managed-feature-store) and the [feature set specification YAML reference](reference-yaml-featureset-spec.md).
+   As another benefit of persisting a feature set specification as a YAML file, the specification can be version controlled. Learn more about feature set specification in the [top level feature store entities document](./concept-top-level-entities-in-managed-feature-store.md) and the [feature set specification YAML reference](./reference-yaml-featureset-spec.md).
 
    [!notebook-python[] (~/azureml-examples/sdk/python/featurestore_sample/notebooks/sdk_and_cli/network_isolation/Network Isolation for Feature store.ipynb?name=dump-transactions-fs-spec)]
 
 ## Register a feature-store entity
 
-   **TODO: The second sentence does not seem to match the flow of this block:**
+   Entities help enforce use of the same join key definitions across feature sets that use the same logical entities. Entity examples could include account entities, customer entities, etc. Entities are typically created once and then reused across feature sets. See [top level feature store entities document](./concept-top-level-entities-in-managed-feature-store.md) for more information.
 
-   Entities help enforce use of the same join key definitions across feature sets which use the same logical entities. Entity examples could include account entities, customer entities, etc. Entities are typically created once and then reused across feature sets. [top level feature store entities document](https://learn.microsoft.com/azure/machine-learning/concept-top-level-entities-in-managed-feature-store) for more information.
-
-   Execute the following code cell to create an account entity for the feature store.
+   This code cell creates an account entity for the feature store.
 
    [!notebook-python[] (~/azureml-examples/sdk/python/featurestore_sample/notebooks/sdk_and_cli/network_isolation/Network Isolation for Feature store.ipynb?name=register-acct-entity-cli)]
 
@@ -392,7 +388,7 @@ For this tutorial, we'll create three separate storage containers in the same AD
 
    To share and reuse a feature set asset, you must first register that asset with the feature store. Feature set asset registration offers managed capabilities including versioning and materialization. This tutorial series covers these topics.
 
-   The feature set asset has reference to the feature set spec that you created earlier and additional properties like version and materialization settings.
+   The feature set asset references both the feature set spec that you created earlier, and other properties like version and materialization settings.
 
    ### Create a feature set
 
@@ -400,7 +396,7 @@ For this tutorial, we'll create three separate storage containers in the same AD
 
    [!notebook-python[] (~/azureml-examples/sdk/python/featurestore_sample/notebooks/sdk_and_cli/network_isolation/Network Isolation for Feature store.ipynb?name=register-txn-fset-cli)]
 
-   Execute the following code cell to preview the newly created feature set.
+   This code cell previews the newly created feature set.
 
    [!notebook-python[] (~/azureml-examples/sdk/python/featurestore_sample/notebooks/sdk_and_cli/network_isolation/Network Isolation for Feature store.ipynb?name=preview-fs-cli)]
 
@@ -410,11 +406,11 @@ For this tutorial, we'll create three separate storage containers in the same AD
 
    [!notebook-python[] (~/azureml-examples/sdk/python/featurestore_sample/notebooks/sdk_and_cli/network_isolation/Network Isolation for Feature store.ipynb?name=submit-backfill-cli)]
 
-   Execute the following code cell to check the status of the backfill materialization job, by providing `<JOB_ID_FROM_PREVIOUS_COMMAND>`.
+   This code cell checks the status of the backfill materialization job, by providing `<JOB_ID_FROM_PREVIOUS_COMMAND>`.
 
    [!notebook-python[] (~/azureml-examples/sdk/python/featurestore_sample/notebooks/sdk_and_cli/network_isolation/Network Isolation for Feature store.ipynb?name=check-job-status-cli)]
 
-   Next, execute the following code cell to list all the materialization jobs for the current feature set.
+   Next, This code cell lists all the materialization jobs for the current feature set.
 
    [!notebook-python[] (~/azureml-examples/sdk/python/featurestore_sample/notebooks/sdk_and_cli/network_isolation/Network Isolation for Feature store.ipynb?name=list-material-ops-cli)]
 
