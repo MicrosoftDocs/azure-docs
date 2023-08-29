@@ -17,10 +17,10 @@ ms.author: barclayn
 
 # Microsoft Entra ID licensing
 
-This article discusses Entra services' licensing. It is intended for IT decision makers, IT administrators, and IT professionals who are considering Entra services for their organizations. This article isn't intended for end users. For detailed licensing information, review [Microsoft Entra Plans & Pricing.](https://www.microsoft.com/en-us/security/business/microsoft-entra-pricing?rtc=1)
+This article discusses Entra services' licensing. It is intended for IT decision makers, IT administrators, and IT professionals who are considering Entra services for their organizations. This article isn't intended for end users.
 
 >[!IMPORTANT]
-> For licensing information on services not listed here, refer to the service's documentation or [Azure Active Directory pricing](https://azure.microsoft.com/pricing/details/active-directory/) page.
+> For licensing information on services not listed here, refer to the service's documentation or the [Azure Active Directory pricing page.](https://azure.microsoft.com/pricing/details/active-directory/) page.
 
 ## Types of licenses
 
