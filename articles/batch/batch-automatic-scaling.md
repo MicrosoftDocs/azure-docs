@@ -59,7 +59,7 @@ $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
 $NodeDeallocationOption = taskcompletion;
 ```
 > [!IMPORTANT]
-> Currently, Batch Service has limitaion with the resolution of the pending tasks. When a task is added to the job, it's also added into a internal queue used by Batch service for scheduling. If the task is deleted before it can be scheduled, the task might persist within the queue, causing it to still be counted in `$PendingTasks`. This deleted task will eventually be cleared from the queue when Batch gets chance to pull tasks from the queue to schedule with idle nodes in the Batch pool.
+> Currently, Batch Service has limitations with the resolution of the pending tasks. When a task is added to the job, it's also added into a internal queue used by Batch service for scheduling. If the task is deleted before it can be scheduled, the task might persist within the queue, causing it to still be counted in `$PendingTasks`. This deleted task will eventually be cleared from the queue when Batch gets chance to pull tasks from the queue to schedule with idle nodes in the Batch pool.
 
 #### Preempted nodes
 
