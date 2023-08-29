@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/19/2023
+ms.date: 08/25/2023
 ms.author: jomondi
 ms.reviewer: phsignor, yuhko
 ms.custom: contperf-fy21q2, contperf-fy22q2, enterprise-apps
@@ -66,21 +66,30 @@ Connect-MgGraph -Scopes "Policy.ReadWrite.Authorization"
 ```
 
 ### Disable user consent
-
-To disable user consent, set the consent policies that govern user consent to empty:
+To disable user consent, ensure that the consent policies (`PermissionGrantPoliciesAssigned`) include other current `ManagePermissionGrantsForOwnedResource.*` policies if any while updating the collection. This way, you can maintain your current configuration for user consent settings and other resource consent settings.
 
 ```powershell
-Update-MgPolicyAuthorizationPolicy -DefaultUserRolePermissions @{
-    "PermissionGrantPoliciesAssigned" = @() }
+# only exclude user consent policy
+$body = @{
+    "permissionGrantPolicyIdsAssignedToDefaultUserRole" = @(
+        "managePermissionGrantsForOwnedResource.{other-current-policies}" 
+    )
+}
+Update-MgPolicyAuthorizationPolicy -AuthorizationPolicyId authorizationPolicy -BodyParameter $body
+
 ```
 
 ### Allow user consent subject to an app consent policy
-
-To allow user consent, choose which app consent policy should govern users' authorization to grant consent to apps:
+To allow user consent, choose which app consent policy should govern users' authorization to grant consent to apps. Please ensure that the consent policies (`PermissionGrantPoliciesAssigned`) include other current `ManagePermissionGrantsForOwnedResource.*` policies if any while updating the collection. This way, you can maintain your current configuration for user consent settings and other resource consent settings.
 
 ```powershell
-Update-MgPolicyAuthorizationPolicy -DefaultUserRolePermissions @{
-    "PermissionGrantPoliciesAssigned" = @("managePermissionGrantsForSelf.{consent-policy-id}") }
+$body = @{
+    "permissionGrantPolicyIdsAssignedToDefaultUserRole" = @(
+        "managePermissionGrantsForSelf.{consent-policy-id}",
+        "managePermissionGrantsForOwnedResource.{other-current-policies}"
+    )
+}
+Update-MgPolicyAuthorizationPolicy -AuthorizationPolicyId authorizationPolicy -BodyParameter $body
 ```
 
 Replace `{consent-policy-id}` with the ID of the policy you want to apply. You can choose a [custom app consent policy](manage-app-consent-policies.md#create-a-custom-app-consent-policy) that you've created, or you can choose from the following built-in policies:
@@ -93,8 +102,12 @@ Replace `{consent-policy-id}` with the ID of the policy you want to apply. You c
 For example, to enable user consent subject to the built-in policy `microsoft-user-default-low`, run the following commands:
 
 ```powershell
-Update-MgPolicyAuthorizationPolicy -DefaultUserRolePermissions @{
-    "PermissionGrantPoliciesAssigned" = @("managePermissionGrantsForSelf.microsoft-user-default-low") }
+$body = @{
+    "permissionGrantPolicyIdsAssignedToDefaultUserRole" = @(
+        "managePermissionGrantsForSelf.managePermissionGrantsForSelf.microsoft-user-default-low",
+        "managePermissionGrantsForOwnedResource.{other-current-policies}"
+    )
+}
 ```
 
 :::zone-end
@@ -103,27 +116,30 @@ Update-MgPolicyAuthorizationPolicy -DefaultUserRolePermissions @{
 
 Use the [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) to choose which app consent policy governs user consent for applications.
 
-To disable user consent, set the consent policies that govern user consent to empty:
+To disable user consent, please ensure that the consent policies (`PermissionGrantPoliciesAssigned`) include other current `ManagePermissionGrantsForOwnedResource.*` policies if any while updating the collection. This way, you can maintain your current configuration for user consent settings and other resource consent settings.
 
 ```http
 PATCH https://graph.microsoft.com/v1.0/policies/authorizationPolicy
 {
    "defaultUserRolePermissions": {
-      "permissionGrantPoliciesAssigned": []
-   }
+       "permissionGrantPoliciesAssigned": [
+           "managePermissionGrantsForOwnedResource.{other-current-policies}"
+        ]
+    }
 }
 ```
 
 ### Allow user consent subject to an app consent policy
 
-To allow user consent, choose which app consent policy should govern users' authorization to grant consent to apps:
+To allow user consent, choose which app consent policy should govern users' authorization to grant consent to apps. Ensure that the consent policies (`PermissionGrantPoliciesAssigned`) include other current `ManagePermissionGrantsForOwnedResource.*` policies if any while updating the collection. This way, you can maintain your current configuration for user consent settings and other resource consent settings.
 
 ```http
 PATCH https://graph.microsoft.com/v1.0/policies/authorizationPolicy
 
 {
-   "defaultUserRolePermissions": {
-      "permissionGrantPoliciesAssigned": ["ManagePermissionGrantsForSelf.microsoft-user-default-legacy"]
+    "defaultUserRolePermissions": {
+        "managePermissionGrantsForSelf.{consent-policy-id}",
+        "managePermissionGrantsForOwnedResource.{other-current-policies}"
    }
 }
 ```
@@ -143,7 +159,8 @@ PATCH https://graph.microsoft.com/v1.0/policies/authorizationPolicy
 {
     "defaultUserRolePermissions": {
         "permissionGrantPoliciesAssigned": [
-            "managePermissionGrantsForSelf.microsoft-user-default-low"
+            "managePermissionGrantsForSelf.microsoft-user-default-low",
+            "managePermissionGrantsForOwnedResource.{other-current-policies}"
         ]
     }
 }
@@ -153,6 +170,7 @@ PATCH https://graph.microsoft.com/v1.0/policies/authorizationPolicy
 
 > [!TIP]
 > To allow users to request an administrator's review and approval of an application that the user isn't allowed to consent to, [enable the admin consent workflow](configure-admin-consent-workflow.md). For example, you might do this when user consent has been disabled or when an application is requesting permissions that the user isn't allowed to grant.
+
 ## Next steps
 
 - [Manage app consent policies](manage-app-consent-policies.md)
