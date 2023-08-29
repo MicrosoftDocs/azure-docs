@@ -23,45 +23,83 @@ Azure OpenAI can be used to solve a large number of natural language tasks throu
 - An Azure subscription. <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>.
 - Access granted to Azure OpenAI in the desired Azure subscription.
 - An Azure OpenAI resource. [Create a resource](create-resource.md?pivots=web-portal#create-a-resource).
-- An Apache Spark cluster with SynapseML installed. Create a [serverless Apache Spark pool](../../../synapse-analytics/get-started-analyze-spark.md#create-a-serverless-apache-spark-pool)
+- An Apache Spark cluster with SynapseML installed.
+   - Create a [serverless Apache Spark pool](../../../synapse-analytics/get-started-analyze-spark.md#create-a-serverless-apache-spark-pool).
+   - To install SynapseML for your Apache Spark cluster, see [Install SynapseML](#install-synapseml).
 
 > [!NOTE]
 > Currently, you must submit an application to access Azure OpenAI Service. To apply for access, complete <a href="https://aka.ms/oai/access" target="_blank">this form</a>. If you need assistance, open an issue on this repo to contact Microsoft.
 
 Microsoft recommends that you [create an Azure Synapse workspace](../../../synapse-analytics/get-started-create-workspace.md). However, you can also use Azure Databricks, Azure HDInsight, Spark on Kubernetes, or the Python environment with the `pyspark` package.
 
-## Import example code as a notebook
+## Use example code as a notebook
 
-To use the example code in this article with your Spark cluster, you have two options:
-- Create a notebook in your Spark platform and copy the code into this notebook to run the demo.
-- Download the notebook and import it into Azure Synapse.
+To use the example code in this article with your Apache Spark cluster, complete the following steps:
 
-1. [Download this demo as a notebook](https://github.com/microsoft/SynapseML/blob/master/docs/Explore%20Algorithms/OpenAI/OpenAI.ipynb). During the download process, select **Raw**, and then save the file.
+1. Prepare a new or existing notebook.
+1. Connect your Apache Spark cluster with your notebook.
+1. Install SynapseML for your Apache Spark cluster in your notebook.
+1. Configure the notebook to work with your Azure OpenAI service resource.
+
+### Step 1: Prepare your notebook
+
+You can create a new notebook in your Apache Spark platform, or you can download an existing notebook and import it into Azure Synapse. You can add each snippet of example code in this article as a new cell in your notebook.
+
+#### (Optional) Download demonstration notebook
+
+As an option, you can download a demonstration notebook and connect it with your workspace.
+
+1. Download [this demonstration notebook](https://github.com/microsoft/SynapseML/blob/master/docs/Explore%20Algorithms/OpenAI/OpenAI.ipynb). During the download process, select **Raw**, and then save the file. 
 
 1. Import the notebook [into the Synapse Workspace](../../../synapse-analytics/spark/apache-spark-development-using-notebooks.md#create-a-notebook), or if you're using Azure Databricks, import the notebook [into the Azure Databricks Workspace](/azure/databricks/notebooks/notebooks-manage#create-a-notebook).
 
-1. Install SynapseML on your cluster. See the installation instructions for Azure Synapse at the bottom of [the SynapseML website](https://microsoft.github.io/SynapseML/). This task requires pasting another cell at the top of the notebook you imported.
+### Step 2: Connect your cluster
 
-1. Connect your notebook to a cluster and follow along with editing and running the cells later in this article.
+When you have a notebook ready, connect or _attach_ your notebook to an Apache Spark cluster.
 
-## Fill in your service information
+### Step 3: Install SynapseML
 
-When the notebook is ready, you need to edit a few cells in your notebook to point to your service. Set the `resource_name`, `deployment_name`, `location`, and `key` variables to the corresponding values for your Azure OpenAI resource.
+To run the exercises, you need to install SynapseML on your Apache Spark cluster. You complete this task in a code cell at the top of your notebook. For more information about the installation process, see the link for Azure Synapse at the bottom of [the SynapseML website](https://microsoft.github.io/SynapseML/).
 
-> [!IMPORTANT]
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). For more information, see [Azure AI services security](../../security-features.md).
+To install SynapseML, create a new cell at the top of your notebook and run the following code:
+
+```python
+%%configure -f
+{
+  "name": "synapseml",
+  "conf": {
+      "spark.jars.packages": "com.microsoft.azure:synapseml_2.12:0.11.2-spark3.3",
+      "spark.jars.repositories": "https://mmlspark.azureedge.net/maven",
+      "spark.jars.excludes": "org.scala-lang:scala-reflect,org.apache.spark:spark-tags_2.12,org.scalactic:scalactic_2.12,org.scalatest:scalatest_2.12,com.fasterxml.jackson.core:jackson-databind",
+      "spark.yarn.user.classpath.first": "true",
+      "spark.sql.parquet.enableVectorizedReader": "false"
+  }
+}
+```
+
+The connection process can take several minutes.
+
+### Step 4: Configure the notebook
+
+After the top cell in your notebook, add a new cell to configure the notebook for your service by running the following code. Set the `resource_name`, `deployment_name`, `location`, and `key` variables to the corresponding values for your Azure OpenAI resource.
 
 ```python
 import os
 
 # Replace the following values with your Azure OpenAI resource information
-resource_name = "RESOURCE_NAME"      # The name of your Azure OpenAI resource.
-deployment_name = "DEPLOYMENT_NAME"  # The name of your Azure OpenAI deployment.
-location = "RESOURCE_LOCATION"       # The location or region ID for your resource.
-key = "RESOURCE_API_KEY"             # The key for your resource.
+resource_name = "<RESOURCE_NAME>"      # The name of your Azure OpenAI resource.
+deployment_name = "<DEPLOYMENT_NAME>"  # The name of your Azure OpenAI deployment.
+location = "<RESOURCE_LOCATION>"       # The location or region ID for your resource.
+key = "<RESOURCE_API_KEY>"             # The key for your resource.
 
 assert key is not None and resource_name is not None
 ```
+
+Now you're ready to start running the example code.
+
+> [!IMPORTANT]
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). For more information, see [Azure AI services security](../../security-features.md).
+
 
 ## Create a dataset of prompts
 
@@ -110,21 +148,9 @@ display(completed_df.select(
   col("prompt"), col("error"), col("completions.choices.text").getItem(0).alias("text")))
 ```
 
-Your output should look something like the following example. Keep in mind that the completion text can vary so your output might look different.
+The following image shows example output with completions for the transformed dataframe in Azure Synapse Analytics Studio. Keep in mind that completions text can vary so your output might look different.
 
-```output
-prompt                           error         text
-------------------------------------------------------------------------------------------------------------------------------------------------------
-Hello my name is                 undefined     Makaveli
-                                               I'm eighteen years old and I want to be a rapper when I grow up
-                                               I love writing and making music
-                                               I'm from Los Angeles, CA 
-
-The best code is code that's     undefined     understandable
-                                               This is a subjective statement, and there is no definitive answer. 
-
-SynapseML is                     undefined     A machine learning algorithm that is able to learn how to predict the future outcome of events. 
-```
+:::image type="content" source="../media/how-to/synapse-studio-transform-dataframe-output.png" alt-text="Screenshot that shows sample completions for the transformed dataframe in Azure Synapse Analytics Studio." border="false":::
 
 ## Explore other usage scenarios
 
@@ -170,6 +196,10 @@ completed_batch_df = batch_completion.transform(batch_df).cache()
 display(completed_batch_df)
 ```
 
+The following image shows example output with completions for multiple prompts in a batch prompt request:
+
+:::image type="content" source="../media/how-to/synapse-studio-request-batch-output.png" alt-text="Screenshot that shows completions for multiple prompts in a batch prompt request in Azure Synapse Analytics Studio." border="false":::
+
 > [!NOTE]
 > There's currently a limit of 20 prompts in a single request and a limit of 2048 "tokens," or approximately 1500 words.
 
@@ -191,6 +221,10 @@ completed_autobatch_df = (df
 display(completed_autobatch_df)
 ```
 
+The following image shows example output for an automatic mini-batcher that transposes data to row format:
+
+:::image type="content" source="../media/how-to/synapse-studio-transpose-data-output.png" alt-text="Screenshot that shows completions for an automatic mini-batcher that transposes data to row format in Azure Synapse Analytics Studio." border="false":::
+
 ### Prompt engineering for translation
 
 Azure OpenAI can solve many different natural language tasks through [prompt engineering](completions.md). In this example, you can prompt for language translation:
@@ -205,6 +239,10 @@ translate_df = spark.createDataFrame(
 
 display(completion.transform(translate_df))
 ```
+
+The following image shows example output for language translation prompts:
+
+:::image type="content" source="../media/how-to/synapse-studio-language-translation-output.png" alt-text="Screenshot that shows completions for language translation prompts in Azure Synapse Analytics Studio." border="false":::
 
 ### Prompt for question answering
 
@@ -221,3 +259,12 @@ qa_df = spark.createDataFrame(
 
 display(completion.transform(qa_df))
 ```
+
+The following image shows example output when you prompt the GPT-3 model to create general-knowledge question answering:
+
+:::image type="content" source="../media/how-to/synapse-studio-question-answer-output.png" alt-text="Screenshot that shows completions for prompting the GPT-3 model to create general-knowledge question answering in Azure Synapse Analytics Studio." border="false":::
+
+## Next steps
+
+- Learn how to work with the [GPT-35-Turbo and GPT-4 models](/azure/ai-services/openai/how-to/chatgpt?pivots=programming-language-chat-completions).
+- Learn more about the [Azure OpenAI Service models](../concepts/models.md).
