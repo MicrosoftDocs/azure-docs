@@ -261,6 +261,8 @@
       href: policy-reference.md
     - name: REST API
       href: /rest/api/containerapps/
+    - name: Supported regions
+      href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=container-apps
     - name: Management SDKs
       items:
         - name: .NET
