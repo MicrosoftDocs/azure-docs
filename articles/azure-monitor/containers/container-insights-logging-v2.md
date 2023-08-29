@@ -41,7 +41,7 @@ Customers can enable the ContainerLogV2 schema at the cluster level through eith
 Follow the instructions to configure an existing ConfigMap or to use a new one.
 
 >[!NOTE]
-> Because ContainerLogV2 can be enabled through either the DCR and ConfigMap, the ContainerLogV2 setting of the ConfigMap will take precedence. Stdout and stderr logs will only be ingested to the ContainerLog table when both the DCR and ConfigMap are set to off.
+> Because ContainerLogV2 can be enabled through either the DCR and ConfigMap, when both are enabled the ContainerLogV2 setting of the ConfigMap will take precedence. Stdout and stderr logs will only be ingested to the ContainerLog table when both the DCR and ConfigMap are explicitly set to off.
 
 ### Configure via an existing Data Collection Rule (DCR)
 
@@ -101,14 +101,14 @@ This applies to the scenario where you have already enabled container insights f
 >* The restart is a rolling restart for all ama-logs pods. It won't restart all of them at the same time.
 
 ## Multi-line logging in Container Insights (preview)
-Azure Monitor - Container insights now supports multiline logging. With this feature enabled, previously split container logs are stitched together and sent as single entries to the ContainerLogV2 table. Customers are able see container log lines upto to 64 KB (up from the existing 16 KB limit). If the stitched log line is larger than 64 KB, it gets truncated due to Log Analytics limits. 
+Azure Monitor container insights now supports multiline logging. With this feature enabled, previously split container logs are stitched together and sent as single entries to the ContainerLogV2 table. Customers are able see container log lines upto to 64 KB (up from the existing 16 KB limit). If the stitched log line is larger than 64 KB, it gets truncated due to Log Analytics limits. 
 Additionally, the feature also adds support for .NET and Go stack traces, which appear as single entries instead of being split into multiple entries in ContainerLogV2 table. 
 
 ### Pre-requisites 
 
 Customers must [enable ContainerLogV2](./container-insights-logging-v2.md#enable-the-containerlogv2-schema) for multi-line logging to work.
 
-### How to enable - This is currently a preview feature
+### How to enable 
 Multi-line logging can be enabled by setting *enable_multiline_logs* flag to “true” in [the config map](https://github.com/microsoft/Docker-Provider/blob/ci_prod/kubernetes/container-azm-ms-agentconfig.yaml#L49) 
 
 ### Next steps for Multi-line logging
