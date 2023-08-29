@@ -35,9 +35,9 @@ For Socket/Network-related exceptions, potential network connectivity issues mig
 
 To check connectivity, follow these steps:
 ```
-nc -v <accountName>.documents.azure.com 10250
+nc -v <accountName>.mongocluster.cosmos.azure.com 10260
 ```
-If TCP connect to port 10250/10255 fails, an environment firewall may be blocking the Azure Cosmos DB connection. Kindly scroll down to the page's bottom to submit a support ticket.
+If TCP connect to port 10260 fails, an environment firewall may be blocking the Azure Cosmos DB connection. Kindly scroll down to the page's bottom to submit a support ticket.
 
 
 
