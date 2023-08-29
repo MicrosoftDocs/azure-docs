@@ -223,6 +223,9 @@ A lifecycle management policy must be read or written in full. Partial updates a
 > Each rule can have up to 10 case-sensitive prefixes and up to 10 blob index tag conditions.
 
 > [!NOTE]
+> Tiering is not yet supported in a premium block blob storage account. For all other accounts, tiering is allowed only on block blobs and not for append and page blobs.
+
+> [!NOTE]
 > If you enable firewall rules for your storage account, lifecycle management requests may be blocked. You can unblock these requests by providing exceptions for trusted Microsoft services. For more information, see the **Exceptions** section in [Configure firewalls and virtual networks](../common/storage-network-security.md#exceptions).
 
 > [!NOTE]
