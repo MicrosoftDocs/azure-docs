@@ -75,7 +75,7 @@ Next, create an environment for your container app.
     
     This expression starts the job every minute.
 
-2. Select the **Next: Container** button at the bottom of the page.
+1. Select the **Next: Container** button at the bottom of the page.
 
 1. In the *Container* tab, enter the following values:
 
@@ -91,9 +91,9 @@ Next, create an environment for your container app.
 
 1. Select the **Review and create** button at the bottom of the page.  
 
-    Next, the settings in the job are verified. If no errors are found, the *Create* button is enabled.  
+    As the settings in the job are verified, if no errors are found, the *Create* button is enabled.  
 
-    If there are errors, any tab containing errors is marked with a red dot. Navigate to the appropriate tab. Fields containing an error will be highlighted in red. Once all errors are fixed, select **Review and create** again.
+    Any errors appear on a tab marked with a red dot. If you encounter errors, navigate to the appropriate tab and you'll find fields containing errors highlighted in red. Once all errors are fixed, select **Review and create** again.
 
 1. Select **Create**.
 
