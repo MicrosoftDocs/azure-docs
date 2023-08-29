@@ -16,7 +16,7 @@ A storage task can perform operations on containers and blobs in an Azure Storag
 In this how-to article, you'll learn how to create a storage task.
 
 > [!IMPORTANT]
-> Storage Tasks are currently in PREVIEW and is available in the following regions: \<List regions here\>.
+> Azure Storage Tasks is currently in PREVIEW and is available these [regions](overview.md#supported-regions).
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 > To enroll, see \<sign-up form link here\>.
 
@@ -89,7 +89,7 @@ The following table describes the fields that appear in the **Add assignment** p
 | Filter objects | Blob prefixes | Optional | The string prefix that is used to narrow the scope of blobs that are evaluated by the task. This field is required only if you choose to filter by using a blob prefix. |
 | Trigger details | Run frequency | Required | Option to either run the task one time or multiple times. |
 | Trigger details | Start from | Required | The date and time to begin running the task. |
-| Trigger details | End by | Required | The date and time stop running the task. |
+| Trigger details | End by | Required | The date and time to stop running the task. |
 | Trigger details | Repeat very (in days) | Required | The interval in days between each run. |
 | Trigger details | Report export container | Required | The container where task execution reports are stored. |
 

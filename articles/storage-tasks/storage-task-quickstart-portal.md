@@ -15,7 +15,7 @@ ms.author: normesta
 In this quickstart, you learn how to use the [Azure portal](https://portal.azure.com/) to create a storage task and assign it to an Azure Storage account. Then, you'll review the results of the run. 
 
 > [!IMPORTANT]
-> Storage Tasks are currently in PREVIEW and is available in the following regions: \<List regions here\>.
+> Azure Storage Tasks is currently in PREVIEW and is available these [regions](overview.md#supported-regions).
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 > To enroll, see \<sign-up form link here\>.
 
@@ -101,7 +101,7 @@ You can specify the operations that a storage task performs by making selections
 
 ## Add an assignment
 
-A storage task _assignment_ specifies a storage account. After you enable the Storage task, the conditions and operations of your task will be applied to that storage account. The assignment also contains configuration properties which help you target specific blobs, or specify when and how often the task runs. You can add an assignment for each account you want to target.
+A storage task _assignment_ specifies a storage account. After you enable the storage task, the conditions and operations of your task will be applied to that storage account. The assignment also contains configuration properties which help you target specific blobs, or specify when and how often the task runs. You can add an assignment for each account you want to target.
 
 1. Select **Add assignment**.
 
@@ -136,7 +136,7 @@ A storage task _assignment_ specifies a storage account. After you enable the St
 
 ## Enable the task assignment
 
-storage task assignments are disabled by default. Enable assignments from the **Assignments** page.
+Storage task assignments are disabled by default. Enable assignments from the **Assignments** page.
 
 1. Select **Assignments**, select the **mystoragetaskassignment** assignment, and then selet **Enable**.
 

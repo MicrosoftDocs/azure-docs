@@ -17,11 +17,11 @@ ms.author: normesta
 This article describes the least privileged built-in Azure roles or RBAC actions required to read, update, or delete a storage task.
 
 > [!IMPORTANT]
-> Storage Tasks is currently in PREVIEW and is available in the following regions: \<List regions here\>.
+> Azure Storage Tasks is currently in PREVIEW and is available these [regions](overview.md#supported-regions).
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 > To enroll, see \<sign-up form link here\>.
 
-You must assign a role to any security principal in your organization needs access to the storage task. For example, a task can be assigned to a storage account only by the owner of that account. Therefore, to add the assignment, the proper role must be assigned to that security principal. To learn how to assign an Azure role, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+You must assign a role to any security principal in your organization that needs access to the storage task. To learn how to assign an Azure role, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
 ## Azure roles and RBAC actions
 

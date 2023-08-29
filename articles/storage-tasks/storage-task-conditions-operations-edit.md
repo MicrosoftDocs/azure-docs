@@ -13,9 +13,14 @@ ms.date: 05/10/2023
 
 You can use a visual editor to define the conditions and operations of a storage task.
 
-An _operation_ is an that is action taken on each object that meets the conditions defined in the task. A _condition_ contains one or more conditional _clauses_. Each clause defines the relationship between a property and a value. To execute an operation defined in the storage task, the terms of that relationship must be met by each object.
+> [!IMPORTANT]
+> Azure Storage Tasks is currently in PREVIEW and is available these [regions](overview.md#supported-regions).
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> To enroll, see \<sign-up form link here\>.
 
-To learn more, see [Storage task conditions and operations](storage-task-properties-operators-operations.md).
+An _operation_ is an action taken on each object that meets the conditions defined in the task. A _condition_ contains one or more conditional _clauses_. Each clause defines the relationship between a property and a value. To execute an operation defined in the storage task, the terms of that relationship must be met by each object.
+
+To learn more, see [Properties, operators, and operations in storage task conditions](storage-task-properties-operators-operations.md).
 
 ## Open the conditions editor
 

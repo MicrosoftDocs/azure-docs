@@ -17,7 +17,7 @@ ms.author: normesta
 Azure Storage Tasks can perform operations on containers and blobs in Azure Storage accounts based on a set of conditions that you define. Azure Storage Tasks can process millions of objects in a storage account without provisioning additional compute capacity and without requiring you to write code.
 
 > [!IMPORTANT]
-> Azure Storage Tasks is currently in PREVIEW and is available in the following regions: \<List regions here\>.
+> Azure Storage Tasks is currently in PREVIEW and is available these [regions](#supported-regions).
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 > To enroll, see \<sign-up form link here\>.
 
@@ -43,6 +43,7 @@ See these articles to learn how to define a task:
 
 - [Create a storage task](storage-task-create.md)
 - [Define storage task conditions and operations]( storage-task-conditions-operations-edit.md)
+- [Properties, operators, and operations in storage task conditions](storage-task-properties-operators-operations.md)
 
 ### Assign a task
 
@@ -63,9 +64,8 @@ The overview page of the task presents metrics and visualizations that summarize
 
 See these articles to learn how to monitor task runs:
 
-- [Storage task runs](storage-task-runs.md)
+- [Analyze Azure Storage Task runs](storage-task-runs.md)
 - [Monitor Azure Storage Tasks](monitor-storage-tasks.md)
-- [Azure Storage Task monitoring data reference](storage-tasks-monitor-data-reference.md)
 
 ### Handle task events
 
@@ -79,11 +79,7 @@ List supported regions here.
 
 ## Pricing and billing
 
-A Task invocation charge for every instance in which a task is triggered on an account.
-
-A meter based on the count of objects targeted (for which object properties are accessed, and conditions are evaluated).
-
-The cost of the underlying operations invoked by the task will be passed through to the storage account as part of the account’s overall transaction cost. This should be reflected on the bill with the Task as the user agent for the transaction.
+List pricing information here.
 
 ## Next steps
 

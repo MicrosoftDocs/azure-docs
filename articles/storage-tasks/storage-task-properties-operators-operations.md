@@ -14,10 +14,10 @@ ms.author: normesta
 
 # Properties, operators, and operations in storage task conditions
 
-This article describes the properties, operators, and operations that you can use to compose each clause of a Azure Storage Task condition. For more information about how to define conditions and operations, see [Define storage task conditions and operations](storage-task-conditions-operations-edit.md).
+This article describes the properties, operators, and operations that you can use to compose each Azure Storage Task condition. To learn how to define conditions and operations, see [Define storage task conditions and operations](storage-task-conditions-operations-edit.md).
 
 > [!IMPORTANT]
-> Azure Storage Tasks is currently in PREVIEW and is available in the following regions: \<List regions here\>.
+> Azure Storage Tasks is currently in PREVIEW and is available these [regions](overview.md#supported-regions).
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 > To enroll, see \<sign-up form link here\>.
 
@@ -41,7 +41,7 @@ The following table shows the properties that you can use to compose each clause
 
 <sup>2</sup>    Allowed values are `BlockBlob`, `PageBlob`, or `AppendBlob`
 
-<sup>3</sup>    Can be set to a specific time or to a metadata value dynamically obtained from objects. See [Parameters in values](storage-task-conditions-operations-edit.md#reference-a-value-from-object-metadata).
+<sup>3</sup>    Can be set to a specific time or to a metadata value dynamically obtained from objects. See [Reference a value from object metadata](storage-task-conditions-operations-edit.md#reference-a-value-from-object-metadata).
 
 ### Supported operators in a clause
 

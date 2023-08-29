@@ -13,6 +13,11 @@ ms.date: 05/10/2023
 
 You can view a list of task runs. For each completed run, you can open a report that lists each object that met the conditions of the task and the outcome of the operation against that object.
 
+> [!IMPORTANT]
+> Azure Storage Tasks is currently in PREVIEW and is available these [regions](overview.md#supported-regions).
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> To enroll, see \<sign-up form link here\>.
+
 ## View a list of task runs
 
 After a task run completes, it appears in a list that you can open and review.
