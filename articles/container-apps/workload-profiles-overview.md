@@ -22,13 +22,13 @@ Profiles are configured to fit the different needs of your applications.
 | Dedicated (General purpose) | Balance of memory and compute resources  |  Apps that require larger amounts of CPU and/or memory |
 | Dedicated (Memory optimized) | Increased memory resources | Apps that need access to large in-memory data, in-memory machine learning models, or other high memory requirements |
 
-The Consumption workload profile is the default profile added to every [environment](environment.md). You can add more profiles to your environment as you create an environment or after it's created.
+The Consumption workload profile is the default profile added to every Workload profiles [environment](environment.md) type. You can add Dedicated workload profiles to your environment as you create an environment or after it's created.
 
 For each Dedicated workload profile in your environment, you can:
 
 - Select the type and size
 - Deploy multiple apps into the profile
-- Use autoscaling to add and remove nodes based on the needs of the apps
+- Use autoscaling to add and remove instances based on the needs of the apps
 - Limit scaling of the profile to better control costs
 
 You can configure each of your apps to run on any of the workload profiles defined in your Container Apps environment. This configuration is ideal for deploying microservices where each app can run on the appropriate compute infrastructure.
