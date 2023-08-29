@@ -429,6 +429,20 @@ All prices shown below are in USD.
 |Toll-free    |N/A            |USD 0.2377/min   |
 
 
+## Malaysia telephony offers
+
+### Phone number leasing charges
+|Number type   |Monthly fee   |
+|--------------|--------------|
+|Toll-Free     |USD 21.00/mo  |
+
+### Usage charges
+|Number type  |To make calls  |To receive calls |
+|-------------|---------------|-----------------|
+|Toll-free    |N/A            |USD 0.1587/min   |
+
+
+
 
 ***
 

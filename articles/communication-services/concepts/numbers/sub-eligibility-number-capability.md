@@ -38,6 +38,7 @@ Numbers can be purchased on eligible Azure subscriptions and in geographies wher
 > - [Latvia](../numbers/phone-number-management-for-latvia.md)
 > - [Lithuania](../numbers/phone-number-management-for-lithuania.md)
 > - [Luxembourg](../numbers/phone-number-management-for-luxembourg.md)
+> - [Malaysia](../numbers/phone-number-management-for-malaysia.md)
 > - [Netherlands](../numbers/phone-number-management-for-netherlands.md)
 > - [New Zealand](../numbers/phone-number-management-for-new-zealand.md)
 > - [Norway](../numbers/phone-number-management-for-norway.md)

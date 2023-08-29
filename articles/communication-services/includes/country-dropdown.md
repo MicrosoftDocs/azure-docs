@@ -27,6 +27,7 @@ ms.custom: references_regions
 > - [Latvia](../concepts/numbers/phone-number-management-for-latvia.md)
 > - [Lithuania](../concepts/numbers/phone-number-management-for-lithuania.md)
 > - [Luxembourg](../concepts/numbers/phone-number-management-for-luxembourg.md)
+> - [Malaysia](../concepts/numbers/phone-number-management-for-malaysia.md)
 > - [Netherlands](../concepts/numbers/phone-number-management-for-netherlands.md)
 > - [New Zealand](../concepts/numbers/phone-number-management-for-new-zealand.md)
 > - [Norway](../concepts/numbers/phone-number-management-for-norway.md)
