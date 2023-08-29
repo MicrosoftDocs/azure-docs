@@ -45,7 +45,7 @@ Learn to manage a [workload profiles](./workload-profiles-overview.md) environme
     | Property | Value |
     | --- | --- |
     | Environment name | Enter an environment name. |
-    | Plan | Select **Dedicated** |
+    | Environment type| Select **Workload profiles** |
   
     Select the new **Workload profiles** tab at the top of this section.
 

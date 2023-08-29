@@ -26,7 +26,6 @@ Container Apps supports the following probes:
 
 For a full list of the probe specification supported in Azure Container Apps, refer to [Azure REST API specs](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/app/resource-manager/Microsoft.App/stable/2022-03-01/CommonDefinitions.json#L119-L236).
 
-> [!NOTE]
 > TCP startup probes are not supported when using the consumption profile in a Dedicated workload profiles environment.
 
 ## HTTP probes
@@ -162,7 +161,7 @@ containers:
 
 ---
 
-The optional `failureThreshold` setting defines the number of attempts Container Apps tries to execute the probe if execution fails. Attempts that exceed the `failureThreshold` amount cause different results for each probe.
+The optional `failureThreshold` setting defines the number of attempts Container Apps tries to execute the probe if execution fails. Attempts that exceed the `failureThreshold` amount cause different results for each probe type.
 
 ## Default configuration
 

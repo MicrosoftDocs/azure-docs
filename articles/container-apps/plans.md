@@ -22,9 +22,9 @@ Azure Container Apps features two different plan types.
 
 ## Dedicated
 
-The Dedicated plan consists of series of workload profiles that range from a consumption profile to profiles that feature dedicated hardware customized for specialized compute needs.  
+The Dedicated plan consists of a series of workload profiles that range from the default consumption profile to profiles that feature dedicated hardware customized for specialized compute needs.  
 
-You can select from general purpose and memory optimized [workflow profiles](workload-profiles-overview.md) that provide larger amounts of CPU and memory. You pay per node, versus per app, and workload profiles can scale in and out as demand rises and falls.
+You can select from general purpose and memory optimized [workflow profiles](workload-profiles-overview.md) that provide larger amounts of CPU and memory. You pay per instance of the workload profile, versus per app, and workload profiles can scale in and out as demand rises and falls.
 
 Use the Dedicated plan when you need any of the following in a single environment:
 
@@ -34,9 +34,8 @@ Use the Dedicated plan when you need any of the following in a single environmen
 
 - **Customized compute**: Select from many types and sizes of workload profiles based on your apps requirements. You can deploy many apps to each workload profile. Each workload profile can scale independently as more apps are added or removed or as apps scale their replicas up or down.
 
-- **Consumption usage**: Apps that need to scale to zero that don't have specific hardware requirements.s
 
-- **Cost control**: Traditional serverless compute options optimize for scale in response to events and may not provide cost control options. You can set minimum and maximum scaling to help you better control costs.
+- **Cost control**: Traditional serverless compute options optimize for scale in response to events and may not provide cost control options. Dedicated workload profiles let you set minimum and maximum scaling to help you better control costs.
 
     The Dedicated plan can be more cost effective when you're running higher scale deployments with steady throughput.
 
