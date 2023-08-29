@@ -391,7 +391,7 @@
                   href: csi-secrets-store-identity-access.md
                 - name: Configure TLS for NGINX ingress controller
                   href: csi-secrets-store-nginx-tls.md
-            - name: Use Azure AD pod identity
+            - name: Azure AD pod identity
               href: use-azure-ad-pod-identity.md
             - name: Migrate your app from pod identity to workload identity
               href: workload-identity-migrate-from-pod-identity.md
@@ -435,9 +435,9 @@
               href: ../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
         - name: Node security
           items:
-            - name: Use Confidential Virtual Machines
+            - name: Confidential Virtual Machines
               href: use-cvm.md
-            - name: Use Dedicated Hosts with AKS
+            - name: Dedicated Hosts with AKS
               href: use-azure-dedicated-hosts.md
             - name: Enable host-based encryption
               href: enable-host-encryption.md
@@ -455,15 +455,15 @@
                   href: workload-identity-deploy-cluster.md
                 - name: Migrate your app from pod identity to workload identity
                   href: workload-identity-migrate-from-pod-identity.md
-            - name: Use Azure AD pod identity
+            - name: Azure AD pod identity
               href: use-azure-ad-pod-identity.md
-            - name: Use Pod Sandboxing
+            - name: Pod Sandboxing
               href: use-pod-sandboxing.md
             - name: Secure pod traffic with network policies
               href: use-network-policies.md
-            - name: Use pod security policies
+            - name: Pod security policies
               href: use-pod-security-policies.md
-            - name: Use Pod Security Admission
+            - name: Pod Security Admission
               href: use-psa.md
             - name: Secrets Store CSI Driver
               items:
@@ -503,7 +503,7 @@
           items:
             - name: Configure outbound type for AKS
               href: egress-outboundtype.md
-            - name: Use a user defined route for egress
+            - name: Use a user-defined route for egress
               href: egress-udr.md
             - name: Use an HTTP proxy
               href: http-proxy.md
@@ -713,20 +713,6 @@
       items:
         - name: Deploy an application that uses OpenAI on Azure Kubernetes Service (AKS) 
           href: open-ai-quickstart.md
-    - name: Use Windows Server containers
-      items:
-        - name: Windows Server containers FAQ
-          href: windows-faq.md
-        - name: Upgrade from Windows Server 2019 to 2022
-          href: upgrade-windows-2019-2022.md
-        - name: Connect remotely
-          href: rdp.md
-        - name: Use HostProcess containers
-          href: use-windows-hpc.md
-        - name: Create Dockerfiles for Windows Server containers
-          href: /virtualization/windowscontainers/manage-docker/manage-windows-dockerfile?context=/azure/aks/context/aks-context
-        - name: Optimize Dockerfiles for Windows Server containers
-          href: /virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=/azure/aks/context/aks-context
     - name: DevOps
       items:
         - name: Azure DevOps Project
