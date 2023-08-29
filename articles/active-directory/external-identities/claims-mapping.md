@@ -40,7 +40,7 @@ For example, let’s say you invite an external user whose email is `james@conto
 
 All [other external identity types](redemption-experience.md#invitation-redemption-flow) such as SAML/WS-Fed, Google, Email OTP issues the UPN value rather than the email value when you issue user.userprincipalname as a claim. If you want the actual UPN to be issued in the token claim for all B2B users, you can set user.localuserprincipalname as the source attribute instead. 
 
-[!NOTE]
+>[!NOTE]
 >The behavior mentioned in this section is same for both cloud-only B2B users and synced users who were [invited/converted to B2B collaboration](invite-internal-users.md). 
 
 ## Next steps
