@@ -333,6 +333,7 @@ Accept wildcard characters: False
 ```
 #### CommonParameters
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](/powershell/module/microsoft.powershell.core/about/about_commonparameters).
+
 ## Export-ADSyncToolsAadDisconnectors
 ### SYNOPSIS
 Export Azure AD Disconnector objects
@@ -373,9 +374,57 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 Use ObjectType argument in case you want to export Disconnectors for a given object type only
 ### OUTPUTS
 Exports a CSV file with Disconnector objects containing: 
-
 UserPrincipalName, Mail, SourceAnchor, DistinguishedName, CsObjectId, ObjectType, ConnectorId and CloudAnchor
 
+## Export-ADSyncToolsAadPublicFolders
+### SYNOPSIS
+Exports all synchronized Mail-Enabled Public Folder objects from AzureAD to a CSV file
+### SYNTAX
+```
+Export-ADSyncToolsAadPublicFolders [-Credential] <PSCredential> [-Path] <Object> [<CommonParameters>]
+```
+### DESCRIPTION
+This function exports to a CSV file all the synchronized Mail-Enabled Public Folders (MEPF) present in Azure AD.
+It can be used in conjunction with Remove-ADSyncToolsAadPublicFolders to identify and remove orphaned Mail-Enabled Public Folders in Azure AD.
+This function requires the credentials of a Global Administrator in Azure AD and authentication with MFA is not supported.
+NOTE: If DirSync has been disabled on the tenant, you will need to temporarily re-enabled DirSync in order to remove orphaned Mail Enabled Public Folders from Azure AD.
+### EXAMPLES
+#### EXAMPLE 1
+```
+Export-ADSyncToolsAadPublicFolders -Credential $(Get-Credential) -Path <file_name>
+```
+### PARAMETERS
+#### -Credential
+Azure AD Global Admin Credential
+```yaml
+Type: PSCredential
+Parameter Sets: (All)
+Aliases:
+Required: true
+Position: 1
+Default value: None
+Accept pipeline input: True (ByPropertyName)
+Accept wildcard characters: False
+```
+#### -Path
+Path for output file
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+Required: true
+Position: 2
+Default value: None
+Accept pipeline input: false (ByPropertyName)
+Accept wildcard characters: false
+```
+#### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](/powershell/module/microsoft.powershell.core/about/about_commonparameters).
+### INPUTS
+
+### OUTPUTS
+This cmdlet creates the <filename> containing all synced Mail-Enabled PublicFolder objects in CSV format.
+    
 ## Export-ADSyncToolsHybridAadJoinReport
 ### SYNOPSIS
 Generates a report of certificates stored in Active Directory Computer objects, specifically, 
@@ -1150,6 +1199,76 @@ InputCsvFilename must point to a CSV file with at least 2 columns: SourceAnchor,
 ### OUTPUTS
 Shows results from ExportDeletions operation
 DISCLAIMER: Other than User objects that have a Recycle Bin, any other object types DELETED with this function cannot be RECOVERED!
+
+## Remove-ADSyncToolsAadPublicFolders
+### SYNOPSIS
+Removes synchronized Mail-Enabled Public Folders (MEPF) present from AzureAD.
+You can specify one SourceAnchor/ImmutableID for the target MEPF object to delete, or provide a CSV list with a batch of objects to delete when used in conjunction with Export-ADSyncToolsAadPublicFolders.
+This function requires the credentials of a Global Administrator in Azure AD and authentication with MFA is not supported.
+NOTE: If DirSync has been disabled on the tenant, you'll need to temporary re-enabled DirSync in order to remove orphaned Mail Enabled Public Folders from Azure AD.
+### SYNTAX
+```
+Export-ADSyncToolsAadPublicFolders [-Credential] <PSCredential> [-Path] <Object> [<CommonParameters>]
+```
+### DESCRIPTION
+This function exports to a CSV file all the synchronized Mail-Enabled Public Folders (MEPF) present in Azure AD.
+It can be used in conjunction with Remove-ADSyncToolsAadPublicFolders to identify and remove orphaned Mail-Enabled Public Folders in Azure AD.
+This function requires the credentials of a Global Administrator in Azure AD and authentication with MFA is not supported.
+NOTE: If DirSync has been disabled on the tenant, you will need to temporarily re-enabled DirSync in order to remove orphaned Mail Enabled Public Folders from Azure AD.
+### EXAMPLES
+#### EXAMPLE 1
+```
+Remove-ADSyncToolsAadPublicFolders [-Credential] <PSCredential> [-InputCsvFilename] <Object> [-WhatIf] [-Confirm] [<CommonParameters>]
+```
+#### EXAMPLE 2
+```
+Remove-ADSyncToolsAadPublicFolders [-Credential] <PSCredential> [-SourceAnchor] <Object> [-WhatIf] [-Confirm] [<CommonParameters>]
+```
+### PARAMETERS
+#### -Credential
+Azure AD Global Admin Credential
+```yaml
+Type: PSCredential
+Parameter Sets: (All)
+Aliases:
+Required: true
+Position: 1
+Default value: None
+Accept pipeline input: True (ByPropertyName)
+Accept wildcard characters: False
+```
+#### -InputCsvFilename
+Path for input CSV file
+```yaml
+Type: String
+Parameter Sets: InputCsv
+Aliases:
+Required: true
+Position: 2
+Default value: None
+Accept pipeline input: true (ByPropertyName)
+Accept wildcard characters: false
+```
+#### -SourceAnchor
+Target SourceAnchor/ImmutableID
+```yaml
+Type: String
+Parameter Sets: SourceAnchor
+Aliases:
+Required: true
+Position: 2
+Default value: None
+Accept pipeline input: true (ByPropertyName)
+Accept wildcard characters: false
+```
+#### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](/powershell/module/microsoft.powershell.core/about/about_commonparameters).
+### INPUTS
+The CSV input file can be generated using Export-ADSyncToolsAadPublicFolders.
+Path parameters must point to a CSV file with at least 2 columns: SourceAnchor, SyncObjectType.
+### OUTPUTS
+Shows results from ExportDeletions operation.
+
 ## Remove-ADSyncToolsExpiredCertificates
 ### SYNOPSIS
 Script to Remove Expired Certificates from UserCertificate Attribute

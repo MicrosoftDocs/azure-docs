@@ -43,7 +43,11 @@
     - name: Visual Studio Code
       href: deploy-visual-studio-code.md
   - name: Run a job
-    href: jobs-get-started-cli.md
+    items:
+    - name: Azure portal
+      href: jobs-get-started-portal.md
+    - name: Command line
+      href: jobs-get-started-cli.md
 - name: Develop and deploy
   items:
     - name: Deploy an app with containerapp up
@@ -261,6 +265,8 @@
       href: policy-reference.md
     - name: REST API
       href: /rest/api/containerapps/
+    - name: Supported regions
+      href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=container-apps
     - name: Management SDKs
       items:
         - name: .NET
