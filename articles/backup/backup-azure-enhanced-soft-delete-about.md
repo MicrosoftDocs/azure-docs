@@ -9,7 +9,7 @@ author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# About Enhanced soft delete for Azure Backup
+# About enhanced soft delete for Azure Backup
 
 [Soft delete](backup-azure-security-feature-cloud.md) for Azure Backup enables you to recover your backup data even after it's deleted. This is useful when:
 
@@ -17,6 +17,9 @@ ms.author: v-abhmallick
 - Backup data is maliciously deleted by ransomware or bad actors.
 
 *Basic soft delete* is available for Recovery Services vaults for a while; *enhanced soft delete* now provides additional data protection capabilities.
+
+>[!Note]
+>Once you enable enhanced soft delete by enabling soft delete state to *always-on*, you can't disable it for that vault.
 
 ## What's soft delete?
 

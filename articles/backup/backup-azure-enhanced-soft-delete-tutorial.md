@@ -12,7 +12,10 @@ ms.author: v-abhmallick
 
 This tutorial describes how to enable enhanced soft delete and recover your data and recover backups, if they're deleted.
 
-[Enhanced soft delete](backup-azure-enhanced-soft-delete-about.md) provides an improvement to the [soft delete](backup-azure-security-feature-cloud.md) capability in Azure Backup that enables you to recover your backup data in case of accidental or malicious deletion. With enhanced soft delete, you get the ability to make soft delete irreversible, which protects soft delete from being disabled by any malicious actors. So, enhanced soft delete provides better protection for your backups against various threats. This feature also allows you to provide a customizable soft delete retention period for which soft deleted data must be retained.
+[Enhanced soft delete](backup-azure-enhanced-soft-delete-about.md) provides an improvement to the [soft delete](backup-azure-security-feature-cloud.md) capability in Azure Backup that enables you to recover your backup data in case of accidental or malicious deletion. With enhanced soft delete, you get the ability to make soft delete always-on, thus protecting it from being disabled by any malicious actors. So, enhanced soft delete provides better protection for your backups against various threats. This feature also allows you to provide a customizable soft delete retention period for which soft deleted data must be retained.
+
+>[!Note]
+>Once you enable the *always-on* state for soft delete, you can't disable it for that vault.
 
 ## Before you start
  
@@ -187,5 +190,5 @@ Follow these steps:
 
 ## Next steps
 
-- Learn more about [Enhanced soft delete for Azure Backup](backup-azure-enhanced-soft-delete-about.md).
-- Learn more about [Soft delete of recovery points](backup-azure-enhanced-soft-delete-about.md#soft-delete-of-recovery-points).
+- Learn more about [enhanced soft delete for Azure Backup](backup-azure-enhanced-soft-delete-about.md).
+- Learn more about [soft delete of recovery points](backup-azure-enhanced-soft-delete-about.md#soft-delete-of-recovery-points).
