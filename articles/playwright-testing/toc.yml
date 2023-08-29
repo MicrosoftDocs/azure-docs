@@ -29,7 +29,7 @@ items:
       href: how-to-manage-access-keys.md
     - name: Manage workspace access
       displayName: RBAC, permissions, access, role-based access control, users, roles, security, authorization, authentication, grant, revoke
-      href: how-to-assign-roles.md
+      href: how-to-manage-workspace-access.md
 - name: Resources
   items: 
     - name: Azure roadmap

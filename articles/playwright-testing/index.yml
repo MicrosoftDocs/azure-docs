@@ -51,4 +51,4 @@ landingContent:
           - text: Manage access keys
             url: how-to-manage-access-keys.md
           - text: Manage workspace access
-            url: how-to-assign-roles.md
+            url: how-to-manage-workspace-access.md
