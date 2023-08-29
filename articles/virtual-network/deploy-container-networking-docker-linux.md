@@ -32,25 +32,25 @@ In this section, you add an IP configuration to the virtual network interface of
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
-2. Select **vm-1**.
+1. Select **vm-1**.
 
-3. In **Settings**, select **Networking**.
+1. In **Settings**, select **Networking**.
 
-4. Select the name of the network interface next to **Network Interface:**. The network interface is named **vm-1** with a random number.
+1. Select the name of the network interface next to **Network Interface:**. The network interface is named **vm-1** with a random number.
 
-5. In **Settings** of the network interface, select **IP configurations**.
+1. In **Settings** of the network interface, select **IP configurations**.
 
-6. in **IP configurations**, select **ipconfig1** in **Name**.
+1. in **IP configurations**, select **ipconfig1** in **Name**.
 
-7. In the **ipconfig1** settings, change the assignment of the private IP address from **Dynamic** to **Static**.
+1. In the **ipconfig1** settings, change the assignment of the private IP address from **Dynamic** to **Static**.
 
-8. Select **Save**.
+1. Select **Save**.
 
-9. Return to **IP configurations**.
+1. Return to **IP configurations**.
 
-10. Select **+ Add**.
+1. Select **+ Add**.
 
-11. Enter or select the following information for **Add IP configuration**:
+1. Enter or select the following information for **Add IP configuration**:
 
     | Setting | Value |
     | ------- | ----- |
@@ -59,11 +59,11 @@ In this section, you add an IP configuration to the virtual network interface of
     | Allocation | Select **Static**. |
     | IP address | Enter **10.1.0.5**. |
 
-12. Select **OK**.
+1. Select **OK**.
 
-13. Verify **ipconfig-2** has been added as a secondary IP configuration.
+1. Verify **ipconfig-2** has been added as a secondary IP configuration.
 
-Repeat steps 1 through 13 to add as many configurations as containers you wish to deploy on the container host.
+Repeat the previous steps to add as many configurations as containers you wish to deploy on the container host.
 
 ## Install Docker
 
@@ -73,13 +73,13 @@ Sign-in to the virtual machine you created previously with the Azure Bastion hos
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
-2. Select **vm-1**.
+1. Select **vm-1**.
 
-3. In the **Overview** of **vm-1**, select **Connect** then **Bastion**.
+1. In the **Overview** of **vm-1**, select **Connect** then **Bastion**.
 
-4. Enter the username and password you created when you deployed the virtual machine in the previous steps.
+1. Enter the username and password you created when you deployed the virtual machine in the previous steps.
 
-5. Select **Connect**.
+1. Select **Connect**.
 
 For install instructions for Docker on an Ubuntu container host, see [Install Docker Engine on Ubuntu](https://docs.docker.com/engine/install/ubuntu/).
 
@@ -95,27 +95,27 @@ For more information about the Azure CNI plugin, see [Microsoft Azure Container 
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
-2. Select **vm-1**.
+1. Select **vm-1**.
 
-3. In the **Overview** of **vm-1**, select **Connect** then **Bastion**.
+1. In the **Overview** of **vm-1**, select **Connect** then **Bastion**.
 
-4. Enter the username and password you created when you deployed the virtual machine in the previous steps.
+1. Enter the username and password you created when you deployed the virtual machine in the previous steps.
 
-5. Select **Connect**.
+1. Select **Connect**.
 
-6. The application **jq** is required for the install script for the CNI plugin, use the following example to install the application:
+1. The application **jq** is required for the install script for the CNI plugin, use the following example to install the application:
 
     ```bash
     sudo apt-get update
     sudo apt-get install jq
     ```
-7. Next, you clone the repository for the CNI plugin. Use the following example to clone the repository:
+1. Next, you clone the repository for the CNI plugin. Use the following example to clone the repository:
 
     ```bash
     git clone https://github.com/Azure/azure-container-networking.git
     ```
 
-8. Configure permissions and install the CNI plugin. The install script command requires a version number for the CNI plugin. At the time of the writing of this article, the newest version is **`v1.4.39`**. To obtain the latest version number of the plugin or previous versions, see [Releases](https://github.com/Azure/azure-container-networking/releases).
+1. Configure permissions and install the CNI plugin. The install script command requires a version number for the CNI plugin. At the time of the writing of this article, the newest version is **`v1.4.39`**. To obtain the latest version number of the plugin or previous versions, see [Releases](https://github.com/Azure/azure-container-networking/releases).
 
     ```bash
     cd ./azure-container-networking/scripts
@@ -124,19 +124,19 @@ For more information about the Azure CNI plugin, see [Microsoft Azure Container 
     chmod u+x docker-run.sh
     ```
 
-9. To start a container with the CNI plugin, you must use a special script that comes with the plugin to create and start the container. The following example creates an Alpine container with the CNI plugin script:
+1. To start a container with the CNI plugin, you must use a special script that comes with the plugin to create and start the container. The following example creates an Alpine container with the CNI plugin script:
 
     ```bash
     sudo ./docker-run.sh vnetdocker1 default alpine
     ```
 
-10. To verify that the container received the IP address you previously configured, connect to the container and view the IP:
+1. To verify that the container received the IP address you previously configured, connect to the container and view the IP:
 
     ```bash
     sudo docker exec -it vnetdocker1 /bin/sh
     ```
 
-11. Use the **`ifconfig`** command in the following example to verify the IP address was assigned to the container:
+1. Use the **`ifconfig`** command in the following example to verify the IP address was assigned to the container:
 
     ```bash
     ifconfig
