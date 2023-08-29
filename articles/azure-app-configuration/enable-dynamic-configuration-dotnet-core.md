@@ -96,27 +96,20 @@ Calling the `ConfigureRefresh` method alone won't cause the configuration to ref
 In addition to the instructions above, you can refresh the configuration by resolving the instance of `IConfigurationRefresherProvider` that is added by `AddAzureAppConfiguration` and calling `TryRefreshAsync` on each of its refreshers. This can be seen in `ExampleClass.RefreshConfiguration` in the following code.
 
 ```csharp
-using Microsoft.Extensions.Configuration.AzureAppConfiguration;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-
-namespace TestConsole
+class ExampleClass
 {
-    class ExampleClass
+    private readonly IEnumerable<IConfigurationRefresher> _refreshers;
+
+    public ExampleClass(IConfigurationRefresherProvider refresherProvider)
     {
-        private readonly IEnumerable<IConfigurationRefresher> _refreshers;
+        _refreshers = refresherProvider.Refreshers;
+    }
 
-        public ExampleClass(IConfigurationRefresherProvider refresherProvider)
+    public async Task RefreshConfiguration()
+    {
+        foreach (var refresher in _refreshers)
         {
-            _refreshers = refresherProvider.Refreshers;
-        }
-
-        public async Task RefreshConfiguration()
-        {
-            foreach (var refresher in _refreshers)
-            {
-                await refresher.TryRefreshAsync();
-            }
+            await refresher.TryRefreshAsync();
         }
     }
 }
