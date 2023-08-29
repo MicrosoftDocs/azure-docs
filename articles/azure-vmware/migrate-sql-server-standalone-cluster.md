@@ -30,15 +30,19 @@ In both cases, consider the size and criticality of the database being migrated.
 - Remove all cluster node VMs from any Distributed Resource Scheduler (DRS) groups and rules. 
 
 - Configure VMware HCX  between your on-premises datacenter and the Azure VMware Solution private cloud that runs the migrated workloads. For more information about configuring VMware HCX, see [Azure VMware Solution documentation](install-vmware-hcx.md) .
-- Ensure that all the network segments in use by the Microsoft SQL Server are extended into your Azure VMware Solution private cloud.For verify this step in the procedure, see [Configure VMware HCX network extension](configure-hcx-network-extension.md).
+- Ensure that all the network segments in use by the Microsoft SQL Server are extended into your Azure VMware Solution private cloud. For verify this step in the procedure, see [Configure VMware HCX network extension](configure-hcx-network-extension.md).
 
-VMware HCX over VPN is supported in Azure VMware Solution for workload migration. However, due to the size of database workloads, VMware HCX over VPN isn't recommended for Microsoft SQL Server Failover Cluster Instance and Microsoft SQL Server Always-On migrations, especially for production workloads. ExpressRoute connectivity is recommended as more performant and reliable. For Microsoft SQL Server Standalone and non-production workloads HCX over VPN can be suitable, depending on the size of the database, to migrate. 
+VMware HCX over VPN is supported in Azure VMware Solution for workload migration. However, due to the size of database workloads, VMware HCX over VPN isn't recommended for Microsoft SQL Server Failover Cluster Instance and Microsoft SQL Server Always-On migrations, especially for production workloads. ExpressRoute connectivity is recommended as more performant and reliable. 
+For Microsoft SQL Server Standalone and non-production workloads HCX over VPN can be suitable, depending on the size of the database, to migrate. 
 
-Microsoft SQL Server (2019 and 2022) were tested with Windows Server (2019 and 2022) Data Center edition with the virtual machines deployed in the on-premises environment. Windows Server and SQL Server have been configured following best practices and recommendations from Microsoft and VMware. The on-premises source infrastructure was VMware vSphere 7.0 Update 3 and VMware vSAN running on Dell PowerEdge servers and Intel Optane P4800X SSD NVMe devices.
+Microsoft SQL Server (2019 and 2022) were tested with Windows Server (2019 and 2022) Data Center edition with the virtual machines deployed in the on-premises environment. 
+Windows Server and Microsoft SQL Server have been configured following best practices and recommendations from Microsoft and VMware.
+The on-premises source infrastructure was VMware vSphere 7.0 Update 3 and VMware vSAN running on Dell PowerEdge servers and Intel Optane P4800X SSD NVMe devices.
 
 ## Downtime considerations
 
-Predicting downtime during a migration depends upon the size of the database to be migrated and the speed of the private network connection to Azure cloud. Migration of SQL Server standalone instance doesn't require database downtime since it will be done using the VMware HCX vMotion mechanism. We recommend the migration during off-peak hours with an pre-approved change window.
+Predicting downtime during a migration depends upon the size of the database to be migrated and the speed of the private network connection to Azure cloud. 
+Migration of Microsoft SQL Server standalone instance doesn't require database downtime since it will be done using the VMware HCX vMotion mechanism. We recommend the migration during off-peak hours with an pre-approved change window.
 
 This table indicates the estimated downtime for each Microsoft SQL Server topology.
 
@@ -64,7 +68,7 @@ This table indicates the estimated downtime for each Microsoft SQL Server topolo
    - Select **Go** to start the migration. 
 1. After the migration has completed, access the virtual machine using VMware Remote Console in the vSphere Client.
    - Verify the network configuration and check connectivity both with on-premises and Azure VMware Solution resources.
-   - Using SQL Server Management Studio verify you can access the database.  
+   - Using Microsoft SQL Server Management Studio verify you can access the database.  
 
     :::image type="content" source="media/sql-server-hybrid-benefit/sql-standalone-1.png" alt-text="Diagram showing a SQL Server Management Studio connection to the migrated database." border="false" lightbox="media/sql-server-hybrid-benefit/sql-standalone-1.png":::  
 
