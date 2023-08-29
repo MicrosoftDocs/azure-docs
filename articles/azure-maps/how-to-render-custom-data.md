@@ -30,8 +30,6 @@ The following are examples of custom data:
 
 This article uses the [Postman] application, but you may use a different API development environment.
 
-Use the Azure Maps [Data registry service] to store and render overlays.
-
 >[!IMPORTANT]
 > In the URL examples, replace `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key.
 
@@ -141,12 +139,8 @@ Similarly, you can change, add, and remove other style modifiers.
 > [!div class="nextstepaction"]
 > [Render - Get Map Image]
 
-> [!div class="nextstepaction"]
-> [Data registry service]
-
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [Render - Get Map Image]: /rest/api/maps/render/getmapimage
-[Data registry service]: /rest/api/maps/data-registry
 [path parameter]: /rest/api/maps/render/getmapimage#uri-parameters
 [Postman]: https://www.postman.com/
 [Render service]: /rest/api/maps/render/get-map-image
