@@ -9,8 +9,10 @@ This sample website provides access to a catalog of 10,000 books. A user can sea
 
 :::image type="content" source="../media/tutorial-javascript-overview/cognitive-search-enabled-book-website-2.png" alt-text="Screeshot of the sample app in a browser window.":::
 
-The search experience includes: 
+The search experience includes:
 
 * Search – provides search functionality for the application.
 * Suggest – provides suggestions as the user is typing in the search bar.
+* Facets and filters - provides a faceted navigation structure that filters by author or language.
+* Paginated results - provides paging controls for scrolling through results.
 * Document Lookup – looks up a document by ID to retrieve all of its contents for the details page.

@@ -14,9 +14,11 @@ ms.devlang: javascript
 
 # 1 - Overview of adding search to a website
 
-In this Azure Cognitive Search tutorial, create a web app that searches through a catalog of books, and then deploy the website to an Azure Static Web Apps resource. This tutorial is for JavaScript developers who want to know more about creating a client app that includes user interactions like faceted navigation, typeahead, and pagination. It also demonstrates the `@azure/search-documents` library in the Azure SDK for JavaScript for calls to Azure Cognitive Search for indexing and query workflows.
+In this Azure Cognitive Search tutorial, create a web app that searches through a catalog of books, and then deploy the website to an Azure Static Web Apps resource. 
 
-The source code is available in the [azure-search-javascript-samples](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/search-website-functions-v4) GitHub repository.
+This tutorial is for JavaScript developers who want to create a frontend client app that includes search interactions like faceted navigation, typeahead, and pagination. It also demonstrates the `@azure/search-documents` library in the Azure SDK for JavaScript for calls to Azure Cognitive Search for indexing and query workflows on the backend.
+
+Source code is available in the [azure-search-javascript-samples](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/search-website-functions-v4) GitHub repository.
 
 ## What does the sample do? 
 
@@ -38,7 +40,7 @@ Install the following software in your local development environment.
 
 - [Node.js LTS](https://nodejs.org/en/download)
     - Select latest runtime and version from this [list of supported language versions](../azure-functions/functions-versions.md?pivots=programming-language-javascript&tabs=azure-cli%2clinux%2cin-process%2cv4#languages).
-    - If you have a different version of Node.js installed on your local computer, consider using [Node Version Manager](https://github.com/nvm-sh/nvm) (nvm) or a Docker container.  
+    - If you have a different version of Node.js installed on your local computer, consider using [Node Version Manager](https://github.com/nvm-sh/nvm) (`nvm`) or a Docker container.  
 - [Git](https://git-scm.com/downloads)
 - [Visual Studio Code](https://code.visualstudio.com/) and the following extensions
     - [Azure Static Web App](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) 

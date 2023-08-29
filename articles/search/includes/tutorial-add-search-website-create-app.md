@@ -37,7 +37,7 @@ The static web app pulls the information and files for deployment from GitHub us
     |Select a SKU| Select the free SKU for this tutorial.|
     |Select a location for new resources.|For Node.js: Select `West US 2` during the Azure Function programming model (PM) v4 preview. For C# and Python, select a region near you.|
     |Choose build preset to configure default project structure.|Select **Custom**|
-    |Select the location of your application code|`search-website-functions-v4/client-v4`<br><br>This is the path, from the root of the repository, to your static web app. |
+    |Select the location of your client application code|`search-website-functions-v4/client-v4`<br><br>This is the path, from the root of the repository, to your static web app. |
     |Select the location of your Azure Functions code|`search-website-functions-v4/api-v4`<br><br>This is the path, from the root of the repository, to your static web app. If there are no other functions in the repository, you won't be prompted for the function code location. Currently, you'll need to perform extra steps to ensure the function code location is correct. These steps are performed after the resource is created and are documented in this article. |
     |Enter the path of your build output...|`build`<br><br>This is the path, from your static web app, to your generated files.|
 
@@ -53,7 +53,7 @@ The static web app pulls the information and files for deployment from GitHub us
 
      :::image type="content" source="../media/tutorial-javascript-static-web-app/visual-studio-code-azure-activity-log.png" alt-text="Screenshot of the Activity Log in Visual Studio Code." border="true":::
 
-1. Currently, the YML file is created with erroneous path syntax for the Azure function code. Use this workaround to correct the syntax. You can perfrom this step as soon as the YML file is created. A new workflow will launch as soon as you push the updates:
+1. Currently, the YML file is created with erroneous path syntax for the Azure function code. Use this workaround to correct the syntax. You can perform this step as soon as the YML file is created. A new workflow will launch as soon as you push the updates:
 
    1. In Visual Studio Code explorer, open the `./.github/workflows/` directory.
 
@@ -137,7 +137,7 @@ The Azure Function app won't return search data until the search secrets are in 
 
 1. Select **Save** to save the settings. 
 
-    :::image type="content" source="../media/tutorial-javascript-static-web-app/save-new-application-setting-to-static-web-app-in-portal.png" alt-text="Screenshot of browser showing Azure portal with the button to save the settings for your app..":::
+    :::image type="content" source="../media/tutorial-javascript-static-web-app/save-new-application-setting-to-static-web-app-in-portal.png" alt-text="Screenshot of browser showing Azure portal with the button to save the settings for your app.":::
 
 1. Return to Visual Studio Code. 
 

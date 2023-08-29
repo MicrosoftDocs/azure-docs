@@ -73,11 +73,11 @@ This function API is called in the React app at `\src\pages\Details\Detail.js` a
 
 ## Next steps
 
-In this tutorial series, you learned how to create and load a search index in JavaScript, and you built a web app that provides a search experience that includes a search bar, faceted navigation and filters, suggestions, pagination, and lookup.
+In this tutorial series, you learned how to create and load a search index in JavaScript, and you built a web app that provides a search experience that includes a search bar, faceted navigation and filters, suggestions, pagination, and document look up.
 
 As a next step, you can extend this sample in several directions:
 
 * Add [autocomplete](search-add-autocomplete-suggestions.md) for more typeahead.
 * Add or modify [facets](search-faceted-navigation.md) and [filters](search-filters.md).
 * Change the authentication and authorization model, using [Azure Active Directory](search-security-rbac.md) instead of [key-based authentication](search-security-api-keys.md).
-* Change the [indexing methodology](search-what-is-data-import.md). Instead of pushing JSON to a search documents, preload a blob container with the good-books dataset and [set up a blob indexer](search-howto-indexing-azure-blob-storage.md) to ingest the data. Knowing how to work with indexers gives you more options for data ingestion and [content enrichment](cognitive-search-concept-intro.md) during indexing.
+* Change the [indexing methodology](search-what-is-data-import.md). Instead of pushing JSON to a search index, preload a blob container with the good-books dataset and [set up a blob indexer](search-howto-indexing-azure-blob-storage.md) to ingest the data. Knowing how to work with indexers gives you more options for data ingestion and [content enrichment](cognitive-search-concept-intro.md) during indexing.
