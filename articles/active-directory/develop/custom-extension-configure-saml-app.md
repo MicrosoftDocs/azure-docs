@@ -40,9 +40,11 @@ The following steps are for registering a demo [XRayClaims](https://adfshelp.mic
 
 Add a new, non-gallery SAML application in your tenant:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 
-1. Go to **Azure Active Directory** and then **Enterprise applications**.  Select **New application** and then **Create your own application**.
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.  
+
+1. Select **New application** and then **Create your own application**.
 
 1. Add a name for the app.  For example, **AzureADClaimsXRay**.  Select the **Integrate any other application you don't find in the gallery (Non-gallery)** option and select **Create**.
 
