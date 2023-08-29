@@ -1,5 +1,7 @@
 ---
 title: Enable SQL Azure hybrid benefit for Azure VMware Solution
+author: jjaygbay1
+ms.author: jacobjaygbay
 description: This article shows you how to apply SQL Azure hybrid benefits to your Azure VMware Solution private cloud by configuring a placement policy.
 ms.topic: how-to
 ms.service: azure-vmware
