@@ -5,10 +5,10 @@ ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
 ms.custom: devx-track-azurecli
-author: mgoedtel
-ms.author: magoedte
+author: guywild
+ms.author: guywi-ms
 ms.collection: linux
-ms.date: 06/01/2021
+ms.date: 08/29/2023
 ---
 # Azure Monitor Dependency virtual machine extension for Linux
 
@@ -51,7 +51,8 @@ The following JSON shows the schema for the Azure VM Dependency agent extension 
         "publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
         "type": "DependencyAgentLinux",
         "typeHandlerVersion": "9.5",
-        "autoUpgradeMinorVersion": true
+        "autoUpgradeMinorVersion": true,
+	"enableAMA": true
       }
     }
   ],
@@ -89,9 +90,10 @@ The following example assumes the Dependency agent extension is nested inside th
 	],
 	"properties": {
 		"publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
-        "type": "DependencyAgentLinux",
-        "typeHandlerVersion": "9.5",
-        "autoUpgradeMinorVersion": true
+	        "type": "DependencyAgentLinux",
+	        "typeHandlerVersion": "9.5",
+	        "autoUpgradeMinorVersion": true,
+		"enableAMA": true
 	}
 }
 ```
@@ -109,9 +111,10 @@ When you place the extension JSON at the root of the template, the resource name
 	],
 	"properties": {
 		"publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
-        "type": "DependencyAgentLinux",
-        "typeHandlerVersion": "9.5",
-        "autoUpgradeMinorVersion": true
+	        "type": "DependencyAgentLinux",
+	        "typeHandlerVersion": "9.5",
+	        "autoUpgradeMinorVersion": true,
+		"enableAMA": true
 	}
 }
 ```
