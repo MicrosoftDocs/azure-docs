@@ -28,7 +28,12 @@ This article summarizes new releases and features in Azure Database for MySQL - 
 ## August 2023
   
 - **Universal Geo Restore in Azure Database for MySQL - Flexible Server (Public Preview)**
-    Universal Geo Restore feature will allow you to restore a source server instance to an alternate region from the list of Azure supported regions where flexible server is [available](./overview.md#azure-regions). If a large-scale incident in a region results in unavailability of database application, then you can use this feature as a disaster recovery option to restore the server to an Azure supported target region, which is different than the source server region. [Learn more](concepts-backup-restore.md#restore)
+Universal Geo Restore feature will allow you to restore a source server instance to an alternate region from the list of Azure supported regions where flexible server is [available](./overview.md#azure-regions). If a large-scale incident in a region results in unavailability of database application, then you can use this feature as a disaster recovery option to restore the server to an Azure supported target region, which is different than the source server region. [Learn more](concepts-backup-restore.md#restore)
+
+- **Generated Invisible Primary Key in Azure Database for MySQL - Flexible Server** 
+Azure Database for MySQL Flexible Server now supports generated invisible primary key (GIPK) mode for MySQL version 8.0. With this change, by default, the value of the server system variable "sql_generate_invisible_primary_key" is ON for all MySQL - Flexible Server on MySQL 8.0. With GIPK mode ON, MySQL generates an invisible primary key to any InnoDB table which is new created without an explicit primary key. Learn more about the GIPK mode:
+[Generated Invisible Primary Keys](https://dev.mysql.com/doc/refman/8.0/en/create-table-gipks.html)
+[Invisible Column Metadata](https://dev.mysql.com/doc/refman/8.0/en/invisible-columns.html#invisible-column-metadata)
 
 ## July 2023
 
@@ -605,4 +610,5 @@ If you have questions about or suggestions for working with Azure Database for M
 - Learn more about [Azure Database for MySQL pricing](https://azure.microsoft.com/pricing/details/mysql/server/).
 - Browse the [public documentation](index.yml) for Azure Database for MySQL – Flexible Server.
 - Review details on [troubleshooting common migration errors](../howto-troubleshoot-common-errors.md).
+
 
