@@ -535,6 +535,10 @@ artifacts, use the following steps:
 To view constraint templates downloaded by the add-on, run `kubectl get constrainttemplates`.
 Constraint templates that start with `k8sazure` are the ones installed by the add-on.
 
+### View the add-on mutation templates
+
+To view mutation templates downloaded by the add-on, run `kubectl get assign`. You can also filter to specific mutators, such as `kubectl get assignMetadata`
+
 ### Get Azure Policy mappings
 
 To identify the mapping between a constraint template downloaded to the cluster and the policy
