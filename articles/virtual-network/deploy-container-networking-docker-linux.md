@@ -57,7 +57,7 @@ In this section, you add an IP configuration to the virtual network interface of
     | Name | Enter **ipconfig-2**. |
     | **Private IP address settings** |  |
     | Allocation | Select **Static**. |
-    | IP address | Enter **10.1.0.5**. |
+    | IP address | Enter **10.0.0.5**. |
 
 1. Select **OK**.
 
