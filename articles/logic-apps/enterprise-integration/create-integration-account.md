@@ -72,7 +72,7 @@ Integration accounts are available in different tiers that [vary in pricing](htt
 
 Based on your requirements and scenarios, determine the appropriate integration account tier to create. The following table describes the available tiers:
 
-Your integration account uses an automatically-created system-assigned managed identity to authenticate access.
+Your integration account uses an automatically created and enabled system-assigned managed identity to authenticate access.
 
 | Tier | Description |
 |------|-------------|
