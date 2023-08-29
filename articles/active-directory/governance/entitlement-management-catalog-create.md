@@ -193,9 +193,9 @@ $params = @{
   requestType = "adminAdd"
   resource = @{
     originId = $g.Id
-   originSystem = "AadGroup"
- }
-catalog = @{ id = $catalog.id }
+    originSystem = "AadGroup"
+  }
+  catalog = @{ id = $catalog.id }
 }
 
 New-MgEntitlementManagementResourceRequest -BodyParameter $params
