@@ -25,7 +25,7 @@ Azure OpenAI can be used to solve a large number of natural language tasks throu
 - An Azure OpenAI resource. [Create a resource](create-resource.md?pivots=web-portal#create-a-resource).
 - An Apache Spark cluster with SynapseML installed.
    - Create a [serverless Apache Spark pool](../../../synapse-analytics/get-started-analyze-spark.md#create-a-serverless-apache-spark-pool).
-   - To install SynapseML for your Apache Spark cluster, see [Install SynapseML](#install-synapseml).
+   - To install SynapseML for your Apache Spark cluster, see [Install SynapseML](#step-3-install-synapseml).
 
 > [!NOTE]
 > Currently, you must submit an application to access Azure OpenAI Service. To apply for access, complete <a href="https://aka.ms/oai/access" target="_blank">this form</a>. If you need assistance, open an issue on this repo to contact Microsoft.
@@ -59,29 +59,48 @@ When you have a notebook ready, connect or _attach_ your notebook to an Apache S
 
 ### Step 3: Install SynapseML
 
-To run the exercises, you need to install SynapseML on your Apache Spark cluster. You complete this task in a code cell at the top of your notebook. For more information about the installation process, see the link for Azure Synapse at the bottom of [the SynapseML website](https://microsoft.github.io/SynapseML/).
+To run the exercises, you need to install SynapseML on your Apache Spark cluster. For more information about the installation process, see the link for Azure Synapse at the bottom of [the SynapseML website](https://microsoft.github.io/SynapseML/).
 
-To install SynapseML, create a new cell at the top of your notebook and run the following code:
+To install SynapseML, create a new cell at the top of your notebook and run the following code.
 
-```python
-%%configure -f
-{
-  "name": "synapseml",
-  "conf": {
-      "spark.jars.packages": "com.microsoft.azure:synapseml_2.12:0.11.2-spark3.3",
-      "spark.jars.repositories": "https://mmlspark.azureedge.net/maven",
-      "spark.jars.excludes": "org.scala-lang:scala-reflect,org.apache.spark:spark-tags_2.12,org.scalactic:scalactic_2.12,org.scalatest:scalatest_2.12,com.fasterxml.jackson.core:jackson-databind",
-      "spark.yarn.user.classpath.first": "true",
-      "spark.sql.parquet.enableVectorizedReader": "false"
-  }
-}
-```
+- For a **Spark3.2 pool**, use the following code:
+
+   ```python
+   %%configure -f
+   {
+     "name": "synapseml",
+     "conf": {
+         "spark.jars.packages": "com.microsoft.azure:synapseml_2.12:0.11.2,org.apache.spark:spark-avro_2.12:3.3.1",
+         "spark.jars.repositories": "https://mmlspark.azureedge.net/maven",
+         "spark.jars.excludes": "org.scala-lang:scala-reflect,org.apache.spark:spark-tags_2.12,org.scalactic:scalactic_2.12,org.scalatest:scalatest_2.12,com.fasterxml.jackson.core:jackson-databind",
+         "spark.yarn.user.classpath.first": "true",
+         "spark.sql.parquet.enableVectorizedReader": "false",
+         "spark.sql.legacy.replaceDatabricksSparkAvro.enabled": "true"
+     }
+   }
+   ```
+
+- For a **Spark3.3 pool**, use the following code:
+
+   ```python
+   %%configure -f
+   {
+     "name": "synapseml",
+     "conf": {
+         "spark.jars.packages": "com.microsoft.azure:synapseml_2.12:0.11.2-spark3.3",
+         "spark.jars.repositories": "https://mmlspark.azureedge.net/maven",
+         "spark.jars.excludes": "org.scala-lang:scala-reflect,org.apache.spark:spark-tags_2.12,org.scalactic:scalactic_2.12,org.scalatest:scalatest_2.12,com.fasterxml.jackson.core:jackson-databind",
+         "spark.yarn.user.classpath.first": "true",
+         "spark.sql.parquet.enableVectorizedReader": "false"
+     }
+   }
+   ```
 
 The connection process can take several minutes.
 
 ### Step 4: Configure the notebook
 
-After the top cell in your notebook, add a new cell to configure the notebook for your service by running the following code. Set the `resource_name`, `deployment_name`, `location`, and `key` variables to the corresponding values for your Azure OpenAI resource.
+Create a new code cell and run the following code to configure the notebook for your service. Set the `resource_name`, `deployment_name`, `location`, and `key` variables to the corresponding values for your Azure OpenAI resource.
 
 ```python
 import os
@@ -103,7 +122,7 @@ Now you're ready to start running the example code.
 
 ## Create a dataset of prompts
 
-The next step is to create a dataframe consisting of a series of rows, with one prompt per row.
+The first step is to create a dataframe consisting of a series of rows, with one prompt per row.
 
 You can also load data directly from Azure Data Lake Storage or other databases. For more information about loading and preparing Spark dataframes, see the [Apache Spark Data Sources](https://spark.apache.org/docs/latest/sql-data-sources.html).
 
@@ -148,9 +167,9 @@ display(completed_df.select(
   col("prompt"), col("error"), col("completions.choices.text").getItem(0).alias("text")))
 ```
 
-The following image shows example output with completions for the transformed dataframe in Azure Synapse Analytics Studio. Keep in mind that completions text can vary so your output might look different.
+The following image shows example output with completions in Azure Synapse Analytics Studio. Keep in mind that completions text can vary so your output might look different.
 
-:::image type="content" source="../media/how-to/synapse-studio-transform-dataframe-output.png" alt-text="Screenshot that shows sample completions for the transformed dataframe in Azure Synapse Analytics Studio." border="false":::
+:::image type="content" source="../media/how-to/synapse-studio-transform-dataframe-output.png" alt-text="Screenshot that shows sample completions in Azure Synapse Analytics Studio." border="false":::
 
 ## Explore other usage scenarios
 
@@ -196,9 +215,9 @@ completed_batch_df = batch_completion.transform(batch_df).cache()
 display(completed_batch_df)
 ```
 
-The following image shows example output with completions for multiple prompts in a batch prompt request:
+The following image shows example output with completions for multiple prompts in a request:
 
-:::image type="content" source="../media/how-to/synapse-studio-request-batch-output.png" alt-text="Screenshot that shows completions for multiple prompts in a batch prompt request in Azure Synapse Analytics Studio." border="false":::
+:::image type="content" source="../media/how-to/synapse-studio-request-batch-output.png" alt-text="Screenshot that shows completions for multiple prompts in a single request in Azure Synapse Analytics Studio." border="false":::
 
 > [!NOTE]
 > There's currently a limit of 20 prompts in a single request and a limit of 2048 "tokens," or approximately 1500 words.
@@ -223,7 +242,7 @@ display(completed_autobatch_df)
 
 The following image shows example output for an automatic mini-batcher that transposes data to row format:
 
-:::image type="content" source="../media/how-to/synapse-studio-transpose-data-output.png" alt-text="Screenshot that shows completions for an automatic mini-batcher that transposes data to row format in Azure Synapse Analytics Studio." border="false":::
+:::image type="content" source="../media/how-to/synapse-studio-transpose-data-output.png" alt-text="Screenshot that shows completions for an automatic mini-batcher in Azure Synapse Analytics Studio." border="false":::
 
 ### Prompt engineering for translation
 
@@ -260,9 +279,9 @@ qa_df = spark.createDataFrame(
 display(completion.transform(qa_df))
 ```
 
-The following image shows example output when you prompt the GPT-3 model to create general-knowledge question answering:
+The following image shows example output for general-knowledge question answering:
 
-:::image type="content" source="../media/how-to/synapse-studio-question-answer-output.png" alt-text="Screenshot that shows completions for prompting the GPT-3 model to create general-knowledge question answering in Azure Synapse Analytics Studio." border="false":::
+:::image type="content" source="../media/how-to/synapse-studio-question-answer-output.png" alt-text="Screenshot that shows completions for general-knowledge question answering in Azure Synapse Analytics Studio." border="false":::
 
 ## Next steps
 
