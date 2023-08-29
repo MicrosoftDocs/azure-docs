@@ -12,8 +12,6 @@
 
 ## Create web app
 
-You'll create an Azure web app for the cloud resource accessed by the on-premises workload.
-
 1. In the search box at the top of the portal, enter **App Service**. Select **App Services** in the search results.
 
 2. Select **+ Create**.
