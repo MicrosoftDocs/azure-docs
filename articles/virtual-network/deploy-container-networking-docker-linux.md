@@ -12,7 +12,7 @@ ms.custom: template-how-to
 
 # Deploy container networking for a stand-alone Linux Docker host
 
-The Azure CNI plugin enables per container/pod networking for stand-alone docker hosts and Kubernetes clusters. In this article, you'll learn how to install and configure the CNI plugin for a standalone Linux Docker host.
+The Azure CNI plugin enables per container/pod networking for stand-alone docker hosts and Kubernetes clusters. In this article, you learn how to install and configure the CNI plugin for a standalone Linux Docker host.
 
 ## Prerequisites
 
@@ -26,9 +26,9 @@ It can take a few minutes for the Bastion host to deploy. You can continue with 
 
 ## Add IP configuration
 
-The Azure CNI plugin allocates IP addresses to containers based on a pool of IP addresses you create on the virtual network interface of the virtual machine. For every container on the host, an IP configuration must exist on the virtual network interface. If the number of containers on the server outnumber the IP configurations on the virtual network interface, the container will start but won't have an IP address. 
+The Azure CNI plugin allocates IP addresses to containers based on a pool of IP addresses you create on the virtual network interface of the virtual machine. For every container on the host, an IP configuration must exist on the virtual network interface. If the number of containers on the server outnumber the IP configurations on the virtual network interface, the container starts but doesn't have an IP address. 
 
-In this section, you'll add an IP configuration to the virtual network interface of the virtual machine you created previously.
+In this section, you add an IP configuration to the virtual network interface of the virtual machine you created previously.
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
@@ -89,7 +89,7 @@ After Docker is installed on your virtual machine, continue with the steps in th
 
 ## Install CNI plugin and create a test container
 
-The Azure CNI plugin is maintained as a GitHub project and is available for download from the project's GitHub page. For this article, you'll use **`git`** within the virtual machine to clone the repository for the plugin and then install and configure the plugin.
+The Azure CNI plugin is maintained as a GitHub project and is available for download from the project's GitHub page. For this article, you use **`git`** within the virtual machine to clone the repository for the plugin and then install and configure the plugin.
 
 For more information about the Azure CNI plugin, see [Microsoft Azure Container Networking](https://github.com/Azure/azure-container-networking).
 
@@ -109,7 +109,7 @@ For more information about the Azure CNI plugin, see [Microsoft Azure Container 
     sudo apt-get update
     sudo apt-get install jq
     ```
-7. Next, you'll clone the repository for the CNI plugin. Use the following example to clone the repository:
+7. Next, you clone the repository for the CNI plugin. Use the following example to clone the repository:
 
     ```bash
     git clone https://github.com/Azure/azure-container-networking.git
@@ -124,7 +124,7 @@ For more information about the Azure CNI plugin, see [Microsoft Azure Container 
     chmod u+x docker-run.sh
     ```
 
-9. To start a container with the CNI plugin, you must use a special script that comes with the plugin to create and start the container. The following example will create an Alpine container with the CNI plugin script:
+9. To start a container with the CNI plugin, you must use a special script that comes with the plugin to create and start the container. The following example creates an Alpine container with the CNI plugin script:
 
     ```bash
     sudo ./docker-run.sh vnetdocker1 default alpine
