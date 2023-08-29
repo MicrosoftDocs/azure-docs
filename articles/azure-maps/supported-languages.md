@@ -95,7 +95,7 @@ Azure Maps have been localized in variety languages across its services. The fol
 
 ## Azure Maps v2 supported languages
 
-Azure Maps have been localized in variety languages across its services. The following table provides the supported language codes for the routing v2 service. The routing column in the following table includes routes for driving and walking.
+Azure Maps have been localized in variety languages across its services. The following table provides the supported language codes for the routing v2 services. The routing column in the following table includes routes for driving and walking.
 
 | Culture        | Language                                   | Routing | Truck Routing |
 |----------------|--------------------------------------------|:-------:|:-------------:|
@@ -119,7 +119,7 @@ Azure Maps have been localized in variety languages across its services. The fol
 | en-GB          | English (United Kingdom)                   | ✓       | ✓             |
 | en-US          | English (United States)                    | ✓       | ✓             |
 | es-ES          | Spanish (Spain)                            | ✓       | ✓             |
-| es-MX          | Spanish (Mexico)                           | ✓       |               |
+| es-MX          | Spanish (Mexico)                           | ✓       | ✓             |
 | et             | Estonian                                   | ✓       |               |
 | eu             | Basque                                     | ✓       |               |
 | fa             | Persian                                    | ✓       |               |
