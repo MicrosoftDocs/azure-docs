@@ -2,7 +2,7 @@
 title: REST APIs for the Managed Airflow integrated runtime
 description: This article documents the REST APIs for the Managed Airflow integrated runtime.
 ms.service: data-factory
-ms.topic: how-to
+ms.topic: reference
 author: nabhishek
 ms.author: abnarain
 ms.date: 08/09/2023
