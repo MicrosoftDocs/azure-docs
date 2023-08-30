@@ -97,9 +97,9 @@ echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/envi
    }
 
    $body = [ordered]@{
-      prompt='A painting of a dog'    # Enter your prompt text here
-      size='1024x1024'
-      n=1
+      prompt ='A painting of a dog' # Enter your prompt text here
+      size   ='1024x1024'
+      n      = 1
    } | ConvertTo-Json
 
    $url = "$($openai.api_base)/openai/images/generations:submit?api-version=$($openai.api_version)"
@@ -112,7 +112,7 @@ echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/envi
     while ($status -ne 'succeeded') {
         Start-Sleep -Seconds 1
         $response = Invoke-RestMethod -Uri $operation_location -Headers $headers
-        $status = $response.status
+        $status   = $response.status
     }
 
    # Set the directory for the stored image

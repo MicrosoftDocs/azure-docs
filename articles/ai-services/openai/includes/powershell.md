@@ -96,10 +96,10 @@ echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/envi
    }
 
    $body = [ordered]@{
-       prompt = $prompt
-       max_tokens = 10
+       prompt      = $prompt
+       max_tokens  = 10
        temperature = 2
-       top_p = 0.5
+       top_p       = 0.5
    } | ConvertTo-Json
 
    $url = "$($openai.api_base)/openai/deployments/$($openai.name)/completions?api-version=$($openai.api_version)"
