@@ -31,7 +31,7 @@ In the Microsoft Entra admin center, look for the **PRIVILEGED** label.
 
 ![Privileged label icon.](./media/permissions-reference/privileged-label.png)
 
-On the **Roles and administrators** page, privileged roles are identified in the **Privileged** column. The **Assignments** column lists the number or role assignments. You can also filter privileged roles. 
+On the **Roles and administrators** page, privileged roles are identified in the **Privileged** column. The **Assignments** column lists the number of role assignments. You can also filter privileged roles. 
 
 :::image type="content" source="./media/privileged-roles-permissions/privileged-roles-portal.png" alt-text="Screenshot of the Azure AD Roles and administrators page that shows the Privileged and Assignments columns." lightbox="./media/privileged-roles-permissions/privileged-roles-portal.png":::
 
