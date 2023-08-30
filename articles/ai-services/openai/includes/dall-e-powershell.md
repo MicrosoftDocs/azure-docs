@@ -87,8 +87,8 @@ echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/envi
 
    ```powershell
    $openai = @{
-     api_key = $Env:AZURE_OPENAI_KEY
-     api_base = $Env:AZURE_OPENAI_ENDPOINT # your endpoint should look like the following https://YOUR_RESOURCE_NAME.openai.azure.com/
+     api_key     = $Env:AZURE_OPENAI_KEY
+     api_base    = $Env:AZURE_OPENAI_ENDPOINT # your endpoint should look like the following https://YOUR_RESOURCE_NAME.openai.azure.com/
      api_version = '2023-06-01-preview' # this may change in the future
    }
 
