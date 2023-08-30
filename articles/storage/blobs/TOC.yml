@@ -201,12 +201,18 @@ items:
           href: immutable-time-based-retention-policy-overview.md
         - name: Legal holds
           href: immutable-legal-hold-overview.md
-    - name: Redundancy and disaster recovery
+    - name: Disaster recovery
       items:
+      - name: Disaster recovery planning
+        href: ../common/storage-disaster-recovery-guidance.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Data redundancy
         href: ../common/storage-redundancy.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: Customer-managed failover for disaster recovery
-        href: ../common/storage-disaster-recovery-guidance.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      - name: Storage account failover overview
+        href: ../common/storage-failover-overview.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      - name: Failover in the event of a regional outage
+        href: ../common/storage-failover-customer-managed-unplanned.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      - name: Failover for testing and compliance
+        href: ../common/storage-failover-customer-managed-planned.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json        
     - name: Access tiers and lifecycle management
       items:
       - name: Access tiers overview
