@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 08/29/2023
+ms.date: 08/30/2023
 ms.author: sarahlipsey
 ms.reviewer: almars
 ---
@@ -23,7 +23,7 @@ The default sign-in experience is the global look and feel that applies across a
 > [!NOTE]
 > Instructions for how to manage the **'Stay signed in prompt?'** can be found in the **[Manage the 'Stay signed in?' prompt](how-to-manage-stay-signed-in-prompt.md)** article.
 
-## License requirements
+## Prerequisites
 
 Adding custom branding requires one of the following licenses:
 
@@ -83,6 +83,10 @@ In the following examples, replace the contoso.com with your own tenant name, or
 - Self-service password reset `https://passwordreset.microsoftonline.com/?whr=contoso.com`
 
 For B2B collaboration end-users who perform cross-tenant sign-ins, their home tenant branding appears, even if there isn't custom branding specified.
+
+In the following example, the company branding for Woodgrove Groceries appears on the left. The example on the right displays the default branding for the user's home tenant.
+
+![Comparison of the branded sign-in experience and the default sign-in experience](media/how-to-customize-branding/b2b-comparison.png)
 
 ## How to navigate the company branding process
 
