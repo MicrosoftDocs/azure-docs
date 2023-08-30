@@ -18,30 +18,28 @@ For clarity of structure, a separate markdown file is used to describe how to de
 
 Use the following steps to clone and run the app locally.
 
-1. Use the following command to clone the sample project from GitHub:
+### [Azure portal](#tab/Azure-portal-ent)
 
-   ```bash
-   git clone https://github.com/Azure-Samples/ASA-Samples-Web-Application.git
-   ```
+This section is not required to prepare the jar package for deployment, the `Deploy to azure` button process will download the jar from [GitHub release](https://github.com/Azure-Samples/ASA-Samples-Web-Application/releases).
+If you want to run the app locally, following the steps below:
 
-2. Use the following command to build the sample project:
+[!INCLUDE [prepare-project-on-azure-portal](../../includes/quickstart-deploy-web-app/prepare-web-project.md)]
 
-   ```bash
-   cd ASA-Samples-Web-Application
-   ./mvnw clean package
-   ```
+### [Azure CLI](#tab/Azure-CLI)
 
-3. Use the following command to run the sample application by using Maven:
+[!INCLUDE [prepare-project-on-azure-portal](../../includes/quickstart-deploy-web-app/prepare-web-project.md)]
 
-   ```bash
-   java -jar web/target/simple-todo-web-0.0.2-SNAPSHOT.jar
-   ```
-
-4. Go to `http://localhost:8080` in your browser to access the application.
+---
 
 ## 3. Prepare the cloud environment
 
 The main resources required to run this sample are an Azure Spring Apps instance and an Azure Database for PostgreSQL instance. This section provides the steps to create these resources.
+
+### [Azure portal](#tab/Azure-portal-ent)
+
+[!INCLUDE [prepare-cloud-environment-on-azure-portal](../../includes/quickstart-deploy-web-app/web-prepare-cloud-env-enterprise-azure-portal.md)]
+
+### [Azure CLI](#tab/Azure-CLI)
 
 ### 3.1. Provide names for each resource
 
@@ -158,13 +156,23 @@ After the application instance and the PostgreSQL instance are created, the appl
              SPRING_DATASOURCE_PASSWORD="${POSTGRESQL_ADMIN_PASSWORD}"
    ```
 
+---
+
 ## 4. Deploy the app to Azure Spring Apps
 
 Now that the cloud environment is prepared, the application is ready to deploy. Use the following command to deploy the app:
+
+### [Azure portal](#tab/Azure-portal-ent)
+
+[!INCLUDE [deploy-web-app-on-azure-portal](../../includes/quickstart-deploy-web-app/deploy-web-app-azure-portal.md)]
+
+### [Azure CLI](#tab/Azure-CLI)
 
 ```azurecli
 az spring app deploy \
     --service ${AZURE_SPRING_APPS_NAME} \
     --name ${APP_NAME} \
-    --artifact-path web/target/simple-todo-web-0.0.1-SNAPSHOT.jar
+    --artifact-path web/target/simple-todo-web-0.0.2-SNAPSHOT.jar
 ```
+
+---

@@ -19,28 +19,16 @@ First, prepare the Spring project to run locally.
 
 ### [Azure portal](#tab/Azure-portal)
 
+This section is not required to prepare the jar package for deployment, the `Deploy to azure` button process will download the jar from [GitHub release](https://github.com/Azure-Samples/ASA-Samples-Web-Application/releases).
+If you want to run the app locally, following the steps below:
+
+[!INCLUDE [prepare-project-on-azure-portal](../../includes/quickstart-deploy-web-app/prepare-web-project.md)]
+
+### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
+
 Although you use the Azure portal in later steps, you must use the Bash command line to prepare the project locally. Use the following steps to clone and run the app locally:
 
-1. Use the following command to clone the sample project from GitHub:
-
-   ```bash
-   git clone https://github.com/Azure-Samples/ASA-Samples-Web-Application.git
-   ```
-
-1. Use the following command to build the sample project:
-
-   ```bash
-   cd ASA-Samples-Web-Application
-   ./mvnw clean package
-   ```
-
-1. Use the following command to run the sample application by using Maven:
-
-   ```bash
-   java -jar web/target/simple-todo-web-0.0.2-SNAPSHOT.jar
-   ```
-
-1. Go to `http://localhost:8080` in your browser to access the application.
+[!INCLUDE [prepare-project-on-azure-portal](../../includes/quickstart-deploy-web-app/prepare-web-project.md)]
 
 ### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
@@ -80,6 +68,10 @@ Use the following steps to initialize the web application from the Azure Develop
 The main resources required to run this sample are an Azure Spring Apps instance and an Azure Database for PostgreSQL instance. This section provides the steps to create these resources.
 
 ### [Azure portal](#tab/Azure-portal)
+
+[!INCLUDE [prepare-cloud-environment-on-azure-portal](../../includes/quickstart-deploy-web-app/web-prepare-cloud-env-standard-azure-portal.md)]
+
+### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
 
 ### 3.1. Sign in to the Azure portal
 
@@ -208,7 +200,11 @@ You can now deploy the app to Azure Spring Apps.
 
 ### [Azure portal](#tab/Azure-portal)
 
-Use the following steps to deploy using the [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Spring-Apps):
+[!INCLUDE [deploy-web-app-on-azure-portal](../../includes/quickstart-deploy-web-app/deploy-web-app-azure-portal.md)]
+
+### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
+
+Use the following steps to deploy with the [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Spring-Apps):
 
 1. Navigate to the sample project directory and run the following command to configure the app in Azure Spring Apps:
 
