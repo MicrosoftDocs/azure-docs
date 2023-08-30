@@ -90,7 +90,7 @@ For the charts in this article, the following configuration was used: A single S
 
 :::image type="content" source="media/storage-files-smb-multichannel-performance/files-smb-multi-channel-nic-settings-all-nics.PNG" alt-text="Screenshot that shows the performance test configuration." lightbox="media/storage-files-smb-multichannel-performance/files-smb-multi-channel-nic-settings-all-nics.PNG":::
 
-### Mutli-threaded/multiple files with SMB Multichannel
+### Multi-threaded/multiple files with SMB Multichannel
 
 Load was generated against 10 files with various IO sizes. The scale up test results showed significant improvements in both IOPS and throughput test results with SMB Multichannel enabled. The following diagrams depict the results:
 
