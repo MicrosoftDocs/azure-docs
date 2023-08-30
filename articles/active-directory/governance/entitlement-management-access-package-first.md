@@ -213,9 +213,7 @@ In this step, you confirm that the **internal requestor** was assigned the acces
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as **Admin1**.
 
-1. Select **Identity Governance**.
-
-1. In the left menu, select **Access packages**.
+1. Browse to **Identity governance** > **Entitlement management** > **Access packages**.
 
 1. Find and select **Marketing Campaign** access package.
 
