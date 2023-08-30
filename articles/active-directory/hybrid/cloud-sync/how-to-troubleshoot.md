@@ -35,8 +35,6 @@ To verify that Azure detects the agent, and that the agent is healthy, follow th
  3. Select **cloud sync**.
  4. You should see the agents you've installed. Verify that the agent in question is there. If all is well, you will see the *active* (green) status for the agent.
 
-   ![Screenshot that shows the installed agent, and its status.](media/how-to-install/install-8.png)
-
 ### Verify the required open ports
 
 Verify that the Azure AD Connect provisioning agent is able to communicate successfully with Azure datacenters. If there's a firewall in the path, make sure that the following ports to outbound traffic are open:
