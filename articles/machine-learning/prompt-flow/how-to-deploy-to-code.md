@@ -14,9 +14,9 @@ ms.date: 08/30/2023
 
 # Deploy a flow to online endpoint for real-time inference with CLI (preview)
 
-In this article, you'll learn to deploy your flow to a [managed online endpoint](../concept-endpoints-online.md?view=azureml-api-2#managed-online-endpoints-vs-kubernetes-online-endpoints) or a [Kubernetes online endpoint](../concept-endpoints-online.md?view=azureml-api-2#managed-online-endpoints-vs-kubernetes-online-endpoints) for use in real-time inferencing with Azure Machine Learning v2 CLI.
+In this article, you'll learn to deploy your flow to a [managed online endpoint](../concept-endpoints-online.md#managed-online-endpoints-vs-kubernetes-online-endpoints) or a [Kubernetes online endpoint](../concept-endpoints-online.md#managed-online-endpoints-vs-kubernetes-online-endpoints) for use in real-time inferencing with Azure Machine Learning v2 CLI.
 
-Before beginning make sure that you have tested your flow properly, and feel confident that it's ready to be deployed to production. To learn more about testing your flow, see [test your flow](../test-your-flow.md). After testing your flow you'll learn how to create managed online endpoint and deployment, and how to use the endpoint for real-time inferencing.
+Before beginning make sure that you have tested your flow properly, and feel confident that it's ready to be deployed to production. To learn more about testing your flow, see [test your flow](how-to-bulk-test-evaluate-flow.md). After testing your flow you'll learn how to create managed online endpoint and deployment, and how to use the endpoint for real-time inferencing.
 
 - For the **CLI** experience, all the sample yaml files can be found in the [Prompt flow CLI GitHub folder](https://aka.ms/pf-deploy-mir-cli). This article will cover how to use the CLI experience.
 - For the **Python SDK** experience, sample notebook is [Prompt flow SDK GitHub folder](https://aka.ms/pf-deploy-mir-sdk). The Python SDK isn't covered in this article, see the GitHub sample notebook instead. To use the Python SDK, you must have The Python SDK v2 for Azure Machine Learning. To learn more, see [Install the Python SDK v2 for Azure Machine Learning](/python/api/overview/azure/ai-ml-readme).
@@ -27,13 +27,13 @@ Before beginning make sure that you have tested your flow properly, and feel con
 
 ## Prerequisites
 
-- The Azure CLI and the Azure Machine Learning extension to the Azure CLI. For more information, see [Install, set up, and use the CLI (v2)](../how-to-configure-cli.md?view=azureml-api-2).
-- An Azure Machine Learning workspace. If you don't have one, use the steps in the [Quickstart: Create workspace resources article](../quickstart-create-resources.md?view=azureml-api-2) to create one.
-- Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the owner or contributor role for the Azure Machine Learning workspace, or a custom role allowing "Microsoft.MachineLearningServices/workspaces/onlineEndpoints/". If you use studio to create/manage online endpoints/deployments, you will need an additional permission "Microsoft.Resources/deployments/write" from the resource group owner. For more information, see [Manage access to an Azure Machine Learning workspace](../how-to-assign-roles.md?view=azureml-api-2).
+- The Azure CLI and the Azure Machine Learning extension to the Azure CLI. For more information, see [Install, set up, and use the CLI (v2)](../how-to-configure-cli.md).
+- An Azure Machine Learning workspace. If you don't have one, use the steps in the [Quickstart: Create workspace resources article](../quickstart-create-resources.md) to create one.
+- Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the owner or contributor role for the Azure Machine Learning workspace, or a custom role allowing "Microsoft.MachineLearningServices/workspaces/onlineEndpoints/". If you use studio to create/manage online endpoints/deployments, you will need an additional permission "Microsoft.Resources/deployments/write" from the resource group owner. For more information, see [Manage access to an Azure Machine Learning workspace](../how-to-assign-roles.md).
 
 ### Virtual machine quota allocation for deployment
 
-For managed online endpoints, Azure Machine Learning reserves 20% of your compute resources for performing upgrades. Therefore, if you request a given number of instances in a deployment, you must have a quota for `ceil(1.2 * number of instances requested for deployment) * number of cores for the VM SKU` available to avoid getting an error. For example, if you request 10 instances of a Standard_DS3_v2 VM (that comes with four cores) in a deployment, you should have a quota for 48 cores (12 instances four cores) available. To view your usage and request quota increases, see [View your usage and quotas in the Azure portal](../how-to-manage-quotas.md?view=azureml-api-2#view-your-usage-and-quotas-in-the-azure-portal).
+For managed online endpoints, Azure Machine Learning reserves 20% of your compute resources for performing upgrades. Therefore, if you request a given number of instances in a deployment, you must have a quota for `ceil(1.2 * number of instances requested for deployment) * number of cores for the VM SKU` available to avoid getting an error. For example, if you request 10 instances of a Standard_DS3_v2 VM (that comes with four cores) in a deployment, you should have a quota for 48 cores (12 instances four cores) available. To view your usage and request quota increases, see [View your usage and quotas in the Azure portal](../how-to-manage-quotas.md#view-your-usage-and-quotas-in-the-azure-portal).
 
 ## Get the flow ready for deploy
 
@@ -84,8 +84,8 @@ Use `az ml model create --file model.yaml` to register the model to your workspa
 
 To define an endpoint, you need to specify:
 
-- **Endpoint name**: The name of the endpoint. It must be unique in the Azure region. For more information on the naming rules, see [managed online endpoint limits](../how-to-manage-quotas.md?view=azureml-api-2#azure-machine-learning-managed-online-endpoints).
-- **Authentication mode**: The authentication method for the endpoint. Choose between key-based authentication and Azure Machine Learning token-based authentication. A key doesn't expire, but a token does expire. For more information on authenticating, see [Authenticate to an online endpoint](../how-to-authenticate-online-endpoint.md?view=azureml-api-2).
+- **Endpoint name**: The name of the endpoint. It must be unique in the Azure region. For more information on the naming rules, see [managed online endpoint limits](../how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints).
+- **Authentication mode**: The authentication method for the endpoint. Choose between key-based authentication and Azure Machine Learning token-based authentication. A key doesn't expire, but a token does expire. For more information on authenticating, see [Authenticate to an online endpoint](../how-to-authenticate-online-endpoint.md).
 Optionally, you can add a description and tags to your endpoint.
 - Optionally, you can add a description and tags to your endpoint.
 - If you want to deploy to a Kubernetes cluster (AKS or Arc enabled cluster)  which is attaching to your workspace, you can deploy the flow to be a **Kubernetes online endpoint**.
@@ -126,9 +126,9 @@ If you create a Kubernetes online endpoint, you need to specify the following ad
 > [!IMPORTANT]
 >
 > By default, when you create an online endpoint, a system-assigned managed identity is automatically generated for you. You can also specify an existing user-assigned managed identity for the endpoint.
-> You need to grant permissions to your endpoint identity so that it can access the Azure resources to perform inference. See [Grant permissions to your endpoint identity](https://learn.microsoft.com/en-us/azure/machine-learning/prompt-flow/how-to-deploy-for-real-time-inference?view=azureml-api-2#grant-permissions-to-the-endpoint) for more information.
+> You need to grant permissions to your endpoint identity so that it can access the Azure resources to perform inference. See [Grant permissions to your endpoint identity](how-to-deploy-for-real-time-inference.md#grant-permissions-to-the-endpoint) for more information.
 >
-> For more configurations of endpoint, see [managed online endpoint schema](https://learn.microsoft.com/azure/machine-learning/reference-yaml-endpoint-online?view=azureml-api-2).
+> For more configurations of endpoint, see [managed online endpoint schema](../reference-yaml-endpoint-online.md).
 
 ### Define the deployment
 
@@ -228,8 +228,8 @@ environment_variables:
 | Endpoint name  | The name of the endpoint to create the deployment under.   |
 | Model          | The model to use for the deployment. This value can be either a reference to an existing versioned model in the workspace or an inline model specification.  |
 | Environment    | The environment to host the model and code. It contains: <br>    - `image`<br>      - `inference_config`: is used to build a serving container for online deployments, including `liveness route`, `readiness_route`, and `scoring_route` .                                                             |
-| Instance type  | The VM size to use for the deployment. For the list of supported sizes, see [Managed online endpoints SKU list](https://learn.microsoft.com/en-us/azure/machine-learning/reference-managed-online-endpoints-vm-sku-list?view=azureml-api-2).  |
-| Instance count | The number of instances to use for the deployment. Base the value on the workload you expect. For high availability, we recommend that you set the value to at least `3`. We reserve an extra 20% for performing upgrades. For more information, see [managed online endpoint quotas](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-manage-quotas?view=azureml-api-2#azure-machine-learning-managed-online-endpoints).    |
+| Instance type  | The VM size to use for the deployment. For the list of supported sizes, see [Managed online endpoints SKU list](../reference-managed-online-endpoints-vm-sku-list.md).  |
+| Instance count | The number of instances to use for the deployment. Base the value on the workload you expect. For high availability, we recommend that you set the value to at least `3`. We reserve an extra 20% for performing upgrades. For more information, see [managed online endpoint quotas](../how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints).    |
 |Environment variables| Following environment variables need to be set for endpoints deployed from a flow: <br> - (required) `PROMPTFLOW_RUN_MODE: serving`: specify the mode to serving <br> - (required) `PRT_CONFIG_OVERRIDE`: for pulling connections from workspace <br> - (optional) `PROMPTFLOW_RESPONSE_INCLUDED_FIELDS:`: When there are multiple fields in the response, using this env variable will filter the fields to expose in the response. <br> For example, if there are two flow outputs: "answer", "context", and if you only want to have "answer" in the endpoint response, you can set this env variable to '["answer"]'. <br> - <br>|
 
 If you create a Kubernetes online deployment, you need to specify the following additional attributes:
@@ -237,7 +237,7 @@ If you create a Kubernetes online deployment, you need to specify the following 
 | Attribute      | Description                                                                                                                                                                                                                                                                                                                                                                              |
 |-----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Type      | The type of the deployment. Set the value to `kubernetes`. |
-| Instance type  | The instance type you have created in your kubernetes cluster to use for the deployment, represent the request/limit compute resource of the  deployment. For more detail, see [Create and manage instance type](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-manage-kubernetes-instance-types?view=azureml-api-2&tabs=select-instancetype-to-trainingjob-with-cli%2Cselect-instancetype-to-modeldeployment-with-cli%2Cdefine-resource-to-modeldeployment-with-cli).  |                                                                                                                                                                                                                                                                                                                                |
+| Instance type  | The instance type you have created in your kubernetes cluster to use for the deployment, represent the request/limit compute resource of the  deployment. For more detail, see [Create and manage instance type](../how-to-manage-kubernetes-instance-types.md).  |                                                                                                                                                                                                                                                                                                                                |
 ### Deploy your online endpoint to Azure
 
 To create the endpoint in the cloud, run the following code:
@@ -284,6 +284,6 @@ az ml online-endpoint invoke --name basic-chat-endpoint --request-file endpoints
 
 ## Next steps
 
-- Learn more about [managed online endpoint schema](../reference-yaml-endpoint-online.md?view=azureml-api-2) and [managed online deployment schema](../reference-yaml-deployment-managed-online?view=azureml-api-2).
+- Learn more about [managed online endpoint schema](../reference-yaml-endpoint-online.md) and [managed online deployment schema](../reference-yaml-deployment-managed-online.md).
 - Learn more about how to [troubleshoot managed online endpoints](../how-to-troubleshoot-online-endpoints.md?view=azureml-api-2&tabs=cli).
-- Once you improve your flow, and would like to deploy the improved version with safe rollout strategy, see [Safe rollout for online endpoints](../how-to-safely-rollout-online-endpoints?view=azureml-api-2).
+- Once you improve your flow, and would like to deploy the improved version with safe rollout strategy, see [Safe rollout for online endpoints](../how-to-safely-rollout-online-endpoints.md).

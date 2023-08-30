@@ -32,19 +32,17 @@ To get started with the Prompt Flow SDK, explore and follow the [SDK quick start
 
 The ecosystem also provides a powerful VS Code extension designed for enabling you to easily and interactively develop prompt flows, fine-tune your prompts, and test them with a user-friendly UI.
 
-![Prompt flow VScode extension flatten](../media/community-eco-system/prompt-flow-vs-code-extension-flatten.png)
-
-:::image type="content" source="./media/community-eco-system/prompt-flow-vs-code-extension-flatten.png" alt-text="Screenshot of the Prompt flow extension in the VS Code showing the UI. " lightbox = "./media/community-eco-system/prompt-flow-vs-code-extension-flatten.png":::
+:::image type="content" source="./media/community-ecosystem/prompt-flow-vs-code-extension-flatten.png" alt-text="Screenshot of the Prompt flow extension in the VS Code showing the UI. "lightbox = "./media/community-ecosystem/prompt-flow-vs-code-extension-flatten.png":::
 
 To get started with the Prompt Flow VS Code extension, navigate to the extension marketplace to install and read the details tab.
 
-:::image type="content" source="./media/community-ecosystem/prompt-flow-vs-code-extension.png" alt-text="Screenshot of the Prompt flow extension in the VS Code marketplace. " lightbox = "./media/community-ecosystem/prompt-flow-vs-code-extension.png":::
+:::image type="content" source="./media/community-ecosystem/prompt-flow-vs-code-extension.png" alt-text="Screenshot of the Prompt flow extension in the VS Code marketplace. "lightbox = "./media/community-ecosystem/prompt-flow-vs-code-extension.png":::
 
 ## Transition to production in cloud
 
 After successful development and testing of your prompt flow within our community ecosystem, the subsequent step you're considering may involve transitioning to a production-grade LLM application. We recommend Azure Machine Learning for this phase to ensure security, efficiency, and scalability.
 
-You can seamlessly shift your local flow to your Azure resource to leverage large-scale execution and management in the cloud. To achieve this, see [Integration with LLMOps](integrate-with-llmops.md#go-back-to-studio-ui).
+You can seamlessly shift your local flow to your Azure resource to leverage large-scale execution and management in the cloud. To achieve this, see [Integration with LLMOps](how-to-integrate-with-llmops.md#go-back-to-studio-ui).
 
 ## Community support
 
