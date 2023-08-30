@@ -174,7 +174,7 @@ Use the following steps to connect your service instances:
    ```output
    SUCCESS: Your application was provisioned in Azure in xx minutes xx seconds.
    You can view the resources created under the resource group rg-<your-environment-name> in Azure Portal:
-   https://portal.azure.com/#@/resource/subscriptions/<your-subscription-id>/resourceGroups/<your-resource-group>/overview
+   https://portal.azure.com/#@/resource/subscriptions/<your-subscription-id>/resourceGroups/rg-<your-environment-name>/overview
    ```
 
    > [!NOTE]
@@ -255,7 +255,7 @@ Use the following steps to package the app, provision the Azure resources requir
    To learn more about alpha features and their support, visit https://aka.ms/azd-feature-stages.
 
    (✓) Done: Deploying service simple-todo-web
-   - Endpoint: https://<your-Azure-Spring-Apps-instance-name>-demo.azuremicroservices.io/
+   - Endpoint: https://<your-Azure-Spring-Apps-instance-name>-simple-todo-web.azuremicroservices.io/
 
    SUCCESS: Your application was deployed to Azure in xx minutes xx seconds.
    You can view the resources created under the resource group rg-<your-environment-name> in Azure Portal:

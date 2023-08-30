@@ -95,7 +95,7 @@ Open your web browser and go to the [Azure portal](https://portal.azure.com/). E
    ```text
    SUCCESS: Your application was provisioned in Azure in xx minutes xx seconds.
    You can view the resources created under the resource group rg-<your-environment-name>-<random-string>> in Azure Portal:
-   https://portal.azure.com/#@/resource/subscriptions/<your-subscription-id>/resourceGroups/<your-resource-group>/overview
+   https://portal.azure.com/#@/resource/subscriptions/<your-subscription-id>/resourceGroups/rg-<your-environment-name>/overview
    ```
 
    > [!NOTE]
