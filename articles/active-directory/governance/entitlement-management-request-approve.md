@@ -1,6 +1,6 @@
 ---
 title: Approve or deny access requests - entitlement management
-description: Learn how to use the My Access portal to approve or deny requests to an access package in Azure Active Directory entitlement management.
+description: Learn how to use the My Access portal to approve or deny requests to an access package in Microsoft Entra entitlement management.
 services: active-directory
 documentationCenter: ''
 author: owinfreyatl

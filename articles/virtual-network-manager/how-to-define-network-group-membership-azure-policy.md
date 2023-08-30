@@ -65,30 +65,31 @@ List of supported operators:
 
 ## Basic editor
 
-Assume you have the following virtual networks in your subscription. Each virtual network has an associated tag named **environment** with the respective value of *Production* or *Test*. 
+Assume you have the following virtual networks in your subscription. Each virtual network has an associated tag named **environment** with the respective value of *production* or *test*. 
 
-| **Virtual Network** | **Tag** |
-| ------------------- | ------- |
-| myVNet01-EastUS | Production |
-| myVNet01-WestUS | Production |
-| myVNet02-WestUS | Test |
-| myVNet03-WestUS | Test |
+| **Virtual Network** | **Tag Name** | **Tag Value** |
+| ------------------- | ------- | ------------ |
+| myVNet01-EastUS | environment | production |
+| myVNet01-WestUS | environment | production |
+| myVNet02-WestUS | environment | test |
+| myVNet03-WestUS | environment | test |
 
-You only want to select virtual networks that contain **WestUS** in the name. To begin using the basic editor to create your conditional statement, you need to create a new network group.
+You only want to select virtual networks that whose tag has a key value pair of **environment** equal to **production**. To begin using the basic editor to create your conditional statement, you need to create a new network group.
 
 1. Go to your Azure Virtual Network Manager instance and select **Network Groups** under **Settings**. Then select **+ Create** to create a new network group.
 1. Enter a **Name** and an optional **Description** for the network group, and select **Add**.
 1. Select the network group from the list and select **Create Azure Policy**.
 1. Enter a **Policy name** and leave the **Scope** selections unless changes are needed.
-1. Under **Criteria**, select **Name** from the drop-down under **Parameter** and then select **Contains** from the drop-down under *Operator*.
-1. Enter **WestUS** under **Condition** and select **Preview Resources**. You should see myVNet01-WestUS, myVNet02-WestUS, and myVNet03-WestUS show up in the list.
+1. Under **Criteria**, select **Tags** from the drop-down under **Parameter** and then select **Key value pair** from the drop-down under **Operator**.
+1. Enter **environment** and **production** under **Condition** and select **Preview Resources**. You should see myVNet01-EastUS and myVNet01-WestUS show up in the list.
+
+    :::image type="content" source="media/how-to-define-network-group-membership-azure-policy/add-key-value-pair-tag.png" alt-text="Screenshot of Create Azure Policy window setting tag with key value pair.":::
+
 1. Select **Close** and **Save**. 
-1. After a few minutes, select your network group and select **Group Members** under **Settings**. You should only see myVNet01-WestUS, myVNet02-WestUS, and myVNet03-WestUS show up in the list.
+1. After a few minutes, select your network group and select **Group Members** under **Settings**. You should only see myVNet01-WestUS and myVNet01-WestUS.
 
 > [!IMPORTANT] 
 > The **basic editor** is only available during the creation of an Azure Policy. Once a policy is created, all edits will be done using JSON in the **Policies** section of virtual network manager or via Azure Policy.
->
-> When using the basic editor, your condition options are limited through the portal experience. For complex conditions like creating a network group for VNets based on a [customer-defined tag](#example-3-using-custom-tag-values-with-advanced-editor), you must use the advanced editor. Learn more about [Azure Policy definition structure](../governance/policy/concepts/definition-structure.md).
 
 ## Advanced editor
 

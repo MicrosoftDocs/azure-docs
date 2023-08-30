@@ -76,8 +76,7 @@ Create a new Python file named _quickstart.py_. Open the new file in your prefer
         status = response.json()['status']
     image_url = response.json()['result']['data'][0]['url']
 
-    # Display the image in the default image viewer
-    print(response.json())
+    print(image_url)
     ```
 
     > [!IMPORTANT]

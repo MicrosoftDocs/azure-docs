@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 2/17/2023
+ms.date: 8/22/2023
 ms.author: greglin
 ---
 
@@ -50,6 +50,16 @@ When an application gateway sends the original request to the backend server, it
 > - **Is a public endpoint**, the application gateway uses its frontend public IP to reach the server. If there isn't a frontend public IP address, one is assigned for the outbound external connectivity.
 > - **Contains an internally resolvable FQDN or a private IP address**, the application gateway routes the request to the backend server by using its instance private IP addresses.
 > - **Contains an external endpoint or an externally resolvable FQDN**, the application gateway routes the request to the backend server by using its frontend public IP address. If the subnet contains [service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md), the application gateway will route the request to the service via its private IP address. DNS resolution is based on a private DNS zone or custom DNS server, if configured, or it uses the default Azure-provided DNS. If there isn't a frontend public IP address, one is assigned for the outbound external connectivity.
+
+### Backend server DNS resolution
+
+When a backend pool's server is configured with a Fully Qualified Domain Name (FQDN), Application Gateway performs a DNS lookup to get the domain name's IP address(es). The IP value is stored in your application gateway's cache to enable it to reach the targets faster when serving incoming requests.
+
+The Application Gateway retains this cached information for the period equivalent to that DNS record's TTL (time to live) and performs a fresh DNS lookup once the TTL expires. If a gateway detects a change in IP address for its subsequent DNS query, it will start routing the traffic to this updated destination. In case of problems such as the DNS lookup failing to receive a response or the record no longer exists, the gateway continues to use the last-known-good IP address(es). This ensures minimal impact on the data path.
+
+> [!IMPORTANT]
+>  * When using custom DNS servers with Application Gateway's Virtual Network, it is crucial that all servers are identical and respond consistently with the same DNS values.
+>  * Users of on-premises custom DNS servers must ensure connectivity to Azure DNS through [Azure DNS Private Resolver](../dns/private-resolver-hybrid-dns.md) (recommended) or DNS forwarder VM when using a Private DNS zone for Private endpoint.
 
 ### Modifications to the request
 
