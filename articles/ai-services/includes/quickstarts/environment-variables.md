@@ -8,16 +8,29 @@ ms.author: aahi
 
 ## Configure an environment variable for authentication
 
-Your application must be authenticated to access Azure AI services resources. For production, use a secure way of storing and accessing your credentials. For example, after you have a key for your resource, write it to a new environment variable on the local machine running the application.
+Your application must be authenticated to access Azure AI services resources. To set the environment variable for your resource key, open a console window, and follow the instructions for your operating system and development environment. To set the `COGNITIVE_SERVICE_KEY` environment variable, replace `your-key` with one of the keys for your resource.
+
+For production, use a secure way of storing and accessing your credentials, such as a password-protected secret vault. For test, writing to an environment variable is standard practice, but keep in mind that environment variables are stored in clear text on the local machine.
 
 > [!TIP]
 > Don't include the key directly in your code, and never post it publicly. See the Azure AI services [security](../../security-features.md) article for more authentication options like [Azure Key Vault](../../use-key-vault.md). 
 
-To set the environment variable for your resource key, open a console window, and follow the instructions for your operating system and development environment. To set the `COGNITIVE_SERVICE_KEY` environment variable, replace `your-key` with one of the keys for your resource.
+
 
 #### [Windows](#tab/windows)
 
-You can either use PowerShell's `$Env:` syntax to set the variable for only the current session, or the `setx` command to retain the variable across sessions.
+PowerShell includes an extensible solution,
+[Secret Management](/powershell/module/microsoft.powershell.secretmanagement),
+for storing secure strings in platforms such as [Secret Store](/powershell/module/microsoft.powershell.secretstore) or [Azure KeyVault](/powershell/utility-modules/secretmanagement/how-to/using-azure-keyvault).
+
+To setup a secret store to host secure strings, see the article
+[Getting started using secret store](/powershell/utility-modules/secretmanagement/get-started/using-secretstore). Then use the following examples to store your api keys.
+
+```powershell
+Set-Secret -Name COGNITIVE_SERVICE_KEY -value your-key
+```
+
+For test environments, you can either use PowerShell's `$Env:` syntax to set an environment variable for only the current session, or the `setx` command to retain the variable across sessions. Remember that these values are stored in clear text in Windows registry keys.
 
 ```powershell
 $Env:COGNITIVE_SERVICE_KEY = your-key
