@@ -9,7 +9,7 @@ ms.author: abnarain
 ms.date: 08/29/2023
 ---
 
-# Enable Azure Key Vault for Managed Airflow in Azure Data Factory
+# Enable Azure Key Vault for Managed Airflow
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 

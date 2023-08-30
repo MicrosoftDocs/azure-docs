@@ -9,7 +9,7 @@ ms.author: abnarain
 ms.date: 08/30/2023
 ---
 
-# Add a Kubernetes secret to pull an image from a private container registry
+# Add a Kubernetes secret to access a private container registry
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
