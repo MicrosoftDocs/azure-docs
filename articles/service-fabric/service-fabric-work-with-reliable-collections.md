@@ -217,16 +217,26 @@ Furthermore, service code is upgraded one upgrade domain at a time. So, during a
 > .NET Strings can be used as a key but use the string itself as the key--do not use the result of String.GetHashCode as the key.
 
 Alternatively, you can perform a multi-phase upgrade. 
-- Phase 1. Deploy a new service version that has both the original, V1 of the data contracts, and the new V2 of the data contracts. During this phase, service should not use the V2 data contracts.
-- Phase 2: Deploy a new service version that adds data to "TestDicV1" (which uses Class1) and "TestDicV2" (which uses Class2). You can do this by attaching to rebuild and change notifications for TestDicV1. In the notification handlers, update TestDicV2. (Edit: See below)
-- Phase 2: Deploy a new version where all writes (adds and updates) go to "TestDicV2" (which uses Class2). Reads first check "TestDicV1" then "TestDicV2". Concurrently, enumerate "TestDicV1" and copy to "TestDicV2" with TryAdd API.
-- Phase 3. Deploy a new service version that switches to using the V2 collection and removes V1 collection from the [StateManager](/dotnet/api/microsoft.servicefabric.services.runtime.statefulservice.statemanager).
-- Wait for log truncation. By default, this happens every 50MB of writes (adds, updates, and removes) to reliable collections.
-
-Phase 4: Deploy a new version that removes Class1.
-
-
-With a two-phase upgrade, you upgrade your service from V1 to V2: V2 contains the code that knows how to deal with the new schema change but this code doesn't execute. When the V2 code reads V1 data, it operates on it and writes V1 data. Then, after the upgrade is complete across all upgrade domains, you can somehow signal to the running V2 instances that the upgrade is complete. (One way to signal this is to roll out a configuration upgrade; this is what makes this a two-phase upgrade.) Now, the V2 instances can read V1 data, convert it to V2 data, operate on it, and write it out as V2 data. When other instances read V2 data, they do not need to convert it, they just operate on it, and write out V2 data.
+1. Deploy a new service version that
+    - has both the original version, V1 of the data contracts, and the new version, V2 of the data contracts.
+    - During this phase, the service must continue accessing data in the original, V1 collection using V1 data contracts.
+2. Deploy a new service version where
+    - a new, V2 collection iscreated;
+    - all add, update and delete operations are performed on both V1 and V2 collections in a single transaction;
+    - all read operations are performed on the V1 collection to maintain compatibility with replicas still running the older version
+3. Copy all data from all data from the V1 collection to the V2 collection.
+    - this can be done by the same service version deployed in step 3;
+4. Deploy a new service version where
+    - all read operations are performed on the V2 collection;
+    - all add, update and delete operations are still performed on both V1 and V2 collections to maintain the option of rolling back to V1 if necessary.
+5. Deploy a new service version where
+    - all operations are performed on the V2 collection only;
+    - going back to V1 is no longer possible with a service rollback and would require rolling forward with reversed steps 2-4.
+6. Deploy a new service version that
+    - removes V1 collection from the [StateManager](/dotnet/api/microsoft.servicefabric.services.runtime.statefulservice.statemanager).
+7. Wait for log truncation. By default, this happens every 50MB of writes (adds, updates, and removes) to reliable collections.
+8. Deploy a new version where
+    - the V1 data contract has been removed.
 
 ## Next steps
 To learn about creating forward compatible data contracts, see [Forward-Compatible Data Contracts](/dotnet/framework/wcf/feature-details/forward-compatible-data-contracts)
