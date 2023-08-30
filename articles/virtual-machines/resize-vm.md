@@ -77,7 +77,6 @@ az vm start --resource-group $resourceGroup --name $vm
 
 The below script sets the variables `resourceGroup`, `vm`, and `size`. It then checks if the desired VM size is available by using `az vm list-vm-resize-options` and checking if the output contains the desired size. If the desired size isn't available, the script exits with an error message. If the desired size is available, the script deallocates the VM, resizes it, and starts it again.
 
-```azurecli-interactive
 
 ```azurecli-interactive
 # Set variables
