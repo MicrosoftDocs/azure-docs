@@ -1,9 +1,8 @@
 ---
-title: Enable file sharing using UI Library and Azure Blob Storage in an Azure communication Chat
+title: Enable file sharing using UI Library in Teams Interoperability Chat
 titleSuffix: An Azure Communication Services tutorial
-description: Learn how to use Azure Communication Services with the UI Library to enable file sharing through chat leveraging Azure Blob Storage.
-author: anjulgarg
-manager: alkwa
+description: Learn how to use the UI Library to enable file sharing in Teams Interoperability Chat
+author: jpeng-ms
 services: azure-communication-services
 
 author: jpeng-ms
