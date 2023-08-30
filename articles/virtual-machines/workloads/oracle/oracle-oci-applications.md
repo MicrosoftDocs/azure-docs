@@ -1,12 +1,12 @@
 ---
 title: Oracle application solutions with Database on OCI
-description: Application architectures to deploy Oracle apps including E-Business Suite, JD Edwards EnterpriseOne, and PeopleSoft on Microsoft Azure virtual machines with databases in Azure or in Oracle Cloud Infrastructure (OCI).
+description: Oracle application solutions with Database on  Oracle Cloud Infrastructure (OCI).
 author: jjaygbay1
 ms.service: virtual-machines
 ms.subservice: oracle
 ms.collection: linux
 ms.topic: article
-ms.date: 07/18/2019
+ms.date: 08/18/2023
 ms.author: jacobjaygbay
  
 ---
