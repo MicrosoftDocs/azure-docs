@@ -43,7 +43,7 @@
       href: jobs.md
     - name: Microservices
       href: microservices.md
-    - name: Networking and ingress
+    - name: Networking & ingress
       items: 
       - name: Architecture overview
         href: networking.md
@@ -127,7 +127,7 @@
       - name: CORS
         href: cors.md
         displayName: Cross origin resource sharing
-    - name: Custom domains and certificates
+    - name: Custom domains & certificates
       items:
       - name: Set up custom domain with a free certificate
         href: custom-domains-managed-certificates.md
@@ -232,7 +232,7 @@
         href: azure-arc-create-container-app.md
 - name: Reference
   items:
-    - name: ARM and YAML specifications
+    - name: ARM & YAML specifications
       href: azure-resource-manager-api-spec.md
     - name: Azure CLI
       href: /cli/azure/containerapp?view=azure-cli-latest&preserve-view=true
