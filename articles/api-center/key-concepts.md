@@ -35,7 +35,7 @@ The following diagram shows the main entities in API Center and how they relate 
 To enable multiple teams to work independently in a single API Center instance, API Center provides workspaces. Each workspace can have its own set of APIs and environments. Similar to API Management [workspaces](../api-management/workspaces-overview.md), workspaces in API Center allow separate teams to access and manage a part of the API inventory. Access is controlled through Azure role-based access control (RBAC).
 
 > [!NOTE]
-> In preview, API Center provides only a single workspace.
+> In preview, API Center provides only a single default workspace.
 
 ## API
 
@@ -61,7 +61,7 @@ In API Center, a deployment identifies a specific environment used for an API ru
 
 ## Metadata properties
 
-In API Center, you organize your APIs, deployments, and other entities by setting values of metadata properties, which can be used for searching and filtering and to enforce governance standards. API Center provides several common built-in properties such as "API type" and "Lifecycle". An API Center owner can augment the built-in properties by defining custom properties in a metadata schema to organize their APIs, deployments, and environments according to their organization's requirements. For example, create a *Line of business* property to identify the business unit that owns an API. 
+In API Center, you organize your APIs, deployments, and other entities by setting values of metadata properties, which can be used for searching and filtering and to enforce governance standards. API Center provides several common built-in properties such as "API type" and "Version lifecycle". An API Center owner can augment the built-in properties by defining custom properties in a metadata schema to organize their APIs, deployments, and environments according to their organization's requirements. For example, create a *Line of business* property to identify the business unit that owns an API. 
 
 API Center supports properties of type array, boolean, number, object, predefined choices, and string. 
 

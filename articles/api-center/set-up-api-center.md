@@ -1,10 +1,10 @@
 ---
 title: Tutorial - Get started with Azure API Center (preview) | Microsoft Docs
-description: Follow this tutorial to set up your API center for API discovery, reuse, and governance. Register APIs, add versions and definitions, set metadata properties, and more.
+description: Set up your API center for API discovery, reuse, and governance. Register APIs, add versions and definitions, set metadata properties, and more.
 author: dlepow
 ms.service: api-center
 ms.topic: tutorial
-ms.date: 08/23/2023
+ms.date: 08/30/2023
 ms.author: danlep
 ms.custom: 
 ---
@@ -18,7 +18,7 @@ In this tutorial, you learn how to use the portal to:
 > * Create an API center
 > * Define metadata properties in the schema
 > * Register one or more APIs in your API center
-> * Add a version to an API
+> * Add a version with an API definition to an API
 > * Add information about API environments and deployments
 
 For background information about APIs, deployments, and other entities that you can inventory in API Center, see [Key concepts](key-concepts.md).
@@ -67,14 +67,14 @@ After deployment, your API center is ready to use!
 
 ## Define properties in the metadata schema
 
-You organize your APIs and other entities in by setting values of metadata properties, which can be used for searching and filtering and to enforce governance standards. Several common properties such as "API type" and "Lifecycle" are built-in. Each API center provides a configurable metadata schema to help you define custom properties that are specific to your organization. 
+You organize your APIs and other entities in by setting values of metadata properties, which can be used for searching and filtering and to enforce governance standards. Several common properties such as "API type" and "Version lifecycle" are built-in. Each API center provides a configurable metadata schema to help you define custom properties that are specific to your organization. 
 
 Here you define two example properties: *Line of business* and *Public-facing*; if you prefer, define other properties of your own. When you add or update APIs, deployments, and environments, you'll set values for these properties and any common built-in properties.
 
 > [!IMPORTANT]
 > Take care not to include any sensitive, confidential, or personal information in the titles (names) of metadata properties you define. These titles are visible in monitoring logs that are used by Microsoft to improve the functionality of the service. However, other metadata details and values are your protected customer data. 
 
-1. In the left menu, select **Metadata > + Add property**. 
+1. In the left menu, select **Metadata schema > + Add property**. 
 
 1. On the **Details** tab, enter information about the property. 
 
@@ -82,11 +82,15 @@ Here you define two example properties: *Line of business* and *Public-facing*; 
     
     1. Select type **Predefined choices** and enter choices such as *Marketing, Finance, IT, Sales*, and so on. Optionally enable **Allow selection of multiple values**. 
 
-1. On the **Assignments tab**, select **Required** for APIs. Select **Optional** for Deployments and Environments. 
+    :::image type="content" source="media/set-up-api-center/metadata-property-details.png" alt-text="Screenshot of metadata schema property in the portal.":::
+
+1. On the **Assignments** tab, select **Required** for APIs. Select **Optional** for Deployments and Environments. 
+
+    :::image type="content" source="media/set-up-api-center/metadata-property-assignments.png" alt-text="Screenshot of metadata property assignments in the portal.":::
 
 1. On the **Review + Create** tab, review the settings and select **Create**. 
  
-    The property is added to the **Metadata** list. 
+    The property is added to the list. 
 
 1. Select **+ Add property** to add another property.
 
@@ -96,25 +100,25 @@ Here you define two example properties: *Line of business* and *Public-facing*; 
     
     1. Select type **Boolean**. 
 
-1. On the **Assignments tab**, select **Required** for APIs. Select **Not applicable** for Deployments and Environments. 
+1. On the **Assignments** tab, select **Required** for APIs. Select **Not applicable** for Deployments and Environments. 
 
-    The property is added to the **Metadata** list.
+    The property is added to the list.
 
-1. Select **View schema > API** to see both built-in properties and the properties that you added to the schema for APIs.
+1. Select **View schema > API** to see the metadata schema for APIs, which includes built-in properties and the properties that you added.
 
     :::image type="content" source="media/set-up-api-center/metadata-schema.png" alt-text="Screenshot of metadata schema in the portal.":::
 
 > [!NOTE]
-> You can add properties in the schema at any time and apply them to APIs and other entities in your API Center. However, you can't delete properties that are already assigned to entities. You can change the assignment of a property to an entity, for example from required to optional, but you can't change the type of a property after it's assigned.
+> * Add properties in the schema at any time and apply them to APIs and other entities in your API center. 
+> * After adding a property, you can change its assignment to an entity, for example from required to optional.
+> * You can't delete, change the type, or unassign properties that are currently set in entities. 
 
 ## Add APIs
 
 Now add (register) APIs in your API center. Each API registration includes:
-* a name, type, and description
+* a title (name), type, and description
 * version information
-* optional API definition information
 * optional links to documentation and contacts
-* optional deployment information
 * built-in and custom metadata properties that you defined
 
 The following steps register two sample APIs: Swagger Petstore API and Demo Conference API (see [Prerequisites](#prerequisites)). If you prefer, register APIs of your own.
@@ -130,22 +134,18 @@ The following steps register two sample APIs: Swagger Petstore API and Demo Conf
     |**API title**| Enter *Swagger Petstore API*.| Name you choose for the API.  |
     |**Identification**|After you enter the preceding title, API Center generates this identifier, which you can override.| Azure resource name for the API.|
     |**API type**| Select **REST** from the dropdown.| Type of API.|
-    | **Summary** | Optionally enter a  summary. | Summary description of the API.  |
+    | **Summary** | Optionally enter a summary. | Summary description of the API.  |
     | **Description** | Optionally enter a description. | Description of the API. |
     | **Version** | | |
     |**Version title**| Enter a version title of your choice, such as *v1*.|Name you choose for the API version.|
     |**Version identification**|After you enter the preceding title, API Center generates this identifier, which you can override.| Azure resource name for the version.|
     |**Version lifecycle**  | Make a selection from the dropdown, for example, **Testing** or **Production**. | Lifecycle stage of the API version. |
-    | **API specification** | | |
-    | **Format** | For the Swagger Petstore API, select **OpenAPI**. | Specification format for the API.|
-    | **Version** | Enter a version identifier of your choice, such as *1.0.1*. | Specification version. |
-    |**Document**        | Browse to the YAML file for Swagger Petstore API.      |  API definition file.     |
     |**External documentation**     | Optionally add one or more links to external documentation.       | Name, description, and URL of documentation for the API.      |  
     |**Contact**         |  Optionally add information for one or more contacts.       | Name, email, and URL of a contact for the API.      |  
     | **Line of business** | If you added this custom property, make a selection from the dropdown, such as **Marketing**. | Custom metadata property that identifies the business unit that owns the API. |
     | **Public-facing**  | If you added this custom property, select the checkbox.    |  Custom metadata property that identifies whether the API is public-facing or internal only.     |
 
-1. Select **Create**. <!-- Add something about Deployments? -->
+1. Select **Create**.
 1. Repeat the preceding three steps to register another API, such as the Demo Conference API.
 
 The APIs appear on the **APIs** page in the portal. When you've added a large number of APIs to the API center, use the search box and filters on this page to find the APIs you want.
@@ -158,7 +158,7 @@ The APIs appear on the **APIs** page in the portal. When you've added a large nu
 
 ## Add an API version
 
-Throughout its lifecycle, an API could have multiple versions. You can add a version to an existing API in your API center, optionally with an updated definition file or files. 
+Throughout its lifecycle, an API could have multiple versions. You can add a version to an existing API in your API center, optionally with a definition file or files. 
 
 Here you add a version to one of your APIs:
 
@@ -171,7 +171,7 @@ Here you add a version to one of your APIs:
     <!-- Update screenshot -->
     :::image type="content" source="media/set-up-api-center/add-version.png" alt-text="Screenshot of adding an API version in the portal.":::
 
-1. In the **Add version** page: 
+1. In the **Add API version** page: 
     1. Enter or select the following information:
 
         |Setting|Value|Description|
@@ -180,14 +180,25 @@ Here you add a version to one of your APIs:
         |**Version identification**|After you enter the preceding title, API Center generates this identifier, which you can override.| Azure resource name for the version.|
         |**Version lifecycle**  | Make a selection from the dropdown, such as **Production**. | Lifecycle stage of the API version. |
     
-    1. Under **API definition**, optionally select **+ Add** to associate one or more definition files with the API version. For example, you might add a new OpenAPI definition file for the API version.  
+    1. Select **Create**.
+    
+1. To add an API definition to your version, in the left menu of your API version, select **Definitions** > **+ Add definition**.
+
+1. In the **Add definition** Page:
+
+    1. Enter or select the following information:
 
         |Setting|Value|Description|
         |-------|-----|-----------|
-        | **Format** | For the Demo Conference API, select **OpenAPI**. | Specification format for the API.|
-        | **Version** | Enter a version identifier of your choice, such as *1.0.2*. | Specification version. |
+        |**Title**| Enter a title of your choice, such as *OpenAPI 2*.|Name you choose for the API definition.|
+        |**Identification**|After you enter the preceding title, API Center generates this identifier, which you can override.| Azure resource name for the definition.|
+        | **Description** | Optionally enter a description. | Description of the API definition. |
+        | **Specification name** | For the Demo Conference API, select **OpenAPI**. | Specification format for the API.|
+        | **Version** | Enter a version identifier of your choice, such as *2.0*. | Specification version. |
         |**Document**        | Browse to a definition file for the Demo Conference API.      |  API definition file.     |
-    
+
+    1. Select **Create**.
+
 ## Add an environment
 
 Use your API center to keep track of your real-world API environments. For example, you might use Azure API Management or another solution to distribute, secure, and monitor some of your APIs. Or you might directly serve some APIs using a compute service or a Kubernetes cluster. You can add multiple environments to your API center, each aligned with a lifecycle stage such as development, testing, staging, or production.
@@ -227,12 +238,6 @@ Here you add a deployment by associating one of your APIs with the environment y
 
 1. On the **Demo Conference API** page, select **Deployments** > **+ Add deployment**.
 
-1. On the Version page, select **Deployments**.
-
-    :::image type="content" source="media/set-up-api-center/deployments.png" alt-text="Screenshot of API deployments in the portal.":::
-
-1. Select **+ Add deployment**.
-
 1. In the **Add deployment** page, add the following information. You'll see the custom *Line of business* metadata property that you defined at the bottom of the page.
 
     |Setting|Value|Description|
@@ -242,7 +247,6 @@ Here you add a deployment by associating one of your APIs with the environment y
     | **Description** | Optionally enter a description. | Description of the deployment. |
     | **Environment** | Make a selection from the dropdown, such as *My Testing*, or optionally select **Create new**.| New or existing environment where the API version is deployed. |
     | **Runtime URL** | Enter a base URL such as `https://api.contoso.com/conference`. | Base runtime URL for the API in the environment.  |
-    | **API version** | Make a selection from the dropdown, such as *v1*. | API version you added to your API center. |
     | **Definition file** | Select or upload an API definition file for the Demo Conference API. | API definition file. |
 
 In this tutorial, you learned how to use the portal to:
@@ -250,7 +254,7 @@ In this tutorial, you learned how to use the portal to:
 > * Create an API center
 > * Define metadata properties in the schema
 > * Register one or more APIs in your API center
-> * Add a version to an API
+> * Add a version with an API definition to an API
 > * Add information about API environments and deployments
 
 ## Next steps

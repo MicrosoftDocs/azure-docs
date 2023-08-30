@@ -48,7 +48,7 @@ For more information about the information you can manage and the capabilities i
    * UK South
    * West Europe 
 
-* In preview, API Center provides only a single workspace.
+* In preview, API Center provides only a single default workspace.
                
 ## Frequently asked questions
 
