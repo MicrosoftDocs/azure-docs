@@ -571,7 +571,8 @@ New-AzVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 
 ---
 
-<a>community-gallery</a>
+<a name="community-gallery"></a>
+
 ## Community gallery (preview)
 
 > [!IMPORTANT]
