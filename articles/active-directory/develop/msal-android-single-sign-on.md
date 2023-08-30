@@ -27,7 +27,7 @@ In this how-to, you'll learn how to configure the SDKs used by your application 
 
 This how-to assumes you know how to:
 
-- Provision your app using the Azure portal. For more information, see the instructions for creating an app in [the Android tutorial](./tutorial-v2-android.md#create-a-project)
+- Provision your app. For more information, see the instructions for creating an app in [the Android tutorial](./tutorial-v2-android.md#create-a-project)
 - Integrate your application with the [MSAL for Android](https://github.com/AzureAD/microsoft-authentication-library-for-android)
 
 ## Methods for SSO
@@ -98,7 +98,7 @@ You must register a redirect URI that is compatible with the broker. The redirec
 
 The format of the redirect URI is: `msauth://<yourpackagename>/<base64urlencodedsignature>`
 
-You can use [keytool](https://manpages.debian.org/buster/openjdk-11-jre-headless/keytool.1.en.html) to generate a Base64-encoded signature hash using your app's signing keys, and then use the Azure portal to generate your redirect URI using that hash.
+You can use [keytool](https://manpages.debian.org/buster/openjdk-11-jre-headless/keytool.1.en.html) to generate a Base64-encoded signature hash using your app's signing keys, and then generate your redirect URI using that hash.
 
 Linux and macOS:
 
@@ -121,7 +121,7 @@ Once you've generated a signature hash with _keytool_, use the Azure portal to g
 1. In the **Configure your Android app** pane that opens, enter the **Signature hash** that you generated earlier and a **Package name**.
 1. Select the **Configure** button.
 
-The Azure portal generates the redirect URI for you and displays it in the **Android configuration** pane's **Redirect URI** field.
+The redirect URI is generated for you and is displayed in the **Android configuration** pane's **Redirect URI** field.
 
 For more information about signing your app, see [Sign your app](https://developer.android.com/studio/publish/app-signing) in the Android Studio User Guide.
 
