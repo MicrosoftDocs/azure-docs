@@ -100,7 +100,7 @@ As the existing passwords stored inside the database can no longer be decrypted,
 7. Click **OK** to save the new password and close the pop-up dialog.
 ![Screenshot that shows the "Connect to Active Directory Forest" page in the "Properties" window.](./media/how-to-connect-sync-change-serviceacct-pass/key6.png)
 
-#### Reinitialize the password of the ADSync service account
+#### Reinitialize the password of the AADConnector account
 You cannot directly provide the password of the Azure AD service account to the Synchronization Service. Instead, you need to use the cmdlet **Add-ADSyncAADServiceAccount** to reinitialize the Azure AD service account. The cmdlet resets the account password and makes it available to the Synchronization Service:
 
 1. Sign in to the Azure AD Connect sync server and open PowerShell.
@@ -116,8 +116,19 @@ The cmdlet resets the password for the service account and updates it both in Az
 Now that the Synchronization Service has access to the encryption key and all the passwords it needs, you can restart the service in the Windows Service Control Manager:
 
 
+
 1. Go to Windows Service Control Manager (START → Services).
 2. Select **Microsoft Azure AD Sync** and click Restart.
+
+## For newer Builds, there is no need to Abandon the existing encryption Keys.
+
+1.	Stop Scheduler[ ](https://learn.microsoft.com/en-us/azure/active-directory/hybrid/connect/how-to-connect-sync-change-serviceacct-pass#stop-the-synchronization-service)
+2.	Change the password of the Microsoft Azure AD Sync service account in the on-prem Active Directory(account what is running the AAD Connect Service what you can see in the services.msc console)
+3.	Update ADSync password in Service Control manager (services.msc console)
+4.	Once you perform above steps, you need to update the password for both the connector accounts.
+a.	If you know the existing password for AD Connector, then update the same in Sync Service Manager Link
+b.	Reset password for AADConnector Account using Powershell command Link
+5.	Start Scheduler
 
 ## Next steps
 **Overview topics**
