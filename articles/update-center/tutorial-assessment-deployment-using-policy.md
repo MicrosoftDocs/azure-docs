@@ -15,7 +15,7 @@ ms.author: sudhirsneha
  
 This tutorial explains how you can enable periodic assessment and schedule updates on your Azure VMs at scale using Azure policy. A policy allows you to assign standards and assess compliance at scale. [Learn more](../governance/policy/overview.md).
 
-**Periodic Assessment**  - is a setting on your machine that enables you to see the latest updates available for your machines and removes the hassle of performing assessment manually every time you need to check the update status. Once you enable this setting, update management center (preview) fetches updates on your machine once every 24 hours.
+**Periodic Assessment**  - is a setting on your machine that enables you to see the latest updates available for your machines and removes the hassle of performing assessment manually every time you need to check the update status. Once you enable this setting, update manager fetches updates on your machine once every 24 hours.
 
 **Schedule patching** - is a setting to target a group of machines for update deployment via Azure Policy. The grouping using policy, keeps you from having to edit your deployment to update machines. You can use subscription, resource group, tags or regions to define the scope and use this feature for the built-in policies which you can customize as per your use-case.
 

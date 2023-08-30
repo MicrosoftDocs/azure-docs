@@ -12,7 +12,7 @@ ms.author: sudhirsneha
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
 
-Workbooks help you to create visual reports that help in data analysis. This article describes the various features that Workbooks offer in Update Manager (preview). 
+Workbooks help you to create visual reports that help in data analysis. This article describes the various features that Workbooks offer in Update Manager. 
 
 ## Key benefits
 - Provides a canvas for data analysis and creation of visual reports
