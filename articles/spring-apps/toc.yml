@@ -28,6 +28,8 @@ items:
     href: quickstart-deploy-event-driven-app.md
   - name: Launch your first microservice apps
     href: quickstart-deploy-microservice-apps.md
+  - name: Launch your first Java Native Image app
+    href: quickstart-deploy-java-native-image-app.md
 - name: Tutorials
   expanded: true
   items:

@@ -9,7 +9,7 @@ ms.custom: include file
 
 |Language                                 |1.x         |2.x<sup>1</sup> | 3.x<sup>1</sup> | 4.x |
 |-----------------------------------------|------------|---| --- | --- |
-|[C#](../articles/azure-functions/functions-dotnet-class-library.md)|GA (.NET Framework 4.8)|GA (.NET Core 2.1)| GA (.NET Core 3.1)<br/> | GA (.NET 6.0)<br/>[GA (.NET 7.0)](../articles/azure-functions/dotnet-isolated-process-guide.md)<br/>[GA (.NET Framework 4.8)](../articles/azure-functions/dotnet-isolated-process-guide.md) |
+|[C#](../articles/azure-functions/functions-dotnet-class-library.md)|GA (.NET Framework 4.8)|GA (.NET Core 2.1)| GA (.NET Core 3.1)<br/> | GA (.NET 6.0)<br/>[GA (.NET 7.0)][isolated]<br/>[GA (.NET Framework 4.8)][isolated]<br/>[Preview (.NET 8.0)][isolated]<sup>3</sup>  |
 |[JavaScript](../articles/azure-functions/functions-reference-node.md?tabs=javascript)|GA (Node.js 6)|GA (Node.js 10 & 8)| GA (Node.js 14, 12, & 10) | GA (Node.js 18, 16, & 14) |
 |[Java](../articles/azure-functions/functions-reference-java.md)|N/A|GA (Java 8)| GA (Java 11 & 8)| GA (Java 11 & 8) <br/> GA (Java 17)|
 |[PowerShell](../articles/azure-functions/functions-reference-powershell.md) |N/A|N/A|N/A| GA (PowerShell 7.2)|
@@ -17,7 +17,12 @@ ms.custom: include file
 |[TypeScript](../articles/azure-functions/functions-reference-node.md?tabs=typescript)<sup>2</sup> |N/A|GA| GA | GA |
 
 <sup>1</sup> Reached the end of life (EOL) on December 13, 2022. We highly recommend you [migrating your apps to version 4.x](../articles/azure-functions/migrate-version-3-version-4.md) for full support.  
+
 <sup>2</sup> Supported through transpiling to JavaScript.
+
+<sup>3</sup> Preview support for .NET 8 function apps is currently limited to Linux applications. To develop using .NET 8 Preview SDKs in Visual Studio, you must use [Visual Studio 2022 Preview](https://visualstudio.microsoft.com/vs/preview/).
 
 See the language-specific developer guide article for more details about supported language versions.   
 For information about planned changes to language support, see [Azure roadmap](https://azure.microsoft.com/roadmap/?tag=functions).
+
+[isolated]: ../articles/azure-functions/dotnet-isolated-process-guide.md

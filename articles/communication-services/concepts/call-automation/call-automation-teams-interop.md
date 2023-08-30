@@ -9,12 +9,12 @@ ms.subservice: call-automation
 ms.topic: include
 ms.date: 02/22/2023
 ms.author: visho
-ms.custom: private_preview
+ms.custom: public_preview
 ---
 
 # Deliver expedient customer service by adding Microsoft Teams users in Call Automation workflows
 
-[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 Businesses are looking for innovative ways to increase the efficiency of their customer service operations. Azure Communication Services Call Automation provides developers the ability to build programmable customer interactions using real-time event triggers to perform actions based on custom business logic. For example, with support for interoperability with Microsoft Teams, developers can use Call Automation APIs to add subject matter experts (SMEs). These SMEs, who use Microsoft Teams, can be added to an existing customer service call to provide expert advice and help resolve a customer issue.
 

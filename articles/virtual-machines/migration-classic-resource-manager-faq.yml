@@ -151,7 +151,7 @@ sections:
           How do I migrate my classic storage accounts to Resource Manager?
         answer: |
           If you have a classic VM attached to your account, migrate the classic VMs first. Classic storage accounts must be migrated after classic VM is migrated. Migration can be done either using the Azure portal, with PowerShell or with Azure CLI.
-          1. [Migrate using PowerShell](./migration-classic-resource-manager-ps.md#step-52-migrate-a-storage-account)
+          1. [Migrate using PowerShell](./migration-classic-resource-manager-ps.md#step-5b-migrate-a-storage-account)
           2. [Migrate using Azure CLI](./migration-classic-resource-manager-cli.md#step-5-migrate-a-storage-account)
           3. [Migrate using Azure portal](./migration-classic-resource-manager-overview.md#migration-of-storage-accounts)
         

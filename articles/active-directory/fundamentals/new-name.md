@@ -6,9 +6,9 @@ author: CelesteDG
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: fundamentals
-ms.custom: has-azure-ad-ps-ref
+ms.custom: has-azure-ad-ps-ref, docutune-disable
 ms.topic: overview
-ms.date: 08/15/2023
+ms.date: 08/29/2023
 ms.author: celested
 ms.reviewer: nicholepet
 # Customer intent: As a new or existing customer, I want to learn more about the new name for Azure Active Directory (Azure AD) and understand the impact the name change may have on other products, new or existing license(s), what I need to do, and where I can learn more about Microsoft Entra products.
@@ -82,6 +82,7 @@ Don't rename the following features, functionality, or services.
 | PowerShell <br/><br/>&#8226; Azure Active Directory PowerShell <br/>&#8226; Azure AD PowerShell <br/>&#8226; Microsoft Graph PowerShell | Azure AD PowerShell for Graph is planned for deprecation on March 30, 2024. For more info on the deprecation plans, see the deprecation update. We encourage you to migrate to Microsoft Graph PowerShell, which is the recommended module for interacting with Azure AD. <br/><br/>[Microsoft Graph PowerShell](/powershell/microsoftgraph/overview) - Acts as an API wrapper for the Microsoft Graph APIs and helps administer every Microsoft Entra ID feature that has an API in Microsoft Graph. |
 | Accounts <br/><br/>&#8226; Microsoft account <br/>&#8226; Work or school account | For end user sign-ins and account experiences, follow guidance for work and school accounts in [Sign in with Microsoft branding guidelines](../develop/howto-add-branding-in-apps.md). |
 | Microsoft identity platform | The Microsoft identity platform encompasses all our identity and access developer assets. It will continue to provide the resources to help you build applications that your users and customers can sign in to using their Microsoft identities or social accounts. |
+| <br/>&#8226; Azure AD Sync <br/>&#8226; DirSync | DirSync and Azure AD Sync aren't supported and no longer work. If you're still using DirSync or Azure AD Sync, you must upgrade to Microsoft Entra Connect to resume your sync process. For more info, see [Microsoft Entra Connect](/azure/active-directory/hybrid/connect/how-to-dirsync-upgrade-get-started). |
 
 ## Glossary of updated terminology
 
@@ -117,10 +118,11 @@ Only official product names are capitalized, plus Conditional Access and My * ap
 |                                  | Azure Active Directory for education | Microsoft Entra ID for education |
 | **Features and functionality** | Azure AD access token authentication<br/> Azure Active Directory access token authentication | Microsoft Entra access token authentication |
 |            | Azure AD account<br/> Azure Active Directory account | Microsoft Entra account<br/><br/> This terminology is only used with IT admins and developers. End users authenticate with a work or school account. |
-|            | Azure AD activity logs<br/> Azure AD audit log | Microsoft Entra activity logs |
+|            | Azure AD activity logs | Microsoft Entra activity logs |
 |            | Azure AD admin<br/> Azure Active Directory admin | Microsoft Entra admin |
 |            | Azure AD admin center<br/> Azure Active Directory admin center | Replace with Microsoft Entra admin center and update link to entra.microsoft.com |
 |            | Azure AD application proxy<br/> Azure Active Directory application proxy | Microsoft Entra application proxy |
+|            | Azure AD audit log | Microsoft Entra audit log |
 |            | Azure AD authentication<br/> authenticate with an Azure AD identity<br/> authenticate with Azure AD<br/> authentication to Azure AD | Microsoft Entra authentication<br/> authenticate with a Microsoft Entra identity<br/> authenticate with Microsoft Entra<br/> authentication to Microsoft Entra<br/><br/> This terminology is only used with administrators. End users authenticate with a work or school account. |
 |            | Azure AD B2B<br/> Azure Active Directory B2B | Microsoft Entra B2B |
 |            | Azure AD built-in roles<br/> Azure Active Directory built-in roles | Microsoft Entra built-in roles |
@@ -157,7 +159,6 @@ Only official product names are capitalized, plus Conditional Access and My * ap
 |            | Azure AD Seamless single sign-on (SSO)<br/> Azure Active Directory Seamless single sign-on (SSO) | Microsoft Entra seamless single sign-on (SSO)<br/> (Second use: SSO) |
 |            | Azure AD self-service password reset (SSPR)<br/> Azure Active Directory self-service password reset (SSPR) | Microsoft Entra self-service password reset (SSPR) |
 |            | Azure AD service principal<br/> Azure Active Directory service principal | Microsoft Entra service principal |
-|            | Azure AD Sync<br/> Azure Active Directory Sync | Microsoft Entra Sync |
 |            | Azure AD tenant<br/> Azure Active Directory tenant | Microsoft Entra tenant |
 |            | Create a user in Azure AD<br/> Create a user in Azure Active Directory | Create a user in Microsoft Entra |
 |            | Federated with Azure AD<br/> Federated with Azure Active Directory | Federated with Microsoft Entra |
@@ -272,6 +273,14 @@ Banners, alerts, and message center posts notified users of the name change. The
 ### What if I use the Azure AD name in my content or app?
 
 We'd like your help spreading the word about the name change and implementing it in your own experiences. If you're a content creator, author of internal documentation for IT or identity security admins, developer of Azure AD–enabled apps, independent software vendor, or Microsoft partner, we hope you use the naming guidance outlined in the ([Glossary of updated terminology](#glossary-of-updated-terminology)) to make the name change in your content and product experiences by the end of 2023.
+
+## Revision history
+
+| Date | Change description |
+|------|--------------------|
+| August 29, 2023 | <br/>&#8226; In the [glossary](#glossary-of-updated-terminology), corrected the entry for "Azure AD activity logs" to separate "Azure AD audit log", which is a distinct type of activity log. <br/>&#8226; Added Azure AD Sync and DirSync to the [Azure AD renaming exceptions and clarifications](#azure-ad-renaming-exceptions-and-clarifications) section. |
+| August 18, 2023 | <br/>&#8226; Updated the article to include a new section [Glossary of updated terminology](#glossary-of-updated-terminology), which includes the old and new terminology.<br/>&#8226; Updated info and added link to usage of the Microsoft Entra ID icon, and updates to verbiage in some sections.  |
+| July 11, 2023 | Published the original guidance as part of the [Microsoft Entra moment and related announcement](https://www.microsoft.com/security/blog/2023/07/11/microsoft-entra-expands-into-security-service-edge-and-azure-ad-becomes-microsoft-entra-id/?culture=en-us&country=us). |
 
 ## Next steps
 

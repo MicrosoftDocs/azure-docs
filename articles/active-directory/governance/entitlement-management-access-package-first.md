@@ -62,7 +62,7 @@ A resource directory has one or more resources to share. In this step, you creat
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a Global administrator or User administrator.
 
-1. In the left navigation, select **Identity**.
+1. Browse to **Identity governance** > **Entitlement management** > **Access packages**.
 
 1. [Create two users](../fundamentals/add-users.md). Use the following names or different names.
 
@@ -213,9 +213,7 @@ In this step, you confirm that the **internal requestor** was assigned the acces
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as **Admin1**.
 
-1. Select **Identity Governance**.
-
-1. In the left menu, select **Access packages**.
+1. Browse to **Identity governance** > **Entitlement management** > **Access packages**.
 
 1. Find and select **Marketing Campaign** access package.
 
