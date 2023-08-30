@@ -10,8 +10,6 @@ ms.author: barclayn
 ms.custom: include file,licensing
 ---
 
-## Privileged identity management
-
 To use Privileged Identity Management (PIM) in Azure Active Directory (Azure AD), part of Microsoft Entra, a tenant must have a valid license. Licenses must also be assigned to the administrators and relevant users. This article describes the license requirements to use Privileged Identity Management.  To use Privileged Identity Management, you must have one of the following licenses:
 
 

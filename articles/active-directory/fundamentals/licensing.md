@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/29/2023
+ms.date: 08/30/2023
 ms.subservice: hybrid
 ms.author: barclayn
 ---
@@ -31,31 +31,63 @@ The following licenses are available for use with Microsoft Entra ID.  The type 
 - **Microsoft Azure AD P2** - Azure Active Directory P2 (becoming Microsoft Entra ID P2) is available as a standalone or included with Microsoft 365 E5 for enterprise customers.
 - **Microsoft Entra ID Governance** - Entra ID Governance is an advanced set of identity governance capabilities available for Microsoft Entra ID P1 and P2 customers.
 
-[!INCLUDE [Access reviews](../includes/licensing-access-reviews.md)]
+## App provisioning
 
 [!INCLUDE [App provisioning](../includes/licensing-app-provisioning.md)]
 
+## Authentication
+
 [!INCLUDE [Authentication](../includes/licensing-authentication.md)]
+
+## Azure AD connect V2
+
+[!INCLUDE [active-directory-free-license.md](../includes/active-directory-free-license.md)]
+
+## Azure AD connect health
+
+[!INCLUDE [active-directory-free-license.md](../includes/active-directory-p1-license.md)]
+
+## Conditional Access
 
 [!INCLUDE [Conditional access](../includes/licensing-conditional-access.md)]
 
+## Governance
+
 [!INCLUDE [governance](../includes/licensing-governance.md)]
+
+## Identity protection
 
 [!INCLUDE [Identity protection](../includes/licensing-identity-protection.md)]
 
+## Managed identities
+
 [!INCLUDE [Managed identities](../includes/licensing-managed-identities.md)]
+
+## Multi-tenant organizations
 
 [!INCLUDE [Multi-tenant organizations](../includes/licensing-multi-tenant-organizations.md)]
 
+## Privileged identity management
+
 [!INCLUDE [PIM](../includes/licensing-pim.md)]
+
+## Role based access control
 
 [!INCLUDE [Roles based access control](../includes/licensing-role-based-access-control.md)]
 
+## Reports and monitoring
+
 [!INCLUDE [reports and monitoring](../includes/licensing-reports-monitoring.md)]
+
+## Roles
 
 [!INCLUDE [licensing-roles](../includes/licensing-roles.md)]
 
+## Verified ID
+
 [!INCLUDE [verified ID](../includes/licensing-verified-id.md)]
+
+## Features in preview
 
 [!INCLUDE [features-preview](../includes/licensing-features-preview.md)]
 

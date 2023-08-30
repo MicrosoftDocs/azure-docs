@@ -10,6 +10,5 @@ ms.author: barclayn
 ms.custom: include file,licensing
 ---
 
-## App provisioning
 
 Azure AD Application Proxy, requires Azure AD Premium P1 or P2 licenses. For more information about licensing, see [Azure Active Directory Pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing)

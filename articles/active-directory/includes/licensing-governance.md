@@ -10,9 +10,6 @@ ms.author: barclayn
 ms.custom: include file,licensing
 ---
 
-
-## Governance
-
 The following table shows what features are available with each license.  Note that not all features are available in all clouds; see [Azure Active Directory feature availability](../authentication/feature-availability.md) for Azure Government.
 
 |Feature|Free|Microsoft Entra ID P1|Microsoft Entra ID P2|Microsoft Entra ID Governance|
