@@ -1,11 +1,11 @@
 ---
-title: Choosing the right Event Grid tier for your solution
+title: Choose the right Event Grid tier for your solution
 description: Describes how to choose the right tier based on the resource features and use cases.
 ms.topic: overview
 ms.date: 08/25/2023
 ---
 
-# Choosing the right Event Grid tier for your solution
+# Choose the right Event Grid tier for your solution
 
 Azure Event Grid has two tiers with different capabilities. This article will share details on both. 
 
