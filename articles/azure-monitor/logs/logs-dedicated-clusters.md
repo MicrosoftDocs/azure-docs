@@ -92,6 +92,10 @@ Deleted clusters take two weeks to be completely removed. You can have up to sev
 > - A list of initial workspace to be linked to cluster is identified
 > - You have permissions to subscription intended for the cluster and any workspace to be linked
 
+#### [Portal](#tab/azure-portal)
+
+N/A
+
 #### [CLI](#tab/cli)
 
 ```azurecli
@@ -148,6 +152,10 @@ Should be 202 (Accepted) and a header.
 ### Check cluster provisioning status
 
 The provisioning of the Log Analytics cluster takes a while to complete. Use one of the following methods to check the *ProvisioningState* property. The value is *ProvisioningAccount* while provisioning and *Succeeded* when completed.
+
+#### [Portal](#tab/azure-portal)
+
+N/A
 
 #### [CLI](#tab/cli)
 
@@ -235,6 +243,10 @@ The workspace and the cluster can be in different subscriptions. It's possible f
 
 Use the following commands to link a workspace to a cluster:
 
+#### [Portal](#tab/azure-portal)
+
+N/A
+
 #### [CLI](#tab/cli)
 
 ```azurecli
@@ -295,6 +307,11 @@ Content-type: application/json
 ### Check workspace link status
   
 When a cluster is configured with customer-managed keys, data ingested to the workspaces after the link operation completion is stored encrypted with your managed key. The workspace link operation can take up to 90 minutes to complete and you can check the state by sending Get request to workspace and observe if *clusterResourceId* property is present in the response under *features*.
+
+#### [Portal](#tab/azure-portal)
+
+1. Open the **Log Analytics workspaces** menu and then select your workspace.
+1. On the **Overview** page, select **JSON View**.
 
 #### [CLI](#tab/cli)
 
@@ -375,6 +392,10 @@ After you create your cluster resource and it's fully provisioned, you can edit 
 
 ## Get all clusters in resource group
 
+#### [Portal](#tab/azure-portal)
+
+N/A
+
 #### [CLI](#tab/cli)
 
 ```azurecli
@@ -443,6 +464,10 @@ Authorization: Bearer <token>
 
 ## Get all clusters in subscription
 
+#### [Portal](#tab/azure-portal)
+
+N/A
+
 #### [CLI](#tab/cli)
 
 ```azurecli
@@ -479,6 +504,10 @@ The same as for 'clusters in a resource group', but in subscription scope.
 When the data volume to linked workspaces changes over time, you can update the Commitment Tier level appropriately to optimize cost. The tier is specified in units of Gigabytes (GB) and can have values of 500, 1000, 2000 or 5000 GB per day. You don't have to provide the full REST request body, but you must include the sku.
 
 During the commitment period, you can change to a higher commitment tier, which restarts the 31-day commitment period. You can't move back to pay-as-you-go or to a lower commitment tier until after you finish the commitment period.
+
+#### [Portal](#tab/azure-portal)
+
+N/A
 
 #### [CLI](#tab/cli)
 
@@ -521,6 +550,10 @@ Content-type: application/json
 The *billingType* property determines the billing attribution for the cluster and its data:
 - *Cluster* (default) -- billing is attributed to the Cluster resource
 - *Workspaces* -- billing is attributed to linked workspaces proportionally. When data volume from all linked workspaces is below Commitment Tier level, the bill for the remaining volume is attributed to the cluster
+
+#### [Portal](#tab/azure-portal)
+
+N/A
 
 #### [CLI](#tab/cli)
 
@@ -568,6 +601,10 @@ Queries aren't affected when workspace is unlinked and service performs cross-cl
 
 Use the following commands to unlink a workspace from cluster:
 
+#### [Portal](#tab/azure-portal)
+
+N/A
+
 #### [CLI](#tab/cli)
 
 ```azurecli
@@ -607,6 +644,10 @@ If you delete a cluster that has linked workspaces, workspaces get automatically
 > - Cluster's name remain reserved two weeks after deletion, and can't be used for creating a new cluster.
 
 Use the following commands to delete a cluster:
+
+#### [Portal](#tab/azure-portal)
+
+N/A
 
 #### [CLI](#tab/cli)
 
