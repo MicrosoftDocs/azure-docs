@@ -1,14 +1,14 @@
 ---
-title: "Proofpoint TAP (using Azure Function) connector for Microsoft Sentinel"
-description: "Learn how to install the connector Proofpoint TAP (using Azure Function) to connect your data source to Microsoft Sentinel."
+title: "Proofpoint TAP (using Azure Functions) connector for Microsoft Sentinel"
+description: "Learn how to install the connector Proofpoint TAP (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 02/28/2023
+ms.date: 08/28/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
-# Proofpoint TAP (using Azure Function) connector for Microsoft Sentinel
+# Proofpoint TAP (using Azure Functions) connector for Microsoft Sentinel
 
 The [Proofpoint Targeted Attack Protection (TAP)](https://www.proofpoint.com/us/products/advanced-threat-protection/targeted-attack-protection) connector provides the capability to ingest Proofpoint TAP logs and events into Microsoft Sentinel. The connector provides visibility into Message and Click events in Microsoft Sentinel to view dashboards, create custom alerts, and to improve monitoring and investigation capabilities.
 
@@ -70,9 +70,9 @@ ProofPointTAPMessagesBlocked_CL
 
 ## Prerequisites
 
-To integrate with Proofpoint TAP (using Azure Function) make sure you have: 
+To integrate with Proofpoint TAP (using Azure Functions) make sure you have: 
 
-- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](/azure/azure-functions).
+- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](/azure/azure-functions/).
 - **Proofpoint TAP API Key**: A Proofpoint TAP API username and password is required. [See the documentation to learn more about Proofpoint SIEM API](https://help.proofpoint.com/Threat_Insight_Dashboard/API_Documentation/SIEM_API).
 
 
