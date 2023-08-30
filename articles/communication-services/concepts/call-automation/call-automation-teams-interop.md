@@ -59,10 +59,10 @@ The following list presents the set of features that are currently available in 
 | Query scenarios       | Get the call state                                | ✔️    | ✔️    | ✔️    | ✔️    |
 |                       | Get a participant in a call                       | ✔️    | ✔️    | ✔️    | ✔️    |
 |                       | List all participants in a call                   | ✔️    | ✔️    | ✔️    | ✔️    |
-| Call Recording*        | Start/pause/resume/stop recording                 | ✔️    | ✔️    | ✔️    | ✔️    |
+| Call Recording*        | Start/pause/resume/stop recording (  Azure Communication Services call recording notifications in Teams clients are supported for Teams desktop, web iOS and ANdroid)  | ✔️    | ✔️    | ✔️    | ✔️    |
 
 > [!IMPORTANT]
-> Azure Communication Services call recording notifications in Teams clients are not supported. You must obtain consent from and notify the parties of recorded communications in a manner that complies with the laws applicable to each participant. i.e., using the Play API available in Call Automation.
+> During Public preview, you won't be able to stop the call recording if it started after adding the Teams participant.
 
 ## Supported clients
 | Clients          | Support     |
