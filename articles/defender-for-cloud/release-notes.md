@@ -32,8 +32,9 @@ Updates in September include:
 
 September 1, 2023
 
-Malware scanning is now generally available (GA) as an add-on to Defender for Storage and is a significant enhancement to Microsoft Defender for Cloud’s security offerings for Azure Blob Storage. Learn more about [malware scanning in Defender for Storage](defender-for-storage-malware-scan.md).
+Malware scanning is now generally available (GA) as an add-on to Defender for Storage and is a significant enhancement to Microsoft Defender for Cloud’s security offerings for Azure Blob Storage. Malware scanning offers near real-time protection for storage and is priced according to your data usage and budget.
 
+Learn more about [malware scanning in Defender for Storage](defender-for-storage-malware-scan.md).
 
 Malware scanning is priced per gigabyte of data scanned. Billing begins on September 3, 2023. Visit the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/) for more information. 
 
