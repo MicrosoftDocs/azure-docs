@@ -99,7 +99,7 @@ Ensure that you have completed the [subscription prerequisites](prerequisites-su
 
 ## Create a cluster
 
-Once the cluster pool deployment completes, continue to use the Azure portal to create a [Trino](./trino/trino-create-cluster.md#create-a-trino-cluster), [Flink](./flink/flink-create-cluster-portal.md#create-a-flink-cluster), and [Spark](./spark/hdinsight-on-aks-spark-overview.md) cluster. 
+Once the cluster pool deployment completes, continue to use the Azure portal to create a [Trino](./trino/trino-create-cluster.md#create-a-trino-cluster), [Flink](./flink/flink-create-cluster-portal.md#create-an-apache-flink-cluster), and [Spark](./spark/hdinsight-on-aks-spark-overview.md) cluster. 
 
 > [!IMPORTANT]
 > For creating a cluster in a new cluster pool, assign AKS agentpool MSI "Managed Identity Operator" role on the user-assigned managed identity created as part of resource prerequisites.
