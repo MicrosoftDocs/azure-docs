@@ -48,11 +48,13 @@ Numbers can be purchased on eligible Azure subscriptions and in geographies wher
 > - [Saudi Arabia](../numbers/phone-number-management-for-saudi-arabia.md)
 > - [Singapore](../numbers/phone-number-management-for-singapore.md)
 > - [Slovakia](../numbers/phone-number-management-for-slovakia.md)
+> - [South Korea](../numbers/phone-number-management-for-south-korea.md)
 > - [Spain](../numbers/phone-number-management-for-spain.md)
 > - [Sweden](../numbers/phone-number-management-for-sweden.md)
 > - [Switzerland](../numbers/phone-number-management-for-switzerland.md)
 > - [Taiwan](../numbers/phone-number-management-for-taiwan.md)
 > - [Thailand](../numbers/phone-number-management-for-thailand.md)
+> - [United Arab Emirates](../numbers/phone-number-management-for-united-arab-emirates.md)
 > - [United Kingdom](../numbers/phone-number-management-for-united-kingdom.md)
 > - [United States](../numbers/phone-number-management-for-united-states.md)
 

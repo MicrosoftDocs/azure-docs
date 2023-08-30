@@ -46,6 +46,12 @@
       href: configure-wu-agent.md
   - name: Manage
     items:
+    - name: SQL Server Patching
+      items:
+      - name: Overview
+        href: guidance-patching-sql-server-azure-vm.md
+      - name: Guidance on patching for SQL Server on Azure VMs
+        href: /azure/azure-sql/virtual-machines/azure-update-manager-sql-vm?view=azuresql-vm?toc=/azure/update-center/toc.json
     - name: Check update compliance 
       href: view-updates.md
     - name: Deploy updates and track results

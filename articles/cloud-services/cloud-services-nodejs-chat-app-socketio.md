@@ -14,6 +14,9 @@ ms.custom: compute-evergreen, devx-track-js
 
 [!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
+> [!TIP]
+> Socket.IO is now natively supported on Azure. To scale out a Socket.IO app to handle thousands of connections, it is often frustrating. Now that Azure natively supports Socket.IO, you can let Azure handle scalability and availability. [Learn more about how you can get any Socket.IO app running on Azure with a few lines of code](https://learn.microsoft.com/azure/azure-web-pubsub/socketio-overview). 
+
 Socket.IO provides real time communication between your Node.js
 server and clients. This tutorial walks you through hosting a
 socket.IO based chat application on Azure. For more information
