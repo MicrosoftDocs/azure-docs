@@ -343,6 +343,7 @@ The following table lists the supported languages for print text by the most rec
   |Russian|ru|
   |Rwa|rwk|
   |Sadri (Devanagari)|sck|
+  |Sakha|sah|
   |Samburu|saq|
   |Samoan (Latin)|sm|
   |Sango|sg|
@@ -415,7 +416,6 @@ The following table lists the supported languages for print text by the most rec
   |Western Frisian|fy|
   |Wolof|wo|
   |Xhosa|xh|
-  |Yakut|sah|
   |Yucatec Maya|yua|
   |Zapotec|zap|
   |Zarma|dje|
@@ -520,7 +520,7 @@ The [Read API](concept-read.md) supports detecting the following languages in yo
 | Nepali              | `ne`          |
 | Norwegian           | `no`          |
 | Norwegian Nynorsk   | `nn`          |
-| Oriya               | `or`          |
+| Odia               | `or`          |
 | Pasht               | `ps`          |
 | Persian             | `fa`          |
 | Polish              | `pl`          |
