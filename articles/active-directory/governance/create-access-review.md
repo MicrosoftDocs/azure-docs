@@ -265,6 +265,8 @@ Use the following instructions to create an access review on a team with shared 
 
 ## Allow group owners to create and manage access reviews of their groups
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 The prerequisite role is a Global or User administrator.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
