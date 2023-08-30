@@ -80,7 +80,7 @@ For more information about DevOps integration with Azure Machine Learning, see [
 
 ### Prerequisites
 
-- Complete the [Create resources to get started](..quickstart-create-resources.md) if you don't already have an Azure Machine Learning workspace.
+- Complete the [Create resources to get started](../quickstart-create-resources.md) if you don't already have an Azure Machine Learning workspace.
 
 - A Python environment in which you've installed Azure Machine Learning Python SDK v2 - [install instructions](https://github.com/Azure/azureml-examples/tree/sdk-preview/sdk#getting-started). This environment is for defining and controlling your Azure Machine Learning resources and is separate from the environment used at runtime for training.
 
@@ -412,6 +412,6 @@ For a comprehensive guide on an end-to-end MLOps pipeline that executes a web cl
 
 The last step to go to production is to deploy your flow as an online endpoint in Azure Machine Learning. This allows you to integrate your flow into your application and make it available for use.
 
-For more information on how to deploy your flow, see [Deploy flows to Azure Machine Learning managed online endpoint for real-time inference with CLI and SDK](deploy-to-aml-code.md).
+For more information on how to deploy your flow, see [Deploy flows to Azure Machine Learning managed online endpoint for real-time inference with CLI and SDK](deploy-to-code.md).
 
 ## Next steps

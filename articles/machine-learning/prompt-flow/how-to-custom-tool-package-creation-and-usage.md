@@ -140,7 +140,7 @@ You can create runtime with CI(Compute Instance) or MIR(Managed Inference Runtim
 
    Create a customized environment in Azure Machine Learning studio.
 
-   Currently we support creating environment with "Create a new docker context" environment source. "Use existing docker image with optional conda file" has known [limitation](../how-to-manage-environments-v2?view=azureml-api-2&tabs=cli#create-an-environment-from-a-conda-specification) and isn't supported now.
+   Currently we support creating environment with "Create a new docker context" environment source. "Use existing docker image with optional conda file" has known [limitation](../how-to-manage-environments-v2.md#create-an-environment-from-a-conda-specification) and isn't supported now.
 
     :::image type="content" source="./media/how-to-custom-tool-package-creation-and-usage/create-customized-env-step-1.png" alt-text="Screenshot of create environment in Azure Machine Learning studio."lightbox = "./media/how-to-custom-tool-package-creation-and-usage/create-customized-env-step-1.png:::
 

@@ -14,7 +14,7 @@ ms.date: 08/30/2023
 
 # How to use streaming endpoints deployed from Prompt Flow (preview)
 
-In Prompt Flow, you can [deploy flow to an Azure Machine Learning managed online endpoint](../how-to-deploy-for-real-time-inference.md) for real-time inference.
+In Prompt Flow, you can [deploy flow to an Azure Machine Learning managed online endpoint](how-to-deploy-for-real-time-inference.md) for real-time inference.
 
 When consuming the endpoint by sending a request, the default behavior is that the online endpoint will keep waiting until the whole response is ready, and then send it back to the client. This can cause a long delay for the client and a poor user experience.
 
@@ -235,7 +235,7 @@ The chat then continues in a similar way.
 
 ## Handle errors
 
-The client should check the HTTP response code first. See [HTTP status code table](../how-to-troubleshoot-online-endpoints.md?view=azureml-api-2&tabs=cli#http-status-codes) for common error codes returned by online endpoints.
+The client should check the HTTP response code first. See [HTTP status code table](../how-to-troubleshoot-online-endpoints.md#http-status-codes) for common error codes returned by online endpoints.
 
 If the response code is "424 Model Error", it means that the error is caused by the model’s code. The error response from a Prompt Flow model always follows this format:
 
@@ -284,7 +284,7 @@ There are several libraries to consume server-sent events in JavaScript. For exa
 
 Here's a sample chat app written in Python. (To view the source code, see [chat_app.py](https://aka.ms/pf-streaming-sample-chat))
 
-:::image type="content" source="./media/how-to-enable-streaming-mode/chat-app.gif" alt-text="Gif a sample chat app using Python." lightbox = "./media/how-to-enable-streaming-mode/chat-app.gif":::
+:::image type="content" source="./media/how-to-enable-streaming-mode/chat-app.gif" alt-text="Gif a sample chat app using Python."lightbox ="./media/how-to-enable-streaming-mode/chat-app.gif":::
 
 ## Advance usage - hybrid stream and non-stream flow output
 
@@ -487,5 +487,5 @@ data: {"answer": ""}
 
 ## Next steps
 
-- Learn more about how to [troubleshoot managed online endpoints](https://learn.microsoft.com/azure/machine-learning/how-to-troubleshoot-online-endpoints?view=azureml-api-2&tabs=cli).
-- Once you improve your flow, and would like to deploy the improved version with safe rollout strategy, you can refer to [Safe rollout for online endpoints](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-safely-rollout-online-endpoints?view=azureml-api-2).
+- Learn more about how to [troubleshoot managed online endpoints](../how-to-troubleshoot-online-endpoints.md).
+- Once you improve your flow, and would like to deploy the improved version with safe rollout strategy, you can refer to [Safe rollout for online endpoints](../how-to-safely-rollout-online-endpoints.md).
