@@ -845,6 +845,8 @@ items:
       href: concepts/email/sdk-features.md
     - name: Allowed attachment types
       href: concepts/email/email-attachment-allowed-mime-types.md
+    - name: Understanding sender reputation
+      href: concepts/email/sender-reputation-managed-suppression-list.md      
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/communication-services/
     - name: Domains

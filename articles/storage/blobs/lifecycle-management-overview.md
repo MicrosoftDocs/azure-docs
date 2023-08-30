@@ -5,7 +5,7 @@ description: Use Azure Storage lifecycle management policies to create automated
 author: normesta
 
 ms.author: normesta
-ms.date: 08/10/2023
+ms.date: 08/30/2023
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: conceptual
@@ -456,6 +456,20 @@ Lifecycle management policies are free of charge. Customers are billed for stand
 Each update to a blob's last access time is billed under the [other operations](https://azure.microsoft.com/pricing/details/storage/blobs/) category.
 
 For more information about pricing, see [Block Blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
+
+## Known issues and limitations
+
+- Tiering is not yet supported in a premium block blob storage account. For all other accounts, tiering is allowed only on block blobs and not for append and page blobs.
+
+- A lifecycle management policy must be read or written in full. Partial updates are not supported.
+
+- Each rule can have up to 10 case-sensitive prefixes and up to 10 blob index tag conditions.
+
+- If you enable firewall rules for your storage account, lifecycle management requests may be blocked. You can unblock these requests by providing exceptions for trusted Microsoft services. For more information, see the **Exceptions** section in [Configure firewalls and virtual networks](../common/storage-network-security.md#exceptions).
+
+- A lifecycle management policy can't change the tier of a blob that uses an encryption scope.
+
+- The delete action of a lifecycle management policy won't work with any blob in an immutable container. With an immutable policy, objects can be created and read, but not modified or deleted. For more information, see [Store business-critical blob data with immutable storage](./immutable-storage-overview.md).
 
 ## Frequently asked questions (FAQ)
 
