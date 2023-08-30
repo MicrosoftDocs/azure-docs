@@ -189,27 +189,21 @@ _We have discussed different ways of implementing PgBouncer and the table below 
 
 |**Selection Criteria**|**PgBouncer on App VM**|**PgBouncer on VM using ALB***|**PgBouncer on AKS Sidecar**|**PgBouncer as a Service**|**Flexible Server Inbuilt PgBouncer**|
 |:-:|:-:|:-:|:-:|:-:|:-:|
-|Simplified Management|$\textcolor{yellow}{\textsf{●}}$|<div align="center">:yellow_circle:</div>|<div align="center">:red_circle:</div>|<div align="center">:red_circle:</div>|<div align="center">:green_circle:</div>|
-|HA|<div align="center">:yellow_circle:</div>|<div align="center">:yellow_circle:</div>|<div align="center">:green_circle:</div>|<div align="center">:green_circle:</div>|<div align="center">:green_circle:</div>|
-|Containerized Apps|<div align="center">:yellow_circle:</div>|<div align="center">:yellow_circle:</div>|<div align="center">:green_circle:</div>|<div align="center">:green_circle:</div>|<div align="center">:green_circle:</div>|
-|Reduced Network Overhead & Latency|<div align="center">:green_circle:</div>|<div align="center">:yellow_circle:</div>|<div align="center">:green_circle:</div>|<div align="center">:yellow_circle:</div>|<div align="center">:yellow_circle:</div>|
-|Fine grain control on monitoring and debugging|<div align="center">:green_circle:</div>|<div align="center">:green_circle:</div>|<div align="center">:red_circle:</div>|<div align="center">:red_circle:</div>|<div align="center">:green_circle:</div>|
+|Simplified Management|<span style="display: inline-block; width: 20px; height: 20px; border-radius: 50%; background-color: yellow;"></span>|<span style="display: inline-block; width: 20px; height: 20px; border-radius: 50%; background-color: yellow;"></span>|<span style="display: inline-block; width: 20px; height: 20px; border-radius: 50%; background-color: red;"></span>|<span style="display: inline-block; width: 20px; height: 20px; border-radius: 50%; background-color: red;"></span>|<span style="display: inline-block; width: 20px; height: 20px; border-radius: 50%; background-color: green;"></span>|
+|HA|<span style="display: inline-block; width: 20px; height: 20px; border-radius: 50%; background-color: yellow;"></span>|<span style="display: inline-block; width: 20px; height: 20px; border-radius: 50%; background-color: yellow;"></span>|<span style="display: inline-block; width: 20px; height: 20px; border-radius: 50%; background-color: green;"></span>|<span style="display: inline-block; width: 20px; height: 20px; border-radius: 50%; background-color: green;"></span>|<span style="display: inline-block; width: 20px; height: 20px; border-radius: 50%; background-color: green;"></span>|
+|Containerized Apps|<span style="display: inline-block; width: 20px; height: 20px; border-radius: 50%; background-color: yellow;"></span>|<span style="display: inline-block; width: 20px; height: 20px; border-radius: 50%; background-color: yellow;"></span>|<span style="display: inline-block; width: 20px; height: 20px; border-radius: 50%; background-color: green;"></span>|<span style="display: inline-block; width: 20px; height: 20px; border-radius: 50%; background-color: green;"></span>|<span style="display: inline-block; width: 20px; height: 20px; border-radius: 50%; background-color: green;"></span>|
+|Reduced Network Overhead & Latency|<span style="display: inline-block; width: 20px; height: 20px; border-radius: 50%; background-color: green;"></span>|<span style="display: inline-block; width: 20px; height: 20px; border-radius: 50%; background-color: yellow;"></span>|<span style="display: inline-block; width: 20px; height: 20px; border-radius: 50%; background-color: green;"></span>|<span style="display: inline-block; width: 20px; height: 20px; border-radius: 50%; background-color: yellow;"></span>|<span style="display: inline-block; width: 20px; height: 20px; border-radius: 50%; background-color: yellow;"></span>|
+|Fine grain control on monitoring and debugging|<span style="display: inline-block; width: 20px; height: 20px; border-radius: 50%; background-color: green;"></span>|<span style="display: inline-block; width: 20px; height: 20px; border-radius: 50%; background-color: green;"></span>|<span style="display: inline-block; width: 20px; height: 20px; border-radius: 50%; background-color: red;"></span>|<span style="display: inline-block; width: 20px; height: 20px; border-radius: 50%; background-color: red;"></span>|<span style="display: inline-block; width: 20px; height: 20px; border-radius: 50%; background-color: green;"></span>|
 
 <br></br>
 
-:white_square_button:**Legend**
+<span style="display: inline-block; width: 10px; height: 10px; background-color: black;"></span> **Legend**
 |**Difficulty Level**|**Symbol**|
 |---|---|
-|Easy|<div align="center">:green_circle:</div>|
-|Medium|<div align="center">:yellow_circle:</div>|
-|Difficult|<div align="center">:red_circle:</div>|
-
-
-
+|Easy|<span style="display: inline-block; width: 20px; height: 20px; border-radius: 50%; background-color: green;"></span>|
+|Medium|<span style="display: inline-block; width: 20px; height: 20px; border-radius: 50%; background-color: yellow;"></span>|
+|Difficult|<span style="display: inline-block; width: 20px; height: 20px; border-radius: 50%; background-color: red;"></span>|
 
 
 *ALB: Azure Load Balancer
 
-## Authors
-
-Ram Yerrabotu, Aman Gupta, RK Iyer, Hideo Takagi, Alicja Kucharczyk, Gary Hope
