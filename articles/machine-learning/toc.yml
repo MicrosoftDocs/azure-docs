@@ -658,12 +658,12 @@
               href: ./prompt-flow/tools-reference/serp-api-tool.md
     - name: Monitor your generative AI applications in production
       items:
-      - name: Monitor your generative AI applications in production
-        href: how-to-monitor-LLM-safety-quality.md
-      - name: Configure a workspace connection for your Azure OpenAI resource
-        href: how-to-configure-workspace-connection.md
-      - name: Understand evaluation metrics 
-        href: concept-evaluation-metrics-guidance.md
+        - name: Monitor your generative AI applications in production
+          href: how-to-monitor-LLM-safety-quality.md
+        - name: Configure a workspace connection for your Azure OpenAI resource
+          href: how-to-configure-workspace-connection.md
+        - name: Understand evaluation metrics 
+          href: concept-evaluation-metrics-guidance.md
     - name: TEST
       items:
         - name: What is RAG
