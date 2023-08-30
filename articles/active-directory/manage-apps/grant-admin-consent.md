@@ -49,9 +49,10 @@ You can grant tenant-wide admin consent through the **Enterprise applications** 
 
 To grant tenant-wide admin consent to an app listed in **Enterprise applications**:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with one of the roles listed in the prerequisites section.
-1. Select **Azure Active Directory**, and then select **Enterprise applications**.
-1. Select the application to which you want to grant tenant-wide admin consent, and then select **Permissions**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**.
+1. Enter the name of the existing application in the search box, and then select the application from the search results.
+1. Select **Permissions** under **Security**.
    :::image type="content" source="media/grant-tenant-wide-admin-consent/grant-tenant-wide-admin-consent.png" alt-text="Screenshot shows how to grant tenant-wide admin consent.":::
 1. Carefully review the permissions that the application requires. If you agree with the permissions the application requires, select **Grant admin consent**.
 
@@ -61,10 +62,9 @@ For applications your organization has developed, or which are registered direct
 
 To grant tenant-wide admin consent from **App registrations**:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with one of the roles listed in the prerequisites section.
-1. Select **Azure Active Directory**, and then select **App registrations**.
-1. Select the application to which you want to grant tenant-wide admin consent.
-1. Select **API permissions**.
+1. On the Entra admin center, browse to **Identity** > **Applications** > **App registrations** > **All applications**.
+1. Enter the name of the existing application in the search box, and then select the application from the search results.
+1. Select **API permissions** under **Manage**.
 1. Carefully review the permissions that the application requires. If you agree, select **Grant admin consent**.
 
 ## Construct the URL for granting tenant-wide admin consent

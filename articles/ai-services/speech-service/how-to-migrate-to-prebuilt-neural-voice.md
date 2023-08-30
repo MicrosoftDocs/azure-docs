@@ -55,7 +55,7 @@ More than 75 prebuilt standard voices are available in over 45 languages and loc
 | Arabic (Arabic ) | `ar-EG` | Female | `ar-EG-Hoda`|
 | Arabic (Saudi Arabia) | `ar-SA` | Male | `ar-SA-Naayf`|
 | Bulgarian (Bulgaria) | `bg-BG` | Male | `bg-BG-Ivan`|
-| Catalan (Spain) | `ca-ES` | Female | `ca-ES-HerenaRUS`|
+| Catalan | `ca-ES` | Female | `ca-ES-HerenaRUS`|
 | Chinese (Cantonese, Traditional) | `zh-HK` | Male | `zh-HK-Danny`|
 | Chinese (Cantonese, Traditional) | `zh-HK` | Female | `zh-HK-TracyRUS`|
 | Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-HuihuiRUS`|

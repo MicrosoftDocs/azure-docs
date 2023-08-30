@@ -1,5 +1,5 @@
   items:
-  - name: SaaS application tutorials
+  - name: Application tutorials
     href: tutorial-list.md
   - name: Single sign-on tutorials
     expanded: true
@@ -1061,8 +1061,8 @@
         href: fuse-tutorial.md
       - name: Fuze
         href: fuze-tutorial.md  
-      - name: Gainsight SAML
-        href: gainsight-saml-tutorial.md
+      - name: Gainsight
+        href: gainsight-tutorial.md
       - name: gamba!
         href: gamba-tutorial.md
       - name: Google Cloud / G Suite Connector
@@ -3032,6 +3032,8 @@
         href: autodesk-sso-provisioning-tutorial.md
       - name: Azure Databricks SCIM Connector
         href: /azure/databricks/administration-guide/users-groups/scim/aad?bc=%2fazure%2factive-directory%2fsaas-apps%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fsaas-apps%2ftoc.json
+      - name: Azure Databricks with Private Link Workspace
+        href: azure-databricks-with-private-link-workspace-provisioning-tutorial.md
       - name: AWS IAM Identity Center
         href: aws-single-sign-on-provisioning-tutorial.md
       - name: Axiad Cloud
@@ -3124,6 +3126,8 @@
         href: cybsafe-provisioning-tutorial.md
       - name: Dagster Cloud
         href: dagster-cloud-provisioning-tutorial.md
+      - name: Datadog
+        href: datadog-provisioning-tutorial.md
       - name: Documo
         href: documo-provisioning-tutorial.md
       - name: DocuSign
