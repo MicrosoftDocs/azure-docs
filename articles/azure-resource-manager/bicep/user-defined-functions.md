@@ -29,7 +29,7 @@ To enable this preview, modify your project's [bicepconfig.json](./bicep-config.
 Use the `func` statement to define user-defined functions.
 
 ```bicep
-func <user-defined-function-name> (<argument-name> <data-type>, <argument-name> <date-type>, ...) <function-data-type> => <expression>
+func <user-defined-function-name> (<argument-name> <data-type>, <argument-name> <data-type>, ...) <function-data-type> => <expression>
 ```
 
 ## Examples

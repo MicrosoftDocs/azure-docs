@@ -23,7 +23,7 @@ metadata <metadata-name> = ANY
 
 targetScope = '<scope>'
 
-func <user-defined-function-name> (<argument-name> <data-type>, <argument-name> <date-type>, ...) <function-data-type> => <expression>
+func <user-defined-function-name> (<argument-name> <data-type>, <argument-name> <data-type>, ...) <function-data-type> => <expression>
 
 @<decorator>(<argument>)
 param <parameter-name> <parameter-data-type> = <default-value>
