@@ -6,7 +6,7 @@ ms.author: varundhawan
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 8/8/2023
+ms.date: 8/30/2023
 ---
 
 # Monitor metrics on Azure Database for PostgreSQL - Flexible Server
