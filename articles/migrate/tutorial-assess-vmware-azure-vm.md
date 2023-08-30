@@ -147,7 +147,7 @@ To view an assessment:
  
 ### Review issues
 
-On generating an Azure Migrate Assessment report, you can view a summary of issues that each virtual machine (VM) faces by selecting **Details**. For more in-depth information about the errors, refer to the context pane. Use the relevant error information to resolve the issues. 
+On generating an Azure Migrate Assessment report, select **Details** to view a summary of issues that each VM faces. For more in-depth information about the errors, refer to the context pane. Use the relevant error information to resolve the issues. 
 
 ![Screenshot of issue details.](./media/tutorial-assess-vmware-azure-vm/issue-details.png)
 
