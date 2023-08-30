@@ -121,9 +121,15 @@ If using SNAT without outbound rules via a public load balancer, SNAT ports are 
 
 ## <a name="preallocatedports"></a> Default port allocation table
 
-The following <a name="snatporttable"></a>table shows the SNAT port preallocations for backend pool sizes:
+When load balancing rules are selected to use default port allocation, or outbound rules are configured with "Use the default number of outbound ports", SNAT ports are allocated by default based on the backend pool size. Backends will receive the number of ports defined by the table, per frontend IP, up to a maximum of 1024 ports.
 
-| Pool size (VM instances) | Default SNAT ports per IP configuration |
+As an example, with 100 VMs in a backend pool and only one frontend IP, each VM will receive 512 ports. If a second frontend IP is added, each VM will receive an additional 512 ports. This means each VM is allocated a total of 1024 ports. As a result, adding a third frontend IP will NOT increase the number of allocated SNAT ports beyond 1024 ports.
+
+As a rule of thumb, the number of SNAT ports provided when default port allocation is leveraged can be computed as: MIN(# of default SNAT ports provided based on pool size * number of frontend IPs associated with the pool, 1024)
+
+The following <a name="snatporttable"></a>table shows the SNAT port preallocations for a single frontend IP, depending on the backend pool size:
+
+| Pool size (VM instances) | Default SNAT ports |
 | --- | --- |
 | 1-50 | 1,024 |
 | 51-100 | 512 |
@@ -131,6 +137,7 @@ The following <a name="snatporttable"></a>table shows the SNAT port preallocatio
 | 201-400 | 128 |
 | 401-800 | 64 |
 | 801-1,000 | 32 | 
+
 
 ## Port exhaustion
 

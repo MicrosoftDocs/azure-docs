@@ -56,7 +56,7 @@ This article provides the following options for deploying to Azure Spring Apps:
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - [Git](https://git-scm.com/downloads).
 - [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
-- [Azure Developer CLI](https://aka.ms/azd-install), version 1.0.2 or higher.
+- [Azure Developer CLI (AZD)](/azure/developer/azure-developer-cli/install-azd), version 1.2.0 or higher.
 
 ---
 

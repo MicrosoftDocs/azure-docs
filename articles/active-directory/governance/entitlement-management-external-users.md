@@ -135,6 +135,8 @@ To ensure people outside of your organization can request access packages and ge
 
 ## Manage the lifecycle of external users
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 You can select what happens when an external user, who was invited to your directory through making an access package request, no longer has any access package assignments. This can happen if the user relinquishes all their access package assignments, or their last access package assignment expires. By default, when an external user no longer has any access package assignments, they're blocked from signing in to your directory. After 30 days, their guest user account is removed from your directory.  You can also configure that an external user is not blocked from sign in or deleted, or that an external user is not blocked from sign in but is deleted (preview).
 
 **Prerequisite role:** Global administrator, Identity Governance administrator or User administrator
