@@ -133,7 +133,7 @@ For this tutorial, we'll create three separate storage containers in the same AD
 
    1. Provide the name of an Azure Data Lake Storage Gen2 storage account in the following code sample. You can execute the following code cell with the provided default settings. Optionally, you can override the default settings.  
 
-      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/network_isolation/Network Isolation for Feature store.ipynb?default-settings)]
+      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/network_isolation/Network Isolation for Feature store.ipynb?name=default-settings)]
 
    1. This code cell creates the ADLS Gen2 storage account defined in the above code cell.
 
@@ -141,7 +141,7 @@ For this tutorial, we'll create three separate storage containers in the same AD
 
    1. This code cell creates a new storage container for offline store.
 
-      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/network_isolation/Network Isolation for Feature store.ipynb?create-offline-cli)]
+      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/network_isolation/Network Isolation for Feature store.ipynb?name=create-offline-cli)]
 
    1. This code cell creates a new storage container for source data.
 
