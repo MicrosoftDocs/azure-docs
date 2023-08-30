@@ -591,7 +591,7 @@ To reach the Azure service, NSGs need to allow outbound connectivity. If your NS
 
 ### What permissions do I need to set up service endpoints?
 
-You can configure service endpoints on a virtual network independently if you have write access to the virtual network.
+You can configure service endpoints on a virtual network independently if you have write access to that network.
 
 To secure Azure service resources to a virtual network, you must have **Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action** permission for the subnets that you're adding. This permission is included in the built-in service administrator role by default and can be modified through the creation of custom roles.
 
@@ -605,15 +605,13 @@ To learn more, see [Virtual network service endpoint policies for Azure Storage]
 
 ### Does Microsoft Entra ID support virtual network service endpoints?
 
-Microsoft Entra ID doesn't support service endpoints natively. For a complete list of Azure services that support virtual network service endpoints, see [Virtual network service endpoint policies for Azure Storage](./virtual-network-service-endpoints-overview.md).
+Microsoft Entra ID doesn't support service endpoints natively. For a complete list of Azure services that support virtual network service endpoints, see [Virtual network service endpoints](./virtual-network-service-endpoints-overview.md).
 
-In that list, the *Microsoft.AzureActiveDirectory* tag listed under services that support service endpoints is used for supporting service endpoints to Azure Data Lake Storage Gen1. Virtual network integration for Data Lake Storage Gen1 makes use of the virtual network service endpoint security between your virtual network and Microsoft Entra ID to generate additional security claims in the access token. These claims are then used to authenticate your virtual network to your Data Lake Storage Gen1 account and allow access.
-
-[Learn more about virtual network integration for Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+In that list, the *Microsoft.AzureActiveDirectory* tag listed under services that support service endpoints is used for supporting service endpoints to Azure Data Lake Storage Gen1. [Virtual network integration for Data Lake Storage Gen1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json) makes use of the virtual network service endpoint security between your virtual network and Microsoft Entra ID to generate additional security claims in the access token. These claims are then used to authenticate your virtual network to your Data Lake Storage Gen1 account and allow access.
 
 ### Are there any limits on how many service endpoints I can set up from my virtual network?
 
-There is no limit on the total number of service endpoints in a virtual network. For an Azure service resource (such as an Azure Storage account), services might enforce limits on the number of subnets used for securing the resource. The following table shows some example limits:
+There is no limit on the total number of service endpoints in a virtual network. For an Azure service resource (such as an Azure Storage account), services might enforce limits on the number of subnets that you use for securing the resource. The following table shows some example limits:
 
 |Azure service|    Limits on virtual network rules|
 |---|---|
@@ -637,7 +635,7 @@ Azure Service Manager is the old deployment model of Azure that was responsible 
 
 ### What is Azure Resource Manager?
 
-Azure Resource Manager is the latest deployment and management model in Azure that's responsible for creating, managing, and deleting resources in your Azure subscription. For more information, see [What is Azure Resource Manager?](../azure-resource-manager/management/overview.md)
+Azure Resource Manager is the latest deployment and management model in Azure that's responsible for creating, managing, and deleting resources in your Azure subscription. For more information, see [What is Azure Resource Manager?](../azure-resource-manager/management/overview.md).
 
 ### Can I revert the migration after resources have been committed to Resource Manager?
 
@@ -649,15 +647,15 @@ You can't reverse a migration if the commit operation failed. All migration oper
 
 ### Can I validate my subscription or resources to see if they're capable of migration?
 
-Yes. The first step in preparing for migration is to validate if resources can be migrated. If the validate operation fails, you'll receive messages for all the reasons why the migration can't be completed.
+Yes. The first step in preparing for migration is to validate if resources can be migrated. If the validation fails, you'll receive messages for all the reasons why the migration can't be completed.
 
 ### Are Application Gateway resources migrated as part of the virtual network migration from classic to Resource Manager?  
 
-Application Gateway resources aren't migrated automatically as part of the virtual network migration process. If one is present in the virtual network, the migration won't be successful. To migrate an Application Gateway resource to Resource Manager, you have to remove and re-create the Application Gateway instance after the migration is complete.
+Azure Application Gateway resources aren't migrated automatically as part of the virtual network migration process. If one is present in the virtual network, the migration won't be successful. To migrate an Application Gateway resource to Resource Manager, you have to remove and re-create the Application Gateway instance after the migration is complete.
 
 ### Are VPN Gateway resources migrated as part of the virtual network migration from classic to Resource Manager?
 
-Azure VPN Gateway resources are migrated as part of virtual network migration process. The migration is completed one virtual network at a time with no other requirements. The migration steps are the same as for migrating a virtual network without a VPN gateway.
+Azure VPN Gateway resources are migrated as part of the virtual network migration process. The migration is completed one virtual network at a time with no other requirements. The migration steps are the same as for migrating a virtual network without a VPN gateway.
 
 ### Is a service interruption associated with migrating classic VPN gateways to Resource Manager?  
 
