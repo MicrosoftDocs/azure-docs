@@ -28,8 +28,8 @@ Log Analytics Dedicated Clusters use a commitment tier pricing model of at least
 
 ## Prerequisites
 
-- Clusters require a minimum ingestion commitment of 500 GB per day.
-- To link a workspace to a cluster, you need a workspace that isn't linked to any clusters.
+- Dedicated clusters require a minimum ingestion commitment of 500 GB per day.
+- To link a workspace to a dedicated cluster, you need a workspace that isn't linked to any clusters.
 - When creating a dedicated cluster, you can't name it with the same name as a cluster that was deleted within the past two weeks.
 
 ## Required permissions
