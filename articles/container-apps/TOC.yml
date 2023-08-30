@@ -8,6 +8,8 @@
       href: overview.md
     - name: Compare container options in Azure
       href: compare-options.md
+    - name: Code to cloud options
+      href: code-to-cloud-options.md
     - name: Overview
       items:
         - name: What's new
