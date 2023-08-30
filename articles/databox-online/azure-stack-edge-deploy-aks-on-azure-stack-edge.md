@@ -7,13 +7,13 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/01/2023
+ms.date: 08/30/2023
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to deploy and configure Azure Kubernetes service on Azure Stack Edge.
 ---
 # Deploy Azure Kubernetes service on Azure Stack Edge
 
-[!INCLUDE [applies-to-gpu-pro-pro2-pror-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-pro-2-pro-r-sku.md)]
+[!INCLUDE [applies-to-gpu-pro-pro2-pro-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-pro-2-pro-r-sku.md)]
 
 > [!NOTE]
 > Use this procedure only if you are an SAP or a PMEC customer.
@@ -69,7 +69,7 @@ Depending on the workloads you intend to deploy, you may need to ensure the foll
      Get-HcsNumaLpMapping
      ```
 
-- This configuration is applied when you install or update to Azure Stack Edge 2307. There are two scenarios where the configuration won't be applied during installation or update:
+- This configuration is applied when you install or update to Azure Stack Edge 2307. There are two scenarios where the configuration won't be applied during update:
 
     - When you have more minroot vCPUs configured than the four vCPUs from Numa0 + All vCPUs from Numa1. This scenario applies mainly to Azure Stack Edge gateway customers who configure all vCPUs for minroot. For Azure Stack Edge Pro 2, there's only one Numa. For Azure Stack Edge Pro 2 with 40 cores, it's more minroot vCPUs configured than 24 vCPUs, and for Azure Stack Edge Pro 2 with 48 vCPUs it's more than 28 vCPUs configured.
 
