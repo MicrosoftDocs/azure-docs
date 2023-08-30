@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: best-practice
-ms.date: 08/25/2023
+ms.date: 08/30/2023
 ms.author: aahi
 ms.custom: language-service-clu
 ---
@@ -38,13 +38,40 @@ Make sure to avoid trying to funnel all the concepts into just intents, for exam
 
 You also want to avoid mixing different schema designs. Do not build half of your application with actions as intents and the other half with information as intents. Ensure it is consistent to get the possible results.
 
+[!INCLUDE [Balance training data](../includes/balance-training-data.md)]
+
+[!INCLUDE [Label data](../includes/label-data-best-practices.md)]
+
 ## Use standard training before advanced training
 
 [Standard training](../how-to/train-model.md#training-modes) is free and faster than Advanced training, making it useful to quickly understand the effect of changing your training set or schema while building the model. Once you are satisfied with the schema, consider using advanced training to get the best AIQ out of your model. 
 
+## Use the evaluation feature
+ 
+When you build an app, it's often helpful to catch errors early. It’s usually a good practice to add a test set when building the app, as training and evaluation results are very useful in identifying errors or issues in your schema.
+
 ## Machine-learning components and composition
 
 See [Component types](./entity-components.md#component-types).
+
+## Using the "none" score Threshold
+
+If you see too many false positives, such as out-of-context utterances being marked as a valid intents, See [confidence threshold](./none-intent.md) for information on how it affects inference.
+
+1.	Non machine-learned entity components like lists and regex are by definition not contextual. If you see list or regex entities in unintended places, try labeling the list synonyms as the machine-learned component.
+
+2.	For entities, you can use learned component as the ‘Required’ component, to restrict when a composed entity should fire.
+
+For example, suppose you have an entity called "*ticket quantity*" that attempts to extract the number of tickets you want to reserve for booking flights, for utterances such as "*Book two tickets tomorrow to Cairo*".
+
+
+Typically, you would add a prebuilt component for `Quantity.Number` that already extracts all numbers in utterances. However if your entity was only defined with the prebuilt component, it would also extract other numbers as part of the *ticket quantity* entity, such as "*Book two tickets tomorrow to Cairo at 3 PM*".
+
+To resolve this, you would label a learned component in your training data for all the numbers that are meant to be a *ticket quantity*. The entity now has two components:
+* The prebuilt component that can interpret all numbers, and 
+* The learned component that predicts where the *ticket quantity* is in a sentence. 
+
+If you require the learned component, make sure that *ticket quantity* is only returned when the learned component predicts it in the right context. If you also require the prebuilt component, you can then guarantee that the returned *ticket quantity* entity is both a number and in the correct position.
 
 
 ## Addressing casing inconsistencies
@@ -103,18 +130,45 @@ To better understand how individual components are performing, you can disable t
 
 ## Evaluate a model using multiple test sets
 
-If you want to use multiple test sets on your model, you can:
+Data in a conversational language understanding project can have two data sets. A "testing" set, and a "training" set. If you want to use multiple test sets to evaluate your model, you can:
 
 1. Give your test sets different names (for example, "test1" and "test2").
-1. Export your project to get a JSON file with .
-1. Import the project as a 
+1. Export your project to get a JSON file with its parameters and configuration.
+1. Use the JSON to import a new project, and rename your second desired test set to "test".
+1. Train the model to run the evaluation using your second test set.  
 
+## Custom parameters for target apps and child apps
 
-work around the current limitation by including sets with different names (e.g., ‘Test1’, ‘Test2’). Then, when you want to test with a specific set, you can export the project, rename one of your test sets (e.g., rename ‘Test2’ to ‘Test’), import the project and then invoke evaluation.
-At the time of writing, evaluation is tied to training, so you will need to train again to get the new evaluation. When evaluation on demand is shipped, you will be able to re-run evaluation without training.
+If you are using [orchestrated apps](./app-architecture.md), you may want to send custom parameter overrides for various child apps. The `targetProjectParameters` field allows users to send a dictionary representing the parameters for each target project. For example, consider an orchestrator app named `Orchestrator` orchestrating between a conversational language understanding app named `CLU1` and a custom question answering app named `CQA1`. If you want to send a parameter named "top" to the question answering app, you can use the above parameter.
 
-
-
-
-Data in a CLU project file can be tagged with a ‘dataset’ field. Currently, there are 2 reserved data set names: ‘Train’ and ‘Test’. If you want to use multiple test sets, you can work around the current limitation by including sets with different names (e.g., ‘Test1’, ‘Test2’). Then, when you want to test with a specific set, you can export the project, rename one of your test sets (e.g., rename ‘Test2’ to ‘Test’), import the project and then invoke evaluation.
-At the time of writing, evaluation is tied to training, so you will need to train again to get the new evaluation. When evaluation on demand is shipped, you will be able to re-run evaluation without training.
+```console
+curl --request POST \
+   --url 'https://<your-language-resource>.cognitiveservices.azure.com/language/:analyze-conversations?api-version=2022-10-01-preview' \
+   --header 'ocp-apim-subscription-key: <your subscription key>' \
+   --data '{
+     "kind": "Conversation",
+     "analysisInput": {
+         "conversationItem": {
+             "id": "1",
+             "text": "Turn down the volume",
+             "modality": "text",
+             "language": "en-us",
+             "participantId": "1"
+         }
+     },
+     "parameters": {
+         "projectName": "Orchestrator",
+         "verbose": true,
+         "deploymentName": "std",
+         "stringIndexType": "TextElement_V8",
+"targetProjectParameters": {
+            "CQA1": {
+                "targetProjectKind": "QuestionAnswering",
+                "callingOptions": {
+                    "top": 1
+                }
+             }
+         }
+     }
+ }'
+```
