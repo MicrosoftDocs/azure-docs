@@ -1,0 +1,204 @@
+---
+title: Understand how Azure Storage account failover to recover from a service endpoint outage works
+titleSuffix: Azure Storage
+description: Azure Storage supports account failover for geo-redundant storage accounts to recover from a service endpoint outage. Learn what happens to your storage account and storage services during a customer-managed failover to the secondary region if the primary endpoint becomes unavailable.
+services: storage
+author: jimmart-dev
+
+ms.service: azure-storage
+ms.topic: conceptual
+ms.date: 08/30/2023
+ms.author: jammart
+ms.subservice: storage-common-concepts
+ms.custom: 
+---
+
+# How failover to recover from a service endpoint outage works
+
+Customer-managed account failover enables you to fail over your entire geo-redundant storage account to the secondary region if the storage service endpoints for the primary region become unavailable. During failover, the original secondary region becomes the new primary and all storage service endpoints for blobs, tables, queues and files are redirected to the new primary region. After the storage service endpoint outage has been resolved, you can perform another failover operation to *fail back* to the original primary region.
+
+This article describes what happens during a customer-managed storage account failover and failback at every stage of the process. To understand how a **planned** failover works, see [How failover to perform disaster recovery testing (preview) works](storage-failover-customer-managed-planned.md). For a quick comparison of customer-managed and customer-managed planned failover, see [The failover process](storage-failover-overview.md#the-failover-process).
+
+> [!IMPORTANT]
+> Customer-managed failover (planned and unplanned) for storage accounts with hierarchical namespaces (Azure Data Lake Storage Gen2) is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+>
+> To register for the preview, follow these steps:
+>
+> 1. Go to your subscription in the Azure portal.
+> 1. Under **Settings**, select **Preview features**.
+> 1. Search or browse for the feature preview you wish to register. The preview feature name for customer-managed failover (both planned and unplanned) for hierarchical namespaces (HNS) is **Microsoft.Storage/AllowHNSAccountFailover**.
+> 1. Select the desired feature(s), then select **+ Register**.
+
+## Redundancy management during failover and failback
+
+> [!TIP]
+> To understand the varying redundancy states during the storage account failover and failback process in detail, see [Azure Storage redundancy](storage-redundancy.md) for definitions of each.
+
+When a storage account is configured for GRS or RA-GRS redundancy, data is replicated three times locally within both the primary and secondary regions (LRS). When a storage account is configured for GZRS or RA-GZRS replication, data is zone-redundant within the primary region (ZRS) and replicated three times locally within the secondary region (LRS). If the account is configured for read access (RA), you will be able to read data from the secondary region as long as the storage service endpoints to that region are available.
+
+During the customer-managed failover process, the DNS entries for the storage service endpoints are changed such that those for the secondary region become the new primary endpoints for your storage account. After failover, the copy of your storage account in the original primary region is deleted and your storage account continues to be replicated three times locally within the original secondary region (the new primary). Your storage account becomes LRS.
+
+Azure *remembers* the redundancy configuration of your storage account to allow you eventually return to it when you fail back.
+
+To regain geo-redundancy after a failover, you will need to reconfigure your account as GRS. (GZRS is not an option post-failover since the new primary will be LRS after the failover). After the account is reconfigured for geo-redundancy, Azure immediately begins copying data from the new primary region to the new secondary. If you configure your storage account for read access (RA) to the secondary region, that access will be available but it may take some time for replication from the primary to make the secondary current.
+
+> [!WARNING]
+> After your account is reconfigured for geo-redundancy, it may take a significant amount of time before existing data in the new primary region is fully copied to the new secondary.
+>
+> **To avoid a major data loss**, check the value of the **Last Sync Time** property before failing back. Compare the last sync time to the last times that data was written to the new primary to evaluate expected data loss.
+
+The failback process is essentially the same as the failover process except Azure *remembers* the replication configuration within the original primary region and restores it to its original state (the replication configuration, not the data). So, if your storage account was originally configured as GZRS, the primary region after faillback will be ZRS.
+
+After failback, you can configure your storage account to be geo-redundant again. If the original primary region was configured for LRS, you can configure it to be GRS or RA-GRS. If the original primary was configured as ZRS, you can configure it to be GZRS or RA-GZRS. For additional options, see [Change how a storage account is replicated](redundancy-migration.md).
+
+## How to initiate a failover
+
+To learn how to initiate a failover, see [Initiate a storage account failover](storage-initiate-account-failover.md).
+
+> [!CAUTION]
+> An customer-managed account failover usually involves some data loss. Before failing over your storage account, it's important to understand the implications of doing so.
+>
+> For details on expectations for data loss with the various types storage account failover, see [Failover and data loss](storage-failover-overview.md#failover-and-data-loss).
+
+## The failover and failback process
+
+The following diagrams show what happens during customer-managed failover and failback of a storage account that is configured for geo-redundancy.
+
+## [GRS/RA-GRS](#tab/grs-ra-grs)
+
+Under normal circumstances, a client writes data to a storage account in the primary region via storage service endpoints (1), and the data is then copied asynchronously from the primary region to the secondary region (2). The following image shows the normal state of a storage account configured as GRS when the primary endpoints are available:
+
+![Clients write data to the storage account in the primary region](media/storage-failover-customer-managed-common/pre-failover-grs.png)
+
+### The storage service endpoints become unavailable in the primary region
+
+If the primary storage service endpoints become unavailable for any reason (1), the client is no longer able to write to the storage account. Depending on the underlying cause of the outage, replication to the secondary region may no longer be functioning (2), [so some data loss should be expected](storage-failover-overview.md#failover-and-data-loss). The following image shows the scenario where the primary endpoints have become unavailable, but no recovery has occurred yet:
+
+![The primary is unavailable, so clients cannot write data](media/storage-failover-customer-managed-unplanned/primary-unavailable-before-failover-grs.png).
+
+### The failover process (GRS/RA-GRS)
+
+To restore write access to your data, you can [initiate a failover](storage-initiate-account-failover.md).  The storage service endpoint URIs for blobs, tables, queues, and files remain the same but their DNS entries are changed to point to the secondary region (1) as show in the image below:
+
+![Customer initiates account failover to secondary endpoint](media/storage-failover-customer-managed-unplanned/failover-to-secondary-grs.png).
+
+The failover typically takes about an hour.
+
+After the failover is complete, the original secondary becomes the new primary (1) and the copy of the storage account in the original primary is deleted (2). The storage account is configured as LRS in the new primary region and is no longer geo-redundant. Users can resume writing data to the storage account (3) as shown in the image below:
+
+![Storage account status post-failover to secondary region (GRS)](media/storage-failover-customer-managed-unplanned/post-failover-grs.png)
+
+To resume replication to a new secondary region, reconfigure the account for geo-redundancy.
+
+> [!IMPORTANT]
+> Keep in mind that converting a locally redundant storage account to use geo-redundancy incurs both cost and time. For more information, see [The time and cost of failing over](storage-failover-overview.md#the-time-and-cost-of-failing-over).
+
+After re-configuring the account as GRS, Azure begins copying your data asynchronously to the new secondary region (1) as shown in the image below:
+
+![Storage account status post-failover to secondary region as GRS (GRS)](media/storage-failover-customer-managed-unplanned/post-failover-grs-geo.png)
+
+Read access to the new secondary region will not become available again until the issue causing the original outage has been resolved.
+
+### The failback process (GRS/RA-GRS)
+
+> [!WARNING]
+> After your account is reconfigured for geo-redundancy, it may take a significant amount of time before the data in the new primary region is fully copied to the new secondary.
+>
+> **To avoid a major data loss**, check the value of the [**Last Sync Time**](last-sync-time-get.md) property before failing back. Compare the last sync time to the last times that data was written to the new primary to evaluate expected data loss.
+
+Once the issue causing the original outage has been resolved, you can initiate another failover to fail back to the original primary region, resulting in the following:
+
+1. The current primary region becomes read only.
+1. With customer-initiated failover and failback, your data is not allowed to finish replicating to the secondary region during the failback process. Therefore, it is important to check the value of the [**Last Sync Time**](last-sync-time-get.md) property before failing back.
+1. The DNS entries for the storage service endpoints are changed such that those for the secondary region become the new primary endpoints for your storage account.
+
+![Customer initiates account failback to original primary region (GRS)](media/storage-failover-customer-managed-unplanned/failback-to-primary-grs.png)
+
+After the failback is complete, the original primary region becomes the current one again (1) and the copy of the storage account in the original secondary is deleted (2). The storage account is configured as locally redundant in the primary region and is no longer geo-redundant. Users can resume writing data to the storage account (3) as shown in the image below:
+
+![Post-failback status (GRS)](media/storage-failover-customer-managed-unplanned/post-failback-grs.png).
+
+To resume replication to the original secondary region, configure the account for geo-redundancy again.
+
+> [!IMPORTANT]
+> Keep in mind that converting a locally redundant storage account to use geo-redundancy incurs both cost and time. For more information, see [The time and cost of failing over](storage-failover-overview.md#the-time-and-cost-of-failing-over).
+
+After re-configuring the account as GRS, replication to the original secondary region resumes as shown in the image below:
+
+![The redundancy configuration returns to its original state](media/storage-failover-customer-managed-unplanned/post-failback-grs-geo.png).
+
+## [GZRS/RA-GZRS](#tab/gzrs-ra-gzrs)
+
+Under normal circumstances, a client writes data to a storage account in the primary region via storage service endpoints (1), and the data is then copied asynchronously from the primary region to the secondary region (2). The following image shows the normal state of a storage account configured as GZRS when the primary endpoints are available:
+
+![Clients write data to the storage account in the primary region (GZRS)](media/storage-failover-customer-managed-common/pre-failover-gzrs.png)
+
+### The storage service endpoints become unavailable in the primary region
+
+If the primary storage service endpoints become unavailable for any reason (1), the client is no longer able to write to the storage account. Depending on the underlying cause of the outage, replication to the secondary region may no longer be functioning (2), [so some data loss should be expected](storage-failover-overview.md#failover-and-data-loss). The following image shows the scenario where the primary endpoints have become unavailable, but no recovery has occurred yet:
+
+![The primary is unavailable, so clients cannot write data (GZRS)](media/storage-failover-customer-managed-unplanned/primary-unavailable-before-failover-gzrs.png).
+
+### The failover process (GZRS/RA-GZRS)
+
+To restore write access to your data, you can [initiate a failover](storage-initiate-account-failover.md).  The storage service endpoint URIs for blobs, tables, queues, and files remain the same but their DNS entries are changed to point to the secondary region (1) as show in the image below:
+
+1. The DNS entries for the storage service endpoints are changed such that those for the secondary region become the new primary endpoints for your storage account.
+
+![Customer initiates account failover to secondary endpoint (GZRS)](media/storage-failover-customer-managed-unplanned/failover-to-secondary-gzrs.png).
+
+The failover typically takes about an hour.
+
+After the failover is complete, the original secondary becomes the new primary (1) and the copy of the storage account in the original primary is deleted (2). The storage account is configured as LRS in the new primary region and is no longer geo-redundant. Users can resume writing data to the storage account (3) as shown in the image below:
+
+![Storage account status post-failover to secondary region (GZRS)](media/storage-failover-customer-managed-unplanned/post-failover-grs.png)
+
+To resume replication to a new secondary region, reconfigure the account for geo-redundancy.
+
+Since the account was originally configured as GZRS, reconfiguring geo-redundancy after failover causes the original ZRS redundancy within the new secondary region (the original primary) to be retained. However, the redundancy configuration within the current primary always determines the effective geo-redundancy of a storage account. Since the current primary in this case is LRS, the effective geo-redundancy at this point is GRS, not GZRS.
+
+> [!IMPORTANT]
+> Keep in mind that converting a locally redundant storage account to use geo-redundancy incurs both cost and time. For more information, see [The time and cost of failing over](storage-failover-overview.md#the-time-and-cost-of-failing-over).
+
+After re-configuring the account as GRS, Azure begins copying your data asynchronously to the new secondary region (1) as shown in the image below:
+
+![Storage account status post-failover to secondary region as GRS (GZRS)](media/storage-failover-customer-managed-unplanned/post-failover-gzrs-geo.png)
+
+Read access to the new secondary region will not become available again until the issue causing the original outage has been resolved.
+
+### The failback process (GZRS/RA-GZRS)
+
+> [!WARNING]
+> After your account is reconfigured for geo-redundancy, it may take a significant amount of time before the data in the new primary region is fully copied to the new secondary.
+>
+> **To avoid a major data loss**, check the value of the [**Last Sync Time**](last-sync-time-get.md) property before failing back. Compare the last sync time to the last times that data was written to the new primary to evaluate expected data loss.
+
+Once the issue causing the original outage has been resolved, you can initiate another failover to fail back to the original primary region, resulting in the following:
+
+1. The current primary region becomes read only.
+1. With customer-initiated failover and failback, your data is not allowed to finish replicating to the secondary region during the failback process. Therefore, it is important to check the value of the [**Last Sync Time**](last-sync-time-get.md) property before failing back.
+1. The DNS entries for the storage service endpoints are changed such that those for the secondary region become the new primary endpoints for your storage account.
+
+![Customer initiates account failback to original primary region (GZRS)](media/storage-failover-customer-managed-unplanned/failback-to-primary-gzrs.png)
+
+After the failback is complete, the original primary region becomes the current one again (1) and the copy of the storage account in the original secondary is deleted (2). The storage account is configured as ZRS in the primary region and is no longer geo-redundant. Users can resume writing data to the storage account (3) as shown in the image below:
+
+![Post-failback status (GZRS)](media/storage-failover-customer-managed-unplanned/post-failback-gzrs.png).
+
+To resume replication to the original secondary region, configure the account for geo-redundancy again.
+
+> [!IMPORTANT]
+> Keep in mind that converting a ZRS storage account to use geo-redundancy incurs both cost and time. For more information, see [The time and cost of failing over](storage-failover-overview.md#the-time-and-cost-of-failing-over).
+
+After re-configuring the account as GZRS, replication to the original secondary region resumes as shown in the image below:
+
+![The redundancy configuration returns to its original state](media/storage-failover-customer-managed-unplanned/post-failback-gzrs-geo.png).
+
+---
+
+## See also
+
+- [Disaster recovery and storage account failover](storage-disaster-recovery-guidance.md)
+- [Initiate an account failover](storage-initiate-account-failover.md)
+- [How customer-managed planned failover works](storage-failover-customer-managed-planned.md)
