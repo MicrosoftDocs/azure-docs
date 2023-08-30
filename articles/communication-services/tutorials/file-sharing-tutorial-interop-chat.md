@@ -27,8 +27,7 @@ In a Teams Interopability Chat ("Interop Chat"), we can enable file sharing betw
 >
 >- "People you choose" (with email address)
 >
->The Teams user (sender) should be made aware that all other permissions (such as "People in your organization") aren't supported.
->The Teams user should double-check if the default permission is supported after uploading the file in their Teams client.
+>The Teams user (sender) should be made aware that all other permissions (such as "People in your organization") aren't supported. The Teams user should double-check if the default permission is supported after uploading the file in their Teams client.
 >In addition, The Teams admin could impose policies that limit or disable this feature entirely (such as having file sharing disabled or having certain permissions disabled).**
 
 
