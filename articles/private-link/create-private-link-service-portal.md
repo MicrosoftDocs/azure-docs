@@ -6,7 +6,7 @@ services: private-link
 author: asudbring
 ms.service: private-link
 ms.topic: quickstart
-ms.date: 06/22/2023
+ms.date: 08/29/2023
 ms.author: allensu
 ms.custom: mode-ui, template-quickstart
 #Customer intent: As someone with a basic network background who's new to Azure, I want to create an Azure Private Link service by using the Azure portal
@@ -22,49 +22,11 @@ Get started creating a Private Link service that refers to your service. Give Pr
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## Create an internal load balancer
+## <a name="create-a-virtual-network"></a> Sign in to Azure
 
-In this section, you create a virtual network and an internal Azure Load Balancer.
+Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
-### Load balancer virtual network
-
-Create a virtual network and subnet to host the load balancer that accesses your Private Link service.
-
-1. Sign-in to the [Azure portal](https://portal.azure.com).
-
-1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
-
-1. Select **+ Create**. 
-
-1. In **Create virtual network**, enter or select this information in the **Basics** tab:
-
-    | **Setting**          | **Value**                                                           |
-    |------------------|-----------------------------------------------------------------|
-    | **Project Details**  |                                                                 |
-    | Subscription     | Select your Azure subscription                                  |
-    | Resource Group   | Select **Create new**. Enter **test-rg**. </br> Select **OK**. |
-    | **Instance details** |                                                                 |
-    | Name             | Enter **vnet-1**                                    |
-    | Region           | Select **East US 2** |
-
-1. Select the **IP Addresses** tab or select the **Next: IP Addresses** button at the bottom of the page.
-
-1. In the **IP Addresses** tab, under **IPv4 address space**, select the garbage deletion icon to remove any address space that already appears, and then enter **10.0.0.0/16**.
-
-1. Select **+ Add subnet**.
-
-1. In **Add subnet**, enter the following information:
-
-    | Setting            | Value                      |
-    |--------------------|----------------------------|
-    | Subnet name | Enter **subnet-1** |
-    | Subnet address range | Enter **10.0.0.0/24** |
-
-1. Select **Add**.
-
-1. Select the **Review + create** tab or select the **Review + create** button.
-
-1. Select **Create**.
+[!INCLUDE [virtual-network-create.md](../../includes/virtual-network-create.md)]
 
 ### Create load balancer
 
@@ -202,39 +164,15 @@ In this section, you map the private link service to a private endpoint. A virtu
 
 ### Create private endpoint virtual network
 
-1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
+Repeat steps in [Create a virtual network](#create-a-virtual-network) to create a virtual network with the following settings:
 
-1. Select **+ Create**. 
-
-1. In the **Basics** tab, enter or select the following information:
-
-    | **Setting**          | **Value**                                                           |
-    |------------------|-----------------------------------------------------------------|
-    | **Project Details**  |                                                                 |
-    | Subscription     | Select your Azure subscription                                  |
-    | Resource Group   | Select **test-rg** |
-    | **Instance details** |                                                                 |
-    | Name             | Enter **vnet-pe**                                    |
-    | Region           | Select **East US 2** |
-
-1. Select **Next: IP Addresses** or the **IP Addresses** tab.
-
-1. In the **IP Addresses** tab, under **IPv4 address space**, select the garbage deletion icon to remove any address space that already appears, and then enter **10.1.0.0/16**.
-
-1. Select **+ Add subnet**.
-
-1. In **Add subnet**, enter the following information:
-
-    | Setting            | Value                      |
-    |--------------------|----------------------------|
-    | Subnet name | Enter **subnet-pe** |
-    | Subnet address range | Enter **10.1.0.0/24** |
-
-1. Select **Add**.
-
-1. Select **Review + create**.
-
-1. Select **Create**.
+| Setting | Value |
+| ------- | ----- |
+| Name | **vnet-pe** |
+| Location | **East US 2** |
+| Address space | **10.1.0.0/16** |
+| Subnet name | **subnet-pe** |
+| Subnet address range | **10.1.0.0/24** |
 
 ### Create private endpoint
 
