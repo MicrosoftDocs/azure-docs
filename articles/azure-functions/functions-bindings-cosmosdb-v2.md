@@ -4,7 +4,7 @@ description: Understand how to use Azure Cosmos DB triggers and bindings in Azur
 ms.topic: reference
 ms.custom: ignite-2022, devx-track-extended-java, devx-track-js, devx-track-python
 ms.date: 11/29/2022
-zone_pivot_groups: programming-languages-set-functions-lang-workers
+zone_pivot_groups: programming-languages-set-functions
 ---
 
 # Azure Cosmos DB trigger and bindings for Azure Functions 2.x and higher overview
@@ -79,7 +79,7 @@ Add the extension to your project by installing the [NuGet package](https://www.
 
 ::: zone-end  
 
-::: zone pivot="programming-language-javascript,programming-language-python,programming-language-java,programming-language-powershell"  
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-java,programming-language-powershell"  
 
 ## Install bundle
 
@@ -89,7 +89,7 @@ The Azure Cosmos DB bindings extension is part of an [extension bundle], which i
 ::: zone pivot="programming-language-java"   
 [!INCLUDE [functions-cosmosdb-extension-java-note](../../includes/functions-cosmosdb-extension-java-note.md)]
 ::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-python,programming-language-java,programming-language-powershell"   
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-java,programming-language-powershell"   
 
 # [Bundle v4.x](#tab/extensionv4)
 

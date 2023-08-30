@@ -5,7 +5,7 @@ ms.topic: reference
 ms.date: 04/04/2023
 ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: devx-track-csharp, devx-track-python, ignite-2022, devx-track-extended-java, devx-track-js
-zone_pivot_groups: programming-languages-set-functions-lang-workers
+zone_pivot_groups: programming-languages-set-functions
 ---
 
 # Azure Cosmos DB trigger for Azure Functions 2.x and higher
@@ -206,7 +206,56 @@ This function is invoked when there are inserts or updates in the specified data
 In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@CosmosDBTrigger` annotation on parameters whose value would come from Azure Cosmos DB.  This annotation can be used with native Java types, POJOs, or nullable values using `Optional<T>`.
 
 ::: zone-end  
+::: zone pivot="programming-language-typescript"  
+
+# [v4](#tab/nodejs-v4)
+
+The following example shows an Azure Cosmos DB trigger [TypeScript function](functions-reference-node.md?tabs=typescript). The function writes log messages when Azure Cosmos DB records are added or modified.
+
+```typescript
+import { app, InvocationContext } from '@azure/functions';
+
+export async function cosmosDBTrigger1(documents: unknown[], context: InvocationContext): Promise<void> {
+    context.log(`Cosmos DB function processed ${documents.length} documents`);
+}
+
+app.cosmosDB('cosmosDBTrigger1', {
+    connection: '<connection-app-setting>',
+    databaseName: 'Tasks',
+    containerName: 'Items',
+    createLeaseContainerIfNotExists: true,
+    handler: cosmosDBTrigger1,
+});
+```
+
+# [v3](#tab/nodejs-v3)
+
+TypeScript samples are not documented for model v3.
+
+---
+
+::: zone-end  
 ::: zone pivot="programming-language-javascript"  
+
+# [v4](#tab/nodejs-v4)
+
+The following example shows an Azure Cosmos DB trigger [JavaScript function](functions-reference-node.md). The function writes log messages when Azure Cosmos DB records are added or modified.
+
+```javascript
+const { app } = require('@azure/functions');
+
+app.cosmosDB('cosmosDBTrigger1', {
+    connection: '<connection-app-setting>',
+    databaseName: 'Tasks',
+    containerName: 'Items',
+    createLeaseContainerIfNotExists: true,
+    handler: (documents, context) => {
+        context.log(`Cosmos DB function processed ${documents.length} documents`);
+    },
+});
+```
+
+# [v3](#tab/nodejs-v3)
 
 The following example shows an Azure Cosmos DB trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function writes log messages when Azure Cosmos DB records are added or modified.
 
@@ -221,6 +270,8 @@ Here's the JavaScript code:
       context.log('First document Id modified : ', documents[0].id);
     }
 ```
+
+---
 
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
@@ -357,7 +408,7 @@ From the [Java functions runtime library](/java/api/overview/azure/functions/run
 ---
 
 ::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
 ## Configuration
 ::: zone-end
 
@@ -365,9 +416,25 @@ From the [Java functions runtime library](/java/api/overview/azure/functions/run
 _Applies only to the Python v1 programming model._
 
 ::: zone-end
-::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
+::: zone pivot="programming-language-javascript,programming-language-typescript"  
+
+# [v4](#tab/nodejs-v4)
+
+The following table explains the properties that you can set on the `options` object passed to the `app.cosmosDB()` method. The "type", "direction", and "name" properties can be ignored for model v4.
+
+# [v3](#tab/nodejs-v3)
 
 The following table explains the binding configuration properties that you set in the *function.json* file, where properties differ by extension version:  
+
+---
+
+::: zone-end
+::: zone pivot="programming-language-powershell,programming-language-python"  
+
+The following table explains the binding configuration properties that you set in the *function.json* file, where properties differ by extension version:  
+
+::: zone-end
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
 
 # [Functions 2.x+](#tab/functionsv2)
 
@@ -395,7 +462,7 @@ The trigger requires a second collection that it uses to store _leases_ over the
 >[!IMPORTANT]
 > If multiple functions are configured to use an Azure Cosmos DB trigger for the same collection, each of the functions should use a dedicated lease collection or specify a different `leaseCollectionPrefix` for each function. Otherwise, only one of the functions is triggered. For information about the prefix, see the [Annotations section](#annotations).
 ::: zone-end
-::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
 >[!IMPORTANT]
 > If multiple functions are configured to use an Azure Cosmos DB trigger for the same collection, each of the functions should use a dedicated lease collection or specify a different `leaseCollectionPrefix` for each function. Otherwise, only one of the functions will be triggered. For information about the prefix, see the [Configuration section](#configuration).
 ::: zone-end

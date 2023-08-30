@@ -5,7 +5,7 @@ ms.topic: reference
 ms.date: 03/06/2023
 ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python, devx-track-extended-java, devx-track-js
-zone_pivot_groups: programming-languages-set-functions-lang-workers
+zone_pivot_groups: programming-languages-set-functions
 ---
 
 # Azure Queue storage output bindings for Azure Functions
@@ -79,7 +79,112 @@ The following example shows a Java function that creates a queue message for whe
 In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@QueueOutput` annotation on parameters whose value would be written to Queue storage.  The parameter type should be `OutputBinding<T>`, where `T` is any native Java type of a POJO.
 
 ::: zone-end  
+::: zone pivot="programming-language-typescript"  
+
+# [v4](#tab/nodejs-v4)
+
+The following example shows an HTTP triggered [TypeScript function](functions-reference-node.md?tabs=typescript) that creates a queue item for each HTTP request received.
+
+```typescript
+import { app, HttpRequest, HttpResponseInit, InvocationContext, output } from '@azure/functions';
+
+const queueOutput = output.storageQueue({
+    queueName: 'outqueue',
+    connection: 'MyStorageConnectionAppSetting',
+});
+
+export async function httpTrigger1(request: HttpRequest, context: InvocationContext): Promise<HttpResponseInit> {
+    const body = await request.text();
+    context.extraOutputs.set(queueOutput, body);
+    return { body: 'Created queue item.' };
+}
+
+app.http('httpTrigger1', {
+    methods: ['GET', 'POST'],
+    authLevel: 'anonymous',
+    extraOutputs: [queueOutput],
+    handler: httpTrigger1,
+});
+```
+
+You can send multiple messages at once by defining a message array for the output binding. The following JavaScript code sends two queue messages with hard-coded values for each HTTP request received.
+
+```typescript
+import { app, HttpRequest, HttpResponseInit, InvocationContext, output } from '@azure/functions';
+
+const queueOutput = output.storageQueue({
+    queueName: 'outqueue',
+    connection: 'MyStorageConnectionAppSetting',
+});
+
+export async function httpTrigger1(request: HttpRequest, context: InvocationContext): Promise<HttpResponseInit> {
+    context.extraOutputs.set(queueOutput, ['message 1', 'message 2']);
+    return { body: 'Created queue item.' };
+}
+
+app.http('httpTrigger1', {
+    methods: ['GET', 'POST'],
+    authLevel: 'anonymous',
+    extraOutputs: [queueOutput],
+    handler: httpTrigger1,
+});
+```
+
+# [v3](#tab/nodejs-v3)
+
+TypeScript samples are not documented for model v3.
+
+---
+
+::: zone-end  
 ::: zone pivot="programming-language-javascript"  
+
+# [v4](#tab/nodejs-v4)
+
+The following example shows an HTTP triggered [JavaScript function](functions-reference-node.md) that creates a queue item for each HTTP request received.
+
+```javascript
+const { app, output } = require('@azure/functions');
+
+const queueOutput = output.storageQueue({
+    queueName: 'outqueue',
+    connection: 'MyStorageConnectionAppSetting',
+});
+
+app.http('httpTrigger1', {
+    methods: ['GET', 'POST'],
+    authLevel: 'anonymous',
+    extraOutputs: [queueOutput],
+    handler: async (request, context) => {
+        const body = await request.text();
+        context.extraOutputs.set(queueOutput, body);
+        return { body: 'Created queue item.' };
+    },
+});
+```
+
+You can send multiple messages at once by defining a message array for the output binding. The following JavaScript code sends two queue messages with hard-coded values for each HTTP request received.
+
+```javascript
+const { app, output } = require('@azure/functions');
+
+const queueOutput = output.storageQueue({
+    queueName: 'outqueue',
+    connection: 'MyStorageConnectionAppSetting',
+});
+
+app.http('httpTrigger1', {
+    methods: ['GET', 'POST'],
+    authLevel: 'anonymous',
+    extraOutputs: [queueOutput],
+    handler: async (request, context) => {
+        context.extraOutputs.set(queueOutput, ['message 1', 'message 2']);
+        return { body: 'Created queue item.' };
+    },
+});
+```
+
+# [v3](#tab/nodejs-v3)
 
 The following example shows an HTTP trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function creates a queue item for each HTTP request received.
 
@@ -127,6 +232,8 @@ module.exports = async function(context) {
     context.bindings.myQueueItem = ["message 1","message 2"];
 };
 ```
+
+---
 
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
@@ -386,7 +493,7 @@ public class HttpTriggerQueueOutput {
 
 The parameter associated with the [QueueOutput](/java/api/com.microsoft.azure.functions.annotation.queueoutput) annotation is typed as an [OutputBinding\<T\>](/java/api/com.microsoft.azure.functions.outputbinding) instance.
 ::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
 ## Configuration
 ::: zone-end
 
@@ -394,7 +501,35 @@ The parameter associated with the [QueueOutput](/java/api/com.microsoft.azure.fu
 _Applies only to the Python v1 programming model._
 
 ::: zone-end
-::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
+::: zone pivot="programming-language-javascript,programming-language-typescript"  
+
+# [v4](#tab/nodejs-v4)
+
+The following table explains the properties that you can set on the `options` object passed to the `output.storageQueue()` method.
+
+| Property | Description |
+|---------|------------------------|
+|**queueName** | The name of the queue. |
+|**connection** | The name of an app setting or setting collection that specifies how to connect to Azure Queues. See [Connections](#connections).|
+
+# [v3](#tab/nodejs-v3)
+
+The following table explains the binding configuration properties that you set in the *function.json* file.
+
+| Property | Description |
+|---------|-----------------------|
+|**type** |Must be set to `queue`. This property is set automatically when you create the trigger in the Azure portal.|
+|**direction** |  Must be set to `out`. This property is set automatically when you create the trigger in the Azure portal. |
+|**name** |  The name of the variable that represents the queue in function code. Set to `$return` to reference the function return value.|
+|**queueName** | The name of the queue. |
+|**connection** | The name of an app setting or setting collection that specifies how to connect to Azure Queues. See [Connections](#connections).|
+
+---
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+::: zone-end  
+::: zone pivot="programming-language-powershell,programming-language-python"  
 
 The following table explains the binding configuration properties that you set in the *function.json* file.
 
@@ -487,9 +622,17 @@ There are two options for writing to a queue from a function by using the [Queue
 - **Imperative**: To explicitly set the message value, apply the annotation to a specific parameter of the type [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.outputbinding), where `T` is a POJO or any native Java type. With this configuration, passing a value to the `setValue` method writes the value to the queue.
 
 ::: zone-end  
-::: zone pivot="programming-language-javascript"
-  
-The output queue item is available via `context.bindings.<NAME>` where `<NAME>` matches the name defined in *function.json*. You can use a string or a JSON-serializable object for the queue item payload.
+::: zone pivot="programming-language-javascript,programming-language-typescript"
+
+# [v4](#tab/nodejs-v4)
+
+Access the output queue item by returning the value directly or using `context.extraOutputs.set()`. You can use a string or a JSON-serializable object for the queue item payload.
+
+# [v3](#tab/nodejs-v3)
+
+Access the output queue item by using `context.bindings.<name>` where `<name>` is the value specified in the `name` property of *function.json*. You can use a string or a JSON-serializable object for the queue item payload.
+
+---
 
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"
