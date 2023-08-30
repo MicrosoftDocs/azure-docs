@@ -47,10 +47,19 @@ When your custom model is trained and ready (you've completed the steps in the [
 The API call will look like this:
 
 ```bash
-curl.exe -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://<endpoint>/computervision/shelfanalysis-productunderstanding:analyze?product-classifier-model-name=<your_model_name>" -d "{
+curl.exe -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://<endpoint>/computervision/productrecognition/ms-pretrained-product-detection/models/<your_model_name>/runs/<your_run_name>?api-version=2023-04-01-preview" -d "{
     'url':'<your_url_string>'
 }"
 ```
+
+1. Make the following changes in the command where needed:
+    1. Replace the `<subscriptionKey>` with your Vision resource key.
+    1. Replace the `<endpoint>` with your Vision resource endpoint. For example: `https://YourResourceName.cognitiveservices.azure.com`.
+    1. Replace the `<your_model_name>` with your unique custom model name. This will be the name of the customized model you have trained with your own data. For example, `.../models/mymodel1/runs/...`
+    2. Replace the `<your_run_name>` with your unique test run name for the task queue. It is an async API task queue name for you to be able retrieve the API response later. For example, `.../runs/test1?api-version...`
+    1. Replace the `<your_url_string>` contents with the blob URL of the image
+1. Open a command prompt window.
+1. Paste your edited `curl` command from the text editor into the command prompt window, and then run the command.
 
 ## Next steps
 
