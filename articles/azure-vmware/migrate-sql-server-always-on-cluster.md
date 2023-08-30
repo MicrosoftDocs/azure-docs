@@ -12,11 +12,11 @@ ms.custom: engagement-fy23
 
 In this article, you learn how to migrate Microsoft SQL Server Always On Cluster to Azure VMware Solution. For VMware HCX, you can follow the VMware vMotion migration procedure. 
 
-:::image type="content" source="media/sql-server-hybrid-benefit/sql-always-on-architecture.png" alt-text="Diagram showing the architecture of always on SQL server for  Azure VMware Solution." border="false" lightbox="media/sql-server-hybrid-benefit/sql-always-on-architecture.png":::
+:::image type="content" source="media/sql-server-hybrid-benefit/sql-always-on-architecture.png" alt-text="Diagram showing the architecture of Always On SQL Server for  Azure VMware Solution." border="false" lightbox="media/sql-server-hybrid-benefit/sql-always-on-architecture.png":::
 
 ## Prerequisites
 
-These are the prerequisites to migrating your SQL server instance to Azure VMware Solution.
+These are the prerequisites to migrating your SQL Server instance to Azure VMware Solution.
 
 - Review and record the storage and network configuration of every node in the cluster.
 - Backup the full database.
@@ -93,14 +93,14 @@ For details about configuring and managing the quorum, see [Failover Clustering 
 1. From the **Availability Group Dashboard** in SSMS click on **Start Failover Wizard**.
 1. Select the migrated replica and click **Next**.
 
-    :::image type="content" source="media/sql-server-hybrid-benefit/sql-always-on-3.png" alt-text="Diagram showing new primary replica selection for always on." border="false" lightbox="media/sql-server-hybrid-benefit/sql-always-on-3.png":::
+    :::image type="content" source="media/sql-server-hybrid-benefit/sql-always-on-3.png" alt-text="Diagram showing new primary replica selection for Always On." border="false" lightbox="media/sql-server-hybrid-benefit/sql-always-on-3.png":::
 
 1. Connect to the replica in the next screen with your DB admin credentials.
     :::image type="content" source="media/sql-server-hybrid-benefit/sql-always-on-4.png" alt-text="Diagram showing new primary replica admin credentials connection." border="false" lightbox="media/sql-server-hybrid-benefit/sql-always-on-4.png":::
   
 1. Review the changes and click **Finish** to start the failover operation.
 
-    :::image type="content" source="media/sql-server-hybrid-benefit/sql-always-on-5.png" alt-text="Diagram showing Availability Group always on operation review." border="false" lightbox="media/sql-server-hybrid-benefit/sql-always-on-5.png":::
+    :::image type="content" source="media/sql-server-hybrid-benefit/sql-always-on-5.png" alt-text="Diagram showing Availability Group Always On operation review." border="false" lightbox="media/sql-server-hybrid-benefit/sql-always-on-5.png":::
 
  
 1. Monitor the progress of the failover in the next screen, and click **Close** when the operation is finished.
