@@ -15,10 +15,15 @@ ms.date: 09/06/2023
 ms.custom: devplatv2
 ---
 
-# Overview
-Monitoring models in production is an essential part of the AI lifecycle. Changes in data and consumer behavior can influence your LLM application over time, resulting in outdated AI systems, which can produce undesired results that can negatively impact business outcomes and expose organizations to compliance and reputational risks. Azure Machine Learning now lets your organization monitor your LLM applications in production. 
+# Overview - TO REFINE
+Monitoring models in production is an essential part of the AI lifecycle: changes in data and consumer behavior can influence your LLM application over time, resulting in outdated AI systems, which can produce undesired results that can negatively impact business outcomes and expose organizations to compliance and reputational risks. 
 
-You can collect production data using Model Data Collector(https://learn.microsoft.com/en-us/azure/machine-learning/concept-data-collection?view=azureml-api-2), analyze key safety & quality evaluation metrics (coherence/fluency/groundedness/relevance/similarity) on a recurring basis, receive timely alerts about critical issues, and visualize the results over time in a rich dashboard within the Azure Machine Learning studio.
+AzureML model monitoring for generative AI applications makes it easier for you to monitor your LLM applications in production for safety and quality on a user-defined cadence to ensure it is delivering maximum business impact. This ultimately helps you maintain the quality and safety of your deployments, mitigating economic, reputational, and compliance risks. Capabilities: 
+- Collect production data using Model Data Collector(https://learn.microsoft.com/en-us/azure/machine-learning/concept-data-collection?view=azureml-api-2), 
+- Evaluation metrics include key responsible AI indicators such as groundedness, coherence, fluency, relevance, and similarity, and are interoperable with AzureML prompt flow. ​
+- You can configure alerts for violations based on organizational targets and run your monitoring on a recurring basis
+- Consume results in a rich dashboard within a workspace in the Azure Machine Learning studio.
+- The service integrates with AzureML prompt flow evaluation metrics, analyzes collected production data to provide timely alerts, and allows for rich visualization of the metrics over time. ​
 
 For overall model monitoring basic concepts, please refer to the model monitoring concept article: https://learn.microsoft.com/en-us/azure/machine-learning/concept-model-monitoring?view=azureml-api-2
 
@@ -40,6 +45,7 @@ Generative AI monitoring uses the GPT family of models as evaluators for sequenc
 - GPT-4-32k  
 
 # Evaluation metrics 
+You can learn more here: articles/machine-learning/concept-evaluation-metrics-guidance.md
 
 ## Metrics requirements
 - The following inputs (data column names) are required to measure generation safety & quality: 
@@ -59,25 +65,21 @@ What parameters are configured in your data asset will dictate what metrics you 
 | Relevance | Required | Required | Required | -- |  
 | Similarity | Required | Required | -- | Required |  
 
-
-# Evaluation metrics
-
-
 # Getting started
-Define GPT-4 endpoint for calculating hallucination (user pays the cost) 
+Define GPT-4 endpoint for calculating hallucination  
     - Attach workspace UAI with access to the AOAI resource 
     - API connection in workspace (should be able to represent Batch endpoint) 
     - If no workspace connection, alert and provide prompt to guide users to create one 
     - Configuring permissions
 Create an online endpoint (promptflow)	  
-    - Specifies “flow outputs” to collect production data  (Prompt| Completion | Context  | Ground truth) 
+    - Specifies “flow outputs” to collect production data ( Prompt| Completion | Context | Ground truth) 
     - Put into dataframe and log it, joining inputs and outputs  
     - Create PF deployment  
 Create Model monitor 
-    - Select deployed GPT4 LLM annotator model to create signal for groundedness  
+    - Select deployed GPT4 LLM annotator model to create your monitoring signal  
     - Select target LLM output dataset (inputs & outputs ) 
     - Select metrics 
-Consume/view groundedness metric in Studio UI 
+Consume/view metric in Studio UI 
     - View the metrics over time 
     - View histogram of distributions 
     - View samples of violations 
