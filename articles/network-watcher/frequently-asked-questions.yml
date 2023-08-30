@@ -184,6 +184,16 @@ sections:
         answer: |
           Flow logs version 2 introduces the concept of *flow state* and stores information about bytes and packets transmitted. For more information, see [NSG flow log format](./network-watcher-nsg-flow-logging-overview.md#log-format).
 
+      - question: |
+          Can I create a flow log for a network security group that has a read-only lock?
+        answer: |
+          No. A **read-only** lock on a network security group prevents the creation of the corresponding NSG flow log.
+
+      - question: |
+          Can I create a flow log for a network security group that has a cannot-delete lock?
+        answer: |
+          Yes. A **cannot-delete** lock on the network security group doesn't prevent the creation or modification of the corresponding NSG flow log.
+
 additionalContent: |
 
   ## Next steps
