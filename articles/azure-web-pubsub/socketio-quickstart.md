@@ -25,7 +25,7 @@ Code shown in this quickstart is in CommonJS. If you want to use an ECMAScript m
 
 To create a Web PubSub for Socket.IO, you can use the following one-click button to create or follow the actions below to search in Azure portal.
 
-- Use the following bottun to create a Web PubSub for Socket.IO in Azure
+- Use the following button to create a Web PubSub for Socket.IO resource in Azure
 
     [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://ms.portal.azure.com/#create/Microsoft.WebPubSubForSocketIO)
 
