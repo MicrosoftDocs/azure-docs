@@ -1040,11 +1040,11 @@
   items:
     - name: Model data collection
       href: concept-data-collection.md
-    - name: Model monitoring
-      href: concept-model-monitoring.md
     - name: Collect inferencing data from production
       displayName: model data collection, data drift, data quality, model quality
       href: how-to-collect-production-data.md
+    - name: Model monitoring
+      href: concept-model-monitoring.md
     - name: Perform continuous monitoring
       displayName: model monitoring, data drift, data quality, model quality
       href: how-to-monitor-model-performance.md
