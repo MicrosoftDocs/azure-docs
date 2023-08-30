@@ -76,7 +76,7 @@ You can access the following packet core dashboards:
 
 - The **Uplink and Downlink Statistics dashboard** provides detailed statistics on the user plane traffic being handled by the packet core instance. 
 
-    :::image type="content" source="media/packet-core-dashboards/packet-core-uplink-downlink-stats-dashboard.png" alt-text="Screenshot of the Uplink and Downlink Statistics dashboard. Panels related to throughput, packet rates, and packet size are shown." lightbox="media/packet-core-dashboards/packet-core-device-session-stats-dashboard.png":::
+    :::image type="content" source="media/packet-core-dashboards/packet-core-uplink-downlink-stats-dashboard.png" alt-text="Screenshot of the Uplink and Downlink Statistics dashboard. Panels related to throughput, packet rates, and packet size are shown." lightbox="media/packet-core-dashboards/packet-core-uplink-downlink-stats-dashboard.png":::
 
 - The **Debug** dashboards show detailed breakdowns of the request and response statistics for the packet core instance's interfaces.
 
