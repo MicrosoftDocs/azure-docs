@@ -1,3 +1,17 @@
+---
+title: Connection Pooling Best Practices - Azure Database for PostgreSQL - Flexible Server
+description: This article describes the bestpractices for connectyion pooling in Azure Database for PostgreSQL - Flexible Server.
+ms.service: postgresql
+ms.subservice: flexible-server
+ms.topic: conceptual
+ms.author: alkuchar
+author: AwdotiaRomanowna
+ms.date: 10/21/2022
+---
+
+# Read replicas in Azure Database for PostgreSQL - Flexible Server
+
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 # CONNECTION POOLING STRATEGY FOR POSTGRESQL USING PGBOUNCER
 
 Strategic guidance for selecting connection pooling mechanism for PostgreSQL
@@ -8,12 +22,7 @@ When using PostgreSQL, establishing a connection to the database involves creati
 
 To mitigate this issue, connection pooling is used to create a cache of connections that can be reused in PostgreSQL. When an application or client requests a connection, it is created from the connection pool. After the session or transaction is completed, the connection is returned to the pool for reuse. By reusing connections, resources usage is reduced, and performance is improved.
 
-
-<br>
-<p align="center">
-  <img align = "center" src="images/connection_patterns.png" width=500>
-</p>
-</br>
+:::image type="content" source="./media/concepts-connection-pooling-best-practices/connection-patterns.png" alt-text="Diagram for Connection Pooling Patterns":::
 
 Although there are different tools for connection pooling, in this section, we will discuss different strategies to use connection pooling using **PgBouncer**.
 
@@ -31,12 +40,9 @@ The effective utilization of PgBouncer can be categorized into 3 distinct usage 
 1. Application independent centralized PgBouncer deployments
 1. Inbuilt PgBouncer and Database deployment
 
-<br>
-<p align="center">
-  <img src="images/design_patterns.png" width=500>
-</p>
-</br>
- 
+:::image type="content" source="./media/concepts-connection-pooling-best-practices/design-patterns.png"
+alt-text="Diagram for App co-location":::
+
 
 Each of these patterns has its own advantages & disadvantages.
 
@@ -48,11 +54,8 @@ When utilizing this approach, PgBouncer is deployed on the same server where you
 
 If your application runs on an Azure VM, you have the option to set up PgBouncer on the same VM. To install and configure PgBouncer as a connection pooling proxy with Azure Database for PostgreSQL, please follow the instructions provided in the following [link](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/steps-to-install-and-setup-pgbouncer-connection-pooling-proxy/ba-p/730555).
 
-<br>
-<p align="center">
-  <img src="images/co-location.png" width=500>
-</p>
-</br>
+:::image type="content" source="./media/concepts-connection-pooling-best-practices/co-location.png"
+alt-text="Diagram for App co-location on VM":::
 
 
 Deploying PgBouncer in an application server can provide several advantages, especially when working with PostgreSQL databases. Below are some key benefits & limitations of this deployment method.
@@ -84,12 +87,8 @@ Microsoft has published a [**PgBouncer** sidecar proxy image](https://hub.docker
 
 Please refer [this](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/steps-to-install-and-setup-pgbouncer-connection-pooling-on-azure/ba-p/3633043) for more details.
 
-<br>
-<p align="center">
-  <img src="images/sidecar_proxy.png" width=500>
-</p>
-</br>
-
+:::image type="content" source="./media/concepts-connection-pooling-best-practices/sidecar-proxy.png"
+alt-text="Diagram for App co-location on Sidecar":::
 
 Below are some key benefits & limitations of this deployment method.
 
