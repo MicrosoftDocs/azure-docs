@@ -94,3 +94,27 @@ Once the request is sent, you can track the progress of the training job in Lang
 
 > [!NOTE]
 > You have to retrain your model after updating the `confidenceThreshold` project setting. Afterwards, you'll need to republish the app for the new threshold to take effect.
+
+## Debugging composed entities
+
+Entities are functions that emit spans in your input with an associated type. The function is defined by one or more components. You can mark components as needed, and you can decide whether to enable the *combine components* setting. When you combine components, all spans that overlap will be merged into a single span. If the setting isn't used, each individual component span will be emitted.
+ 
+To better understand how individual components are performing, you can disable the setting and set each component to "not required". This lets you inspect the individual spans that are emitted, and experiment with removing components so that only problematic components are generated.
+
+## Evaluate a model using multiple test sets
+
+If you want to use multiple test sets on your model, you can:
+
+1. Give your test sets different names (for example, "test1" and "test2").
+1. Export your project to get a JSON file with .
+1. Import the project as a 
+
+
+work around the current limitation by including sets with different names (e.g., ‘Test1’, ‘Test2’). Then, when you want to test with a specific set, you can export the project, rename one of your test sets (e.g., rename ‘Test2’ to ‘Test’), import the project and then invoke evaluation.
+At the time of writing, evaluation is tied to training, so you will need to train again to get the new evaluation. When evaluation on demand is shipped, you will be able to re-run evaluation without training.
+
+
+
+
+Data in a CLU project file can be tagged with a ‘dataset’ field. Currently, there are 2 reserved data set names: ‘Train’ and ‘Test’. If you want to use multiple test sets, you can work around the current limitation by including sets with different names (e.g., ‘Test1’, ‘Test2’). Then, when you want to test with a specific set, you can export the project, rename one of your test sets (e.g., rename ‘Test2’ to ‘Test’), import the project and then invoke evaluation.
+At the time of writing, evaluation is tied to training, so you will need to train again to get the new evaluation. When evaluation on demand is shipped, you will be able to re-run evaluation without training.
