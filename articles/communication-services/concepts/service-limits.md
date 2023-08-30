@@ -25,10 +25,10 @@ When you hit service limitations, you will receive an HTTP status code 429 (Too 
 
 You can find more general guidance on how to set up your service architecture to handle throttling and limitations in the [Azure Architecture](/azure/architecture) documentation for [throttling patterns](/azure/architecture/patterns/throttling). Throttling limits can be increased through a request to Azure Support.
 
--  Go to Azure portal
--  Select Help+Support
--  Click on Create new support request
--  In the Problem description, please choose **Issue type** as **Technical** and add in the details.
+1.  Go to Azure portal
+1.  Select Help+Support
+1.  Click on Create new support request
+1.  In the Problem description, please choose **Issue type** as **Technical** and add in the details.
   
 You can follow the documentation for [creating request to Azure Support](../../azure-portal/supportability/how-to-create-azure-support-request.md).
 
