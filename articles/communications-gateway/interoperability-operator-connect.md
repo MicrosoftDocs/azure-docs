@@ -1,17 +1,20 @@
 ---
-title: Interoperability of Azure Communications Gateway with Microsoft Teams
-description: Understand how Azure Communications Gateway fits into your existing fixed and mobile networks and into Microsoft Teams
+title: Overview of Operator Connect and Teams Phone Mobile interoperating with Azure Communications Gateway
+description: Understand how Azure Communications Gateway fits into your fixed and mobile networks and into the Operator Connect and Teams Phone Mobile environments
 author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: conceptual
-ms.date: 04/26/2023
+ms.date: 08/01/2023
 ms.custom: template-concept
 ---
 
-# Interoperability of Azure Communications Gateway with Microsoft Teams
+# Overview of interoperability of Azure Communications Gateway with Operator Connect and Teams Phone Mobile
 
-Azure Communications Gateway sits at the edge of your network. This position allows it to manipulate signaling and media to meet the requirements of your networks and the Microsoft Phone System. Azure Communications Gateway includes many interoperability settings by default, and you can arrange further interoperability configuration.
+Azure Communications Gateway can manipulate signaling and media to meet the requirements of your networks and the Operator Connect and Teams Phone Mobile programs. This article provides an overview of the interoperability features that Azure Communications Gateway offers for Operator Connect and Teams Phone Mobile.
+
+> [!IMPORTANT]
+> You must sign an Operator Connect or Teams Phone Mobile agreement with Microsoft to use this service.
 
 ## Role and position in the network
 
@@ -22,17 +25,6 @@ Azure Communications Gateway sits at the edge of your fixed line and mobile netw
 :::image-end:::
 
 Calls flow from endpoints in your networks through Azure Communications Gateway and the Microsoft Phone System into Microsoft Teams clients.
-
-Azure Communications Gateway provides all the features of a traditional session border controller (SBC). These features include:
-
-- Signaling interworking features to solve interoperability problems
-- Advanced media manipulation and interworking
-- Defending against Denial of Service attacks and other malicious traffic
-- Ensuring Quality of Service
-
-Azure Communications Gateway also offers metrics for monitoring your deployment.
-
-You must provide the networking connection between Azure Communications Gateway and your core networks.
 
 ### Compliance with Certified SBC specifications
 
@@ -60,14 +52,12 @@ Your core mobile network must also be able to anchor and divert calls into the M
 
 ## SIP signaling
 
-Azure Communications Gateway includes SIP trunks to your own network and can interwork between your existing core networks and the requirements of the Microsoft Phone System. For example, Azure Communications Gateway automatically interworks calls to support the following requirements from Operator Connect and Teams Phone Mobile:
+Azure Communications Gateway automatically interworks calls to support the following requirements from Operator Connect and Teams Phone Mobile:
 
 - SIP over TLS
 - X-MS-SBC header (describing the SBC function)
 - Strict rules on a= attribute lines in SDP bodies
 - Strict rules on call transfer handling
-
-SIP trunks between your network and Azure Communications Gateway are multi-tenant, meaning that traffic from all your customers share the same trunk. By default, traffic sent from the Azure Communications Gateway contains an X-MSTenantID header. This header identifies the enterprise that is sending the traffic and can be used by your billing systems.
 
 You can arrange more interworking function as part of your initial network design or at any time by raising a support request for Azure Communications Gateway. For example, you might need extra interworking configuration for:
 
@@ -76,6 +66,8 @@ You can arrange more interworking function as part of your initial network desig
 - Interworking between early and late media
 - Interworking away from inband DTMF tones
 - Placing the unique tenant ID elsewhere in SIP messages to make it easier for your network to consume, for example in `tgrp` parameters
+
+[!INCLUDE [communications-gateway-multitenant](includes/communications-gateway-multitenant.md)]
 
 ## RTP and SRTP media
 
@@ -97,6 +89,21 @@ Azure Communications Gateway offers multiple media interworking options. For exa
 
 For full details of the media interworking features available in Azure Communications Gateway, raise a support request.
 
+## Number Management Portal for provisioning with Operator Connect APIs
+
+Operator Connect and Teams Phone Mobile require API integration between your IT systems and Microsoft Teams for flow-through provisioning and automation. After your deployment has been certified and launched, you must not use the Operator Connect portal for provisioning. You can use Azure Communications Gateway's Number Management Portal instead. This Azure portal feature enables you to pass the certification process and sell Operator Connect or Teams Phone Mobile services while you carry out a custom API integration project.
+
+The Number Management Portal is available as part of the optional API Bridge feature.
+
+For more information, see [Manage an enterprise with Azure Communications Gateway's Number Management Portal for Operator Connect and Teams Phone Mobile](manage-enterprise-operator-connect.md).
+
+> [!TIP]
+> The Number Management Portal does not allow your enterprise customers to manage Teams Calling. For example, it does not provide self-service portals.
+
+### Providing call duration data to Microsoft Teams
+
+Azure Communications Gateway can use the Operator Connect APIs to upload information about the duration of individual calls (CallDuration information) into the Microsoft Teams environment. This information allows Microsoft Teams clients to display the call duration recorded by your network, instead of the call duration recorded by Microsoft Teams. Providing this information to Microsoft Teams is a requirement of the Operator Connect program that Azure Communications Gateway performs on your behalf.
+
 ## Compatibility with monitoring requirements
 
 The Azure Communications Gateway service includes continuous monitoring for potential faults in your deployment. The metrics we monitor cover all metrics that operators must monitor as part of the Operator Connect program and include:
@@ -105,9 +112,7 @@ The Azure Communications Gateway service includes continuous monitoring for pote
 - Call errors and unusual behavior (for example, call setup failures, short calls, or unusual disconnections)
 - Other errors in Azure Communications Gateway
 
-We'll investigate the potential fault, and determine whether the fault relates to Azure Communications Gateway or the Microsoft Phone System. We may require you to carry out some troubleshooting steps in your networks to help isolate the fault.
-
-Azure Communications Gateway provides metrics that you can use to monitor the overall health of your Azure Communications Gateway deployment. If you notice any concerning metrics, you can raise an Azure Communications Gateway support ticket.
+We'll investigate the potential fault, and determine whether the fault relates to Azure Communications Gateway or the Microsoft Phone System. We might require you to carry out some troubleshooting steps in your networks to help isolate the fault.
 
 ## Next steps
 
