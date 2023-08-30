@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Incorporate Web PubSub for Socket.IO in your app'
 description: In this quickstart, you learn how to use Web PubSub for Socket.IO on an existing Socket.IO app.
-keywords: Socket.IO, Socket.IO on Azure, multi-node Socket.IO, scaling Socket.IO
+keywords: Socket.IO, Socket.IO on Azure, multi-node Socket.IO, scaling Socket.IO, socketio, azure socketio
 author: xingsy97
 ms.author: siyuanxing
 ms.date: 08/01/2023
@@ -51,7 +51,7 @@ To create a Web PubSub for Socket.IO, you can use the following one-click button
 
 ## Sending messages with Socket.IO libraries and Web PubSub for Socket.IO
 
-In the following steps, you create a Socket.IO project and integrate with Web PubSub for Socket.IO as broker.
+In the following steps, you create a Socket.IO project and integrate with Web PubSub for Socket.IO.
 
 ### Initialize a Node project and install required packages
 
@@ -127,7 +127,7 @@ When you use Web PubSub for Socket.IO, `<web-pubsub-socketio-endpoint>` and `pat
     node server.js "<connection-string>"
     ```
 
-    The `<connection-string>` is the connection string contains the endpoint and keys to access your Web PubSub for Socket.IO resource. You can also find the connection string in Azure portal
+    The `<connection-string>` is the connection string that contains the endpoint and keys to access your Web PubSub for Socket.IO resource. You can also find the connection string in Azure portal
 
     :::image type="content" source="./media/socketio-quickstart/connection-string.png" alt-text="Screenshot of the Web PubSub for Socket.IO service in the Azure portal connection string blade.":::
 
