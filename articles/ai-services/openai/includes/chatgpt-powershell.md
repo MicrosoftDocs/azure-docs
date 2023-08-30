@@ -46,11 +46,11 @@ Create and assign persistent environment variables for your key and endpoint.
 
 # [PowerShell](#tab/powershell)
 
-```powershell
+```powershell-interactive
 $Env:AZURE_OPENAI_KEY = 'YOUR_KEY_VALUE'
 ```
 
-```powershell
+```powershell-interactive
 $Env:AZURE_OPENAI_ENDPOINT = 'YOUR_ENDPOINT'
 ```
 
