@@ -27,7 +27,7 @@ az graph query -q "policyresources | where type == 'microsoft.authorization/poli
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-by default, PowerShell get results for all subscriptions in your tenant but you can also include the `-UseTenantScope` parameter.
+By default, PowerShell get results for all subscriptions in your tenant but you can also include the `-UseTenantScope` parameter.
 
 ```azurepowershell-interactive
 Search-AzGraph -Query "policyresources | where type == 'microsoft.authorization/policyexemptions' | summarize count() by tostring(properties.policyAssignmentId)" -UseTenantScope
