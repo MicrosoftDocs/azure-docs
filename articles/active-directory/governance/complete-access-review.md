@@ -34,6 +34,8 @@ For more information, see [License requirements](access-reviews-overview.md#lice
  
 ## View the status of an access review
  
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 You can track the progress of access reviews as they're completed.
  
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).

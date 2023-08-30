@@ -1,6 +1,7 @@
 ---
 title: Collect logs in Web PubSub for Socket.IO
 description: This article explains how to collect logs when you're using Web PubSub for Socket.IO.
+keywords: Socket.IO, Socket.IO on Azure, multi-node Socket.IO, scaling Socket.IO, Socket.IO logging, Socket.IO debugging, socketio, azure socketio
 author: xingsy97
 ms.author: siyuanxing
 ms.date: 08/01/2023
