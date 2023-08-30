@@ -3,7 +3,7 @@ title: Deploy multiple instances of resources
 description: Use copy operation and arrays in an Azure Resource Manager template (ARM template) to deploy resource type many times.
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 08/22/2023
+ms.date: 08/30/2023
 ---
 
 # Resource iteration in ARM templates
@@ -158,7 +158,7 @@ If you want to return values from the deployed resources, you can use [copy in t
 
 ### Use symbolic name
 
-[Symbolic name](./resource-declaration.md#use-symbolic-name) can be assigned to resource copy loops. The loop index is zero-based. In the following example, `myStorages[1]` references the second resource in the resource loop.
+[Symbolic name](./resource-declaration.md#use-symbolic-name) will be assigned to resource copy loops. The loop index is zero-based. In the following example, `myStorages[1]` references the second resource in the resource loop.
 
 ```json
 {

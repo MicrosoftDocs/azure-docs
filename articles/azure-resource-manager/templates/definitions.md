@@ -17,7 +17,7 @@ This article describes how to create and use definitions in your Azure Resource 
 
 ## Minimal declaration
 
-At a minimum, every type definition needs a name and type.
+At a minimum, every type definition needs a name and either a `type` or a [`$ref`](#use-definition).
 
 ```json
 "definitions": {

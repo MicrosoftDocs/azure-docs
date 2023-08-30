@@ -94,7 +94,7 @@ The following example deploys a storage account through a nested template.
 }
 ```
 
-[Nested resources](./child-resource-name-type.md#within-parent-resource) can't use [symbolic name](./resource-declaration.md#use-symbolic-name). In the following template, the nested storage account resource cannot use symbolic name:
+[Nested resources](./child-resource-name-type.md#within-parent-resource) can't be used in a [symbolic name](./resource-declaration.md#use-symbolic-name) template. In the following template, the nested storage account resource cannot use symbolic name:
 
 ```json
 {
