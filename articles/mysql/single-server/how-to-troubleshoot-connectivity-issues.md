@@ -3,8 +3,8 @@ title: Troubleshoot connectivity issues in Azure Database for MySQL
 description: Learn how to troubleshoot connectivity issues in Azure Database for MySQL.
 ms.service: mysql
 ms.subservice: single-server
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.topic: troubleshooting
 ms.date: 07/22/2022
 ---

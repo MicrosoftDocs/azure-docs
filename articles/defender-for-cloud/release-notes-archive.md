@@ -391,7 +391,7 @@ The new security agent is a Kubernetes DaemonSet, based on eBPF technology and i
 
 The security agent enablement is available through auto-provisioning, recommendations flow, AKS RP or at scale using Azure Policy.
 
-You can [deploy the Defender profile](./defender-for-containers-enable.md?pivots=defender-for-container-aks&tabs=aks-deploy-portal%2ck8s-deploy-asc%2ck8s-verify-asc%2ck8s-remove-arc%2caks-removeprofile-api#deploy-the-defender-profile) today on your AKS clusters.
+You can [deploy the Defender agent](./defender-for-containers-enable.md?pivots=defender-for-container-aks&tabs=aks-deploy-portal%2ck8s-deploy-asc%2ck8s-verify-asc%2ck8s-remove-arc%2caks-removeprofile-api#deploy-the-defender-agent) today on your AKS clusters.
 
 With this announcement, the runtime protection - threat detection (workload) is now also generally available.
 
@@ -555,7 +555,7 @@ Updates in May include:
 
 - [Multicloud settings of Servers plan are now available in connector level](#multicloud-settings-of-servers-plan-are-now-available-in-connector-level)
 - [JIT (Just-in-time) access for VMs is now available for AWS EC2 instances (Preview)](#jit-just-in-time-access-for-vms-is-now-available-for-aws-ec2-instances-preview)
-- [Add and remove the Defender profile for AKS clusters using the CLI](#add-and-remove-the-defender-profile-for-aks-clusters-using-the-cli)
+- [Add and remove the Defender agent for AKS clusters using the CLI](#add-and-remove-the-defender-agent-for-aks-clusters-using-the-cli)
 
 ### Multicloud settings of Servers plan are now available in connector level
 
@@ -587,9 +587,9 @@ When you [connect AWS accounts](quickstart-onboard-aws.md), JIT will automatical
 
 Learn how [JIT protects your AWS EC2 instances](just-in-time-access-overview.md#how-jit-operates-with-network-resources-in-azure-and-aws)
 
-### Add and remove the Defender profile for AKS clusters using the CLI
+### Add and remove the Defender agent for AKS clusters using the CLI
 
-The Defender profile (preview) is required for Defender for Containers to provide the runtime protections and collects signals from nodes. You can now use the Azure CLI to [add and remove the Defender profile](defender-for-containers-enable.md?tabs=k8s-deploy-cli%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Ck8s-remove-cli&pivots=defender-for-container-aks#use-azure-cli-to-deploy-the-defender-extension) for an AKS cluster.
+The [Defender agent](defender-for-cloud-glossary.md#defender-agent) is required for Defender for Containers to provide the runtime protections and collects signals from nodes. You can now use the Azure CLI to [add and remove the Defender agent](defender-for-containers-enable.md?tabs=k8s-deploy-cli%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Ck8s-remove-cli&pivots=defender-for-container-aks#use-azure-cli-to-deploy-the-defender-agent) for an AKS cluster.
 
 > [!NOTE]
 > This option is included in [Azure CLI 3.7 and above](/cli/azure/update-azure-cli).
@@ -1997,21 +1997,21 @@ Learn more about this scanner in [Use Azure Defender for container registries to
 
 Azure Defender for Kubernetes is expanding its threat protection capabilities to defend your clusters wherever they're deployed. This has been enabled by integrating with [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md) and its new [extensions capabilities](../azure-arc/kubernetes/extensions.md).
 
-When you've enabled Azure Arc on your non-Azure Kubernetes clusters, a new recommendation from Azure Security Center offers to deploy the Azure Defender extension to them with only a few clicks.
+When you've enabled Azure Arc on your non-Azure Kubernetes clusters, a new recommendation from Azure Security Center offers to deploy the Azure Defender agent to them with only a few clicks.
 
 Use the recommendation (**Azure Arc-enabled Kubernetes clusters should have Azure Defender's extension installed**) and the extension to protect Kubernetes clusters deployed in other cloud providers, although not on their managed Kubernetes services.
 
 This integration between Azure Security Center, Azure Defender, and Azure Arc-enabled Kubernetes brings:
 
-- Easy provisioning of the Azure Defender extension to unprotected Azure Arc-enabled Kubernetes clusters (manually and at-scale)
-- Monitoring of the Azure Defender extension and its provisioning state from the Azure Arc Portal
+- Easy provisioning of the Azure Defender agent to unprotected Azure Arc-enabled Kubernetes clusters (manually and at-scale)
+- Monitoring of the Azure Defender agent and its provisioning state from the Azure Arc Portal
 - Security recommendations from Security Center are reported in the new Security page of the Azure Arc Portal
 - Identified security threats from Azure Defender are reported in the new Security page of the Azure Arc Portal
 - Azure Arc-enabled Kubernetes clusters are integrated into the Azure Security Center platform and experience
 
 Learn more in [Use Azure Defender for Kubernetes with your on-premises and multicloud Kubernetes clusters](defender-for-kubernetes-azure-arc.md).
 
-:::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-recommendation.png" alt-text="Azure Security Center's recommendation for deploying the Azure Defender extension for Azure Arc-enabled Kubernetes clusters." lightbox="media/defender-for-kubernetes-azure-arc/extension-recommendation.png":::
+:::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-recommendation.png" alt-text="Azure Security Center's recommendation for deploying the Azure Defender agent for Azure Arc-enabled Kubernetes clusters." lightbox="media/defender-for-kubernetes-azure-arc/extension-recommendation.png":::
 
 ### Microsoft Defender for Endpoint integration with Azure Defender now supports Windows Server 2019 and Windows 10 on Windows Virtual Desktop released for general availability (GA)
 
@@ -2296,7 +2296,7 @@ We're happy to announce the general availability (GA) of the set of recommendati
 
 To ensure that Kubernetes workloads are secure by default, Security Center has added Kubernetes level hardening recommendations, including enforcement options with Kubernetes admission control.
 
-When the Azure Policy add-on for Kubernetes is installed on your Azure Kubernetes Service (AKS) cluster, every request to the Kubernetes API server will be monitored against the predefined set of best practices - displayed as 13 security recommendations - before being persisted to the cluster. You can then configure to enforce the best practices and mandate them for future workloads.
+When Azure Policy for Kubernetes is installed on your Azure Kubernetes Service (AKS) cluster, every request to the Kubernetes API server will be monitored against the predefined set of best practices - displayed as 13 security recommendations - before being persisted to the cluster. You can then configure to enforce the best practices and mandate them for future workloads.
 
 For example, you can mandate that privileged containers shouldn't be created, and any future requests to do so will be blocked.
 
@@ -2787,7 +2787,7 @@ As Azure Security Center grows, more extensions have been developed and Security
 You can now configure the auto provisioning of:
 
 - Log Analytics agent
-- (New) Azure Policy Add-on for Kubernetes
+- (New) Azure Policy for Kubernetes
 - (New) Microsoft Dependency agent
 
 Learn more in [Auto provisioning agents and extensions from Azure Security Center](monitoring-components.md).
@@ -3097,7 +3097,7 @@ Learn more in [Connect your AWS accounts to Azure Security Center](quickstart-on
 
 To ensure that Kubernetes workloads are secure by default, Security Center is adding Kubernetes level hardening recommendations, including enforcement options with Kubernetes admission control.
 
-When you've installed the Azure Policy add-on for Kubernetes on your AKS cluster, every request to the Kubernetes API server will be monitored against the predefined set of best practices before being persisted to the cluster. You can then configure to enforce the best practices and mandate them for future workloads.
+When you've installed Azure Policy for Kubernetes on your AKS cluster, every request to the Kubernetes API server will be monitored against the predefined set of best practices before being persisted to the cluster. You can then configure to enforce the best practices and mandate them for future workloads.
 
 For example, you can mandate that privileged containers shouldn't be created, and any future requests to do so will be blocked.
 

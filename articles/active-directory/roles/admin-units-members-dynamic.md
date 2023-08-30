@@ -12,7 +12,7 @@ ms.workload: identity
 ms.date: 05/13/2022
 ms.author: rolyon
 ms.reviewer: anandy
-ms.custom: oldportal;it-pro;
+ms.custom: oldportal, it-pro, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 ---
 
@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 
 > [!IMPORTANT]
 > Dynamic membership rules for administrative units are currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> See the [Product Terms](https://aka.ms/EntraPreviewsTermsOfUse) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 You can add or remove users or devices for administrative units manually. With this preview, you can add or remove users or devices for administrative units dynamically using rules. This article describes how to create administrative units with dynamic membership rules using the Azure portal, PowerShell, or Microsoft Graph API.
 
@@ -124,7 +124,7 @@ For steps on how to edit your rule, see the following [Edit dynamic membership r
       "displayName": "Windows Devices",
       "description": "All Contoso devices running Windows",
       "membershipType": "Dynamic",
-      "membershipRule": "(device.deviceOSType -eq \"Windows\")",
+      "membershipRule": "(deviceOSType -eq 'Windows')",
       "membershipRuleProcessingState": "On"
     }
     ```

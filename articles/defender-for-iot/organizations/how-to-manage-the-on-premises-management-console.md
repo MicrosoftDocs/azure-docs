@@ -27,7 +27,7 @@ Before performing the procedures in this article, make sure that you have:
 
 You may need to download software for your on-premises management console if you're [installing Defender for IoT software](ot-deploy/install-software-on-premises-management-console.md) on your own appliances, or [updating software versions](update-ot-software.md).
 
-In [Defender for IoT](https://ms.portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) in the Azure portal, use one of the following options:
+In [Defender for IoT](https://portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) in the Azure portal, use one of the following options:
 
 - For a new installation or standalone update, select **Getting started** > **On-premises management console**.
 
@@ -106,7 +106,7 @@ The following procedures describe how to deploy updated SSL/TLS certificates, su
    | Parameter  | Description  |
    |---------|---------|
    | **Certificate Name**     |   Enter your certificate name.      |
-   | **Passphrase** - *Optional*    |  Enter a passphrase.       |
+   | **Passphrase** - *Optional*    |  Enter a [passphrase](best-practices/certificate-requirements.md#supported-characters-for-keys-and-passphrases).       |
    | **Private Key (KEY file)**     |  Upload a Private Key (KEY file).       |
    | **Certificate (CRT file)**     | Upload a Certificate (CRT file).        |
    | **Certificate Chain (PEM file)** - *Optional*    |  Upload a Certificate Chain (PEM file).       |

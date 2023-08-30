@@ -2,7 +2,7 @@
 author: karlerickson
 ms.author: v-shilichen
 ms.service: spring-apps
-ms.custom: event-tier1-build-2022
+ms.custom: event-tier1-build-2022, devx-track-azurecli
 ms.topic: include
 ms.date: 07/19/2023
 ---
@@ -18,7 +18,7 @@ For clarity of structure, a separate markdown file is used to describe how to de
 
 Use the following steps to prepare the sample locally.
 
-[!INCLUDE [prepare-spring-project-git-event-driven](../../includes/quickstart-deploy-event-driven-app/prepare-spring-project-git-event-driven.md)]
+[!INCLUDE [prepare-spring-project-git-event-driven](prepare-spring-project-git-event-driven.md)]
 
 ## 3. Prepare the cloud environment
 

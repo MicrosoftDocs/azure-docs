@@ -49,7 +49,7 @@ The URL for the Remote Desktop Web client is [https://client.wvd.microsoft.com/a
 If neither of these work you most likely have a problem with your network connection. Contact your network admin for help.
 
 > [!TIP]
-> For the URLs of other Azure environments, such as Azure US Gov and Microsoft Azure operated by 21Vianet, see [Connect to Azure Virtual Desktop with the Remote Desktop Web client](users/connect-web.md#access-your-resources).
+> For the URLs of other Azure environments, such as Azure US Gov and Azure operated by 21Vianet, see [Connect to Azure Virtual Desktop with the Remote Desktop Web client](users/connect-web.md#access-your-resources).
 
 ## Authentication and identity
 

@@ -60,9 +60,12 @@ Make sure that your certificates include the following CRT parameter details:
 
 Make sure that your certificate key files use either RSA 2048 bits or 4096 bits. Using a key length of 4096 bits slows down the SSL handshake at the start of each connection, and increases the CPU usage during handshakes.
 
-> [!TIP]
-> The following characters can be used when creating a key or certificate with a passphrase:
-> ASCII characters (a-z, A-Z, 0-9) are supported, as well as the following symbols ! #  % ( ) + , - . /  :  =  ?  @  [  \  ]  ^  _  {  }  ~
+### Supported characters for keys and passphrases
+
+The following characters are supported for creating a key or certificate with a passphrase:
+
+- ASCII characters, including **a-z**, **A-Z**, **0-9**
+- The following special characters: **! #  % ( ) + , - . /  :  =  ?  @  [  \  ]  ^  _  {  }  ~**
 
 ## Next steps
 

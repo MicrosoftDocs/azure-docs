@@ -58,7 +58,7 @@ To integrate with Holm Security Asset Data (using Azure Functions) make sure you
 
 **STEP 1 - Configuration steps for the Holm Security API**
 
- [Follow these instructions](https://support.holmsecurity.com/hc/en-us/articles/360027651591-How-do-I-set-up-an-API-token-) to create an API authentication token.
+ [Follow these instructions](https://www.holmsecurity.com/platform/api-scanning) to create an API authentication token.
 
 
 **STEP 2 - Use the below deployment option to deploy the connector and the associated Azure Function**

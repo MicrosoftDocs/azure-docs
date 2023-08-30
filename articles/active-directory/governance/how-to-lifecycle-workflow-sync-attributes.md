@@ -104,7 +104,7 @@ To ensure timing accuracy of scheduled workflows it’s crucial to consider:
  9. Back on the **Attribute mappings** screen, you should see your new attribute mapping.  
  10. Select **Save schema**.
 
-For more information on attributes, see [Attribute mapping in Azure AD Connect cloud sync.](../cloud-sync/how-to-attribute-mapping.md)
+For more information on attributes, see [Attribute mapping in Azure AD Connect cloud sync.](../hybrid/cloud-sync/how-to-attribute-mapping.md)
 
 ## How to create a custom sync rule in Azure AD Connect for EmployeeHireDate
 The following example will walk you through setting up a custom synchronization rule that synchronizes the Active Directory attribute to the employeeHireDate attribute in Azure AD.
@@ -149,10 +149,10 @@ The following example will walk you through setting up a custom synchronization 
 
 > [!NOTE]
 >- **msDS-cloudExtensionAttribute1** is an example source.
->- **Starting with [Azure AD Connect 2.0.3.0](../hybrid/reference-connect-version-history.md#functional-changes-10), `employeeHireDate` is added to the default 'Out to Azure AD' rule, so steps 10-16 are not required.**
->- **Starting with [Azure AD Connect 2.1.19.0](../hybrid/reference-connect-version-history.md#functional-changes-1), `employeeLeaveDateTime` is added to the default 'Out to Azure AD' rule, so steps 10-16 aren't required.**
+>- **Starting with [Azure AD Connect 2.0.3.0](../hybrid/connect/reference-connect-version-history.md#functional-changes-10), `employeeHireDate` is added to the default 'Out to Azure AD' rule, so steps 10-16 are not required.**
+>- **Starting with [Azure AD Connect 2.1.19.0](../hybrid/connect/reference-connect-version-history.md#functional-changes-1), `employeeLeaveDateTime` is added to the default 'Out to Azure AD' rule, so steps 10-16 aren't required.**
 
-For more information, see [How to customize a synchronization rule](../hybrid/how-to-connect-create-custom-sync-rule.md) and [Make a change to the default configuration.](../hybrid/how-to-connect-sync-change-the-configuration.md)
+For more information, see [How to customize a synchronization rule](../hybrid/connect/how-to-connect-create-custom-sync-rule.md) and [Make a change to the default configuration.](../hybrid/connect/how-to-connect-sync-change-the-configuration.md)
 
 
 ## How to verify these attribute values in Azure AD

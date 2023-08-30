@@ -5,7 +5,7 @@ description: Learn how to delete and restore a blob container in your Azure Stor
 services: storage
 author: pauljewellmsft
 
-ms.service: azure-storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 08/02/2023
 ms.author: pauljewell
