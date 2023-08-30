@@ -218,13 +218,13 @@ Azure OpenAI on your data provides several search options you can use when you a
 > * [Semantic search](/azure/search/semantic-search-overview#availability-and-pricing) and [vector search](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) are subject to additional pricing.
 > * Currently Azure OpenAI on your data supports semantic search for English data only. Only enable semantic search if both your documents and use case are in English.
 
-| Search option       | Retrieval type | Additional pricing? | 
-|---------------------|------------------------|---------------------|
-| *simple*            | Simple search                       | No additional pricing.                    |
-| *semantic*          |  Semantic search  |  Additional pricing for [semantic search](/azure/search/semantic-search-overview#availability-and-pricing) usage.                  |      
-| *vector*            | Vector search       | [Additional pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) on your Azure OpenAI account from calling the embedding model.                    |   
-| *vector + simple*   | A hybrid of vector search and simple search | [Additional pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) on your Azure OpenAI account from calling the embedding model.            |      
-| *vector + semantic* | A hybrid of vector search and semantic search for retrieval.     | [Additional pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) on your Azure OpenAI account from calling the embedding model, and additional pricing for [semantic search](/azure/search/semantic-search-overview#availability-and-pricing) usage.                    |     
+| Search option       | Retrieval type | Additional pricing? |Benefits|
+|---------------------|------------------------|---------------------| -------- |
+| *simple*            | Simple search                       | No additional pricing.                    |It performs fast and flexible query parsing and matching over searchable fields, using terms or phrases in any supported language, with or without operators.|
+| *semantic*          |  Semantic search  |  Additional pricing for [semantic search](/azure/search/semantic-search-overview#availability-and-pricing) usage.                  |It improves the precision and relevance of search results by using AI to understand the semantic meaning of query terms and documents. |
+| *vector*            | Vector search       | [Additional pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) on your Azure OpenAI account from calling the embedding model.                    |It enables you to find documents that are similar to a given query input based on the vector embeddings of the content. |
+| *vector + simple*   | A hybrid of vector search and simple search | [Additional pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) on your Azure OpenAI account from calling the embedding model.            |It performs similarity search over vector fields using vector embeddings, while also supporting flexible query parsing and full text search over alphanumeric fields using term queries.|
+| *vector + semantic* + simple| A hybrid of vector search, semantic and simple search for retrieval.     | [Additional pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) on your Azure OpenAI account from calling the embedding model, and additional pricing for [semantic search](/azure/search/semantic-search-overview#availability-and-pricing) usage.                    |It leverages vector embeddings, language understanding and flexible query parsing to create rich search experiences and generative AI apps that can handle complex and diverse information retrieval scenarios. |
 
 The optimal search option can vary depending on your dataset and use-case. You may need to experiment with multiple options to determine which works best for your use-case.
 
