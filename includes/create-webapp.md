@@ -20,10 +20,10 @@
 
     | Setting | Value |
     | ------- | ----- |
-    | **Project Details** |   |
+    | **Project details** |   |
     | Subscription | Select your subscription. |
     | Resource Group | Select **test-rg**. |
-    | **Instance Details** |   |
+    | **Instance details** |   |
     | Name | Enter a unique name for the web app. The name **webapp8675** is used for the examples in this tutorial. |
     | Publish | Select **Code**. |
     | Runtime stack | Select **.NET 6 (LTS)**. |
