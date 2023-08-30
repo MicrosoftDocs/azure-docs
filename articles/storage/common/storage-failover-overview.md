@@ -34,8 +34,8 @@ Each type of failover has a unique set of use cases and corresponding expectatio
 
 | Type                               | Failover Scope  | Use case | Expected data loss | HNS supported |
 |------------------------------------|-----------------|----------|---------------------|---------------|
-| Customer-managed                   | Storage account | The storage service endpoints for the primary region become unavailable, but the secondary region is available. <br></br> An Azure Advisory in which Microsoft advises you to perform a failover operation of storage accounts potentially affected by an outage. | [Yes](#failover-and-data-loss) | Yes *(In preview)* |
-| Microsoft-managed                  | Entire region   | The primary region becomes completely unavailable due to a significant disaster, but the secondary region is available. | [Yes](#failover-and-data-loss) | Yes |
+| Customer-managed                   | Storage account | The storage service endpoints for the primary region become unavailable, but the secondary region is available. <br></br> An Azure Advisory in which Microsoft advises you to perform a failover operation of storage accounts potentially affected by an outage. | [Yes](#failover-and-data-loss) | [Yes *(In preview)*](#hierarchical-namespace-support) |
+| Microsoft-managed                  | Entire region   | The primary region becomes completely unavailable due to a significant disaster, but the secondary region is available. | [Yes](#failover-and-data-loss) | [Yes](#hierarchical-namespace-support) |
 
 ### Customer-managed failover
 
@@ -43,14 +43,35 @@ If the data endpoints for the storage services in your storage account become un
 
 A customer-managed account failover usually involves some data loss. For more details about potential data loss from this type of failover, see [Failure and data loss](#failover-and-data-loss).
 
-[!INCLUDE [updated-for-az](../../../includes/storage-failover-unplanned-hns-preview-include.md)]
-
 ### Microsoft-managed failover
 
 In extreme circumstances where an entire region is unavailable due to a significant disaster, Microsoft may initiate a failover of all storage accounts in the affected region. In this case, no action on your part is required. Until the Microsoft-managed failover has completed, you won't have write access to your storage account. Your applications can read from the secondary region if your storage account is configured for RA-GRS or RA-GZRS.
 
 > [!IMPORTANT]
 > A Microsoft-managed failover is extremely rare and would be used only in the event of a significant disaster in the region. It would only be used to failover **all** affected resources in the primary region. It would not be used to failover individual storage accounts. Customers should not rely on it as part of their disaster recovery plan. Instead, create a plan that relies primarily on customer-managed failover for unexpected regional outages.
+
+## Storage account types that support failover
+
+All geo-redundant offerings support Microsoft-managed failover. In addition, some account types support customer-managed account failover, as shown in the following table:
+
+| Type of failover | GRS/RA-GRS | GZRS/RA-GZRS |
+|---|---|---|
+| **Customer-managed failover** | General-purpose v2 accounts</br> General-purpose v1 accounts</br> Legacy Blob Storage accounts | General-purpose v2 accounts |
+| **Microsoft-managed failover** | All account types | General-purpose v2 accounts |
+
+### Classic storage accounts
+
+> [!IMPORTANT]
+>
+> ***Classic*** **storage accounts**
+>
+> Customer-managed account failover is only supported for storage accounts deployed using the Azure Resource Manager (ARM) deployment model. The Azure Service Manager (ASM) deployment model, also known as *classic*, is not supported. To make classic storage accounts eligible for customer-managed account failover, they must first be [migrated to the ARM model](classic-account-migration-overview.md). Your storage account must be accessible to perform the upgrade, so the primary region cannot currently be in a failed state.
+>
+> In the event of a disaster that affects the primary region, Microsoft will manage the failover for classic storage accounts. For more information, see [Microsoft-managed failover](storage-disaster-recovery-guidance.md#microsoft-managed-failover).
+
+### Azure Data Lake Storage Gen2
+
+[!INCLUDE [updated-for-az](../../../includes/storage-failover-unplanned-hns-preview-include.md)]
 
 ## Failover and data loss
 
