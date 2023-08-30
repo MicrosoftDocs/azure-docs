@@ -3,6 +3,8 @@ title: Customize a speech model in Azure AI Video Indexer
 description: This article gives an overview of what is a speech model in Azure AI Video Indexer. 
 ms.topic: conceptual
 ms.date: 03/06/2023
+ms.author: inhenkel
+author: IngridAtMicrosoft
 ---
 
 # Customize a speech model

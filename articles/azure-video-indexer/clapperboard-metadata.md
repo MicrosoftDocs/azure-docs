@@ -1,11 +1,10 @@
 ---
 title: Enable and view a clapperboard with extracted metadata
 description: Learn about how to enable and view a clapperboard with extracted metadata.
-author: Juliako
-manager: femila
 ms.topic: article
 ms.date: 09/20/2022
-ms.author: juliako
+ms.author: inhenkel
+author: IngridAtMicrosoft
 ---
 
 # Enable and view a clapperboard with extracted metadata (preview)

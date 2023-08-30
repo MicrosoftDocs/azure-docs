@@ -2,10 +2,10 @@
 title: Customize a Person model with Azure AI Video Indexer API
 description: Learn how to customize a Person model with the Azure AI Video Indexer API.
 author: anikaz
-manager: johndeu
 ms.topic: article
 ms.date: 01/14/2020
 ms.author: kumud
+author: IngridAtMicrosoft
 ---
 
 # Customize a Person model with the Azure AI Video Indexer API

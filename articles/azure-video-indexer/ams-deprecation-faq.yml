@@ -3,11 +3,10 @@ metadata:
   title: Frequently asked questions about Azure Video Indexer and AMS deprecation  - Azure
   description: This article gives answers to frequently asked questions about Azure Video Indexer and AMS deprecation.
   services: azure-video-indexer
-  author: Juliako
-  manager: femila
+  author: IngridAtMicrosoft
   ms.topic: faq
   ms.date: 06/27/2023
-  ms.author: juliako
+  ms.author: inhenkel
 title: Azure Video Indexer and AMS deprecation frequently asked questions
 summary: This article answers frequently asked questions about Azure Video Indexer.
 
