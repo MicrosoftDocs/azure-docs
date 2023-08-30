@@ -4,7 +4,7 @@ description: Learn how to migrate your App Service Environment to App Service En
 author: seligj95
 ms.topic: tutorial
 ms.custom: devx-track-azurecli
-ms.date: 8/29/2023
+ms.date: 8/30/2023
 ms.author: jordanselig
 zone_pivot_groups: app-service-cli-portal
 ---
@@ -22,9 +22,11 @@ An App Service Environment v1 and v2 can be automatically migrated to an [App Se
 
 ## Prerequisites
 
-Ensure you understand how migrating to an App Service Environment v3 affects your applications. Review the [migration process](migrate.md#overview-of-the-migration-process-using-the-migration-feature) to understand the process timeline and where and when you need to get involved. Also review the [FAQs](migrate.md#frequently-asked-questions), which may answer some questions you currently have.
+Ensure you understand how migrating to an App Service Environment v3 affects your applications. Review the [migration process](migrate.md#overview-of-the-migration-process-using-the-in-place-migration-feature) to understand the process timeline and where and when you need to get involved. Also review the [FAQs](migrate.md#frequently-asked-questions), which may answer some questions you currently have.
 
 Ensure there are no locks on your virtual network, resource group, resource, or subscription. Locks block platform operations during migration.
+
+Since scaling is blocked during the migration, you should scale your environment to the desired size before starting the migration. If you need to scale your environment after the migration, you can do so once the migration is complete.
 
 ::: zone pivot="experience-azcli"
 

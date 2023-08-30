@@ -4,7 +4,7 @@ description: Take the first steps toward upgrading to App Service Environment v3
 ms.author: jordanselig
 author: seligj95
 ms.topic: overview
-ms.date: 08/28/2023
+ms.date: 08/30/2023
 ---
 
 # Upgrade to App Service Environment v3
@@ -40,6 +40,14 @@ App Service Environment v3 is the latest version of App Service Environment. It'
 - [App Service Environment v3 overview](overview.md)
 - [App Service Environment version comparison](version-comparison.md)
 - [Feature differences](overview.md#feature-differences)
+
+### What tooling is available to help with the upgrade to App Service Environment v3?
+
+There are two automated migration features available to help you upgrade to App Service Environment v3. 
+
+- **In-place migration feature** migrates your App Service Environment to App Service Environment v3 in-place. In-place means that your App Service Environment v3 will replace your existing App Service Environment in the same subnet. There is application downtime during the migration because a subnet can only have a single App Service Environment at a given time. For more information about this feature, see [Automated upgrade using the in-place migration feature](migrate.md).
+- **Side by side migration feature** creates a new App Service Environment v3 in a different subnet that you choose and recreates all of your App Service plans and apps in that new environment. Your existing environment is up and running during the entire migration. Once the new App Service Environment v3 is ready, you can redirect traffic to the new environment and complete the migration. There is no application downtime during the migration. For more information about this feature, see [Automated upgrade using the side by side migration feature](side-by-side-migrate.md).
+- **Manual migration options** are available if you can't use the automated migration features. For more information about these options, see [Migration alternatives](migration-alternatives.md).
 
 ### Migration path decision tree
 

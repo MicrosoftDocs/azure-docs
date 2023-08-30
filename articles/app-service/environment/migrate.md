@@ -150,6 +150,10 @@ In-place migration requires a three to six hour service window for App Service E
   - If you can't support downtime, see the [side by side migration feature](side-by-side-migrate.md) or the [migration-alternatives](migration-alternatives.md#guidance-for-manual-migration).
 - The public addresses that are used by the App Service Environment change to the IPs generated during the IP generation step.
 
+> [!IMPORTANT]
+> Since scaling is blocked during the migration, you should scale your environment to the desired size before starting the migration. If you need to scale your environment after the migration, you can do so once the migration is complete.
+>
+
 As in the IP generation step, you can't scale, modify your App Service Environment, or deploy apps to it during this process. When migration is complete, the apps that were on the old App Service Environment are running on the new App Service Environment v3.
 
 > [!NOTE]

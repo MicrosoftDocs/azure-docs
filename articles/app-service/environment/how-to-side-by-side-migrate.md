@@ -4,7 +4,7 @@ description: Learn how to migrate your App Service Environment to App Service En
 author: seligj95
 ms.topic: tutorial
 ms.custom: devx-track-azurecli
-ms.date: 8/29/2023
+ms.date: 8/30/2023
 ms.author: jordanselig
 zone_pivot_groups: app-service-cli-portal
 ---
@@ -20,17 +20,23 @@ An App Service Environment v1 and v2 can be automatically migrated to an [App Se
 > It is recommended to use this feature for dev environments first before migrating any production environments to ensure there are no unexpected issues. Please provide any feedback related to this article or the feature using the buttons at the bottom of the page.
 >
 
-TODO:## Prerequisites
+## Prerequisites
 
-Ensure you understand how migrating to an App Service Environment v3 affects your applications. Review the [migration process](migrate.md#overview-of-the-migration-process-using-the-migration-feature) to understand the process timeline and where and when you need to get involved. Also review the [FAQs](migrate.md#frequently-asked-questions), which may answer some questions you currently have.
+Ensure you understand how migrating to an App Service Environment v3 affects your applications. Review the [migration process](migrate.md#overview-of-the-migration-process-using-the-side-by-side-migration-feature) to understand the process timeline and where and when you need to get involved. Also review the [FAQs](side-by-side-migrate.md#frequently-asked-questions), which may answer some questions you currently have.
 
 Ensure there are no locks on your virtual network, resource group, resource, or subscription. Locks block platform operations during migration.
 
+Since your App Service Environment v3 will be created in a different subnet in your virtual network, you need to ensure that you have an available subnet in your virtual network that meets the [subnet requirements for App Service Environment v3](./overview.md#subnet-requirements). The subnet you select must also be able to communicate with the subnet your existing App Service Environment is in. Ensure there's nothing blocking communication between the two subnets. If you don't have an available subnet, you need to create one before migrating. Creating a new subnet might involve increasing your virtual network address space. For more information, see [Create a virtual network and subnet](./how-to-create-vnet.md).
+
 ::: zone pivot="experience-azcli"
 
-The recommended experience for the in-place migration feature is using the [Azure portal](how-to-migrate.md?pivots=experience-azp). If you decide to use the Azure CLI to carry out the migration, you should follow the steps described here in order and as written since you're making Azure REST API calls. The recommended way for making these API calls is by using the [Azure CLI](/cli/azure/). For information about other methods, see [Getting Started with Azure REST](/rest/api/azure/).
+The recommended experience for the side by side migration feature is using the [Azure portal](how-to-side-by-side-migrate.md?pivots=experience-azp). If you decide to use the Azure CLI to carry out the migration, you should follow the steps described here in order and as written since you're making Azure REST API calls. The recommended way for making these API calls is by using the [Azure CLI](/cli/azure/). For information about other methods, see [Getting Started with Azure REST](/rest/api/azure/).
 
 For this guide, [install the Azure CLI](/cli/azure/install-azure-cli) or use the [Azure Cloud Shell](https://shell.azure.com/).
+
+## 1. Select the subnet for your new App Service Environment v3
+
+Select a subnet in your App Service Environment v3 that meets the [subnet requirements for App Service Environment v3](./overview.md#subnet-requirements). Note the name of the subnet you select. You need this name for the next step.
 
 ## 1. Get your App Service Environment ID
 
