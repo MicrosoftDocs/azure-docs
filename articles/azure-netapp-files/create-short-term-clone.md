@@ -21,13 +21,13 @@ Short-term clones can be converted to regular volumes. By default, they convert 
 ## Considerations 
 
 * If the capacity pool hosting the clone does not have enough space, the capacity pool automatically resizes to accommodate the clone, which can incur additional charges. 
+* Short-term clones in capacity pools with manual QoS operate normally.  
 * Short term clones do not support the same operations as regular volumes. You cannot create a snapshot, snapshot policy, backup, default user quota, or export policy on a short-term clone. 
     * If the parent volume has a snapshot policy, the policy is not applied to the short-term clone.
 * A short-term clone is automatically converted to a regular volume in its designated capacity pool 28 days after the clone operation completes. To prevent this conversion, manually delete the short-term clone before 28 days have elapsed. 
     * Details about automatic conversion, including necessary capacity pool resizing, are sent to the volume's **Activity Log**. The Activity Log will notify you twice of impending automatic split clone operations: first seven days before the operation, then one day before the operation. 
 * You cannot delete the parent volume of a short-term clone. You must first delete the clone or convert it to a regular volume, then delete the parent volume. 
 * During the clone operation, the parent volume is accessible and you can capture new snapshots of the parent volume. 
-<!-- * You cannot migrate an SVM that contains a short-term clone, nor can you initiate a short-term clone operation during an active SVM migration. -->
 * There is a limit of two clones per volume. You can increase this limit with a [support request](azure-netapp-files-resource-limits.md#request-limit-increase).
 
 ## Register the feature
@@ -60,7 +60,11 @@ Short-term clones are currently in preview. To take advantage of the feature, yo
 	Select a **Capacity pool**.
 	Choose if you want to **Delete base snapshot** once the short-term clone is created. 
 	Provide a **Quota** value.
-    Confirm if the short-term clone is a **Large volume** (greater than 100 GiB).
+    
+    >[!NOTE]
+    >The quota value is the space for anticipated writes to the clone. For example, some database workloads may require a 10 percent change to the existing data files. The minimum quota value is 100 GiB.
+
+    Confirm if the short-term clone is a **Large volume** (greater than 100 TiB).
 
 1. Select **Review and create**. <!-- time expectation -->
 1. Confirm the short-term clone is created in the **Volume** menu. In the overview menu for the individual clone, you can confirm the volume type under the **Short-term clone volume** field, view the **Inherited size**, and track the **Split clone volume progress.** You can also monitor activity on a short-term clone in the **Activity Log** for the volume. 
