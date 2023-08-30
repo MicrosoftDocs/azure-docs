@@ -84,7 +84,7 @@ Yes. For more information about public IP address ranges, see [Create a virtual 
 
 Yes. See [Networking limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) for details. Subnet address spaces can't overlap one another.
 
-### Are there any restrictions on using IP addresses within subnets?
+### Are there any restrictions on using IP addresses within these subnets?
 
 Yes. Azure reserves the first four addresses and the last IP address, for a total of five IP addresses within each subnet.
 
@@ -315,7 +315,7 @@ Yes. For details, see [Deploy dedicated Azure services into virtual networks](vi
 
 ### How can I restrict access to Azure PaaS resources from a virtual network?
 
-Resources deployed through some Azure PaaS services (such as Azure Storage and Azure SQL Database) can restrict network access to virtual network through the use of virtual network service endpoints or Azure Private Link. For details, see [Virtual network service endpoints](virtual-network-service-endpoints-overview.md) and [What is Azure Private Link?](../private-link/private-link-overview.md).
+Resources deployed through some Azure PaaS services (such as Azure Storage and Azure SQL Database) can restrict network access to virtual networks through the use of virtual network service endpoints or Azure Private Link. For details, see [Virtual network service endpoints](virtual-network-service-endpoints-overview.md) and [What is Azure Private Link?](../private-link/private-link-overview.md).
 
 ### Can I move my services in and out of virtual networks?
 
@@ -507,7 +507,7 @@ Turning on the service endpoints on the network side can lead to a connectivity 
 
 ### Do all Azure services reside in the Azure virtual network that the customer provides? How does a virtual network service endpoint work with Azure services?
 
-Not all Azure services reside in the customer's virtual network. The majority of Azure data services (such as Azure Storage, Azure SQL, and Azure Cosmos DB) are multitenant services that can be accessed over public IP addresses. For more information, see [Deploy dedicated Azure services into virtual networks](virtual-network-for-azure-services.md).
+Not all Azure services reside in the customer's virtual network. Most Azure data services (such as Azure Storage, Azure SQL, and Azure Cosmos DB) are multitenant services that can be accessed over public IP addresses. For more information, see [Deploy dedicated Azure services into virtual networks](virtual-network-for-azure-services.md).
 
 When you turn on virtual network service endpoints on the network side and set up appropriate virtual network ACLs on the Azure service side, access to an Azure service is restricted from an allowed virtual network and subnet.
 
