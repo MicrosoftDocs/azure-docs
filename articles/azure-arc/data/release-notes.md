@@ -21,6 +21,16 @@ This article highlights capabilities, features, and enhancements recently releas
 
 ### Image tag
 
+`v1.23.0_2023-09-12`
+
+For complete release version information, review [Version log](version-log.md#september-12-2023).
+
+### Release notes
+
+- Portal automatically refreshes status of failover group every 2 seconds. [Monitor failover group status in the portal](managed-instance-disaster-recovery-portal.md#monitor-failover-group-status-in-the-portal).
+
+### Image tag
+
 `v1.22.0_2023-08-08`
 
 For complete release version information, review [Version log](version-log.md#august-8-2023).
