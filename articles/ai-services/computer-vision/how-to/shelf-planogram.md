@@ -12,9 +12,9 @@ ms.date: 05/02/2023
 ms.author: pafarley
 ---
 
-# Check planogram compliance with Image Analysis
+# Shelf Planogram Compliance (preview)
 
-A planogram is a diagram that indicates the correct placement of retail products on shelves. The Image Analysis Planogram Matching API lets you compare analysis results from a photo to the store's planogram input. It returns an account of all the positions in the planogram, and whether a product was found in each position.
+A planogram is a diagram that indicates the correct placement of retail products on shelves. The Planogram Compliance API lets you compare analysis results from a photo to the store's planogram input. It returns an account of all the positions in the planogram, and whether a product was found in each position.
 
 :::image type="content" source="../media/shelf/planogram.png" alt-text="Photo of a retail shelf with detected products outlined and planogram position rectangles outlined separately.":::
 
