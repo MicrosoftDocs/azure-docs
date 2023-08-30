@@ -31,13 +31,9 @@ You can verify these items in the Azure portal and on the local server that's ru
 
 To verify that Azure detects the agent, and that the agent is healthy, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. On the left, select **Azure Active Directory** > **Azure AD Connect**. In the center, select **Manage sync**.
-1. On the **Azure AD Connect cloud sync** screen, select **Review all agents**.
-
-   ![Screenshot that shows the option to review all agents.](media/how-to-install/install-7.png)
-
-1. On the **On-premises provisioning agents** screen, you see the agents you've installed. Verify that the agent in question is there. If all is well, you will see the *active* (green) status for the agent.
+ [!INCLUDE [sign in](../../../../includes/cloud-sync-sign-in.md)]
+ 3. Select **cloud sync**.
+ 4. You should see the agents you've installed. Verify that the agent in question is there. If all is well, you will see the *active* (green) status for the agent.
 
    ![Screenshot that shows the installed agent, and its status.](media/how-to-install/install-8.png)
 
