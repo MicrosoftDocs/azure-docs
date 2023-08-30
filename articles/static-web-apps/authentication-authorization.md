@@ -17,7 +17,7 @@ ms.author: cshoe
 > If you want to continue to use X(formerly Twitter) for authentication/authorization with your app, update your app configuration to [register a custom provider](./authentication-custom.md).
 
 
-Azure Static Web Apps provides a streamlined authentication experience, where no other actions or configurations are required to use GitHub,and Azure Active Directory (Azure AD) for authentication.
+Azure Static Web Apps provides a streamlined authentication experience, where no other actions or configurations are required to use GitHub and Azure Active Directory (Azure AD) for authentication.
 
 In this article, learn about default behavior, how to set up sign-in and sign-out, how to block an authentication provider, and more.
 
