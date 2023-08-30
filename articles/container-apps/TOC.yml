@@ -29,6 +29,8 @@
     href: jobs-get-started-cli.md
 - name: Concepts
   items:
+    - name: Start here
+      href: start.md
     - name: Plans
       href: plans.md
     - name: Environment
