@@ -120,7 +120,7 @@ The Azure Identity library provides Azure Active Directory (Azure AD) token auth
 
 You can authorize access to data in your storage account using the following steps:
 
-1. Make sure you're authenticated with the same Azure AD account you assigned the role to on your storage account. You can authenticate via [Azure CLI](cli/azure/install-azure-cli). Sign in to Azure through the Azure CLI using the following command:
+1. Make sure you're authenticated with the same Azure AD account you assigned the role to on your storage account. You can authenticate via [Azure CLI](/cli/azure/install-azure-cli). Sign in to Azure through the Azure CLI using the following command:
 
     ```azurecli
     az login
