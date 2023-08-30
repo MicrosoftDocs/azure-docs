@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
-ms.date: 07/26/2023
+ms.date: 08/29/2023
 ms.author: rolyon
 ms.reviewer: abhijeetsinha
 ms.custom: generated, it-pro, fasttrack-edit
@@ -65,7 +65,7 @@ This article lists the Azure AD built-in roles you can assign to allow managemen
 > | [Fabric Administrator](#fabric-administrator) | Can manage all aspects of the Fabric and Power BI products. | a9ea8996-122f-4c74-9520-8edcd192826c |
 > | [Global Administrator](#global-administrator) | Can manage all aspects of Azure AD and Microsoft services that use Azure AD identities. | 62e90394-69f5-4237-9190-012177145e10 |
 > | [Global Reader](#global-reader) | Can read everything that a Global Administrator can, but not update anything. | f2ef992c-3afb-46b9-b7cf-a126ee74c451 |
-> | [Global Secure Access Administrator](#global-secure-access-administrator) | Create and manage all aspects of Microsoft Entra Internet Access and Microsoft Entra Private Access, including managing access to public and private endpoints. | ac434307-12b9-4fa1-a708-88bf58caabc1 |
+> | [Global Secure Access Administrator](#global-secure-access-administrator) | Create and manage all aspects of Microsoft Entra Internet Access and Microsoft Entra Private Access, including managing access to public and private endpoints. | ac434307-12b9-4fa1-a708-88bf58caabc1 |
 > | [Groups Administrator](#groups-administrator) | Members of this role can create/manage groups, create/manage groups settings like naming and expiration policies, and view groups activity and audit reports. | fdd7a751-b60b-444a-984c-02652fe8fa1c |
 > | [Guest Inviter](#guest-inviter) | Can invite guest users independent of the 'members can invite guests' setting. | 95e79109-95c0-4d8e-aee3-d01accf2d47b |
 > | [Helpdesk Administrator](#helpdesk-administrator) | Can reset passwords for non-administrators and Helpdesk Administrators. | 729827e3-9c14-49f7-bb1b-9608f156bbb8 |
@@ -632,14 +632,14 @@ Users with this role have the ability to manage Azure Active Directory Condition
 > | microsoft.directory/namedLocations/delete | Delete custom rules that define network locations |
 > | microsoft.directory/namedLocations/standard/read | Read basic properties of custom rules that define network locations |
 > | microsoft.directory/namedLocations/basic/update | Update basic properties of custom rules that define network locations |
-> | microsoft.directory/conditionalAccessPolicies/create | Create Conditional Access policies |
-> | microsoft.directory/conditionalAccessPolicies/delete | Delete Conditional Access policies |
-> | microsoft.directory/conditionalAccessPolicies/standard/read | Read Conditional Access for policies |
-> | microsoft.directory/conditionalAccessPolicies/owners/read | Read the owners of Conditional Access policies |
-> | microsoft.directory/conditionalAccessPolicies/policyAppliedTo/read | Read the "applied to" property for Conditional Access policies |
-> | microsoft.directory/conditionalAccessPolicies/basic/update | Update basic properties for Conditional Access policies |
-> | microsoft.directory/conditionalAccessPolicies/owners/update | Update owners for Conditional Access policies |
-> | microsoft.directory/conditionalAccessPolicies/tenantDefault/update | Update the default tenant for Conditional Access policies |
+> | microsoft.directory/conditionalAccessPolicies/create | Create conditional access policies |
+> | microsoft.directory/conditionalAccessPolicies/delete | Delete conditional access policies |
+> | microsoft.directory/conditionalAccessPolicies/standard/read | Read conditional access for policies |
+> | microsoft.directory/conditionalAccessPolicies/owners/read | Read the owners of conditional access policies |
+> | microsoft.directory/conditionalAccessPolicies/policyAppliedTo/read | Read the "applied to" property for conditional access policies |
+> | microsoft.directory/conditionalAccessPolicies/basic/update | Update basic properties for conditional access policies |
+> | microsoft.directory/conditionalAccessPolicies/owners/update | Update owners for conditional access policies |
+> | microsoft.directory/conditionalAccessPolicies/tenantDefault/update | Update the default tenant for conditional access policies |
 > | microsoft.directory/resourceNamespaces/resourceActions/authenticationContext/update | Update Conditional Access authentication context of Microsoft 365 role-based access control (RBAC) resource actions |
 
 ## Customer LockBox Access Approver
@@ -1017,7 +1017,7 @@ Users with this role have access to all administrative features in Azure Active 
 > | microsoft.directory/organization/allProperties/allTasks | Read and update all properties for an organization |
 > | microsoft.directory/passwordHashSync/allProperties/allTasks | Manage all aspects of Password Hash Synchronization (PHS) in Azure AD |
 > | microsoft.directory/policies/allProperties/allTasks | Create and delete policies, and read and update all properties |
-> | microsoft.directory/conditionalAccessPolicies/allProperties/allTasks | Manage all properties of Conditional Access policies |
+> | microsoft.directory/conditionalAccessPolicies/allProperties/allTasks | Manage all properties of conditional access policies |
 > | microsoft.directory/crossTenantAccessPolicy/standard/read | Read basic properties of cross-tenant access policy |
 > | microsoft.directory/crossTenantAccessPolicy/allowedCloudEndpoints/update | Update allowed cloud endpoints of cross-tenant access policy |
 > | microsoft.directory/crossTenantAccessPolicy/basic/update | Update basic settings of cross-tenant access policy |
@@ -1033,6 +1033,9 @@ Users with this role have access to all administrative features in Azure Active 
 > | microsoft.directory/crossTenantAccessPolicy/partners/b2bDirectConnect/update | Update Azure AD B2B direct connect settings of cross-tenant access policy for partners |
 > | microsoft.directory/crossTenantAccessPolicy/partners/crossCloudMeetings/update | Update cross-cloud Teams meeting settings of cross-tenant access policy for partners |
 > | microsoft.directory/crossTenantAccessPolicy/partners/tenantRestrictions/update | Update tenant restrictions of cross-tenant access policy for partners |
+> | microsoft.directory/crossTenantAccessPolicy/partners/identitySynchronization/create | Create cross-tenant sync policy for partners |
+> | microsoft.directory/crossTenantAccessPolicy/partners/identitySynchronization/basic/update | Update basic settings of cross-tenant sync policy |
+> | microsoft.directory/crossTenantAccessPolicy/partners/identitySynchronization/standard/read | Read basic properties of cross-tenant sync policy |
 > | microsoft.directory/privilegedIdentityManagement/allProperties/read | Read all resources in Privileged Identity Management |
 > | microsoft.directory/provisioningLogs/allProperties/read | Read all properties of provisioning logs |
 > | microsoft.directory/resourceNamespaces/resourceActions/authenticationContext/update | Update Conditional Access authentication context of Microsoft 365 role-based access control (RBAC) resource actions |
@@ -1084,6 +1087,7 @@ Users with this role have access to all administrative features in Azure Active 
 > | microsoft.commerce.billing/purchases/standard/read | Read purchase services in M365 Admin Center. |
 > | microsoft.dynamics365/allEntities/allTasks | Manage all aspects of Dynamics 365 |
 > | microsoft.edge/allEntities/allProperties/allTasks | Manage all aspects of Microsoft Edge |
+> | microsoft.networkAccess/allEntities/allProperties/allTasks | Manage all aspects of Entra Network Access |
 > | microsoft.flow/allEntities/allTasks | Manage all aspects of Microsoft Power Automate |
 > | microsoft.hardware.support/shippingAddress/allProperties/allTasks | Create, read, update, and delete shipping addresses for Microsoft hardware warranty claims, including shipping addresses created by others |
 > | microsoft.hardware.support/shippingStatus/allProperties/read | Read shipping status for open Microsoft hardware warranty claims |
@@ -1119,6 +1123,8 @@ Users with this role have access to all administrative features in Azure Active 
 > | microsoft.powerApps.powerBI/allEntities/allTasks | Manage all aspects of Fabric and Power BI |
 > | microsoft.teams/allEntities/allProperties/allTasks | Manage all resources in Teams |
 > | microsoft.virtualVisits/allEntities/allProperties/allTasks | Manage and share Virtual Visits information and metrics from admin centers or the Virtual Visits app |
+> | microsoft.viva.goals/allEntities/allProperties/allTasks | Manage all aspects of Microsoft Viva Goals |
+> | microsoft.viva.pulse/allEntities/allProperties/allTasks | Manage all aspects of Microsoft Viva Pulse |
 > | microsoft.windows.defenderAdvancedThreatProtection/allEntities/allTasks | Manage all aspects of Microsoft Defender for Endpoint |
 > | microsoft.windows.updatesDeployments/allEntities/allProperties/allTasks | Read and configure all aspects of Windows Update Service |
 
@@ -1181,10 +1187,11 @@ Users with this role **cannot** do the following:
 > | microsoft.directory/pendingExternalUserProfiles/standard/read | Read standard properties of external user profiles in the extended directory for Teams |
 > | microsoft.directory/permissionGrantPolicies/standard/read | Read standard properties of permission grant policies |
 > | microsoft.directory/policies/allProperties/read | Read all properties of policies |
-> | microsoft.directory/conditionalAccessPolicies/allProperties/read | Read all properties of Conditional Access policies |
+> | microsoft.directory/conditionalAccessPolicies/allProperties/read | Read all properties of conditional access policies |
 > | microsoft.directory/crossTenantAccessPolicy/standard/read | Read basic properties of cross-tenant access policy |
 > | microsoft.directory/crossTenantAccessPolicy/default/standard/read | Read basic properties of the default cross-tenant access policy |
 > | microsoft.directory/crossTenantAccessPolicy/partners/standard/read | Read basic properties of cross-tenant access policy for partners |
+> | microsoft.directory/crossTenantAccessPolicy/partners/identitySynchronization/standard/read | Read basic properties of cross-tenant sync policy |
 > | microsoft.directory/deviceManagementPolicies/standard/read | Read standard properties on device management application policies |
 > | microsoft.directory/deviceRegistrationPolicy/standard/read | Read standard properties on device registration policies |
 > | microsoft.directory/privilegedIdentityManagement/allProperties/read | Read all resources in Privileged Identity Management |
@@ -1207,6 +1214,7 @@ Users with this role **cannot** do the following:
 > | microsoft.commerce.billing/allEntities/allProperties/read | Read all resources of Office 365 billing |
 > | microsoft.commerce.billing/purchases/standard/read | Read purchase services in M365 Admin Center. |
 > | microsoft.edge/allEntities/allProperties/read | Read all aspects of Microsoft Edge |
+> | microsoft.networkAccess/allEntities/allProperties/read | Read all aspects of Entra Network Access |
 > | microsoft.hardware.support/shippingAddress/allProperties/read | Read shipping addresses for Microsoft hardware warranty claims, including existing shipping addresses created by others |
 > | microsoft.hardware.support/shippingStatus/allProperties/read | Read shipping status for open Microsoft hardware warranty claims |
 > | microsoft.hardware.support/warrantyClaims/allProperties/read | Read Microsoft hardware warranty claims |
@@ -1223,6 +1231,8 @@ Users with this role **cannot** do the following:
 > | microsoft.permissionsManagement/allEntities/allProperties/read | Read all aspects of Entra Permissions Management |
 > | microsoft.teams/allEntities/allProperties/read | Read all properties of Microsoft Teams |
 > | microsoft.virtualVisits/allEntities/allProperties/read | Read all aspects of Virtual Visits |
+> | microsoft.viva.goals/allEntities/allProperties/read | Read all aspects of Microsoft Viva Goals |
+> | microsoft.viva.pulse/allEntities/allProperties/read | Read all aspects of Microsoft Viva Pulse |
 > | microsoft.windows.updatesDeployments/allEntities/allProperties/read | Read all aspects of Windows Update Service |
 
 ## Global Secure Access Administrator
@@ -1248,7 +1258,7 @@ Users with this role **cannot** do the following:
 > | microsoft.directory/applications/policies/read | Read policies of applications |
 > | microsoft.directory/applications/standard/read | Read standard properties of applications |
 > | microsoft.directory/auditLogs/allProperties/read | Read all properties on audit logs, excluding custom security attributes audit logs |
-> | microsoft.directory/conditionalAccessPolicies/standard/read | Read Conditional Access for policies |
+> | microsoft.directory/conditionalAccessPolicies/standard/read | Read conditional access for policies |
 > | microsoft.directory/connectorGroups/allProperties/read | Read all properties of application proxy connector groups |
 > | microsoft.directory/connectors/allProperties/read | Read all properties of application proxy connectors |
 > | microsoft.directory/crossTenantAccessPolicy/default/standard/read | Read basic properties of the default cross-tenant access policy |
@@ -1390,6 +1400,7 @@ Users in this role can create, manage and deploy provisioning configuration setu
 > | microsoft.directory/servicePrincipals/synchronizationCredentials/manage | Manage application provisioning secrets and credentials |
 > | microsoft.directory/servicePrincipals/synchronizationJobs/manage | Start, restart, and pause application provisioning synchronization jobs |
 > | microsoft.directory/servicePrincipals/synchronizationSchema/manage | Create and manage application provisioning synchronization jobs and schema |
+> | microsoft.directory/servicePrincipals/appRoleAssignedTo/update | Update service principal role assignments |
 > | microsoft.directory/servicePrincipals/audience/update | Update audience properties on service principals |
 > | microsoft.directory/servicePrincipals/authentication/update | Update authentication properties on service principals |
 > | microsoft.directory/servicePrincipals/basic/update | Update basic properties on service principals |
@@ -2073,6 +2084,9 @@ Azure Advanced Threat Protection | Monitor and respond to suspicious security ac
 > | microsoft.directory/crossTenantAccessPolicy/partners/b2bDirectConnect/update | Update Azure AD B2B direct connect settings of cross-tenant access policy for partners |
 > | microsoft.directory/crossTenantAccessPolicy/partners/crossCloudMeetings/update | Update cross-cloud Teams meeting settings of cross-tenant access policy for partners |
 > | microsoft.directory/crossTenantAccessPolicy/partners/tenantRestrictions/update | Update tenant restrictions of cross-tenant access policy for partners |
+> | microsoft.directory/crossTenantAccessPolicy/partners/identitySynchronization/create | Create cross-tenant sync policy for partners |
+> | microsoft.directory/crossTenantAccessPolicy/partners/identitySynchronization/basic/update | Update basic settings of cross-tenant sync policy |
+> | microsoft.directory/crossTenantAccessPolicy/partners/identitySynchronization/standard/read | Read basic properties of cross-tenant sync policy |
 > | microsoft.directory/deviceLocalCredentials/standard/read | Read all properties of the backed up local administrator account credentials for Azure AD joined devices, except the password |
 > | microsoft.directory/domains/federation/update | Update federation property of domains |
 > | microsoft.directory/domains/federationConfiguration/standard/read | Read standard properties of federation configuration for domains |
@@ -2091,14 +2105,14 @@ Azure Advanced Threat Protection | Monitor and respond to suspicious security ac
 > | microsoft.directory/policies/basic/update | Update basic properties on policies |
 > | microsoft.directory/policies/owners/update | Update owners of policies |
 > | microsoft.directory/policies/tenantDefault/update | Update default organization policies |
-> | microsoft.directory/conditionalAccessPolicies/create | Create Conditional Access policies |
-> | microsoft.directory/conditionalAccessPolicies/delete | Delete Conditional Access policies |
-> | microsoft.directory/conditionalAccessPolicies/standard/read | Read Conditional Access for policies |
-> | microsoft.directory/conditionalAccessPolicies/owners/read | Read the owners of Conditional Access policies |
-> | microsoft.directory/conditionalAccessPolicies/policyAppliedTo/read | Read the "applied to" property for Conditional Access policies |
-> | microsoft.directory/conditionalAccessPolicies/basic/update | Update basic properties for Conditional Access policies |
-> | microsoft.directory/conditionalAccessPolicies/owners/update | Update owners for Conditional Access policies |
-> | microsoft.directory/conditionalAccessPolicies/tenantDefault/update | Update the default tenant for Conditional Access policies |
+> | microsoft.directory/conditionalAccessPolicies/create | Create conditional access policies |
+> | microsoft.directory/conditionalAccessPolicies/delete | Delete conditional access policies |
+> | microsoft.directory/conditionalAccessPolicies/standard/read | Read conditional access for policies |
+> | microsoft.directory/conditionalAccessPolicies/owners/read | Read the owners of conditional access policies |
+> | microsoft.directory/conditionalAccessPolicies/policyAppliedTo/read | Read the "applied to" property for conditional access policies |
+> | microsoft.directory/conditionalAccessPolicies/basic/update | Update basic properties for conditional access policies |
+> | microsoft.directory/conditionalAccessPolicies/owners/update | Update owners for conditional access policies |
+> | microsoft.directory/conditionalAccessPolicies/tenantDefault/update | Update the default tenant for conditional access policies |
 > | microsoft.directory/privilegedIdentityManagement/allProperties/read | Read all resources in Privileged Identity Management |
 > | microsoft.directory/provisioningLogs/allProperties/read | Read all properties of provisioning logs |
 > | microsoft.directory/resourceNamespaces/resourceActions/authenticationContext/update | Update Conditional Access authentication context of Microsoft 365 role-based access control (RBAC) resource actions |
@@ -2106,6 +2120,7 @@ Azure Advanced Threat Protection | Monitor and respond to suspicious security ac
 > | microsoft.directory/signInReports/allProperties/read | Read all properties on sign-in reports, including privileged properties |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health |
 > | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets |
+> | microsoft.networkAccess/allEntities/allProperties/allTasks | Manage all aspects of Entra Network Access |
 > | microsoft.office365.protectionCenter/allEntities/standard/read | Read standard properties of all resources in the Security and Compliance centers |
 > | microsoft.office365.protectionCenter/allEntities/basic/update | Update basic properties of all resources in the Security and Compliance centers |
 > | microsoft.office365.protectionCenter/attackSimulator/payload/allProperties/allTasks | Create and manage attack payloads in Attack Simulator |
@@ -2177,13 +2192,14 @@ In | Can do
 > | microsoft.directory/policies/standard/read | Read basic properties on policies |
 > | microsoft.directory/policies/owners/read | Read owners of policies |
 > | microsoft.directory/policies/policyAppliedTo/read | Read policies.policyAppliedTo property |
-> | microsoft.directory/conditionalAccessPolicies/standard/read | Read Conditional Access for policies |
-> | microsoft.directory/conditionalAccessPolicies/owners/read | Read the owners of Conditional Access policies |
-> | microsoft.directory/conditionalAccessPolicies/policyAppliedTo/read | Read the "applied to" property for Conditional Access policies |
+> | microsoft.directory/conditionalAccessPolicies/standard/read | Read conditional access for policies |
+> | microsoft.directory/conditionalAccessPolicies/owners/read | Read the owners of conditional access policies |
+> | microsoft.directory/conditionalAccessPolicies/policyAppliedTo/read | Read the "applied to" property for conditional access policies |
 > | microsoft.directory/privilegedIdentityManagement/allProperties/read | Read all resources in Privileged Identity Management |
 > | microsoft.directory/provisioningLogs/allProperties/read | Read all properties of provisioning logs |
 > | microsoft.directory/signInReports/allProperties/read | Read all properties on sign-in reports, including privileged properties |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health |
+> | microsoft.networkAccess/allEntities/allProperties/read | Read all aspects of Entra Network Access |
 > | microsoft.office365.protectionCenter/allEntities/standard/read | Read standard properties of all resources in the Security and Compliance centers |
 > | microsoft.office365.protectionCenter/attackSimulator/payload/allProperties/read | Read all properties of attack payloads in Attack Simulator |
 > | microsoft.office365.protectionCenter/attackSimulator/reports/allProperties/read | Read reports of attack simulation, responses, and associated training |
@@ -2499,6 +2515,7 @@ For more information, see [Roles and permissions in Viva Goals](/viva/goals/role
 > | --- | --- |
 > | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Microsoft 365 service requests |
 > | microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in the Microsoft 365 admin center |
+> | microsoft.viva.goals/allEntities/allProperties/allTasks | Manage all aspects of Microsoft Viva Goals |
 
 ## Viva Pulse Administrator
 
@@ -2643,18 +2660,18 @@ The following roles should not be used. They have been deprecated and will be re
 
 Not every role returned by PowerShell or MS Graph API is visible in Azure portal. The following table organizes those differences.
 
-API name | Azure portal name | Notes
--------- | ------------------- | -------------
-Device Join | Deprecated | [Deprecated roles documentation](#deprecated-roles)
-Device Managers | Deprecated | [Deprecated roles documentation](#deprecated-roles)
-Device Users | Deprecated | [Deprecated roles documentation](#deprecated-roles)
-Directory Synchronization Accounts | Not shown because it shouldn't be used | [Directory Synchronization Accounts documentation](#directory-synchronization-accounts)
-Guest User | Not shown because it can't be used | NA
-Partner Tier 1 Support | Not shown because it shouldn't be used | [Partner Tier1 Support documentation](#partner-tier1-support)
-Partner Tier 2 Support | Not shown because it shouldn't be used | [Partner Tier2 Support documentation](#partner-tier2-support)
-Restricted Guest User | Not shown because it can't be used | NA
-User | Not shown because it can't be used | NA
-Workplace Device Join | Deprecated | [Deprecated roles documentation](#deprecated-roles)
+| API name | Azure portal name | Notes |
+| --- | --- | --- |
+| Device Join | Deprecated | [Deprecated roles documentation](#deprecated-roles) |
+| Device Managers | Deprecated | [Deprecated roles documentation](#deprecated-roles) |
+| Device Users | Deprecated | [Deprecated roles documentation](#deprecated-roles) |
+| Directory Synchronization Accounts | Not shown because it shouldn't be used | [Directory Synchronization Accounts documentation](#directory-synchronization-accounts) |
+| Guest User | Not shown because it can't be used | NA |
+| Partner Tier 1 Support | Not shown because it shouldn't be used | [Partner Tier1 Support documentation](#partner-tier1-support) |
+| Partner Tier 2 Support | Not shown because it shouldn't be used | [Partner Tier2 Support documentation](#partner-tier2-support) |
+| Restricted Guest User | Not shown because it can't be used | NA |
+| User | Not shown because it can't be used | NA |
+| Workplace Device Join | Deprecated | [Deprecated roles documentation](#deprecated-roles) |
 
 ## Who can reset passwords
 
@@ -2662,25 +2679,25 @@ In the following table, the columns list the roles that can reset passwords and 
 
 The following table is for roles assigned at the scope of a tenant. For roles assigned at the scope of an administrative unit, [further restrictions apply](admin-units-assign-roles.md#roles-that-can-be-assigned-with-administrative-unit-scope).
 
-Role that password can be reset | Password Admin | Helpdesk Admin | Auth Admin | User Admin | Privileged Auth Admin | Global Admin
------- | ------ | ------ | ------ | ------ | ------ | ------
-Auth Admin | &nbsp; | &nbsp; | :heavy_check_mark: | &nbsp; | :heavy_check_mark: | :heavy_check_mark:
-Directory Readers | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
-Global Admin | &nbsp; | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark:\*
-Groups Admin | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
-Guest Inviter | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
-Helpdesk Admin | &nbsp; | :heavy_check_mark: | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
-Message Center Reader | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
-Password Admin | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
-Privileged Auth Admin | &nbsp; | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark:
-Privileged Role Admin | &nbsp; | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark:
-Reports Reader | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
-User<br/>(no admin role) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
-User<br/>(no admin role, but member or owner of a [role-assignable group](groups-concept.md)) | &nbsp; | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark:
-User with a role scoped to a [restricted management administrative unit](./admin-units-restricted-management.md) | &nbsp; | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark:
-User Admin | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
-Usage Summary Reports Reader | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
-All custom roles |  |  |  |  | :heavy_check_mark: | :heavy_check_mark:
+| Role that password can be reset | Password Admin | Helpdesk Admin | Auth Admin | User Admin | Privileged Auth Admin | Global Admin |
+| ------ | ------ | ------ | ------ | ------ | ------ | ------ |
+| Auth Admin | &nbsp; | &nbsp; | :white_check_mark: | &nbsp; | :white_check_mark: | :white_check_mark: |
+| Directory Readers | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Global Admin | &nbsp; | &nbsp; | &nbsp; | &nbsp; | :white_check_mark: | :white_check_mark:\* |
+| Groups Admin | &nbsp; | &nbsp; | &nbsp; | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Guest Inviter | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Helpdesk Admin | &nbsp; | :white_check_mark: | &nbsp; | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Message Center Reader | &nbsp; | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Password Admin | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Privileged Auth Admin | &nbsp; | &nbsp; | &nbsp; | &nbsp; | :white_check_mark: | :white_check_mark: |
+| Privileged Role Admin | &nbsp; | &nbsp; | &nbsp; | &nbsp; | :white_check_mark: | :white_check_mark: |
+| Reports Reader | &nbsp; | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| User<br/>(no admin role) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| User<br/>(no admin role, but member or owner of a [role-assignable group](groups-concept.md)) | &nbsp; | &nbsp; | &nbsp; | &nbsp; | :white_check_mark: | :white_check_mark: |
+| User with a role scoped to a [restricted management administrative unit](./admin-units-restricted-management.md) | &nbsp; | &nbsp; | &nbsp; | &nbsp; | :white_check_mark: | :white_check_mark: |
+| User Admin | &nbsp; | &nbsp; | &nbsp; | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Usage Summary Reports Reader | &nbsp; | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| All custom roles |  |  |  |  | :white_check_mark: | :white_check_mark: |
 
 > [!IMPORTANT]
 > The [Partner Tier2 Support](#partner-tier2-support) role can reset passwords and invalidate refresh tokens for all non-administrators and administrators (including Global Administrators). The [Partner Tier1 Support](#partner-tier1-support) role can reset passwords and invalidate refresh tokens for only non-administrators. These roles should not be used because they are deprecated.
@@ -2709,25 +2726,25 @@ In the following table, the columns list the roles that can perform sensitive ac
 
 The following table is for roles assigned at the scope of a tenant. For roles assigned at the scope of an administrative unit, [further restrictions apply](admin-units-assign-roles.md#roles-that-can-be-assigned-with-administrative-unit-scope).
 
-Role that sensitive action can be performed upon | Auth Admin | User Admin | Privileged Auth Admin | Global Admin
------- | ------ | ------ | ------ | ------
-Auth Admin | :heavy_check_mark: | &nbsp; | :heavy_check_mark: | :heavy_check_mark:
-Directory Readers | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
-Global Admin | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark:
-Groups Admin | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
-Guest Inviter | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
-Helpdesk Admin | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
-Message Center Reader | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
-Password Admin | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
-Privileged Auth Admin | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark:
-Privileged Role Admin | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark:
-Reports Reader | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
-User<br/>(no admin role) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
-User<br/>(no admin role, but member or owner of a [role-assignable group](groups-concept.md)) | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark:
-User with a role scoped to a [restricted management administrative unit](./admin-units-restricted-management.md) | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark:
-User Admin | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
-Usage Summary Reports Reader | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
-All custom roles |  |  | :heavy_check_mark: | :heavy_check_mark:
+| Role that sensitive action can be performed upon | Auth Admin | User Admin | Privileged Auth Admin | Global Admin |
+| ------ | ------ | ------ | ------ | ------ |
+| Auth Admin | :white_check_mark: | &nbsp; | :white_check_mark: | :white_check_mark: |
+| Directory Readers | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Global Admin | &nbsp; | &nbsp; | :white_check_mark: | :white_check_mark: |
+| Groups Admin | &nbsp; | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Guest Inviter | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Helpdesk Admin | &nbsp; | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Message Center Reader | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Password Admin | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Privileged Auth Admin | &nbsp; | &nbsp; | :white_check_mark: | :white_check_mark: |
+| Privileged Role Admin | &nbsp; | &nbsp; | :white_check_mark: | :white_check_mark: |
+| Reports Reader | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| User<br/>(no admin role) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| User<br/>(no admin role, but member or owner of a [role-assignable group](groups-concept.md)) | &nbsp; | &nbsp; | :white_check_mark: | :white_check_mark: |
+| User with a role scoped to a [restricted management administrative unit](./admin-units-restricted-management.md) | &nbsp; | &nbsp; | :white_check_mark: | :white_check_mark: |
+| User Admin | &nbsp; | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Usage Summary Reports Reader | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| All custom roles |  |  | :white_check_mark: | :white_check_mark: |
 
 ## Next steps
 
