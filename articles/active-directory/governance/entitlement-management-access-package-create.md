@@ -151,18 +151,18 @@ You can create an access package by using Microsoft Graph. A user in an appropri
 
 ### Create an access package by using Microsoft PowerShell
 
-You can also create an access package in PowerShell by using the cmdlets from the [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) module version 1.16.0 or a later 1.x.x module version, or Microsoft Graph PowerShell cmdlets beta module version 2.1.x or later beta module version.  This script illustrates using the Graph `beta` profile and Microsoft Graph PowerShell cmdlets module version 1.x.x.
+You can also create an access package in PowerShell by using the cmdlets from the [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) beta module version 2.1.x or later beta module version.  This script illustrates using the Graph `beta` profile and Microsoft Graph PowerShell cmdlets module version 2.4.0.
 
-First, retrieve the ID of the catalog (and of the resources and their roles in that catalog) that you want to include in the access package. Use a script similar to the following example:
+First, retrieve the ID of the catalog (and of the resource and its roles in that catalog) that you want to include in the access package. Use a script similar to the following example:
 
 ```powershell
 Connect-MgGraph -Scopes "EntitlementManagement.ReadWrite.All"
-Select-MgProfile -Name "beta"
-$catalog = Get-MgEntitlementManagementAccessPackageCatalog -Filter "displayName eq 'Marketing'"
 
-$rsc = Get-MgEntitlementManagementAccessPackageCatalogAccessPackageResource -AccessPackageCatalogId $catalog.Id -Filter "resourceType eq 'Application'" -ExpandProperty "accessPackageResourceScopes"
-$filt = "(originSystem eq 'AadApplication' and accessPackageResource/id eq '" + $rsc[0].Id + "')"
-$rr = Get-MgEntitlementManagementAccessPackageCatalogAccessPackageResourceRole -AccessPackageCatalogId $catalog.Id -Filter $filt -ExpandProperty "accessPackageResource"
+$catalog = Get-MgBetaEntitlementManagementAccessPackageCatalog -Filter "displayName eq 'Marketing'"
+
+$rsc = Get-MgBetaEntitlementManagementAccessPackageCatalogAccessPackageResource -AccessPackageCatalogId $catalog.Id -Filter "resourceType eq 'Application'" -ExpandProperty "accessPackageResourceScopes"
+$filt = "(originSystem eq 'AadApplication' and accessPackageResource/id eq '" + $rsc.Id + "')"
+$rr = Get-MgBetaEntitlementManagementAccessPackageCatalogAccessPackageResourceRole -AccessPackageCatalogId $catalog.Id -Filter $filt -ExpandProperty "accessPackageResource"
 ```
 
 Then, create the access package:
@@ -174,10 +174,10 @@ $params = @{
     Description = "outside sales representatives"
 }
 
-$ap = New-MgEntitlementManagementAccessPackage -BodyParameter $params
+$ap = New-MgBetaEntitlementManagementAccessPackage -BodyParameter $params
 ```
 
-After you create the access package, assign the resource roles to it.  For example, if you want to include the second resource role of the first resource returned earlier as a resource role of the new access package, you can use a script similar to this one:
+After you create the access package, assign the resource roles to it.  For example, if you want to include the second resource role of the resource returned earlier as a resource role of the new access package, you can use a script similar to this one:
 
 ```powershell
 $rparams = @{
@@ -186,18 +186,18 @@ $rparams = @{
        DisplayName = $rr[2].DisplayName
        OriginSystem = $rr[2].OriginSystem
        AccessPackageResource = @{
-          Id = $rsc[0].Id
-          ResourceType = $rsc[0].ResourceType
-          OriginId = $rsc[0].OriginId
-          OriginSystem = $rsc[0].OriginSystem
+          Id = $rsc.Id
+          ResourceType = $rsc.ResourceType
+          OriginId = $rsc.OriginId
+          OriginSystem = $rsc.OriginSystem
        }
     }
     AccessPackageResourceScope = @{
-       OriginId = $rsc[0].OriginId
-       OriginSystem = $rsc[0].OriginSystem
+       OriginId = $rsc.OriginId
+       OriginSystem = $rsc.OriginSystem
     }
 }
-New-MgEntitlementManagementAccessPackageResourceRoleScope -AccessPackageId $ap.Id -BodyParameter $rparams
+New-MgBetaEntitlementManagementAccessPackageResourceRoleScope -AccessPackageId $ap.Id -BodyParameter $rparams
 ```
 
 Finally, create the policies.  In this policy, only the administrator can assign access, and there are no access reviews. For more examples, see [Create an assignment policy through PowerShell](entitlement-management-access-package-request-policy.md#create-an-access-package-assignment-policy-through-powershell) and [Create an accessPackageAssignmentPolicy](/graph/api/entitlementmanagement-post-assignmentpolicies?tabs=http&view=graph-rest-beta&preserve-view=true).
