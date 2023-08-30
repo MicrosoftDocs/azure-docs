@@ -19,21 +19,21 @@ A virtual network is similar to a traditional network that you'd operate in your
 
 Key scenarios that you can accomplish with a virtual network include:
 
-- Communication of Azure resources with the internet
+- Communication of Azure resources with the internet.
 
-- Communication between Azure resources
+- Communication between Azure resources.
 
-- Communication with on-premises resources
+- Communication with on-premises resources.
 
-- Filtering of network traffic
+- Filtering of network traffic.
 
-- Routing of network traffic
+- Routing of network traffic.
 
-- Integration with Azure services
+- Integration with Azure services.
 
 ### Communicate with the internet
 
-All resources in a virtual network can communicate outbound with the internet, by default. You can also use a [public IP address](./ip-services/virtual-network-public-ip-address.md), [NAT gateway](../nat-gateway/nat-overview.md), or a [public load balancer](../load-balancer/load-balancer-overview.md) to manage your [outbound connections](../load-balancer/load-balancer-outbound-connections.md). You can communicate inbound with a resource by assigning a public IP address or a public load balancer.
+All resources in a virtual network can communicate outbound with the internet, by default. You can also use a [public IP address](./ip-services/virtual-network-public-ip-address.md), [NAT gateway](../nat-gateway/nat-overview.md), or [public load balancer](../load-balancer/load-balancer-overview.md) to manage your [outbound connections](../load-balancer/load-balancer-outbound-connections.md). You can communicate inbound with a resource by assigning a public IP address or a public load balancer.
 
 When you're using only an [internal standard load balancer](../load-balancer/load-balancer-overview.md), outbound connectivity is not available until you define how you want outbound connections to work with an instance-level public IP address or a public load balancer.
 

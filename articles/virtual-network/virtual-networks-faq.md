@@ -49,10 +49,10 @@ Yes. You can deploy a [network virtual appliance for WAN optimization](https://a
 
 You can use the following tools to create or configure a virtual network:
 
-* Azure portal.
-* PowerShell.
-* Azure CLI.
-* Network configuration file (`netcfg`, for classic virtual networks only). For more information, see [Configure a virtual network using a network configuration file](/previous-versions/azure/virtual-network/virtual-networks-using-network-configuration-file).
+* Azure portal
+* PowerShell
+* Azure CLI
+* [Network configuration file](/previous-versions/azure/virtual-network/virtual-networks-using-network-configuration-file) (`netcfg`, for classic virtual networks only)
 
 ### What address ranges can I use in my virtual networks?
 
@@ -86,7 +86,7 @@ Yes. See [Networking limits](../azure-resource-manager/management/azure-subscrip
 
 ### Are there any restrictions on using IP addresses within these subnets?
 
-Yes. Azure reserves the first four addresses and the last IP address, for a total of five IP addresses within each subnet.
+Yes. Azure reserves the first four addresses and the last address, for a total of five IP addresses within each subnet.
 
 For example, the IP address range of 192.168.1.0/24 has the following reserved addresses:
 
@@ -128,8 +128,6 @@ You can use TCP, UDP, ESP, AH, and ICMP TCP/IP protocols in virtual networks.
 
 Unicast is supported in virtual networks. Multicast, broadcast, IP-in-IP encapsulated packets, and Generic Routing Encapsulation (GRE) packets are blocked in virtual networks. You can't use Dynamic Host Configuration Protocol (DHCP) via Unicast (source port UDP/68, destination port UDP/67). UDP source port 65330 is reserved for the host.
 
-For more information about what is and isn't supported for DHCP, see [Can I deploy a DHCP server in a virtual network?](#can-i-deploy-a-dhcp-server-in-a-virtual-network).
-
 ### Can I deploy a DHCP server in a virtual network?
 
 Azure virtual networks provide DHCP service and DNS to VMs and client/server DHCP (source port UDP/68, destination port UDP/67) not supported in a virtual network.
@@ -169,7 +167,7 @@ Every cloud service deployed in Azure has a publicly addressable virtual IP (VIP
 
 ### Do virtual networks support IPv6?
 
-Yes, virtual networks can be IPv4 only or dual stack (IPv4 + IPv6).  For details, see [What is IPv6 for Azure Virtual Network?](./ip-services/ipv6-overview.md).
+Yes. Virtual networks can be IPv4 only or dual stack (IPv4 + IPv6). For details, see [What is IPv6 for Azure Virtual Network?](./ip-services/ipv6-overview.md).
 
 ### Can a virtual network span regions?
 
@@ -209,7 +207,7 @@ If you change your DNS server list, you need to perform a DHCP lease renewal on 
 Azure-provided DNS is a multitenant DNS service from Microsoft. Azure registers all of your VMs and cloud service role instances in this service. This service provides name resolution:
 
 * By host name for VMs and role instances in the same cloud service.
-* By FQDN for VMs and role instances in the same virtual network.
+* By fully qualified domain main (FQDN) for VMs and role instances in the same virtual network.
 
 To learn more about DNS, see [Name resolution for resources in Azure virtual networks](virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
@@ -231,7 +229,7 @@ Yes. All network adapters (NICs) attached to a VM that's deployed through the Re
 
 ### What are the types of IP addresses that I can assign to VMs?
 
-* **Private**: Assigned to each NIC within each VM. The address is assigned through the static or dynamic method. Private IP addresses are assigned from the range that you specified in the subnet settings of your virtual network.
+* **Private**: Assigned to each NIC within each VM, through the static or dynamic method. Private IP addresses are assigned from the range that you specified in the subnet settings of your virtual network.
 
   Resources deployed through the classic deployment model are assigned private IP addresses, even if they're not connected to a virtual network. The behavior of the allocation method is different depending on whether you deployed a resource by using the Resource Manager or classic deployment model:
 
@@ -240,7 +238,7 @@ Yes. All network adapters (NICs) attached to a VM that's deployed through the Re
 
 * **Public**: Optionally assigned to NICs attached to VMs deployed through the Resource Manager deployment model. You can assign the address by using the static or dynamic allocation method.
 
-  All VMs and Azure Cloud Services role instances deployed through the classic deployment model exist within a cloud service, which is assigned a dynamic, public VIP address. You can optionally assign a public static IP address, called a [reserved IP address](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip), as a VIP.
+  All VMs and Azure Cloud Services role instances deployed through the classic deployment model exist within a cloud service. The cloud service is assigned a dynamic, public VIP address. You can optionally assign a public static IP address, called a [reserved IP address](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip), as a VIP.
 
   You can assign public IP addresses to individual VMs or Cloud Services role instances deployed through the classic deployment model. These addresses are called [instance-level public IP](/previous-versions/azure/virtual-network/virtual-networks-instance-level-public-ip) addresses and can be assigned dynamically.
 
@@ -274,7 +272,7 @@ No. You can't statically configure a MAC address.
 
 ### Does the MAC address remain the same for my VM after it's created?
 
-Yes, the MAC address remains the same for a VM that you deployed through both the Resource Manager and classic deployment models until you delete it.
+Yes. The MAC address remains the same for a VM that you deployed through both the Resource Manager and classic deployment models until you delete it.
 
 Previously, the MAC address was released if you stopped (deallocated) the VM. But now, the VM retains the MAC address when it's in the deallocated state. The MAC address remains assigned to the network adapter until you do one of these tasks:
 
@@ -291,7 +289,7 @@ Yes. All VMs and Cloud Services role instances deployed within a virtual network
 
 Yes. You can deploy the Web Apps feature of Azure App Service inside a virtual network by using an App Service Environment. You can then:
 
-* Connect the back end of your apps to your virtual networks with by using virtual network integration.
+* Connect the back end of your apps to your virtual networks by using virtual network integration.
 * Lock down inbound traffic to your app by using service endpoints.
 
 For more information, see the following articles:
@@ -387,12 +385,12 @@ Yes. Global virtual network peering enables you to peer virtual networks in diff
 
 ### What are the constraints related to global virtual network peering and load balancers?
 
-If the two virtual networks in two regions are peered over global virtual network peering, you can't connect to resources that are behind a Basic load balancer through the front-end IP of the load balancer. This restriction doesn't exist for a Standard load balancer.
+If the two virtual networks in two regions are peered over global virtual network peering, you can't connect to resources that are behind a basic load balancer through the front-end IP of the load balancer. This restriction doesn't exist for a standard load balancer.
 
-The following resources can use Basic load balancers, which means you can't reach them through the load balancer's front-end IP over global virtual network peering. But you can use global virtual network peering to reach the resources directly through their private virtual network IPs, if permitted.
+The following resources can use basic load balancers, which means you can't reach them through a load balancer's front-end IP over global virtual network peering. But you can use global virtual network peering to reach the resources directly through their private virtual network IPs, if permitted.
 
-* VMs behind Basic load balancers
-* Virtual machine scale sets with Basic load balancers
+* VMs behind basic load balancers
+* Virtual machine scale sets with basic load balancers
 * Azure Cache for Redis
 * Azure Application Gateway v1
 * Azure Service Fabric
@@ -523,7 +521,7 @@ Virtual network service endpoints help protect Azure service resources. Virtual 
 
 ### Is there any cost for using virtual network service endpoints?
 
-No, there's no additional cost for using virtual network service endpoints.
+No. There's no additional cost for using virtual network service endpoints.
 
 ### Can I turn on virtual network service endpoints and set up virtual network ACLs if the virtual network and the Azure service resources belong to different subscriptions?
 
@@ -553,13 +551,13 @@ The service returns an HTTP 403 or HTTP 404 error.
 
 ### Are subnets of a virtual network created in different regions allowed to access an Azure service account in another region?
 
-Yes. For most of the Azure services, virtual networks created in different regions can access Azure services in another region through the virtual network service endpoints. For example, if an Azure Cosmos DB account is in the West US or East US region, and virtual networks are in multiple regions, the virtual network can access Azure Cosmos DB.
+Yes. For most of the Azure services, virtual networks created in different regions can access Azure services in another region through the virtual network service endpoints. For example, if an Azure Cosmos DB account is in the West US or East US region, and virtual networks are in multiple regions, the virtual networks can access Azure Cosmos DB.
 
 Azure Storage and Azure SQL are exceptions and are regional in nature. Both the virtual network and the Azure service need to be in the same region.
   
 ### Can an Azure service have both a virtual network ACL and an IP firewall?
 
-Yes, a virtual network ACL and an IP firewall can coexist. The features complement each other to help ensure isolation and security.
+Yes. A virtual network ACL and an IP firewall can coexist. The features complement each other to help ensure isolation and security.
 
 ### What happens if you delete a virtual network or subnet that has service endpoints turned on for Azure services?
 
@@ -573,7 +571,7 @@ The deletion of an Azure service account is an independent operation. It's suppo
 
 ### What happens to the source IP address of a resource (like a VM in a subnet) that has virtual network service endpoints turned on?
 
-When you turn on virtual network service endpoints, the source IP addresses of the resources in your virtual network's subnet switch from using public IPv4 addresses to the Azure virtual network's private IP addresses for traffic to Azure services. This switch can cause specific IP firewalls that are set to a public IPv4 address earlier on the Azure services to fail.
+When you turn on virtual network service endpoints, the source IP addresses of the resources in your virtual network's subnet switch from using public IPv4 addresses to using the Azure virtual network's private IP addresses for traffic to Azure services. This switch can cause specific IP firewalls that are set to a public IPv4 address earlier on the Azure services to fail.
 
 ### Does the service endpoint route always take precedence?
 
@@ -583,7 +581,7 @@ For more information about how Azure selects a route, see [Virtual network traff
 
 ### Do service endpoints work with ICMP?
 
-No, ICMP traffic that's sourced from a subnet with service endpoints enabled won't take the service tunnel path to the desired endpoint. Service endpoints handle only TCP traffic. If you want to test latency or connectivity to an endpoint via service endpoints, tools like ping and tracert won't show the true path that the resources within the subnet will take.
+No. ICMP traffic that's sourced from a subnet with service endpoints enabled won't take the service tunnel path to the desired endpoint. Service endpoints handle only TCP traffic. If you want to test latency or connectivity to an endpoint via service endpoints, tools like ping and tracert won't show the true path that the resources within the subnet will take.
 
 ### How do NSGs on a subnet work with service endpoints?
 
