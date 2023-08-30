@@ -3,7 +3,7 @@ title: Tag ARO resources using Azure Policy
 description: Learn how to tag ARO resources in a cluster's resource group using Azure Policy
 ms.service: azure-redhat-openshift
 ms.topic: article
-ms.date: 08/29/2023
+ms.date: 08/30/2023
 author: johnmarco
 ms.author: johnmarc
 keywords: aro, openshift, cli, tagging
@@ -12,16 +12,15 @@ keywords: aro, openshift, cli, tagging
 
 # Tag ARO resources using Azure Policy
 
-This article shows you how to use Azure Policy to tag the resources in an ARO cluster's resource group. The process involves creating a Policy assignment and an ARO cluster through the Azure CLI.
+This article shows you how to use Azure Policy to tag the resources in an ARO cluster's resource group. The process involves creating a policy assignment and an ARO cluster through the Azure CLI.
 
 ## Create JSON files
 
-Using Azure CLI, use the following steps to create three separate JSON files in your current working directory:
+Using Azure CLI, follow these steps to create three separate JSON files in your current working directory:
 
 1. Create a JSON file named `rules.json` by copying and pasting the following content:
 
     ```
-    Unset
     {
       "if": {
         "anyOf": [
@@ -123,7 +122,6 @@ Using Azure CLI, use the following steps to create three separate JSON files in 
 1. Create a JSON file named `param-defs.json` by copying and pasting the following content:
 
     ```
-    Unset
     {
       "tag0": {
         "type": "Object",
@@ -388,8 +386,7 @@ Using Azure CLI, use the following steps to create three separate JSON files in 
 1. Create a JSON file named `param-values.json` by copying, pasting, **and modifying** the following content:
     
     ```
-    Unset
-        {
+    {
       "tag0": {
         "value": {
           "tag": [
@@ -404,7 +401,7 @@ Using Azure CLI, use the following steps to create three separate JSON files in 
     }
     ```
  
-    This JSON file the only one of the three files that must be modified. In the content, specify the values for the tags you want to apply to the cluster's resources.
+    This JSON file is the only one of the three files that must be modified. In the content, specify the values for the tags you want applied to the cluster's resources.
 
     > [!IMPORTANT]
     > The file content provided above only provides a value for the `tag0` parameter. The policy allows you to provide up to 10 tags, so if you want to set more than one tag, add values for parameters tag1 through tag 9.
@@ -415,7 +412,6 @@ Using Azure CLI, use the following steps to create three separate JSON files in 
 Open a shell session and run the following commands to set environmental variables to be used in later steps:
 
 ```
-Unset
 export AZURE_SUBSCRIPTION_ID=<your Azure subscription ID here>
 export POLICY_DEFINITION=<your policy definition name here>
 export CLUSTER=<your ARO cluster name here>
@@ -428,23 +424,21 @@ export POLICY_ASSIGNMENT="${POLICY_DEFINITION}-${CLUSTER}"
 export LOCATION=<the Azure region you want to use here>
 ```
 
-## Create the Policy definition and assignment
+## Create the policy definition and assignment
 
-1. Run the following command to create the Policy definition:
+1. Run the following command to create the policy definition:
 
     ```
-    Unset
     az policy definition create -n $POLICY_DEFINITION \
         --mode All \
         --rules rules.json \
         --params param-defs.json
     ```
 
-1. Run the following command to create the Policy assignment:
+1. Run the following command to create the policy assignment:
 
     ```
-    Unset
-    az policy assignment create -n $POLICY_ASSIGNMENT \
+     az policy assignment create -n $POLICY_ASSIGNMENT \
     	--policy $POLICY_DEFINITION \
     	--scope "/subscriptions/${AZURE_SUBSCRIPTION_ID}" \
     	--location $LOCATION \
@@ -467,12 +461,11 @@ Follow the [instructions to create a new ARO cluster](tutorial-create-cluster.md
 You can remediate previously assigned tags and add new tags using an Azure Policy remediation task.
 
 > [!NOTE]
-> These instructions assume you've followed the previous steps to create a Policy assignment and a cluster, and that you're in the directory containing the JSON files created in those steps.
+> These instructions assume you've followed the previous steps to create a policy assignment and a cluster, and that you're in the directory containing the JSON files created in those steps.
 > 
-1. Set some environmental variables to be used in later steps. You can skip this step if you're still in the same shell session you were using to create the Policy assignment and the cluster:
+1. Set some environmental variables to be used in later steps. You can skip this step if you're still in the same shell session you used to create the policy assignment and the cluster:
 
     ```
-    Unset
     export POLICY_DEFINITION=<your policy definition name here>
     export CLUSTER=<your ARO cluster name here>
     
@@ -482,16 +475,14 @@ You can remediate previously assigned tags and add new tags using an Azure Polic
 1. Open the file `param-values.json`. Modify existing parameters values and add new parameter values as desired to specify the new set of tags the policy should apply when you run the remediation task. Then run the following command to actually update the parameter values:
  
     ```
-    Unset
     az policy assignment update -n $POLICY_ASSIGNMENT
     	--params param-values.json
     ```
 1. Trigger the remediation task:
 
     ```
-    Unset
     az policy assignment update -n $POLICY_ASSIGNMENT
     	--params param-values.json
     ```
 
-1. Allow the remediation task time to run and observe the tags being updated on the managed resource group and its resources. Note that remediation tasks never remove tags - they only add or update tags.
+1. Allow the remediation task time to run and observe the tags being updated on the managed resource group and its resources. Note that remediation tasks never remove tags—they only add or update tags.
