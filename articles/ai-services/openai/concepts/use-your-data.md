@@ -261,11 +261,12 @@ Avoid asking long questions and break them down into multiple questions if possi
 
 * Azure OpenAI on your data supports queries that are in the same language as the documents. For example, if your data is in Japanese, then queries need to be in Japanese too.  
 
-* Currently Azure OpenAI on your data supports [semantic search](/azure/search/semantic-search-overview) for English data only. Don't enable semantic search if your data is in other languages.   
+* Currently Azure OpenAI on your data supports [semantic search](/azure/search/semantic-search-overview) for the following language: English, French, Spanish, Portuguese, Italian, Germany, Chinese(Zh), Japanese, Korean, Russian, Arabic. Don't enable semantic search if your data is in other languages.   
 
 * We recommend using a system message to inform the model that your data is in another language. For example:
-    
-    *"You are an AI assistant that helps people find information. You retrieve Japanese documents, and you should read them carefully in Japanese and answer in Japanese."* 
+
+*   *"**You are an AI assistant designed to help users extract information from retrieved Japanese documents. Please scrutinize the Japanese documents carefully before formulating a response. The user's query will be in Japanese, and you must response also in Japanese."*
+
 
 * If you have documents in multiple languages, we recommend building a new index for each language and connecting them separately to Azure OpenAI.  
 
