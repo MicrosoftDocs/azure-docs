@@ -69,7 +69,7 @@ See these articles to learn how to monitor task runs:
 
 ### Handle task events
 
-Task runs generate `Task Started` and `Task Completed` events which other applications can subscribe through Event Grid.
+Task runs generate `StorageTaskQueued` and `StorageTaskCompleted` events which other applications can subscribe through Event Grid.
 
 Link to the schema for these events and any other information about how to subscribe to events.
 
