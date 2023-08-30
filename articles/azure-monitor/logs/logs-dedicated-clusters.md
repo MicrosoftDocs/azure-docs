@@ -558,7 +558,11 @@ N/A
 
 #### [CLI](#tab/cli)
 
-N/A
+```azurecli
+az account set --subscription "cluster-subscription-id"
+
+az monitor log-analytics cluster update --resource-group "resource-group-name" --name "cluster-name"  --billing-type {Cluster, Workspaces}
+```
 
 #### [PowerShell](#tab/powershell)
 
