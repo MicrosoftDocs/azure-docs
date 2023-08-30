@@ -1,7 +1,7 @@
 ---
 title: Azure Communication Services Simulcast
 titleSuffix: An Azure Communication Services concept document
-description: Overview of Simulcast
+description: Overview of Simulcast - how sending multiple video quality rendentations helps overall call quality
 author: chriswhilar
 manager: artur.kania@skype.net
 services: azure-communication-services
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.service: azure-communication-services
 ---
 # Simulcast
+Simulcast is a technique by which an endpoint (browser or application) encodes the same video feed using different qualities and sends these video feeds of multiple qualities to a selective forwarding unit (SFU) that decides which of the receivers gets which quality.
 
-Simulcast is supported starting from 1.9.1-beta.1+ release of Azure Communication Services Calling Web SDK. Currently, simulcast on the sender side is supported on following desktop browsers - Chrome and Edge. Simulcast on receiver side is supported on all platforms that Azure Communication Services Calling supports.
-Support for Sender side Simulcast capability from mobile browsers will be added in the future.
+The lack of simulcast support leads to a degraded video experience in calls with three or more participants. If a video receiver with poor network conditions joins the conference, it will impact the quality of video received from the sender without simulcast support for all other participants. This is because the video sender will optimize its video feed against the lowest common denominator. With simulcast, the impact of lowest common denominator will be minimized. That is because the video sender will produce specialized low fidelity video encoding for a subset of receivers that run on poor networks (or otherwise constrained).
 
-Simulcast is a technique by which an endpoint encodes the same video feed using different qualities, sends these video feeds of multiple qualities to a selective forwarding unit – SFU that decides which of the receivers gets which quality.  
-The lack of simulcast support leads to a degraded video experience in calls with three or more participants. If a video receiver with poor network conditions joins the conference, it will impact the quality of video received from the sender without simulcast support for all other participants. This is because the video sender will optimize its video feed against the lowest common denominator. With simulcast, the impact of lowest common denominator will be minimized. That is because the video sender will produce specialized low fidelity video encoding for a subset of receivers that run on poor networks (or otherwise constrained).  
+Simulcast is supported on Azure Communication Services SDK for WebJS  (1.9.1-beta.1+) as well as native SDK for Android, iOS, and Windows. Currently, simulcast on the sender side is supported on following desktop browsers - Chrome and Edge. Simulcast on receiver side is supported on all platforms that Azure Communication Services Calling supports. Support for Sender side Simulcast capability from mobile browsers will be added in the future.
+
 ## Scenarios where simulcast is useful
 - Users with unknown bandwidth constraints joining. When a new joiner joins the call, its bandwidth conditions are unknown when starting to receive video. It will not be sent high quality content before reliable estimation of its bandwidth is known to prevent overshooting the available bandwidth. In unicast, if everyone was receiving high quality content, then that would cause degradation for every other receiver until the reliable estimate of the bandwidth conditions can be achieved. In simulcast, lower resolution video can be sent to the new joiner until its’ bandwidth conditions are known while other keep receiving high quality video.
 In a similar way, if one of the receivers is on poor network, video quality of all other receivers on good network will be degraded to accommodate for the receiver on poor network in unicast. But in simulcast, lower resolution/bitrate content can be sent to the receiver on poor network and higher resolution/bitrate content can be sent to receivers on good network.
