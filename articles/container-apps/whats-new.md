@@ -1,11 +1,13 @@
 ---
 title: What's new with Dapr in Azure Container Apps
-description: Learn more about what's new with Dapr in Azure Container Apps.
+titleSuffix: Azure Container Apps
+description: Learn more about what's new in Azure Container Apps and Dapr and how these updates impact your individual scenario.
 ms.author: hannahhunter
 author: hhunter-ms
 ms.service: container-apps
 ms.topic: conceptual
 ms.date: 08/30/2023
+# Customer Intent: As an Azure Container Apps user, I'd like to know about new and improved features in Azure Container Apps. 
 ---
 
 # What's new in Azure Container Apps
@@ -14,7 +16,7 @@ This article lists significant updates and new features available in Azure Conta
 
 ## Dapr
 
-This article lists significant updates to Dapr and how new features are available in Azure Container Apps.
+Learn about new and updated Dapr features available in Azure Container Apps.
 
 ### August 2023 
 
@@ -28,7 +30,7 @@ This article lists significant updates to Dapr and how new features are availabl
 | ------- | ------------- | ----------- |
 | [Multi-app Run improved](https://docs.dapr.io/developing-applications/local-development/multi-app-dapr-run) | [Multi-app Run logs](https://docs.dapr.io/developing-applications/local-development/multi-app-dapr-run/multi-app-overview/#logs) | Use `dapr run -f .` to run multiple Dapr apps and see the app logs written to the console _and_ a local log file. |
 
-## May 2023
+### May 2023
 
 | Feature | Documentation | Description |
 | ------- | ------------- | ----------- |
