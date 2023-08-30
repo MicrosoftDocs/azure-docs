@@ -10,7 +10,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-automation
 ---
 
-# Overview
+# Configure custom naming for the automation framework
 
 [SAP Deployment Automation Framework](deployment-framework.md) uses a standard naming convention for Azure [resource naming](naming.md).
 
