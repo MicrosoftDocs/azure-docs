@@ -93,7 +93,7 @@ Calling the `ConfigureRefresh` method alone won't cause the configuration to ref
 
 ### Configuration refresh using dependency injection
 
-As an alternative to manually getting `IConfigurationRefresher` in the code above, you can refresh the configuration by resolving the instance of `IConfigurationRefresherProvider` that is registered by `AddAzureAppConfiguration` and calling `TryRefreshAsync` on each of its refreshers. This can be seen in `DependencyInjectionExample.RefreshConfiguration` in the following code. 
+As an alternative to manually getting `IConfigurationRefresher` in the code above, you can instead resolve the instance of `IConfigurationRefresherProvider` that is registered in `IServiceCollection` by `AddAzureAppConfiguration`. You can then refresh the configuration by calling `TryRefreshAsync` on each of its refreshers. This can be seen in `DependencyInjectionExample` in the following code. 
 
 ```csharp
 class DependencyInjectionExample
