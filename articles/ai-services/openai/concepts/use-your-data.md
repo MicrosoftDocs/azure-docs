@@ -147,7 +147,6 @@ When using the API, pass the `filter` parameter in each API request. For example
 * `my_group_ids` is the field name that you selected for **Permitted groups** during [fields mapping](#index-field-mapping).
 * `group_id1, group_id2` are groups attributed to the logged in user. The client application can retrieve and cache users' groups.
 
-
 ## Schedule automatic index refreshes
 
 To keep your Azure Cognitive Search index up-to-date with your latest data, you can schedule a refresh for it that runs automatically rather than manually updating it every time your data is updated. to enable an automatic index refresh:
@@ -209,6 +208,7 @@ This option encourages the model to respond using your data only, and is selecte
 Azure OpenAI on your data provides several search options you can use when you add your data source, leveraging the following types of search.
 
 * [Simple search](/azure/search/search-lucene-query-architecture)
+
 * [Semantic search](/azure/search/semantic-search-overview)
 * [Vector search](/azure/search/vector-search-overview) using Ada [embedding](./understand-embeddings.md) models. 
 
@@ -284,6 +284,7 @@ While Power Virtual Agents has features that leverage Azure OpenAI such as [gene
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RW18YwQ]
 
 
+
 #### Using the web app
 
 You can also use the available standalone web app to interact with your model using a graphical user interface, which you can deploy using either Azure OpenAI studio or a [manual deployment](https://github.com/microsoft/sample-app-aoai-chatGPT). 
@@ -305,6 +306,7 @@ When customizing the app, we recommend:
 #### Important considerations
 
 - Publishing creates an Azure App Service in your subscription. It may incur costs depending on the 
+
 [pricing plan](https://azure.microsoft.com/pricing/details/app-service/windows/) you select. When you're done with your app, you can delete it from the Azure portal.
 - You can customize the frontend and backend logic of the web app.
 - By default, the app will only be accessible to you. To add authentication (for example, restrict access to the app to members of your Azure tenant):
@@ -339,6 +341,7 @@ Deleting your web app does not delete your Cosmos DB instance automatically. To 
 ### Using the API
 
 Consider setting the following parameters even if they are optional for using the API.
+
 
 
 |Parameter  |Recommendation  |
