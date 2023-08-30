@@ -59,9 +59,27 @@ Forking the sample repository is critical to be able to deploy the Static Web Ap
 
 1. On GitHub, [fork the sample repository](https://github.com/Azure-Samples/azure-search-javascript-samples/fork). 
 
-    Complete the fork process in your web browser with your GitHub account. This tutorial uses your fork as part of the deployment to an Azure Static Web App. 
+    Complete the fork process in your web browser with your GitHub account. This tutorial uses your fork as part of the deployment to an Azure Static Web App.
 
-[!INCLUDE [tutorial-fork-and-clone](includes/tutorial-add-search-website-fork-and-clone.md)]
+1. At a bash terminal, download your forked sample application to your local computer. 
+
+    Replace `YOUR-GITHUB-ALIAS` with your GitHub alias. 
+
+    ```bash
+    git clone https://github.com/YOUR-GITHUB-ALIAS/azure-search-javascript-samples
+    ```
+
+1. At the same bash terminal, go into your forked repository for this website search example:
+
+    ```bash
+    cd azure-search-javascript-samples
+    ```
+
+1. Use the Visual Studio Code command, `code .` to open your forked repository. The remaining tasks are accomplished from Visual Studio Code, unless specified.
+
+    ```bash
+    code .
+    ```
 
 ## Create a resource group for your Azure resources
 
