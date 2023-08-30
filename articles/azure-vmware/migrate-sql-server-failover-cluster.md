@@ -72,7 +72,7 @@ If the cluster uses a **File** **share witness** running on-premises, then the t
 - Disaster Recovery and Business Continuity: For a disaster recovery scenario, the best and most reliable option is to create a **Cloud Witness** running in Azure Storage. 
 - Application Modernization: For this use case, the best option is to deploy a **Cloud Witness**.
 
-For more information about quorum configuration and management, see [Failover Clustering documentation](https://learn.microsoft.com/windows-server/failover-clustering/manage-cluster-quorum). For more information about deploying a Cloud witness in Azure Blob Storage, see [Deploy a Cloud Witness for a Failover Cluster](https://learn.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness) documentation for the details.
+For more information about quorum configuration and management, see [Failover Clustering documentation](/windows-server/failover-clustering/manage-cluster-quorum). For more information about deploying a Cloud witness in Azure Blob Storage, see [Deploy a Cloud Witness for a Failover Cluster](/windows-server/failover-clustering/deploy-cloud-witness) documentation for the details.
 
 ## Migrate failover cluster
 
@@ -135,10 +135,10 @@ Finally, check the connectivity to SQL Server from other systems and application
 
 - [Enable Azure Hybrid Benefit for SQL Server in Azure VMware Solution](enable-sql-azure-hybrid-benefit.md). 
 - [Create a placement policy in Azure VMware Solution](create-placement-policy.md)  
-- [Windows Server Failover Clustering Documentation](https://learn.microsoft.com/windows-server/failover-clustering/failover-clustering-overview)
-- [Microsoft SQL Server 2019 Documentation](https://learn.microsoft.com/sql/sql-server/?view=sql-server-ver15)
-- [Microsoft SQL Server 2022 Documentation](https://learn.microsoft.com/sql/sql-server/?view=sql-server-ver16)
-- [Windows Server Technical Documentation](https://learn.microsoft.com/windows-server/)
+- [Windows Server Failover Clustering Documentation](/windows-server/failover-clustering/failover-clustering-overview)
+- [Microsoft SQL Server 2019 Documentation](/sql/sql-server/?view=sql-server-ver15)
+- [Microsoft SQL Server 2022 Documentation](/sql/sql-server/?view=sql-server-ver16)
+- [Windows Server Technical Documentation](/windows-server/)
 - [Planning Highly Available, Mission Critical SQL Server Deployments with VMware vSphere](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/solutions/vmware-vsphere-highly-available-mission-critical-sql-server-deployments.pdf)
 - [Microsoft SQL Server on VMware vSphere Availability and Recovery Options](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/solutions/sql-server-on-vmware-availability-and-recovery-options.pdf)
 - [VMware KB 100 2951 – Tips for configuring Microsoft SQL Server in a virtual machine](https://kb.vmware.com/s/article/1002951)
