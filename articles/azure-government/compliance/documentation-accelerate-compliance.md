@@ -19,7 +19,7 @@ ms.author: todorb
 
 # FedRAMP compliance program overview
 
-Accelerating your path to the US Federal Risk and Authorization Management Program (FedRAMP) compliance in Azure is a focused program that provides learning resources and implementation tools. The goal of the program is education and support during the scoping and implementation of your project. Moreover, Microsoft works with key assessment and automation partners to share reference architectures and solutions that can help you meet your compliance needs.
+Accelerating your path to the US Federal Risk and Authorization Management Program (FedRAMP) compliance in Azure is a focused effort that provides learning resources and implementation tools. The goal is education and support during the scoping and implementation of your project. Moreover, Microsoft works with key assessment and automation partners to share reference architectures and solutions that can help you meet your compliance needs.
 
 As a partner who provides a service in this field, you can publish your offering in the marketplace that expands the reach of your service.
 
@@ -46,7 +46,7 @@ Consequently, an ISV can choose to go for a JAB authorization, which grants a ge
 
 Microsoft is able to scale through its partners. Scale is what allows us to create a more predictable, cost-effective, and speedy delivery. These concerns are also common with pursuing an ATO. We're focused on enabling two main kinds of partnerships:
 
-- **Advisory:** enables partners to create offerings based on Azure that guide a customer through individual steps or the entire ATO process. These partners offer consulting services bundled with some automated solutions that add value to what Azure Compliance Launchpad provides. They can usually be contracted directly, by reference, or via Microsoft Azure Marketplace.
+- **Advisory:** enables partners to create offerings based on Azure that guide a customer through individual steps or the entire ATO process. These partners offer consulting services bundled with some automated solutions that add value to Azure Marketplace compliance offerings. They can usually be contracted directly, by reference, or via Microsoft Azure Marketplace.
 - **Automation:** there are two types of automation partners we focus on:
   - Foundational partners, which enable integration of third party solutions with Azure and help you achieve / meet controls from your FedRAMP package. These partners are part of our recommended reference architectures.
   - True automation partners that help automate certain aspects of the ATO journey such as the FedRAMP System Security Plan (SSP) generation, self-healing, alerts, and monitoring.

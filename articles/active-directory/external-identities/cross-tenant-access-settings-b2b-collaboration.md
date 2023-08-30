@@ -5,7 +5,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 05/31/2023
+ms.date: 08/04/2023
 
 ms.author: mimart
 author: msmimart
@@ -18,6 +18,9 @@ ms.collection: M365-identity-device-management
 
 Use External Identities cross-tenant access settings to manage how you collaborate with other Azure AD organizations through B2B collaboration. These settings determine both the level of *inbound* access users in external Azure AD organizations have to your resources, and the level of *outbound* access your users have to external organizations. They also let you trust multi-factor authentication (MFA) and device claims ([compliant claims and hybrid Azure AD joined claims](../conditional-access/howto-conditional-access-policy-compliant-device.md)) from other Azure AD organizations. For details and planning considerations, see [Cross-tenant access in Azure AD External Identities](cross-tenant-access-overview.md).
 
+> [!IMPORTANT]
+> Microsoft is beginning to move customers using cross-tenant access settings to a new storage model on August 30, 2023. You may notice an entry in your audit logs informing you that your cross-tenant access settings were updated as our automated task migrates your settings. For a brief window while the migration processes, you will be unable to make changes to your settings. If you are unable to make a change, you should wait a few moments and try the change again. Once the migration completes, [you will no longer be capped with 25kb of storage space](/azure/active-directory/external-identities/faq#how-many-organizations-can-i-add-in-cross-tenant-access-settings-) and there will be no more limits on the number of partners you can add.
+
 ## Before you begin
 
   > [!CAUTION]
@@ -29,12 +32,15 @@ Use External Identities cross-tenant access settings to manage how you collabora
 - Identify any Azure AD organizations that will need customized settings so you can configure **Organizational settings** for them.
 - If you want to apply access settings to specific users, groups, or applications in an external organization, you'll need to contact the organization for information before configuring your settings. Obtain their user object IDs, group object IDs, or application IDs (*client app IDs* or *resource app IDs*) so you can target your settings correctly.
 - If you want to set up B2B collaboration with a partner organization in an external Microsoft Azure cloud, follow the steps in [Configure Microsoft cloud settings](cross-cloud-settings.md). An admin in the partner organization will need to do the same for your tenant.
+- Both allow/block list and cross-tenant access settings are checked at the time of invitation. If a user's domain is on the allow list, they can be invited, unless the domain is explicitly blocked in the cross-tenant access settings. If a user's domain is on the deny list, they can't be invited regardless of the cross-tenant access settings. If a user is not on either list, we check the cross-tenant access settings to determine whether they can be invited. 
 
 ## Configure default settings
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
  Default cross-tenant access settings apply to all external tenants for which you haven't created organization-specific customized settings.  If you want to modify the Azure AD-provided default settings, follow these steps.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator or Security administrator account. Then open the **Azure Active Directory** service.
+1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator, Security administrator, or an account with a [custom role](cross-tenant-access-overview.md#custom-roles-for-managing-cross-tenant-access-settings) you've created. Then open the **Azure Active Directory** service.
 1. Select **External Identities**, and then select **Cross-tenant access settings**.
 1. Select the **Default settings** tab and review the summary page.
 
@@ -130,7 +136,10 @@ With inbound settings, you select which external users and groups will be able t
     - In the menu next to the search box, choose either **user** or **group**.
     - Select **Add**.
 
-   ![Screenshot showing adding users and groups.](media/cross-tenant-access-settings-b2b-collaboration/generic-inbound-external-users-groups-add.png)
+   > [!NOTE]
+   > You cannot target users or groups in inbound default settings.
+
+   ![Screenshot showing adding users and groups.](media/cross-tenant-access-settings-b2b-collaboration/generic-inbound-external-users-groups-add-new.png)
 
 1. When you're done adding users and groups, select **Submit**.
 

@@ -6,7 +6,8 @@ ms.author: jushiman
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
 ms.subservice: automatic-os-upgrade
-ms.date: 11/22/2022
+ms.custom: devx-track-linux
+ms.date: 07/25/2023
 ms.reviewer: mimckitt
 ---
 # Azure Virtual Machine Scale Set automatic OS image upgrades
@@ -65,6 +66,8 @@ The region of a scale set becomes eligible to get image upgrades either through 
 6. The above process continues until all instances in the scale set have been upgraded.
 
 The scale set OS upgrade orchestrator checks for the overall scale set health before upgrading every batch. While you're upgrading a batch, there could be other concurrent planned or unplanned maintenance activities that could impact the health of your scale set instances. In such cases if more than 20% of the scale set's instances become unhealthy, then the scale set upgrade stops at the end of current batch.
+
+To modify the default settings associated with Rolling Upgrades, review Azure's [Rolling Upgrade Policy](/rest/api/compute/virtual-machine-scale-sets/create-or-update?tabs=HTTP#rollingupgradepolicy).
 
 > [!NOTE]
 >Automatic OS upgrade does not upgrade the reference image Sku on the scale set. To change the Sku (such as Ubuntu 18.04-LTS to 20.04-LTS), you must update the [scale set model](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-model) directly with the desired image Sku. Image publisher and offer can't be changed for an existing scale set.  
@@ -147,7 +150,7 @@ Automatic OS image upgrade is supported for custom images deployed through [Azur
 - The new image version should not be excluded from the latest version for that gallery image. Image versions excluded from the gallery image's latest version are not rolled out to the scale set through automatic OS image upgrade.
 
 > [!NOTE]
->It can take up to 3 hours for a scale set to trigger the first image upgrade rollout after the scale set is first configured for automatic OS upgrades. This is a one-time delay per scale set. Subsequent image rollouts are triggered on the scale set within 30-60 minutes.
+> It can take up to 3 hours for a scale set to trigger the first image upgrade rollout after the scale set is first configured for automatic OS upgrades due to certain factors such as Maintenance Windows or other restrictions. Customers on the latest image may not get an upgrade until a new image is available. 
 
 
 ## Configure automatic OS image upgrade
@@ -204,13 +207,14 @@ The following example describes how to set automatic OS upgrades on a scale set 
          "MaxUnhealthyInstancePercent": 25,
          "MaxUnhealthyUpgradedInstancePercent": 25,
          "PauseTimeBetweenBatches": "PT0S"
-      "automaticOSUpgradePolicy": { 
-        "enableAutomaticOSUpgrade": true,
-         "useRollingUpgradePolicy": true,
-         "disableAutomaticRollback": false 
-      } 
-    }
-   },
+     },
+    "automaticOSUpgradePolicy": { 
+      "enableAutomaticOSUpgrade": true,
+        "useRollingUpgradePolicy": true,
+        "disableAutomaticRollback": false 
+    } 
+  },
+  },
 "imagePublisher": {
    "type": "string",
    "defaultValue": "MicrosoftWindowsServer"
@@ -226,8 +230,8 @@ The following example describes how to set automatic OS upgrades on a scale set 
  "imageOSVersion": {
    "type": "string",
    "defaultValue": "latest"
- } 
-}
+ }
+
 ```
 
 ### Bicep
@@ -242,6 +246,7 @@ properties: {
         enableAutomaticOSUpgrade: true 
       } 
     } 
+}
 ```
 
 ## Using Application Health Probes

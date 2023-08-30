@@ -10,6 +10,9 @@ ms.date: 11/14/2022
 
 To provide [File Integrity Monitoring (FIM)](file-integrity-monitoring-overview.md), the Log Analytics agent uploads data to the Log Analytics workspace. By comparing the current state of these items with the state during the previous scan, FIM notifies you if suspicious modifications have been made.
 
+> [!NOTE]
+> As the Log Analytics agent (also known as MMA) is set to retire in [August 2024](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/), all Defender for Servers features that currently depend on it, including those described on this page, will be available through either [Microsoft Defender for Endpoint integration](integration-defender-for-endpoint.md) or [agentless scanning](concept-agentless-data-collection.md), before the retirement date. For more information about the roadmap for each of the features that are currently rely on Log Analytics Agent, see [this announcement](upcoming-changes.md#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation).
+
 In this article, you'll learn how to:
 
 - [Enable File Integrity Monitoring with the Log Analytics agent](#enable-file-integrity-monitoring-with-the-log-analytics-agent)
@@ -28,7 +31,7 @@ In this article, you'll learn how to:
 |Release state:|General availability (GA)|
 |Pricing:|Requires [Microsoft Defender for Servers Plan 2](plan-defender-for-servers-select-plan.md#plan-features).<br>Using the Log Analytics agent, FIM uploads data to the Log Analytics workspace. Data charges apply, based on the amount of data you upload. See [Log Analytics pricing](https://azure.microsoft.com/pricing/details/log-analytics/) to learn more.|
 |Required roles and permissions:|**Workspace owner** can enable/disable FIM (for more information, see [Azure Roles for Log Analytics](/services-hub/health/azure-roles#azure-roles)).<br>**Reader** can view results.|
-|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet)<br>Supported only in regions where Azure Automation's change tracking solution is available.<br>:::image type="icon" source="./media/icons/yes-icon.png"::: [Azure Arc](../azure-arc/servers/overview.md) enabled devices.<br>See [Supported regions for linked Log Analytics workspace](../automation/how-to/region-mappings.md).<br>[Learn more about change tracking](../automation/change-tracking/overview.md).<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected AWS accounts|
+|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Microsoft Azure operated by 21Vianet)<br>Supported only in regions where Azure Automation's change tracking solution is available.<br>:::image type="icon" source="./media/icons/yes-icon.png"::: [Azure Arc](../azure-arc/servers/overview.md) enabled devices.<br>See [Supported regions for linked Log Analytics workspace](../automation/how-to/region-mappings.md).<br>[Learn more about change tracking](../automation/change-tracking/overview.md).<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected AWS accounts|
 
 ## Enable File Integrity Monitoring with the Log Analytics agent
 
@@ -81,7 +84,7 @@ To disable FIM:
 
 ## Monitor workspaces, entities, and files
 
-### Audit monitored workspaces 
+### Audit monitored workspaces
 
 The **File integrity monitoring** dashboard displays for workspaces where FIM is enabled. The FIM dashboard opens after you enable FIM on a workspace or when you select a workspace in the **file integrity monitoring** window that already has FIM enabled.
 
@@ -122,7 +125,7 @@ The **Changes** tab (shown below) lists all changes for the workspace during the
 
 ### Edit monitored entities
 
-1. From the **File Integrity Monitoring dashboard** for a workspace, select **Settings** from the toolbar. 
+1. From the **File Integrity Monitoring dashboard** for a workspace, select **Settings** from the toolbar.
 
     :::image type="content" source="./media/file-integrity-monitoring-overview/file-integrity-monitoring-dashboard-settings.png" alt-text="Screenshot of accessing the file integrity monitoring settings for a workspace." lightbox="./media/file-integrity-monitoring-overview/file-integrity-monitoring-dashboard-settings.png":::
 
@@ -149,14 +152,14 @@ The **Changes** tab (shown below) lists all changes for the workspace during the
 
 ### Add a new entity to monitor
 
-1. From the **File Integrity Monitoring dashboard** for a workspace, select **Settings** from the toolbar. 
+1. From the **File Integrity Monitoring dashboard** for a workspace, select **Settings** from the toolbar.
 
     The **Workspace Configuration** opens.
 
 1. On the **Workspace Configuration**:
 
-    1. Select the tab for the type of entity that you want to add: Windows registry, Windows files, Linux Files, file content, or Windows services. 
-    1. Select **Add**. 
+    1. Select the tab for the type of entity that you want to add: Windows registry, Windows files, Linux Files, file content, or Windows services.
+    1. Select **Add**.
 
         In this example, we selected **Linux Files**.
 
@@ -169,10 +172,11 @@ The **Changes** tab (shown below) lists all changes for the workspace during the
 ### Folder and path monitoring using wildcards
 
 Use wildcards to simplify tracking across directories. The following rules apply when you configure folder monitoring using wildcards:
--   Wildcards are required for tracking multiple files.
--   Wildcards can only be used in the last segment of a path, such as C:\folder\file or /etc/*.conf
--   If an environment variable includes a path that isn't valid, validation will succeed but the path will fail when inventory runs.
--   When setting the path, avoid general paths such as c:\*.* which will result in too many folders being traversed.
+
+- Wildcards are required for tracking multiple files.
+- Wildcards can only be used in the last segment of a path, such as `C:\folder\file` or` /etc/*.conf`
+- If an environment variable includes a path that isn't valid, validation succeeds but the path fails when inventory runs.
+- When setting the path, avoid general paths such as `c:\*.*`, which results in too many folders being traversed.
 
 ## Compare baselines using File Integrity Monitoring
 
@@ -212,7 +216,7 @@ To configure FIM to monitor registry baselines:
 1. In the **Add Windows Registry for Change Tracking** window, select the **Windows Registry Key** text box.
 1. Enter the following registry key:
 
-    ```
+    ```reg
     HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters
     ```
 
@@ -221,8 +225,8 @@ To configure FIM to monitor registry baselines:
 ### Track changes to Windows files
 
 1. In the **Add Windows File for Change Tracking** window, in the **Enter path** text box, enter the folder that contains the files that you want to track.
-In the example in the following figure, 
-**Contoso Web App** resides in the D:\ drive within the **ContosWebApp** folder structure.  
+In the example in the following figure, **Contoso Web App** resides in the D:\ drive within the **ContosWebApp** folder structure.
+
 1. Create a custom Windows file entry by providing a name of the setting class, enabling recursion, and specifying the top folder with a wildcard (*) suffix.
 
     :::image type="content" source="./media/file-integrity-monitoring-enable-log-analytics/baselines-add-file.png" alt-text="Screenshot of enable FIM on a file.":::
@@ -231,7 +235,7 @@ In the example in the following figure,
 
 File Integrity Monitoring data resides within the Azure Log Analytics/ConfigurationChange table set.  
 
- 1. Set a time range to retrieve a summary of changes by resource.
+1. Set a time range to retrieve a summary of changes by resource.
 
     In the following example, we're retrieving all changes in the last 14 days in the categories of registry and files:
 
@@ -244,7 +248,7 @@ File Integrity Monitoring data resides within the Azure Log Analytics/Configurat
 
 1. To view details of the registry changes:
 
-    1. Remove **Files** from the **where** clause. 
+    1. Remove **Files** from the **where** clause.
     1. Remove the summarization line and replace it with an ordering clause:
 
     ```

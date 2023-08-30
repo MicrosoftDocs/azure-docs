@@ -18,6 +18,8 @@
     href: verifiable-credentials-configure-verifier.md
   - name: Using the Authenticator
     href: using-authenticator.md
+  - name: Using the Wallet Library
+    href: using-wallet-library.md
 - name: Concepts
   expanded: true
   items:

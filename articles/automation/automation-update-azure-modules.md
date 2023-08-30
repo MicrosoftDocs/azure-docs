@@ -3,16 +3,12 @@ title: Update Azure PowerShell modules in Azure Automation
 description: This article tells how to update common Azure PowerShell modules provided by default in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 05/03/2023
+ms.date: 07/03/2023
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
 
 # Update Azure PowerShell modules in Automation
-
-> [!Important]
-> If you are facing issues while upgrading to **Az.Accounts version 2.12.2** or upgrading to a newer version with dependencies on **Az.Accounts version 2.12.2**, we recommend you use **Az.Accounts version 2.12.1 or lower** to avoid issues with Az modules that are dependent on Az.Accounts. For more information, see [steps to import module with specific versions](shared-resources/modules.md#import-modules-by-using-powershell).
- 
 
 The most common PowerShell modules are provided by default in each Automation account. See [Default modules](shared-resources/modules.md#default-modules). As the Azure team updates the Azure modules regularly, changes can occur with the included cmdlets. These changes, for example, renaming a parameter or deprecating a cmdlet entirely, can negatively affect your runbooks. 
 

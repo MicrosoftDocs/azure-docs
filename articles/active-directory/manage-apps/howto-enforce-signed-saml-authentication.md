@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt 
 ms.workload: identity 
 ms.topic: conceptual 
-ms.date: 06/29/2022 
+ms.date: 07/18/2023
 ms.author: jomondi
 ms.reviewer: alamaral
 ms.collection: M365-identity-device-management
@@ -24,11 +24,11 @@ If enabled Azure Active Directory will validate the requests against the public 
 
 - Protocol not allowed for signed requests. Only SAML protocol is supported.  
 - Request not signed, but verification is enabled.  
-- No verification certificate configured for SAML request signature verification.  
+- No verification certificate configured for SAML request signature verification. For more information about the certificate requirements, see [Certificate signing options](certificate-signing-options.md).
 - Signature verification failed.  
 - Key identifier in request is missing and two most recently added certificates don't match with the request signature.  
 - Request signed but algorithm missing.  
-- No certificate matching with provided key identifier.  
+- No certificate matching with provided key identifier.
 - Signature algorithm not allowed. Only RSA-SHA256 is supported.
 
 > [!NOTE] 
@@ -37,6 +37,8 @@ If enabled Azure Active Directory will validate the requests against the public 
 >  If `Require Verification certificates` is checked, SAML Request Signature Verification will work for SP-initiated(service provider/relying party initiated) authentication requests only. Only the application configured by the service provider will have the access to to the private and public keys for signing the incoming SAML Authentication Requests from the application. The public key should be uploaded to allow the verification of the request, in which case AAD will have access to only the public key.
 
 > Enabling `Require Verification certificates` will not allow IDP-initiated authentication requests (like SSO testing feature, MyApps or M365 app launcher) to be validated as the IDP would not possess the same private keys as the registered application.
+
+[!INCLUDE [portal updates](../includes/portal-update.md)]
 
 ## To configure SAML Request Signature Verification in the Azure portal 
 
@@ -84,5 +86,5 @@ If enabled Azure Active Directory will validate the requests against the public 
 
 ## Next steps  
 
-* Find out [How Azure AD uses the SAML protocol](../develop/active-directory-saml-protocol-reference.md) 
+* Find out [How Azure AD uses the SAML protocol](../develop/saml-protocol-reference.md) 
 * Learn the format, security characteristics, and contents of [SAML tokens in Azure AD](../develop/reference-saml-tokens.md) 

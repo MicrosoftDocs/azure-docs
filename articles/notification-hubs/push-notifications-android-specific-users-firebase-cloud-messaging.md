@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: tutorial
-ms.custom: mvc, devx-track-java
+ms.custom: mvc, devx-track-java, devx-track-dotnet
 ms.date: 09/11/2019
 ms.author: sethm
 ms.reviewer: jowargo

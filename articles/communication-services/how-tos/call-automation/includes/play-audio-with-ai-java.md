@@ -18,8 +18,8 @@ ms.author: kpunjabi
 - Create a new web service application using the [Call Automation SDK](../../../quickstarts/call-automation/callflows-for-customer-interactions.md).
 - [Java Development Kit](/java/azure/jdk/?preserve-view=true&view=azure-java-stable) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi).
-- Create and connect [Azure Cognitive Services to your Azure Communication Services resource](../../../concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md).
-- Create a [custom subdomain](../../../../cognitive-services/cognitive-services-custom-subdomains.md) for your Azure Cognitive Services resource. 
+- Create and connect [Azure AI services to your Azure Communication Services resource](../../../concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md).
+- Create a [custom subdomain](../../../../ai-services/cognitive-services-custom-subdomains.md) for your Azure AI services resource. 
 
 ## Create a new Java application
 
@@ -51,7 +51,7 @@ Add the [azure-sdk-for-java feed](https://dev.azure.com/azure-sdk/public/_artifa
 
 In your POM file, add the following reference for the project. 
 
-**azure-communication-callingserver**
+**azure-communication-callautomation**
 
 Azure Communication Services Call Automation SDK package is retrieved from the Azure SDK Dev Feed.
 
@@ -67,7 +67,7 @@ Azure Communication Services Call Automation SDK package is retrieved from the A
 
 Create an audio file, if you don't already have one, to use for playing prompts and messages to participants. The audio file must be hosted in a location that is accessible to ACS with support for authentication. Keep a copy of the URL available for you to use when requesting to play the audio file. The audio file that ACS supports needs to be **WAV, mono and 16 KHz sample rate**. 
 
-You can test creating your own audio file using our [Speech synthesis with Audio Content Creation tool](../../../../cognitive-services/Speech-Service/how-to-audio-content-creation.md).
+You can test creating your own audio file using our [Speech synthesis with Audio Content Creation tool](../../../../ai-services/Speech-Service/how-to-audio-content-creation.md).
 
 ## (Optional) Connect your Azure Cognitive Service to your Azure Communication Service
 
@@ -103,7 +103,7 @@ FileSource playSource = new FileSource().setUri(<audioUri>);
 
 ### Play source - Text-To-Speech
 
-To play audio using Text-To-Speech through Azure Cognitive Services you need to provide the text you wish to play as well either the SourceLocale, and VoiceGender or the VoiceName you wish to use.
+To play audio using Text-To-Speech through Azure AI services you need to provide the text you wish to play as well either the SourceLocale, and VoiceGender or the VoiceName you wish to use.
 
 ```java
 var playSource = new TextSource();
@@ -124,7 +124,7 @@ playSource.setVoiceName("en-US-ElizabethNeural");
 
 ### Play source - Text-To-Speech with SSML
 
-If you want to customize your Text-To-Speech output even more with Azure Cognitive Services you can use [Speech Synthesis Markup Language SSML](../../../../cognitive-services/Speech-Service/speech-synthesis-markup.md) when invoking your play action through Call Automation. With SSML you can fine-tune the pitch, pause, improve pronunciation, change speaking rate, adjust volume and attribute multiple voices.
+If you want to customize your Text-To-Speech output even more with Azure AI services you can use [Speech Synthesis Markup Language SSML](../../../../ai-services/Speech-Service/speech-synthesis-markup.md) when invoking your play action through Call Automation. With SSML you can fine-tune the pitch, pause, improve pronunciation, change speaking rate, adjust volume and attribute multiple voices.
 
 ``` java
 playSsmlSource = new SsmlSource();

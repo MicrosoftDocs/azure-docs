@@ -6,7 +6,7 @@ ms.author: haital
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 09/29/2022
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
 
 # Customize the ingress configuration in Azure Spring Apps

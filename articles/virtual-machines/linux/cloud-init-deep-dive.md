@@ -8,6 +8,7 @@ ms.date: 03/29/2023
 ms.author: mattmcinnes
 ms.reviewer: cynthn
 ms.subservice: cloud-init
+ms.custom: devx-track-linux
 ---
 
 # Diving deeper into cloud-init

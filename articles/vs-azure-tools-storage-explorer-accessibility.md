@@ -5,7 +5,7 @@ services: storage
 author: MrayermannMSFT
 manager: jinglouMSFT
 ms.assetid: 1ed0f096-494d-49c4-ab71-f4164ee19ec8
-ms.service: storage
+ms.service: azure-storage
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: marayerm

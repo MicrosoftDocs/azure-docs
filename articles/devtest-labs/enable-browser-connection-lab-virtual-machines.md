@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 12/20/2022
+ms.custom: UpdateFrequency2
 ---
 
 # Enable browser connection to DevTest Labs VMs with Azure Bastion

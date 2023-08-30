@@ -2,8 +2,6 @@
 title: Tutorial - Create a log query alert for an Azure resource
 description: Tutorial to create a log query alert for an Azure resource.
 ms.topic: tutorial
-author: bwren
-ms.author: bwren
 ms.date: 09/16/2021
 ---
 
@@ -65,6 +63,9 @@ On the **Condition** tab, the **Log query** will already be filled in. The **Mea
 
 :::image type="content" source="media/tutorial-log-alert/alert-rule-dimensions.png" lightbox="media/tutorial-log-alert/alert-rule-dimensions.png"alt-text="Alert rule dimensions":::
 
+If you need a certain dimension(s) included in the alert notification email, you can specify a dimension (e.g. "Computer"), the alert notification email will include the computer name that triggered the alert. The alerting engine uses the alert query to determine the available dimensions. If you do not see the dimension you want in the drop-down list for the "Dimension name", it is because the alert query does not expose that column in the results. You can easily add the dimensions you want by adding a Project line to your query that includes the columns you want to use. You can also use the Summarize line to add additional columns to the query results. 
+
+:::image type="content" source="media/tutorial-log-alert/alert-rule-condition-2.png" lightbox="media/tutorial-log-alert/alert-rule-condition-2.png" alt-text="Screenshot showing the Alert rule dimensions with a dimension called Computer set.":::
 
 ## Configure alert logic
 In the alert logic, configure the **Operator** and **Threshold value** to compare to the value returned from the measurement.  An alert is created when this value is true. Select a value for **Frequency of evaluation** which defines how often the log query is run and evaluated. The cost for the alert rule increases with a lower frequency. When you select a frequency, the estimated monthly cost is displayed in addition to a preview of the query results over a time period.

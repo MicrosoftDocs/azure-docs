@@ -1,6 +1,6 @@
 ---
 title: "Deploy applications consistently at scale using Flux v2 configurations and Azure Policy"
-ms.date: 05/15/2023
+ms.date: 06/02/2023
 ms.topic: how-to
 description: "Use Azure Policy to apply Flux v2 configurations at scale on Azure Arc-enabled Kubernetes or AKS clusters."
 ---
@@ -36,25 +36,37 @@ Verify you have `Microsoft.Authorization/policyAssignments/write` permissions on
 
 ## Create a policy assignment
 
+In order for a policy to apply Flux v2 configurations to a cluster, the Flux extension must be installed on each cluster. You can ensure this by assigning the **Configure installation of Flux extension on Kubernetes cluster** policy definition to the desired scope.
+
 1. In the Azure portal, navigate to **Policy**.
 1. In the **Authoring** section of the sidebar, select **Definitions**.
-1. In the "Kubernetes" category, choose the **Configure Kubernetes clusters with Flux v2 configuration using public Git repository** built-in policy definition.
+1. In the "Kubernetes" category, select the **Configure installation of Flux extension on Kubernetes cluster** built-in policy definition.
 1. Select **Assign**.
 1. Set the **Scope** to the management group, subscription, or resource group to which the policy assignment will apply.
     * If you want to exclude any resources from the policy assignment scope, set **Exclusions**.
-1. Give the policy assignment an easily identifiable **Name** and **Description**.
+1. Give the policy assignment an easily identifiable **Assignment name** and **Description**.
 1. Ensure **Policy enforcement** is set to **Enabled**.
-1. Select **Next**.
+1. Select **Review + create**, then select **Create**.
+
+Next, return to the **Definitions** list to apply the configuration policy definition to the same scope.
+
+1. In the "Kubernetes" category, select the **Configure Kubernetes clusters with Flux v2 configuration using public Git repository**
+built-in policy definition.
+1. Select **Assign**.
+1. Set the **Scope** to the same scope that you selected when assigning the first policy, including any exceptions.
+1. Give the policy assignment an easily identifiable **Assignment name** and **Description**.
+1. Ensure **Policy enforcement** is set to **Enabled**.
+1. Select **Next**, then select **Next** again to open the **Parameters** tab.
 1. Set the parameter values to be used.
     * For more information about parameters, see the [tutorial on deploying Flux v2 configurations](./tutorial-use-gitops-flux2.md).
     * When creating Flux configurations you must provide a value for one (and only one) of these parameters: `repositoryRefBranch`, `repositoryRefTag`, `repositoryRefSemver`, `repositoryRefCommit`.
-1. Select **Next**.
+1. Select **Next** to open the **Remediation** task.
 1. Enable **Create a remediation task**.
-1. Verify **Create a managed identity** is checked, and that the identity will have **Contributor** permissions.
+1. Verify that **Create a Managed Identity** is checked, and that the identity will have **Contributor** permissions.
     * For more information, see [Quickstart: Create a policy assignment to identify non-compliant resources](../../governance/policy/assign-policy-portal.md) and [Remediate non-compliant resources with Azure Policy](../../governance/policy/how-to/remediate-resources.md).
-1. Select **Review + create**.
+1. Select **Review + create**, then select **Create**.
 
-After creating the policy assignment, the configuration is applied to new Azure Arc-enabled Kubernetes or AKS clusters created within the scope of policy assignment.
+After creating the policy assignments, the configuration is applied to new Azure Arc-enabled Kubernetes or AKS clusters created within the scope of policy assignment.
 
 For existing clusters, you may need to manually run a remediation task. This task typically takes 10 to 20 minutes for the policy assignment to take effect.
 

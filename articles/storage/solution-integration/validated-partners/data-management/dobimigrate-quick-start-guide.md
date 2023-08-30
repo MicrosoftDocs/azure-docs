@@ -6,8 +6,8 @@ author: dukicn
 ms.author: nikoduki
 ms.date: 04/27/2021
 ms.topic: conceptual
-ms.service: storage
-ms.subservice: partner
+ms.service: azure-storage
+ms.subservice: storage-partner-integration
 ---
 
 # Migrate data to Azure with Datadobi DobiMigrate
@@ -167,7 +167,7 @@ In the [Azure portal](https://portal.azure.com/) search for  **support**  in the
 
 Datadobi has made it easy to deploy their solution in Azure to protect Azure Virtual Machines and many other Azure services. For more information, see the following references:
 
-- [Migrate File Data to Azure with DobiMigrate](https://azuremarketplace.microsoft.com/marketplace/apps/datadobi1602192408529.datadobi-dobimigrate?tab=overview)
+- [Migrate File Data to Azure with DobiMigrate](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/datadobi1602192408529.datadobi_license_purchase?tab=Overview)
 
 ## Next steps
 

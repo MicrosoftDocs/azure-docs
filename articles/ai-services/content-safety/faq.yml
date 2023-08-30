@@ -1,0 +1,49 @@
+### YamlMime:FAQ
+metadata:
+  title: "Frequently asked questions - Azure AI Content Safety"
+  titleSuffix: Azure AI services
+  description: Get answers to frequently asked questions about Azure AI Content Safety.
+  services: cognitive-services
+  author: PatrickFarley
+  manager: nitinme
+
+  ms.service: cognitive-services
+  ms.subservice: content-safety
+  ms.topic: faq
+  ms.date: 07/03/2023
+  ms.author: pafarley
+  ms.custom:
+title: AI Content Safety API Frequently Asked Questions
+summary: |
+  > [!TIP]
+  > If you can't find answers to your questions in this FAQ, ask the Cognitive Services API community on [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) or contact Help and Support on [UserVoice](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858)
+
+
+sections:
+  - name: AI Content Safety API frequently asked questions
+    questions:
+      - question: |
+          What is the difference between the Azure Content Moderator and Azure AI Content Safety services?
+        answer: |
+          The main differences between the two services are:
+
+          - Azure Content Moderator uses binary classification for each content type (such as `profanity` or `adult`), while Azure AI Content Safety uses multiple classes (such as `sexual`, `violent`, `hate`, and `self-harm`) with different severity levels.
+          - Azure Content Safety supports multilingual content moderation in English, German, Japanese, Spanish, French, Italian, Portuguese, and Chinese, while Azure Content Moderator's AI classifiers only support English.
+          - Azure Content Moderator has a built-in term list and a custom term list feature, while Azure AI Content Safety does not have a built-in term list but relies on advanced language and vision models to detect harmful content. It also provides a custom term list feature for incident response and customization.
+          - Azure AI Content Safety has an interactive studio for exploring and testing the service capabilities, while Azure Content Moderator does not.
+      - question: |
+          Why should I migrate from Azure Content Moderator to Azure AI Content Safety?
+        answer: |
+          Microsoft recommends that customers who are using Azure Content Moderator migrate to Azure AI Content Safety because:
+
+          - Azure AI Content Safety offers more accurate and granular detection of harmful content in text and images using state-of-the-art AI models.
+          - Azure AI Content Safety supports multilingual content moderation in English, Japanese, German, Spanish, French, Portuguese, Italian, and Chinese.
+          - Azure AI Content Safety enables responsible AI practices by monitoring both user-generated and AI-generated content.
+      - question: |
+          How does billing work for the Azure AI Content Safety service?
+        answer: |
+          In the S tier, there are two types of APIs. For the Text API, the service is billed for the amount of text records submitted to the service. For the Image API, the service is billed for the number of images submitted to the service.
+      - question: |
+          What happens if I exceed the transaction limit on my free tier for Azure AI Content Safety?
+        answer: |
+          Usage is throttled if the transaction limit is reached on the Free tier. Customers cannot accrue overages on the free tier.

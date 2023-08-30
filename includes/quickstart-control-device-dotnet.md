@@ -72,7 +72,7 @@ The simulated device application connects to a device-specific endpoint on your 
     `{DeviceConnectionString}`: Replace this placeholder with the device connection string you noted previously.
 
     ```cmd/sh
-    dotnet run -- "{DeviceConnectionString}"
+    dotnet run -- -c "{DeviceConnectionString}"
     ```
 
     The following screenshot shows the output as the simulated device application sends telemetry to your IoT hub:
@@ -83,7 +83,7 @@ The simulated device application connects to a device-specific endpoint on your 
 
 The service application connects to a service-side endpoint on your IoT Hub. The application makes direct method calls to a device through your IoT hub and listens for acknowledgments. An IoT Hub service application typically runs in the cloud.
 
-1. In another local terminal window, navigate to the root folder of the sample C# project. Then navigate to the **iothub\device\samples\getting started\InvokeDeviceMethod** folder.
+1. In another local terminal window, navigate to the root folder of the sample C# project. Then navigate to the **iothub\service\samples\getting started\InvokeDeviceMethod** folder.
 
 2. In the local terminal window, run the following commands to install the required libraries for the service application:
 

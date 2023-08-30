@@ -26,7 +26,7 @@ It's suggested to activate Top flows logs only when troubleshooting a specific i
 
 ### Prerequisites
 
-- Enable [structured logs](firewall-structured-logs.md#enabledisable-structured-logs)
+- Enable [structured logs](firewall-structured-logs.md#enable-structured-logs)
 - Use the Azure Resource Specific Table format in [Diagnostic Settings](firewall-diagnostics.md#enable-diagnostic-logging-through-the-azure-portal).
 
 ### Enable the log
@@ -90,7 +90,7 @@ The following additional properties can be added:
 
 ### Prerequisites
 
-- Enable [structured logs](firewall-structured-logs.md#enabledisable-structured-logs)
+- Enable [structured logs](firewall-structured-logs.md#enable-structured-logs)
 - Use the Azure Resource Specific Table format in [Diagnostic Settings](firewall-diagnostics.md#enable-diagnostic-logging-through-the-azure-portal).
 
 ### Enable the log

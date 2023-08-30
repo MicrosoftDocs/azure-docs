@@ -358,7 +358,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Quest Media & Supplies Inc.](https://www.questsys.com/)|
 |[Quisitive](https://quisitive.com)|
 |[Quite Professionals](https://www.quietprofessionalsllc.com)|
-|[R3 LLC](https://www.r3.com)|
+|[R3 LLC](https://www.r3-it.com)|
 |[Ravnur Inc.](https://www.ravnur.com)|
 |[Razor Technology, LLC](https://www.razor-tech.com)|
 |[Re:discovery Software, Inc.](https://rediscoverysoftware.com)|
@@ -455,7 +455,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Turnkey Technologies, Inc.](https://www.turnkeytec.com)|
 |[Tyto Athene LLC](https://gotyto.com/)|
 |[U2Cloud LLC](https://www.u2cloud.com)|
-|[UDRI - SSG](https://udayton.edu/udri/_resources/docs/ssg_v8.pdf)|
+|[UDRI - SSG](https://udayton.edu/)|
 |[Unisys Corp / Blue Bell](https://www.unisys.com)|
 |[United Data Technologies, Inc.](https://udtonline.com)|
 |[VALCOM COMPUTER CENTER](https://www.vlcmtech.com/)|
@@ -516,7 +516,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |Dell Corp.|Get_Azure@Dell.com|888-375-9857|
 |Insight Public Sector|federal@insight.com|800-467-4448|
 |PC Connection|govtssms@connection.com|800-800-0019|
-|SHI, Inc.|msftgov@shi.com|888-764-8888|
+|SHI, Inc.|MSFederal@shi.com|888-764-8888|
 |Minburn Technology Group|microsoft@minburntech.com |571-699-0705 Opt. 1|
 
 ## Approved AOS-G partners

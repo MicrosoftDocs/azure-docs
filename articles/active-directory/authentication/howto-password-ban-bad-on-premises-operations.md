@@ -29,6 +29,8 @@ This article shows you how to enable Azure AD Password Protection for your on-pr
 
 ## Enable on-premises password protection
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 1. Sign in to the [Azure portal](https://portal.azure.com) and browse to **Azure Active Directory** > **Security** > **Authentication methods** > **Password protection**.
 1. Set the option for **Enable password protection on Windows Server Active Directory** to *Yes*.
 

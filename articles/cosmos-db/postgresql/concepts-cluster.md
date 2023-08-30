@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: postgresql
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 01/30/2023
+ms.date: 06/05/2023
 ---
 
 # Clusters in Azure Cosmos DB for PostgreSQL
@@ -52,7 +52,9 @@ assigned to a zone. (Only [certain
 regions](https://azure.microsoft.com/global-infrastructure/geographies/#geographies)
 support availability zones.)
 
-If high availability is enabled for the cluster, and a node [fails
+Azure Cosmos DB for PostgreSQL allows you to set a preferred availability zone for cluster. Usually the reason for it is to put cluster nodes in the same availability zone where the application and the rest of the application stack components are.
+
+If [high availability](./concepts-high-availability.md) is enabled for the cluster, and a node [fails
 over](concepts-high-availability.md) to a standby, you may see its availability
 zone differs from the other nodes. In this case, the nodes will be moved back
 into the same availability zone together during the next [maintenance
@@ -61,3 +63,4 @@ window](concepts-maintenance.md).
 ## Next steps
 
 * Learn to [provision a cluster](quickstart-create-portal.md)
+* Learn about [high availability fundamentals](./concepts-high-availability.md)

@@ -26,7 +26,7 @@ Microsoft recommends that you use the [Microsoft.Identity.Web](https://www.nuget
 
 ## Client secrets or client certificates
 
-[!INCLUDE [web-app-client-credentials.md](includes/web-app-client-credentials.md)]
+[!INCLUDE [web-app-client-credentials.md](./includes/web-app-client-credentials.md)]
 
 ## Program.cs
 
@@ -68,7 +68,7 @@ To call Microsoft Graph, *Microsoft.Identity.Web* enables you to directly use th
 
 To expose Microsoft Graph:
 
-1. Add the [Microsoft.Identity.Web.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraph) NuGet package to the project.
+1. Add the [Microsoft.Identity.Web.GraphServiceClient](https://www.nuget.org/packages/Microsoft.Identity.Web.GraphServiceClient) NuGet package to the project.
 1. Add `.AddMicrosoftGraph()` after `.EnableTokenAcquisitionToCallDownstreamApi()` in *Program.cs*. `.AddMicrosoftGraph()` has several overrides. Using the override that takes a configuration section as a parameter, the code becomes:
 
 ```csharp
@@ -131,7 +131,7 @@ The following image shows the possibilities of *Microsoft.Identity.Web* and the 
 
 ## Client secrets or client certificates
 
-[!INCLUDE [web-app-client-credentials.md](includes/web-app-client-credentials.md)]
+[!INCLUDE [web-app-client-credentials.md](./includes/web-app-client-credentials.md)]
 
 ## Modify *Startup.Auth.cs*
 
@@ -141,7 +141,7 @@ Your web app needs to acquire a token for the downstream API, *Microsoft.Identit
 
 If you want to call Microsoft Graph, *Microsoft.Identity.Web* enables you to directly use the `GraphServiceClient` (exposed by the Microsoft Graph SDK) in your API actions. To expose Microsoft Graph:
 
-1. Add the [Microsoft.Identity.Web.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraph) NuGet package to your project.
+1. Add the [Microsoft.Identity.Web.GraphServiceClient](https://www.nuget.org/packages/Microsoft.Identity.Web.GraphServiceClient) NuGet package to your project.
 1. Add `.AddMicrosoftGraph()` to the service collection in the *Startup.Auth.cs* file. `.AddMicrosoftGraph()` has several overrides. Using the override that takes a configuration section as a parameter, the code becomes:
 
    ```csharp

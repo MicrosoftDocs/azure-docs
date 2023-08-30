@@ -71,7 +71,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 First, create the resource group to contain the resources:
 
-1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. On the Azure portal home page, select **Resource groups** > **Add**.
 3. For **Subscription**, select your subscription.
 1. For **Resource group name**, type **FW-Hybrid-Test**.

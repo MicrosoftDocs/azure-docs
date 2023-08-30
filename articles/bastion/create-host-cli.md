@@ -5,7 +5,7 @@ description: Learn how to deploy Azure Bastion using CLI
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 06/01/2023
+ms.date: 06/08/2023
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to deploy Bastion and connect to a VM.
 ms.custom: ignite-fall-2021, devx-track-azurecli 
@@ -26,7 +26,9 @@ In this article, you create a virtual network (if you don't already have one), d
 * [Azure PowerShell](bastion-create-host-powershell.md)
 * [Quickstart - deploy with default settings](quickstart-host-portal.md)
 
-## Prerequisites
+[!INCLUDE [DNS private zone](../../includes/bastion-private-dns-zones-non-support.md)]
+
+## Before beginning
 
 ### Azure subscription
 
@@ -36,16 +38,13 @@ Verify that you have an Azure subscription. If you don't already have an Azure s
 
 [!INCLUDE [Cloud Shell CLI](../../includes/vpn-gateway-cloud-shell-cli.md)]
 
-> [!NOTE]
-> The use of Azure Bastion with Azure Private DNS Zones is not supported at this time. Before you begin, please make sure that the virtual network where you plan to deploy your Bastion resource is not linked to a private DNS zone.
->
-
 ## <a name="createhost"></a>Deploy Bastion
 
 This section helps you deploy Azure Bastion using Azure CLI.
 
-> [!NOTE]
-> As shown in the examples, use the `--location` parameter with `--resource-group` for every command to ensure that the resources are deployed together.
+> [!IMPORTANT]
+> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+>
 
 1. If you don't already have a virtual network, create a resource group and a virtual network using [az group create](/cli/azure/group#az-group-create) and [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create).
 
@@ -65,7 +64,7 @@ This section helps you deploy Azure Bastion using Azure CLI.
    az network vnet subnet create --name AzureBastionSubnet --resource-group TestRG1 --vnet-name VNet1 --address-prefix 10.1.1.0/26
    ```
 
-1. Create a public IP address for Azure Bastion. The public IP is the public IP address the Bastion resource on which RDP/SSH will be accessed (over port 443). The public IP address must be in the same region as the Bastion resource you're creating.
+1. Create a public IP address for Azure Bastion. The public IP is the public IP address the Bastion resource on which RDP/SSH will be accessed (over port 443). The public IP address must be in the same region as the Bastion resource you're creating. For this reason, pay particular attention to the `--location` value that you specify.
 
    ```azurecli-interactive
    az network public-ip create --resource-group TestRG1 --name VNet1-ip --sku Standard --location eastus
@@ -73,10 +72,7 @@ This section helps you deploy Azure Bastion using Azure CLI.
 
 1. Use [az network bastion create](/cli/azure/network/bastion#az-network-bastion-create) to create a new Azure Bastion resource for your virtual network. It takes about 10 minutes for the Bastion resource to create and deploy.
 
-   Hourly pricing starts from the moment Bastion is deployed, regardless of outbound data usage. Bastion pricing is a combination of hourly pricing based on SKU and instances (scale units), plus data transfer rates. For more information, see [Pricing](https://azure.microsoft.com/pricing/details/azure-bastion/). 
-
    The following example deploys Bastion using the **Basic** SKU tier. The SKU determines the features that your Bastion deployment supports. You can also deploy using the **Standard** SKU. If you don't specify a SKU in your command, the SKU defaults to Standard.  For more information, see [Bastion SKUs](configuration-settings.md#skus).
-
 
    ```azurecli-interactive
    az network bastion create --name VNet1-bastion --public-ip-address VNet1-ip --resource-group TestRG1 --vnet-name VNet1 --location eastus --sku Basic
@@ -86,11 +82,13 @@ This section helps you deploy Azure Bastion using Azure CLI.
 
 If you don't already have VMs in your virtual network, you can create a VM using [Quickstart: Create a Windows VM](../virtual-machines/windows/quick-create-portal.md), or [Quickstart: Create a Linux VM](../virtual-machines/linux/quick-create-portal.md) 
 
-Use the [Connection steps](#steps) in the following section to connect to your VM. You can also use any of the following articles to connect to a VM. Some connection types require the Bastion [Standard SKU](configuration-settings.md#skus).
+You can use any of the following articles, or the steps in the following section, to help you connect to a VM. Some connection types require the Bastion [Standard SKU](configuration-settings.md#skus).
 
 [!INCLUDE [Links to Connect to VM articles](../../includes/bastion-vm-connect-article-list.md)]
 
-### <a name="steps"></a>Connection steps
+### <a name="steps"></a>Connect using the portal
+
+The following steps walk you through one type of connection using the Azure portal.
 
 [!INCLUDE [Connection steps](../../includes/bastion-vm-connect.md)]
 

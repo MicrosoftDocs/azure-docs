@@ -233,7 +233,7 @@ az mobile-network sim policy create -g <RESOURCEGROUP> -n <SIMPOLICY> --mobile-n
 
 ### Create a SIM
 
-Use `` to create a new **SIM**. The example command uses the following placeholder values, replace them with the information gathered in [Prerequisite: Prepare to deploy a private mobile network and site](#prerequisite-prepare-to-deploy-a-private-mobile-network-and-site).
+Use `az mobile-network sim create` to create a new **SIM**. The example command uses the following placeholder values, replace them with the information gathered in [Prerequisite: Prepare to deploy a private mobile network and site](#prerequisite-prepare-to-deploy-a-private-mobile-network-and-site).
 
 |Placeholder|Value|
 |-|-|

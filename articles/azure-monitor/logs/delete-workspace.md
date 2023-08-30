@@ -2,10 +2,10 @@
 title: Delete and recover an Azure Log Analytics workspace | Microsoft Docs
 description: Learn how to delete your Log Analytics workspace if you created one in a personal subscription or restructure your workspace model.
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
+author: guywi-ms
+ms.author: guywild
 ms.reviewer: yossi-y
-ms.date: 03/22/2022
+ms.date: 07/30/2023
 ms.custom:
 ---
 

@@ -3,7 +3,7 @@ title: "include file"
 description: "include file"
 services: storage
 author: pauljewellmsft
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: include
 ms.date: 05/22/2023
 ms.author: pauljewell
@@ -16,7 +16,7 @@ A stored access policy provides an additional level of control over a service-le
 
 You can use a stored access policy to change the start time, expiry time, or permissions for a signature. You can also use a stored access policy to revoke a signature after it has been issued. This section focuses on blob containers, but stored access policies are also supported for file shares, queues, and tables.
 
-To manage stored access policies on a container resource, call one of the following methods from a [BlobContainerClient]() object:
+To manage stored access policies on a container resource, call one of the following methods from a [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) object:
 
 - [SetAccessPolicy](/dotnet/api/azure.storage.blobs.blobcontainerclient.setaccesspolicy)
 - [SetAccessPolicyAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.setaccesspolicyasync)

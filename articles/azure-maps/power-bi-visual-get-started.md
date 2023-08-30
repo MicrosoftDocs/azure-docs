@@ -93,7 +93,7 @@ The following data buckets are available in the **Fields** pane of the Azure Map
 
 | Field     | Description  |
 |-----------|--------------|
-| Location  | Used to enter easily understandable geographical data such as country, state, and city.  |
+| Location  | Used to enter easily understandable geographical data such as country/region, state, and city.  |
 | Latitude  | The field used to specify the latitude value of the data points. Latitude values should be between -90 and 90 in decimal degrees format.  |
 | Longitude | The field used to specify the longitude value of the data points. Longitude values should be between -180 and 180 in decimal degrees format.  |
 | Legend    | The field used to categorize the data and assign a unique color for data points in each category. When this bucket is filled, a **Data colors** section appears in the **Format** pane that allows adjustments to the colors. |

@@ -17,14 +17,12 @@ Satellite imagery makes up a foundational pillar of agriculture data. To support
 *	Read the Sinergise Sentinel Hub terms of service and privacy policy: https://www.sentinel-hub.com/tos/
 *	Have your providerClientId and providerClientSecret ready
 
-## Ingesting boundary-clipped imagery
+## Ingesting geometry-clipped imagery
 Using satellite data in Data Manager for Agriculture involves following steps: 
 
 :::image type="content" source="./media/satellite-flow.png" alt-text="Diagram showing satellite data ingestion flow.":::
 
-> [!NOTE]
-> Microsoft Azure Data Manager for Agriculture is currently in preview. For legal terms that apply to features that are in beta, in preview, or otherwise not yet released into general availability, see the [**Supplemental Terms of Use for Microsoft Azure Previews**](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-> Microsoft Azure Data Manager for Agriculture requires registration and is available to only approved customers and partners during the preview period. To request access to Microsoft Data Manager for Agriculture during the preview period, use this [**form**](https://aka.ms/agridatamanager).
+[!INCLUDE [public-preview-notice.md](includes/public-preview-notice.md)]
 
 ## Satellite sources supported by Azure Data Manager for Agriculture
 In our public preview, we support ingesting data from Sentinel-2 constellation.

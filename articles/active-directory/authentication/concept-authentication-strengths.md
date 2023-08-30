@@ -6,12 +6,12 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 05/08/2023
+ms.date: 08/23/2023
 
 ms.author: justinha
 author: justinha
 manager: amycolannino
-ms.reviewer: michmcla, inbarckms
+ms.reviewer: inbarckms
 
 ms.collection: M365-identity-device-management
 ---
@@ -117,7 +117,7 @@ Next to **Allowed FIDO2 Keys** click **+**, copy the AAGUID value, and click **S
 
 ## Using authentication strength in Conditional Access
 After you determine the authentication strength you need, you'll need to create a Conditional Access policy to require that authentication strength to access a resource. When the Conditional Access policy gets applied, the authentication strength restricts which authentication methods are allowed.
-<!-- ### Place holder:How to create conditional access policy that uses authentication strength
+<!-- ### Place holder:How to create Conditional Access policy that uses authentication strength
 -	Add a note that you can use either require mfa or require auth strengths
 - (JF) Possibly add a reference doc that lists all the definitions of the things you can configure?
 -->
@@ -157,7 +157,7 @@ For example, let’s assume Contoso would like to require their users to always 
 As a result, users on a compliant device would be able to use a Temporary Access Pass to register FIDO2 security keys and then use the newly registered FIDO2 security key to authenticate to other resources (such as Outlook). 
 
 >[!NOTE] 
->If multiple conditional access policies target the **Register security information** user action, and they each apply an authentication strength, the user must satisfy all such authentication strengths to sign in. 
+>If multiple Conditional Access policies target the **Register security information** user action, and they each apply an authentication strength, the user must satisfy all such authentication strengths to sign in. 
 
 
 
@@ -178,18 +178,20 @@ If the user hasn't registered for any methods that satisfy the authentication st
 
 If the authentication strength doesn't include a method that the user can register and use, the user is blocked from sign-in to the resource. 
 
-### Registering authentication methods
+### Register passwordless authentication methods
 
-The following authentication methods can't be registered as part of combined registration interrupt mode: 
-* [Microsoft Authenticator (phone sign-in)](https://support.microsoft.com/account-billing/add-your-work-or-school-account-to-the-microsoft-authenticator-app-43a73ab5-b4e8-446d-9e54-2a4cb8e4e93c) - Can be registered from the Authenticator app.
-* [FIDO2](howto-authentication-passwordless-security-key.md) - can be registered using [combined registration managed mode](concept-registration-mfa-sspr-combined.md#manage-mode).
-* [Certificate-based authentication](concept-certificate-based-authentication.md) - Require administrator setup, cannot be registered by the user. 
-* [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-prepare-people-to-use) - Can be registered in the Windows Out of Box Experience (OOBE) or the Windows Settings menu.
+The following authentication methods can't be registered as part of combined registration interrupt mode. Make sure users are registered for these methods before you apply a Conditional Access policy that can require them to be used for sign-in. If a user isn't registered for these methods, they can't access the resource until the required method is registered. 
 
-If a user isn't registered for these methods, they can't access the resource until the required method is registered. For the best user experience, make sure users complete combined registered in advance for the different methods they may need to use.
+| Method | Registration requirements |
+|--------|---------------------------|
+|[Microsoft Authenticator (phone sign-in)](https://support.microsoft.com/account-billing/add-your-work-or-school-account-to-the-microsoft-authenticator-app-43a73ab5-b4e8-446d-9e54-2a4cb8e4e93c) | Can be registered from the Authenticator app.|
+|[FIDO2 security key](howto-authentication-passwordless-security-key.md) | Can be registered using [combined registration managed mode](concept-registration-mfa-sspr-combined.md#manage-mode). |
+|[Certificate-based authentication](concept-certificate-based-authentication.md) | Requires administrator setup; can't be registered by the user. |
+|[Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-prepare-people-to-use) | Can be registered in the Windows Out of Box Experience (OOBE) or the Windows Settings menu.|
+
 
 ### Federated user experience  
-For federated domains, MFA may be enforced by Azure AD Conditional Access or by the on-premises federation provider by setting the federatedIdpMfaBehavior. If the federatedIdpMfaBehavior setting is set to enforceMfaByFederatedIdp, the user must authenticate on their federated IdP and can only satisfy the **Federated Multi-Factor** combination of the authentication strength requirement. For more information about the federation settings, see [Plan support for MFA](../hybrid/migrate-from-federation-to-cloud-authentication.md#plan-support-for-mfa).
+For federated domains, MFA may be enforced by Azure AD Conditional Access or by the on-premises federation provider by setting the federatedIdpMfaBehavior. If the federatedIdpMfaBehavior setting is set to enforceMfaByFederatedIdp, the user must authenticate on their federated IdP and can only satisfy the **Federated Multi-Factor** combination of the authentication strength requirement. For more information about the federation settings, see [Plan support for MFA](../hybrid/connect/migrate-from-federation-to-cloud-authentication.md#plan-support-for-mfa).
 
 If a user from a federated domain has multifactor authentication settings in scope for Staged Rollout, the user can complete multifactor authentication in the cloud and satisfy any of the **Federated single-factor + something you have** combinations. For more information about staged rollout, see [Enable Staged Rollout using Azure portal](how-to-mfa-server-migration-utility.md#enable-staged-rollout-using-azure-portal).
 
@@ -206,7 +208,7 @@ In external user scenarios, the authentication methods that can satisfy authenti
 |SMS as second factor                         | &#x2705;        | &#x2705; |
 |Voice call                                   | &#x2705;        | &#x2705; |
 |Microsoft Authenticator push notification    | &#x2705;        | &#x2705; |
-|Microsoft Authenticator phone sign-in        | &#x2705;        | &#x2705; |
+|Microsoft Authenticator phone sign-in        | &#x2705;        |          |
 |OATH software token                          | &#x2705;        | &#x2705; |
 |OATH hardware token                          | &#x2705;        |          |
 |FIDO2 security key                           | &#x2705;        |          |
@@ -223,13 +225,22 @@ An authentication strength Conditional Access policy works together with [MFA tr
 
 ## Limitations
 
-- **Conditional Access policies are only evaluated after the initial authentication** -  As a result, authentication strength doesn't restrict a user's initial authentication. Suppose you are using the built-in phishing-resistant MFA strength. A user can still type in their password, but they will be required to use a phishing-resistant method such as FIDO2 security key before they can continue.
+- **Conditional Access policies are only evaluated after the initial authentication** - As a result, authentication strength doesn't restrict a user's initial authentication. Suppose you are using the built-in phishing-resistant MFA strength. A user can still type in their password, but they will be required to use a phishing-resistant method such as FIDO2 security key before they can continue.
 
 - **Require multifactor authentication and Require authentication strength can't be used together in the same Conditional Access policy** - These two Conditional Access grant controls can't be used together because the built-in authentication strength **Multifactor authentication** is equivalent to the **Require multifactor authentication** grant control.
 
 - **Authentication methods that aren't currently supported by authentication strength** - The **Email one-time pass (Guest)** authentication method isn't included in the available combinations.
 
 - **Windows Hello for Business** – If the user signed in with Windows Hello for Business as their primary authentication method, it can be used to satisfy an authentication strength requirement that includes Windows Hello for Business. But if the user signed in with another method like password as their primary authenticating method, and the authentication strength requires Windows Hello for Business, they get prompted to sign in with Windows Hello for Business. 
+
+
+## Known isssues
+
+The following known issues are currently being addressed:
+
+- **Sign-in frequency** - If both sign-in frequency and authentication strength requirements apply to a sign-in, and the user has previously signed in using a method that meets the authentication strength requirements, the sign-in frequency requirement doesn't apply. [Sign-in frequency](concepts-azure-multi-factor-authentication-prompts-session-lifetime.md) allows you to set the time interval for re-authentication of users based on their credentials, but it isn't fully integrated with authentication strength yet. It works independently and doesn't currently impact the actual sign-in procedure. Therefore, you may notice that some sign-ins using expired credentials don't prompt re-authentication and the sign-in process proceeds successfully.
+
+- **FIDO2 security key Advanced options** - Advanced options aren't supported for external users with a home tenant that is located in a different Microsoft cloud than the resource tenant.
 
 ## FAQ
 
@@ -238,7 +249,7 @@ Authentication strength is based on the Authentication methods policy. The Authe
 
 For example, the administrator of Contoso wants to allow their users to use Microsoft Authenticator with either push notifications or passwordless authentication mode. The administrator goes to the Microsoft Authenticator settings in the Authentication method policy, scopes the policy for the relevant users and set the **Authentication mode** to **Any**. 
 
-Then for Contoso’s most sensitive resource, the administrator wants to restrict the access to only passwordless authentication methods. The administrator creates a new Conditional Access policy, using the built-in **Passwordless MFA strength**. 
+Then for Contoso's most sensitive resource, the administrator wants to restrict the access to only passwordless authentication methods. The administrator creates a new Conditional Access policy, using the built-in **Passwordless MFA strength**. 
 
 As a result, users in Contoso can access most of the resources in the tenant using password + push notification from the Microsoft Authenticator OR only using Microsoft Authenticator (phone sign-in). However, when the users in the tenant access the sensitive application, they must use Microsoft Authenticator (phone sign-in).
 
@@ -250,4 +261,3 @@ As a result, users in Contoso can access most of the resources in the tenant usi
 ## Next steps
 
 - [Troubleshoot authentication strengths](troubleshoot-authentication-strengths.md) 
-

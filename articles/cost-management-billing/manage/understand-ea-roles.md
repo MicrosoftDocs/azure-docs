@@ -72,7 +72,7 @@ The following administrative user roles are part of your enterprise enrollment:
 
 Use the Azure portal's Cost Management blade the [Azure portal](https://portal.azure.com) to manage Azure Enterprise Agreement roles.
 
-Direct EA customers can complete all administrative tasks in the Azure portal. You can use the [Azure Portal](https://portal.azure.com) to manage billing, costs, and Azure services.
+Direct EA customers can complete all administrative tasks in the Azure portal. You can use the [Azure portal](https://portal.azure.com) to manage billing, costs, and Azure services.
 
 User roles are associated with a user account. To validate user authenticity, each user must have a valid work, school, or Microsoft account. Ensure that each account is associated with an email address that's actively monitored. Enrollment notifications are sent to the email address.  
 
@@ -184,7 +184,7 @@ The following sections describe the limitations and capabilities of each role.
 
 ## Add a new enterprise administrator
 
-Enterprise administrators have the most privileges when managing an Azure EA enrollment. The initial Azure EA admin was created when the EA agreement was set up. However, you can add or remove new admins at any time. New admins are only added by existing admins. For more information about adding  additional enterprise admins, see [Create another enterprise admin](ea-portal-administration.md#create-another-enterprise-administrator). Direct EA customers can use the Azure portal to add EA admins, see [Create another enterprise admin on Azure Portal](direct-ea-administration.md#add-another-enterprise-administrator). For more information about billing profile roles and tasks, see [Billing profile roles and tasks](understand-mca-roles.md#billing-profile-roles-and-tasks).
+Enterprise administrators have the most privileges when managing an Azure EA enrollment. The initial Azure EA admin was created when the EA agreement was set up. However, you can add or remove new admins at any time. New admins are only added by existing admins. For more information about adding  additional enterprise admins, see [Create another enterprise admin](ea-portal-administration.md#create-another-enterprise-administrator). Direct EA customers can use the Azure portal to add EA admins, see [Create another enterprise admin on Azure portal](direct-ea-administration.md#add-another-enterprise-administrator). For more information about billing profile roles and tasks, see [Billing profile roles and tasks](understand-mca-roles.md#billing-profile-roles-and-tasks).
 
 
 ## Update account owner state from pending to active
@@ -192,7 +192,7 @@ Enterprise administrators have the most privileges when managing an Azure EA enr
 When new Account Owners (AO) are added to an Azure EA enrollment for the first time, their status appears as _pending_. When a new account owner receives the activation welcome email, they can sign in to activate their account. 
 
 > [!NOTE]
-> If the Account Owner is a service account and doesn't have an email, use an In-Private session to log into the Azure portal and navigate to Cost Management to be prompted to accept the activation welcome email.  
+> If the Account Owner is a service account and doesn't have an email, use an In-Private session to sign in to the Azure portal and navigate to Cost Management to be prompted to accept the activation welcome email.  
 
 Once they activate their account, the account status is updated from _pending_ to _active_. The account owner needs to read the 'Warning' message and select **Continue**. New users might get prompted to enter their first and last name to create a Commerce Account. If so, they must add the required information to continue and then the account is activated.  
 

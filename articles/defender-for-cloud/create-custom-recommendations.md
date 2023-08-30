@@ -1,5 +1,5 @@
 ---
-title: Create Custom Recommendations in Microsoft Defender for Cloud
+title: Create Custom Recommendations
 description: This article explains how to create custom recommendations in Microsoft Defender for Cloud to secure your environment based on your organization's internal needs and requirements.
 ms.topic: how-to
 author: AlizaBernstein
@@ -31,7 +31,7 @@ There are three elements involved when creating and managing custom recommendati
 |----|:----|
 |Required/preferred environmental requirements| This preview includes only AWS and GCP recommendations. <br> This feature will be part of the Defender CSPM plan in the future. |
 | Required roles & permissions | Security Admin |
-|Clouds:| :::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet) Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet) |
+|Clouds:| :::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Microsoft Azure operated by 21Vianet) Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Microsoft Azure operated by 21Vianet) |
 
 ## Create a custom recommendation 
 
@@ -107,7 +107,7 @@ You can use the following links to learn more about Kusto queries:
 
 - [KQL Quick Reference](/azure/data-explorer/kql-quick-reference) 
 - [Kusto Query Language (KQL) overview](/azure/data-explorer/kusto/query/)
-- [Must Learn KQL Part 1: Tools and Resources](https://azurecloudai.blog/2021/11/17/must-learn-kql-part-1-tools-and-resources/) 
+- [Must Learn KQL Part 1: Tools and Resources](https://rodtrent.substack.com/p/must-learn-kql-part-1-tools-and-resources) 
 - [What are security policies, initiatives, and recommendations?](security-policy-concept.md)
 
 

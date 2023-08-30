@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 04/27/2023
+ms.date: 07/12/2023
 ms.author: mimart
 ms.custom: it-pro
 
@@ -65,9 +65,9 @@ An administrator can choose to dismiss a user's risk in the Microsoft Entra admi
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
 
-1. Make sure you're using the directory that contains your Azure AD customer tenant: Select the Directories + subscriptions icon ![Icon for switching directories.](media/how-to-identity-protection-customers/switch-directory.png) in the toolbar and find your customer tenant in the list. If it's not the current directory, select **Switch**.
+1. Make sure you're using the directory that contains your Azure AD customer tenant: Select the Directories + subscriptions icon :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the toolbar and find your customer tenant in the list. If it's not the current directory, select **Switch**.
 
-1. Browse to **Azure Active Directory** > **Protect & secure** > **Security Center**.
+1. Browse to **Identity** > **Protection** > **Security Center**.
 
 1. Select **Identity Protection**.
 
@@ -89,7 +89,9 @@ Administrators can then choose to return to the user's risk or sign-ins report t
 
 ### Navigating the risk detections report
 
-1. In the [Microsoft Entra admin center](https://entra.microsoft.com), browse to **Azure Active Directory** > **Protect & secure** > **Security Center**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com). 
+ 
+1. Browse to **Identity** > **Protection** > **Security Center**.
 
 1. Select **Identity Protection**.
 

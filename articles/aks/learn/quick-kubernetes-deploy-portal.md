@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to quickly create a Kubernetes cluster, deploy an application, and monitor performance in Azure Kubernetes Service (AKS) using the Azure portal.
 ms.topic: quickstart
 ms.date: 11/01/2022
-ms.custom: mvc, seo-javascript-october2019, contperf-fy21q3, mode-ui
+ms.custom: mvc, seo-javascript-october2019, contperf-fy21q3, mode-ui, devx-track-linux
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy an application so that I can see how to run and monitor applications using the managed Kubernetes service in Azure.
 ---
 
@@ -31,17 +31,16 @@ This quickstart assumes a basic understanding of Kubernetes concepts. For more i
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. On the Azure portal menu or from the **Home** page, select **Create a resource**.
-1. Select **Containers** > **Kubernetes Service**.
+1. In the **Categories** section, select **Containers** > **Azure Kubernetes Service (AKS)**.
 1. On the **Basics** page, configure the following options:
 
     - **Project details**:
         * Select an Azure **Subscription**.
-        * Select or create an Azure **Resource group**, such as *myResourceGroup*.
+        * Create an Azure **Resource group**, such as *myResourceGroup*. While you can select an existing resource group, for testing or evaluation purposes, we recommend creating a resource group to temporarily host these resources and avoid impacting your production or development workloads.
     - **Cluster details**:
-        * Ensure the **Preset configuration** is *Standard ($$)*. For more details on preset configurations, see [Cluster configuration presets in the Azure portal][preset-config].
+        * Ensure that the **Preset configuration** is *Standard ($$)*. For more details on preset configurations, see [Cluster configuration presets in the Azure portal][preset-config].
         * Enter a **Kubernetes cluster name**, such as *myAKSCluster*.
         * Select a **Region** for the AKS cluster, and leave the default value selected for **Kubernetes version**.
-        * Select **99.5%** for **API server availability**.
     - **Primary node pool**:
         * Leave the default values selected.
     
@@ -52,23 +51,22 @@ This quickstart assumes a basic understanding of Kubernetes concepts. For more i
     > :::image type="content" source="media/quick-kubernetes-deploy-portal/cluster-preset-options.png" alt-text="Screenshot of Create AKS cluster - portal preset options.":::
 
 1. Select **Next: Node pools** when complete. 
-1. Keep the default **Node pools** options. At the bottom of the screen, click **Next: Access**.
+1. On the **Node pools** page, leave the default options and then select **Next: Access**.
 1. On the **Access** page, configure the following options:
 
-    - The default value for **Resource identity** is **System-assigned managed identity**. Managed identities provide an identity for applications to use when connecting to resources that support Azure Active Directory (Azure AD) authentication. For more details about managed identities, see [What are managed identities for Azure resources?](../../active-directory/managed-identities-azure-resources/overview.md).
+    - The default value for **Resource identity** is **System-assigned managed identity**. Managed identities provide an identity for applications to use when connecting to resources that support Azure Active Directory (Azure AD) authentication. For more details about managed identities, see [What are managed identities for Azure resources?](../../active-directory/managed-identities-azure-resources/overview.md)
     - The Kubernetes role-based access control (RBAC) option is the default value to provide more fine-grained control over access to the Kubernetes resources deployed in your AKS cluster.
 
-    By default, *Basic* networking is used, and [Container insights](../../azure-monitor/containers/container-insights-overview.md) is enabled.
-
 1. Select **Next: Networking** when complete.
-1. Keep the default **Networking** options. At the bottom of the screen, click **Next: Integrations**.
-1. On the **Integrations** page, if you want to enable the [recommended out-of-the-box alerts](../../azure-monitor/alerts/alerts-overview.md#recommended-alert-rules) for AKS clusters, select **Enable recommended alert rules**. You can see the list of alerts that are automatically enabled if you select this option. 
-1. Click **Review + create**. When you navigate to the **Review + create** tab, Azure runs validation on the settings that you have chosen. If validation passes, you can proceed to create the AKS cluster by selecting **Create**. If validation fails, then it indicates which settings need to be modified.
+
+1. Keep the default **Networking** options, which uses the kubenet networking plug-in, and then select **Next: Integrations**.
+1. Keep the default **Integrations** options and then select **Next: Advanced**.
+1. Keep the default **Advanced** options and then select **Next: Tags**.
+1. On the tags page, leave the default option and then select **Next: Review + create**.
+1. When you navigate to the **Review + create** tab, Azure runs validation on the settings that you have chosen. If validation passes, you can proceed to create the AKS cluster by selecting **Create**. If validation fails, then it indicates which settings need to be modified.
 1. It takes a few minutes to create the AKS cluster. When your deployment is complete, navigate to your resource by either:
     * Selecting **Go to resource**, or
     * Browsing to the AKS cluster resource group and selecting the AKS resource. In this example you browse for *myResourceGroup* and select the resource *myAKSCluster*.
-
-      :::image type="content" source="media/quick-kubernetes-deploy-portal/aks-portal-dashboard.png" alt-text="Screenshot of AKS dashboard in the Azure portal.":::
 
 ## Connect to the cluster
 
@@ -110,9 +108,10 @@ To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl
     Output shows the single node created in the previous steps. Make sure the node status is *Ready*:
 
     ```output
-    NAME                                STATUS   ROLES   AGE   VERSION
-    aks-agentpool-12345678-vmss000000   Ready    agent   23m   v1.19.11
-    aks-agentpool-12345678-vmss000001   Ready    agent   24m   v1.19.11
+    NAME                                STATUS   ROLES   AGE     VERSION
+    aks-agentpool-87331340-vmss000000   Ready    agent   8m53s   v1.25.6
+    aks-agentpool-87331340-vmss000001   Ready    agent   8m51s   v1.25.6
+    aks-agentpool-87331340-vmss000002   Ready    agent   8m57s   v1.25.6
     ```
 
 ## Deploy the application

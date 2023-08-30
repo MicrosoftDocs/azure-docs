@@ -41,7 +41,7 @@ All queries executed on SQL pool are logged to [sys.dm_pdw_exec_requests](/sql/r
 
 Here are steps to follow to investigate query execution plans and times for a particular query.
 
-### STEP 1: Identify the query you wish to investigate
+### Step 1: Identify the query you wish to investigate
 
 ```sql
 -- Monitor active queries
@@ -77,7 +77,7 @@ FROM    sys.dm_pdw_exec_requests
 WHERE   [label] = 'My Query';
 ```
 
-### STEP 2: Investigate the query plan
+### Step 2: Investigate the query plan
 
 Use the Request ID to retrieve the query's distributed SQL (DSQL) plan from [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
 
@@ -92,12 +92,12 @@ ORDER BY step_index;
 
 When a DSQL plan is taking longer than expected, the cause can be a complex plan with many DSQL steps or just one step taking a long time.  If the plan is many steps with several move operations, consider optimizing your table distributions to reduce data movement. The [Table distribution](sql-data-warehouse-tables-distribute.md) article explains why data must be moved to solve a query. The article also explains some distribution strategies to minimize data movement.
 
-To investigate further details about a single step, the `operation_type` column of the long-running query step and note the **Step Index**:
+To investigate further details about a single step, inspect the `operation_type` column of the long-running query step and note the **Step Index**:
 
-* Proceed with Step 3 for **SQL operations**: OnOperation, RemoteOperation, ReturnOperation.
-* Proceed with Step 4 for **Data Movement operations**: ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation.
+* For **SQL operations** (OnOperation, RemoteOperation, ReturnOperation), proceed with [STEP 3](#step-3-investigate-sql-on-the-distributed-databases)
+* For **Data Movement operations** (ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation), proceed with [STEP 4](#step-4-investigate-data-movement-on-the-distributed-databases).
 
-### STEP 3: Investigate SQL on the distributed databases
+### Step 3: Investigate SQL on the distributed databases
 
 Use the Request ID and the Step Index to retrieve details from [sys.dm_pdw_sql_requests](/sql/t-sql/database-console-commands/dbcc-pdw-showexecutionplan-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), which contains execution information of the query step on all of the distributed databases.
 
@@ -118,7 +118,7 @@ When the query step is running, [DBCC PDW_SHOWEXECUTIONPLAN](/sql/t-sql/database
 DBCC PDW_SHOWEXECUTIONPLAN(1, 78);
 ```
 
-### STEP 4: Investigate data movement on the distributed databases
+### Step 4: Investigate data movement on the distributed databases
 
 Use the Request ID and the Step Index to retrieve information about a data movement step running on each distribution from [sys.dm_pdw_dms_workers](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-dms-workers-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 

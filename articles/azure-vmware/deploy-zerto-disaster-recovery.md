@@ -3,7 +3,7 @@ title: Deploy Zerto disaster recovery on Azure VMware Solution
 description: Learn how to implement Zerto disaster recovery for on-premises VMware or Azure VMware Solution virtual machines. 
 ms.topic: how-to 
 ms.service: azure-vmware
-ms.date: 3/28/2023
+ms.date: 7/7/2023
 ms.custom: engagement-fy23
 ---
 
@@ -47,9 +47,9 @@ In this scenario, the primary site is an Azure VMware Solution private cloud in 
 
 :::image type="content" source="media/zerto-disaster-recovery/zerto-disaster-recovery-scenario-2-diagram.png" alt-text="Diagram showing scenario 2 for the Zerto disaster recovery solution on Azure VMware Solution."lightbox="media/zerto-disaster-recovery/zerto-disaster-recovery-scenario-2-diagram.png":::
 
-### Scenario 3: Azure VMware Solution to IaaS VMs cloud disaster recovery
+### Scenario 3: Azure VMware Solution to Azure VMs cloud disaster recovery
 
-In this scenario, the primary site is an Azure VMware Solution private cloud in one Azure Region. Azure Blobs and Azure IaaS (Hyper-V based) VMs are used in times of Disaster.
+In this scenario, the primary site is an Azure VMware Solution private cloud in one Azure Region. Azure Blobs and Azure VMs (Hyper-V based) are used in times of Disaster.
 
 :::image type="content" source="media/zerto-disaster-recovery/zerto-disaster-recovery-scenario-3-diagram.png" alt-text="Diagram showing Scenario 3 for the Zerto disaster recovery solution on Azure VMware Solution."lightbox="media/zerto-disaster-recovery/zerto-disaster-recovery-scenario-3-diagram.png":::
 
@@ -102,8 +102,6 @@ For more information, see the [Zerto technical documentation](https://www.zerto.
 - As you scale your Azure VMware Solution private cloud operations, you might need to add new Azure VMware Solution hosts for Zerto protection or configure Zerto disaster recovery to new Azure VMware Solution vSphere Clusters. In both these scenarios, you're required to open a Support Request with the Azure VMware Solution team in the Initial Availability phase. Open the [support ticket](https://rc.portal.azure.com/#create/Microsoft.Support) from the Azure portal for these Day 2 configurations.
 
    :::image type="content" source="media/zerto-disaster-recovery/support-request-zerto-disaster-recovery.png" alt-text="Screenshot that shows the support request for Day 2 Zerto disaster recovery configurations.":::
-
-- In the GA phase, all the above operations are enabled in an automated self-service fashion.
 
 ## FAQs
 

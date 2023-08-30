@@ -32,7 +32,7 @@ To add or change a session host's friendly name, use the [Session Host - Update 
 
 You can change the display name for a published RemoteApp by setting the friendly name. By default, the friendly name is the same as the name of the RemoteApp program.
 
-To retrieve a list of published RemoteApps for an application group, run the following PowerShell cmdlet:
+To retrieve a list of published applications for an application group, run the following PowerShell cmdlet:
 
 ```powershell
 Get-AzWvdApplication -ResourceGroupName <resourcegroupname> -ApplicationGroupName <appgroupname>

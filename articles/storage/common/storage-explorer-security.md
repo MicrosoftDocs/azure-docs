@@ -3,7 +3,7 @@ title: Azure Storage Explorer security guide
 description: Security guidance for Azure Storage Explorer
 services: storage
 author: cralvord
-ms.service: storage
+ms.service: azure-storage
 ms.topic: best-practice
 ms.date: 07/30/2020
 ms.author: cralvord

@@ -2,12 +2,12 @@
 title: View log streams in Azure Container Apps
 description: View your container app's log stream.
 services: container-apps
-author: lanceleonard
+author: v-jaswel
 ms.service: container-apps
 ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 03/24/2023
-ms.author: v-laleonard
+ms.author: v-wellsjason
 ---
 
 # View log streams in Azure Container Apps

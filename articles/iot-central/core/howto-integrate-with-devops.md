@@ -3,22 +3,21 @@ title: Integrate Azure IoT Central with CI/CD
 description: Describes how to integrate IoT Central into a pipeline created with Azure Pipelines to enable continuous integration and continuous delivery.
 author: troyhopwood
 ms.author: troyhop
-ms.date: 05/27/2022
+ms.date: 06/12/2023
 ms.topic: how-to
 ms.service: iot-central
+ms.custom: devx-track-azurecli
 ---
 
 # Integrate IoT Central with Azure Pipelines for continuous integration and continuous delivery
 
-## Overview
+Continuous integration and continuous delivery (CI/CD) refers to the process of developing and delivering software in short, frequent cycles using automation pipelines. This article shows you how to automate the build, test, and deployment of an IoT Central application configuration. This automation enables development teams to deliver reliable releases more frequently.
 
-Continuous integration and continuous delivery (CI/CD) refers to the process of developing and delivering software in short, frequent cycles using automation pipelines. This article shows you how to automate the build, test, and deployment of IoT Central application configuration, to enable development teams to deliver reliable releases more frequently.
-
-Continuous integration starts with a commit of your code to a branch in a source code repository. Each commit is merged with commits from other developers to ensure that no conflicts are introduced. Changes are further validated by creating a build and running automated tests against that build. This process ultimately results in an artifact, or deployment bundle, to deploy to a target environment, in this case an Azure IoT Central application.
+Continuous integration starts with a commit of your code to a branch in a source code repository. Each commit is merged with commits from other developers to ensure that no conflicts are introduced. Changes are further validated by creating a build and running automated tests against that build. This process ultimately results in an artifact, or deployment bundle, to deploy to a target environment. In this case, the target is an Azure IoT Central application.
 
 Just as IoT Central is a part of your larger IoT solution, IoT Central is a part of your CI/CD pipeline. Your CI/CD pipeline should deploy your entire IoT solution and all configurations to each environment from development through to production:
 
-:::image type="content" source="media/howto-integrate-with-devops/pipeline.png" alt-text="Diagram that shows the stages of a typical C I C D pipeline." border="false":::
+:::image type="content" source="media/howto-integrate-with-devops/pipeline.png" alt-text="Diagram that shows the stages of a typical CI/CD pipeline." border="false":::
 
 IoT Central is an *application platform as a service* that has different deployment requirements from *platform as a service* components. For IoT Central, you deploy configurations and device templates. These configurations and device templates are managed and integrated into your release pipeline by using APIs.
 
@@ -28,7 +27,7 @@ By using the Azure IoT Central REST API, you can integrate IoT Central app confi
 
 This guide walks you through the creation of a new pipeline that updates an IoT Central application based on configuration files managed in GitHub. This guide has specific instructions for integrating with [Azure Pipelines](/azure/devops/pipelines/?view=azure-devops&preserve-view=true), but could be adapted to include IoT Central in any release pipeline built using tools such as Tekton, Jenkins, GitLab, or GitHub Actions.
 
-In this guide, you create a pipeline that only applies an IoT Central configuration to a single instance of an IoT Central application. You should integrate the steps into a larger pipeline that deploys your entire solution and promotes it from *development* to *QA* to *pre-production* to *production*, performing all necessary testing along the way.
+In this guide, you create a pipeline that only applies an IoT Central configuration to a single instance of an IoT Central application. You should integrate the steps into a larger pipeline that deploys your entire solution and promotes it from *development* to *QA* to *preproduction* to *production*, performing all necessary testing along the way.
 
 The scripts currently don't transfer the following settings between IoT Central instances: dashboards, views, custom settings in device templates, pricing plan, UX customizations, application image, rules, scheduled jobs, saved jobs, and enrollment groups.
 
@@ -63,7 +62,7 @@ To get started, fork the IoT Central CI/CD GitHub repository and then clone your
 
 ## Create a service principal
 
-While Azure Pipelines can integrate directly with a key vault, your pipeline needs a service principal for some of the dynamic key vault interactions such as fetching secrets for data export destinations.
+While Azure Pipelines can integrate directly with a key vault, a pipeline needs a service principal for some dynamic key vault interactions such as fetching secrets for data export destinations.
 
 To create a service principal scoped to your subscription:
 
@@ -353,4 +352,4 @@ Now that you have a working pipeline you can manage your IoT Central instances d
 
 ## Next steps
 
-Now that know how to integrate IoT Central configurations into your CI/CD pipelines, a suggested next step is to learn how to [Manage and monitor IoT Central from the Azure portal](howto-manage-iot-central-from-portal.md).
+Now that you know how to integrate IoT Central configurations into your CI/CD pipelines, a suggested next step is to learn how to [Manage and monitor IoT Central from the Azure portal](howto-manage-iot-central-from-portal.md).

@@ -20,7 +20,7 @@ For more information, contact [ms-horizon-support@microsoft.com](mailto:ms-horiz
 
 Before performing the steps described in this article, make sure that you have:
 
-- An OT network sensor [installed](ot-deploy/install-software-ot-sensor.md), [activated, and configured](ot-deploy/activate-deploy-sensor.md), with device data ingested.
+- An OT network sensor [installed](ot-deploy/install-software-ot-sensor.md), [configured, and activated](ot-deploy/activate-deploy-sensor.md), with device data ingested.
 
 - Access to your OT network sensor as an **Admin** user and as a privileged user for CLI access. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 

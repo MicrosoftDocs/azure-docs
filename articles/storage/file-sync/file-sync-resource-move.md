@@ -2,11 +2,10 @@
 title: Azure File Sync resource moves and topology changes
 description: Learn how to move sync resources across resource groups, subscriptions, and Azure Active Directory tenants.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 03/15/2023
 ms.author: kendownie
-ms.subservice: files
 ---
 
 # Move Azure File Sync resources to a different resource group, subscription, or Azure AD tenant
@@ -131,7 +130,7 @@ Assigning a different region to a resource is different from a [region fail-over
 
 ## Region fail-over
 
-[Azure storage offers geo-redundancy options](../common/storage-redundancy.md#geo-redundant-storage) for a storage account. These redundancy options can pose problems for storage accounts used with Azure File Sync. The main reason is that replication between geographically distant regions isn't performed by Azure File Sync, but by a storage replication technology built-in to the storage subsystem in Azure. It can't have an understanding of application state and Azure File Sync is an application with files syncing to and from Azure file shares at any given moment. If you opt for any of these geographically disbursed storage redundancy options, you won't lose all of your data in a large-scale disaster. However, you need to [anticipate data loss](../common/storage-disaster-recovery-guidance.md#anticipate-data-loss).
+[Azure Files offers geo-redundancy options](../files/files-redundancy.md#geo-redundant-storage) for storage accounts. These redundancy options can pose problems for storage accounts used with Azure File Sync. The main reason is that replication between geographically distant regions isn't performed by Azure File Sync, but by a storage replication technology built-in to the storage subsystem in Azure. It can't have an understanding of application state and Azure File Sync is an application with files syncing to and from Azure file shares at any given moment. If you opt for any of these geographically disbursed storage redundancy options, you won't lose all of your data in a large-scale disaster. However, you need to [anticipate data loss](../common/storage-disaster-recovery-guidance.md#anticipate-data-loss).
 
 > [!CAUTION]
 > Failover is never an appropriate substitute to provisioning your resources in the correct Azure region. If your resources are in the "wrong" region, you need to consider stopping sync and setting sync up again to new Azure file shares that are deployed in your desired region.
@@ -143,6 +142,6 @@ A regional failover can be started by Microsoft in a catastrophic event that wil
 
 ## See also
 
-- [Overview of Azure file share and sync migration guides](../files/storage-files-migration-overview.md?toc=/azure/storage/filesync/toc.json)
-- [Troubleshoot Azure File Sync](file-sync-troubleshoot.md)
+- [Overview of Azure file share and sync migration guides](../files/storage-files-migration-overview.md?toc=/azure/storage/file-sync/toc.json)
+- [Troubleshoot Azure File Sync](/troubleshoot/azure/azure-storage/file-sync-troubleshoot?toc=/azure/storage/file-sync/toc.json)
 - [Planning for an Azure File Sync deployment](file-sync-planning.md)

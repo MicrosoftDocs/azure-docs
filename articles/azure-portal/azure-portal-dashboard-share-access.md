@@ -2,7 +2,7 @@
 title: Share Azure portal dashboards by using Azure role-based access control
 description: This article explains how to share a dashboard in the Azure portal by using Azure role-based access control.
 ms.topic: how-to
-ms.date: 03/16/2023
+ms.date: 07/10/2023
 ---
 
 # Share Azure dashboards by using Azure role-based access control
@@ -22,7 +22,10 @@ For example, any users who have the [Owner](/azure/role-based-access-control/bui
 
 Users with the [Reader](/azure/role-based-access-control/built-in-roles#reader) role for the subscription (or a custom role with `Microsoft.Portal/Dashboards/Read` permission) can list and view dashboards within that subscription, but they can't modify or delete them. These users are able to make private copies of dashboards for themselves. They can also make local edits to a published dashboard for their own use, such as when troubleshooting an issue, but they can't publish those changes back to the server.
 
-To expand access to a dashboard beyond the access granted at the subscription level, assign permissions to an individual dashboard, or to a resource group that contains several dashboards. For example, if a user should have limited permissions across the subscription, but needs to be able to edit one particular dashboard, you can assign a different role with more permissions (such as [Contributor](/azure/role-based-access-control/built-in-roles#contributor)) for that dashboard only.
+To expand access to a dashboard beyond the access granted at the subscription level, you can assign permissions to an individual dashboard, or to a resource group that contains several dashboards. For example, if a user should have limited permissions across the subscription, but needs to be able to edit one particular dashboard, you can assign a different role with more permissions (such as [Contributor](/azure/role-based-access-control/built-in-roles#contributor)) for that dashboard only.
+
+> [!IMPORTANT]
+> Since individual tiles within a dashboard can enforce their own access control requirements, some users with access to view or edit a dashboard may not be able to see information within specific tiles. To ensure that users can see data within a certain tile, be sure that they have the appropriate permissions for the underlying resources accessed by that tile.
 
 ## Publish a dashboard
 
@@ -61,6 +64,9 @@ For each dashboard that you have published, you can assign Azure RBAC built-in r
 1. Select **Select members**, then select one or more Azure Active Directory (Azure AD) groups and/or users. If you don't see the user or group you're looking for in the list, use the search box. When you have finished, choose **Select**.
 
 1. Select **Review + assign** to complete the assignment.
+
+> [!TIP]
+> As noted above, individual tiles within a dashboard can enforce their own access control requirements based on the resources that the tile displays. If users need to see data for a specific tile, be sure that they have the appropriate permissions for the underlying resources accessed by that tile.
 
 ## Next steps
 

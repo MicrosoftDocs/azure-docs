@@ -38,14 +38,11 @@ map.setStyle({
 });
 ```
 
-For a fully functional sample that shows how the different styles affect how the map is rendered, see [Map style options] in the [Azure Maps Samples].
+For a fully functional sample that shows how the different styles affect how the map is rendered, see [Map style options] in the [Azure Maps Samples]. For the source code for this sample, see [Map style options source code].
 
 <!-----------------------------------------------------------------------------------------------
 <br/>
-<iframe height="700" scrolling="no" title="Map style options" src="https://codepen.io/azuremaps/embed/eYNMjPb?height=700&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/azuremaps/pen/eYNMjPb'>Map style options</a> by Azure Maps
-  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO https://codepen.io/azuremaps/embed/eYNMjPb?height=700&theme-id=0&default-tab=result]
 ----------------------------------------------------------------------------------------------->
 ## Set a base map style
 
@@ -68,8 +65,7 @@ var map = new atlas.Map('map', {
 
 <!-----------------------------------------------------------------------------------------------
 <br/>
-<iframe height='500' scrolling='no' title='Setting the style on map load' src='//codepen.io/azuremaps/embed/WKOQRq/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/WKOQRq/'>Setting the style on map load</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/WKOQRq/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
 ----------------------------------------------------------------------------------------------->
 
 ### Update the base map style
@@ -87,8 +83,7 @@ map.setStyle({ style: 'satellite' });
 <!-----------------------------------------------------------------------------------------------
 <br/>
 
-<iframe height='500' scrolling='no' title='Updating the style' src='//codepen.io/azuremaps/embed/yqXYzY/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/yqXYzY/'>Updating the style</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/yqXYzY/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
 ----------------------------------------------------------------------------------------------->
 
 ## Add the style picker control
@@ -125,8 +120,7 @@ map.controls.add(new atlas.control.StyleControl({
 <!-----------------------------------------------------------------------------------------------
 <br/>
 
-<iframe height='500' scrolling='no' title='Adding the style picker' src='//codepen.io/azuremaps/embed/OwgyvG/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/OwgyvG/'>Adding the style picker</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/OwgyvG/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
 ----------------------------------------------------------------------------------------------->
 
 ## Next steps
@@ -169,5 +163,6 @@ See the following articles for more code samples to add to your maps:
 [Add map controls]: map-add-controls.md
 [Add a symbol layer]: map-add-pin.md
 [Add a bubble layer]: map-add-bubble-layer.md
-[Map style options]: https://samples.azuremaps.com/?search=style%20option&sample=map-style-options
+[Map style options]: https://samples.azuremaps.com/map/map-style-options
+[Map style options source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Map/Map%20style%20options/Map%20style%20options.html
 [Azure Maps Samples]: https://samples.azuremaps.com

@@ -7,7 +7,10 @@ ms.author: robece
 ms.date: 05/24/2023
 ---
 
-# Create, view, and manage event subscriptions in namespace topics
+# Create, view, and manage event subscriptions in namespace topics (Preview)
+This article shows you how to create, view, and manage event subscriptions to namespace topics in Azure Event Grid. 
+
+[!INCLUDE [pull-preview-note](./includes/pull-preview-note.md)]
 
 ## Create an event subscription
 
@@ -29,7 +32,7 @@ ms.date: 05/24/2023
 
     :::image type="content" source="media/create-view-manage-event-subscriptions/event-subscription-create-filters.png" alt-text="Screenshot showing Event Grid event subscription create filters.":::
 
-6. In the **Additional features** tab, set the lock duration in minutes and select **Create**.
+6. In the **Additional features** tab, set the lock duration in minutes, specify maximum delivery count, and then select **Create**.
 
     :::image type="content" source="media/create-view-manage-event-subscriptions/event-subscription-create-additional-features.png" alt-text="Screenshot showing Event Grid event subscription create additional features.":::
 

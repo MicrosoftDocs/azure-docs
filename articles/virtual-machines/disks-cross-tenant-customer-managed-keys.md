@@ -2,11 +2,10 @@
 title: Use a disk encryption set across Azure AD tenants
 description: Learn how to use customer-managed keys with your Azure disks in different Azure AD tenants.
 author: roygara
-ms.service: storage
+ms.service: azure-disk-storage
 ms.topic: how-to
 ms.date: 11/30/2022
 ms.author: rogarana
-ms.subservice: disks
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
@@ -22,7 +21,7 @@ If you have questions about cross-tenant customer-managed keys with managed disk
 
 - Managed Disks and the customer's Key Vault must be in the same Azure region, but they can be in different subscriptions.
 - This feature doesn't support Ultra Disks or Azure Premium SSD v2 managed disks.
-- This feature isn't available in Azure China or Government clouds.
+- This feature isn't available in Microsoft Azure operated by 21Vianet or Government clouds.
 
 [!INCLUDE [active-directory-msi-cross-tenant-cmk-overview](../../includes/active-directory-msi-cross-tenant-cmk-overview.md)]
 

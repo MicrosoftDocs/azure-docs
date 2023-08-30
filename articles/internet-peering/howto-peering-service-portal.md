@@ -42,9 +42,8 @@ To modify connection settings, see the "Modify a Direct peering" section in [Cre
 
 ## Next steps
 
-* [Create or modify Exchange peering by using the portal](howto-exchange-portal.md)
-* [Convert a legacy Exchange peering to an Azure resource by using the portal](howto-legacy-exchange-portal.md)
+- For frequently asked questions, see the [Peering Service FAQ](faqs.md#peering-service).
+- To learn how to manage an Exchange peering, see [Create or modify Exchange peering using the Azure portal](howto-exchange-portal.md).
+- To learn how to convert an Exchange peering to an Azure resource, see [Convert a legacy Exchange peering to an Azure resource using the Azure portal](howto-legacy-exchange-portal.md).
 
-## Additional resources
 
-For frequently asked questions, see the [Peering Service FAQ](service-faqs.yml).

@@ -2,15 +2,15 @@
 title: Configure your own key for encrypting Azure Service Bus data at rest
 description: This article provides information on how to configure your own key for encrypting Azure Service Bus data rest. 
 ms.topic: conceptual
-ms.date: 02/10/2021
+ms.date: 06/26/2023
 ---
 
 # Configure customer-managed keys for encrypting Azure Service Bus data at rest
-Azure Service Bus Premium provides encryption of data at rest with Azure Storage Service Encryption (Azure SSE). Service Bus Premium uses Azure Storage to store the data. All the data that's stored with Azure Storage is encrypted using Microsoft-managed keys. If you use your own key (also referred to as Bring Your Own Key (BYOK) or customer-managed key), the data is still encrypted using the Microsoft-managed key, but in addition the Microsoft-managed key will be encrypted using the customer-managed key. This feature enables you to create, rotate, disable, and revoke access to customer-managed keys that are used for encrypting Microsoft-managed keys. Enabling the BYOK feature is a one time setup process on your namespace.
+Azure Service Bus Premium provides encryption of data at rest with Azure Storage Service Encryption (Azure SSE). Service Bus Premium uses Azure Storage to store the data. All the data that's stored with Azure Storage is encrypted using Microsoft-managed keys. If you use your own key (also referred to as Bring Your Own Key (BYOK) or customer-managed key), the data is still encrypted using the Microsoft-managed key, but in addition the Microsoft-managed key is encrypted using the customer-managed key. This feature enables you to create, rotate, disable, and revoke access to customer-managed keys that are used for encrypting Microsoft-managed keys. Enabling the BYOK feature is a one time setup process on your namespace.
 
 There are some caveats to the customer managed key for service side encryption. 
-- This feature is supported by [Azure Service Bus Premium](service-bus-premium-messaging.md) tier. It cannot be enabled for standard tier Service Bus namespaces.
-- The encryption can only be enabled for new or empty namespaces. If the namespace contains any queues or topics, then the encryption operation will fail.
+- This feature is supported by [Azure Service Bus Premium](service-bus-premium-messaging.md) tier. It can't be enabled for standard tier Service Bus namespaces.
+- The encryption can only be enabled for new or empty namespaces. If the namespace contains any queues or topics, then the encryption operation fails.
 
 You can use Azure Key Vault to manage your keys and audit your key usage. You can either create your own keys and store them in a key vault, or you can use the Azure Key Vault APIs to generate keys. For more information about Azure Key Vault, see [What is Azure Key Vault?](../key-vault/general/overview.md)
 
@@ -57,7 +57,7 @@ After you enable customer-managed keys, you need to associate the customer manag
         > [!NOTE]
         > For redundancy, you can add up to 3 keys. In the event that one of the keys has expired, or is not accessible, the other keys will be used for encryption.
         
-    1. Fill in the details for the key and click **Select**. This will enable the encryption of the Microsoft-managed key with your key (customer-managed key). 
+    1. Fill in the details for the key and click **Select**. This enables the encryption of the Microsoft-managed key with your key (customer-managed key). 
 
 
     > [!IMPORTANT]
@@ -81,7 +81,7 @@ After you enable customer-managed keys, you need to associate the customer manag
 There are two types of managed identities that you can assign to a Service Bus namespace.
 
 - **System-assigned**: You can enable a managed identity directly on a Service Bus namespace. When you enable a system-assigned managed identity, an identity is created in Azure AD that's tied to the lifecycle of that Service Bus namespace. So when the namespace is deleted, Azure automatically deletes the identity for you. By design, only that Azure resource (namespace) can use this identity to request tokens from Azure AD.
-- **User-assigned**: You may also create a managed identity as a standalone Azure resource, which is called user-assigned identity. You can create a user-assigned managed identity and assign it to one or more Service Bus namespaces. In the case of user-assigned managed identities, the identity is managed separately from the resources that use it. They are not tied to the lifecycle of the namespace. You can explicitly delete a user-assigned identity when you no longer need it.     
+- **User-assigned**: You may also create a managed identity as a standalone Azure resource, which is called user-assigned identity. You can create a user-assigned managed identity and assign it to one or more Service Bus namespaces. When you use user-assigned managed identities, the identity is managed separately from the resources that use it. They aren't tied to the lifecycle of the namespace. You can explicitly delete a user-assigned identity when you no longer need it.     
 
     For more information, see [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md).
 
@@ -201,7 +201,7 @@ You have done the following steps so far:
 1. Created a premium namespace with a managed identity.
 2. Create a key vault and granted the managed identity access to the key vault. 
 
-In this step, you will update the Service Bus namespace with key vault information. 
+In this step, you update the Service Bus namespace with key vault information. 
 
 1. Create a JSON file named **UpdateServiceBusNamespaceWithEncryption.json** with the following content: 
 
@@ -546,7 +546,7 @@ See the following example for using the user-managed identity for the encryption
 ```
 
 ## Enable infrastructure (double) encryption of data
-If you require a higher level of assurance that your data is secure, you can enable infrastructure level encryption which is also known as Double Encryption. 
+If you require a higher level of assurance that your data is secure, you can enable infrastructure level encryption, which is also known as Double Encryption. 
 
 When infrastructure encryption is enabled, data in the Azure Service Bus is encrypted twice, once at the service level and once at the infrastructure level, using two different encryption algorithms and two different keys. Hence, infrastructure encryption of Azure Service Bus data protects against a scenario where one of the encryption algorithms or keys may be compromised.
 
@@ -571,16 +571,16 @@ You can enable infrastructure encryption by updating the Azure Resource Manager 
 
 ### Rotate your encryption keys
 
-You can rotate your key in the key vault by using the Azure Key Vaults rotation mechanism. Activation and expiration dates can also be set to automate key rotation. The Service Bus service will detect new key versions and start using them automatically.
+You can rotate your key in the key vault by using the Azure Key Vaults rotation mechanism. Activation and expiration dates can also be set to automate key rotation. The Service Bus service detects new key versions and starts using them automatically.
 
 ### Revoke access to keys
 
 Revoking access to the encryption keys won't purge the data from Service Bus. However, the data can't be accessed from the Service Bus namespace. You can revoke the encryption key through access policy or by deleting the key. Learn more about access policies and securing your key vault from [Secure access to a key vault](../key-vault/general/secure-your-key-vault.md).
 
-Once the encryption key is revoked, the Service Bus service on the encrypted namespace will become inoperable. If the access to the key is enabled or the deleted key is restored, Service Bus service will pick the key so you can access the data from the encrypted Service Bus namespace.
+Once the encryption key is revoked, the Service Bus service on the encrypted namespace becomes inoperable. If the access to the key is enabled or the deleted key is restored, Service Bus service picks the key so you can access the data from the encrypted Service Bus namespace.
 
 ### Caching of keys
-The Service Bus instance polls its listed encryption keys every 5 minutes. It caches and uses them until the next poll, which is after 5 minutes. As long as at least one key is available, queues and topics are accessible. If all listed keys are inaccessible when it polls, all queues and topics will become unavailable. 
+The Service Bus instance polls its listed encryption keys every 5 minutes. It caches and uses them until the next poll, which is after 5 minutes. As long as at least one key is available, queues and topics are accessible. If all listed keys are inaccessible when it polls, all queues and topics become unavailable. 
 
 Here are more details: 
 
@@ -592,16 +592,15 @@ Here are more details:
 ## Considerations when using geo-disaster recovery
 
 ### Geo-disaster recovery - encryption with system-assigned identities
-To enable encryption of Microsoft-managed key with a customer managed key, an [access policy](../key-vault/general/secure-your-key-vault.md) is set up for a system-assigned managed identity on the specified Azure KeyVault. This ensures controlled access to the Azure KeyVault from the Azure Service Bus namespace.
+To enable encryption of Microsoft-managed key with a customer managed key, an [access policy](../key-vault/general/secure-your-key-vault.md) is set up for a system-assigned managed identity on the specified Azure KeyVault. This step ensures controlled access to the Azure KeyVault from the Azure Service Bus namespace. Therefore, you need to follow these steps: 
 
-Due to this:
 
-- If [Geo disaster recovery](service-bus-geo-dr.md) is already enabled for the Service Bus namespace and you are looking to enable customer managed key, then
+- If [Geo disaster recovery](service-bus-geo-dr.md) is already enabled for the Service Bus namespace and you're looking to enable customer managed key, then
     - Break the pairing.
     - [Set up the access policy](../key-vault/general/assign-access-policy-portal.md) for the system-assigned managed identity for both the primary and secondary namespaces to the key vault.
     - Set up encryption on the primary namespace.
     - Re-pair the primary and secondary namespaces.
-- If you are looking to enable Geo-DR on a Service Bus namespace where customer-managed key is already set up, then follow these steps: 
+- If you're looking to enable Geo-DR on a Service Bus namespace where customer-managed key is already set up, then follow these steps: 
     - [Set up the access policy](../key-vault/general/assign-access-policy-portal.md) for the managed identity for the secondary namespace to the key vault.
     - Pair the primary and secondary namespaces.
 
@@ -614,9 +613,19 @@ Here are a few recommendations:
 
 Conditions for enabling Geo-DR and Encryption with User-Assigned Identities:
 
-1.	Secondary namespace must already have Encryption enabled with a User-Assigned identity if it is to be paired with a primary namespace that has Encryption enabled. 
-2.	It is not possible to enable Encryption on an already paired primary, even if the secondary has a User-Assigned identity associated with the namespace.
-    
+1.	Secondary namespace must already have Encryption enabled with a User-Assigned identity if it's to be paired with a primary namespace that has Encryption enabled. 
+2.	It isn't possible to enable Encryption on an already paired primary, even if the secondary has a User-Assigned identity associated with the namespace.
+
+## Troubleshoot
+
+### Symptom
+You get an error stating that the Service Bus namespace is disabled because the encryption key is no longer valid.
+
+### Cause
+You may be using the `resource_id` or `version`, which links to a specific version of the key, which may have expired. If a specific version is provided, Service Bus uses that version of the key, even if the key is rotated. 
+
+### Resolution
+Use the [`resource__versionless_id` or `versionless_id`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/key_vault_key#attributes-reference) instead of using `resource_id` or `version`. 
 
 ## Next steps
 See the following articles:

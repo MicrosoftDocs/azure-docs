@@ -17,13 +17,9 @@ ms.custom: engagement-fy23
 
 # Data administration
 
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK or CLI extension you are using:"]
-> * [v1](./v1/concept-network-data-access.md?view=azureml-api-1&preserve-view=true)
-> * [v2 (current version)](how-to-administrate-data-authentication.md)
 
 Learn how to manage data access and how to authenticate in Azure Machine Learning
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
-[!INCLUDE [CLI v2](../../includes/machine-learning-CLI-v2.md)]
+[!INCLUDE [sdk/cli v2](includes/machine-learning-dev-v2.md)]
 
 > [!IMPORTANT]
 > The information in this article is intended for Azure administrators who are creating the infrastructure required for an Azure Machine Learning solution.

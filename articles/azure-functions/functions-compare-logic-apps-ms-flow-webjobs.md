@@ -2,7 +2,7 @@
 title: Integration and automation platform options in Azure
 description: "Compare Microsoft cloud services that are optimized for integration tasks: Power Automate, Logic Apps, Functions, and WebJobs."
 ms.topic: overview
-ms.date: 04/09/2018
+ms.date: 06/09/2023
 ms.custom: mvc
 #Customer intent: As a developer, I want to understand the choices that Azure offers for hosting and executing my business logic so that I can choose the right set of Azure services.
 ---
@@ -17,9 +17,13 @@ This article compares the following Microsoft cloud services:
 
 All of these services can solve integration problems and automate business processes. They can all define input, actions, conditions, and output. You can run each of them on a schedule or trigger. Each service has unique advantages, and this article explains the differences. 
 
-If you're looking for a more general comparison between Azure Functions and other Azure compute options, see [Criteria for choosing an Azure compute service](/azure/architecture/guide/technology-choices/compute-comparison) and [Choosing an Azure compute option for microservices](/azure/architecture/microservices/design/compute-options).
-
-For a good summary and comparison of automation service options in Azure, see [Choose the Automation services in Azure](../automation/automation-services.md). 
+>[!NOTE]  
+>If you're looking for a more general comparison between Azure Functions and other Azure compute options:
+>+ [Criteria for choosing an Azure compute service](/azure/architecture/guide/technology-choices/compute-comparison) 
+>+ [Choosing an Azure compute option for microservices](/azure/architecture/microservices/design/compute-options)
+>
+>For a summary and comparison of automation service options in Azure:
+>+ [Choose the Automation services in Azure](../automation/automation-services.md)
 
 ## Compare Microsoft Power Automate and Azure Logic Apps
 
@@ -36,7 +40,7 @@ The following table helps you determine whether Power Automate or Logic Apps is 
 | **Users** |Office workers, business users, SharePoint administrators |Pro integrators and developers, IT pros |
 | **Scenarios** |Self-service |Advanced integrations |
 | **Design tool** |In-browser and mobile app, UI only |In-browser, [Visual Studio Code](../logic-apps/quickstart-create-logic-apps-visual-studio-code.md), and [Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) with code view available |
-| **Application lifecycle management (ALM)** |Design and test in non-production environments, promote to production when ready |Azure DevOps: source control, testing, support, automation, and manageability in [Azure Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) |
+| **Application lifecycle management (ALM)** |Power Platform [provides tools](/power-platform/alm/tools-apps-used-alm) that integrate with DevOps and [GitHub Actions](/power-platform/alm/devops-github-actions) to let you build automated pipelines in the ALM cycle.  |Azure DevOps: source control, testing, support, automation, and manageability in [Azure Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) |
 | **Admin experience** |Manage Power Automate environments and data loss prevention (DLP) policies, track licensing: [Admin center](https://admin.powerplatform.microsoft.com) |Manage resource groups, connections, access management, and logging: [Azure portal](https://portal.azure.com) |
 | **Security** |Microsoft 365 security audit logs, DLP, [encryption at rest](https://wikipedia.org/wiki/Data_at_rest#Encryption) for sensitive data |Security assurance of Azure: [Azure security](https://www.microsoft.com/en-us/trustcenter/Security/AzureSecurity), [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/), [audit logs](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/) |
 
@@ -81,11 +85,11 @@ Azure Functions is built on the WebJobs SDK, so it shares many of the same event
 |**[Integration with Logic Apps](functions-twitter-email.md)**|✔||
 | **Trigger events** |[Timer](functions-bindings-timer.md)<br>[Azure Storage queues and blobs](functions-bindings-storage-blob.md)<br>[Azure Service Bus queues and topics](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md)<br>[Azure Event Grid](functions-bindings-event-grid.md)|[Timer](functions-bindings-timer.md)<br>[Azure Storage queues and blobs](functions-bindings-storage-blob.md)<br>[Azure Service Bus queues and topics](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[File system](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Files/FileTriggerAttribute.cs)|
 | **Supported languages**  |C#<br>F#<br>JavaScript<br>Java<br>Python<br>PowerShell |C#<sup>1</sup>|
-|**Package managers**|NPM and NuGet|NuGet<sup>2</sup>|
+|**Package managers**|npm and NuGet|NuGet<sup>2</sup>|
 
 <sup>1</sup> WebJobs (without the WebJobs SDK) supports languages such as C#, Java, JavaScript, Bash, .cmd, .bat, PowerShell, PHP, TypeScript, Python, and more. A WebJob can run any program or script that can run in the App Service sandbox.
 
-<sup>2</sup> WebJobs (without the WebJobs SDK) supports NPM and NuGet.
+<sup>2</sup> WebJobs (without the WebJobs SDK) supports npm and NuGet.
 
 ### Summary
 
@@ -102,7 +106,7 @@ For other scenarios where you want to run code snippets for integrating Azure or
 
 ## Power Automate, Logic Apps, Functions, and WebJobs together
 
-You don't have to choose just one of these services. They integrate with each other as well as with external services.
+You don't have to choose just one of these services. They integrate with each other and with external services.
 
 A Power Automate flow can call an Azure Logic Apps workflow. An Azure Logic Apps workflow can call a function in Azure Functions, and vice versa. For example, see [Create a function that integrates with Azure Logic Apps](functions-twitter-email.md).
 

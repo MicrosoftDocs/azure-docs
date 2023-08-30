@@ -31,7 +31,7 @@ ms.collection:
 
 |PCI-DSS Defined approach requirements|Azure AD guidance and recommendations|
 |-|-|
-|**1.2.1** Configuration standards for NSC rulesets are: </br> Defined </br> Implemented </br> Maintained|Integrate access technologies such as VPN, remote desktop, and network access points with Azure AD for authentication and authorization, if the access technologies support modern authentication. Ensure NSC standards, which pertain to identity-related controls, include definition of Conditional Access policies, application assignment, access reviews, group management, credential policies, etc. [Azure AD operations reference guide](../fundamentals/active-directory-ops-guide-intro.md)|
+|**1.2.1** Configuration standards for NSC rulesets are: </br> Defined </br> Implemented </br> Maintained|Integrate access technologies such as VPN, remote desktop, and network access points with Azure AD for authentication and authorization, if the access technologies support modern authentication. Ensure NSC standards, which pertain to identity-related controls, include definition of Conditional Access policies, application assignment, access reviews, group management, credential policies, etc. [Azure AD operations reference guide](../architecture/ops-guide-intro.md)|
 |**1.2.2** All changes to network connections and to configurations of NSCs are approved and managed in accordance with the change control process defined at Requirement 6.5.1|Not applicable to Azure AD.|
 |**1.2.3** An accurate network diagram(s) is maintained that shows all connections between the cardholder data environment (CDE) and other networks, including any wireless networks.|Not applicable to Azure AD.|
 |**1.2.4** An accurate data-flow diagram(s) is maintained that meets the following: </br> Shows all account data flows across systems and networks. </br> Updated as needed upon changes to the environment.|Not applicable to Azure AD.|
@@ -44,9 +44,9 @@ ms.collection:
 
 |PCI-DSS Defined approach requirements|Azure AD guidance and recommendations|
 |-|-|
-|**1.3.1** Inbound traffic to the CDE is restricted as follows: </br> To only traffic that is necessary. </br> All other traffic is specifically denied|Use Azure AD to configure named locations to create Conditional Access policies. Calculate user and sign-in risk. Microsoft recommends customers populate and maintain the CDE IP addresses using network locations. Use them to define Conditional Access policy requirements. [Using the location condition in a CA policy](../conditional-access/location-condition.md)|
-|**1.3.2** Outbound traffic from the CDE is restricted as follows: </br> To only traffic that is necessary. </br> All other traffic is specifically denied|For NSC design, include Conditional Access policies for applications to allow access to CDE IP addresses. </br> Emergency access or remote access to establish connectivity to CDE, such as virtual private network (VPN) appliances, captive portals, might need policies to prevent unintended lockout. [Using the location condition in a CA policy](../conditional-access/location-condition.md) </br> [Manage emergency access accounts in Azure AD](../roles/security-emergency-access.md)|
-|**1.3.3** NSCs are installed between all wireless networks and the CDE, regardless of whether the wireless network is a CDE, such that: </br> All wireless traffic from wireless networks into the CDE is denied by default. </br> Only wireless traffic with an authorized business purpose is allowed into the CDE.|For NSC design, include Conditional Access policies for applications to allow access to CDE IP addresses. </br> Emergency access or remote access to establish connectivity to CDE, such as virtual private network (VPN) appliances, captive portals, might need policies to prevent unintended lockout. [Using the location condition in a CA policy](../conditional-access/location-condition.md) </br> [Manage emergency access accounts in Azure AD](../roles/security-emergency-access.md)|
+|**1.3.1** Inbound traffic to the CDE is restricted as follows: </br> To only traffic that is necessary. </br> All other traffic is specifically denied|Use Azure AD to configure named locations to create Conditional Access policies. Calculate user and sign-in risk. Microsoft recommends customers populate and maintain the CDE IP addresses using network locations. Use them to define Conditional Access policy requirements. [Using the location condition in a Conditional Access policy](../conditional-access/location-condition.md)|
+|**1.3.2** Outbound traffic from the CDE is restricted as follows: </br> To only traffic that is necessary. </br> All other traffic is specifically denied|For NSC design, include Conditional Access policies for applications to allow access to CDE IP addresses. </br> Emergency access or remote access to establish connectivity to CDE, such as virtual private network (VPN) appliances, captive portals, might need policies to prevent unintended lockout. [Using the location condition in a Conditional Access policy](../conditional-access/location-condition.md) </br> [Manage emergency access accounts in Azure AD](../roles/security-emergency-access.md)|
+|**1.3.3** NSCs are installed between all wireless networks and the CDE, regardless of whether the wireless network is a CDE, such that: </br> All wireless traffic from wireless networks into the CDE is denied by default. </br> Only wireless traffic with an authorized business purpose is allowed into the CDE.|For NSC design, include Conditional Access policies for applications to allow access to CDE IP addresses. </br> Emergency access or remote access to establish connectivity to CDE, such as virtual private network (VPN) appliances, captive portals, might need policies to prevent unintended lockout. [Using the location condition in a Conditional Access policy](../conditional-access/location-condition.md) </br> [Manage emergency access accounts in Azure AD](../roles/security-emergency-access.md)|
 
 ## 1.4 Network connections between trusted and untrusted networks are controlled.
 
@@ -55,7 +55,7 @@ ms.collection:
 |**1.4.1** NSCs are implemented between trusted and untrusted networks.|Not applicable to Azure AD.|
 |**1.4.2** Inbound traffic from untrusted networks to trusted networks is restricted to: </br> Communications with system components that are authorized to provide publicly accessible services, protocols, and ports. </br> Stateful responses to communications initiated by system components in a trusted network. </br> All other traffic is denied.|Not applicable to Azure AD.|
 |**1.4.3** Anti-spoofing measures are implemented to detect and block forged source IP addresses from entering the trusted network.|Not applicable to Azure AD.|
-|**1.4.4** System components that store cardholder data are not directly accessible from untrusted networks.|In addition to controls in the networking layer, applications in the CDE using Azure AD can use Conditional Access policies. Restrict access to applications based on location. [Using the location condition in a CA policy](../conditional-access/location-condition.md)|
+|**1.4.4** System components that store cardholder data are not directly accessible from untrusted networks.|In addition to controls in the networking layer, applications in the CDE using Azure AD can use Conditional Access policies. Restrict access to applications based on location. [Using the location condition in a Conditional Access policy](../conditional-access/location-condition.md)|
 |**1.4.5** The disclosure of internal IP addresses and routing information is limited to only authorized parties.|Not applicable to Azure AD.|
 
 ## 1.5 Risks to the CDE from computing devices that are able to connect to both untrusted networks and the CDE are mitigated.
@@ -70,7 +70,7 @@ PCI-DSS requirements **3**, **4**, **9**, and **12** aren't applicable to Azure 
 
 To configure Azure AD to comply with PCI-DSS, see the following articles. 
 
-* [Azure AD PCI-DSS guidance](azure-ad-pci-dss-guidance.md) 
+* [Azure AD PCI-DSS guidance](pci-dss-guidance.md) 
 * [Requirement 1: Install and Maintain Network Security Controls](pci-requirement-1.md) (You're here)
 * [Requirement 2: Apply Secure Configurations to All System Components](pci-requirement-2.md)
 * [Requirement 5: Protect All Systems and Networks from Malicious Software](pci-requirement-5.md)
@@ -79,5 +79,4 @@ To configure Azure AD to comply with PCI-DSS, see the following articles.
 * [Requirement 8: Identify Users and Authenticate Access to System Components](pci-requirement-8.md)
 * [Requirement 10: Log and Monitor All Access to System Components and Cardholder Data](pci-requirement-10.md)
 * [Requirement 11: Test Security of Systems and Networks Regularly](pci-requirement-11.md)
-* [Azure AD PCI-DSS Multi-Factor Authentication guidance](azure-ad-pci-dss-mfa.md)
-
+* [Azure AD PCI-DSS Multi-Factor Authentication guidance](pci-dss-mfa.md)

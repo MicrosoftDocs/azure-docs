@@ -2,10 +2,10 @@
 title: Collect IIS logs with Azure Monitor Agent
 description: Configure collection of Internet Information Services (IIS) logs on virtual machines with Azure Monitor Agent.
 ms.topic: how-to
-ms.date: 12/07/2022
+ms.date: 07/19/2022
 author: guywi-ms
 ms.author: guywild
-ms.reviewer: shseth
+ms.reviewer: jeffwo
 
 ---
 
@@ -69,7 +69,7 @@ To create the data collection rule in the Azure portal:
     [ ![Screenshot that shows the Azure portal form to select basic performance counters in a data collection rule.](media/data-collection-iis/iis-data-collection-rule.png)](media/data-collection-iis/iis-data-collection-rule.png#lightbox)
 
 1. Specify a file pattern to identify the directory where the log files are located. 
-1. On the **Destination** tab, add one or more destinations for the data source. You can select multiple destinations of the same or different types. For instance, you can select multiple Log Analytics workspaces, which is also known as multihoming.
+1. On the **Destination** tab, add a destinations for the data source.
 
     [ ![Screenshot that shows the Azure portal form to add a data source in a data collection rule.](media/data-collection-rule-azure-monitor-agent/data-collection-rule-destination.png) ](media/data-collection-rule-azure-monitor-agent/data-collection-rule-destination.png#lightbox)
 
@@ -170,13 +170,6 @@ Open the IIS log file on the agent machine to verify that logs are in W3C format
 
 :::image type="content" source="media/data-collection-text-log/iis-log-format.png" lightbox="media/data-collection-text-log/iis-log-format.png" alt-text="Screenshot of an IIS log, showing the header, which specifies that the file is in W3C format.":::
 
-### Share logs with Microsoft
-If everything is configured properly, but you're still not collecting log data, use the following procedure to collect diagnostics logs for Azure Monitor agent to share with the Azure Monitor group.
-
-1. Open an elevated PowerShell window.
-1. Change to directory `C:\Packages\Plugins\Microsoft.Azure.Monitor.AzureMonitorWindowsAgent\[version]\`.
-1. Execute the script: `.\CollectAMALogs.ps1`.
-1. Share the `AMAFiles.zip` file generated on the desktop.
 
 ## Next steps
 

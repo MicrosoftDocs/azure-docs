@@ -3,7 +3,7 @@ title: Tutorial - Deploy an Azure IoT in-store analytics app
 description: This tutorial shows how to create and deploy an in-store analytics retail application in IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/14/2022
+ms.date: 06/12/2023
 services: iot-central
 ms.service: iot-central
 ms.subservice: iot-central-retail
@@ -21,11 +21,11 @@ The application template comes with a set of device templates and uses a set of 
 
 :::image type="content" source="media/tutorial-in-store-analytics-create-app/store-analytics-architecture-frame.png" alt-text="Diagram of the in-store analytics application architecture." border="false":::
 
-As shown in the preceding application architecture diagram, you can use the application template to:
+As shown in the previous application architecture diagram, you can use the application template to:
 
 * **1**. Connect various IoT sensors to an IoT Central application instance.
 
-   An IoT solution starts with a set of sensors that capture meaningful signals from within a retail store environment. The sensors are represented by the various icons at the far left of the architecture diagram.
+   An IoT solution starts with a set of sensors that capture meaningful signals from within a retail store environment. The various icons at the far left of the architecture diagram represent the sensors.
 
 * **2**. Monitor and manage the health of the sensor network and any gateway devices in the environment.
 
@@ -45,7 +45,7 @@ As shown in the preceding application architecture diagram, you can use the appl
 
    The IoT data can be used to power different kinds of business applications deployed within a retail environment. A retail store manager or staff member can use these applications to visualize business insights and take meaningful action in real time. To learn how to build a real-time Power BI dashboard for your retail team, see [tutorial](./tutorial-in-store-analytics-customize-dashboard.md).
 
-In this tutorial, you'll learn how to:
+In this tutorial, you learn how to:
 > [!div class="checklist"]
 > - Use the Azure IoT Central *In-store analytics - checkout* template to create a retail store application
 > - Customize the application settings
@@ -59,15 +59,25 @@ An active Azure subscription. If you don't have an Azure subscription, [create a
 
 ## Create an in-store analytics application
 
-Create the application by doing the following:
+To create your IoT Central application:
 
-1. Sign in to the [Azure IoT Central](https://aka.ms/iotcentral) build site with a Microsoft personal, work, or school account. 
+1. Navigate to the [Create IoT Central Application](https://portal.azure.com/#create/Microsoft.IoTCentral) page in the Azure portal. If prompted, sign in with your Azure account.
 
-1. On the left pane, select **Build**, and then select the **Retail** tab.
+1. Enter the following information:
 
-1. Under **In-store analytics - checkout**, select **Create app**.
+    | Field | Description |
+    | ----- | ----------- |
+    | Subscription | The Azure subscription you want to use. |
+    | Resource group | The resource group you want to use.  You can create a new resource group or use an existing one. |
+    | Resource name | A valid Azure resource name. |
+    | Application URL | The URL subdomain for your application. The URL for an IoT Central application looks like `https://yoursubdomain.azureiotcentral.com`. |
+    | Template | **In-store Analytics - Checkout** |
+    | Region | The Azure region you want to use. |
+    | Pricing plan | The pricing plan you want to use. |
 
-To learn more, see [Create an IoT Central application](../core/howto-create-iot-central-application.md).
+1. Select **Review + create**. Then select **Create**.
+
+[!INCLUDE [iot-central-navigate-from-portal](../../../includes/iot-central-navigate-from-portal.md)]
 
 ## Walk through the application
 
@@ -75,7 +85,7 @@ The following sections describe the key features of the application.
 
 ### Customize the application settings
 
-You can change several settings to customize the user experience in your application. In this section, you select a predefined application theme. Optionally, you'll learn how to create a custom theme and update the application image. A custom theme enables you to set the application browser colors, the browser icon, and the application logo that appears in the masthead.
+You can change several settings to customize the user experience in your application. In this section, you select a predefined application theme. You can also learn how to create a custom theme and update the application image. A custom theme enables you to set the application browser colors, the browser icon, and the application logo that appears in the masthead.
 
 To select a predefined application theme:
 
@@ -85,7 +95,7 @@ To select a predefined application theme:
 
 3. Select **Save**.
 
-Alternatively, you can create a custom theme. If you want to use a set of sample images to customize the application and complete the tutorial, download the [Contoso sample images](https://github.com/Azure-Samples/iot-central-docs-samples/tree/main/retail).
+To create a custom theme, you can use a set of sample images to customize the application and complete the tutorial. Download the [Contoso sample images](https://github.com/Azure-Samples/iot-central-docs-samples/tree/main/retail).
 
 To create a custom theme:
 
@@ -93,7 +103,7 @@ To create a custom theme:
 
 1. Select **Change**, and then select an image to upload as the masthead logo. Optionally, enter a value for **Logo alt text**.
 
-1. Select **Change**, and then select a **Browser icon** image that will appear on browser tabs.
+1. Select **Change**, and then select a **Browser icon** image to appear on browser tabs.
 
 1. Optionally, replace the default **Browser colors** by adding HTML hexadecimal color codes:  
    a. For **Header**, enter **#008575**.  
@@ -103,22 +113,21 @@ To create a custom theme:
 
 To update the application image:
 
-1. Select **Application** > **Management**. 
+1. Select **Application** > **Management**.
 
-1. Select **Change**, and then select an image to upload as the application image. 
+1. Select **Change**, and then select an image to upload as the application image.
 
 1. Select **Save**.
 
-   The image appears on the application tile on the **My Apps** page of the [Azure IoT Central application manager](https://aka.ms/iotcentral) site.
-
+   The image appears on the application tile on the **My Apps** page of the [Azure IoT Central My apps](https://apps.azureiotcentral.com/myapps) site.
 
 ### Create the device templates
 
-By creating device templates, you and the application operators can configure and manage devices. You can build a custom template, import an existing template file, or import a template from the Azure IoT device catalog. After you create and customize a device template, use it to connect real devices to your application. 
+By creating device templates, you and the application operators can configure and manage devices. You can build a custom template, import an existing template file, or import a template from the Azure IoT device catalog. After you create and customize a device template, use it to connect real devices to your application.
 
 Optionally, you can use a device template to generate simulated devices for testing.
 
-The *In-store analytics - checkout* application template has device templates for several devices, including templates for two of the three devices you use in the application. The RuuviTag device template isn't included in the *In-store analytics - checkout* application template. 
+The *In-store analytics - checkout* application template has device templates for several devices, including templates for two of the three devices you use in the application. The RuuviTag device template isn't included in the *In-store analytics - checkout* application template.
 
 In this section, you add a device template for RuuviTag sensors to your application. To do so:
 
@@ -130,11 +139,11 @@ In this section, you add a device template for RuuviTag sensors to your applicat
 
 1. Select **Next: Review**.
 
-1. Select **Create**. 
+1. Select **Create**.
 
    The application adds the RuuviTag device template.
 
-1. On the left pane, select **Device templates**. 
+1. On the left pane, select **Device templates**.
 
    The page displays all the device templates in the application template and the RuuviTag device template you just added.
 
@@ -142,7 +151,7 @@ In this section, you add a device template for RuuviTag sensors to your applicat
 
 ### Customize the device templates
 
-You can customize the device templates in your application in three ways: 
+You can customize the device templates in your application in three ways:
 
 * Customize the native built-in interfaces in your devices by changing the device capabilities.
 
@@ -182,7 +191,7 @@ For the **RelativeHumidity** telemetry type, make the following changes:
 
 1. Update the **Display Name** value from **RelativeHumidity** to a custom value such as **Humidity**.
 
-1. Change the **Semantic Type** option from **Relative humidity** to **Humidity**. 
+1. Change the **Semantic Type** option from **Relative humidity** to **Humidity**.
 
    Optionally, set schema values for the humidity telemetry type in the expanded schema view. By setting schema values, you can create detailed validation requirements for the data that your sensors track. For example, you could set minimum and maximum operating range values for a specified interface.
 
@@ -192,13 +201,13 @@ For the **RelativeHumidity** telemetry type, make the following changes:
 
 Specify the following values to create a custom property to store the location of each device:
 
-1. For **Display Name**, enter the **Location** value. 
+1. For **Display Name**, enter the **Location** value.
 
    This value, which is a friendly name for the property, is automatically copied to the **Name**. You can use the copied value or change it.
 
 1. For **Cloud Property**, select **Capability Type**.
 
-1. In the **Schema** dropdown list, select **String**. 
+1. In the **Schema** dropdown list, select **String**.
 
    By specifying a string type, you can associate a location name string with any device that's based on the template. For instance, you could associate an area in a store with each device.
 
@@ -220,7 +229,7 @@ For this tutorial, you use the following set of real and simulated devices to bu
 
 - A real Rigado C500 gateway.
 - Two real RuuviTag sensors.
-- A simulated *Occupancy* sensor. This simulated sensor is included in the application template, so you don't need to create it. 
+- A simulated *Occupancy* sensor. This simulated sensor is included in the application template, so you don't need to create it.
 
 > [!NOTE]
 > If you don't have real devices, you can still complete this tutorial by creating simulated RuuviTag sensors. The following directions include steps to create a simulated RuuviTag. You don't need to create a simulated gateway.
@@ -232,7 +241,7 @@ Complete the steps in the following two articles to connect a real Rigado gatewa
 
 ### Add rules and actions
 
-As part of using sensors in your Azure IoT Central application to monitor conditions, you can create rules to run actions when certain conditions are met. 
+As part of using sensors in your Azure IoT Central application to monitor conditions, you can create rules to run actions when certain conditions are met.
 
 A rule is associated with a device template and one or more devices, and it contains conditions that must be met based on device telemetry or events. A rule also has one or more associated actions. The actions might include sending email notifications, or triggering a webhook action to send data to other services. The *In-store analytics - checkout* application template includes some predefined rules for the devices in the application.
 

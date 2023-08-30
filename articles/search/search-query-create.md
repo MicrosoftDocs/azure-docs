@@ -115,7 +115,4 @@ The point to take away here's that what you think your index contains, and what'
 Now that you have a better understanding of how query requests work, try the following quickstarts for hands-on experience.
 
 + [Search explorer](search-explorer.md)
-+ [How to query in REST](search-get-started-rest.md)
-+ [How to query in .NET](search-get-started-dotnet.md)
-+ [How to query in Python](search-get-started-python.md)
-+ [How to query in JavaScript](search-get-started-javascript.md)
++ [Quickstart: Full text search using the Azure SDKs](search-get-started-text.md)
