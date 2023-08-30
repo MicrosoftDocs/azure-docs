@@ -406,11 +406,11 @@ View events related to tenant restrictions in Event Viewer.
 
 Azure AD sign-in logs let you view details about sign-ins with a tenant restrictions V2 policy in place. When a B2B user signs into a resource tenant to collaborate, a sign-in log is generated in both the home tenant and the resource tenant. These logs include information such as the application being used, email addresses, tenant name, and tenant ID for both the home tenant and the resource tenant. The following example shows a successful sign-in:
 
-:::image type="content" source="media/tenant-restrictions-v2/sign-in-details-success.png" alt-text="Screenshot showing activity details for a successful sign-in." lightbox="media/tenant-restrictions-v2/sign-in-details-success.png":::
+:::image type="content" source="media/tenant-restrictions-v2/sign-in-details-success.png" alt-text="Screenshot showing activity details for a successful sign-in." lightbox="media/tenant-restrictions-v2/sign-in-details-success-large.png":::
 
 If sign-in fails, the Activity Details give information about the reason for failure:
 
-:::image type="content" source="media/tenant-restrictions-v2/sign-in-details-failure.png" alt-text="Screenshot showing activity details for a failed sign-in." lightbox="media/tenant-restrictions-v2/sign-in-details-failure.png":::
+:::image type="content" source="media/tenant-restrictions-v2/sign-in-details-failure.png" alt-text="Screenshot showing activity details for a failed sign-in." lightbox="media/tenant-restrictions-v2/sign-in-details-failure-large.png":::
 
 ## Audit logs
 
