@@ -119,7 +119,7 @@ Application security groups enable you to configure network security as a natura
       After the subscription is exempted from this block and the VMs are stopped and restarted, all VMs in that subscription are exempted going forward. The exemption applies only to the subscription requested and only to VM traffic that is routed directly to the internet.
 
    - **Pay-as-you-go:** Outbound port 25 communication is blocked from all resources. No requests to remove the restriction can be made, because requests aren't granted. If you need to send email from your virtual machine, you have to use an SMTP relay service.
-   - **MSDN, Azure Pass, Azure in Open, Education, BizSpark, and Free trial**: Outbound port 25 communication is blocked from all resources. No requests to remove the restriction can be made, because requests aren't granted. If you need to send email from your virtual machine, you have to use an SMTP relay service.
+   - **MSDN, Azure Pass, Azure in Open, Education, and Free trial**: Outbound port 25 communication is blocked from all resources. No requests to remove the restriction can be made, because requests aren't granted. If you need to send email from your virtual machine, you have to use an SMTP relay service.
    - **Cloud service provider**: Outbound port 25 communication is blocked from all resources. No requests to remove the restriction can be made, because requests aren't granted. If you need to send email from your virtual machine, you have to use an SMTP relay service.
 
 ## Next steps

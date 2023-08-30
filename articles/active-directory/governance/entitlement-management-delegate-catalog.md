@@ -37,6 +37,8 @@ If you have existing catalogs to delegate, then continue at the [create and mana
 
 ## As an IT administrator, delegate to a catalog creator
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Follow these steps to assign a user to the catalog creator role.
 
 **Prerequisite role:** Global administrator, Identity Governance administrator or User administrator
