@@ -47,7 +47,7 @@ You can find the authentication endpoints for your application.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Application Developer](../roles/permissions-reference.md#application-developer).
 1. Browse to **Identity** > **Applications** > **Application registrations**.
-1. select **Endpoints** in the top menu.
+1. Select **Endpoints** in the top menu.
 
    The **Endpoints** page is displayed showing the authentication endpoints for the application.
 
