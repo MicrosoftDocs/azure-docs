@@ -32,9 +32,8 @@ For background information about the assets you can organize in API Center, see 
 
 * One or more APIs that you want to register in your API center. Here are two examples, with links to their OpenAPI specifications for download:
 
-   * [Swagger Petstore API](https://github.com/swagger-api/swagger-petstore/blob/master/src/main/resources/openapi.yaml)
-
-   * [Azure Demo Conference API](https://conferenceapi.azurewebsites.net?format=json)
+    * [Swagger Petstore API](https://github.com/swagger-api/swagger-petstore/blob/master/src/main/resources/openapi.yaml)
+    * [Azure Demo Conference API](https://conferenceapi.azurewebsites.net?format=json)
 
 ## Register the API Center provider
 
