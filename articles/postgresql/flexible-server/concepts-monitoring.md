@@ -6,7 +6,7 @@ ms.author: varundhawan
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 8/8/2023
+ms.date: 8/30/2023
 ---
 
 # Monitor metrics on Azure Database for PostgreSQL - Flexible Server
@@ -165,6 +165,7 @@ Autovaccum metrics can be used to monitor and tune autovaccum performance for Az
 |**User Tables Counter** |`tables_counter_user_tables` |Count|Number of user-only tables in this database.|DatabaseName|No |
 |**User Tables Vacuumed** |`tables_vacuumed_user_tables`|Count|Number of user-only tables that have been vacuumed in this database. |DatabaseName|No |
 |**Vacuum Counter User Tables** |`vacuum_count_user_tables` |Count|Number of times user-only tables have been manually vacuumed in this database (not counting `VACUUM FULL`).|DatabaseName|No |
+|**Bloat Percent (Preview)**    |`bloat_percent` |Percent|Estimated bloat percentage for user only tables. |DatabaseName|No |
 
 ### Considerations for using autovacuum metrics
 
