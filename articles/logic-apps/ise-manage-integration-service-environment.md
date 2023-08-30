@@ -167,17 +167,17 @@ This process copies artifacts from the source to the destination.
 
 1. To confirm the exported artifacts, open your destination Premium integration account.
 
-1. When you're ready, continue with the next section to export the agreement state.
-
-### Export agreement state
+### Export agreement state (optional)
 
 1. On the **Export** page toolbar, select **Export Agreement State**.
 
 1. On the **Export Agreement State** pane, open the **Target integration account** list, and select the Premium integration account that you want.
 
-1. Open the **Agreement** list, select an agreement state to export, and then select **OK**.
+1. To export all agreement states, don't select any agreement from the **Agreement** list. To export an individual agreement state, select an agreement from the **Agreement** list.
 
-1. Either wait for the export to finish, or repeat the previous steps to export another agreement state.
+1. When you're done, select **OK**.
+
+   The **Export** page now shows the export status for your agreement states.
 
 <a name="add-capacity"></a>
 
