@@ -10,7 +10,7 @@ ms.custom: engagement-fy23
 ---
 # Migrate Microsoft SQL Server Always On cluster to Azure VMware Solution
 
-In this article, you learn how to migrate Microsoft SQL Server Always On Cluster to Azure VMware Solution. For VMware HCX, you can follow the VMware vMotion migration procedure. 
+In this article, you learn how to migrate Microsoft SQL Server Always On Cluster to Azure VMware Solution. For VMware HCX, you can follow the VMware vMotion migration procedure.
 
 :::image type="content" source="media/sql-server-hybrid-benefit/sql-always-on-architecture.png" alt-text="Diagram showing the architecture of Always On SQL Server for  Azure VMware Solution." border="false" lightbox="media/sql-server-hybrid-benefit/sql-always-on-architecture.png":::
 
@@ -20,7 +20,7 @@ These are the prerequisites to migrating your SQL Server instance to Azure VMwar
 
 - Review and record the storage and network configuration of every node in the cluster.
 - Backup the full database.
-- Backup the virtual machine running the Microsoft SQL Server instance. 
+- Backup the virtual machine running the Microsoft SQL Server instance.
 - Remove the virtual machine from any VMware vSphere Distributed Resource Scheduler (DRS) groups and rules.
 - VMware HCX must be configured between your on-premises datacenter and the Azure VMware Solution private cloud that runs the migrated workloads. For more information on how to configure HCX, see [Azure VMware Solution documentation](install-vmware-hcx.md).
 - Ensure that all the network segments in use by the Microsoft SQL Server are extended into your Azure VMware Solution private cloud. To verify this step, see [Configure VMware HCX network extension](configure-hcx-network-extension.md).
@@ -59,7 +59,7 @@ If the cluster uses a **File share witness** running on-premises, then the type 
 - **Datacenter Exit**: For this scenario, there are two options. In both options, you can maintain the file share witness on-premises during the migration in case you need to do rollback during the process.
   - Deploy a new **File share witness** in your Azure VMware Solution private cloud. 
   - Deploy a **Cloud witness** running in Azure Blob Storage in the same region as the Azure VMware Solution private cloud. 
-- **Disaster Recovery and Business Continuity**: For a disaster recovery scenario, the best and most reliable option is to create a **Cloud Witness** running in Azure Storage. 
+- **Disaster Recovery and Business Continuity**: For a disaster recovery scenario, the best and most reliable option is to create a **Cloud Witness** running in Azure Storage.
 - **Application Modernization**: For this use case, the best option is to deploy a **Cloud Witness**.
 
 For details about configuring and managing the quorum, see [Failover Clustering documentation](https://learn.microsoft.com/windows-server/failover-clustering/manage-cluster-quorum). For information  about deployment of Cloud witness in Azure Blob Storage, see [Manage a cluster quorum for a Failover Cluster](https://learn.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness).
@@ -74,7 +74,7 @@ For details about configuring and managing the quorum, see [Failover Clustering 
 1. Access the on-premises vCenter Server and proceed to HCX area.
 1. Under **Services** select **Migration** > **Migrate**. 
    - Select one virtual machine running the secondary replica of the database the is going to be migrated.
-   - Set the vSphere cluster in the remote private cloud to run the migrated SQL cluster as the **Compute Container**.
+   - Set the vSphere cluster in the remote private cloud to run the migrated SQL Server cluster as the **Compute Container**.
    - Select the **vSAN Datastore** as remote storage.
    - Select a folder. This not mandatory, but is recommended to separate the different workloads in your Azure VMware Solution private cloud.
    - Keep **Same format as source**.

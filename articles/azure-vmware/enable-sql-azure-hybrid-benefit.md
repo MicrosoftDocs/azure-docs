@@ -1,8 +1,8 @@
 ---
-title: Enable SQL Azure Hybrid Benefit for SQL Server in Azure VMware Solution
+title: Enable Azure Hybrid Benefit for SQL Server in Azure VMware Solution
 author: jjaygbay1
 ms.author: jacobjaygbay
-description: This article shows you how to apply SQL Azure hybrid benefits to your Azure VMware Solution private cloud by configuring a placement policy.
+description: This article shows you how to apply Enable Azure Hybrid Benefit for SQL Server in Azure VMware Solution to your Azure VMware Solution private cloud by configuring a placement policy.
 ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 02/14/2023
