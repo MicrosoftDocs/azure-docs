@@ -6,7 +6,7 @@ metadata:
   author: halkazwini
   ms.service: network-watcher
   ms.topic: faq
-  ms.date: 07/20/2023
+  ms.date: 08/30/2023
   ms.author: halkazwini
   ms.custom: engagement-fy23
 title: "Network Watcher frequently asked questions (FAQ)"
@@ -93,12 +93,17 @@ sections:
       - question: |
           Why do I need to install the Network Watcher agent? 
         answer: |
-          The Network Watcher agent is required for any feature that generates or intercepts traffic from a virtual machine. 
+          The Network Watcher agent is required for any Network Watcher feature that generates or intercepts traffic from a virtual machine. 
 
       - question: |
           Which features require the Network Watcher agent?
         answer: |
           The Packet capture, Connection troubleshoot and Connection monitor features require the Network Watcher extension to be present.
+
+      - question: |
+          What is the latest version of the Network Watcher agent?
+        answer: |
+          [!INCLUDE [Network Watcher agent version](../../includes/virtual-machines-extensions-network-watcher-agent-version.md)]. For more information, see [Update Azure Network Watcher extension to the latest version](../virtual-machines/extensions/network-watcher-update.md?toc=%2Fazure%2Fnetwork-watcher%2Ftoc.json).
 
       - question: |
           What ports does the Network Watcher agent use?
