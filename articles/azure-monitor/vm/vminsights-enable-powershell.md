@@ -15,7 +15,7 @@ This article describes how to enable VM insights on Azure virtual machines by us
 - Azure Virtual Machine Scale Sets
 
 > [!NOTE]
-> The PowerShell script provided in this article enables VM Insights with the Log Analytics agent. We will soon provide a PowerShell script that enables VM Insights with Azure Monitor Agent. In the meantime, to enable VM insights with Azure Monitor Agent, use the other installation methods described in [Enable VM insights overview](vminsights-enable-overview.md).
+> The PowerShell script provided in this article enables VM Insights with the Log Analytics agent. We'll update it to support Azure Monitoring Agent shortly. In the meantime, to enable VM insights with Azure Monitor Agent, use the other installation methods described in [Enable VM insights overview](vminsights-enable-overview.md).
 
 ## Prerequisites
 
