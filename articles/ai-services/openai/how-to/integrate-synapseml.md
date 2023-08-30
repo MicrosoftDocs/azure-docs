@@ -8,7 +8,7 @@ ms.service: cognitive-services
 ms.subservice: openai
 ms.custom: build-2023, build-2023-dataai
 ms.topic: how-to
-ms.date: 08/29/2023
+ms.date: 08/30/2023
 author: ChrisHMSFT
 ms.author: chrhoder
 recommendations: false
@@ -30,7 +30,7 @@ This tutorial shows how to apply large language models at a distributed scale by
 
 - An Apache Spark cluster with SynapseML installed.
    - Create a [serverless Apache Spark pool](../../../synapse-analytics/get-started-analyze-spark.md#create-a-serverless-apache-spark-pool).
-   - To install SynapseML for your Apache Spark cluster, see [Install SynapseML](#step-3-install-synapseml).
+   - To install SynapseML for your Apache Spark cluster, see [Install SynapseML](#install-synapseml).
 
 > [!NOTE]
 > Currently, you must submit an application to access Azure OpenAI Service. To apply for access, complete <a href="https://aka.ms/oai/access" target="_blank">this form</a>. If you need assistance, open an issue on this repo to contact Microsoft.
@@ -42,8 +42,11 @@ We recommend that you [create an Azure Synapse workspace](../../../synapse-analy
 To use the example code in this article with your Apache Spark cluster, complete the following steps:
 
 1. Prepare a new or existing notebook.
+
 1. Connect your Apache Spark cluster with your notebook.
+
 1. Install SynapseML for your Apache Spark cluster in your notebook.
+
 1. Configure the notebook to work with your Azure OpenAI service resource.
 
 ### Prepare your notebook
@@ -52,7 +55,7 @@ You can create a new notebook in your Apache Spark platform, or you can import a
 
 - To use a notebook in Azure Synapse Analytics, see [Create, develop, and maintain Synapse notebooks in Azure Synapse Analytics](../../../synapse-analytics/spark/apache-spark-development-using-notebooks.md).
 
-- To use a notebook in Azure Databricks, see [Manage notebooks for Azure Databricks](/azure/databricks/notebooks/notebooks-manage.md).
+- To use a notebook in Azure Databricks, see [Manage notebooks for Azure Databricks](/azure/databricks/notebooks/notebooks-manage).
 
 - (Optional) Download [this demonstration notebook](https://github.com/microsoft/SynapseML/blob/master/docs/Explore%20Algorithms/OpenAI/OpenAI.ipynb) and connect it with your workspace. During the download process, select **Raw**, and then save the file. 
 
@@ -143,7 +146,7 @@ df = spark.createDataFrame(
 
 To apply the Azure OpenAI Completion service to the dataframe, create an `OpenAICompletion` object that serves as a distributed client. Parameters of the service can be set either with a single value, or by a column of the dataframe with the appropriate setters on the `OpenAICompletion` object.
 
-In this example, you set the `maxTokens` parameter to 200. A token is around four characters, and this limit applies to the sum of the prompt and the result. You also set the `promptCol` parameter with the name of the prompt column in the dataframe.
+In this example, you set the `maxTokens` parameter to 200. A token is around four characters, and this limit applies to the sum of the prompt and the result. You also set the `promptCol` parameter with the name of the prompt column in the dataframe, such as **prompt**.
 
 ```python
 from synapse.ml.cognitive import OpenAICompletion
@@ -184,7 +187,7 @@ Here are some other use cases for working with Azure OpenAI Service and large da
 
 You can use Azure OpenAI Service with large datasets to improve throughput with request batching. In the previous example, you make several requests to the service, one for each prompt. To complete multiple prompts in a single request, you can use batch mode.
 
-In the `OpenAICompletion` object, instead of setting the **Prompt** column to `"prompt"`, you can specify `"batchPrompt"` to create the **batchPrompt** column. To support this method, create a dataframe with a list of prompts per row.
+In the `OpenAICompletion` object definition, you specify the `"batchPrompt"` value to configure the dataframe to use a **batchPrompt** column. Create the dataframe with a list of prompts for each row.
 
 > [!NOTE]
 > There's currently a limit of 20 prompts in a single request and a limit of 2048 tokens, or approximately 1500 words.
@@ -198,7 +201,7 @@ batch_df = spark.createDataFrame(
 ).toDF("batchPrompt")
 ```
 
-Next, create the `OpenAICompletion` object. Rather than setting the `"prompt"` column, set the `"batchPrompt"` column if your column is of type `Array[String]`.
+Next, create the `OpenAICompletion` object. If your column is of type `Array[String]`, set the `batchPromptCol` value for the column heading, rather than the `promptCol` value.
 
 ```python
 batch_completion = (
