@@ -172,7 +172,7 @@ See how data, including customer information, vendor details, and line items, is
 | &bullet; Italian (`it`) | Italy (`it`)|
 | &bullet; Portuguese (`pt`) | Portugal (`pt`), Brazil (`br`)|
 | &bullet; Dutch (`nl`) | Netherlands (`nl`)|
-| &bullet; Czech (`cs`) | Czechoslovakia (`cz`)|
+| &bullet; Czech (`cs`) | Czech Republic (`cz`)|
 | &bullet; Danish (`da`) | Denmark (`dk`)|
 | &bullet; Estonian (`et`) | Estonia (`ee`)|
 | &bullet; Finnish (`fi`) | Finland (`fl`)|

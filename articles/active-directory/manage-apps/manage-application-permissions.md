@@ -85,7 +85,7 @@ $spOAuth2PermissionsGrants | ForEach-Object {
 }
 
 # Get all application permissions for the service principal
-$spApplicationPermissions = Get-AzureADServiceAppRoleAssignedTo-ObjectId $sp.ObjectId -All $true | Where-Object { $_.PrincipalType -eq "ServicePrincipal" }
+$spApplicationPermissions = Get-AzureADServiceAppRoleAssignedTo -ObjectId $sp.ObjectId -All $true | Where-Object { $_.PrincipalType -eq "ServicePrincipal" }
 
 # Remove all application permissions
 $spApplicationPermissions | ForEach-Object {
