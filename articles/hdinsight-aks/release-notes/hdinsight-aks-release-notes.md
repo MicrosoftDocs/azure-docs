@@ -24,7 +24,7 @@ Azure HDInsight on AKS is a new version of HDInsight, which runs on Kubernetes a
 HDInsight on AKS follows safe deployment practices, and this release will be available to all [supported regions](../overview.md#region-availability-public-preview) over several days.
 
 > [!NOTE]
-> To understand about HDInsight on AKS versioning and support, refer to the **[versioning page](./versions.md)**.
+> To understand about HDInsight on AKS versioning and support, refer to the **[versioning page](../versions.md)**.
 
 **HDInsight on AKS Version**
 
