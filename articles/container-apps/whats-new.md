@@ -5,14 +5,24 @@ ms.author: hannahhunter
 author: hhunter-ms
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 08/28/2023
+ms.date: 08/30/2023
 ---
 
-# What's new with Dapr in Azure Container Apps
+# What's new in Azure Container Apps
+
+This article lists significant updates and new features available in Azure Container Apps.
+
+## Dapr
 
 This article lists significant updates to Dapr and how new features are available in Azure Container Apps.
 
-## June 2023
+### August 2023 
+
+| Feature | Documentation | Description |
+| ------- | ------------- | ----------- |
+| [Stable Configuration API](https://docs.dapr.io/developing-applications/building-blocks/configuration/) | [Dapr integration with Azure Container Apps](./dapr-overview.md) | Dapr's Configuration API is now stable and supported in Azure Container Apps. |
+
+### June 2023
 
 | Feature | Documentation | Description |
 | ------- | ------------- | ----------- |
