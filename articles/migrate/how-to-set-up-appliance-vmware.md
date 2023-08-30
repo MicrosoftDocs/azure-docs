@@ -7,7 +7,7 @@ ms.manager: abhemraj
 ms.topic: how-to
 ms.service: azure-migrate
 ms.date: 01/31/2023
-ms.custom: engagement-fy23
+ms.custom: engagement-fy23, devx-track-linux
 ---
 
 # Set up an appliance for servers in a VMware environment

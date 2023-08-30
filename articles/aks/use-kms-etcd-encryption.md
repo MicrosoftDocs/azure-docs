@@ -3,7 +3,7 @@ title: Use Key Management Service (KMS) etcd encryption in Azure Kubernetes Serv
 description: Learn how to use the Key Management Service (KMS) etcd encryption with Azure Kubernetes Service (AKS)
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 06/15/2023
+ms.date: 08/04/2023
 ---
 
 # Add Key Management Service (KMS) etcd encryption to an Azure Kubernetes Service (AKS) cluster
@@ -31,14 +31,14 @@ For more information on using the KMS plugin, see [Encrypting Secret Data at Res
 The following limitations apply when you integrate KMS etcd encryption with AKS:
 
 * Deletion of the key, Key Vault, or the associated identity isn't supported.
-* KMS etcd encryption doesn't work with system-assigned managed identity. The key vault access policy is required to be set before the feature is enabled. In addition, system-assigned managed identity isn't available until cluster creation, thus there's a cycle dependency.
-* Azure Key Vault with Firewall enabled to allow public access isn't supported because it blocks traffic from KMS plugin to the Key Vault.
+* KMS etcd encryption doesn't work with system-assigned managed identity. The key vault access policy is required to be set before the feature is enabled. In addition, system-assigned managed identity isn't available until cluster creation. Consequently, there's a cycle dependency.
+* Azure Key Vault with Firewall enabled to allow public access isn't supported. It blocks traffic from KMS plugin to the Key Vault.
 * The maximum number of secrets supported by a cluster enabled with KMS is 2,000. However, it's important to note that [KMS V2][kms-v2-support] isn't limited by this restriction and can handle a higher number of secrets.
 * Bring your own (BYO) Azure Key Vault from another tenant isn't supported.
 * With KMS enabled, you can't change associated Azure Key Vault model (public, private). To [change associated key vault mode][changing-associated-key-vault-mode], you need to disable and enable KMS again.
 * If a cluster is enabled with KMS and private key vault and isn't using the `API Server VNet integration` tunnel, then stop/start cluster isn't allowed.
-* Using the virtual machine scale set (VMSS) API to scale down nodes in the cluster to zero will deallocate the nodes, causing the cluster to go down and unrecoverable.
-
+* Using the Virtual Machine Scale Sets API to scale the nodes in the cluster down to zero deallocates the nodes, causing the cluster to go down and become unrecoverable.
+* After you disable KMS, you can't destroy the keys. Otherwise, it causes the API server to stop working.
 
 KMS supports [public key vault][Enable-KMS-with-public-key-vault] and [private key vault][Enable-KMS-with-private-key-vault].
 
@@ -287,7 +287,7 @@ After changing the key ID (including key name and key version), you can use [az 
 
 > [!WARNING]
 > Remember to update all secrets after key rotation. Otherwise, the secrets will be inaccessible if the old keys are not existing or working.
-> 
+>
 > Once you rotate the key, the old key (key1) is still cached and shouldn't be deleted. If you want to delete the old key (key1) immediately, you need to rotate the key twice. Then key2 and key3 are cached, and key1 can be deleted without impacting existing cluster.
 
 ```azurecli-interactive
@@ -359,7 +359,7 @@ Starting with AKS version 1.27, enabling the KMS feature configures KMS v2. With
 
 ### Migration to KMS v2
 
-If your cluster version is less than 1.27 and you already enabled KMS, use the following steps to migrate to KMS v2:
+If your cluster version is less than 1.27 and you already enabled KMS, the upgrade to 1.27 or higher will be blocked. You use the following steps to migrate to KMS v2:
 
 1. Disable KMS on the cluster.
 2. Perform the storage migration.

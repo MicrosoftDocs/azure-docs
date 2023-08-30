@@ -1,0 +1,148 @@
+- name: Azure AI services documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: What are Azure AI services?
+    href: what-are-ai-services.md
+    displayName: applied, cognitive, form recognizer
+  - name: Language support
+    href: language-support.md
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/
+- name: Quickstarts
+  items:
+  - name: Create a multi-service resource
+    href: multi-service-resource.md
+    displayName: cognitive
+  - name: Create a new resource using Bicep
+    displayName: Resource Manager, ARM, Template
+    href: create-account-bicep.md
+  - name: Create a new resource using an ARM template
+    displayName: Resource Manager
+    href: create-account-resource-manager-template.md  
+  - name: Create a new resource using Terraform
+    href: create-account-terraform.md
+- name: Concepts
+  items:
+  - name: Azure AI services development options
+    href: cognitive-services-development-options.md
+  - name: Azure AI services and Machine learning
+    href: cognitive-services-and-machine-learning.md 
+  - name: Custom subdomains for Azure AI services
+    href: cognitive-services-custom-subdomains.md
+- name: How-to
+  items:
+  - name: Plan and manage costs 
+    href: plan-manage-costs.md
+  - name: Increase rate limit
+    href: autoscale.md
+  - name: Use commitment tier pricing 
+    href: commitment-tier.md
+  - name: Diagnostic logging
+    href: diagnostic-logging.md
+  - name: Manage resources
+    href: manage-resources.md
+  - name: Deploy
+    items:
+    - name: Containers
+      items:
+      - name: Azure AI services containers documentation
+        href: containers/index.yml
+      - name: Azure AI services containers overview
+        href: cognitive-services-container-support.md
+      - name: General container FAQ
+        href: ./containers/container-faq.yml
+      - name: Use containers in disconnected environments
+        href: ./containers/disconnected-containers.md
+      - name: Disconnected containers FAQ
+        href: ./containers/disconnected-container-faq.yml
+      - name: Container recipes
+        items:
+        - name: Container Reuse
+          href: ./containers/container-reuse-recipe.md
+        - name: Deploy to Azure Container Instance
+          href: ./containers/azure-container-instance-recipe.md
+        - name: Deploy to Azure Kubernetes
+          href: ./containers/azure-kubernetes-recipe.md
+        - name: Deploy with Docker Compose
+          href: ./containers/docker-compose-recipe.md
+      - name: Other Container Services
+        items:
+        - name: Azure Container Instances
+          href: ../container-instances/container-instances-tutorial-prepare-app.md
+        - name: Azure Container Registry
+          href: ../container-registry/container-registry-get-started-azure-cli.md
+        - name: Azure Kubernetes Service (AKS)
+          href: ../aks/tutorial-kubernetes-prepare-app.md
+  - name: Security
+    items:
+    - name: Security features
+      href: security-features.md
+    - name: Authenticate requests
+      href: authentication.md
+    - name: Rotate keys
+      href: rotate-keys.md
+    - name: Use environment variables
+      href: cognitive-services-environment-variables.md
+    - name: Configure customer-managed keys
+      href: ./encryption/cognitive-services-encryption-keys-portal.md
+    - name: Use virtual networks
+      href: cognitive-services-virtual-networks.md
+    - name: Use Azure key vault
+      href: use-key-vault.md
+    - name: Configure data loss prevention
+      href: cognitive-services-data-loss-prevention.md
+    - name: Security baseline
+      href: /security/benchmark/azure/baselines/cognitive-services-security-baseline?toc=/azure/ai-services/TOC.json
+    - name: Security controls by Azure Policy
+      href: ./security-controls-policy.md
+- name: Responsible use of AI
+  items:
+  - name: Overview
+    href: responsible-use-of-ai-overview.md
+  - name: Limited Access features
+    href: cognitive-services-limited-access.md
+- name: Reference
+  items:
+  - name: REST API
+    href: /rest/api/cognitiveservices/accountmanagement/accounts
+  - name: .NET
+    href: /dotnet/api/overview/azure/resourcemanager.cognitiveservices-readme
+  - name: Node.js
+    href: /javascript/api/@azure/arm-cognitiveservices/
+  - name: Python
+    href: /python/api/azure-mgmt-cognitiveservices/
+  - name: Java
+    href: /java/api/com.microsoft.azure.management.cognitiveservices
+  - name: Go
+    href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/mgmt
+  - name: Azure CLI
+    href: /cli/azure/cognitiveservices
+  - name: Azure PowerShell
+    href: /powershell/module/azurerm.cognitiveservices/
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
+- name: Resources
+  items:
+  - name: Support & help options
+    href: cognitive-services-support-options.md
+  - name: Region support
+    href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
+  - name: Azure updates
+    href: https://azure.microsoft.com/updates/?query=cognitive%20services
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Compliance
+    href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
+  - name: Service Level Agreement (SLA)
+    href: https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1/
+  - name: Azure Government
+    href: ../azure-government/compare-azure-government-global-azure.md
+  - name: Videos
+    href: https://azure.microsoft.com/resources/videos/index/?services=cognitive-services
+  - name: Azure Blog
+    href: https://azure.microsoft.com/blog/topics/cognitive-services/
+  - name: Azure AI Blog
+    href: https://techcommunity.microsoft.com/t5/azure-ai/bg-p/AzureAIBlog

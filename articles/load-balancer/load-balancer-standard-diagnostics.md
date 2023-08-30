@@ -345,6 +345,28 @@ To view the health of your public standard load balancer resources:
  
 A generic description of a resource health status is available in the [resource health documentation](../service-health/resource-health-overview.md). 
 
+### Resource health alerts
+
+Azure Resource Health alerts can notify you in near real-time when the health state of your Load balancer resource changes. It's recommended that you set resource health alerts to notify you when your Load balancer resource is in a **Degraded** or **Unavailable** state.
+
+When you create Azure resource health alerts for Load balancer, Azure sends resource health notifications to your Azure subscription. You can create and customize alerts based on:
+* The subscription affected
+* The resource group affected
+* The resource type affected (Load balancer)
+* The specific resource (any Load balancer resource you choose to set up an alert for)
+* The event status of the Load balancer resource affected
+* The current status of the Load balancer resource affected
+* The previous status of the Load balancer resource affected
+* The reason type of the Load balancer resource affected
+
+You can also configure who the alert should be sent to:
+* A new action group (that can be used for future alerts)
+* An existing action group
+
+For more information on how to set up these resource health alerts, see:
+* [Resource health alerts using Azure portal](/azure/service-health/resource-health-alert-monitor-guide#create-a-resource-health-alert-rule-in-the-azure-portal)
+* [Resource health alerts using Resource Manager templates](/azure/service-health/resource-health-alert-arm-template-guide)
+
 ## Next steps
 
 - Learn about [Network Analytics](/previous-versions/azure/azure-monitor/insights/azure-networking-analytics).

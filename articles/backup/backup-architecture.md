@@ -4,8 +4,8 @@ description: Provides an overview of the architecture, components, and processes
 ms.topic: conceptual
 ms.date: 12/24/2021
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Azure Backup architecture and components

@@ -25,8 +25,6 @@
     href: files-smb-protocol.md
   - name: NFS file shares
     href: files-nfs-protocol.md
-  - name: Identity-based authentication and authorization
-    href: storage-files-active-directory-overview.md
   - name: Networking considerations for direct access
     href: storage-files-networking-overview.md
   - name: Data protection
@@ -57,6 +55,8 @@
       href: storage-files-scale-targets.md
   - name: Authentication and authorization
     items:
+    - name: Identity-based authentication overview
+      href: storage-files-active-directory-overview.md
     - name: Authorize with Azure AD
       href: authorize-oauth-rest.md
   - name: Understanding billing
@@ -195,6 +195,8 @@
     items:
     - name: Migrate to Azure file shares
       href: storage-files-migration-overview.md
+    - name: Migrate files between Azure file shares
+      href: migrate-files-between-shares.md
     - name: Target a cloud-only deployment
       items:
       - name: RoboCopy to migrate to Azure file shares

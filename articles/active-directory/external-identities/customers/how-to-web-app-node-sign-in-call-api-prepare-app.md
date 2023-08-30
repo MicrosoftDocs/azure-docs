@@ -24,7 +24,7 @@ In this article, you create app projects for both the client web app and web API
 
 ##  Build ASP.NET web API
 
-You must first create a protected web API, which the client web calls by presenting a valid token. To do so, complete the steps in [Secure an ASP.NET web API](how-to-protect-web-api-dotnet-core-overview.md) article. In this article, you learn how to create and protect ASP.NET API endpoints, and run and test the API. 
+You must first create a protected web API, which the client web calls by presenting a valid token. To do so, complete the steps in [Secure an ASP.NET web API](./tutorial-protect-web-api-dotnet-core-build-app.md) article. In this article, you learn how to create and protect ASP.NET API endpoints, and run and test the API. 
 
 Before you proceed to this article, make sure you've [registered a web API app in Microsoft Entra admin center](how-to-web-app-node-sign-in-call-api-prepare-tenant.md#register-a-web-application-and-a-web-api).  
 

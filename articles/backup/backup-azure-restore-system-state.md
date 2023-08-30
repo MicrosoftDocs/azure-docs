@@ -4,8 +4,8 @@ description: Step-by-step explanation for restoring Windows Server System State 
 ms.topic: conceptual
 ms.date: 12/09/2022
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 # Restore System State to Windows Server
 

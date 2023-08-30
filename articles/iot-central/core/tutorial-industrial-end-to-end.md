@@ -3,7 +3,7 @@ title: Tutorial - Explore an Azure IoT Central industrial scenario
 description: This tutorial shows you how to deploy an end-to-end industrial IoT solution by using IoT Edge, IoT Central, and Azure Data Explorer.
 author: dominicbetts
 ms.author: dobett
-ms.date: 09/15/2022
+ms.date: 07/10/2023
 ms.topic: tutorial
 ms.service: iot-central
 ms.custom: devx-track-azurecli
@@ -34,9 +34,9 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- Azure subscription.
-- Local machine to run the **IoT Central Solution Builder** tool. Pre-built binaries are available for Windows and macOS.
-- If you need to build the **IoT Central Solution Builder** tool instead of using one of the pre-built binaries, you need a local Git installation.
+- Azure subscription that you access using a [work or school account](https://techcommunity.microsoft.com/t5/itops-talk-blog/what-s-the-difference-between-a-personal-microsoft-account-and-a/ba-p/2241897). Currently, you can't use a Microsoft account to deploy the solution with the **IoT Central Solution Builder** tool.
+- Local machine to run the **IoT Central Solution Builder** tool. Prebuilt binaries are available for Windows and macOS.
+- If you need to build the **IoT Central Solution Builder** tool instead of using one of the prebuilt binaries, you need a local Git installation.
 - Text editor. If you want to edit the configuration file to customize your solution.
 
 In this tutorial, you use the Azure CLI to create an app registration in Azure Active Directory:
@@ -207,7 +207,7 @@ You can also use the IoT Central UI or CLI to manage the devices and gateways in
 
 ### Data export configuration
 
-The solution uses the IoT Central data export capability to export OPC-UA data. Data export continuously sends filtered telemetry received from the OPC-UA server to an Azure Data Explorer environment. The filter ensures that only data from the OPC-UA is exported. The data export uses a [transformation](howto-transform-data-internally.md) to map the raw telemetry into a tabular structure suitable for Azure Data Explorer to ingest. The following snippet shows the transformation query:
+The solution uses the IoT Central data export capability to export OPC-UA data. IoT Central data export continuously sends filtered telemetry received from the OPC-UA server to an Azure Data Explorer environment. The filter ensures that only data from the OPC-UA is exported. The data export uses a [transformation](howto-transform-data-internally.md) to map the raw telemetry into a tabular structure suitable for Azure Data Explorer to ingest. The following snippet shows the transformation query:
 
 ```jq
 {

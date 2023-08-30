@@ -15,7 +15,7 @@ ms.custom: cli-v2, sdk-v2
 
 # Set up MLOps with Azure DevOps
 
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 Azure Machine Learning allows you to integrate with [Azure DevOps pipeline](/azure/devops/pipelines/) to automate the machine learning lifecycle. Some of the operations you can automate are:
 
@@ -338,6 +338,7 @@ This scenario includes prebuilt workflows for two approaches to deploying a trai
 * [Install and set up Python SDK v2](https://aka.ms/sdk-v2-install)
 * [Install and set up Python CLI v2](how-to-configure-cli.md)
 * [Azure MLOps (v2) solution accelerator](https://github.com/Azure/mlops-v2) on GitHub
+* Training course on [MLOps with Machine Learning](https://learn.microsoft.com/training/paths/introduction-machine-learn-operations/)
 * Learn more about [Azure Pipelines with Azure Machine Learning](how-to-devops-machine-learning.md)
 * Learn more about [GitHub Actions with Azure Machine Learning](how-to-github-actions-machine-learning.md)
 * Deploy MLOps on Azure in Less Than an Hour - [Community MLOps V2 Accelerator video](https://www.youtube.com/watch?v=5yPDkWCMmtk)

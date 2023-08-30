@@ -26,6 +26,22 @@ Here is a list of related resources:
 | Understand Azure AD Application Proxy connectors | Find out more about [connector management](application-proxy-connectors.md) and how connectors [auto-upgrade](application-proxy-connectors.md#automatic-updates). |
 | Azure AD Application Proxy Connector Download    | [Download the latest connector](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download). |
 
+## 1.5.3437.0
+
+### Release status
+
+June 20, 2023: Released for download. This version is only available for install via the download page.
+
+### New features and improvements
+
+- Support for Microsoft Entra Private Access.
+- Updated “Third-Party Notices”.
+
+### Fixed issues
+- Silent registration of connector with credentials. See [Create an unattended installation script for the Azure Active Directory Application Proxy connector](application-proxy-register-connector-powershell.md) for more details.
+- Fixed dropping of “Secure” and “HttpOnly” attributes on the cookies passed by backend servers when there are trailing spaces in these attributes.
+- Fixed services crash when back-end server of an application sets "Set-Cookie" header with empty value.
+
 ## 1.5.2846.0
 
 ### Release status
@@ -50,7 +66,7 @@ July 22, 2020: Released for download
 This version is only available for install via the download page. 
 
 ### New features and improvements
--	Improved support for Azure Government cloud environments. For steps on how to properly install the connector for Azure Government cloud review the [pre-requisites](../hybrid/reference-connect-government-cloud.md#allow-access-to-urls) and [installation steps](../hybrid/reference-connect-government-cloud.md#install-the-agent-for-the-azure-government-cloud).
+-	Improved support for Azure Government cloud environments. For steps on how to properly install the connector for Azure Government cloud review the [pre-requisites](../hybrid/connect/reference-connect-government-cloud.md#allow-access-to-urls) and [installation steps](../hybrid/connect/reference-connect-government-cloud.md#install-the-agent-for-the-azure-government-cloud).
 - Support for using the Remote Desktop Services web client with Application Proxy. See [Publish Remote Desktop with Azure AD Application Proxy](application-proxy-integrate-with-remote-desktop-services.md) for more details.
 - Improved websocket extension negotiations. 
 - Support for optimized routing between connector groups and Application Proxy cloud services based on region. See [Optimize traffic flow with Azure Active Directory Application Proxy](application-proxy-network-topology.md) for more details. 

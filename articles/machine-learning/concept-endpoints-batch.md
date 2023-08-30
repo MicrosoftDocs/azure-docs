@@ -72,7 +72,7 @@ To create a model deployment in a batch endpoint, you need to specify the follow
 
 ### Pipeline component deployment (preview)
 
-[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
 Pipeline component deployment allows operationalizing entire processing graphs (pipelines) to perform batch inference in a low latency and asynchronous way.
 

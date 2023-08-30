@@ -2,7 +2,7 @@
 title: Monitor multiple time series in a single metric alert rule
 description: Alert at scale by using a single alert rule for multiple time series.
 ms.topic: conceptual
-ms.date: 2/23/2022
+ms.date: 07/09/2023
 ms.reviewer: harelbr
 ---
 
@@ -89,7 +89,7 @@ For example:
 
 - **Target resource**: *VM-a*
 - Condition1
-  - **Signa**: *Percentage CPU*
+  - **Signal**: *Percentage CPU*
   - **Operator**: *Greater Than*
   - **Threshold**: *80*
 - Condition2

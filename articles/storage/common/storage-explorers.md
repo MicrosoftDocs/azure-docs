@@ -4,12 +4,12 @@ description: A list of client tools provided by Microsoft that enable you to vie
 services: storage
 author: tamram
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: tamram
 ms.reviewer: dineshm
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ---
 
 # Microsoft client tools for working with Azure Storage

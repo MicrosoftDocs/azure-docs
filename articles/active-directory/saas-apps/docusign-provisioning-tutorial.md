@@ -45,7 +45,7 @@ Before configuring and enabling the provisioning service, you need to decide wha
 This section guides you through connecting your Azure AD to DocuSign's user account provisioning API, and configuring the provisioning service to create, update, and disable assigned user accounts in DocuSign based on user and group assignment in Azure AD.
 
 > [!Tip]
-> You may also choose to enabled SAML-based Single Sign-On for DocuSign, following the instructions provided in [Azure portal](https://portal.azure.com). Single sign-on can be configured independently of automatic provisioning, though these two features compliment each other.
+> You may also choose to enabled SAML-based Single Sign-On for DocuSign, following the instructions provided in the [Azure portal](https://portal.azure.com). Single sign-on can be configured independently of automatic provisioning, though these two features compliment each other.
 
 ### To configure user account provisioning:
 
@@ -63,9 +63,9 @@ The objective of this section is to outline how to enable user provisioning of A
 
 1. Under the **Admin Credentials** section, provide the following configuration settings:
    
-    a. In the **Admin User Name** textbox, type a DocuSign account name that has the **System Administrator** profile in DocuSign.com assigned.
+    1. In the **Admin User Name** textbox, type a DocuSign account name that has the **System Administrator** profile in DocuSign.com assigned.
    
-    b. In the **Admin Password** textbox, type the password for this account.
+    1. In the **Admin Password** textbox, type the password for this account.
 
 > [!NOTE]
 > If both SSO and user provisioning is setup, the authorization credentials used for provisioning needs to be configured to work with both SSO and Username/Password.

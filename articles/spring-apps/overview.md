@@ -96,7 +96,7 @@ The following articles help you get started using the Standard consumption and d
 * [Provision an Azure Spring Standard consumption and dedicated plan service instance](quickstart-provision-standard-consumption-service-instance.md)
 * [Create an Azure Spring Apps Standard consumption and dedicated plan instance in an Azure Container Apps environment with a virtual network](quickstart-provision-standard-consumption-app-environment-with-virtual-network.md)
 * [Access applications using Azure Spring Apps Standard consumption and dedicated plan in a virtual network](quickstart-access-standard-consumption-within-virtual-network.md)
-* [Deploy an event-driven application to Azure Spring Apps with the Standard consumption and dedicated plan](quickstart-deploy-event-driven-app-standard-consumption.md)
+* [Deploy an event-driven application to Azure Spring Apps](quickstart-deploy-event-driven-app.md)
 * [Set up autoscale for applications in Azure Spring Apps Standard consumption and dedicated plan](quickstart-apps-autoscale-standard-consumption.md)
 * [Map a custom domain to Azure Spring Apps with the Standard consumption and dedicated plan](quickstart-standard-consumption-custom-domain.md)
 * [Analyze logs and metrics in the Azure Spring Apps Standard consumption and dedicated plan](quickstart-analyze-logs-and-metrics-standard-consumption.md)

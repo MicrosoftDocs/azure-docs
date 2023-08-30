@@ -23,11 +23,11 @@ Lifecycle workflows are a new identity governance feature that enables organizat
 
 Workflows contain specific processes that run automatically against users as they move through their lifecycle. Workflows consist of [tasks](lifecycle-workflow-tasks.md) and [execution conditions](understanding-lifecycle-workflows.md#understanding-lifecycle-workflows).
 
-Tasks are specific actions that run automatically when a workflow is triggered. An execution condition defines the scope of who's affected and the trigger of when a workflow will be performed. For example, sending a manager an email seven days before the value in the `NewEmployeeHireDate` attribute of new employees can be described as a workflow. It consists of:
+Tasks are specific actions that run automatically when a workflow is triggered. An execution condition defines the scope of who's affected and the trigger of when a workflow will be performed. For example, sending a manager an email seven days before the value in the `employeeHireDate` attribute of new employees can be described as a workflow. It consists of:
 
 - Task: Send email.
 - Who (scope): New employees.
-- When (trigger): Seven days before the `NewEmployeeHireDate` attribute value.
+- When (trigger): Seven days before the `employeeHireDate` attribute value.
 
 An automatic workflow schedules a [trigger](understanding-lifecycle-workflows.md#trigger-details) based on user attributes. Scoping of automatic workflows is possible through a wide range of user and extended attributes, such as the department that a user belongs to.
 
@@ -63,7 +63,7 @@ You can use lifecycle workflows to address any of the following conditions:
 - **Automating group membership**: When groups in your organization are well defined, you can automate user membership in those groups. Benefits and differences from dynamic groups include:
   - Lifecycle workflows manage static groups, where you don't need a dynamic group rule.
   - There's no need to have one rule per group. Lifecycle workflow rules determine the scope of users to execute workflows against, not which group.
-  - Lifecycle workflows help manage users' lifecycle beyond attributes supported in dynamic groups--for example, a certain number of days before the `NewEmployeeHireDate` attribute value.
+  - Lifecycle workflows help manage users' lifecycle beyond attributes supported in dynamic groups--for example, a certain number of days before the `employeeHireDate` attribute value.
   - Lifecycle workflows can perform actions on the group, not just the membership.
 - **Workflow history and auditing**: Use lifecycle workflows when you need to create an audit trail of user lifecycle processes. By using the Azure portal, you can view history and audits for orientation and departure scenarios.
 - **Automating user account management**: A key part of the identity lifecycle process is making sure that users who are leaving have their access to resources revoked. You can use lifecycle workflows to automate the disabling and removal of user accounts.

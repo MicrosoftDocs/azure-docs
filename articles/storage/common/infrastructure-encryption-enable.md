@@ -5,12 +5,12 @@ description: Customers who require higher levels of assurance that their data is
 services: storage
 author: tamram
 
-ms.service: storage
+ms.service: azure-storage
 ms.date: 10/19/2022
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
-ms.subservice: common 
+ms.subservice: storage-common-concepts
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 

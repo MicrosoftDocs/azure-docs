@@ -1,6 +1,6 @@
 ---
 title: Face gate notice
-titleSuffix: Azure Video Indexer
+titleSuffix: Azure AI Video Indexer
 services: azure-video-indexer
 manager: femila
 ms.service: azure-video-indexer

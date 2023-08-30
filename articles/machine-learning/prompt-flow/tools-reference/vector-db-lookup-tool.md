@@ -28,7 +28,7 @@ This tool adds support for more vector databases, including Pinecone, Weaviete, 
 
 ## Requirements
 
-- embeddingstore==0.0.93026209 --extra-index-url https://azuremlsdktestpypi.azureedge.net/embeddingstore
+- embeddingstore --extra-index-url https://azuremlsdktestpypi.azureedge.net/embeddingstore
 
 ## Prerequisites
 
@@ -36,7 +36,7 @@ The tool searches data from a third-party vector database. To use it, you should
 
   - **Azure Cognitive Search:**
     - Create resource [Azure Cognitive Search](../../../search/search-create-service-portal.md).
-    - Add "CognitiveSearchConnection" connection. Fill "API key" field with "Primary admin key" from "Keys" section of created resource, and fill "Api Base" field with the Url, the Url format is `https://{your_serive_name}.search.windows.net`.
+    - Add "CognitiveSearchConnection" connection. Fill "API key" field with "Primary admin key" from "Keys" section of created resource, and fill "Api Base" field with the URL, the URL format is `https://{your_serive_name}.search.windows.net`.
 
 ## Inputs
 
@@ -45,7 +45,7 @@ The following are available input parameters:
 
   | Name | Type | Description | Required |
   | ---- | ---- | ----------- | -------- |
-  | connection | CognitiveSearchConnection | The created workspace connection for accessing to Cognitive Search endpoint. | Yes |
+  | connection | CognitiveSearchConnection | The created workspace connection for accessing to Cognitive Search service endpoint. | Yes |
   | index_name | string | The index name created in Cognitive Search resource. | Yes |
   | text_field | string | The text field name. The returned text filed will populate the result of text. | No |
   | vector_field | string | The vector field name. The target vector is searched in this vector field. | Yes |

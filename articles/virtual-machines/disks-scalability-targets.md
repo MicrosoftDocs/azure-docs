@@ -5,8 +5,7 @@ author: roygara
 ms.author: rogarana
 ms.date: 05/23/2023
 ms.topic: conceptual
-ms.service: storage
-ms.subservice: disks
+ms.service: azure-disk-storage
 ---
 
 # Scalability and performance targets for VM disks

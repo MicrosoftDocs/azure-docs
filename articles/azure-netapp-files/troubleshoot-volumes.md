@@ -11,6 +11,7 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
+ms.custom: devx-track-linux
 ms.topic: troubleshooting
 ms.date: 02/21/2023
 ms.author: anfdocs

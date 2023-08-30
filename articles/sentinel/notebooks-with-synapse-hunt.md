@@ -47,7 +47,7 @@ Find a notebook template to save a copy to your Azure Machine Learning workspace
 
 1. At the top of the page in your Azure Machine Learning workspace, select a **Compute** instance to use for your notebook server.
 
-    - If you don't have a compute instance, [create a new one](../machine-learning/how-to-create-manage-compute-instance.md?tabs=#create).
+    - If you don't have a compute instance, [create a new one](../machine-learning/how-to-create-compute-instance.md?tabs=#create).
     - If you're creating a new compute instance in order to test your notebooks, create your compute instance with the **General Purpose** category.
     - If your compute instance is stopped, make sure to start it. For more information, see [Run a notebook in the Azure Machine Learning studio](../machine-learning/how-to-run-jupyter-notebooks.md).
     - Only you can see and use the compute instances you create. Your user files are stored separately from the VM and are shared among all compute instances in the workspace.

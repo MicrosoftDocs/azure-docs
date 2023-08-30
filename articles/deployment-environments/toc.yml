@@ -45,7 +45,7 @@ items:
       href: how-to-configure-deployment-environments-user.md
     - name: Manage environments as a developer
       href: how-to-manage-environments.md
-    - name: Use Azure CLI dev center extension
+    - name: Install Azure CLI dev center extension
       href: how-to-install-devcenter-cli-extension.md
     - name: Create and configure a dev center with the CLI
       href: how-to-create-configure-dev-center.md
@@ -60,7 +60,7 @@ items:
       href: tutorial-deploy-environments-in-cicd-github.md  
 - name: Reference
   items:
-    - name: Azure CLI
+    - name: Azure CLI - devcenter
       href: https://aka.ms/CLI-reference
     - name: REST API
       href: /rest/api/devcenter/

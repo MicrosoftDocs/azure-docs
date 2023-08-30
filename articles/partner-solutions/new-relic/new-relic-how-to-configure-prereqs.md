@@ -31,3 +31,10 @@ To set up New Relic on Azure, you need to register the `NewRelic.Observability` 
 
 - [Quickstart: Get started with New Relic](new-relic-create.md)
 - [Troubleshoot Azure Native New Relic Service](new-relic-troubleshoot.md)
+- Get started with Azure Native New Relic Service on
+
+    > [!div class="nextstepaction"]
+    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/NewRelic.Observability%2Fmonitors)
+
+    > [!div class="nextstepaction"]
+    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/newrelicinc1635200720692.newrelic_liftr_payg?tab=Overview)

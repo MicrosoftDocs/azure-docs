@@ -2,7 +2,7 @@
 title: Data Collection Basics of Azure Monitor Application Insights 
 description: This article provides an overview of how to collect telemetry to send to Azure Monitor Application Insights.
 ms.topic: conceptual
-ms.date: 06/08/2023
+ms.date: 07/07/2023
 ms.reviewer: mmcc
 ---
 
@@ -20,6 +20,9 @@ There are two methods to instrument your application:
 - Manual instrumentation
 
 **Autoinstrumentation** enables telemetry collection through configuration without touching the application's code. Although it's more convenient, it tends to be less configurable. It's also not available in all languages. See [Autoinstrumentation supported environments and languages](codeless-overview.md). When autoinstrumentation is available, it's the easiest way to enable Azure Monitor Application Insights.
+
+> [!TIP]
+> Currently, [Azure AD Authentication](azure-ad-authentication.md) is not available with autoinstrumentation. If you require AAD Auth, you'll need to use manual instrumentation.
 
 **Manual instrumentation** is coding against the Application Insights or OpenTelemetry API. In the context of a user, it typically refers to installing a language-specific SDK in an application. There are two options for manual instrumentation:
 

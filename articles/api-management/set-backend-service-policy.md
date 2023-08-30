@@ -73,7 +73,7 @@ In this example the `set-backend-service` policy routes requests based on the ve
 
 Initially the backend service base URL is derived from the API settings. So the request URL `https://contoso.azure-api.net/api/partners/15?version=2013-05&subscription-key=abcdef` becomes `http://contoso.com/api/10.4/partners/15?version=2013-05&subscription-key=abcdef` where `http://contoso.com/api/10.4/` is the backend service URL specified in the API settings.
 
-When the [<choose\>](choose-policy.md) policy statement is applied the backend service base URL may change again either to `http://contoso.com/api/8.2` or `http://contoso.com/api/9.1`, depending on the value of the version request query parameter. For example, if the value is `"2013-15"` the final request URL becomes `http://contoso.com/api/8.2/partners/15?version=2013-05&subscription-key=abcdef`.
+When the [<choose\>](choose-policy.md) policy statement is applied the backend service base URL may change again either to `http://contoso.com/api/8.2` or `http://contoso.com/api/9.1`, depending on the value of the version request query parameter. For example, if the value is `"2013-15"` the final request URL becomes `http://contoso.com/api/8.2/partners/15?version=2013-15&subscription-key=abcdef`.
 
 If further transformation of the request is desired, other [Transformation policies](api-management-transformation-policies.md) can be used. For example, to remove the version query parameter now that the request is being routed to a version specific backend, the [Set query string parameter](set-query-parameter-policy.md) policy can be used to remove the now redundant version attribute.
 

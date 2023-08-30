@@ -137,7 +137,7 @@ must enable the **Microsoft.PolicyInsights** resource providers.
 1. If limited preview policy definitions were installed, remove the add-on with the **Disable**
    button on your AKS cluster under the **Policies** page.
 
-1. The AKS cluster must be version _1.14_ or higher. Use the following script to validate your AKS
+1. The AKS cluster must be a [supported AKS cluster version](https://learn.microsoft.com/azure/aks/supported-kubernetes-versions?tabs=azure-cli). Use the following script to validate your AKS
    cluster version:
 
    ```azurecli-interactive

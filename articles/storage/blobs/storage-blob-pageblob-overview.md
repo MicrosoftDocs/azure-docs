@@ -4,12 +4,11 @@ description: An overview of Azure page blobs and their advantages, including use
 services: storage
 author: tamram
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: article
 ms.date: 05/11/2023
 ms.author: tamram
 ms.reviewer: wielriac
-ms.subservice: blobs
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---

@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: designer, sdkv1, event-tier1-build-2022, devx-track-python
+ms.custom: UpdateFrequency5, designer, sdkv1, event-tier1-build-2022, devx-track-python
 ---
 
 # Enable logging in Azure Machine Learning designer pipelines
@@ -32,7 +32,7 @@ The following example shows you how to log the mean squared error of two trained
 
 1. Paste the following code into the __Execute Python Script__ code editor to log the mean absolute error for your trained model. You can use a similar pattern to log any other value in the designer:
 
-    [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+    [!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
     ```python
     # dataframe1 contains the values from Evaluate Model

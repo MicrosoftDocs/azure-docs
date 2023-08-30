@@ -4,6 +4,7 @@ description: Create and use an Apache Kafka service for development
 services: container-apps
 author: ahmelsayed
 ms.service: container-apps
+ms.custom: devx-track-azurecli
 ms.topic: tutorial
 ms.date: 06/16/2023
 ms.author: ahmels
@@ -378,10 +379,10 @@ Azure CLI commands and Bicep template fragments are featured in this tutorial. I
     # [Bash](#tab/bash)
 
     ```bash
-        az rest \
-        --method PUT \
-        --url "/subscriptions/$(az account show --output tsv --query id)/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.App/containerApps/$KAFKA_SVC?api-version=2023-04-01-preview" \
-        --body "{\"location\": \"$LOCATION\", \"properties\": {\"environmentId\": \"$ENVIRONMENT_ID\", \"configuration\": {\"service\": {\"type\": \"kafka\"}}}}"
+        az containerapp service kafka create \
+        --name "$KAFKA_SVC" \
+        --resource-group "$RESOURCE_GROUP" \
+        --environment "$ENVIRONMENT"
     ```
 
     # [Bicep](#tab/bicep)
@@ -464,17 +465,12 @@ When you create the app, you'll set it up to use `./kafka-topics.sh`, `./kafka-c
     az containerapp create \
         --name "$KAFKA_CLI_APP" \
         --image mcr.microsoft.com/k8se/services/kafka:3.4 \
+        --bind "$KAFKA_SVC" \
         --environment "$ENVIRONMENT" \
         --resource-group "$RESOURCE_GROUP" \
         --min-replicas 1 \
         --max-replicas 1 \
         --command "/bin/sleep" "infinity"
-    
-    az rest \
-        --method PATCH \
-        --headers "Content-Type=application/json" \
-        --url "/subscriptions/$(az account show --output tsv --query id)/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.App/containerApps/$KAFKA_CLI_APP?api-version=2023-04-01-preview" \
-        --body "{\"properties\": {\"template\": {\"serviceBinds\": [{\"serviceId\": \"/subscriptions/$(az account show --output tsv --query id)/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.App/containerApps/$KAFKA_SVC\"}]}}}"
     ```
 
     # [Bicep](#tab/bicep)

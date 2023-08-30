@@ -47,7 +47,7 @@ GET https://eu.atlas.microsoft.com/search/address/{format}?api-version=1.0&query
 
 ## Additional information
 
-For information on limiting what regions a SAS token can use in see [Authentication with Azure Maps]
+For information on limiting what regions a SAS token can use in, see [Authentication with Azure Maps].
 
 - [Azure geographies]
 - [Azure Government cloud support]

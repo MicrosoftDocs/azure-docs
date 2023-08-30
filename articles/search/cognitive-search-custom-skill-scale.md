@@ -101,5 +101,5 @@ Congratulations! Your custom skill is now scaled right to maximize throughput on
 
 + [Power Skills: a repository of custom skills](https://github.com/Azure-Samples/azure-search-power-skills)
 + [Add a custom skill to an AI enrichment pipeline](cognitive-search-custom-skill-interface.md)
-+ [Add a Azure Machine Learning skill](./cognitive-search-aml-skill.md)
++ [Add an Azure Machine Learning skill](./cognitive-search-aml-skill.md)
 + [Use debug sessions to test changes](./cognitive-search-debug-session.md)

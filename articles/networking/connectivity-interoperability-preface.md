@@ -66,12 +66,6 @@ For more information, see [What is VPN Gateway?](../vpn-gateway/vpn-gateway-abou
 
 ## Next steps
 
-Learn about [configuration details](connectivty-interoperability-configuration.md) for the test topology.
-
-Learn about [control plane analysis](connectivty-interoperability-control-plane.md) of the test setup and the views of different virtual networks or VLANs in the topology.
-
-Learn about the [data plane analysis](connectivty-interoperability-data-plane.md) of the test setup and Azure network monitoring feature views.
-
 See the [ExpressRoute FAQ](../expressroute/expressroute-faqs.md) to:
 
 - Learn how many ExpressRoute circuits you can connect to an ExpressRoute gateway.

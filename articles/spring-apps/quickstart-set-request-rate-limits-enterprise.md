@@ -82,13 +82,13 @@ az spring gateway route-config update \
     --service <Azure-Spring-Apps-service-instance-name> \
     --name catalog-routes \
     --app-name catalog-service \
-    --routes-file azure/routes/catalog-service_rate-limit.json
+    --routes-file azure-spring-apps-enterprise/resources/json/routes/catalog-service_rate-limit.json
 ```
 
 Use the following commands to retrieve the URL for the `/products` route in Spring Cloud Gateway:
 
 ```azurecli
-GATEWAY_URL=$(az spring gateway show \
+export GATEWAY_URL=$(az spring gateway show \
     --resource-group <resource-group-name> \
     --service <Azure-Spring-Apps-service-instance-name> | jq -r '.properties.url')
 

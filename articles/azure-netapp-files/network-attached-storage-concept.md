@@ -1,5 +1,5 @@
 ---
-title: Understand NAS concepts in Azure NetApp Files 
+title: Understand NAS concepts in Azure NetApp Files | Microsoft Docs
 description: This article covers important information about NAS volumes when using Azure NetApp Files.  
 services: azure-netapp-files
 documentationcenter: ''
@@ -35,6 +35,7 @@ Datasets in a NAS environment can be structured (data in a well-defined format, 
 
 NAS is a common protocol across many industries, including oil & gas, high performance computing, media and entertainment, EDA, financial services, healthcare, genomics, manufacturing, higher education, and many others. Workloads can vary from simple file shares and home directories to applications with thousands of cores pushing operations to a single share, as well as more modernized application stacks, such as Kubernetes and container deployments. 
 
+To learn more about use cases and workloads, see [Solution architectures using Azure NetApp Files](azure-netapp-files-solution-architectures.md).
 
 ## Next steps 
 * [Understand NAS protocols](network-attached-storage-protocols.md)

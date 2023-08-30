@@ -123,7 +123,7 @@ The template consists of multiple files. The following table describes what each
 | [compute.tf](https://github.com/Azure/terraform/blob/master/quickstart/201-machine-learning-moderately-secure/compute.tf) | Defines an Azure Machine Learning compute instance and cluster. |
 
 > [!TIP]
-> The [Terraform Azure provider](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs) supports additional arguments that are not used in this tutorial. For example, the [environment](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs#environment) argument allows you to target cloud regions such as Azure Government and Azure China 21ViaNet.
+> The [Terraform Azure provider](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs) supports additional arguments that are not used in this tutorial. For example, the [environment](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs#environment) argument allows you to target cloud regions such as Azure Government and Microsoft Azure operated by 21Vianet.
 
 ---
 
@@ -253,7 +253,7 @@ When using the Terraform template, the jump box name is passed using the `dsvm_n
 > 
 > * [Create/manage VMs (Linux)](../virtual-machines/linux/tutorial-manage-vm.md).
 > * [Create/manage VMs (Windows)](../virtual-machines/windows/tutorial-manage-vm.md).
-> * [Create/manage compute instance](how-to-create-manage-compute-instance.md).
+> * [Create compute instance](how-to-create-compute-instance.md).
 
 :::moniker range="azureml-api-2"
 To continue learning how to use the secured workspace from the DSVM, see [Tutorial: Azure Machine Learning in a day](tutorial-azure-ml-in-a-day.md).

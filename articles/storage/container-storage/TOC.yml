@@ -7,10 +7,12 @@
     href: container-storage-introduction.md
 - name: Quickstarts
   items:
-  - name: Install Azure Container Storage
+  - name: Use Azure Container Storage with AKS
     href: container-storage-aks-quickstart.md
 - name: How-to guides
   items:
+  - name: Install Azure Container Storage
+    href: install-container-storage-aks.md
   - name: Use with Azure Disks
     href: use-container-storage-with-managed-disks.md
   - name: Use with Ephemeral Disk

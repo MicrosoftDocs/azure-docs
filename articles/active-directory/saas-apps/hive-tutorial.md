@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/21/2022
+ms.date: 08/21/2023
 ms.author: jeedes
 ---
 
@@ -138,13 +138,13 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In a different web browser window, sign in to Hive website as an administrator.
 
-1. Click on the **User Profile** and click **Your workspace**.
+1. Click on the **User Profile** and click your workspace **Settings**.
 
     ![Screenshot shows the Hive website with Your workspace selected from the menu.](./media/hive-tutorial/profile.png)
 
-1. Click **Auth** and perform the following steps:
+1. Click **Enterprise Security** and perform the following steps:
 
-    ![Screenshot shows the Auth page where do the tasks described.](./media/hive-tutorial/authentication.png)
+    [![Screenshot shows the Auth page where do the tasks described.](./media/hive-tutorial/authentication.png)](./media/hive-tutorial/authentication.png#lightbox)
 
     a. Copy **Your Workspace ID** and append it to the **SignOn URL** and  **Reply URL** in the **Basic SAML Configuration Section** in the Azure portal.
 
@@ -172,7 +172,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on **Test this application** in Azure portal and you should be automatically signed in to the Hive for which you set up the SSO. 
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the Hive tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Hive for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
+You can also use Microsoft My Apps to test the application in any mode. When you click the Hive tile in the My Apps, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Hive for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 

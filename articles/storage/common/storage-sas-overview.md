@@ -5,12 +5,12 @@ description: Learn about using shared access signatures (SAS) to delegate access
 services: storage
 author: tamram
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: conceptual
 ms.date: 06/07/2023
 ms.author: tamram
 ms.reviewer: dineshm
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ---
 
 # Grant limited access to Azure Storage resources using shared access signatures (SAS)

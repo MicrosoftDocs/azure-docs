@@ -16,8 +16,9 @@ ms.devlang: azurecli
 
 # Secure an Azure Machine Learning training environment with virtual networks
 
-[!INCLUDE [SDK v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [SDK v2](includes/machine-learning-sdk-v2.md)]
 
+[!INCLUDE [managed network](includes/managed-vnet-note.md)]
 
 Azure Machine Learning compute instance and compute cluster can be used to securely train models in an Azure Virtual Network. When planning your environment, you can configure the compute instance/cluster with or without a public IP address. The general differences between the two are:
 
@@ -33,11 +34,6 @@ The following table contains the differences between these configurations:
 | Azure networking resources | Public IP address, load balancer, network interface | None |
 
 You can also use Azure Databricks or HDInsight to train models in a virtual network.
-
-> [!TIP]
-> Azure Machine Learning also provides **managed virtual networks** (preview). With a managed virtual network, Azure Machine Learning handles the job of network isolation for your workspace and managed computes. You can also add private endpoints for resources needed by the workspace, such as Azure Storage Account. 
->
-> At this time, the managed virtual networks preview **doesn't** support no public IP configuration for compute resources. For more information, see [Workspace managed network isolation](how-to-managed-network.md).
 
 > [!IMPORTANT]
 > Items marked (preview) in this article are currently in public preview.
@@ -410,7 +406,7 @@ Attach the VM or HDInsight cluster to your Azure Machine Learning workspace. For
 > [!IMPORTANT]
 > While previous sections of this article describe configurations required to **create** compute resources, the configuration information in this section is required to **use** these resources to train models.
 
-[!INCLUDE [machine-learning-required-public-internet-access](../../includes/machine-learning-public-internet-access.md)]
+[!INCLUDE [machine-learning-required-public-internet-access](includes/machine-learning-public-internet-access.md)]
 
 For information on using a firewall solution, see [Use a firewall with Azure Machine Learning](how-to-access-azureml-behind-firewall.md).
 ## Next steps

@@ -86,7 +86,7 @@ The diagram shows the implementation.
 
 ### Integrate Azure AD B2C with Nevis
 
-1. Go to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Switch to your Azure AD B2C tenant. Note: the Azure AD B2C tenant usually is in a separate tenant.
 3. In the menu, select **Identity Experience Framework (IEF)**.
 4. Select **Policy Keys**.

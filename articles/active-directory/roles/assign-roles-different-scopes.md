@@ -10,7 +10,7 @@ ms.subservice: roles
 ms.topic: how-to
 ms.date: 02/04/2022
 ms.author: rolyon
-ms.custom: it-pro
+ms.custom: it-pro, has-azure-ad-ps-ref
 
 ms.collection: M365-identity-device-management
 ---
@@ -31,6 +31,8 @@ For more information, see [Prerequisites to use PowerShell or Graph Explorer](pr
 This section describes how to assign roles at the tenant scope.
 
 ### Azure portal
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 

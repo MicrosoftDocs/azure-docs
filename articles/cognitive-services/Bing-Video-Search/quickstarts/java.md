@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Search for videos using the REST API and Java - Bing Video Search"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Use this quickstart to send video search requests to the Bing Video Search REST API using Java.
 services: cognitive-services
 author: aahill
@@ -15,7 +15,7 @@ ms.author: aahi
 ---
 # Quickstart: Search for videos using the Bing Video Search REST API and Java
 
-[!INCLUDE [Bing move notice](../../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../../bing-web-search/includes/bing-move-notice.md)]
 
 Use this quickstart to make your first call to the Bing Video Search API. This simple Java application sends an HTTP video search query to the API and displays the JSON response. Although this application is written in Java, the API is a RESTful Web service compatible with most programming languages. 
 
@@ -59,7 +59,7 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
     }
     ```
 
-3. Create a new method named `SearchVideos()` with variables for your API endpoint host and path, your subscription key, and search term. This method returns a `SearchResults` object. For the `host` value, you can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+3. Create a new method named `SearchVideos()` with variables for your API endpoint host and path, your subscription key, and search term. This method returns a `SearchResults` object. For the `host` value, you can use the global endpoint in the following code, or use the [custom subdomain](../../../ai-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```java
     public static SearchResults SearchVideos (String searchQuery) throws Exception {

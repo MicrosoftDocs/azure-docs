@@ -1,6 +1,6 @@
 ---
 title: Add analytics to the Bing Web Search API
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Bing Statistics provides analytics to the Bing Image Search API. Analytics include call volume, top query strings, geographic distribution, and more. 
 services: cognitive-services
 
@@ -15,7 +15,7 @@ ms.custom: seodec2018
 
 # Add analytics to the Bing Search APIs
 
-[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 
 Bing Statistics provides analytics for the Bing Search APIs. These analytics include call volume, top query strings, geographic distribution, and more. You can enable Bing Statistics in the [Azure portal](https://portal.azure.com) by navigating to your Azure resource and clicking **Enable Bing Statistics**.
 

@@ -2,8 +2,8 @@
 title: Submit Spark jobs in Azure Machine Learning
 titleSuffix: Azure Machine Learning
 description: Learn how to submit standalone and pipeline Spark jobs in Azure Machine Learning 
-author: fbsolo-ms1
-ms.author: franksolomon
+author: ynpandey
+ms.author: yogipandey
 ms.reviewer: franksolomon
 ms.service: machine-learning
 ms.subservice: mldata
@@ -13,6 +13,8 @@ ms.custom: template-how-to
 ---
 
 # Submit Spark jobs in Azure Machine Learning
+
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 Azure Machine Learning supports submission of standalone machine learning jobs and creation of [machine learning pipelines](./concept-ml-pipelines.md) that involve multiple machine learning workflow steps. Azure Machine Learning handles both standalone Spark job creation, and creation of reusable Spark components that Azure Machine Learning pipelines can use. In this article, you'll learn how to submit Spark jobs using:
 - Azure Machine Learning studio UI
@@ -24,7 +26,7 @@ For more information about **Apache Spark in Azure Machine Learning** concepts, 
 ## Prerequisites
 
 # [CLI](#tab/cli)
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 - An Azure subscription; if you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free) before you begin.
 - An Azure Machine Learning workspace. See [Create workspace resources](./quickstart-create-resources.md).
 - [Create an Azure Machine Learning compute instance](./concept-compute-instance.md#create).
@@ -32,7 +34,7 @@ For more information about **Apache Spark in Azure Machine Learning** concepts, 
 - [(Optional): An attached Synapse Spark pool in the Azure Machine Learning workspace](./how-to-manage-synapse-spark-pool.md).
 
 # [Python SDK](#tab/sdk)
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 - An Azure subscription; if you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free) before you begin.
 - An Azure Machine Learning workspace. See [Create workspace resources](./quickstart-create-resources.md).
 - [Configure your development environment](./how-to-configure-environment.md), or [create an Azure Machine Learning compute instance](./concept-compute-instance.md#create).
@@ -68,7 +70,7 @@ These prerequisites cover the submission of a Spark job from Azure Machine Learn
 
 ### Attach user assigned managed identity using `ARMClient`
 
-1. Install [ARMClient](https://github.com/projectkudu/ARMClient), a simple command line tool that invokes the Azure Resource Manager API.
+1. Install [`ARMClient`](https://github.com/projectkudu/ARMClient), a simple command line tool that invokes the Azure Resource Manager API.
 1. Create a JSON file that defines the user-assigned managed identity that should be attached to the workspace:
     ```json
     {
@@ -90,8 +92,9 @@ These prerequisites cover the submission of a Spark job from Azure Machine Learn
 
 > [!NOTE]
 > - To ensure successful execution of the Spark job, assign the **Contributor** and **Storage Blob Data Contributor** roles, on the Azure storage account used for data input and output, to the identity that the Spark job uses
+> - Public Network Access should be enabled in Azure Synapse workspace to ensure successful execution of the Spark job using an [attached Synapse Spark pool](./how-to-manage-synapse-spark-pool.md).
 > - If an [attached Synapse Spark pool](./how-to-manage-synapse-spark-pool.md) points to a Synapse Spark pool, in an Azure Synapse workspace that has a managed virtual network associated with it, [a managed private endpoint to storage account should be configured](../synapse-analytics/security/connect-to-a-secure-storage-account.md) to ensure data access.
-> - Serverless Spark compute supports a managed virtual network (preview). If a [managed network is provisioned for the serverless Spark compute, the corresponding private endpoints for the storage account should also be provisioned](./how-to-managed-network.md#configure-for-serverless-spark-jobs) to ensure data access.
+> - Serverless Spark compute supports Azure Machine Learning managed virtual network (preview). If a [managed network is provisioned for the serverless Spark compute, the corresponding private endpoints for the storage account should also be provisioned](./how-to-managed-network.md#configure-for-serverless-spark-jobs) to ensure data access.
 
 ## Submit a standalone Spark job
 A Python script developed by [interactive data wrangling](./interactive-data-wrangling-with-apache-spark-azure-ml.md) can be used to submit a batch job to process a larger volume of data, after making necessary changes for Python script parameterization. A simple data wrangling batch job can be submitted as a standalone Spark job.
@@ -130,7 +133,7 @@ df.to_csv(args.wrangled_data, index_col="PassengerId")
 The above script takes two arguments `--titanic_data` and `--wrangled_data`, which pass the path of input data and output folder respectively.
 
 # [Azure CLI](#tab/cli)
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 To create a job, a standalone Spark job can be defined as a YAML specification file, which can be used in the `az ml job create` command, with the `--file` parameter. Define these properties in the YAML file as follows:
 
@@ -168,15 +171,22 @@ To create a job, a standalone Spark job can be defined as a YAML specification f
   - `runtime_version` - defines the Spark runtime version. The following Spark runtime versions are currently supported:
     - `3.1`
     - `3.2`
+    - `3.3`
       > [!IMPORTANT]
-      >
-      > End of life announcement (EOLA) for Azure Synapse Runtime for Apache Spark 3.1 was made on January 26, 2023. In accordance, Apache Spark 3.1 will not be supported after July 31, 2023. We recommend that you use Apache Spark 3.2.
+      > Azure Synapse Runtime for Apache Spark: Announcements
+      > * Azure Synapse Runtime for Apache Spark 3.1:
+      >   * End of Life (EOLA) Announcement Date: January 26, 2023 
+      >   * End of Support Date: July 31, 2023. After this date, the runtime will be disabled. 
+      > * Azure Synapse Runtime for Apache Spark 3.2:
+      >   * EOLA Announcement Date: July 8, 2023
+      >   * End of Support Date: July 8, 2024. After this date, the runtime will be disabled.
+      > * For continued support and optimal performance, we advise migrating to Apache Spark 3.3.
 
   An example is shown here:
   ```yaml
   resources:
     instance_type: standard_e8s_v3
-    runtime_version: "3.2"
+    runtime_version: "3.3"
   ```
 - `compute` - this property defines the name of an attached Synapse Spark pool, as shown in this example:
   ```yaml
@@ -257,7 +267,7 @@ identity:
 
 resources:
   instance_type: standard_e4s_v3
-  runtime_version: "3.2"
+  runtime_version: "3.3"
 ```
 
 > [!NOTE]
@@ -275,7 +285,7 @@ You can execute the above command from:
 - your local computer that has [Azure Machine Learning CLI](./how-to-configure-cli.md?tabs=public) installed.
 
 # [Python SDK](#tab/sdk)
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 ### Standalone Spark job using Python SDK 
 To create a standalone Spark job, use the `azure.ai.ml.spark` function, with these parameters:
@@ -311,9 +321,17 @@ To create a standalone Spark job, use the `azure.ai.ml.spark` function, with the
   - `runtime_version` - a key that defines the Spark runtime version. The following Spark runtime versions are currently supported:
     - `3.1.0`
     - `3.2.0`   
+    - `3.3.0`   
       > [!IMPORTANT]
-      >
-      > End of life announcement (EOLA) for Azure Synapse Runtime for Apache Spark 3.1 was made on January 26, 2023. In accordance, Apache Spark 3.1 will not be supported after July 31, 2023. We recommend that you use Apache Spark 3.2.
+      > Azure Synapse Runtime for Apache Spark: Announcements
+      > * Azure Synapse Runtime for Apache Spark 3.1:
+      >   * End of Life (EOLA) Announcement Date: January 26, 2023 
+      >   * End of Support Date: July 31, 2023. After this date, the runtime will be disabled. 
+      > * Azure Synapse Runtime for Apache Spark 3.2:
+      >   * EOLA Announcement Date: July 8, 2023
+      >   * End of Support Date: July 8, 2024. After this date, the runtime will be disabled.
+      > * For continued support and optimal performance, we advise migrating to Apache Spark 3.3.
+
 - `compute` - the name of an attached Synapse Spark pool.
 - `inputs` - the inputs for the Spark job. This parameter should pass a dictionary with mappings of the input data bindings used in the job. This dictionary has these values:
   - a dictionary key defines the input name
@@ -365,7 +383,7 @@ spark_job = spark(
     executor_instances=2,
     resources={
         "instance_type": "Standard_E8S_V3",
-        "runtime_version": "3.2.0",
+        "runtime_version": "3.3.0",
     },
     inputs={
         "titanic_data": Input(
@@ -398,7 +416,7 @@ ml_client.jobs.stream(returned_spark_job.name)
 
 ### Submit a standalone Spark job from Azure Machine Learning studio UI (preview)
 
-[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
 To submit a standalone Spark job using the Azure Machine Learning studio UI:
 
@@ -414,9 +432,15 @@ To submit a standalone Spark job using the Azure Machine Learning studio UI:
 2. If you selected **Spark serverless**:
     1. Select **Virtual machine size**.
     2. Select **Spark runtime version**.
-       > [!IMPORTANT]
-       >
-       > End of life announcement (EOLA) for Azure Synapse Runtime for Apache Spark 3.1 was made on January 26, 2023. In accordance, Apache Spark 3.1 will not be supported after July 31, 2023. We recommend that you use Apache Spark 3.2.
+      > [!IMPORTANT]
+      > Azure Synapse Runtime for Apache Spark: Announcements
+      > * Azure Synapse Runtime for Apache Spark 3.1:
+      >   * End of Life (EOLA) Announcement Date: January 26, 2023 
+      >   * End of Support Date: July 31, 2023. After this date, the runtime will be disabled. 
+      > * Azure Synapse Runtime for Apache Spark 3.2:
+      >   * EOLA Announcement Date: July 8, 2023
+      >   * End of Support Date: July 8, 2024. After this date, the runtime will be disabled.
+      > * For continued support and optimal performance, we advise migrating to Apache Spark 3.3.
 3. If you selected **Attached compute**:
     1. Select an attached Synapse Spark pool from the **Select Azure Machine Learning attached compute** menu.
 4. Select **Next**.
@@ -493,7 +517,7 @@ To submit a standalone Spark job using the Azure Machine Learning studio UI:
 A Spark component offers the flexibility to use the same component in multiple [Azure Machine Learning pipelines](./concept-ml-pipelines.md), as a pipeline step.
 
 # [Azure CLI](#tab/cli)
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 YAML syntax for a Spark component resembles the [YAML syntax for Spark job specification](#yaml-properties-in-the-spark-job-specification) in most ways. These properties are defined differently in the Spark component YAML specification:
 - `name` - the name of the Spark component.
@@ -605,7 +629,7 @@ You can execute the above command from:
 - your local computer that has [Azure Machine Learning CLI](./how-to-configure-cli.md?tabs=public) installed.
 
 # [Python SDK](#tab/sdk)
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 To create an Azure Machine Learning pipeline with a Spark component, you should have familiarity with creation of [Azure Machine Learning pipelines from components, using Python SDK](./tutorial-pipeline-python-sdk.md#create-the-pipeline-from-components). A Spark component is created using `azure.ai.ml.spark` function. The function parameters are defined almost the same way as for the [standalone Spark job](#standalone-spark-job-using-python-sdk). These parameters are defined differently for the Spark component:
 
@@ -671,7 +695,7 @@ def spark_pipeline(spark_input_data):
     spark_step.identity = ManagedIdentityConfiguration()
     spark_step.resources = {
         "instance_type": "Standard_E8S_V3",
-        "runtime_version": "3.2.0",
+        "runtime_version": "3.3.0",
     }
 
 pipeline = spark_pipeline(

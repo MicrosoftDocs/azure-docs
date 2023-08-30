@@ -1,5 +1,5 @@
 ---
-title: Onboard to Microsoft Defender for Cloud with PowerShell
+title: Onboard with PowerShell
 description: This document walks you through the process of enabling Microsoft Defender for Cloud with PowerShell cmdlets.
 ms.topic: quickstart
 ms.date: 01/24/2023

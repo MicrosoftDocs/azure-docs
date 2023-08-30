@@ -6,6 +6,7 @@ author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom: devx-track-dotnet, devx-track-python
 ms.topic: quickstart
 ms.date: 06/09/2023
 ---
@@ -20,17 +21,17 @@ In Azure Cognitive Search, [semantic search](semantic-search-overview.md) is que
 This quickstart walks you through the query modifications that invoke semantic search.
 
 > [!NOTE]
-> Looking for a Cognitive Search solution with Chat-GPT interaction? See [this demo](https://github.com/Azure-Samples/azure-search-openai-demo/blob/main/README.md) for details.
+> Looking for a Cognitive Search solution with ChatGPT interaction? See [this demo](https://github.com/Azure-Samples/azure-search-openai-demo/blob/main/README.md) for details.
 
 ## Prerequisites
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
 
-+ Azure Cognitive Search, at Standard one (S1) tier or higher, with [semantic search enabled](semantic-search-overview.md#enable-semantic-search).
++ Azure Cognitive Search, at Basic tier or higher, with [semantic search enabled](semantic-how-to-enable-disable.md).
 
-+ An API key and search endpoint:
++ An API key and service endpoint:
 
-  [Sign in to the Azure portal](https://portal.azure.com/) and [find your search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
+  Sign in to the [Azure portal](https://portal.azure.com) and [find your search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
 
   In **Overview**, copy the URL and save it to Notepad for a later step. An example endpoint might look like `https://mydemo.search.windows.net`.
 

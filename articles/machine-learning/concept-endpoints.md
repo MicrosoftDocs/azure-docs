@@ -11,13 +11,13 @@ ms.author: sehan
 ms.reviewer: mopeakande
 reviewer: msakande
 ms.custom: devplatv2
-ms.date: 02/07/2023
+ms.date: 07/12/2023
 #Customer intent: As an MLOps administrator, I want to understand what a managed endpoint is and why I need it.
 ---
 
 # Endpoints for inference in production
 
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 After you train machine learning models or pipelines, you need to deploy them to production so that others can use them for _inference_. Inference is the process of applying new input data to the machine learning model or pipeline to generate outputs. While these outputs are typically referred to as "predictions," inferencing can be used to generate outputs for other machine learning tasks, such as classification and clustering. In Azure Machine Learning, you perform inferencing by using __endpoints and deployments__. Endpoints and deployments allow you to decouple the interface of your production workload from the implementation that serves it.
 
@@ -41,7 +41,7 @@ An **endpoint** is a stable and durable URL that can be used to request or invok
 
 - a stable and durable URL (like _endpoint-name.region.inference.ml.azure.com_),
 - an authentication mechanism, and
-- an authentication mechanism.
+- an authorization mechanism.
 
 A **deployment** is a set of resources and computes required for hosting the model or component that does the actual inferencing. A single endpoint can contain multiple deployments. These deployments can host independent assets and consume different resources based on the needs of the assets. Endpoints have a routing mechanism that can direct requests to specific deployments in the endpoint.
 
@@ -82,16 +82,15 @@ The following table shows a summary of the different features available to onlin
 | Feature                               | [Online Endpoints](concept-endpoints-online.md) | [Batch endpoints](concept-endpoints-batch.md) |
 |---------------------------------------|-------------------------------------------------|-----------------------------------------------|
 | Stable invocation URL                 | Yes                                             | Yes                                           |
-| Support for multiple deployments          | Yes                                             | Yes                                           |
+| Support for multiple deployments      | Yes                                             | Yes                                           |
 | Deployment's routing                  | Traffic split                                   | Switch to default                             |
 | Mirror traffic for safe rollout       | Yes                                             | No                                            |
 | Swagger support                       | Yes                                             | No                                            |
 | Authentication                        | Key and token                                   | Azure AD                                      |
 | Private network support               | Yes                                             | Yes                                           |
-| Managed network isolation<sup>1</sup> | Yes                                             | No                                            |
+| Managed network isolation | Yes                                             | No                                            |
 | Customer-managed keys                 | Yes                                             | No                                            |
-
-<sup>1</sup> [*Managed network isolation*](how-to-secure-online-endpoint.md) allows you to manage the networking configuration of the endpoint independently of the configuration of the Azure Machine Learning workspace.
+| Cost basis                            | None                                            | None                                          |
 
 #### Deployments
 
@@ -109,11 +108,14 @@ The following table shows a summary of the different features available to onlin
 | Scaling compute to zero       | No                                              | Yes                                           |
 | Autoscaling compute<sup>2</sup> | Yes, based on resources' load                 | Yes, based on job count                       |
 | Overcapacity management       | Throttling                                      | Queuing                                       |
+| Cost basis<sup>3</sup>        | Per deployment: compute instances running       | Per job: compute instanced consumed in the job  (capped to the maximum number of instances of the cluster). |
 | Local testing of deployments  | Yes                                             | No                                            |
 
 <sup>1</sup> *Inference server* refers to the serving technology that takes requests, processes them, and creates responses. The inference server also dictates the format of the input and the expected outputs.
 
 <sup>2</sup> *Autoscaling* is the ability to dynamically scale up or scale down the deployment's allocated resources based on its load. Online and batch deployments use different strategies for autoscaling. While online deployments scale up and down based on the resource utilization (like CPU, memory, requests, etc.), batch endpoints scale up or down based on the number of jobs created.
+
+<sup>3</sup> Both online and batch deployments charge by the resources consumed. In online deployments, resources are provisioned at deployment time. However, in batch deployment, no resources are consumed at deployment time but when the job runs. Hence, there is no cost associated with the deployment itself. Notice that queued jobs do not consume resources either.
 
 ## Developer interfaces
 

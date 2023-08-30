@@ -194,5 +194,5 @@ They can also renew expired role assignments from within the **Expired** roles t
 
 ## Next steps
 
-- [Approve or deny requests for Azure AD roles in Privileged Identity Management](azure-ad-pim-approval-workflow.md)
+- [Approve or deny requests for Azure AD roles in Privileged Identity Management](./pim-approval-workflow.md)
 - [Configure Azure AD role settings in Privileged Identity Management](pim-how-to-change-default-settings.md)

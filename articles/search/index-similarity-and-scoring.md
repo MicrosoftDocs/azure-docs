@@ -2,7 +2,6 @@
 title: Relevance and scoring
 titleSuffix: Azure Cognitive Search
 description: Explains the concepts of relevance and scoring in Azure Cognitive Search, and what a developer can do to customize the scoring result.
-
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search

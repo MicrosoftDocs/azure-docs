@@ -4,6 +4,7 @@ description: This guide describes how Caddy can be used as a reverse proxy to en
 ms.author: tomcassidy
 author: tomvcassidy
 ms.service: container-instances
+ms.custom: devx-track-azurecli
 services: container-instances
 ms.topic: how-to
 ms.date: 06/12/2023
@@ -295,7 +296,7 @@ read R BLOCK
 
 #### Chrome browser
 
-Navigate to https://my-app.westeurope.azurecontainer.io and verify the certificate by clicking on the padlock next to the URL. 
+Navigate to ``` https://my-app.westeurope.azurecontainer.io ``` and verify the certificate by clicking on the padlock next to the URL. 
 
 :::image type="content" source="media/container-instances-container-group-automatic-ssl/url-padlock.png" alt-text="Screenshot highlighting the padlock next to the URL that verifies the certificate.":::
 
