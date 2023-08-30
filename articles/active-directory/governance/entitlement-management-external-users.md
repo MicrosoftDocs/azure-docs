@@ -83,7 +83,7 @@ To ensure people outside of your organization can request access packages and ge
 
     ![Edit catalog settings](./media/entitlement-management-shared/catalog-edit.png)
 
-  If you're an administrator or catalog owner, you can view the list of catalogs currently enabled for external users in the Azure portal list of catalogs, by changing the filter setting for **Enabled for external users** to **Yes**.  If any of those catalogs shown in that filtered view have a non-zero number of access packages, those access packages may have a policy [for users not in your directory](entitlement-management-access-package-request-policy.md#for-users-not-in-your-directory) that allow external users to request.
+  If you're an administrator or catalog owner, you can view the list of catalogs currently enabled for external users in the Microsoft Entra admin center list of catalogs, by changing the filter setting for **Enabled for external users** to **Yes**.  If any of those catalogs shown in that filtered view have a non-zero number of access packages, those access packages may have a policy [for users not in your directory](entitlement-management-access-package-request-policy.md#for-users-not-in-your-directory) that allow external users to request.
 
 ### Configure your Azure AD B2B external collaboration settings
 
@@ -111,7 +111,7 @@ To ensure people outside of your organization can request access packages and ge
     :::image type="content" source="media/entitlement-management-external-users/exclude-app-guests-selection.png" alt-text="Screenshot of the exclude guests app selection.":::
 
 > [!NOTE]
-> The Entitlement Management app includes the entitlement management side of MyAccess, the Entitlement Management side of Azure portal and the Entitlement Management part of MS graph. The latter two require additional permissions for access, hence won't be accessed by guests unless explicit permission is provided. 
+> The Entitlement Management app includes the entitlement management side of MyAccess, the Entitlement Management side of the Microsoft Entra admin center, and the Entitlement Management part of MS graph. The latter two require additional permissions for access, hence won't be accessed by guests unless explicit permission is provided. 
 
 ### Review your SharePoint Online external sharing settings
 
@@ -139,9 +139,9 @@ You can select what happens when an external user, who was invited to your direc
 
 **Prerequisite role:** Global administrator, Identity Governance administrator or User administrator
 
-1. In the Azure portal, select **Azure Active Directory** and then select **Identity Governance**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1. In the left menu, in the **Entitlement management** section, select **Settings**.
+1. Browse to **Identity governance** > **Entitlement management** > **Settings**.
 
 1. Select **Edit**.
 

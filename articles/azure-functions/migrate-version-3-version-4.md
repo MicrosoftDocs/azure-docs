@@ -38,7 +38,7 @@ On version 3.x of the Functions runtime, your C# function app targets .NET Core 
 [!INCLUDE [functions-dotnet-migrate-v4-versions](../../includes/functions-dotnet-migrate-v4-versions.md)]
 
 > [!TIP]
-> **If you're migrating from .NET 5 (on the isolated worker model), we recommend upgrading to .NET 6 on the isolated worker model.** This provides a quick upgrade path with the longest support window from .NET.
+> **If you're migrating from .NET 5 (on the isolated worker model), we recommend upgrading to .NET 6 on the isolated worker model.** This provides a quick upgrade path to the fully released version with the longest support window from .NET.
 >
 > **If you're migrating from .NET Core 3.1 (on the in-process model), we recommend upgrading to .NET 6 on the in-process model.** This provides a quick upgrade path. However, you might also consider upgrading to .NET 6 on the isolated worker model. Switching to the isolated worker model will require additional code changes as part of this migration, but it will give your app [additional benefits](./dotnet-isolated-in-process-differences.md), including the ability to more easily target future versions of .NET. If you are moving to an LTS or STS version of .NET using the isolated worker model, the [.NET Upgrade Assistant] can also handle many of the necessary code changes for you.
 
@@ -245,7 +245,7 @@ Some key classes changed names between versions. These changes are a result eith
 
 ---
 
-[ASP.NET Core integration]: ./dotnet-isolated-process-guide.md#aspnet-core-integration-preview
+[ASP.NET Core integration]: ./dotnet-isolated-process-guide.md#aspnet-core-integration
 
 There might also be class name differences in bindings. For more information, see the reference articles for the specific bindings.
 

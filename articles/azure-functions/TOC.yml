@@ -330,8 +330,6 @@
       items:
         - name: About triggers and bindings
           href: functions-triggers-bindings.md
-        - name: Binding example
-          href: functions-bindings-example.md
         - name: Register binding extensions
           href: functions-bindings-register.md
           displayName: bundles, extension bundles
@@ -460,7 +458,7 @@
         - name: Connect to services
           items:
             - name: How to connect to services
-              displayName: bindings,integrate
+              displayName: bindings,integrate,add bindings
               href: add-bindings-existing-function.md
             - name: Azure Cosmos DB - portal
               href: functions-integrate-store-unstructured-data-cosmosdb.md

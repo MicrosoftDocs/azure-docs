@@ -2,13 +2,13 @@
 title: Restore a cluster backup
 titleSuffix: Azure Cosmos DB for MongoDB vCore
 description: Restore an Azure Cosmos DB for MongoDB vCore cluster from a point in time encrypted backup snapshot.
+author: gahl-levy
+ms.author: gahllevy
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: how-to
-author: gahl-levy
-ms.author: gahllevy
-ms.reviewer: nayakshweta
-ms.date: 03/07/2023
+ms.date: 08/28/2023
 ---
 
 # Restore a cluster in Azure Cosmos DB for MongoDB vCore
