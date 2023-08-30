@@ -1,6 +1,6 @@
 ---
-title: Manage update configuration settings in Azure Update Manager (preview)
-description: The article describes how to manage the update settings for your Windows and Linux machines managed by Azure Update Manager (preview).
+title: Manage update configuration settings in Azure Update Manager
+description: The article describes how to manage the update settings for your Windows and Linux machines managed by Azure Update Manager.
 ms.service: azure-update-manager
 author: snehasudhirG
 ms.author: sudhirsneha
@@ -12,7 +12,7 @@ ms.topic: conceptual
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
 
-The article describes how to configure update settings from Azure Update Manager (preview), to control the update settings on your Azure VMs and Arc-enabled servers for one or more machines.
+The article describes how to configure update settings from Azure Update Manager, to control the update settings on your Azure VMs and Arc-enabled servers for one or more machines.
 
 :::image type="content" source="./media/manage-update-settings/manage-update-settings-option-inline.png" alt-text="Screenshot Viewing the update manager manage update settings option." lightbox="./media/manage-update-settings/manage-update-settings-option-expanded.png":::
 
@@ -22,7 +22,7 @@ The article describes how to configure update settings from Azure Update Manager
 To configure update settings on your machines on a single VM, follow these steps:
 
 >[!NOTE]
-> You can schedule updates from the Overview blade or Machines blade in Update Manager (preview) page or from the selected VM.
+> You can schedule updates from the Overview blade or Machines blade in Update Manager page or from the selected VM.
 
 # [From Overview blade](#tab/manage-single-overview)
 
@@ -38,11 +38,11 @@ To configure update settings on your machines on a single VM, follow these steps
 
    - **Periodic assessment** - The **periodic Assessment** is set to run every 24 hours. You can either enable or disable this setting.
      
-    - **Hot patch** - You can enable [hot patching](../automanage/automanage-hotpatch.md) for Windows Server Azure Edition Virtual Machines (VMs). Hot patching is a new way to install updates on supported *Windows Server Azure Edition* virtual machines that doesn't require a reboot after installation. You can use Update Manager (preview) to install other patches by scheduling patch installation or triggering immediate patch deployment. You can enable, disable or reset this setting.
+    - **Hot patch** - You can enable [hot patching](../automanage/automanage-hotpatch.md) for Windows Server Azure Edition Virtual Machines (VMs). Hot patching is a new way to install updates on supported *Windows Server Azure Edition* virtual machines that doesn't require a reboot after installation. You can use Update Manager to install other patches by scheduling patch installation or triggering immediate patch deployment. You can enable, disable or reset this setting.
 
     - **Patch orchestration** option provides the following:
     
-      - **Customer Managed Schedules (Preview)**—enables schedule patching on your existing VMs. The new patch orchestration option enables the two VM properties - **Patch mode = Azure-orchestrated** and **BypassPlatformSafetyChecksOnUserSchedule = TRUE** on your behalf after receiving your consent.
+      - **Customer Managed Schedules**—enables schedule patching on your existing VMs. The new patch orchestration option enables the two VM properties - **Patch mode = Azure-orchestrated** and **BypassPlatformSafetyChecksOnUserSchedule = TRUE** on your behalf after receiving your consent.
       - **Azure Managed - Safe Deployment**—for a group of virtual machines undergoing an update, the Azure platform will orchestrate updates. (not applicable for Arc-enabled server). The VM is set to [automatic VM guest patching](../virtual-machines/automatic-vm-guest-patching.md).(i.e), the patch mode is **AutomaticByPlatform**. There are different implications depending on whether customer schedule is attached to it or not. For more information, see the [user scenarios](prerequsite-for-schedule-patching.md#user-scenarios).
           - Available *Critical* and *Security* patches are downloaded and applied automatically on the Azure VM using [automatic VM guest patching](../virtual-machines/automatic-vm-guest-patching.md). This process kicks off automatically every month when new patches are released. Patch assessment and installation are automatic, and the process includes rebooting the VM as required.
       - **Windows Automatic Updates** (AutomaticByOS) - When the workload running on the VM doesn't have to meet availability targets, the operating system updates are automatically downloaded and installed. Machines are rebooted as needed.
@@ -65,7 +65,7 @@ To configure update settings on your machines on a single VM, follow these steps
 
 1. Select your virtual machine and the **virtual machines | Updates** page opens.
 1. Under **Operations**, select **Updates**.
-1. In **Updates (Preview)**, select **Update Settings**.
+1. In **Updates**, select **Update Settings**.
 1. In **Change update settings**, you can select the update settings that you want to change for your machine and follow the procedure from step 3 listed in **From Overview blade** of [Configure settings on single VM](#configure-settings-on-single-vm).
 
 ---
@@ -103,5 +103,5 @@ A notification appears to confirm that the update settings are successfully chan
 ## Next steps
 
 * [View assessment compliance](view-updates.md) and [deploy updates](deploy-updates.md) for a selected Azure VM or Arc-enabled server, or across [multiple machines](manage-multiple-machines.md) in your subscription in the Azure portal.
-* To view update assessment and deployment logs generated by Update Manager (preview), see [query logs](query-logs.md).
-* To troubleshoot issues, see the [Troubleshoot](troubleshoot.md) Update Manager (preview).
+* To view update assessment and deployment logs generated by Update Manager, see [query logs](query-logs.md).
+* To troubleshoot issues, see the [Troubleshoot](troubleshoot.md) Update Manager.

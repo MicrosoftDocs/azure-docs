@@ -27,11 +27,11 @@ The MCM in Azure and Azure Update Manager can fulfill your patching requirements
 
 ## Manage software updates using Azure Update Manager
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and search for Azure Update Manager (preview).
+1. Sign in to the [Azure portal](https://portal.azure.com) and search for Azure Update Manager.
 
    :::image type="content" source="./media/guidance-migration-azure/update-manager-service-selection-inline.png" alt-text="Screenshot of selecting the Azure Update Manager from Azure portal." lightbox="./media/guidance-migration-azure/update-manager-service-selection-expanded.png":::
 
-1. In the **Azure Update Manager (Preview)** home page, under **Manage** > **Machines**, select your subscription to view all your machines.
+1. In the **Azure Update Manager** home page, under **Manage** > **Machines**, select your subscription to view all your machines.
 1. Filter as per the available options to know the status of your specific machines.
 
    :::image type="content" source="./media/guidance-migration-azure/filter-machine-status-inline.png" alt-text="Screenshot of selecting the filters in Azure Update Manager to view the machines." lightbox="./media/guidance-migration-azure/filter-machine-status-expanded.png":::
@@ -49,7 +49,7 @@ The following table explains the mapping capabilities of MCM software Update Man
 |Configuring classifications/products to synchronize/scan/assess | You can choose the update classifications (security or critical updates) to synchronize/scan/assess. [Learn more](https://learn.microsoft.com/mem/configmgr/sum/get-started/configure-classifications-and-products). | There's no such capability here. The entire software metadata is scanned.| 
 |Deploy software updates (install patches)| Provides three modes of deploying updates: </br> Manual deployment </br> Automatic deployment </br> Phased deployment [Learn more](https://learn.microsoft.com/mem/configmgr/sum/deploy-use/deploy-software-updates).| Manual deployment is mapped to deploying [one-time updates](deploy-updates.md) and Automatic deployment is mapped to [scheduled updates](scheduled-patching.md). (The [Automatic Deployment Rules (ADRs)](https://learn.microsoft.com/mem/configmgr/sum/deploy-use/automatically-deploy-software-updates#BKMK_CreateAutomaticDeploymentRule) can be mapped to schedules). There's no phased deployment option. |
 
-## Limitations in Azure Update Manager (preview)
+## Limitations in Azure Update Manager
 
 The following are the current limitations:
 

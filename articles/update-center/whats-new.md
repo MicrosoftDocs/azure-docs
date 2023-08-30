@@ -1,6 +1,6 @@
 ---
-title: What's new in Azure Update Manager (preview)
-description: Learn about what's new and recent updates in the Azure Update Manager (preview) service.
+title: What's new in Azure Update Manager
+description: Learn about what's new and recent updates in the Azure Update Manager service.
 ms.service: azure-update-manager
 ms.topic: overview
 author: SnehaSudhirG
@@ -8,9 +8,9 @@ ms.author: sudhirsneha
 ms.date: 07/05/2023
 ---
 
-# What's new in Azure Update Manager (Preview)
+# What's new in Azure Update Manager
 
-[Azure Update Manager (preview)](overview.md) helps you manage and govern updates for all your machines. You can monitor Windows and Linux update compliance across your deployments in Azure, on-premises, and on the other cloud platforms from a single dashboard. This article summarizes new releases and features in Update Manager (preview).
+[Azure Update Manager](overview.md) helps you manage and govern updates for all your machines. You can monitor Windows and Linux update compliance across your deployments in Azure, on-premises, and on the other cloud platforms from a single dashboard. This article summarizes new releases and features in Update Manager.
 
 ## July 2023
 
@@ -23,11 +23,11 @@ Dynamic scope (preview) is an advanced capability of schedule patching. You can 
 
 ### Customized image support
 
-Update Manager (preview) now supports [generalized](../virtual-machines/linux/imaging.md#generalized-images) custom images, and a combination of offer, publisher, and SKU for Marketplace/PIR images.See the [list of supported operating systems](support-matrix.md#supported-operating-systems). 
+Update Manager now supports [generalized](../virtual-machines/linux/imaging.md#generalized-images) custom images, and a combination of offer, publisher, and SKU for Marketplace/PIR images.See the [list of supported operating systems](support-matrix.md#supported-operating-systems). 
 
 ### Multi-subscription support
 
-The limit on the number of subscriptions that you can manage to use the Update Manager (preview) portal has now been removed. You can now manage all your subscriptions using the update Manager (preview) portal.
+The limit on the number of subscriptions that you can manage to use the Update Manager portal has now been removed. You can now manage all your subscriptions using the update Manager portal.
 
 ## April 2023
 
@@ -43,7 +43,7 @@ A new patch orchestration - **Customer Managed Schedules (Preview)** is introduc
 
 ### New region support
 
-Update Manager (preview) now supports new five regions for Azure Arc-enabled servers. [Learn more](support-matrix.md#supported-regions).
+Update Manager now supports new five regions for Azure Arc-enabled servers. [Learn more](support-matrix.md#supported-regions).
 
 ## October 2022
 
