@@ -3,12 +3,14 @@ title: User-defined functions in Bicep
 description: Describes how to define and use user-defined functions in Bicep.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 08/29/2023
+ms.date: 08/30/2023
 ---
 
 # User-defined functions in Bicep (Preview)
 
 Within your Bicep file, you can create your own functions. These functions are available for use in your Bicep files. User-defined functions are separate from the [standard Bicep functions](./bicep-functions.md) that are automatically available within your Bicep files. Create your own functions when you have complicated expressions that are used repeatedly in your Bicep files.
+
+[Bicep version 0.20 or newer](./install.md) is required to use this feature.
 
 ## Enable the preview feature
 
@@ -27,7 +29,7 @@ To enable this preview, modify your project's [bicepconfig.json](./bicep-config.
 Use the `func` statement to define user-defined functions.
 
 ```bicep
-func <user-defined-function-name> (<argument> <data-type>, <argument> <date-type>, ...) <function-data-type> => <expression>
+func <user-defined-function-name> (<argument-name> <data-type>, <argument-name> <date-type>, ...) <function-data-type> => <expression>
 ```
 
 ## Examples

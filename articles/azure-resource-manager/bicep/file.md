@@ -3,7 +3,7 @@ title: Bicep file structure and syntax
 description: Describes the structure and properties of a Bicep file using declarative syntax.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 06/06/2023
+ms.date: 08/30/2023
 ---
 
 # Understand the structure and syntax of Bicep files
@@ -23,7 +23,7 @@ metadata <metadata-name> = ANY
 
 targetScope = '<scope>'
 
-func <user-defined-function-name> (<argument> <data-type>, <argument> <date-type>, ...) <function-data-type> => <expression>
+func <user-defined-function-name> (<argument-name> <data-type>, <argument-name> <date-type>, ...) <function-data-type> => <expression>
 
 @<decorator>(<argument>)
 param <parameter-name> <parameter-data-type> = <default-value>
