@@ -6,7 +6,7 @@ ms.service: api-center
 ms.topic: tutorial
 ms.date: 06/05/2023
 ms.author: danlep
-ms.custom: 
+ms.custom:
 ---
 
 # Tutorial: Get started with your API center (preview)
@@ -28,19 +28,12 @@ For background information about the assets you can organize in API Center, see 
 
 ## Prerequisites
 
-* Access to the API Center preview. See [access instructions](https://aka.ms/apicenter/joinpreview):
-
-    1. Register the **Azure API Center Preview** feature in your subscription (or subscriptions).
-    1. Submit the access request form.
-    1. Wait for a notification email from Microsoft that access to API Center is enabled in the requested Azure subscription.
-
 * At least a Contributor role assignment or equivalent permissions in the Azure subscription. 
 
 * One or more APIs that you want to register in your API center. Here are two examples, with links to their OpenAPI specifications for download:
 
-    * [Swagger Petstore API](https://github.com/swagger-api/swagger-petstore/blob/master/src/main/resources/openapi.yaml)
-    * [Azure Demo Conference API](https://conferenceapi.azurewebsites.net?format=json)
-
+* [Swagger Petstore API](https://github.com/swagger-api/swagger-petstore/blob/master/src/main/resources/openapi.yaml)
+* [Azure Demo Conference API](https://conferenceapi.azurewebsites.net?format=json)
 ## Register the API Center provider
 
 After you've been added to the API Center preview, you need to register the **Microsoft.ApiCenter** resource provider in your subscription, using the portal or other tools. You only need to register the resource provider once. For steps, see [Register resource provider](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider). 
@@ -243,3 +236,4 @@ In this tutorial, you learned how to use the portal to:
 
 > [!div class="nextstepaction"]
 > [Learn more about API Center](key-concepts.md)
+
