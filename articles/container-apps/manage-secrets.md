@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: how-to
-ms.date: 05/10/2023
+ms.date: 03/23/2023
 ms.author: cshoe
 ms.custom: event-tier1-build-2022, ignite-2022, devx-track-azurecli, devx-track-azurepowershell, build-2023, devx-track-linux
 ---
@@ -203,7 +203,7 @@ Secrets Key Vault references aren't supported in PowerShell.
 ---
 
 > [!NOTE]
-> If you're using [UDR With Azure Firewall](./networking.md#user-defined-routes-udr---preview), you will need to add the `AzureKeyVault` service tag and the *login.microsoft.com* FQDN to the allow list for your firewall. Refer to [configuring UDR with Azure Firewall](./networking.md#configuring-udr-with-azure-firewall---preview) to decide which additional service tags you need.
+> If you're using [UDR With Azure Firewall](networking.md#user-defined-routes-udr), you will need to add the `AzureKeyVault` service tag and the *login.microsoft.com* FQDN to the allow list for your firewall. Refer to [configuring UDR with Azure Firewall](networking.md#configuring-udr-with-azure-firewall) to decide which additional service tags you need.
 
 #### Key Vault secret URI and secret rotation
 
