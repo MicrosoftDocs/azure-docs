@@ -4,6 +4,7 @@ description: Describes how to customize assessments created with Azure Migrate
 author: rashi-ms
 ms.author: rajosh
 ms.manager: abhemraj
+ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 10/26/2022
 ms.custom: engagement-fy23

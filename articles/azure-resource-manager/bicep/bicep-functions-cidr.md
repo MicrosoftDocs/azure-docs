@@ -3,7 +3,7 @@ title: Bicep functions - CIDR
 description: Describes the functions to use in a Bicep file to manipulate IP addresses and create IP address ranges.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 05/17/2023
+ms.date: 06/08/2023
 ---
 
 # CIDR functions for Bicep
@@ -131,14 +131,21 @@ The preceding example returns the following array:
 
 Calculates the usable IP address of the host with the specified index on the specified IP address range in CIDR notation. For example, in the case of `192.168.1.0/24`, there are reserved IP addresses: `192.168.1.0` serves as the network identifier address, while `192.168.1.255` functions as the broadcast address. Only IP addresses ranging from `192.168.1.1` to `192.168.1.254` can be assigned to hosts, which we refer to as "usable" IP addresses. So, when the function is passed a hostIndex of `0`, `192.168.1.1` is returned.
 
+Within Azure, there are additional IP addresses reserved in each subnet, which include the first four and the last IP address, totaling five reserved IP addresses. For instance, in the case of the IP address range `192.168.1.0/24`, the following addresses are reserved:
+
+- `192.168.1.0` : Network address.
+- `192.168.1.1` : Reserved by Azure for the default gateway.
+- `192.168.1.2`, `192.168.1.3` : Reserved by Azure to map the Azure DNS IPs to the VNet space.
+- `192.168.1.255` : Network broadcast address.
+
 Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### Parameters
 
 | Parameter | Required | Type | Description |
 |:-|:-|:-|:-|
-| network | Yes | string | String containing an ip network to convert (must be correct networking format). |
-| hostIndex | Yes | int |  The index of the host IP address to return. |
+| network | Yes | string | String containing an IP network to convert. The provided string must be in the correct networking format. |
+| hostIndex | Yes | int | The index determines the host IP address to be returned. If you use the value `0`, it gives you the first usable IP address for a non-Azure network. However, if you use `3`, it provides you with the first usable IP address for an Azure subnet.|
 
 ### Return value
 
@@ -146,7 +153,7 @@ A string of the IP address.
 
 ### Examples
 
-The following example calculates the first five usable host IP addresses from the specified /24:
+The following example calculates the first five usable host IP addresses from the specified /24 on non-Azure networks:
 
 ```bicep
 output v4hosts array = [for i in range(0, 5): cidrHost('10.144.3.0/24', i)]
@@ -164,7 +171,7 @@ The preceding example returns the following array:
 ]
 ```
 
-The following example calculates the first five usable host IP addresses from the specified /52:
+The following example calculates the first five usable host IP addresses from the specified /52 on non-Azure networks:
 
 ```bicep
 output v6hosts array = [for i in range(0, 5): cidrHost('fdad:3236:5555:3000::/52', i)]
@@ -184,4 +191,4 @@ The preceding example returns the following array:
 
 ## Next steps
 
-* For a description of the sections in a Bicep file, see [Understand the structure and syntax of Bicep files](./file.md).
+- For a description of the sections in a Bicep file, see [Understand the structure and syntax of Bicep files](./file.md).

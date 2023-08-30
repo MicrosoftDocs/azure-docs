@@ -14,8 +14,7 @@ For more information about this compliance standard, see
 _Ownership_, see [Azure Policy policy definition](../concepts/definition-structure.md#type) and
 [Shared responsibility in the cloud](../../../security/fundamentals/shared-responsibility.md).
 
-The following mappings are to the **NIST SP 800-171 R2** controls. Use the
-navigation on the right to jump directly to a specific **compliance domain**. Many of the controls
+The following mappings are to the **NIST SP 800-171 R2** controls. Many of the controls
 are implemented with an [Azure Policy](../overview.md) initiative definition. To review the complete
 initiative definition, open **Policy** in the Azure portal and select the **Definitions** page.
 Then, find and select the **NIST SP 800-171 R2** Regulatory Compliance built-in

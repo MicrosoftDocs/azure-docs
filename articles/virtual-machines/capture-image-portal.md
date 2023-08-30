@@ -19,6 +19,8 @@ For images stored in an Azure Compute Gallery (formerly known as Shared Image Ga
 
 > [!IMPORTANT]
 > Once you mark a VM as `generalized` in Azure, you cannot restart the VM. Legacy **managed images** are automatically marked as generalized.
+> > When capturing an image of a virtual machine in Azure, the virtual machine will be temporarily stopped to ensure data consistency and prevent any potential issues during the image creation. This is because capturing an image requires a point-in-time snapshot of the virtual machine's disk.
+> To avoid disruptions in a production environment, it's recommended you schedule the image capture process during a maintenance window or a time when the temporary downtime won't impacting critical services.
 
 
 ## Capture a VM in the portal 

@@ -1,14 +1,14 @@
 ---
 title: Discover third-party solutions from Azure Synapse partners through Synapse Studio
 description: Learn how to discover new third-party solutions that are tightly integrated with Azure Synapse partners
-manager: santoshb
-ms.service: synapse-analytics
-ms.topic: conceptual
-ms.subservice: sql-dw 
-ms.date: 07/14/2021
 author: gillharmeet
 ms.author: harmeetgill
+manager: santoshb
 ms.reviewer: omafnan, wiassaf
+ms.date: 06/14/2023
+ms.service: synapse-analytics
+ms.subservice: sql-dw
+ms.topic: conceptual
 ms.custom: seo-lt-2019
 ---
 
@@ -21,9 +21,9 @@ The following table lists partner solutions that are currently supported. Make s
 
 | Partner | Solution name |
 | ------- | ------------- |
-| ![Incorta](./media/data-integration/incorta-logo.png) | Incorta Intelligent Ingest for Azure Synapse |
-| ![Informatica](./media/data-integration/informatica_logo.png) | Informatica Intelligent Data Management Cloud |
-| ![Qlik Data Integration (formerly Attunity)](./media/business-intelligence/qlik_logo.png) | Qlik Data Integration (formerly Attunity) |
+| :::image type="content" source="./media/data-integration/incorta-logo.png" alt-text="The corporate logo of Incorta."::: | Incorta Intelligent Ingest for Azure Synapse |
+| :::image type="content" source="./media/data-integration/informatica_logo.png" alt-text="The corporate logo of Informatica."::: | Informatica Intelligent Data Management Cloud |
+| :::image type="content" source="./media/business-intelligence/qlik_logo.png" alt-text="The corporate logo of Qlik Data Integration (formerly Attunity)."::: | Qlik Data Integration (formerly Attunity) |
 
 ## Requirements
 When you chose a partner application, Azure Synapse Studio provisions a sandbox environment you can use for this trial, ensuring you can experiment with partner solutions quickly before you decide to use it with your production data. The following objects are created: 
@@ -36,7 +36,7 @@ When you chose a partner application, Azure Synapse Studio provisions a sandbox 
 
 In all cases, **[PartnerName]** is the name of the third-party ISV who offers the trial. 
 
-### Security 
+### Security
 After the required objects are created, Synapse Studio sends information about your new sandbox environment to the partner application, allowing a customized trial experience. The following information is sent to our partners: 
 - First name
 - Last name
@@ -51,7 +51,7 @@ We never share any passwords with the partner application, including the passwor
 ### Costs
 The dedicated SQL pool that is created for your partner trial incurs ongoing costs, which are based on the number of DWU blocks and hours running. Make sure you pause the SQL pool created for this partner trial when it isn't in use, to avoid unnecessary charges. 
 
-## Starting a new partner trial 
+## Start a new partner trial
 
 1) On the Synapse Studio home page, under **Discover more**, select **browse partners**.
 2) The Browse partners page shows all partners currently offering trials that allow direct connectivity with Azure Synapse. Choose a partner solution.
@@ -65,4 +65,4 @@ The required objects will be created for your partner trial. You'll then be forw
 
 ## Next steps
 
-To learn more about some of our other partners, see [Data integration partners](data-integration.md), [Data management partners](data-management.md), and [Machine Learning and AI partners](machine-learning-ai.md).
+- To learn more about some of our other partners, see [Data integration partners](data-integration.md), [Data management partners](data-management.md), and [Machine Learning and AI partners](machine-learning-ai.md).

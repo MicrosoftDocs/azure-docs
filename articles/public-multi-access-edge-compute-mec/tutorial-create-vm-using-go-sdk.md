@@ -6,7 +6,7 @@ ms.author: vivekshah
 ms.service: public-multi-access-edge-compute-mec
 ms.topic: tutorial
 ms.date: 11/22/2022
-ms.custom: template-tutorial
+ms.custom: template-tutorial, devx-track-go
 ---
 
 # Tutorial: Deploy resources in Azure public MEC using the Go SDK

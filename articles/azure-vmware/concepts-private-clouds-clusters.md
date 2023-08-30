@@ -3,7 +3,7 @@ title: Concepts - Private clouds and clusters
 description: Learn about the key capabilities of Azure VMware Solution software-defined data centers and VMware vSphere clusters. 
 ms.topic: conceptual
 ms.service: azure-vmware
-ms.date: 1/10/2023
+ms.date: 6/27/2023
 ms.custom: engagement-fy23
 ---
 
@@ -22,9 +22,25 @@ A private cloud includes clusters with:
 
 As with other resources, private clouds are installed and managed from within an Azure subscription. The number of private clouds within a subscription is scalable. Initially, there's a limit of one private cloud per subscription.  There's a logical relationship between Azure subscriptions, Azure VMware Solution private clouds, vSAN clusters, and hosts.
 
-The diagram shows a single Azure subscription with two private clouds that represent a development and production environment. In each of those private clouds are two clusters.
+The diagram below describes the architectural components of the Azure VMware Solution.
 
-:::image type="content" source="media/concepts/hosts-clusters-private-clouds-final.png" alt-text="Diagram that shows a single Azure subscription with two private clouds that represent a development and production environment." border="false":::
+:::image type="content" source="media/concepts/hosts-clusters-private-clouds-final.png" alt-text="Diagram that shows a single Azure subscription with two private clouds that represent a development and production environment." border="false"  lightbox="media/concepts/hosts-clusters-private-clouds-final.png":::
+
+Each Azure VMware Solution architectural component has the following function:
+
+- Azure Subscription: Used to provide controlled access, budget, and quota management for the Azure VMware Solution.
+- Azure Region: Physical locations around the world where we group data centers into Availability Zones (AZs) and then group AZs into regions.
+- Azure Resource Group: Container used to place Azure services and resources into logical groups.
+- Azure VMware Solution Private Cloud: Uses VMware software, including vCenter Server, NSX-T Data Center software-defined networking, vSAN software-defined storage, and Azure bare-metal ESXi hosts to provide compute, networking, and storage resources.
+- Azure VMware Solution Resource Cluster: Uses VMware software, including vSAN software-defined storage, and Azure bare-metal ESXi hosts to provide compute, networking, and storage resources for customer workloads by scaling out the Azure VMware Solution private cloud.
+- VMware HCX: Provides mobility, migration, and network extension services.
+- VMware Site Recovery: Provides Disaster Recovery automation and storage replication services with VMware vSphere Replication. Third party Disaster Recovery solutions Zerto Disaster Recovery and JetStream Software Disaster Recovery are also supported.
+- Dedicated Microsoft Enterprise Edge (D-MSEE): Router that provides connectivity between Azure cloud and the Azure VMware Solution private cloud instance.
+- Azure Virtual Network (VNet): Private network used to connect Azure services and resources together.
+- Azure Route Server: Enables network appliances to exchange dynamic route information with Azure networks.
+- Azure Virtual Network Gateway: Cross premises gateway for connecting Azure services and resources to other private networks using IPSec VPN, ExpressRoute, and VNet to VNet.
+- Azure ExpressRoute: Provides high-speed private connections between Azure data centers and on-premises or colocation infrastructure.
+- Azure Virtual WAN (vWAN): Aggregates networking, security, and routing functions together into a single unified Wide Area Network (WAN).
 
 ## Hosts
 

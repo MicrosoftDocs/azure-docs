@@ -4,7 +4,7 @@ description: Learn how to remove TLS 1.0 and 1.1 from your application when comm
 author: flang-msft
 ms.service: cache
 ms.topic: conceptual
-ms.date: 03/07/2023
+ms.date: 07/13/2023
 ms.author: franlanglois
 ms.devlang: csharp, golang, java, javascript, php, python
 
@@ -19,8 +19,12 @@ As a part of this effort, we'll be making the following changes to Azure Cache f
 * **Phase 1:** We'll configure the default minimum TLS version to be 1.2 for newly created cache instances (previously, it was TLS 1.0). Existing cache instances won't be updated at this point. You can still use the Azure portal or other management APIs to [change the minimum TLS version](cache-configure.md#access-ports) to 1.0 or 1.1 for backward compatibility.
 * **Phase 2:** We'll stop supporting TLS 1.1 and TLS 1.0. After this change, your application must use TLS 1.2 or later to communicate with your cache. The Azure Cache for Redis service is expected to be available while we migrate it to support only TLS 1.2 or later.
 
-  > [!NOTE]
-  > Phase 2 is postponed because of COVID-19. We strongly recommend that you begin planning for this change now and proactively update clients to support TLS 1.2 or later. 
+  > [!WARNING]
+  > Phase 2 is postponed because of COVID-19. We strongly recommend that you begin planning for this change now and proactively update clients to support TLS 1.2 or later.
+  > 
+  
+  > [!IMPORTANT]
+  > The content in this article does not apply to Azure Cache for Redis Enterprise/Enterprise Flash as the Enterprise tiers support TLS 1.2 only.
   >
 
 As part of this change, we'll also remove support for older cypher suites that aren't secure. Our supported cypher suites are restricted to the following suites when the cache is configured with a minimum of TLS 1.2:
@@ -37,7 +41,7 @@ The dates when these changes take effect are:
 | Azure (global)       |  January 13, 2020  | Postponed because of COVID-19  |
 | Azure Government     |  March 13, 2020    | Postponed because of COVID-19  |
 | Azure Germany        |  March 13, 2020    | Postponed because of COVID-19  |
-| Azure China 21Vianet |  March 13, 2020    | Postponed because of COVID-19  |
+| Microsoft Azure operated by 21Vianet |  March 13, 2020    | Postponed because of COVID-19  |
 
 > [!NOTE]
 > Phase 2 is postponed because of COVID-19. This article will be updated when specific dates are set.

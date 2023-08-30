@@ -3,12 +3,12 @@ title: 'Quickstart: Create a public IP address prefix - PowerShell'
 titleSuffix: Azure Virtual Network
 description: Learn how to create a public IP address prefix using PowerShell.
 services: virtual-network
-author: asudbring
+author: mbender-ms
+ms.author: mbender
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: quickstart
-ms.date: 10/01/2021
-ms.author: allensu
+ms.date: 08/24/2023
 ms.custom: mode-api, devx-track-azurepowershell
 ---
 
@@ -41,7 +41,7 @@ New-AzResourceGroup @rg
 
 ## Create a public IP address prefix
 
-In this section, you'll create a zone redundant, zonal, and non-zonal public IP prefix using Azure PowerShell. 
+In this section, you create a zone redundant, zonal, and non-zonal public IP prefix using Azure PowerShell. 
 
 The prefixes in the examples are:
 
@@ -111,7 +111,7 @@ The removal of the **`-Zone`** parameter is the default selection for standard p
 
 # [**Routing Preference Internet IPv4 prefix**](#tab/ipv4-routing-pref)
 
-To create a IPv4 public IP prefix, enter **IPv4** in the **`-IpAddressVersion`** parameter. Remove the **`-Zone`** parameter to create a non-zonal IP prefix.
+To create a IPv4 public IP prefix with routing preference Internet, create an **IpTag** with an **ipTagType** 'Routing Preference' and **Tag** 'Internet'.
 
 ```azurepowershell-interactive
 $tagproperty = @{
@@ -191,7 +191,7 @@ The removal of the **`-Zone`** parameter is the default selection for standard p
 
 ## Create a static public IP address from a prefix
 
-Once you create a prefix, you must create static IP addresses from the prefix. In this section, you'll create a static IP address from the prefix you created earlier.
+Once you create a prefix, you must create static IP addresses from the prefix. In this section, you create a static IP address from the prefix you created earlier.
 
 Create a public IP address with [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) in the **myPublicIpPrefix** prefix.
 
@@ -249,7 +249,7 @@ New-AzPublicIpAddress @ipv6
 
 ## Delete a prefix
 
-In this section, you'll learn how to delete a prefix.
+In this section, you learn how to delete a prefix.
 
 To delete a public IP prefix, use [Remove-AzPublicIpPrefix](/powershell/module/az.network/remove-azpublicipprefix).
 

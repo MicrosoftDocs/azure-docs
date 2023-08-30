@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 05/08/2023
+ms.date: 06/14/2023
 ms.author: mimart
 ms.custom: it-pro
 
@@ -28,8 +28,8 @@ You can specify which built-in or custom attributes you want to include as claim
 
 ## Add built-in or custom attributes to the token
 
-1. In the [Microsoft Entra admin center](https://entra.microsoft.com/), select **Azure Active Directory**.
-1. Select **Applications** > **App registrations**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
+1. Browse to **Identity** > **Applications** > **App registrations**.
 1. Select your application in the list to open the application's **Overview** page.
 
     :::image type="content" source="media/how-to-add-attributes-to-token/select-app.png" alt-text="Screenshot of the overview page of the app registration.":::
@@ -45,7 +45,7 @@ You can specify which built-in or custom attributes you want to include as claim
 
 ### To add a built-in attribute to the token as a claim
 
-1. On the **Manage claim** page, select **Add new claim**.
+1. On the **Attributes & Claims** page, select **Add new claim**.
 1. Enter a **Name**.
 1. Next to **Source**, select **Attribute**. Then use the drop down list to select the built-in attribute.
 
@@ -55,7 +55,7 @@ You can specify which built-in or custom attributes you want to include as claim
 
 ### To add a custom attribute to the token as a claim
 
-1. On the **Manage claim** page, select **Add new claim**.
+1. On the **Attributes & Claims** page, select **Add new claim**.
 1. Enter a **Name**.
 1. Next to **Source**, select **Directory schema extension (Preview)**.
 
@@ -71,11 +71,13 @@ You can specify which built-in or custom attributes you want to include as claim
 
 ### Update the application manifest to accept mapped claims
 
-Ensure that **"allowPublicClient": true** is set in the application manifest.
-
-1. In the left menu, under **Manage**, select **Manifest** to open application manifest.
-
-1. Find the **acceptMappedClaims** key and ensure its value is set to **true**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
+1. Browse to **Identity** > **Applications** > **App registrations**.
+1. Select your application in the list to open the application's **Overview** page.
+1. In the left menu, under **Manage**, select **Manifest** to open the application manifest.
+1. Find the **acceptMappedClaims** key and set its value to **true**.
+1. Find the **allowPublicClient** key and set its value to **true**.
+1. Select **Save**.
 
 ## Next steps
 

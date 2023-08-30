@@ -2,6 +2,7 @@
 title: App settings reference for Azure Functions
 description: Reference documentation for the Azure Functions app settings or environment variables used to configure functions apps.
 ms.topic: conceptual
+ms.custom: devx-track-extended-java, devx-track-python
 ms.date: 12/15/2022
 ---
 
@@ -287,7 +288,7 @@ Requires that [`FUNCTIONS_WORKER_SHARED_MEMORY_DATA_TRANSFER_ENABLED`](#function
 
 ## ENABLE\_ORYX\_BUILD
 
-Indicates whether the [Oryx build system](https://github.com/microsoft/Oryx) is used during deployment. `ENABLE_ORYX_BUILD` must be set to `true` when doing remote build deployments to Linux. For more information, see [Remote build on Linux](functions-deployment-technologies.md#remote-build-on-linux).
+Indicates whether the [Oryx build system](https://github.com/microsoft/Oryx) is used during deployment. `ENABLE_ORYX_BUILD` must be set to `true` when doing remote build deployments to Linux. For more information, see [Remote build](functions-deployment-technologies.md#remote-build).
 
 |Key|Sample value|
 |---|------------|
@@ -506,7 +507,7 @@ Controls the timeout, in seconds, when connected to streaming logs. The default 
 |-|-|
 |SCM_LOGSTREAM_TIMEOUT|`1800`|
 
-The above sample value of `1800` sets a timeout of 30 minutes. To learn more, see [Enable streaming logs](functions-run-local.md#enable-streaming-logs).
+The above sample value of `1800` sets a timeout of 30 minutes. For more information, see [Enable streaming execution logs in Azure Functions](streaming-logs.md).
 
 ## WEBSITE\_CONTENTAZUREFILECONNECTIONSTRING
 
@@ -516,7 +517,7 @@ Connection string for storage account where the function app code and configurat
 |---|------------|
 |WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|`DefaultEndpointsProtocol=https;AccountName=...`|
 
-This setting is required for Consumption and Premium plan apps on both Windows and Linux. It's not required for Dedicated plan apps, which aren't dynamically scaled by Functions. 
+This setting is required for Consumption plan apps on Windows and for Elastic Premium plan apps on both Windows and Linux. It's not required for Dedicated plan apps, which aren't dynamically scaled by Functions. 
 
 Changing or removing this setting may cause your function app to not start. To learn more, see [this troubleshooting article](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
 
@@ -690,12 +691,12 @@ The previous command requires you to upgrade to version 2.40 of the Azure CLI.
 
 #### Custom images
 
-When you create and maintain your own custom linux container for your function app, the `linuxFxVersion` value is also in the format `DOCKER|<IMAGE_URI>`, as in the following example:
+When you create and maintain your own custom linux container for your function app, the `linuxFxVersion` value is instead in the format `DOCKER|<IMAGE_URI>`, as in the following example:
 
 ```
 linuxFxVersion = "DOCKER|contoso.com/azurefunctionsimage:v1.0.0"
 ```
-For more information, see [Create a function on Linux using a custom container](functions-create-function-linux-custom-image.md).
+This indicates the registry source of the deployed container. For more information, see [Working with containers and Azure Functions](functions-how-to-custom-container.md).
 
 [!INCLUDE [functions-linux-custom-container-note](../../includes/functions-linux-custom-container-note.md)]
 

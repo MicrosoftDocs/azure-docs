@@ -1,21 +1,73 @@
 ---
-title: "Tutorial: Manually configure Azure Front Door for Azure Static Web Apps"
-description: Learn set up Azure Front Door for Azure Static Web Apps
+title: "Tutorial: Configure Azure Front Door for Azure Static Web Apps"
+description: Learn how to set up Azure Front Door for Azure Static Web Apps
 services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: how-to
 ms.date: 01/24/2023
 ms.author: cshoe
+zone_pivot_groups: static-web-apps-afd-methods
 ---
 
-# Tutorial: Manually configure Azure Front Door for Azure Static Web Apps
+# Tutorial: Configure Azure Front Door for Azure Static Web Apps
 
-Add [Azure Front Door](../frontdoor/front-door-overview.md) as the CDN for your static web app. Azure Front Door is a scalable and secure entry point for fast delivery of your web applications.
+By adding [Azure Front Door](../frontdoor/front-door-overview.md) as the CDN for your static web app, you benefit from a secure entry point for fast delivery of your web applications. 
 
-In this tutorial, learn how to create an Azure Front Door Standard/Premium instance and associate Azure Front Door with your Azure Static Web Apps site.
+With Static Web Apps, you have two options to integrate with Azure Front Door. You can add Azure Front Door to your static web app by enabling enterprise-grade edge, a managed integration of Azure Front Door with Static Web Apps. Alternatively, you can configure an Azure Front Door resource manually in front of your static web app. 
 
-## Prerequisites
+Consider the advantages below to determine which option best suits your needs.
+
+**Enterprise-grade edge provides:**
+* Zero configuration changes
+* No downtime
+* Automatically managed SSL certifications and custom domains
+
+**A manual Azure Front Door setup gives you full control over the CDN configuration including the chance to:**
+* Limit traffic origin by origin
+* Add a web application firewall (WAF)
+* Route across multiple applications
+* Use more advanced features of Azure Front Door
+
+In this tutorial, you learn to add Azure Front Door to your static web app.
+
+::: zone pivot="swa-afd-enterprise-grade-edge"
+
+### Prerequisites
+
+* [Custom domain](./custom-domain.md) configured for your static web app with a time to live (TTL) set to less than 48 hrs.
+* An application deployed with [Azure Static Web Apps](./get-started-portal.md) that uses the Standard hosting plan.
+
+### Enable enterprise-grade edge on the Static Web Apps resource
+
+# [Azure portal](#tab/azure-portal)
+
+1. Go to your static web app in the Azure portal.
+
+1. Select **Enterprise-grade edge** in the left menu.
+
+1. Check the box labeled **Enable enterprise-grade edge**.
+
+1. Select **Save**.
+
+1. Select **OK** to confirm the save.
+
+    Enabling this feature incurs extra costs.
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+
+az extension add -n enterprise-edge
+
+az staticwebapp enterprise-edge enable -n my-static-webapp -g my-resource-group
+```
+
+::: zone-end
+
+::: zone pivot="swa-afd-manual-afd"
+
+### Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - An Azure Static Web Apps site. [Build your first static web app](get-started-portal.md)
@@ -35,7 +87,7 @@ In this tutorial, learn how to create an Azure Front Door Standard/Premium insta
    :::image type="content" source="media/front-door-manual/copy-url-static-web-app.png" alt-text="Screenshot of Static Web App Overview page.":::
 -->
 
-## Create an Azure Front Door
+### Create an Azure Front Door
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. From the home page or the Azure menu, select **+ Create a resource**. Search for *Front Door and CDN profiles*, and then select **Create** > **Front Door and CDN profiles**.
@@ -64,14 +116,14 @@ In this tutorial, learn how to create an Azure Front Door Standard/Premium insta
 6. When  deployment completes, select **Go to resource**.
 7. [Add a condition](#add-a-condition).
 
-## Disable cache for auth workflow
+### Disable cache for auth workflow
 
 > [!NOTE]
 > The cache expiration, cache key query string and origin group override actions are deprecated. These actions can still work normally, but your rule set can't change. Replace these overrides with new route configuration override actions before changing your rule set.
 
 Add the following settings to disable Front Door's caching policies from trying to cache authentication and authorization-related pages.
 
-### Add a condition
+#### Add a condition
 
 1. From your Front Door, under *Settings*, select **Rule set**.
 
@@ -93,7 +145,7 @@ Add the following settings to disable Front Door's caching policies from trying 
 
 10. Select no options from the *String transform* dropdown.
 
-### Add an action
+#### Add an action
 
 1. Select the **Add an action** dropdown.
 
@@ -103,7 +155,7 @@ Add the following settings to disable Front Door's caching policies from trying 
 
 4. Select **Save**.
 
-### Associate rule to an endpoint
+#### Associate rule to an endpoint
 
 Now that the rule is created, apply the rule to a Front Door endpoint.
 
@@ -117,7 +169,7 @@ Now that the rule is created, apply the rule to a Front Door endpoint.
 
    :::image type="content" source="media/front-door-manual/associate-route.png" alt-text="Screenshot showing highlighted button, Associate.":::
 
-## Copy Front Door ID
+### Copy Front Door ID
 
 Use the following steps to copy the Front Door instance's unique identifier.
 
@@ -127,7 +179,7 @@ Use the following steps to copy the Front Door instance's unique identifier.
 
    :::image type="content" source="media/front-door-manual/copy-front-door-id.png" alt-text="Screenshot showing highlighted Overview item and highlighted Front Door ID number.":::
 
-## Update static web app configuration
+### Update static web app configuration
 
 To complete the integration with Front Door, you need to update the application configuration file to do the following functions:
 
@@ -185,13 +237,15 @@ Open the [staticwebapp.config.json](configuration.md) file for your site and mak
 
 With this configuration, your site is no longer available via the generated `*.azurestaticapps.net` hostname, but exclusively through the hostnames configured in your Front Door instance.
 
-## Considerations
+### Considerations
 
 - **Custom domains**: Now that Front Door is managing your site, you no longer use the Azure Static Web Apps custom domain feature. Azure Front Door has a separate process for adding a custom domain. Refer to [Add a custom domain to your Front Door](../frontdoor/front-door-custom-domain.md). When you add a custom domain to Front Door, you'll need to update your static web app configuration file to include it in the `allowedForwardedHosts` list.
 
 - **Traffic statistics**: By default, Azure Front Door configures [health probes](../frontdoor/front-door-health-probes.md) that may affect your traffic statistics. You may want to edit the default values for the [health probes](../frontdoor/front-door-health-probes.md).
 
 - **Serving old versions**: When you deploy updates to existing files in your static web app, Azure Front Door may continue to serve older versions of your files until their [time-to-live](https://wikipedia.org/wiki/Time_to_live) expires. [Purge the Azure Front Door cache](../frontdoor/front-door-caching.md#cache-purge) for the affected paths to ensure the latest files are served.
+
+::: zone-end
 
 ## Clean up resources
 

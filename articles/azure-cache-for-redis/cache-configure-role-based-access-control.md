@@ -7,7 +7,7 @@ author: flang-msft
 ms.custom: references_regions
 ms.service: cache
 ms.topic: conceptual
-ms.date: 05/12/2023
+ms.date: 06/05/2023
 ms.author: franlanglois
 
 ---
@@ -17,9 +17,6 @@ ms.author: franlanglois
 Managing access to your Azure Cache for Redis instance is critical to ensure that the right users have access to the right set of data and commands. In Redis version 6, the [Access Control List](https://redis.io/docs/management/security/acl/) (ACL) was introduced. ACL limits which user can execute certain commands, and the keys that a user can be access. For example, you can prohibit specific users from deleting keys in the cache using [DEL](https://redis.io/commands/del/) command.
 
 Azure Cache for Redis now integrates this ACL functionality with Azure Active Directory (Azure AD) to allow you to configure your Data Access Policies for your application's service principal and managed identity.
-
-> [!IMPORTANT]
-> The updates to Azure Cache for Redis that enable Azure Active Directory for role-based access control are available only in East US region.
 
 Azure Cache for Redis offers three built-in access policies: _Owner_, _Contributor_, and _Reader_. If the built-in access policies don't satisfy your data protection and isolation requirements, you can create and use your own custom data access policy as described in [Configure custom data access policy](#configure-a-custom-data-access-policy-for-your-application).
 
@@ -72,7 +69,7 @@ These [commands](cache-configure.md#redis-commands-not-supported-in-azure-cache-
 
 ### Commands
 
-_Commands_ allow you to control which specific commands can be executed by a particular Redis user.
+_Commands_ allow you to control which specific commands can be run by a particular Redis user.
 
 - Use `+command` to allow a command.
 - Use `-command` to disallow a command.
@@ -118,6 +115,21 @@ The following list contains some examples of permission strings for various scen
 1. Provide a name for your access policy.
 
 1. [Configure Permissions](#permissions-for-your-data-access-policy) as per your requirements.
+
+1. From the Resource menu, select **Advanced settings**.
+
+1. If not checked already, Check the box labeled **(PREVIEW) Enable Azure AD Authorization** and select **OK**. Then, select **Save**.
+
+   :::image type="content" source="media/cache-azure-active-directory-for-authentication/cache-azure-ad-access-authorization.png" alt-text="Screenshot of Azure AD access authorization.":::
+
+1. A dialog box displays a popup notifying you that upgrading is permanent and might cause a brief connection blip. Select **Yes.**
+
+   > [!IMPORTANT]
+   > Once the enable operation is complete, the nodes in your cache instance reboots to load the new configuration. We recommend performing this operation during your maintenance window or outside your peak business hours. The operation can take up to 30 minutes.
+
+## Configure your Redis client to use Azure Active Directory
+
+Now that you have configured Redis User and Data access policy for configuring role based access control, you need to update your client workflow to support authenticating using a specific user/password. To learn how to configure you client application to connect to your cache instance as a specific Redis User, see [Configure your Redis client to use Azure AD.](cache-azure-active-directory-for-authentication.md#configure-your-redis-client-to-use-azure-active-directory)
 
 ## Next steps
 

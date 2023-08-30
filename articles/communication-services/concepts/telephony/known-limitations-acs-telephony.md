@@ -4,9 +4,8 @@ description: Known limitations of direct routing in Azure Communication Services
 author: boris-bazilevskiy
 manager: rcole
 services: azure-communication-services
-
 ms.author: bobazile
-ms.date: 05/11/2023
+ms.date: 06/22/2023
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: pstn
@@ -19,7 +18,6 @@ This article provides information about limitations and known issues related to 
 ## Azure Communication Services direct routing known limitations
 
 - Anonymous calling isn't supported.
-    - will be fixed in GA release
 - Maximum number of configured Session Border Controllers (SBC) is 250 per communication resource.
 - When you change direct routing configuration (add SBC, change Voice Route, etc.), wait approximately five minutes for changes to take effect.
 - If you move SBC FQDN to another Communication resource, wait approximately an hour, or restart SBC to force configuration change. 
@@ -31,7 +29,6 @@ This article provides information about limitations and known issues related to 
 - Location-based routing isn't supported.
 - No quality dashboard is available for customers.
 - Enhanced 911 isn't supported.
-- PSTN numbers missing from Call Summary logs.
 
 ## Next steps
 
@@ -40,6 +37,7 @@ This article provides information about limitations and known issues related to 
 - [Phone number types in Azure Communication Services](./plan-solution.md)
 - [Plan for Azure direct routing](./direct-routing-infrastructure.md)
 - [Pair the Session Border Controller and configure voice routing](./direct-routing-provisioning.md)
+- [Managing calls with Call Automation](../call-automation/call-automation.md).
 - [Pricing](../pricing.md)
 
 ### Quickstarts

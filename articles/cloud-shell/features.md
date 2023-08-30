@@ -17,13 +17,13 @@ Cloud Shell allocates machines on a per-request basis and as a result machine st
 persist across sessions. Since Cloud Shell is built for interactive sessions, shells automatically
 terminate after 20 minutes of shell inactivity.
 
-Azure Cloud Shell runs on **Common Base Linux - Mariner** (CBL-Mariner), Microsoft's Linux
-distribution for cloud-infrastructure-edge products and services.
+Azure Cloud Shell runs on **Azure Linux**, Microsoft's Linux distribution for
+cloud-infrastructure-edge products and services.
 
-Microsoft internally compiles all the packages included in the **CBL-Mariner** repository to help
-guard against supply chain attacks. Tooling has been updated to reflect the new base image
-CBL-Mariner. If these changes affected your Cloud Shell environment, contact Azure Support or create
-an issue in the [Cloud Shell repository][17].
+Microsoft internally compiles all the packages included in the **Azure Linux** repository to help
+guard against supply chain attacks. Tooling has been updated to reflect the new base image for Azure
+Linux. If these changes affected your Cloud Shell environment, contact Azure Support or create an
+issue in the [Cloud Shell repository][17].
 
 ## Features
 
@@ -85,10 +85,10 @@ Cloud Shell comes with the following Azure command-line tools preinstalled:
 
 |           Tool            | Version  |            Command             |
 | ------------------------- | -------- | ------------------------------ |
-| [Azure CLI][08]           | 2.45.0   | `az --version`                 |
-| [Azure PowerShell][06]    | 9.4.0    | `Get-Module Az -ListAvailable` |
+| [Azure CLI][08]           | 2.51.0   | `az --version`                 |
+| [Azure PowerShell][06]    | 10.2.0   | `Get-Module Az -ListAvailable` |
 | [AzCopy][04]              | 10.15.0  | `azcopy --version`             |
-| [Azure Functions CLI][01] | 4.0.3971 | `func --version`               |
+| [Azure Functions CLI][01] | 4.0.5198 | `func --version`               |
 | [Service Fabric CLI][03]  | 11.2.0   | `sfctl --version`              |
 | [Batch Shipyard][09]      | 3.9.1    | `shipyard --version`           |
 | [blobxfer][10]            | 1.11.0   | `blobxfer --version`           |
@@ -153,13 +153,13 @@ Cloud Shell comes with the following languages preinstalled:
 
 |  Language  |    Version    |      Command       |
 | ---------- | ------------- | ------------------ |
-| .NET Core  | [6.0.405][16] | `dotnet --version` |
-| Go         | 1.17.13       | `go version`       |
-| Java       | 11.0.18       | `java --version`   |
-| Node.js    | 16.18.1       | `node --version`   |
-| PowerShell | [7.3.2][07]   | `pwsh -Version`    |
+| .NET Core  | [7.0.400][16] | `dotnet --version` |
+| Go         | 1.19.11       | `go version`       |
+| Java       | 17.0.8        | `java --version`   |
+| Node.js    | 16.20.1       | `node --version`   |
+| PowerShell | [7.3.6][07]   | `pwsh -Version`    |
 | Python     | 3.9.14        | `python --version` |
-| Ruby       | 3.1.3p185     | `ruby --version`   |
+| Ruby       | 3.1.4p223     | `ruby --version`   |
 
 You can verify the version of the language using the command listed in the table.
 
@@ -186,7 +186,7 @@ You can verify the version of the language using the command listed in the table
 [13]: https://docs.cloudfoundry.org/cf-cli/
 [14]: https://docs.d2iq.com/dkp/2.3/azure-quick-start
 [15]: https://docs.docker.com/desktop/
-[16]: https://dotnet.microsoft.com/download/dotnet/6.0
+[16]: https://dotnet.microsoft.com/download/dotnet/7.0
 [17]: https://github.com/Azure/CloudShell/issues
 [18]: https://github.com/microsoft/mssql-scripter/blob/dev/doc/usage_guide.md
 [19]: https://helm.sh/docs/

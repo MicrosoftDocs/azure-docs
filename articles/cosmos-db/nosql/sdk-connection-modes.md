@@ -7,7 +7,7 @@ ms.subservice: nosql
 ms.topic: how-to
 ms.date: 02/03/2023
 ms.author: maquaran
-ms.custom: devx-track-dotnet, contperf-fy21q2, ignite-2022
+ms.custom: contperf-fy21q2, ignite-2022
 ---
 
 # Azure Cosmos DB SQL SDK connectivity modes
@@ -41,7 +41,7 @@ The following table shows a summary of the connectivity modes available for vari
 
 |Connection mode  |Supported protocol  |Supported SDKs  |API/Service port  |
 |---------|---------|---------|---------|
-|Gateway  |   HTTPS    |  All SDKs    |   SQL (443), MongoDB (10250, 10255, 10256), Table (443), Cassandra (10350), Graph (443) <br> The port 10250 maps to a default Azure Cosmos DB for MongoDB instance without geo-replication. Whereas the ports 10255 and 10256 map to the instance that has geo-replication.   |
+|Gateway  |   HTTPS    |  All SDKs    |   SQL (443), MongoDB (10255), Table (443), Cassandra (10350), Graph (443) <br> |
 |Direct    |     TCP (Encrypted via TLS)    |  .NET SDK Java SDK    | When using public/service endpoints: ports in the 10000 through 20000 range<br>When using private endpoints: ports in the 0 through 65535 range |
 
 ## <a id="direct-mode"></a> Direct mode connection architecture

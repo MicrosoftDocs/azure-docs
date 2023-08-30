@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/02/2023
+ms.date: 07/24/2023
 ms.author: jeedes
 
 ---
@@ -23,6 +23,9 @@ In this article, you learn how to integrate Fleet Management System with Azure A
 * Manage your accounts in one central location - the Azure portal.
 
 You'll configure and test Azure AD single sign-on for Fleet Management System in a test environment. Fleet Management System supports **IDP** initiated single sign-on.
+
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
 
 ## Prerequisites
 
@@ -57,9 +60,23 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
    ![Screenshot shows how to edit Basic SAML Configuration.](common/edit-urls.png "Basic Configuration")
 
-1. On the **Basic SAML Configuration** section, the user doesn't have to perform any step as the app is already pre-integrated with Azure.
+1. On the **Basic SAML Configuration** section, perform the following steps:
 
-1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
+    a. In the **Identifier** textbox, type one of the following URLs:
+
+    | Environment | URL |
+    |----|----|
+    | Production| `https://msfms.net/SAMLFms` |
+    | Staging | `https://test.msfms.net/SAMLFms`|
+
+    b. In the **Reply URL** textbox, type one of the following URLs:
+
+    | Environment | URL |
+    |----|----|
+    | Production| `https://msfms.net/saml2/acs` |
+    | Staging | `https://test.msfms.net/saml2/acs`|
+
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
     ![Screenshot shows the Certificate download link.](common/certificatebase64.png "Certificate")
 

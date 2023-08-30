@@ -2,9 +2,9 @@
 title: Microsoft Sentinel entity types reference | Microsoft Docs
 description: This article displays the Microsoft Sentinel entity types and their required identifiers.
 author: yelevin
-ms.topic: reference
-ms.date: 07/06/2022
 ms.author: yelevin
+ms.topic: reference
+ms.date: 05/29/2023
 ms.custom: ignite-fall-2021
 ---
 
@@ -12,11 +12,11 @@ ms.custom: ignite-fall-2021
 
 ## Entity types and identifiers
 
-The following table shows the **entity types** currently available for mapping in Microsoft Sentinel, and the **attributes** available as **identifiers** for each entity type - which appear in the **Identifiers** drop-down list in the [entity mapping](map-data-fields-to-entities.md) section of the [analytics rule wizard](detect-threats-custom.md).
+The following table shows the **entity types** currently available for mapping in Microsoft Sentinel, and the **attributes** available as **identifiers** for each entity type. These attributes appear in the **Identifiers** drop-down list in the [entity mapping](map-data-fields-to-entities.md) section of the [analytics rule wizard](detect-threats-custom.md).
 
-Each one of the identifiers in the **required identifiers** column is minimally necessary to identify its entity. However, a required identifier might not, by itself, be sufficient to provide *unique* identification. The more identifiers used, the greater the likelihood of unique identification. You can use up to three identifiers for a single entity mapping.
+Each one of the identifiers in the **required identifiers** column is necessary to identify its entity. However, a required identifier might not, by itself, be sufficient to provide *unique* identification. The more identifiers used, the greater the likelihood of unique identification. You can use up to three identifiers for a single entity mapping.
 
-For best results - for guaranteed unique identification - you should use identifiers from the **strongest identifiers** column whenever possible. The use of multiple strong identifiers enables correlation between strong identifiers from varying data sources and schemas. This in turn allows Microsoft Sentinel to provide more comprehensive insights for a given entity.
+For best results&mdash;for guaranteed unique identification&mdash;you should use identifiers from the **strongest identifiers** column whenever possible. The use of multiple strong identifiers enables correlation between strong identifiers from varying data sources and schemas. This correlation in turn allows Microsoft Sentinel to provide more comprehensive insights for a given entity.
 
 | Entity type | Identifiers | Required identifiers | Strongest identifiers |
 | - | - | - | - |
@@ -43,7 +43,7 @@ For best results - for guaranteed unique identification - you should use identif
 
 ## Entity type schemas
 
-The following is a more in-depth look at the full schemas of each entity type. You'll notice that many of these schemas include links to other entity types - for example, the User account schema includes a link to the Host entity type, as one attribute of a user account is the host it's defined on. These externally linked entities can't be used as identifiers for entity mapping, but they are very useful in giving a complete picture of entities on entity pages and the investigation graph.
+The following section contains a more in-depth look at the full schemas of each entity type. You'll notice that many of these schemas include links to other entity types&mdash;for example, the User account schema includes a link to the Host entity type, since one attribute of a user account is the host it's defined on. These externally linked entities can't be used as identifiers for the purpose of entity mapping, but they are very useful in giving a complete picture of entities on entity pages and the investigation graph.
 
 > [!NOTE]
 > A question mark following the value in the **Type** column indicates the field is nullable.
@@ -84,6 +84,20 @@ Strong identifiers of an account entity:
 Weak identifiers of an account entity:
 
 - Name
+
+> [!NOTE]
+> If the **Account** entity is defined using the **Name** identifier, and the Name value of a particular entity is one of the following generic, commonly built-in account names, then that entity will be dropped from its alert.
+> - ADMIN
+> - ADMINISTRATOR
+> - SYSTEM
+> - ROOT
+> - ANONYMOUS
+> - AUTHENTICATED USER
+> - NETWORK
+> - NULL
+> - LOCAL SYSTEM
+> - LOCALSYSTEM
+> - NETWORK SERVICE
 
 ## Host
 
@@ -135,8 +149,8 @@ Strong identifiers of an IP entity:
 | Type | String | ‘malware’ |
 | Name | String | The malware name by the vendor, such as `Win32/Toga!rfn`. |
 | Category | String | The malware category by the vendor, e.g. Trojan. |
-| Files | List\<Entity> | List of linked file entities on which the malware was found. Can contain the File entities inline or as reference.<br>See the File entity for additional details on structure. |
-| Processes | List\<Entity> | List of linked process entities on which the malware was found. This would often be used when the alert triggered on fileless activity.<br>See the [Process](#process) entity for additional details on structure. |
+| Files | List\<Entity> | List of linked file entities on which the malware was found. Can contain the File entities inline or as reference.<br>See the [File](#file) entity for more details on structure. |
+| Processes | List\<Entity> | List of linked process entities on which the malware was found. This would often be used when the alert triggered on fileless activity.<br>See the [Process](#process) entity for more details on structure. |
 
 Strong identifiers of a malware entity:
 
@@ -166,8 +180,8 @@ Strong identifiers of a file entity:
 | CommandLine | String | The command line used to create the process. |
 | ElevationToken | Enum? | The elevation token associated with the process.<br>Possible values:<li>TokenElevationTypeDefault<li>TokenElevationTypeFull<li>TokenElevationTypeLimited |
 | CreationTimeUtc | DateTime? | The time when the process started to run. |
-| ImageFile | Entity (File) | Can contain the File entity inline or as reference.<br>See the File entity for additional details on structure. |
-| Account | Entity | The account running the processes.<br>Can contain the [Account](#user-account) entity inline or as reference.<br>See the [Account](#user-account) entity for additional details on structure. |
+| ImageFile | Entity (File) | Can contain the File entity inline or as reference.<br>See the [File](#file) entity for more details on structure. |
+| Account | Entity | The account running the processes.<br>Can contain the Account entity inline or as reference.<br>See the [Account](#user-account) entity for more details on structure. |
 | ParentProcess | Entity (Process) | The parent process entity. <br>Can contain partial data, i.e. only the PID. |
 | Host | Entity | The host on which the process was running. |
 | LogonSession | Entity (HostLogonSession) | The session in which the process was running. |

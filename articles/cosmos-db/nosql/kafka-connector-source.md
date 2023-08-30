@@ -91,7 +91,7 @@ curl -H "Content-Type: application/json" -X POST -d @<path-to-JSON-config-file> 
 
 ## Insert document into Azure Cosmos DB
 
-1. Sign into the [Azure portal](https://portal.azure.com/learn.docs.microsoft.com) and navigate to your Azure Cosmos DB account.
+1. Sign in to the [Azure portal](https://portal.azure.com/learn.docs.microsoft.com) and navigate to your Azure Cosmos DB account.
 1. Open the **Data Explore** tab and select **Databases**
 1. Open the "kafkaconnect" database and "kafka" container you created earlier.
 1. To create a new JSON document, in the API for NoSQL pane, expand "kafka" container, select **Items**, then select **New Item** in the toolbar.

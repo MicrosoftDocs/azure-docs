@@ -2,13 +2,13 @@
 title: Get started with partial document update
 titleSuffix: Azure Cosmos DB for NoSQL
 description: Learn how to use the partial document update feature with the .NET, Java, and Node SDKs for Azure Cosmos DB for NoSQL.
-ms.author: sidandrews
-author: seesharprun
+author: AbhinavTrips
+ms.author: abtripathi
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
-ms.date: 04/03/2023
-ms.custom: ignite-fall-2021, ignite-2022
+ms.custom: ignite-fall-2021, ignite-2022, devx-track-dotnet, devx-track-extended-java
+ms.date: 05/23/2023
 ---
 
 # Get started with Azure Cosmos DB Partial Document Update
@@ -277,6 +277,57 @@ Support for Partial Document Update (Patch API) in the [Azure Cosmos DB JavaScri
             body = operations,
             options = filter
         );
+    ```
+
+---
+
+## [Python (Preview)](#tab/python)
+
+Support for Partial Document Update (Patch API) in the [Azure Cosmos DB Python SDK](nosql/sdk-python.md) is available in Preview starting with version *4.4.0b2*. You can download it from the [pip Registry](https://pypi.org/project/azure-cosmos/4.4.0b2/).
+
+> [!NOTE]
+> Find a complete Partial Document Update sample in the [python samples repository](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/cosmos/azure-cosmos/samples/document_management.py#L105C8-L122) on GitHub. 
+
+- Run a single patch operation:
+
+    ```python
+    operations =
+    [
+        { op: 'replace', path: '/price', value: 355.45 }
+    ]
+    
+    response = container.patch_item(item='e379aea5-63f5-4623-9a9b-4cd9b33b91d5', partition_key='road-bikes', patch_operations=operations)
+    
+    ```
+
+- Combine multiple patch operations:
+
+    ```python
+    operations =
+    [
+        { op: 'add', path: '/color', value: 'silver' },
+        { op: 'remove', path: '/used' }
+    ]
+    
+    response = container.patch_item(item='e379aea5-63f5-4623-9a9b-4cd9b33b91d5', partition_key='road-bikes', patch_operations=operations)
+
+    ```
+
+- Use conditional patch syntax based on filter predicate:
+
+    ```python
+    filter = "from products p WHERE p.used = false"
+
+    operations =
+    [
+        { op: 'replace', path: '/price', value: 100.00 }
+    ]
+
+    try:
+        container.patch_item(item='e379aea5-63f5-4623-9a9b-4cd9b33b91d5', partition_key='road-bikes', patch_operations=operations, filter_predicate=filter)
+    except exceptions.CosmosHttpResponseError as e:
+        print('\nError occured. {0}'.format(e.message))
+    
     ```
 
 ---

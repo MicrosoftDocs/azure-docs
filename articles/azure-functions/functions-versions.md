@@ -2,7 +2,7 @@
 title: Azure Functions runtime versions overview
 description: Azure Functions supports multiple versions of the runtime. Learn the differences between them and how to choose the one that's right for you.
 ms.topic: conceptual
-ms.custom: devx-track-dotnet
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.date: 01/09/2023
 zone_pivot_groups: programming-languages-set-functions
 ---
@@ -117,7 +117,7 @@ In Visual Studio, you select the runtime version when you create a project. Azur
 <AzureFunctionsVersion>v4</AzureFunctionsVersion>
 ```
 
-You can also choose `net6.0`, `net7.0`, or `net48` as the target framework if you are using [.NET isolated worker process functions](dotnet-isolated-process-guide.md). Support for `net7.0` and `net48` is currently in preview.
+You can also choose `net6.0`, `net7.0`, `net8.0`, or `net48` as the target framework if you are using [.NET isolated worker process functions](dotnet-isolated-process-guide.md). Support for `net8.0` is currently in preview.
 
 > [!NOTE]
 > Azure Functions 4.x requires the `Microsoft.NET.Sdk.Functions` extension be at least `4.0.0`.

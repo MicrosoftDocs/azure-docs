@@ -106,7 +106,7 @@ For a full list of endpoints needed to use Microsoft online products, see [Offic
 To check if the Windows 10 client device has the right domain join type, use the following command:
 
 ```console
-Dsregcmd/status
+Dsregcmd /status
 ```
 
 The following sample output shows that the device is Azure AD joined as *AzureADJoined* is set to *YES*:

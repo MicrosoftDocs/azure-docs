@@ -3,7 +3,7 @@ title: Quickstart - Create an Azure Kubernetes Service (AKS) cluster
 description: Learn how to quickly create a Kubernetes cluster using an Azure Resource Manager template and deploy an application in Azure Kubernetes Service (AKS)
 ms.topic: quickstart
 ms.date: 11/01/2022
-ms.custom: mvc, subject-armqs, mode-arm, devx-track-arm-template
+ms.custom: mvc, subject-armqs, mode-arm, devx-track-arm-template, devx-track-azurecli
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy an application so that I can see how to run applications using the managed Kubernetes service in Azure.
 ---
 
@@ -369,7 +369,6 @@ To learn more about AKS, and walk through a complete code to deployment example,
 [install-azure-powershell]: /powershell/azure/install-az-ps
 [connect-azaccount]: /powershell/module/az.accounts/Connect-AzAccount
 [sp-delete]: ../kubernetes-service-principal.md#additional-considerations
-[azure-portal]: https://portal.azure.com
 [kubernetes-deployment]: ../concepts-clusters-workloads.md#deployments-and-yaml-manifests
 [kubernetes-service]: ../concepts-network.md#services
 [ssh-keys]: ../../virtual-machines/linux/create-ssh-keys-detailed.md

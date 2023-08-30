@@ -25,6 +25,8 @@ The Not allowed resource types built-in policy can be used to block the creation
 
 ## Create a policy assignment
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 To create a policy assignment for the Not allowed resource types that blocks the creation of federated identity credentials in a subscription or resource group:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).

@@ -94,9 +94,9 @@ The `validate-jwt` policy enforces existence and validity of a supported JSON we
 | Attribute                            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                            | Required                                                                         | Default                                                                           |
 | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
 | id  | String. Identifier used to match `kid` claim presented in JWT.  | No | N/A |
-| certificate-id  | Identifier of a certificate entity [uploaded](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-certificate-entity#Add) to API Management, used to specify the public key to verify an RS256 signed token.    | No | N/A |
-| n | Modulus of the public key used to verify the issuer of an RS256 signed token. Must be specified with the value of the exponent `e`.| No | N/A|
-| e | Exponent of the public key used to verify the issuer an RS256 signed token. Must be specified with the value of the modulus `n`. | No | N/A|
+| certificate-id  | Identifier of a certificate entity [uploaded](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-certificate-entity#Add) to API Management, used to specify the public key to verify an RS256 signed token.   | No | N/A |
+| n | Modulus of the public key used to verify the issuer of an RS256 signed token. Must be specified with the value of the exponent `e`. Policy expressions aren't allowed. | No | N/A|
+| e | Exponent of the public key used to verify the issuer an RS256 signed token. Must be specified with the value of the modulus `n`. Policy expressions aren't allowed. | No | N/A|
 
 
 
@@ -121,6 +121,7 @@ The `validate-jwt` policy enforces existence and validity of a supported JSON we
 * The policy supports tokens encrypted with symmetric keys using the following encryption algorithms: A128CBC-HS256, A192CBC-HS384, A256CBC-HS512.
 * To configure the policy with one or more OpenID configuration endpoints for use with a self-hosted gateway, the OpenID configuration endpoints URLs must also be reachable by the cloud gateway.
 * You can use access restriction policies in different scopes for different purposes. For example, you can secure the whole API with Azure AD authentication by applying the `validate-jwt` policy on the API level, or you can apply it on the API operation level and use `claims` for more granular control.
+* When using a custom header (`header-name`), the header value cannot be prefixed with `Bearer ` and should be removed.
 
 
 ## Examples

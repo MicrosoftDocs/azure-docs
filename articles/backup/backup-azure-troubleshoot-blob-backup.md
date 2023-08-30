@@ -5,8 +5,8 @@ ms.topic: troubleshooting
 ms.date: 04/13/2023
 ms.service: backup
 ms.reviewer: geg
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Troubleshoot Azure Blob backup

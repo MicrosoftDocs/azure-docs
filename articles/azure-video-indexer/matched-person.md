@@ -10,7 +10,7 @@ ms.author: juliako
 
 [!INCLUDE [Gate notice](./includes/face-limited-access.md)]
 
-Azure Video Indexer matches observed people that were detected in the video with the corresponding faces ("People" insight). To produce the matching algorithm, the bounding boxes for both the faces and the observed people are assigned spatially along the video. The API returns the confidence level of each matching.
+Azure AI Video Indexer matches observed people that were detected in the video with the corresponding faces ("People" insight). To produce the matching algorithm, the bounding boxes for both the faces and the observed people are assigned spatially along the video. The API returns the confidence level of each matching.
 
 The following are some scenarios that benefit from this feature:
  
@@ -27,20 +27,20 @@ The **Matched person** feature is available when indexing your file by choosing 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/matched-person/index-matched-person-feature.png" alt-text="Advanced video or Advanced video + audio preset":::
 
-To view the Matched person on the [Azure Video Indexer](https://www.videoindexer.ai/) website, go to **View** -> **Show Insights** -> select the **All** option or **View** -> **Custom View** -> **Mapped Faces**. 
+To view the Matched person on the [Azure AI Video Indexer](https://www.videoindexer.ai/) website, go to **View** -> **Show Insights** -> select the **All** option or **View** -> **Custom View** -> **Mapped Faces**. 
 
-When you choose to see insights of your video on the [Azure Video Indexer](https://www.videoindexer.ai/) website, the matched person could be viewed from the **Observed People tracing** insight. When choosing a thumbnail of a person the matched person became available.
+When you choose to see insights of your video on the [Azure AI Video Indexer](https://www.videoindexer.ai/) website, the matched person could be viewed from the **Observed People tracing** insight. When choosing a thumbnail of a person the matched person became available.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/matched-person/from-observed-people.png" alt-text="View matched people from the Observed People insight":::
 
 If you would like to view people's detected clothing in the **Timeline** of your video on the [Video Indexer website](https://www.videoindexer.ai/), go to **View** -> **Show Insights** and select the **All option** or **View** -> **Custom View** -> **Observed People**. 
 
-Searching for a specific person by name, returning all the appearances of the specific person is enables using the search bar of the Insights of your video on the Azure Video Indexer. 
+Searching for a specific person by name, returning all the appearances of the specific person is enables using the search bar of the Insights of your video on the Azure AI Video Indexer. 
 
 ## JSON code sample
 
-The following JSON response illustrates what Azure Video Indexer returns when tracing observed people having Mapped person associated: 
+The following JSON response illustrates what Azure AI Video Indexer returns when tracing observed people having Mapped person associated: 
 
 ```json
 "observedPeople": [

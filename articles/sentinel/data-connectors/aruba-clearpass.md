@@ -3,7 +3,7 @@ title: "Aruba ClearPass connector for Microsoft Sentinel"
 description: "Learn how to install the connector Aruba ClearPass to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 02/23/2023
+ms.date: 06/22/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -16,10 +16,8 @@ The [Aruba ClearPass](https://www.arubanetworks.com/products/security/network-ac
 
 | Connector attribute | Description |
 | --- | --- |
-| **Kusto function alias** | ArubaClearPass |
-| **Kusto function url** | https://aka.ms/sentinel-arubaclearpass-parser |
 | **Log Analytics table(s)** | CommonSecurityLog (ArubaClearPass)<br/> |
-| **Data collection rules support** | [Workspace transform DCR](../../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
+| **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com/) |
 
 ## Query samples
@@ -47,7 +45,7 @@ ArubaClearPass
 ## Vendor installation instructions
 
 
->This data connector depends on a parser based on a Kusto Function to work as expected. [Follow the steps](https://aka.ms/sentinel-arubaclearpass-parser) to use the Kusto function alias, **ArubaClearPass**
+**NOTE:** This data connector depends on a parser based on a Kusto Function to work as expected which is deployed as part of the solution. To view the function code in Log Analytics, open Log Analytics/Microsoft Sentinel Logs blade, click Functions and search for the alias ArubaClearPass and load the function code or click [here](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Aruba%20ClearPass/Parsers/ArubaClearPass.txt).The function usually takes 10-15 minutes to activate after solution installation/update.
 
 1. Linux Syslog agent configuration
 
@@ -69,7 +67,7 @@ Install the Microsoft Monitoring Agent on your Linux machine and configure the m
 
    Run the following command to install and apply the CEF collector:
 
-   sudo wget -O cef_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py python cef_installer.py {0} {1}
+   `sudo wget -O cef_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python cef_installer.py {0} {1}`
 
 2. Forward Aruba ClearPass logs to a Syslog agent
 
@@ -93,11 +91,11 @@ If the logs are not received, run the following connectivity validation script:
 
    Run the following command to validate your connectivity:
 
-   sudo wget -O cef_troubleshoot.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py python cef_troubleshoot.py  {0}
+   `sudo wget -O cef_troubleshoot.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python cef_troubleshoot.py  {0}`
 
 4. Secure your machine 
 
-Make sure to configure the machine's security according to your organization’s security policy
+Make sure to configure the machine's security according to your organization's security policy
 
 
 [Learn more >](https://aka.ms/SecureCEF)

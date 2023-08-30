@@ -2,8 +2,9 @@
 title: Create a pool across availability zones
 description: Learn how to create a Batch pool with zonal policy to help protect against failures.
 ms.topic: how-to
-ms.date: 08/06/2021
+ms.date: 05/25/2023
 ms.devlang: csharp
+ms.custom: devx-track-linux
 ---
 
 # Create an Azure Batch pool across Availability Zones
@@ -58,12 +59,12 @@ Request body
         "imageReference": {
             "publisher": "Canonical",
             "offer": "UbuntuServer",
-            "sku": "18.04-lts"
+            "sku": "20.04-lts"
         },
         "nodePlacementConfiguration": {
             "policy": "Zonal"
         }
-        "nodeAgentSKUId": "batch.node.ubuntu 18.04"
+        "nodeAgentSKUId": "batch.node.ubuntu 20.04"
     },
     "resizeTimeout": "PT15M",
     "targetDedicatedNodes": 5,

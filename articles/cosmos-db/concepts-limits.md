@@ -223,7 +223,7 @@ Azure Cosmos DB uses HMAC for authorization. You can use either a primary key, o
 
 ## Limits for autoscale provisioned throughput
 
-See the [Autoscale](provision-throughput-autoscale.md#autoscale-limits) article and [FAQ](autoscale-faq.yml#how-do-i-lower-the maximum-ru-s---) for more detailed explanation of the throughput and storage limits with autoscale.
+See the [Autoscale](./provision-throughput-autoscale.md#autoscale-limits) article and [FAQ](./autoscale-faq.yml#how-do-i-lower-the-maximum-ru-s-) for more detailed explanation of the throughput and storage limits with autoscale.
 
 | Resource | Limit |
 | --- | --- |
@@ -247,6 +247,7 @@ Azure Cosmos DB supports querying items using [SQL](nosql/query/getting-started.
 | Maximum explicitly included paths per container| 1500 ¹ |
 | Maximum explicitly excluded paths per container| 1500 ¹ |
 | Maximum properties in a composite index| 8 |
+| Maximum number of paths in a composite index| 100 |
 
 ¹ You can increase any of these SQL query limits by creating an [Azure Support request](create-support-request-quota-increase.md).
 

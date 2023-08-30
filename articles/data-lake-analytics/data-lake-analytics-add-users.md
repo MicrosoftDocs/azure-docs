@@ -14,7 +14,7 @@ ms.date: 01/20/2023
 
 ## Start the Add User Wizard
 
-1. Open your Azure Data Lake Analytics via https://portal.azure.com.
+1. Open your Azure Data Lake Analytics via the [Azure portal](https://portal.azure.com).
 2. Select **Add User Wizard**.
 3. In the **Select user** step, find the user you want to add. Select **Select**.
 4. the **Select role** step, pick **Data Lake Analytics Developer**. This role has the minimum set of permissions required to submit/monitor/manage U-SQL jobs. Assign to this role if the group isn't intended for managing Azure services.

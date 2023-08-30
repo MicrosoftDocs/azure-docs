@@ -5,7 +5,6 @@ services: peering-service
 author: halkazwini
 ms.service: peering-service
 ms.topic: how-to
-ms.workload: Infrastructure-services
 ms.date: 01/19/2023
 ms.author: halkazwini
 ms.custom: template-how-to, engagement-fy23, devx-track-azurecli
@@ -45,10 +44,10 @@ az provider register --name Microsoft.Peering
 
 ## List Peering Service locations and service providers 
 
-Use [az peering service country list](/cli/azure/peering/service/country#az-peering-service-country-list) to list the countries where Peering Service is available and [az peering service location list](/cli/azure/peering/service/location#az-peering-service-location-list) to list the available metro locations in a specific country where you can get the Peering Service:
+Use [az peering service country list](/cli/azure/peering/service/country#az-peering-service-country-list) to list the countries/regions where Peering Service is available and [az peering service location list](/cli/azure/peering/service/location#az-peering-service-location-list) to list the available metro locations in a specific country where you can get the Peering Service:
 
 ```azurecli-interactive
-# List the countries available for Peering Service.
+# List the countries/regions available for Peering Service.
 az peering service country list --out table
 # List metro locations serviced in a country
 az peering service location list --country "united states" --output table
@@ -110,6 +109,5 @@ az peering service delete --peering-service-name "myPeeringService" --resource-g
 
 ## Next steps
 
-- To learn more about Peering Service connection, see [Peering Service connection](connection.md).
-- To learn more about Peering Service connection telemetry, see [Peering Service connection telemetry](connection-telemetry.md).
-- To measure Peering Service connection telemetry, see [Measure connection telemetry](measure-connection-telemetry.md).
+- To learn more about Peering Service connections, see [Peering Service connection](connection.md).
+- To learn more about Peering Service connection telemetry, see [Access Peering Service connection telemetry](connection-telemetry.md).

@@ -2,7 +2,7 @@
 title: AMQP 1.0 in Azure Service Bus and Event Hubs protocol guide | Microsoft Docs
 description: Protocol guide to expressions and description of AMQP 1.0 in Azure Service Bus and Event Hubs
 ms.topic: article
-ms.date: 05/31/2022
+ms.date: 06/08/2023
 ---
 
 # AMQP 1.0 in Azure Service Bus and Event Hubs protocol guide
@@ -27,7 +27,7 @@ When discussing advanced capabilities of Azure Service Bus, such as message brow
 
 AMQP is a framing and transfer protocol. Framing means that it provides structure for binary data streams that flow in either direction of a network connection. The structure provides delineation for distinct blocks of data, called *frames*, to be exchanged between the connected parties. The transfer capabilities make sure that both communicating parties can establish a shared understanding about when frames shall be transferred, and when transfers shall be considered complete.
 
-Unlike earlier expired draft versions produced by the AMQP working group that are still in use by a few message brokers, the working group's final, and standardized AMQP 1.0 protocol doesn't prescribe the presence of a message broker or any particular topology for entities inside a message broker.
+Unlike earlier expired draft versions from the AMQP working group that are still in use by a few message brokers, the working group's final, and standardized AMQP 1.0 protocol doesn't prescribe the presence of a message broker or any particular topology for entities inside a message broker.
 
 The protocol can be used for symmetric peer-to-peer communication, for interaction with message brokers that support queues and publish/subscribe entities, as Azure Service Bus does. It can also be used for interaction with messaging infrastructure where the interaction patterns are different from regular queues, as is the case with Azure Event Hubs. An event hub acts like a queue when events are sent to it, but acts more like a serial storage service when events are read from it; it somewhat resembles a tape drive. The client picks an offset into the available data stream and is then served all events from that offset to the latest available.
 
@@ -105,7 +105,7 @@ A special form of rejection is the *released* state, which indicates that the re
 
 The AMQP 1.0 specification defines a further disposition state called *received*, that specifically helps to handle link recovery. Link recovery allows reconstituting the state of a link and any pending deliveries on top of a new connection and session, when the prior connection and session were lost.
 
-Service Bus does not support link recovery; if the client loses the connection to Service Bus with an unsettled message transfer pending, that message transfer is lost, and the client must reconnect, reestablish the link, and retry the transfer.
+Service Bus doesn't support link recovery; if the client loses the connection to Service Bus with an unsettled message transfer pending, that message transfer is lost, and the client must reconnect, reestablish the link, and retry the transfer.
 
 As such, Service Bus and Event Hubs support "at least once" transfer where the sender can be assured for the message having been stored and accepted, but don't support "exactly once" transfers at the AMQP level, where the system would attempt to recover the link and continue to negotiate the delivery state to avoid duplication of the message transfer.
 
@@ -251,7 +251,7 @@ The operations are grouped by an identifier `txn-id`.
 
 For transactional interaction, the client acts as a `transaction controller` , which controls the operations that should be grouped together. Service Bus Service acts as a `transactional resource` and performs work as requested by the `transaction controller`.
 
-The client and service communicate over a `control link` , which is established by the client. The `declare` and `discharge` messages are sent by the controller over the control link to allocate and complete transactions respectively (they don't represent the demarcation of transactional work). The actual send/receive is not performed on this link. Each transactional operation requested is explicitly identified with the desired `txn-id` and therefore may occur on any link on the Connection. If the control link is closed while there exist non-discharged transactions it created, then all such transactions are immediately rolled back, and attempts to perform further transactional work on them will lead to failure. Messages on control link must not be pre settled.
+The client and service communicate over a `control link` , which is established by the client. The `declare` and `discharge` messages are sent by the controller over the control link to allocate and complete transactions respectively (they don't represent the demarcation of transactional work). The actual send/receive isn't performed on this link. Each transactional operation requested is explicitly identified with the desired `txn-id` and therefore may occur on any link on the Connection. If the control link is closed while there exist non-discharged transactions it created, then all such transactions are immediately rolled back, and attempts to perform further transactional work on them will lead to failure. Messages on control link must not be pre settled.
 
 Every connection has to initiate its own control link to be able to start and end transactions. The service defines a special target that functions as a `coordinator`. The client/controller establishes a control link to this target. Control link is outside the boundary of an entity, that is, same control link can be used to initiate and discharge transactions for multiple entities.
 
@@ -282,7 +282,7 @@ The controller concludes the transactional work by sending a `discharge` message
 
 #### Sending a message in a transaction
 
-All transactional work is done with the transactional delivery state `transactional-state` that carries the txn-id. In the case of sending messages, the transactional-state is carried by the message's transfer frame. 
+All transactional work is done with the transactional delivery state `transactional-state` that carries the txn-id. When sending messages, the transactional-state is carried by the message's transfer frame. 
 
 | Client (Controller) | Direction | Service Bus (Coordinator) |
 | :--- | :---: | :--- |
@@ -329,9 +329,9 @@ Having that pair of links in place, the request/response implementation is strai
 
 The pattern obviously requires that the client container and the client-generated identifier for the reply destination are unique across all clients and, for security reasons, also difficult to predict.
 
-The message exchanges used for the management protocol and for all other protocols that use the same pattern happen at the application level; they do not define new AMQP protocol-level gestures. That's intentional, so that applications can take immediate advantage of these extensions with compliant AMQP 1.0 stacks.
+The message exchanges used for the management protocol and for all other protocols that use the same pattern happen at the application level; they don't define new AMQP protocol-level gestures. That's intentional, so that applications can take immediate advantage of these extensions with compliant AMQP 1.0 stacks.
 
-Service Bus does not currently implement any of the core features of the management specification, but the request/response pattern defined by the management specification is foundational for the claims-based-security feature and for nearly all of the advanced capabilities discussed in the following sections:
+Service Bus doesn't currently implement any of the core features of the management specification, but the request/response pattern defined by the management specification is foundational for the claims-based-security feature and for nearly all of the advanced capabilities discussed in the following sections:
 
 ### Claims-based authorization
 

@@ -108,7 +108,9 @@ Changes made in `config.toml` to `edgeAgent` environment variables like the `hos
 
 ### NTLM Authentication
 
-IoT Edge does not currently support network proxies that use NTLM authentication. Users may consider bypassing the proxy by adding the required endpoints to the firewall allowlist.
+NTLM authentication is not supported. Proxies configured with NTLM authentication won't work.
+
+IoT Edge has limited support for proxy authentication. Proxies configured for username and password authentication only are supported.
 
 ## Next steps
 

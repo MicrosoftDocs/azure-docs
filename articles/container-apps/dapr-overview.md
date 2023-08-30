@@ -6,7 +6,7 @@ author: hhunter-ms
 ms.service: container-apps
 ms.custom: event-tier1-build-2022, ignite-2022, build-2023
 ms.topic: conceptual
-ms.date: 05/15/2023
+ms.date: 08/28/2023
 ---
 
 # Dapr integration with Azure Container Apps
@@ -32,13 +32,15 @@ This guide provides insight into core Dapr concepts and details regarding the Da
 
 | Dapr API                                              | Description                                                                                                                                                     |
 | ----------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [**Service-to-service invocation**][dapr-serviceinvo] | Discover services and perform reliable, direct service-to-service calls with automatic mTLS authentication and encryption.                                      |
+| [**Service-to-service invocation**][dapr-serviceinvo] | Discover services and perform reliable, direct service-to-service calls with automatic mTLS authentication and encryption. [See known limitations for Dapr service invocation in Azure Container Apps.](#unsupported-dapr-capabilities)                                     |
 | [**State management**][dapr-statemgmt]                | Provides state management capabilities for transactions and CRUD operations.                                                                                    |
 | [**Pub/sub**][dapr-pubsub]                            | Allows publisher and subscriber container apps to intercommunicate via an intermediary message broker.                                                          |
 | [**Bindings**][dapr-bindings]                         | Trigger your applications based on events                                                                                                                       |
 | [**Actors**][dapr-actors]                             | Dapr actors are message-driven, single-threaded, units of work designed to quickly scale. For example, in burst-heavy workload situations. |
 | [**Observability**](./observability.md)               | Send tracing information to an Application Insights backend.                                                                                                    |
 | [**Secrets**][dapr-secrets]                           | Access secrets from your application code or reference secure values in your Dapr components.                                                                   |
+| [**Configuration**][dapr-config]                           | Retrieve and subscribe to application configuration items for supported configuration stores.                                                                   |
+
 
 > [!NOTE]
 > The above table covers stable Dapr APIs. To learn more about using alpha APIs and features, [see the Dapr FAQ][dapr-faq].
@@ -340,6 +342,7 @@ This resource defines a Dapr component called `dapr-pubsub` via ARM.
 
 - **Custom configuration for Dapr Observability**: Instrument your environment with Application Insights to visualize distributed tracing.
 - **Dapr Configuration spec**: Any capabilities that require use of the Dapr configuration spec.
+- **Invoking non-Dapr services from Dapr as if they were Dapr-enabled**: Dapr's Service Invocation with Azure Container Apps is supported only between Dapr-enabled services.
 - **Declarative pub/sub subscriptions**
 - **Any Dapr sidecar annotations not listed above**
 - **Alpha APIs and components**: Azure Container Apps doesn't guarantee the availability of Dapr alpha APIs and features. For more information, refer to the [Dapr FAQ][dapr-faq].
@@ -347,6 +350,7 @@ This resource defines a Dapr component called `dapr-pubsub` via ARM.
 ### Known limitations
 
 - **Actor reminders**: Require a minReplicas of 1+ to ensure reminders is always active and fires correctly.
+- **Jobs**: Dapr isn't supported for jobs.
 
 ## Next Steps
 
@@ -381,8 +385,9 @@ Now that you've learned about Dapr and some of the challenges it solves:
 [dapr-bindings]: https://docs.dapr.io/developing-applications/building-blocks/bindings/bindings-overview/
 [dapr-actors]: https://docs.dapr.io/developing-applications/building-blocks/actors/actors-overview/
 [dapr-secrets]: https://docs.dapr.io/developing-applications/building-blocks/secrets/secrets-overview/
+[dapr-config]: https://docs.dapr.io/developing-applications/building-blocks/configuration/
 [dapr-cncf]: https://www.cncf.io/projects/dapr/
 [dapr-args]: https://docs.dapr.io/reference/arguments-annotations-overview/
 [dapr-component]: https://docs.dapr.io/concepts/components-concept/
-[dapr-component-spec]: https://docs.dapr.io/operations/components/component-schema/
+[dapr-component-spec]: https://docs.dapr.io/reference/resource-specs/
 [dapr-release]: https://docs.dapr.io/operations/support/support-release-policy/#supported-versions

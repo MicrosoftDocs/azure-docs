@@ -6,6 +6,7 @@ ms.topic: overview
 ms.date: 05/10/2022
 ms.author: azfuncdf
 ms.devlang: csharp, java, javascript, python
+ms.custom: devx-track-dotnet
 #Customer intent: As a developer, I want to learn what durable entities are and how to use them to solve distributed, stateful problems in my applications.
 ---
 

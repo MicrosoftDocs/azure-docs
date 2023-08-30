@@ -6,7 +6,7 @@ ms.author: jtoland
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: conceptual
-ms.date: 06/20/2022
+ms.date: 06/01/2023
 ---
 
 # Azure Database for MySQL migration partners
@@ -41,9 +41,9 @@ To learn more about some of Microsoft's other partners, see the [Microsoft Partn
 [6]: ./media/partner-migration-mysql/pactera-logo-small-2.png
 
 <!--Website links -->
-[devart_website]:https://www.devart.com//
-[snp_website]:https://www.snp.com//
-[pragmatic-works_website]:https://pragmaticworks.com//
+[devart_website]:https://www.devart.com/
+[snp_website]:https://www.snp.com/
+[pragmatic-works_website]:https://pragmaticworks.com/
 [infosys_website]:https://www.infosys.com/
 [credativ_website]:https://www.credativ.com/postgresql-competence-center/microsoft-azure
 [pactera_website]:https://en.pactera.com/

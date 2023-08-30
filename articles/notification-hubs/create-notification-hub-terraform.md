@@ -4,10 +4,12 @@ description: In this article, you create an Azure notification hub using Terrafo
 services: notification-hubs
 author: TomArcherMsft
 ms.topic: quickstart
-ms.custom: devx-track-terraform, ai-gen-docs
+ms.custom: devx-track-terraform
 ms.service: notification-hubs
 ms.author: tarcher
 ms.date: 4/14/2023
+content_well_notification: 
+  - AI-contribution
 ---
 
 # Quickstart: Create an Azure notification hub using Terraform
@@ -27,8 +29,6 @@ In this article, you learn how to:
 > * Create an Azure Notification Hub namespace using [azurerm_notification_hub_namespace](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/notification_hub_namespace).
 > * Create a random value for the Azure Notification Hub name using [random_string](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string).
 > * Create an Azure Notification Hub using [azurerm_notification_hub](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/notification_hub).
-
-[!INCLUDE [AI attribution](../../includes/ai-generated-attribution.md)]
 
 ## Prerequisites
 

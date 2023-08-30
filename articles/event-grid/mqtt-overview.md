@@ -1,5 +1,5 @@
 ---
-title: 'Overview of the MQTT Support in Azure Event Grid'
+title: 'Overview of MQTT Support in Azure Event Grid (preview)'
 description: 'Describes the main concepts for the MQTT Support in Azure Event Grid.'
 ms.topic: conceptual
 ms.date: 05/23/2023
@@ -8,7 +8,12 @@ ms.author: geguirgu
 ---
 # Overview of the MQTT Support in Azure Event Grid (Preview)
 
-Azure Event Grid enables your MQTT clients to communicate with each other and with Azure services, to support your Internet of Things (IoT) solutions. Event Grid’s MQTT support enables you to accomplish the following scenarios:
+Azure Event Grid enables your MQTT clients to communicate with each other and with Azure services, to support your Internet of Things (IoT) solutions. 
+
+[!INCLUDE [mqtt-preview-note](./includes/mqtt-preview-note.md)]
+
+Event Grid’s MQTT support enables you to accomplish the following scenarios:
+
 - Ingest telemetry using a many-to-one messaging pattern. This pattern enables the application to offload the burden of managing the high number of connections with devices to Event Grid.
 - Control your MQTT clients using the request-response (one-to-one) messaging pattern. This pattern enables any client to communicate with any other client without restrictions, regardless of the clients' roles.
 - Broadcast alerts to a fleet of clients using the one-to-many messaging pattern. This pattern enables the application to publish only one message that the service replicates for every interested client.
@@ -16,10 +21,11 @@ Azure Event Grid enables your MQTT clients to communicate with each other and wi
 
 You can find code samples that demonstrate these scenarios in [this repository.](https://github.com/Azure-Samples/MqttApplicationSamples)
 
+The MQTT support in Event Grid is ideal for the implementation of automotive and mobility scenarios, among others. See [the reference architecture](mqtt-automotive-connectivity-and-data-solution.md) to learn how to build secure and scalable solutions for connecting millions of vehicles to the cloud, using Azure’s messaging and data analytics services.
+
 :::image type="content" source="media/overview/mqtt-messaging-high-res.png" alt-text="High-level diagram of Event Grid that shows bidirectional MQTT communication with publisher and subscriber clients." border="false":::
 
-> [!NOTE]
-> This feature is currently in preview. It's provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 ## Key concepts:
 The following are a list of key concepts involved in MQTT messaging on Event Grid.
@@ -42,7 +48,7 @@ MQTT is a publish-subscribe messaging transport protocol that was designed for c
 - MQTT v3.1.1 features: 
 	- **Persistent sessions** ensure reliability by preserving the client's subscription information and messages when a client disconnects.
 	- **QoS 0 and 1** provide your clients with control over the efficiency and reliability of the communication.
--  Event Grid is adding more MQTT v5 features in the future to align more with the MQTT specifications. The following items detail the current differences in Event Grid's MQTT support from the MQTT v3.1.1 specification: Will message, Retain flag, Message ordering and QoS 2 aren't supported.
+-  Event Grid is adding more MQTT v3.1.1 features in the future to align more with the MQTT specifications. The following items detail the current differences in Event Grid's MQTT support from the MQTT v3.1.1 specification: Will message, Retain flag, Message ordering and QoS 2 aren't supported.
  
 [Learn more about Event Grid’s MQTT support and current limitations.](mqtt-support.md) 
 
@@ -85,6 +91,10 @@ Event Grid allows you to route your MQTT messages to Azure services or webhooks 
 
 :::image type="content" source="media/mqtt-overview/routing-high-res.png" alt-text="Diagram of the MQTT message routing." border="false":::
 
+### MQTT Clients Life Cycle Events 
+
+Client Life Cycle events allow applications to react to events about the client connection status or the client resource operations. It allows you to keep track of your client's connection status, react with a mitigation action for client disconnections, and track the namespace that your clients are attached to during automated failovers.Learn more about [MQTT Client Life Cycle Events](mqtt-client-life-cycle-events.md).
+
 ## Next steps
 
 Use the following articles to learn more about the MQTT support in Event Grid and its main concepts.
@@ -101,3 +111,4 @@ Use the following articles to learn more about the MQTT support in Event Grid an
 - [Access control](mqtt-access-control.md) 
 - [MQTT support](mqtt-support.md) 
 - [Routing MQTT messages](mqtt-routing.md) 
+- [MQTT Client Life Cycle Events](mqtt-client-life-cycle-events.md).

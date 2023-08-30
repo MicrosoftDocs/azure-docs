@@ -19,27 +19,26 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 The script to automate the download and installation, and to establish the connection with Azure Arc, is available from the Azure portal. To complete the process, perform the following steps:
 
-1. From your browser, go to the [Azure portal](https://portal.azure.com).
+1. From your browser, sign in to the [Azure portal](https://portal.azure.com).
 
 1. On the **Servers - Azure Arc** page, select **Add** at the upper left.
 
-1. On the **Select a method** page, select the **Add a single server** tile, and then select **Generate script**.
+1. On the **Select a method** page, under the **Add a single server** tile, and then select **Generate script**.
 
-1. On the **Generate script** page, select the subscription and resource group where you want the machine to be managed within Azure. Select an Azure location where the machine metadata will be stored. This location can be the same or different, as the resource group's location.
-
-1. On the **Prerequisites** page, review the information and then select **Next: Resource details**.
+1. On the **Prerequisites** page, review the information and then select **Next** to Resource details page.
 
 1. On the **Resource details** page, provide the following:
 
     1. In the **Resource group** drop-down list, select the resource group the machine will be managed from.
     1. In the **Region** drop-down list, select the Azure region to store the servers metadata.
     1. In the **Operating system** drop-down list, select the operating system that the script is configured to run on.
-    1. If the machine is communicating through a proxy server to connect to the internet, specify the proxy server IP address or the name and port number that the machine will use to communicate with the proxy server. Enter the value in the format `http://<proxyURL>:<proxyport>`.
-    1. Select **Next: Tags**.
+    1. In the **Connectivity method** section, If the machine is communicating through a proxy server to connect to the internet, select **Proxy server** option and specify the proxy server IP address or the name and port number that the machine will use to communicate with the proxy server. Enter the value in the format `http://<proxyURL>:<proxyport>`. Else if the machine is communicating through a private endpoint then select **Private endpoint** option and appropriate private link scope in the drop-down list. Else if the machine is communicating through a public endpoint then select **Public endpoint** option.
+    1. In the **Automanage machine best practices** section, you may enable automanage if you want to onboard and configure best practice services like Machine configuration and Insights, based on your server needs.
+    1. Select **Next** to Tags page.
 
 1. On the **Tags** page, review the default **Physical location tags** suggested and enter a value, or specify one or more **Custom tags** to support your standards.
 
-1. Select **Next: Download and run script**.
+1. Select **Next** to Download and run script page.
 
 1. On the **Download and run script** page, review the summary information, and then select **Download**. If you still need to make changes, select **Previous**.
 

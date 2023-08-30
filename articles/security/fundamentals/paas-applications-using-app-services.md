@@ -4,16 +4,16 @@ titleSuffix: Azure App Service
 description: "Learn about Azure App Service security best practices for securing your PaaS web and mobile applications. "
 services: security
 documentationcenter: na
-author: techlake
-manager: barbkess
-editor: ''
+author: terrylanfear
+manager: rkarlin
 
 ms.assetid:
-ms.service: app-service
+ms.service: security
+ms.subservice: security-fundamentals
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/18/2019
+ms.date: 08/29/2023
 ms.author: terrylan
 
 ---

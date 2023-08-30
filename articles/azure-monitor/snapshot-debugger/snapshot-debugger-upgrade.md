@@ -6,25 +6,25 @@ author: hhunter-ms
 ms.reviewer: charles.weininger
 reviewer: cweining
 ms.topic: conceptual
-ms.date: 08/18/2022
-ms.custom: devdivchpfy22
+ms.date: 07/10/2023
+ms.custom: devdivchpfy22, devx-track-dotnet, engagement
 ---
 
 # Upgrade the Snapshot Debugger
 
-To provide the best possible security for your data, Microsoft is moving away from TLS 1.0 and TLS 1.1 because these protocols are vulnerable to determined attackers. If you're using an older version of the site extension, it requires an upgrade to continue working. This article outlines the steps needed to upgrade your instance of Snapshot Debugger to the latest version.
+> [!IMPORTANT]
+> [Microsoft is moving away from TLS 1.0 and TLS 1.1](/lifecycle/announcements/transport-layer-security-1x-disablement) due to vulnerabilities. If you're using an older version of the site extension, you need to upgrade your instance of Snapshot Debugger to the latest version.
 
 Depending on how you enabled the Snapshot Debugger, you can follow two primary upgrade paths:
 
-* Via site extension
-* Via an SDK/NuGet added to your application
+- Via site extension
+- Via an SDK/NuGet added to your application
 
-This article discusses both upgrade paths.
-
-## Upgrade the site extension
+# [Site extension](#tab/site-ext)
 
 > [!IMPORTANT]
-> Older versions of Application Insights used a private site extension called *Application Insights extension for Azure App Service*. The current Application Insights experience is enabled by setting App Settings to light up a preinstalled site extension.
+> Older versions of Application Insights used a private site extension called *Application Insights extension for Azure App Service*. 
+> The current Application Insights experience is enabled by setting App Settings to light up a preinstalled site extension.
 > To avoid conflicts, which might cause your site to stop working, delete the private site extension first. See step 4 in the following procedure.
 
 If you enabled the Snapshot Debugger by using the site extension, you can upgrade by following these steps:
@@ -34,7 +34,7 @@ If you enabled the Snapshot Debugger by using the site extension, you can upgrad
 
    :::image type="content" source="./media/snapshot-debugger-upgrade/app-service-resource.png" alt-text="Screenshot that shows an individual App Service resource named DiagService01.":::
 
-1. After you've moved to your resource, select the **Extensions** pane. Wait for the list of extensions to populate.
+1. Select the **Extensions** pane. Wait for the list of extensions to populate.
 
    :::image type="content" source="./media/snapshot-debugger-upgrade/application-insights-site-extension-to-be-deleted.png" alt-text="Screenshot that shows App Service Extensions showing the Application Insights extension for Azure App Service installed.":::
 
@@ -67,6 +67,14 @@ If you enabled the Snapshot Debugger by using the site extension, you can upgrad
 
 The site is now upgraded and is ready to use.
 
-## Upgrade Snapshot Debugger by using SDK/NuGet
 
-If the application is using a version of `Microsoft.ApplicationInsights.SnapshotCollector` earlier than version 1.3.1, you must upgrade it to a [newer version](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) to continue working.
+# [SDK/NuGet](#tab/sdk-nuget)
+
+If your application is using a version of `Microsoft.ApplicationInsights.SnapshotCollector` earlier than version 1.3.1, upgrade it to a [newer version](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) to continue working.
+
+---
+
+## Next steps
+
+- [Learn how to view snapshots](./snapshot-debugger-data.md)
+- [Troubleshoot issues you encounter in Snapshot Debugger](./snapshot-debugger-troubleshoot.md)

@@ -1,8 +1,7 @@
 ---
 title: Language Support Policy
 description: App Service language runtime support policies 
-author: jeffmartinez
-
+author: jeffwmartinez
 ms.topic: article
 ms.date: 01/23/2023
 ms.author: jefmarti
@@ -31,8 +30,8 @@ Those who receive notifications include account administrators, service administ
 ## Language runtime version support timelines
 To learn more about specific language support policy timelines, visit the following resources:
 
-- [ASP.NET](https://aka.ms/aspnetrelease)
-- [.NET](https://aka.ms/dotnetrelease)
+- [.NET and ASP.NET Core](https://aka.ms/dotnetrelease)
+- [.NET Framework and ASP.NET](https://aka.ms/aspnetrelease)
 - [Node](https://aka.ms/noderelease)
 - [Java](https://aka.ms/javarelease)
 - [Python](https://aka.ms/pythonrelease)

@@ -4,8 +4,8 @@ description: Learn how to use REST API to restore SQL server databases in Azure 
 ms.topic: conceptual
 ms.date: 08/11/2022
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Restore SQL Server databases in Azure VMs with REST API

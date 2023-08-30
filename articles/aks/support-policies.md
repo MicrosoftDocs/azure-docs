@@ -2,7 +2,7 @@
 title: Support policies for Azure Kubernetes Service (AKS)
 description: Learn about Azure Kubernetes Service (AKS) support policies, shared responsibility, and features that are in preview (or alpha or beta).
 ms.topic: article
-ms.date: 05/22/2023
+ms.date: 08/28/2023
 
 #Customer intent: As a cluster operator or developer, I want to understand what AKS components I need to manage, what components are managed by Microsoft (including security patches), and networking and preview features.
 ---
@@ -78,7 +78,7 @@ Microsoft doesn't provide technical support for the following scenarios:
 * Third-party closed-source software. This software can include security scanning tools and networking devices or software.
 * Network customizations other than the ones listed in the [AKS documentation](./index.yml).
 * Custom or third-party CNI plugins used in [BYOCNI](use-byo-cni.md) mode.
-* Stand-by and proactive scenarios. Microsoft Support provides reactive support to help solve active issues in a timely and professional manner. However, standby or proactive support to help you eliminate operational risks, increase availability, and optimize performance are not covered. [Eligible customers](https://www.microsoft.com/unifiedsupport) can contact their account team to get nominated for Azure Event Management service[https://devblogs.microsoft.com/premier-developer/proactively-plan-for-your-critical-event-in-azure-with-enhanced-support-and-engineering-services/]. It's a paid service delivered by Microsoft support engineers that includes a proactive solution risk assessment and coverage during the event.
+* Stand-by and proactive scenarios. Microsoft Support provides reactive support to help solve active issues in a timely and professional manner. However, standby or proactive support to help you eliminate operational risks, increase availability, and optimize performance are not covered. [Eligible customers](https://www.microsoft.com/unifiedsupport) can contact their account team to get nominated for [Azure Event Management service](https://devblogs.microsoft.com/premier-developer/proactively-plan-for-your-critical-event-in-azure-with-enhanced-support-and-engineering-services/). It's a paid service delivered by Microsoft support engineers that includes a proactive solution risk assessment and coverage during the event.
 
 ## AKS support coverage for agent nodes
 
@@ -141,7 +141,7 @@ Clusters with zero **Ready** nodes (or all **Not Ready**) and zero **Running** V
 
 AKS reserves the right to archive control planes that have been configured out of support guidelines for extended periods equal to and beyond 30 days. AKS maintains backups of cluster etcd metadata and can readily reallocate the cluster. This reallocation is initiated by any PUT operation bringing the cluster back into support, such as an upgrade or scale to active agent nodes.
 
-All clusters in a suspended or deleted subscription will be stopped immediately and deleted after 30 days
+All clusters in a suspended subscription will be stopped immediately and deleted after 90 days. All clusters in a deleted subscription will be deleted immediately. 
 
 ## Unsupported alpha and beta Kubernetes features
 

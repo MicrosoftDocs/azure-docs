@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/25/2023
+ms.date: 08/11/2023
 ms.author: jeedes
 ---
 
@@ -113,9 +113,6 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     | emailaddress | user.userprincipalname |
     | email | user.userprincipalname |
 
-   > [!NOTE]
-   > In order to set up the service provider (SP) configuration, you must click on **Expand** next to **Advanced Options** in the SAML configuration page. In the **Service Provider Issuer** box, enter the workspace URL. The default is slack.com. 
-
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
 	![The Certificate download link](common/certificatebase64.png)
@@ -152,15 +149,10 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Slack SSO
 
-1. To automate the configuration within Slack, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-	![My apps extension](common/install-myappssecure-extension.png)
 
-2. After adding extension to the browser, click on **Set up Slack** will direct you to the Slack application. From there, provide the admin credentials to sign into Slack. The browser extension will automatically configure the application for you and automate steps 3-6.
 
-	![Setup configuration](common/setup-sso.png)
-
-3. If you want to set up Slack manually, in a different web browser window, sign in to your Slack company site as an administrator.
+1. In a different web browser window, sign in to your up Slack company site as an administrator
 
 2. click on your workspace name in the top left, then go to **Settings & administration** -> **Workspace settings**.
 
@@ -191,6 +183,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
     b. Enter `https://slack.com` in the **Service provider issuer** textbox.
 
     c. Choose how the SAML response from your IDP is signed from the two options.
+
+   > [!NOTE]
+   > In order to set up the service provider (SP) configuration, you must click on **Expand** next to **Advanced Options** in the SAML configuration page. In the **Service Provider Issuer** box, enter the workspace URL. The default is slack.com. 
 
 1. Under **Settings**, decide if members can edit their profile information (like their email or display name) after SSO is enabled. You can also choose whether SSO is required, partially required or optional.
 

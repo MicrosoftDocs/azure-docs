@@ -1,7 +1,7 @@
 ---
-title: Azure Video Indexer media transcription, translation and language identification overview 
-titleSuffix: Azure Video Indexer 
-description: An introduction to Azure Video Indexer media transcription, translation and language identification components responsibly.
+title: Azure AI Video Indexer media transcription, translation and language identification overview 
+titleSuffix: Azure AI Video Indexer 
+description: An introduction to Azure AI Video Indexer media transcription, translation and language identification components responsibly.
 author: Juliako
 ms.author: juliako
 manager: femila
@@ -12,12 +12,13 @@ ms.topic: article
 
 # Media transcription, translation and language identification  
 
-Azure Video Indexer transcription, translation and language identification automatically detects, transcribes, and translates the speech in media files into over 50 languages. 
+Azure AI Video Indexer transcription, translation and language identification automatically detects, transcribes, and translates the speech in media files into over 50 languages. 
 
-- Azure Video Indexer processes the speech in the audio file to extract the transcription that is then translated into many languages. When selecting to translate into a specific language, both the transcription and the insights like keywords, topics, labels or OCR are translated into the specified language. Transcription can be used as is or be combined with speaker insights that map and assign the transcripts into speakers. Multiple speakers can be detected in an audio file. An ID is assigned to each speaker and is displayed under their transcribed speech. 
--	Azure Video Indexer language identification (LID) automatically recognizes the supported dominant spoken language in the video file. For more information, see [Applying LID](/azure/azure-video-indexer/language-identification-model). 
--	Azure Video Indexer multi-language identification (MLID) automatically recognizes the spoken languages in different segments in the audio file and sends each segment to be transcribed in the identified languages. At the end of this process, all transcriptions are combined into the same file. For more information, see [Applying MLID](/azure/azure-video-indexer/multi-language-identification-transcription).
-The resulting insights are generated in a categorized list in a JSON file that includes the ID, language, transcribed text, duration and confidence score. 
+- Azure AI Video Indexer processes the speech in the audio file to extract the transcription that is then translated into many languages. When selecting to translate into a specific language, both the transcription and the insights like keywords, topics, labels or OCR are translated into the specified language. Transcription can be used as is or be combined with speaker insights that map and assign the transcripts into speakers. Multiple speakers can be detected in an audio file. An ID is assigned to each speaker and is displayed under their transcribed speech. 
+-	Azure AI Video Indexer language identification (LID) automatically recognizes the supported dominant spoken language in the video file. For more information, see [Applying LID](/azure/azure-video-indexer/language-identification-model). 
+-	Azure AI Video Indexer multi-language identification (MLID) automatically recognizes the spoken languages in different segments in the audio file and sends each segment to be transcribed in the identified languages. At the end of this process, all transcriptions are combined into the same file. For more information, see [Applying MLID](/azure/azure-video-indexer/multi-language-identification-transcription).
+The resulting insights are generated in a categorized list in a JSON file that includes the ID, language, transcribed text, duration and confidence score.
+- When indexing media files with multiple speakers, Azure AI Video Indexer performs speaker diarization which identifies each speaker in a video and attributes each transcribed line to a speaker. The speakers are given a unique identity such as Speaker #1 and Speaker #2. This allows for the identification of speakers during conversations and can be useful in a variety of scenarios such as doctor-patient conversations, agent-customer interactions, and court proceedings.
 
 ## Prerequisites  
 
@@ -86,7 +87,7 @@ To view language insights in `insights.json`, do the following:
         },
     ```
     
-To download the JSON file via the API, use the [Azure Video Indexer developer portal](https://api-portal.videoindexer.ai/). 
+To download the JSON file via the API, use the [Azure AI Video Indexer developer portal](https://api-portal.videoindexer.ai/). 
 
 ## Transcription, translation and language identification components  
 
@@ -95,20 +96,20 @@ During the transcription, translation and language identification procedure, spe
 |Component|Definition|
 |---|---|
 |Source language |	The user uploads the source file for indexing, and either:<br/>- Specifies the video source language.<br/>- Selects auto detect single language (LID) to identify the language of the file. The output is saved separately.<br/>- Selects auto detect multi language (MLID) to identify multiple languages in the file. The output of each language is saved separately.|
-|Transcription API|	The audio file is sent to Cognitive Services to get the transcribed and translated output. If a language has been specified, it's processed accordingly. If no language is specified, a LID or MLID process is run to identify the language after which the file is processed. |
+|Transcription API|	The audio file is sent to Azure AI services to get the transcribed and translated output. If a language has been specified, it's processed accordingly. If no language is specified, a LID or MLID process is run to identify the language after which the file is processed. |
 |Output unification	|The transcribed and translated files are unified into the same file. The outputted data includes the speaker ID of each extracted sentence together with its confidence level.|
 |Confidence value	|The estimated confidence level of each sentence is calculated as a range of 0 to 1. The confidence score represents the certainty in the accuracy of the result. For example, an 82% certainty is represented as an 0.82 score.|
 
 ## Example use cases 
 
--	Promoting accessibility by making content available for people with hearing disabilities using Azure Video Indexer to generate speech to text transcription and translation into multiple languages.
-- Improving content distribution to a diverse audience in different regions and languages by delivering content in multiple languages using Azure Video Indexer’s transcription and translation capabilities. 
-- Enhancing and improving manual closed captioning and subtitles generation by leveraging Azure Video Indexer’s transcription and translation capabilities and by using the closed captions generated by Azure Video Indexer in one of the supported formats.
-- Using language identification (LID) or multi language identification (MLID) to transcribe videos in unknown languages to allow Azure Video Indexer to automatically identify the languages appearing in the video and generate the transcription accordingly. 
+-	Promoting accessibility by making content available for people with hearing disabilities using Azure AI Video Indexer to generate speech to text transcription and translation into multiple languages.
+- Improving content distribution to a diverse audience in different regions and languages by delivering content in multiple languages using Azure AI Video Indexer’s transcription and translation capabilities. 
+- Enhancing and improving manual closed captioning and subtitles generation by leveraging Azure AI Video Indexer’s transcription and translation capabilities and by using the closed captions generated by Azure AI Video Indexer in one of the supported formats.
+- Using language identification (LID) or multi language identification (MLID) to transcribe videos in unknown languages to allow Azure AI Video Indexer to automatically identify the languages appearing in the video and generate the transcription accordingly. 
 
 ## Considerations and limitations when choosing a use case 
 
-When used responsibly and carefully, Azure Video Indexer is a valuable tool for many industries. To respect the privacy and safety of others, and to comply with local and global regulations, we recommend the following:   
+When used responsibly and carefully, Azure AI Video Indexer is a valuable tool for many industries. To respect the privacy and safety of others, and to comply with local and global regulations, we recommend the following:   
 
 - Carefully consider the accuracy of the results, to promote more accurate data, check the quality of the audio, low quality audio might impact the detected insights.  
 - Always respect an individual’s right to privacy, and only ingest videos for lawful and justifiable purposes.  
@@ -120,7 +121,15 @@ When used responsibly and carefully, Azure Video Indexer is a valuable tool for 
 - Provide a feedback channel that allows users and individuals to report issues with the service.  
 - Be aware of any applicable laws or regulations that exist in your area regarding processing, analyzing, and sharing media containing people. 
 - Keep a human in the loop. Don't use any solution as a replacement for human oversight and decision-making.  
-- Fully examine and review the potential of any AI model you're using to understand its capabilities and limitations. 
+- Fully examine and review the potential of any AI model you're using to understand its capabilities and limitations.
+- Video Indexer doesn't perform speaker recognition so speakers are not assigned an identifier across multiple files. You are unable to search for an individual speaker in multiple files or transcripts. 
+- Speaker identifiers are assigned randomly and can only be used to distinguish different speakers in a single file. 
+- Cross-talk and overlapping speech: When multiple speakers talk simultaneously or interrupt each other, it becomes challenging for the model to accurately distinguish and assign the correct text to the corresponding speakers.
+- Speaker overlaps: Sometimes, speakers may have similar speech patterns, accents, or use similar vocabulary, making it difficult for the model to differentiate between them.
+- Noisy audio: Poor audio quality, background noise, or low-quality recordings can hinder the model's ability to correctly identify and transcribe speakers.
+- Emotional Speech: Emotional variations in speech, such as shouting, crying, or extreme excitement, can affect the model's ability to accurately diarize speakers.
+- Speaker disguise or impersonation: If a speaker intentionally tries to imitate or disguise their voice, the model might misidentify the speaker.
+- Ambiguous speaker identification: Some segments of speech may not have enough unique characteristics for the model to confidently attribute to a specific speaker.
 
 For more information, see: guidelines and limitations in [language detection and transcription](/azure/azure-video-indexer/multi-language-identification-transcription).  
 
@@ -137,7 +146,7 @@ For more information, see: guidelines and limitations in [language detection and
 
 `visupport@microsoft.com`  
 
-## Azure Video Indexer insights
+## Azure AI Video Indexer insights
 
 - [Audio effects detection](audio-effects-detection.md)
 - [Face detection](face-detection.md)

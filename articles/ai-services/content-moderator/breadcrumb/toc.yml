@@ -1,0 +1,11 @@
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Azure AI services
+    tocHref: /azure/ai-services/
+    topicHref: /azure/ai-services/index
+    items:
+    - name: Content Moderator
+      tocHref: /azure/ai-services/
+      topicHref: /azure/ai-services/content-moderator/index

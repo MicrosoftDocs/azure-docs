@@ -45,7 +45,7 @@ In this tutorial, you create a pipeline that performs the following operations:
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 ## Prerequisites
-* **Azure SQL Database Managed Instance**. You use the database as the **source** data store. If you don't have an Azure SQL Database Managed Instance, see the [Create an Azure SQL Database Managed Instance](/azure/azure-sql/managed-instance/instance-create-quickstart) article for steps to create one.
+* **Azure SQL Managed Instance**. You use the database as the **source** data store. If you don't have an Azure SQL Managed Instance, see the [Create an Azure SQL Database Managed Instance](/azure/azure-sql/managed-instance/instance-create-quickstart) article for steps to create one.
 * **Azure Storage account**. You use the blob storage as the **sink** data store. If you don't have an Azure storage account, see the [Create a storage account](../storage/common/storage-account-create.md) article for steps to create one. Create a container named **raw**. 
 
 ### Create a data source table in Azure SQL Database
@@ -76,7 +76,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
     EXEC sys.sp_cdc_enable_table
     @source_schema = 'dbo',
     @source_name = 'customers', 
-    @role_name = 'null',
+    @role_name = NULL,
     @supports_net_changes = 1
     ```
 5. Insert data into the customers table by running the following command:

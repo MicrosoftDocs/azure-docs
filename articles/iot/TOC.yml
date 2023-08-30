@@ -22,6 +22,8 @@ items:
         href: iot-overview-analyze-visualize.md
       - name: Manage your solution
         href: iot-overview-solution-management.md
+      - name: Secure your solution
+        href: iot-overview-security.md
       - name: Scalability, high availability
         href: iot-overview-scalability-high-availability.md
     - name: Azure IoT services and technologies
@@ -36,6 +38,8 @@ items:
 
   - name: Concepts
     items:
+      - name: Security architecture
+        href: iot-security-architecture.md    
       - name: MQTT support
         items: 
         - name: Use MQTT with IoT Hub
@@ -48,13 +52,6 @@ items:
             href: iot-mqtt-5-preview.md
           - name: MQTT 5 API reference
             href: iot-mqtt-5-preview-reference.md         
-
-  - name: Security
-    items:
-    - name: Security best practices
-      href: iot-security-best-practices.md    
-    - name: Security architecture
-      href: iot-security-architecture.md
 
   - name: Resources
     items:

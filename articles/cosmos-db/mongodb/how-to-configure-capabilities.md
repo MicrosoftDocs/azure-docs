@@ -1,6 +1,6 @@
 ---
 title: Configure your Azure Cosmos DB for MongoDB account capabilities
-description: Learn how to configure your API for MongoDB account capabilities
+description: Learn how to configure your API for MongoDB account capabilities.
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: gahllevy
@@ -15,29 +15,30 @@ ms.custom: build-2023
 
 [!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
 
-Capabilities are features that can be added or removed to your API for MongoDB account. Many of these features affect account behavior so it's important to be fully aware of the effect a capability will have before enabling or disabling it. Several capabilities are set on API for MongoDB accounts by default, and can't be changed or removed. One example is the EnableMongo capability. This article will demonstrate how to enable and disable a capability.
+Capabilities are features that can be added or removed to your API for MongoDB account. Many of these features affect account behavior, so it's important to be fully aware of the effect a capability has before you enable or disable it. Several capabilities are set on API for MongoDB accounts by default and can't be changed or removed. One example is the `EnableMongo` capability. This article demonstrates how to enable and disable a capability.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://aka.ms/trycosmosdb).
-- Azure Cosmos DB for MongoDB account. [Create an API for MongoDB account](quickstart-nodejs.md#create-an-azure-cosmos-db-account).
-- [Azure Command-Line Interface (CLI)](/cli/azure/) or Azure portal access. Changing capabilities via ARM is not supported.
+- An Azure Cosmos DB for MongoDB account. [Create an API for MongoDB account](quickstart-nodejs.md#create-an-azure-cosmos-db-account).
+- [Azure CLI](/cli/azure/) or Azure portal access. Changing capabilities via Azure Resource Manager isn't supported.
 
 ## Available capabilities
 
 | Capability                          | Description                                                                                                                                  | Removable |
 | ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
-| `DisableRateLimitingResponses`      | Allows Mongo API to retry rate-limiting requests on the server-side until max-request-timeout                                                | Yes       |
-| `EnableMongoRoleBasedAccessControl` | Enable support for creating Users/Roles for native MongoDB role-based access control                                                         | No        |
-| `EnableMongoRetryableWrites`        | Enables support for retryable writes on the account                                                                                          | Yes       |
-| `EnableMongo16MBDocumentSupport`    | Enables support for inserting documents upto 16 MB in size                                                                                   | No        |
-| `EnableUniqueCompoundNestedDocs`    | Enables support for compound and unique indexes on nested fields, as long as the nested field is not an array.                               | No        |
-| `EnableTtlOnCustomPath`             | Provides the ability to set a custom TTL on any one field in a collection                                                                    | No        |
-| `EnablePartialUniqueIndex`          | Enables support for unique partial index which allows you more flexibility to specify exactly which fields in documents you'd like to index. | No        |
+| `DisableRateLimitingResponses`      | Allows Mongo API to retry rate-limiting requests on the server side until the value that's set for `max-request-timeout`.                                                | Yes       |
+| `EnableMongoRoleBasedAccessControl` | Enable support for creating users and roles for native MongoDB role-based access control.                                                         | No        |
+| `EnableMongoRetryableWrites`        | Enables support for retryable writes on the account.                                                                                          | Yes       |
+| `EnableMongo16MBDocumentSupport`    | Enables support for inserting documents up to 16 MB in size.                                                                                   | No        |
+| `EnableUniqueCompoundNestedDocs`    | Enables support for compound and unique indexes on nested fields if the nested field isn't an array.                               | No        |
+| `EnableTtlOnCustomPath`             | Provides the ability to set a custom Time to Live (TTL) on any one field in a collection.                                                                    | No        |
+| `EnablePartialUniqueIndex`          | Enables support for a unique partial index, so you have more flexibility to specify exactly which fields in documents you'd like to index. | No        |
+| `EnableUniqueIndexReIndex` | Enables support for unique index re-indexing for Cosmos DB for MongoDB RU. | No |
 
 ## Enable a capability
 
-1. Retrieve your existing account capabilities by using [**az cosmosdb show**](/cli/azure/cosmosdb#az-cosmosdb-show):
+1. Retrieve your existing account capabilities by using [az cosmosdb show](/cli/azure/cosmosdb#az-cosmosdb-show):
 
    ```azurecli-interactive
    az cosmosdb show \
@@ -45,7 +46,7 @@ Capabilities are features that can be added or removed to your API for MongoDB a
        --name <azure_cosmos_db_account_name>
    ```
 
-   You should see a capability section similar to this output:
+   You should see a capability section that's similar to this example output:
 
    ```json
    "capabilities": [
@@ -55,9 +56,11 @@ Capabilities are features that can be added or removed to your API for MongoDB a
    ]
    ```
 
-   Review the default capability. In this example, we have just `EnableMongo`.
+   Review the default capability. In this example, the only capability that's set is `EnableMongo`.
 
-1. Set the new capability on your database account. The list of capabilities should include the list of previously enabled capabilities, since only the explicitly named capabilities will be set on your account. For example, if you want to add the capability `DisableRateLimitingResponses`, you would use the [**az cosmosdb update**](/cli/azure/cosmosdb#az-cosmosdb-update) command with the `--capabilities` parameter:
+1. Set the new capability on your database account. The list of capabilities should include the list of previously enabled capabilities that you want to keep.
+
+    Only explicitly named capabilities are set on your account. For example, if you want to add the `DisableRateLimitingResponses` capability to the preceding example, use the [az cosmosdb update](/cli/azure/cosmosdb#az-cosmosdb-update) command with the `--capabilities` parameter, and list all capabilities that you want to have in your account:
 
    ```azurecli-interactive
    az cosmosdb update \
@@ -67,10 +70,10 @@ Capabilities are features that can be added or removed to your API for MongoDB a
    ```
 
    > [!IMPORTANT]
-   > The list of capabilities must always specify all capabilities you wish to enable, inclusively. This includes capabilities already enabled for the account. In this example, the `EnableMongo` capability was already enabled, so both the `EnableMongo` and `DisableRateLimitingResponses` capabilities must be specified.
+   > The list of capabilities must always specify *all* capabilities that you want to enable, inclusively. This includes capabilities that are already enabled for the account that you want to keep. In this example, the `EnableMongo` capability was already enabled, so you must specify both the `EnableMongo` capability and the `DisableRateLimitingResponses` capability.
 
    > [!TIP]
-   > If you're using PowerShell and receive an error using the command above, try using a PowerShell array instead to list the capabilities:
+   > If you're using PowerShell and an error message appears when you use the preceding command, instead try using a PowerShell array to list the capabilities:
    >
    > ```azurecli
    > az cosmosdb update \
@@ -81,7 +84,7 @@ Capabilities are features that can be added or removed to your API for MongoDB a
 
 ## Disable a capability
 
-1. Retrieve your existing account capabilities by using **az cosmosdb show**:
+1. Retrieve your existing account capabilities by using `az cosmosdb show`:
 
    ```azurecli-interactive
    az cosmosdb show \
@@ -89,7 +92,7 @@ Capabilities are features that can be added or removed to your API for MongoDB a
        --name <azure_cosmos_db_account_name>
    ```
 
-   You should see a capability section similar to this output:
+   You should see a capability section that's similar to this example output:
 
    ```json
    "capabilities": [
@@ -102,9 +105,11 @@ Capabilities are features that can be added or removed to your API for MongoDB a
    ]
    ```
 
-   Observe each of these capabilities. In this example, we have `EnableMongo` and `DisableRateLimitingResponses`.
+   Check for all capabilities that are currently set. In this example, two capabilities are set: `EnableMongo` and `DisableRateLimitingResponses`.
 
-1. Remove the capability from your database account. The list of capabilities should include the list of previously enabled capabilities you want to keep, since only the explicitly named capabilities will be set on your account. For example, if you want to remove the capability `DisableRateLimitingResponses`, you would use the **az cosmosdb update** command:
+1. Remove one of the capabilities from your database account. The list of capabilities should include the list of previously enabled capabilities that you want to keep.
+
+    Only explicitly named capabilities are set on your account. For example, if you want to remove the `DisableRateLimitingResponses` capability, you would use the `az cosmosdb update` command, and list the capability that you want to keep:
 
    ```azurecli-interactive
    az cosmosdb update \
@@ -114,7 +119,7 @@ Capabilities are features that can be added or removed to your API for MongoDB a
    ```
 
    > [!TIP]
-   > If you're using PowerShell and receive an error using the command above, try using a PowerShell array instead to list the capabilities:
+   > If you're using PowerShell and an error message appears when you use this command, instead try using a PowerShell array to list the capabilities:
    >
    > ```azurecli
    > az cosmosdb update \
@@ -129,5 +134,5 @@ Capabilities are features that can be added or removed to your API for MongoDB a
 - Learn how to [use Robo 3T](connect-using-robomongo.md) with Azure Cosmos DB for MongoDB.
 - Explore MongoDB [samples](nodejs-console-app.md) with Azure Cosmos DB for MongoDB.
 - Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
-  - If all you know is the number of vCores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md).
-  - If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-capacity-planner.md).
+  - If all you know is the number of vCores and servers in your existing database cluster, learn how to [estimate request units by using vCores or vCPUs](../convert-vcore-to-request-unit.md).
+  - If you know typical request rates for your current database workload, learn how to [estimate request units by using the Azure Cosmos DB capacity planner](estimate-ru-capacity-planner.md).

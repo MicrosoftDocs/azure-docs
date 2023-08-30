@@ -2,6 +2,7 @@
 title: Use Bicep to create and publish an Azure Managed Application definition
 description: Describes how to use Bicep to create and publish an Azure Managed Application definition in your service catalog.
 ms.topic: quickstart
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-bicep
 ms.date: 05/12/2023
 ---
 

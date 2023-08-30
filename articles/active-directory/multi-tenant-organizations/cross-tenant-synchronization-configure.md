@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: multi-tenant-organizations
 ms.topic: how-to
-ms.date: 05/05/2023
+ms.date: 07/21/2023
 ms.author: rolyon
 ms.custom: it-pro
 
@@ -55,6 +55,8 @@ By the end of this article, you'll be able to:
 
 ## Step 2: Enable user synchronization in the target tenant
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 ![Icon for the target tenant.](./media/common/icon-tenant-target.png)<br/>**Target tenant**
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator in the target tenant.
@@ -87,9 +89,9 @@ In this step, you automatically redeem invitations so users from the source tena
 
 1. In the target tenant, on the same **Inbound access settings** page, select the **Trust settings** tab.
 
-1. Check the **Suppress consent prompts for users from the other tenant when they access apps and resources in my tenant** check box.
+1. Check the **Automatically redeem invitations with the tenant** &lt;tenant&gt; check box.
 
-    :::image type="content" source="../media/external-identities/inbound-consent-prompt-setting.png" alt-text="Screenshot that shows the inbound suppress consent prompt check box." lightbox="../media/external-identities/inbound-consent-prompt-setting.png":::
+    :::image type="content" source="../media/external-identities/inbound-consent-prompt-setting.png" alt-text="Screenshot that shows the inbound Automatic redemption check box." lightbox="../media/external-identities/inbound-consent-prompt-setting.png":::
 
 1. Select **Save**. 
 
@@ -115,9 +117,9 @@ In this step, you automatically redeem invitations in the source tenant.
 
 1. Select  the **Trust settings** tab.
 
-1. Check the **Suppress consent prompts for users from my tenant when they access apps and resources in the other tenant** check box.
+1. Check the **Automatically redeem invitations with the tenant** &lt;tenant&gt; check box.
 
-    :::image type="content" source="../media/external-identities/outbound-consent-prompt-setting.png" alt-text="Screenshot that shows the outbound suppress consent prompt check box." lightbox="../media/external-identities/outbound-consent-prompt-setting.png":::
+    :::image type="content" source="../media/external-identities/outbound-consent-prompt-setting.png" alt-text="Screenshot that shows the outbound Automatic redemption check box." lightbox="../media/external-identities/outbound-consent-prompt-setting.png":::
 
 1. Select **Save**. 
 
@@ -253,7 +255,7 @@ Attribute mappings allow you to define how data should flow between the source t
 
 1. On the **Attribute Mapping** page, scroll down to review the user attributes that are synchronized between tenants in the **Attribute Mappings** section.
 
-    The attributes selected as **Matching** properties are used to match the user accounts between tenants and avoid creating duplicates.
+    The first attribute, alternativeSecurityIdentifier, is an internal attribute used to uniquely identify the user across tenants, match users in the source tenant with existing users in the target tenant, and ensure that each user only has one account. The matching attribute cannot be changed. Attempting to change the matching attribute or adding additional matching attributes will result in a `schemaInvalid` error. 
 
     :::image type="content" source="./media/cross-tenant-synchronization-configure/provisioning-attribute-mapping.png" alt-text="Screenshot of the Attribute Mapping page that shows the list of Azure Active Directory attributes." lightbox="./media/cross-tenant-synchronization-configure/provisioning-attribute-mapping.png":::
 
@@ -268,6 +270,9 @@ Attribute mappings allow you to define how data should flow between the source t
     | **Member** | Default. Users will be created as external member (B2B collaboration users) in the target tenant. Users will be able to function as any internal member of the target tenant. |
     | **Guest** | Users will be created as external guests (B2B collaboration users) in the target tenant. |
 
+    > [!NOTE]
+    > If the the B2B user already exists in the target tenant then **Member (userType)** will not changed to **Member**, unless the **Apply this mapping** setting is set to **Always**.
+    
     The user type you choose has the following limitations for apps or services (but aren't limited to):
     
     [!INCLUDE [user-type-workload-limitations-include](../includes/user-type-workload-limitations-include.md)]
@@ -443,11 +448,11 @@ This error indicates the policy to automatically redeem invitations in both the 
 
 Follow the steps in [Step 3: Automatically redeem invitations in the target tenant](#step-3-automatically-redeem-invitations-in-the-target-tenant) and [Step 4: Automatically redeem invitations in the source tenant](#step-4-automatically-redeem-invitations-in-the-source-tenant). 
 
-#### Symptom - Suppress consent prompt check box is disabled
+#### Symptom - Automatic redemption check box is disabled
 
-When configuring cross-tenant synchronization, the suppress consent prompt check box is disabled.
+When configuring cross-tenant synchronization, the **Automatic redemption** check box is disabled.
 
-:::image type="content" source="./media/cross-tenant-synchronization-configure/consent-prompt-setting-disabled.png" alt-text="Screenshot that shows the Suppress consent prompt as disabled." lightbox="./media/cross-tenant-synchronization-configure/consent-prompt-setting-disabled.png":::
+:::image type="content" source="./media/cross-tenant-synchronization-configure/consent-prompt-setting-disabled.png" alt-text="Screenshot that shows the Automatic redemption check box as disabled." lightbox="./media/cross-tenant-synchronization-configure/consent-prompt-setting-disabled.png":::
 
 **Cause**
 
@@ -467,7 +472,7 @@ Restoring a previously soft-deleted user in the target tenant isn't supported.
 
 **Solution**
 
-Manually restore the soft-deleted user in the target tenant. For more information, see [Restore or remove a recently deleted user using Azure Active Directory](../fundamentals/active-directory-users-restore.md).
+Manually restore the soft-deleted user in the target tenant. For more information, see [Restore or remove a recently deleted user using Azure Active Directory](../fundamentals/users-restore.md).
 
 #### Symptom - Users are skipped because SMS sign-in is enabled on the user
 Users are skipped from synchronization. The scoping step includes the following filter with status false: "Filter external users.alternativeSecurityIds EQUALS 'None'"

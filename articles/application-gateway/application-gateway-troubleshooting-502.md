@@ -216,7 +216,7 @@ As we know enabling HTTPS in the "Backed HTTP Setting" of the rule will make the
 If the backend servers do not have a TLS certificate issued for the CNAME www.contoso.com or *.contoso.com, the request will fail with **Server Error: 502 - Web server received an invalid response while acting as a gateway or proxy server** because the upstream SSL certificate (the certificate installed on the backend servers) will not match the hostname in the host header, and hence the TLS negotiation will fail. 
 
 
-www.contoso.com --> APP GW front end IP --> Listener with a rule that configures "Backend HTTP Settings" to use protocol HTTP  --> Backend Pool --> Web server (needs to have a TLS certificate installed for www.contoso.com) 
+www.contoso.com --> APP GW front end IP --> Listener with a rule that configures "Backend HTTP Settings" to use protocol HTTPS rather than HTTP  --> Backend Pool --> Web server (needs to have a TLS certificate installed for www.contoso.com) 
 
 ## Solution
 

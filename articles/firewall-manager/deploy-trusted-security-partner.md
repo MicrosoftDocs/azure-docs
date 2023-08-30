@@ -26,7 +26,7 @@ Integrated third-party Security as a service (SECaaS) partners are now available
 
 Skip this section if you are deploying a third-party provider into an existing hub.
 
-1. Sign in to the Azure portal at https://portal.azure.com.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. In **Search**, type **Firewall Manager** and select it under **Services**.
 3. Navigate to **Getting Started**. Select **View secured virtual hubs**.
 4. Select **Create new secured virtual hub**.

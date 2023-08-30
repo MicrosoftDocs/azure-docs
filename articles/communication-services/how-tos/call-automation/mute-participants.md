@@ -8,7 +8,7 @@ ms.subservice: call-automation
 ms.topic: include
 ms.date: 03/19/2023
 ms.author: kpunjabi
-ms.custom: private_preview
+ms.custom: private_preview, devx-track-extended-java
 services: azure-communication-services
 zone_pivot_groups: acs-csharp-java
 ---

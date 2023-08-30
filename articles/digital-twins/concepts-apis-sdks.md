@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn about the Azure Digital Twins API and SDK options, including information about SDK helper classes and general usage notes.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 02/06/2023
+ms.date: 05/18/2023
 ms.topic: conceptual
 ms.service: digital-twins
 ms.custom: engagement-fy23
@@ -70,14 +70,17 @@ The available helper classes are:
 * `BasicRelationship`: Generically represents the core data of a relationship
 * `DigitalTwinsJsonPropertyName`: Contains the string constants for use in JSON serialization and deserialization for custom digital twin types
 
-
 ## Bulk import with the Jobs API
 
-The [Jobs API](/rest/api/digital-twins/dataplane/import-jobs) (currently in preview) is a data plane API that allows you to import a set of models, twins, and/or relationships in a single API call. Jobs API operations are also included with the [CLI commands](/cli/azure/dt/job) and [data plane SDKs](#data-plane-apis). Using the Jobs API requires use of [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md). 
+The [Jobs API](/rest/api/digital-twins/dataplane/jobs) is a data plane API that allows you to import a set of models, twins, and/or relationships in a single API call. Jobs API operations are also included with the [CLI commands](/cli/azure/dt/job) and [data plane SDKs](#data-plane-apis). Using the Jobs API requires use of [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md). 
 
 ### Check permissions
 
-To use the Jobs API, you'll need to have write permission in your Azure Digital Twins instance for the following data action categories: 
+To use the Jobs API, you'll need to enable the permission settings described in this section.
+
+First, you'll need a **system-assigned managed identity** for your Azure Digital Twins instance. For instructions to set up a system-managed identity for the instance, see [Enable/disable managed identity for the instance](how-to-set-up-instance-portal.md#enabledisable-managed-identity-for-the-instance).
+
+You'll need to have **write permissions** in your Azure Digital Twins instance for the following data action categories: 
 * `Microsoft.DigitalTwins/jobs/*`
 * Any graph elements that you want to include in the Jobs call. This might include `Microsoft.DigitalTwins/models/*`, `Microsoft.DigitalTwins/digitaltwins/*`, and/or `Microsoft.DigitalTwins/digitaltwins/relationships/*`.
 
@@ -86,9 +89,13 @@ The built-in role that provides all of these permissions is *Azure Digital Twins
 >[!NOTE]
 > If you attempt an Jobs API call and you're missing write permissions to one of the graph element types you're trying to import, the job will skip that type and import the others. For example, if you have write access to models and twins, but not relationships, an attempt to bulk import all three types of element will only succeed in importing the models and twins. The job status will reflect a failure and the message will indicate which permissions are missing.
 
+Lastly, you'll need to grant the following **RBAC permissions** to the system-assigned managed identity of your Azure Digital Twins instance so that it can access input and output files in the Azure Blob Storage container:
+* [Storage Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) for the Azure Storage input blob container
+* [Storage Blob Data Contributor](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) for the Azure Storage output blob container
+
 ### Format data 
 
-The API accepts graph information from an *NDJSON* file, which must be uploaded to an [Azure blob storage](../storage/blobs/storage-blobs-introduction.md) container. The file starts with a `Header` section, followed by the optional sections `Models`, `Twins`, and `Relationships`. You don't have to include all three types of graph data in the file, but any sections that are present must follow that order. Twins and relationships created with this API can optionally include initialization of their properties. 
+The API accepts graph information input from an *NDJSON* file, which must be uploaded to an [Azure blob storage](../storage/blobs/storage-blobs-introduction.md) container. The file starts with a `Header` section, followed by the optional sections `Models`, `Twins`, and `Relationships`. You don't have to include all three types of graph data in the file, but any sections that are present must follow that order. Twins and relationships created with this API can optionally include initialization of their properties. 
 
 Here's a sample input data file for the import API:
 
@@ -112,9 +119,12 @@ Once the file has been created, upload it to a block blob in Azure Blob Storage 
 
 ### Run the import job
 
-Now you can proceed with calling the [Jobs API](/rest/api/digital-twins/dataplane/import-jobs). For detailed instructions on importing a full graph in one API call, see  [Upload models, twins, and relationships in bulk with the Jobs API](how-to-manage-graph.md#upload-models-twins-and-relationships-in-bulk-with-the-jobs-api). You can also use the Jobs API to import each resource type independently. For more information on using the Jobs API with individual resource types, see Jobs API instructions for [models](how-to-manage-model.md#upload-large-model-sets-with-the-jobs-api), [twins](how-to-manage-twin.md#create-twins-in-bulk-with-the-jobs-api), and [relationships](how-to-manage-graph.md#create-relationships-in-bulk-with-the-jobs-api).
+Now you can proceed with calling the [Jobs API](/rest/api/digital-twins/dataplane/jobs). For detailed instructions on importing a full graph in one API call, see  [Upload models, twins, and relationships in bulk with the Jobs API](how-to-manage-graph.md#upload-models-twins-and-relationships-in-bulk-with-the-jobs-api). You can also use the Jobs API to import each resource type independently. For more information on using the Jobs API with individual resource types, see Jobs API instructions for [models](how-to-manage-model.md#upload-large-model-sets-with-the-jobs-api), [twins](how-to-manage-twin.md#create-twins-in-bulk-with-the-jobs-api), and [relationships](how-to-manage-graph.md#create-relationships-in-bulk-with-the-jobs-api).
 
 In the body of the API call, you'll provide the blob storage URL of the NDJSON input file. You'll also provide a new blob storage URL to indicate where you'd like the output log to be stored once the service creates it. 
+
+>[!IMPORTANT]
+> Make sure the system-assigned managed identity of your Azure Digital Twins instance has the storage blob **RBAC permissions** described in the [Check permissions](#check-permissions) section.
 
 As the import job executes, a structured output log is generated by the service and stored as a new append blob in your blob container, at the URL location you specified for the output blob in the request. Here's an example output log for a successful job importing models, twins, and relationships:
 
@@ -131,13 +141,13 @@ As the import job executes, a structured output log is generated by the service 
 
 When the job is complete, you can see the total number of ingested entities using the [BulkOperationEntityCount metric](how-to-monitor.md#bulk-operation-metrics-from-the-jobs-api).
 
-It's also possible to cancel a running import job with the [Cancel operation](/rest/api/digital-twins/dataplane/import-jobs/cancel?tabs=HTTP) from the Jobs API. Once the job has been canceled and is no longer running, you can delete it.
+It's also possible to cancel a running import job with the [Cancel operation](/rest/api/digital-twins/dataplane/jobs/import-jobs-cancel?tabs=HTTP) from the Jobs API. Once the job has been canceled and is no longer running, you can delete it.
 
 ### Limits and considerations
 
 Keep the following considerations in mind while working with the Jobs API:
 * Currently, the Jobs API only supports "create" operations.
-* Import Jobs are not atomic operations. There is no rollback in the case of failure, partial job completion, or usage of the [Cancel operation](/rest/api/digital-twins/dataplane/import-jobs/cancel?tabs=HTTP).
+* Import Jobs are not atomic operations. There is no rollback in the case of failure, partial job completion, or usage of the [Cancel operation](/rest/api/digital-twins/dataplane/jobs/import-jobs-cancel?tabs=HTTP).
 * Only one bulk import job is supported at a time within an Azure Digital Twins instance. You can view this information and other numerical limits of the Jobs API in [Azure Digital Twins limits](reference-service-limits.md).
 
 ## Monitor API metrics

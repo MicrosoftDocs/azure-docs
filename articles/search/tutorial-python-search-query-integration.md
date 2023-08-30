@@ -1,5 +1,5 @@
 ---
-title: "Python tutorial: Search integration highlights"
+title: "Explore code (Python tutorial)"
 titleSuffix: Azure Cognitive Search
 description: Understand the Python SDK Search integration queries used in the Search-enabled website with this cheat sheet. 
 manager: nitinme
@@ -7,12 +7,12 @@ author: diberry
 ms.author: diberry
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 11/02/2022
+ms.date: 07/18/2023
 ms.custom: devx-track-python
 ms.devlang: python
 ---
 
-# 4 - Python Search integration cheat sheet
+# 4 - Explore the Python search code
 
 In the previous lessons, you added search to a Static Web App. This lesson highlights the essential steps that establish integration. If you're looking for a cheat sheet on how to integrate search into your Python app, this article explains what you need to know.
 
@@ -33,7 +33,7 @@ The Function app authenticates through the SDK to the cloud-based Cognitive Sear
 
 The Azure Function app settings environment variables are pulled in from a file, `__init__.py`, shared between the three API functions. 
 
-:::code language="python" source="~/azure-search-python-samples/search-website-functions-v4/api/shared_code/__init__.py" highlight="6-9" :::
+:::code language="python" source="~/azure-search-python-samples/search-website-functions-v4/api/shared_code/__init__.py"  :::
 
 ## Azure Function: Search the catalog
 
@@ -43,13 +43,13 @@ Routing for the Search API is contained in the [function.json](https://github.co
 
 The Azure Function pulls in the search configuration information, and fulfills the query.
 
-:::code language="python" source="~/azure-search-python-samples/search-website-functions-v4/api/Search/__init__.py" highlight="8-18, 122" :::
+:::code language="python" source="~/azure-search-python-samples/search-website-functions-v4/api/Search/__init__.py" :::
 
 ## Client: Search from the catalog
 
 Call the Azure Function in the React client with the following code. 
 
-:::code language="javascript" source="~/azure-search-python-samples/search-website-functions-v4/client/src/pages/Search/Search.js" highlight="40-53" :::
+:::code language="javascript" source="~/azure-search-python-samples/search-website-functions-v4/client/src/pages/Search/Search.js"  :::
 
 ## Azure Function: Suggestions from the catalog
 
@@ -59,13 +59,13 @@ The search suggester, `sg`, is defined in the [schema file](https://github.com/A
 
 Routing for the Suggest API is contained in the [function.json](https://github.com/Azure-Samples/azure-search-python-samples/blob/master/search-website-functions-v4/api/Suggest/function.json) bindings.
 
-:::code language="python" source="~/azure-search-python-samples/search-website-functions-v4/api/Suggest/__init__.py" highlight="8-24, 36" :::
+:::code language="python" source="~/azure-search-python-samples/search-website-functions-v4/api/Suggest/__init__.py" :::
 
 ## Client: Suggestions from the catalog
 
 The Suggest function API is called in the React app at `client\src\components\SearchBar\SearchBar.js` as part of component initialization:
 
-:::code language="javascript" source="~/azure-search-python-samples/search-website-functions-v4/client/src/components/SearchBar/SearchBar.js" highlight="52-60" :::
+:::code language="javascript" source="~/azure-search-python-samples/search-website-functions-v4/client/src/components/SearchBar/SearchBar.js" :::
 
 ## Azure Function: Get specific document 
 
@@ -73,13 +73,13 @@ The `Lookup` [API](https://github.com/Azure-Samples/azure-search-python-samples/
 
 Routing for the Lookup API is contained in the [function.json](https://github.com/Azure-Samples/azure-search-python-samples/blob/master/search-website-functions-v4/api/Lookup/function.json) bindings.
 
-:::code language="python" source="~/azure-search-python-samples/search-website-functions-v4/api/Lookup/__init__.py" highlight="8-18, 27" :::
+:::code language="python" source="~/azure-search-python-samples/search-website-functions-v4/api/Lookup/__init__.py" :::
 
 ## Client: Get specific document 
 
 This function API is called in the React app at `client\src\pages\Details\Detail.js` as part of component initialization:
 
-:::code language="javascript" source="~/azure-search-python-samples/search-website-functions-v4/client/src/pages/Details/Details.js" highlight="19-29" :::
+:::code language="javascript" source="~/azure-search-python-samples/search-website-functions-v4/client/src/pages/Details/Details.js" :::
 
 ## Next steps
 

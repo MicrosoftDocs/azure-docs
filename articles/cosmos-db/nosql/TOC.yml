@@ -274,6 +274,8 @@
           href: ../analytical-store-introduction.md
         - name: Change data capture (CDC)
           href: ../analytical-store-change-data-capture.md
+        - name: Time travel (preview)
+          href: ../synapse-link-time-travel.md
     - name: Back up and restore
       items:
         - name: Back up and restore introduction
@@ -432,6 +434,24 @@
                   href: how-to-dotnet-read-item.md
                 - name: Query items
                   href: how-to-dotnet-query-items.md
+        - name: JavaScript
+          items:
+            - name: Get started
+              href: how-to-javascript-get-started.md
+            - name: Work with databases
+              items:
+                - name: Create a database
+                  href: how-to-javascript-create-database.md
+            - name: Work with containers
+              items:
+                - name: Create a container
+                  href: how-to-javascript-create-container.md
+            - name: Work with items
+              items:
+                - name: Create an item
+                  href: how-to-javascript-create-item.md
+                - name: Query items
+                  href: how-to-javascript-query-items.md
         - name: Python
           items:
             - name: Get started
@@ -498,6 +518,9 @@
       href: query/toc.yml
     - name: Materialized views (preview)
       href: materialized-views.md
+    - name: Index and query geospatial data
+      displayName: geospatial, geojson, spatial, index, query, geography, geometry
+      href: how-to-geospatial-index-query.md
     - name: Throughput (Request units)
       items:
         - name: Provisioned throughput
@@ -620,6 +643,8 @@
               href: performance-tips-dotnet-sdk-v3.md
             - name: Performance tips for .NET SDK v2
               href: performance-tips.md
+            - name: Tune connection configurations for Azure Cosmos DB .NET SDK v3
+              href: tune-connection-configurations-net-sdk-v3.md
         - name: Java
           items:
             - name: Best practices for Java SDK
@@ -783,8 +808,12 @@
               href: ../how-to-always-encrypted.md
             - name: Self-serve minimum TLS version enforcement
               href: ../self-serve-minimum-tls-enforcement.md
-            - name: Configure customer-managed keys with Azure key vault
+            - name: Configure customer-managed keys with Azure Key Vault
               href: ../how-to-setup-customer-managed-keys.md
+            - name: Configure customer-managed keys on existing accounts with Azure Key Vault
+              href: ../how-to-setup-customer-managed-keys-existing-accounts.md
+            - name: CMK troubleshooting guide
+              href: ../cmk-troubleshooting-guide.md
             - name: Configure customer-managed keys with Azure managed HSM key vault
               href: ../how-to-setup-customer-managed-keys-mhsm.md
             - name: Configure cross-tenant customer-managed keys
@@ -797,6 +826,8 @@
           href: ../how-to-setup-managed-identity.md
         - name: Use managed identities to access data
           href: ../managed-identity-based-authentication.md
+        - name: Migrate to passwordless authentication
+          href: migrate-passwordless.md
           displayName: msi, managed service identity, aad, azure active directory, identity
         - name: Role-based access control
           items:
@@ -838,6 +869,8 @@
               href: ../audit-control-plane-logs.md
             - name: Troubleshoot issues with advanced diagnostics queries
               href: diagnostic-queries.md
+            - name: Add a transformation for workspace data
+              href: ../tutorial-log-transformation.md
         - name: Configure alerts
           items:
             - name: Create alert on metrics
@@ -890,6 +923,8 @@
           href: migrate-hbase-to-cosmos-db.md
     - name: Integrate with other Azure services
       items:
+        - name: RAG with Azure OpenAI
+          href: ../rag-data-openai.md
         - name: Change feed Ecommerce solution
           href: changefeed-ecommerce-solution.md
         - name: Azure App Service
@@ -916,6 +951,8 @@
           href: /azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: ODBC driver
           href: odbc-driver.md
+        - name: Vercel
+          href: ../vercel-integration.md
 - name: Reference
   items:
     - name: .NET SDKs
@@ -942,6 +979,8 @@
           href: sdk-java-spring-data-v2.md
         - name: Spring Data Connector v3
           href: sdk-java-spring-data-v3.md
+        - name: Spring Data Connector v5
+          href: sdk-java-spring-data-v5.md
         - name: Spark 3.x OLTP Connector
           href: sdk-java-spark-v3.md
         - name: Spark 2.x LTS OLTP Connector

@@ -2,12 +2,12 @@
 title: How to use API portal for VMware Tanzu with the Azure Spring Apps Enterprise plan
 titleSuffix: Azure Spring Apps Enterprise plan
 description: How to use API portal for VMware Tanzu with the Azure Spring Apps Enterprise plan.
-author: karlerickson
+author: KarlErickson
 ms.author: xiading
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 02/09/2022
-ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
+ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, event-tier1-build-2022
 ---
 
 # Use API portal for VMware Tanzu
@@ -121,7 +121,7 @@ This section describes how to view and try out APIs with schema definitions in A
                "Method=PUT"
             ],
             "filters": [
-               "StripPrefix=0",
+               "StripPrefix=0"
             ]
          }
       ]

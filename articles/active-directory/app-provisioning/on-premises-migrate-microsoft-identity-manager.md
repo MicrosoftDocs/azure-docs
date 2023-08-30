@@ -43,7 +43,7 @@ At this point, the MIM Sync server is no longer needed.
 
 ## Import a connector configuration
 
- 1. Install the ECMA Connector host and provisioning agent on a Windows Server, using the [provisioning users into SQL based applications](on-premises-sql-connector-configure.md#3-install-and-configure-the-azure-ad-connect-provisioning-agent) or [provisioning users into LDAP directories](on-premises-ldap-connector-configure.md#download-install-and-configure-the-azure-ad-connect-provisioning-agent-package) articles.
+ 1. Install the ECMA Connector host and provisioning agent on a Windows Server, using the [provisioning users into SQL based applications](on-premises-sql-connector-configure.md#3-install-and-configure-the-azure-ad-connect-provisioning-agent) or [provisioning users into LDAP directories](on-premises-ldap-connector-configure.md#install-and-configure-the-azure-ad-connect-provisioning-agent) articles.
  1. Sign in to the Windows server as the account that the Azure AD ECMA Connector Host runs as.
  1. Change to the directory C:\Program Files\Microsoft ECMA2host\Service\ECMA. Ensure there are one or more DLLs already present in that directory. Those DLLs correspond to Microsoft-delivered connectors.
  1. Copy the MA DLL for your connector, and any of its prerequisite DLLs, to that same ECMA subdirectory of the Service directory.

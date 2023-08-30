@@ -1,9 +1,9 @@
 ---
 title: Caching
 description: To improve performance, responses can be served from a cache. By default, responses are stored for 2 minutes.
-author: bwren
-ms.author: bwren
 ms.date: 08/06/2022
+author: guywi-ms
+ms.author: guywild
 ms.topic: article
 ---
 # Caching

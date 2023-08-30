@@ -14,7 +14,7 @@ ms.custom: mode-ui
 
 This quickstart shows you how to create an ExpressRoute circuit using the Azure portal and the Azure Resource Manager deployment model. You can also check the status, update, delete, or deprovision a circuit.
 
-:::image type="content" source="media/expressroute-howto-circuit-portal-resource-manager/environment-diagram.png" alt-text="Diagram of ExpressRoute circuit deployment environment using Azure portal." border="false":::
+:::image type="content" source="media/expressroute-howto-circuit-portal-resource-manager/environment-diagram.png" alt-text="Diagram of ExpressRoute circuit deployment environment using Azure portal.":::
 
 ## Prerequisites
 
@@ -25,7 +25,7 @@ This quickstart shows you how to create an ExpressRoute circuit using the Azure 
 
 ### Sign in to the Azure portal
 
-From a browser, navigate to the [Azure portal](https://portal.azure.com) and sign in with your Azure account.
+From a browser, sign in to the [Azure portal](https://portal.azure.com) and sign in with your Azure account.
 
 ### Create a new ExpressRoute circuit
 

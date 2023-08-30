@@ -1,6 +1,6 @@
 ---
-title: Enable multi-region replication on Azure Managed HSM (Preview)
-description: Enable Multi-Region Replication on Azure Managed HSM (Preview)
+title: Enable multi-region replication on Azure Managed HSM
+description: Enable Multi-Region Replication on Azure Managed HSM
 services: key-vault
 author: msmbaldwin
 ms.service: key-vault
@@ -64,7 +64,6 @@ The following regions are supported as primary regions (Regions where you can re
 - Switzerland North
 - Brazil South
 - Australia Central
-- US WestCentral
 - India Central
 - US West 3
 - Canada Central
@@ -81,7 +80,7 @@ The following regions are supported as primary regions (Regions where you can re
 - Switzerland West
 
 > [!NOTE]
-> US Central, US East, West US 2, Switzerland North, West Europe, Central India, Canada Central, Canada East, Japan West, Qatar Central cannot be extended as a secondary region at this time.
+> US Central, US East, West US 2, Switzerland North, West Europe, Central India, Canada Central, Canada East, Japan West, Qatar Central, Poland Central and US West Central cannot be extended as a secondary region at this time.
 
 ## Billing
 
@@ -93,7 +92,7 @@ The [Managed HSM soft-delete feature](soft-delete-overview.md) allows recovery o
 
 ## Private link behavior with Multi-region replication
 
-The [Azure Private Link feature](private-link.md) allows you to access the Managed HSM service over a private endpoint in your virtual network. You would configure private endpoint on the Managed HSM in the primary region just as you would when not using the multi-region replication feature. For the Managed HSM in the secondary region, it is recommended to create another private endpoint once the Managed HSM in the primary region is replicated to the Manged HSM in the secondary region.  This will redirect client requests to the Managed HSM closest to the client location. 
+The [Azure Private Link feature](private-link.md) allows you to access the Managed HSM service over a private endpoint in your virtual network. You would configure private endpoint on the Managed HSM in the primary region just as you would when not using the multi-region replication feature. For the Managed HSM in the secondary region, it is recommended to create another private endpoint once the Managed HSM in the primary region is replicated to the Managed HSM in the secondary region.  This will redirect client requests to the Managed HSM closest to the client location. 
 
 Some scenarios below with examples: Managed HSM in a primary region (UK South) and another Managed HSM in a secondary region (US West Central).
 

@@ -71,22 +71,22 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 4. On the **Basic SAML Configuration** section, perform the following steps:
 
-	a. In the **Sign on URL** text box, type a URL using the following pattern:
+    1. In the **Sign on URL** text box, type a URL using the following pattern:
     `https://<SUBDOMAIN>.menlosecurity.com/account/login`
 
-    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+    1. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     `https://<SUBDOMAIN>.menlosecurity.com/safeview-auth-server/saml/metadata`
 
-	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Menlo Security Client support team](https://www.menlosecurity.com/menlo-contact) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > [!NOTE]
+    > These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Menlo Security Client support team](https://www.menlosecurity.com/menlo-contact) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
-	![The Certificate download link](common/certificatebase64.png)
+    ![The Certificate download link](common/certificatebase64.png)
 
 6. On the **Set up Menlo Security** section, copy the appropriate URL(s) as per your requirement.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+    ![Copy configuration URLs](common/copy-configuration-urls.png)
 
 ### Create an Azure AD test user 
 
@@ -117,22 +117,22 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. To configure single sign-on on **Menlo Security** side, login to the **Menlo Security** website as an administrator.
 
 2. Under **Settings** go to **Authentication** and perform following actions:
-	
-	![Configure Single Sign-On](./media/menlosecurity-tutorial/authentication.png)
 
-	a. Tick the checkbox **Enable user authentication using SAML**.
+    ![Configure Single Sign-On](./media/menlosecurity-tutorial/authentication.png)
 
-	b. Select **Allow External Access** to **Yes**.
+    1. Tick the checkbox **Enable user authentication using SAML**.
 
-	c. Under **SAML Provider**, select **Azure Active Directory**.
+    1. Select **Allow External Access** to **Yes**.
 
-	d. **SAML 2.0 Endpoint** : Paste the **Login URL** which you have copied from Azure portal.
+    1. Under **SAML Provider**, select **Azure Active Directory**.
 
-	e. **Service Identifier (Issuer)** : Paste the **Azure AD Identifier** which you have copied from Azure portal.
+    1. **SAML 2.0 Endpoint** : Paste the **Login URL** which you have copied from Azure portal.
 
-	f. **X.509 Certificate** : Open the **Certificate (Base64)** downloaded from the Azure Portal in notepad and paste it in this box.
+    1. **Service Identifier (Issuer)** : Paste the **Azure AD Identifier** which you have copied from Azure portal.
 
-	g. Click **Save** to save the settings.
+    1. **X.509 Certificate** : Open the **Certificate (Base64)** downloaded from the Azure portal in notepad and paste it in this box.
+
+    1. Click **Save** to save the settings.
 
 ### Create Menlo Security test user
 

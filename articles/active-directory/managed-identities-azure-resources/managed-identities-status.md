@@ -4,7 +4,7 @@ description: List of services supporting managed identities
 services: active-directory
 author: barclayn
 ms.author: barclayn
-ms.date: 05/10/2023
+ms.date: 05/25/2023
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
@@ -14,7 +14,7 @@ ms.collection: M365-identity-device-management
 
 # Azure services that can use managed identities to access other services
 
-Managed identities for Azure resources provide Azure services with an automatically managed identity in Azure Active Directory. Using a managed identity, you can authenticate to any [service that supports Azure AD authentication](services-azure-active-directory-support.md) without managing credentials. We are integrating managed identities for Azure resources and Azure AD authentication across Azure. This page provides links to services' content that can use managed identities to access other Azure resources. Each entry in the table includes a link to service documentation discussing managed identities.
+Managed identities for Azure resources provide Azure services with an automatically managed identity in Azure Active Directory. Using a managed identity, you can authenticate to any [service that supports Azure AD authentication](./services-id-authentication-support.md) without managing credentials. We are integrating managed identities for Azure resources and Azure AD authentication across Azure. This page provides links to services' content that can use managed identities to access other Azure resources. Each entry in the table includes a link to service documentation discussing managed identities.
 
 >[!IMPORTANT]
 > New technical content is added daily. This list does not include every article that talks about managed identities. Please refer to each service's content set for details on their managed identities support. Resource provider namespace information is available in the article titled [Resource providers for Azure services](../../azure-resource-manager/management/azure-services-resource-providers.md).
@@ -41,7 +41,7 @@ The following Azure services support managed identities for Azure resources:
 | Azure Container Apps            | [Managed identities in Azure Container Apps](../../container-apps/managed-identity.md) |
 | Azure Container Instance        | [How to use managed identities with Azure Container Instances](../../container-instances/container-instances-managed-identity.md)                                                                                          |
 | Azure Container Registry        | [Use an Azure-managed identity in ACR Tasks](../../container-registry/container-registry-tasks-authentication-managed-identity.md)                                                                       |
-| Azure Cognitive Services        | [Configure customer-managed keys with Azure Key Vault for Cognitive Services](../../cognitive-services/encryption/cognitive-services-encryption-keys-portal.md)                                                                          |
+| Azure AI services        | [Configure customer-managed keys with Azure Key Vault for Azure AI services](../../ai-services/encryption/cognitive-services-encryption-keys-portal.md)                                                                          |
 | Azure Data Box                  | [Use customer-managed keys in Azure Key Vault for Azure Data Box](../../databox/data-box-customer-managed-encryption-key-portal.md)                                                                                             |
 | Azure Data Explorer             | [Configure managed identities for your Azure Data Explorer cluster](/azure/data-explorer/configure-managed-identities-cluster?tabs=portal)                                                                                                     |
 | Azure Data Factory              | [Managed identity for Data Factory](../../data-factory/data-factory-service-identity.md)                                                                                                           |

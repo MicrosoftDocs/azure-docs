@@ -108,6 +108,11 @@ By definition, every IP address has 65,535 ports. Each port can either be used f
 
 Each port used in a load balancing or inbound NAT rule consumes a range of eight ports from the 64,000 available SNAT ports. This usage reduces the number of ports eligible for SNAT, if the same frontend IP is used for outbound connectivity. If load-balancing or inbound NAT rules consumed ports are in the same block of eight ports consumed by another rule, the rules don't require extra ports.
 
+> [!NOTE]
+> If you need to connect to any [supported Azure PaaS services](../private-link/availability.md) like Azure Storage, Azure SQL, or Azure Cosmos DB, you can use Azure Private Link to avoid SNAT entirely. Azure Private Link sends traffic from your virtual network to Azure services over the Azure backbone network instead of over the internet.
+>
+> Private Link is the recommended option over service endpoints for private access to Azure hosted services. For more information on the difference between Private Link and service endpoints, see [Compare Private Endpoints and Service Endpoints](../virtual-network/vnet-integration-for-azure-services.md#compare-private-endpoints-and-service-endpoints).
+
 ### How does default SNAT work?
 
 When a VM creates an outbound flow, Azure translates the source IP address to an ephemeral IP address. This translation is done via SNAT. 
