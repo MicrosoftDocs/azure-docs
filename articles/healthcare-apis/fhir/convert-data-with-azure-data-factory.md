@@ -1,20 +1,20 @@
 ---
-title: Transform HL7v2 health data to FHIR R4 format with the $convert-data operation and Azure Data Factory - Azure Health Data Services
-description: Learn how to transform HL7v2 health data to FHIR R4 format with the $convert-data operation and Azure Data Factory
+title: Transform HL7v2 data to FHIR R4 with the $convert-data operation and Azure Data Factory - Azure Health Data Services
+description: Learn how to transform HL7v2 data to FHIR R4 with the $convert-data operation and Azure Data Factory
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 08/28/2023
+ms.date: 08/30/2023
 ms.author: jasteppe
 ---
 
-# Transform HL7v2 health data to FHIR R4 format with the $convert-data operation and Azure Data Factory
+# Transform HL7v2 data to FHIR R4 with the $convert-data operation and Azure Data Factory
 
 > [!NOTE]
 > [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
-This article details how to transform HL7v2 data to FHIR R4 format, persist the transformed results within an Azure Data Lake Storage (ADLS) Gen2 account with the `$convert-data` operation and Azure Data Factory (ADF) as an orchestrator. 
+This article details how to transform [HL7v2](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=185) data to [FHIR R4](https://www.hl7.org/fhir/R4/), persist the transformed results within an Azure Data Lake Storage (ADLS) Gen2 account with the `$convert-data` operation and Azure Data Factory (ADF) as an orchestrator. 
 
 ## Prerequisites
 
@@ -39,9 +39,9 @@ Before getting started, ensure you have taken the following steps:
 
 In this example, an ADF [pipeline](../../data-factory/concepts-pipelines-activities.md?tabs=data-factory) is used to transform HL7v2 data and persist transformed FHIR R4 bundle in a JSON file within the configured destination ADLS Gen2 account and container.  
  
-From the Azure portal, open your Azure Data Factory instance and select **Launch Studio** to begin. 
+1. From the Azure portal, open your Azure Data Factory instance and select **Launch Studio** to begin. 
 
-:::image type="content" source="media/convert-data/convert-data-with-azure-data-factory/open-data-factory.png" alt-text="Screenshot of Azure Data Factory." lightbox="media/convert-data/convert-data-with-azure-data-factory/open-data-factory.png":::
+   :::image type="content" source="media/convert-data/convert-data-with-azure-data-factory/open-data-factory.png" alt-text="Screenshot of Azure Data Factory." lightbox="media/convert-data/convert-data-with-azure-data-factory/open-data-factory.png":::
 
 ## Create a pipeline
 
@@ -112,7 +112,7 @@ You can execute (or run) a pipeline either manually or by using a trigger. There
 
 For more information on the different trigger types and how to configure them, see [Pipeline execution and triggers in Azure Data Factory or Azure Synapse Analytics](../../data-factory/concepts-pipeline-execution-triggers.md).
 
-By setting triggers, you can simulate batch transformation of HL7v2 health data. The pipeline executes automatically based on the configured trigger parameters without requiring individual invocation of the `$convert-data` operation for each input message.
+By setting triggers, you can simulate batch transformation of HL7v2 data. The pipeline executes automatically based on the configured trigger parameters without requiring individual invocation of the `$convert-data` operation for each input message.
 
 > [!IMPORTANT]
 > In a scenario with batch processing of HL7v2 messages, this template does not take sequencing into account, so post processing will be needed if sequencing is a requirement.
