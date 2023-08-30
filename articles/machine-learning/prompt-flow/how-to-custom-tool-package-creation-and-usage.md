@@ -142,7 +142,7 @@ You can create runtime with CI(Compute Instance) or MIR(Managed Inference Runtim
 
    Currently we support creating environment with "Create a new docker context" environment source. "Use existing docker image with optional conda file" has known [limitation](../how-to-manage-environments-v2.md#create-an-environment-from-a-conda-specification) and isn't supported now.
 
-    :::image type="content" source="./media/how-to-custom-tool-package-creation-and-usage/create-customized-env-step-1.png" alt-text="Screenshot of create environment in Azure Machine Learning studio."lightbox = "./media/how-to-custom-tool-package-creation-and-usage/create-customized-env-step-1.png:::
+    :::image type="content" source="./media/how-to-custom-tool-package-creation-and-usage/create-customized-env-step-1.png" alt-text="Screenshot of create environment in Azure Machine Learning studio."lightbox = "./media/how-to-custom-tool-package-creation-and-usage/create-customized-env-step-1.png":::
 
    Replace the text in Dockerfile:
 
@@ -151,7 +151,7 @@ You can create runtime with CI(Compute Instance) or MIR(Managed Inference Runtim
    RUN pip install -i https://test.pypi.org/simple/ my-tools-package==0.0.1
    ```
 
-     :::image type="content" source="./media/how-to-custom-tool-package-creation-and-usage/create-customized-env-step-2.png" alt-text="Screenshot of create environment in Azure Machine Learning studio on the customize step."lightbox ="./media/how-to-custom-tool-package-creation-and-usage/create-customized-env-step-2.png:::
+     :::image type="content" source="./media/how-to-custom-tool-package-creation-and-usage/create-customized-env-step-2.png" alt-text="Screenshot of create environment in Azure Machine Learning studio on the customize step."lightbox ="./media/how-to-custom-tool-package-creation-and-usage/create-customized-env-step-2.png":::
 
    It will take several minutes to create the environment. After it succeeded, you can copy the ACR from environment detail page for the next step.
 
@@ -202,11 +202,11 @@ You can create runtime with CI(Compute Instance) or MIR(Managed Inference Runtim
     1. Create a new compute instance. Existing compute instance created long time ago may hit unexpected issue.
     1. Create runtime on CI with customized environment.
 
-    :::image type="content" source="./media/how-to-custom-tool-package-creation-and-usage/create-runtime-on-ci.png" alt-text="Screenshot of add compute instance runtime in Azure Machine Learning studio."lightbox ="./media/how-to-custom-tool-package-creation-and-usage/create-runtime-on-CI.png:::
+    :::image type="content" source="./media/how-to-custom-tool-package-creation-and-usage/create-runtime-on-ci.png" alt-text="Screenshot of add compute instance runtime in Azure Machine Learning studio."lightbox ="./media/how-to-custom-tool-package-creation-and-usage/create-runtime-on-CI.png":::
 
 4. Create runtime with MIR using the customized environment created in step 2. To learn how to create a runtime with MIR, see  [How to create a manage runtime](how-to-create-manage-runtime.md).
 
-    :::image type="content" source="./media/how-to-custom-tool-package-creation-and-usage/create-runtime-on-mir.png" alt-text="Screenshot of add managed online deployment runtime in Azure Machine Learning studio."lightbox = "./media/how-to-custom-tool-package-creation-and-usage/create-runtime-on-mir.png:::
+    :::image type="content" source="./media/how-to-custom-tool-package-creation-and-usage/create-runtime-on-mir.png" alt-text="Screenshot of add managed online deployment runtime in Azure Machine Learning studio."lightbox = "./media/how-to-custom-tool-package-creation-and-usage/create-runtime-on-mir.png":::
 
 ## Test from Prompt Flow UI
 
@@ -215,16 +215,16 @@ You can create runtime with CI(Compute Instance) or MIR(Managed Inference Runtim
 
 1. Create a standard flow.
 2. Select the correct runtime ("my-tool-runtime") and add your tools.
-    :::image type="content" source="./media/how-to-custom-tool-package-creation-and-usage/test-customer-tool-on-ui-step-1.png" alt-text="Screenshot of flow in Azure Machine Learning studio showing the runtime and more tools dropdown."lightbox ="./media/how-to-custom-tool-package-creation-and-usage/test-customer-tool-on-ui-step-1.png:::
+    :::image type="content" source="./media/how-to-custom-tool-package-creation-and-usage/test-customer-tool-on-ui-step-1.png" alt-text="Screenshot of flow in Azure Machine Learning studio showing the runtime and more tools dropdown."lightbox ="./media/how-to-custom-tool-package-creation-and-usage/test-customer-tool-on-ui-step-1.png":::
 3. Change flow based on your requirements and run flow in the selected runtime.
-    :::image type="content" source="./media/how-to-custom-tool-package-creation-and-usage/test-customer-tool-on-ui-step-2.png" alt-text="Screenshot of flow in Azure Machine Learning studio showing adding a tool."lightbox ="./media/how-to-custom-tool-package-creation-and-usage/test-customer-tool-on-ui-step-2.png:::
+    :::image type="content" source="./media/how-to-custom-tool-package-creation-and-usage/test-customer-tool-on-ui-step-2.png" alt-text="Screenshot of flow in Azure Machine Learning studio showing adding a tool."lightbox ="./media/how-to-custom-tool-package-creation-and-usage/test-customer-tool-on-ui-step-2.png":::
 
 ## Test from VS Code extension
 
 1. Download the latest version [Prompt flow extension](https://ms.portal.azure.com/#view/Microsoft_Azure_Storage/ContainerMenuBlade/~/overview/storageAccountId/%2Fsubscriptions%2F96aede12-2f73-41cb-b983-6d11a904839b%2Fresourcegroups%2Fpromptflow%2Fproviders%2FMicrosoft.Storage%2FstorageAccounts%2Fpfvscextension/path/pf-vscode-extension/etag/%220x8DB7169BD91D29C%22/defaultEncryptionScope/%24account-encryption-key/denyEncryptionScopeOverride~/false/defaultId//publicAccessVal/None).
 
 2. Install the extension in VS Code via "Install from VSIX":
-    :::image type="content" source="./media/how-to-custom-tool-package-creation-and-usage/install-vsix.png" alt-text="Screenshot of the VS Code extensions showing install from VSIX under the ellipsis." lightbox = "./media/how-to-custom-tool-package-creation-and-usage/install-vsix.png:::
+    :::image type="content" source="./media/how-to-custom-tool-package-creation-and-usage/install-vsix.png" alt-text="Screenshot of the VS Code extensions showing install from VSIX under the ellipsis." lightbox = "./media/how-to-custom-tool-package-creation-and-usage/install-vsix.png":::
     
 3. Go to terminal and install your tool package in conda environment of the extension. By default, the conda env name is `prompt-flow`.
 
@@ -235,7 +235,7 @@ You can create runtime with CI(Compute Instance) or MIR(Managed Inference Runtim
 
 4. Go to the extension and open one flow folder. Select 'flow.dag.yaml' and preview the flow. Next, select `+` button and you'll see your tools. You may need to reload the windows to clean previous cache if you don't see your tool in the list.
 
-    :::image type="content" source="./media/how-to-custom-tool-package-creation-and-usage/auto-list-tool-in-extension.png" alt-text="Screenshot of the VS Code showing the tools." lightbox ="./media/how-to-custom-tool-package-creation-and-usage/auto-list-tool-in-extension.png:::
+    :::image type="content" source="./media/how-to-custom-tool-package-creation-and-usage/auto-list-tool-in-extension.png" alt-text="Screenshot of the VS Code showing the tools." lightbox ="./media/how-to-custom-tool-package-creation-and-usage/auto-list-tool-in-extension.png":::
 
 ## FAQ
 
