@@ -181,20 +181,27 @@ You can also add a resource to a catalog by using Microsoft Graph. A user in an 
 
 ### Add a resource to a catalog with PowerShell
 
-You can also add a resource to a catalog in PowerShell with the `New-MgEntitlementManagementAccessPackageResourceRequest` cmdlet from the [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) module version 1.6.0 or a later 1.x.x module version, or Microsoft Graph PowerShell cmdlets beta module version 2.1.x or later beta module version.  The following example shows how to add a group to a catalog as a resource using Microsoft Graph beta and Microsoft Graph PowerShell cmdlets module version 1.x.x.
+You can also add a resource to a catalog in PowerShell with the `New-MgEntitlementManagementResourceRequest` cmdlet from the [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) module version 2.1.x or later module version.  The following example shows how to add a group to a catalog as a resource using Microsoft Graph PowerShell cmdlets module version 2.4.0.
 
 ```powershell
 Connect-MgGraph -Scopes "EntitlementManagement.ReadWrite.All,Group.ReadWrite.All"
-Select-MgProfile -Name "beta"
+
 $g = Get-MgGroup -Filter "displayName eq 'Marketing'"
-Import-Module Microsoft.Graph.Identity.Governance
-$catalog = Get-MgEntitlementManagementAccessPackageCatalog -Filter "displayName eq 'Marketing'"
-$nr = New-Object Microsoft.Graph.PowerShell.Models.MicrosoftGraphAccessPackageResource
-$nr.OriginId = $g.Id
-$nr.OriginSystem = "AadGroup"
-$rr = New-MgEntitlementManagementAccessPackageResourceRequest -CatalogId $catalog.Id -AccessPackageResource $nr
-$ar = Get-MgEntitlementManagementAccessPackageCatalog -AccessPackageCatalogId $catalog.Id -ExpandProperty accessPackageResources
-$ar.AccessPackageResources
+
+$catalog = Get-MgEntitlementManagementCatalog -Filter "displayName eq 'Marketing'"
+$params = @{
+  requestType = "adminAdd"
+  resource = @{
+    originId = $g.Id
+    originSystem = "AadGroup"
+  }
+  catalog = @{ id = $catalog.id }
+}
+
+New-MgEntitlementManagementResourceRequest -BodyParameter $params
+sleep 5
+$ar = Get-MgEntitlementManagementCatalog -AccessPackageCatalogId $catalog.Id -ExpandProperty resources
+$ar.resources
 ```
 
 ## Remove resources from a catalog
