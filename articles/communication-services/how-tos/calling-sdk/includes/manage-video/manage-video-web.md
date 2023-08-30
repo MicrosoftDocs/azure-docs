@@ -461,7 +461,7 @@ view.updateScalingMode('Crop');
 - Currently, only one camera stream is supported to be sent per Call Client.
 - So to acheive sending video streams from two different cameras from a single desktop browser tab/app, in the same call, you can use the following code snippet:
 [!INCLUDE [Public Preview Disclaimer](../../../../includes/public-preview-include.md)]
-This is supported as part of version 1.17.1-beta.1+.
+This is supported as part of version 1.17.1-beta.1+ on desktop.
 ```js
 // Create your first CallAgent with identity A
 const callClient1 = new CallClient();
