@@ -6,7 +6,7 @@ author: asudbring
 ms.author: allensu
 ms.service: private-link
 ms.topic: tutorial
-ms.date: 06/22/2022
+ms.date: 08/29/2023
 ms.custom: template-tutorial, ignite-2022
 ---
 
@@ -38,7 +38,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create an Azure Cosmos DB account with a private endpoint
 
-In this section, you'll create an Azure Cosmos DB account and configure the private endpoint.
+In this section, you create an Azure Cosmos DB account and configure the private endpoint.
 
 1. In the left-hand menu, select **Create a resource** > **Databases** > **Azure Cosmos DB**, or search for **Azure Cosmos DB** in the search box.
 
@@ -79,7 +79,7 @@ In this section, you'll create an Azure Cosmos DB account and configure the priv
     | Resource Group | Select **test-rg**. |
     | Location | Select **East US**. |
     | Name | Enter **private-endpoint**. |
-    | Azure Cosmos DB sub-resource | Leave the default **Azure Cosmos DB for NoSQL - Recommended**. |
+    | Azure Cosmos DB subresource | Leave the default **Azure Cosmos DB for NoSQL - Recommended**. |
     | **Networking** |  |
     | Virtual network | Select **test-1**. |
     | Subnet | Select **subnet-1**. |
@@ -118,7 +118,7 @@ In this section, you'll create an Azure Cosmos DB account and configure the priv
 
 ## Test connectivity to private endpoint
 
-In this section, you'll use the virtual machine you created in the previous steps to connect to the Azure Cosmos DB account across the private endpoint using **Azure Cosmos DB Explorer**.
+In this section, you use the virtual machine you created in the previous steps to connect to the Azure Cosmos DB account across the private endpoint using **Azure Cosmos DB Explorer**.
 
 1. Select **Resource groups** in the left-hand navigation pane.
 
@@ -134,9 +134,9 @@ In this section, you'll use the virtual machine you created in the previous step
 
 1. Open Windows PowerShell on the server after you connect.
 
-1. Enter `nslookup <cosmosdb-account-name>.documents.azure.com` and validate the name resolution. Replace **\<cosmosdb-account-name>** with the name of the Azure Cosmos DB account you created in the previous steps. You'll receive a message similar to what is displayed below:
+1. Enter `nslookup <cosmosdb-account-name>.documents.azure.com` and validate the name resolution. Replace **\<cosmosdb-account-name>** with the name of the Azure Cosmos DB account you created in the previous steps. You receive a message similar to the following message:
 
-    ```powershell
+    ```output
     Server:  UnKnown
     Address:  168.63.129.16
 
