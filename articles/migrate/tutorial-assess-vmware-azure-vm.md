@@ -145,6 +145,12 @@ To view an assessment:
    - The Supportability section displays the distribution by OS license support status and the distribution by Windows Server version.
    - The Savings option section displays the estimated savings on moving to Azure.
  
+### Review issues
+
+On generating an Azure Migrate Assessment report, you can view a summary of issues that each virtual machine (VM) faces by clicking on the 'Details' button. For more in-depth information about the errors, refer to the context pane. Use the relevant error information to resolve the issues. 
+
+![Screenshot of issue details.](./media/tutorial-assess-vmware-azure-vm/issue-details.png)
+
 ### Review readiness
 
 1. Select **Azure readiness**.
