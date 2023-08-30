@@ -17,20 +17,17 @@ To set the environment variable for your resource key, open a console window, an
 
 #### [Windows](#tab/windows)
 
-You can either use PowerShell's `$Env:` syntax, or the `setx` command.
+You can either use PowerShell's `$Env:` syntax to set the variable for only the current session, or the `setx` command to retain the variable across sessions.
 
 ```powershell
-$Env:COGNITIVE_SERVICE_KEY your-key
+$Env:COGNITIVE_SERVICE_KEY = your-key
 ```
 
 ```console
 setx COGNITIVE_SERVICE_KEY your-key
 ```
 
-> [!NOTE]
-> If you only need to access the environment variable in the current running console, you can set the environment variable with `set` instead of `setx`.
-
-After you add the environment variable, you may need to restart any running consoles or other programs that will need to read the environment variable. For example, if you are using Visual Studio as your editor, restart Visual Studio before running the example. 
+After you add the environment variable using `setx`, you may need to restart any running consoles or other programs that will need to read the environment variable. For example, if you are using Visual Studio as your editor, restart Visual Studio before running the example. 
 
 #### [Linux](#tab/linux)
 
