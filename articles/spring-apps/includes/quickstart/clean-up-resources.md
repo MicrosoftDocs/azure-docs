@@ -15,27 +15,45 @@ For clarity of structure, a separate markdown file is used to describe how to cl
 
 ## 6. Clean up resources
 
+If you plan to continue working with subsequent quickstarts and tutorials, you might want to leave these resources in place. When you no longer need the resources, you can clean up unnecessary resources to avoid Azure charges.
+
 ::: zone pivot="sc-enterprise"
 
-Be sure to delete the resources you created in this article when you no longer need them. To delete the resources, just delete the resource group that contains them. You can delete the resource group using the Azure portal. Alternatively, to delete the resource group by using Azure CLI, use the following command:
+### [Azure portal](#tab/Azure-portal-ent)
+
+[!INCLUDE [clean-up-resources-via-resource-group](clean-up-resources-via-resource-group.md)]
+
+### [Azure CLI](#tab/Azure-CLI)
 
 ```azurecli
 az group delete --name ${RESOURCE_GROUP}
 ```
 
+### [IntelliJ](#tab/IntelliJ)
+
+1. Locate the Azure Explorer window in your Intellij IDEA, and find the name of your resource group.
+
+1. Right-click and select **Delete** to delete all related Azure resources.
+
+### [Visual Studio Code](#tab/visual-studio-code)
+
+1. Locate the Azure window in your Visual Studio Code, select the `Group By` button to enable **Group by Resource Group**, and find the name of your resource group.
+
+1. Right-click and select **Delete Resource Group...** to delete all related Azure resources.
+
+---
+
 ::: zone-end
 
 ::: zone pivot="sc-consumption-plan,sc-standard"
 
-You can delete the Azure resource group, which includes all the resources in the resource group.
-
 ### [Azure portal](#tab/Azure-portal)
 
-Use the following steps to delete the entire resource group, including the newly created service:
+[!INCLUDE [clean-up-resources-via-resource-group](../../includes/quickstart/clean-up-resources-via-resource-group.md)]
 
-1. Locate your resource group in the Azure portal. On the navigation menu, select **Resource groups**. Then, select the name of your resource group - for example, **myresourcegroup**.
+### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
 
-1. On your resource group page, select **Delete**. Enter the name of your resource group in the text box to confirm deletion - for example, **myresourcegroup** - then, select **Delete**.
+[!INCLUDE [clean-up-resources-via-resource-group](../../includes/quickstart/clean-up-resources-via-resource-group.md)]
 
 ### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 

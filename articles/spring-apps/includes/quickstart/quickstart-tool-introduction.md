@@ -13,7 +13,8 @@ Use the following line at the end of the heading Prerequisites, with blank lines
 [!INCLUDE [quickstart-tool-introduction](includes/quickstart/quickstart-tool-introduction.md)]
 -->
 
-This article describes the following two options for deploying to Azure Spring Apps:
+This article provides the following options for deploying to Azure Spring Apps:
 
-- The Azure portal is a more conventional way to create resources and deploy applications step by step. It's suitable for Spring developers who are using Azure cloud services for the first time.
+- The Azure portal is the easiest and fastest way to create resources and deploy applications with one-click. This method is suitable for Spring developers who want to quickly deploy applications to Azure cloud services.
+- The Azure portal and Maven plugin are a more conventional way to create resources and deploy applications step by step. It's suitable for Spring developers who are using Azure cloud services for the first time.
 - The Azure Developer CLI is a more efficient way to automatically create resources and deploy applications through simple commands. It covers application code and infrastructure as code files needed to provision the Azure resources. It's suitable for Spring developers who are familiar with Azure cloud services.

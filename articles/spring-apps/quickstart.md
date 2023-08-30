@@ -28,11 +28,28 @@ The application code used in this tutorial is a simple app. When you've complete
 
 ::: zone-end
 
+::: zone pivot="sc-enterprise"
+
+This article provides the following options for deploying to Azure Spring Apps:
+
+- The Azure portal is the easiest and fastest way to create resources and deploy applications with one-click. This method is suitable for Spring developers who want to quickly deploy applications to Azure cloud services.
+- The Azure CLI is a powerful command line tool to manage Azure resources. It is suitable for Spring developers who are familiar with Azure cloud services.
+- The IntelliJ is a powerful Java IDE to easily manage Azure resources. It is suitable for Spring developers who are familiar with Azure cloud services and IntelliJ IDEA.
+- The Visual Studio Code is a lightweight but powerful source code editor, which can easily manage Azure resources. It is suitable for Spring developers who are familiar with Azure cloud services and Visual Studio Code.
+
+::: zone-end
+
 ## 1. Prerequisites
 
 ::: zone pivot="sc-consumption-plan,sc-standard"
 
 ### [Azure portal](#tab/Azure-portal)
+
+- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- (Optional) [Git](https://git-scm.com/downloads).
+- (Optional) [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
+
+### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
 
 - An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 - [Git](https://git-scm.com/downloads).
@@ -51,7 +68,13 @@ The application code used in this tutorial is a simple app. When you've complete
 
 ::: zone pivot="sc-enterprise"
 
-## [Azure CLI](#tab/Azure-CLI)
+### [Azure portal](#tab/Azure-portal-ent)
+
+- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- (Optional) [Git](https://git-scm.com/downloads).
+- (Optional) [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
+
+### [Azure CLI](#tab/Azure-CLI)
 
 - An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 - If you're deploying an Azure Spring Apps Enterprise plan instance for the first time in the target subscription, see the [Requirements](./how-to-enterprise-marketplace-offer.md#requirements) section of [Enterprise plan in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
@@ -59,7 +82,7 @@ The application code used in this tutorial is a simple app. When you've complete
 - [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
 - [Azure CLI](/cli/azure/install-azure-cli) version 2.45.0 or higher.
 
-## [IntelliJ](#tab/IntelliJ)
+### [IntelliJ](#tab/IntelliJ)
 
 - An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 - If you're deploying an Azure Spring Apps Enterprise plan instance for the first time in the target subscription, see the [Requirements](./how-to-enterprise-marketplace-offer.md#requirements) section of [Enterprise plan in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
@@ -67,7 +90,7 @@ The application code used in this tutorial is a simple app. When you've complete
 - [IntelliJ IDEA](https://www.jetbrains.com/idea/).
 - [Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/install-toolkit).
 
-## [Visual Studio Code](#tab/visual-studio-code)
+### [Visual Studio Code](#tab/visual-studio-code)
 
 - An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 - If you're deploying an Azure Spring Apps Enterprise plan instance for the first time in the target subscription, see the [Requirements](./how-to-enterprise-marketplace-offer.md#requirements) section of [Enterprise plan in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
@@ -98,38 +121,102 @@ The application code used in this tutorial is a simple app. When you've complete
 
 ## 5. Validate the app
 
-After deployment, you can access the app at `https://<your-Azure-Spring-Apps-instance-name>-demo.azuremicroservices.io`. When you open the app, you get the response `Hello World`.
+Now you can access the deployed app to see whether it works. Use the following steps to validate:
 
-::: zone pivot="sc-consumption-plan,sc-standard"
+::: zone pivot="sc-consumption-plan"
 
-From the navigation pane of the Azure Spring Apps instance overview page, select **Logs** to check the app's logs.
+### [Azure portal](#tab/Azure-portal)
+
+1. After deployment, find the application URL from the deployment outputs:
+
+   :::image type="content" source="media/quickstart/hello-app-url-consumption.png" alt-text="Diagram that shows the consumption app URL of the ARM deployment outputs." border="false" lightbox="media/quickstart/hello-app-url-consumption.png":::
+
+1. Access the application URL, you get the response `Hello World`.
+
+1. Check each resource deployment details, which is useful for investigating any deployment issues.
+
+### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
+
+1. After deployment, access the application with the output application URL, you get the response `Hello World`.
+
+1. From the navigation pane of the Azure Spring Apps instance overview page, select **Logs** to check the app's logs.
 
 :::image type="content" source="media/quickstart/logs.png" alt-text="Screenshot of the Azure portal that shows the Azure Spring Apps Logs page." lightbox="media/quickstart/logs.png":::
+
+### [Azure Developer CLI](#tab/Azure-Developer-CLI)
+
+After deployment, access the application with the output endpoint, you get the response `Hello World`.
+
+---
+
+::: zone-end
+
+::: zone pivot="sc-standard"
+
+### [Azure portal](#tab/Azure-portal)
+
+1. After deployment, find the application URL from the deployment outputs:
+
+   :::image type="content" source="media/quickstart/hello-app-url-standard.png" alt-text="Diagram that shows the standard app URL of the ARM deployment outputs." border="false" lightbox="media/quickstart/hello-app-url-standard.png":::
+
+1. Access the application URL, you get the response `Hello World`.
+
+1. Check each resource deployment details, which is useful for investigating any deployment issues.
+
+### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
+
+1. After deployment, access the application with the output application URL, you get the response `Hello World`.
+
+1. From the navigation pane of the Azure Spring Apps instance overview page, select **Logs** to check the app's logs.
+
+:::image type="content" source="media/quickstart/logs.png" alt-text="Screenshot of the Azure portal that shows the Azure Spring Apps Logs page." lightbox="media/quickstart/logs.png":::
+
+### [Azure Developer CLI](#tab/Azure-Developer-CLI)
+
+After deployment, access the application with the output endpoint, you get the response `Hello World`.
+
+---
 
 ::: zone-end
 
 ::: zone pivot="sc-enterprise"
 
-## [Azure CLI](#tab/Azure-CLI)
+### [Azure portal](#tab/Azure-portal-ent)
 
-Use the following command to check the app's log to investigate any deployment issue:
+1. After deployment, find the application URL from the deployment outputs:
 
-```azurecli
-az spring app logs \
-    --service ${SERVICE_NAME} \
-    --name ${APP_NAME}
-```
+   :::image type="content" source="media/quickstart/hello-app-url-standard.png" alt-text="Diagram that shows the enterprise app URL of the ARM deployment outputs." border="false" lightbox="media/quickstart/hello-app-url-standard.png":::
 
-## [IntelliJ](#tab/IntelliJ)
+1. Access the application URL, you get the response `Hello World`.
 
-Use the following steps to stream your application logs:
+1. Check each resource deployment details, which is useful for investigating any deployment issues.
 
-1. Open the **Azure Explorer** window, expand the node **Azure**, expand the service node **Azure Spring Apps**, expand the Azure Spring Apps instance you created, and then select the *demo* instance of the app you created.
-2. Right-click and select **Start Streaming Logs**, then select **OK** to see real-time application logs.
+### [Azure CLI](#tab/Azure-CLI)
 
-   :::image type="content" source="media/quickstart/app-stream-log.png" alt-text="Screenshot of IntelliJ that shows the Azure Streaming Log." lightbox="media/quickstart/app-stream-log.png":::
+1. Access the application with the output application URL. When you open the app, you get the response `Hello World`.
 
-## [Visual Studio Code](#tab/visual-studio-code)
+1. Use the following command to check the app's log to investigate any deployment issue:
+
+   ```azurecli
+   az spring app logs \
+       --service ${SERVICE_NAME} \
+       --name ${APP_NAME}
+   ```
+
+### [IntelliJ](#tab/IntelliJ)
+
+1. Access the application with the output application URL. When you open the app, you get the response `Hello World`.
+
+1. Use the following steps to stream your application logs:
+
+   - Open the **Azure Explorer** window, expand the node **Azure**, expand the service node **Azure Spring Apps**, expand the Azure Spring Apps instance you created, and then select the *demo* instance of the app you created.
+   - Right-click and select **Start Streaming Logs**, then select **OK** to see real-time application logs.
+
+     :::image type="content" source="media/quickstart/app-stream-log.png" alt-text="Screenshot of IntelliJ that shows the Azure Streaming Log." lightbox="media/quickstart/app-stream-log.png":::
+
+### [Visual Studio Code](#tab/visual-studio-code)
+
+Access the application with the output application URL. When you open the app, you get the response `Hello World`.
 
 To stream your application logs, follow the steps in the [Stream your application logs](https://code.visualstudio.com/docs/java/java-spring-apps#_stream-your-application-logs) section of [Java on Azure Spring Apps](https://code.visualstudio.com/docs/java/java-spring-apps).
 

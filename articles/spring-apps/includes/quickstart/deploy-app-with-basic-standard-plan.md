@@ -18,6 +18,13 @@ For clarity of structure, a separate markdown file is used to describe how to de
 
 ### [Azure portal](#tab/Azure-portal)
 
+This section is not required to prepare the jar package for deployment, the `Deploy to azure` button process will download the jar from [GitHub release](https://github.com/Azure/spring-cloud-azure-tools/releases).
+If you want to run the app locally, following the steps below:
+
+[!INCLUDE [hello-prepare-project-on-azure-portal](hello-prepare-project-azure-portal.md)]
+
+### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
+
 [!INCLUDE [prepare-spring-project](prepare-spring-project.md)]
 
 ### [Azure Developer CLI](#tab/Azure-Developer-CLI)
@@ -56,6 +63,10 @@ Use the following steps to initialize the application from the Azure Developer C
 The main resource you need to run this sample is an Azure Spring Apps instance. Use the following steps to create this resource.
 
 ### [Azure portal](#tab/Azure-portal)
+
+[!INCLUDE [hello-prepare-cloud-environment-standard-on-azure-portal](hello-prepare-cloud-env-standard-azure-portal.md)]
+
+### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
 
 ### 3.1. Sign in to the Azure portal
 
@@ -114,6 +125,10 @@ Open your web browser and go to the [Azure portal](https://portal.azure.com/). E
 This section provides the steps to deploy your application to Azure Spring Apps.
 
 ### [Azure portal](#tab/Azure-portal)
+
+[!INCLUDE [deploy-hello-app-on-azure-portal](deploy-hello-app-azure-portal.md)]
+
+### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
 
 Use the following steps to deploy using the [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Spring-Apps):
 
