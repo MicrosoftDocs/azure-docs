@@ -23,10 +23,9 @@ This article describes the concepts and process involved with an account failove
 
 ## Failover options
 
-Azure Storage accounts support three types of failover:
+Azure Storage accounts support two types of failover:
 
-- [**Customer-managed failover (unplanned)**](#customer-managed-failover-unplanned) - For unexpected storage service outages.
-- [**Customer-managed planned failover (preview)**](#customer-managed-planned-failover-preview) - For disaster recovery testing.
+- [**Customer-managed failover**](#customer-managed-failover-unplanned) - For unexpected storage service outages.
 - [**Microsoft-managed failover**](#microsoft-managed-failover) - Initiated by Microsoft only in the case of a severe disaster in a primary region.
 
 Your disaster recovery plan should be based on customer-managed failover for unexpected regional outages and customer-managed planned failover to test your plan. Do not rely on Microsoft-managed failover, which would only be used in extreme circumstances.
@@ -54,30 +53,11 @@ Each type of failover has a unique set of use cases and corresponding expectatio
 
 In the event of a significant disaster that affects the primary region, Microsoft will manage the failover for accounts with a hierarchical namespace. For more information, see [Microsoft-managed failover](#microsoft-managed-failover).
 
-### Customer-managed failover (unplanned)
+### Customer-managed failover
 
 If the data endpoints for the storage services in your storage account become unavailable in the primary region, you can fail over to the secondary region. After the failover is complete, the secondary region becomes the new primary and users can proceed to access data in the new primary region.
 
 A customer-managed account failover usually involves some data loss. For more details about potential data loss from this type of failover, see [Failure and data loss](#failover-and-data-loss).
-
-### Customer-managed planned failover (preview)
-
-> [!IMPORTANT]
-> Customer-managed planned failover is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
-> To register for the preview, follow these steps:
->
-> 1. Go to your subscription in the Azure portal.
-> 1. Under **Settings**, select **Preview features**.
-> 1. Search or browse for the feature preview you wish to register. The preview feature name for customer-managed planned failover for storage accounts with flat namespaces (FNS) is **Microsoft.Storage/AllowSoftFailover**.
-> 1. Select the desired feature(s), then select **+ Register**.
-
-To test your disaster recovery plan, you can perform a planned failover of your storage account from the primary to the secondary region. During the failover process, the original secondary region becomes the new primary and the original primary becomes the new secondary. After the failover is complete, users can proceed to access data in the new primary region and administrators can validate their disaster recovery plan. The storage account must be available in both the primary and secondary regions to perform a planned failover.
-
-You can also use planned failover if the storage service endpoints for the primary region are available, but a networking or compute outage in the primary region is preventing your workloads from functioning properly.
-
-During customer-managed planned failover and failback, data loss is not expected as long as the primary and secondary regions are available during the entire process. See [Failover and data loss](#failover-and-data-loss).
 
 ### Microsoft-managed failover
 
@@ -96,13 +76,13 @@ You can initiate an account failover from the Azure portal, PowerShell, Azure CL
 
 ### The failover process
 
-This section describes the failover process for a Customer-managed failover.
+This section describes the failover process for a customer-managed failover.
 
 For step-by-step details about how it works, see:
 
 > [How customer-managed failover works](storage-failover-customer-managed-unplanned.md)
 
-The two main differences between how Customer-managed failover (unplanned) and customer-managed planned failover work are:
+The two main differences between how customer-managed failover (unplanned) and customer-managed planned failover work are:
 
 - How the redundancy configurations within the primary and secondary regions (LRS or ZRS) are managed.
 - What happens to the geo-redundancy configuration at each stage of the failover and failback process.
@@ -127,7 +107,7 @@ The table below summarizes the resulting redundancy configuration at every stage
 | GRS                          | GRS | n/a <sup>2</sup> | GRS  | n/a <sup>2</sup> |
 | GZRS                         | GRS | n/a <sup>2</sup> | GZRS | n/a <sup>2</sup> |
 
-<sup>1</sup> Geo-redundancy is lost during a Customer-managed failover (unplanned) and must be manually reconfigured.<br>
+<sup>1</sup> Geo-redundancy is lost during a customer-managed failover (unplanned) and must be manually reconfigured.<br>
 <sup>2</sup> Geo-redundancy is retained during a customer-managed planned failover and does not need to be manually reconfigured.
 
 ## Failover and data loss
@@ -155,7 +135,7 @@ The following features and services are not supported for account failover:
 - Storage accounts that have [change feed](../blobs/storage-blob-change-feed.md) enabled are not supported for failover. For example, [operational backup of Azure Blob Storage](../../backup/blob-backup-support-matrix.md#limitations) requires the change feed. For this reason, storage accounts that have operational backup configured do not support failover. You must disable operational backup and any other features that require the change feed before initiating a failover.
 - Storage accounts that have [object replication policies](../blobs/object-replication-overview.md) enabled are not supported for failover. Object replication is another feature that requires the change feed feature be enabled. To disable object replication, you must backup (download) and delete any object replication rules and disable change feed before initiating a failover.
 - Azure File Sync does not support storage account failover. Storage accounts containing Azure file shares being used as cloud endpoints in Azure File Sync should not be failed over. Doing so will cause sync to stop working and may also cause unexpected data loss in the case of newly tiered files.
-- Storage accounts that have hierarchical namespace enabled (such as for Data Lake Storage Gen2) are only supported in the [customer-managed planned failover preview](#customer-managed-planned-failover-preview) and [Microsoft-managed failover](#microsoft-managed-failover). They are not supported for [Customer-managed failover (unplanned)](#customer-managed-failover-unplanned).
+- Storage accounts that have hierarchical namespace enabled (Data Lake Storage Gen2) are only supported with [Microsoft-managed failover](#microsoft-managed-failover). They are not supported for [customer-managed failover](#customer-managed-failover-unplanned).
 - A storage account containing premium block blobs cannot be failed over. Storage accounts that support premium block blobs do not currently support geo-redundancy.
 - A storage account containing any [WORM immutability policy](../blobs/immutable-storage-overview.md) enabled containers cannot be failed over. Unlocked/locked time-based retention or legal hold policies prevent failover in order to maintain compliance.
 
@@ -180,7 +160,7 @@ Review the additional considerations described in this section to understand how
 
 ### Storage account containing archived blobs
 
-Storage accounts containing archived blobs support account failover. However, after a [Customer-managed failover (unplanned)](#customer-managed-failover-unplanned) is complete, all archived blobs need to be rehydrated to an online tier before the account can be configured for geo-redundancy. Since the geo-redundancy configuration is retained during a [customer-managed planned failover (preview)](#customer-managed-planned-failover-preview), rehydration is not necessary after a planned failover or failback.
+Storage accounts containing archived blobs support account failover. However, after a [customer-managed failover](#customer-managed-failover-unplanned) is complete, all archived blobs need to be rehydrated to an online tier before the account can be configured for geo-redundancy.
 
 ### Storage resource provider
 
