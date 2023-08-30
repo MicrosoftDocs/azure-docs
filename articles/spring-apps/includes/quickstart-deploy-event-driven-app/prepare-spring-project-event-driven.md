@@ -46,7 +46,6 @@ These steps use AZD to initialize the event-driven application from the Azure De
 
    Enter a new environment name: <your-env-name>
 
-
    SUCCESS: New project initialized!
    You can view the template code in your directory: <your-local-path>
    Learn more about running 3rd party code on our DevHub: https://aka.ms/azd-third-party-code-notice
