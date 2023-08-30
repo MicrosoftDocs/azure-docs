@@ -645,7 +645,7 @@
             - name: How to use streaming endpoints deployed from prompt flow
               href: ./prompt-flow/how-to-enable-streaming-mode.md
             - name: Integrate Prompt Flow with LLM-based application DevOps 
-              href: ./how-to-integrate-with-llm-app-devops.md
+              href: ./prompt-flow/how-to-integrate-with-llm-app-devops.md
         - name: Tools Reference
           items:
             - name: LLM tool
