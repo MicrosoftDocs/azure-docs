@@ -10,7 +10,7 @@ keywords: aro, openshift, cli, tagging
 #Customer intent: I need to understand how to use Azure Policy to tag resources in a cluster's resource group.
 ---
 
-# Tag ARO resources using Azure Policy
+# Tag Azure Red Hat OpenShift resources using Azure Policy
 
 This article shows you how to use Azure Policy to tag the resources in an ARO cluster's resource group. The process involves creating a policy assignment and an ARO cluster through the Azure CLI.
 
