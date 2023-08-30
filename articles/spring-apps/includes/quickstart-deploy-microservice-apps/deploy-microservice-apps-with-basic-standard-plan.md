@@ -17,6 +17,8 @@ For clarity of structure, a separate markdown file is used to describe how to de
 
 Use the following steps to prepare the sample locally.
 
+### [Azure portal](#tab/Azure-portal)
+
 1. Use the following command to clone the sample GitHub project:
 
    ```bash
@@ -31,9 +33,43 @@ Use the following steps to prepare the sample locally.
 
 1. After the script executes successfully, go to `http://localhost:8080` in your browser to access the PetClinic app.
 
+### [Azure Developer CLI](#tab/Azure-Developer-CLI)
+
+These steps use AZD to initialize the Pet Clinic application from the Azure Developer CLI templates.
+
+1. Open a terminal, create a new, empty folder, then navigate to it.
+1. Use the following command to initialize the project:
+
+   ```bash
+   azd init --template Azure-Samples/spring-petclinic-microservices
+   ```
+
+   The following list describes the command interactions:
+
+    - **OAuth2 login**: You need to authorize the login to Azure based on the OAuth2 protocol.
+    - **Enter a new environment name**: Provide an environment name, which is used as a suffix for the resource group that is created to hold all Azure resources. This name should be unique within your Azure subscription.
+
+   The console outputs messages similar to the following example:
+
+   ```output
+   Initializing a new project (azd init)
+   
+   Downloading template code to: <your-local-path>
+   (✓) Done: Initialized git repository
+   Enter a new environment name: <your-env-name>
+   
+   SUCCESS: New project initialized!
+   You can view the template code in your directory: <your-local-path>s
+   Learn more about running 3rd party code on our DevHub: https://aka.ms/azd-third-party-code-notice
+   ```
+
+---
+
 ## 3. Prepare the cloud environment
 
 The main resource you need to run this sample is an Azure Spring Apps instance. Use the following steps to create this resource.
+
+### [Azure portal](#tab/Azure-portal)
 
 ### 3.1. Sign in to the Azure portal
 
@@ -88,7 +124,43 @@ Use the following steps to create the service instance:
 
 1. After validation, select **Apply** to finish the Config Server configuration.
 
+### [Azure Developer CLI](#tab/Azure-Developer-CLI)
+
+1. Use the following command to sign in to Azure with OAuth2. Ignore this step if you've already logged in.
+
+   ```bash
+   azd auth login
+   ```
+
+1. Use the following command to package a deployable copy of your application, provision the template's infrastructure to Azure, and deploy the application code to those newly provisioned resources:
+
+   ```bash
+   azd provision
+   ```
+
+   The following list describes the command interactions:
+
+    - **Select an Azure Subscription to use**: Use arrows to move, type to filter, then press Enter.
+    - **Select an Azure location to use**: Use arrows to move, type to filter, then press Enter.
+
+   The console outputs messages similar to the following example:
+
+   ```output
+   SUCCESS: Your application was provisioned in Azure in xx minutes xx seconds.
+   You can view the resources created under the resource group rg-<your-environment-name> in Azure Portal:
+   https://portal.azure.com/#@/resource/subscriptions/<your-subscription-id>/resourceGroups/<your-resource-group>/overview
+   ```
+
+   > [!NOTE]
+   > This command may take a while to complete. You're shown a progress indicator as it provisions Azure resources.
+
+---
+
 ## 4. Deploy the apps to Azure Spring Apps
+
+You can now deploy the app to Azure Spring Apps.
+
+### [Azure portal](#tab/Azure-portal)
 
 Use the following steps to deploy the microservice applications using the [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Spring-Apps):
 
@@ -132,3 +204,56 @@ After the command is executed, a log displays output similar to the following ex
 [INFO] Getting public url of app(api-gateway)...
 [INFO] Application url: https://<your-Azure-Spring-Apps-instance-name>-api-gateway.azuremicroservices.io
 ```
+
+### [Azure Developer CLI](#tab/Azure-Developer-CLI)
+
+Use the following steps to use AZD to package the app, provision the Azure resources required by the web application, and then deploy to Azure Spring Apps.
+
+1. Use the following command to package a deployable copy of your application:
+
+   ```bash
+   azd package
+   ```
+
+   The console outputs messages similar to the following example:
+
+   ```output
+   SUCCESS: Your application was packaged for Azure in xx minutes xx seconds.
+   ```
+   
+1. Use the following command to deploy the application code to those newly provisioned resources:
+
+   ```bash
+   azd deploy
+   ```
+
+   The console outputs messages similar to the following example:
+
+   ```output
+   Deploying services (azd deploy)
+   
+   (✓) Done: Deploying service admin-server
+   - Endpoint: https://<your-Azure-Spring-Apps-instance-name>-admin-server.azuremicroservices.io
+   
+   (✓) Done: Deploying service api-gateway
+   - Endpoint: https://<your-Azure-Spring-Apps-instance-name>-api-gateway.azuremicroservices.io
+   
+   (✓) Done: Deploying service customers-service
+   - No endpoints were found
+   
+   (✓) Done: Deploying service vets-service
+   - No endpoints were found
+   
+   (✓) Done: Deploying service visits-service
+   - No endpoints were found
+   
+   
+   SUCCESS: Your application was deployed to Azure in xx minutes xx seconds.
+   You can view the resources created under the resource group rg-<your-environment-name> in Azure Portal:
+   https://portal.azure.com/#@/resource/subscriptions/<your-subscription-id>/resourceGroups/<your-resource-group>/overview
+   ```
+
+> [!NOTE]
+> You can also use `azd up` to combine the previous three commands: `azd package` (packages a deployable copy of your application), `azd provision` (provisions Azure resources), and `azd deploy` (deploys application code). For more information, see [Azure-Samples/spring-petclinic-microservices](https://github.com/Azure-Samples/spring-petclinic-microservices.git).
+
+---
