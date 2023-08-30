@@ -13,7 +13,7 @@ This example uses [HDInsight on AKS Flink 1.16.0](../flink/flink-overview.md) to
 ## Prerequisites
 
 * [HDInsight on AKS Flink 1.16.0](../flink/flink-create-cluster-portal.md)
-* [HDInsight 5.1 Kafka 3.2](../../hdinsight/azure/hdinsight/kafka/apache-kafka-get-started.md)
+* [HDInsight 5.1 Kafka 3.2](../../hdinsight/kafka/apache-kafka-get-started.md)
 * [Azure Cosmos DB for Apache Cassandra](../../cosmos-db/cassandra/index.yml)
 * Prepare an Ubuntu VM as maven project development env in the same VNet as HDInsight on AKS.
 

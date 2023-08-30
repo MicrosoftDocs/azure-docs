@@ -21,7 +21,7 @@ In a real world scenario, this example is a stream analytics layer to realize va
 
 * [HDInsight on AKS Flink 1.16.0](../flink/flink-create-cluster-portal.md) 
 * [HDInsight Kafka](../flink/process-and-consume-data.md)
-* [HDInsight HBase 2.4.11](../../hdinsight/hbase/apache-hbase-tutorial-get-started-linux#create-apache-hbase-cluster.md)
+* [HDInsight HBase 2.4.11](../../hdinsight/hbase/apache-hbase-tutorial-get-started-linux.md#create-apache-hbase-cluster)
   * You're required to make sure HDInsight on AKS Flink can connect to HDInsight HBase Master(zk), with same virtual network.
 * Maven project on IntelliJ IDEA for development on an Azure VM in the same VNet
 
