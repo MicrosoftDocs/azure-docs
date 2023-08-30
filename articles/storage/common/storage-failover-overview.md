@@ -96,13 +96,11 @@ You can initiate an account failover from the Azure portal, PowerShell, Azure CL
 
 ### The failover process
 
-This section compares the failover process between a Customer-managed failover (unplanned) and a customer-managed planned failover.
+This section describes the failover process for a Customer-managed failover.
 
-For step-by-step details about how each type works, see:
+For step-by-step details about how it works, see:
 
 > [How customer-managed failover works](storage-failover-customer-managed-unplanned.md)
->
-> [How customer-managed planned failover (preview) works](storage-failover-customer-managed-planned.md)
 
 The two main differences between how Customer-managed failover (unplanned) and customer-managed planned failover work are:
 

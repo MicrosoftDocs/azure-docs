@@ -17,7 +17,7 @@ ms.custom:
 
 Customer-managed account failover enables you to fail over your entire geo-redundant storage account to the secondary region if the storage service endpoints for the primary region become unavailable. During failover, the original secondary region becomes the new primary and all storage service endpoints for blobs, tables, queues and files are redirected to the new primary region. After the storage service endpoint outage has been resolved, you can perform another failover operation to *fail back* to the original primary region.
 
-This article describes what happens during a customer-managed storage account failover and failback at every stage of the process. To understand how a **planned** failover works, see [How failover to perform disaster recovery testing (preview) works](storage-failover-customer-managed-planned.md). For a quick comparison of customer-managed and customer-managed planned failover, see [The failover process](storage-failover-overview.md#the-failover-process).
+This article describes what happens during a customer-managed storage account failover and failback at every stage of the process.
 
 > [!IMPORTANT]
 > Customer-managed failover (planned and unplanned) for storage accounts with hierarchical namespaces (Azure Data Lake Storage Gen2) is currently in PREVIEW.
@@ -201,4 +201,3 @@ After re-configuring the account as GZRS, replication to the original secondary 
 
 - [Disaster recovery and storage account failover](storage-disaster-recovery-guidance.md)
 - [Initiate an account failover](storage-initiate-account-failover.md)
-- [How customer-managed planned failover works](storage-failover-customer-managed-planned.md)
