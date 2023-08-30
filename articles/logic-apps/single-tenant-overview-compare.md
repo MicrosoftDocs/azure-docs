@@ -302,6 +302,8 @@ For the **Standard** logic app workflow, these capabilities have changed, or the
 
 * **Trigger history and run history**: For a **Standard** logic app, trigger history and run history in the Azure portal appears at the workflow level, not the logic app resource level. For more information, review [Create single-tenant based workflows using the Azure portal](create-single-tenant-workflows-azure-portal.md).
 
+* **Back up and restore for workflow run history**: Standard workflows currently don't support back up and restore for workflow run history.
+
 * **Zoom control**: The zoom control is currently unavailable on the designer.
 
 * **Deployment targets**: You can't deploy a **Standard** logic app resource to an [integration service environment (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md) nor to Azure deployment slots.
@@ -316,10 +318,6 @@ If your environment has strict network requirements or firewalls that limit traf
 
 * [Firewall permissions for single tenant logic apps - Azure portal](create-single-tenant-workflows-azure-portal.md#firewall-setup)
 * [Firewall permissions for single tenant logic apps - Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#firewall-setup)
-
-## Back up and restore run history
-
-Standard workflows in single-tenant Azure Logic Apps currently don't support back up and restore for workflow run history.
 
 ## Next steps
 
