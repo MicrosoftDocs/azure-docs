@@ -38,7 +38,7 @@ A virtual machine is required to run the `vm list` cmdlet. The following command
 az vm list -resource-group resourceGroupName
 ```
 
-Once you know the virtual machine, you can use the `vm show` cmdlet to get its resource Id:
+Once you know the virtual machine, you can use the `vm show` cmdlet to get its resource ID:
 
 ```azurecli
 az vm show -resource-group resourceGroupName -name virtualMachineName
