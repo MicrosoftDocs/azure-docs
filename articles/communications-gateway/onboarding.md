@@ -13,7 +13,7 @@ ms.custom: template-concept
 
 To launch Operator Connect and/or Teams Phone Mobile, you need an onboarding partner. Launching requires changes to the Operator Connect or Teams Phone Mobile environments and your onboarding partner manages the integration process and coordinates with Microsoft Teams on your behalf. They can also help you design and set up your network for success.
 
-We provide a customer success program and onboarding service called Included Benefits for operators deploying Azure Communications Gateway. We work with your team to enable rapid and effective solution design and deployment. The program includes tailored guidance from Azure for Operators engineers, using proven practices and architectural guides.
+We provide a customer success program and onboarding service called _Included Benefits_ for operators deploying Azure Communications Gateway. We work with your team to enable rapid and effective solution design and deployment. The program includes tailored guidance from Azure for Operators engineers, using proven practices and architectural guides.
 
 ## Eligibility for Included Benefits and alternatives
 
@@ -92,5 +92,5 @@ Your responsibilities include:
 ## Next steps
 
 - [Review the reliability requirements for Azure Communications Gateway](reliability-communications-gateway.md).
-- [Review the interoperability function of Azure Communications Gateway](interoperability.md).
-- [Prepare to deploy Azure Communications Gateway](prepare-to-deploy.md).
+- [Learn more about planning an Azure Communications Gateway deployment](get-started.md)
+

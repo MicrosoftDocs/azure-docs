@@ -121,8 +121,8 @@ Added 10 new locales as shown in the following table. See the complete language 
 | `sq-AL`         | Albanian (Albania)                |
 |  `hy-AM`         | Armenian (Armenia)                |
 |  `az-AZ`         | Azerbaijani (Azerbaijan)          |
-|  `eu-ES`         | Basque (Spain)                    |
-|  `gl-ES`         | Galician (Spain)                  |
+|  `eu-ES`         | Basque                    |
+|  `gl-ES`         | Galician                  |
 | `ka-GE`         | Georgian (Georgia)                |
 |  `it-CH`         | Italian (Switzerland)             |
 |  `kk-KZ`         | Kazakh (Kazakhstan)               |
