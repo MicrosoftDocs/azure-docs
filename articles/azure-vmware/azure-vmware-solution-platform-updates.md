@@ -37,6 +37,10 @@ Stretched Clusters for Azure VMware Solution is now available and provides 99.99
 
 Azure VMware Solution Well-Architected Assessment Tool is now available. Based upon the Microsoft Azure Well-Architected Framework, the assessment tool methodically checks how your workloads align with best practices for resiliency, security, efficiency, and cost optimization. [Learn more](https://aka.ms/avswafdocs)
 
+**VMware Cloud Universal**
+
+VMware Cloud Universal now includes Azure VMware Solution. [Learn more](https://blogs.vmware.com/cloud/2023/07/06/avs-with-vmcu-announcement/)
+
 **Updated cloudadmin Permissions**
 
 Customers using the cloudadmin@vsphere.local credentials with the vSphere Client now have read-only access to the Management Resource Pool that contains the management and control plane of Azure VMware Solution (vCenter Server, NSX-T Data Center, HCX Manager, SRM Manager).
