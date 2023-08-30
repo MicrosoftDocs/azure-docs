@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 07/14/2023
+ms.date: 08/30/2023
 ms.custom: ignite-fall-2021
 ---
 
@@ -316,6 +316,10 @@ If your environment has strict network requirements or firewalls that limit traf
 
 * [Firewall permissions for single tenant logic apps - Azure portal](create-single-tenant-workflows-azure-portal.md#firewall-setup)
 * [Firewall permissions for single tenant logic apps - Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#firewall-setup)
+
+## Backup and restore run history
+
+Standard workflows in single-tenant Azure Logic Apps currently don't support backup and restore for workflow run history.
 
 ## Next steps
 
