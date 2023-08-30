@@ -15,7 +15,7 @@ Microsoft will regularly apply important updates to the Azure VMware Solution fo
 
 **Available in 30 Azure Regions**
 
-Azure VMware Solution is now available in 30 Azure regions. [Learn more](https://azure.microsoft.com/en-us/explore/global-infrastructure/products-by-region/?products=azure-vmware&rar=true&regions=all)
+Azure VMware Solution is now available in 30 Azure regions. [Learn more](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=azure-vmware&rar=true&regions=all)
 
 **Pure Cloud Block Store (preview)**
 
@@ -23,7 +23,7 @@ Pure Cloud Block Store for Azure VMware Solution is now in public preview. Now c
 
 **Azure Arc-enabled VMware vSphere (preview)**
 
-Azure Arc-enabled VMware vSphere has a new refresh for the public preview. Now customers can start their onboarding with Azure Arc-enabled VMware vSphere, install agents at-scale, and enable Azure management, observability, and security solutions, while benefitting from the existing lifecycle management capabilities. Azure Arc-enabled VMware vSphere VMs will now show up alongside other Azure Arc-enabled servers under ‘Machines’ view in the Azure portal. [Learn more](https://learn.microsoft.com/en-us/azure/azure-arc/vmware-vsphere/overview)
+Azure Arc-enabled VMware vSphere has a new refresh for the public preview. Now customers can start their onboarding with Azure Arc-enabled VMware vSphere, install agents at-scale, and enable Azure management, observability, and security solutions, while benefitting from the existing lifecycle management capabilities. Azure Arc-enabled VMware vSphere VMs will now show up alongside other Azure Arc-enabled servers under ‘Machines’ view in the Azure portal. [Learn more](https://learn.microsoft.com/azure/azure-arc/vmware-vsphere/overview)
 
 **VMware Cloud Director Service**
 
