@@ -12,7 +12,7 @@ ms.author: pafarley
 ms.custom: references_regions, build-2023, build-2023-dataai
 ---
 
-# Analyze a shelf image using pretrained models
+# Shelf Product Recognition (preview): Analyze shelf images using pretrained model
 
 The fastest way to start using Product Recognition is to use the built-in pretrained AI models. With the Product Understanding API, you can upload a shelf image and get the locations of products and gaps.
 
