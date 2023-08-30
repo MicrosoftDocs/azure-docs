@@ -111,6 +111,11 @@ Whether your application has answered a one-to-one or group call, or placed an o
 **Cancel media operations** 
 Based on business logic your application may need to cancel ongoing and queued media operations. Depending on the media operation canceled and the ones in queue, you'll receive a webhook event indicating that the action has been canceled. 
 
+### Query scenarios
+
+**List participants**
+Returns a list of all the participants in a call. Recording and transcription bots are omitted from this list.
+
 ## Events
 
 The following table outlines the current events emitted by Azure Communication Services. The following two tables describe the events emitted by Event Grid and from the Call Automation as webhook events.
