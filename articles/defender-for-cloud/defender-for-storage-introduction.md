@@ -1,6 +1,5 @@
 ---
 title: Microsoft Defender for Storage - the benefits and features
-
 description: Learn about the benefits and features of Microsoft Defender for Storage.
 ms.date: 08/21/2023
 author: dcurwin
@@ -76,6 +75,7 @@ Defender for Storage continuously analyzes data and control plane logs from prot
 
 > [!NOTE]
 > Malware Scanning is offered for free during public preview. **Billing will begin when generally available (GA) on September 3, 2023 and priced at $0.15 (USD)/GB of data scanned.** You are encouraged to use the “Monthly capping” feature to define the cap on GB scanned per storage account per month and control costs.
+
 Malware Scanning in Defender for Storage helps protect storage accounts from malicious content by performing a full malware scan on uploaded content in near real time, applying Microsoft Defender Antivirus capabilities. It's designed to help fulfill security and compliance requirements to handle untrusted content. Every file type is scanned, and scan results are returned for every file. The Malware Scanning capability is an agentless SaaS solution that allows simple setup at scale, with zero maintenance, and supports automating response at scale.
 This is a configurable feature in the new Defender for Storage plan that is priced per GB scanned.
 Learn more about [Malware Scanning](defender-for-storage-malware-scan.md).
@@ -125,5 +125,3 @@ In this article, you learned about Microsoft Defender for Storage.
 
 - [Enable Defender for Storage](tutorial-enable-storage-plan.md)
 - Check out [common questions](faq-defender-for-storage.yml) about Defender for Storage.
-
-

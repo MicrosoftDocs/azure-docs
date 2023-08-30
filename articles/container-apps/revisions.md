@@ -24,6 +24,9 @@ Azure Container Apps implements container app versioning by creating revisions. 
 
 :::image type="content" source="media/revisions/azure-container-apps-revisions.png" alt-text="Azure Container Apps: Containers":::
 
+> [!NOTE]
+> [Azure Container Apps jobs](jobs.md) don't have revisions. Each job execution uses the latest configuration of the job.
+
 ## Use cases
 
 Container Apps revisions help you manage the release of updates to your container app by creating a new revision each time you make a *revision-scope* change to your app.  You can control which revisions are active, and the external traffic that is routed to each active revision.

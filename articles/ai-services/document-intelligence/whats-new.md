@@ -133,7 +133,7 @@ The v3.1 API introduces new and updated capabilities:
 ## March 2023
 
 > [!IMPORTANT]
-> [**`2023-07-31`**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument) capabilities are currently only available in the following regions:
+> [**`2023-02-28-preview`**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-02-28-preview/operations/AnalyzeDocument) capabilities are currently only available in the following regions:
 >
 > * West Europe
 > * West US2
