@@ -10,6 +10,8 @@
       href: compare-options.md
     - name: Overview
       items:
+        - name: Start here
+          href: start.md
         - name: Plans
           href: plans.md
         - name: Environment
