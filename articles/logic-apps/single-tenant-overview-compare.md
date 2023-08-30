@@ -302,7 +302,7 @@ For the **Standard** logic app workflow, these capabilities have changed, or the
 
 * **Trigger history and run history**: For a **Standard** logic app, trigger history and run history in the Azure portal appears at the workflow level, not the logic app resource level. For more information, review [Create single-tenant based workflows using the Azure portal](create-single-tenant-workflows-azure-portal.md).
 
-* **Back up and restore for workflow run history**: Standard workflows currently don't support back up and restore for workflow run history.
+* **Back up and restore for workflow run history**: **Standard** logic apps currently don't support back up and restore for workflow run history.
 
 * **Zoom control**: The zoom control is currently unavailable on the designer.
 
