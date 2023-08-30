@@ -11,11 +11,19 @@ ms.topic: how-to
 
 # Overview of Web PubSub for Socket.IO
 
+> [!NOTE]
+> Web PubSub for Socket.IO feature is in public preview. We welcome any feedback and suggestions. Please reach out to the service team at awps@microsoft.com.
+
 Web PubSub for Socket.IO is a fully managed cloud offering for [Socket.IO](https://socket.io/). Socket.IO is a widely popular open-source library for real-time messaging between clients and a server. Web PubSub for Socket.IO is a feature of the Azure Web PubSub service.
 
 Managing stateful and persistent connections between clients and a server is often a source of frustration for Socket.IO users. The problem is more acute when multiple Socket.IO instances are spread across servers.
 
 Web PubSub for Socket.IO removes the burden of deploying, hosting, and coordinating Socket.IO instances for developers. Development teams can then focus on building real-time experiences by using familiar APIs from the Socket.IO library.
+
+## Simplified architecture
+Web PubSub for Socket.IO removes the need for an "adapter" server component when scaling out a Socket.IO app, allowing the development team to reap the benefits for a simplified architecture.
+
+:::image type="content" source="./media/socketio-service-internal/typical-architecture-managed-socketio.jpg" alt-text="Screenshot of a typical architecture of a fully managed Socket.IO app.":::
 
 ## Benefits over hosting a Socket.IO app yourself
 
