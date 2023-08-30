@@ -77,7 +77,7 @@ This article provides an overview of how to configure Delta Lake catalog in your
         } ...
         ```
 
-1. Assign the `Storage Blob Data Owner` role to your cluster user-assigned MSI in the storage account containing the delta tables. Learn how to [assign a role](https://learn.microsoft.com/azure/role-based-access-control/role-assignments-portal#step-2-open-the-add-role-assignment-page).
+1. Assign the `Storage Blob Data Owner` role to your cluster user-assigned MSI in the storage account containing the delta tables. Learn how to [assign a role](/azure/role-based-access-control/role-assignments-portal#step-2-open-the-add-role-assignment-page).
 
    * User-assigned MSI name is listed in the `msiResourceId` property in the cluster's resource JSON.
 

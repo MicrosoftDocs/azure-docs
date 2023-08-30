@@ -19,7 +19,7 @@ By combining the low latency streaming features of Apache Flink and the dataflow
 ## Prerequisites
 
 * [HDInsight on AKS Flink 1.16.0](../flink/flink-create-cluster-portal.md) 
-* [HDInsight Kafka](https://learn.microsoft.com/azure/hdinsight/kafka/apache-kafka-get-started)
+* [HDInsight Kafka](../../hdinsight/kafka/apache-kafka-get-started.md)
     *  You're required to ensure the network settings are taken care as described on [Using HDInsight Kafka](../flink/process-and-consume-data.md); that's to make sure HDInsight on AKS Flink and HDInsight Kafka are in the same VNet 
 * For this demonstration, we're using a Window VM as maven project develop env in the same VNET as HDInsight on AKS
 * For this demonstration, we're using an Ubuntu VM in the same VNET as HDInsight on AKS, install Apache NiFi 1.22.0 on this VM
@@ -29,7 +29,7 @@ By combining the low latency streaming features of Apache Flink and the dataflow
 For purposes of this demonstration, we're using a HDInsight Kafka Cluster, let us prepare HDInsight Kafka topic for the demo.
 
 > [!NOTE]
-> Setup a HDInsight [Kafka](https://learn.microsoft.com/azure/hdinsight/kafka/apache-kafka-get-started) Cluster and Replace broker list with your own list before you get started for both Kafka 2.4 and 3.2.
+> Setup a HDInsight [Kafka](../../hdinsight/kafka/apache-kafka-get-started.md) Cluster and Replace broker list with your own list before you get started for both Kafka 2.4 and 3.2.
 
 **HDInsight Kafka 2.4.1**
 ```

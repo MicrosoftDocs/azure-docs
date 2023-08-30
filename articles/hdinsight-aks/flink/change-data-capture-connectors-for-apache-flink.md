@@ -15,7 +15,7 @@ In this article, learn how to perform Change Data Capture of SQL Server using Da
 ## Prerequisites
 
 * [HDInsight on AKS Flink 1.16.0](../flink/flink-create-cluster-portal.md)
-* [HDInsight Kafka](https://learn.microsoft.com/azure/hdinsight/kafka/apache-kafka-get-started)
+* [HDInsight Kafka](../../hdinsight/kafka/apache-kafka-get-started.md)
   * You're required to ensure the network settings are taken care as described on [Using HDInsight Kafka](../flink/process-and-consume-data.md); that's to make sure HDInsight on AKS Flink and HDInsight Kafka are in the same VNet 
 * Azure SQLServer 
 * HDInsight Kafka cluster and HDInsight on AKS Flink clusters are located in the same VNet
@@ -53,7 +53,7 @@ For more information, refer
 
 Apache Kafka is an open-source distributed streaming platform that can be used to build real-time streaming data pipelines and applications. Kafka also provides message broker functionality similar to a message queue, where you can publish and subscribe to named data streams.
 
-For more information, refer [Apache Kafka in Azure HDInsight](/azure/hdinsight/kafka/apache-kafka-introduction)
+For more information, refer [Apache Kafka in Azure HDInsight](../../hdinsight/kafka/apache-kafka-introduction.md)
 
 ## Perform a test
 
@@ -322,5 +322,5 @@ public class mssqlSinkToKafka {
 ### Reference
 
 * [SQLServer CDC Connector](https://github.com/ververica/flink-cdc-connectors/blob/master/docs/content/connectors/sqlserver-cdc.md) is licensed under [Apache 2.0 License](https://github.com/ververica/flink-cdc-connectors/blob/master/LICENSE)
-* [Apache Kafka in Azure HDInsight](/azure/hdinsight/kafka/apache-kafka-introduction)
+* [Apache Kafka in Azure HDInsight](../../hdinsight/kafka/apache-kafka-introduction.md)
 * [Flink Kafka Connector](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/connectors/datastream/kafka/#behind-the-scene)

@@ -57,7 +57,7 @@ Deploy the updated ARM template to reflect the changes in your cluster. Learn ho
 
 > [!NOTE]
 > 
-> * Plugin uses user-assigned managed identity (MSI) tied to the cluster to authenticate against the storage, please add `Contributor` and `Storage Blob Data Owner` access to the MSI to ensure plugin can write logs to the storage account. <br>User-assigned MSI name is listed in the `msiResourceId` property in the cluster's resource JSON. Learn how to [assign a role](https://learn.microsoft.com/azure/role-based-access-control/role-assignments-portal#step-2-open-the-add-role-assignment-page).
+> * Plugin uses user-assigned managed identity (MSI) tied to the cluster to authenticate against the storage, please add `Contributor` and `Storage Blob Data Owner` access to the MSI to ensure plugin can write logs to the storage account. <br>User-assigned MSI name is listed in the `msiResourceId` property in the cluster's resource JSON. Learn how to [assign a role](/azure/role-based-access-control/role-assignments-portal#step-2-open-the-add-role-assignment-page).
 >
 > * PartitionRetentionInDays only removes the metadata partition from the mounted table, it doesn't delete the data. Please clean up the data as per your requirements if not needed anymore.
  

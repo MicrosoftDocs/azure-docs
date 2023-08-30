@@ -12,7 +12,7 @@ Using this example, learn how to Create Kafka table on FlinkSQL.
 
 ## Prerequisites
 
-* [HDInsight Kafka](https://learn.microsoft.com/azure/hdinsight/kafka/apache-kafka-get-started)
+* [HDInsight Kafka](../../hdinsight/kafka/apache-kafka-get-started.md)
 * [HDInsight on AKS Flink 1.16.0](../flink/flink-create-cluster-portal.md)
 
 ## Kafka SQL connector on Flink

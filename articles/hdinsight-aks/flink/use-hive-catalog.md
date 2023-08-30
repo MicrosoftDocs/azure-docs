@@ -14,7 +14,7 @@ This example uses Hive’s Metastore as a persistent catalog with Flink’s Hive
 ## Prerequisites
 
 * [HDInsight on AKS Flink 1.16.0 with Hive Metastore 3.1.2](../flink/flink-create-cluster-portal.md) 
-* [HDInsight Kafka](https://learn.microsoft.com/azure/hdinsight/kafka/apache-kafka-get-started)
+* [HDInsight Kafka](../../hdinsight/kafka/apache-kafka-get-started.md)
   * You're required to ensure the network settings are complete as described on [Using HDInsight Kafka](../flink/process-and-consume-data.md); that's to make sure HDInsight on AKS Flink and HDInsight Kafka are in the same VNet 
 * MySQL 8.0.33
 
