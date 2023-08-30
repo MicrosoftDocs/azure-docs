@@ -40,7 +40,7 @@ items:
   - name: Monitoring data Reference
     href: storage-tasks-monitor-data-reference.md
   - name: Storage Tasks events
-    href: ../event-grid/event-schema-storage-tasks.md?toc=/azure/storage-tasks/toc.json&bc=/azure/storage-tasks/breadcrumb/toc.json
+    href: ../event-grid/event-schema-storage-tasks.md?toc=/azure/storage-tasks/toc.json
   expanded: true
 - name: Resources
   items:
