@@ -39,7 +39,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## <a name ="create-a-private-endpoint"></a>Create an Azure SQL server and private endpoint
 
-In this section, you'll create a SQL server in Azure. 
+In this section, you create a SQL server in Azure. 
 
 1. In the search box at the top of the portal, enter **SQL**. Select **SQL databases** in the search results.
 
@@ -77,8 +77,8 @@ In this section, you'll create a SQL server in Azure.
     | Name | Enter **private-endpoint-sql**. |
     | Target subresource | Select **SqlServer**. |
     | **Networking** |  |
-    | Virtual network | Select **vnet-private-endpoint**. |
-    | Subnet | Select **subnet-private-endpoint**. |
+    | Virtual network | Select **vnet-1**. |
+    | Subnet | Select **subnet-1**. |
     | **Private DNS integration** |  |
     | Integrate with private DNS zone | Select **Yes**. |
     | Private DNS zone | Leave the default of **privatelink.database.windows.net**. |
@@ -106,7 +106,7 @@ For this scenario, assume you would like to disable all public access to your Az
 
 ## Test connectivity to private endpoint
 
-In this section, you'll use the virtual machine you created in the previous steps to connect to the SQL server across the private endpoint.
+In this section, you use the virtual machine you created in the previous steps to connect to the SQL server across the private endpoint.
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
