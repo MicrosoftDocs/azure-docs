@@ -1,6 +1,6 @@
 ---
 title: Latest updates in the regulatory compliance dashboard | Defender for Cloud in the Field
-titleSuffix: Microsoft Defender for Cloud
+
 description: Learn about the latest updates in the regulatory compliance dashboard
 ms.topic: reference
 ms.date: 04/27/2023
@@ -9,9 +9,8 @@ ms.date: 04/27/2023
 # Latest updates in the regulatory compliance dashboard| Defender for Cloud in the Field
 
 **Episode description**: In this episode of Defender for Cloud in the Field, Ronit Reger joins Yuri Diogenes to talk about the latest updates in the regulatory compliance dashboard that were released at Ignite. Ronit talks about the new attestation capability and the new Microsoft cloud security benchmark. Ronit also demonstrates how to create manual attestations in the regulatory compliance dashboard.
-<br>
-<br>
-<iframe src="https://aka.ms/docs/player?id=b4aff57d-737e-4bf7-8748-4220131b730c" width="1080" height="530" allowFullScreen="true" frameBorder="0"></iframe>
+
+> [!VIDEO https://aka.ms/docs/player?id=b4aff57d-737e-4bf7-8748-4220131b730c]
 
 - [00:00](/shows/mdc-in-the-field/update-regulatory#time=00m00s) - Intro
 
@@ -32,7 +31,7 @@ ms.date: 04/27/2023
 
 - Follow us on social media:
 
-     - [LinkedIn](https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqbFk5TXZuQld2NlpBRV9BQlJqMktYSm95WWhCZ3xBQ3Jtc0tsQU13MkNPWGNFZzVuem5zc05wcnp0VGxybHprVTkwS2todWw0b0VCWUl4a2ZKYVktNGM1TVFHTXpmajVLcjRKX0cwVFNJaDlzTld4MnhyenBuUGRCVmdoYzRZTjFmYXRTVlhpZGc4MHhoa3N6ZDhFMA&q=https%3A%2F%2Fwww.linkedin.com%2Fshowcase%2Fmicrosoft-security%2F)
+     - [LinkedIn](https://www.linkedin.com/showcase/microsoft-security/)
      - [Twitter](https://twitter.com/msftsecurity)
 
 - Join our [Tech Community](https://aka.ms/SecurityTechCommunity)

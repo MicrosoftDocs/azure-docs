@@ -4,6 +4,7 @@ description: Provides an overview of agent-based VMware VM migration in Azure Mi
 author: vijain
 ms.author: vijain
 ms.manager: kmadnani
+ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/12/2022
 ms.custom: engagement-fy23

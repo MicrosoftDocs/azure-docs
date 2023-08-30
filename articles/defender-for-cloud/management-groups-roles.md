@@ -1,5 +1,5 @@
 ---
-title: Organize subscriptions into management groups and assign roles to users for Microsoft Defender for Cloud
+title: Organize subscriptions into management groups and assign roles to users
 description: Learn how to organize your Azure subscriptions into management groups in Microsoft Defender for Cloud and assign roles to users in your organization
 ms.topic: how-to
 ms.date: 01/24/2023
@@ -31,7 +31,7 @@ For a detailed overview of management groups, see the [Organize your resources w
 
 ### View and create management groups in the Azure portal
 
-1. Sign in to the [Azure portal](https://portal.azure.com) 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Search for and select **Management Groups**.
 
@@ -47,9 +47,9 @@ For a detailed overview of management groups, see the [Organize your resources w
 
 You can add subscriptions to the management group that you created.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Search for and select **Management Groups**
+1. Search for and select **Management Groups**.
 
 1. Select the management group for your subscription.
 
@@ -66,9 +66,9 @@ You can add subscriptions to the management group that you created.
 
 ### Assign Azure roles to users through the Azure portal: 
 
-1. Sign in to the [Azure portal](https://portal.azure.com) 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Search for and select **Management Groups**
+1. Search for and select **Management Groups**.
 
 1.  Select the relevant management group.
 
@@ -116,7 +116,7 @@ You can add subscriptions to the management group that you created.
 
 Once the Azure roles have been assigned to the users, the tenant administrator should remove itself from the user access administrator role.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or the [Azure Active Directory admin center](https://aad.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. In the navigation list, select **Azure Active Directory** and then select **Properties**.
 

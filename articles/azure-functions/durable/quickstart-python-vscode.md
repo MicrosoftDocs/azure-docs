@@ -1,12 +1,12 @@
 ---
 title: Create your first durable function in Azure using Python
 description: Create and publish an Azure Durable Function in Python using Visual Studio Code.
-author: anthonychu
+author: davidmrdavid
 ms.topic: quickstart
 ms.date: 06/15/2022
-ms.reviewer: azfuncdf, antchu
+ms.reviewer: azfuncdf, davidmrdavid
 ms.devlang: python
-ms.custom: mode-api, devdivchpfy22, vscode-azure-extension-update-complete
+ms.custom: mode-api, devdivchpfy22, vscode-azure-extension-update-complete, devx-track-python
 zone_pivot_groups: python-mode-functions
 ---
 
@@ -17,9 +17,6 @@ Durable Functions is an extension of [Azure Functions](../functions-overview.md)
 In this article, you learn how to use the Visual Studio Code Azure Functions extension to locally create and test a "hello world" durable function. This function will orchestrate and chains together calls to other functions. You can then publish the function code to Azure.
 
 :::image type="content" source="./media/quickstart-python-vscode/functions-vs-code-complete.png" alt-text="Screenshot of the running durable function in Azure.":::
-
-> [!NOTE]
-> The new programming model for authoring Functions in Python (V2) is currently in preview. Compared to the current model, the new experience is designed to be more idiomatic and intuitive for Python programmers. To learn more, see Azure Functions Python [developer guide](../functions-reference-python.md?pivots=python-mode-decorators).
 
 ## Prerequisites
 
@@ -184,10 +181,11 @@ Version 2 of the Python programming model requires the following minimum version
 
 - [Azure Functions Runtime](../functions-versions.md) v4.16+
 - [Azure Functions Core Tools](../functions-run-local.md) v4.0.5095+ (if running locally)
+- [azure-functions-durable](https://pypi.org/project/azure-functions-durable/) v1.2.4+
 
 ## Enable v2 programming model
 
-The following application setting is required to run the v2 programming model while it is in preview: 
+The following application setting is required to run the v2 programming model: 
 - Name: `AzureWebJobsFeatureFlags`
 - Value: `EnableWorkerIndexing`
 
@@ -259,6 +257,10 @@ Review the table below for an explanation of each function and its purpose in th
 | **`hello`** | The activity function, which performs the work being orchestrated. The function returns a simple greeting to the city passed as an argument. |
 | **`http_start`** | An [HTTP-triggered function](../functions-bindings-http-webhook.md) that starts an instance of the orchestration and returns a check status response. |
 
+> [!NOTE]
+> Durable Functions also supports Python V2's [blueprints](../functions-reference-python.md#blueprints). To use them, you will need to register your blueprint functions using the [`azure-functions-durable`](https://pypi.org/project/azure-functions-durable) `Blueprint` class, as
+> shown [here](https://github.com/Azure/azure-functions-durable-python/blob/dev/samples-v2/blueprint/durable_blueprints.py). The resulting blueprint can then be registered as normal. See our [sample](https://github.com/Azure/azure-functions-durable-python/tree/dev/samples-v2/blueprint) for an example.
+
 ::: zone-end
 
 ## Test the function locally
@@ -298,11 +300,19 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
 
     :::image type="content" source="media/quickstart-python-vscode/functions-f5.png" alt-text="Screenshot of Azure local output.":::
 
+::: zone pivot="python-mode-configuration"
 5. Use your browser, or a tool like [Postman](https://www.getpostman.com/) or [cURL](https://curl.haxx.se/), send an HTTP request to the URL endpoint. Replace the last segment with the name of the orchestrator function (`HelloOrchestrator`). The URL must be similar to `http://localhost:7071/api/orchestrators/HelloOrchestrator`.
 
    The response is the initial result from the HTTP function letting you know the durable orchestration has started successfully. It isn't yet the end result of the orchestration. The response includes a few useful URLs. For now, let's query the status of the orchestration.
+::: zone-end
 
-6. Copy the URL value for `statusQueryGetUri`, paste it in the browser's address bar, and execute the request. Alternatively, you can also continue to use Postman to issue the GET request.
+::: zone pivot="python-mode-decorators"
+5. Use your browser, or a tool like [Postman](https://www.getpostman.com/) or [cURL](https://curl.haxx.se/), send an HTTP request to the URL endpoint. Replace the last segment with the name of the orchestrator function (`hello_orchestrator`). The URL must be similar to `http://localhost:7071/api/orchestrators/hello_orchestrator`.
+
+   The response is the initial result from the HTTP function letting you know the durable orchestration has started successfully. It isn't yet the end result of the orchestration. The response includes a few useful URLs. For now, let's query the status of the orchestration.
+::: zone-end
+
+2. Copy the URL value for `statusQueryGetUri`, paste it in the browser's address bar, and execute the request. Alternatively, you can also continue to use Postman to issue the GET request.
 
    The request will query the orchestration instance for the status. You must get an eventual response, which shows the instance has completed and includes the outputs or results of the durable function. It looks like:
 

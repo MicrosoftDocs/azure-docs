@@ -78,14 +78,9 @@ The logic documented here may be different for certain connectors to ensure best
 After the failure, the first retry will happen in 6 hours.
 - The second retry happens 12 hours after the first failure.
 - The third retry happens 24 hours after the first failure.
-- The fourth retry happens 48 hours after the first failure.
-- The fifth retry happens 96 hours after the first failure.
-- The sixth retry happens 192 hours after the first failure.
-- The seventh retry happens 384 hours after the first failure.
-- The eighth retry happens 768 hours after the first failure.
 
-The retries are stopped after the 8th retry and the escrow entry is removed. The job will continue unless it hits the escrow thresholds from the section above 
-
+There will be retries every 24 hours after the 3rd retry. The retries will go on for 28 days after the first failure after which the escrow entry is removed and the job is disabled.  
+If any of the retries above gets a successful response, the job is automatically put out of quarantine and shall resume regular sync behavior.
 
 ## How do I get my application out of quarantine?
 

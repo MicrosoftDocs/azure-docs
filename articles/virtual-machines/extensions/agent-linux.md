@@ -6,10 +6,9 @@ ms.service: virtual-machines
 ms.subservice: extensions
 ms.author: gabsta
 author: GabstaMSFT
-ms.custom: GGAL-freshness822
+ms.custom: GGAL-freshness822, devx-track-linux
 ms.collection: linux
 ms.date: 03/28/2023
-
 ---
 # Azure Linux VM Agent overview
 
@@ -74,7 +73,7 @@ Testing has confirmed that the following systems work with the Azure Linux VM Ag
 | CentOS | 7.x+,  8.x+ | 7.x+ |
 | Debian | 10+ | 11.x+ |
 | Flatcar Linux | 3374.2.x+ | 3374.2.x+ |
-| Mariner | 2.x | 2.x |
+| Azure Linux | 2.x | 2.x |
 | openSUSE | 12.3+ | *Not supported* |
 | Oracle Linux | 6.4+, 7.x+, 8.x+ | *Not supported* |
 | Red Hat Enterprise Linux | 6.7+, 7.x+,  8.x+ | 8.6+, 9.0+ |
@@ -87,7 +86,7 @@ Testing has confirmed that the following systems work with the Azure Linux VM Ag
 
 Other supported systems:
 
-- FreeBSD 10+ (Azure Linux VM Agent v2.0.10+)
+- The Agent works on more systems than those listed in the documentation. However, we do not test or provide support for distros that are not on the endorsed list. In particular, FreeBSD is not endorsed. The customer can try FreeBSD 8 and if they  run into problems they can open an issue in our [GitHub repository](https://github.com/Azure/WALinuxAgent) and we may be able to help.
 
 The Linux agent depends on these system packages to function properly:
 

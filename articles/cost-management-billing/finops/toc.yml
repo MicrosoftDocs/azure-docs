@@ -1,0 +1,69 @@
+- name: FinOps documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: What is FinOps?
+    href: overview-finops.md
+  - name: What's new
+    href: https://azure.microsoft.com/blog/tag/finops/
+- name: Tutorials
+  items:
+  - name: Conduct a FinOps iteration
+    href: conduct-finops-iteration.md
+- name: Concepts
+  items:
+  - name: Understanding cloud usage + cost
+    items:
+    - name: Data analysis and showback
+      href: capabilities-analysis-showback.md
+    - name: Cost allocation
+      href: capabilities-allocation.md
+    - name: Managing shared cost
+      href: capabilities-shared-cost.md
+    - name: Data ingestion and normalization
+      href: capabilities-ingestion-normalization.md
+  - name: Performance tracking + benchmarking
+    items:
+    - name: Forecasting
+      href: capabilities-forecasting.md
+    - name: Budget management
+      href: capabilities-budgets.md
+    - name: Measuring unit costs
+      href: capabilities-unit-costs.md
+  - name: Real-time decision making
+    items:
+    - name: Managing anomalies
+      href: capabilities-anomalies.md
+    - name: Establishing a decision and accountability structure
+      href: capabilities-structure.md
+  - name: Cloud usage optimization
+    items:
+    - name: Resource utilization and efficiency
+      href: capabilities-efficiency.md
+    - name: Workload management and automation
+      href: capabilities-workloads.md
+    - name: Onboarding workloads
+      href: capabilities-onboarding.md
+  - name: Cloud rate optimization
+    items:
+    - name: Managing commitment-based discounts
+      href: capabilities-commitment-discounts.md
+  - name: Organizational alignment
+    items:
+    - name: Cloud policy and governance
+      href: capabilities-policy.md
+    - name: Chargeback and finance integration
+      href: capabilities-chargeback.md
+    - name: FinOps education and enablement
+      href: capabilities-education.md
+    - name: Establishing a FinOps culture
+      href: capabilities-culture.md
+    - name: FinOps and intersecting frameworks
+      href: capabilities-frameworks.md
+- name: Resources
+  items:
+  - name: FinOps with Azure e-book
+    href: https://aka.ms/finops/ebook
+  - name: FinOps Foundation
+    href: https://finops.org/

@@ -2,7 +2,6 @@
 title: Connect to Azure SQL
 titleSuffix: Azure Cognitive Search
 description: Learn how to set up an indexer connection to Azure SQL Database  using a managed identity
-
 author: gmndrg
 ms.author: gimondra
 manager: nitinme

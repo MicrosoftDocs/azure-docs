@@ -32,7 +32,7 @@ The template used in this quickstart is from [Azure Quickstart Templates].
 
 The Azure Maps account resource is defined in this template:
 
-* [**Microsoft.Maps/accounts**](/azure/templates/microsoft.maps/accounts): create an Azure Maps account.
+* [**Microsoft.Maps/accounts**]: create an Azure Maps account.
 
 ## Deploy the template
 
@@ -50,7 +50,7 @@ The Azure Maps account resource is defined in this template:
     * **Resource group**: select **Create new**, enter a unique name for the resource group, and then select **OK**.
     * **Location**: select a location.
     * **Account Name**: enter a name for your Azure Maps account, which must be globally unique.
-    * **Pricing Tier**: select the appropriate pricing tier, the default value for the template is S0.
+    * **Pricing Tier**: select the appropriate pricing tier, the default value for the template is G2.
 
 3. Select **Review + create**.
 4. Confirm your settings on the review page and select **Create**. Once deployed successfully, you get a notification:
@@ -82,8 +82,9 @@ To learn more about Azure Maps and Azure Resource Manager, see the following art
 * Create an Azure Maps [demo application]
 * Learn more about [ARM templates]
 
-[free account]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
+[**Microsoft.Maps/accounts**]: /azure/templates/microsoft.maps/accounts
+[ARM templates]: ../azure-resource-manager/templates/overview.md
 [Azure Quickstart Templates]: https://azure.microsoft.com/resources/templates/maps-create
 [demo application]: quick-demo-map-app.md
-[ARM templates]: ../azure-resource-manager/templates/overview.md
 [Deploy templates]: ../azure-resource-manager/templates/deploy-powershell.md
+[free account]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F

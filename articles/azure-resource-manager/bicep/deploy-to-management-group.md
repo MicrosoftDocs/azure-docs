@@ -3,7 +3,7 @@ title: Use Bicep to deploy resources to management group
 description: Describes how to create a Bicep file that deploys resources at the management group scope.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 11/22/2021
+ms.date: 06/23/2023
 ---
 
 # Management group deployments with Bicep files
@@ -128,7 +128,7 @@ To deploy resources to the target management group, add those resources with the
 targetScope = 'managementGroup'
 
 // policy definition created in the management group
-resource policyDefinition 'Microsoft.Authorization/policyDefinitions@2019-09-01' = {
+resource policyDefinition 'Microsoft.Authorization/policyDefinitions@2021-06-01' = {
   ...
 }
 ```
@@ -211,7 +211,7 @@ targetScope = 'managementGroup'
 
 param mgName string = 'mg-${uniqueString(newGuid())}'
 
-resource newMG 'Microsoft.Management/managementGroups@2020-05-01' = {
+resource newMG 'Microsoft.Management/managementGroups@2021-04-01' = {
   scope: tenant()
   name: mgName
   properties: {}
@@ -227,7 +227,7 @@ targetScope = 'managementGroup'
 
 param mgName string = 'mg-${uniqueString(newGuid())}'
 
-resource newMG 'Microsoft.Management/managementGroups@2020-05-01' = {
+resource newMG 'Microsoft.Management/managementGroups@2021-04-01' = {
   scope: tenant()
   name: mgName
   properties: {
@@ -268,7 +268,7 @@ param allowedLocations array = [
   'australiacentral'
 ]
 
-resource policyDefinition 'Microsoft.Authorization/policyDefinitions@2020-09-01' = {
+resource policyDefinition 'Microsoft.Authorization/policyDefinitions@2021-06-01' = {
   name: 'locationRestriction'
   properties: {
     policyType: 'Custom'
@@ -288,7 +288,7 @@ resource policyDefinition 'Microsoft.Authorization/policyDefinitions@2020-09-01'
   }
 }
 
-resource policyAssignment 'Microsoft.Authorization/policyAssignments@2020-09-01' = {
+resource policyAssignment 'Microsoft.Authorization/policyAssignments@2022-06-01' = {
   name: 'locationAssignment'
   properties: {
     policyDefinitionId: policyDefinition.id

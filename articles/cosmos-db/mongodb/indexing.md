@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 12/2/2022
 author: gahl-levy
 ms.author: gahllevy
-ms.custom: devx-track-js, cosmos-db-video, ignite-2022
+ms.custom: cosmos-db-video, ignite-2022
 ---
 # Manage indexing in Azure Cosmos DB for MongoDB
 [!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
@@ -111,9 +111,6 @@ However, the sequence of the paths in the compound index must exactly match the 
 
 `db.coll.find().sort({age:1,name:1})`
 
-> [!NOTE]
-> Compound indexes are only used in queries that sort results. For queries that have multiple filters that don't need to sort, create multipe single field indexes.
-
 ### Multikey indexes
 
 Azure Cosmos DB creates multikey indexes to index content stored in arrays. If you index a field with an array value, Azure Cosmos DB automatically indexes every element in the array.
@@ -193,6 +190,9 @@ You can also create wildcard indexes using the Data Explorer in the Azure portal
 > If you are just starting development, we **strongly** recommend starting off with a wildcard index on all fields. This can simplify development and make it easier to optimize queries.
 
 Documents with many fields may have a high Request Unit (RU) charge for writes and updates. Therefore, if you have a write-heavy workload, you should opt to individually index paths as opposed to using wildcard indexes.
+
+> [!NOTE]
+> Support for unique index on existing collections with data is available in preview. This feature can be enabled for your database account by enabling the ['EnableUniqueIndexReIndex' capability](./how-to-configure-capabilities.md#available-capabilities).
 
 ### Limitations
 

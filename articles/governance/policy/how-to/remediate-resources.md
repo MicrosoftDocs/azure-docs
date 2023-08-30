@@ -88,6 +88,8 @@ is selected.
 
 1. Specify the location at which the managed identity is to be located.
 
+1. Don't assign a scope for system-assigned managed identity because the scope will be inherited from the assignment scope. 
+
 To set a user-assigned managed identity in the portal:
 
 1. On the **Remediation** tab of the create/edit assignment view, under **Types of Managed Identity**, ensure that **User assigned managed identity**
@@ -101,7 +103,7 @@ is selected.
 
 To create an identity during the assignment of the policy, **Location** must be defined and **Identity** used.
 
-The following example gets the definition of the built-in policy **Deploy SQL DB transparent data encryption** sets the target resource group, and then creates the assignment using a **system assigned** managed identity.
+The following example gets the definition of the built-in policy **Deploy SQL DB transparent data encryption**, sets the target resource group, and then creates the assignment using a **system assigned** managed identity.
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell

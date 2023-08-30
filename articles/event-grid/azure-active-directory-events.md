@@ -28,7 +28,7 @@ When an event is triggered, the Event Grid service sends data about that event t
 ### Microsoft.Graph.UserUpdated event
 
 ```json
-[{
+{
   "id": "00d8a100-2e92-4bfa-86e1-0056dacd0fce",
   "type": "Microsoft.Graph.UserUpdated",
   "source": "/tenants/<tenant-id>/applications/<application-id>",
@@ -52,12 +52,12 @@ When an event is triggered, the Event Grid service sends data about that event t
     "subscriptionId": "<microsoft-graph-subscription-id>",
     "tenantId": "<tenant-id>
   }
-}]
+}
 ```
 ### Microsoft.Graph.UserDeleted event
 
 ```json
-[{
+{
   "id": "00d8a100-2e92-4bfa-86e1-0056dacd0fce",
   "type": "Microsoft.Graph.UserDeleted",
   "source": "/tenants/<tenant-id>/applications/<application-id>",
@@ -81,13 +81,13 @@ When an event is triggered, the Event Grid service sends data about that event t
     "subscriptionId": "<microsoft-graph-subscription-id>",
     "tenantId": "<tenant-id>
   }
-}]
+}
 ```
 
 ### Microsoft.Graph.GroupUpdated event
 
 ```json
-[{
+{
   "id": "00d8a100-2e92-4bfa-86e1-0056dacd0fce",
   "type": "Microsoft.Graph.GroupUpdated",
   "source": "/tenants/<tenant-id>/applications/<application-id>",
@@ -111,13 +111,13 @@ When an event is triggered, the Event Grid service sends data about that event t
     "subscriptionId": "<microsoft-graph-subscription-id>",
     "tenantId": "<tenant-id>
   }
-}]
+}
 ```
 
 ### Microsoft.Graph.GroupDeleted event
 
 ```json
-[{
+{
   "id": "00d8a100-2e92-4bfa-86e1-0056dacd0fce",
   "type": "Microsoft.Graph.GroupDeleted",
   "source": "/tenants/<tenant-id>/applications/<application-id>",
@@ -141,7 +141,7 @@ When an event is triggered, the Event Grid service sends data about that event t
     "subscriptionId": "<microsoft-graph-subscription-id>",
     "tenantId": "<tenant-id>
   }
-}]
+}
 ```
 ---
 

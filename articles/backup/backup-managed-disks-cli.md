@@ -1,11 +1,11 @@
 ---
 title: Back up Azure Managed Disks using Azure CLI
 description: Learn how to back up Azure Managed Disks using Azure CLI.
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.date: 09/17/2021
-author: jyothisuri
-ms.author: jsuri
+ms.date: 08/25/2023
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Back up Azure Managed Disks using Azure CLI
@@ -31,7 +31,7 @@ For information on the Azure Disk backup region availability, supported scenario
 
 Backup vault is a storage entity in Azure that stores backup data for various newer workloads that Azure Backup supports, such as Azure Database for PostgreSQL servers, blobs in a storage account, and Azure Disks. Backup vaults make it easy to organize your backup data, while minimizing management overhead. Backup vaults are based on the Azure Resource Manager model of Azure, which provides enhanced capabilities to help secure backup data.
 
-Before you create a Backup vault, choose the storage redundancy of the data within the vault. Then proceed to create the Backup vault with that storage redundancy and the location. In this article, we'll create a Backup vault _TestBkpVault_, in the region _westus_, under the resource group _testBkpVaultRG_. Use the [az dataprotection vault create](/cli/azure/dataprotection/backup-vault#az-dataprotection-backup-vault-create) command to create a Backup vault. Learn more about [creating a Backup vault](./backup-vault-overview.md#create-a-backup-vault).
+Before you create a Backup vault, choose the storage redundancy of the data within the vault. Then proceed to create the Backup vault with that storage redundancy and the location. In this article, we'll create a Backup vault _TestBkpVault_, in the region _westus_, under the resource group _testBkpVaultRG_. Use the [az dataprotection vault create](/cli/azure/dataprotection/backup-vault#az-dataprotection-backup-vault-create) command to create a Backup vault. Learn more about [creating a Backup vault](./create-manage-backup-vault.md#create-a-backup-vault).
 
 ```azurecli-interactive
 az dataprotection backup-vault create -g testBkpVaultRG --vault-name TestBkpVault -l westus --type SystemAssigned --storage-settings datastore-type="VaultStore" type="LocallyRedundant"
@@ -454,32 +454,37 @@ az dataprotection backup-instance list-from-resourcegraph --datasource-type Azur
 ]
 ```
 
-You can specify a retention rule while triggering backup. To view the retention rules in policy, look through the policy JSON for retention rules. In the below example, the rule with the name _default_ is displayed and we'll use that rule for the on-demand backup.
+You can specify a rule and tagname while triggering backup. To view the rules in policy, look through the policy JSON. In the following example, the rule with the name `"BackupDaily"`, and tag name `"default"` is displayed, and we'll use that rule for the on-demand backup.
 
 ```json
-{
-      "isDefault": true,
-      "lifecycles": [
-        {
-          "deleteAfter": {
-            "duration": "P7D",
-            "objectType": "AbsoluteDeleteOption"
+"name": "BackupDaily",
+        "objectType": "AzureBackupRule",
+        "trigger": {
+          "objectType": "ScheduleBasedTriggerContext",
+          "schedule": {
+            "repeatingTimeIntervals": [
+              "R/2022-09-27T23:30:00+00:00/P1D"
+            ],
+            "timeZone": "UTC"
           },
-          "sourceDataStore": {
-            "dataStoreType": "OperationalStore",
-            "objectType": "DataStoreInfoBase"
-          }
-        }
-      ],
-      "name": "Default",
-      "objectType": "AzureRetentionRule"
+         "taggingCriteria": [
+           {
+              "criteria": null,
+              "isDefault": true,
+              "tagInfo": {
+                "eTag": null,
+                "id": "Default_",
+                "tagName": "Default"
+              },
+              "taggingPriority": 99
     }
 ```
 
 Trigger an on-demand backup using the [az dataprotection backup-instance adhoc-backup](/cli/azure/dataprotection/backup-instance#az-dataprotection-backup-instance-adhoc-backup) command.
 
+
 ```azurecli-interactive
-az dataprotection backup-instance adhoc-backup --name "diskrg-CLITestDisk-3df6ac08-9496-4839-8fb5-8b78e594f166" --rule-name "Default" --resource-group "000pikumar" --vault-name "PratikPrivatePreviewVault1"
+az dataprotection backup-instance adhoc-backup --name "diskrg-CLITestDisk-3df6ac08-9496-4839-8fb5-8b78e594f166" --rule-name "BackupDaily" --resource-group "000pikumar" --vault-name "PratikPrivatePreviewVault1" --retention-tag-override "default"
 ```
 
 ## Tracking jobs

@@ -3,7 +3,7 @@ title: Migrate data to Azure with Atempo Miria
 description: Getting started guide to implement Atempo Miria infrastructure with Azure Storage. This article helps you integrate the Atempo Miria Infrastructure with Azure storage.
 author: timkresler
 ms.author: timkresler
-ms.service: storage
+ms.service: azure-storage
 ms.topic: quickstart #Required; leave this attribute/value as-is.
 ms.date: 05/04/2023
 ms.custom: template-quickstart #Required; leave this attribute/value as-is.

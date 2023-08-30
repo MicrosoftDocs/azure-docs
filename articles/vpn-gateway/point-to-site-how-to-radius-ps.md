@@ -5,7 +5,7 @@ description: Learn how to connect VPN clients securely to a virtual network usin
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 07/27/2022
+ms.date: 06/23/2023
 ms.author: cherylmc 
 ms.custom: devx-track-azurepowershell
 

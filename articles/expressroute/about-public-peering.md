@@ -3,12 +3,11 @@ title: Create and manage Azure ExpressRoute public peering
 description: Learn about and manage Azure public peering
 services: expressroute
 author: duongau
-
 ms.service: expressroute
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: conceptual
-ms.date: 12/16/2019
+ms.date: 06/30/2023
 ms.author: duau 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 # Create and manage ExpressRoute public peering
 
@@ -26,9 +25,9 @@ This article helps you create and manage public peering routing configuration fo
 
 ## Connectivity
 
-Connectivity is always initiated from your WAN to Microsoft Azure services. Microsoft Azure services will not be able to initiate connections into your network through this routing domain. If your ExpressRoute circuit is enabled for Azure public peering, you can access the [public IP ranges used in Azure](../virtual-network/ip-services/public-ip-addresses.md#public-ip-addresses) over the circuit.
+Connectivity is always initiated from your WAN to Microsoft Azure services. Microsoft Azure services can't initiate connections into your network through this routing domain. If your ExpressRoute circuit is enabled for Azure public peering, you can access the [public IP ranges used in Azure](../virtual-network/ip-services/public-ip-addresses.md#public-ip-addresses) over the circuit.
 
-Once public peering is enabled, you can connect to most Azure services. We do not allow you to selectively pick services for which we advertise routes to.
+Once public peering is enabled, you can connect to most Azure services. We don't allow you to selectively pick services for which we advertise routes to.
 
 * Services such as Azure Storage, SQL Databases, and Websites are offered on public IP addresses.
 * Through the public peering routing domain, you can privately connect to services hosted on public IP addresses, including VIPs of your cloud services.
@@ -36,7 +35,7 @@ Once public peering is enabled, you can connect to most Azure services. We do no
 
 ## <a name="services"></a>Services
 
-This section shows the services available over public peering. Because public peering is deprecated, there is no plan to add new or additional services to public peering. If you use public peering and the service you want to use is supported only over Microsoft peering, you must switch to Microsoft peering. See [Microsoft peering](expressroute-faqs.md#microsoft-peering) for a list of supported services.
+This section shows the services available over public peering. Because public peering is deprecated, there's no plan to add new or more services to public peering. If you use public peering and the service you want to use is support only over Microsoft peering, you must switch to Microsoft peering. See [Microsoft peering](expressroute-faqs.md#microsoft-peering) for a list of supported services.
 
 **Supported:**
 
@@ -49,7 +48,7 @@ This section shows the services available over public peering. Because public pe
   * Multi-factor Authentication Server (legacy)
   * Traffic Manager
 
-To validate availability for a specific service, you can check the documentation for that service to see if there is a reserved range published for that service. Then you may look up the IP ranges of the target service and compare with the ranges listed in the [Azure IP Ranges and Service Tags – Public Cloud XML file](https://www.microsoft.com/download/details.aspx?id=56519). Alternatively, you can open a support ticket for the service in question for clarification.
+To validate availability for a specific service, you can check the documentation for that service to see if there's a reserved range published for that service. Then you may look up the IP ranges of the target service and compare with the ranges listed in the [Azure IP Ranges and Service Tags – Public Cloud XML file](https://www.microsoft.com/download/details.aspx?id=56519). Alternatively, you can open a support ticket for the service in question for clarification.
 
 ## <a name="compare"></a>Peering comparison
 
@@ -68,7 +67,7 @@ You can define custom route filters within your network to consume only the rout
 
 [!INCLUDE [CloudShell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
-Because public peering is deprecated, you cannot configure public peering on a new ExpressRoute circuit.
+Because public peering is deprecated, you can't configure public peering on a new ExpressRoute circuit.
 
 1. Verify that you have an ExpressRoute circuit that is provisioned and also enabled. Use the following example:
 
@@ -103,8 +102,8 @@ Because public peering is deprecated, you cannot configure public peering on a n
    ```
 2. Configure Azure public peering for the circuit. Make sure that you have the following information before you proceed further.
 
-   * A /30 subnet for the primary link. This must be a valid public IPv4 prefix.
-   * A /30 subnet for the secondary link. This must be a valid public IPv4 prefix.
+   * A /30 subnet for the primary link. This IP must be a valid public IPv4 prefix.
+   * A /30 subnet for the secondary link. This IP must be a valid public IPv4 prefix.
    * A valid VLAN ID to establish this peering on. Ensure that no other peering in the circuit uses the same VLAN ID.
    * AS number for peering. You can use both 2-byte and 4-byte AS numbers.
    * Optional:
@@ -165,7 +164,7 @@ Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 
 [!INCLUDE [CloudShell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
-1. Check the ExpressRoute circuit to ensure it is provisioned and also enabled. Use the following example:
+1. Check the ExpressRoute circuit to ensure it's provisioned and also enabled. Use the following example:
 
    ```azurecli-interactive
    az network express-route list
@@ -204,8 +203,8 @@ Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 
 2. Configure Azure public peering for the circuit. Make sure that you have the following information before you proceed further.
 
-   * A /30 subnet for the primary link. This must be a valid public IPv4 prefix.
-   * A /30 subnet for the secondary link. This must be a valid public IPv4 prefix.
+   * A /30 subnet for the primary link. This IP must be a valid public IPv4 prefix.
+   * A /30 subnet for the secondary link. This IP must be a valid public IPv4 prefix.
    * A valid VLAN ID to establish this peering on. Ensure that no other peering in the circuit uses the same VLAN ID.
    * AS number for peering. You can use both 2-byte and 4-byte AS numbers.
    * **Optional -** An MD5 hash if you choose to use one.
@@ -278,7 +277,7 @@ az network express-route peering delete -g ExpressRouteResourceGroup --circuit-n
 
 ## <a name="portal"></a>Azure portal steps
 
-To configure peering, use the PowerShell or CLI steps contained in this article. To manage a peering, you can use the sections below. For reference, these steps look similar to managing a [Microsoft peering in the portal](expressroute-howto-routing-portal-resource-manager.md#msft).
+To configure peering, use the PowerShell or CLI steps contained in this article. To manage a peering, you can use the following sections. For reference, these steps look similar to managing a [Microsoft peering in the portal](expressroute-howto-routing-portal-resource-manager.md#msft).
 
 ### <a name="get"></a>To view Azure public peering details
 

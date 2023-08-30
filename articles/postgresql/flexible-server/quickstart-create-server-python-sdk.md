@@ -17,7 +17,7 @@ ms.date: 04/24/2023
 In this quickstart, you'll learn how to use the [Azure libraries (SDK) for Python](/azure/developer/python/sdk/azure-sdk-overview?view=azure-python&preserve-view=true) 
 to create an Azure Database for PostgreSQL - Flexible Server.
 
-Flexible server is a managed service that you use to run, manage, and scale highly available PostgreSQL databases in the cloud. You can use Python SDK to provision a PostgreSQL Flexible Server, multiple servers or multiple databases on a server.
+Flexible Server is a managed service that you use to run, manage, and scale highly available PostgreSQL databases in the cloud. You can use Python SDK to provision a PostgreSQL Flexible Server, multiple servers or multiple databases on a server.
 
 
 ## Prerequisites

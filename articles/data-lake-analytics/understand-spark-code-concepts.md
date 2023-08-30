@@ -3,7 +3,7 @@ title: Understand Apache Spark code concepts for Azure Data Lake Analytics U-SQL
 description: This article describes Apache Spark concepts to help U-SQL developers understand Spark code concepts.
 ms.service: data-lake-analytics
 ms.topic: how-to
-ms.custom: Understand-apache-spark-code-concepts
+ms.custom: Understand-apache-spark-code-concepts, devx-track-dotnet
 ms.date: 01/20/2023
 ---
 
@@ -90,11 +90,11 @@ The other types of U-SQL UDOs will need to be rewritten using user-defined funct
 
 ### Transform U-SQL's optional libraries
 
-U-SQL provides a set of optional and demo libraries that offer [Python](data-lake-analytics-u-sql-python-extensions.md), [R](data-lake-analytics-u-sql-r-extensions.md), [JSON, XML, AVRO support](https://github.com/Azure/usql/tree/master/Examples/DataFormats), and some [cognitive services capabilities](data-lake-analytics-u-sql-cognitive.md).
+U-SQL provides a set of optional and demo libraries that offer [Python](data-lake-analytics-u-sql-python-extensions.md), [R](data-lake-analytics-u-sql-r-extensions.md), [JSON, XML, AVRO support](https://github.com/Azure/usql/tree/master/Examples/DataFormats), and some [Azure AI services capabilities](data-lake-analytics-u-sql-cognitive.md).
 
 Spark offers its own Python and R integration, pySpark and SparkR respectively, and provides connectors to read and write JSON, XML, and AVRO.
 
-If you need to transform a script referencing the cognitive services libraries, we recommend contacting us via your Microsoft Account representative.
+If you need to transform a script referencing the Azure AI services libraries, we recommend contacting us via your Microsoft Account representative.
 
 ## Transform typed values
 

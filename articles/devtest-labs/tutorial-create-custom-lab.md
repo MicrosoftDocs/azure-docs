@@ -5,6 +5,7 @@ ms.topic: tutorial
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 05/22/2023
+ms.custom: UpdateFrequency2
 ---
 
 # Tutorial: Create a DevTest Labs lab and VM and add a user in the Azure portal

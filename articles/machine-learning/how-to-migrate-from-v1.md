@@ -10,7 +10,7 @@ author: balapv
 ms.author: balapv
 ms.date: 09/23/2022
 ms.reviewer: sgilley
-ms.custom: devplatv2, ignite-2022
+ms.custom: devplatv2, ignite-2022, devx-track-python
 monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
 
@@ -108,7 +108,7 @@ For a comparison of SDK v1 and v2 code, see [Compute management in SDK v1 and SD
 
 ### Endpoint and deployment (endpoint and web service in v1)
 
-With SDK/CLI v1, you can deploy models on ACI or AKS as web services. Your existing v1 model deployments and web services will continue to function as they are, but Using SDK/CLI v1 to deploy models on ACI or AKS as web services is now consiered as **legacy**. For new model deployments, we recommend upgrading to v2. In v2, we offer [managed endpoints or Kubernetes endpoints](./concept-endpoints.md?view=azureml-api-2&preserve-view=true). The following table guides our recommendation:
+With SDK/CLI v1, you can deploy models on ACI or AKS as web services. Your existing v1 model deployments and web services will continue to function as they are, but Using SDK/CLI v1 to deploy models on ACI or AKS as web services is now considered as **legacy**. For new model deployments, we recommend upgrading to v2. In v2, we offer [managed endpoints or Kubernetes endpoints](./concept-endpoints.md?view=azureml-api-2&preserve-view=true). The following table guides our recommendation:
 
 |Endpoint type in v2|Upgrade from|Notes|
 |-|-|-|

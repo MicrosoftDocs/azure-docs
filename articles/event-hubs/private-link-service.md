@@ -47,15 +47,10 @@ If you already have an Event Hubs namespace, you can create a private link conne
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 2. In the search bar, type in **event hubs**.
 3. Select the **namespace** from the list to which you want to add a private endpoint.
-1. On the **Networking** page, for **Public network access**, you can set one of the three following options. Select **Disabled** if you want the namespace to be accessed only via private endpoints. 
+1. On the **Networking** page, for **Public network access**, select **Disabled** if you want the namespace to be accessed only via private endpoints. 
+1. For **Allow trusted Microsoft services to bypass this firewall**, select **Yes** if you want to allow [trusted Microsoft services](#trusted-microsoft-services) to bypass this firewall. 
 
-    Here are more details about options available in the **Public network access** page:
-    - **Disabled**. This option disables any public access to the namespace. The namespace is accessible only through [private endpoints](private-link-service.md). 
-    - **Selected networks**. This option enables public access to the namespace using an access key from selected networks. 
-
-        > [!IMPORTANT]
-        > If you choose **Selected networks**, add at least one IP firewall rule or a virtual network that will have access to the namespace. Choose **Disabled** if you want to restrict all traffic to this namespace over [private endpoints](private-link-service.md) only.
-    - **All networks** (default). This option enables public access from all networks using an access key. If you select the **All networks** option, the event hub accepts connections from any IP address (using the access key). This setting is equivalent to a rule that accepts the 0.0.0.0/0 IP address range. 
+    :::image type="content" source="./media/private-link-service/public-access-disabled.png" alt-text="Screenshot of the Networking page with public network access as Disabled.":::
 1. Switch to the **Private endpoint connections** tab. 
 1. Select the **+ Private Endpoint** button at the top of the page.
 
@@ -202,7 +197,7 @@ There are four provisioning states:
 2. In the search bar, type in **event hubs**.
 3. Select the **namespace** that you want to manage.
 4. Select the **Networking** tab.
-5. Go to the appropriate section below based on the operation you want to: approve, reject, or remove.
+5. Go to the appropriate following section based on the operation you want to: approve, reject, or remove.
 
 ### Approve a private endpoint connection
 1. If there are any connections that are pending, you see a connection listed with **Pending** in the provisioning state. 
@@ -257,11 +252,10 @@ Aliases:  <event-hubs-namespace-name>.servicebus.windows.net
 
 ## Limitations and design considerations
 
-**Pricing**: For pricing information, see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/).
-
-**Limitations**:  This feature is available in all Azure public regions.
-
-**Maximum number of private endpoints per Event Hubs namespace**: 120.
+- For pricing information, see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/).
+- This feature is available in all Azure public regions.
+- Maximum number of private endpoints per Event Hubs namespace: 120.
+- The traffic is blocked at the application layer, not at the TCP layer. Therefore, you see TCP connections or `nslookup` operations succeeding against the public endpoint even though the public access is disabled. 
 
 For more, see [Azure Private Link service: Limitations](../private-link/private-link-service-overview.md#limitations)
 

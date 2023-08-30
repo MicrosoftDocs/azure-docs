@@ -9,8 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 10/04/2022
-ms.custom: devx-track-csharp
-
+ms.custom: devx-track-csharp, devx-track-dotnet
 ---
 
 # Tutorial: Index Azure SQL data using the .NET SDK
@@ -50,7 +49,7 @@ In this step, create an external data source on Azure SQL Database that an index
 
 If you have an existing Azure SQL Database resource, you can add the hotels table to it, starting at step 4.
 
-1. [Sign in to the Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Find or create a **SQL Database**. You can use defaults and the lowest level pricing tier. One advantage to creating a server is that you can specify an administrator user name and password, necessary for creating and loading tables in a later step.
 
@@ -102,7 +101,7 @@ The next component is Azure Cognitive Search, which you can [create in the porta
 
 API calls require the service URL and an access key. A search service is created with both, so if you added Azure Cognitive Search to your subscription, follow these steps to get the necessary information:
 
-1. [Sign in to the Azure portal](https://portal.azure.com/), and in your search service **Overview** page, get the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
+1. Sign in to the [Azure portal](https://portal.azure.com), and in your search service **Overview** page, get the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
 
 1. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
 
@@ -238,7 +237,7 @@ Your code runs locally in Visual Studio, connecting to your search service on Az
 
 Use Azure portal to verify object creation, and then use **Search explorer** to query the index.
 
-1. [Sign in to the Azure portal](https://portal.azure.com/), and in your search service **Overview** page, open each list in turn to verify the object is created. **Indexes**, **Indexers**, and **Data Sources** will have "hotels", "azure-sql-indexer", and "azure-sql", respectively.
+1. Sign in to the [Azure portal](https://portal.azure.com), and in your search service **Overview** page, open each list in turn to verify the object is created. **Indexes**, **Indexers**, and **Data Sources** will have "hotels", "azure-sql-indexer", and "azure-sql", respectively.
 
    :::image type="content" source="media/search-indexer-tutorial/tiles-portal.png" alt-text="Screenshot of the indexer and data source tiles in the Azure portal search service page." border="true":::
 

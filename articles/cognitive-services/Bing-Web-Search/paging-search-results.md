@@ -1,6 +1,6 @@
 ---
 title: How to page through search results - Bing Search APIs
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn how to page through search results from the Bing Search APIs.
 services: cognitive-services
 author: aahill
@@ -15,7 +15,7 @@ ms.author: aahi
 
 # How to page through results from the Bing Search APIs
 
-[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 
 When you send a call to the Bing Web, Custom, Image, News or Video Search APIs, Bing returns a subset of the total number of results that may be relevant to the query. To get the estimated total number of available results, access the answer object's `totalEstimatedMatches` field. 
 

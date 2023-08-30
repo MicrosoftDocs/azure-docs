@@ -52,22 +52,45 @@ To create a new Spring Boot project:
 
 1. Open the *pom.xml* file in a text editor and add the following to the list of `<dependencies>`:
 
+    ### [Spring Boot 3](#tab/spring-boot-3)
+
     ```xml
     <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
-        <version>4.7.0</version>
+        <version>5.4.0</version>
     </dependency>
     <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-feature-management-web</artifactId>
-        <version>4.7.0</version>
+        <version>5.4.0</version>
     </dependency>
     <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-thymeleaf</artifactId>
     </dependency>
     ```
+
+    ### [Spring Boot 2](#tab/spring-boot-2)
+
+    ```xml
+    <dependency>
+        <groupId>com.azure.spring</groupId>
+        <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
+        <version>4.10.0</version>
+    </dependency>
+    <dependency>
+        <groupId>com.azure.spring</groupId>
+        <artifactId>spring-cloud-azure-feature-management-web</artifactId>
+        <version>4.10.0</version>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-thymeleaf</artifactId>
+    </dependency>
+    ```
+
+    ---
 
 > [!NOTE]
 > * There is a non-web Feature Management Library that doesn't have a dependency on spring-web. Refer to GitHub's [documentation](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-feature-management) for differences.

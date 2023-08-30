@@ -2,6 +2,8 @@
 title: 'Tutorial: Secure app with a custom domain and certificate'
 description: Learn how to secure your brand with App Service using a custom domain and enabling App Service managed certificate.
 ms.topic: tutorial
+author: msangapu-msft
+ms.author: msangapu
 ms.date: 01/31/2023
 ---
 
@@ -23,7 +25,7 @@ You need to scale your app up to **Basic** tier. **Basic** tier fulfills the min
 
 :::row:::
     :::column span="2":::
-        **Step 1.** In the Azure portal:
+        **Step 1:** In the Azure portal:
         1. Enter the name of your app in the search bar at the top.
         1. Select your named resource with the type **App Service**.
     :::column-end:::
@@ -33,7 +35,7 @@ You need to scale your app up to **Basic** tier. **Basic** tier fulfills the min
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 2.** In your app's management page:
+        **Step 2:** In your app's management page:
         1. In the left navigation, select **Scale up (App Service plan)**.
         1. Select the checkbox for **Basic B1**.
         1. Select **Select**.
@@ -50,7 +52,7 @@ For more information on app scaling, see [Scale up an app in Azure App Service](
 
 :::row:::
     :::column span="2":::
-        **Step 1.** In your app's management page:
+        **Step 1:** In your app's management page:
         1. In the left menu, select **Custom domains**.
         1. Select **Add custom domain**.
     :::column-end:::
@@ -60,7 +62,7 @@ For more information on app scaling, see [Scale up an app in Azure App Service](
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 2.** In the **Add custom domain** dialog:
+        **Step 2:** In the **Add custom domain** dialog:
         1. For **Domain provider**, select **All other domain services**.
         1. For **TLS/SSL certificate**, select **App Service Managed Certificate**.
         1. For Domain, specify a fully qualified domain name you want based on the domain you own. For example, if you own `contoso.com`, you can use *www.contoso.com*.
@@ -95,7 +97,7 @@ For each custom domain in App Service, you need two DNS records with your domain
 
 :::row:::
     :::column span="2":::
-        **Step 1.** Back in the **Add custom domain** dialog in the Azure portal, select **Validate**.
+        **Step 1:** Back in the **Add custom domain** dialog in the Azure portal, select **Validate**.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-secure-domain-certificate/configure-custom-domain-validate.png" alt-text="A screenshot showing how to validate your DNS record settings in the Add a custom domain dialog." lightbox="./media/tutorial-secure-domain-certificate/configure-custom-domain-validate.png" border="true":::
@@ -103,7 +105,7 @@ For each custom domain in App Service, you need two DNS records with your domain
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 2.** If the **Domain validation** section shows green check marks next for both domain records, then you've configured them correctly. Select **Add**. If it shows any red X, fix any errors in the DNS record settings in your domain provider's website.
+        **Step 2:** If the **Domain validation** section shows green check marks next for both domain records, then you've configured them correctly. Select **Add**. If it shows any red X, fix any errors in the DNS record settings in your domain provider's website.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-secure-domain-certificate/configure-custom-domain-add.png" alt-text="A screenshot showing the Add button activated after validation." lightbox="./media/tutorial-secure-domain-certificate/configure-custom-domain-add.png" border="true":::
@@ -111,7 +113,7 @@ For each custom domain in App Service, you need two DNS records with your domain
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 3.** You should see the custom domain added to the list. You may also see a red X with **No binding**. Wait a few minutes for App Service to create the managed certificate for your custom domain. When the process is complete, the red X becomes a green check mark with **Secured**. 
+        **Step 3:** You should see the custom domain added to the list. You may also see a red X with **No binding**. Wait a few minutes for App Service to create the managed certificate for your custom domain. When the process is complete, the red X becomes a green check mark with **Secured**. 
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-secure-domain-certificate/add-custom-domain-complete.png" alt-text="A screenshot showing the custom domains page with the new secured custom domain." lightbox="./media/tutorial-secure-domain-certificate/add-custom-domain-complete.png" border="true":::

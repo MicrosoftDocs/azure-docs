@@ -14,9 +14,7 @@ ms.custom: template-concept
 The Operator Nexus observability framework provides operational insights into your on-premises instances.
 The framework supports logging, monitoring, and alerting (LMA), analytics, and visualization of operational (platform and workloads) data and metrics.
 
-<!--- IMG ![ Operator Nexus Logging, Monitoring and Alerting (LMA) Framework](Docs/media/log-monitoring-analytics-framework.png) IMG --->
 :::image type="content" source="media/log-monitoring-analytics-framework.png" alt-text="Screenshot of Operator Nexus Logging, Monitoring and Alerting (LMA) Framework.":::
-
 
 Figure:  Operator Nexus Logging, Monitoring and Alerting (LMA) Framework
 
@@ -66,9 +64,9 @@ You can also collect data from the tenant layers
 created for running Containerized and Virtualized Network Functions. The log data that can be collected includes:
 
 * Collection of syslog from Virtual Machines (used for either VNFs or CNF workloads).
-* Collection of logs from AKS-Hybrid clusters and the applications deployed on top.
+* Collection of logs from Kubernetes clusters and the applications deployed on top.
 
-You'll need to enable the collection of the logs from the tenant AKS-Hybrid clusters and Virtual Machines.
+You'll need to enable the collection of the logs from the tenant Kubernetes clusters and Virtual Machines.
 You should follow the steps to deploy the [Azure monitoring agents](../azure-monitor/agents/agents-overview.md#install-the-agent-and-configure-data-collection). The data would be collected in your Azure LAW.
 
 ### Operator Nexus Logs storage
@@ -99,7 +97,6 @@ The logs from Operator Nexus platform are stored in the following tables:
 
 The 'InsightMetrics' table in the Logs section contains the metrics collected from Bare Metal Machines and the undercloud Kubernetes cluster. In addition, a few selected metrics collected from the undercloud can be observed by opening the Metrics tab from the Azure Monitor menu.
 
-<!--- IMG ![Azure Monitor Metrics Selection](Docs/media/azure-monitor-metrics-selection.png) IMG --->
 :::image type="content" source="media/azure-monitor-metrics-selection.png" alt-text="Screenshot of Azure Monitor Metrics Selection.":::
 
 Figure: Azure Monitor Metrics Selection
@@ -109,15 +106,15 @@ See **[Getting Started with Azure Metrics Explorer](../azure-monitor/essentials/
 #### Workbooks
 
 Workbooks combine text, log queries, metrics, and parameters for data analysis and the creation of multiple kinds of rich visualizations.
-You can use the sample Azure Resource Manager workbook templates for [Operator Nexus Logging and Monitoring](https://github.com/microsoft/AzureMonitorCommunity/tree/master/Azure%20Services/Azure%20Operator%20Distributed%20Services) to deploy Azure Workbooks within your Azure LAW.
+You can use the sample Azure Resource Manager workbook templates for [Operator Nexus Logging and Monitoring](https://github.com/microsoft/AzureMonitorCommunity/tree/master/Azure%20Services/Azure%20Operator%20Nexus) to deploy Azure Workbooks within your Azure LAW.
 
 #### Alerts
 
-You can use the sample Azure Resource Manager alarm templates for [Operator Nexus alerting rules](https://github.com/microsoft/AzureMonitorCommunity/tree/master/Azure%20Services/Azure%20Operator%20Distributed%20Services#alert-rules). You should specify thresholds and conditions for the alerts. You can then deploy these alert templates on your on-premises environment.
+You can use the sample Azure Resource Manager alarm templates for [Operator Nexus alerting rules](https://github.com/microsoft/AzureMonitorCommunity/tree/master/Azure%20Services/Azure%20Operator%20Nexus#alert-rules). You should specify thresholds and conditions for the alerts. You can then deploy these alert templates on your on-premises environment.
 
 ## Log Analytic Workspace
 
-A [LAW](../azure-monitor/logs/log-analytics-workspace-overview.md)
+A [Log Analytics Workspace (LAW)](../azure-monitor/logs/log-analytics-workspace-overview.md)
 is a unique environment to log data from Azure Monitor and
 other Azure services. Each workspace has its own data repository and configuration but may
 combine data from multiple services. Each workspace consists of multiple data tables.

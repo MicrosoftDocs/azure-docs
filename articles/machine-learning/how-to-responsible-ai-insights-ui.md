@@ -1,5 +1,5 @@
 ---
-title: Generate a Responsible AI insights in the studio UI
+title: Generate Responsible AI insights in the studio UI
 titleSuffix: Azure Machine Learning
 description: Learn how to generate a Responsible AI insights with no-code experience in the Azure Machine Learning studio UI.
 services: machine-learning
@@ -17,7 +17,7 @@ ms.custom: responsible-ml, event-tier1-build-2022
 
 In this article, you create a Responsible AI dashboard and scorecard (preview) with a no-code experience in the [Azure Machine Learning studio UI](https://ml.azure.com/).
 
-[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
 To access the dashboard generation wizard and generate a Responsible AI dashboard, do the following:
 1. [Register your model](how-to-manage-models.md) in Azure Machine Learning so that you can access the no-code experience.

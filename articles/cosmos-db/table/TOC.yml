@@ -420,6 +420,8 @@
               href: ../monitor-logs-basic-queries.md
             - name: Audit control plane logs
               href: ../audit-control-plane-logs.md
+            - name: Add a transformation for workspace data
+              href: ../tutorial-log-transformation.md
         - name: Configure alerts
           items:
             - name: Create alert on metrics

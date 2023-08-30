@@ -1,6 +1,6 @@
 ---
-title: What is Azure Virtual Desktop remote app streaming? - Azure
-description: An overview of Azure Virtual Desktop remote app streaming.
+title: What is Azure Virtual Desktop RemoteApp streaming? - Azure
+description: An overview of Azure Virtual Desktop RemoteApp streaming.
 author: Heidilohr
 ms.topic: overview
 ms.date: 11/12/2021
@@ -8,15 +8,15 @@ ms.author: helohr
 manager: femila
 ---
 
-# What is Azure Virtual Desktop remote app streaming?
+# What is Azure Virtual Desktop RemoteApp streaming?
 
-Azure Virtual Desktop is a desktop and app virtualization service that runs on the cloud and lets you access your remote desktop anytime, anywhere. However, did you know you can also use Azure Virtual Desktop as a Platform as a Service (PaaS) to provide your organization's apps as Software as a Service (SaaS) to your customers? With Azure Virtual Desktop remote app streaming, you can now use Azure Virtual Desktop to deliver apps to your customers over a secure network through virtual machines.
+Azure Virtual Desktop is a desktop and app virtualization service that runs on the cloud and lets you access your remote desktop anytime, anywhere. However, did you know you can also use Azure Virtual Desktop as a Platform as a Service (PaaS) to provide your organization's apps as Software as a Service (SaaS) to your customers? With Azure Virtual Desktop RemoteApp streaming, you can now use Azure Virtual Desktop to deliver apps to your customers over a secure network through virtual machines.
 
 If you're unfamiliar with Azure Virtual Desktop (or are new to app virtualization in general), we've gathered some resources here that can help you get your deployment up and running.
 
 ## Requirements
 
-Before you get started, we recommend you take a look at the [overview for Azure Virtual Desktop](../overview.md) for a more in-depth list of system requirements for running Azure Virtual Desktop. While you're there, you can browse the rest of the Azure Virtual Desktop documentation if you want a more IT-focused look into the service, as most of the articles also apply to remote app streaming for Azure Virtual Desktop. Once you understand the basics, you can use the remote app streaming documentation more effectively.
+Before you get started, we recommend you take a look at the [overview for Azure Virtual Desktop](../overview.md) for a more in-depth list of system requirements for running Azure Virtual Desktop. While you're there, you can browse the rest of the Azure Virtual Desktop documentation if you want a more IT-focused look into the service, as most of the articles also apply to RemoteApp streaming for Azure Virtual Desktop. Once you understand the basics, you can use the RemoteApp streaming documentation more effectively.
 
 In order to set up an Azure Virtual Desktop deployment for your custom apps that's available to customers outside your organization, you'll need the following things:
 

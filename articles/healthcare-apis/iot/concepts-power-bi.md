@@ -5,22 +5,22 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 04/28/2023
+ms.date: 07/21/2023
 ms.author: jasteppe
 ---
 
-# The MedTech service and Microsoft Power BI
+# MedTech service and Microsoft Power BI
 
 > [!NOTE]
 > [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
-In this article, we explore using the MedTech service and Microsoft Power Business Intelligence (BI).
+In this article, learn about using the MedTech service and Microsoft Power Business Intelligence (Power BI).
 
 ## The MedTech service and Power BI reference architecture
 
 This reference architecture shows the basic components of using the Microsoft cloud services to enable Power BI on top of Internet of Things (IoT) and FHIR data.
 
-You can even embed Power BI dashboards inside the Microsoft Teams client to further enhance care team coordination. For more information on embedding Power BI in Teams, visit [here](/power-bi/collaborate-share/service-embed-report-microsoft-teams).
+You can even embed Power BI dashboards inside the Microsoft Teams client to further enhance care team coordination. For more information on embedding Power BI in Teams, see [Embed Power BI content in Microsoft Teams](/power-bi/collaborate-share/service-embed-report-microsoft-teams).
 
 :::image type="content" source="media/concepts-power-bi/iot-connector-power-bi.png" alt-text="Screenshot of the MedTech service and Power BI." lightbox="media/concepts-power-bi/iot-connector-power-bi.png":::
 
@@ -44,5 +44,15 @@ For an overview of the MedTech service, see
 
 > [!div class="nextstepaction"]
 > [What is the MedTech service?](overview.md)
+
+To learn about the MedTech service device message data transformation, see
+
+> [!div class="nextstepaction"]
+> [Understand the MedTech service device data processing stages](overview-of-device-data-processing-stages.md)
+
+To learn about methods for deploying the MedTech service, see
+
+> [!div class="nextstepaction"]
+> [Choose a deployment method for the MedTech service](deploy-new-choose.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

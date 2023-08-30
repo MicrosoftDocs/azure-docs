@@ -21,7 +21,7 @@ The OWASP [API Security Project](https://owasp.org/www-project-api-security/) fo
 
 API objects that aren't protected with the appropriate level of authorization may be vulnerable to data leaks and unauthorized data manipulation through weak object access identifiers. For example, an attacker could exploit an integer object identifier, which can be iterated. 
 
-More information about this threat: [API1:2019 Broken Object Level Authorization](https://github.com/OWASP/API-Security/blob/master/2019/en/src/0xa1-broken-object-level-authorization.md)
+More information about this threat: [API1:2019 Broken Object Level Authorization](https://github.com/OWASP/API-Security/blob/master/editions/2023/en/0xa1-broken-object-level-authorization.md)
 
 ### Recommendations 
 
@@ -41,7 +41,7 @@ More information about this threat: [API1:2019 Broken Object Level Authorization
 
 Authentication mechanisms are often implemented incorrectly or missing, allowing attackers to exploit implementation flaws to access data. 
 
-More information about this threat: [API2:2019 Broken User Authentication](https://github.com/OWASP/API-Security/blob/master/2019/en/src/0xa2-broken-user-authentication.md)
+More information about this threat: [API2:2019 Broken User Authentication](https://github.com/OWASP/API-Security/blob/master/editions/2019/en/0xa2-broken-user-authentication.md)
 
 ### Recommendations 
 
@@ -75,7 +75,7 @@ Good API interface design is deceptively challenging. Often, particularly with l
 
 A bad actor could attempt to access the API directly (perhaps by replaying a valid request), or sniff the traffic between server and API. Analysis of the API actions and the data available could yield sensitive data to the attacker, which isn't surfaced to, or used by, the frontend application. 
 
-More information about this threat: [API3:2019 Excessive Data Exposure](https://github.com/OWASP/API-Security/blob/master/2019/en/src/0xa3-excessive-data-exposure.md) 
+More information about this threat: [API3:2019 Excessive Data Exposure](https://github.com/OWASP/API-Security/blob/master/editions/2019/en/0xa3-excessive-data-exposure.md) 
 
 ### Recommendations 
 
@@ -100,7 +100,7 @@ More information about this threat: [API3:2019 Excessive Data Exposure](https://
 
 Lack of rate limiting may lead to data exfiltration or successful DDoS attacks on backend services, causing an outage for all consumers. 
 
-More information about this threat: [API4:2019 Lack of resources and rate limiting](https://github.com/OWASP/API-Security/blob/master/2019/en/src/0xa4-lack-of-resources-and-rate-limiting.md)
+More information about this threat: [API4:2019 Lack of resources and rate limiting](https://github.com/OWASP/API-Security/blob/master/editions/2019/en/0xa4-lack-of-resources-and-rate-limiting.md)
 
 ### Recommendations 
 
@@ -130,7 +130,7 @@ More information about this threat: [API4:2019 Lack of resources and rate limiti
 
 Complex access control policies with different hierarchies, groups, and roles, and an unclear separation between administrative and regular functions lead to authorization flaws. By exploiting these issues, attackers gain access to other users’ resources or administrative functions. 
 
-More information about this threat: [API5:2019 Broken function level authorization](https://github.com/OWASP/API-Security/blob/master/2019/en/src/0xa5-broken-function-level-authorization.md) 
+More information about this threat: [API5:2019 Broken function level authorization](https://github.com/OWASP/API-Security/blob/master/editions/2019/en/0xa5-broken-function-level-authorization.md) 
 
 ### Recommendations 
  
@@ -148,7 +148,7 @@ More information about this threat: [API5:2019 Broken function level authorizati
 
 If an API offers more fields than the client requires for a given action, an attacker may inject excessive properties to perform unauthorized operations on data. Attackers may discover undocumented properties by inspecting the format of requests and responses or other APIs, or guessing them. This vulnerability is especially applicable if you don’t use strongly typed programming languages. 
 
-More information about this threat: [API6:2019 Mass assignment](https://github.com/OWASP/API-Security/blob/master/2019/en/src/0xa6-mass-assignment.md)
+More information about this threat: [API6:2019 Mass assignment](https://github.com/OWASP/API-Security/blob/master/editions/2019/en/0xa6-mass-assignment.md)
 
 ### Recommendations 
 
@@ -168,7 +168,7 @@ Attackers may attempt to exploit security misconfiguration vulnerabilities such 
 * Use of weak protocols or ciphers
 * Other settings or endpoints that may allow unauthorized access to the system
 
-More information about this threat: [API7:2019 Security misconfiguration](https://github.com/OWASP/API-Security/blob/master/2019/en/src/0xa7-security-misconfiguration.md) 
+More information about this threat: [API7:2019 Security misconfiguration](https://github.com/OWASP/API-Security/blob/master/editions/2019/en/0xa7-security-misconfiguration.md) 
 
 ### Recommendations 
 
@@ -236,7 +236,7 @@ Any endpoint accepting user data is potentially vulnerable to an injection explo
 
 * [SQL injection](https://owasp.org/www-community/attacks/SQL_Injection), where a bad actor attempts to alter the API request to execute commands and queries against the database an API depends on 
 
-More information about this threat: [API8:2019 Injection](https://github.com/OWASP/API-Security/blob/master/2019/en/src/0xa8-injection.md)
+More information about this threat: [API8:2019 Injection](https://github.com/OWASP/API-Security/blob/master/editions/2019/en/0xa8-injection.md)
 
 ### Recommendations
 
@@ -263,7 +263,7 @@ Vulnerabilities related to improper assets management include:
 
 * Excessive numbers of older API versions, which may be missing security fixes
 
-More information about this threat: [API9:2019 Improper assets management](https://github.com/OWASP/API-Security/blob/master/2019/en/src/0xa9-improper-assets-management.md)
+More information about this threat: [API9:2019 Improper assets management](https://github.com/OWASP/API-Security/blob/master/editions/2019/en/0xa9-improper-assets-management.md)
 
 ### Recommendations
 
@@ -287,7 +287,7 @@ More information about this threat: [API9:2019 Improper assets management](https
 
 Insufficient logging and monitoring, coupled with missing or ineffective integration with incident response, allows attackers to further attack systems, maintain persistence, pivot to more systems to tamper with, and extract or destroy data. Most breach studies demonstrate that the time to detect a breach is over 200 days, typically detected by external parties rather than internal processes or monitoring. 
 
-More information about this threat: [API10:2019  Insufficient logging and monitoring](https://github.com/OWASP/API-Security/blob/master/2019/en/src/0xaa-insufficient-logging-monitoring.md) 
+More information about this threat: [API10:2019  Insufficient logging and monitoring](https://github.com/OWASP/API-Security/blob/master/editions/2019/en/0xaa-insufficient-logging-monitoring.md) 
 
 ### Recommendations
 

@@ -2,7 +2,7 @@
 title: Troubleshoot Application Insights Profiler
 description: Walk through troubleshooting steps and information to enable and use Application Insights Profiler.
 ms.topic: conceptual
-ms.date: 05/11/2023
+ms.date: 07/10/2023
 ms.reviewer: charles.weininger
 ---
 
@@ -12,9 +12,9 @@ This article presents troubleshooting steps and information to enable you to use
 
 ## Are you using the appropriate Profiler endpoint?
 
-Currently, the only regions that require endpoint modifications are [Azure Government](../../azure-government/compare-azure-government-global-azure.md#application-insights) and [Azure China](/azure/china/resources-developer-guide).
+Currently, the only regions that require endpoint modifications are [Azure Government](../../azure-government/compare-azure-government-global-azure.md#application-insights) and [Microsoft Azure operated by 21Vianet](/azure/china/resources-developer-guide).
 
-|App setting    | US Government Cloud | China Cloud |   
+|App setting    | US Government Cloud | China Cloud |
 |---------------|---------------------|-------------|
 |ApplicationInsightsProfilerEndpoint         | `https://profiler.monitor.azure.us`    | `https://profiler.monitor.azure.cn` |
 |ApplicationInsightsEndpoint | `https://dc.applicationinsights.us` | `https://dc.applicationinsights.azure.cn` |
@@ -23,7 +23,7 @@ Currently, the only regions that require endpoint modifications are [Azure Gover
 
 Profiler is supported on the [.NET Framework later than 4.6.2](https://dotnet.microsoft.com/download/dotnet-framework).
 
-If your web app is an ASP.NET Core application, it must be running on the [latest supported ASP.NET Core runtime](https://dotnet.microsoft.com/en-us/download/dotnet/6.0).
+If your web app is an ASP.NET Core application, it must be running on the [latest supported ASP.NET Core runtime](https://dotnet.microsoft.com/download/dotnet/6.0).
 
 ## Are you using the right Azure service plan?
 
@@ -40,7 +40,7 @@ If the data you're trying to view is older than two weeks, try limiting your tim
 
 Check that a firewall or proxies aren't blocking your access to [this webpage](https://gateway.azureserviceprofiler.net).
 
-## Is Profiler running?
+## Are you seeing timeouts or do you need to check to see if Profiler is running?
 
 Profiling data is uploaded only when it can be attached to a request that happened while Profiler was running. Profiler collects data for two minutes each hour. You can also trigger Profiler by [starting a profiling session](./profiler-settings.md#profile-now).
 
@@ -59,14 +59,14 @@ Search for trace messages and custom events sent by Profiler to your Application
    ```
 
    :::image type="content" source="./media/profiler-troubleshooting/search-results.png" alt-text="Screenshot that shows the search results from aforementioned search string.":::
-   
+
    The preceding search results include two examples of searches from two AI resources:
-    
+
    - If the application isn't receiving requests while Profiler is running, the message explains that the upload was canceled because of no activity.
-   
+
    - Profiler started and sent custom events when it detected requests that happened while Profiler was running. If the `ServiceProfilerSample` custom event is displayed, it means that a profile was captured and is available in the **Application Insights Performance** pane.
-   
-   If no records are displayed, Profiler isn't running. Make sure you've [enabled Profiler on your Azure service](./profiler.md).
+
+   If no records are displayed, Profiler isn't running or has timed out. Make sure you've [enabled Profiler on your Azure service](./profiler.md).
 
 ## Double counting in parallel threads
 
@@ -94,7 +94,7 @@ For Profiler to work properly, make sure:
       The **WebJobs** pane opens.
 
       If **ApplicationInsightsProfiler3** doesn't show up, restart your App Service application.
-   
+
       :::image type="content" source="./media/profiler-troubleshooting/profiler-web-job.png" alt-text="Screenshot that shows the WebJobs pane, which displays the name, status, and last runtime of jobs.":::
 
    1. To view the details of the WebJob, including the log, select the **ApplicationInsightsProfiler3** link.
@@ -106,7 +106,7 @@ If Profiler still isn't working for you, download the log and [submit an Azure s
 
 #### Check the Diagnostic Services site extension status page
 
-If Profiler was enabled through the [Application Insights pane](profiler.md) in the portal, it was enabled by the Diagnostic Services site extension. You can check the status page of this extension by going to 
+If Profiler was enabled through the [Application Insights pane](profiler.md) in the portal, it was enabled by the Diagnostic Services site extension. You can check the status page of this extension by going to
 `https://{site-name}.scm.azurewebsites.net/DiagnosticServices`.
 
 > [!NOTE]
@@ -177,15 +177,15 @@ To check the settings that were used to configure Azure Diagnostics:
 1. Sign in to the virtual machine (VM).
 
 1. Open the log file at this location. The plug-in version might be newer on your machine.
-    
+
     For VMs:
     ```
     c:\WindowsAzure\logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.11.3.12\DiagnosticsPlugin.log
     ```
-    
+
     For Azure Cloud Services:
     ```
-    c:\logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.11.3.12\DiagnosticsPlugin.log  
+    c:\logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.11.3.12\DiagnosticsPlugin.log
     ```
 
 1. In the file, search for the string `WadCfg` to find the settings that were passed to the VM to configure Azure Diagnostics.
@@ -198,7 +198,7 @@ To check the settings that were used to configure Azure Diagnostics:
     ```
     C:\ProgramData\ApplicationInsightsProfiler\config.json
     ```
-    
+
     For Azure Cloud Services:
     ```
     D:\ProgramData\ApplicationInsightsProfiler\config.json

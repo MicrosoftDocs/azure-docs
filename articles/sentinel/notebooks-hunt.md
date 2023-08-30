@@ -96,7 +96,7 @@ The steps in this procedure reference specific articles in the Azure Machine Lea
 
     It can take several minutes to create your workspace in the cloud. During this time, the workspace **Overview** page shows the current deployment status, and updates when the deployment is complete.
 
-1.	In the Azure Machine Learning studio, on the **Compute** page, create a new compute. On the **Advanced Settings** tab, make sure to select the same VNet that you'd used for your VM jump box. For more information, see [Create and manage an Azure Machine Learning compute instance](../machine-learning/how-to-create-manage-compute-instance.md?tabs=python).
+1.	In the Azure Machine Learning studio, on the **Compute** page, create a new compute. On the **Advanced Settings** tab, make sure to select the same VNet that you'd used for your VM jump box. For more information, see [Create and manage an Azure Machine Learning compute instance](../machine-learning/how-to-create-compute-instance.md?tabs=python).
 
 1.	Configure your network traffic to access Azure ML from behind a firewall. For more information, see [Configure inbound and outbound network traffic](../machine-learning/how-to-access-azureml-behind-firewall.md?tabs=ipaddress%2cpublic).
 
@@ -142,7 +142,7 @@ After you've created an AML workspace, start launching your notebooks in your Az
 
     When you've found the notebook you want to use, select **Create from template** and **Save** to clone it into your own workspace.
 
-    Edit the name as needed. If the notebook already exists in your workspace, you can overwrite the existing notebook or create a new one.
+    Edit the name as needed. If the notebook already exists in your workspace, you can overwrite the existing notebook or create a new one. By default, your notebook will be saved in /Users/<Your_User_Name>/ directory of selected AML workspace.
 
     :::image type="content" source="media/notebooks/save-notebook.png" alt-text="Save a notebook to clone it to your own workspace.":::
 
@@ -154,7 +154,7 @@ After you've created an AML workspace, start launching your notebooks in your Az
 
 1. At the top of the page, select a **Compute** instance to use for your notebook server.
 
-    If you don't have a compute instance, [create a new one](../machine-learning/how-to-create-manage-compute-instance.md?tabs=#create). If your compute instance is stopped, make sure to start it. For more information, see [Run a notebook in the Azure Machine Learning studio](../machine-learning/how-to-run-jupyter-notebooks.md).
+    If you don't have a compute instance, [create a new one](../machine-learning/how-to-create-compute-instance.md?tabs=#create). If your compute instance is stopped, make sure to start it. For more information, see [Run a notebook in the Azure Machine Learning studio](../machine-learning/how-to-run-jupyter-notebooks.md).
 
     Only you can see and use the compute instances you create. Your user files are stored separately from the VM and are shared among all compute instances in the workspace.
 

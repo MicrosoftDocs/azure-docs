@@ -4,7 +4,7 @@ description: Archived release notes for Azure HDInsight. Get development tips an
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive, references_regions
-ms.date: 05/11/2023
+ms.date: 07/28/2023
 ---
 
 # Archived release notes
@@ -14,9 +14,78 @@ ms.date: 05/11/2023
 Azure HDInsight is one of the most popular services among enterprise customers for open-source analytics on Azure.
 If you would like to subscribe on release notes, watch releases on [this GitHub repository](https://github.com/Azure/HDInsight/releases).
 
+## Release date: May 08, 2023
+
+This release applies to HDInsight 4.x and 5.x HDInsight release is available to all regions over several days. This release is applicable for image number **2304280205**. [How to check the image number?](./view-hindsight-cluster-image-version.md)
+
+HDInsight uses safe deployment practices, which involve gradual region deployment. it may take up to 10 business days for a new release or a new version to be available in all regions.
+
+**OS versions**
+
+* HDInsight 4.0: Ubuntu 18.04.5 LTS Linux Kernel 5.4
+* HDInsight 5.0: Ubuntu 18.04.5 LTS Linux Kernel 5.4
+
+For workload specific versions, see 
+
+* [HDInsight 5.x component versions](./hdinsight-5x-component-versioning.md)
+* [HDInsight 4.x component versions](./hdinsight-40-component-versioning.md)
+
+![Icon showing update with text.](media/hdinsight-release-notes/new-icon-for-updated.png)
+
+1. Azure HDInsight 5.1 updated with
+
+    1. Apache HBase 2.4.11
+    1. Apache Phoenix 5.1.2
+    1. Apache Hive 3.1.2
+    1. Apache Spark 3.3.1
+    1. Apache Tez 0.9.1
+    1. Apache Zeppelin 0.10.1
+    1. Apache Livy 0.5
+    1. Apache Kafka 3.2.0
+
+    > [!NOTE]
+    > * All components are integrated with Hadoop 3.3.4 & ZK 3.6.3
+    > * All above upgraded components are now available in non-ESP clusters for public preview.
+
+![Icon showing new features with text.](media/hdinsight-release-notes/new-icon-for-new-feature.png)
+
+1. **Enhanced Autoscale for HDInsight**
+
+   Azure HDInsight has made notable improvements stability and latency on Autoscale, The essential changes include improved feedback loop for scaling decisions, significant improvement on latency for scaling and support for recommissioning the decommissioned nodes, Learn [more](https://techcommunity.microsoft.com/t5/analytics-on-azure-blog/enhanced-autoscale-capabilities-in-hdinsight-clusters/ba-p/3811271) about the enhancements, how to custom configure and migrate your cluster to enhanced autoscale. The enhanced Autoscale capability is available effective 17 May 2023 across all supported regions.
+    
+1. **Azure HDInsight ESP for Apache Kafka 2.4.1 is now Generally Available**.
+
+   Azure HDInsight ESP for Apache Kafka 2.4.1 has been in public preview since April 2022. After notable improvements in CVE fixes and stability, Azure HDInsight ESP Kafka 2.4.1 now becomes generally available and ready for production workloads, learn the detail about the [how to configure](./domain-joined/apache-domain-joined-run-kafka.md) and [migrate](./kafka/migrate-versions.md).
+
+1. **Quota Management for HDInsight**
+
+    HDInsight currently allocates quota to customer subscriptions at a regional level. The cores allocated to customers are generic and not classified at a VM family level (For example, Dv2, Ev3, Eav4, etc.).
+    
+    HDInsight introduced an improved view, which provides a detail and classification of quotas for family-level VMs, this feature allows customers to view current and remaining quotas for a region at the VM family level. With the enhanced view, customers have richer visibility, for planning quotas, and a better user experience. This feature is currently available on HDInsight 4.x and 5.x for East US EUAP region. Other regions to follow later.
+
+    For more information, see [Cluster capacity planning in Azure HDInsight | Microsoft Learn](./hdinsight-capacity-planning.md#view-quota-management-for-hdinsight)
+    
+![Icon showing new regions added with text.](media/hdinsight-release-notes/new-icon-for-new-regions-added.png) 
+
+* Poland Central
+
+## Coming soon
+
+* The max length of cluster name changes to 45 from 59 characters, to improve the security posture of clusters.
+* Cluster permissions for secure storage  
+  * Customers can specify (during cluster creation) whether a secure channel should be used for HDInsight cluster nodes to contact the storage account. 
+* In-line quota update.
+   * Request quotas increase directly from the My Quota page, which is a direct API call, which is faster. If the API call fails, then customers need to create a new support request for quota increase.
+* HDInsight Cluster Creation with Custom VNets.
+  * To improve the overall security posture of the HDInsight clusters, HDInsight clusters using custom VNETs need to ensure that the user needs to have permission for `Microsoft Network/virtualNetworks/subnets/join/action` to perform create operations. Customers would need to plan accordingly as this would be a mandatory check to avoid cluster creation failures.
+* Basic and Standard A-series VMs Retirement.
+   * On 31 August 2024, we'll retire Basic and Standard A-series VMs. Before that date, you need to migrate your workloads to Av2-series VMs, which provide more memory per vCPU and faster storage on solid-state drives (SSDs). To avoid service disruptions, [migrate your workloads](https://aka.ms/Av1retirement) from Basic and Standard A-series VMs to Av2-series VMs before 31 August 2024.
+* Non-ESP ABFS clusters [Cluster Permissions for World Readable] 
+  * Plan to introduce a change in non-ESP ABFS clusters, which restricts non-Hadoop group users from executing Hadoop commands for storage operations. This change to improve cluster security posture. Customers need to plan for the updates.
+
 ## Release date: February 28, 2023
 
-This release applies to HDInsight 4.0. and 5.0, 5.1. HDInsight release will be available to all regions over several days. This release is applicable for image number **2302250400**. [How to check the image number?](./view-hindsight-cluster-image-version.md)
+This release applies to HDInsight 4.0. and 5.0, 5.1. HDInsight release is available to all regions over several days. This release is applicable for image number **2302250400**. [How to check the image number?](./view-hindsight-cluster-image-version.md)
 
 HDInsight uses safe deployment practices, which involve gradual region deployment. it may take up to 10 business days for a new release or a new version to be available in all regions.
 
@@ -72,18 +141,18 @@ For more information, see [HDInsight 5.1.0 version](./hdinsight-51-component-ver
 
 End of support for Azure HDInsight clusters on Spark 2.4 February 10, 2024. For more information, see [Spark versions supported in Azure HDInsight](./hdinsight-40-component-versioning.md#spark-versions-supported-in-azure-hdinsight)
 
-## Coming soon
+## What's next
 
 * Autoscale
   * Autoscale with improved latency and several improvements 
 * Cluster name change limitation 
-  * The max length of cluster name will be changed to 45 from 59 in Public, Mooncake and Fairfax. 
+  * The max length of cluster name changes to 45 from 59 in Public, Mooncake and Azure Government. 
 * Cluster permissions for secure storage  
   * Customers can specify (during cluster creation) whether a secure channel should be used for HDInsight cluster nodes to contact the storage account. 
 * Non-ESP ABFS clusters [Cluster Permissions for World Readable] 
   * Plan to introduce a change in non-ESP ABFS clusters, which restricts non-Hadoop group users from executing Hadoop commands for storage operations. This change to improve cluster security posture. Customers need to plan for the updates.
 * Open-source upgrades
-  * Apache Spark 3.3.0 and Hadoop 3.3.4 are under development on HDInsight 5.1 and will include several significant new features, performance and other improvements.
+  * Apache Spark 3.3.0 and Hadoop 3.3.4 are under development on HDInsight 5.1 and includes several significant new features, performance and other improvements.
 
  > [!NOTE]
  > We advise customers to use to latest versions of HDInsight [Images](./view-hindsight-cluster-image-version.md) as they bring in the best of open source updates,  Azure updates and security fixes. For more information, see [Best practices](./hdinsight-overview-before-you-start.md).
@@ -105,7 +174,7 @@ For workload specific versions, see [here.](./hdinsight-40-component-versioning.
 ![Icon showing new features with text.](media/hdinsight-release-notes/new-icon-for-new-feature.png) 
 
 * **Log Analytics** - Customers can enable classic monitoring to get the latest OMS version 14.19. To remove old versions, disable and enable classic monitoring.
-* **Ambari** user auto UI logout due to inactivity. For more information, see [here](./ambari-web-ui-auto-logout.md)
+* **Ambari** user auto UI sign out due to inactivity. For more information, see [here](./ambari-web-ui-auto-logout.md)
 * **Spark** - A new and optimized version of Spark 3.1.3 is included in this release. We tested Apache Spark 3.1.2(previous version) and Apache Spark 3.1.3(current version) using the TPC-DS benchmark. The test was carried out using E8 V3  SKU, for Apache Spark on 1-TB workload. Apache Spark 3.1.3 (current version) outperformed Apache Spark 3.1.2 (previous version) by over 40% in total query runtime for TPC-DS queries using the same hardware specs. The Microsoft Spark team added optimizations available in Azure Synapse with Azure HDInsight. For more information, please refer to [ Speed up your data workloads with performance updates to Apache Spark 3.1.2 in Azure Synapse](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/speed-up-your-data-workloads-with-performance-updates-to-apache/ba-p/2769467)
 
 ![Icon showing new regions added with text.](media/hdinsight-release-notes/new-icon-for-new-regions-added.png) 
@@ -186,7 +255,7 @@ HDInsight uses safe deployment practices, which involve gradual region deploymen
 
 **1. Attach external disks in HDI Hadoop/Spark clusters**
 
-HDInsight cluster comes with pre-defined disk space based on SKU. This space may not be sufficient in large job scenarios. 
+HDInsight cluster comes with predefined disk space based on SKU. This space may not be sufficient in large job scenarios. 
 
 This new feature allows you to add more disks in cluster, which used as node manager local directory. Add number of disks to worker nodes during HIVE and Spark cluster creation, while the  selected disks are part of node manager’s local directories.
 
@@ -217,7 +286,7 @@ Customers using older version of cluster with OMS version 13 need to install OMS
 
 **How to check your current OMS version**
 
-1. Log in to the cluster using SSH.
+1. Sign in to the cluster using SSH.
 1. Run the following command in your SSH Client.
 
 ```
@@ -227,20 +296,20 @@ sudo /opt/omi/bin/ominiserver/ --version
 
 **How to upgrade your OMS version from 13 to 14**
 
-1. Log in to the [Azure portal](https://portal.azure.com/) 
+1. Sign in to the [Azure portal](https://portal.azure.com/) 
 1. From the resource group, select the HDInsight cluster resource 
-1. Click **Script actions** 
+1. Select **Script actions** 
 1. From **Submit script action** panel, choose **Script type** as custom 
 1. Paste the following link in the Bash script URL box
 https://hdiconfigactions.blob.core.windows.net/log-analytics-patch/OMSUPGRADE14.1/omsagent-vulnerability-fix-1.14.12-0.sh 
 1. Select **Node type(s)**
-1. Click **Create** 
+1. Select **Create** 
 
 ![Screenshot showing how to do OMS Upgrade](media/hdinsight-release-notes/oms-upgrade.png)
 
 1. Verify the successful installation of the patch using the following steps:  
 
-  1. Log in to the cluster using SSH.
+  1. Sign in to the cluster using SSH.
   1. Run the following command in your SSH Client.
 
   ```
@@ -290,9 +359,9 @@ HDInsight uses safe deployment practices, which involve gradual region deploymen
 
 **1. Attach external disks in HDI Hadoop/Spark clusters**
 
-HDInsight cluster comes with pre-defined disk space based on SKU. This space may not be sufficient in large job scenarios. 
+HDInsight cluster comes with predefined disk space based on SKU. This space may not be sufficient in large job scenarios. 
 
-This new feature allows you to add more disks in cluster, which will be used as node manager local directory. Add number of disks to worker nodes during HIVE and Spark cluster creation, while the  selected disks will be part of node manager’s local directories.
+This new feature allows you to add more disks in cluster, which will be used as node manager local directory. Add number of disks to worker nodes during HIVE and Spark cluster creation, while the selected disks are part of node manager’s local directories.
 
 > [!NOTE]
 > The added disks are only configured for node manager local directories.
@@ -332,20 +401,20 @@ sudo /opt/omi/bin/ominiserver/ --version
 
 **How to upgrade your OMS version from 13 to 14**
 
-1. Log in to the [Azure portal](https://portal.azure.com/) 
+1. Sign in to the [Azure portal](https://portal.azure.com/) 
 1. From the resource group, select the HDInsight cluster resource 
-1. Click **Script actions** 
+1. Select **Script actions** 
 1. From **Submit script action** panel, choose **Script type** as custom 
 1. Paste the following link in the Bash script URL box
 https://hdiconfigactions.blob.core.windows.net/log-analytics-patch/OMSUPGRADE14.1/omsagent-vulnerability-fix-1.14.12-0.sh 
 1. Select **Node type(s)**
-1. Click **Create** 
+1. Select **Create** 
 
 ![Screenshot showing how to do OMS Upgrade](media/hdinsight-release-notes/oms-upgrade.png)
 
 1. Verify the successful installation of the patch using the following steps:  
 
-  1. Log in to the cluster using SSH.
+  1. Sign in to the cluster using SSH.
   1. Run the following command in your SSH Client.
 
   ```
@@ -385,7 +454,7 @@ HDInsight is compatible with Apache HIVE 3.1.2. Due to a bug in this release, th
 
 ## Release date: 06/03/2022
 
-This release applies for HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region over several days.
+This release applies for HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see following changes, wait for the release being live in your region over several days.
 
 ### Release highlights
 
@@ -460,7 +529,7 @@ HDI Hive 3.1 version is upgraded to OSS Hive 3.1.2. This version has all fixes a
 | Schema tool enhancements to support mergeCatalog|[HIVE-22498](https://issues.apache.org/jira/browse/HIVE-22498)|
 | Hive with TEZ UNION ALL and UDTF results in data loss|[HIVE-21915](https://issues.apache.org/jira/browse/HIVE-21915)|
 | Split text files even if header/footer exists|[HIVE-21924](https://issues.apache.org/jira/browse/HIVE-21924)|
-| MultiDelimitSerDe returns wrong results in last column when the loaded file has more columns than the onc is present in table schema|[HIVE-22360](https://issues.apache.org/jira/browse/HIVE-22360)|
+| MultiDelimitSerDe returns wrong results in last column when the loaded file has more columns than the one is present in table schema|[HIVE-22360](https://issues.apache.org/jira/browse/HIVE-22360)|
 | LLAP external client - Need to reduce LlapBaseInputFormat#getSplits() footprint|[HIVE-22221](https://issues.apache.org/jira/browse/HIVE-22221)|
 | Column name with reserved keyword is unescaped when query including join on table with mask column is rewritten (Zoltan Matyus via Zoltan Haindrich)|[HIVE-22208](https://issues.apache.org/jira/browse/HIVE-22208)|
 |Prevent LLAP shutdown on AMReporter related RuntimeException|[HIVE-22113](https://issues.apache.org/jira/browse/HIVE-22113)|
@@ -486,7 +555,7 @@ HDI Hive 3.1 version is upgraded to OSS Hive 3.1.2. This version has all fixes a
 
 ## Release date: 03/10/2022
 
-This release applies for HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region over several days.
+This release applies for HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see following changes, wait for the release being live in your region over several days.
 
 The OS versions for this release are: 
 - 	HDInsight 4.0: Ubuntu 18.04.5 
@@ -551,7 +620,7 @@ Starting from March 01, 2022, HDInsight will only support manual scale for HBase
 
 ## Release date: 12/27/2021
 
-This release applies for HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region over several days.
+This release applies for HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see following changes, wait for the release being live in your region over several days.
 
 The OS versions for this release are:
 - HDInsight 4.0: Ubuntu 18.04.5 LTS
@@ -564,7 +633,7 @@ HDInsight 4.0 image has been updated to mitigate Log4j vulnerability as describe
 
 ## Release date: 07/27/2021
 
-This release applies for both HDInsight 3.6 and HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region in several days.
+This release applies for both HDInsight 3.6 and HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see following changes, wait for the release being live in your region in several days.
 
 The OS versions for this release are:
 - HDInsight 3.6: Ubuntu 16.04.7 LTS
@@ -671,7 +740,7 @@ No other action is needed from you. The price correction will only apply for usa
 
 ## Release date: 06/02/2021
 
-This release applies for both HDInsight 3.6 and HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region in several days.
+This release applies for both HDInsight 3.6 and HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see following changes, wait for the release being live in your region in several days.
 
 The OS versions for this release are:
 - HDInsight 3.6: Ubuntu 16.04.7 LTS
@@ -679,7 +748,7 @@ The OS versions for this release are:
 
 ### New features
 #### OS version upgrade
-As referenced in [Ubuntu's release cycle](https://ubuntu.com/about/release-cycle), the Ubuntu 16.04 kernel reaches End of Life (EOL) in April 2021. We started rolling out the new HDInsight 4.0 cluster image running on Ubuntu 18.04 with this release. Newly created HDInsight 4.0 clusters runs on Ubuntu 18.04 by default once available. Existing clusters on Ubuntu 16.04 runs as is with full support.
+As referenced in [Ubuntu's release cycle](https://ubuntu.com/about/release-cycle), the Ubuntu 16.04 kernel reaches End of Life (EOL) in April 2021. We started rolling out the new HDInsight 4.0 cluster image running on Ubuntu 18.04 with this release. Newly created HDInsight 4.0 clusters run on Ubuntu 18.04 by default once available. Existing clusters on Ubuntu 16.04 runs as is with full support.
 
 HDInsight 3.6 will continue to run on Ubuntu 16.04. It will change to Basic support (from Standard support) beginning 1 July 2021. For more information about dates and support options, see [Azure HDInsight versions](./hdinsight-component-versioning.md#supported-hdinsight-versions). Ubuntu 18.04 won't be supported for HDInsight 3.6. If you'd like to use Ubuntu 18.04, you'll need to migrate your clusters to HDInsight 4.0. 
 
@@ -777,7 +846,7 @@ You can find the current component versions for HDInsight 4.0 and HDInsight 3.6 
 
 ## Release date: 02/05/2021
 
-This release applies for both HDInsight 3.6 and HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region in several days.
+This release applies for both HDInsight 3.6 and HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see following changes, wait for the release being live in your region in several days.
 
 ### New features
 #### Dav4-series support
@@ -817,7 +886,7 @@ No component version change for this release. You can find the current component
 
 ## Release date: 11/18/2020
 
-This release applies for both HDInsight 3.6 and HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region in several days.
+This release applies for both HDInsight 3.6 and HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see following changes, wait for the release being live in your region in several days.
 
 ### New features
 #### Auto key rotation for customer managed key encryption at rest
@@ -845,7 +914,7 @@ No component version change for this release. You can find the current component
 
 ## Release date: 11/09/2020
 
-This release applies for both HDInsight 3.6 and HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region in several days.
+This release applies for both HDInsight 3.6 and HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see following changes, wait for the release being live in your region in several days.
 
 ### New features
 #### HDInsight Identity Broker (HIB) is now GA
@@ -890,7 +959,7 @@ No component version change for this release. You can find the current component
 
 ## Release date: 10/08/2020
 
-This release applies for both HDInsight 3.6 and HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region in several days.
+This release applies for both HDInsight 3.6 and HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see following changes, wait for the release being live in your region in several days.
 
 ### New features
 #### HDInsight private clusters with no public IP and Private link (Preview)
@@ -920,7 +989,7 @@ No component version change for this release. You can find the current component
 
 ## Release date: 09/28/2020
 
-This release applies for both HDInsight 3.6 and HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region in several days.
+This release applies for both HDInsight 3.6 and HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see following changes, wait for the release being live in your region in several days.
 
 ### New features
 #### Autoscale for Interactive Query with HDInsight 4.0 is now generally available
@@ -961,7 +1030,7 @@ No component version change for this release. You can find the current component
 
 ## Release date: 08/09/2020
 
-This release applies only for HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region in several days.
+This release applies only for HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see following changes, wait for the release being live in your region in several days.
 
 ### New features
 #### Support for SparkCruise
@@ -1011,15 +1080,15 @@ No component version change for this release. You can find the current component
 
 ### Known issues
 
-An issue has been fixed in the Azure portal, where users were experiencing an error when they were creating an Azure HDInsight cluster using an SSH authentication type of public key. When users clicked **Review + Create**, they would receive the error "Must not contain any three consecutive characters from SSH username." This issue has been fixed, but it may require that you refresh your browser cache by hitting CTRL + F5 to load the corrected view. The workaround to this issue was to create a cluster with an ARM template. 
+An issue has been fixed in the Azure portal, where users were experiencing an error when they were creating an Azure HDInsight cluster using an SSH authentication type of public key. When users clicked **Review + Create**, they would receive the error "Must not contain any three consecutive characters from SSH username." This issue has been fixed, but it may require that you refresh your browser cache by hitting CTRL + F5 to load the corrected view. The workaround to this issue was to create a cluster with an ARM template.
 
 ## Release date: 07/13/2020
 
-This release applies both for HDInsight 3.6 and 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region in several days.
+This release applies both for HDInsight 3.6 and 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see following changes, wait for the release being live in your region in several days.
 
 ### New features
 #### Support for Customer Lockbox for Microsoft Azure
-Azure HDInsight now supports Azure Customer Lockbox. It provides an interface for customers to review and approve, or reject customer data access requests. It is used when Microsoft engineer needs to access customer data during a support request. For more information, see [Customer Lockbox for Microsoft Azure](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-preview).
+Azure HDInsight now supports Azure Customer Lockbox. It provides an interface for customers to review and approve, or reject customer data access requests. It's used when Microsoft engineer needs to access customer data during a support request. For more information, see [Customer Lockbox for Microsoft Azure](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios).
 
 #### Service endpoint policies for storage
 Customers can now use Service Endpoint Policies (SEP) on the HDInsight cluster subnet. Learn more about [Azure service endpoint policy](../virtual-network/virtual-network-service-endpoint-policies-overview.md).
@@ -1056,7 +1125,7 @@ No component version change for this release. You can find the current component
 
 ## Release date: 06/11/2020
 
-This release applies both for HDInsight 3.6 and 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region in several days.
+This release applies both for HDInsight 3.6 and 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see following changes, wait for the release being live in your region in several days.
 
 ### New features
 #### Moving to Azure virtual machine scale sets
@@ -1086,13 +1155,13 @@ A minimum 4-core VM is required for Head Node to ensure the high availability an
 #### Cluster worker node provisioning change
 When 80% of the worker nodes are ready, the cluster enters **operational** stage. At this stage, customers can do all the data plane operations like running scripts and jobs. But customers can't do any control plane operation like scaling up/down. Only deletion is supported.
  
-After the **operational** stage, the cluster waits another 60 minutes for the remaining 20% worker nodes. At the end of this 60 minute, the cluster moves to the **running** stage, even if all of worker nodes are still not available. Once a cluster enters the **running** stage, you can use it as normal. Both control plan operations like scaling up/down, and data plan operations like running scripts and jobs are accepted. If some of the requested worker nodes are not available, the cluster will be marked as partial success. You are charged for the nodes that were deployed successfully. 
+After the **operational** stage, the cluster waits another 60 minutes for the remaining 20% worker nodes. At the end of this 60 minutes, the cluster moves to the **running** stage, even if all of worker nodes are still not available. Once a cluster enters the **running** stage, you can use it as normal. Both control plan operations like scaling up/down, and data plan operations like running scripts and jobs are accepted. If some of the requested worker nodes aren't available, the cluster will be marked as partial success. You are charged for the nodes that were deployed successfully. 
  
 #### Create new service principal through HDInsight
 Previously, with cluster creation, customers can create a new service principal to access the connected ADLS Gen 1 account in Azure portal. Starting June 15 2020, customers can't create new service principal in HDInsight creation workflow, only existing service principal is supported. See [Create Service Principal and Certificates using Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md).
 
 #### Time out for script actions with cluster creation
-HDInsight supports running script actions with cluster creation. From this release, all script actions with cluster creation must finish within **60 minutes**, or they time out. Script actions submitted to running clusters are not impacted. Learn more details [here](./hdinsight-hadoop-customize-cluster-linux.md#script-action-in-the-cluster-creation-process).
+HDInsight supports running script actions with cluster creation. From this release, all script actions with cluster creation must finish within **60 minutes**, or they time out. Script actions submitted to running clusters aren't impacted. Learn more details [here](./hdinsight-hadoop-customize-cluster-linux.md#script-action-in-the-cluster-creation-process).
  
 ### Upcoming changes
 No upcoming breaking changes that you need to pay attention to.
@@ -1115,11 +1184,11 @@ You can find the current component versions for HDInsight 4.0 ad HDInsight 3.6 i
 ### Known issues
 
 #### Hive Warehouse Connector issue
-There's an issue for Hive Warehouse Connector in this release. The fix will be included in the next release. Existing clusters created before this release are not impacted. Avoid dropping and recreating the cluster if possible. Open support ticket if you need further help on this.
+There's an issue for Hive Warehouse Connector in this release. The fix will be included in the next release. Existing clusters created before this release aren't impacted. Avoid dropping and recreating the cluster if possible. Open support ticket if you need further help on this.
 
 ## Release date: 01/09/2020
 
-This release applies both for HDInsight 3.6 and 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region in several days.
+This release applies both for HDInsight 3.6 and 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see following changes, wait for the release being live in your region in several days.
 
 ### New features
 #### TLS 1.2 enforcement
@@ -1549,7 +1618,7 @@ HDP 2.6.4 provided Hadoop Common 2.7.3 and the following Apache patches:
 
 -   [YARN-5641](https://issues.apache.org/jira/browse/YARN-5641): Localizer leaves behind tarballs after container is complete.
 
--   [YARN-6004](https://issues.apache.org/jira/browse/YARN-6004): Refactor TestResourceLocalizationService\#testDownloadingResourcesOnContainer so that it is fewer  than 150 lines.
+-   [YARN-6004](https://issues.apache.org/jira/browse/YARN-6004): Refactor TestResourceLocalizationService\#testDownloadingResourcesOnContainer so that it's fewer  than 150 lines.
 
 -   [YARN-6078](https://issues.apache.org/jira/browse/YARN-6078): Containers stuck in Localizing state.
 
@@ -2241,7 +2310,7 @@ This section covers all Common Vulnerabilities and Exposures (CVE) that are addr
 | **Vendor:** Hortonworks |
 | **Versions Affected:** HDP 2.4.0, HDP-2.5.0, HDP-2.6.0 |
 | **Users affected:** Users who use Storm in secure mode and are using blobstore to distribute topology based artifacts or using the blobstore to distribute any topology resources. |
-| **Impact:** Under some situations and configurations of storm it is theoretically possible for the owner of a topology to trick the supervisor to launch a worker as a different, non-root, user. In the worst case, this could lead to secure credentials of the other user being compromised. This vulnerability only applies to Apache Storm installations with security enabled. |
+| **Impact:** Under some situations and configurations of storm it's theoretically possible for the owner of a topology to trick the supervisor to launch a worker as a different, non-root, user. In the worst case, this could lead to secure credentials of the other user being compromised. This vulnerability only applies to Apache Storm installations with security enabled. |
 | **Mitigation:** Upgrade to HDP-2.6.2.1 as there are currently no workarounds.  |
 
 #### **​CVE-2016-4970**
@@ -2350,7 +2419,7 @@ Fixed issues represent selected issues that were previously logged via Hortonwor
 | BUG-94928              | [HDFS-11078](https://issues.apache.org/jira/browse/HDFS-11078)                                                                                                                                                                                                                                                                                                                                                                                                               | Fix NPE in LazyPersistFileScrubber                                                                                                  |
 | BUG-94964              | [HIVE-18269](https://issues.apache.org/jira/browse/HIVE-18269), [HIVE-18318](https://issues.apache.org/jira/browse/HIVE-18318), [HIVE-18326](https://issues.apache.org/jira/browse/HIVE-18326)                                                                                                                                                                                                                                                                               | Multiple LLAP fixes                                                                                                                 |
 | BUG-95669              | [HIVE-18577](https://issues.apache.org/jira/browse/HIVE-18577), [HIVE-18643](https://issues.apache.org/jira/browse/HIVE-18643)                                                                                                                                                                                                                                                                                                                                               | When run update/delete query on ACID partitioned table, HS2 read all each partitions.                                               |
-| BUG-96390              | [HDFS-10453](https://issues.apache.org/jira/browse/HDFS-10453)                                                                                                                                                                                                                                                                                                                                                                                                               | ReplicationMonitor thread could stuck for long time due to the race between replication and delete the same file in a large cluster. |
+| BUG-96390              | [HDFS-10453](https://issues.apache.org/jira/browse/HDFS-10453)                                                                                                                                                                                                                                                                                                                                                                                                               | ReplicationMonitor thread could be stuck for long time due to the race between replication and delete the same file in a large cluster. |
 | BUG-96625              | [HIVE-16110](https://issues.apache.org/jira/browse/HIVE-16110)                                                                                                                                                                                                                                                                                                                                                                                                               | Revert of "Vectorization: Support 2 Value CASE WHEN instead of fallback to VectorUDFAdaptor"                                       |
 | BUG-97109              | [HIVE-16757](https://issues.apache.org/jira/browse/HIVE-16757)                                                                                                                                                                                                                                                                                                                                                                                                               | Use of deprecated getRows() instead of new estimateRowCount(RelMetadataQuery...) has serious performance impact                      |
 | BUG-97110              | [PHOENIX-3789](https://issues.apache.org/jira/browse/PHOENIX-3789)                                                                                                                                                                                                                                                                                                                                                                                                           | Execute cross region index maintenance calls in postBatchMutateIndispensably                                                        |
@@ -2691,14 +2760,14 @@ Fixed issues represent selected issues that were previously logged via Hortonwor
 |**Kafka 1.0**|**N/A**|**Changes as documented in the Apache Spark release notes** |https://kafka.apache.org/10/documentation.html#upgrade_100_notable|
 |**Hive/ Ranger** | |Another ranger hive policies required for INSERT OVERWRITE |**Scenario:** Another ranger hive policies required for **INSERT OVERWRITE**<br /><br />**Previous behavior:** Hive **INSERT OVERWRITE** queries succeed as usual.<br /><br />**New behavior:** Hive **INSERT OVERWRITE** queries are unexpectedly failing after upgrading to HDP-2.6.x with the error:<br /><br />Error while compiling statement: FAILED: HiveAccessControlException Permission denied: user jdoe does not have WRITE privilege on /tmp/\*(state=42000,code=40000)<br /><br />As of HDP-2.6.0, Hive **INSERT OVERWRITE** queries require a Ranger URI policy to allow write operations, even if the user has write privilege granted through HDFS policy.<br /><br />**Workaround/Expected Customer Action:**<br /><br />1. Create a new policy under the Hive repository.<br />2. In the dropdown where you see Database, select URI.<br />3. Update the path (Example: /tmp/*)<br />4. Add the users and group and save.<br />5. Retry the insert query.|
 |**HDFS**|**N/A** |HDFS should support for multiple KMS Uris |**Previous Behavior:** dfs.encryption.key.provider.uri property was used to configure the KMS provider path.<br /><br />**New Behavior:** dfs.encryption.key.provider.uri is now deprecated in favor of hadoop.security.key.provider.path to configure the KMS provider path.|
-|**Zeppelin**|[**ZEPPELIN-3271**](https://issues.apache.org/jira/browse/ZEPPELIN-3271)|Option for disabling scheduler |**Component Affected:** Zeppelin-Server<br /><br />**Previous Behavior:** In previous releases of Zeppelin, there was no option for disabling scheduler.<br /><br />**New Behavior:** By default, users will no longer see scheduler, as it is disabled by default.<br /><br />**Workaround/Expected Customer Action:** If you want to enable scheduler, you will need to add azeppelin.notebook.cron.enable with value of true under custom zeppelin site in Zeppelin settings from Ambari.|
+|**Zeppelin**|[**ZEPPELIN-3271**](https://issues.apache.org/jira/browse/ZEPPELIN-3271)|Option for disabling scheduler |**Component Affected:** Zeppelin-Server<br /><br />**Previous Behavior:** In previous releases of Zeppelin, there was no option for disabling scheduler.<br /><br />**New Behavior:** By default, users will no longer see scheduler, as it's disabled by default.<br /><br />**Workaround/Expected Customer Action:** If you want to enable scheduler, you will need to add azeppelin.notebook.cron.enable with value of true under custom zeppelin site in Zeppelin settings from Ambari.|
 
 ### Known issues
 
 - **HDInsight integration with ADLS Gen 2** 
   There are two issues on HDInsight ESP clusters using Azure Data Lake Storage Gen 2 with user directories and permissions:
    
-  1. Home directories for users are not getting created on Head Node 1. As a workaround, create the directories manually and change ownership to the respective user’s UPN.
+  1. Home directories for users aren't getting created on Head Node 1. As a workaround, create the directories manually and change ownership to the respective user’s UPN.
    
   2. Permissions on /hdp directory are currently not set to 751. This needs to be set to 
      ```bash
@@ -2812,7 +2881,7 @@ Fixed issues represent selected issues that were previously logged via Hortonwor
           After removing the above line, the Ranger UI will allow you to create policies with policy condition that can contain special characters and policy evaluation will be successful for the same policy.
 
 **HDInsight Integration with ADLS Gen 2: User directories and permissions issue with ESP clusters**
-    1.	Home directories for users are not getting created on Head Node 1. Workaround is to create these manually and change ownership  to the respective user’s UPN.
+    1.	Home directories for users aren't getting created on Head Node 1. Workaround is to create these manually and change ownership  to the respective user’s UPN.
     2.	Permissions on /hdp are currently not set to 751. This needs to be set to 
     a.	chmod 751 /hdp 
     b.	chmod –R 755 /hdp/apps

@@ -11,7 +11,7 @@
       topicHref: /azure/active-directory/external-identities/index
       items:
       - name: Customers
-        tocHref: /azure/active-directory/develop/
+        tocHref: /azure/active-directory/external-identities/customers/
         topicHref: /azure/active-directory/external-identities/customers/index
 - name: Azure
   tocHref: /azure/
@@ -26,5 +26,5 @@
       topicHref: /azure/active-directory/external-identities/index
       items:
       - name: Customers
-        tocHref: /azure/active-directory-b2c/
+        tocHref: /azure/active-directory/external-identities/customers/
         topicHref: /azure/active-directory/external-identities/customers/index

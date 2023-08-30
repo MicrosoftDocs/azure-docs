@@ -4,8 +4,8 @@ description: In this article, learn how to restore blobs of a storage account us
 ms.topic: conceptual
 ms.date: 07/09/2021
 ms.assetid: 9b8d21e6-3e23-4345-bb2b-e21040996afd
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Restore Azure blobs to point-in-time using Azure Data Protection REST API

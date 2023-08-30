@@ -5,6 +5,7 @@ description: Enable two sample Dapr applications to communicate and leverage Azu
 author: hhunter-ms
 ms.author: hannahhunter
 ms.service: container-apps
+ms.custom: devx-track-dotnet, devx-track-js, devx-track-python
 ms.topic: how-to
 ms.date: 05/15/2023
 zone_pivot_group_filename: container-apps/dapr-zone-pivot-groups.json
@@ -226,7 +227,7 @@ In the Azure portal, verify the `checkout` service is passing orders to the `ord
 
 1. Copy the `checkout` container app's name from the terminal output.
 
-1. Navigate to the [Azure portal](https://ms.portal.azure.com) and search for the container app resource by name.
+1. Sign in to the [Azure portal](https://portal.azure.com) and search for the container app resource by name.
 
 1. In the Container Apps dashboard, select **Monitoring** > **Log stream**.
 
@@ -446,7 +447,7 @@ In the Azure portal, verify the `checkout` service is passing orders to the `ord
 
 1. Copy the `checkout` container app's name from the terminal output.
 
-1. Navigate to the [Azure portal](https://ms.portal.azure.com) and search for the container app resource by name.
+1. Sign in to the [Azure portal](https://portal.azure.com) and search for the container app resource by name.
 
 1. In the Container Apps dashboard, select **Monitoring** > **Log stream**.
 
@@ -665,7 +666,7 @@ In the Azure portal, verify the `checkout` service is passing orders to the `ord
 
 1. Copy the `checkout` container app's name from the terminal output.
 
-1. Navigate to the [Azure portal](https://ms.portal.azure.com) and search for the container app resource by name.
+1. Sign in to the [Azure portal](https://portal.azure.com) and search for the container app resource by name.
 
 1. In the Container Apps dashboard, select **Monitoring** > **Log stream**.
    

@@ -16,7 +16,7 @@ ms.custom: "devx-track-azurepowershell, devx-track-azurecli"
 > Key Vault resource provider supports two resource types: **vaults** and **managed HSMs**. Access control described in this article only applies to **vaults**. To learn more about access control for managed HSM, see [Managed HSM access control](../managed-hsm/access-control.md).
 
 > [!NOTE]
-> Azure App Service certificate configuration through Azure Portal does not support Key Vault RBAC permission model. You can use Azure PowerShell, Azure CLI, ARM template deployments with **Key Vault Secrets User** and **Key Vault Reader** role assignemnts for 'Microsoft Azure App Service' global indentity.
+>  Azure App Service certificate configuration through Azure Portal does not support Key Vault RBAC permission model, but you can use Azure PowerShell, Azure CLI, ARM template deployments. App Service certificate management requires **Key Vault Secrets User** and **Key Vault Reader** role assignments for App Service global identity, for example Microsoft Azure App Service' in public cloud.
 
 Azure role-based access control (Azure RBAC) is an authorization system built on [Azure Resource Manager](../../azure-resource-manager/management/overview.md) that provides fine-grained access management of Azure resources.
 
@@ -79,11 +79,11 @@ To add role assignments, you must have `Microsoft.Authorization/roleAssignments/
 
 1.  Enable Azure RBAC permissions on new key vault:
 
-    ![Enable Azure RBAC permissions - new vault](../media/rbac/image-1.png)
+    ![Enable Azure RBAC permissions - new vault](../media/rbac/new-vault.png)
 
 2.  Enable Azure RBAC permissions on existing key vault:
 
-    ![Enable Azure RBAC permissions - existing vault](../media/rbac/image-2.png)
+    ![Enable Azure RBAC permissions - existing vault](../media/rbac/existing-vault.png)
 
 > [!IMPORTANT]
 > Setting Azure RBAC permission model invalidates all access policies permissions. It can cause outages when equivalent Azure roles aren't assigned.
@@ -331,12 +331,6 @@ New-AzRoleDefinition -InputFile role.json
 For more Information about how to create custom roles, see:
 
 [Azure custom roles](../../role-based-access-control/custom-roles.md)
-
-## Known limits and performance
-
--   Key Vault data plane RBAC is not supported in multi tenant scenarios like with Azure Lighthouse
--   4000 Azure role assignments per subscription
--   Role assignments latency: at current expected performance, it will take up to 10 minutes (600 seconds) after role assignments is changed for role to be applied
 
 ## Frequently Asked Questions:
 

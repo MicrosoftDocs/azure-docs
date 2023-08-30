@@ -1,6 +1,6 @@
 ---
-title: View data about the activity in your authorization system in Permissions Management
-description: How to view data about the activity in your authorization system in the Permissions Management Dashboard in Permissions Management.
+title: View data about the activity in your authorization system
+description: How to view data about the activity in your authorization system in the Microsoft Entra Permissions Management Dashboard.
 services: active-directory
 author: jenniferf-skc
 manager: amycolannino
@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/25/2023
+ms.date: 06/19/2023
 ms.author: jfields
 ---
 
 # View data about the activity in your authorization system
 
-The Permissions Management **Dashboard** provides an overview of the authorization system and account activity being monitored. You can use this dashboard to view data collected from your Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform (GCP) authorization systems.
+The Permissions Management **Dashboard** provides an overview of the authorization system and account activity being monitored. Use this dashboard to view data collected from your Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform (GCP) authorization systems.
 
 ## View data about your authorization system
 
-1. In the Permissions Management home page, select **Dashboard**.
+1. From the Permissions Management home page, select **Dashboard**.
 1. From the **Authorization systems type** dropdown, select **AWS**, **Azure**, or **GCP**.
 1. Select the **Authorization System** box to display a **List** of accounts and **Folders** available to you.
 1. Select the accounts and folders you want, and then select **Apply**.

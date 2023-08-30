@@ -8,6 +8,7 @@ ms.date: 11/17/2021
 ms.topic: how-to
 ms.service: sap-on-azure
 ms.subservice: sap-automation
+ms.custom: devx-track-ansible
 ---
 
 # Get started Ansible configuration
@@ -267,14 +268,11 @@ This playbooks downloads the installation media from the control plane to the in
 # [Linux](#tab/linux)
 
 The following tasks are executed on the Central services instance virtual machine:
-- Download the software
+- Download the software from the storage account and make it available for the other virtual machines
 
 # [Windows](#tab/windows)
 
 The following tasks are executed on the Central services instance virtual machine:
-- Download the software
+- Download the software from the storage account and make it available for the other virtual machines
 
 ---
-
-
-

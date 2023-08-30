@@ -4,7 +4,7 @@ description: "Learn how to create a C# function from the command line, then publ
 ms.date: 11/08/2022
 ms.topic: quickstart
 ms.devlang: csharp
-ms.custom: devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell, mode-other
+ms.custom: devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell, mode-other, devx-track-dotnet
 adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
@@ -25,8 +25,6 @@ Before you begin, you must have the following:
 
 + [.NET 6.0 SDK](https://dotnet.microsoft.com/download).
 
-+ [Azure Functions Core Tools](./functions-run-local.md#v2) version 4.x.
-
 + One of the following tools for creating Azure resources:
 
     + [Azure CLI](/cli/azure/install-azure-cli) [version 2.4](/cli/azure/release-notes-azure-cli#april-21-2020) or later.
@@ -35,31 +33,7 @@ Before you begin, you must have the following:
 
 You also need an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-### Prerequisite check
-
-Verify your prerequisites, which depend on whether you're using Azure CLI or Azure PowerShell for creating Azure resources:
-
-# [Azure CLI](#tab/azure-cli)
-
-+ In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version 4.x.
-
-+ Run `dotnet --list-sdks` to check that the required versions are installed.
-
-+ Run `az --version` to check that the Azure CLI version is 2.4 or later.
-
-+ Run `az login` to sign in to Azure and verify an active subscription.
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-+ In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version 4.x.
-
-+ Run `dotnet --list-sdks` to check that the required versions are installed.
-
-+ Run `(Get-Module -ListAvailable Az).Version` and verify version 5.0 or later.
-
-+ Run `Connect-AzAccount` to sign in to Azure and verify an active subscription.
-
----
+[!INCLUDE [functions-install-core-tools](../../includes/functions-install-core-tools.md)]
 
 ## Create a local function project
 
@@ -178,4 +152,3 @@ Copy the complete **Invoke URL** shown in the output of the publish command into
 
 > [!div class="nextstepaction"]
 > [Connect to Azure Queue Storage](functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-csharp&tabs=isolated-process)
-

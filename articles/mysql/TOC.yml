@@ -86,6 +86,8 @@
         href: flexible-server/concepts-server-parameters.md
       - name: Limitations
         href: flexible-server/concepts-limitations.md
+      - name: Storage IOPS
+        href: flexible-server/concepts-storage-iops.md
     - name: Networking
       items:
       - name: Networking concepts
@@ -96,7 +98,10 @@
         displayName: virtual network
       - name: Public Access
         href: flexible-server/concepts-networking-public.md
-        displayName: Public access,
+        displayName: Public access
+      - name: Private Link
+        href: flexible-server/concepts-networking-private-link.md
+        displayName: Private Link
     - name: Service Maintenance
       items:
       - name: Scheduled Maintenance
@@ -137,6 +142,10 @@
         href: flexible-server/concepts-customer-managed-key.md
   - name: Integrations
     items:
+    - name: Automation tasks
+      href: flexible-server/create-automation-tasks.md
+    - name: Azure Key Vault
+      href: flexible-server/tutorial-add-mysql-connection-in-key-vault.md
     - name: Power Apps
       href: flexible-server/tutorial-create-power-app-with-mysql.md
     - name: Power Automate
@@ -215,8 +224,16 @@
           href: flexible-server/how-to-manage-firewall-portal.md
         - name: Azure CLI
           href: flexible-server/how-to-manage-firewall-cli.md
-    - name: Service Maintenance
-      items:
+      - name: Configure Private Link access
+        items:
+        - name: Azure portal
+          href: flexible-server/how-to-networking-private-link-portal.md
+        - name: Azure portal - deny access
+          href: flexible-server/how-to-networking-private-link-deny-public-access.md
+        - name: Azure CLI
+          href: flexible-server/how-to-networking-private-link-azure-cli.md
+      - name: Service Maintenance
+        items:
       - name: Configure Scheduled Maintenance using Azure portal
         href: flexible-server/how-to-maintenance-portal.md
     - name: High Availability
@@ -688,12 +705,16 @@
     href: ../dms/faq-mysql-single-to-flex.md?bc=%2fazure%2fmysql%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fmysql%2ftoc.json
   - name: Choose the right tools for migration to Azure Database for MySQL
     href: migrate/how-to-decide-on-right-migration-tools.md
-  - name: Migrate data from MySQL on-premises to Azure Database for MySQL >
+  - name: Migrate data from MySQL on-premises to Azure Database for MySQL
     href: migrate/mysql-on-premises-azure-db/01-mysql-migration-guide-intro.md
   - name: Migrate MySQL - Single Server to Flexible Server offline using DMS (classic)
     href: ../dms/tutorial-mysql-azure-single-to-flex-offline-portal.md?bc=%2fazure%2fmysql%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fmysql%2ftoc.json
   - name: Migrate MySQL - Single Server to Flexible Server online using DMS (classic)
     href: ../dms/tutorial-mysql-azure-single-to-flex-online-portal.md?bc=%2fazure%2fmysql%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fmysql%2ftoc.json
+  - name: Migrate MySQL - Single Server to Flexible Server using Azure MySQL Import CLI
+    href: migrate/migrate-single-flexible-mysql-import-cli.md
+  - name: In-place auto-migration for MySQL - Single Server to Flexible Server
+    href: migrate/migrate-single-flexible-in-place-auto-migration.md
   - name: Migrate data with mysqldump or phpmyadmin
     href: single-server/concepts-migrate-dump-restore.md
     displayName: migrate, mysqldump
@@ -744,7 +765,7 @@
     href: single-server/how-to-data-encryption-troubleshoot.md
     displayName: encryption, security
   - name: Troubleshoot replication latency
-    href: single-server/how-to-troubleshoot-replication-latency.md
+    href: how-to-troubleshoot-replication-latency.md
     displayName: replication, latency, monitor
   - name: Troubleshoot database corruption
     href: single-server/how-to-fix-corrupt-database.md

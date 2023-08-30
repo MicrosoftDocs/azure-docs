@@ -124,7 +124,7 @@ In this case, start with the list of attributes in this topic and identify those
 | msExchRecipientTypeDetails |X |X |X | |
 | msExchRemoteRecipientType |X | | | |
 | msExchRequireAuthToSendTo |X |X |X | |
-| msExchResourceCapacity |X | | | |
+| msExchResourceCapacity |X| | |This attribute is currently not consumed by Exchange Online. |
 | msExchResourceDisplay |X | | | |
 | msExchResourceMetaData |X | | | |
 | msExchResourceSearchProperties |X | | | |
@@ -151,6 +151,7 @@ In this case, start with the list of attributes in this topic and identify those
 | pwdLastSet |X | | |mechanical property. Used to know when to invalidate already issued tokens. Used by both password sync and federation. |
 | reportToOriginator | | |X | |
 | reportToOwner | | |X | |
+| securityEnabled | | |X | |
 | sn |X |X | | |
 | sourceAnchor |X |X |X |mechanical property. Immutable identifier to maintain relationship between ADDS and Azure AD. |
 | st |X |X | | |
@@ -233,6 +234,7 @@ In this case, start with the list of attributes in this topic and identify those
 | pwdLastSet |X | | |mechanical property. Used to know when to invalidate already issued tokens. Used by both password hash sync, pass-through authentication and federation. |
 | reportToOriginator | | |X | |
 | reportToOwner | | |X | |
+| securityEnabled | | |X | |
 | sn |X |X | | |
 | sourceAnchor |X |X |X |mechanical property. Immutable identifier to maintain relationship between ADDS and Azure AD. |
 | st |X |X | | |
@@ -286,6 +288,7 @@ In this case, start with the list of attributes in this topic and identify those
 | preferredLanguage |X | | | |
 | proxyAddresses |X |X |X | |
 | pwdLastSet |X | | |mechanical property. Used to know when to invalidate already issued tokens. Used by both password hash sync, pass-through authentication and federation. |
+| securityEnabled | | |X | |
 | sn |X |X | | |
 | sourceAnchor |X |X |X |mechanical property. Immutable identifier to maintain relationship between ADDS and Azure AD. |
 | st |X |X | | |
@@ -308,6 +311,7 @@ In this case, start with the list of attributes in this topic and identify those
 | objectSID |X | |X |mechanical property. AD user identifier used to maintain sync between Azure AD and AD. |
 | proxyAddresses |X |X |X |mechanical property. Used by Azure AD. Contains all secondary email addresses for the user. |
 | pwdLastSet |X | | |mechanical property. Used to know when to invalidate already issued tokens. |
+| securityEnabled | | |X | |
 | sourceAnchor |X |X |X |mechanical property. Immutable identifier to maintain relationship between ADDS and Azure AD. |
 | usageLocation |X | | |mechanical property. The user’s country/region. Used for license assignment. |
 | userPrincipalName |X | | |This UPN is the login ID for the user. Most often the same as [mail] value. |
@@ -326,6 +330,7 @@ In this case, start with the list of attributes in this topic and identify those
 | objectSID |X | |X |mechanical property. AD user identifier used to maintain sync between Azure AD and AD. |
 | proxyAddresses |X |X |X | |
 | pwdLastSet |X | | |mechanical property. Used to know when to invalidate already issued tokens. Used by both password hash sync, pass-through authentication and federation. |
+| securityEnabled | | |X | |
 | sourceAnchor |X |X |X |mechanical property. Immutable identifier to maintain relationship between ADDS and Azure AD. |
 | usageLocation |X | | |mechanical property. The user’s country/region. Used for license assignment. |
 | userPrincipalName |X | | |UPN is the login ID for the user. Most often the same as [mail] value. |
@@ -353,6 +358,7 @@ In this case, start with the list of attributes in this topic and identify those
 | postalCode |X |X | | |
 | preferredLanguage |X | | | |
 | pwdLastSet |X | | |mechanical property. Used to know when to invalidate already issued tokens. Used by both password hash sync, pass-through authentication and federation. |
+| securityEnabled | | |X | |
 | sn |X |X | | |
 | sourceAnchor |X |X |X |mechanical property. Immutable identifier to maintain relationship between ADDS and Azure AD. |
 | st |X |X | | |
@@ -384,13 +390,14 @@ This group is a set of attributes that can be used if the Azure AD directory is 
 | objectSID |X | | |mechanical property. AD user identifier used to maintain sync between Azure AD and AD. |
 | proxyAddresses |X |X |X | |
 | pwdLastSet |X | | |mechanical property. Used to know when to invalidate already issued tokens. Used by both password hash sync, pass-through authentication and federation. |
+| securityEnabled | | |X | |
 | sn |X |X | | |
 | sourceAnchor |X |X |X |mechanical property. Immutable identifier to maintain relationship between ADDS and Azure AD. |
 | usageLocation |X | | |mechanical property. The user’s country/region. Used for license assignment. |
 | userPrincipalName |X | | |UPN is the login ID for the user. Most often the same as [mail] value. |
 
 ## Windows 10
-A Windows 10 domain-joined computer(device) synchronizes some attributes to Azure AD. For more information on the scenarios, see [Connect domain-joined devices to Azure AD for Windows 10 experiences](../../devices/hybrid-azuread-join-plan.md). These attributes always synchronize and Windows 10 does not appear as an app you can unselect. A Windows 10 domain-joined computer is identified by having the attribute userCertificate populated.
+A Windows 10 domain-joined computer(device) synchronizes some attributes to Azure AD. For more information on the scenarios, see [Connect domain-joined devices to Azure AD for Windows 10 experiences](../../devices/hybrid-join-plan.md). These attributes always synchronize and Windows 10 does not appear as an app you can unselect. A Windows 10 domain-joined computer is identified by having the attribute userCertificate populated.
 
 | Attribute Name | Device | Comment |
 | --- |:---:| --- |

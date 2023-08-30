@@ -6,7 +6,14 @@
     href: overview.md
   - name: About keys, secrets, and certificates
     href: about-keys-secrets-certificates.md
-
+- name: Documentation for keys, secrets, and certificates
+  items:
+  - name: Keys
+    href: ../keys/about-keys.md
+  - name: Secrets
+    href: ../secrets/about-secrets.md
+  - name: Certificates
+    href: ../certificates/about-certificates.md
 - name: Quickstarts
   expanded: true
   items:
@@ -95,7 +102,7 @@
   items:
   - name: Authorize access
     items:
-    - name: RBAC vs. access policy
+    - name: RBAC vs. access policy (legacy)
       href: rbac-access-policy.md
     - name: Azure RBAC permission model
       items:
@@ -103,7 +110,7 @@
         href: rbac-guide.md
       - name: Vault access policies to Azure RBAC migration guide
         href: rbac-migration.md
-    - name: Assign an access policy
+    - name: Assign an access policy (legacy)
       href: assign-access-policy.md
     - name: Troubleshoot access issues
       href: troubleshooting-access-issues.md

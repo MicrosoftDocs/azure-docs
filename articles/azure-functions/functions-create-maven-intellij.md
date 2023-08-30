@@ -6,7 +6,7 @@ ms.topic: quickstart
 ms.date: 03/28/2022
 ms.author: jialuogan
 ms.devlang: java
-ms.custom: mvc, devcenter, devx-track-java
+ms.custom: mvc, devcenter, devx-track-java, devx-track-extended-java
 ---
 
 # Create your first Java function in Azure using IntelliJ

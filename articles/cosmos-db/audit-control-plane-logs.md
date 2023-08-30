@@ -40,7 +40,7 @@ You can enable diagnostic logs for control plane operations by using the Azure p
 
 Use the following steps to enable logging on control plane operations:
 
-1. Sign into [Azure portal](https://portal.azure.com) and navigate to your Azure Cosmos DB account.
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Azure Cosmos DB account.
 
 1. Open the **Diagnostic settings** pane, provide a **Name** for the logs to create.
 
@@ -54,7 +54,7 @@ You can also store the logs in a storage account or stream to an event hub. This
 
 After you turn on logging, use the following steps to track down operations for a specific account:
 
-1. Sign into [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Open the **Monitor** tab from the left-hand navigation and then select the **Logs** pane. It opens a UI where you can easily run queries with that specific account in scope. Run the following query to view control plane logs:
 

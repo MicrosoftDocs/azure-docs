@@ -79,7 +79,7 @@ Access to a given Azure Machine Learning workspace via Private Link is done by c
 - ```ml-<workspace-name, truncated>-<region>-<per-workspace globally-unique identifier>.<region>.notebooks.azure.net```
 - ```<managed online endpoint name>.<region>.inference.ml.azure.com``` - Used by managed online endpoints
 
-**Azure China 21Vianet regions**:
+**Microsoft Azure operated by 21Vianet regions**:
 - ```<per-workspace globally-unique identifier>.workspace.<region the workspace was created in>.api.ml.azure.cn```
 - ```<per-workspace globally-unique identifier>.workspace.<region the workspace was created in>.cert.api.ml.azure.cn```
 - ```<compute instance name>.<region the workspace was created in>.instances.azureml.cn```
@@ -100,7 +100,7 @@ The Fully Qualified Domains resolve to the following Canonical Names (CNAMEs) ca
 - ```ml-<workspace-name, truncated>-<region>-<per-workspace globally-unique identifier>.<region>.privatelink.notebooks.azure.net```
 - ```<managed online endpoint name>.<per-workspace globally-unique identifier>.inference.<region>.privatelink.api.azureml.ms``` - Used by managed online endpoints
 
-**Azure China regions**:
+**Azure operated by 21Vianet regions**:
 - ```<per-workspace globally-unique identifier>.workspace.<region the workspace was created in>.privatelink.api.ml.azure.cn```
 - ```ml-<workspace-name, truncated>-<region>-<per-workspace globally-unique identifier>.<region>.privatelink.notebooks.chinacloudapi.cn```
 - ```<managed online endpoint name>.<per-workspace globally-unique identifier>.inference.<region>.privatelink.api.ml.azure.cn``` - Used by managed online endpoints
@@ -140,9 +140,9 @@ The following list contains the fully qualified domain names (FQDNs) used by you
 
 * `<managed online endpoint name>.<region>.inference.ml.azure.com` - Used by managed online endpoints
 
-#### Azure China region
+#### Microsoft Azure operated by 21Vianet region
 
-The following FQDNs are for Azure China regions:
+The following FQDNs are for Microsoft Azure operated by 21Vianet regions:
 
 * `<workspace-GUID>.workspace.<region>.cert.api.ml.azure.cn`
 * `<workspace-GUID>.workspace.<region>.api.ml.azure.cn`
@@ -248,7 +248,7 @@ The information returned from all methods is the same; a list of the FQDN and pr
 | `ml-myworkspace-eastus-fb7e20a0-8891-458b-b969-55ddb3382f51.eastus.notebooks.azure.net` | `10.1.0.6` |
 | `*.eastus.inference.ml.azure.com` | `10.1.0.7` |
 
-The following table shows example IPs from Azure China regions:
+The following table shows example IPs from Microsoft Azure operated by 21Vianet regions:
 
 | FQDN | IP Address |
 | ----- | ----- |
@@ -292,7 +292,7 @@ The following steps describe how this topology works:
     - ```privatelink.api.azureml.ms```
     - ```privatelink.notebooks.azure.net```
 
-    **Azure China regions**:
+    **Microsoft Azure operated by 21Vianet regions**:
     - ```privatelink.api.ml.azure.cn```
     - ```privatelink.notebooks.chinacloudapi.cn```
 
@@ -330,7 +330,7 @@ The following steps describe how this topology works:
     - ```aznbcontent.net```
     - ```inference.ml.azure.com``` - Used by managed online endpoints
 
-    **Azure China regions**:
+    **Microsoft Azure operated by 21Vianet regions**:
     - ```api.ml.azure.cn```
     - ```notebooks.chinacloudapi.cn```
     - ```instances.azureml.cn```
@@ -357,7 +357,7 @@ The following steps describe how this topology works:
     - ```ml-<workspace-name, truncated>-<region>-<per-workspace globally-unique identifier>.<region>.notebooks.azure.net```
     - ```<managed online endpoint name>.<region>.inference.ml.azure.com``` - Used by managed online endpoints
 
-    **Azure China regions**:
+    **Microsoft Azure operated by 21Vianet regions**:
     - ```<per-workspace globally-unique identifier>.workspace.<region the workspace was created in>.api.ml.azure.cn```
     - ```ml-<workspace-name, truncated>-<region>-<per-workspace globally-unique identifier>.<region>.notebooks.chinacloudapi.cn```
     - ```<managed online endpoint name>.<region>.inference.ml.azure.cn``` - Used by managed online endpoints
@@ -391,7 +391,7 @@ If you cannot access the workspace from a virtual machine or jobs fail on comput
 
     Navigate to the Azure portal using one of the following links:
     - [Azure Public regions](https://portal.azure.com/?feature.privateendpointmanagedns=false)
-    - [Azure China regions](https://portal.azure.cn/?feature.privateendpointmanagedns=false)
+    - [Microsoft Azure operated by 21Vianet regions](https://portal.azure.cn/?feature.privateendpointmanagedns=false)
     - [Azure US Government regions](https://portal.azure.us/?feature.privateendpointmanagedns=false)
 
     Navigate to the Private Endpoint to the Azure Machine Learning workspace. The workspace FQDNs will be listed on the "Overview" tab.
@@ -431,7 +431,7 @@ The following steps describe how this topology works:
     - ``` privatelink.api.azureml.ms```
     - ``` privatelink.notebooks.azure.net```
 
-    **Azure China regions**:
+    **Microsoft Azure operated by 21Vianet regions**:
     - ```privatelink.api.ml.azure.cn```
     - ```privatelink.notebooks.chinacloudapi.cn```
 
@@ -476,7 +476,7 @@ The following steps describe how this topology works:
     - ```aznbcontent.net```
     - ```inference.ml.azure.com``` - Used by managed online endpoints
 
-    **Azure China regions**:
+    **Microsoft Azure operated by 21Vianet regions**:
     - ```api.ml.azure.cn```
     - ```notebooks.chinacloudapi.cn```
     - ```instances.azureml.cn```
@@ -505,7 +505,7 @@ The following steps describe how this topology works:
     - ```instances.azureml.ms```
     - ```inference.ml.azure.com``` - Used by managed online endpoints
 
-    **Azure China regions**:
+    **Microsoft Azure operated by 21Vianet regions**:
     - ```api.ml.azure.cn```
     - ```notebooks.chinacloudapi.cn```
     - ```instances.azureml.cn```
@@ -531,7 +531,7 @@ The following steps describe how this topology works:
     - ```ml-<workspace-name, truncated>-<region>-<per-workspace globally-unique identifier>.<region>.notebooks.azure.net```
     - ```<managed online endpoint name>.<region>.inference.ml.azure.com``` - Used by managed online endpoints
 
-    **Azure China regions**:
+    **Microsoft Azure operated by 21Vianet regions**:
     - ```<per-workspace globally-unique identifier>.workspace.<region the workspace was created in>.api.ml.azure.cn```
     - ```ml-<workspace-name, truncated>-<region>-<per-workspace globally-unique identifier>.<region>.notebooks.chinacloudapi.cn```
     - ```<managed online endpoint name>.<region>.inference.ml.azure.cn``` - Used by managed online endpoints
@@ -621,7 +621,7 @@ If after running through the above steps you are unable to access the workspace 
 
     Navigate to the Azure portal using one of the following links:
     - [Azure Public regions](https://portal.azure.com/?feature.privateendpointmanagedns=false)
-    - [Azure China regions](https://portal.azure.cn/?feature.privateendpointmanagedns=false)
+    - [Microsoft Azure operated by 21Vianet regions](https://portal.azure.cn/?feature.privateendpointmanagedns=false)
     - [Azure US Government regions](https://portal.azure.us/?feature.privateendpointmanagedns=false)
 
     Navigate to the Private Endpoint to the Azure Machine Learning workspace. The workspace FQDNs will be listed on the "Overview" tab.

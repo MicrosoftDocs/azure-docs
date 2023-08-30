@@ -14,7 +14,7 @@ ms.custom: UpdateFrequency5, deploy, sdkv1, event-tier1-build-2022, build-2023
 
 # Deploy models trained with Azure Machine Learning on your local machines 
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 This article describes how to use your local computer as a target for training or deploying models created in Azure Machine Learning. Azure Machine Learning is flexible enough to work with most Python machine learning frameworks. Machine learning solutions generally have complex dependencies that can be difficult to duplicate. This article will show you how to balance total control with ease of use.
 

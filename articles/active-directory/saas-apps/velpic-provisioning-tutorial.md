@@ -47,7 +47,7 @@ Before configuring and enabling the provisioning service, you will need to decid
 This section guides you through connecting your Azure AD to Velpic's user account provisioning API, and configuring the provisioning service to create, update and disable assigned user accounts in Velpic based on user and group assignment in Azure AD.
 
 > [!TIP]
-> You may also choose to enabled SAML-based Single Sign-On for Velpic, following the instructions provided in [Azure portal](https://portal.azure.com). Single sign-on can be configured independently of automatic provisioning, though these two features compliment each other.
+> You may also choose to enabled SAML-based Single Sign-On for Velpic, following the instructions provided in the [Azure portal](https://portal.azure.com). Single sign-on can be configured independently of automatic provisioning, though these two features compliment each other.
 
 ### To configure automatic user account provisioning to Velpic in Azure AD:
 

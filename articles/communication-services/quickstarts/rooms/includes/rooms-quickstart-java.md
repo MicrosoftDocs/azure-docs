@@ -2,12 +2,11 @@
 title: include file
 description: include file
 services: azure-communication-services
-author: t-siddiquim
-manager: alexo
+author: mrayyan
+manager: alexokun
 
 ms.service: azure-communication-services
-ms.subservice: azure-communication-services
-ms.date: 05/25/2023
+ms.date: 07/20/2023
 ms.topic: include
 ms.custom: include file
 ms.author: t-siddiquim
@@ -36,7 +35,7 @@ mvn archetype:generate -DgroupId=com.communication.quickstart -DartifactId=commu
 
 ### Include the package
 
-You'll need to use the Azure Communication Rooms client library for Java [version 1.0.0-beta.3](https://search.maven.org/artifact/com.azure/azure-communication-rooms/1.0.0-beta.3/jar) or above. 
+You'll need to use the Azure Communication Rooms client library for Java [version 1.0.0](https://search.maven.org/artifact/com.azure/azure-communication-rooms/1.0.0/jar) or above.
 
 #### Include the BOM file
 
@@ -85,7 +84,7 @@ Go to the /src/main/java/com/communication/quickstart directory and open the `Ap
 
 ```java
 
-package com.communication.quickstart;
+package com.communication.rooms.quickstart;
 
 import com.azure.communication.common.*;
 import com.azure.communication.identity.*;
@@ -119,33 +118,58 @@ Create a new `RoomsClient` object that will be used to create new `rooms` and ma
 String connectionString = "<connection string>";
 RoomsClient roomsClient = new RoomsClientBuilder().connectionString(connectionString).buildClient();
 
-// Create communication identities
-CommunicationIdentityClient communicationIdentityClient = new CommunicationIdentityClientBuilder()
-    .connectionString(connectionString)
-    .buildClient();
-
-//Create Participants
-RoomParticipant participant_1 = new RoomParticipant(communicationClient.createUser());
-RoomParticipant participant_2 = new RoomParticipant(communicationClient.createUser());
-RoomParticipant participant_3 = new RoomParticipant(communicationClient.createUser());
-
-
 ```
 
 ## Create a room
 
-Create a new `room` with default properties using the code snippet below:
+### Set up room participants
+In order to set up who can join a room, you'll need to have the list of the identities of those users. You can follow the instructions [here](../../identity/access-tokens.md?pivots=programming-language-java) for creating users and issuing access tokens. Alternatively, if you want to create the users on demand, you can create them using the `CommunicationIdentityClient`.
 
+To use `CommunicationIdentityClient`, add the following package:
+
+```xml
+<dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-communication-identity</artifactId>
+</dependency>
+```
+
+Import the package on top on your `App.java` file:
 ```java
+import com.azure.communication.identity.CommunicationIdentityClient;
+import com.azure.communication.identity.CommunicationIdentityClientBuilder;
+```
 
-// Create room
-OffsetDateTime validFrom = OffsetDateTime.now();
-OffsetDateTime validUntil = validFrom.plusDays(30);
+Now, the `CommunicationIdentityClient` can be initialized and used to create users:
+```java
+CommunicationIdentityClient communicationIdentityClient = new CommunicationIdentityClientBuilder()
+    .connectionString(connectionString)
+    .buildClient();
+
+CommunicationUserIdentifier user1 = communicationClient.createUser();
+CommunicationUserIdentifier user2 = communicationClient.createUser();
+CommunicationUserIdentifier user3 = communicationClient.createUser();
+```
+
+Then, create the list of room participants by referencing those users:
+```java
+//The default participant role is ParticipantRole.Attendee
+RoomParticipant participant_1 = new RoomParticipant(user1);
+RoomParticipant participant_2 = new RoomParticipant(user2);
+RoomParticipant participant_3 = new RoomParticipant(user3);
 
 List<RoomParticipant> roomParticipants = new ArrayList<RoomParticipant>();
 
 roomParticipants.add(participant_1);
 roomParticipants.add(participant_2.setRole(ParticipantRole.CONSUMER));
+```
+
+### Initialize the room
+Create a new `room` using the `roomParticipants` defined in the code snippet above:
+
+```java
+OffsetDateTime validFrom = OffsetDateTime.now();
+OffsetDateTime validUntil = validFrom.plusDays(30);
 
 CreateRoomOptions roomOptions = new CreateRoomOptions()
     .setValidFrom(validFrom)
@@ -178,7 +202,6 @@ The lifetime of a `room` can be modified by issuing an update request for the `V
 
 ```java
 
-// Update room lifetime
 OffsetDateTime validFrom = OffsetDateTime.now().plusDays(1);
 OffsetDateTime validUntil = validFrom.plusDays(1);
 
@@ -187,7 +210,7 @@ UpdateRoomOptions roomUpdateOptions = new UpdateRoomOptions()
     .setValidUntil(validUntil);
 
 CommunicationRoom roomResult = roomsClient.updateRoom(roomId, roomUpdateOptions);
-            
+
 System.out.println("Updated room with validFrom: " + roomResult.getValidFrom() + " and validUntil: " + roomResult.getValidUntil());
 ```
 
@@ -197,7 +220,6 @@ To add or update participants to a `room`, use the `addOrUpdateParticipants` met
 
 ```java
 
-// Add participants to room
 List<RoomParticipant> participantsToAddAOrUpdate = new ArrayList<>();
 
 // Adding new participant
@@ -205,7 +227,7 @@ List<RoomParticipant> participantsToAddAOrUpdate = new ArrayList<>();
 
 // Updating current participant
 participantsToAddAOrUpdate.add(participant_2.setRole(ParticipantRole.PRESENTER));
-        
+
 AddOrUpdateParticipantsResult addOrUpdateParticipantsResult = roomsClient.addOrUpdateParticipants(roomId, participantsToAddAOrUpdate);
 
 System.out.println("Participant(s) added/updated");
@@ -222,7 +244,7 @@ Retrieve the list of participants for an existing `room` by referencing the `roo
 
 // Get list of participants
 try {
-     
+
 PagedIterable<RoomParticipant> participants = roomsClient.listParticipants(roomId);
 
 System.out.println("Participants:/n");
@@ -246,7 +268,7 @@ To remove a participant from a `room` and revoke their access, use the `removePa
 List<CommunicationIdentifier> participantsToRemove = new ArrayList<>();
 
 participantsToRemove.add(participant_3.getCommunicationIdentifier());
-            
+
 RemoveParticipantsResult removeParticipantsResult = roomsClient.removeParticipants(roomId,participantsToRemove);
 
 System.out.println("Participant(s) removed");
@@ -259,15 +281,19 @@ Retrieve all active `rooms` under your ACS resource.
 
 ```java
 try {
-    PagedIterable<CommunicationRoom> rooms = roomsClient.listRooms();
+    Iterable<PagedResponse<CommunicationRoom>> roomPages = roomsClient.listRooms().iterableByPage();
+
+    System.out.println("Listing all the rooms IDs in the first two pages of the list of rooms:");
+
     int count = 0;
-    
-    for (CommunicationRoom room : rooms) {
-        System.out.println("\nFirst room ID in the list of rooms: " + room.getRoomId());
+    for (PagedResponse<CommunicationRoom> page : roomPages) {
+        for (CommunicationRoom room : page.getElements()) {
+            System.out.println("\n" + room.getRoomId());
+        }
+
         count++;
-        
-        if (count >= 1) {
-                break;
+        if (count >= 2) {
+            break;
         }
     }
 } catch (Exception ex) {
@@ -309,9 +335,7 @@ mvn package
 Execute the app
 
 ```console
-
-mvn exec:java -Dexec.mainClass="com.communication.quickstart.App" -Dexec.cleanupDaemonThreads=false
-
+mvn exec:java -D"exec.mainClass"="com.communication.rooms.quickstart" -D"exec.cleanupDaemonThreads"="false"
 ```
 
 The expected output describes each completed action:
@@ -328,13 +352,16 @@ Updated room with validFrom:  2023-05-11T22:11:46.784Z  and validUntil:  2023-05
 
 Participant(s) added/updated
 
-Participants: 
+Participants:
 8:acs:b6aada1f-0b1d-47ac-866f-91aae00a1d01_00000018-ac89-7c76-35f3-343a0d00e901 (Attendee)
 8:acs:b6aada1f-0b1d-47ac-866f-91aae00a1d01_00000018-ac89-7c76-35f3-343a0d00e902 (Consumer)
 
 Participant(s) removed
 
-First room ID in the list of rooms: 99445276259151407
+Listing all the rooms IDs in the first two pages of the list of rooms: 
+99445276259151407
+99445276259151408
+99445276259151409
 
 Deleted the room with ID:  99445276259151407
 
@@ -342,4 +369,4 @@ Deleted the room with ID:  99445276259151407
 
 ## Reference documentation
 
-Read about the full set of capabilities of Azure Communication Services rooms from the [Java SDK reference](/java/api/overview/azure/communication-rooms-readme) or [REST API reference](/rest/api/communication/rooms).
+Read about the full set of capabilities of Azure Communication Services rooms from the [Java SDK reference](/java/api/overview/azure/communication-rooms-readme) or [REST API reference](/rest/api/communication/rooms/rooms).

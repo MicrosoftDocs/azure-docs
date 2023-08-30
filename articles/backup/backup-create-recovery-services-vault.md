@@ -2,10 +2,10 @@
 title: Create and configure Recovery Services vaults
 description: Learn how to create and configure Recovery Services vaults, and how to restore in a secondary region by using Cross Region Restore.
 ms.topic: how-to
-ms.date: 04/06/2023
+ms.date: 08/14/2023
 ms.custom: references_regions, engagement-fy23
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Create and configure a Recovery Services vault
@@ -28,7 +28,7 @@ Azure Backup automatically handles storage for the vault. You need to specify ho
 
 1. For **Storage replication type**, select **Geo-redundant**, **Locally-redundant**, or **Zone-redundant**. Then select **Save**.
 
-   ![Set the storage configuration for new vault](./media/backup-create-rs-vault/recovery-services-vault-backup-configuration.png)
+   :::image type="content" source="./media/backup-create-rs-vault/recovery-services-vault-backup-configuration.png" alt-text="Screenshot shows how to set the storage configuration for a new vault." lightbox="./media/backup-create-rs-vault/recovery-services-vault-backup-configuration.png":::
 
    Here are our recommendations for choosing a storage replication type:
    
@@ -50,11 +50,12 @@ Before you begin, consider the following information:
 - Cross Region Restore is supported only for a Recovery Services vault that uses the [GRS replication type](#set-storage-redundancy).
 - Virtual machines (VMs) created through Azure Resource Manager and encrypted Azure VMs are supported. VMs created through the classic deployment model aren't supported. You can restore the VM or its disk.  
 - SQL Server or SAP HANA databases hosted on Azure VMs are supported. You can restore databases or their files.
+- MARS Agent is supported for vaults without private endpoint (preview).
 - Review the [support matrix](backup-support-matrix.md#cross-region-restore) for a list of supported managed types and regions.
-- Using Cross Region Restore will incur additional charges. [Learn more](https://azure.microsoft.com/pricing/details/backup/).
-- After you opt in, it might take up to 48 hours for the backup items to be available in secondary regions.
+- Using Cross Region Restore will incur additional charges. Once you enable Cross Region restore, it might take up to 48 hours for the backup items to be available in secondary regions. [Learn more about pricing](https://azure.microsoft.com/pricing/details/backup/).
 - Cross Region Restore currently can't be reverted to GRS or LRS after the protection starts for the first time.
 - Currently, secondary region RPO is 36 hours. This is because the RPO in the primary region is 24 hours and can take up to 12 hours to replicate the backup data from the primary to the secondary region.
+- Review the [permissions required to use Cross Region Restore](backup-rbac-rs-vault.md#minimum-role-requirements-for-azure-vm-backup).
 
 A vault created with GRS redundancy includes the option to configure the Cross Region Restore feature. Every GRS vault has a banner that links to the documentation. 
 
@@ -79,6 +80,7 @@ For more information about backup and restore with Cross Region Restore, see the
 - [Cross Region Restore for Azure VMs](backup-azure-arm-restore-vms.md#cross-region-restore)
 - [Cross Region Restore for SQL Server databases](restore-sql-database-azure-vm.md#cross-region-restore)
 - [Cross Region Restore for SAP HANA databases](sap-hana-db-restore.md#cross-region-restore)
+- [Cross Region Restore for MARS (Preview)](about-restore-microsoft-azure-recovery-services.md#cross-region-restore-preview)
 
 ## Set encryption settings
 

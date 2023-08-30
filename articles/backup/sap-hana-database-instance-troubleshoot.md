@@ -5,8 +5,8 @@ ms.topic: troubleshooting
 ms.date: 10/05/2022
 ms.service: backup
 ms.custom: ignite-2022
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Troubleshoot SAP HANA snapshot backup jobs on Azure Backup

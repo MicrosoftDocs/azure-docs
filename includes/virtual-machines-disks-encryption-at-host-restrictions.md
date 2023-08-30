@@ -14,4 +14,3 @@
 - Azure Disk Encryption can't be enabled on disks that have encryption at host enabled.
 - The encryption can be enabled on existing virtual machine scale sets. However, only new VMs created after enabling the encryption are automatically encrypted.
 - Existing VMs must be deallocated and reallocated in order to be encrypted.
-- Supports ephemeral OS disks but only with platform-managed keys.

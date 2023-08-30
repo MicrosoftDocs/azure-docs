@@ -10,9 +10,9 @@ ms.topic: quickstart
 ms.date: 11/16/2022
 ms.custom: mode-ui
 ---
-# Quickstart: Create an Azure Cognitive Search index in the Azure portal
+# Quickstart: Create a search index in the Azure portal
 
-In this quickstart, you'll create your first search index using the **Import data** wizard and a built-in sample data source consisting of fictitious hotel data. The wizard guides you through the creation of a search index (hotels-sample-index) so that you can write interesting queries within minutes. 
+In this Azure Cognitive Search quickstart, you'll create your first search index using the **Import data** wizard and a built-in sample data source consisting of fictitious hotel data. The wizard guides you through the creation of a search index (hotels-sample-index) so that you can write interesting queries within minutes. 
 
 Although you won't use the options in this quickstart, the wizard includes a page for AI enrichment so that you can extract text and structure from image files and unstructured text. For a similar walkthrough that includes AI enrichment, see [Quickstart: Create a skillset](cognitive-search-quickstart-blob.md).
 
@@ -38,7 +38,7 @@ For this quickstart, we'll create and load the index using a built-in sample dat
 
 An indexer is a source-specific crawler that can read metadata and content from supported Azure data sources. Normally, indexers are created programmatically, but in the portal, you can create them through the **Import data wizard**. 
 
-### Step 1 - Start the Import data wizard and create a data source
+### Step 1: Start the Import data wizard and create a data source
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure account.
 
@@ -46,15 +46,15 @@ An indexer is a source-specific crawler that can read metadata and content from 
 
    :::image type="content" source="media/search-import-data-portal/import-data-cmd.png" alt-text="Screenshot of the Import data command in the command bar." border="true":::
 
-1. In the wizard, select **Connect to your data** > **Samples** > **hotels-sample**. This data source is built-in. If you were creating your own data source, you would need to specify a name, type, and connection information. Once created, it becomes an "existing data source" that can be reused in other import operations.
+1. In the wizard, select **Connect to your data** > **Samples** > **hotels-sample**. This data source is built in. If you were creating your own data source, you would need to specify a name, type, and connection information. Once created, it becomes an "existing data source" that can be reused in other import operations.
 
    :::image type="content" source="media/search-get-started-portal/import-datasource-sample.png" alt-text="Screenshot of the select sample dataset page in the wizard." border="true":::
 
 1. Continue to the next page.
 
-### Step 2 - Skip the "Enrich content" page
+### Step 2: Skip the "Enrich content" page
 
-The wizard supports the creation of an [AI enrichment pipeline](cognitive-search-concept-intro.md) for incorporating the Cognitive Services AI algorithms into indexing. 
+The wizard supports the creation of an [AI enrichment pipeline](cognitive-search-concept-intro.md) for incorporating the Azure AI services algorithms into indexing. 
 
 We'll skip this step for now, and move directly on to **Customize target index**.
 
@@ -63,7 +63,7 @@ We'll skip this step for now, and move directly on to **Customize target index**
 > [!TIP]
 > You can step through an AI-indexing example in a [quickstart](cognitive-search-quickstart-blob.md) or [tutorial](cognitive-search-tutorial-blob.md).
 
-### Step 3 - Configure index
+### Step 3: Configure index
 
 For the built-in hotels sample index, a default index schema is defined for you. Except for a few advanced filter examples, queries in the documentation and samples that target the hotel-samples index will run on this index definition:
 
@@ -88,7 +88,7 @@ By default, the wizard scans the data source for unique identifiers as the basis
 
 1. Continue to the next page.
 
-### Step 4 - Configure indexer
+### Step 4: Configure indexer
 
 Still in the **Import data** wizard, select **Indexer** > **Name**, and type a name for the indexer.
 

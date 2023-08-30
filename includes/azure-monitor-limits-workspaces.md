@@ -30,6 +30,8 @@ ms.custom: "include file"
 | Legacy Free tier  | 10 | This limit can't be increased. Creating new workspaces in, or moving existing workspaces into, the legacy Free Trial pricing tier is possible only until July 1, 2022. |
 | All other tiers | No limit | You're limited by the number of resources within a resource group and the number of resource groups per subscription. |
 
+<a name="azure-portal"></a>
+
 **Azure portal**
 
 | Category | Limit | Comments |

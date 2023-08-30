@@ -3,7 +3,7 @@ title: Use advanced networking in Azure Lab Services | Microsoft Docs
 description: Create an Azure Lab Services lab plan with advanced networking.  Create two labs and verify they share same virtual network when published.
 ms.service: lab-services
 ms.topic: tutorial 
-ms.date: 07/27/2022
+ms.date: 08/28/2023
 ms.custom: template-tutorial
 ---
 
@@ -11,11 +11,13 @@ ms.custom: template-tutorial
 
 [!INCLUDE [update focused article](includes/lab-services-new-update-focused-article.md)]
 
-Azure Lab Services provides a feature called advanced networking.  Advanced networking enables you to control the network for labs created using lab plans.  Advanced networking is used to enable various scenarios including [connecting to licensing servers](how-to-create-a-lab-with-shared-resource.md), using [hub-spoke model for Azure Networking](/azure/architecture/reference-architectures/hybrid-networking/), lab to lab communication, etc.  
+Azure Lab Services advanced networking enables you to control the network for labs created using lab plans.  You can use advanced networking to implement various scenarios including [connecting to licensing servers](how-to-create-a-lab-with-shared-resource.md), using [hub-spoke model for Azure Networking](/azure/architecture/reference-architectures/hybrid-networking/), or lab to lab communication. In this tutorial, you set up lab-to-lab communication for a web development class.
 
-Let's focus on the lab to lab communication scenario.  For our example, we'll create labs for a web development class.  Each student will need access to both a server VM and a client VM.  The server and client VMs must be able to communicate with each other.  We'll test communication by configuring Internet Control Message Protocol (ICMP) for each VM and allowing the VMs to ping each other.
+After you complete this tutorial, you'll have a lab with two lab virtual machines that are able to communicate with each other: a server VM and a client VM.
 
 :::image type="content" source="media/tutorial-create-lab-with-advanced-networking/architecture-two-labs-with-advanced-networking.png" alt-text="Architecture diagram showing two labs that use the same subnet of a virtual network.":::
+
+Learn more about the [supported networking scenarios in Azure Lab Services](./concept-lab-services-supported-networking-scenarios.md).
 
 In this tutorial, you learn how to:
 
@@ -35,13 +37,14 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 [!INCLUDE [Azure subscription](./includes/lab-services-prerequisite-subscription.md)]
+
 [!INCLUDE [Azure manage resources](./includes/lab-services-prerequisite-manage-resources.md)]
 
 ## Create a resource group
 
 [!INCLUDE [resource group definition](../../includes/resource-group.md)]
 
-The following steps show how to use the Azure portal to [create a resource group](../azure-resource-manager/management/manage-resource-groups-portal.md).  For simplicity, we'll put all resources for this tutorial in the same resource group.  
+The following steps show how to use the Azure portal to [create a resource group](../azure-resource-manager/management/manage-resource-groups-portal.md).  For simplicity, you create all resources for this tutorial in the same resource group.  
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select **Resource groups**.
@@ -73,20 +76,20 @@ The following steps show how to use the Azure portal to create a virtual network
     1. Select **Next: IP Addresses**.
 
     :::image type="content" source="media/tutorial-create-lab-with-advanced-networking/create-virtual-network-basics-page.png" alt-text="Screenshot of Basics tab of Create virtual network page in the Azure portal.":::
-1. On the **IP Addresses** tab, create a subnet that will be used by the labs.
+1. On the **IP Addresses** tab, create a subnet that is used by the labs.
     1. Select **+ Add subnet**
     1. For **Subnet name**, enter **labservices-subnet**.
-    1. For **Subnet address range**, enter range in CIDR notation. For example, 10.0.1.0/24 will have enough IP addresses for 251 lab VMs.  (Five IP addresses are reserved by Azure for every subnet.)  To create a subnet with more available IP addresses for VMs, use a different CIDR prefix length. For example, 10.0.0.0/20 would have room for over 4000 IP addresses for lab VMs.  For more information about adding subnets, see [Add a subnet](../virtual-network/virtual-network-manage-subnet.md).
+    1. For **Subnet address range**, enter range in CIDR notation. For example, 10.0.1.0/24 has enough IP addresses for 251 lab VMs.  (Azure reserves five IP addresses for every subnet.)  To create a subnet with more available IP addresses for VMs, use a different CIDR prefix length. For example, 10.0.0.0/20 would have room for over 4000 IP addresses for lab VMs.  For more information about adding subnets, see [Add a subnet](../virtual-network/virtual-network-manage-subnet.md).
     1. Select **OK**.
 1. Select **Review + Create**.
 
-:::image type="content" source="media/tutorial-create-lab-with-advanced-networking/create-virtual-network-ip-addresses-page.png" alt-text="Screenshot of IP addresses tab of the Create virtual network page in the Azure portal.":::
+    :::image type="content" source="media/tutorial-create-lab-with-advanced-networking/create-virtual-network-ip-addresses-page.png" alt-text="Screenshot of IP addresses tab of the Create virtual network page in the Azure portal.":::
 
 1. Once validation passes, select **Create**.
 
 ## Delegate subnet to Azure Lab Services
 
-In this section, we'll configure the subnet to be used with Azure Lab Services.  To tell Azure Lab Services that a subnet may be used, the subnet must be [delegated to the service](../virtual-network/manage-subnet-delegation.md).
+Next, you configure the subnet to be used with Azure Lab Services.  To use a subnet with Azure Lab Services, the subnet must be [delegated to the service](../virtual-network/manage-subnet-delegation.md).
 
 1. Open the **MyVirtualNetwork** resource.
 1. Select the **Subnets** item on the left menu.
@@ -100,7 +103,7 @@ In this section, we'll configure the subnet to be used with Azure Lab Services. 
 
 [!INCLUDE [nsg intro](../../includes/virtual-networks-create-nsg-intro-include.md)]
 
-An NSG is required when using advanced networking in Azure Lab Services.  In this section, we'll create the NSG.  In the following section, we'll add some inbound rules needed to access lab VMs.
+An NSG is required when using advanced networking in Azure Lab Services.
 
 To create an NSG, complete the following steps:
 
@@ -118,7 +121,9 @@ To create an NSG, complete the following steps:
 
 ## Update the network security group inbound rules
 
-To ensure that students can RDP to the lab VMs, we need to create an **Allow** security rule.  When using Linux, we need to adapt the rule for SSH.  Let's create a rule that allows both RDP and SSH traffic.  We'll use the subnet range defined in the previous section.
+To ensure that lab users can use remote desktop to connect to the lab VMs, you need to create a security rule to allow this type of traffic.  When you use Linux, you need to adapt the rule for SSH.  
+
+To create a rule that allows both RDP and SSH traffic for the subnet you created previously:
 
 1. Open **MyNsg**.
 1. Select **Inbound security rules** on the left menu.
@@ -136,12 +141,15 @@ To ensure that students can RDP to the lab VMs, we need to create an **Allow** s
     1. Select **Add**.
 
     :::image type="content" source="media/tutorial-create-lab-with-advanced-networking/nsg-add-inbound-rule.png" alt-text="Screenshot of Add inbound rule window for Network security group.":::
+
 1. Wait for the rule to be created.
-1. Select **Refresh** on the menu bar.  Our new rule will now show in the list of rules.
+1. Select **Refresh** on the menu bar.  The new rule now shows in the list of rules.
 
 ## Associate network security group to virtual network
 
-We now have an NSG with an inbound security rule to allow lab VMs to connect to the virtual network.  Let's associate the NSG with the virtual network we created earlier.
+You now have an NSG with an inbound security rule to allow lab VMs to connect to the virtual network.  
+
+To associate the NSG with the virtual network you created earlier:
 
 1. Open **MyVirtualNetwork**.
 1. Select **Subnets** on the left menu.
@@ -154,11 +162,11 @@ We now have an NSG with an inbound security rule to allow lab VMs to connect to 
 :::image type="content" source="media/tutorial-create-lab-with-advanced-networking/associate-nsg-with-subnet.png" alt-text="Screenshot of Associate subnet page in the Azure portal.":::
 
 > [!WARNING]
-> Connecting the network security group to the subnet is a **required step**.  Students will not be able to connect to their VMs if there is no network security group associated with the subnet.
+> Connecting the network security group to the subnet is a **required step**.  Lab users are not able to connect to their lab VMs if there is no network security group associated with the subnet.
 
 ## Create a lab plan using advanced networking
 
-Now that we have the network created and configured, we can create the lab plan.
+Now that the virtual network is created and configured, you can create the lab plan:
 
 1. Select **Create a resource** in the upper left-hand corner of the Azure portal.
 1. Search for **lab plan**.
@@ -188,26 +196,26 @@ Now that we have the network created and configured, we can create the lab plan.
 
 ## Create two labs
 
-Next, let's create two labs that are using advanced networking.  These labs will use the **labservices-subnet** we associated with Azure Lab Services. Any lab VMs created using **MyLabPlan** will be able to communicate with each other.  Communication can be restricted by using NSGs, firewalls, etc.
+Next, create two labs that use advanced networking.  These labs use the **labservices-subnet** that's associated with Azure Lab Services. Any lab VMs created using **MyLabPlan** can communicate with each other.  Communication can be restricted by using NSGs, firewalls, and more.
 
-To create a lab, see the following steps.  We'll run the steps twice.  Once to create the lab with the server VMs and once to create the lab with the client VMs.
+Perform the following steps to create both labs. Repeat these steps the server VM and the client VM.
 
-1. Navigate to Lab Services web site: [https://labs.azure.com](https://labs.azure.com).
+1. Navigate to the Azure Lab Services website: [https://labs.azure.com](https://labs.azure.com).
 1. Select **Sign in** and enter your credentials. Azure Lab Services supports organizational accounts and Microsoft accounts.
 1. Select **MyResourceGroup** from the dropdown on the menu bar.
 1. Select **New lab**.  
 
     :::image type="content" source="./media/tutorial-create-lab-with-advanced-networking/new-lab-button.png" alt-text="Screenshot of Azure Lab Services portal.  New lab button is highlighted.":::
 1. In the **New Lab** window, do the following actions:
-    1. Specify a **name**.  The name should be easily identifiable.  We'll use **MyServerLab** for the lab with the server VMs and **MyClientLab** for the lab with the client VMs.  For more information about naming restrictions, see [Microsoft.LabServices resource name rules](../azure-resource-manager/management/resource-name-rules.md#microsoftlabservices).
-    1. Choose a **virtual machine image**.  For simplicity we'll use **Windows 11 Pro**, but you can choose another available image if you want.  For more information about enabling virtual machine images, see [Specify Marketplace images available to lab creators](specify-marketplace-images.md).
+    1. Specify a **name**.  The name should be easily identifiable.  Use **MyServerLab** for the lab with the server VMs and **MyClientLab** for the lab with the client VMs.  For more information about naming restrictions, see [Microsoft.LabServices resource name rules](../azure-resource-manager/management/resource-name-rules.md#microsoftlabservices).
+    1. Choose a **virtual machine image**.  For this tutorial, use **Windows 11 Pro**, but you can choose another available image if you want.  For more information about enabling virtual machine images, see [Specify Marketplace images available to lab creators](specify-marketplace-images.md).
     1. For **size**, select **Medium**.
-    1. **Region** will only have one region.  When a lab uses advanced networking, the lab must be in the same region as the associated subnet.
+    1. **Region** only has one region.  When a lab uses advanced networking, the lab must be in the same region as the associated subnet.
     1. Select **Next**.  
 
     :::image type="content" source="./media/tutorial-create-lab-with-advanced-networking/new-lab-window.png" alt-text="Screenshot of the New lab window for Azure Lab Services.":::
 
-1. On the **Virtual machine credentials** page, specify default administrator credentials for all VMs in the lab. Specify the **name** and **password** for the administrator.  By default all the student VMs will have the same password as the one specified here. Select **Next**.
+1. On the **Virtual machine credentials** page, specify default administrator credentials for all VMs in the lab. Specify the **name** and **password** for the administrator.  By default all the lab VMs have the same password as the one specified here. Select **Next**.
 
     :::image type="content" source="./media/tutorial-create-lab-with-advanced-networking/new-lab-credentials.png" alt-text="Screenshot that shows the Virtual machine credentials window when creating a new Azure Lab Services lab.":::
 
@@ -228,7 +236,7 @@ To create a lab, see the following steps.  We'll run the steps twice.  Once to c
 
 ## Enable ICMP on the lab templates
 
-Once the labs have been created, we'll enable ICMP (ping).  Using ping is a simple example to show the template and lab VMs from different labs may communicate with each other. First, we'll enable ICMP on the template VMs for both labs.  Enabling ICMP on the template VM will also enable it on the lab VMs. Once the labs are published, the lab VMs will be able to ping each other.  
+Once the labs are created, enable ICMP (ping) for testing communication between the lab VMs. First, enable ICMP on the template VMs for both labs.  Enabling ICMP on the template VM also enables it on the lab VMs. Once the labs are published, the lab VMs are able to ping each other.
 
 To enable ICMP, complete the following steps for each template VM in each lab.
 
@@ -244,7 +252,7 @@ To enable ICMP, complete the following steps for each template VM in each lab.
 
     :::image type="content" source="./media/tutorial-create-lab-with-advanced-networking/lab-connect-to-template.png" alt-text="Screenshot of Azure Lab Services template page. The Connect to template menu button is highlighted.":::
 
-Now that were logged on to the template VM, let's modify the firewall rules on the VM to allow ICMP.  Since we're using Windows 11, we can use PowerShell and the [Enable-NetFilewallRule](/powershell/module/netsecurity/enable-netfirewallrule) cmdlet. To open a PowerShell window:
+When you're logged in to the template VM, modify the firewall rules on the VM to allow ICMP.  Because you're using Windows 11, you can use PowerShell and the [Enable-NetFilewallRule](/powershell/module/netsecurity/enable-netfirewallrule) cmdlet. To open a PowerShell window:
 
 1. Select the Start button.
 1. Type "PowerShell"
@@ -277,23 +285,23 @@ In this step, you publish the lab. When you publish the template VM, Azure Lab S
 
 ## Test communication between lab VMs
 
-In this section we’ll, wrap up by showing that the two student virtual machines in different labs are able to communicate with each other.
+In this section, confirm that the two lab virtual machines in different labs are able to communicate with each other.
 
-First, let's start and connect to a lab VM from each lab.  Complete the following steps for each lab.
+First, start and connect to a lab VM from each lab.  Complete the following steps for each lab.
 
 1. Open the lab in the [Azure Lab Services website](https://labs.azure.com).
 1. Select **Virtual machine pool** on the left menu.
 1. Select a single VM listed in the virtual machine pool.
-1. Take note of the **Private IP Address** for the VM.  We'll need the private IP addresses of both the server lab and client lab VMs later.
+1. Take note of the **Private IP Address** for the VM.  You need the private IP addresses of both the server lab and client lab VMs later.
 1. Select the **State** slider to change the state from **Stopped** to **Starting**.
 
     > [!NOTE]
-    > When an educator turns on a student VM, quota for the student isn't affected. Quota for a user specifies the number of lab hours available to a student outside of the scheduled class time. For more information on quotas, see [Set quotas for users](how-to-configure-student-usage.md?#set-quotas-for-users).
+    > When an lab educator starts a lab VM, quota for the lab user isn't affected. Quota for a user specifies the number of lab hours available to a lab user outside of the scheduled class time. For more information on quotas, see [Set quotas for users](how-to-manage-lab-users.md?#set-quotas-for-users).
 1. Once the **State** is **Running**, select the connect icon for the running VM.  Open the download RDP file to connect to the VM.  For more information about connection experiences on different operating systems, see [Connect to a lab VM](connect-virtual-machine.md).
 
 :::image type="content" source="media/tutorial-create-lab-with-advanced-networking/virtual-machine-pool-running-vm.png" alt-text="Screen shot of virtual machine pool page for Azure Lab Services lab.":::
 
-Now we can use the ping utility to test cross-lab communication.  From the lab VM in the server lab, open a command prompt.  Use `ping {ip-address}`.  The `{ip-address}` is the **Private IP Address**  of the client VM, that we noted previously. Test can also be done from the  VM from the client lab to the lab VM in the server lab.
+Now, use the ping utility to test cross-lab communication.  From the lab VM in the server lab, open a command prompt.  Use `ping {ip-address}`.  The `{ip-address}` is the **Private IP Address**  of the client VM, that you noted previously. This test can also be done from the lab VM from the client lab to the lab VM in the server lab.
 
 :::image type="content" source="media/tutorial-create-lab-with-advanced-networking/ping-test-cmd.png" alt-text="Screen shot command window with the ping command executed.":::
 
@@ -314,4 +322,4 @@ If you're not going to continue to use this application, delete the virtual netw
 ## Next steps
 
 >[!div class="nextstepaction"]
->[Add students to the labs](how-to-configure-student-usage.md)
+>[Add lab users to the labs](how-to-manage-lab-users.md)

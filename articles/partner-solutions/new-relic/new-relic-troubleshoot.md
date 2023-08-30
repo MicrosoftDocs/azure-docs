@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Azure Native New Relic Service Preview
+title: Troubleshoot Azure Native New Relic Service
 description: Learn about troubleshooting Azure Native New Relic Service.
 ms.topic: conceptual
 
@@ -9,7 +9,7 @@ ms.date: 01/16/2023
 
 # Troubleshoot Azure Native New Relic Service
 
-This article describes how to fix common problems when you're working with Azure Native New Relic Service Preview resources.
+This article describes how to fix common problems when you're working with Azure Native New Relic Service resources.
 
 Try the troubleshooting information in this article first. If that doesn't work, contact New Relic support:
 
@@ -27,11 +27,11 @@ A purchase can fail because a valid credit card isn't connected to the Azure sub
 
 A purchase can also fail because an Enterprise Agreement (EA) subscription doesn't allow Azure Marketplace purchases. Try to use a different subscription. Or, check if your EA subscription is enabled for Azure Marketplace purchases. For more information, see [Enabling Azure Marketplace purchases](../../cost-management-billing/manage/ea-azure-marketplace.md#enabling-azure-marketplace-purchases).
 
-### You can't create a New Relic resource 
+### You can't create a New Relic resource
 
 To set up Azure Native New Relic Service, you must have owner access on the Azure subscription. Ensure that you have the appropriate access before you start the setup.
 
-To find the New Relic offering on Azure and set up the service, you must first register the `NewRelic.Observability` resource provider in your Azure subscription. To register the resource provider by using the Azure portal, follow the guidance in [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md). 
+To find the New Relic offering on Azure and set up the service, you must first register the `NewRelic.Observability` resource provider in your Azure subscription. To register the resource provider by using the Azure portal, follow the guidance in [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md).
 To register the resource provider from a command line, enter `az provider register --namespace NewRelic.Observability --subscription <subscription-id>`.
 
 ### Logs aren't being sent to New Relic
@@ -55,3 +55,10 @@ New Relic manages the APIs for creating and managing resources, and for the stor
 ## Next steps
 
 - [Manage Azure Native New Relic Service](new-relic-how-to-manage.md)
+- Get started with Azure Native New Relic Service on
+
+    > [!div class="nextstepaction"]
+    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/NewRelic.Observability%2Fmonitors)
+
+    > [!div class="nextstepaction"]
+    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/newrelicinc1635200720692.newrelic_liftr_payg?tab=Overview)

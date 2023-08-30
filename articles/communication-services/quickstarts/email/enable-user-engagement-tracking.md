@@ -15,7 +15,7 @@ ms.service: azure-communication-services
 Configuring email engagement enables the insights on your customers' engagement with emails to help build customer relationships. Only the emails that are sent from Azure Communication Services verified Email Domains that are enabled for user engagement analysis will get the engagement tracking metrics.
 
 > [!IMPORTANT]
-> By enabling this feature, you are acknowledging that you are enabling open/click tracking and giving consent to collect your customers' email activity 
+> By enabling this feature, you are acknowledging that you are enabling open/click tracking and giving consent to collect your customers' email activity. 
 
 In this quick start, you'll learn about how to enable user engagement tracking for verified domain in Azure Communication Services.
 
@@ -36,7 +36,7 @@ In this quick start, you'll learn about how to enable user engagement tracking f
 
 6.	Click turn on to enable engagement tracking.
 
-**Your email domain is now ready to send emails with user engagement tracking.**
+**Your email domain is now ready to send emails with user engagement tracking. Please be aware that user engagement tracking is applicable to HTML content and will not function if you submit the payload in plaintext.**
 
 You can now subscribe to Email User Engagement operational logs - provides information related to 'open' and 'click' user engagement metrics for messages sent from the Email service.
 

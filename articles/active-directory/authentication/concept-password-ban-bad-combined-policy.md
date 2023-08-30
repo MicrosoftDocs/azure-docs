@@ -5,6 +5,7 @@ description: Learn about the combined password policy and check for weak passwor
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
+ms.custom: has-azure-ad-ps-ref
 ms.topic: conceptual
 ms.date: 04/02/2023
 
@@ -34,7 +35,7 @@ The following Azure AD password policy requirements apply for all passwords that
 | Characters not allowed | Unicode characters |
 | Password length |Passwords require<br>- A minimum of eight characters<br>- A maximum of 256 characters</li> |
 | Password complexity |Passwords require three out of four of the following categories:<br>- Uppercase characters<br>- Lowercase characters<br>- Numbers <br>- Symbols<br> Note: Password complexity check isn't required for Education tenants. |
-| Password not recently used | When a user changes their password, the new password can't be the same as the current or recently used passwords. |
+| Password not recently used | When a user changes their password, the new password should not be the same as the current password. |
 | Password isn't banned by [Azure AD Password Protection](concept-password-ban-bad.md) | The password can't be on the global list of banned passwords for Azure AD Password Protection, or on the customizable list of banned passwords specific to your organization. |
 
 ## Password expiration policies
@@ -42,7 +43,7 @@ The following Azure AD password policy requirements apply for all passwords that
 Password expiration policies are unchanged but they're included in this topic for completeness. A *Global Administrator* or *User Administrator* can use the [Microsoft Azure AD Module for Windows PowerShell](/powershell/module/Azuread/) to set user passwords not to expire.
 
 > [!NOTE]
-> By default, only passwords for user accounts that aren't synchronized through Azure AD Connect can be configured to not expire. For more information about directory synchronization, see [Connect AD with Azure AD](../hybrid/how-to-connect-password-hash-synchronization.md#password-expiration-policy).
+> By default, only passwords for user accounts that aren't synchronized through Azure AD Connect can be configured to not expire. For more information about directory synchronization, see [Connect AD with Azure AD](../hybrid/connect/how-to-connect-password-hash-synchronization.md#password-expiration-policy).
 
 You can also use PowerShell to remove the never-expires configuration, or to see user passwords that are set to never expire.
 

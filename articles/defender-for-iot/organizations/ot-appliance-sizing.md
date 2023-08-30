@@ -7,9 +7,9 @@ ms.topic: limits-and-quotas
 
 # Which appliances do I need?
 
-This article is one in a series of articles describing the [deployment path](ot-deploy/ot-deploy-path.md) for OT monitoring with Microsoft Defender for IoT, and describes is intended to help you choose the right appliances for your system and which hardware profile best fits your organization's network monitoring needs.
+This article is one in a series of articles describing the [deployment path](ot-deploy/ot-deploy-path.md) for OT monitoring with Microsoft Defender for IoT, and is intended to help you choose the right appliances for your system and which hardware profile best fits your organization's network monitoring needs.
 
-You can use [physical](ot-pre-configured-appliances.md) or [virtual](ot-virtual-appliances.md) appliances. Results depend on hardware and resources available to the monitoring sensor.
+You can use [physical](ot-pre-configured-appliances.md) or [virtual](ot-virtual-appliances.md) appliances, or use the supplied specifications to purchase hardware on your own.  For more information, see [Microsoft Defender for IoT - OT monitoring appliance reference | Microsoft Learn](appliance-catalog/index.yml). Results depend on hardware and resources available to the monitoring sensor.
 
 :::image type="content" source="media/deployment-paths/progress-plan-and-prepare.png" alt-text="Diagram of a progress bar with Plan and prepare highlighted." border="false" lightbox="media/deployment-paths/progress-plan-and-prepare.png":::
 
@@ -51,7 +51,7 @@ Use the following hardware profiles for production line monitoring, typically in
 |L60    | Up to 10 Mbps        |   100      |Physical / Virtual|
 
 > [!IMPORTANT]
-> <a name="l60"></a>Defender for IoT software versions later than 23.1 are planned to require a minimum disk size of 100 GB. Therefore, the L60 hardware profile, which supports 60 GB of hard disk, will be deprecated in versions later than 23.1.
+> <a name="l60"></a>Defender for IoT software versions later than 23.2 are planned to require a minimum disk size of 100 GB. Therefore, the L60 hardware profile, which supports 60 GB of hard disk, will be deprecated in versions later than 23.2.
 >
 > We recommend that you plan any new deployments accordingly, using hardware profiles that support at least 100 GB. Migration steps from the L60 hardware profile will be provided together with the L60 deprecation.
 

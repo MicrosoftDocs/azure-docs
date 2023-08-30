@@ -1,6 +1,6 @@
 ---
 title: Enable audio effects detection  
-description: Audio Effects Detection is one of Azure Video Indexer AI capabilities that detects various acoustics events and classifies them into different acoustic categories (for example, gunshot, screaming, crowd reaction and more).
+description: Audio Effects Detection is one of Azure AI Video Indexer AI capabilities that detects various acoustics events and classifies them into different acoustic categories (for example, gunshot, screaming, crowd reaction and more).
 ms.topic: how-to
 ms.date: 05/24/2023
 ms.author: juliako
@@ -8,7 +8,7 @@ ms.author: juliako
 
 # Enable audio effects detection (preview)
 
-**Audio effects detection** is one of Azure Video Indexer AI capabilities that detects various acoustics events and classifies them into different acoustic categories (such as dog barking, crowd reactions, laugher and more).
+**Audio effects detection** is one of Azure AI Video Indexer AI capabilities that detects various acoustics events and classifies them into different acoustic categories (such as dog barking, crowd reactions, laugher and more).
 
 Some scenarios where this feature is useful:
 
@@ -105,13 +105,12 @@ When audio effects are retrieved in the closed caption files, they are retrieved
 
 Audio Effects in closed captions file is retrieved with the following logic employed:
 
-* `Silence` event type will not be added to the closed captions
-* Maximum duration to show an event I 5 seconds
-* Minimum timer duration to show an event is 700 milliseconds
+* `Silence` event type will not be added to the closed captions.
+* Minimum timer duration to show an event is 700 milliseconds.
 
 ## Adding audio effects in closed caption files
 
-Audio effects can be added to the closed captions files supported by Azure Video Indexer via the [Get video captions API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Captions) by choosing true in the `includeAudioEffects` parameter or via the video.ai website experience by selecting **Download** -> **Closed Captions** -> **Include Audio Effects**.
+Audio effects can be added to the closed captions files supported by Azure AI Video Indexer via the [Get video captions API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Captions) by choosing true in the `includeAudioEffects` parameter or via the video.ai website experience by selecting **Download** -> **Closed Captions** -> **Include Audio Effects**.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/audio-effects-detection/close-caption.jpg" alt-text="Audio Effects in CC":::
