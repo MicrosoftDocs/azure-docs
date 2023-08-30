@@ -9,7 +9,7 @@ ms.author: eur
 
 In this how-to guide, you learn common design patterns for doing text to speech synthesis.
 
-For more information about the following areas, see [What is text to speech?](../../../text-to-speech.md).
+For more information about the following areas, see [What is text to speech?](../../../text-to-speech.md)
 
 - Getting responses as in-memory streams.
 - Customizing output sample rate and bit rate.

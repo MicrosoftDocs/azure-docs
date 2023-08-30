@@ -27,7 +27,9 @@ public static void main(String[] args) {
 }
 ```
 
-All neural voices are multilingual and fluent in their own language and English. For example, if the input text in English is "I'm excited to try text to speech" and you set `es-ES-ElviraNeural`, the text is spoken in English with a Spanish accent. If the voice doesn't speak the language of the input text, the Speech service doesn't create synthesized audio. For a full list of supported neural voices, see [Language and voice support for the Speech service](../../../language-support.md?tabs=tts).
+All neural voices are multilingual and fluent in their own language and English. For example, if the input text in English is "I'm excited to try text to speech" and you select `es-ES-ElviraNeural`, the text is spoken in English with a Spanish accent.
+
+If the voice doesn't speak the language of the input text, the Speech service doesn't create synthesized audio. For a full list of supported neural voices, see [Language and voice support for the Speech service](../../../language-support.md?tabs=tts).
 
 > [!NOTE]
 > The default voice is the first voice returned per locale from the [Voice List API](../../../rest-text-to-speech.md#get-a-list-of-voices).
@@ -41,7 +43,7 @@ The voice that speaks is determined in order of priority as follows:
 
 ## Synthesize speech to a file
 
-Next, you create a [`SpeechSynthesizer`](/java/api/com.microsoft.cognitiveservices.speech.speechsynthesizer) object. This object runs text to speech conversions and outputs to speakers, files, or other output streams. `SpeechSynthesizer` accepts as parameters:
+Create a [`SpeechSynthesizer`](/java/api/com.microsoft.cognitiveservices.speech.speechsynthesizer) object. This object runs text to speech conversions and outputs to speakers, files, or other output streams. `SpeechSynthesizer` accepts as parameters:
 
 - The [`SpeechConfig`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig) object that you created in the previous step
 - An [`AudioConfig`](/java/api/com.microsoft.cognitiveservices.speech.audio.audioconfig) object that specifies how output results should be handled
@@ -150,9 +152,9 @@ When you run the program, it writes a *.wav* file to the specified path.
 
 ## Use SSML to customize speech characteristics
 
-You can use SSML to fine-tune the pitch, pronunciation, speaking rate, volume, and other aspects in the text to speech output by submitting your requests from an XML schema. This section shows an example of changing the voice. For more details, see the [SSML how-to article](../../../speech-synthesis-markup.md).
+You can use SSML to fine-tune the pitch, pronunciation, speaking rate, volume, and other aspects in the text to speech output by submitting your requests from an XML schema. This section shows an example of changing the voice. For more information, see the [SSML how-to article](../../../speech-synthesis-markup.md).
 
-To start using SSML for customization, you make a small change that switches the voice.
+To start using SSML for customization, you make a minor change that switches the voice.
 
 1. Create a new XML file for the SSML configuration in your root project directory.
 

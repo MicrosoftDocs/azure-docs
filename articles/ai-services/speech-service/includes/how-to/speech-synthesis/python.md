@@ -14,7 +14,7 @@ ms.author: eur
 
 The text to speech feature in the Speech service supports more than 400 voices and more than 140 languages and variants. You can get the [full list](../../../language-support.md?tabs=tts) or try them in the [Voice Gallery](https://speech.microsoft.com/portal/voicegallery).
 
-Specify the language or voice of `SpeechConfig` to match your input text and use the wanted voice:
+Specify the language or voice of `SpeechConfig` to match your input text and use the specified voice:
 
 ```python
 # Set either the `SpeechSynthesisVoiceName` or `SpeechSynthesisLanguage`.
@@ -22,7 +22,9 @@ speech_config.speech_synthesis_language = "en-US"
 speech_config.speech_synthesis_voice_name ="en-US-JennyNeural"
 ```
 
-All neural voices are multilingual and fluent in their own language and English. For example, if the input text in English is "I'm excited to try text to speech" and you set `es-ES-ElviraNeural`, the text is spoken in English with a Spanish accent. If the voice doesn't speak the language of the input text, the Speech service doesn't create synthesized audio. For a full list of supported neural voices, see [Language and voice support for the Speech service](../../../language-support.md?tabs=tts).
+All neural voices are multilingual and fluent in their own language and English. For example, if the input text in English is "I'm excited to try text to speech" and you select `es-ES-ElviraNeural`, the text is spoken in English with a Spanish accent.
+
+If the voice doesn't speak the language of the input text, the Speech service doesn't create synthesized audio. For a full list of supported neural voices, see [Language and voice support for the Speech service](../../../language-support.md?tabs=tts).
 
 > [!NOTE]
 > The default voice is the first voice returned per locale from the [Voice List API](../../../rest-text-to-speech.md#get-a-list-of-voices).
@@ -119,9 +121,9 @@ When you run the program, it writes a *.wav* file to the specified path.
 
 ## Use SSML to customize speech characteristics
 
-You can use SSML to fine-tune the pitch, pronunciation, speaking rate, volume, and other aspects in the text to speech output by submitting your requests from an XML schema. This section shows an example of changing the voice. For more details, see [Speech Synthesis Markup Language overview](../../../speech-synthesis-markup.md).
+You can use SSML to fine-tune the pitch, pronunciation, speaking rate, volume, and other aspects in the text to speech output by submitting your requests from an XML schema. This section shows an example of changing the voice. For more information, see [Speech Synthesis Markup Language overview](../../../speech-synthesis-markup.md).
 
-To start using SSML for customization, make a small change that switches the voice.
+To start using SSML for customization, make a minor change that switches the voice.
 
 1. Create a new XML file for the SSML configuration in your root project directory.
 
