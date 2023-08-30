@@ -404,7 +404,7 @@ Using Azure CLI, follow these steps to create three separate JSON files in your 
     This JSON file is the only one of the three files that must be modified. In the content, specify the values for the tags you want applied to the cluster's resources.
 
     > [!IMPORTANT]
-    > The file content provided above only provides a value for the `tag0` parameter. The policy allows you to provide up to 10 tags, so if you want to set more than one tag, add values for parameters tag1 through tag 9.
+    > The file content provided above only provides a value for the `tag0` parameter. The policy allows you to provide up to 10 tags, so if you want to set more than one tag, add values for parameters tag1 through tag 9. Applying more than 10 tags to resources in the managed resource group is not supported.
 > 
 
 ## Set environmental variables
@@ -485,4 +485,4 @@ You can remediate previously assigned tags and add new tags using an Azure Polic
     	--params param-values.json
     ```
 
-1. Allow the remediation task time to run and observe the tags being updated on the managed resource group and its resources. Note that remediation tasks never remove tags—they only add or update tags.
+1. Allow the remediation task time to run and observe the tags being updated on the managed resource group and its resources. **Note that remediation tasks never remove tags—they only add or update tags**.
