@@ -5,9 +5,9 @@ author: kenwith
 ms.author: kenwith
 manager: amycolannino
 ms.topic: how-to
-ms.date: 08/21/2023
+ms.date: 08/30/2023
 ms.service: network-access
-ms.custom: 
+
 ---
 # How to create a remote network
 
@@ -195,8 +195,8 @@ There are a few things to consider and verify when creating remote networks. You
 - **Port forwarding**: In some situations, the ISP router can also be a network address translation (NAT) device. A NAT converts the private IP addresses of home devices to a public internet-routable device.
     - Generally, a NAT device changes both the IP address and the port. This port changing is the root of the problem.
     - For IPsec tunnels to work, Global Secure Access uses port 500. This port is where IKE negotiation happens.
-    - If the ISP router changes this port to something else, Global Secure Access cannot identify this traffic and negotiation fails.
-    - As a result, phase 1 of IKE negotiation fails and the tunnel is not established.
+    - If the ISP router changes this port to something else, Global Secure Access can't identify this traffic and negotiation fails.
+    - As a result, phase 1 of IKE negotiation fails and the tunnel isn't established.
     - To remediate this failure, complete the port forwarding on your device, which tells the ISP router to not change the port and forward it as-is.
 
 [!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
