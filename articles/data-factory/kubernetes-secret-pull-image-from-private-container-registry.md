@@ -18,12 +18,12 @@ ms.date: 08/30/2023
 
 Apache Airflow provides a range of backends for storing sensitive information like variables and connections, including Azure Key Vault. This guide shows you how to configure Azure Key Vault as the secret backend for Apache Airflow, enabling you to store and manage your sensitive information in a secure and centralized manner.
 
-## Prerequisites 
+## Prerequisites
 
 - **Azure subscription** - If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
-- **Azure storage account** - If you don't have a storage account, see [Create an Azure storage account](/storage/common/storage-account-create?tabs=azure-portal) for steps to create one. Ensure the storage account allows access only from selected networks.
+- **Azure storage account** - If you don't have a storage account, see [Create an Azure storage account](/azure/storage/common/storage-account-create?tabs=azure-portal) for steps to create one. Ensure the storage account allows access only from selected networks.
 - **Azure Data Factory pipeline** - You can follow any of the tutorials and create a new data factory pipeline in case you don't already have one or create one with one select in [Get started and try out your first data factory pipeline](quickstart-get-started.md).
-- **Azure Container Registry** - Configure an [Azure Container Registry](/container-registry/container-registry-get-started-portal?tabs=azure-cli) with the custom Docker image you want to use in the DAG. For more information on push and pull container images, see [Push & pull container image - Azure Container Registry](/container-registry/container-registry-get-started-docker-cli?tabs=azure-cli).
+- **Azure Container Registry** - Configure an [Azure Container Registry](/azure/container-registry/container-registry-get-started-portal?tabs=azure-cli) with the custom Docker image you want to use in the DAG. For more information on push and pull container images, see [Push & pull container image - Azure Container Registry](/container-registry/container-registry-get-started-docker-cli?tabs=azure-cli).
 
 ### Step 1: Create a new Managed Airflow environment
 
