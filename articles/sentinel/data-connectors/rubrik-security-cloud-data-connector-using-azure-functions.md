@@ -1,14 +1,14 @@
 ---
-title: "Rubrik Security Cloud data connector (using Azure Function) connector for Microsoft Sentinel"
-description: "Learn how to install the connector Rubrik Security Cloud data connector (using Azure Function) to connect your data source to Microsoft Sentinel."
+title: "Rubrik Security Cloud data connector (using Azure Functions) connector for Microsoft Sentinel"
+description: "Learn how to install the connector Rubrik Security Cloud data connector (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 05/22/2023
+ms.date: 08/28/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
-# Rubrik Security Cloud data connector (using Azure Function) connector for Microsoft Sentinel
+# Rubrik Security Cloud data connector (using Azure Functions) connector for Microsoft Sentinel
 
 The Rubrik Security Cloud data connector enables security operations teams to integrate insights from Rubrik’s Data Observability services into Microsoft Sentinel. The insights include identification of anomalous filesystem behavior associated with ransomware and mass deletion, assess the blast radius of a ransomware attack, and sensitive data operators to prioritize and more rapidly investigate potential incidents.
 
@@ -25,19 +25,22 @@ The Rubrik Security Cloud data connector enables security operations teams to in
 
 **Rubrik Anomaly Events - Anomaly Events for all severity types.**
    ```kusto
-   Rubrik_Anomaly_Data_CL
+Rubrik_Anomaly_Data_CL
+ 
    | sort by TimeGenerated desc
    ```
 
 **Rubrik Ransomware Analysis Events - Ransomware Analysis Events for all severity types.**
    ```kusto
-   Rubrik_Ransomware_Data_CL
+Rubrik_Ransomware_Data_CL
+ 
    | sort by TimeGenerated desc
    ```
 
 **Rubrik ThreatHunt Events - Threat Hunt Events for all severity types.**
    ```kusto
-   Rubrik_ThreatHunt_Data_CL
+Rubrik_ThreatHunt_Data_CL
+ 
    | sort by TimeGenerated desc
    ```
 
@@ -45,7 +48,7 @@ The Rubrik Security Cloud data connector enables security operations teams to in
 
 ## Prerequisites
 
-To integrate with Rubrik Security Cloud data connector (using Azure Function) make sure you have: 
+To integrate with Rubrik Security Cloud data connector (using Azure Functions) make sure you have: 
 
 - **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](/azure/azure-functions/).
 
@@ -62,7 +65,7 @@ To integrate with Rubrik Security Cloud data connector (using Azure Function) ma
 
 **STEP 1 - Choose ONE from the following two deployment options to deploy the connector and the associated Azure Function**
 
->**IMPORTANT:** Before deploying the Rubrik Sentinel data connector, have the Workspace ID and Workspace Primary Key (can be copied from the following) readily available..
+>**IMPORTANT:** Before deploying the Rubrik Microsoft Sentinel data connector, have the Workspace ID and Workspace Primary Key (can be copied from the following) readily available..
 
 
 
@@ -87,7 +90,7 @@ Use this method for automated deployment of the Rubrik connector.
 
 Option 2 - Manual Deployment of Azure Functions
 
-Use the following step-by-step instructions to deploy the Rubrik Sentinel data connector manually with Azure Functions (Deployment via Visual Studio Code).
+Use the following step-by-step instructions to deploy the Rubrik Microsoft Sentinel data connector manually with Azure Functions (Deployment via Visual Studio Code).
 
 
 **1. Deploy a Function App**
@@ -148,10 +151,10 @@ If you're already signed in, go to the next step.
 **STEP 2 - Follow the Rubrik User Guide instructions to [Add a Webhook](https://docs.rubrik.com/en-us/saas/saas/common/adding_webhook.html) to begin receiving event information related to Ransomware Anomalies.**
 
  1. Select the Generic as the webhook Provider(This will use CEF formatted event information)
- 2. Enter the Function App URL as the webhook URL endpoint for the Rubrik Sentinel Solution
+ 2. Enter the Function App URL as the webhook URL endpoint for the Rubrik Microsoft Sentinel Solution
  3. Select the Custom Authentication option 
  4. Enter x-functions-key as the HTTP header 
- 5. Enter the Function access key as the HTTP value(Note: if you change this function access key in Sentinel in the future you will need to update this webhook configuration)
+ 5. Enter the Function access key as the HTTP value(Note: if you change this function access key in Microsoft Sentinel in the future you will need to update this webhook configuration)
  6. Select the following Event types: Anomaly, Ransomware Investigation Analysis, Threat Hunt 
  7. Select the following severity levels: Critical, Warning, Informational
 
