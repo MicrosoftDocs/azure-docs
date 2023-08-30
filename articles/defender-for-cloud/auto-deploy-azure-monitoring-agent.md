@@ -12,6 +12,9 @@ ms.custom: template-how-to, ignite-2022
 
 To make sure that your server resources are secure, Microsoft Defender for Cloud uses agents installed on your servers to send information about your servers to Microsoft Defender for Cloud for analysis. You can quietly deploy the Azure Monitor Agent on your servers when you enable Defender for Servers.
 
+> [!NOTE]
+> As part of the Defender for Cloud updated strategy, Azure Monitor Agent will no longer be required for the Defender for Servers offering. However, it will still be required for Defender for SQL Server on machines. As a result, the autoprovisioning process for both agents will be adjusted accordingly. For more information about this change, see [this announcement](upcoming-changes.md#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation).
+
 In this article, we're going to show you how to deploy the agent so that you can protect your servers.
 
 ## Availability
@@ -24,8 +27,8 @@ Before you deploy AMA with Defender for Cloud, you must have the following prere
 
 - Make sure your multicloud and on-premises machines have Azure Arc installed.
   - AWS and GCP machines
-    - [Onboard your AWS connector](quickstart-onboard-aws.md) and auto provision Azure Arc.
-    - [Onboard your GCP connector](quickstart-onboard-gcp.md) and auto provision Azure Arc.
+    - [Onboard your AWS connector](quickstart-onboard-aws.md) and autoprovision Azure Arc.
+    - [Onboard your GCP connector](quickstart-onboard-gcp.md) and autoprovision Azure Arc.
   - On-premises machines
     - [Install Azure Arc](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
 - Make sure the Defender plans that you want the Azure Monitor Agent to support are enabled:

@@ -365,22 +365,19 @@ $targetSubID = "<subscription ID for the target>"
 $sourceTenantID = "<tenant ID where for the source image>"
 $sourceImageID = "<resource ID of the source image>"
 
-# Login to the subscription where the new image will be created
-Connect-AzAccount -UseDeviceAuthentication -Subscription $targetSubID
-
 # Login to the tenant where the source image is published
 Connect-AzAccount -Tenant $sourceTenantID -UseDeviceAuthentication 
 
-# Login to the subscription again where the new image will be created and set the context
+# Login to the subscription where the new image will be created and set the context
 Connect-AzAccount -UseDeviceAuthentication -Subscription $targetSubID
 Set-AzContext -Subscription $targetSubID 
 
 # Create the image version from another image version in a different tenant
-New-AzGalleryImageVersion \
-   -ResourceGroupName myResourceGroup -GalleryName myGallery \
-   -GalleryImageDefinitionName myImageDef \
-   -Location "West US 2" \
-   -Name 1.0.0 \
+New-AzGalleryImageVersion `
+   -ResourceGroupName myResourceGroup -GalleryName myGallery `
+   -GalleryImageDefinitionName myImageDef `
+   -Location "West US 2" `
+   -Name 1.0.0 `
    -SourceImageId $sourceImageID
 ```
 

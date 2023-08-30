@@ -80,7 +80,8 @@ A private-link resource is the destination target of a specified private endpoin
 | Azure Data Factory | Microsoft.DataFactory/factories | dataFactory |
 | Azure Data Explorer | Microsoft.Kusto/clusters | cluster |
 | Azure Database for MariaDB | Microsoft.DBforMariaDB/servers | mariadbServer |
-| Azure Database for MySQL | Microsoft.DBforMySQL/servers | mysqlServer |
+| Azure Database for MySQL - Single Server | Microsoft.DBforMySQL/servers | mysqlServer |
+| Azure Database for MySQL- Flexible Server | Microsoft.DBforMySQL/flexibleServers | mysqlServer |
 | Azure Database for PostgreSQL - Single server | Microsoft.DBforPostgreSQL/servers | postgresqlServer |
 | Azure Device Provisioning Service | Microsoft.Devices/provisioningServices | iotDps |
 | Azure IoT Hub | Microsoft.Devices/IotHubs | iotHub |
@@ -174,7 +175,13 @@ For complete, detailed information about recommendations to configure DNS for pr
 
 ## Limitations
 
-The following information lists the known limitations to the use of private endpoints: 
+The following information lists the known limitations to the use of private endpoints:
+
+### Static IP address
+
+| Limitation | Description |
+| --------- | ------------ |
+| Static IP address configuration currently unsupported. | **Azure Kubernetes Service (AKS)** </br> **Azure Application Gateway** </br> **HD Insight**. |
 
 ### Network security group
 

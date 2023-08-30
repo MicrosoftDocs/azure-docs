@@ -36,8 +36,6 @@ The Python v1 programming model requires you to define bindings in a separate *f
 
 This article supports both programming models.
 
-> [!IMPORTANT]
-> The Python v2 programming model is currently in preview.
 ::: zone-end
 
 
@@ -1056,7 +1054,7 @@ If a function that uses the HTTP trigger doesn't complete within 230 seconds, th
 - [Return an HTTP response from a function](./functions-bindings-http-webhook-output.md)
 
 [ClaimsPrincipal]: /dotnet/api/system.security.claims.claimsprincipal
-[ASP.NET Core integration in .NET Isolated]: ./dotnet-isolated-process-guide.md#aspnet-core-integration-preview
+[ASP.NET Core integration in .NET Isolated]: ./dotnet-isolated-process-guide.md#aspnet-core-integration
 [HttpRequestData]: /dotnet/api/microsoft.azure.functions.worker.http.httprequestdata
 [HttpResponseData]: /dotnet/api/microsoft.azure.functions.worker.http.httpresponsedata
 [HttpRequest]: /dotnet/api/microsoft.aspnetcore.http.httprequest

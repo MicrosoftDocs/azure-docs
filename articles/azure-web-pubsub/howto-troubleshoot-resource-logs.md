@@ -28,19 +28,50 @@ The Azure Web PubSub service live trace tool has ability to collect resource log
 > The following considerations apply to using the live trace tool:
 >
 > - The real-time resource logs captured by live trace tool will be billed as messages (outbound traffic).
-> - The live trace tool does not currently support Azure Active Directory authentication. You must enable access keys to use live trace. Under **Settings**, select **Keys**, and then enable **Access Key**.
+> - The live trace tool does not currently support Microsoft Entra authorization. You must enable access keys to use live trace. Under **Settings**, select **Keys**, and then enable **Access Key**.
 > - The Azure Web PubSub service Free Tier instance has a daily limit of 20,000 messages (outbound traffic). Live trace can cause you to unexpectedly reach the daily limit.
 
-### Launch the live trace tool
+## Launch the live trace tool
 
-1. Go to the Azure portal and your Web PubSub service.
-1. On the left menu, under **Monitoring**, select **Live trace settings.**
-1. On the **Live trace settings** page, select **Enable Live Trace**.
-1. Choose the log categories to collect.
-1. Select **Save** and then wait until the settings take effect.
-1. Select **Open Live Trace Tool**.
+> [!NOTE]
+> When enable access key, you'll use access token to authenticate live trace tool.
+> Otherwise, you'll use Microsoft Entra ID to authenticate live trace tool.
+> You can check whether you enable access key or not in your SignalR Service's Keys page in Azure portal.
 
-   :::image type="content" source="./media/howto-troubleshoot-diagnostic-logs/diagnostic-logs-with-live-trace-tool.png" alt-text="Screenshot of launching the live trace tool.":::
+### Steps for access key enabled
+
+1. Go to the Azure portal and your SignalR Service page.
+1. From the menu on the left, under **Monitoring** select **Live trace settings**.
+1. Select **Enable Live Trace**.
+1. Select **Save** button. It will take a moment for the changes to take effect.
+1. When updating is complete, select **Open Live Trace Tool**.
+
+    :::image type="content" source="./media/howto-troubleshoot-diagnostic-logs/diagnostic-logs-with-live-trace-tool.png" alt-text="Screenshot of launching the live trace tool.":::
+
+### Steps for access key disabled
+
+#### Assign live trace tool API permission to yourself
+1. Go to the Azure portal and your SignalR Service page.
+1. Select **Access control (IAM)**.
+1. In the new page, Click **+Add**, then click **Role assignment**.
+1. In the new page, focus on **Job function roles** tab, Select **SignalR Service Owner** role, and then click **Next**.
+1. In **Members** page, click **+Select members**.
+1. In the new panel, search and select members, and then click **Select**.
+1. Click **Review + assign**, and wait for the completion notification.
+
+#### Visit live trace tool
+1. Go to the Azure portal and your SignalR Service page.
+1. From the menu on the left, under **Monitoring** select **Live trace settings**.
+1. Select **Enable Live Trace**.
+1. Select **Save** button. It will take a moment for the changes to take effect.
+1. When updating is complete, select **Open Live Trace Tool**.
+
+    :::image type="content" source="./media/howto-troubleshoot-diagnostic-logs/diagnostic-logs-with-live-trace-tool.png" alt-text="Screenshot of launching the live trace tool.":::
+
+#### Sign in with your Microsoft account
+
+1. The live trace tool will pop up a Microsoft sign in window. If no window is pop up, check and allow pop up windows in your browser.
+1. Wait for **Ready** showing in the status bar. 
 
 ### Capture the resource logs
 
@@ -82,7 +113,7 @@ Currently Azure Web PubSub supports integration with [Azure Storage](../azure-mo
 
 1. Go to Azure portal.
 1. On **Diagnostic settings** page of your Azure Web PubSub service instance, select **+ Add diagnostic setting**.
-   :::image type="content" source="./media/howto-troubleshoot-diagnostic-logs/diagnostic-settings-list.png" alt-text="Screenshot of viewing diagnostic settings and create a new one.":::
+   :::image type="content" source="./media/howto-troubleshoot-diagnostic-logs/diagnostic-settings-list.png" alt-text="Screenshot of viewing diagnostic settings and create a new one":::
 1. In **Diagnostic setting name**, input the setting name.
 1. In **Category details**, select any log category you need.
 1. In **Destination details**, check **Archive to a storage account**.
@@ -101,7 +132,7 @@ All logs are stored in JavaScript Object Notation (JSON) format. Each entry has 
 
 Archive log JSON strings include elements listed in the following tables:
 
-**Format**
+#### Format
 
 | Name            | Description                                                                                    |
 | --------------- | ---------------------------------------------------------------------------------------------- |
@@ -114,7 +145,7 @@ Archive log JSON strings include elements listed in the following tables:
 | callerIpAddress | IP address of your server or client                                                            |
 | properties      | Detailed properties related to this log event. For more detail, see the properties table below |
 
-**Properties Table**
+#### Properties Table
 
 | Name          | Description                                                                                     |
 | ------------- | ----------------------------------------------------------------------------------------------- |
@@ -163,11 +194,11 @@ To view the resource logs, follow these steps:
 
 1. Select `Logs` in your target Log Analytics.
 
-   :::image type="content" alt-text="Screenshot showing the Log Analytics menu item." source="./media/howto-troubleshoot-diagnostic-logs/log-analytics-menu-item.png" lightbox="./media/howto-troubleshoot-diagnostic-logs/log-analytics-menu-item.png":::
+   :::image type="content" alt-text="Log Analytics menu item" source="./media/howto-troubleshoot-diagnostic-logs/log-analytics-menu-item.png" lightbox="./media/howto-troubleshoot-diagnostic-logs/log-analytics-menu-item.png":::
 
 1. Enter `WebPubSubConnectivity`, `WebPubSubMessaging` or `WebPubSubHttpRequest`, and then select the time range to query the log. For advanced queries, see [Get started with Log Analytics in Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md).
 
-   :::image type="content" alt-text="Screenshot showing the Query log in Log Analytics." source="./media/howto-troubleshoot-diagnostic-logs/query-log-in-log-analytics.png" lightbox="./media/howto-troubleshoot-diagnostic-logs/query-log-in-log-analytics.png":::
+   :::image type="content" alt-text="Query log in Log Analytics" source="./media/howto-troubleshoot-diagnostic-logs/query-log-in-log-analytics.png" lightbox="./media/howto-troubleshoot-diagnostic-logs/query-log-in-log-analytics.png":::
 
 To use a sample query for SignalR service, follow the steps below.
 
@@ -175,7 +206,7 @@ To use a sample query for SignalR service, follow the steps below.
 1. Select `Queries` to open query explorer.
 1. Select `Resource type` to group sample queries in resource type.
 1. Select `Run` to run the script.
-   :::image type="content" alt-text="Screenshot showing the sample query in Log Analytics." source="./media/howto-troubleshoot-diagnostic-logs/log-analytics-sample-query.png" lightbox="./media/howto-troubleshoot-diagnostic-logs/log-analytics-sample-query.png":::
+   :::image type="content" alt-text="Sample query in Log Analytics" source="./media/howto-troubleshoot-diagnostic-logs/log-analytics-sample-query.png" lightbox="./media/howto-troubleshoot-diagnostic-logs/log-analytics-sample-query.png":::
 
 Archive log columns include elements listed in the following table.
 

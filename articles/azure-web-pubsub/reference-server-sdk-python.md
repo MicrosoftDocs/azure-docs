@@ -61,10 +61,10 @@ Or use the service endpoint and the access key:
 >>> service = WebPubSubServiceClient(endpoint='<endpoint>', hub='hub', credential=AzureKeyCredential("<access_key>"))
 ```
 
-Or use [Azure Active Directory][aad_doc] (Azure AD):
+Or use [Microsoft Entra ID][microsoft_entra_id_doc]:
 
 1. [pip][pip] install [`azure-identity`][azure_identity_pip].
-2. [Enable Azure AD authentication on your Webpubsub resource][aad_doc].
+2. [Enable Microsoft Entra authorization on your Webpubsub resource][microsoft_entra_id_doc].
 3. Update code to use [DefaultAzureCredential][default_azure_credential].
 
    ```python
@@ -181,5 +181,5 @@ This project has adopted the Microsoft Open Source Code of Conduct. For more inf
 [connection_string]: howto-websocket-connect.md#authorization
 [azure_portal]: howto-develop-create-instance.md
 [azure-key-credential]: https://aka.ms/azsdk-python-core-azurekeycredential
-[aad_doc]: howto-authorize-from-application.md
+[microsoft_entra_id_doc]: howto-authorize-from-application.md
 [samples]: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/webpubsub/azure-messaging-webpubsubservice/samples
