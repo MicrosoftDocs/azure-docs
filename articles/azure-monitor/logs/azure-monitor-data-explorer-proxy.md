@@ -9,7 +9,7 @@ ms.reviewer: osalzberg
 
 ---
 # Query data in Azure Data Explorer and Azure Resource Graph from Azure Monitor
-Azure Monitor lets you query data in [Azure Data Explorer](/azure/data-explorer/data-explorer-overview.md) and [Azure Resource Graph](../../governance/resource-graph/) from your Log Analytics workspace and Application Insights resources. This article explains how to query data in Azure Resource Graph and Azure Data Explorer from Azure Monitor.
+Azure Monitor lets you query data in [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) and [Azure Resource Graph](../../governance/resource-graph/overview.md) from your Log Analytics workspace and Application Insights resources. This article explains how to query data in Azure Resource Graph and Azure Data Explorer from Azure Monitor.
 
 You can run cross-service queries by using any client tools that support Kusto Query Language (KQL) queries, including the Log Analytics web UI, workbooks, PowerShell, and the REST API.
 
@@ -125,7 +125,7 @@ To create a new alert rule based on a cross-service query, follow the steps in [
 * Database names are case sensitive.
 * Identifying the Timestamp column in the cluster isn't supported. The Log Analytics Query API won't pass along the time filter.
 * The cross-service query ability is used for data retrieval only. 
-* [Private Link](../logs/private-link-security) does not support cross-service queries.
+* [Private Link](../logs/private-link-security.md) does not support cross-service queries.
 
 ## Next steps
 * [Write queries](/azure/data-explorer/write-queries)
