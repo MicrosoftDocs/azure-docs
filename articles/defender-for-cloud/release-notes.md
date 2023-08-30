@@ -2,7 +2,7 @@
 title: Release notes
 description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 08/29/2023
+ms.date: 08/30/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -32,21 +32,12 @@ Updates in September include:
 
 September 1, 2023
 
-Malware scanning is now generally available (GA) available as an add-on to Defender for Storage and is a significant enhancement to Microsoft Defender for Cloud’s security offerings for Azure Blob Storage. Malware scanning offers: 
+Malware scanning is now generally available (GA) as an add-on to Defender for Storage and is a significant enhancement to Microsoft Defender for Cloud’s security offerings for Azure Blob Storage. Learn more about [malware scanning in Defender for Storage](defender-for-storage-malware-scan.md).
 
-**Near real-time agentless protection**: full malware scan on uploaded content in near real time, using Microsoft Defender Antivirus capabilities, and catching polymorphic and metamorphic malware. 
-
-**Cost-effective security**: you can [control costs](defender-for-storage-malware-scan.md#cost-control) with flexible pricing based on the amount of data scanned and resource level granularity. Optional data capping allows you to align usage with your security budget. 
-
-**Simple enablement at scale**: [enabling malware scanning](tutorial-enable-storage-plan.md#set-up-and-configure-microsoft-defender-for-storage) requires zero maintenance and supports [automated responses at scale](defender-for-storage-configure-malware-scan.md). You can enable the plan at scale via an [Azure built-in policy](defender-for-storage-policy-enablement.md), or optionally enable via [Bicep](defender-for-storage-infrastructure-as-code-enablement.md?tabs=enable-subscription#bicep-template), [ARM](defender-for-storage-infrastructure-as-code-enablement.md?tabs=enable-subscription#azure-resource-manager-template), [Terraform](defender-for-storage-infrastructure-as-code-enablement.md?tabs=enable-subscription#terraform-template), the [REST API](defender-for-storage-rest-api-enablement.md), or the [Azure portal UI](defender-for-storage-azure-portal-enablement.md).  
-
-**Use-case versatility**: over the past two years, beta users have applied malware scanning in [various scenarios](defender-for-storage-malware-scan.md#common-use-cases-and-scenarios), including web applications, content protection, compliance, third-party integrations, collaborative platforms, data pipelines, and machine learning (ML) training data. 
 
 Malware scanning is priced per gigabyte of data scanned. Billing begins on September 3, 2023. Visit the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/) for more information. 
 
-Learn more about [malware scanning in Defender for Storage](defender-for-storage-malware-scan.md).
-
-Read the [Microsoft Defender for Cloud blog](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/malware-scanning-for-cloud-storage-ga-pre-announcement-prevent/ba-p/3884470). 
+Read the [Microsoft Defender for Cloud announcement blog post](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/malware-scanning-for-cloud-storage-ga-pre-announcement-prevent/ba-p/3884470). 
 
 
 ## August 2023
