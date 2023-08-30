@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 07/14/2023
+ms.date: 08/30/2023
 ms.custom: ignite-fall-2021
 ---
 
@@ -301,6 +301,8 @@ For the **Standard** logic app workflow, these capabilities have changed, or the
 * **Breakpoint debugging in Visual Studio Code**: Although you can add and use breakpoints inside the **workflow.json** file for a workflow, breakpoints are supported only for actions at this time, not triggers. For more information, see [Create single-tenant based workflows in Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#manage-breakpoints).
 
 * **Trigger history and run history**: For a **Standard** logic app, trigger history and run history in the Azure portal appears at the workflow level, not the logic app resource level. For more information, review [Create single-tenant based workflows using the Azure portal](create-single-tenant-workflows-azure-portal.md).
+
+* **Back up and restore for workflow run history**: **Standard** logic apps currently don't support back up and restore for workflow run history.
 
 * **Zoom control**: The zoom control is currently unavailable on the designer.
 

@@ -136,7 +136,7 @@ Some features of the [Analyze - Image](https://westcentralus.dev.cognitive.micro
 |Language | Language code | Categories | Tags | Description | Adult | Brands | Color | Faces | ImageType | Objects | Celebrities | Landmarks | Captions/Dense captions|
 |:---|:---:|:----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:--:|
 |Arabic |`ar`| | ✅| |||||| ||||
-|Azeri (Azerbaijani) |`az`| | ✅| |||||| ||||
+|Azerbaijani |`az`| | ✅| |||||| ||||
 |Bulgarian |`bg`| | ✅| |||||| ||||
 |Bosnian Latin |`bs`| | ✅| |||||| ||||
 |Catalan |`ca`| | ✅| |||||| ||||

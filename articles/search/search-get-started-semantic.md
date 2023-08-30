@@ -27,7 +27,7 @@ This quickstart walks you through the query modifications that invoke semantic s
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
 
-+ Azure Cognitive Search, at Basic tier or higher, with [semantic search enabled](semantic-search-overview.md#enable-semantic-search).
++ Azure Cognitive Search, at Basic tier or higher, with [semantic search enabled](semantic-how-to-enable-disable.md).
 
 + An API key and service endpoint:
 
