@@ -72,9 +72,9 @@ Take advantage of Microsoft Sentinel's security orchestration, automation, and r
 
 Learn more about [Microsoft Sentinel incident response playbooks for SAP](sap/sap-incident-response-playbooks.md).
 
-### Microsoft Sentinel solution for Dynamics 365 Finance and Operations (Preview)
+### Microsoft Sentinel solution for D365 Finance and Operations (Preview)
 
-The Microsoft Sentinel Solution for Dynamics 365 Finance and Operations monitors and protects your Dynamics 365 Finance and Operations system: It collects audits and activity logs from the Dynamics 365 Finance and Operations environment, and detects threats, suspicious activities, illegitimate activities, and more. 
+The Microsoft Sentinel Solution for D365 Finance and Operations monitors and protects your Dynamics 365 Finance and Operations system: It collects audits and activity logs from the Dynamics 365 Finance and Operations environment, and detects threats, suspicious activities, illegitimate activities, and more. 
 
 The solution includes the **Dynamics 365 Finance and Operations** connector and [built-in analytics rules](dynamics-365/dynamics-365-finance-operations-security-content.md#built-in-analytics-rules) to detect suspicious activity in your Dynamics 365 Finance and Operations environment.
 
