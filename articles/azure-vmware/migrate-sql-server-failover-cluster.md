@@ -136,8 +136,8 @@ Finally, check the connectivity to SQL Server from other systems and application
 - [Enable Azure Hybrid Benefit for SQL Server in Azure VMware Solution](enable-sql-azure-hybrid-benefit.md). 
 - [Create a placement policy in Azure VMware Solution](create-placement-policy.md)  
 - [Windows Server Failover Clustering Documentation](/windows-server/failover-clustering/failover-clustering-overview)
-- [Microsoft SQL Server 2019 Documentation](/sql/sql-server/?view=sql-server-ver15)
-- [Microsoft SQL Server 2022 Documentation](/sql/sql-server/?view=sql-server-ver16)
+- [Microsoft SQL Server 2019 Documentation](/sql/sql-server/?view=sql-server-ver15&preserve-view=true)
+- [Microsoft SQL Server 2022 Documentation](/sql/sql-server/?view=sql-server-ver16&preserve-view=true)
 - [Windows Server Technical Documentation](/windows-server/)
 - [Planning Highly Available, Mission Critical SQL Server Deployments with VMware vSphere](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/solutions/vmware-vsphere-highly-available-mission-critical-sql-server-deployments.pdf)
 - [Microsoft SQL Server on VMware vSphere Availability and Recovery Options](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/solutions/sql-server-on-vmware-availability-and-recovery-options.pdf)
