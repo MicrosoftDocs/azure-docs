@@ -16,7 +16,7 @@ ms.author: eur
 The text to speech feature in the Speech service supports more than 400 voices and more than 140 languages and variants.
 You can get the [full list](../../../language-support.md?tabs=tts) or try them in the [Voice Gallery](https://speech.microsoft.com/portal/voicegallery).
 
-Specify the language or voice of [`SpeechConfig`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig) to match your input text and use the wanted voice:
+Specify the language or voice of [SpeechConfig](/java/api/com.microsoft.cognitiveservices.speech.speechconfig) to match your input text and use the specified voice. The following code snippet shows how this technique works:
 
 ```java
 public static void main(String[] args) {
@@ -46,32 +46,32 @@ Next, you create a [`SpeechSynthesizer`](/java/api/com.microsoft.cognitiveservic
 - The [`SpeechConfig`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig) object that you created in the previous step
 - An [`AudioConfig`](/java/api/com.microsoft.cognitiveservices.speech.audio.audioconfig) object that specifies how output results should be handled
 
-To start, create an `AudioConfig` instance to automatically write the output to a .wav file by using the `fromWavFileOutput()` static function:
+1. Create an `AudioConfig` instance to automatically write the output to a .wav file by using the `fromWavFileOutput()` static function:
 
-```java
-public static void main(String[] args) {
-    SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSpeechKey", "YourSpeechRegion");
-    AudioConfig audioConfig = AudioConfig.fromWavFileOutput("path/to/write/file.wav");
-}
-```
+   ```java
+   public static void main(String[] args) {
+       SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSpeechKey", "YourSpeechRegion");
+       AudioConfig audioConfig = AudioConfig.fromWavFileOutput("path/to/write/file.wav");
+   }
+   ```
 
-Next, instantiate a `SpeechSynthesizer` instance. Pass your `speechConfig` object and the `audioConfig` object as parameters. Then, doing speech synthesis and writing to a file is as simple as running `SpeakText()` with a string of text.
+1. Instantiate a `SpeechSynthesizer` instance. Pass your `speechConfig` object and the `audioConfig` object as parameters. To synthesize speech and write to a file, run `SpeakText()` with a string of text.
 
-```java
-public static void main(String[] args) {
-    SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSpeechKey", "YourSpeechRegion");
-    AudioConfig audioConfig = AudioConfig.fromWavFileOutput("path/to/write/file.wav");
+   ```java
+   public static void main(String[] args) {
+       SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSpeechKey", "YourSpeechRegion");
+       AudioConfig audioConfig = AudioConfig.fromWavFileOutput("path/to/write/file.wav");
 
-    SpeechSynthesizer speechSynthesizer = new SpeechSynthesizer(speechConfig, audioConfig);
-    speechSynthesizer.SpeakText("I'm excited to try text to speech");
-}
-```
+       SpeechSynthesizer speechSynthesizer = new SpeechSynthesizer(speechConfig, audioConfig);
+       speechSynthesizer.SpeakText("I'm excited to try text to speech");
+   }
+   ```
 
-Run the program. A synthesized .wav file is written to the location that you specified. This result is a good example of the most basic usage. Next, you look at customizing output and handling the output response as an in-memory stream for working with custom scenarios.
+When you run the program, it creates a synthesized *.wav* file, which is written to the location that you specify. This result is a good example of the most basic usage. Next, you can customize output and handle the output response as an in-memory stream for working with custom scenarios.
 
 ## Synthesize to speaker output
 
-You might want more insights about the text to speech processing and results. For example, you might want to know when the synthesizer starts and stops, or you might want to know about other events encountered during synthesis. 
+You might want more insights about the text to speech processing and results. For example, you might want to know when the synthesizer starts and stops, or you might want to know about other events encountered during synthesis.
 
 To output synthesized speech to the current active output device such as a speaker, instantiate `AudioConfig` by using the `fromDefaultSpeakerOutput()` static function. Here's an example:
 
@@ -93,12 +93,14 @@ You can use the resulting audio data as an in-memory stream rather than directly
 - Integrate the result with other APIs or services.
 - Modify the audio data, write custom .wav headers, and do related tasks.
 
-It's simple to make this change from the previous example. First, remove the `AudioConfig` block, because you manage the output behavior manually from this point onward for increased control. Then pass `null` for `AudioConfig` in the `SpeechSynthesizer` constructor.
+You can make this change to the previous example. First, remove the `AudioConfig` block, because you manage the output behavior manually from this point onward for increased control. Then pass `null` for `AudioConfig` in the `SpeechSynthesizer` constructor.
 
 > [!NOTE]
-> Passing `null` for `AudioConfig`, rather than omitting it as you did in the previous speaker output example, will not play the audio by default on the current active output device.
+> Passing `null` for `AudioConfig`, rather than omitting it as you did in the previous speaker output example, doesn't play the audio by default on the current active output device.
 
-This time, you save the result to a [`SpeechSynthesisResult`](/java/api/com.microsoft.cognitiveservices.speech.speechsynthesisresult) variable. The `SpeechSynthesisResult.getAudioData()` function returns a `byte []` instance of the output data. You can work with this `byte []` instance manually, or you can use the [`AudioDataStream`](/java/api/com.microsoft.cognitiveservices.speech.audiodatastream) class to manage the in-memory stream. In this example, you use the `AudioDataStream.fromResult()` static function to get a stream from the result:
+Save the result to a [`SpeechSynthesisResult`](/java/api/com.microsoft.cognitiveservices.speech.speechsynthesisresult) variable. The `SpeechSynthesisResult.getAudioData()` function returns a `byte []` instance of the output data. You can work with this `byte []` instance manually, or you can use the [`AudioDataStream`](/java/api/com.microsoft.cognitiveservices.speech.audiodatastream) class to manage the in-memory stream.
+
+In this example, use the `AudioDataStream.fromResult()` static function to get a stream from the result:
 
 ```java
 public static void main(String[] args) {
@@ -111,7 +113,7 @@ public static void main(String[] args) {
 }
 ```
 
-From here, you can implement any custom behavior by using the resulting `stream` object.
+At this point, you can implement any custom behavior by using the resulting `stream` object.
 
 ## Customize audio format
 
@@ -121,14 +123,14 @@ You can customize audio output attributes, including:
 - Sample rate
 - Bit depth
 
-To change the audio format, you use the `setSpeechSynthesisOutputFormat()` function on the `SpeechConfig` object. This function expects an `enum` instance of type [`SpeechSynthesisOutputFormat`](/java/api/com.microsoft.cognitiveservices.speech.speechsynthesisoutputformat), which you use to select the output format. See the [list of audio formats](/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesisoutputformat) that are available.
+To change the audio format, you use the `setSpeechSynthesisOutputFormat()` function on the `SpeechConfig` object. This function expects an `enum` instance of type [SpeechSynthesisOutputFormat](/java/api/com.microsoft.cognitiveservices.speech.speechsynthesisoutputformat). Use the `enum` to select the output format. For available formats, see the [list of audio formats](/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesisoutputformat).
 
 There are various options for different file types, depending on your requirements. By definition, raw formats like `Raw24Khz16BitMonoPcm` don't include audio headers. Use raw formats only in one of these situations:
 
 - You know that your downstream implementation can decode a raw bitstream.
 - You plan to manually build headers based on factors like bit depth, sample rate, and number of channels.
 
-In this example, you specify the high-fidelity RIFF format `Riff24Khz16BitMonoPcm` by setting `SpeechSynthesisOutputFormat` on the `SpeechConfig` object. Similar to the example in the previous section, you use [`AudioDataStream`](/java/api/com.microsoft.cognitiveservices.speech.audiodatastream) to get an in-memory stream of the result, and then write it to a file.
+This example specifies the high-fidelity RIFF format `Riff24Khz16BitMonoPcm` by setting `SpeechSynthesisOutputFormat` on the `SpeechConfig` object. Similar to the example in the previous section, you use [`AudioDataStream`](/java/api/com.microsoft.cognitiveservices.speech.audiodatastream) to get an in-memory stream of the result, and then write it to a file.
 
 ```java
 public static void main(String[] args) {
@@ -144,68 +146,70 @@ public static void main(String[] args) {
 }
 ```
 
-Running your program again writes a .wav file to the specified path.
+When you run the program, it writes a *.wav* file to the specified path.
 
 ## Use SSML to customize speech characteristics
 
-You can use SSML to fine-tune the pitch, pronunciation, speaking rate, volume, and more in the text to speech output by submitting your requests from an XML schema. This section shows an example of changing the voice. For a more detailed guide, see the [SSML how-to article](../../../speech-synthesis-markup.md).
+You can use SSML to fine-tune the pitch, pronunciation, speaking rate, volume, and other aspects in the text to speech output by submitting your requests from an XML schema. This section shows an example of changing the voice. For more details, see the [SSML how-to article](../../../speech-synthesis-markup.md).
 
-To start using SSML for customization, you make a simple change that switches the voice.
+To start using SSML for customization, you make a small change that switches the voice.
 
-First, create a new XML file for the SSML configuration in your root project directory. In this example, it's `ssml.xml`. The root element is always `<speak>`. Wrapping the text in a `<voice>` element allows you to change the voice by using the `name` parameter. See the [full list](../../../language-support.md?tabs=tts) of supported *neural* voices.
+1. Create a new XML file for the SSML configuration in your root project directory.
 
-```xml
-<speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-  <voice name="en-US-JennyNeural">
-    When you're on the freeway, it's a good idea to use a GPS.
-  </voice>
-</speak>
-```
+   ```xml
+   <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+     <voice name="en-US-JennyNeural">
+       When you're on the freeway, it's a good idea to use a GPS.
+     </voice>
+   </speak>
+   ```
 
-Next, you need to change the speech synthesis request to reference your XML file. The request is mostly the same, but instead of using the `SpeakText()` function, you use `SpeakSsml()`. This function expects an XML string, so you first create a function to load an XML file and return it as a string:
+   In this example, the file is *ssml.xml*. The root element is always `<speak>`. Wrapping the text in a `<voice>` element allows you to change the voice by using the `name` parameter. For the full list of supported neural voices, see [Supported languages](../../../language-support.md?tabs=tts).
 
-```java
-private static String xmlToString(String filePath) {
-    File file = new File(filePath);
-    StringBuilder fileContents = new StringBuilder((int)file.length());
+1. Change the speech synthesis request to reference your XML file. The request is mostly the same. Instead of using the `SpeakText()` function, you use `SpeakSsml()`. This function expects an XML string, so first create a function to load an XML file and return it as a string:
 
-    try (Scanner scanner = new Scanner(file)) {
-        while(scanner.hasNextLine()) {
-            fileContents.append(scanner.nextLine() + System.lineSeparator());
-        }
-        return fileContents.toString().trim();
-    } catch (FileNotFoundException ex) {
-        return "File not found.";
-    }
-}
-```
+   ```java
+   private static String xmlToString(String filePath) {
+       File file = new File(filePath);
+       StringBuilder fileContents = new StringBuilder((int)file.length());
 
-From here, the result object is exactly the same as previous examples:
+       try (Scanner scanner = new Scanner(file)) {
+           while(scanner.hasNextLine()) {
+               fileContents.append(scanner.nextLine() + System.lineSeparator());
+           }
+           return fileContents.toString().trim();
+       } catch (FileNotFoundException ex) {
+           return "File not found.";
+       }
+   }
+   ```
 
-```java
-public static void main(String[] args) {
-    SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSpeechKey", "YourSpeechRegion");
-    SpeechSynthesizer speechSynthesizer = new SpeechSynthesizer(speechConfig, null);
+   At this point, the result object is exactly the same as previous examples:
 
-    String ssml = xmlToString("ssml.xml");
-    SpeechSynthesisResult result = speechSynthesizer.SpeakSsml(ssml);
-    AudioDataStream stream = AudioDataStream.fromResult(result);
-    stream.saveToWavFile("path/to/write/file.wav");
-}
-```
+   ```java
+   public static void main(String[] args) {
+       SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSpeechKey", "YourSpeechRegion");
+       SpeechSynthesizer speechSynthesizer = new SpeechSynthesizer(speechConfig, null);
+
+       String ssml = xmlToString("ssml.xml");
+       SpeechSynthesisResult result = speechSynthesizer.SpeakSsml(ssml);
+       AudioDataStream stream = AudioDataStream.fromResult(result);
+       stream.saveToWavFile("path/to/write/file.wav");
+   }
+   ```
 
 > [!NOTE]
-> To change the voice without using SSML, you can set the property on `SpeechConfig` by using `SpeechConfig.setSpeechSynthesisVoiceName("en-US-JennyNeural");`.
+> To change the voice without using SSML, set the property on `SpeechConfig` by using `SpeechConfig.setSpeechSynthesisVoiceName("en-US-JennyNeural");`.
 
 ## Subscribe to synthesizer events
 
-You might want more insights about the text to speech processing and results. For example, you might want to know when the synthesizer starts and stops, or you might want to know about other events encountered during synthesis. 
+You might want more insights about the text to speech processing and results. For example, you might want to know when the synthesizer starts and stops, or you might want to know about other events encountered during synthesis.
 
 While using the [SpeechSynthesizer](/java/api/com.microsoft.cognitiveservices.speech.speechsynthesizer) for text to speech, you can subscribe to the events in this table:
 
 [!INCLUDE [Event types](events.md)]
 
-Here's an example that shows how to subscribe to events for speech synthesis. You can follow the instructions in the [quickstart](../../../get-started-text-to-speech.md?pivots=java), but replace the contents of that `SpeechSynthesis.java` file with the following Java code.
+Here's an example that shows how to subscribe to events for speech synthesis. You can follow the instructions in the [quickstart](../../../get-started-text-to-speech.md?pivots=java), but replace the contents of that *SpeechSynthesis.java* file with the following Java code.
 
 ```java
 import com.microsoft.cognitiveservices.speech.*;

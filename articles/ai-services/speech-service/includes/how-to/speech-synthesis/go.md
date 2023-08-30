@@ -147,12 +147,12 @@ You can use the resulting audio data as an in-memory stream rather than directly
 - Integrate the result with other APIs or services.
 - Modify the audio data, write custom .wav headers, and do related tasks.
 
-It's simple to make this change from the previous example. First, remove the `AudioConfig` block, because you manage the output behavior manually from this point onward for increased control. Then pass `nil` for `AudioConfig` in the `SpeechSynthesizer` constructor.
+You can make this change to the previous example. Remove the `AudioConfig` block, because you manage the output behavior manually from this point onward for increased control. Then pass `nil` for `AudioConfig` in the `SpeechSynthesizer` constructor.
 
 > [!NOTE]
 > Passing `NULL` for `AudioConfig`, rather than omitting it as you did in the previous speaker output example, will not play the audio by default on the current active output device.
 
-This time, save the result to a [`SpeechSynthesisResult`](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go/speech#SpeechSynthesisResult) variable. The `AudioData` property returns a `[]byte` instance for the output data. You can work with this `[]byte` instance manually, or you can use the [`AudioDataStream`](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go/speech#AudioDataStream) class to manage the in-memory stream.
+Save the result to a [`SpeechSynthesisResult`](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go/speech#SpeechSynthesisResult) variable. The `AudioData` property returns a `[]byte` instance for the output data. You can work with this `[]byte` instance manually, or you can use the [`AudioDataStream`](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go/speech#AudioDataStream) class to manage the in-memory stream.
 In this example, you use the `NewAudioDataStreamFromSpeechSynthesisResult()` static function to get a stream from the result.
 
 Replace the variables `subscription` and `region` with your speech key and location/region:
@@ -303,18 +303,18 @@ All neural voices are multilingual and fluent in their own language and English.
 
 The voice that speaks is determined in order of priority as follows:
 
-- If you don't set `SpeechSynthesisVoiceName` or `SpeechSynthesisLanguage`, the default voice for `en-US` speaks. 
-- If you only set `SpeechSynthesisLanguage`, the default voice for the specified locale speaks. 
-- If both `SpeechSynthesisVoiceName` and `SpeechSynthesisLanguage` are set, the `SpeechSynthesisLanguage` setting is ignored. The voice that you specified by using `SpeechSynthesisVoiceName` speaks.
+- If you don't set `SpeechSynthesisVoiceName` or `SpeechSynthesisLanguage`, the default voice for `en-US` speaks.
+- If you only set `SpeechSynthesisLanguage`, the default voice for the specified locale speaks.
+- If both `SpeechSynthesisVoiceName` and `SpeechSynthesisLanguage` are set, the `SpeechSynthesisLanguage` setting is ignored. The voice that you specify by using `SpeechSynthesisVoiceName` speaks.
 - If the voice element is set by using [Speech Synthesis Markup Language (SSML)](../../../speech-synthesis-markup.md), the `SpeechSynthesisVoiceName` and `SpeechSynthesisLanguage` settings are ignored.
 
 ## Use SSML to customize speech characteristics
 
-You can use Speech Synthesis Markup Language (SSML) to fine-tune the pitch, pronunciation, speaking rate, volume, and more in the text to speech output by submitting your requests from an XML schema. This section shows an example of changing the voice. For a more detailed guide, see the [SSML how-to article](../../../speech-synthesis-markup.md).
+You can use Speech Synthesis Markup Language (SSML) to fine-tune the pitch, pronunciation, speaking rate, volume, and more in the text to speech output by submitting your requests from an XML schema. This section shows an example of changing the voice. For more details, see [Speech Synthesis Markup Language overview](../../../speech-synthesis-markup.md).
 
-To start using SSML for customization, you make a simple change that switches the voice.
+To start using SSML for customization, you make a small change that switches the voice.
 
-First, create a new XML file for the SSML configuration in your root project directory. In this example, it's `ssml.xml`. The root element is always `<speak>`. Wrapping the text in a `<voice>` element allows you to change the voice by using the `name` parameter. See the [full list](../../../language-support.md?tabs=tts) of supported *neural* voices.
+First, create a new XML file for the SSML configuration in your root project directory. In this example, it's `ssml.xml`. The root element is always `<speak>`. Wrapping the text in a `<voice>` element allows you to change the voice by using the `name` parameter. For the full list of supported neural voices, see [Supported languages](../../../language-support.md?tabs=tts).
 
 ```xml
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">

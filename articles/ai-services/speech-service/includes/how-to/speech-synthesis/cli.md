@@ -20,7 +20,7 @@ ms.author: eur
 
 Now you're ready to run the Speech CLI to synthesize speech from text.
 
-- From the command line, change to the directory that contains the Speech CLI binary file. Then run the following command:
+- In a console window, change to the directory that contains the Speech CLI binary file. Then run the following command:
 
   ```console
   spx synthesize --text "I'm excited to try text to speech"
