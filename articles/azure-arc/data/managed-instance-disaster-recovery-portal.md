@@ -74,7 +74,7 @@ After you use the portal to change a failover group, the portal automatically re
 
 - Add failover group
 - Edit failover group configuration
-- Fail over
+- Start failover
 - Delete failover group
 
 After you initiate the change, the portal automatically refreshes the status every two minutes. The portal automatically refreshes for two minutes. 
