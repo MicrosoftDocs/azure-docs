@@ -12,7 +12,7 @@ ms.author: ginle
 ms.custom: references_regions, build-2023
 ---
 
-# Prepare images for Product Recognition
+# Shelf Image Composition (Stitching & Rectification): Prepare images for Product Recognition
 
 Part of the Product Recognition workflow involves fixing and modifying the input images so the service can perform correctly. 
 
