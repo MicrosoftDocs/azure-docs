@@ -23,13 +23,13 @@ Code shown in this quickstart is in CommonJS. If you want to use an ECMAScript m
 
 ## Create a Web PubSub for Socket.IO resource
 
-To create a Web PubSub for Socket.IO, you can use the following one-click button to create or follow the actions below to search in Azure Portal.
+To create a Web PubSub for Socket.IO, you can use the following one-click button to create or follow the actions below to search in Azure portal.
 
 - Use the following bottun to create a Web PubSub for Socket.IO in Azure
 
     [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://ms.portal.azure.com/#create/Microsoft.WebPubSubForSocketIO)
 
-- Search from Azure Portal search bar
+- Search from Azure portal search bar
 
     1. Go to the [Azure portal](https://portal.azure.com/).
 
@@ -51,7 +51,7 @@ To create a Web PubSub for Socket.IO, you can use the following one-click button
 
 ## Sending messages with Socket.IO libraries and Web PubSub for Socket.IO
 
-In the following steps, you will create a Socket.IO project and integrate with Web PubSub for Socket.IO as broker.
+In the following steps, you create a Socket.IO project and integrate with Web PubSub for Socket.IO as broker.
 
 ### Initialize a Node project and install required packages
 
@@ -111,11 +111,11 @@ socket.on("hello", (arg) => {
 socket.emit("howdy", "stranger")
 ```
 
-When using Web PubSub for Socket.IO, `<web-pubsub-socketio-endpoint>` and `path` are required for the client to connect to the service. The `<web-pubsub-socketio-endpoint>` and `path` can be found in Azure Portal.
+When you use Web PubSub for Socket.IO, `<web-pubsub-socketio-endpoint>` and `path` are required for the client to connect to the service. The `<web-pubsub-socketio-endpoint>` and `path` can be found in Azure portal.
 
 1. Go to the **key** blade of Web PubSub for Socket.IO
 
-1. Type in you hub name and copy the **Client Endpoint** and **Client Path**
+1. Type in your hub name and copy the **Client Endpoint** and **Client Path**
 
     :::image type="content" source="./media/socketio/client-url.png" alt-text="Screenshot of the Web PubSub for Socket.IO service in the Azure portal key blade.":::
 
@@ -127,7 +127,7 @@ When using Web PubSub for Socket.IO, `<web-pubsub-socketio-endpoint>` and `path`
     node server.js "<connection-string>"
     ```
 
-    The `<connection-string>` is the connection string contains the endpoint and keys to access your Web PubSub for Socket.IO resource. You can also find the connection string in Azure Portal
+    The `<connection-string>` is the connection string contains the endpoint and keys to access your Web PubSub for Socket.IO resource. You can also find the connection string in Azure portal
 
     :::image type="content" source="./media/socketio/connection-string.png" alt-text="Screenshot of the Web PubSub for Socket.IO service in the Azure portal key blade.":::
 
