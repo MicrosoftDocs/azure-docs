@@ -1081,11 +1081,11 @@ sections:
   - name: Container insights
     questions:
       - question: |
-         Why do I see info banner "You don't have right cluster permissions which may restrict your access to the feature. Please reach-out to your cluster-admin to get the right permissions"?
+         Why do I see info banner "You do not have the right cluster permissions which will restrict your access to Container Insights features. Please reach out to your cluster admin to get the right permission"?
         answer: |
          Container Insights has historically allowed users to access the Azure portal experience based on the access permission of the Log Analytics workspace.
 
-         Container Insights now check cluster level permission to provide access to Azure portal experience. It is recommended for users to get atleast basic read-only cluster level access through their cluster admin.
+         Container Insights now checks cluster level permission to provide access to the Azure portal experience. It is recommended for users to get atleast basic read-only cluster level access through their cluster admin.
 
           Cluster admin would need to follow different steps based on the following cluster types
            *AKS without Kubernetes role-based access control (RBAC) authorization enabled
