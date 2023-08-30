@@ -74,7 +74,7 @@ func main() {
 	azureOpenAIKey := os.Getenv("AZURE_OPENAI_KEY")
 
 	// Ex: "https://<your-azure-openai-host>.openai.azure.com"
-	azureOpenAIEndpoint := os.Getenv("AZURE_OPENAI_KEY")
+	azureOpenAIEndpoint := os.Getenv("AZURE_OPENAI_ENDPOINT")
 
 	if azureOpenAIKey == "" || azureOpenAIEndpoint == "" {
 		fmt.Fprintf(os.Stderr, "Skipping example, environment variables missing\n")

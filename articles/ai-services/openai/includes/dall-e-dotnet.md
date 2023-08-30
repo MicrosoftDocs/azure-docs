@@ -79,7 +79,7 @@ using Azure.AI.OpenAI;
 
 namespace Azure.AI.OpenAI.Tests.Samples
 {
-    public partial class StreamingChat
+    public partial class GenerateImages
     {
         // add an async Main method:
         public static async Task Main(string[] args)
