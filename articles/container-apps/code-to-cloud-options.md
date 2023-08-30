@@ -11,7 +11,7 @@ ms.author: cshoe
 
 # Select the right code-to-cloud path for Azure Container Apps
 
-You have several options available as you develop and deploy your apps to Azure Container Apps. As consider your goals and the needs of your team, consider the following questions:
+You have several options available as you develop and deploy your apps to Azure Container Apps. As evaluate your goals and the needs of your team, consider the following questions:
 
 - Do you want to focus more on application changes, or infrastructure configuration?
 - Are you working on a team or as an individual?
