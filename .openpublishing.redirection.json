@@ -23793,11 +23793,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/communications-gateway/rotate-secrets.md",
-            "redirect_URL": "/azure/communications-gateway/whats-new",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/batch/high-availability-disaster-recovery.md",
             "redirect_URL": "/azure/reliability/reliability-batch",
             "redirect_document_id": false
@@ -24265,6 +24260,11 @@
         {
             "source_path_from_root": "/articles/reliability/reliability-postgre-flexible.md",
             "redirect_url": "/azure/reliability/reliability-postgresql-flexible-server",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/private-link/tutorial-private-endpoint-cosmosdb-portal.md",
+            "redirect_url": "/azure/cosmos-db/how-to-configure-private-endpoints",
             "redirect_document_id": false
         }
     ]
