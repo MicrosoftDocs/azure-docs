@@ -96,7 +96,7 @@ To prepare the notebook environment for development:
 
 4. This code cell starts the Spark session. It needs about 10 minutes to install all dependencies and start the Spark session.
 
-      [!notebook-python[] (~/azureml-examples/sdk/python/featurestore_sample/notebooks/sdk_and_cli/network_isolation/Network Isolation for Feature store.ipynb?name=start-spark-session)]
+      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/network_isolation/Network Isolation for Feature store.ipynb?name=start-spark-session)]
 
 5. Set up the root directory for the samples
 
