@@ -18,6 +18,10 @@ Use the following steps to prepare the sample locally.
 
 ### [Azure portal](#tab/Azure-portal)
 
+This section is not required to prepare the jar package for deployment, the `Deploy to azure` button process will download the jar from [GitHub release](https://github.com/Azure-Samples/ASA-Samples-Event-Driven-Application/releases).
+
+### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
+
 [!INCLUDE [prepare-spring-project-git-event-driven](prepare-spring-project-git-event-driven.md)]
 
 ### [Azure Developer CLI](#tab/Azure-Developer-CLI)

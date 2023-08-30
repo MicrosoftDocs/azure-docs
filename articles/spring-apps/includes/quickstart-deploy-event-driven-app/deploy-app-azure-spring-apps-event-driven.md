@@ -18,6 +18,10 @@ This section provides the steps to deploy your application to Azure Spring Apps.
 
 ### [Azure portal](#tab/Azure-portal)
 
+The application deployment step has been integrated in the process of the `Deploy to Azure` button, which has been completed in the previous step.
+
+### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
+
 Use the following steps to deploy your JAR file with the [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Spring-Apps).
 
 1. Navigate to the sample project directory and use the following command to configure the app for Azure Spring Apps:

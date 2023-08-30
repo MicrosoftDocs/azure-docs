@@ -18,11 +18,25 @@ For clarity of structure, a separate markdown file is used to describe how to de
 
 Use the following steps to prepare the sample locally.
 
+### [Azure portal](#tab/Azure-portal-ent)
+
+This section is not required to prepare the jar package for deployment, the `Deploy to azure` button process will download the jar from [GitHub release](https://github.com/Azure-Samples/ASA-Samples-Web-Application/releases).
+
+### [Azure CLI](#tab/Azure-CLI)
+
 [!INCLUDE [prepare-spring-project-git-event-driven](prepare-spring-project-git-event-driven.md)]
+
+---
 
 ## 3. Prepare the cloud environment
 
 The main resources you need to run this sample are an Azure Spring Apps instance and an Azure Service Bus instance. Use the following steps to create these resources.
+
+### [Azure portal](#tab/Azure-portal-ent)
+
+[!INCLUDE [prepare-cloud-environment-on-azure-portal](event-driven-prepare-cloud-env-enterprise-azure-portal.md)]
+
+### [Azure CLI](#tab/Azure-CLI)
 
 ### 3.1. Provide names for each resource
 
@@ -147,9 +161,17 @@ Now, both the Service Bus and the app in Azure Spring Apps have been created, bu
              SPRING_CLOUD_AZURE_KEYVAULT_SECRET_PROPERTYSOURCEENABLED=false
    ```
 
+---
+
 ## 4. Deploy the app to Azure Spring Apps
 
 Now the cloud environment is ready. Deploy the app by using the following command:
+
+### [Azure portal](#tab/Azure-portal-ent)
+
+The application deployment step has been integrated in the process of the `Deploy to Azure` button, which has been completed in the previous step.
+
+### [Azure CLI](#tab/Azure-CLI)
 
 ```azurecli
 az spring app deploy \
@@ -157,3 +179,5 @@ az spring app deploy \
     --name ${APP_NAME} \
     --artifact-path target/simple-event-driven-app-0.0.1-SNAPSHOT.jar
 ```
+
+---
