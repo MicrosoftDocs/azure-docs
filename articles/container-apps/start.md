@@ -5,13 +5,13 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 06/01/2023
+ms.date: 08/30/2023
 ms.author: cshoe
 ---
 
 # Get started with Azure Container Apps
 
-Azure Container Apps allows you to run containerized applications without worrying about orchestration or infrastructure.
+Azure Container Apps is a fully managed environment that enables you to run containerized applications and microservices on a serverless platform. Container Apps simplifies the process of deploying, running, and scaling applications packaged as containers in the Azure ecosystem.
 
 Get started with Azure Container Apps by exploring the following resources.
 
