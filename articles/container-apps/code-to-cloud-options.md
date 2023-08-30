@@ -5,18 +5,16 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: how-to
-ms.date: 08/18/2023
+ms.date: 08/30/2023
 ms.author: cshoe
 ---
 
-# Choose the right code-to-cloud path for Azure Container Apps
+# Select the right code-to-cloud path for Azure Container Apps
 
-When developing applications for Azure Container Apps, you have several options available to you as you develop and deploy your apps.
-
-As you build your apps, consider the following questions:
+You have several options available as you develop and deploy your apps to Azure Container Apps. As consider your goals and the needs of your team, consider the following questions:
 
 - Do you want to focus more on application changes, or infrastructure configuration?
-- Are you working on a team or are you working as an individual?
+- Are you working on a team or as an individual?
 - How fast do you need to see changes reflected in the application or infrastructure?
 - How important is an automated workflow vs. an experimental workflow?
 
@@ -28,11 +26,11 @@ Depending on your situation, you may want to deploy from a [code editor](#code-e
 
 ## Code editor
 
-If you spend most your time editing code and favor rapid iteration of your applications, then you may want to use [Visual Studio](https://visualstudio.microsoft.com/) or [Visual Studio Code](https://code.visualstudio.com/) to build Docker files a deploy your applications directly to Azure Container Apps.
+If you spend most your time editing code and favor rapid iteration of your applications, then you may want to use [Visual Studio](https://visualstudio.microsoft.com/) or [Visual Studio Code](https://code.visualstudio.com/). These editors allow you to easily build Docker files a deploy your applications directly to Azure Container Apps.
 
-This approach allows you to experiment with configuration changes made in the early stages of an application's life.
+This approach allows you to experiment with configuration options made in the early stages of an application's life.
 
-Once your application works as expected, then you can commit your changes to a [code repository](#code-repository) to run and deploy your application.
+Once your application works as expected, then you can formalize the build process through your [code repository](#code-repository) to run and deploy your application.
 
 ### Resources
 
@@ -43,7 +41,7 @@ Once your application works as expected, then you can commit your changes to a [
 
 The Azure portal's focus is on setting up, changing, and experimenting with your Container Apps environment.
 
-While you can't use the portal to deploy your code, it's ideal for making iterative changes to your configuration. The portal's strengths lie in making it easy for you to set up, change, and experiment with your container app.
+While you can't use the portal to deploy your code, it's ideal for making incremental changes to your configuration. The portal's strengths lie in making it easy for you to set up, change, and experiment with your container app.
 
 You can also use the portal with [Azure App Spaces](/azure/app-spaces/overview) to deploy your applications to Container Apps.
 
@@ -64,6 +62,10 @@ As you maintain code in a repository, deployment takes place on the server rathe
 - [Deploy to Azure Container Apps from Azure Pipelines](azure-pipelines.md)
 
 ## Infrastructure as code
+
+Infrastructure as Code (IaC) allows you to maintain your infrastructure setup and configuration in code. Once in your codebase, you can ensure every deployed container environment is consistent, reproducible, and version-controlled.
+
+In Azure Container Apps, you can use the [Azure CLI](/cli/azure/) or the [Azure Developer CLI](/azure/developer/azure-developer-cli/overview) to configure your applications.
 
 | CLI | Description | Best used with |
 |--|--|--|
