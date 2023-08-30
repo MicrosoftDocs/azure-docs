@@ -5,10 +5,10 @@ services: active-directory
 author: shlipsey3
 manager: amycolannino
 ms.service: active-directory
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/28/2023
+ms.date: 08/30/2023
 ms.author: sarahlipsey
 ms.reviewer: besiler
 ---
@@ -88,15 +88,15 @@ Filtering the sign-in logs is a helpful way to quickly find logs that match a sp
 
 Some filter options prompt you to select more options. Follow the prompts to make the selection you need for the filter. You can add multiple filters. 
 
-Select the **Add filters** option from the top of the table to get started.
+1. Select the **Add filters** button, choose a filter option and select **Apply**.
 
-![Screenshot of the sign-in logs page with the Add filters option highlighted.](./media/howto-customize-filter-logs/sign-in-logs-add-filters.png)
+    ![Screenshot of the sign-in logs page with the Add filters option highlighted.](./media/howto-customize-filter-logs/sign-in-logs-add-filters.png)
 
-Once you apply a filter, you may either enter a specific detail - such as a Request ID - or select another filter option. 
+1. Either enter a specific detail - such as a Request ID - or select another filter option. 
 
-![Screenshot of the filter options with a field to enter filter details open.](./media/howto-customize-filter-logs/sign-in-logs-filter-options.png)
+    ![Screenshot of the filter options with a field to enter filter details open.](./media/howto-customize-filter-logs/sign-in-logs-filter-options.png)
 
-You can filter on several details. The following table describes some commonly used filters. Not all filter options are described.
+You can filter on several details. The following table describes some commonly used filters. *Not all filter options are described.*
 
 | Filter | Description |
 | --- | --- |
@@ -116,6 +116,40 @@ Customizing the columns and adjusting the filter helps to look at logs with simi
 :::image type="content" source="media/howto-customize-filter-logs/sign-in-activity-details.png" alt-text="Screenshot of the sign-in activity details." lightbox="media/howto-customize-filter-logs/sign-in-activity-details-expanded.png":::
 
 
+### Client app filter
+
+When reviewing where a sign-in originated, you may need use the **Client app** filter. Client app has two subcategories: **Modern authentication clients** and **Legacy authentication clients**. Modern authentication clients has two more subcategories: **Browser** and **Mobile apps and desktop clients**. There are several subcategories for Legacy authentication clients, which are defined in the [Legacy authentication client details](#legacy-authentication-client-details) table.
+
+![Screenshot of the client app filter selected, with the categories highlighted.](media/concept-sign-ins/client-app-filter.png)
+
+**Browser** sign-ins include all sign-in attempts from web browsers. When viewing the details of a sign-in from a browser, the **Basic info** tab shows **Client app: Browser**.
+
+![Screenshot of the sign-in details, with the client app detail highlighted.](media/concept-sign-ins/client-app-browser.png)
+
+On the **Device info** tab, **Browser** shows the details of the web browser. The browser type and version are listed, but in some cases, the name of the browser and version is not available. You may see something like **Rich Client 4.0.0.0**. 
+
+![Screenshot of the sign-in activity details with a Rich Client browser example highlighted.](media/concept-sign-ins/browser-rich-client.png)
+
+#### Legacy authentication client details
+
+The following table provides the details for each of the *Legacy authentication client* options.
+
+|Name|Description|
+|---|---|
+|Authenticated SMTP|Used by POP and IMAP clients to send email messages.|
+|Autodiscover|Used by Outlook and EAS clients to find and connect to mailboxes in Exchange Online.|
+|Exchange ActiveSync|This filter shows all sign-in attempts where the EAS protocol has been attempted.|
+|Exchange ActiveSync| Shows all sign-in attempts from users with client apps using Exchange ActiveSync to connect to Exchange Online|
+|Exchange Online PowerShell|Used to connect to Exchange Online with remote PowerShell. If you block basic authentication for Exchange Online PowerShell, you need to use the Exchange Online PowerShell module to connect. For instructions, see [Connect to Exchange Online PowerShell using multi-factor authentication](/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).|
+|Exchange Web Services|A programming interface that's used by Outlook, Outlook for Mac, and third-party apps.|
+|IMAP4|A legacy mail client using IMAP to retrieve email.|
+|MAPI over HTTP|Used by Outlook 2010 and later.|
+|Offline Address Book|A copy of address list collections that are downloaded and used by Outlook.|
+|Outlook Anywhere (RPC over HTTP)|Used by Outlook 2016 and earlier.|
+|Outlook Service|Used by the Mail and Calendar app for Windows 10.|
+|POP3|A legacy mail client using POP3 to retrieve email.|
+|Reporting Web Services|Used to retrieve report data in Exchange Online.|
+|Other clients|Shows all sign-in attempts from users where the client app isn't included or unknown.|
 
 ## Next steps
 

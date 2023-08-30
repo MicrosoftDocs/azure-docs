@@ -32,48 +32,11 @@ If a sign-in failed, you can get more information about the reason in the Basic 
 
 ![Screenshot of the sign-in error code on the basics tab.](media/concept-sign-in-log-activity-details/sign-in-error-code.png)
 
-### Client app
-
-The **Client app** filter has two subcategories: **Modern authentication clients** and **Legacy authentication clients**. *Browser* and *Mobile apps and desktop clients* are the two options in the Modern authentication clients category.
-
-![Screenshot of the client app filter selected, with the categories highlighted.](media/concept-sign-ins/client-app-filter.png)
-
-*Browser* sign-ins include all sign-in attempts from web browsers. When viewing the details of a sign-in from a browser, the **Basic info** tab shows **Client app: Browser**.
-
-![Screenshot of the sign-in details, with the client app detail highlighted.](media/concept-sign-ins/client-app-browser.png)
-
-
-On the **Device info** tab, **Browser** shows the details of the web browser. The browser type and version appears, but in some cases, the name of the browser and version is not available. You may see something like **Rich Client 4.0.0.0**. 
-
-![Screenshot of the sign-in activity details with a Rich Client browser example highlighted.](media/concept-sign-ins/browser-rich-client.png)
-
-#### Legacy authentication client details
-
-The following table provides the details for each of the *Legacy authentication client* options.
-
-|Name|Description|
-|---|---|
-|Authenticated SMTP|Used by POP and IMAP clients to send email messages.|
-|Autodiscover|Used by Outlook and EAS clients to find and connect to mailboxes in Exchange Online.|
-|Exchange ActiveSync|This filter shows all sign-in attempts where the EAS protocol has been attempted.|
-|Exchange ActiveSync| Shows all sign-in attempts from users with client apps using Exchange ActiveSync to connect to Exchange Online|
-|Exchange Online PowerShell|Used to connect to Exchange Online with remote PowerShell. If you block basic authentication for Exchange Online PowerShell, you need to use the Exchange Online PowerShell module to connect. For instructions, see [Connect to Exchange Online PowerShell using multi-factor authentication](/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).|
-|Exchange Web Services|A programming interface that's used by Outlook, Outlook for Mac, and third-party apps.|
-|IMAP4|A legacy mail client using IMAP to retrieve email.|
-|MAPI over HTTP|Used by Outlook 2010 and later.|
-|Offline Address Book|A copy of address list collections that are downloaded and used by Outlook.|
-|Outlook Anywhere (RPC over HTTP)|Used by Outlook 2016 and earlier.|
-|Outlook Service|Used by the Mail and Calendar app for Windows 10.|
-|POP3|A legacy mail client using POP3 to retrieve email.|
-|Reporting Web Services|Used to retrieve report data in Exchange Online.|
-|Other clients|Shows all sign-in attempts from users where the client app isn't included or unknown.|
-
-
 # [Location and Device tabs](#tab/location-and-device-tabs)
 
 The **Location** and **Device info** tabs display general information about the location and IP address of the user. The Device info tab provides details on the browser and operating system used to sign in. This tab also provides details on if the device is compliant, managed, or hybrid Azure AD joined.
 
-# [Authentication details tab](#tab/authentication-details-tab)
+# [Authentication details tab](#tab/authentication-details-tab)<h3 id="authentication-details"></h3>
 
 The **Authentication Details** tab in the details of a sign-in log provides the following information for each authentication attempt:
 
