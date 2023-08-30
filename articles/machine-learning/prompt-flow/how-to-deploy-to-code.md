@@ -112,16 +112,18 @@ auth_mode: key
 
 ---
 
-| Key         | Description                                                                                                                                                                                                                                                 |
-| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `$schema`   | (Optional) The YAML schema. To see all available options in the YAML file, you can view the schema in the preceding code snippet in a browser.                                                                                                                   |
-| `name`      | The name of the endpoint.                                               |
+| Key | Description |  |
+|--|--|
+| `$schema` | (Optional) The YAML schema. To see all available options in the YAML file, you can view the schema in the preceding code snippet in a browser. |
+| `name` | The name of the endpoint. |
 | `auth_mode` | Use `key` for key-based authentication. Use `aml_token` for Azure Machine Learning token-based authentication. To get the most recent token, use the `az ml online-endpoint get-credentials` command. |
 
+
 If you create a Kubernetes online endpoint, you need to specify the following additional attributes:
-| Key         | Description                                                                                                                                                                                                                                                 |
-| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `compute`   | The Kubernetes compute target to deploy the endpoint to.                                                                                                     |
+
+| Key       | Description                                              |
+|-----------|----------------------------------------------------------|
+| `compute` | The Kubernetes compute target to deploy the endpoint to. |
 
 > [!IMPORTANT]
 >
@@ -285,5 +287,5 @@ az ml online-endpoint invoke --name basic-chat-endpoint --request-file endpoints
 ## Next steps
 
 - Learn more about [managed online endpoint schema](../reference-yaml-endpoint-online.md) and [managed online deployment schema](../reference-yaml-deployment-managed-online.md).
-- Learn more about how to [troubleshoot managed online endpoints](../how-to-troubleshoot-online-endpoints.md?view=azureml-api-2&tabs=cli).
+- Learn more about how to [troubleshoot managed online endpoints](../how-to-troubleshoot-online-endpoints.md).
 - Once you improve your flow, and would like to deploy the improved version with safe rollout strategy, see [Safe rollout for online endpoints](../how-to-safely-rollout-online-endpoints.md).

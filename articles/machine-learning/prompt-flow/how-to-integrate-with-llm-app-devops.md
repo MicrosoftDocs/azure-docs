@@ -383,13 +383,13 @@ This allows you to make and test changes quickly, without needing to update the 
 
 For more details and guidance on using the local versions, you can refer to the [Prompt flow GitHub community](https://github.com/microsoft/promptflow).
 
-### Go back to Studio UI for continuous development
+### Go back to studio UI for continuous development
 
-Alternatively, you have the option to go back to the Studio UI, using the cloud resources and experience to make changes to your flow in the flow authoring page.
+Alternatively, you have the option to go back to the studio UI, using the cloud resources and experience to make changes to your flow in the flow authoring page.
 
 To continue developing and working with the most up-to-date version of the flow files, you can access the terminal in the notebook and pull the latest changes of the flow files from your repository.
 
-In addition, if you prefer continuing to work in the Studio UI, you can directly import a local flow folder as a new draft flow. This allows you to seamlessly transition between local and cloud development.
+In addition, if you prefer continuing to work in the studio UI, you can directly import a local flow folder as a new draft flow. This allows you to seamlessly transition between local and cloud development.
 
 :::image type="content" source="./media/how-to-integrate-with-llm-app-devops/flow-import-local-upload.png" alt-text="Screenshot of the create a new flow panel with upload to local highlighted. " lightbox = "./media/how-to-integrate-with-llm-app-devops/flow-import-local-upload.png":::
 

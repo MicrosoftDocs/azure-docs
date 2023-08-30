@@ -42,7 +42,7 @@ To get started with the Prompt Flow VS Code extension, navigate to the extension
 
 After successful development and testing of your prompt flow within our community ecosystem, the subsequent step you're considering may involve transitioning to a production-grade LLM application. We recommend Azure Machine Learning for this phase to ensure security, efficiency, and scalability.
 
-You can seamlessly shift your local flow to your Azure resource to leverage large-scale execution and management in the cloud. To achieve this, see [Integration with LLMOps](how-to-integrate-with-llm-app-devops.md#go-back-to-studio-ui).
+You can seamlessly shift your local flow to your Azure resource to leverage large-scale execution and management in the cloud. To achieve this, see [Integration with LLMOps](how-to-integrate-with-llm-app-devops.md#go-back-to-studio-ui-continuous-development).
 
 ## Community support
 

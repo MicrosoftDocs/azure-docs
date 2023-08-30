@@ -634,6 +634,18 @@
               href: ./prompt-flow/how-to-develop-an-evaluation-flow.md
         - name: Deploy flows for real-time inference
           href: ./prompt-flow/how-to-deploy-for-real-time-inference.md
+        - name: Go to production
+          items:
+            - name: Community Ecosystem
+              href: ./prompt-flow/community-ecosystem.md
+            - name: Custom tool package creation and usage
+              href: ./prompt-flow/how-to-custom-tool-package-creation-and-usage.md
+            - name: Deploy a flow to online endpoint for real-time inference with CLI 
+              href: ./prompt-flow/how-to-deploy-to-code.md
+            - name: How to use streaming endpoints deployed from prompt flow
+              href: ./prompt-flow/how-to-enable-streaming-mode.md
+            - name: Integrate Prompt Flow with LLM-based application DevOps 
+              href: ./how-to-integrate-with-llm-app-devops.md
         - name: Tools Reference
           items:
             - name: LLM tool

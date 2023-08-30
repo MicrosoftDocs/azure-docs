@@ -22,6 +22,10 @@ To avoid this, you can use streaming when you consume the endpoints. Once stream
 
 This article will describe the scope of streaming, how streaming works, and how to consume streaming endpoints.
 
+> [!IMPORTANT]
+> Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ## Create a streaming enabled flow
 
 If you want to use the streaming mode, you need to create a flow that has a node that produces a string generator as the flow’s output. A string generator is an object that can return one string at a time when requested. You can use the following types of nodes to create a string generator:
