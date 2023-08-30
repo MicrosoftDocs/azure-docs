@@ -1,7 +1,7 @@
 ---
-title: What's new with Dapr in Azure Container Apps
+title: What's new in Azure Container Apps
 titleSuffix: Azure Container Apps
-description: Learn more about what's new in Azure Container Apps and Dapr and how these updates impact your individual scenario.
+description: Learn more about what's new in Azure Container Apps.
 ms.author: hannahhunter
 author: hhunter-ms
 ms.service: container-apps
