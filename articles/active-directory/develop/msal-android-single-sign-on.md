@@ -114,12 +114,10 @@ keytool -exportcert -alias androiddebugkey -keystore %HOMEPATH%\.android\debug.k
 
 Once you've generated a signature hash with _keytool_, use the Azure portal to generate the redirect URI:
 
-1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
-1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="/azure/active-directory/develop/media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you registered your application.
-1. Search for and select **Azure Active Directory**.
-1. Under **Manage**, select **App registrations**.
-1. Under **Manage**, select **App registrations**, then select your application.
-1. Under **Manage**, select **Authentication** > **Add a platform** > **Android**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. If access to multiple tenants is available, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
+1. Browse to **Identity** > **Applications** > **Application registrations**.
+1. Select your application, and then select **Authentication** > **Add a platform** > **Android**.
 1. In the **Configure your Android app** pane that opens, enter the **Signature hash** that you generated earlier and a **Package name**.
 1. Select the **Configure** button.
 
