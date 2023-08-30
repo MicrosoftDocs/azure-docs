@@ -1,12 +1,12 @@
 ---
 title: How to use Apache Flink & Delta connector in HDInsight on AKS
-description: Learn how to use Flink-Delta connector
+description: Learn how to use Apache Flink-Delta connector
 ms.service: hdinsight-aks
 ms.topic: how-to
 ms.date: 08/29/2023
 ---
 
-# How to use Flink-Delta connector
+# How to use Apache Flink-Delta connector
 
 By using Apache Flink and Delta Lake together, you can create a reliable and scalable data lakehouse architecture. The Flink/Delta Connector allows you to write data to Delta tables with ACID transactions and exactly once processing. It means that your data streams are consistent and error-free, even if you restart your Flink pipeline from a checkpoint. The Flink/Delta Connector ensures that your data isn't lost or duplicated, and that it matches the Flink semantics.
 
@@ -17,11 +17,11 @@ In this article, you learn how to use Flink-Delta connector
 > * Write the data to a delta table.
 > * Query it in Power BI.
 
-## What is Flink-Delta connector
+## What is Apache Flink-Delta connector
 
 Flink-Delta Connector is a JVM library to read and write data from Apache Flink applications to Delta tables utilizing the Delta Standalone JVM library. The connector provides exactly once delivery guarantee.
 
-## Flink-Delta Connector includes
+## Apache Flink-Delta Connector includes
 
 * DeltaSink for writing data from Apache Flink to a Delta table.
 * DeltaSource for reading Delta tables using Apache Flink.

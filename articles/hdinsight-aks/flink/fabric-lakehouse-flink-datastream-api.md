@@ -7,7 +7,7 @@ ms.date: 08/29/2023
 ---
 # Connect to OneLake in Microsoft Fabric with HDInsight on AKS cluster for Apache Flink
 
-This example demonstrates on how to use HDInsight on AKS Flink with [Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview).
+This example demonstrates on how to use HDInsight on AKS Apache Flink with [Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview).
 
 [Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview) is an all-in-one analytics solution for enterprises that covers everything from data movement to data science, Real-Time Analytics, and business intelligence. It offers a comprehensive suite of services, including data lake, data engineering, and data integration, all in one place. 
 With Fabric, you don't need to piece together different services from multiple vendors. Instead, you can enjoy a highly integrated, end-to-end, and easy-to-use product that is designed to simplify your analytics needs. 
@@ -42,7 +42,7 @@ In this step, you see how we prepare a Delta table on the lakehouse on Microsoft
 
 :::image type="content" source="./media/fabric-lakehouse-flink-datastream-api/delta-table-under-lakehouse.png" alt-text="Screenshot showing preparation of a Delta table on the lakehouse on Microsoft Fabric." border="true" lightbox="./media/fabric-lakehouse-flink-datastream-api/delta-table-under-lakehouse.png":::
 
-### Flink DataStream Source code
+### Apache Flink DataStream Source code
 
 In this step, we prepare the jar to submit to the HDInsight on AKS, Apache Flink cluster. 
 

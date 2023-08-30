@@ -112,17 +112,17 @@ The following steps provide details about the specific network and application r
 
   1. Add the following rule to application rule collection `aksfwar`.
     
-     :::image type="content" source="./media/secure-traffic-by-firewall-azure-portal/create-cluster-flink-step-17.png" alt-text="Diagram showing adding application rules for Flink Cluster using Azure portal step 17." border="true" lightbox="./media/secure-traffic-by-firewall-azure-portal/create-cluster-flink-step-17.png":::
+     :::image type="content" source="./media/secure-traffic-by-firewall-azure-portal/create-cluster-flink-step-17.png" alt-text="Diagram showing adding application rules for Apache Flink Cluster using Azure portal step 17." border="true" lightbox="./media/secure-traffic-by-firewall-azure-portal/create-cluster-flink-step-17.png":::
 
 ### Apache Spark
 
   1. Add the following rules to application rule collection `aksfwar`.
     
-     :::image type="content" source="./media/secure-traffic-by-firewall-azure-portal/create-cluster-spark-step-18.png" alt-text="Diagram showing adding application rules for Flink Cluster using Azure portal step 18."  border="true" lightbox="./media/secure-traffic-by-firewall-azure-portal/create-cluster-spark-1-step-18.png":::
+     :::image type="content" source="./media/secure-traffic-by-firewall-azure-portal/create-cluster-spark-step-18.png" alt-text="Diagram showing adding application rules for Apache Flink Cluster using Azure portal step 18."  border="true" lightbox="./media/secure-traffic-by-firewall-azure-portal/create-cluster-spark-1-step-18.png":::
     
   2. Add the following rules to network rule collection `aksfwnr`.
     
-     :::image type="content" source="./media/secure-traffic-by-firewall-azure-portal/create-cluster-spark-1-step-18.png" alt-text="Diagram showing how to add application rules for Flink Cluster using Azure portal step 18." border="true" lightbox="./media/secure-traffic-by-firewall-azure-portal//create-cluster-spark-1-step-18.png":::
+     :::image type="content" source="./media/secure-traffic-by-firewall-azure-portal/create-cluster-spark-1-step-18.png" alt-text="Diagram showing how to add application rules for Apache Flink Cluster using Azure portal step 18." border="true" lightbox="./media/secure-traffic-by-firewall-azure-portal//create-cluster-spark-1-step-18.png":::
     
      > [!NOTE]
      > 1. Change the `Sql.<Region>` to your region as per your requirement. For example: `Sql.WestEurope`

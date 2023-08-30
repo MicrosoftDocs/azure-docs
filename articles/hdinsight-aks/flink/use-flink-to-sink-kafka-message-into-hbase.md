@@ -8,7 +8,7 @@ ms.date: 08/29/2023
 
 # Write messages to HBase with DataStream API
 
-In this article, learn how to write messages to HBase with Flink DataStream API
+In this article, learn how to write messages to HBase with Apache Flink DataStream API
 
 ## Overview
 

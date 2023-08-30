@@ -42,7 +42,7 @@ This section outlines cluster specific traffic that an enterprise can apply.
 | Service Tag | Sql.`<Region>` | TCP      | 11000-11999 |
 | Service Tag | Storage.`<Region>` | TCP      | 445 |
 
-#### Flink
+#### Apache Flink
 None
 
 ## Inbound security rules (Ingress traffic) 

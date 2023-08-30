@@ -179,7 +179,7 @@ drwxr-xr-x 2 root root 4096 May 15 02:43 util/
 **CassandraUtils.java**
 
 > [!NOTE]
-> Change ssl_keystore_file_path depends on the java cert location. On HDInsight on AKS flink, the path is `/usr/lib/jvm/msopenjdk-11-jre/lib/security`
+> Change ssl_keystore_file_path depends on the java cert location. On HDInsight on AKS Apache Flink, the path is `/usr/lib/jvm/msopenjdk-11-jre/lib/security`
 
 ``` java
 package com.azure.cosmosdb.cassandra.util;
@@ -442,7 +442,7 @@ drwxr-xr-x 2 root root     4096 May 15 03:54 maven-archiver/
 drwxr-xr-x 3 root root     4096 May 15 03:54 maven-status/
 ```
 
-### Uploading the jar for Flink Job submission
+### Uploading the jar for Apache Flink Job submission
 
 Upload jar into Azure storage and wget into webssh
 
@@ -469,7 +469,7 @@ bin/flink run -c com.azure.cosmosdb.cassandra.examples.CassandraDemo -j cosmosdb
 
 :::image type="content" source="./media/cosmos-db-for-apache-cassandra/run-cassandra-demo.png" alt-text="Screenshot showing how to run  Cassandra Demo." border="true" lightbox="./media/cosmos-db-for-apache-cassandra/run-cassandra-demo.png":::
 
-## Validate Flink Job Submission
+## Validate Apache Flink Job Submission
 
 Check job on HDInsight on AKS Flink UI
 

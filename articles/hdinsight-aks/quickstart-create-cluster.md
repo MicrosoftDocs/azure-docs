@@ -130,7 +130,7 @@ For a quickstart, refer to the following steps.
      |Cluster package| Select the cluster package with component version available for the selected cluster type. |
      |Cluster name|Enter the name of the new cluster.|
      |User-assigned managed identity | Select the managed identity to use with the cluster.|
-     |Storage account (ADLS Gen2) | Select a storage account and a container that is the default location for cluster logs and other output. It's mandatory for Flink and Spark cluster type.|      
+     |Storage account (ADLS Gen2) | Select a storage account and a container that is the default location for cluster logs and other output. It's mandatory for Apache Flink and Spark cluster type.|      
      |Virtual network (VNet) | The virtual network for the cluster. It's derived from the cluster pool.|
      |Subnet|The virtual network subnet for the cluster. It's derived from the cluster pool.|
  
@@ -151,7 +151,7 @@ For a quickstart, refer to the following steps.
      |Secure shell (SSH) configuration|(Optional) Select this option to enable SSH node. By enabling SSH, more VM nodes are created.|
 
      > [!NOTE]
-     > You will see extra section to provide service configurations for Flink clusters.
+     > You will see extra section to provide service configurations for Apache Flink clusters.
 
      Click **Next: Integrations** to continue.
 
