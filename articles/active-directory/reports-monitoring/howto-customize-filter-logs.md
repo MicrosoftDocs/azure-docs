@@ -115,54 +115,7 @@ Customizing the columns and adjusting the filter helps to look at logs with simi
 
 :::image type="content" source="media/howto-customize-filter-logs/sign-in-activity-details.png" alt-text="Screenshot of the sign-in activity details." lightbox="media/howto-customize-filter-logs/sign-in-activity-details-expanded.png":::
 
-### Considerations for sign-in logs
 
-- **IP address and location:** There's no definitive connection between an IP address and where the computer with that address is physically located. Mobile providers and VPNs issue IP addresses from central pools that are often far from where the client device is actually used. Currently, converting IP address to a physical location is a best effort based on traces, registry data, reverse lookups and other information.
-
-- **Conditional Access:** 
-    - *Not applied:* No policy applied to the user and application during sign-in.
-    - *Success:* One or more Conditional Access policies applied to or were evaluated for the user and application (but not necessarily the other conditions) during sign-in. Even though a Conditional Access policy might not apply, if it was evaluated, the Conditional Access status shows *Success*.
-    - *Failure:* The sign-in satisfied the user and application condition of at least one Conditional Access policy and grant controls are either not satisfied or set to block access. 
-
-- **Home tenant name:** Due to privacy commitments, Azure AD doesn't populate the home tenant name field during cross-tenant scenarios.
-
-- **Multifactor authentication:** When a user signs in with MFA, several separate MFA events are actually taking place. For example, if a user enters the wrong validation code or doesn't respond in time, additional MFA events are sent to reflect the latest status of the sign-in attempt. These sign-in events appear as one line item in the Azure AD sign-in logs. That same sign-in event in Azure Monitor, however, appears as multiple line items. These events all have the same `correlationId`.
-
-#### Client app
-
-The **Client app** filter has two subcategories: **Modern authentication clients** and **Legacy authentication clients**. *Browser* and *Mobile apps and desktop clients* are the two options in the Modern authentication clients category.
-
-![Screenshot of the client app filter selected, with the categories highlighted.](media/concept-sign-ins/client-app-filter.png)
-
-*Browser* sign-ins include all sign-in attempts from web browsers. When viewing the details of a sign-in from a browser, the **Basic info** tab shows **Client app: Browser**.
-
-![Screenshot of the sign-in details, with the client app detail highlighted.](media/concept-sign-ins/client-app-browser.png)
-
-
-On the **Device info** tab, **Browser** shows the details of the web browser. The browser type and version appears, but in some cases, the name of the browser and version is not available. You may see something like **Rich Client 4.0.0.0**. 
-
-![Screenshot of the sign-in activity details with a Rich Client browser example highlighted.](media/concept-sign-ins/browser-rich-client.png)
-
-**Legacy authentication client details**
-
-The following table provides the details for each of the *Legacy authentication client* options.
-
-|Name|Description|
-|---|---|
-|Authenticated SMTP|Used by POP and IMAP clients to send email messages.|
-|Autodiscover|Used by Outlook and EAS clients to find and connect to mailboxes in Exchange Online.|
-|Exchange ActiveSync|This filter shows all sign-in attempts where the EAS protocol has been attempted.|
-|Exchange ActiveSync| Shows all sign-in attempts from users with client apps using Exchange ActiveSync to connect to Exchange Online|
-|Exchange Online PowerShell|Used to connect to Exchange Online with remote PowerShell. If you block basic authentication for Exchange Online PowerShell, you need to use the Exchange Online PowerShell module to connect. For instructions, see [Connect to Exchange Online PowerShell using multi-factor authentication](/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).|
-|Exchange Web Services|A programming interface that's used by Outlook, Outlook for Mac, and third-party apps.|
-|IMAP4|A legacy mail client using IMAP to retrieve email.|
-|MAPI over HTTP|Used by Outlook 2010 and later.|
-|Offline Address Book|A copy of address list collections that are downloaded and used by Outlook.|
-|Outlook Anywhere (RPC over HTTP)|Used by Outlook 2016 and earlier.|
-|Outlook Service|Used by the Mail and Calendar app for Windows 10.|
-|POP3|A legacy mail client using POP3 to retrieve email.|
-|Reporting Web Services|Used to retrieve report data in Exchange Online.|
-|Other clients|Shows all sign-in attempts from users where the client app isn't included or unknown.|
 
 ## Next steps
 
