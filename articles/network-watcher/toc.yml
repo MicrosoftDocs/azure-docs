@@ -221,8 +221,6 @@
         href: network-watcher-security-group-view-powershell.md
       - name: Azure CLI
         href: network-watcher-security-group-view-cli.md
-      - name: REST
-        href: network-watcher-security-group-view-rest.md
     - name: Perform compliance and audit your network
       href: network-watcher-nsg-auditing-powershell.md
   - name: View network topology
