@@ -7,7 +7,7 @@ author: jimmart-dev
 
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 07/21/2023
+ms.date: 08/30/2023
 ms.author: jammart
 ms.subservice: storage-common-concepts
 ---
@@ -33,6 +33,10 @@ Before you can perform an account failover on your storage account, make sure th
 > - Your storage account doesn't have any features or services enabled that are not supported for account failover. See [Unsupported features and services](storage-disaster-recovery-guidance.md#unsupported-features-and-services) for a detailed list.
 
 ## Initiate the failover
+
+You can initiate an account failover from the Azure portal, PowerShell, Azure CLI, or the Azure Storage resource provider API.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## [Portal](#tab/azure-portal)
 

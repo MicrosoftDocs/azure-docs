@@ -54,6 +54,31 @@ To learn how to initiate a failover, see [Initiate a storage account failover](s
 
 ## The failover and failback process
 
+This section summarizes the failover process for a customer-managed failover.
+
+### Failover transition summary
+
+The following table shows the redundancy state of a storage account after a customer-managed failover:
+
+| Result of failover on...                | Customer-managed failover (unplanned)                |
+|-----------------------------------------|------------------------------------------------------|
+| ...the secondary region                 | The secondary region becomes the new primary         |
+| ...the original primary region          | The copy of the data in the original primary region is deleted |
+| ...the account redundancy configuration | The storage account is converted to LRS              |
+| ...the geo-redundancy configuration     | Geo-redundancy is lost                               |
+
+The table below summarizes the resulting redundancy configuration at every stage of a customer-managed failover and failback:
+
+| Original <br> configuration | After <br> failover | After re-enabling <br> geo redundancy | After <br> failback | After re-enabling <br> geo redundancy |
+|------------------------------|-----|------------------|------|------------------|
+| **Customer-managed**         |     |                  |      |                  |
+| GRS                          | LRS | GRS <sup>1</sup> | LRS  |GRS <sup>1</sup>  |
+| GZRS                         | LRS | GRS <sup>1</sup> | ZRS  |GZRS <sup>1</sup> |
+
+<sup>1</sup> Geo-redundancy is lost during a customer-managed failover and must be manually reconfigured.<br>
+
+### Failover transition details
+
 The following diagrams show what happens during customer-managed failover and failback of a storage account that is configured for geo-redundancy.
 
 ## [GRS/RA-GRS](#tab/grs-ra-grs)
@@ -190,5 +215,7 @@ After re-configuring the account as GZRS, replication to the original secondary 
 
 ## See also
 
-- [Disaster recovery and storage account failover](storage-disaster-recovery-guidance.md)
+- [Disaster recovery planning](storage-disaster-recovery-guidance.md)
+- [Azure Storage redundancy](storage-redundancy.md)
+- [Azure storage account failover overview](storage-failover-overview.md)
 - [Initiate an account failover](storage-initiate-account-failover.md)
