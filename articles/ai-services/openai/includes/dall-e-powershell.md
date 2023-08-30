@@ -76,8 +76,7 @@ echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/envi
 
 ---
 
-> [!div class="nextstepaction"]
-> [I ran into an issue with the setup.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=POWERSHELL&Pillar=AOAI&Product=Chatgpt&Page=quickstart&Section=Set-up)
+> [!div class="nextstepaction"] > [I ran into an issue with the setup.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=POWERSHELL&Pillar=AOAI&Product=Chatgpt&Page=quickstart&Section=Set-up)
 
 ## Create a new PowerShell script
 
@@ -86,27 +85,33 @@ echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/envi
 1. Replace the contents of _quickstart.ps1_ with the following code. Enter your endpoint URL and key in the appropriate fields. Change the value of `prompt` to your preferred text.
 
    ```powershell
+   # Azure OpenAI metadata variables
    $openai = @{
      api_key     = $Env:AZURE_OPENAI_KEY
      api_base    = $Env:AZURE_OPENAI_ENDPOINT # your endpoint should look like the following https://YOUR_RESOURCE_NAME.openai.azure.com/
      api_version = '2023-06-01-preview' # this may change in the future
    }
 
+   # Text to describe image
+   $prompt = 'A painting of a dog'
+
+   # Header for authentication
    $headers = [ordered]@{
      'api-key' = $openai.api_key
    }
 
+   # Adjust these values to fine-tune completions
    $body = [ordered]@{
-      prompt ='A painting of a dog' # Enter your prompt text here
-      size   ='1024x1024'
+      prompt = $prompt
+      size   = '1024x1024'
       n      = 1
    } | ConvertTo-Json
 
+    # Call the API to generate the image and retrieve the response
    $url = "$($openai.api_base)/openai/images/generations:submit?api-version=$($openai.api_version)"
 
    $submission = Invoke-RestMethod -Uri $url -Headers $headers -Body $body -Method Post -ContentType 'application/json' -ResponseHeadersVariable submissionHeaders
 
-    # Call the API to generate the image and retrieve the response
     $operation_location = $submissionHeaders['operation-location'][0]
     $status = ''
     while ($status -ne 'succeeded') {

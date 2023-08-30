@@ -81,7 +81,8 @@ echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/envi
 
 1. Replace the contents of quickstart.ps1 with the following code. Modify the code to add your key, endpoint, and deployment name:
 
-   ```powershell
+   ```powershell-interactive
+   # Azure OpenAI metadata variables
    $openai = @{
        api_key     = $Env:AZURE_OPENAI_KEY
        api_base    = $Env:AZURE_OPENAI_ENDPOINT # your endpoint should look like the following https://YOUR_RESOURCE_NAME.openai.azure.com/
@@ -89,12 +90,15 @@ echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/envi
        name        ='YOUR-DEPLOYMENT-NAME-HERE' #This will correspond to the custom name you chose for your deployment when you deployed a model.
    }
 
+   # Completion text
    $prompt = 'Once upon a time...'
    
+   # Header for authentication
    $headers = [ordered]@{
        'api-key' = $openai.api_key
    }
 
+   # Adjust these values to fine-tune completions
    $body = [ordered]@{
        prompt      = $prompt
        max_tokens  = 10
@@ -102,6 +106,7 @@ echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/envi
        top_p       = 0.5
    } | ConvertTo-Json
 
+   # Send a completion call to generate an answer
    $url = "$($openai.api_base)/openai/deployments/$($openai.name)/completions?api-version=$($openai.api_version)"
 
    $response = Invoke-RestMethod -Uri $url -Headers $headers -Body $body -Method Post -ContentType 'application/json'
