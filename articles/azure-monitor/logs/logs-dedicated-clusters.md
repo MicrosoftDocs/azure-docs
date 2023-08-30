@@ -629,7 +629,9 @@ Remove-AzOperationalInsightsLinkedService -ResourceGroupName "resource-group-nam
 
 #### [REST API](#tab/restapi)
 
-N/A
+```rest
+DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/linkedServices/{linkedServiceName}?api-version=2020-08-01
+```
 
 ---
 
