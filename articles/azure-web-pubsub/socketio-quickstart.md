@@ -1,6 +1,7 @@
 ---
 title: 'Quickstart: Incorporate Web PubSub for Socket.IO in your app'
 description: In this quickstart, you learn how to use Web PubSub for Socket.IO on an existing Socket.IO app.
+keywords: Socket.IO, Socket.IO on Azure, multi-node Socket.IO, scaling Socket.IO
 author: xingsy97
 ms.author: siyuanxing
 ms.date: 08/01/2023

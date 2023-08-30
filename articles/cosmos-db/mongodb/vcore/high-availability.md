@@ -2,16 +2,18 @@
 title: High availability and replication
 titleSuffix: Azure Cosmos DB for MongoDB vCore
 description: Review replication and high availability concepts in the context of Azure Cosmos DB for MongoDB vCore.
+author: gahl-levy
+ms.author: gahllevy
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: conceptual
-author: gahl-levy
-ms.author: gahllevy
-ms.reviewer: nayakshweta
-ms.date: 02/07/2023
+ms.date: 08/28/2023
 ---
 
 # High availability in Azure Cosmos DB for MongoDB vCore
+
+[!INCLUDE[MongoDB vCore](../../includes/appliesto-mongodb-vcore.md)]
 
 High availability (HA) avoids database downtime by maintaining standby replicas of every node in a cluster. If a node goes down, Azure Cosmos DB for MongoDB vCore switches incoming connections from the failed node to its standby replica.
 

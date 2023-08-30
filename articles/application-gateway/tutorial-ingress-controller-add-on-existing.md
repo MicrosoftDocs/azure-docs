@@ -64,7 +64,7 @@ You'll now deploy a new application gateway, to simulate having an existing appl
 ```azurecli-interactive
 az network public-ip create -n myPublicIp -g myResourceGroup --allocation-method Static --sku Standard
 az network vnet create -n myVnet -g myResourceGroup --address-prefix 10.0.0.0/16 --subnet-name mySubnet --subnet-prefix 10.0.0.0/24 
-az network application-gateway create -n myApplicationGateway -l eastus -g myResourceGroup --sku Standard_v2 --public-ip-address myPublicIp --vnet-name myVnet --subnet mySubnet --priority 100
+az network application-gateway create -n myApplicationGateway -g myResourceGroup --sku Standard_v2 --public-ip-address myPublicIp --vnet-name myVnet --subnet mySubnet --priority 100
 ```
 
 > [!NOTE]
