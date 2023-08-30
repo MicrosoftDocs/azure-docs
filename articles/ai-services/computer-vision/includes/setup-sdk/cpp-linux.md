@@ -6,13 +6,13 @@ ms.date: 08/01/2023
 ms.author: pafarley
 ---
 
-Installing the Vision SDK package will require your device to support the APT/Debian package manager.
+Installing the Vision SDK package requires your device to support the APT/Debian package manager.
 
 ### Ubuntu 18.04, Ubuntu 20.04, Ubuntu 22.04, Debian 10 (Buster)
 
 1. **By installing the Azure AI Vision SDK package you acknowledge the [Azure AI Vision SDK license agreement](https://aka.ms/azai/vision/license)**.
 
-1. The debian package is hosted on a Microsoft feed. To install the package, you first need to add the Microsoft feed to your device's package manager. To do that, run the following commands:
+1. The Debian package is hosted on a Microsoft feed. To install the package, you first need to add the Microsoft feed to your device's package manager. To do that, run the following commands:
 
    * For Ubuntu 18.04 (Bionic Beaver)
    ```sh
@@ -49,7 +49,7 @@ Installing the Vision SDK package will require your device to support the APT/De
     sudo apt install azure-ai-vision-dev-image-analysis
     ```
 
-1. Notice that the above package _azure-ai-vision-dev-image-analysis_ depends on additional Vision SDK packages, which will be installed automatically. Run `apt list azure-ai-vision*` to see the list of installed Vision SDK packages:
+1. Notice that the above package _azure-ai-vision-dev-image-analysis_ depends on other Vision SDK packages, which will be installed automatically. Run `apt list azure-ai-vision*` to see the list of installed Vision SDK packages:
    * _azure-ai-vision-dev-common_
    * _azure-ai-vision-dev-image-analysis_
    * _azure-ai-vision-runtime-common_
@@ -60,7 +60,7 @@ Installing the Vision SDK package will require your device to support the APT/De
 
 1. **By installing the Azure AI Vision SDK package you acknowledge the [Azure AI Vision SDK license agreement](https://aka.ms/azai/vision/license)**.
 
-1. Directly download the following 5 packages to your device:
+1. Directly download the following five packages to your device:
     ```sh
     wget https://packages.microsoft.com/repos/microsoft-ubuntu-bionic-prod/pool/main/a/azure-ai-vision-dev-common/azure-ai-vision-dev-common-0.13.0~beta.1-Linux.deb
     wget https://packages.microsoft.com/repos/microsoft-ubuntu-bionic-prod/pool/main/a/azure-ai-vision-dev-image-analysis/azure-ai-vision-dev-image-analysis-0.13.0~beta.1-Linux.deb
@@ -68,7 +68,7 @@ Installing the Vision SDK package will require your device to support the APT/De
     wget https://packages.microsoft.com/repos/microsoft-ubuntu-bionic-prod/pool/main/a/azure-ai-vision-runtime-common-media/azure-ai-vision-runtime-common-media-0.13.0~beta.1-Linux.deb
     wget https://packages.microsoft.com/repos/microsoft-ubuntu-bionic-prod/pool/main/a/azure-ai-vision-runtime-image-analysis/azure-ai-vision-runtime-image-analysis-0.13.0~beta.1-Linux.deb
     ```
-1. Install the 5 packages:
+1. Install the five packages:
     ```sh
     sudo apt update
     sudo apt install ./azure-ai-vision-dev-common-0.13.0~beta.1-Linux.deb ./azure-ai-vision-dev-image-analysis-0.13.0~beta.1-Linux.deb ./azure-ai-vision-runtime-common-0.13.0~beta.1-Linux.deb ./azure-ai-vision-runtime-common-media-0.13.0~beta.1-Linux.deb ./azure-ai-vision-runtime-image-analysis-0.13.0~beta.1-Linux.deb
