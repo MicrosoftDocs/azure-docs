@@ -19,16 +19,7 @@ Customer-managed account failover enables you to fail over your entire geo-redun
 
 This article describes what happens during a customer-managed storage account failover and failback at every stage of the process.
 
-> [!IMPORTANT]
-> Customer-managed failover for storage accounts with hierarchical namespaces (Azure Data Lake Storage Gen2) is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
-> To register for the preview, follow these steps:
->
-> 1. Go to your subscription in the Azure portal.
-> 1. Under **Settings**, select **Preview features**.
-> 1. Search or browse for the feature preview you wish to register. The preview feature name for customer-managed failover for hierarchical namespaces (HNS) is **Microsoft.Storage/AllowHNSAccountFailover**.
-> 1. Select the desired feature(s), then select **+ Register**.
+[!INCLUDE [updated-for-az](../../../includes/storage-failover-unplanned-hns-preview-include.md)]
 
 ## Redundancy management during failover and failback
 
