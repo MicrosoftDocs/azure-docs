@@ -43,13 +43,12 @@ Get more conceptual documentation, quickstarts, and examples in the [UI Library 
 | Area         | Azure Communication Services Chat                | Teams Interoperability Chat                 |
 | ------------ | ------------------------------------------------ | ------------------------------------------- |
 | Chat types   | Join an Azure Communication Services chat thread | Join a Microsoft Teams meeting chat         |
-| Chat actions | Send and show text messages                      | Send and show text messages                 |
-|              | show rich text messages                          | show rich text messages                     |
-|              | -                                                | show inline images\*                        |
-|              | Send and show file attachments                   | show file attachments\*\*                   |
-|              | Show when a participant is added or removed      | Show when a participant is added or removed |
-| Chat events  | Send and show typing indicators                  | Send and show typing indicators             |
-|              | Send and show read receipts                      | Send and show read receipts                 |
+| Chat actions | Send and receive text messages                      | Send and receive text messages                 |
+|              | Receive rich text messages                          | Receive rich text messages                     |
+|              | -                                                | Receive inline images\*                        |
+|              | Send and receive file attachments                   | Receive file attachments\*\*                   |
+| Chat events  | Send and receive typing indicators                  | Send and receive typing indicators             |
+|              | Send and receive read receipts                      | Send and receive read receipts                 |
 |              | Show when a participant is added or removed      | Show when a participant is added or removed |
 | Participants | Show a participant roster                        | Show a participant roster                   |
 
