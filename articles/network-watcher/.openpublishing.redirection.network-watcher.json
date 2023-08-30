@@ -9,6 +9,11 @@
             "source_path_from_root": "/articles/network-watcher/connection-monitor.md",
             "redirect_url": "/azure/network-watcher/monitor-vm-communication",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/network-watcher-security-group-view-rest.md",
+            "redirect_url": "/rest/api/network-watcher/network-watchers/get-vm-security-rules",
+            "redirect_document_id": false
         }
     ]
 }
