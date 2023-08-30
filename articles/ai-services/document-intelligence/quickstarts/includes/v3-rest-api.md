@@ -87,9 +87,9 @@ Before you run the cURL command, make the following changes to the [post request
 curl -v -i POST "{endpoint}/formrecognizer/documentModels/{modelID}:analyze?api-version=2023-07-31" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {key}" --data-ascii "{'urlSource': '{your-document-url}'}"
 ```
 
-#### POST response
+#### POST response (resultID)
 
-You receive a `202 (Success)` response that includes an **Operation-location** header. The value of this header contains a `resultID` that can be queried to get the status of the asynchronous operation:
+You receive a `202 (Success)` response that includes a read-only **Operation-Location** header. The value of this header contains a `resultID` that can be queried to get the status of the asynchronous operation and retrieve the results using a GET request with your same resource subscription key:
 
 :::image type="content" source="../../media/quickstarts/operation-location-result-id.png" alt-text="{alt-text}":::
 
@@ -97,7 +97,7 @@ You receive a `202 (Success)` response that includes an **Operation-location** h
 
 After you've called the [**Analyze document**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument) API, call the [**Get analyze result**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/GetAnalyzeDocumentResult) API to get the status of the operation and the extracted data. Before you run the command, make these changes:
 
-1. Replace `{POST response}` Operation-location header from the [POST response](#post-response).
+1. Replace `{resultID}` Operation-Location header from the [POST response](#post-response-resultid).
 
 1. Replace `{key}` with the key value from your Document Intelligence instance in the Azure portal.
 
@@ -106,7 +106,7 @@ After you've called the [**Analyze document**](https://westus.dev.cognitive.micr
 #### GET request
 
 ```bash
-curl -v -X GET "{POST response}" -H "Ocp-Apim-Subscription-Key: {key}"
+curl -v -X GET "{resultID}" -H "Ocp-Apim-Subscription-Key: {key}"
 ```
 
 #### Examine the response

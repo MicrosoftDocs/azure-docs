@@ -310,7 +310,7 @@ az aks maintenanceconfiguration delete -g myResourceGroup --cluster-name myAKSCl
 
 *  Are there any best practices for the maintenance configurations?
    
-  We recommend setting the Node OS security updates schedule[node-image-auto-upgrade] to a weekly cadence if you're using `NodeImage` channel since a new node image gets shipped every week and daily if you opt in for `SecurityPatch` channel to receive daily security updates. Set the auto-upgrade Schedule[auto-upgrade] to a monthly cadence to stay on top of the kubernetes N-2 [support policy][aks-support-policy]. 
+  We recommend setting the [Node OS security updates][node-image-auto-upgrade] schedule to a weekly cadence if you're using `NodeImage` channel since a new node image gets shipped every week and daily if you opt in for `SecurityPatch` channel to receive daily security updates. Set the [auto-upgrade][auto-upgrade] schedule to a monthly cadence to stay on top of the kubernetes N-2 [support policy][aks-support-policy]. 
 
 ## Next steps
 

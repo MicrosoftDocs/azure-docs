@@ -186,6 +186,10 @@ Functions version 1.x doesn't support isolated worker process. To use the isolat
 
 :::zone-end
 
+## host.json settings
+
+The Event Grid trigger uses a webhook HTTP request, which can be configured using the same [*host.json* settings as the HTTP Trigger](functions-bindings-http-webhook.md#hostjson-settings).
+
 ## Next steps
 
 * If you have questions, submit an issue to the team [here](https://github.com/Azure/azure-sdk-for-net/issues)

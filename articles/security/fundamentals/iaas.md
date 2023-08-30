@@ -5,14 +5,14 @@ services: security
 documentationcenter: na
 author: terrylanfear
 manager: rkarlin
-editor: TomSh
 
 ms.assetid: 02c5b7d2-a77f-4e7f-9a1e-40247c57e7e2
-ms.service: azure-migrate
+ms.service: security
+ms.subservice: security-fundamentals
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2019
+ms.date: 08/29/2023
 ms.author: terrylan
 ---
 
@@ -31,15 +31,15 @@ The first step in protecting your VMs is to ensure that only authorized users ca
 >
 >
 
-**Best practice**: Control VM access.   
+**Best practice**: Control VM access.
 **Detail**: Use [Azure policies](../../governance/policy/overview.md) to establish conventions for resources in your organization and create customized policies. Apply these policies to resources, such as [resource groups](../../azure-resource-manager/management/overview.md). VMs that belong to a resource group inherit its policies.
 
 If your organization has many subscriptions, you might need a way to efficiently manage access, policies, and compliance for those subscriptions. [Azure management groups](../../governance/management-groups/overview.md) provide a level of scope above subscriptions. You organize subscriptions into management groups (containers) and apply your governance conditions to those groups. All subscriptions within a management group automatically inherit the conditions applied to the group. Management groups give you enterprise-grade management at a large scale no matter what type of subscriptions you might have.
 
-**Best practice**: Reduce variability in your setup and deployment of VMs.   
+**Best practice**: Reduce variability in your setup and deployment of VMs.
 **Detail**: Use [Azure Resource Manager](../../azure-resource-manager/templates/syntax.md) templates to strengthen your deployment choices and make it easier to understand and inventory the VMs in your environment.
 
-**Best practice**: Secure privileged access.   
+**Best practice**: Secure privileged access.
 **Detail**: Use a [least privilege approach](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) and built-in Azure roles to enable users to access and set up VMs:
 
 - [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor): Can manage VMs, but not the virtual network or storage account to which they are connected.
@@ -59,10 +59,10 @@ Organizations that control VM access and setup improve their overall VM security
 ## Use multiple VMs for better availability
 If your VM runs critical applications that need to have high availability, we strongly recommend that you use multiple VMs. For better availability, use an [availability set](../../virtual-machines/availability-set-overview.md) or availability [zones](../../availability-zones/az-overview.md).
 
-An availability set is a logical grouping that you can use in Azure to ensure that the VM resources you place within it are isolated from each other when they’re deployed in an Azure datacenter. Azure ensures that the VMs you place in an availability set run across multiple physical servers, compute racks, storage units, and network switches. If a hardware or Azure software failure occurs, only a subset of your VMs are affected, and your overall application continues to be available to your customers. Availability sets are an essential capability when you want to build reliable cloud solutions.
+An availability set is a logical grouping that you can use in Azure to ensure that the VM resources you place within it are isolated from each other when they're deployed in an Azure datacenter. Azure ensures that the VMs you place in an availability set run across multiple physical servers, compute racks, storage units, and network switches. If a hardware or Azure software failure occurs, only a subset of your VMs are affected, and your overall application continues to be available to your customers. Availability sets are an essential capability when you want to build reliable cloud solutions.
 
 ## Protect against malware
-You should install antimalware protection to help identify and remove viruses, spyware, and other malicious software. You can install [Microsoft Antimalware](antimalware.md) or a Microsoft partner’s endpoint protection solution ([Trend Micro](https://help.deepsecurity.trendmicro.com/Welcome.html), [Broadcom](https://www.broadcom.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://www.microsoft.com/windows/comprehensive-security), and [System Center Endpoint Protection](/configmgr/protect/deploy-use/endpoint-protection)).
+You should install antimalware protection to help identify and remove viruses, spyware, and other malicious software. You can install [Microsoft Antimalware](antimalware.md) or a Microsoft partner's endpoint protection solution ([Trend Micro](https://cloudone.trendmicro.com/docs/workload-security/), [Broadcom](https://www.broadcom.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://www.microsoft.com/windows/comprehensive-security), and [System Center Endpoint Protection](/configmgr/protect/deploy-use/endpoint-protection)).
 
 Microsoft Antimalware includes features like real-time protection, scheduled scanning, malware remediation, signature updates, engine updates, samples reporting, and exclusion event collection. For environments that are hosted separately from your production environment, you can use an antimalware extension to help protect your VMs and cloud services.
 
