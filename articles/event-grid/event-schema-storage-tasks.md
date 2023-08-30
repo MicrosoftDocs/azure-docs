@@ -63,15 +63,13 @@ These events are triggered when a storage task is queued and when a storage task
     "completedDateTime":"2023-08-07T21:35:34Z",
     "taskExecutionId":"testdelete-2023-08-07T21:35:16.9494934Z_2023-08-07T21:35:17.5432186Z",
     "taskName":"deleteallcentraleu",
-    "summaryReportBlobUrl":"https://akaguptapbbprod.blob.core.windows.net/result-container/deleteallcentraleu_testdelete_2023-08-07T21:35:23/SummaryReport.json"
+    "summaryReportBlobUrl":"https://my-storage-account.blob.core.windows.net/result-container/deleteallcentraleu_testdelete_2023-08-07T21:35:23/SummaryReport.json"
   },
   "dataVersion":"1.0",
   "metadataVersion":"1",
   "eventTime":"2023-08-07T21:35:34Z"
 }]
 ```
-
----
 
 # [Cloud event schema](#tab/cloud-event-schema)
 
@@ -106,7 +104,7 @@ These events are triggered when a storage task is queued and when a storage task
     "completedDateTime":"2023-08-07T21:35:34Z",
     "taskExecutionId":"testdelete-2023-08-07T21:35:16.9494934Z_2023-08-07T21:35:17.5432186Z",
     "taskName":"deleteallcentraleu",
-    "summaryReportBlobUrl":"https://akaguptapbbprod.blob.core.windows.net/result-container/deleteallcentraleu_testdelete_2023-08-07T21:35:23/SummaryReport.json"
+    "summaryReportBlobUrl":"https://my-storage-account.blob.core.windows.net/result-container/deleteallcentraleu_testdelete_2023-08-07T21:35:23/SummaryReport.json"
   },
   "specversion": "1.0"
 }]
