@@ -40,8 +40,7 @@ The effective utilization of PgBouncer can be categorized into 3 distinct usage 
 1. Application independent centralized PgBouncer deployments
 1. Inbuilt PgBouncer and Database deployment
 
-:::image type="content" source="./media/concepts-connection-pooling-best-practices/design-patterns.png"
-alt-text="Diagram for App co-location":::
+:::image type="content" source="./media/concepts-connection-pooling-best-practices/design-patterns.png" alt-text="Diagram for App co-location":::
 
 
 Each of these patterns has its own advantages & disadvantages.
@@ -54,8 +53,7 @@ When utilizing this approach, PgBouncer is deployed on the same server where you
 
 If your application runs on an Azure VM, you have the option to set up PgBouncer on the same VM. To install and configure PgBouncer as a connection pooling proxy with Azure Database for PostgreSQL, please follow the instructions provided in the following [link](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/steps-to-install-and-setup-pgbouncer-connection-pooling-proxy/ba-p/730555).
 
-:::image type="content" source="./media/concepts-connection-pooling-best-practices/co-location.png"
-alt-text="Diagram for App co-location on VM":::
+:::image type="content" source="./media/concepts-connection-pooling-best-practices/co-location.png" alt-text="Diagram for App co-location on VM":::
 
 
 Deploying PgBouncer in an application server can provide several advantages, especially when working with PostgreSQL databases. Below are some key benefits & limitations of this deployment method.
@@ -87,8 +85,7 @@ Microsoft has published a [**PgBouncer** sidecar proxy image](https://hub.docker
 
 Please refer [this](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/steps-to-install-and-setup-pgbouncer-connection-pooling-on-azure/ba-p/3633043) for more details.
 
-:::image type="content" source="./media/concepts-connection-pooling-best-practices/sidecar-proxy.png"
-alt-text="Diagram for App co-location on Sidecar":::
+:::image type="content" source="./media/concepts-connection-pooling-best-practices/sidecar-proxy.png" alt-text="Diagram for App co-location on Sidecar":::
 
 Below are some key benefits & limitations of this deployment method.
 
@@ -118,12 +115,8 @@ When utilizing this approach, PgBouncer is deployed as a centralized service, in
 
 Please refer [link](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/steps-to-install-and-setup-pgbouncer-connection-pooling-proxy/ba-p/730555)  to install and setup PgBouncer connection pooling proxy with Azure Database for PostgreSQL.
 
-<br>
-<p align="center">
-  <img src="images/deploying_vm.png" width=500>
-</p>
-</br>
 
+:::image type="content" source="./media/concepts-connection-pooling-best-practices/deploying-vm.png" alt-text="Diagram for App co-location on Vm with Load Balancer":::
 
 Below are some key benefits & limitations of this deployment method.
 
@@ -150,12 +143,7 @@ By utilizing **PgBouncer** as a separate service, you can efficiently manage and
 
 [**PgBouncer** sidecar proxy image](https://hub.docker.com/_/microsoft-azure-oss-db-tools-pgbouncer-sidecar) published in Microsoft container registry can be used to create and deploy a service.
 
-<br>
-<p align="center">
-  <img src="images/centralized_aks.png" width=500>
-</p>
-</br>
-
+:::image type="content" source="./media/concepts-connection-pooling-best-practices/centralized-aks.png" alt-text="Diagram for PGBouncer as a service within AKS":::
 
 Below are some key benefits & limitations of this deployment method.
 
