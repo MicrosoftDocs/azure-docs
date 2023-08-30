@@ -31,7 +31,7 @@ For this how-to procedure, we have validated VMware HCX vMotion. VMware HCX Cold
 - Remove all cluster node VMs from any Distributed Resource Scheduler (DRS) groups and rules. 
 
 - Configure VMware HCX between your on-premises datacenter and the Azure VMware Solution private cloud that runs the migrated workloads. For more information about configuring VMware HCX, see [Azure VMware Solution documentation](install-vmware-hcx.md).
-- Ensure that all the network segments in use by the SQL Server are extended into your Azure VMware Solution private cloud. Tp verify this step in the procedure, see [Configure VMware HCX network extension](configure-hcx-network-extension.md).
+- Ensure that all the network segments in use by the SQL Server are extended into your Azure VMware Solution private cloud. To verify this step in the procedure, see [Configure VMware HCX network extension](configure-hcx-network-extension.md).
 
 VMware HCX over VPN is supported in Azure VMware Solution for workload migration. However, due to the size of database workloads, VMware HCX over VPN isn't recommended for Microsoft SQL Server Failover Cluster Instance and Microsoft SQL Server Always-On migrations, especially for production workloads. ExpressRoute connectivity is recommended as more performant and reliable. 
 For Microsoft SQL Server Standalone and non-production workloads HCX over VPN can be suitable, depending on the size of the database, to migrate. 
