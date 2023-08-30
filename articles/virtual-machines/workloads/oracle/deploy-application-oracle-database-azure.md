@@ -20,7 +20,7 @@ Oracle workloads comprise not only of Oracle Databases, but also of Oracle first
 
 As Oracle applications move on Azure IaaS, there are common design considerations, which must be followed irrespective of type of applications. Some considerations are specific to applications. In this section, we're listing common design considerations of all applications, and any application specific considerations are covered under each application.
 
-### Network & Security: 
+### Network & Security 
 
 The provided network settings for Oracle Applications on Azure cover various aspects of network and security considerations. Here's a breakdown of the recommended network settings:
 
@@ -79,7 +79,7 @@ Here's the recommended architecture of a Siebel application deployment on Azure 
 
 - Migration must be done using Siebel Tool subnet.
 
-**Application Tier:** 
+**Application Tier** 
 
 - Version 17 or higher – configurations of certain server and utilities on the application and database is required.
 

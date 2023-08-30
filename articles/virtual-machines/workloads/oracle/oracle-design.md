@@ -9,7 +9,6 @@ ms.topic: article
 ms.date: 10/15/2021
 ms.author: jacobjaygbay
 ms.reviewer: tigorman
-
 ---
 
 # Architectures for Oracle Database Enterprise Edition on Azure

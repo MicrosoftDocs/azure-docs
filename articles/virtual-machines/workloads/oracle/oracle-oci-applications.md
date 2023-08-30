@@ -1,6 +1,6 @@
 ---
 title: Oracle application solutions with Database on OCI
-description: Oracle application solutions with Database on  Oracle Cloud Infrastructure (OCI).
+description: Oracle application solutions with Database on Oracle Cloud Infrastructure (OCI).
 author: jjaygbay1
 ms.service: virtual-machines
 ms.subservice: oracle
