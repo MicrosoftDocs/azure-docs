@@ -17,7 +17,7 @@ sections:
     questions:
       - question: What is Windows Enterprise multi-session?
         answer: |
-          Windows Enterprise multi-session, formerly known as Windows Enterprise for Virtual Desktops (EVD), is a new Remote Desktop Session Host that allows multiple concurrent interactive sessions. Previously, only Windows Server could do this. This capability gives users a familiar Windows experience while IT can benefit from the cost advantages of multi-session and use existing per-user Windows licensing instead of RDS Client Access Licenses (CALs). For more information about licenses and pricing, see [Azure Virtual Desktop pricing](https://azure.microsoft.com/pricing/details/virtual-desktop/).
+          Windows 10 Enterprise multi-session and Windows 11 Enterprise multi-session, allows multiple concurrent interactive sessions. Previously, only Windows Server could do this. This capability gives users a familiar Windows experience while IT can benefit from the cost advantages of multi-session and use existing per-user Windows licensing instead of RDS Client Access Licenses (CALs). For more information about licenses and pricing, see [Azure Virtual Desktop pricing](https://azure.microsoft.com/pricing/details/virtual-desktop/).
           
       - question: How many users can simultaneously have an interactive session on Windows Enterprise multi-session?
         answer: |
