@@ -2,7 +2,7 @@
 title: Release notes
 description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 08/22/2023
+ms.date: 08/30/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -19,6 +19,34 @@ This page is updated frequently with the latest updates in Defender for Cloud.
 To learn about *planned* changes that are coming soon to Defender for Cloud, see [Important upcoming changes to Microsoft Defender for Cloud](upcoming-changes.md).
 
 If you're looking for items older than six months, you can find them in the [Archive for What's new in Microsoft Defender for Cloud](release-notes-archive.md).
+
+## September 2023
+
+Updates in September include:
+
+|Date |Update|
+|----------|----------|
+| September 5 | [Data posture management for databases](#data-posture-management-for-databases) |
+
+### Data posture management for databases
+
+September 5, 2023
+
+We are announcing the public preview of our expanded data-aware security posture capabilities for frictionless sensitive data discovery for PaaS Databases (Azure SQL Databases and Amazon RDS Instances of any type) which allow customers to create a map of their critical data wherever it resides, and the type of data that is found in those databases.
+
+Sensitive data discovery for Azure and AWS databases, adds on to the shared taxonomy and configuration already publicly available for cloud object storage resources (Azure Blob Storage, AWS S3 buckets and GCP storage buckets) and provides a single configuration and enablement experience.
+
+Databases are scanned on a weekly basis, but customers that enable `sensitive data discovery`, can expect discovery to run within 24 hours. The results can be consumed in the Cloud Security Explorer or by reviewing the new attack paths for managed databases with sensitive data.
+
+This new feature is available for Defender CSPM customers at no additional charge, and is automatically enabled on subscriptions where `sensitive data discovery` option has already been enabled.
+
+You can learn more about data aware security posture in the following articles:
+
+- [Support and prerequisites for data-aware security posture](concept-data-security-posture-prepare.md)
+- [Enable data-aware security posture](data-security-posture-enable.md)
+- [Explore risks to sensitive data](data-security-review-risks.md)
+- [Azure data](attack-path-reference.md#azure-data)
+- [AWS data](attack-path-reference.md#aws-data)
 
 ## August 2023
 
