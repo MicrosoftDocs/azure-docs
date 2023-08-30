@@ -45,7 +45,7 @@ The following table lists the base URLs for the Azure AD endpoints used to regis
 
 You can find the authentication endpoints for your application.
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Application Developer](../roles/permissions-reference.md#application-developer).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Application registrations**.
 1. Select **Endpoints** in the top menu.
 
