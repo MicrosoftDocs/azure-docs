@@ -45,7 +45,7 @@ Learn more about the implementation details from the [MISP blog entry for MISP2S
 - Announcement: [Changes to Microsoft Defender for Office 365 connector alerts that apply when disconnecting and reconnecting](#changes-to-microsoft-defender-for-office-365-connector-alerts-that-apply-when-disconnecting-and-reconnecting)
 - [Content Hub generally available and centralization changes released](#content-hub-generally-available-and-centralization-changes-released)
 - [Deploy incident response playbooks for SAP](#deploy-incident-response-playbooks-for-sap)
-- [Microsoft Sentinel solution for Dynamics 365 Finance and Operations (Preview)](#microsoft-sentinel-solution-for-d365-finance-and-operations-preview)
+- [Microsoft Sentinel solution for D365 Finance and Operations (Preview)](#microsoft-sentinel-solution-for-d365-finance-and-operations-preview)
 - [Simplified pricing tiers](#simplified-pricing-tiers) in [Announcements](#announcements) section below
 - [Monitor and optimize the execution of your scheduled analytics rules (Preview)](#monitor-and-optimize-the-execution-of-your-scheduled-analytics-rules-preview)
 
