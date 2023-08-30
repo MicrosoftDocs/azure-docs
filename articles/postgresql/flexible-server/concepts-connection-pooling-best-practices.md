@@ -4,13 +4,14 @@ description: This article describes the best practices for connection pooling in
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.author: ramyerrabotu,
+ms.author: ramyerrabotu,raiy
 author: AwdotiaRomanowna
 ms.date: 08/30/2023
 ---
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 # CONNECTION POOLING STRATEGY FOR POSTGRESQL USING PGBOUNCER
+
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 Strategic guidance for selecting connection pooling mechanism for PostgreSQL
 
@@ -73,7 +74,7 @@ It's important to weigh these limitations against the benefits and evaluate whet
 
 ### II. PgBouncer deployed as an AKS sidecar
 
-It is possible to utilize **PgBouncer** as a sidecar container if your application is containerized and running on [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/), [Azure Container Instance (ACI)](https://azure.microsoft.com/products/container-instances), [Azure Container Apps (ACA)](https://azure.microsoft.com/products/container-apps/), or [Azure Red Hat OpenShift (ARO)](https://azure.microsoft.com/products/openshift/). The Sidecar pattern draws its inspiration from the concept of a sidecar attached to a motorcycle, where an auxiliary container, known as the sidecar container, is affixed to a parent application. This pattern enriches the parent application by extending its functionalities and delivering supplementary support. Please refer [sidecar proxy](https://docs.microsoft.com/azure/architecture/patterns/sidecar) for more details.
+It is possible to utilize **PgBouncer** as a sidecar container if your application is containerized and running on [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/), [Azure Container Instance (ACI)](https://azure.microsoft.com/products/container-instances), [Azure Container Apps (ACA)](https://azure.microsoft.com/products/container-apps/), or [Azure Red Hat OpenShift (ARO)](https://azure.microsoft.com/products/openshift/). The Sidecar pattern draws its inspiration from the concept of a sidecar attached to a motorcycle, where an auxiliary container, known as the sidecar container, is affixed to a parent application. This pattern enriches the parent application by extending its functionalities and delivering supplementary support. Please refer [sidecar proxy](https://docs.microsoft.com/azure/architecture/patterns/sidecar/) for more details.
 
 The sidecar pattern is typically used with containers being co-scheduled as an atomic container group. This tightly couples the application and sidecar lifecycles and shares resources such as hostname and networking to make efficient use of resources. The PgBouncer sidecar operates alongside the application container within the same pod in Azure Kubernetes Service (AKS) with 1:1 mapping, serving as a connection pooling proxy for Azure Database for PostgreSQL.
 
@@ -187,8 +188,8 @@ _We have discussed different ways of implementing PgBouncer and the table below 
 
 
 |**Selection Criteria**|**PgBouncer on App VM**|**PgBouncer on VM using ALB***|**PgBouncer on AKS Sidecar**|**PgBouncer as a Service**|**Flexible Server Inbuilt PgBouncer**|
-|---|---|---|---|---|---|
-|Simplified Management|<div align="center">:yellow_circle:</div>|<div align="center">:yellow_circle:</div>|<div align="center">:red_circle:</div>|<div align="center">:red_circle:</div>|<div align="center">:green_circle:</div>|
+|:-:|:-:|:-:|:-:|:-:|:-:|
+|Simplified Management|$\textcolor{yellow}{\textsf{●}}$|<div align="center">:yellow_circle:</div>|<div align="center">:red_circle:</div>|<div align="center">:red_circle:</div>|<div align="center">:green_circle:</div>|
 |HA|<div align="center">:yellow_circle:</div>|<div align="center">:yellow_circle:</div>|<div align="center">:green_circle:</div>|<div align="center">:green_circle:</div>|<div align="center">:green_circle:</div>|
 |Containerized Apps|<div align="center">:yellow_circle:</div>|<div align="center">:yellow_circle:</div>|<div align="center">:green_circle:</div>|<div align="center">:green_circle:</div>|<div align="center">:green_circle:</div>|
 |Reduced Network Overhead & Latency|<div align="center">:green_circle:</div>|<div align="center">:yellow_circle:</div>|<div align="center">:green_circle:</div>|<div align="center">:yellow_circle:</div>|<div align="center">:yellow_circle:</div>|
