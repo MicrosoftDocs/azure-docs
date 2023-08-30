@@ -1,5 +1,6 @@
 ---
 title: 'General Performance Troubleshooting of Azure Front Door'
+titleSuffix: Azure Front Door
 description: In this article, investigate, diagnose and resolve potential latency or bandwidth issues associated with an Azure Front Door related site performance
 services: frontdoor
 author: stdoroff
@@ -8,6 +9,7 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 08/30/2023
 ms.author: stdoroff
+#Customer intent: As a <type of user>, I want <some goal> so that <some reason>.
 ---
 
 # Azure Front Door Performance 
@@ -117,7 +119,7 @@ This could be because of an ISP issue, the customer is using a VPN or they are a
 - Requesting Client Information
   - Requesting Client IP
   - Requesting Client Location
-  - Requesting Client Path to Azure Environment (Usually identified with [TraceRoute](https://learn.microsoft.com/windows-server/administration/windows-commands/tracert), [PathPing](https://learn.microsoft.com/windows-server/administration/windows-commands/pathping) or a similar tool)
+  - Requesting Client Path to Azure Environment (Usually identified with [TraceRoute](/windows-server/administration/windows-commands/tracert), [PathPing](/windows-server/administration/windows-commands/pathping) or a similar tool).
 
 ### Scenario 2 | Troubleshooting Steps
 
