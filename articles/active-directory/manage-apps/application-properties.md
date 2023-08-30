@@ -22,7 +22,7 @@ This article describes the properties that you can configure for an enterprise a
 
 ## Enabled for users to sign in?
 
-If this option is set to **Yes**, then assigned users are able to sign in to the application from the My Apps portal, the User access URL, or by navigating to the application URL directly. If assignment is required, then only users who are assigned to the application are able to sign-in. If assignment is required, applications must be assigned to be granted a token.
+If this option is set to **Yes**, then assigned users are able to sign in to the application from the My Apps portal, the User access URL, or by navigating to the application URL directly. If assignment is required, then only users who are assigned to the application are able to sign-in. If assignment is required, applications must be assigned to get a token.
 
 If this option is set to **No**, then no users are able to sign in to the application, even if they're assigned to it. Tokens aren't issued for the application.  
 
@@ -30,7 +30,7 @@ If this option is set to **No**, then no users are able to sign in to the applic
 
 This property is the name of the application that users see on the My Apps portal. Administrators see the name when they manage access to the application. Other tenants see the name when integrating the application into their directory.
 
-It's recommended that you choose a name that users can understand. This is important because this name is visible in the various portals, such as My Apps and O365 Launcher.
+It's recommended that you choose a name that users can understand. This is important because this name is visible in the various portals, such as My Apps and Microsoft 365 Launcher.
 
 ## Homepage URL
 
@@ -70,16 +70,16 @@ This option only applies to the following types of applications and services:
 - OpenID Connect
 - OAuth 2.0
 - WS-Federation for user sign
-- Application Proxy applications with Azure AD pre-authentication enabled
+- Application Proxy applications with Azure AD preauthentication enabled
 - Applications or services for which other applications or service are requesting access tokens
 
 ## Visible to users
 
-Makes the application visible in My Apps and the O365 Launcher
+Makes the application visible in My Apps and the Microsoft 365 Launcher
 
-If this option is set to **Yes**, then assigned users see the application on the My Apps portal and O365 app launcher.
+If this option is set to **Yes**, then assigned users see the application on the My Apps portal and Microsoft 365 app launcher.
 
-If this option is set to **No**, then no users see this application on their My Apps portal and O365 launcher.
+If this option is set to **No**, then no users see this application on their My Apps portal and Microsoft 365 launcher.
 
 Make sure that a homepage URL is included or else the application can't be launched from the My Apps portal.
 
