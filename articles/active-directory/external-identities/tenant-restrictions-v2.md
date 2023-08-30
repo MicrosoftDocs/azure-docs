@@ -30,7 +30,7 @@ For example, let's say a user in your organization has created a separate accoun
 |**1**     | Contoso configures **Tenant restrictions** in their cross-tenant access settings to block all external accounts and external apps. Contoso enforces the policy on each Windows device by updating the local computer configuration with Contoso's tenant ID and the tenant restrictions policy ID.       |
 |**2**     |  A user with a Contoso-managed Windows device tries to sign in to an external app using an account from an unknown tenant. The Windows device adds an HTTP header to the authentication request. The header contains Contoso's tenant ID and the tenant restrictions policy ID.        |
 |**3**     | *Authentication plane protection:* Azure AD uses the header in the authentication request to look up the tenant restrictions policy in the Azure AD cloud. Because Contoso's policy blocks external accounts from accessing external tenants, the request is blocked at the authentication level.        |
-|**4**     | *Data plane protection:* The user tries to access the external application by copying  an authentication response token they obtained outside of Contoso's network and pasting it into the Windows device. However, Azure AD compares the claim in the token to the HTTP header added by the Windows device. Because they don't match, Azure AD blocks the session so the user can't access the application.        |
+|**4**     | *Data plane protection (preview):* The user tries to access the external application by copying  an authentication response token they obtained outside of Contoso's network and pasting it into the Windows device. However, Azure AD compares the claim in the token to the HTTP header added by the Windows device. Because they don't match, Azure AD blocks the session so the user can't access the application.        |
 |||
 
 This article describes how to configure tenant restrictions V2 using the Azure portal. You can also use the [Microsoft Graph cross-tenant access API](/graph/api/resources/crosstenantaccesspolicy-overview?view=graph-rest-beta&preserve-view=true) to create these same tenant restrictions policies.
@@ -100,7 +100,7 @@ When your users need access to external organizations and apps, we recommend ena
 - Terminate sessions and credentials when a B2B collaboration user's employment status changes or their credentials are breached.
 - Use sign-in logs to view details about the B2B collaboration user.
 
-### Tenant restrictions and Microsoft Teams
+### Tenant restrictions and Microsoft Teams (preview)
 
 Teams by default has open federation, which means we do not block anyone joining a meeting hosted by an external tenant. For greater control over access to Teams meetings, you can use [Federation Controls](/microsoftteams/manage-external-access) in Teams to allow or block specific tenants, along with tenant restrictions V2 to block anonymous access to Teams meetings. To enforce tenant restrictions for Teams, you need to configure tenant restrictions V2 in your Azure AD cross-tenant access settings. You also need to set up Federation Controls in the Teams Admin portal and restart Teams. Tenant restrictions implemented on the corporate proxy won't block anonymous access to Teams meetings, SharePoint files, and other resources that don't require authentication.
 
@@ -131,7 +131,7 @@ SharePoint Online supports tenant restrictions v2 on both the authentication pla
 
 When tenant restrictions v2 are enabled on a tenant, unauthorized access is blocked during authentication. If a user directly accesses a SharePoint Online resource without an authenticated session, they're prompted to sign in. If the tenant restrictions v2 policy allows access, the user can access the resource; otherwise, access is blocked.
 
-#### Anonymous access
+#### Anonymous access (preview)
 
 If a user tries to access an anonymous file using their home tenant/corporate identity, they'll be able to access the file. But if the user tries to access the anonymous file using any externally issued identity, access is blocked.
 
@@ -315,7 +315,7 @@ Suppose you use tenant restrictions to block access by default, but you want to 
    > - B2B authentication of consumer accounts.
    > - "Passthrough" authentication, used by many Azure apps and Office.com, where apps use Azure AD to sign in consumer users in a consumer context.
 
-## Step 3: Enable tenant restrictions on Windows managed devices
+## Step 3: Enable tenant restrictions on Windows managed devices (preview)
 
 After you create a tenant restrictions V2 policy, you can enforce the policy on each Windows 10, Windows 11, and Windows Server 2022 device by adding your tenant ID and the policy ID to the device's **Tenant Restrictions** configuration. When tenant restrictions are enabled on a Windows device, corporate proxies aren't required for policy enforcement. Devices don't need to be Azure AD managed to enforce tenant restrictions V2; domain-joined devices that are managed with Group Policy are also supported.
 
@@ -401,6 +401,15 @@ View events related to tenant restrictions in Event Viewer.
 1. In Event Viewer, open **Applications and Services Logs**.
 1. Navigate to **Microsoft** > **Windows** > **TenantRestrictions** > **Operational** and look for events.  
 
+## Sign-in logs
+
+Azure AD sign-in logs let you view details about sign-ins with a tenant restrictions V2 policy in place. When a B2B user signs into a resource tenant to collaborate, a sign-in log is generated in both the home tenant and the resource tenant. These logs include information such as the application being used, email addresses, tenant name, and tenant ID for both the home tenant and the resource tenant. The following example shows a successful sign-in:
+
+:::image type="content" source="media/tenant-restrictions-v2/sign-in-details-success.png" alt-text="Screenshot showing activity details for a successful sign-in." lightbox="media/tenant-restrictions-v2/sign-in-details-success.png":::
+
+If sign-in fails, the Activity Details give information about the reason for failure:
+
+:::image type="content" source="media/tenant-restrictions-v2/sign-in-details-failure.png" alt-text="Screenshot showing activity details for a failed sign-in." lightbox="media/tenant-restrictions-v2/sign-in-details-failure.png":::
 
 ## Audit logs
 
