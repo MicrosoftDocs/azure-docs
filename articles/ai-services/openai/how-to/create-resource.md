@@ -37,7 +37,7 @@ In this article, you review examples for creating and deploying resources in the
 
 ::: zone-end
 
-::: zone pivot="cli"
+::: zone pivot="ps"
 
 [!INCLUDE [Azure PowerShell resource](../includes/create-resource-powershell.md)]
 
