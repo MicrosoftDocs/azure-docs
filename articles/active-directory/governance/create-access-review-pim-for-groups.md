@@ -31,21 +31,19 @@ For more information, see [License requirements](access-reviews-overview.md#lice
 
 ### Scope
 
-[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and open the [Identity Governance](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) page.
+1. Browse to **Identity governance** > **Access Reviews** > **Review History**.
 
-2. On the left menu, select **Access reviews**.
-
-3. Select **New access review** to create a new access review.
+1. Select **New access review** to create a new access review.
 
     ![Screenshot that shows the Access reviews pane in Identity Governance.](./media/create-access-review/access-reviews.png)
 
-4. In the **Select what to review** box, select **Teams + Groups**.
+1. In the **Select what to review** box, select **Teams + Groups**.
 
     ![Screenshot that shows creating an access review.](./media/create-access-review/select-what-review.png)
 
-5. Select **Teams + Groups** and then select **Select Teams + groups** under **Review Scope**. A list of groups to choose from appears on the right.
+1. Select **Teams + Groups** and then select **Select Teams + groups** under **Review Scope**. A list of groups to choose from appears on the right.
 
      ![Screenshot that shows selecting Teams + Groups.](./media/create-access-review/create-pim-review.png)
 
