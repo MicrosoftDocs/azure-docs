@@ -179,6 +179,7 @@ If you want to clean up and remove a Communication Services subscription, you ca
 
 ## Next steps
 
+- Learn how to [record your calls](../../quickstarts/voice-video-calling/get-started-call-recording.md).
 - Learn more about [Call Automation](../../concepts/call-automation/call-automation.md) and its features.
 - Learn more about capabilities of [Teams Interoperability support with Azure Communication Services Call Automation](../../concepts/call-automation/call-automation-teams-interop.md)
 - Learn about [Play action](../../concepts/call-automation/play-Action.md) to play audio in a call.
