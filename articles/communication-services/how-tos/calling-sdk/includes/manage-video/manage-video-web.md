@@ -456,10 +456,8 @@ You can update `scalingMode` by invoking the `updateScalingMode` method:
 view.updateScalingMode('Crop');
 ```
 
-## Limitations
-### Only one camera video stream can be sent per Call Client
-- Currently, only one camera stream is supported to be sent per Call Client.
-- So to acheive sending video streams from two different cameras from a single desktop browser tab/app, in the same call, you can use the following code snippet:
+## Send video streams from different cameras from the same desktop device.
+- You can send video streams from two different cameras from a single desktop browser tab/app, in the same call, with the following code snippet:
 [!INCLUDE [Public Preview Disclaimer](../../../../includes/public-preview-include.md)]
 This is supported as part of version 1.17.1-beta.1+ on desktop.
 ```js
