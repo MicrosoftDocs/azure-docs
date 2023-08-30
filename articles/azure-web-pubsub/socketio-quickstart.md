@@ -117,7 +117,7 @@ When you use Web PubSub for Socket.IO, `<web-pubsub-socketio-endpoint>` and `pat
 
 1. Type in your hub name and copy the **Client Endpoint** and **Client Path**
 
-    :::image type="content" source="./media/socketio/client-url.png" alt-text="Screenshot of the Web PubSub for Socket.IO service in the Azure portal key blade.":::
+    :::image type="content" source="./media/socketio-quickstart/client-url.png" alt-text="Screenshot of the Web PubSub for Socket.IO service in the Azure portal client endpoints blade.":::
 
 ## Run the app
 
@@ -129,7 +129,7 @@ When you use Web PubSub for Socket.IO, `<web-pubsub-socketio-endpoint>` and `pat
 
     The `<connection-string>` is the connection string contains the endpoint and keys to access your Web PubSub for Socket.IO resource. You can also find the connection string in Azure portal
 
-    :::image type="content" source="./media/socketio/connection-string.png" alt-text="Screenshot of the Web PubSub for Socket.IO service in the Azure portal key blade.":::
+    :::image type="content" source="./media/socketio-quickstart/connection-string.png" alt-text="Screenshot of the Web PubSub for Socket.IO service in the Azure portal connection string blade.":::
 
 2. Run the client app in another terminal:
 
