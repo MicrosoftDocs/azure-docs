@@ -80,6 +80,10 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/
 }
 ```
 
+> [!IMPORTANT]
+> The private IP addresses of internal load balancer and API Management units are assigned dynamically. Therefore, it is impossible to anticipate the private IP of the API Management instance prior to its deployment. Additionally, changing to a different subnet and then returning may cause a change in the private IP address.
+
+
 ### IP addresses for outbound traffic
 
 API Management uses a public IP address for a connection outside the VNet or a peered VNet and a private IP address for a connection in the VNet or a peered VNet.
