@@ -40,6 +40,45 @@ Go to your resource in the Azure portal. On the navigation pane, select **Keys a
 
 :::image type="content" source="../media/quickstarts/endpoint.png" alt-text="Screenshot that shows the Keys and Endpoint page for an Azure OpenAI resource in the Azure portal." lightbox="../media/quickstarts/endpoint.png":::
 
+Create and assign persistent environment variables for your key and endpoint.
+
+### Environment variables
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+$Env:AZURE_OPENAI_KEY = 'YOUR_KEY_VALUE'
+```
+
+```powershell
+$Env:AZURE_OPENAI_ENDPOINT = 'YOUR_ENDPOINT'
+```
+
+# [Command Line](#tab/command-line)
+
+```CMD
+setx AZURE_OPENAI_KEY "REPLACE_WITH_YOUR_KEY_VALUE_HERE"
+```
+
+```CMD
+setx AZURE_OPENAI_ENDPOINT "REPLACE_WITH_YOUR_ENDPOINT_HERE"
+```
+
+# [Bash](#tab/bash)
+
+```Bash
+echo export AZURE_OPENAI_KEY="REPLACE_WITH_YOUR_KEY_VALUE_HERE" >> /etc/environment && source /etc/environment
+```
+
+```Bash
+echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/environment && source /etc/environment
+```
+
+---
+
+> [!div class="nextstepaction"]
+> [I ran into an issue with the setup.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=POWERSHELL&Pillar=AOAI&Product=Chatgpt&Page=quickstart&Section=Set-up)
+
 ## Create a new PowerShell script
 
 1. Create a new PowerShell file named _quickstart.ps1_. Open the new file in your preferred editor or IDE.
