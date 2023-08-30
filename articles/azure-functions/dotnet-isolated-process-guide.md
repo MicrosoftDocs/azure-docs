@@ -219,13 +219,127 @@ The following example performs clean-up actions if a cancellation request has be
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Net7Worker/EventHubCancellationToken.cs" id="docsnippet_cancellation_token_cleanup":::
 
-## ReadyToRun
+## Performance optimizations
 
-You can compile your function app as [ReadyToRun binaries](/dotnet/core/deploying/ready-to-run). ReadyToRun is a form of ahead-of-time compilation that can improve startup performance to help reduce the effect of [cold-start](event-driven-scaling.md#cold-start) when running in a [Consumption plan](consumption-plan.md).
+This section outlines options you can enable to improve performance around [cold start](./event-driven-scaling.md#cold-start).
 
-ReadyToRun is available in .NET 6 and later versions and requires [version 4.0 or later](functions-versions.md) of the Azure Functions runtime.
+### Placeholders (preview)
 
-To compile your project as ReadyToRun, update your project file by adding the `<PublishReadyToRun>` and `<RuntimeIdentifier>` elements. The following is the configuration for publishing to a Windows 32-bit function app.
+Placeholders are a platform capability that improves cold start. Normally, you do not have to be aware of them, but during the preview period for placeholders for .NET Isolated, they require some opt-in configuration. Placeholders require .NET 6 or later. To enable placeholders:
+
+- Set the `WEBSITE_USE_PLACEHOLDER_DOTNETISOLATED` application setting to "1"
+- Ensure that the `netFrameworkVersion` property of the function app matches your project's target framework, which must be .NET 6 or later.
+- Update your project file:
+    - Upgrade [Microsoft.Azure.Functions.Worker] to version 1.19.0 or later
+    - Upgrade [Microsoft.Azure.Functions.Worker.Sdk] to version 1.14.1 or later
+    - Add a framework reference to `Microsoft.AspNetCore.App`
+    - Set the property `FunctionsEnableWorkerIndexing` to "True". 
+    - Set the property `FunctionsAutoRegisterGeneratedMetadataProvider` to "True"
+
+> [!NOTE]
+> Setting `FunctionsEnableWorkerIndexing` to "True" may cause an issue when debugging locally using version 4.0.5274 or earlier of the [Azure Functions Core Tools](./functions-run-local.md). The issue manifests with the debugger not being able to attach. If you encounter this issue, remove the `FunctionsEnableWorkerIndexing` property during local testing.
+
+The following CLI commands will set the application setting and update the `netFrameworkVersion` property. Replace `<groupName>` with the name of the resource group, and replace `<appName>` with the name of your function app. Replace `<framework>` with the appropriate version string, such as "v6.0" or "v7.0", according to your target .NET version.
+
+```azurecli
+az functionapp config appsettings set -g <groupName> -n <appName> --settings 'WEBSITE_USE_PLACEHOLDER_DOTNETISOLATED=1'
+az functionapp config set -g <groupName> -n <appName> --net-framework-version <framework>
+```
+
+The following example shows a project file with the appropriate changes in place:
+
+```xml
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <AzureFunctionsVersion>v4</AzureFunctionsVersion>
+    <OutputType>Exe</OutputType>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <FunctionsEnableWorkerIndexing>True</FunctionsEnableWorkerIndexing>
+    <FunctionsAutoRegisterGeneratedMetadataProvider>True</FunctionsAutoRegisterGeneratedMetadataProvider>
+  </PropertyGroup>
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="1.19.0" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="1.14.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="host.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="local.settings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>Never</CopyToPublishDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Using Include="System.Threading.ExecutionContext" Alias="ExecutionContext" />
+  </ItemGroup>
+</Project>
+```
+
+### Optimized executor (preview)
+
+The function executor is a component of the platform that causes invocations to run. By default, it makes use of reflection, but a newer version is available in preview which removes this performance overhead. Normally, you do not have to be aware of this component, but during the preview period of the new version, it requires some opt-in configuration.
+
+To enable the optimized executor, you must update your project file:
+
+- Upgrade [Microsoft.Azure.Functions.Worker] to version 1.19.0 or later
+- Upgrade [Microsoft.Azure.Functions.Worker.Sdk] to version 1.14.1 or later
+- Set the property `FunctionsEnableExecutorSourceGen` to "True"
+
+The following example shows a project file with the appropriate changes in place:
+
+```xml
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <AzureFunctionsVersion>v4</AzureFunctionsVersion>
+    <OutputType>Exe</OutputType>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <FunctionsEnableExecutorSourceGen>True</FunctionsEnableExecutorSourceGen>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="1.19.0" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="1.14.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="host.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="local.settings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>Never</CopyToPublishDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Using Include="System.Threading.ExecutionContext" Alias="ExecutionContext" />
+  </ItemGroup>
+</Project>
+```
+
+### ReadyToRun
+
+You can compile your function app as [ReadyToRun binaries](/dotnet/core/deploying/ready-to-run). ReadyToRun is a form of ahead-of-time compilation that can improve startup performance to help reduce the effect of cold starts when running in a [Consumption plan](consumption-plan.md). ReadyToRun is available in .NET 6 and later versions and requires [version 4.0 or later](functions-versions.md) of the Azure Functions runtime.
+
+ReadyToRun requires you to build the project against the runtime architecture of the hosting app. **If these are not aligned, your app will encounter an error at startup.** Select your runtime identifier from the table below:
+
+|Operating System | App is 32-bit | Runtime identifier |
+|-|-|-|
+| Windows | True | `win-x86` |
+| Windows | False | `win-x64` |
+| Linux | True | N/A (not supported) |
+| Linux | False | `linux-x64` | 
+
+To check if your Windows app is 32-bit or 64-bit, you can run the following CLI command, substituting `<group_name>` with the name of your resource group and `<app_name>` with the name of your application. An output of "true" indicates that the app is 32-bit, and "false" indicates 64-bit.
+
+```azurecli
+ az functionapp config show -g <group_name> -n <app_name> --query "use32BitWorkerProcess"
+```
+
+To compile your project as ReadyToRun, update your project file by adding the `<PublishReadyToRun>` and `<RuntimeIdentifier>` elements. The following examples shows a configuration for publishing to a Windows 32-bit function app.
 
 ```xml
 <PropertyGroup>
@@ -235,6 +349,14 @@ To compile your project as ReadyToRun, update your project file by adding the `<
   <PublishReadyToRun>true</PublishReadyToRun>
 </PropertyGroup>
 ```
+
+If you don't want to set the `<RuntimeIdentifier>` as part of the project file, you can also configure this as part of the publish gesture itself. For example, with a Windows 32-bit function app, the .NET CLI command would be:
+
+```dotnetcli
+dotnet publish --runtime win-x86
+```
+
+In Visual Studio, the "Target Runtime" option in the publish profile should be set to the correct runtime identifier. If it is set to the default value "Portable", ReadyToRun will not be used.
 
 ## Execution context
 
