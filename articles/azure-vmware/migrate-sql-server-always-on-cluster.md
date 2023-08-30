@@ -1,6 +1,6 @@
 ---
-title: Migrate Microsoft SQL Server Always-On cluster to Azure VMware Solution
-description: Learn how to migrate Microsoft SQL Server Always-On cluster to Azure VMware Solution.
+title: Migrate Microsoft SQL Server Always On cluster to Azure VMware Solution
+description: Learn how to migrate Microsoft SQL Server Always On cluster to Azure VMware Solution.
 author: jjaygbay1
 ms.author: jacobjaygbay
 ms.topic: how-to
@@ -8,9 +8,9 @@ ms.service: azure-vmware
 ms.date: 3/20/2023
 ms.custom: engagement-fy23
 ---
-# Migrate Microsoft SQL Server Always-On cluster to Azure VMware Solution
+# Migrate Microsoft SQL Server Always On cluster to Azure VMware Solution
 
-In this article, you learn how to migrate Microsoft SQL Server Always-On Cluster to Azure VMware Solution. For VMware HCX, you can follow the VMware vMotion migration procedure. 
+In this article, you learn how to migrate Microsoft SQL Server Always On Cluster to Azure VMware Solution. For VMware HCX, you can follow the VMware vMotion migration procedure. 
 
 :::image type="content" source="media/sql-server-hybrid-benefit/sql-always-on-architecture.png" alt-text="Diagram showing the architecture of always on SQL server for  Azure VMware Solution." border="false" lightbox="media/sql-server-hybrid-benefit/sql-always-on-architecture.png":::
 
@@ -25,25 +25,25 @@ These are the prerequisites to migrating your SQL server instance to Azure VMwar
 - VMware HCX must be configured between your on-premises datacenter and the Azure VMware Solution private cloud that runs the migrated workloads. For more information on how to configure HCX, see [Azure VMware Solution documentation](install-vmware-hcx.md).
 - Ensure that all the network segments in use by the Microsoft SQL Server are extended into your Azure VMware Solution private cloud. To verify this step, see [Configure VMware HCX network extension](configure-hcx-network-extension.md).
 
-VMware HCX over VPN is supported in Azure VMware Solution for workload migration. However, due to the size of database workloads, VMware HCX over VPN is not recommended for Microsoft SQL Server Always-On migrations for production workloads. ExpressRoute connectivity is recommended as more performant and reliable. For Microsoft SQL Server Standalone and non-production workloads this may be suitable, depending upon the size of the database, to migrate. 
+VMware HCX over VPN is supported in Azure VMware Solution for workload migration. However, due to the size of database workloads, VMware HCX over VPN is not recommended for Microsoft SQL Server Always On migrations for production workloads. ExpressRoute connectivity is recommended as more performant and reliable. For Microsoft SQL Server Standalone and non-production workloads this may be suitable, depending upon the size of the database, to migrate. 
 
 Microsoft SQL Server (2019 and 2022) was tested with Windows Server (2019 and 2022) Data Center edition with the virtual machines deployed in the on-premises environment. Windows Server and SQL Server have been configured following best practices and recommendations from Microsoft and VMware. The on-premises source infrastructure was VMware vSphere 7.0 Update 3 and VMware vSAN running on Dell PowerEdge servers and Intel Optane P4800X SSD NVMe devices.
 
 ## Downtime considerations
 
-Predicting downtime during a migration depends upon the size of the database to be migrated and the speed of the private network connection to Azure cloud. Always-On migrations are intended to be executed with low database downtime. However, plan to conduct the migration during off-peak hours within a pre-approved change window.
+Predicting downtime during a migration depends upon the size of the database to be migrated and the speed of the private network connection to Azure cloud. Always On migrations are intended to be executed with low database downtime. However, plan to conduct the migration during off-peak hours within a pre-approved change window.
 
 The table below indicates the estimated downtime for each Microsoft SQL Server topology.
 
 | **Scenario** | **Downtime expected** | **Notes** |
 |:---|:-----|:-----|
 | **Standalone instance** | Low | Migrate with VMware vMotion, the DB is available during migration, but it is not recommended to commit any critical data during it. |
-| **Always-On Availability Group** | Low | The primary replica will always be available during the migration of the first secondary replica and the secondary replica will become the primary after the initial failover to Azure. |
+| **Always On Availability Group** | Low | The primary replica will always be available during the migration of the first secondary replica and the secondary replica will become the primary after the initial failover to Azure. |
 | **Failover Cluster Instance** | High | All nodes of the cluster are shutdown and migrated using VMware HCX Cold Migration. Downtime duration depends upon database size and private network speed to Azure cloud. |
 
 ## Windows Server Failover Cluster quorum considerations
 
-Microsoft SQL Server Always-On Availability Groups rely on Windows Server Failover Cluster, which requires a quorum voting mechanism to maintain the coherence of the cluster.
+Microsoft SQL Server Always On Availability Groups rely on Windows Server Failover Cluster, which requires a quorum voting mechanism to maintain the coherence of the cluster.
 
 An odd number of voting elements is required, which is achieved by an odd number of nodes in the cluster or by using a witness. Witness can be configured in three different ways:
 
@@ -64,9 +64,9 @@ If the cluster uses a **File share witness** running on-premises, then the type 
 
 For details about configuring and managing the quorum, see [Failover Clustering documentation](https://learn.microsoft.com/windows-server/failover-clustering/manage-cluster-quorum). For information  about deployment of Cloud witness in Azure Blob Storage, see [Manage a cluster quorum for a Failover Cluster](https://learn.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness).
 
-## Migrate Microsoft SQL Server Always-On cluster
+## Migrate Microsoft SQL Server Always On cluster
 
-1. Access your Always-On cluster with SQL Server Management Studio using administration credentials.
+1. Access your Always On cluster with SQL Server Management Studio using administration credentials.
    - Select your primary replica and open **Availability Group** **Properties**.
           :::image type="content" source="media/sql-server-hybrid-benefit/sql-always-on-1.png" alt-text="Diagram showing Always On Availability Group properties." border="false" lightbox="media/sql-server-hybrid-benefit/sql-always-on-1.png":::
    - Change **Availability Mode** to **Asynchronous commit** only for the replica to be migrated.
@@ -104,7 +104,7 @@ For details about configuring and managing the quorum, see [Failover Clustering 
 
  
 1. Monitor the progress of the failover in the next screen, and click **Close** when the operation is finished.
-    :::image type="content" source="media/sql-server-hybrid-benefit/sql-always-on-6.png" alt-text="Diagram showing that always on SQL server cluster successfully finished." border="false" lightbox="media/sql-server-hybrid-benefit/sql-always-on-6.png"::: 
+    :::image type="content" source="media/sql-server-hybrid-benefit/sql-Always On-6.png" alt-text="Diagram showing that always on SQL server cluster successfully finished." border="false" lightbox="media/sql-server-hybrid-benefit/sql-always-on-6.png"::: 
 
 
 1. Refresh the **Object Explorer** view in SQL Server Management Studio (SSMS), and verify that the migrated instance is now the primary replica.
@@ -112,7 +112,7 @@ For details about configuring and managing the quorum, see [Failover Clustering 
    
     >[!Note]
     > Migrate one replica at a time and verify that all changes are synchronized back to the replica after each migration. Do not migrate all the replicas at the same time using **HCX Bulk Migration**. 
-1. After the migration of all the replicas is completed, access your Always-On availability group with **SQL Server Management Studio**.
+1. After the migration of all the replicas is completed, access your Always On availability group with **SQL Server Management Studio**.
    - Open the Dashboard and verify there is no data loss in any of the replicas and that all are in a     **Synchronized** state.
     :::image type="content" source="media/sql-server-hybrid-benefit/sql-always-on-7.png" alt-text="Diagram showing availability Group Dashboard with new primary replica and all migrated secondary replicas in synchronized state." border="false" lightbox="media/sql-server-hybrid-benefit/sql-always-on-7.png":::
    - Edit the **Properties** of the availability group and set **Failover Mode** to **Automatic** in all replicas.

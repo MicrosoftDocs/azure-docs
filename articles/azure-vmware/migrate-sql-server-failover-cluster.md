@@ -18,7 +18,7 @@ VMware HCX doesn't support migrating virtual machines with SCSI controllers in p
 :::image type="content" source="media/sql-server-hybrid-benefit/migrated-sql-failover-cluster.png" alt-text="Diagram showing the architecture of SQL failover server for Azure VMware Solution." border="false" lightbox="media/sql-server-hybrid-benefit/migrated-sql-failover-cluster.png":::
 
 > [!NOTE]
-> This procedure requires a full shutdown of the cluster. Since the Microsoft SQL Server service will be unavailable during the migration, plan accordingly for the downtime period .  
+> This procedure requires a full shutdown of the cluster. Since the Microsoft SQL Server service will be unavailable during the migration, plan accordingly for the downtime period.  
 
 ## Prerequisites
 
