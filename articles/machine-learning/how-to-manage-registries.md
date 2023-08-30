@@ -1,5 +1,5 @@
 ---
-title: Create and manage registries (preview)
+title: Create and manage registries
 titleSuffix: Azure Machine Learning
 description: Learn how create registries with the CLI, REST API, Azure portal and Azure Machine Learning studio 
 services: machine-learning
@@ -8,12 +8,12 @@ ms.subservice: mlops
 ms.author: kritifaujdar
 author: fkriti
 ms.reviewer: larryfr
-ms.date: 04/12/2023
+ms.date: 08/24/2023
 ms.topic: how-to
-ms.custom: devx-track-python, ignite-2022
+ms.custom: ignite-2022, build-2023
 ---
 
-# Manage Azure Machine Learning registries (preview)
+# Manage Azure Machine Learning registries
 
 Azure Machine Learning entities can be grouped into two broad categories:
 
@@ -22,15 +22,13 @@ Azure Machine Learning entities can be grouped into two broad categories:
 
 Assets lend themselves to being stored in a central repository and used in different workspaces, possibly in different regions. Resources are workspace specific. 
 
-Azure Machine Learning registries (preview) enable you to create and use those assets in different workspaces. Registries support multi-region replication for low latency access to assets, so you can use assets in workspaces located in different Azure regions. Creating a registry provisions Azure resources required to facilitate replication. First, Azure blob storage accounts in each supported region. Second, a single Azure Container Registry with replication enabled to each supported region. 
+Azure Machine Learning registries enable you to create and use those assets in different workspaces. Registries support multi-region replication for low latency access to assets, so you can use assets in workspaces located in different Azure regions. Creating a registry provisions Azure resources required to facilitate replication. First, Azure blob storage accounts in each supported region. Second, a single Azure Container Registry with replication enabled to each supported region. 
 
 :::image type="content" source="./media/how-to-manage-registries/machine-learning-registry-block-diagram.png" alt-text="Diagram of the relationships between assets in workspace and registry.":::
 
-[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
-
 ## Prerequisites
 
-[!INCLUDE [CLI v2 preres](../../includes/machine-learning-cli-prereqs.md)]
+[!INCLUDE [CLI v2 preres](includes/machine-learning-cli-prereqs.md)]
 
 [!INCLUDE [CLI v2 update](./includes/new-feature-cli.md)]
 
@@ -78,6 +76,7 @@ replication_locations:
   - location: westus
 ```
 
+For more information on the structure of the YAML file, see the [registry YAML reference](reference-yaml-registry.md) article.
 
 > [!TIP]
 > You typically see display names of Azure regions such as 'East US' in the Azure Portal but the registry creation YAML needs names of regions without spaces and lower case letters. Use `az account list-locations -o table` to find the mapping of region display names to the name of the region that can be specified in YAML.
@@ -149,9 +148,13 @@ The response should provide an access token good for one hour. Make note of the 
 ```
 
 To create a registry, use the following command. You can edit the JSON to change the inputs as needed. Replace the `<YOUR-ACCESS-TOKEN>` value with the access token retrieved previously:
- 
+
+> [!TIP]
+> We recommend using the latest API version when working with the REST API. For a list of the current REST API versions for Azure Machine Learning, see the [Machine Learning REST API reference](/rest/api/azureml/). The current API versions are listed in the table of contents on the left side of the page.
+
 ```bash
-curl -X PUT https://management.azure.com/subscriptions/<your-subscription-id>/resourceGroups/<your-resource-group>/providers/Microsoft.MachineLearningServices/registries/reg-from-rest?api-version=2022-12-01-preview -H "Authorization:Bearer <YOUR-ACCESS-TOKEN>" -H 'Content-Type: application/json' -d ' 
+```bash
+curl -X PUT https://management.azure.com/subscriptions/<your-subscription-id>/resourceGroups/<your-resource-group>/providers/Microsoft.MachineLearningServices/registries/reg-from-rest?api-version=2023-04-01 -H "Authorization:Bearer <YOUR-ACCESS-TOKEN>" -H 'Content-Type: application/json' -d ' 
 {
     "properties":
     {
@@ -234,7 +237,7 @@ Decide if you want to allow users to only use assets (models, environments and c
 
 ### Allow users to use assets from the registry
 
-To let a user only read assets, you can grant the user the built-in __Reader__ role. If don't want to use the built-in role, create a custom role with the following permissions
+To let a user only read assets, you can grant the user the built-in __Reader__ role. If you don't want to use the built-in role, create a custom role with the following permissions
 
 Permission | Description 
 --|--
@@ -265,4 +268,5 @@ Microsoft.MachineLearningServices/registries/delete | Allows the user to delete 
 
 ## Next steps
 
-* [Learn how to share models, components and environments across workspaces with registries (preview)](./how-to-share-models-pipelines-across-workspaces-with-registries.md)
+* [Learn how to share models, components and environments across workspaces with registries](./how-to-share-models-pipelines-across-workspaces-with-registries.md)
+* [Network isolation with registries](./how-to-registry-network-isolation.md)

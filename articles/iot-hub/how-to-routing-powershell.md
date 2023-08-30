@@ -26,7 +26,7 @@ The procedures that are described in the article use the following resources:
 
 ### Azure PowerShell
 
-This article uses Azure PowerShell to work with IoT Hub and other Azure services. To use Azure PowerShell locally, install the [Azure PowerShell module](/powershell/azure/install-az-ps) on your computer. Alternatively, to use Azure PowerShell in a web browser, enable [Azure Cloud Shell](../cloud-shell/overview.md).
+This article uses Azure PowerShell to work with IoT Hub and other Azure services. To use Azure PowerShell locally, install the [Azure PowerShell module](/powershell/azure/install-azure-powershell) on your computer. Alternatively, to use Azure PowerShell in a web browser, enable [Azure Cloud Shell](../cloud-shell/overview.md).
 
 ### IoT hub
 

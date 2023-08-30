@@ -106,7 +106,7 @@ Configuring an authorization in your API Management instance consists of three s
 
 :::image type="content" source="media/authorizations-overview/configure-authorization.png" alt-text="Diagram of steps to create an authorization in API Management." border="false":::
 
-#### Step 1 - Authorization provider
+#### Step 1: Authorization provider
 During Step 1, you configure your authorization provider. You can choose between different [identity providers](authorizations-configure-common-providers.md) and grant types (authorization code or client credential). Each identity provider requires specific configurations. Important things to keep in mind:
 
 * An authorization provider configuration can only have one grant type.
@@ -124,11 +124,11 @@ To use an authorization provider, at least one *authorization* is required. Ea
 |Authorization code     | Bound to a user context, meaning a user needs to consent to the authorization. As long as the refresh token is valid, API Management can retrieve new access and refresh tokens. If the refresh token becomes invalid, the user needs to reauthorize. All identity providers support authorization code. [Learn more](https://www.rfc-editor.org/rfc/rfc6749?msclkid=929b18b5d0e611ec82a764a7c26a9bea#section-1.3.1)         |
 |Client credentials     |  Isn't bound to a user and is often used in application-to-application scenarios. No consent is required for client credentials grant type, and the authorization doesn't become invalid. [Learn more](https://www.rfc-editor.org/rfc/rfc6749?msclkid=929b18b5d0e611ec82a764a7c26a9bea#section-1.3.4)   |
 
-### Step 2 - Log in
+#### Step 2: Log in
 
 For authorizations based on the authorization code grant type, you must authenticate to the provider and *consent* to authorization. After successful login and authorization by the identity provider, the provider returns valid access and refresh tokens, which are encrypted and saved by API Management. For details, see [Process flow - runtime](#process-flow---runtime).
 
-### Step 3 - Access policy
+#### Step 3: Access policy
 
 You configure one or more *access policies* for each authorization. The access policies determine which [Azure AD identities](../active-directory/develop/app-objects-and-service-principals.md) can gain access to your authorizations at runtime. Authorizations currently support managed identities and service principals.
 
@@ -170,7 +170,7 @@ At runtime API Management can't fetch new tokens, and an error occurs.
 
 ### Is this feature supported using API Management running inside a VNet?
 
-Yes, as long as outbound connectivity on port 443 is enabled to the **ServiceConnectors** service tag. For more information, see [Virtual network configuration reference](virtual-network-reference.md#required-ports).
+Yes, as long as outbound connectivity on port 443 is enabled to the **AzureConnectors** service tag. For more information, see [Virtual network configuration reference](virtual-network-reference.md#required-ports).
 
 ### What happens when an authorization provider is deleted?
 
@@ -178,8 +178,7 @@ All underlying authorizations and access policies are also deleted.
 
 ### Are the access tokens cached by API Management?
 
-The access token is cached by the API management until 3 minutes before the token expiration time.
-
+In the dedicated service tiers, the access token is cached by the API management until 3 minutes before the token expiration time. Access tokens aren't cached in the Consumption tier.
 
 ## Next steps
 
@@ -187,3 +186,4 @@ Learn how to:
 - Configure [identity providers](authorizations-configure-common-providers.md) for authorizations
 - Configure and use an authorization for the [Microsoft Graph API](authorizations-how-to-azure-ad.md) or the [GitHub API](authorizations-how-to-github.md)
 - Configure [multiple authorization connections](configure-authorization-connection.md) for a provider
+

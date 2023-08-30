@@ -22,15 +22,19 @@ This article will walk you through the process of configuring Active Directory F
 
 Before configuring AD FS single sign-on, you must have the following setup running in your environment:
 
-* You must deploy the **Active Directory Certificate Services (CA)** role. All servers running the role must be domain-joined, have the latest Windows updates installed, and be configured as [enterprise certificate authorities](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731183%28v%3dws.10%29).
-* You must deploy the **Active Directory Federation Services (AD FS)** role. All servers running this role must be domain-joined, have the latest Windows updates installed, and be running Windows Server 2016 or later. See our [federation tutorial](../active-directory/hybrid/tutorial-federation.md) to get started setting up this role.
-* We recommend setting up the **Web Application Proxy** role to secure your environment's connection to the AD FS servers. All servers running this role must have the latest Windows updates installed, and be running Windows Server 2016 or later. See this [Web Application Proxy guide](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn383662(v=ws.11)) to get started setting up this role.
-* You must deploy **Azure AD Connect** to sync users to Azure AD. Azure AD Connect must be configured in [federation mode](../active-directory/hybrid/how-to-connect-install-custom.md).
-* [Set up your PowerShell environment](powershell-module.md) for Azure Virtual Desktop on the AD FS server.
-* When using Windows 10 20H1 or 20H2 to connect to Azure Virtual Desktop, you must install the **2021-04 Cumulative Update for Windows 10 (KB5001330)** or later for single sign-on to function properly.
+- Session hosts running a supported version of Windows 10 or Windows 11.
+
+- You must deploy the **Active Directory Certificate Services (CA)** role. All servers running the role must be domain-joined, have the latest Windows updates installed, and be configured as [enterprise certificate authorities](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731183%28v%3dws.10%29).
+
+- You must deploy the **Active Directory Federation Services (AD FS)** role. All servers running this role must be domain-joined, have the latest Windows updates installed, and be running Windows Server 2016 or later. See our [federation tutorial](../active-directory/hybrid/tutorial-federation.md) to get started setting up this role.
+- We recommend setting up the **Web Application Proxy** role to secure your environment's connection to the AD FS servers. All servers running this role must have the latest Windows updates installed, and be running Windows Server 2016 or later. See this [Web Application Proxy guide](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn383662(v=ws.11)) to get started setting up this role.
+
+- You must deploy **Azure AD Connect** to sync users to Azure AD. Azure AD Connect must be configured in [federation mode](../active-directory/hybrid/how-to-connect-install-custom.md).
+
+- [Set up your PowerShell environment](powershell-module.md) for Azure Virtual Desktop on the AD FS server.
 
 > [!NOTE]
-> This solution is not supported with Azure AD Domain Services. You must use an Active Directory Domain Controller.
+> This solution is not supported with Azure AD Domain Services. You must use an Active Directory Domain Services domain controller.
 
 ## Supported clients
 

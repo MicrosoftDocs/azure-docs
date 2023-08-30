@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 03/10/2023
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.custom: devx-track-python, devx-track-js, devx-track-csharp, "seo-nov-2020"
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, seo-nov-2020, devx-track-dotnet, devx-track-extended-java
 ---
 
 # Configure multi-region writes in your applications that use Azure Cosmos DB
@@ -76,7 +76,7 @@ CosmosClient client = cosmosClientBuilder.Build();
 
 ## <a id="java4-multi-region-writes"></a> Java V4 SDK
 
-To enable multi-region writes in your application, call `.multipleWriteRegionsEnabled(true)` and `.preferredRegions(preferredRegions)` in the client builder, where `preferredRegions` is a `List` containing one element. That element is the region in which the application is being deployed and where Azure Cosmos DB is replicated:
+To enable multi-region writes in your application, call `.multipleWriteRegionsEnabled(true)` and `.preferredRegions(preferredRegions)` in the client builder, where `preferredRegions` is a `List` of regions the data is replicated into ordered by preference - ideally the regions with shortest distance/best latency first:
 
 # [Async](#tab/api-async)
 
@@ -94,7 +94,7 @@ To enable multi-region writes in your application, call `.multipleWriteRegionsEn
 
 ## <a id="java2-multi-region-writes"></a> Async Java V2 SDK
 
-The Java V2 SDK used the Maven [com.microsoft.azure::azure-cosmosdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb). To enable multi-region writes in your application, set `policy.setUsingMultipleWriteLocations(true)` and set `policy.setPreferredLocations` to the region in which the application is being deployed and where Azure Cosmos DB is replicated:
+The Java V2 SDK used the Maven [com.microsoft.azure::azure-cosmosdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb). To enable multi-region writes in your application, set `policy.setUsingMultipleWriteLocations(true)` and set `policy.setPreferredLocations` to the `List` of regions the data is replicated into ordered by preference - ideally the regions with shortest distance/best latency first:
 
 ```java
 ConnectionPolicy policy = new ConnectionPolicy();
@@ -111,7 +111,7 @@ AsyncDocumentClient client =
 
 ## <a id="javascript"></a>Node.js, JavaScript, and TypeScript SDKs
 
-To enable multi-region writes in your application, set `connectionPolicy.UseMultipleWriteLocations` to `true`. Also, set `connectionPolicy.PreferredLocations` to the region in which the application is being deployed and where Azure Cosmos DB is replicated:
+To enable multi-region writes in your application, set `connectionPolicy.UseMultipleWriteLocations` to `true`. Also, set `connectionPolicy.PreferredLocations` to the regions the data is replicated into ordered by preference - ideally the regions with shortest distance/best latency first:
 
 ```javascript
 const connectionPolicy: ConnectionPolicy = new ConnectionPolicy();
@@ -128,7 +128,7 @@ const client = new CosmosClient({
 
 ## <a id="python"></a>Python SDK
 
-To enable multi-region writes in your application, set `connection_policy.UseMultipleWriteLocations` to `true`. Also, set `connection_policy.PreferredLocations` to the region in which the application is being deployed and where Azure Cosmos DB is replicated.
+To enable multi-region writes in your application, set `connection_policy.UseMultipleWriteLocations` to `true`. Also, set `connection_policy.PreferredLocations` to the regions the data is replicated into ordered by preference - ideally the regions with shortest distance/best latency first.
 
 ```python
 connection_policy = documents.ConnectionPolicy()

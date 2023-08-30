@@ -2,11 +2,11 @@
 title: 'Quickstart: Deploy your first container app using the Azure portal'
 description: Deploy your first application to Azure Container Apps using the Azure portal.
 services: container-apps
-author: lanceleonard
+author: craigshoemaker
 ms.service: container-apps
 ms.topic: quickstart
 ms.date: 12/13/2021
-ms.author: v-laleonard
+ms.author: cshoe
 ms.custom: mode-ui, event-tier1-build-2022
 ---
 

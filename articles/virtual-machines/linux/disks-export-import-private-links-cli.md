@@ -2,11 +2,10 @@
 title: Azure CLI - Restrict import/export access to managed disks with Private Links
 description: Enable Private Links for your managed disks with Azure CLI. Allowing you to securely export and import disks within only your virtual network.
 author: roygara
-ms.service: storage
+ms.service: azure-disk-storage
 ms.topic: overview
 ms.date: 03/31/2023
 ms.author: rogarana
-ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli
 ---
 

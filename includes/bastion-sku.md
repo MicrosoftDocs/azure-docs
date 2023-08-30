@@ -16,11 +16,11 @@ ms.topic: include
 | Kerberos authentication | [Yes](../articles/bastion/kerberos-authentication-portal.md) |[Yes](../articles/bastion/kerberos-authentication-portal.md)|
 | VM audio output | Yes | Yes |
 | Shareable link | No | [Yes](../articles/bastion/shareable-link.md) |
-| Connect to VMs using a native client | No | [Yes](../articles/bastion/connect-native-client-windows.md)|
+| Connect to VMs using a native client | No | [Yes](../articles/bastion/native-client.md)|
 | Connect to VMs via IP address | No | [Yes](../articles/bastion/connect-ip-address.md)
 | Host scaling |  No  | [Yes](../articles/bastion/configuration-settings.md#instance) |
 | Specify custom inbound port | No | [Yes](../articles/bastion/configuration-settings.md#ports)|
-| Connect to Linux VM using RDP |  No | [Yes](../articles/bastion/bastion-connect-vm-rdp-linux.md)|
+| Connect to Linux VM using RDP |  No | Yes |
 | Connect to Windows VM using SSH |  No  | [Yes](../articles/bastion/bastion-connect-vm-ssh-windows.md)|
 | Upload or download files |  No  | [Yes](../articles/bastion/vm-upload-download-native.md)|
 | Disable copy/paste (web-based clients) |  No  | Yes |

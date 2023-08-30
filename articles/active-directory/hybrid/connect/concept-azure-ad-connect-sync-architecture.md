@@ -152,7 +152,7 @@ During the export process, sync engine pushes out changes that are staged on sta
 
 The following illustration shows where each of the processes occurs as identity information flows from one connected data source to another.
 
-![Diagram shows the flow of identity information from connected data to connector space (import) to metaverse to connector space (synchonization) to connected data (export).](./media/concept-azure-ad-connect-sync-architecture/arch6.png)
+![Diagram shows the flow of identity information from connected data to connector space (import) to metaverse to connector space (synchronization) to connected data (export).](./media/concept-azure-ad-connect-sync-architecture/arch6.png)
 
 ### Import process
 During the import process, sync engine evaluates updates to identity information. Sync engine compares the identity information received from the connected data source with the identity information about a staging object and determines whether the staging object requires updates. If it is necessary to update the staging object with new data, the staging object is flagged as pending import.

@@ -10,7 +10,7 @@ ms.custom: ignite-fall-2021
 
 # Convert dashboards to Azure Workbooks 
 
-Dashboards in your existing SIEM will convert to [Azure Monitor Workbooks](monitor-your-data.md#use-built-in-workbooks), the Microsoft Sentinel adoption of Azure Monitor Workbooks, which provides versatility in creating custom dashboards.
+Dashboards in your existing SIEM will convert to [Azure Monitor Workbooks](monitor-your-data.md), the Microsoft Sentinel adoption of Azure Monitor Workbooks, which provides versatility in creating custom dashboards.
 
 This article describes how to review, plan, and convert your current workbooks to Azure Monitor Workbooks.
 

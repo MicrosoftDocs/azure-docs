@@ -76,6 +76,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/virtual-machines/linux/convert-disk-storage.md",
+            "redirect_url": "/azure/storagevirtual-machines/disks-convert-types",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/convert-disk-storage.md",
+            "redirect_url": "/azure/storagevirtual-machines/disks-convert-types",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/virtual-machines/windows/aws-to-azure.md",
             "redirect_url": "/azure/migrate/tutorial-migrate-aws-virtual-machines",
             "redirect_document_id": false
@@ -1787,7 +1797,7 @@
         },
         {
             "source_path_from_root": "/articles/virtual-machines/linux/tutorial-convert-to-vmss.md",
-            "redirect_url": "/azure/virtual-machines/linux/tutorial-create-vmss",
+            "redirect_url": "/azure/virtual-machine-scale-sets/tutorial-create-and-manage-cli",
             "redirect_document_id": false
         },
         {
@@ -3232,12 +3242,22 @@
         },
         {
             "source_path_from_root": "/articles/virtual-machines/windows/multiple-vms.md",
-            "redirect_url": "/azure/virtual-machines/windows/tutorial-create-vmss",
+            "redirect_url": "/azure/virtual-machine-scale-sets/tutorial-create-and-manage-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/tutorial-create-vmss.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/tutorial-create-and-manage-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/linux/tutorial-create-vmss.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/tutorial-create-and-manage-cli",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/virtual-machines/windows/vmss-powershell-creating.md",
-            "redirect_url": "/azure/virtual-machines/windows/tutorial-create-vmss",
+            "redirect_url": "/azure/virtual-machine-scale-sets/tutorial-create-and-manage-powershell",
             "redirect_document_id": false
         },
         {
@@ -3337,11 +3357,6 @@
         },
         {
             "source_path_from_root": "/articles/virtual-machines/windows/classic/oracle-images.md",
-            "redirect_url": "/azure/virtual-machines/workloads/oracle/oracle-considerations",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/virtual-machines/workloads/oracle/index.md",
             "redirect_url": "/azure/virtual-machines/workloads/oracle/oracle-considerations",
             "redirect_document_id": false
         },
@@ -3607,13 +3622,14 @@
         },
         {
             "source_path_from_root": "/articles/virtual-machines/windows/share-images-across-tenants.md",
-            "redirect_url": "/azure/virtual-machines/share-gallery.md",
+            "redirect_url": "/azure/virtual-machines/share-gallery",
             "redirect_document_id": false
-        },         {
+        },
+        {
             "source_path_from_root": "/articles/virtual-machines/linux/share-images-across-tenants.md",
-            "redirect_url": "/azure/virtual-machines/share-gallery.md",
+            "redirect_url": "/azure/virtual-machines/share-gallery",
             "redirect_document_id": false
-        }, 
+        },
         {
             "source_path_from_root": "/articles/virtual-machines/maintenance-control-cli.md",
             "redirect_url": "/azure/virtual-machines/maintenance-configurations-cli",
@@ -5098,6 +5114,6 @@
             "source_path_from_root": "/articles/virtual-machines/workloads/hpc/hb-hc-known-issues.md",
             "redirect_url": "/azure/virtual-machines/hb-hc-known-issues",
             "redirect_document_id": false
-        }     
+        }
     ]
 }

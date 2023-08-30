@@ -8,10 +8,9 @@ ms.author: normesta
 ms.date: 03/03/2022
 ms.topic: article
 ms.service: storage
-ms.subservice: blobs
 ms.reviewer: sadodd
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-dotnet
 ---
 
 # Process change feed in Azure Blob Storage

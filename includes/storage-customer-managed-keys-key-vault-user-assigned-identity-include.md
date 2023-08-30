@@ -3,9 +3,9 @@ title: "include file"
 description: "include file"
 services: storage
 author: tamram
-ms.service: storage
+ms.service: azure-storage
 ms.topic: "include"
-ms.date: 09/29/2022
+ms.date: 06/07/2023
 ms.author: tamram
 ms.custom: "include file"
 ---
@@ -14,7 +14,7 @@ When you enable customer-managed keys for a new storage account, you must specif
 
 When you configure customer-managed keys with a user-assigned managed identity, the user-assigned managed identity is used to authorize access to the key vault that contains the key. You must create the user-assigned identity before you configure customer-managed keys.
 
-A user-assigned is a standalone Azure resource. To learn more about user-assigned managed identities, see [Managed identity types](../articles/active-directory/managed-identities-azure-resources/overview.md#managed-identity-types). To learn how to create and manage a user-assigned managed identity, see [Manage user-assigned managed identities](../articles/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md).
+A user-assigned managed identity is a standalone Azure resource. To learn more about user-assigned managed identities, see [Managed identity types](../articles/active-directory/managed-identities-azure-resources/overview.md#managed-identity-types). To learn how to create and manage a user-assigned managed identity, see [Manage user-assigned managed identities](../articles/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md).
 
 The user-assigned managed identity must have permissions to access the key in the key vault. Assign the **Key Vault Crypto Service Encryption User** role to the user-assigned managed identity with key vault scope to grant these permissions.
 
@@ -55,8 +55,9 @@ principalId=$(az identity show --name <user-assigned-identity> \
     --output tsv)
 
 az role assignment create --assignee-object-id $principalId \
-    --role " Key Vault Crypto Service Encryption User" \
-    --scope $kvResourceId
+    --role "Key Vault Crypto Service Encryption User" \
+    --scope $kvResourceId \
+    --assignee-principal-type ServicePrincipal
 ```
 
 ---

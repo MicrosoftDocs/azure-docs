@@ -61,14 +61,15 @@ The following image shows a sample of the HPE ProLiant DL20 back panel:
 |1|	512485-B21 | HPE iLO Adv 1 Server License 1 year support|
 |1|	P46114-B21 | HPE DL20 Gen10+ 2x8 LP FIO Riser Kit|
 
-## Optional Storage Arrays
+## Optional Storage Controllers
+Multi-disk RAID arrays combine multiple physical drives into one logical drive for increased redundancy and performance. The optional modules below have been tested in our lab for compatibility and sustained performance:
 
 |Quantity|PN|Description|
 |----|---|----|
+|1| 869079-B21 | HPE Smart Array E208i-a SR G10 LH Ctrlr (RAID10) |
 |1| P26325-B21 | Broadcom MegaRAID MR216i-a x16 Lanes without Cache NVMe/SAS 12G Controller (RAID5)<br><br>**Note**: This RAID controller occupies the PCIe expansion slot and does not allow expansion of networking port expansion |
 
-## Port expansion
-
+## Optional port expansion
 Optional modules for port expansion include:
 
 |Location |Type|Specifications|
@@ -94,7 +95,7 @@ Installation includes:
 
 > [!NOTE]
 > Installation procedures are only relevant if you need to re-install software on a pre-configured device, or if you buy your own hardware and configure the appliance yourself.
->
+> 
 
 ### Enable remote access and update the password
 
@@ -124,9 +125,13 @@ Use the following procedure to set up network options and update the default pas
 
 1. Change the default password and select **F10: Save**.
 
-### Configure the HPE BIOS
+### Setup the BIOS and RAID array
 
-This procedure describes how to update the HPE BIOS configuration for your OT deployment.
+This procedure describes how to configure the BIOS configuration for an unconfigured sensor appliance.
+In the event that any of the steps below are missing in the BIOS, please make sure that the hardware matches the specifications above.
+
+HPE BIOS iLO is a system management software designed to give administrators control of HPE hardware remotely. It allows administrators to monitor system performance, configure settings, and troubleshoot hardware issues from a web browser. It can also be used to update system BIOS and firmware. The BIOS can be setup locally or remotely. To setup the BIOS remotely from a management computer, you need to define the HPE IP address and the management computer's IP address on the same subnet.
+
 
 **To configure the HPE BIOS**:
 
@@ -134,7 +139,7 @@ This procedure describes how to update the HPE BIOS configuration for your OT de
 
 1. In the **BIOS/Platform Configuration (RBSU)** form, select **Boot Options**.
 
-1. Change **Boot Mode** to **Legacy BIOS Mode**, and then select **F10: Save**.
+1. Change **Boot Mode** to **UEFI BIOS Mode**, and then select **F10: Save**.
 
 1. Select **Esc** twice to close the **System Configuration** form.
 

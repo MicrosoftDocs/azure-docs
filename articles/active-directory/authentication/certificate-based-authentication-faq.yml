@@ -6,6 +6,7 @@ metadata:
   services: multi-factor-authentication
   ms.service: active-directory
   ms.subservice: authentication
+  ms.custom: has-azure-ad-ps-ref
   ms.topic: faq
   ms.date: 02/21/2023
   ms.author: justinha
@@ -37,7 +38,9 @@ sections:
           How can an administrator enable Azure AD CBA?
         answer: |
           1. Sign in to the [Azure portal](https://portal.azure.com) as a Global Administrator.
-          1. Click **Azure Active Directory** > **Security** > **Authentication methods** > **Certificate-based Authentication** > **Basics**, click **Yes** to enable certificate-based authentication.
+          2. Select **Azure Active Directory** > **Security** > **Authentication methods** > **Policies**.
+          3. Select policy: **Certificate-based Authentication**.
+          4. On the **Enable and Target** tab, select the **Enable** toggle to enable certificate-based authentication.
 
       - question: |
           Is Azure AD CBA a free feature?
@@ -101,7 +104,7 @@ sections:
       - question: |
           How do I instantly revoke a certificate?
         answer: |
-          Follow the steps to [manually revoke a certificate](active-directory-certificate-based-authentication-get-started.md#step-3-configure-revocation). 
+          Follow the steps to [manually revoke a certificate](./certificate-based-authentication-federation-get-started.md#step-3-configure-revocation). 
 
       - question: |
           Will the changes to the Authentication methods policy take effect immediately?
@@ -131,14 +134,9 @@ sections:
           [MFA with single factor certificates](../authentication/concept-certificate-based-authentication-technical-deep-dive.md#mfa-authentication-flow-using-single-factor-certificates-and-passwordless-sign-in) 
           
       - question: |
-          Will the changes to the Authentication methods policy take effect immediately?
-        answer: |
-          The policy is cached. After a policy update, it may take up to an hour for the changes to take effect.
-          
-      - question: |
           CertificateUserIds update fails with value already there. How can an admin query all the user objects with the same value?
         answer: |
-          Tenant admins can run MS Graph queries to find all the users with a given certificateUserId value. More information can be found at [CertificateUserIds graph queries](concept-certificate-based-authentication-certificateuserids.md#look-up-certificateuserids-using-microsoft-graph-queries)
+          Tenant admins can run MS Graph queries to find all the users with a given certificateUserId value. More information can be found at [CertificateUserIds graph queries](concept-certificate-based-authentication-certificateuserids.md#update-certificateuserids-using-microsoft-graph-queries)
           
           GET all user objects that have the value 'bob@contoso.com' value in certificateUserIds:
 

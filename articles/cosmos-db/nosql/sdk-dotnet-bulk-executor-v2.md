@@ -5,7 +5,7 @@ author: seesharprun
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.devlang: csharp
-ms.custom: ignite-2022
+ms.custom: ignite-2022, devx-track-dotnet
 ms.topic: reference
 ms.date: 04/06/2021
 ms.author: sidandrews

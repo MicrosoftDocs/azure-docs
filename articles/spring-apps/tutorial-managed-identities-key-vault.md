@@ -1,12 +1,12 @@
 ---
 title:  "Tutorial: Connect Azure Spring Apps to Key Vault using managed identities"
-description: Set up managed identity to connect Key Vault to an app deployed to Azure Spring Apps
-author: karlerickson
+description: Set up managed identity to connect Key Vault to an app deployed to Azure Spring Apps.
+author: KarlErickson
 ms.author: karler
 ms.service: spring-apps
-ms.topic: tutorial
-ms.date: 04/15/2022
-ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
+ms.topic: how-to
+ms.date: 05/07/2023
+ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, event-tier1-build-2022
 ---
 
 # Tutorial: Connect Azure Spring Apps to Key Vault using managed identities
@@ -52,7 +52,7 @@ To create a Key Vault, use the command [az keyvault create](/cli/azure/keyvault#
 ```azurecli
 az keyvault create \
     --resource-group <your-resource-group-name> \
-    --name "<your-keyvault-name>" 
+    --name "<your-keyvault-name>"
 ```
 
 Make a note of the returned `vaultUri`, which is in the format `https://<your-keyvault-name>.vault.azure.net`. You use this value in the following step.

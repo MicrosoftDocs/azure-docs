@@ -1,0 +1,94 @@
+### YamlMime:Landing
+
+title: Microsoft Azure Linux Container Host for AKS
+summary: The Azure Linux Container Host for AKS provides reliability and consistency from cloud to edge. Learn how to use the Azure Linux Container Host with these quickstarts, tutorials, and how-to guides.
+
+metadata:
+  title: Azure Linux Container Host for AKS documentation
+  description: Learn about Azure Linux Container Host to use the container-optimized OS in your AKS clusters.
+  ms.service: microsoft-linux
+  ms.topic: landing-page
+  ms.collection: collection
+  author: htaubenfeld
+  ms.author: htaubenfeld
+  ms.date: 05/10/2023
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | tutorial | overview | quickstart | reference | sample | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card 
+  - title: About Azure Linux Container Host for AKS
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Linux Container Host for AKS?
+            url: intro-azure-linux.md
+      #- linkListType: whats-new
+      #  links:
+       #   - text: Azure Linux 2.0
+       #     url: azure-linux-supported-versions.md#azure-linux-20
+      - linkListType: concept
+        links:
+          - text: Core concepts
+            url: concepts-core.md
+          #- text: Security
+          #  url: concepts-security.md
+          - text: Packages
+            url: concepts-packages.md
+          #- text: Certification
+          #  url: concepts-certs.md
+          #- text: Azure Linux versions
+           # url: azure-linux-supported-versions.md
+
+  # Card 
+  - title: Create an Azure Linux cluster in 5 minutes
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Azure CLI
+            url: quickstart-azure-cli.md
+          - text: ARM template
+            url: quickstart-azure-resource-manager-template.md
+          - text: Terraform
+            url: quickstart-terraform.md
+
+  # Card
+  - title: Deploy, manage, and update applications
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: 1. Create a cluster with Azure Linux
+            url: tutorial-azure-linux-create-cluster.md
+          - text: 2. Add an Azure Linux node pool to your existing cluster
+            url: tutorial-azure-linux-add-nodepool.md
+          - text: 3. Migrating to Azure Linux
+            url: tutorial-azure-linux-migration.md
+          - text: 4. Enable telemetry and monitoring
+            url: tutorial-azure-linux-telemetry-monitor.md
+          - text: 5. Upgrade Azure Linux nodes
+            url: tutorial-azure-linux-upgrade.md
+
+  # Card
+  - title: Troubleshooting
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Package upgrade issues
+            url: troubleshoot-packages.md
+          - text: Kernel versioning issues 
+            url: troubleshoot-kernel.md
+
+  # Card
+  - title: Get help
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Support
+            url: ../../articles/aks/support-policies.md
+          - text: Release notes
+            url: https://github.com/microsoft/CBL-Mariner/releases
+          - text: FAQ
+            url: faq.md
+

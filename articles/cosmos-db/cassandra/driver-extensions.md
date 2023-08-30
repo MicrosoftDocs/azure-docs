@@ -7,7 +7,7 @@ author: iriaosara
 ms.author: iriaosara
 ms.topic: how-to
 ms.date: 01/27/2022
-ms.custom: how-to, ignite-2022
+ms.custom: how-to, ignite-2022, devx-track-extended-java
 ---
 
 # Azure Cosmos DB for Apache Cassandra driver extension

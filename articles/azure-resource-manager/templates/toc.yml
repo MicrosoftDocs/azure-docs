@@ -91,8 +91,8 @@
     items:
     - name: Cognitive Search
       href: ../../search/search-get-started-arm.md?toc=/azure/azure-resource-manager/templates/toc.json
-    - name: Cognitive Services
-      href: ../../cognitive-services/create-account-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+    - name: Azure AI services
+      href: ../../ai-services/create-account-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Data Science Virtual Machine
       href: ../../machine-learning/data-science-virtual-machine/dsvm-tutorial-resource-manager.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Machine Learning
@@ -316,6 +316,8 @@
       href: syntax.md
     - name: Write template expressions
       href: template-expressions.md
+    - name: Definitions
+      href: definitions.md
     - name: Parameters
       href: parameters.md
     - name: Variables
@@ -469,6 +471,8 @@
       href: template-functions.md
     - name: Array functions
       href: template-functions-array.md
+    - name: CIDR functions
+      href: template-functions-cidr.md
     - name: Comparison functions
       href: template-functions-comparison.md
     - name: Date functions

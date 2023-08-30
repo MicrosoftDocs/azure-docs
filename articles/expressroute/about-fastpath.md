@@ -34,7 +34,7 @@ While FastPath supports most configurations, it doesn't support the following fe
 
 * Basic Load Balancer: If you deploy a Basic internal load balancer in your virtual network or the Azure PaaS service you deploy in your virtual network uses a Basic internal load balancer, the network traffic from your on-premises network to the virtual IPs hosted on the Basic load balancer will be sent to the virtual network gateway. The solution is to upgrade the Basic load balancer to a [Standard load balancer](../load-balancer/load-balancer-overview.md).
 
-* Private Link: If you connect to a [private endpoint](../private-link/private-link-overview.md) in your virtual network from your on-premises network, over a non-100Gbps ExpressRoute Direct circuit, the connection will go through the virtual network gateway. FastPath Connectivity to a private endpoint over a 100Gb ExpressRoute Direct circuit is supported.
+* Private Link: If you connect to a [private endpoint](../private-link/private-link-overview.md) in your virtual network from your on-premises network, over a non-100Gbps ExpressRoute Direct circuit, the connection will go through the virtual network gateway. FastPath Connectivity to a private endpoint over a 100Gb ExpressRoute Direct circuit is supported. For more information, see [enable FastPath and Private Link for 100 Gbps ExpressRoute Direct](expressroute-howto-linkvnet-arm.md#fastpath-and-private-link-for-100-gbps-expressroute-direct).
 
 ### IP address limits
 
@@ -70,6 +70,14 @@ FastPath will honor UDRs configured on the GatewaySubnet and send traffic direct
 > [!NOTE]
 > * FastPath UDR connectivity is not supported for Azure Dedicated Host workloads.
 > * FastPath UDR connectivity is not supported for IPv6 workloads.
+
+To enroll in the Public preview, please send an email **exrpm@microsoft.com** with the following information:
+- Azure subscription ID
+- Virtual Network(s) Azure Resource ID(s)
+- ExpressRoute Circuit(s) Azure Resource ID(s)
+- ExpressRoute Connection(s) Azure Resource ID(s)
+- Number of Virtual Network peering connections
+- Number of UDRs configured in the hub Virtual Network
 
 ### Private Link Connectivity for 10Gbps ExpressRoute Direct
 

@@ -27,7 +27,7 @@ Azure CLI examples use `az rest` for `REST` requests. For more information, see 
 
 # [PowerShell](#tab/azure-powershell)
 
-- The PowerShell commands are run locally using PowerShell 7 or later and the Azure PowerShell modules. For more information, see [Install Azure PowerShell](/powershell/azure/install-az-ps).
+- The PowerShell commands are run locally using PowerShell 7 or later and the Azure PowerShell modules. For more information, see [Install Azure PowerShell](/powershell/azure/install-azure-powershell).
 - If you don't already have a tool for `REST` operations, install the [ARMClient](https://github.com/projectkudu/ARMClient). It's an open-source command-line tool that simplifies invoking the Azure Resource Manager API.
 - After the **ARMClient** is installed, you can display usage information from a PowerShell command prompt by typing: `armclient.exe`. Or, go to the [ARMClient wiki](https://github.com/projectkudu/ARMClient/wiki).
 
@@ -79,13 +79,13 @@ Read-Host -Prompt "Press [ENTER] to continue ..."
 
 To deploy the template from the Azure portal, select the **Deploy to Azure** button.
 
-[![Deploy to Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-docs-json-samples%2Fmaster%2Fcustom-providers%2Fcustomprovider.json)
+:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Illustration of the Deploy to Azure button." link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-docs-json-samples%2Fmaster%2Fcustom-providers%2Fcustomprovider.json":::
 
 ## View custom resource provider and resource
 
 In the portal, the custom resource provider is a hidden resource type. To confirm that the resource provider was deployed, go to the resource group and select **Show hidden types**.
 
-:::image type="content" source="./media/create-custom-provider/show-hidden.png" alt-text="Screenshot that shows hidden resource types and resources deployed in Azure.":::
+:::image type="content" source="./media/create-custom-provider/show-hidden.png" alt-text="Screenshot of Azure portal displaying hidden resource types and resources deployed in a resource group.":::
 
 To see the custom resource that you deployed, use the `GET` operation on your resource type. The resource type `Microsoft.CustomProviders/resourceProviders/users` shown in the JSON response includes the resource that was created by the template.
 

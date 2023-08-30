@@ -5,9 +5,9 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: how-to
-ms.date: 04/06/2023
+ms.date: 03/23/2023
 ms.author: cshoe
-ms.custom: event-tier1-build-2022, ignite-2022, devx-track-azurecli, devx-track-azurepowershell
+ms.custom: event-tier1-build-2022, ignite-2022, devx-track-azurecli, devx-track-azurepowershell, build-2023, devx-track-linux
 ---
 
 # Manage secrets in Azure Container Apps
@@ -115,7 +115,7 @@ Here, a connection string to a queue storage account is declared. The value for 
 
 ---
 
-### <a name="reference-secret-from-key-vault"></a>Reference secret from Key Vault (preview)
+### <a name="reference-secret-from-key-vault"></a>Reference secret from Key Vault
 
 When you define a secret, you create a reference to a secret stored in Azure Key Vault. Container Apps automatically retrieves the secret value from Key Vault and makes it available as a secret in your container app.
 
@@ -162,14 +162,14 @@ Secrets are defined at the application level in the `resources.properties.config
             {
                 "name": "queue-connection-string",
                 "keyVaultUrl": "<KEY-VAULT-SECRET-URI>",
-                "identity": "System"
+                "identity": "system"
             }],
         }
     }
 }
 ```
 
-Here, a connection string to a queue storage account is declared in the `secrets` array. Its value is automatically retrieved from Key Vault using the specified identity. To use a user managed identity, replace `System` with the identity's resource ID.
+Here, a connection string to a queue storage account is declared in the `secrets` array. Its value is automatically retrieved from Key Vault using the specified identity. To use a user managed identity, replace `system` with the identity's resource ID.
 
 Replace `<KEY-VAULT-SECRET-URI>` with the URI of your secret in Key Vault.
 
@@ -191,7 +191,7 @@ az containerapp create \
   --secrets "queue-connection-string=keyvaultref:<KEY_VAULT_SECRET_URI>,identityref:<USER_ASSIGNED_IDENTITY_ID>"
 ```
 
-Here, a connection string to a queue storage account is declared in the `--secrets` parameter. Replace `<KEY_VAULT_SECRET_URI>` with the URI of your secret in Key Vault. Replace `<USER_ASSIGNED_IDENTITY_ID>` with the resource ID of the user assigned identity. For system assigned identity, use `System` instead of the resource ID.
+Here, a connection string to a queue storage account is declared in the `--secrets` parameter. Replace `<KEY_VAULT_SECRET_URI>` with the URI of your secret in Key Vault. Replace `<USER_ASSIGNED_IDENTITY_ID>` with the resource ID of the user assigned identity. For system assigned identity, use `system` instead of the resource ID.
 
 > [!NOTE]
 > The user assigned identity must have access to read the secret in Key Vault. System assigned identity can't be used with the create command because it's not available until after the container app is created.
@@ -203,7 +203,7 @@ Secrets Key Vault references aren't supported in PowerShell.
 ---
 
 > [!NOTE]
-> If you're using [UDR With Azure Firewall](./networking.md#user-defined-routes-udr---preview), you will need to add the `AzureKeyVault` service tag and the *login.microsoft.com* FQDN to the allow list for your firewall. Refer to [configuring UDR with Azure Firewall](./networking.md#configuring-udr-with-azure-firewall---preview) to decide which additional service tags you need.
+> If you're using [UDR With Azure Firewall](networking.md#user-defined-routes-udr), you will need to add the `AzureKeyVault` service tag and the *login.microsoft.com* FQDN to the allow list for your firewall. Refer to [configuring UDR with Azure Firewall](networking.md#configuring-udr-with-azure-firewall) to decide which additional service tags you need.
 
 #### Key Vault secret URI and secret rotation
 
@@ -299,6 +299,193 @@ New-AzContainerApp @ContainerAppArgs
 ```
 
 Here, the environment variable named `ConnectionString` gets its value from the application-level `$QueueConnectionString` secret.
+
+---
+
+## <a name="secrets-volume-mounts"></a>Mounting secrets in a volume
+
+After declaring secrets at the application level as described in the [defining secrets](#defining-secrets) section, you can reference them in volume mounts when you create a new revision in your container app. When you mount secrets in a volume, each secret is mounted as a file in the volume. The file name is the name of the secret, and the file contents are the value of the secret. You can load all secrets in a volume mount, or you can load specific secrets.
+
+### Example
+
+# [Azure portal](#tab/azure-portal)
+
+After you've [defined a secret](#defining-secrets) in your container app, you can reference it in a volume mount when you create a new revision.
+
+1. Go to your container app in the [Azure portal](https://portal.azure.com).
+
+1. Open the *Revision management* page.
+
+1. Select **Create new revision**.
+
+1. In the *Create and deploy new revision* page.
+
+1. Select a container and select **Edit**.
+
+1. In the *Volume mounts* section, expand the **Secrets** section.
+
+1. Select **Create new volume**.
+
+1. Enter the following information:
+
+    - **Name**: mysecrets
+    - **Mount all secrets**: enabled
+
+    > [!NOTE]
+    > If you want to load specific secrets, disable **Mount all secrets** and select the secrets you want to load.
+
+1. Select **Add**.
+
+1. Under *Volume name*, select **mysecrets**.
+
+1. Under *Mount path*, enter **/mnt/secrets**.
+
+1. Select **Save**.
+
+1. Select **Create** to create the new revision with the volume mount.
+
+# [ARM template](#tab/arm-template)
+
+In this example, two secrets are declared at the application level. These secrets are mounted in a volume named `mysecrets` of type `Secret`. The volume is mounted at the path `/mnt/secrets`. The application can then reference the secrets in the volume mount.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "type": "String"
+        },
+        "environment_id": {
+            "type": "String"
+        },
+        "queue-connection-string": {
+            "type": "Securestring"
+        },
+        "api-key": {
+            "type": "Securestring"
+        }
+    },
+    "variables": {},
+    "resources": [
+    {
+        "name": "queuereader",
+        "type": "Microsoft.App/containerApps",
+        "apiVersion": "2022-11-01-preview",
+        "kind": "containerapp",
+        "location": "[parameters('location')]",
+        "properties": {
+            "managedEnvironmentId": "[parameters('environment_id')]",
+            "configuration": {
+                "activeRevisionsMode": "single",
+                "secrets": [
+                    {
+                        "name": "queue-connection-string",
+                        "value": "[parameters('queue-connection-string')]"
+                    },
+                    {
+                        "name": "api-key",
+                        "value": "[parameters('api-key')]"
+                    }
+                ]
+            },
+            "template": {
+                "containers": [
+                    {
+                        "image": "myregistry/myQueueApp:v1",
+                        "name": "myQueueApp",
+                        "volumeMounts": [
+                            {
+                                "name": "mysecrets",
+                                "mountPath": "/mnt/secrets"
+                            }
+                        ]
+                    }
+                ],
+                "volumes": [
+                    {
+                        "name": "mysecrets",
+                        "storageType": "Secret"
+                    }
+                ]
+            }
+        }
+    }]
+}
+```
+
+To load specific secrets and specify their paths within the mounted volume, you define the secrets in the `secrets` array of the volume object. The following example shows how to load only the `queue-connection-string` secret in the `mysecrets` volume mount with a file name of `connection-string.txt`.
+
+```json
+{
+    "properties": {
+        ...
+        "configuration": {
+            ...
+            "secrets": [
+                {
+                    "name": "queue-connection-string",
+                    "value": "[parameters('queue-connection-string')]"
+                },
+                {
+                    "name": "api-key",
+                    "value": "[parameters('api-key')]"
+                }
+            ]
+        },
+        "template": {
+            "containers": [
+                {
+                    "image": "myregistry/myQueueApp:v1",
+                    "name": "myQueueApp",
+                    "volumeMounts": [
+                        {
+                            "name": "mysecrets",
+                            "mountPath": "/mnt/secrets"
+                        }
+                    ]
+                }
+            ],
+            "volumes": [
+                {
+                    "name": "mysecrets",
+                    "storageType": "Secret",
+                    "secrets": [
+                        {
+                            "secretRef": "queue-connection-string",
+                            "path": "connection-string.txt"
+                        }
+                    ]
+                }
+            ]
+        }
+        ...
+    }
+    ...
+}
+```
+
+In your app, you can read the secret from a file located at `/mnt/secrets/connection-string.txt`.
+
+# [Azure CLI](#tab/azure-cli)
+
+In this example, two secrets are declared at the application level. These secrets are mounted in a volume named `mysecrets` of type `Secret`. The volume is mounted at the path `/mnt/secrets`. The application can then read the secrets as files in the volume mount.
+
+```azurecli-interactive
+az containerapp create \
+  --resource-group "my-resource-group" \
+  --name myQueueApp \
+  --environment "my-environment-name" \
+  --image demos/myQueueApp:v1 \
+  --secrets "queue-connection-string=$CONNECTIONSTRING" "api-key=$API_KEY" \
+  --secret-volume-mount "/mnt/secrets"
+```
+
+To load specific secrets and specify their paths within the mounted volume, define your app using [YAML](azure-resource-manager-api-spec.md?tabs=yaml#container-app-examples).
+
+# [PowerShell](#tab/powershell)
+
+Mounting secrets as a volume is not supported in PowerShell.
 
 ---
 

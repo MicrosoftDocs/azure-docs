@@ -65,7 +65,13 @@ While using views in Azure Synapse serverless pool over Cosmos DB analytical sto
 **Workaround**: The engineering team is aware of this behavior and following actions can be taken as quick mitigation:
 
 1) Recreate the view by renaming the columns.
-2) Avoid using views if possible. 
+2) Avoid using views if possible.
+
+### Alter database-scoped credential fails if credential has been used
+
+Sometimes you may not be able to execute the ALTER DATABASE SCOPED CREDENTIAL query. The root cause of this issue is the credential was cached after its first use making it inaccessible for alteration. The error returned in such case is following "Failed to modify the identity field of the credential '{credential_name}' because the credential is used by an active database file.".
+
+**Workaround**: The engineering team is currently aware of this behavior and is working on a fix. As a workaround you can DROP and CREATE the credentials, which would also mean recreating external tables using the credentials. Alternatively, you can engage Microsoft Support Team for assistance.
 
 ## Azure Synapse Analytics Dedicated SQL pool active known issues summary
 
@@ -100,6 +106,7 @@ Deleting a Synapse workspace fails with the error message:
 |Synapse Component|Issue|Status|Date Resolved
 |---------|---------|---------|---------|
 |Azure Synapse serverless SQL pool|[Query failures while reading Cosmos DB data using OPENROWSET](#query-failures-while-reading-azure-cosmos-db-data-using-openrowset)|Resolved|March 2023
+|Azure Synapse Apache Spark pool|[Failed to write to SQL Dedicated Pool from Synapse Spark using Azure Synapse Dedicated SQL Pool Connector for Apache Spark when using notebooks in pipelines](#failed-to-write-to-sql-dedicated-pool-from-synapse-spark-using-azure-synapse-dedicated-sql-pool-connector-for-apache-spark-when-using-notebooks-in-pipelines)|Resolved|June 2023
 
 ## Azure Synapse Analytics serverless SQL pool recently closed known issues summary
 
@@ -111,6 +118,15 @@ Queries from serverless SQL pool to Cosmos DB Analytical Store using OPENROWSET 
 
 **Status**: Resolved
 
+## Azure Synapse Analytics Apache Spark pool recently closed known issues summary
+
+### Failed to write to SQL Dedicated Pool from Synapse Spark using Azure Synapse Dedicated SQL Pool Connector for Apache Spark when using notebooks in pipelines
+
+While using Azure Synapse Dedicated SQL Pool Connector for Apache Spark to write Azure Synapse Dedicated pool using Notebooks in pipelines, we would see an error message:
+
+`com.microsoft.spark.sqlanalytics.SQLAnalyticsConnectorException: COPY statement input file schema discovery failed: Cannot bulk load. The file does not exist or you don't have file access rights.`
+
+**Status**: Resolved
 
 ## Next steps
 

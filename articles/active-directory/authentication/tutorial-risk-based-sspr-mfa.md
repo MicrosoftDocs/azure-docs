@@ -72,6 +72,8 @@ For more information about Azure AD Identity Protection, see [What is Azure AD I
 
 ## Enable MFA registration policy
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Azure AD Identity Protection includes a default policy that can help get users registered for Azure AD Multi-Factor Authentication. If you use additional policies to protect sign-in events, you would need users to have already registered for MFA. When you enable this policy, it doesn't require users to perform MFA at each sign-in event. The policy only checks the registration status for a user and asks them to pre-register if needed.
 
 It's recommended to enable the MFA registration policy for users that are to be enabled for additional Azure AD Identity Protection policies. To enable this policy, complete the following steps:

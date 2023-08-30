@@ -6,6 +6,7 @@ manager: paulmey
 ms.service: virtual-machines
 ms.topic: how-to
 ms.workload: infrastructure-services
+ms.custom: devx-track-linux
 ms.date: 04/11/2023
 ms.author: frdavid
 ms.reviewer: azmetadatadev
@@ -442,7 +443,7 @@ Data | Description | Version introduced |
 | `diskSizeGB` | Size of the disk in GB | 2019-06-01
 | `encryptionSettings` | Encryption settings for the disk | 2019-06-01
 | `image` | Source user image virtual hard disk | 2019-06-01
-| `isSharedDisk`†† | Identifies if the disk is shared between resources | 2021-05-01
+| `isSharedDisk`* | Identifies if the disk is shared between resources | 2021-05-01
 | `isUltraDisk` | Identifies if the data disk is an Ultra Disk | 2021-05-01
 | `lun`     | Logical unit number of the disk | 2019-06-01
 | `managedDisk` | Managed disk parameters | 2019-06-01
@@ -452,7 +453,7 @@ Data | Description | Version introduced |
 | `vhd` | Virtual hard disk | 2019-06-01
 | `writeAcceleratorEnabled` | Whether or not writeAccelerator is enabled on the disk | 2019-06-01
 
-†† These fields are only populated for Ultra Disks; they are empty strings from non-Ultra Disks.
+*These fields are only populated for Ultra Disks; they are empty strings from non-Ultra Disks.
 
 The encryption settings blob contains data about how the disk is encrypted (if it's encrypted):
 
@@ -992,7 +993,7 @@ The cloud and the values of the Azure environment are listed here.
 |-------|-------------------|
 | [All generally available global Azure regions](https://azure.microsoft.com/regions/) | AzurePublicCloud
 | [Azure Government](https://azure.microsoft.com/overview/clouds/government/) | AzureUSGovernmentCloud
-| [Azure China 21Vianet](https://azure.microsoft.com/global-infrastructure/china/) | AzureChinaCloud
+| [Microsoft Azure operated by 21Vianet](https://azure.microsoft.com/global-infrastructure/china/) | AzureChinaCloud
 | [Azure Germany](https://azure.microsoft.com/overview/clouds/germany/) | AzureGermanCloud
 
 #### Sample 6: Retrieve network information
@@ -1223,7 +1224,7 @@ openssl x509 -noout -issuer -in signer.pem
 openssl x509 -noout -subject -in intermediate.pem
 # Verify the issuer for the intermediate certificate
 openssl x509 -noout -issuer -in intermediate.pem
-# Verify the certificate chain, for Azure China 21Vianet the intermediate certificate will be from DigiCert Global Root CA
+# Verify the certificate chain, for Microsoft Azure operated by 21Vianet the intermediate certificate will be from DigiCert Global Root CA
 openssl verify -verbose -CAfile /etc/ssl/certs/DigiCert_Global_Root.pem -untrusted intermediate.pem signer.pem
 ```
 
@@ -1238,7 +1239,7 @@ The `nonce` in the signed document can be compared if you provided a `nonce` par
 |-------|-------------|
 | [All generally available global Azure regions](https://azure.microsoft.com/regions/) | *.metadata.azure.com
 | [Azure Government](https://azure.microsoft.com/overview/clouds/government/) | *.metadata.azure.us
-| [Azure China 21Vianet](https://azure.microsoft.com/global-infrastructure/china/) | *.metadata.azure.cn
+| [Azure operated by 21Vianet](https://azure.microsoft.com/global-infrastructure/china/) | *.metadata.azure.cn
 | [Azure Germany](https://azure.microsoft.com/overview/clouds/germany/) | *.metadata.microsoftazure.de
 
 > [!NOTE]
@@ -1249,8 +1250,8 @@ In cases where the intermediate certificate can't be downloaded due to network c
 You can find the intermediate certificates on [this page](../security/fundamentals/azure-CA-details.md). The intermediate certificates for each of the regions can be different.
 
 > [!NOTE]
-> The intermediate certificate for Azure China 21Vianet will be from DigiCert Global Root CA, instead of Baltimore.
-If you pinned the intermediate certificates for Azure China as part of a root chain authority change, the intermediate certificates must be updated.
+> The intermediate certificate for Azure operated by 21Vianet will be from DigiCert Global Root CA, instead of Baltimore.
+If you pinned the intermediate certificates for Azure operated by 21Vianet as part of a root chain authority change, the intermediate certificates must be updated.
 
 > [!NOTE]
 > Starting February 2022, our Attested Data certificates will be impacted by a TLS change. Due to this, the root CA will change from Baltimore CyberTrust to DigiCert Global G2 only for Public and US Government clouds. If you have the Baltimore CyberTrust cert or other intermediate certificates listed in **[this post](https://techcommunity.microsoft.com/t5/azure-governance-and-management/azure-instance-metadata-service-attested-data-tls-critical/ba-p/2888953)** pinned, please follow the instructions listed there **immediately** to prevent any disruptions from using the Attested Data endpoint.

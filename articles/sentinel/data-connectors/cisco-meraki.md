@@ -3,7 +3,7 @@ title: "Cisco Meraki connector for Microsoft Sentinel"
 description: "Learn how to install the connector Cisco Meraki to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 03/25/2023
+ms.date: 07/26/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -77,7 +77,7 @@ So we advice to capture the logs into custom table **meraki_CL** using below ins
 
 	 a. meraki.conf uses the port **22033** by default. Ensure this port is not being used by any other source on your server
 
-	 b. If you would like to change the default port for **meraki.conf** make sure that you dont use default Azure monotoring /log analytic agent ports I.e.(For example CEF uses TCP port **25226** or **25224**) 
+	 b. If you would like to change the default port for **meraki.conf** make sure that you dont use default Azure monitoring /log analytic agent ports I.e.(For example CEF uses TCP port **25226** or **25224**) 
 
 	 c. replace **workspace_id** with real value of your Workspace ID (lines 14,15,16,19)
 5. Save changes and restart the Azure Log Analytics agent for Linux service with the following command:

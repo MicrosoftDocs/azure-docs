@@ -154,7 +154,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In a different web browser window, log into your Standard for Success K-12 website as an administrator with superuser privileges.
 
-1. From the menu, navigate to **Utilites** -> **Accounts Manager**, then click **Create New User** and perform the following steps:
+1. From the menu, navigate to **Utilities** -> **Accounts Manager**, then click **Create New User** and perform the following steps:
 
     ![Screenshot that shows the User Information fields.](./media/standard-for-success-tutorial/name.png "User Information")
 

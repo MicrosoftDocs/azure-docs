@@ -1,7 +1,7 @@
 ---
 title: Maintain threat intelligence packages on OT network sensors - Microsoft Defender for IoT
 description: Learn how to maintain threat intelligence packages on OT network sensors.
-ms.date: 02/09/2023
+ms.date: 08/28/2023
 ms.topic: how-to
 ---
 
@@ -13,6 +13,8 @@ Microsoft security teams continually run proprietary ICS threat intelligence and
 Microsoft Defender for IoT regularly delivers threat intelligence package updates for OT network sensors, providing increased protection from known and relevant threats and insights that can help your teams triage and prioritize alerts.
 
 Threat intelligence packages contain signatures, such as malware signatures, CVEs, and other security content.
+
+CVE scores shown are aligned with the [National Vulnerability Database (NVD)](https://nvd.nist.gov/vuln-metrics/cvss), and CVSS v3 scores are shown if they're relevant. If there's no CVSS v3 score relevant, the CVSS v2 score is shown instead.
 
 > [!TIP]
 > We recommend ensuring that your OT network sensors always have the latest threat intelligence package installed so that you always have the full context of a threat before an environment is affected, and increased relevancy, accuracy, and actionable recommendations.
@@ -55,11 +57,11 @@ Update threat intelligence packages on your OT sensors using any of the followin
 
 Threat intelligence packages can be automatically updated to cloud-connected sensors as they're released by Defender for IoT.
 
-Ensure automatic package update by onboarding your cloud-connected sensor with the **Automatic Threat Intelligence Updates** option enabled. For more information, see [Onboard a sensor](tutorial-onboarding.md#onboard-and-activate-the-virtual-sensor).
+Ensure automatic package update by onboarding your cloud-connected sensor with the **Automatic Threat Intelligence Updates** option enabled. For more information, see [Onboard OT sensors to Defender for IoT](onboard-sensors.md).
 
 **To change the update mode after you've onboarded your OT sensor**:
 
-1. In [Defender for IoT](https://ms.portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) on the Azure portal, select **Sites and sensors**, and then locate the sensor you want to change.
+1. In [Defender for IoT](https://portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) on the Azure portal, select **Sites and sensors**, and then locate the sensor you want to change.
 1. Select the options (**...**) menu for the selected OT sensor > **Edit**.
 1. Toggle on or toggle off the **Automatic Threat Intelligence Updates** option as needed.
 
@@ -69,14 +71,14 @@ Your cloud-connected sensors can be automatically updated with threat intelligen
 
 **To manually push updates to a single OT sensor**:
 
-1. In [Defender for IoT](https://ms.portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) on the Azure portal, select **Sites and sensors**, and locate the OT sensor you want to update.
+1. In [Defender for IoT](https://portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) on the Azure portal, select **Sites and sensors**, and locate the OT sensor you want to update.
 1. Select the options (**...**) menu for the selected sensor and then select **Push Threat Intelligence update**.
 
 The **Threat Intelligence update status** field displays the update progress.
 
 **To manually push updates to multiple OT sensors**:
 
-1. In [Defender for IoT](https://ms.portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) on the Azure portal, select **Sites and sensors**. Locate and select the OT sensors you want to update.
+1. In [Defender for IoT](https://portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) on the Azure portal, select **Sites and sensors**. Locate and select the OT sensors you want to update.
 1. Select **Threat intelligence updates (Preview)** > **Remote update**.
 
 The **Threat Intelligence update status** field displays the update progress for each selected sensor.
@@ -93,7 +95,7 @@ If you're also working with an on-premises management console, we recommend that
 
 **To download threat intelligence packages**:
 
-1. In [Defender for IoT](https://ms.portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) on the Azure portal, select **Sites and sensors** > **Threat intelligence update (Preview)** > **Local update**.
+1. In [Defender for IoT](https://portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) on the Azure portal, select **Sites and sensors** > **Threat intelligence update (Preview)** > **Local update**.
 
 1. In the **Sensor TI update** pane, select **Download** to download the latest threat intelligence file.
 
@@ -133,7 +135,7 @@ On each OT sensor, the threat intelligence update status and version information
 
 For cloud-connected OT sensors, threat intelligence data is also shown in the **Sites and sensors** page. To view threat intelligence statues from the Azure portal:
 
-1. In [Defender for IoT](https://ms.portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) on the Azure portal, select **Site and sensors**.
+1. In [Defender for IoT](https://portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) on the Azure portal, select **Site and sensors**.
 
 1. Locate the OT sensors where you want to check the threat intelligence statues.
 
@@ -152,6 +154,6 @@ For cloud-connected OT sensors, threat intelligence data is also shown in the **
 
 For more information, see:
 
-- [Onboard a sensor](tutorial-onboarding.md#onboard-and-activate-the-virtual-sensor)
+- [Onboard OT sensors to Defender for IoT](onboard-sensors.md)
 
 - [Manage sensors from the management console](how-to-manage-sensors-from-the-on-premises-management-console.md)

@@ -115,16 +115,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
 ## Configure SAP Concur Travel and Expense SSO
-
-1. To automate the configuration within SAP Concur Travel and Expense, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
-
-	![My apps extension](common/install-myappssecure-extension.png)
-
-2. After adding extension to the browser, click on **Set up SAP Concur Travel and Expense** will direct you to the SAP Concur Travel and Expense application. From there, provide the admin credentials to sign into SAP Concur Travel and Expense. The browser extension will automatically configure the application for you and automate steps 3-7.
-
-	![Setup configuration](common/setup-sso.png)
-
-3. If you want to setup SAP Concur Travel and Expense manually, in a different web browser window, you need to upload the downloaded **Federation Metadata XML** to [Concur SSO Self-Service Tool](https://www.concursolutions.com/nui/authadmin/ssoadmin) and sign in to your SAP Concur Travel and Expense company site as an administrator.
+1. In a different web browser window, you need to upload the downloaded **Federation Metadata XML** to [Concur SSO Self-Service Tool](https://www.concursolutions.com/nui/authadmin/ssoadmin) and sign in to your SAP Concur Travel and Expense company site as an administrator.
 
 1. Click **Add**.
 1. Enter a custom name for your IdP, for example "Azure AD (US)". 
@@ -138,7 +129,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 In this section, you create a user called B.Simon in SAP Concur Travel and Expense. Work with Concur support team to add the users in the SAP Concur Travel and Expense platform. Users must be created and activated before you use single sign-on. 
 
 > [!NOTE]
-> B.Simon's Concur login id needs to match B.Simon's unique identifier at Azure AD. For example, if B.Simon's Azure AD unique identifer is `B.Simon@contoso.com`. B.Simon's Concur login id needs to be `B.Simon@contoso.com` as well. 
+> B.Simon's Concur login id needs to match B.Simon's unique identifier at Azure AD. For example, if B.Simon's Azure AD unique identifier is `B.Simon@contoso.com`. B.Simon's Concur login id needs to be `B.Simon@contoso.com` as well. 
 
 ## Configure Concur Mobile SSO
 To enable Concur mobile SSO, you need to give Concur support team **User access URL**. Follow steps below to get **User access URL** from Azure AD:

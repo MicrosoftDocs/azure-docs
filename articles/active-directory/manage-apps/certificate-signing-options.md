@@ -1,6 +1,6 @@
 ---
 title: Advanced certificate signing options in a SAML token
-description: Learn how to use advanced certificate signing options in the SAML token for pre-integrated apps in Azure Active Directory
+description: Learn how to use advanced certificate signing options in the SAML token for preintegrated apps in Azure Active Directory
 services: active-directory
 author: omondiatieno
 manager: CelesteDG
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/21/2022
+ms.date: 07/18/2023
 ms.author: jomondi
 ms.reviewer: saumadan
 ms.custom: aaddev, enterprise-apps
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # Advanced certificate signing options in a SAML token
 
-Today Azure Active Directory (Azure AD) supports thousands of pre-integrated applications in the Azure Active Directory App Gallery. Over 500 of the applications support single sign-on by using the [Security Assertion Markup Language](https://wikipedia.org/wiki/Security_Assertion_Markup_Language) (SAML) 2.0 protocol, such as the [NetSuite](https://azuremarketplace.microsoft.com/marketplace/apps/aad.netsuite) application. When a customer authenticates to an application through Azure AD by using SAML, Azure AD sends a token to the application (via an HTTP POST). The application then validates and uses the token to sign in the customer instead of prompting for a username and password. These SAML tokens are signed with the unique certificate that's generated in Azure AD and by specific standard algorithms.
+Today Azure Active Directory (Azure AD) supports thousands of preintegrated applications in the Azure Active Directory App Gallery. Over 500 of the applications support single sign-on by using the [Security Assertion Markup Language](https://wikipedia.org/wiki/Security_Assertion_Markup_Language) (SAML) 2.0 protocol, such as the [NetSuite](https://azuremarketplace.microsoft.com/marketplace/apps/aad.netsuite) application. When a customer authenticates to an application through Azure AD by using SAML, Azure AD sends a token to the application (via an HTTP POST). The application then validates and uses the token to sign in the customer instead of prompting for a username and password. These SAML tokens are signed with the unique certificate that's generated in Azure AD and by specific standard algorithms.
 
 Azure AD uses some of the default settings for the gallery applications. The default values are set up based on the application's requirements.
 
@@ -40,6 +40,8 @@ Azure AD supports two signing algorithms, or secure hash algorithms (SHAs), to s
 * **SHA-256**. Azure AD uses this default algorithm to sign the SAML response. It's the newest algorithm and is more secure than SHA-1. Most of the applications support the SHA-256 algorithm. If an application supports only SHA-1 as the signing algorithm, you can change it. Otherwise, we recommend that you use the SHA-256 algorithm for signing the SAML response.
 
 * **SHA-1**. This algorithm is older, and it's treated as less secure than SHA-256. If an application supports only this signing algorithm, you can select this option in the **Signing Algorithm** drop-down list. Azure AD then signs the SAML response with the SHA-1 algorithm.
+
+[!INCLUDE [portal updates](../includes/portal-update.md)]
 
 ## Change certificate signing options and signing algorithm
 
@@ -67,5 +69,5 @@ Next, change the certificate signing options in the SAML token for that applicat
 
 ## Next steps
 
-* [Configure single sign-on to applications that are not in the Azure Active Directory App Gallery](./configure-saml-single-sign-on.md)
+* [Configure single sign-on to applications that are not in the Azure Active Directory App Gallery](../develop/single-sign-on-saml-protocol.md)
 * [Troubleshoot SAML-based single sign-on](./debug-saml-sso-issues.md)

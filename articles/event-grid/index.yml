@@ -9,12 +9,12 @@ metadata:
   services: event-grid
   ms.service: event-grid
   ms.subservice:
+  ms.custom: build-2023
   ms.topic: landing-page
   ms.collection: collection
   author: spelluru
   ms.author: spelluru
-  ms.date: 02/27/2023
-
+  ms.date: 05/23/2023
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
 landingContent:
@@ -27,150 +27,98 @@ landingContent:
         links:
           - text: What is Event Grid?
             url: overview.md
+      - linkListType: whats-new
+        links:
+          - text: Pull delivery
+            url: pull-delivery-overview.md
+          - text: MQTT Messaging
+            url: mqtt-overview.md
+ # Card
+  - title: MQTT messaging (Preview)
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: MQTT support overview
+            url: mqtt-overview.md
+      - linkListType: quickstart
+        links:
+          - text: Publish and subscribe to MQTT messages
+            url: publish-events-using-namespace-topics.md
+      - linkListType: tutorial
+        links:
+          - text: Route MQTT messages to Azure Event Hubs
+            url: mqtt-routing-to-event-hubs-portal.md
+      - linkListType: sample
+        links:
+          - text: Code samples
+            url: /samples/browse/?term=MQTT+Application
       - linkListType: concept
         links:
-          - text: Event Grid concepts
-            url: concepts.md
-          - text: Event sources
-            url: overview.md#event-sources
-          - text: Event handlers
-            url: event-handlers.md
-          - text: Event filters
-            url: event-filtering.md
+          - text: Terminology
+            url: mqtt-event-grid-namespace-terminology.md
+          - text: Client authentication
+            url: mqtt-client-authentication.md
+          - text: Access control for MQTT clients
+            url: mqtt-access-control.md
+          - text: Routing MQTT messages
+            url: mqtt-routing.md
+
  # Card
-  - title: Quickstarts
+  - title: Push delivery
     linkLists:
+      - linkListType: concept
+        links:
+          - text: Push delivery
+            url: push-delivery-overview.md
+          - text: Concepts
+            url: concepts.md
+          - text: Custom (topics) events 
+            url: custom-topics.md
+          - text: system (topics) events
+            url: system-topics.md
+          - text: Partner (topics) events for customers
+            url: partner-events-overview.md
+          - text: Partner (topics) events for publishers
+            url: partner-events-overview-for-partners.md
       - linkListType: quickstart
         links:
           - text: Route Blob storage events to a web endpoint
             url: blob-event-quickstart-portal.md
-          - text: Azure Functions as an event handler
-            url: custom-event-to-function.md
-          - text: Queue storage as an event handler
-            url: custom-event-to-queue-storage.md
-          - text: Event Hubs as an event handler
-            url: custom-event-to-eventhub.md
           - text: Route custom events to a web endpoint
             url: custom-event-quickstart-portal.md
-          - text: Send events from a private container registry
-            url: ../container-registry/container-registry-event-grid-quickstart.md?toc=/azure/event-grid/toc.json
-          - text: Handle SMS and delivery report events
-            url: ../communication-services/quickstarts/sms/handle-sms-events.md?toc=/azure/event-grid/toc.json
-          - text: Route Azure Cache for Redis events to web endpoint
-            url: ../azure-cache-for-redis/cache-event-grid-quickstart-portal.md
-  # Card
-  - title: Tutorials
-    linkLists:
-      - linkListType: tutorial
-        links:
-          - text: Email when VM changes
-            url: monitor-virtual-machine-changes-logic-app.md
-          - text: Resize uploaded images
-            url: resize-images-on-storage-blob-upload-event.md
-          - text: Trigger Automation runbook
-            url: ensure-tags-exists-on-new-virtual-machines.md
-          - text: Email when IoT Hub device is added
-            url: publish-iot-hub-events-to-logic-apps.md
-          - text: Respond to Service Bus events
-            url: ../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=/azure/event-grid/toc.json
-          - text: Stream data from Event Hubs
-            url: event-hubs-integration.md
-          - text: Route Media Services events
-            url: /azure/media-services/latest/monitoring/job-state-events-cli-how-to
-          - text: Route to Hybrid Connections
-            url: custom-event-to-hybrid-connection.md
-  # Card
-  - title: Learn modules
-    linkLists:
-      - linkListType: learn
-        links:
-          - text: Explore Azure Event Grid
-            url: /training/modules/azure-event-grid/
-          - text: React to state changes in your Azure services by using Event Grid
-            url: /training/modules/react-to-state-changes-using-event-grid/
-          - text: Choose a messaging model in Azure to loosely connect your services
-            url: /training/modules/choose-a-messaging-model-in-azure-to-connect-your-services/
-          - text: Trigger an Azure Event Grid workflow from an IoT device
-            url: /training/modules/trigger-azure-event-grid-workflow-iot-device/
-
-  # Card
-  - title: Advanced concepts
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Security and authentication
-            url: security-authentication.md
-          - text: Delivery and retry
-            url: delivery-and-retry.md
-          - text: Event domains
-            url: event-domains.md
-          - text: Geo disaster recovery
-            url: geo-disaster-recovery.md
-      - linkListType: architecture
-        links:
-          - text: Reference architecture for queues and events
-            url: /azure/architecture/reference-architectures/enterprise-integration/queues-events
-
-  # Card
-  - title: Custom topics
-    linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Route custom events to web endpoint
-            url: custom-event-quickstart-portal.md
+          - text: Azure Functions as an event handler
+            url: custom-event-to-function.md
+          - text: Event Hubs as an event handler
+            url: custom-event-to-eventhub.md
       - linkListType: how-to-guide
         links:
-          - text: Create a custom topic
-            url: scripts/event-grid-cli-create-custom-topic.md
-          - text: Subscribe to a custom topic
-            url: scripts/cli-subscribe-custom-topic.md
-          - text: Post to a custom topic
-            url: post-to-custom-topic.md
-          - text: Map custom fields to Event Grid schema
-            url: input-mappings.md
-
-  # Card
-  - title: Partner topics
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Partner Events overview (Customers)
-            url: partner-events-overview.md
-          - text: Partner Events overview (Partners)
-            url: partner-events-overview-for-partners.md
-          - text: Auth0 as an event source
-            url: auth0-overview.md
-          - text: Graph API as an event source
-            url: partner-events-graph-api.md
-      - linkListType: how-to-guide
-        links:
-          - text: Onboard as a partner
-            url: onboard-partner.md
+          - text: Create a custom topic or domain
+            url: create-custom-topic.md
+          - text: Create, view, and manage system topics
+            url: create-view-manage-system-topics.md
           - text: Subscribe to partner events
             url: subscribe-to-partner-events.md
-          - text: Subscribe to SAP events
-            url: subscribe-to-sap-events.md
-          - text: Subscribe to Tribal Group events
-            url: subscribe-to-tribal-group-events.md
-          - text: Subscribe to Microsoft Graph API events
-            url: subscribe-to-graph-api-events.md
+          - text: Onboard as a partner
+            url: onboard-partner.md
 
-  # Card
-  - title: Event Grid on Kubernetes
+ # Card
+  - title: Pull delivery (Preview)
     linkLists:
-      - linkListType: overview
+      - linkListType: concept
         links:
-          - text: What is Event Grid on Kubernetes?
-            url: ./kubernetes/overview.md
-          - text: Features
-            url: ./kubernetes/features.md
-          - text: concepts
-            url: ./kubernetes/concepts.md
+          - text: Pull delivery
+            url: pull-delivery-overview.md
+          - text: Concepts
+            url: concepts-pull-delivery.md
       - linkListType: quickstart
         links:
-          - text: Route cloud events to Webhooks
-            url: ./kubernetes/create-topic-subscription.md
+          - text: Publish and subscribe to events using namespace topics
+            url: publish-events-using-namespace-topics.md
       - linkListType: how-to-guide
         links:
-          - text: Install Event Grid extension
-            url: ./kubernetes/install-k8s-extension.md
+          - text: Create, view, and manage namespaces
+            url: create-view-manage-namespaces.md
+          - text: Create, view, and manage namespace topics
+            url: create-view-manage-namespace-topics.md
+          - text: Create, view, and manage event subscriptions
+            url: create-view-manage-event-subscriptions.md

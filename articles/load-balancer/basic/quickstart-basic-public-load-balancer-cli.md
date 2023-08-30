@@ -168,6 +168,12 @@ Create a network security group rule using [az network nsg rule create](/cli/azu
 
 In this section, you'll create the resources for Azure Bastion. Azure Bastion is used to securely manage the virtual machines in the backend pool of the load balancer.
 
+> [!IMPORTANT]
+
+> [!INCLUDE [Pricing](../../../includes/bastion-pricing.md)]
+
+>
+
 ### Create a public IP address
 
 Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) to create a public IP address for the bastion host. The public IP is used by the bastion host for secure access to the virtual machine resources.

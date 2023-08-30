@@ -53,7 +53,7 @@ If you have more than one forest, then you must apply the filtering configuratio
 ### Disable the synchronization scheduler
 To disable the built-in scheduler that triggers a synchronization cycle every 30 minutes, follow these steps:
 
-1. Open Windows Powershell, import the ADSync module and disable the scheduler using the follwoing commands
+1. Open Windows Powershell, import the ADSync module and disable the scheduler using the following commands
 
 ```Powershell
 import-module ADSync

@@ -1,14 +1,14 @@
 ---
 title: Update a delegation
 description: Learn how to update a delegation for a customer previously onboarded to Azure Lighthouse.
-ms.date: 06/22/2022
+ms.date: 05/23/2023
 ms.topic: how-to
 ms.custom: devx-track-arm-template
 ---
 
 # Update a delegation
 
-After you have onboarded a subscription (or resource group) to Azure Lighthouse, you may need to make changes. For example, your customer may want you to take on additional management tasks that require a different Azure built-in role, or you may need to change the tenant to which a customer subscription is delegated.
+After you have onboarded a subscription (or resource group) to Azure Lighthouse, you may need to make changes. For example, your customer may want you to take on additional management tasks that require a different Azure built-in role, or you might need to change the tenant to which a customer subscription is delegated.
 
 > [!TIP]
 > Though we refer to service providers and customers in this topic, [enterprises managing multiple tenants](../concepts/enterprise.md) can use the same process to set up Azure Lighthouse and consolidate their management experience.
@@ -54,12 +54,12 @@ After the deployment has been completed, [confirm that it was successful](onboar
 
 ## Updating Managed Service offers
 
-If you onboarded your customer through a Managed Service offer published to Azure Marketplace, and you want to update authorizations, you can do so by [publishing a new version of your offer](../../marketplace/update-existing-offer.md) with updates to the [authorizations](../../marketplace/create-managed-service-offer-plans.md#authorizations) in the plan for that customer. The customer will then be able to [review the changes in the Azure portal and accept the new version](view-manage-service-providers.md#update-service-provider-offers).
+If you onboarded your customer through a Managed Service offer published to Azure Marketplace, and you want to update authorizations, you can do so by [publishing a new version of your offer](../../marketplace/update-existing-offer.md) with updates to the [authorizations](../../marketplace/create-managed-service-offer-plans.md#authorizations) in the plan for that customer. The customer will then be able to [review the changes in the Azure portal and accept the updated version](view-manage-service-providers.md#update-service-provider-offers).
 
-If you want to change the managing tenant, you will need to [create and publish a new Managed Service offer](publish-managed-services-offers.md) for the customer to accept.
+If you want to change the managing tenant, you'll need to [create and publish a new Managed Service offer](publish-managed-services-offers.md) for the customer to accept.
 
 > [!IMPORTANT]
-> We recommend that you avoid using multiple offers between the same customer and managing tenant. If you publish a new offer for a current customer that uses the same managing tenant, be sure that the earlier offer is removed before the customer accepts the newer offer.
+> We recommend not having multiple offers between the same customer and managing tenant. If you publish a new offer for a current customer that uses the same managing tenant, be sure that the earlier offer is removed before the customer accepts the newer offer.
 
 ## Next steps
 

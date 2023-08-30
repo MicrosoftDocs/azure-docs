@@ -7,14 +7,14 @@ author: tomvcassidy
 ms.service: container-instances
 services: container-instances
 ms.date: 06/17/2022
-ms.custom: mvc, devx-track-azurecli
+ms.custom: mvc, devx-track-azurecli, devx-track-linux
 ---
 
 # Troubleshoot common issues in Azure Container Instances
 
 This article shows how to troubleshoot common issues for managing or deploying containers to Azure Container Instances. See also [Frequently asked questions](container-instances-faq.yml).
 
-If you need additional support, see available **Help + support** options in the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+If you need more support, see available **Help + support** options in the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ## Issues during container group deployment
 ### Naming conventions
@@ -48,7 +48,7 @@ This error is most often encountered when deploying Windows images that are base
 
 ### Unable to pull image
 
-If Azure Container Instances is initially unable to pull your image, it retries for a period of time. If the image pull operation continues to fail, ACI eventually fails the deployment, and you may see a `Failed to pull image` error.
+If Azure Container Instances is initially unable to pull your image, it retries for time. If the image pull operation continues to fail, ACI eventually fails the deployment, and you may see a `Failed to pull image` error.
 
 To resolve this issue, delete the container instance and retry your deployment. Ensure that the image exists in the registry, and that you've typed the image name correctly.
 
@@ -98,7 +98,7 @@ This error indicates that due to heavy load in the region in which you are attem
 ## Issues during container group runtime
 ### Container had an isolated restart without explicit user input
 
-There are two broad categories for why a container group may restart without explicit user input. First, containers may experience restarts caused by an application process crash. The ACI service recommends leveraging observability solutions such as [Application Insights SDK](../azure-monitor/app/app-insights-overview.md), [container group metrics](container-instances-monitor.md), and [container group logs](container-instances-get-logs.md) to determine why the application experienced issues. Second, customers may experience restarts initiated by the ACI infrastructure due to maintenance events. To increase the availability of your application, run multiple container groups behind an ingress component such as an [Application Gateway](../application-gateway/overview.md) or [Traffic Manager](../traffic-manager/traffic-manager-overview.md).
+There are two broad categories for why a container group may restart without explicit user input. First, containers may experience restarts caused by an application process crash. The ACI service recommends applying observability solutions such as [Application Insights SDK](../azure-monitor/app/app-insights-overview.md), [container group metrics](container-instances-monitor.md), and [container group logs](container-instances-get-logs.md) to determine why the application experienced issues. Second, customers may experience restarts initiated by the ACI infrastructure due to maintenance events. To increase the availability of your application, run multiple container groups behind an ingress component such as an [Application Gateway](../application-gateway/overview.md) or [Traffic Manager](../traffic-manager/traffic-manager-overview.md).
 
 ### Container continually exits and restarts (no long-running process)
 
@@ -117,7 +117,7 @@ az container create -g myResourceGroup --name mywindowsapp --os-type Windows --i
  --command-line "ping -t localhost"
 ```
 
-The Container Instances API and Azure portal includes a `restartCount` property. To check the number of restarts for a container, you can use the [az container show][az-container-show] command in the Azure CLI. In the following example output (which has been truncated for brevity), you can see the `restartCount` property at the end of the output.
+The Container Instances API and Azure portal include a `restartCount` property. To check the number of restarts for a container, you can use the [az container show][az-container-show] command in the Azure CLI. In the following example output (which has been truncated for brevity), you can see the `restartCount` property at the end of the output.
 
 ```json
 ...
@@ -227,6 +227,20 @@ If you want to confirm that Azure Container Instances can listen on the port you
     ```azurecli-interactive
     az container delete --resource-group myResourceGroup --name mycontainer
     ```
+
+## Issues during confidential container group deployments 
+
+### Policy errors while using custom CCE policy 
+
+Custom CCE policies must be generated the [Azure CLI confcom extension](https://github.com/Azure/azure-cli-extensions/blob/main/src/confcom/azext_confcom/README.md). Before generating the policy, ensure that all properties specified in your ARM template are valid and match what you expect to be represented in a confidential computing policy. Some properties to validate include the container image, environment variables, volume mounts, and container commands. 
+
+### Missing hash from policy 
+
+The Azure CLI confcom extension will use cached images on your local machine which may not match those that are available remotely which can result in layer mismatch when the policy is validated. Please ensure that you remove any old images and pull the latest container images to your local environment.  Once you are sure that you have the latest SHA, you should regenerate the CCE policy. 
+
+### Process/container terminated with exit code: 139
+
+This exit code occurs due to limitations with the Ubuntu Version 22.04 base image. The recommendation is to use a different base image to resolve this issue. 
 
 ## Next steps
 

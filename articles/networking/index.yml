@@ -18,15 +18,15 @@ metadata:
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new 
   items: 
-    - title: What is Azure Networking? 
-      itemType: overview # controls the icon image and super-title text 
+    - title: Azure Networking services overview 
+      itemType: overview
       url: fundamentals/networking-overview.md
     - title: What's new in Azure Networking? 
       itemType: whats-new 
       url: https://azure.microsoft.com/updates/?category=networking
-    - title: 2022 holiday DDoS protection guide
-      itemType: concept
-      url: https://www.microsoft.com/security/blog/2022/11/15/2022-holiday-ddos-protection-guide
+    - title: Azure network security
+      itemType: overview
+      url: ./security/index.yml
     - title: Hub-spoke network topology in Azure
       itemType: architecture
       url: /azure/architecture/reference-architectures/hybrid-networking/hub-spoke

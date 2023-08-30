@@ -13,7 +13,7 @@ ms.date: 04/25/2023
 
 # Quickstart: Create a dev box by using the developer portal
 
-In this quickstart, you get started with Microsoft Dev Box Preview by creating a dev box through the developer portal. After you create the dev box, you can connect to it with a Remote Desktop session through a browser or through a Remote Desktop app.
+In this quickstart, you get started with Microsoft Dev Box by creating a dev box through the developer portal. After you create the dev box, you can connect to it with a Remote Desktop session through a browser or through a Remote Desktop app.
 
 You can create and manage multiple dev boxes as a dev box user. Create a dev box for each task that you're working on, and create multiple dev boxes within a single project to help streamline your workflow.
 
@@ -73,7 +73,7 @@ When you no longer need your dev box, you can delete it:
 
 1. To confirm the deletion, select **Delete**.
 
-   :::image type="content" source="./media/quickstart-create-dev-box/dev-portal-delete-dev-box-confirm.png" alt-text="Screenshot of the Delete button in the confirmation message about deleting a dev box.":::  
+   :::image type="content" source="./media/quickstart-create-dev-box/dev-portal-delete-dev-box-confirm.png" alt-text="Screenshot of the Delete button in the confirmation message about deleting a dev box."::: 
 
 ## Next steps
 

@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 03/22/2023
+ms.date: 05/18/2023
 ms.author: banders
 ---
 
@@ -20,7 +20,7 @@ Azure portal supports the following type of billing accounts:
 - **Microsoft Online Services Program**: A billing account for a Microsoft Online Services Program is created when you sign up for Azure through the Azure website. For example, when you sign up for an [Azure Free Account](https://azure.microsoft.com/offers/ms-azr-0044p/), [account with pay-as-you-go rates](https://azure.microsoft.com/offers/ms-azr-0003p/) or as a [Visual studio subscriber](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/). 
     - A new billing account for a Microsoft Online Services Program can have a maximum of 5 subscriptions. However, subscriptions transferred to the new billing account don't count against the limit.
     - The ability to create other Microsoft Online Services Program subscriptions is determined on an individual basis according to your history with Azure.
-    - *If you have difficulty finding a new subscription* after you create it, you might need to change the global subscription filter. For more information about changing the global subscription filter, see [Can't view subscription](create-subscription.md#cant-view-subscription).
+    - *If you have difficulty finding a new subscription* after you create it, you might need to change the global subscription filter. For more information about changing the global subscription filter, see [Can't view subscription](create-subscription.md#view-all-subscriptions).
 
 - **Enterprise Agreement**: A billing account for an Enterprise Agreement (EA) is created when your organization signs an [Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/) to use Azure. An EA enrollment can contain an unlimited number of EA accounts. 
     - An EA account has a subscription limit of 5000. *Regardless of a subscription's state, it's included in the limit. So, deleted and disabled subscriptions are included in the limit*. If you need more subscriptions than the limit, create more EA accounts. Generally speaking, a subscription is a billing container. 
@@ -36,6 +36,8 @@ To determine the type of your billing account, see [Check the type of your billi
 
 ## Scopes for billing accounts
 A scope is a node within a billing account that you use to view and manage billing. It's where you manage billing data, payments, invoices, and conduct general account management.
+
+You might see a subscription created for an EA enrollment that appears in both the EA Account billing scope and also under the MOSP billing scope. Viewing it in both places is intended. For EA enrollment account owners, when a MOSP billing scope gets created, all of the subscriptions under the enrollment account are shown under the MOSP account. Although there's a single subscription, you can view it in both places.
 
 If you don't have access to view or manage billing accounts, you probably don't have permission to access. You can ask your billing account administrator to grant you access. For more information, see the following articles:
 

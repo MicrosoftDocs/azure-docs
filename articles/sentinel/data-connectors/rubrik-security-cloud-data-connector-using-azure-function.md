@@ -3,7 +3,7 @@ title: "Rubrik Security Cloud data connector (using Azure Function) connector fo
 description: "Learn how to install the connector Rubrik Security Cloud data connector (using Azure Function) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 02/23/2023
+ms.date: 05/22/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -25,22 +25,19 @@ The Rubrik Security Cloud data connector enables security operations teams to in
 
 **Rubrik Anomaly Events - Anomaly Events for all severity types.**
    ```kusto
-Rubrik_Anomaly_Data_CL
- 
+   Rubrik_Anomaly_Data_CL
    | sort by TimeGenerated desc
    ```
 
 **Rubrik Ransomware Analysis Events - Ransomware Analysis Events for all severity types.**
    ```kusto
-Rubrik_Ransomware_Data_CL
- 
+   Rubrik_Ransomware_Data_CL
    | sort by TimeGenerated desc
    ```
 
 **Rubrik ThreatHunt Events - Threat Hunt Events for all severity types.**
    ```kusto
-Rubrik_ThreatHunt_Data_CL
- 
+   Rubrik_ThreatHunt_Data_CL
    | sort by TimeGenerated desc
    ```
 
@@ -50,7 +47,7 @@ Rubrik_ThreatHunt_Data_CL
 
 To integrate with Rubrik Security Cloud data connector (using Azure Function) make sure you have: 
 
-- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](/azure/azure-functions).
+- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](/azure/azure-functions/).
 
 
 ## Vendor installation instructions
@@ -95,7 +92,7 @@ Use the following step-by-step instructions to deploy the Rubrik Sentinel data c
 
 **1. Deploy a Function App**
 
-> **NOTE:** You will need to [prepare VS code](/azure/azure-functions/functions-create-first-function-python) for Azure function development.
+> **NOTE:** You will need to [prepare VS code](/azure/azure-functions/functions-create-first-function-python#prerequisites) for Azure function development.
 
 1. Download the [Azure Function App](https://aka.ms/sentinel-RubrikWebhookEvents-functionapp) file. Extract archive to your local development computer.
 2. Start VS Code. Choose File in the main menu and select Open Folder.
@@ -132,7 +129,7 @@ If you're already signed in, go to the next step.
 		RansomwareAnalysis_table_name
 		ThreatHunts_table_name
 		logAnalyticsUri (optional)
- - Use logAnalyticsUri to override the log analytics API endpoint for dedicated cloud. For example, for public cloud, leave the value empty; for Azure GovUS cloud environment, specify the value in the following format: https://<CustomerId>.ods.opinsights.azure.us. 
+ - Use logAnalyticsUri to override the log analytics API endpoint for dedicated cloud. For example, for public cloud, leave the value empty; for Azure GovUS cloud environment, specify the value in the following format: `https://<CustomerId>.ods.opinsights.azure.us`. 
 4. Once all application settings have been entered, click **Save**.
 
 
@@ -144,7 +141,7 @@ If you're already signed in, go to the next step.
 **STEP 1 - To get the Azure Function url**
 
  1. Go to Azure function Overview page and Click on "Functions" in the left blade.
- 2. Click on the function called "GithubwebhookConnector".
+ 2. Click on the Rubrik defined function for the event.
  3. Go to "GetFunctionurl" and copy the function url.
 
 

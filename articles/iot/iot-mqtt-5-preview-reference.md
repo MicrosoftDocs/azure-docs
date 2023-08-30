@@ -10,9 +10,12 @@
 
 ---
 
-# IoT Hub data plane MQTT 5 API reference (preview) 
+# IoT Hub data plane MQTT 5 API reference (preview)
 
 This document defines operations available in version 2.0 (api-version: `2020-10-01-preview`) of IoT Hub data plane API.
+
+> [!NOTE]
+> IoT Hub has limited feature support for MQTT. If your solution needs MQTT v3.1.1 or v5 support, we recommend [MQTT support in Azure Event Grid](../event-grid/mqtt-overview.md), currently in public preview. For more information, see [Compare MQTT support in IoT Hub and Event Grid](../iot/iot-mqtt-connect-to-iot-hub.md#compare-mqtt-support-in-iot-hub-and-event-grid).
 
 ## Operations
 

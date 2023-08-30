@@ -20,7 +20,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-[Azure PowerShell](/powershell/azure/install-Az-ps) Az module.
+[Azure PowerShell](/powershell/azure/install-azure-powershell) Az module.
 
 ## Create cluster
 

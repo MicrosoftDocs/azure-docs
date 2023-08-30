@@ -97,7 +97,7 @@ Defender for IoT provides hybrid network support using the following management 
 
     For more information, see [Air-gapped OT sensor management deployment path](ot-deploy/air-gapped-deploy.md).
 
-## What is a Defender for IoT committed device?
+## Devices monitored by Defender for IoT
 
 [!INCLUDE [devices-inventoried](includes/devices-inventoried.md)]
 

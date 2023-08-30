@@ -1,15 +1,15 @@
 ---
-title: 'Configure custom BGP communities for Azure ExpressRoute private peering using the Azure portal (Preview)'
+title: 'Configure custom BGP communities for Azure ExpressRoute private peering using the Azure portal'
 description: Learn how to apply or update BGP community value for a new or an existing virtual network using the Azure portal.
 services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 1/25/2022
+ms.date: 06/01/2023
 ms.author: duau
 ---
 
-# Configure custom BGP communities for Azure ExpressRoute private peering using the Azure portal (Preview)
+# Configure custom BGP communities for Azure ExpressRoute private peering using the Azure portal
 
 BGP communities are groupings of IP prefixes tagged with a community value. This value can be used to make routing decisions on the router's infrastructure. You can apply filters or specify routing preferences for traffic sent to your on-premises from Azure with BGP community tags. This article explains how to apply a custom BGP community value for your virtual networks using the Azure portal. Once configured, you can view the regional BGP community value and the custom community value of your virtual network. This value will be used for outbound traffic sent over ExpressRoute when originating from that virtual network.
 
@@ -37,10 +37,7 @@ BGP communities are groupings of IP prefixes tagged with a community value. This
 1. On the *BGP community string* page, enter the BGP value you would like to configure this virtual network and then select **Save**.
 
     :::image type="content" source="./media/how-to-configure-custom-bgp-communities-portal/bgp-community-value.png" alt-text="Screenshot of the BGP community string page.":::
-
-> [!IMPORTANT]
->  If your existing virtual network is already connected to an ExpressRoute circuit, you'll need to delete and recreate the ExpressRoute connection after applying the custom BGP community value. See [link a virtual network to an ExpressRoute circuit](expressroute-howto-linkvnet-arm.md), to learn how.
->
+ 
 
 ## Next steps
 

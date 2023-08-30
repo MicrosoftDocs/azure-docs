@@ -3,7 +3,7 @@ title: "Darktrace Connector REST API connector for Microsoft Sentinel"
 description: "Learn how to install the connector Darktrace Connector REST API to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 02/23/2023
+ms.date: 05/22/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -112,7 +112,7 @@ To integrate with Darktrace Connector for Microsoft Sentinel REST API make sure 
 ## Vendor installation instructions
 
 
-1. Detailed setup instructions can be found on the Darktrace Customer Portal: https://customerportal.darktrace.com/product-guides/main/azure-sentinel-introduction
+1. Detailed setup instructions can be found on the Darktrace Customer Portal: https://customerportal.darktrace.com/product-guides/main/microsoft-sentinel-introduction
  2. Take note of the Workspace ID and the Primary key. You will need to enter these details on your Darktrace System Configuration page.
  
 

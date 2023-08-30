@@ -3,7 +3,7 @@ title: Use a Windows PC with Hadoop on HDInsight - Azure
 description: Work from a Windows PC in Hadoop on HDInsight. Manage and query clusters with PowerShell, Visual Studio, and Linux tools. Develop big data solutions with .NET.
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive,hdiseo17may2017
+ms.custom: hdinsightactive, hdiseo17may2017, devx-track-dotnet
 ms.date: 08/05/2022
 ---
 
@@ -23,7 +23,7 @@ Examples of tasks you can do with PowerShell:
 * [Run Apache Hive queries using PowerShell](hadoop/apache-hadoop-use-hive-powershell.md).
 * [Manage clusters with PowerShell](hdinsight-administer-use-powershell.md).
 
-Follow steps to [install and configure Azure PowerShell](/powershell/azure/install-az-ps) to get the latest version.
+Follow steps to [install and configure Azure PowerShell](/powershell/azure/install-azure-powershell) to get the latest version.
 
 ## Utilities you can run in a browser
 

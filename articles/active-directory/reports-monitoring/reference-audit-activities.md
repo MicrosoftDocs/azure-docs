@@ -1,7 +1,7 @@
 ---
 
 title: Azure Active Directory (Azure AD) audit activity reference
-description: Get an overview of the audit activities that can be logged in your audit logs in Azure Active Directory (Azure AD).
+description: Get an overview of the audit activities that can be logged in your audit logs in Azure Active Directory.
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -9,11 +9,10 @@ ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 12/02/2022
+ms.date: 08/23/2023
 ms.author: sarahlipsey
 ms.reviewer: dhanyahk
 
-ms.collection: M365-identity-device-management
 ---
 # Azure AD audit log categories and activities
 
@@ -21,9 +20,9 @@ Azure Active Directory (Azure AD) audit logs collect all traceable activities wi
 
 This article provides a comprehensive list of the audit categories and their related activities. Use the "In this article" section to jump to a specific audit category. 
 
-Audit log activities and categories change periodically. The tables are updated regularly, but may not be in sync with what is available in Azure AD. Provide us feedback if you think there's a missing audit category or activity.
+Audit log activities and categories change periodically. The tables are updated regularly, but may not be in sync with what is available in Azure AD. Provide us with feedback if you think there's a missing audit category or activity.
 
-1. Sign in to the **Azure portal** using one of the [required roles](concept-audit-logs.md#how-do-i-access-it).
+1. Sign in to the **Azure portal** using one of the [required roles](concept-audit-logs.md).
 1. Browse to **Azure Active Directory** > **Audit logs**.
 1. Adjust the filters accordingly.
 1. Select a row from the resulting table to view the details.
@@ -74,7 +73,7 @@ With [Azure AD Identity Governance access reviews](../governance/manage-user-acc
 
 ## Account provisioning
 
-Each time an account is provisioned in your Azure AD tenant, a log for that account is captured. Automated provisioning, such as with [Azure AD Connect cloud sync](../cloud-sync/what-is-cloud-sync.md), will be found in this log. The Account provisioning service only has one audit category in the logs.
+Each time an account is provisioned in your Azure AD tenant, a log for that account is captured. Automated provisioning, such as with [Azure AD Connect cloud sync](../hybrid/cloud-sync/what-is-cloud-sync.md), is found in this log. The Account provisioning service only has one audit category in the logs.
 
 |Audit Category|Activity|
 |---|---|
@@ -219,10 +218,10 @@ This set of audit logs is related to [B2C](../../active-directory-b2c/overview.m
 |ApplicationManagement|Retrieve V2 application service principals|
 |ApplicationManagement|Update V2 application|
 |ApplicationManagement|Update V2 application permission grant|
-|Authentication|A self-service sign up request was completed|
+|Authentication|A self-service sign-up request was completed|
 |Authentication|An API was called as part of a user flow|
 |Authentication|Delete all available strong authentication devices|
-|Authentication|Evaluate conditional access policies|
+|Authentication|Evaluate Conditional Access policies|
 |Authentication|Exchange token|
 |Authentication|Federate with an identity provider|
 |Authentication|Get available strong authentication devices|
@@ -379,7 +378,7 @@ This set of audit logs is related to [B2C](../../active-directory-b2c/overview.m
 |Directory Management|Get tenant domains|
 |Directory Management|Initialize tenant|
 |Directory Management|Update age gating configuration|
-|IdentityProtection|Evaluate conditional access policies|
+|IdentityProtection|Evaluate Conditional Access policies|
 |IdentityProtection|Remediate user|
 |KeyManagement|Create policy key|
 |KeyManagement|Delete policy key|
@@ -507,13 +506,13 @@ Use these logs to see when changes were made to your [Conditional Access policie
 |Audit Category|Activity|
 |---|---|
 |Policy|Add AuthenticationContextClassReference|
-|Policy|Add conditional access policy|
+|Policy|Add Conditional Access policy|
 |Policy|Add named location|
 |Policy|Delete AuthenticationContextClassReference|
-|Policy|Delete conditional access policy|
+|Policy|Delete Conditional Access policy|
 |Policy|Delete named location|
 |Policy|Update AuthenticationContextClassReference|
-|Policy|Update conditional access policy|
+|Policy|Update Conditional Access policy|
 |Policy|Update continuous access evaluation|
 |Policy|Update named location|
 |Policy|Update security defaults|
@@ -774,7 +773,7 @@ If you're using Entitlement Management to streamline how you assign members of A
 |Audit Category|Activity|
 |---|---|
 |EntitlementManagement|Add Entitlement Management role assignment|
-|EntitlementManagement|Administrator directly assigns user to access package|		 
+|EntitlementManagement|Administrator directly assigns user to access package|
 |EntitlementManagement|Administrator directly removes user access package assignment|
 |EntitlementManagement|Approval stage completed for access package assignment request|
 |EntitlementManagement|Approve access package assignment request|
@@ -784,9 +783,9 @@ If you're using Entitlement Management to streamline how you assign members of A
 |EntitlementManagement|Cancel access package assignment request|
 |EntitlementManagement|Create access package|
 |EntitlementManagement|Create access package assignment policy|
-|EntitlementManagement|Create access package assignment user update request|	
+|EntitlementManagement|Create access package assignment user update request|
 |EntitlementManagement|Create access package catalog|
-|EntitlementManagement|Create connected organization|	
+|EntitlementManagement|Create connected organization|
 |EntitlementManagement|Create custom extension|
 |EntitlementManagement|Create incompatible access package|
 |EntitlementManagement|Create incompatible group|
@@ -1167,4 +1166,4 @@ The Self-service password management logs provide insight into changes made to p
 
 - [Azure AD reports overview](overview-reports.md).
 - [Audit logs report](concept-audit-logs.md). 
-- [Programmatic access to Azure AD reports](concept-reporting-api.md)
+- [Programmatic access to Azure AD reports](./howto-configure-prerequisites-for-reporting-api.md)

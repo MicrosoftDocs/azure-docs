@@ -39,8 +39,8 @@ To allow an IP Address or range of an Azure resource, such as a Web App or Logic
 
 1. Sign in to the Azure portal.
 1. Select the resource (specific instance of the service).
-1. Select on the 'Properties' blade under 'Settings'.
-1. Look for the "IP Address" field.
+1. Select the **Properties** blade under **Settings**.
+1. Look for the **IP Address** field.
 1. Copy this value or range and enter it into the key vault firewall allowlist.
 
 To allow an entire Azure service, through the Key Vault firewall, use the list of publicly documented data center IP addresses for Azure [here](https://www.microsoft.com/download/details.aspx?id=56519). Find the IP addresses associated with the service you would like in the region you want and add those IP addresses to the key vault firewall.
@@ -51,10 +51,10 @@ If you are trying to allow an Azure resource such as a virtual machine through k
 
 In this case, you should create the resource within a virtual network, and then allow traffic from the specific virtual network and subnet to access your key vault. 
 
-1. Sign in to the Azure portal
-1. Select the key vault you wish to configure
-1. Select the 'Networking' blade
-1. Select '+ Add existing virtual network'
+1. Sign in to the Azure portal.
+1. Select the key vault you wish to configure.
+1. Select the 'Networking' blade.
+1. Select '+ Add existing virtual network'.
 1. Select the virtual network and subnet you would like to allow through the key vault firewall.
 
 ### Key Vault Firewall Enabled (Private Link)

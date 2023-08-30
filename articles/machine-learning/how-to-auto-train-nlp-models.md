@@ -9,34 +9,31 @@ ms.service: machine-learning
 ms.reviewer: ssalgado
 ms.subservice: automl
 ms.topic: how-to
-ms.custom: devplatv2, sdkv2, cliv2, event-tier1-build-2022, ignite-2022
-ms.date: 03/15/2022
+ms.custom: devplatv2, sdkv2, cliv2, event-tier1-build-2022, ignite-2022, build-2023, build-2023-dataai, devx-track-python
+ms.date: 06/15/2023
 #Customer intent: I'm a data scientist with ML knowledge in the natural language processing space, looking to build ML models using language specific data in Azure Machine Learning with full control of the model algorithm, hyperparameters, and training and deployment environments.
 ---
 
 # Set up AutoML to train a natural language processing model 
 
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
-> [!div class="op_single_selector" title1="Select the version of the developer platform of Azure Machine Learning  you are using:"]
-> * [v1](./v1/how-to-auto-train-nlp-models-v1.md?view=azureml-api-1&preserve-view=true)
-> * [v2 (current version)](how-to-auto-train-nlp-models.md)
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
  
 
 In this article, you learn how to train natural language processing (NLP) models with [automated ML](concept-automated-ml.md) in Azure Machine Learning. You can create NLP models with automated ML via the Azure Machine Learning Python SDK v2 or the Azure Machine Learning CLI v2. 
 
-Automated ML supports NLP which allows ML professionals and data scientists to bring their own text data and build custom models for tasks such as, multi-class text classification, multi-label text classification, and named entity recognition (NER).  
+Automated ML supports NLP which allows ML professionals and data scientists to bring their own text data and build custom models for NLP tasks. NLP tasks include multi-class text classification, multi-label text classification, and named entity recognition (NER).  
 
-You can seamlessly integrate with the [Azure Machine Learning data labeling](how-to-create-text-labeling-projects.md) capability to label your text data or bring your existing labeled data. Automated ML provides the option to use distributed training on multi-GPU compute clusters for faster model training. The resulting model can be operationalized at scale by leveraging Azure Machine Learning's MLOps capabilities. 
+You can seamlessly integrate with the [Azure Machine Learning data labeling](how-to-create-text-labeling-projects.md) capability to label your text data or bring your existing labeled data. Automated ML provides the option to use distributed training on multi-GPU compute clusters for faster model training. The resulting model can be operationalized at scale using Azure Machine Learning's MLOps capabilities. 
 
 ## Prerequisites
 
 # [Azure CLI](#tab/cli)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 * Azure subscription. If you don't have an Azure subscription, sign up to try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
-* An Azure Machine Learning workspace with a GPU training compute. To create the workspace, see [Create workspace resources](quickstart-create-resources.md). See [GPU optimized virtual machine sizes](../virtual-machines/sizes-gpu.md) for more details of GPU instances provided by Azure.
+* An Azure Machine Learning workspace with a GPU training compute. To create the workspace, see [Create workspace resources](quickstart-create-resources.md). For more information, see [GPU optimized virtual machine sizes](../virtual-machines/sizes-gpu.md) for more details of GPU instances provided by Azure.
 
     > [!WARNING]
     > Support for multilingual models and the use of models with longer max sequence length is necessary for several NLP use cases, such as non-english datasets and longer range documents. As a result, these scenarios may require higher GPU memory for model training to succeed, such as the NC_v3 series or the ND series. 
@@ -47,11 +44,11 @@ You can seamlessly integrate with the [Azure Machine Learning data labeling](how
 
 # [Python SDK](#tab/python)
 
- [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+ [!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 * Azure subscription. If you don't have an Azure subscription, sign up to try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
-* An Azure Machine Learning workspace with a GPU training compute. To create the workspace, see [Create workspace resources](quickstart-create-resources.md). See [GPU optimized virtual machine sizes](../virtual-machines/sizes-gpu.md) for more details of GPU instances provided by Azure.
+* An Azure Machine Learning workspace with a GPU training compute. To create the workspace, see [Create workspace resources](quickstart-create-resources.md). For more information, see [GPU optimized virtual machine sizes](../virtual-machines/sizes-gpu.md) for more details of GPU instances provided by Azure.
 
    > [!WARNING]
    > Support for multilingual models and the use of models with longer max sequence length is necessary for several NLP use cases, such as non-english datasets and longer range documents. As a result, these scenarios may require higher GPU memory for model training to succeed, such as the NC_v3 series or the ND series. 
@@ -59,11 +56,11 @@ You can seamlessly integrate with the [Azure Machine Learning data labeling](how
 * The Azure Machine Learning Python SDK v2 installed. 
 
     To install the SDK you can either, 
-    * Create a compute instance, which automatically installs the SDK and is pre-configured for ML workflows. See [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md) for more information. 
+    * Create a compute instance, which automatically installs the SDK and is pre-configured for ML workflows. See [Create an Azure Machine Learning compute instance](how-to-create-compute-instance.md) for more information. 
 
-    * [Install the `automl` package yourself](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/README.md#setup-using-a-local-conda-environment), which includes the [default installation](/python/api/overview/azure/ml/install#default-install) of the SDK.
+    * [Install the `automl` package yourself](https://github.com/Azure/azureml-examples/blob/v1-archive/v1/python-sdk/tutorials/automl-with-azureml/README.md#setup-using-a-local-conda-environment), which includes the [default installation](/python/api/overview/azure/ml/install#default-install) of the SDK.
 
-    [!INCLUDE [automl-sdk-version](../../includes/machine-learning-automl-sdk-version.md)]
+    [!INCLUDE [automl-sdk-version](includes/machine-learning-automl-sdk-version.md)]
 
 * This article assumes some familiarity with setting up an automated machine learning experiment. Follow the [how-to](how-to-configure-auto-train.md) to see the main automated machine learning experiment design patterns.
 
@@ -75,17 +72,17 @@ Determine what NLP task you want to accomplish. Currently, automated ML supports
 
 Task |AutoML job syntax| Description 
 ----|----|---
-Multi-class text classification | CLI v2: `text_classification`  <br> SDK v2: `text_classification()`| There are multiple possible classes and each sample can be classified as exactly one class. The task is to predict the correct class for each sample. <br> <br> For example, classifying a movie script as "Comedy" or "Romantic". 
-Multi-label text classification |  CLI v2: `text_classification_multilabel`  <br> SDK v2: `text_classification_multilabel()`| There are multiple possible classes and each sample can be assigned any number of classes. The task is to predict all the classes for each sample<br> <br> For example, classifying a movie script as "Comedy", or "Romantic", or "Comedy and Romantic". 
+Multi-class text classification | CLI v2: `text_classification`  <br> SDK v2: `text_classification()`| There are multiple possible classes and each sample can be classified as exactly one class. The task is to predict the correct class for each sample. <br> <br> For example, classifying a movie script as "Comedy," or "Romantic". 
+Multi-label text classification |  CLI v2: `text_classification_multilabel`  <br> SDK v2: `text_classification_multilabel()`| There are multiple possible classes and each sample can be assigned any number of classes. The task is to predict all the classes for each sample<br> <br> For example, classifying a movie script as "Comedy," or "Romantic," or "Comedy and Romantic". 
 Named Entity Recognition (NER)|  CLI v2:`text_ner` <br> SDK v2: `text_ner()`| There are multiple possible tags for tokens in sequences. The task is to predict the tags for all the tokens for each sequence. <br> <br> For example, extracting domain-specific entities from unstructured text, such as contracts or financial documents.
 
 ## Thresholding
 
-Thresholding is the multi-label feature that allows users to pick the threshold above which the predicted probabilities will lead to a positive label. Lower values allow for more labels, which is better when users care more about recall, but this option could lead to more false positives. Higher values allow fewer labels and hence better for users who care about precision, but this option could lead to more false negatives.
+Thresholding is the multi-label feature that allows users to pick the threshold which the predicted probabilities will lead to a positive label. Lower values allow for more labels, which is better when users care more about recall, but this option could lead to more false positives. Higher values allow fewer labels and hence better for users who care about precision, but this option could lead to more false negatives.
 
 ## Preparing data
 
-For NLP experiments in automated ML, you can bring your data in `.csv` format for multi-class and multi-label classification tasks. For NER tasks, two-column `.txt` files that use a space as the separator and adhere to the CoNLL format are supported. The following sections provide additional detail for the data format accepted for each task. 
+For NLP experiments in automated ML, you can bring your data in `.csv` format for multi-class and multi-label classification tasks. For NER tasks, two-column `.txt` files that use a space as the separator and adhere to the CoNLL format are supported. The following sections provides details for the data format accepted for each task. 
 
 ### Multi-class
 
@@ -160,7 +157,7 @@ rings O
 
 ### Data validation
 
-Before training, automated ML applies data validation checks on the input data to ensure that the data can be preprocessed correctly. If any of these checks fail, the run fails with the relevant error message. The following are the requirements to pass data validation checks for each task.
+Before a model trains, automated ML applies data validation checks on the input data to ensure that the data can be preprocessed correctly. If any of these checks fail, the run fails with the relevant error message. The following are the requirements to pass data validation checks for each task.
 
 > [!Note]
 > Some data validation checks are applicable to both the training and the validation set, whereas others are applicable only to the training set. If the test dataset could not pass the data validation, that means that automated ML couldn't capture it and there is a possibility of model inference failure, or a decline in model performance.
@@ -170,33 +167,33 @@ Task | Data validation check
 All tasks | At least 50 training samples are required 
 Multi-class and Multi-label | The training data and validation data must have <br> - The same set of columns <br>- The same order of columns from left to right <br>- The same data type for columns with the same name <br>- At least two unique labels <br>  - Unique column names within each dataset (For example, the training set can't have multiple columns named **Age**)
 Multi-class only | None
-Multi-label only | - The label column format must be in [accepted format](#multi-label) <br> - At least one sample should have 0 or 2+ labels, otherwise it should be a `multiclass` task <br> - All labels should be in `str` or `int` format, with no overlapping. You should not have both label `1` and label `'1'`
-NER only | - The file should not start with an empty line <br> - Each line must be an empty line, or follow format `{token} {label}`, where there is exactly one space between the token and the label and no white space after the label <br> - All labels must start with `I-`, `B-`, or be exactly `O`. Case sensitive <br> -  Exactly one empty line between two samples <br> - Exactly one empty line at the end of the file
+Multi-label only | - The label column format must be in [accepted format](#multi-label) <br> - At least one sample should have 0 or 2+ labels, otherwise it should be a `multiclass` task <br> - All labels should be in `str` or `int` format, with no overlapping. You shouldn't have both label `1` and label `'1'`
+NER only | - The file shouldn't start with an empty line <br> - Each line must be an empty line, or follow format `{token} {label}`, where there's exactly one space between the token and the label and no white space after the label <br> - All labels must start with `I-`, `B-`, or be exactly `O`. Case sensitive <br> -  Exactly one empty line between two samples <br> - Exactly one empty line at the end of the file
    
 ## Configure experiment
 
 Automated ML's NLP capability is triggered through task specific `automl` type jobs, which is the same workflow for submitting automated ML experiments for classification, regression and forecasting tasks. You would set parameters as you would for those experiments, such as `experiment_name`, `compute_name` and data inputs. 
 
 However, there are key differences: 
-* You can ignore `primary_metric`, as it is only for reporting purposes. Currently, automated ML only trains one model per run for NLP and there is no model selection.
+* You can ignore `primary_metric`, as it's only for reporting purposes. Currently, automated ML only trains one model per run for NLP and there is no model selection.
 * The `label_column_name` parameter is only required for multi-class and multi-label text classification tasks.
 * If more than 10% of the samples in your dataset contain more than 128 tokens, it's considered long range. 
-   * In order to use the long range text feature, you should use a NC6 or higher/better SKUs for GPU such as: [NCv3](../virtual-machines/ncv3-series.md) series or [ND](../virtual-machines/nd-series.md) series.
+   * In order to use the long range text feature, you should use an NC6 or higher/better SKUs for GPU such as: [NCv3](../virtual-machines/ncv3-series.md) series or [ND](../virtual-machines/nd-series.md) series.
 
 # [Azure CLI](#tab/cli)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
-For CLI v2 AutoML jobs you configure your experiment in a YAML file like the following. 
+For CLI v2 automated ml jobs, you configure your experiment in a YAML file like the following. 
 
 
 
 # [Python SDK](#tab/python)
 
- [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+ [!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 
-For AutoML jobs via the SDK, you configure the job with the specific NLP task function. The following example demonstrates the configuration for `text_classification`.
+For Automated ML jobs via the SDK, you configure the job with the specific NLP task function. The following example demonstrates the configuration for `text_classification`.
 ```Python
 # general job parameters
 compute_name = "gpu-cluster"
@@ -233,7 +230,7 @@ Named entity recognition (NER)|`"eng"` <br>  `"deu"` <br> `"mul"`|  English&nbsp
 
 # [Azure CLI](#tab/cli)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 You can specify your dataset language in the featurization section of your configuration YAML file. BERT is also used in the featurization process of automated ML experiment training, learn more about [BERT integration and featurization in automated ML (SDK v1)](./v1/how-to-configure-auto-features.md#bert-integration-in-automated-ml).
 
@@ -244,7 +241,7 @@ featurization:
 
 # [Python SDK](#tab/python)
 
- [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+ [!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 You can specify your dataset language with the `set_featurization()` method. BERT is also used in the featurization process of automated ML experiment training, learn more about [BERT integration and featurization in automated ML (SDK v1)](./v1/how-to-configure-auto-features.md?view=azureml-api-1&preserve-view=true#bert-integration-in-automated-ml).
 
@@ -260,12 +257,12 @@ You can also run your NLP experiments with distributed training on an Azure Mach
 
 # [Azure CLI](#tab/cli)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 
 # [Python SDK](#tab/python)
 
- [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+ [!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 
 This is handled automatically by automated ML when the parameters `max_concurrent_iterations = number_of_vms` and `enable_distributed_dnn_training = True` are provided in your `AutoMLConfig` during experiment setup. Doing so, schedules distributed training of the NLP models and automatically scales to every GPU on your virtual machine or cluster of virtual machines. The max number of virtual machines allowed is 32. The training is scheduled with number of virtual machines that is in powers of two.
@@ -283,7 +280,7 @@ In AutoML NLP only hold-out validation is supported and it requires a validation
 
 # [Azure CLI](#tab/cli)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 To submit your AutoML job, you can run the following CLI v2 command with the path to your .yml file, workspace name, resource group and subscription ID.
 
@@ -294,7 +291,7 @@ az ml job create --file ./hello-automl-job-basic.yml --workspace-name [YOUR_AZUR
 
 # [Python SDK](#tab/python)
 
- [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+ [!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 
 With the `MLClient` created earlier, you can run this `CommandJob` in the workspace.
@@ -314,7 +311,7 @@ ml_client.jobs.stream(returned_job.name)
 
 # [Azure CLI](#tab/cli)
 
- [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+ [!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 
 See the following sample YAML files for each NLP task.
@@ -325,7 +322,7 @@ See the following sample YAML files for each NLP task.
 
 # [Python SDK](#tab/python)
 
- [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+ [!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 See the sample notebooks for detailed code examples for each NLP task. 
 
@@ -338,7 +335,7 @@ https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/automl-stand
 
 ## Model sweeping and hyperparameter tuning (preview) 
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+[!INCLUDE [preview disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
 AutoML NLP allows you to provide a list of models and combinations of hyperparameters, via the hyperparameter search space in the config. Hyperdrive generates several child runs, each of which is a fine-tuning run for a given NLP model and set of hyperparameter values that were chosen and swept over based on the provided search space.
 
@@ -346,22 +343,28 @@ AutoML NLP allows you to provide a list of models and combinations of hyperparam
 
 All the pre-trained text DNN models currently available in AutoML NLP for fine-tuning are listed below: 
 
-* bert_base_cased 
-* bert_large_uncased 
-* bert_base_multilingual_cased 
-* bert_base_german_cased 
-* bert_large_cased 
-* distilbert_base_cased 
-* distilbert_base_uncased 
-* roberta_base 
-* roberta_large 
-* distilroberta_base 
-* xlm_roberta_base 
-* xlm_roberta_large 
-* xlnet_base_cased 
-* xlnet_large_cased 
+* bert-base-cased 
+* bert-large-uncased 
+* bert-base-multilingual-cased 
+* bert-base-german-cased 
+* bert-large-cased 
+* distilbert-base-cased 
+* distilbert-base-uncased 
+* roberta-base 
+* roberta-large 
+* distilroberta-base 
+* xlm-roberta-base 
+* xlm-roberta-large 
+* xlnet-base-cased 
+* xlnet-large-cased 
 
-Note that the large models are significantly larger than their base counterparts. They are typically more performant, but they take up more GPU memory and time for training. As such, their SKU requirements are more stringent: we recommend running on ND-series VMs for the best results. 
+Note that the large models are larger than their base counterparts. They are typically more performant, but they take up more GPU memory and time for training. As such, their SKU requirements are more stringent: we recommend running on ND-series VMs for the best results. 
+
+## Supported model algorithms - HuggingFace (preview)
+
+With the new backend that runs on [Azure Machine Learning pipelines](concept-ml-pipelines.md), you can additionally use any text/token classification model from the HuggingFace Hub for [Text Classification](https://huggingface.co/models?pipeline_tag=text-classification&library=transformers), [Token Classification](https://huggingface.co/models?pipeline_tag=token-classification&sort=trending) which is part of the transformers library (such as microsoft/deberta-large-mnli). You may also find a curated list of models in [Azure Machine Learning model registry](concept-foundation-models.md?view=azureml-api-2&preserve-view=true) that have been validated with the pipeline components.
+
+Using any HuggingFace model will trigger runs using pipeline components. If both legacy and HuggingFace models are used, all runs/trials will be triggered using components.  
 
 ## Supported hyperparameters 
 
@@ -369,7 +372,7 @@ The following table describes the hyperparameters that AutoML NLP supports.
 
 | Parameter name | Description | Syntax |
 |-------|---------|---------| 
-| gradient_accumulation_steps | The number of backward operations whose gradients are to be summed up before performing one step of gradient descent by calling the optimizer's step function. <br><br> This is leveraged to use an effective batch size which is gradient_accumulation_steps times larger than the maximum size that fits the GPU. | Must be a positive integer.
+| gradient_accumulation_steps | The number of backward operations whose gradients are to be summed up before performing one step of gradient descent by calling the optimizer's step function. <br><br> This is to use an effective batch size, which is gradient_accumulation_steps times larger than the maximum size that fits the GPU. | Must be a positive integer.
 | learning_rate | Initial learning rate. | Must be a float in the range (0, 1). |
 | learning_rate_scheduler |Type of learning rate scheduler. | Must choose from `linear, cosine, cosine_with_restarts, polynomial, constant, constant_with_warmup`.  |
 | model_name | Name of one of the supported models.  | Must choose from `bert_base_cased, bert_base_uncased, bert_base_multilingual_cased, bert_base_german_cased, bert_large_cased, bert_large_uncased, distilbert_base_cased, distilbert_base_uncased, roberta_base, roberta_large, distilroberta_base, xlm_roberta_base, xlm_roberta_large, xlnet_base_cased, xlnet_large_cased`. |
@@ -383,14 +386,14 @@ All discrete hyperparameters only allow choice distributions, such as the intege
 
 ## Configure your sweep settings 
 
-You can configure all the sweep-related parameters. Multiple model subspaces can be constructed with hyperparameters conditional to the respective model, as seen below in each example.   
+You can configure all the sweep-related parameters. Multiple model subspaces can be constructed with hyperparameters conditional to the respective model, as seen in each hyperparameter tuning example.   
 
 The same discrete and continuous distribution options that are available for general HyperDrive jobs are supported here. See all nine options in [Hyperparameter tuning a model](how-to-tune-hyperparameters.md#define-the-search-space)
 
 
 # [Azure CLI](#tab/cli)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 ```yaml
 limits: 
@@ -423,7 +426,7 @@ search_space:
 
 # [Python SDK](#tab/python)
 
- [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+ [!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 You can set the limits for your model sweeping job: 
 
@@ -480,11 +483,11 @@ When sweeping hyperparameters, you need to specify the sampling method to use fo
 
 You can optionally specify the experiment budget for your AutoML NLP training job using the `timeout_minutes` parameter in the `limits` - the amount of time in minutes before the experiment terminates. If none specified, the default experiment timeout is seven days (maximum 60 days).  
 
-AutoML NLP also supports `trial_timeout_minutes`, the maximum amount of time in minutes an individual trial can run before being terminated, and `max_nodes`, the maximum number of nodes from the backing compute cluster to leverage for the job. These parameters also belong to the `limits` section.  
+AutoML NLP also supports `trial_timeout_minutes`, the maximum amount of time in minutes an individual trial can run before being terminated, and `max_nodes`, the maximum number of nodes from the backing compute cluster to use for the job. These parameters also belong to the `limits` section.  
 
 
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 ```yaml
 limits: 
@@ -509,10 +512,10 @@ Parameter | Detail
 `max_trials` |  Parameter for maximum number of configurations to sweep. Must be an integer between 1 and 1000. When exploring just the default hyperparameters for a given model algorithm, set this parameter to 1. The default value is 1.
 `max_concurrent_trials`| Maximum number of runs that can run concurrently. If specified, must be an integer between 1 and 100.  The default value is 1. <br><br> **NOTE:** <li> The number of concurrent runs is gated on the resources available in the specified compute target. Ensure that the compute target has the available resources for the desired concurrency.  <li> `max_concurrent_trials` is capped at `max_trials` internally. For example, if user sets `max_concurrent_trials=4`, `max_trials=2`, values would be internally updated as `max_concurrent_trials=2`, `max_trials=2`.
 
-You can configure all the sweep related parameters as shown in the example below.
+You can configure all the sweep related parameters as shown in this example.
 
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 ```yaml
 sweep:
@@ -530,13 +533,13 @@ sweep:
 
 ## Known Issues
 
-Dealing with very low scores, or higher loss values: 
+Dealing with low scores, or higher loss values: 
 
-For certain datasets, regardless of the NLP task, the scores produced may be very low, sometimes even zero. This would be accompanied by higher loss values implying that the neural network failed to converge. This can happen more frequently on certain GPU SKUs.
+For certain datasets, regardless of the NLP task, the scores produced may be very low, sometimes even zero. This score is accompanied by higher loss values implying that the neural network failed to converge. These scores can happen more frequently on certain GPU SKUs.
 
-While such cases are uncommon, they're possible and the best way to handle it is to leverage hyperparameter tuning and provide a wider range of values, especially for hyperparameters like learning rates. Until our hyperparameter tuning capability is available in production we recommend users, who face such issues, to leverage the NC6 or ND6 compute clusters, where we've found training outcomes to be fairly stable.
+While such cases are uncommon, they're possible and the best way to handle it's to leverage hyperparameter tuning and provide a wider range of values, especially for hyperparameters like learning rates. Until our hyperparameter tuning capability is available in production we recommend users experiencing these issues, to use the NC6 or ND6 compute clusters. These clusters typically have training outcomes that are fairly stable.
 
 ## Next steps
 
 + [Deploy AutoML models to an online (real-time inference) endpoint](how-to-deploy-automl-endpoint.md)
-+ [Troubleshoot automated ML experiments (SDK v1)](./v1/how-to-troubleshoot-auto-ml.md?view=azureml-api-1&preserve-view=true)
++ [Hyperparameter tuning a model](how-to-tune-hyperparameters.md)

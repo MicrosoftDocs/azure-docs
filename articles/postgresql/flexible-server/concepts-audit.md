@@ -1,6 +1,6 @@
 ---
-title: Audit logging - Azure Database for PostgreSQL - Flexible server
-description: Concepts for pgAudit audit logging in Azure Database for PostgreSQL - Flexible server.
+title: Audit logging - Azure Database for PostgreSQL - Flexible Server
+description: Concepts for pgAudit audit logging in Azure Database for PostgreSQL - Flexible Server.
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
@@ -10,16 +10,16 @@ ms.reviewer:
 ms.date: 11/30/2021
 ---
 
-# Audit logging in Azure Database for PostgreSQL - Flexible server
+# Audit logging in Azure Database for PostgreSQL - Flexible Server
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-Audit logging of database activities in Azure Database for PostgreSQL - Flexible server is available through the PostgreSQL Audit extension: [pgAudit](https://www.pgaudit.org/). pgAudit provides detailed session and/or object audit logging.
+Audit logging of database activities in Azure Database for PostgreSQL - Flexible Server is available through the PostgreSQL Audit extension: [pgAudit](https://www.pgaudit.org/). pgAudit provides detailed session and/or object audit logging.
 
 If you want Azure resource-level logs for operations like compute and storage scaling, see the [Azure Activity Log](../../azure-monitor/essentials/platform-logs-overview.md).
 
 ## Usage considerations
-By default, pgAudit log statements are emitted along with your regular log statements by using Postgres's standard logging facility. In Azure Database for PostgreSQL - Flexible server, you can configure all logs to be sent to Azure Monitor Log store for later analytics in Log Analytics. If you enable Azure Monitor resource logging, your logs will be automatically sent (in JSON format) to Azure Storage, Event Hubs, and/or Azure Monitor logs, depending on your choice.
+By default, pgAudit log statements are emitted along with your regular log statements by using Postgres's standard logging facility. In Azure Database for PostgreSQL - Flexible Server, you can configure all logs to be sent to Azure Monitor Log store for later analytics in Log Analytics. If you enable Azure Monitor resource logging, your logs will be automatically sent (in JSON format) to Azure Storage, Event Hubs, and/or Azure Monitor logs, depending on your choice.
 
 To learn how to set up logging to Azure Storage, Event Hubs, or Azure Monitor logs, visit the resource logs section of the [server logs article](concepts-logging.md).
 
@@ -70,8 +70,7 @@ Using the [Azure portal](https://portal.azure.com):
 
 pgAudit allows you to configure session or object audit logging. [Session audit logging](https://github.com/pgaudit/pgaudit/blob/master/README.md#session-audit-logging) emits detailed logs of executed statements. [Object audit logging](https://github.com/pgaudit/pgaudit/blob/master/README.md#object-audit-logging) is audit scoped to specific relations. You can choose to set up one or both types of logging. 
 
-> [!NOTE]
-> pgAudit settings are specified globally and cannot be specified at a database or role level.
+
 
 Once you have [enabled pgAudit](#installing-pgaudit), you can configure its parameters to start logging. 
 To configure pgAudit you can follow below instructions. 
@@ -93,7 +92,7 @@ The [pgAudit documentation](https://github.com/pgaudit/pgaudit/blob/master/READM
 > `pgaudit.log_level` is only enabled when `pgaudit.log_client` is on.
 
 > [!NOTE]
-> In Azure Database for PostgreSQL - Flexible server, `pgaudit.log` cannot be set using a `-` (minus) sign shortcut as described in the pgAudit documentation. All required statement classes (READ, WRITE, etc.) should be individually specified.
+> In Azure Database for PostgreSQL - Flexible Server, `pgaudit.log` cannot be set using a `-` (minus) sign shortcut as described in the pgAudit documentation. All required statement classes (READ, WRITE, etc.) should be individually specified.
 > [!NOTE]
 >If you set the log_statement parameter to DDL or ALL, and run a `CREATE ROLE/USER ... WITH PASSWORD ... ; `  or  `ALTER ROLE/USER ... WITH PASSWORD ... ;`, command, then PostgreSQL creates an entry in the PostgreSQL logs, where password is logged in clear text,  which may cause a potential security risk.  This is expected behavior as per PostgreSQL engine design. You can, however, use PGAudit extension and set  `pgaudit.log='DDL'` parameter in server parameters page, which doesn't record any `CREATE/ALTER ROLE` statement in Postgres Log, unlike Postgres `log_statement='DDL'` setting. If you do need to log these statements you can add `pgaudit.log ='ROLE'` in addition, which, while logging `'CREATE/ALTER ROLE'` will redact the password from logs. 
 
@@ -123,5 +122,5 @@ AzureDiagnostics
 
 
 ## Next steps
-- [Learn about logging in Azure Database for PostgreSQL - Flexible server](concepts-logging.md)
-- [Learn how to setup logging in Azure Database for PostgreSQL - Flexible server and how to access logs](howto-configure-and-access-logs.md)
+- [Learn about logging in Azure Database for PostgreSQL - Flexible Server](concepts-logging.md)
+- [Learn how to setup logging in Azure Database for PostgreSQL - Flexible Server and how to access logs](howto-configure-and-access-logs.md)

@@ -224,7 +224,11 @@ Register-AzProviderFeature -FeatureName ExpressRoutePrivateEndpointGatewayBypass
 
 > [!NOTE]
 > You can use [Connection Monitor](how-to-configure-connection-monitor.md) to verify that your traffic is reaching the destination using FastPath.
->
+> 
+
+> [!NOTE]
+> FastPath and Private Link feature onboarding requires time to be enabled after request. You can expect about two weeks of delay until request is completed, so we encourage you to plan your deployment in advance with these timelines into consideration.
+> 
 
 ## Enroll in ExpressRoute FastPath features (preview)
 
@@ -238,6 +242,9 @@ To enroll in the preview, send an email to **exrpm@microsoft.com**, providing th
 * Azure Subscription ID
 * Virtual Network (VNet) Resource ID
 * ExpressRoute Circuit Resource ID
+* ExpressRoute Connection(s) Resource ID(s)
+* Number of Private Endpoints deployed to the local/Hub VNet.
+* Resource ID of any User-Defined-Routes (UDRs) configured in the local/Hub VNet.
 
 **FastPath support for virtual network peering and UDRs is only available for ExpressRoute Direct connections**.
 

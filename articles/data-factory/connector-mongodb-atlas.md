@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse, ignite-2022
-ms.date: 01/28/2023
+ms.date: 05/08/2023
 ---
 
 # Copy data from or to MongoDB Atlas using Azure Data Factory or Synapse Analytics
@@ -28,8 +28,6 @@ This MongoDB Atlas connector is supported for the following capabilities:
 <small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
 
 For a list of data stores that are supported as sources/sinks, see the [Supported data stores](connector-overview.md#supported-data-stores) table.
-
-Specifically, this MongoDB Atlas connector supports **versions up to 4.2**.
 
 ## Prerequisites
 
@@ -53,7 +51,7 @@ Use the following steps to create a linked service to MongoDB Atlas in the Azure
 
     :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Create a new linked service with Azure Synapse UI.":::
 
-2. Search for MongoDB and select the MongoDB Atlas connector.
+2. Search for MongoDB Atlas and select the MongoDB Atlas connector.
 
     :::image type="content" source="media/connector-mongodb-atlas/mongodb-atlas-connector.png" alt-text="Select the MongoDB Atlas connector.":::    
 
@@ -76,6 +74,7 @@ The following properties are supported for MongoDB Atlas linked service:
 | type |The type property must be set to: **MongoDbAtlas** |Yes |
 | connectionString |Specify the MongoDB Atlas connection string e.g. `mongodb+srv://<username>:<password>@<clustername>.<randomString>.<hostName>/<dbname>?<otherProperties>`. <br/><br /> You can also put a connection string in Azure Key Vault. Refer to [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) with more details. |Yes |
 | database | Name of the database that you want to access. | Yes |
+| mongoDbAtlasDriverVersion | Specify the driver version to 2.19.0 which supports MongoDB version 3.6 and higher. For more information, go to this [article](https://www.mongodb.com/docs/drivers/csharp/current/compatibility/). |No |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, it uses the default Azure Integration Runtime. |No |
 
 **Example:**
@@ -87,7 +86,8 @@ The following properties are supported for MongoDB Atlas linked service:
         "type": "MongoDbAtlas",
         "typeProperties": {
             "connectionString": "mongodb+srv://<username>:<password>@<clustername>.<randomString>.<hostName>/<dbname>?<otherProperties>",
-            "database": "myDatabase"
+            "database": "myDatabase",
+            "mongoDbAtlasDriverVersion": "<driver version>"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",

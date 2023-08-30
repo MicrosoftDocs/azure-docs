@@ -298,7 +298,6 @@ If there was an attack, you don't want the attacker to retain access at all. Mak
 For more information, see:
 
 - [Revoke user access in Azure Active Directory](../../active-directory/enterprise-users/users-revoke-access.md)
-- [Revoke-AzureADUserAllRefreshToken PowerShell docs](/powershell/module/azuread/revoke-azureaduserallrefreshtoken)
 
 
 ### Replace your ADFS servers
@@ -353,7 +352,6 @@ In addition to the recommended actions listed above, we recommend that you consi
     For more information, see:
 
     - [Revoke user access in an emergency in Azure Active Directory](../../active-directory/enterprise-users/users-revoke-access.md)
-    - [Revoke-AzureADUserAllRefreshToken PowerShell documentation](/powershell/module/azuread/revoke-azureaduserallrefreshtoken)
 
 ## Next steps
 

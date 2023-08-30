@@ -20,6 +20,21 @@ Azure Machine Learning checks and validates any machine learning packages that m
 
 Main updates provided with each image version are described in the below sections.
 
+## June 30, 2023
+Version: `23.06.30` 
+
+Main changes:
+
+- `Azure Machine Learning SDK` to version `1.51.0`
+- Purged vulnerable packages
+- Fixed `libtinfo` error
+- Fixed 'conda command not found' error
+
+Main environment specific updates:
+
+- `tensorflow` updated to `2.11.1` in `azureml_py38_PT_TF`
+- `azure-keyvault-keys` updated to `4.8.0` in `azureml_py38`
+
 ## April 7, 2023
 Version: `23.04.07`
 
@@ -27,7 +42,7 @@ Main changes:
 
 - `Azure Machine Learning SDK` to version `1.49.0`
 - `Certifi` updated to `2022.9.24`
-- `.Net` updated from `3.1` (EOL) to `6.0`
+- `.NET` updated from `3.1` (EOL) to `6.0`
 - `Pyspark` update to `3.3.1` (mitigating log4j 1.2.17 and common-text-1.6 vulnerabilities)
 - Default `intellisense` to Python `3.10` on the CI
 - Bug fixes and stability improvements
@@ -44,36 +59,36 @@ Main changes:
 - Added new conda environment `jupyter-env`
 - Moved Jupyter service to new `jupyter-env` conda environment
 - `Azure Machine Learning SDK` to version `1.48.0`
- 
+
 Main environment specific updates:
 
 - Added `azureml-fsspec` package to `Azureml_py310_sdkv2`
-- `CUDA` support resolved for `azureml_py38CUDA` 
+- `CUDA` support resolved for `azureml_py38CUDA`
 - `CUDA` support resolved for `azureml_py38_PT_TF`
 
-## September 22, 2022 
+## September 22, 2022
 Version `22.09.22`
 
 Main changes:
 
-- `.Net Framework` to version `3.1.423`
+- `.NET Framework` to version `3.1.423`
 - `Azure Cli` to version `2.40.0`
 - `Conda` to version `4.14.0`
 - `Azure Machine Learning SDK` to version `1.45.0`
- 
+
 Main environment specific updates:
 
 `azureml_py38`:
 - `azureml-core` to version `1.45.0`
 - `tensorflow-gpu` to version `2.2.1`
 
-## August 19, 2022 
+## August 19, 2022
 Version `22.08.19`
 
 Main changes:
 - Base OS level image updates.
 
-## July 22, 2022 
+## July 22, 2022
 Version `22.07.22`
 
 Main changes:

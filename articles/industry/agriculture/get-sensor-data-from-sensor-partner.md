@@ -3,6 +3,7 @@ title: Get sensor data from the partners
 description: This article describes how to get sensor data from partners.
 author: RiyazPishori
 ms.topic: article
+ms.custom: has-azure-ad-ps-ref
 ms.date: 11/04/2019
 ms.author: riyazp
 ---

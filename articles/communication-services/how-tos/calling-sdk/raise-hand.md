@@ -15,9 +15,17 @@ zone_pivot_groups: acs-plat-web-ios-android-windows
 ---
 
 # Raise hand states
-
+::: zone pivot="platform-android"
 [!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
+::: zone-end
 
+::: zone pivot="platform-ios"
+[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
+::: zone-end
+
+::: zone pivot="platform-windows"
+[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
+::: zone-end
 During an active call, you may want to send or receive states from other users. Let's learn how. 
 
 ## Prerequisites

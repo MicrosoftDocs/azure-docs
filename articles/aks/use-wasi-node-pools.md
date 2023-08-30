@@ -2,8 +2,8 @@
 title: Create WebAssembly System Interface (WASI) node pools in Azure Kubernetes Service (AKS) to run your WebAssembly (WASM) workload (preview)
 description: Learn how to create a WebAssembly System Interface (WASI) node pool in Azure Kubernetes Service (AKS) to run your WebAssembly (WASM) workload on Kubernetes.
 ms.topic: article
-ms.custom: devx-track-azurecli
-ms.date: 10/19/2022
+ms.custom: devx-track-azurecli, devx-track-linux
+ms.date: 05/17/2023
 ---
 
 # Create WebAssembly System Interface (WASI) node pools in Azure Kubernetes Service (AKS) to run your WebAssembly (WASM) workload (preview)
@@ -122,34 +122,6 @@ Labels:             agentpool=mywasipool
                     kubernetes.azure.com/wasmtime-slight-v1=true
                     kubernetes.azure.com/wasmtime-spin-v1=true
 ...
-```
-
-Add a `RuntimeClass` for running [spin][spin] and [slight][slight] applications. Create a file named *wasm-runtimeclass.yaml* with the following content:
-
-```yml
-apiVersion: node.k8s.io/v1
-kind: RuntimeClass
-metadata:
-  name: "wasmtime-slight-v1"
-handler: "slight"
-scheduling:
-  nodeSelector:
-    "kubernetes.azure.com/wasmtime-slight-v1": "true"
----
-apiVersion: node.k8s.io/v1
-kind: RuntimeClass
-metadata:
-  name: "wasmtime-spin-v1"
-handler: "spin"
-scheduling:
-  nodeSelector:
-    "kubernetes.azure.com/wasmtime-spin-v1": "true"
-```
-
-Use `kubectl` to create the `RuntimeClass` objects.
-
-```bash
-kubectl apply -f wasm-runtimeclass.yaml
 ```
 
 ## Running WASM/WASI Workload

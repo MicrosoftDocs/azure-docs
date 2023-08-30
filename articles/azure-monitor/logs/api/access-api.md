@@ -1,9 +1,9 @@
 ---
 title: API access and authentication
 description: Learn how to authenticate and access the Azure Monitor Log Analytics API.
-author: AbbyMSFT
-ms.author: abbyweisberg
 ms.date: 11/28/2022
+author: guywi-ms
+ms.author: guywild
 ms.topic: article
 ---
 # Access the Azure Monitor Log Analytics API
@@ -152,7 +152,7 @@ Use the token in requests to the Log Analytics endpoint:
     POST /v1/workspaces/your workspace id/query?timespan=P1D
     Host: https://api.loganalytics.azure.com
     Content-Type: application/json
-    Authorization: bearer <your access token>
+    Authorization: Bearer <your access token>
 
     Body:
     {

@@ -22,7 +22,7 @@ ms.custom: fasttrack-new, fasttrack-update, devx-track-js
 This scenario shows you how to configure your Azure API Management instance to protect an API.
 We'll use the Azure AD B2C SPA (Auth Code + PKCE) flow to acquire a token, alongside API Management to secure an Azure Functions backend using EasyAuth.
 
-For a conceptual overview of API authorization, see [Authentication and authorization in API Management](authentication-authorization-overview.md#gateway-data-plane). 
+For a conceptual overview of API authorization, see [Authentication and authorization to APIs in API Management](authentication-authorization-overview.md).
 
 
 ## Aims
@@ -46,7 +46,7 @@ For defense in depth, we then use EasyAuth to validate the token again inside th
 To follow the steps in this article, you must have:
 
 * An Azure (StorageV2) General Purpose V2 Storage Account to host the frontend JS Single Page App.
-* An Azure API Management instance (Any tier will work, including 'Consumption', however certain features applicable to the full scenario are not available in this tier (rate-limit-by-key and dedicated Virtual IP), these restrictions are called out below in the article where appropriate).
+* An Azure API Management instance (Any tier will work, including 'Consumption', however certain features applicable to the full scenario aren't available in this tier (rate-limit-by-key and dedicated Virtual IP), these restrictions are called out below in the article where appropriate).
 * An empty Azure Function app (running the V3.1 .NET Core runtime, on a Consumption Plan) to host the called API
 * An Azure AD B2C tenant, linked to a subscription.
 
@@ -60,7 +60,7 @@ Here's an illustration of the components in use and the flow between them once t
 Here's a quick overview of the steps:
 
 1. Create the Azure AD B2C Calling (Frontend, API Management) and API Applications with scopes and grant API Access
-1. Create the sign-up and sign-in policies to allow users to sign in with Azure AD B2C 
+1. Create the sign-up and sign-in policies to allow users to sign in with Azure AD B2C
 1. Configure API Management with the new Azure AD B2C Client IDs and keys to Enable OAuth2 user authorization in the Developer Console
 1. Build the Function API
 1. Configure the Function API to enable EasyAuth with the new Azure AD B2C Client ID’s and Keys and lock down to APIM VIP
@@ -69,22 +69,22 @@ Here's a quick overview of the steps:
 1. Set up the **CORS** policy and add the **validate-jwt** policy to validate the OAuth token for every incoming request
 1. Build the calling application to consume the API
 1. Upload the JS SPA Sample
-1. Configure the Sample JS Client App with the new Azure AD B2C Client ID’s and keys 
+1. Configure the Sample JS Client App with the new Azure AD B2C Client ID’s and keys
 1. Test the Client Application
 
    > [!TIP]
-   > We're going to capture quite a few pieces of information and keys etc as we walk this document, you might find it handy to have a text editor open to store the following items of configuration temporarily.  
+   > We're going to capture quite a few pieces of information and keys etc as we walk this document, you might find it handy to have a text editor open to store the following items of configuration temporarily.
    >
-   > B2C BACKEND CLIENT ID:  
-   > B2C BACKEND CLIENT SECRET KEY:  
-   > B2C BACKEND API SCOPE URI:  
-   > B2C FRONTEND CLIENT ID:  
-   > B2C USER FLOW ENDPOINT URI:  
-   > B2C WELL-KNOWN OPENID ENDPOINT:   
-   > B2C POLICY NAME: Frontendapp_signupandsignin 
-   > FUNCTION URL:  
-   > APIM API BASE URL: 
-   > STORAGE PRIMARY ENDPOINT URL:  
+   > B2C BACKEND CLIENT ID:
+   > B2C BACKEND CLIENT SECRET KEY:
+   > B2C BACKEND API SCOPE URI:
+   > B2C FRONTEND CLIENT ID:
+   > B2C USER FLOW ENDPOINT URI:
+   > B2C WELL-KNOWN OPENID ENDPOINT:
+   > B2C POLICY NAME: Frontendapp_signupandsignin
+   > FUNCTION URL:
+   > APIM API BASE URL:
+   > STORAGE PRIMARY ENDPOINT URL:
 
 ## Configure the backend application
 
@@ -93,7 +93,7 @@ Open the Azure AD B2C blade in the portal and do the following steps.
 1. Select the **App Registrations** tab
 1. Click the 'New Registration' button.
 1. Choose 'Web' from the Redirect URI selection box.
-1. Now set the Display Name, choose something unique and relevant to the service being created. In this example, we will use the name "Backend Application".
+1. Now set the Display Name, choose something unique and relevant to the service being created. In this example, we'll use the name "Backend Application".
 1. Use placeholders for the reply urls, like 'https://jwt.ms' (A Microsoft owned token decoding site), we’ll update those urls later.
 1. Ensure you have selected the "Accounts in any identity provider or organizational directory (for authenticating users with user flows)" option
 1. For this sample, uncheck the "Grant admin consent" box, as we won't require offline_access permissions today.
@@ -134,15 +134,15 @@ Open the Azure AD B2C blade in the portal and do the following steps.
 1. Give the policy a name and record it for later. For this example, you can use "Frontendapp_signupandsignin", note that this will be prefixed with "B2C_1_" to make "B2C_1_Frontendapp_signupandsignin"
 1. Under 'Identity providers' and "Local accounts", check 'Email sign up' (or 'User ID sign up' depending on the config of your B2C tenant) and click OK. This configuration is because we'll be registering local B2C accounts, not deferring to another identity provider (like a social identity provider) to use a user's existing social media account.
 1. Leave the MFA and conditional access settings at their defaults.
-1. Under 'User Attributes and claims', click 'Show More...' then choose the claim options that you want your users to enter and have returned in the token. Check at least 'Display Name' and 'Email Address' to collect, with 'Display Name' and 'Email Addresses' to return (pay careful attention to the fact that you are collecting emailaddress, singular, and asking to return email addresses, multiple), and click 'OK', then click 'Create'.
+1. Under 'User Attributes and claims', click 'Show More...' then choose the claim options that you want your users to enter and have returned in the token. Check at least 'Display Name' and 'Email Address' to collect, with 'Display Name' and 'Email Addresses' to return (pay careful attention to the fact that you're collecting emailaddress, singular, and asking to return email addresses, multiple), and click 'OK', then click 'Create'.
 1. Click on the user flow that you created in the list, then click the 'Run user flow' button.
 1. This action will open the run user flow blade, select the frontend application, copy the user flow endpoint and save it for later.
 1. Copy and store the link at the top, recording as the 'well-known openid configuration endpoint' for later use.
 
    > [!NOTE]
    > B2C Policies allow you to expose the Azure AD B2C login endpoints to be able to capture different data components and sign in users in different ways.
-   > 
-   > In this case we configured a sign-up or sign in flow (policy). This also exposed a well-known configuration endpoint, in both cases our created policy was identified in the URL by the "p=" query string parameter.  
+   >
+   > In this case we configured a sign-up or sign in flow (policy). This also exposed a well-known configuration endpoint, in both cases our created policy was identified in the URL by the "p=" query string parameter.
    >
    > Once this is done, you now have a functional Business to Consumer identity platform that will sign users into multiple applications.
 
@@ -155,18 +155,18 @@ Open the Azure AD B2C blade in the portal and do the following steps.
 1. Select Save.
 
    ```csharp
-   
+
    using System.Net;
    using Microsoft.AspNetCore.Mvc;
    using Microsoft.Extensions.Primitives;
-   
+
    public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
    {
       log.LogInformation("C# HTTP trigger function processed a request.");
-      
+
       return (ActionResult)new OkObjectResult($"Hello World, time and date are {DateTime.Now.ToString()}");
    }
-   
+
    ```
 
    > [!TIP]
@@ -197,11 +197,11 @@ Open the Azure AD B2C blade in the portal and do the following steps.
 1. Click 'Save' (at the top left of the blade).
 
    > [!IMPORTANT]
-   > Now your Function API is deployed and should throw 401 responses if the correct JWT is not supplied as an Authorization: Bearer header, and should return data when a valid request is presented.  
-   > You added additional defense-in-depth security in EasyAuth by configuring the 'Login With Azure AD' option to handle unauthenticated requests. 
+   > Now your Function API is deployed and should throw 401 responses if the correct JWT isn't supplied as an Authorization: Bearer header, and should return data when a valid request is presented.
+   > You added additional defense-in-depth security in EasyAuth by configuring the 'Login With Azure AD' option to handle unauthenticated requests.
    >
-   > We still have no IP security applied, if you have a valid key and OAuth2 token, anyone can call this from anywhere - ideally we want to force all requests to come via API Management.  
-   > 
+   > We still have no IP security applied, if you have a valid key and OAuth2 token, anyone can call this from anywhere - ideally we want to force all requests to come via API Management.
+   >
    > If you're using APIM Consumption tier then [there isn't a dedicated Azure API Management Virtual IP](./api-management-howto-ip-addresses.md#ip-addresses-of-consumption-tier-api-management-service) to allow-list with the functions access-restrictions. In the Azure API Management Standard SKU and above [the VIP is single tenant and for the lifetime of the resource](./api-management-howto-ip-addresses.md#changes-to-the-ip-addresses). For the Azure API Management Consumption tier, you can lock down your API calls via the shared secret function key in the portion of the URI you copied above. Also, for the Consumption tier - steps 12-17 below do not apply.
 
 1. Close the 'Authentication' blade from the App Service / Functions portal.
@@ -224,15 +224,15 @@ You'll need to add CIDR formatted blocks of addresses to the IP restrictions pan
 1. Click Browse, choose the function app you're hosting the API inside, and click select. Next, click select again.
 1. Give the API a name and description for API Management's internal use and add it to the ‘unlimited’ Product.
 1. Copy and record the API's 'base URL' and click 'create'.
-1. Click the 'settings' tab, then under subscription - switch off the 'Subscription Required' checkbox as we will use the Oauth JWT token in this case to rate limit. Note that if you are using the consumption tier, this would still be required in a production environment. 
+1. Click the 'settings' tab, then under subscription - switch off the 'Subscription Required' checkbox as we'll use the Oauth JWT token in this case to rate limit. Note that if you're using the consumption tier, this would still be required in a production environment.
 
    > [!TIP]
-   > If using the consumption tier of APIM the unlimited product won't be available as an out of the box. Instead, navigate to "Products" under "APIs" and hit "Add".  
+   > If using the consumption tier of APIM the unlimited product won't be available as an out of the box. Instead, navigate to "Products" under "APIs" and hit "Add".
    > Type "Unlimited" as the product name and description and select the API you just added from the "+" APIs callout at the bottom left of the screen. Select the "published" checkbox. Leave the rest as default. Finally, hit the "create" button. This created the "unlimited" product and assigned it to your API. You can customize your new product later.
 
 ## Configure and capture the correct storage endpoint settings
 
-1. Open the storage accounts blade in the Azure portal 
+1. Open the storage accounts blade in the Azure portal
 1. Select the account you created and select the 'Static Website' blade from the Settings section (if you don't see a 'Static Website' option, check you created a V2 account).
 1. Set the static web hosting feature to 'enabled', and set the index document name to 'index.html', then click 'save'.
 1. Note down the contents of the 'Primary Endpoint' for later, as this location is where the frontend site will be hosted.
@@ -249,7 +249,7 @@ You'll need to add CIDR formatted blocks of addresses to the IP restrictions pan
 1. Edit the inbound section and paste the below xml so it reads like the following.
 1. Replace the following parameters in the Policy
 1. {PrimaryStorageEndpoint} (The 'Primary Storage Endpoint' you copied in the previous section), {b2cpolicy-well-known-openid} (The 'well-known openid configuration endpoint' you copied earlier) and {backend-api-application-client-id} (The B2C Application / Client ID for the **backend API**) with the correct values saved earlier.
-1. If you're using the Consumption tier of API Management, then you should remove both rate-limit-by-key policy as this policy is not available when using the Consumption tier of Azure API Management.
+1. If you're using the Consumption tier of API Management, then you should remove both rate-limit-by-key policy as this policy isn't available when using the Consumption tier of Azure API Management.
 
    ```xml
    <inbound>
@@ -282,11 +282,11 @@ You'll need to add CIDR formatted blocks of addresses to the IP restrictions pan
 
    > [!NOTE]
    > Now Azure API management is able to respond to cross origin requests from  your JavaScript SPA apps, and it will perform throttling, rate-limiting and pre-validation of the JWT auth token being passed BEFORE forwarding the request on to the Function API.
-   > 
+   >
    > Congratulations, you now have Azure AD B2C, API Management and Azure Functions working together to publish, secure AND consume an API!
 
    > [!TIP]
-   > If you're using the API Management consumption tier then instead of rate limiting by the JWT subject or incoming IP Address (Limit call rate by key policy is not supported today for the "Consumption" tier), you can Limit by call rate quota see [here](rate-limit-policy.md).  
+   > If you're using the API Management consumption tier then instead of rate limiting by the JWT subject or incoming IP Address (Limit call rate by key policy isn't supported today for the "Consumption" tier), you can Limit by call rate quota see [here](rate-limit-policy.md).
    > As this example is a JavaScript Single Page Application, we use the API Management Key only for rate-limiting and billing calls. The actual Authorization and Authentication is handled by Azure AD B2C, and is encapsulated in the JWT, which gets validated twice, once by API Management, and then by the backend Azure Function.
 
 ## Upload the JavaScript SPA sample to static storage
@@ -301,102 +301,102 @@ You'll need to add CIDR formatted blocks of addresses to the IP restrictions pan
          <meta charset="utf-8">
          <meta http-equiv="X-UA-Compatible" content="IE=edge">
          <meta name="viewport" content="width=device-width, initial-scale=1">
-    	 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    	 <script type="text/javascript" src="https://alcdn.msauth.net/browser/2.11.1/js/msal-browser.min.js"></script>
+         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+         <script type="text/javascript" src="https://alcdn.msauth.net/browser/2.11.1/js/msal-browser.min.js"></script>
     </head>
     <body>
          <div class="container-fluid">
              <div class="row">
                  <div class="col-md-12">
-    				<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    					<div class="container-fluid">
-    						<a class="navbar-brand" href="#">Azure Active Directory B2C with Azure API Management</a>
-    						<div class="navbar-nav">
-    							<button class="btn btn-success" id="signinbtn"  onClick="login()">Sign In</a>
-    						</div>
-    					</div>
-    				</nav>
+                    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                        <div class="container-fluid">
+                            <a class="navbar-brand" href="#">Azure Active Directory B2C with Azure API Management</a>
+                            <div class="navbar-nav">
+                                <button class="btn btn-success" id="signinbtn"  onClick="login()">Sign In</a>
+                            </div>
+                        </div>
+                    </nav>
                  </div>
              </div>
              <div class="row">
                  <div class="col-md-12">
                      <div class="card" >
-    					<div id="cardheader" class="card-header">
-    						<div class="card-text"id="message">Please sign in to continue</div>
-    					</div>
-    					<div class="card-body">
-    						<button class="btn btn-warning" id="callapibtn" onClick="getAPIData()">Call API</a>
-    						<div id="progress" class="spinner-border" role="status">
-    							<span class="visually-hidden">Loading...</span>
-    						</div>
-    					</div>
+                        <div id="cardheader" class="card-header">
+                            <div class="card-text"id="message">Please sign in to continue</div>
+                        </div>
+                        <div class="card-body">
+                            <button class="btn btn-warning" id="callapibtn" onClick="getAPIData()">Call API</a>
+                            <div id="progress" class="spinner-border" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                        </div>
                      </div>
                  </div>
              </div>
          </div>
          <script lang="javascript">
-        		// Just change the values in this config object ONLY.
-        		var config = {
-        			msal: {
-        				auth: {
-        					clientId: "{CLIENTID}", // This is the client ID of your FRONTEND application that you registered with the SPA type in Azure Active Directory B2C
-        					authority:  "{YOURAUTHORITYB2C}", // Formatted as https://{b2ctenantname}.b2clogin.com/tfp/{b2ctenantguid or full tenant name including onmicrosoft.com}/{signuporinpolicyname}
-        					redirectUri: "{StoragePrimaryEndpoint}", // The storage hosting address of the SPA, a web-enabled v2 storage account - recorded earlier as the Primary Endpoint.
-        					knownAuthorities: ["{B2CTENANTDOMAIN}"] // {b2ctenantname}.b2clogin.com
-        				},
-        				cache: {
-        					cacheLocation: "sessionStorage",
-        					storeAuthStateInCookie: false 
-        				}
-        			},
-        			api: {
-        				scopes: ["{BACKENDAPISCOPE}"], // The scope that we request for the API from B2C, this should be the backend API scope, with the full URI.
-        				backend: "{APIBASEURL}/hello" // The location that we will call for the backend api, this should be hosted in API Management, suffixed with the name of the API operation (in the sample this is '/hello').
-        			}
-        		}
-        		document.getElementById("callapibtn").hidden = true;
-        		document.getElementById("progress").hidden = true;
-        		const myMSALObj = new msal.PublicClientApplication(config.msal);
-        		myMSALObj.handleRedirectPromise().then((tokenResponse) => {
-        			if(tokenResponse !== null){
-        				console.log(tokenResponse.account);
-        				document.getElementById("message").innerHTML = "Welcome, " + tokenResponse.account.name;
-        				document.getElementById("signinbtn").hidden = true;
-        				document.getElementById("callapibtn").hidden = false;
-        			}}).catch((error) => {console.log("Error Signing in:" + error);
-        		});
-        		function login() {
-        			try {
-        				myMSALObj.loginRedirect({scopes: config.api.scopes});
-        			} catch (err) {console.log(err);}
-        		}
-        		function getAPIData() {
-        			document.getElementById("progress").hidden = false; 
-        			document.getElementById("message").innerHTML = "Calling backend ... "
-        			document.getElementById("cardheader").classList.remove('bg-success','bg-warning','bg-danger');
-        			myMSALObj.acquireTokenSilent({scopes: config.api.scopes, account: getAccount()}).then(tokenResponse => {
-        				const headers = new Headers();
-        				headers.append("Authorization", `Bearer ${tokenResponse.accessToken}`);
-        				fetch(config.api.backend, {method: "GET", headers: headers})
-        					.then(async (response)  => {
-        						if (!response.ok)
-        						{
-        							document.getElementById("message").innerHTML = "Error: " + response.status + " " + JSON.parse(await response.text()).message;
-        							document.getElementById("cardheader").classList.add('bg-warning');
-        						}
-        						else
-        						{
-        							document.getElementById("cardheader").classList.add('bg-success');
-        							document.getElementById("message").innerHTML = await response.text();
-        						}
-        						}).catch(async (error) => {
-        							document.getElementById("cardheader").classList.add('bg-danger');
-        							document.getElementById("message").innerHTML = "Error: " + error;
-        						});
-        			}).catch(error => {console.log("Error Acquiring Token Silently: " + error);
-        			    return myMSALObj.acquireTokenRedirect({scopes: config.api.scopes, forceRefresh: false})
-        			});
-        			document.getElementById("progress").hidden = true;
+                // Just change the values in this config object ONLY.
+                var config = {
+                    msal: {
+                        auth: {
+                            clientId: "{CLIENTID}", // This is the client ID of your FRONTEND application that you registered with the SPA type in Azure Active Directory B2C
+                            authority:  "{YOURAUTHORITYB2C}", // Formatted as https://{b2ctenantname}.b2clogin.com/tfp/{b2ctenantguid or full tenant name including onmicrosoft.com}/{signuporinpolicyname}
+                            redirectUri: "{StoragePrimaryEndpoint}", // The storage hosting address of the SPA, a web-enabled v2 storage account - recorded earlier as the Primary Endpoint.
+                            knownAuthorities: ["{B2CTENANTDOMAIN}"] // {b2ctenantname}.b2clogin.com
+                        },
+                        cache: {
+                            cacheLocation: "sessionStorage",
+                            storeAuthStateInCookie: false
+                        }
+                    },
+                    api: {
+                        scopes: ["{BACKENDAPISCOPE}"], // The scope that we request for the API from B2C, this should be the backend API scope, with the full URI.
+                        backend: "{APIBASEURL}/hello" // The location that we'll call for the backend api, this should be hosted in API Management, suffixed with the name of the API operation (in the sample this is '/hello').
+                    }
+                }
+                document.getElementById("callapibtn").hidden = true;
+                document.getElementById("progress").hidden = true;
+                const myMSALObj = new msal.PublicClientApplication(config.msal);
+                myMSALObj.handleRedirectPromise().then((tokenResponse) => {
+                    if(tokenResponse !== null){
+                        console.log(tokenResponse.account);
+                        document.getElementById("message").innerHTML = "Welcome, " + tokenResponse.account.name;
+                        document.getElementById("signinbtn").hidden = true;
+                        document.getElementById("callapibtn").hidden = false;
+                    }}).catch((error) => {console.log("Error Signing in:" + error);
+                });
+                function login() {
+                    try {
+                        myMSALObj.loginRedirect({scopes: config.api.scopes});
+                    } catch (err) {console.log(err);}
+                }
+                function getAPIData() {
+                    document.getElementById("progress").hidden = false;
+                    document.getElementById("message").innerHTML = "Calling backend ... "
+                    document.getElementById("cardheader").classList.remove('bg-success','bg-warning','bg-danger');
+                    myMSALObj.acquireTokenSilent({scopes: config.api.scopes, account: getAccount()}).then(tokenResponse => {
+                        const headers = new Headers();
+                        headers.append("Authorization", `Bearer ${tokenResponse.accessToken}`);
+                        fetch(config.api.backend, {method: "GET", headers: headers})
+                            .then(async (response)  => {
+                                if (!response.ok)
+                                {
+                                    document.getElementById("message").innerHTML = "Error: " + response.status + " " + JSON.parse(await response.text()).message;
+                                    document.getElementById("cardheader").classList.add('bg-warning');
+                                }
+                                else
+                                {
+                                    document.getElementById("cardheader").classList.add('bg-success');
+                                    document.getElementById("message").innerHTML = await response.text();
+                                }
+                                }).catch(async (error) => {
+                                    document.getElementById("cardheader").classList.add('bg-danger');
+                                    document.getElementById("message").innerHTML = "Error: " + error;
+                                });
+                    }).catch(error => {console.log("Error Acquiring Token Silently: " + error);
+                        return myMSALObj.acquireTokenRedirect({scopes: config.api.scopes, forceRefresh: false})
+                    });
+                    document.getElementById("progress").hidden = true;
              }
             function getAccount() {
                 var accounts = myMSALObj.getAllAccounts();
@@ -414,19 +414,19 @@ You'll need to add CIDR formatted blocks of addresses to the IP restrictions pan
 1. Browse to the Static Website Primary Endpoint you stored earlier in the last section.
 
    > [!NOTE]
-   > Congratulations, you just deployed a JavaScript Single Page App to Azure Storage Static content hosting.  
+   > Congratulations, you just deployed a JavaScript Single Page App to Azure Storage Static content hosting.
    > Since we haven’t configured the JS app with your Azure AD B2C details yet – the page won't work yet if you open it.
 
 ## Configure the JavaScript SPA for Azure AD B2C
 
 1. Now we know where everything is: we can configure the SPA with the appropriate API Management API address and the correct Azure AD B2C application / client IDs.
-1. Go back to the Azure portal storage blade 
-1. Select 'Containers' (under 'Settings') 
+1. Go back to the Azure portal storage blade
+1. Select 'Containers' (under 'Settings')
 1. Select the '$web' container from the list
-1. Select index.html blob from the list 
-1. Click 'Edit' 
+1. Select index.html blob from the list
+1. Click 'Edit'
 1. Update the auth values in the msal config section to match your *front-end* application you registered in B2C earlier. Use the code comments for hints on how the config values should look.
-The *authority* value needs to be in the format:- https://{b2ctenantname}.b2clogin.com/tfp/{b2ctenantname}.onmicrosoft.com}/{signupandsigninpolicyname}, if you have used our sample names and your b2c tenant is called 'contoso' then you would expect the authority to be 'https://contoso.b2clogin.com/tfp/contoso.onmicrosoft.com}/Frontendapp_signupandsignin'.
+The *authority* value needs to be in the format:- https://{b2ctenantname}.b2clogin.com/tfp/{b2ctenantname}.onmicrosoft.com}/{signupandsigninpolicyname}, if you have used our sample names and your b2c tenant is called 'contoso' then you would expect the authority to be 'https://contoso.b2clogin.com/tfp/contoso.onmicrosoft.com/Frontendapp_signupandsignin'.
 1. Set the api values to match your backend address (The API Base Url you recorded earlier, and the 'b2cScopes' values were recorded earlier for the *backend application*).
 1. Click Save
 
@@ -437,10 +437,10 @@ The *authority* value needs to be in the format:- https://{b2ctenantname}.b2clog
 1. Add a new URI for the primary (storage) endpoint (minus the trailing forward slash).
 
    > [!NOTE]
-   > This configuration will result in a client of the frontend application receiving an access token with appropriate claims from Azure AD B2C.  
-   > The SPA will be able to add this as a bearer token in the https header in the call to the backend API.  
-   > 
-   > API Management will pre-validate the token, rate-limit calls to the endpoint by both the subject of the JWT issued by Azure ID (the user) and by IP address of the caller (depending on the service tier of API Management, see the note above), before passing through the request to the receiving Azure Function API, adding the functions security key.  
+   > This configuration will result in a client of the frontend application receiving an access token with appropriate claims from Azure AD B2C.
+   > The SPA will be able to add this as a bearer token in the https header in the call to the backend API.
+   >
+   > API Management will pre-validate the token, rate-limit calls to the endpoint by both the subject of the JWT issued by Azure ID (the user) and by IP address of the caller (depending on the service tier of API Management, see the note above), before passing through the request to the receiving Azure Function API, adding the functions security key.
    > The SPA will render the response in the browser.
    >
    > *Congratulations, you’ve configured Azure AD B2C, Azure API Management, Azure Functions, Azure App Service Authorization to work in perfect harmony!*

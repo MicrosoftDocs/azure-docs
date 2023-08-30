@@ -5,9 +5,9 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 04/12/2022
+ ms.date: 06/14/2023
  ms.author: cherylmc
-ms.custom: include file, devx-track-azurepowershell
+ms.custom: include file
 ---
 
 

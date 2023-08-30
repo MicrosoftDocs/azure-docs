@@ -143,10 +143,10 @@ If you haven't already done so, create the following encryption keys. To automat
 
     ```xml
       <UserJourney Id="HelloWorldJourney">
-  <OrchestrationSteps>
-    <OrchestrationStep Order="1" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
-  </OrchestrationSteps>
-</UserJourney>
+        <OrchestrationSteps>
+          <OrchestrationStep Order="1" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
+        </OrchestrationSteps>
+      </UserJourney>
     ```
     
     We've added a [UserJourney](userjourneys.md). The user journey specifies the business logic the end user goes through as Azure AD B2C processes a request. This user journey has only one step that issues a JTW token with the claims that you'll define in the next step.

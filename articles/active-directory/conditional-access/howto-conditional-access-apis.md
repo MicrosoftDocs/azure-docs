@@ -5,6 +5,7 @@ description: Using the Azure AD Conditional Access APIs and PowerShell to manage
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
+ms.custom: has-azure-ad-ps-ref
 ms.topic: how-to
 ms.date: 09/10/2020
 

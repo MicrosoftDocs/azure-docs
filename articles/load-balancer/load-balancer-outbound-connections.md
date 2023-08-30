@@ -108,6 +108,11 @@ By definition, every IP address has 65,535 ports. Each port can either be used f
 
 Each port used in a load balancing or inbound NAT rule consumes a range of eight ports from the 64,000 available SNAT ports. This usage reduces the number of ports eligible for SNAT, if the same frontend IP is used for outbound connectivity. If load-balancing or inbound NAT rules consumed ports are in the same block of eight ports consumed by another rule, the rules don't require extra ports.
 
+> [!NOTE]
+> If you need to connect to any [supported Azure PaaS services](../private-link/availability.md) like Azure Storage, Azure SQL, or Azure Cosmos DB, you can use Azure Private Link to avoid SNAT entirely. Azure Private Link sends traffic from your virtual network to Azure services over the Azure backbone network instead of over the internet.
+>
+> Private Link is the recommended option over service endpoints for private access to Azure hosted services. For more information on the difference between Private Link and service endpoints, see [Compare Private Endpoints and Service Endpoints](../virtual-network/vnet-integration-for-azure-services.md#compare-private-endpoints-and-service-endpoints).
+
 ### How does default SNAT work?
 
 When a VM creates an outbound flow, Azure translates the source IP address to an ephemeral IP address. This translation is done via SNAT. 
@@ -116,9 +121,15 @@ If using SNAT without outbound rules via a public load balancer, SNAT ports are 
 
 ## <a name="preallocatedports"></a> Default port allocation table
 
-The following <a name="snatporttable"></a>table shows the SNAT port preallocations for backend pool sizes:
+When load balancing rules are selected to use default port allocation, or outbound rules are configured with "Use the default number of outbound ports", SNAT ports are allocated by default based on the backend pool size. Backends will receive the number of ports defined by the table, per frontend IP, up to a maximum of 1024 ports.
 
-| Pool size (VM instances) | Default SNAT ports per IP configuration |
+As an example, with 100 VMs in a backend pool and only one frontend IP, each VM will receive 512 ports. If a second frontend IP is added, each VM will receive an additional 512 ports. This means each VM is allocated a total of 1024 ports. As a result, adding a third frontend IP will NOT increase the number of allocated SNAT ports beyond 1024 ports.
+
+As a rule of thumb, the number of SNAT ports provided when default port allocation is leveraged can be computed as: MIN(# of default SNAT ports provided based on pool size * number of frontend IPs associated with the pool, 1024)
+
+The following <a name="snatporttable"></a>table shows the SNAT port preallocations for a single frontend IP, depending on the backend pool size:
+
+| Pool size (VM instances) | Default SNAT ports |
 | --- | --- |
 | 1-50 | 1,024 |
 | 51-100 | 512 |
@@ -126,6 +137,7 @@ The following <a name="snatporttable"></a>table shows the SNAT port preallocatio
 | 201-400 | 128 |
 | 401-800 | 64 |
 | 801-1,000 | 32 | 
+
 
 ## Port exhaustion
 

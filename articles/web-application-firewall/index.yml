@@ -90,3 +90,11 @@ landingContent:
             url: /azure/architecture/example-scenario/apps/fully-managed-secure-apps
           - text: Network-hardened web app
             url: /azure/architecture/example-scenario/security/hardened-web-app
+
+# Card
+  - title: Learn about Azure network security
+    linkLists:
+      - linkListType: overview
+        links:
+         - text: Azure network security
+           url: ../networking/security/index.yml

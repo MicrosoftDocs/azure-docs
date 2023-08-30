@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 03/23/2023
+ms.date: 08/15/2023
 ms.author: saraic
 ms.reviewer: cynthn, mattmcinnes
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
@@ -390,21 +390,18 @@ New-AzVM `
 ## Community gallery
 
 > [!IMPORTANT]
-> Azure Compute Gallery – community galleries is currently in PREVIEW and subject to the [Preview Terms for Azure Compute Gallery - community gallery](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
 > Microsoft does not provide support for images in the [community gallery](azure-compute-gallery.md#community).
 
-### Reporting issues with a public image 
-Utilizing community-submitted virtual machine images has several risks. Certain images could harbor malware, security vulnerabilities, or violate someone's intellectual property. To help create a secure and reliable experience for the community, you can report images in which you see these issues.
+## Reporting issues with a community image 
+Using community-submitted virtual machine images has several risks. Images could contain malware, security vulnerabilities, or violate someone's intellectual property. To help create a secure and reliable experience for the community, you can report images when you see these issues.
 
-#### Reporting images through the Azure portal:
-Selecting a community image will show several "Report" options. You can report the whole image, or report a specific version if previous versions were unaffected by the issue you encountered.
+The easiest way to report issues with a community gallery is to use the portal, which will pre-fill information for the report:
+- For issues with links or other information in the fields of an image definition, select **Report community image**.
+- If an image version contains malicious code or there are other issues with a specific version of an image, select **Report** under the **Report version** column in the table of image versions.
 
-:::image type="content" source="media/shared-image-galleries/report-options.png" alt-text="Screenshot showing the Report button for malicious images.":::
+You can also use the following links to report issues, but the forms won't be pre-filled:
 
-#### Reporting images externally:
 - Malicious images: Contact [Abuse Report](https://msrc.microsoft.com/report/abuse).
-
 - Intellectual Property violations: Contact [Infringement Report](https://msrc.microsoft.com/report/infringement).
 
 
@@ -458,7 +455,7 @@ To create the VM from community gallery image, you must accept the license agree
 1. For **Security type**, make sure *Standard* is selected.
 1. For your **Image**, select **See all images**. The **Select an image** page will open.
    :::image type="content" source="media/shared-image-galleries/see-all-images.png" alt-text="Screenshot showing the link to select to see more image options.":::
-1. In the left menu, under **Other Items**, select **Community images (PREVIEW)**. The **Other Items | Community Images (PREVIEW)** page will open.
+1. In the left menu, under **Other Items**, select **Community images**. The **Other Items | Community Images** page will open.
    :::image type="content" source="media/shared-image-galleries/community.png" alt-text="Screenshot showing where to select community gallery images.":::
 1. Select an image from the list. Make sure that the **OS state** is *Specialized*. If you want to use a specialized image, see [Create a VM using a generalized image version](vm-generalized-image-version.md). Depending on the image choose, the **Region** the VM will be created in will change to match the image.
 1. Complete the rest of the options and then select the **Review + create** button at the bottom of the page.

@@ -16,13 +16,13 @@ ms.reviewer: scottpolly
 
 # CLI (v2) workspace YAML schema
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/workspace.schema.json.
 
 
 
-[!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
+[!INCLUDE [schema note](includes/machine-learning-preview-old-json-schema-note.md)]
 
 ## YAML syntax
 
@@ -45,6 +45,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `customer_managed_key.key_uri` | string | The key URI of the customer-managed key to encrypt data at rest. The URI format is `https://<keyvault-dns-name>/keys/<key-name>/<key-version>`. | | |
 | `image_build_compute` | string | Name of the compute target to use for building environment Docker images when the container registry is behind a VNet. For more information, see [Secure workspace resources behind VNets](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr). | | |
 | `public_network_access` | string | Whether public endpoint access is allowed if the workspace will be using Private Link. For more information, see [Enable public access when behind VNets](how-to-configure-private-link.md#enable-public-access). | `enabled`, `disabled` | `disabled` |
+| `managed_network` | object | Azure Machine Learning Workspace managed network isolation. For more information, see [Workspace managed network isolation](how-to-managed-network.md). | | | 
 
 ## Remarks
 
@@ -73,6 +74,15 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 ## YAML: high business impact
 
 :::code language="yaml" source="~/azureml-examples-main/cli/resources/workspace/hbi.yml":::
+
+## YAML: managed network with allow internet outbound
+
+:::code language="yaml" source="~/azureml-examples-main/cli/resources/workspace/mvnet-allow-internet-outbound.yml":::
+
+## YAML: managed network with allow only approved outbound
+
+:::code language="yaml" source="~/azureml-examples-main/cli/resources/workspace/mvnet-allow-only-approved-outbound.yml":::
+
 
 ## Next steps
 

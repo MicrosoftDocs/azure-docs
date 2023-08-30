@@ -2,7 +2,8 @@
 title: Use Azure Private Link to securely connect servers to Azure Arc
 description: Learn how to use Azure Private Link to securely connect networks to Azure Arc.
 ms.topic: conceptual
-ms.date: 07/26/2022
+ms.custom: devx-track-linux
+ms.date: 06/20/2023
 ---
 
 # Use Azure Private Link to securely connect servers to Azure Arc
@@ -59,7 +60,7 @@ The Azure Arc-enabled servers Private Link Scope object has a number of limits y
 - The Azure Arc-enabled server and Azure Arc Private Link Scope must be in the same Azure region. The Private Endpoint and the virtual network must also be in the same Azure region, but this region can be different from that of your Azure Arc Private Link Scope and Arc-enabled server.
 - Network traffic to Azure Active Directory and Azure Resource Manager does not traverse the Azure Arc Private Link Scope and will continue to use your default network route to the internet. You can optionally [configure a resource management private link](../../azure-resource-manager/management/create-private-link-access-portal.md) to send Azure Resource Manager traffic to a private endpoint.
 - Other Azure services that you will use, for example Azure Monitor, requires their own private endpoints in your virtual network.
-- Private link for Azure Arc-enabled servers is not currently available in Azure China
+- Remote access to the server using Windows Admin Center or SSH is not supported over private link at this time.
 
 ## Planning your Private Link setup
 

@@ -5,11 +5,11 @@ description: Learn how to configure RADIUS/NPS for user groups to assign IP addr
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 03/31/2023
+ms.date: 05/29/2023
 ms.author: cherylmc
 
 ---
-# RADIUS - Configure NPS for vendor-specific attributes - P2S user groups - Preview
+# RADIUS - Configure NPS for vendor-specific attributes - P2S user groups
 
 The following section describes how to configure Windows Server Network Policy Server (NPS) to authenticate users to respond to Access-Request messages with the Vendor Specific Attribute (VSA) used for user group support in Virtual WAN point-to-site-VPN. The following steps assume that your Network Policy Server is already registered to Active Directory. The steps may vary depending on the vendor/version of your NPS server.
 

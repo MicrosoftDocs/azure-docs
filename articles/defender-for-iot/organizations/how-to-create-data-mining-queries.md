@@ -1,7 +1,7 @@
 ---
 title: Create data mining queries and reports in Defender for IoT
 description: Learn how to create granular reports about network devices.
-ms.date: 12/05/2022
+ms.date: 08/28/2023
 ms.topic: how-to
 ---
 
@@ -32,7 +32,7 @@ The following out-of-the-box reports are listed in the **Recommended** area, rea
 | **Excluded CVEs** | Lists all detected devices that have CVEs that were manually excluded from the **CVEs** report. |
 | **Active Devices (Last 24 Hours)** | Lists all detective devices that have had active traffic within the last 24 hours. |
 | **Remote Access** | Lists all detected devices that communicate through remote session protocols. |
-| **CVEs** | Lists all detected devices with known vulnerabilities, along with CVSSv2 risk scores. <br> <br> Select **Edit** to delete and exclude specific CVEs from the report. <br><br> **Tip**: Delete CVEs to exclude them from the list to have your attack vector reports to reflect your network more accurately. |
+| **CVEs** | Lists all detected devices with known vulnerabilities, along with CVSS risk scores. <br> <br> Select **Edit** to delete and exclude specific CVEs from the report. <br><br> **Tip**: Delete CVEs to exclude them from the list to have your attack vector reports to reflect your network more accurately. |
 | **Nonactive Devices (Last 7 Days)** | Lists all detected devices that haven't communicated for the past seven days. |
 
 Select a report to view today’s data. Use the :::image type="icon" source="media/how-to-generate-reports/refresh-icon.png" border="false"::: **Refresh**, :::image type="icon" source="media/how-to-generate-reports/expand-all-icon.png" border="false"::: **Expand all**, and :::image type="icon" source="media/how-to-generate-reports/collapse-all-icon.png" border="false"::: **Collapse all** options to update and change your report views.

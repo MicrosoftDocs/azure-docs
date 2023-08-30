@@ -12,7 +12,7 @@ metadata:
   ms.topic: landing-page
   author: halkazwini
   ms.author: halkazwini
-  ms.date: 02/24/2023
+  ms.date: 06/13/2023
   ms.custom: engagement-fy23
   
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -31,31 +31,27 @@ landingContent:
         links:
           - text: Locations and partners
             url: location-partners.md
-          - text: Connections
-            url: connection.md
 
   # Card
   - title: Get started
     linkLists:
       - linkListType: concept
         links:
-          - text: Onboarding model
-            url: onboarding-model.md
+          - text: Peering Service connections
+            url: connection.md
       - linkListType: how-to-guide
         links:
           - text: Create a Peering Service connection
             url: azure-portal.md
-
-  # Card
-  - title: Telemetry
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Connection telemetry
-            url: connection-telemetry.md
-      - linkListType: how-to-guide
-        links:
           - text: Access connection telemetry
             url: connection-telemetry.md
-          - text: Measure connection telemetry
-            url: measure-connection-telemetry.md
+
+  # Card
+  - title: Reference
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Azure PowerShell
+            url: /powershell/module/az.peering/
+          - text: Azure CLI
+            url: /cli/azure/peering/

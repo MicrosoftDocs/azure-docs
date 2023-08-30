@@ -10,7 +10,7 @@ ms.subservice: core
 ms.reviewer: mopeakande
 ms.date: 07/01/2022
 ms.topic: how-to
-ms.custom: devx-track-python, sdkv2, event-tier1-build-2022, ignite-2022
+ms.custom: sdkv2, event-tier1-build-2022, ignite-2022
 ---
 
 # Track Azure Databricks ML experiments with MLflow and Azure Machine Learning
@@ -62,7 +62,7 @@ Linking your ADB workspace to your Azure Machine Learning workspace enables you 
 > Dual-tracking in a [private link enabled Azure Machine Learning workspace](how-to-configure-private-link.md) is not supported by the moment. Configure [exclusive tracking with your Azure Machine Learning workspace](#tracking-exclusively-on-azure-machine-learning-workspace) instead.
 > 
 > [!WARNING]
-> Dual-tracking in not supported in Azure China by the moment. Configure [exclusive tracking with your Azure Machine Learning workspace](#tracking-exclusively-on-azure-machine-learning-workspace) instead.
+> Dual-tracking in not supported in Microsoft Azure operated by 21Vianet by the moment. Configure [exclusive tracking with your Azure Machine Learning workspace](#tracking-exclusively-on-azure-machine-learning-workspace) instead.
 
 To link your ADB workspace to a new or existing Azure Machine Learning workspace, 
 1. Sign in to [Azure portal](https://portal.azure.com).
@@ -107,7 +107,7 @@ You have to configure the MLflow tracking URI to point exclusively to Azure Mach
 
     # [Azure CLI](#tab/cli)
     
-    [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+    [!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
     
     1. Login and configure your workspace:
     
@@ -124,7 +124,7 @@ You have to configure the MLflow tracking URI to point exclusively to Azure Mach
         
     # [Python](#tab/python)
     
-    [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+    [!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
     
     You can get the Azure Machine Learning MLflow tracking URI using the [Azure Machine Learning SDK v2 for Python](concept-v2.md). Ensure you have the library `azure-ai-ml` installed in the compute you are using. The following sample gets the unique MLFLow tracking URI associated with your workspace.
     
@@ -228,7 +228,7 @@ You have to configure the MLflow tracking URI to point exclusively to Azure Mach
 
 Once the tracking is configured, you'll also need to configure how the authentication needs to happen to the associated workspace. By default, the Azure Machine Learning plugin for MLflow will perform interactive authentication by opening the default browser to prompt for credentials. Refer to [Configure MLflow for Azure Machine Learning: Configure authentication](how-to-use-mlflow-configure-tracking.md#configure-authentication) to additional ways to configure authentication for MLflow in Azure Machine Learning workspaces.
 
-[!INCLUDE [configure-mlflow-auth](../../includes/machine-learning-mlflow-configure-auth.md)]
+[!INCLUDE [configure-mlflow-auth](includes/machine-learning-mlflow-configure-auth.md)]
 
 #### Experiment's names in Azure Machine Learning
 

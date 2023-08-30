@@ -33,7 +33,7 @@ A virtual network is the fundamental building block for private networks in Azur
 
   # [PowerShell](#tab/azure-powershell)
 
-  1. [Install Azure PowerShell locally](/powershell/azure/install-Az-ps) to run the cmdlets. You need Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find your installed version. If you need to upgrade, see [Update the Azure PowerShell module](/powershell/azure/install-Az-ps#update-the-azure-powershell-module).
+  1. [Install Azure PowerShell locally](/powershell/azure/install-azure-powershell) to run the cmdlets. You need Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find your installed version. If you need to upgrade, see [Update the Azure PowerShell module](/powershell/azure/install-Az-ps#update-the-azure-powershell-module).
 
   1. Run `Connect-AzAccount` to connect to Azure.
 
@@ -89,6 +89,9 @@ When the deployment finishes, a message indicates that the deployment succeeded.
 ## Deploy Azure Bastion
 
 Azure Bastion uses your browser to connect to VMs in your virtual network over secure shell (SSH) or remote desktop protocol (RDP) by using their private IP addresses. The VMs don't need public IP addresses, client software, or special configuration. For more information about Azure Bastion, see [Azure Bastion](~/articles/bastion/bastion-overview.md).
+
+>[!NOTE]
+>[!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
 
 Use the [Azure Bastion as a service](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.network/azure-bastion/main.bicep) Bicep template from [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates) to deploy and configure Azure Bastion in your virtual network. This Bicep template defines the following Azure resources:
 

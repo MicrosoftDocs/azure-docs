@@ -15,7 +15,7 @@
 - Not supported for shared disks.
 - Install and use either:
     - The [latest Azure CLI](/cli/azure/install-azure-cli)
-    - The [latest Azure PowerShell module](/powershell/azure/install-az-ps)
+    - The [latest Azure PowerShell module](/powershell/azure/install-azure-powershell)
     - The [Azure portal](https://portal.azure.com/)
     - Or an Azure Resource Manager template with an API version that's `2021-04-01` or newer.
 - Not available on some classic VMs. Use [this script](#expanding-without-downtime-classic-vm-sku-support) to get a list of classic VM SKUs that support expanding without downtime.

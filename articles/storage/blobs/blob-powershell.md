@@ -4,7 +4,7 @@ titleSuffix: Azure Storage
 description: Manage blobs with PowerShell 
 author: StevenMatthew
 ms.author: shaas
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 05/02/2023
 ms.devlang: powershell
@@ -19,7 +19,7 @@ Blob storage supports block blobs, append blobs, and page blobs. Block blobs are
 
 - An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-- Azure PowerShell module `Az`, which is the recommended PowerShell module for interacting with Azure. To get started with the Az PowerShell module, see [Install Azure PowerShell](/powershell/azure/install-az-ps).
+- Azure PowerShell module `Az`, which is the recommended PowerShell module for interacting with Azure. To get started with the Az PowerShell module, see [Install Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 ### Configure a context object to encapsulate credentials
 

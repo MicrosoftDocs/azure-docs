@@ -2,17 +2,16 @@
 title: Delete an Azure Elastic SAN Preview
 description: Learn how to delete an Azure Elastic SAN Preview with the Azure portal, Azure PowerShell module, or the Azure CLI.
 author: roygara
-ms.service: storage
+ms.service: azure-elastic-san-storage
 ms.topic: how-to
 ms.date: 02/22/2023
 ms.author: rogarana
-ms.subservice: elastic-san
 ms.custom: ignite-2022, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Delete an Elastic SAN Preview
 
-To delete an elastic storage area network (SAN), you first need to disconnect every volume in your Elastic SAN Preview from any connected hosts.
+Your Elastic storage area network (SAN) resources can be deleted at different resource levels. This article covers the overall deletion process, starting from disconnecting iSCSI connections to volumes, deleting the volumes themselves, deleting a volume group, and deleting an elastic SAN itself. Before you delete your elastic SAN, make sure it's not being used in any running workloads.
 
 ## Disconnect volumes from clients
 
@@ -63,9 +62,10 @@ iscsiadm --mode node --target **yourStorageTargetIQN** --portal **yourStorageTar
 
 ## Delete a SAN
 
-When your SAN has no active connections to any clients, you may delete it using the Azure portal or Azure PowerShell module.
+When your SAN has no active connections to any clients, you may delete it using the Azure portal or Azure PowerShell module. If you delete a SAN or a volume group, the corresponding child resources will be deleted along with it. The delete commands for each of the resource levels are below.
 
-First, delete each volume.
+
+To delete volumes, run the following commands.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -80,7 +80,7 @@ az elastic-san volume delete -e $sanName -g $resourceGroupName -v $volumeGroupNa
 ```
 ---
 
-Then, delete each volume group.
+To delete volume groups, run the following commands.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -95,7 +95,7 @@ az elastic-san volume-group delete -e $sanName -g $resourceGroupName -n $volumeG
 ```
 ---
 
-Finally, delete the Elastic SAN itself.
+To delete the Elastic SAN itself, run the following commands.
 
 # [PowerShell](#tab/azure-powershell)
 

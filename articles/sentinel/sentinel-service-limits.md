@@ -14,43 +14,51 @@ This article lists the most common service limits you might encounter as you use
 
 ## Analytics rule limits
 
-[!INCLUDE [sentinel-service-limits](../../includes/sentinel-limits-analytics-rules.md)]
+[!INCLUDE [sentinel-service-limits](includes/sentinel-limits-analytics-rules.md)]
 
 ## Incident limits
 
-[!INCLUDE [sentinel-service-limits](../../includes/sentinel-limits-incidents.md)]
+[!INCLUDE [sentinel-service-limits](includes/sentinel-limits-incidents.md)]
 
 ## Machine learning-based limits
 
-[!INCLUDE [sentinel-service-limits](../../includes/sentinel-limits-machine-learning.md)]
+[!INCLUDE [sentinel-service-limits](includes/sentinel-limits-machine-learning.md)]
 
 ## Multi workspace limits
 
-[!INCLUDE [sentinel-service-limits](../../includes/sentinel-limits-multi-workspace.md)]
+[!INCLUDE [sentinel-service-limits](includes/sentinel-limits-multi-workspace.md)]
 
 ## Notebook limits
 
-[!INCLUDE [sentinel-service-limits](../../includes/sentinel-limits-notebooks.md)]
+[!INCLUDE [sentinel-service-limits](includes/sentinel-limits-notebooks.md)]
 
 ## Repositories limits
 
-[!INCLUDE [sentinel-service-limits](../../includes/sentinel-limits-repositories.md)]
+[!INCLUDE [sentinel-service-limits](includes/sentinel-limits-repositories.md)]
 
 ## Threat intelligence limits
 
-[!INCLUDE [sentinel-service-limits](../../includes/sentinel-limits-threat-intelligence.md)]
+[!INCLUDE [sentinel-service-limits](includes/sentinel-limits-threat-intelligence.md)]
+
+## TI upload indicators API limits
+
+[!INCLUDE [sentinel-service-limits](includes/sentinel-limits-ti-upload-api.md)]
 
 ## User and Entity Behavior Analytics (UEBA) limits
 
-[!INCLUDE [sentinel-service-limits](../../includes/sentinel-limits-ueba.md)]
+[!INCLUDE [sentinel-service-limits](includes/sentinel-limits-ueba.md)]
 
 ## Watchlist limits
 
-[!INCLUDE [sentinel-service-limits](../../includes/sentinel-limits-watchlists.md)]
+[!INCLUDE [sentinel-service-limits](includes/sentinel-limits-watchlists.md)]
 
 ## Workbook limits
 
-[!INCLUDE [sentinel-service-limits](../../includes/sentinel-limits-workbooks.md)]
+[!INCLUDE [sentinel-service-limits](includes/sentinel-limits-workbooks.md)]
+
+## Workspace manager limits
+
+[!INCLUDE [sentinel-service-limits](includes/sentinel-limits-workspace-manager.md)]
 
 ## Next steps
 

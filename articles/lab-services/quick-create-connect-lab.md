@@ -24,8 +24,8 @@ After you complete this quickstart, you'll have a lab that you can connect to an
 ## Prerequisites
 
 [!INCLUDE [Azure subscription](./includes/lab-services-prerequisite-subscription.md)]
-
-[!INCLUDE [Create Azure resources](./includes/lab-services-prerequisite-lab-plan.md)]
+[!INCLUDE [Create and manage labs](./includes/lab-services-prerequisite-create-lab.md)]
+[!INCLUDE [Existing lab plan](./includes/lab-services-prerequisite-lab-plan.md)]
 
 ## Create a lab
 

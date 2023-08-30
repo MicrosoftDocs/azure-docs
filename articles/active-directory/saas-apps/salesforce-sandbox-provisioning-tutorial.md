@@ -46,7 +46,7 @@ Before configuring and enabling the provisioning service, you need to decide whi
 This section guides you through connecting your Azure AD to Salesforce Sandbox's user account provisioning API, and configuring the provisioning service to create, update, and disable assigned user accounts in Salesforce Sandbox based on user and group assignment in Azure AD.
 
 >[!Tip]
->You may also choose to enabled SAML-based Single Sign-On for Salesforce Sandbox, following the instructions provided in [Azure portal](https://portal.azure.com). Single sign-on can be configured independently of automatic provisioning, though these two features compliment each other.
+>You may also choose to enabled SAML-based Single Sign-On for Salesforce Sandbox, following the instructions provided in the [Azure portal](https://portal.azure.com). Single sign-on can be configured independently of automatic provisioning, though these two features compliment each other.
 
 ### Configure automatic user account provisioning
 
@@ -64,9 +64,9 @@ The objective of this section is to outline how to enable user provisioning of A
 
 1. Under the **Admin Credentials** section, provide the following configuration settings:
    
-    a. In the **Admin Username** textbox, type a Salesforce Sandbox account name that has the **System Administrator** profile in Salesforce.com assigned.
+    1. In the **Admin Username** textbox, type a Salesforce Sandbox account name that has the **System Administrator** profile in Salesforce.com assigned.
    
-    b. In the **Admin Password** textbox, type the password for this account.
+    1. In the **Admin Password** textbox, type the password for this account.
 
 1. To get your Salesforce Sandbox security token, open a new tab and sign into the same Salesforce Sandbox admin account. On the top right corner of the page, click your name, and then click **Settings**.
 

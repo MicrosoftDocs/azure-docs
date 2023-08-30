@@ -1,5 +1,5 @@
 ---
-title: Share models, components, and environments across workspaces with registries (preview)
+title: Share models, components, and environments across workspaces with registries
 titleSuffix: Azure Machine Learning
 description: Learn how practice cross-workspace MLOps and collaborate across teams buy sharing models, components and environments through registries.
 services: machine-learning
@@ -8,14 +8,14 @@ ms.subservice: mlops
 ms.author: kritifaujdar
 author: fkriti
 ms.reviewer: larryfr
-ms.date: 09/21/2022
+ms.date: 05/23/2022
 ms.topic: how-to
-ms.custom: devx-track-python, ignite-2022, devx-track-azurecli
+ms.custom: ignite-2022, devx-track-azurecli, build-2023
 ---
 
-# Share models, components, and environments across workspaces with registries (preview)
+# Share models, components, and environments across workspaces with registries
 
-Azure Machine Learning registry (preview) enables you to collaborate across workspaces within your organization. Using registries, you can share models, components, and environments.
+Azure Machine Learning registry enables you to collaborate across workspaces within your organization. Using registries, you can share models, components, and environments.
  
 There are two scenarios where you'd want to use the same set of models, components and environments in multiple workspaces:
 
@@ -29,15 +29,13 @@ In this article, you'll learn how to:
 * Register the trained model in the registry.
 * Deploy the model from the registry to an online-endpoint in the workspace, then submit an inference request.
 
-[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
-
 ## Prerequisites
 
 Before following the steps in this article, make sure you have the following prerequisites:
 
 * An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 
-- An Azure Machine Learning registry (preview) to share models, components and environments. To create a registry, see [Learn how to create a registry](how-to-manage-registries.md).
+- An Azure Machine Learning registry to share models, components and environments. To create a registry, see [Learn how to create a registry](how-to-manage-registries.md).
 
 - An Azure Machine Learning workspace. If you don't have one, use the steps in the [Quickstart: Create workspace resources](quickstart-create-resources.md) article to create one.
 
@@ -295,9 +293,9 @@ ml_client_registry.components.create_or_update(train_model)
 > [!TIP]
 > If you get an error that the name of the component already exists in the registry, you can either update the version with `train_model.version=<unique_version_number>` before creating the component. 
 
-Note down the `name` and `version` of the component from the output and pass them to the `ml_client_registry.component.get()` method to fetch the component from registry. 
+Note down the `name` and `version` of the component from the output and pass them to the `ml_client_registry.components.get()` method to fetch the component from registry. 
 
-You can also use `ml_client_registry.component.list()` to list all components in the registry or browse all components in the Azure Machine Learning studio UI. Make sure you navigate to the global UI and look for the Registries hub.
+You can also use `ml_client_registry.components.list()` to list all components in the registry or browse all components in the Azure Machine Learning studio UI. Make sure you navigate to the global UI and look for the Registries hub.
 
 ---
 

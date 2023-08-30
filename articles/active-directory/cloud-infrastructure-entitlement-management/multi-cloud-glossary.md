@@ -1,6 +1,6 @@
 ---
-title: Permissions Management glossary
-description:  Permissions Management glossary
+title: Microsoft Entra Permissions Management glossary
+description: Microsoft Entra Permissions Management glossary
 services: active-directory
 author: jenniferf-skc
 manager: amycolannino
@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/23/2022
+ms.date: 06/16/2023
 ms.author: jfields
 ---
 
-# The Permissions Management glossary
+# The Microsoft Entra Permissions Management glossary
 
-This glossary provides a list of some of the commonly used cloud terms in Permissions Management. These terms will help Permissions Management users navigate through cloud-specific terms and cloud-generic terms.
+This glossary provides a list of some of the commonly used cloud terms in Microsoft Entra Permissions Management. These terms help Permissions Management users navigate through cloud-specific terms and cloud-generic terms.
 
-## Commonly-used acronyms and terms
+## Commonly used acronyms and terms
 
 | Term                  | Definition                                          |
 |-----------------------|-----------------------------------------------------|
@@ -51,7 +51,7 @@ This glossary provides a list of some of the commonly used cloud terms in Permis
 | JIT                    | Just in Time access can be seen as a way to enforce the principle of least privilege to ensure users and non-human identities are given the minimum level of privileges. It also ensures that privileged activities are conducted in accordance with an organization's Identity Access Management (IAM), IT Service Management (ITSM), and Privileged Access Management (PAM) policies, with its entitlements and workflows. JIT access strategy enables organizations to maintain a full audit trail of privileged activities so they can easily identify who or what gained access to which systems, what they did at what time, and for how long.     |
 | Least privilege        | Ensures that users only gain access to the specific tools they need to complete a task.  |
 | Multi-tenant            | A single instance of the software and its supporting infrastructure serves multiple customers. Each customer shares the software application and also shares a single database.                    |
-| OIDC                    | OpenID Connect. An authentication protocol that verifies user identity when a user is trying to access a protected HTTPs end point. OIDC is an evolutionary development of ideas implemented earlier in OAuth. |
+| OIDC                    | OpenID Connect. An authentication protocol that verifies user identity when a user is trying to access a protected HTTPS end point. OIDC is an evolutionary development of ideas implemented earlier in OAuth. |
 | PAM                   | Privileged access management. Tools that offer one or more of these features: discover, manage, and govern privileged accounts on multiple systems and applications; control access to privileged accounts, including shared and emergency access; randomize, manage, and vault credentials (password, keys, etc.) for administrative, service, and application accounts; single sign-on (SSO) for privileged access to prevent credentials from being revealed; control, filter, and orchestrate privileged commands, actions, and tasks; manage and broker credentials to applications, services, and devices to avoid exposure; and monitor, record, audit, and analyze privileged access, sessions, and actions. |
 | PASM                  | Privileged accounts are protected by vaulting their credentials. Access to those accounts is then brokered for human users, services, and applications. Privileged session management (PSM) functions establish sessions with possible credential injection and full session recording. Passwords and other credentials for privileged accounts are actively managed and changed at definable intervals or upon the occurrence of specific events. PASM solutions may also provide application-to-application password management (AAPM) and zero-install remote privileged access features for IT staff and third parties that don't require a VPN.  |
 | PEDM                  | Specific privileges are granted on the managed system by host-based agents to logged-in users. PEDM tools provide host-based command control (filtering); application allow, deny, and isolate controls; and/or privilege elevation. The latter is in the form of allowing particular commands to be run with a higher level of privileges. PEDM tools execute on the actual operating system at the kernel or process level. Command control through protocol filtering is explicitly excluded from this definition because the point of control is less reliable. PEDM tools may also provide file integrity monitoring features. |
@@ -75,4 +75,4 @@ This glossary provides a list of some of the commonly used cloud terms in Permis
 
 ## Next steps
 
-- For an overview of Permissions Management, see [What's Permissions Management?](overview.md).
+- For an overview of Permissions Management, see [What's Microsoft Entra Permissions Management?](overview.md).

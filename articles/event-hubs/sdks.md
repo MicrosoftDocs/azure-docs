@@ -2,6 +2,7 @@
 title: Azure Event Hubs - Client SDKs | Microsoft Docs
 description: This article provides information about client SDKs for Azure Event Hubs. 
 ms.topic: article
+ms.custom: devx-track-dotnet
 ms.date: 05/05/2023
 ---
 

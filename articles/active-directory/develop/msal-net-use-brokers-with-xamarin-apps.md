@@ -11,7 +11,7 @@ ms.workload: identity
 ms.date: 09/08/2019
 ms.author: dmwendia
 ms.reviewer: jmprieur, saeeda
-ms.custom: "devx-track-csharp, aaddev, has-adal-ref"
+ms.custom: devx-track-csharp, aaddev, has-adal-ref, devx-track-dotnet
 #Customer intent: As an application developer, I want to learn how to use brokers with my Xamarin iOS or Android application and MSAL.NET.
 ---
 
@@ -161,6 +161,8 @@ Add `msauthv2` to the `LSApplicationQueriesSchemes` section of the *Info.plist* 
 
 ### Step 7: Add a redirect URI to your app registration
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 When you use the broker, your redirect URI has an extra requirement. The redirect URI _must_ have the following format:
 
 ```csharp
@@ -179,8 +181,9 @@ Add the redirect URI to the app's registration in the [Azure portal](https://por
 
 **To generate the redirect URI:**
 
-1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
-1. Select **Azure Active Directory** > **App registrations** > your registered app
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Application Developer](../roles/permissions-reference.md#application-developer).
+1. Browse to **Identity** > **Applications** > **Application registrations**.
+1. Search for and select the application.
 1. Select **Authentication** > **Add a platform** > **iOS / macOS**
 1. Enter your bundle ID, and then select **Configure**.
 
@@ -334,7 +337,7 @@ As an alternative, you can configure MSAL to fall back to the embedded browser, 
 
 Here are a few tips on avoiding issues when you implement brokered authentication on Android:
 
-- **Redirect URI** - Add a redirect URI to your application registration in the [Azure portal](https://portal.azure.com/). A missing or incorrect redirect URI is a common issue encountered by developers.
+- **Redirect URI** - Add a redirect URI to your application registration in the [Azure portal](https://portal.azure.com). A missing or incorrect redirect URI is a common issue encountered by developers.
 - **Broker version** - Install the minimum required version of the broker apps. Either of these two apps can be used for brokered authentication on Android.
   - [Intune Company Portal](https://play.google.com/store/apps/details?id=com.microsoft.windowsintune.companyportal) (version 5.0.4689.0 or greater)
   - [Microsoft Authenticator](https://play.google.com/store/apps/details?id=com.azure.authenticator) (version 6.2001.0140 or greater).
