@@ -1,11 +1,11 @@
 ---
-title: Use Elasticsearch along with HDInsight on AKS - Flink
-description: Learn how to use Elasticsearch along HDInsight on AKS - Flink
+title: Use Elasticsearch along with HDInsight on AKS - Apache Flink
+description: Learn how to use Elasticsearch along HDInsight on AKS - Apache Flink
 ms.service: hdinsight-aks
 ms.topic: how-to
 ms.date: 08/29/2023
 ---
-# Using Elasticsearch with HDInsight on AKS - Flink
+# Using Elasticsearch with HDInsight on AKS - Apache Flink
 
 Flink for real-time analytics can be used to build a dashboard application that visualizes the streaming data using Elasticsearch and Kibana. 
 
@@ -324,7 +324,7 @@ Job has been submitted with JobID e0eba72d5143cea53bcf072335a4b1cb
 :::image type="content" source="./media/sink-kafka-to-kibana/elastic-dashboard-2.png" alt-text="Screenshot showing elastic plot with the Kafka click event after refresh." lightbox="./media/sink-kafka-to-kibana/elastic-dashboard-2.png" :::
 
 
-## Validation on Flink Job UI
+## Validation on Apache Flink Job UI
 
 You can find the job in running state on your Flink Web UI
 

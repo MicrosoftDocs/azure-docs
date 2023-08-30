@@ -72,7 +72,7 @@ The cluster pool always aligns to the major version of the clusters. That is, if
 
 :::image type="content" source="./media/versions/cluster-pool-basic-tab.png" alt-text="Screenshot showing cluster pool basic-tab.":::
  
-When creating a HDInsight on AKS cluster or Flink cluster, you can choose the minor.patch version from the supported version list.
+When creating a HDInsight on AKS cluster or Apache Flink cluster, you can choose the minor.patch version from the supported version list.
 
 :::image type="content" source="./media/versions/cluster-details.png" alt-text="Screenshot showing cluster details.":::
 

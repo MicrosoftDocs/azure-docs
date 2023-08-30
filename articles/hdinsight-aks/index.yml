@@ -101,11 +101,11 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Flink?
+          - text: What is Apache Flink?
             url: ./flink/flink-overview.md
       - linkListType: quickstart
         links:
-          - text: Create a Flink cluster
+          - text: Create an Apache Flink cluster
             url: ./flink/flink-create-cluster-portal.md
       - linkListType: tutorial
         links:
@@ -117,7 +117,7 @@ landingContent:
         links:
           - text: Using CLI
             url: ./flink/use-flink-cli-to-submit-jobs.md
-          - text: Delta Lake Tables with Flink
+          - text: Delta Lake Tables with Apache Flink
             url: ./flink/use-flink-delta-connector.md
   - title: Apache Spark
     linkLists:

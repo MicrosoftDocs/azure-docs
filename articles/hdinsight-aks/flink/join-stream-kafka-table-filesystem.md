@@ -55,7 +55,7 @@ We are creating a file called `item attributes` in our storage
 
 :::image type="content" source="./media/join-stream-kafka-table-filesystem/step-2.png" alt-text="Screenshot showing Prepare a batch item attributes file on ADLS Gen2." border="true" lightbox="./media/join-stream-kafka-table-filesystem/step-2.png":::
 
-## Develop the Flink job 
+## Develop the Apache Flink job 
 
 In this step we perform the following activities
 - Enrich the `user_events` topic from Kafka by joining with `item attributes` from a file on ADLS Gen2.
@@ -252,9 +252,9 @@ public class KafkaJoinGen2Demo {
 }
 ```
 
-## Package jar and submit to Flink
+## Package jar and submit to Apache Flink
 
-We're submitting the packaged jar to Flink
+We're submitting the packaged jar to Flink:
 
 :::image type="content" source="./media/join-stream-kafka-table-filesystem/step-4-1-kafka-3-2.png" alt-text="Screenshot showing Packaging the jar and submit to Flink with Kafka 3.2." border="true" lightbox="./media/join-stream-kafka-table-filesystem/step-4-1-kafka-3-2.png":::
 

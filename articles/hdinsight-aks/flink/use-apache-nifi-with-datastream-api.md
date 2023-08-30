@@ -1,18 +1,18 @@
 ---
-title: Use Apache NiFi with HDInsight on AKS Flink to publish into ADLS Gen2
-description: Learn how to use  Apache NiFi to consume Processed Kafka topic from HDInsight Flink on AKS and publish into ADLS Gen2
+title: Use Apache NiFi with HDInsight on AKS Apache Flink to publish into ADLS Gen2
+description: Learn how to use  Apache NiFi to consume Processed Kafka topic from HDInsight Apache Flink on AKS and publish into ADLS Gen2
 ms.service: hdinsight-aks
 ms.topic: how-to
 ms.date: 08/29/2023
 ---
 
-# Use Apache NiFi to consume processed Kafka topics from Flink and publish into ADLS Gen2
+# Use Apache NiFi to consume processed Kafka topics from Apache Flink and publish into ADLS Gen2
 
 Apache NiFi is a software project from the Apache Software Foundation designed to automate the flow of data between software systems. It supports powerful and scalable directed graphs of data routing, transformation, and system mediation logic.
 
 For more information, see [Apache NiFi](https://nifi.apache.org)
 
-In this document, we process streaming data using HDInsight Kafka and perform some transformations on HDInsight Flink on AKS, consume these topics and write the contents into ADLS Gen2 on Apache NiFi.
+In this document, we process streaming data using HDInsight Kafka and perform some transformations on HDInsight Apache Flink on AKS, consume these topics and write the contents into ADLS Gen2 on Apache NiFi.
 
 By combining the low latency streaming features of Apache Flink and the dataflow capabilities of Apache NiFi, you can process events at high volume. This combination helps you to trigger, enrich, filter, to enhance overall user experience. Both these technologies complement each other with their strengths in event streaming and correlation.
 
