@@ -15,7 +15,7 @@ ms.workload: identity
 ms.date: 05/12/2022
 ms.author: jodowns
 ms.collection: M365-identity-device-management 
-ms.custom:
+ms.custom: has-azure-ad-ps-ref
 ---
 
 # Assign a managed identity access to an application role using PowerShell

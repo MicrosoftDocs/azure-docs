@@ -7,6 +7,7 @@ manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
+ms.custom: has-azure-ad-ps-ref
 ms.topic: reference
 ms.date: 01/19/2023
 ms.subservice: hybrid

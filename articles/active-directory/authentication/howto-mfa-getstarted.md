@@ -3,6 +3,7 @@ title: Deployment considerations for Azure AD Multi-Factor Authentication
 description: Learn about deployment considerations and strategy for successful implementation of Azure AD Multi-Factor Authentication
 ms.service: active-directory
 ms.subservice: authentication
+ms.custom: has-azure-ad-ps-ref
 ms.topic: how-to
 ms.date: 03/06/2023
 ms.author: justinha
