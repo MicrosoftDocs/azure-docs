@@ -94,17 +94,17 @@ One or more incompatible SQL modes can cause many different errors. Below is an 
 
 - **Error**: An error occurred as referencing table cannot be found.
 
-  **Potential error message**: The pipeline was unable to create the schema of object '{object}' for activity '{activity}' using strategy MySqlSchemaMigrationViewUsingTableStrategy because of a query execution.   
+  **Potential error message**: The pipeline was unable to create the schema of object '{object}' for activity '{activity}' using strategy MySqlSchemaMigrationViewUsingTableStrategy because of a query execution.
 
-  **Limitation**: The error can occur when the view is referring to a table that has been deleted or renamed, or when the view was created with incorrect or incomplete information.
+  **Limitation**: The error can occur when the view is referring to a table that has been deleted or renamed, or when the view was created with incorrect or incomplete information. This error can happen if a subset of tables are migrated, but the tables they depend on are not.
 
-  **Workaround**: We recommend migrating views manually.
+  **Workaround**: We recommend migrating views manually. Check if all tables referenced in foreign keys and CREATE VIEW statements are selected for migration.
 
 ## All pooled connections broken
 
 - **Error**: All connections on the source server were broken.  
 
-  **Limitation**: The error occurs when all the connections that are acquired at the start of initial load are lost due to server restart, network issues, heavy traffic on the source server or other transient problems. This error isn't recoverable. 
+  **Limitation**: The error occurs when all the connections that are acquired at the start of initial load are lost due to server restart, network issues, heavy traffic on the source server or other transient problems. This error isn't recoverable. Additionally, this error occurs if an attempt to migrate a server is made during the maintenance window.
 
   **Workaround**: The migration must be restarted, and we recommend increasing the performance of the source server. Another issue is scripts that kill long running connections, prevents these scripts from working.
 
