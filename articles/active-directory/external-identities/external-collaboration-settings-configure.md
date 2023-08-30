@@ -29,6 +29,7 @@ External collaboration settings let you specify what roles in your organization 
 - **Allow or block domains**: You can use collaboration restrictions to allow or deny invitations to the domains you specify. For details, see [Allow or block domains](allow-deny-list.md).
 
 For B2B collaboration with other Azure AD organizations, you should also review your [cross-tenant access settings](cross-tenant-access-settings-b2b-collaboration.md) to ensure your inbound and outbound B2B collaboration and scope access to specific users, groups, and applications.
+For B2B collaboration end-users who perform cross-tenant sign-ins, their home tenant branding appears, even if there isn't custom branding specified.
 
 ## Configure settings in the portal
 
@@ -95,13 +96,6 @@ Add-MsolRoleMember -RoleObjectId 95e79109-95c0-4d8e-aee3-d01accf2d47b -RoleMembe
 ## Sign-in logs for B2B users
 
 When a B2B user signs into a resource tenant to collaborate, a sign-in log is generated in both the home tenant and the resource tenant. These logs include information such as the application being used, email addresses, tenant name, and tenant ID for both the home tenant and the resource tenant. 
-
-## B2B collaboration branding changes
-
-Starting from September 30, 2023, when B2B collaboration end-users perform cross-tenant sign-ins, they'll notice a change in branding. Instead of seeing the resource tenant's branding, it will show their home tenant branding, even if there isn't custom branding specified. 
-We're making this change to highlight that the user is signing into their home account. No action is needed from you to enable this change.
-
-:::image type="content" source="media/external-identities-overview/placeholder.png" alt-text="Placeholder alt text."::: 
 
 ## Next steps
 

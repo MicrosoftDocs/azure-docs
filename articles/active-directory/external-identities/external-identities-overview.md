@@ -145,12 +145,7 @@ When you're considering B2B collaboration with a specific external Azure AD orga
 
 - **Example 2**: You allow B2B collaboration with Fabrikam in your cross-tenant access settings, but then you add `fabrikam.com` to your blocked domains in your external collaboration settings. Your users won't be able to invite new Fabrikam guest users, but existing Fabrikam guests will be able to continue using B2B collaboration.
 
-### B2B collaboration branding changes
-
-Starting from September 30, 2023, when B2B collaboration end-users perform cross-tenant sign-ins, they'll notice a change in branding. Instead of seeing the resource tenant's branding, it will show their home tenant branding, even if there isn't custom branding specified. 
-We're making this change to highlight that the user is signing into their home account. No action is needed from you to enable this change.
-
-:::image type="content" source="media/external-identities-overview/placeholder.png" alt-text="Placeholder alt text."::: 
+For B2B collaboration end-users who perform cross-tenant sign-ins, their home tenant branding appears, even if there isn't custom branding specified.
 
 ### Azure Active Directory B2C management
 
