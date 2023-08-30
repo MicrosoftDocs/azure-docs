@@ -92,7 +92,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
     1. In the **Sign Out URL** textbox, paste the **Logout URL** value, which you have copied from the Azure portal.
     1. Open the downloaded **Certificate (Base64)** from the Azure portal and upload it into the **Certificate** by clicking **Browse** option.
     1. Click **Save**.
-    1. Reopen the new **SAML** Authentication and click on edit on the newly created connection, and download the **metadata**. Open the **metadata** file in your favourite Editor, and copy **entityID** and **Assertion Consumer Service Location URL**.
+    1. Reopen the new **SAML** Authentication and click on edit on the newly created connection, and download the **metadata**. Open the **metadata** file in your favorite Editor, and copy **entityID** and **Assertion Consumer Service Location URL**.
 
     > [!Note]
     > For more information on SAML creation, please refer [GAINSIGHT SAML](https://support.gainsight.com/Gainsight_NXT/01Onboarding_and_Implementation/Onboarding_for_Gainsight_NXT/Login_and_Permissions/03Gainsight_Authentication).
