@@ -13,7 +13,7 @@ ms.date: 05/02/2023
 ms.author: pafarley
 ---
 
-# Train a custom Product Recognition model
+# Shelf Product Recognition - Custom Model (preview)
 
 You can train a custom model to recognize specific retail products for use in a Product Recognition scenario. The out-of-box [Analyze](shelf-analyze.md) operation doesn't differentiate between products, but you can build this capability into your app through custom labeling and training.
 
