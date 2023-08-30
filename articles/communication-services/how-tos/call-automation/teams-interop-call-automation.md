@@ -9,7 +9,8 @@ ms.subservice: call-automation
 ms.topic: include
 ms.date: 03/28/2023
 ms.author: visho
-ms.custom: private_preview
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
+zone_pivot_groups: acs-js-csharp-java-python
 services: azure-communication-services
 ---
 
@@ -78,7 +79,8 @@ Response:
 ## Step 3: Add a Teams user to an existing Communication Services call controlled by Call Automation APIs
 You need to complete the prerequisite step and have a web service app to control a Communication Services call. Using the callConnection object, add a participant to the call.
 
-## [csharp](#tab/csharp)
+::: zone pivot="programming-language-csharp"
+
 ```csharp
 CallAutomationClient client = new CallAutomationClient('<Connection_String>');
 AnswerCallResult answer = await client.AnswerCallAsync(incomingCallContext, new Uri('<Callback_URI>'));
@@ -89,23 +91,45 @@ await answer.Value.CallConnection.AddParticipantAsync(
     });
 ```
 
-## [Java](#tab/java)
+::: zone-end
+
+::: zone pivot="programming-language-java"
 
 ```java
- CallAutomationClient client = new CallAutomationClientBuilder().connectionString("<resource_connection_string>").buildClient();
+CallAutomationClient client = new CallAutomationClientBuilder().connectionString("<resource_connection_string>").buildClient();
+AnswerCallResult answer = client.answerCall(incomingCallContext, "<Callback_URI>"));
+answer.getCallConnection().addParticipant(
+    new CallInvite(new MicrosoftTeamsUserIdentifier("<Teams_User_Guid>"))
+        .setSourceDisplayName("Jack (Contoso Tech Support)"));
 ```
 
-## [JavaScript](#tab/javascript)
+::: zone-end
 
-```javascript
+::: zone pivot="programming-language-javascript"
+
+```typescript
 const client = new CallAutomationClient("<resource_connection_string>");
+const answer = await client.answerCall(incomingCallContext, "<Callback_URI>"));
+answer.callConnection.addParticipant({
+    targetParticipant: { microsoftTeamsUserId: "<Teams_User_Guid>" },
+    sourceDisplayName: "Jack (Contoso Tech Support)"
+});
 ```
 
-## [Python](#tab/python)
+::: zone-end
+
+::: zone pivot="programming-language-python"
 
 ```python
 call_automation_client = CallAutomationClient.from_connection_string("<resource_connection_string>")
+answer = call_automation_client.answer_call(incoming_call_context = incoming_call_context, callback_url = "<Callback_URI>")
+call_connection_client = call_automation_client.get_call_connection(answer.call_connection_id)
+call_connection_client.add_participant(target_participant = CallInvite(
+    target = MicrosoftTeamsUserIdentifier(user_id="<USER_ID>"),
+    source_display_name = "Jack (Contoso Tech Support)"))
 ```
+
+::: zone-end
 
 -----
 
@@ -117,56 +141,74 @@ After the Microsoft Teams user accepts the call, the in-call experience for the 
 ![Screenshot of Microsoft Teams user accepting the call and entering the in-call experience for the Microsoft Teams user.](./media/active-call-teams-user.png)
 
 ## Step 4: Remove a Teams user from an existing Communication Services call controlled by Call Automation APIs
-## [csharp](#tab/csharp)
+
+::: zone pivot="programming-language-csharp"
 
 ```csharp
 await answer.Value.CallConnection.RemoveParticipantAsync(new MicrosoftTeamsUserIdentifier('<Teams_User_Guid>'));
 ```
 
-## [Java](#tab/java)
+::: zone-end
+
+::: zone pivot="programming-language-java"
 
 ```java
-
+answer.getCallConnection().removeParticipant(new MicrosoftTeamsUserIdentifier("<Teams_User_Guid>"));
 ```
 
-## [JavaScript](#tab/javascript)
+::: zone-end
 
-```javascript
+::: zone pivot="programming-language-javascript"
 
+```typescript
+answer.callConnection.removeParticipant({ microsoftTeamsUserId: "<Teams_User_Guid>" });
 ```
 
-## [Python](#tab/python)
+::: zone-end
+
+::: zone pivot="programming-language-python"
 
 ```python
-
+call_connection_client.remove_participant(target_participant = MicrosoftTeamsUserIdentifier(user_id="<USER_ID>"))
 ```
+
+::: zone-end
 
 -----
 
 ### Optional feature: Transfer to a Teams user from an existing Communication Services call controlled by Call Automation APIs
-## [csharp](#tab/csharp)
+
+::: zone pivot="programming-language-csharp"
 
 ```csharp
-await answer.Value.CallConnection.TransferCallToParticipantAsync(new CallInvite(new MicrosoftTeamsUserIdentifier('<Teams_User_Guid>')));
+await answer.Value.CallConnection.TransferCallToParticipantAsync(new MicrosoftTeamsUserIdentifier('<Teams_User_Guid>'));
 ```
 
-## [Java](#tab/java)
+::: zone-end
+
+::: zone pivot="programming-language-java"
 
 ```java
-
+answer.getCallConnection().transferCallToParticipant(new MicrosoftTeamsUserIdentifier("<Teams_User_Guid>"));
 ```
 
-## [JavaScript](#tab/javascript)
+::: zone-end
 
-```javascript
+::: zone pivot="programming-language-javascript"
 
+```typescript
+answer.callConnection.transferCallToParticipant({ microsoftTeamsUserId: "<Teams_User_Guid>" });
 ```
 
-## [Python](#tab/python)
+::: zone-end
+
+::: zone pivot="programming-language-python"
 
 ```python
-
+call_connection_client.transfer_call_to_participant(target_participant = MicrosoftTeamsUserIdentifier(user_id = "<USER_ID>"))
 ```
+
+::: zone-end
 
 -----
 
