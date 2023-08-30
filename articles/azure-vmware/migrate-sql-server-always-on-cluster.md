@@ -104,7 +104,7 @@ For details about configuring and managing the quorum, see [Failover Clustering 
 
  
 1. Monitor the progress of the failover in the next screen, and click **Close** when the operation is finished.
-    :::image type="content" source="media/sql-server-hybrid-benefit/sql-always-on-6.png" alt-text="Diagram showing that always on SQL server cluster successfully finished." border="false" lightbox="media/sql-server-hybrid-benefit/sql-always-on-6.png"::: 
+    :::image type="content" source="media/sql-server-hybrid-benefit/sql-always-on-6.png" alt-text="Diagram showing that SQL Server Always On cluster successfully finished." border="false" lightbox="media/sql-server-hybrid-benefit/sql-always-on-6.png"::: 
 
 
 1. Refresh the **Object Explorer** view in SQL Server Management Studio (SSMS), and verify that the migrated instance is now the primary replica.
