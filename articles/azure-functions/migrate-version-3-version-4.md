@@ -245,7 +245,7 @@ Some key classes changed names between versions. These changes are a result eith
 
 ---
 
-[ASP.NET Core integration]: ./dotnet-isolated-process-guide.md#aspnet-core-integration-preview
+[ASP.NET Core integration]: ./dotnet-isolated-process-guide.md#aspnet-core-integration
 
 There might also be class name differences in bindings. For more information, see the reference articles for the specific bindings.
 

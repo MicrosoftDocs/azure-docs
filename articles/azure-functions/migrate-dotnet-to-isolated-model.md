@@ -156,7 +156,7 @@ Some key classes change between the in-process model and the isolated worker mod
 | `IActionResult` |  `HttpResponseData`, `IActionResult` (using [ASP.NET Core integration])|
 | `FunctionsStartup` (attribute) | Uses [`Program.cs`](#programcs-file) instead | 
 
-[ASP.NET Core integration]: ./dotnet-isolated-process-guide.md#aspnet-core-integration-preview
+[ASP.NET Core integration]: ./dotnet-isolated-process-guide.md#aspnet-core-integration
 
 There might also be class name differences in bindings. For more information, see the reference articles for the specific bindings.
 

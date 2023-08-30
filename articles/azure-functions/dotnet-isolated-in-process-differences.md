@@ -28,7 +28,7 @@ Use the following table to compare feature and functional differences between th
 | Binding extension packages | [Microsoft.Azure.WebJobs.Extensions.*](https://www.nuget.org/packages?q=Microsoft.Azure.WebJobs.Extensions)  | [Microsoft.Azure.Functions.Worker.Extensions.*](https://www.nuget.org/packages?q=Microsoft.Azure.Functions.Worker.Extensions) | 
 | Durable Functions | [Supported](durable/durable-functions-overview.md) | [Supported](durable/durable-functions-isolated-create-first-csharp.md?pivots=code-editor-visualstudio) (Support does not yet include Durable Entities) | 
 | Model types exposed by bindings | Simple types<br/>[JSON serializable](/dotnet/api/system.text.json.jsonserializeroptions) types<br/>Arrays/enumerations<br/>Service SDK types<sup>4</sup> | Simple types<br/>JSON serializable types<br/>Arrays/enumerations<br/>[Service SDK types](dotnet-isolated-process-guide.md#sdk-types)<sup>4</sup> |
-| HTTP trigger model types| [HttpRequest] / [IActionResult]<sup>5</sup><br/>[HttpRequestMessage] / [HttpResponseMessage] | [HttpRequestData] / [HttpResponseData]<br/>[HttpRequest] / [IActionResult] (as a [public preview extension][aspnetcore-integration])<sup>5</sup>|
+| HTTP trigger model types| [HttpRequest] / [IActionResult]<sup>5</sup><br/>[HttpRequestMessage] / [HttpResponseMessage] | [HttpRequestData] / [HttpResponseData]<br/>[HttpRequest] / [IActionResult] (using [ASP.NET Core integration][aspnetcore-integration])<sup>5</sup>|
 | Output binding interactions | Return values (single output only),<br/>`out` parameters,<br/>`IAsyncCollector` | Return values in an expanded model with:<br/> - single or [multiple outputs](dotnet-isolated-process-guide.md#multiple-output-bindings)<br/> - arrays of outputs|
 | Imperative bindings<sup>1</sup>  | [Supported](functions-dotnet-class-library.md#binding-at-runtime) | Not supported |
 | Dependency injection | [Supported](functions-dotnet-dependency-injection.md)  | [Supported](dotnet-isolated-process-guide.md#dependency-injection) (improved model consistent with .NET ecosystem) |
@@ -56,7 +56,7 @@ Use the following table to compare feature and functional differences between th
 [HttpRequestMessage]: /dotnet/api/system.net.http.httprequestmessage
 [HttpResponseMessage]: /dotnet/api/system.net.http.httpresponsemessage
 
-[aspnetcore-integration]: ./dotnet-isolated-process-guide.md#aspnet-core-integration-preview
+[aspnetcore-integration]: ./dotnet-isolated-process-guide.md#aspnet-core-integration
 
 [!INCLUDE [functions-dotnet-supported-versions](../../includes/functions-dotnet-supported-versions.md)]
 
