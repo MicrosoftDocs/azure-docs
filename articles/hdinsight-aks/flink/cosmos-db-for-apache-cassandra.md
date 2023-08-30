@@ -13,8 +13,8 @@ This example uses [HDInsight on AKS Flink 1.16.0](../flink/flink-overview.md) to
 ## Prerequisites
 
 * [HDInsight on AKS Flink 1.16.0](../flink/flink-create-cluster-portal.md)
-* [HDInsight 5.1 Kafka 3.2](/azure/hdinsight/kafka/apache-kafka-get-started)
-* [Azure Cosmos DB for Apache Cassandra](/azure/cosmos-db/cassandra/)
+* [HDInsight 5.1 Kafka 3.2](../../hdinsight/azure/hdinsight/kafka/apache-kafka-get-started.md)
+* [Azure Cosmos DB for Apache Cassandra](../../cosmos-db/cassandra/index.yml)
 * Prepare an Ubuntu VM as maven project development env in the same VNet as HDInsight on AKS.
 
 ## Azure Cosmos DB for Apache Cassandra
@@ -23,8 +23,8 @@ Azure Cosmos DB for Apache Cassandra can be used as the data store for apps writ
 
 For more information, see the following links.
 
-* [Azure Cosmos DB for Apache Cassandra](/azure/cosmos-db/cassandra/introduction).
-* [Create a API for Cassandra account in Azure Cosmos DB](/azure/cosmos-db/cassandra/create-account-java).
+* [Azure Cosmos DB for Apache Cassandra](../../cosmos-db/cassandra/introduction.md).
+* [Create a API for Cassandra account in Azure Cosmos DB](../../cosmos-db/cassandra/create-account-java.md).
 
 :::image type="content" source="./media/cosmos-db-for-apache-cassandra/create-cosmos-db-account.png" alt-text="Screenshot showing how to create Azure Cosmos DB for Apache Cassandra on Azure portal." border="true" lightbox="./media/cosmos-db-for-apache-cassandra/create-cosmos-db-account.png":::
 
@@ -536,11 +536,13 @@ if __name__ == "__main__":
 sshuser@hn0-flinkd:~$ python user.py | /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --bootstrap-server wn0-flinkd:9092 --topic user &
 [2] 11516
 ```
+
 ## Check table on Cosmos DB for Apache Cassandra on Azure portal
 
 :::image type="content" source="./media/cosmos-db-for-apache-cassandra/check-tables-on-cosmos-db.png" alt-text="Screenshot showing Cosmos DB for Apache Cassandra on Azure portal." lightbox="./media/cosmos-db-for-apache-cassandra/check-tables-on-cosmos-db.png":::
 
 ### Preferences
-* [Azure Cosmos DB for Apache Cassandra](/azure/cosmos-db/cassandra/introduction).
-* [Create a API for Cassandra account in Azure Cosmos DB](/azure/cosmos-db/cassandra/create-account-java)
+
+* [Azure Cosmos DB for Apache Cassandra](../../cosmos-db/cassandra/introduction.md).
+* [Create a API for Cassandra account in Azure Cosmos DB](../../cosmos-db/cassandra/create-account-java.md)
 * [Azure Samples ](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-java-getting-started)

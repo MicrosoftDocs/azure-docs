@@ -19,8 +19,8 @@ This example uses HDInsight on AKS Flink 1.16.0 to process streaming data consum
 ## Prerequisites
 
 * Both Kafka and Flink need to be in the same VNet or there should be vnet-peering between the two clusters. 
-* [Creation of VNet](/azure/hdinsight/hdinsight-create-virtual-network).
-* [Create a Kafka cluster in the same VNet](/azure/hdinsight/kafka/apache-kafka-get-started). You can choose Kafka 3.2 or 2.4 on HDInsight based on your current usage.
+* [Creation of VNet](../../hdinsight/hdinsight-create-virtual-network.md).
+* [Create a Kafka cluster in the same VNet](../../hdinsight/kafka/apache-kafka-get-started.md). You can choose Kafka 3.2 or 2.4 on HDInsight based on your current usage.
 
   :::image type="content" source="./media/process-consume-data/create-kafka-cluster-in-the-same-vnet.png" alt-text="Screenshot showing how to	create a Kafka cluster in the same VNet." border="true" lightbox="./media/process-consume-data/create-kafka-cluster-in-the-same-vnet.png":::
   
