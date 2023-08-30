@@ -15,7 +15,7 @@ items:
   items: 
     - name: Start a free trial without an Azure subscription
       href: quickstart-trial-setup.md 
-    - name: Create a tenant with Azure subscription
+    - name: Create a tenant with an Azure subscription
       href: quickstart-tenant-setup.md
     - name: Get started guide walkthrough
       href: quickstart-get-started-guide.md
