@@ -48,9 +48,10 @@ string templateName = "sample_shipping_confirmation";
 string templateLanguage = "en_us"; 
 
 var threeDays = new MessageTemplateText("threeDays", "3");
-IEnumerable<MessageTemplateValue> values = new List<MessageTemplateValue> { threeDays };
+IEnumerable<MessageTemplateValue> values = 
+    new List<MessageTemplateValue> { threeDays };
 MessageTemplateWhatsAppBindings bindings = new MessageTemplateWhatsAppBindings(
-  body: new[] { threeDays.Name });
+    body: new[] { threeDays.Name });
 var shippingConfirmationTemplate = new MessageTemplate(templateName, templateLanguage, values, bindings); 
 ``````
 
@@ -87,7 +88,14 @@ var title = new MessageTemplateText("title", "Contoso");
 var time = new MessageTemplateText("time", "July 1st, 2023 12:30PM");
 var venue = new MessageTemplateText("venue", "Southridge Video");
 var seats = new MessageTemplateText("seats", "Seat 1A");
-var values = new List<MessageTemplateValue> { image, title, time, venue, seats };
+IEnumerable<MessageTemplateValue> values = new List<MessageTemplateValue>
+{
+    image,
+    title,
+    time,
+    venue,
+    seats
+};
 var bindings = new MessageTemplateWhatsAppBindings(
     header: new[] { image.Name },
     body: new[] { title.Name, time.Name, venue.Name, seats.Name });
@@ -305,9 +313,9 @@ Call to action buttons for website links are defined as `MessageTemplateQuickAct
 Using the call to action buttons, the `name` is `text`.
 - `text`   
 Using the call to action button for website links, the `text` attribute defines the text that is appended to the URL.   
-For this example, our `text` value is `survey-code`. In the message received by the user, they're presented with a button that links them to the URL https://www.example.com/survey-code.
+For this example, our `text` value is `survey-code`. In the message received by the user, they're presented with a button that links them to the URL `https://www.example.com/survey-code`.
 - `payload`   
-Using the call to action button for website links, the 'payload' attribute isn't required.
+Using the call to action button for website links, the `payload` attribute isn't required.
 
 For more information on buttons, see WhatsApp's documentation for [Button Parameter Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#button-parameter-object).
 
@@ -337,4 +345,3 @@ var bindings = new MessageTemplateWhatsAppBindings(
 
 var purchaseFeedbackTemplate = new MessageTemplate(templateName, templateLanguage, values, bindings);
 ``````
-
