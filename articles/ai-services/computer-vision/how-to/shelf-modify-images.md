@@ -12,13 +12,13 @@ ms.author: ginle
 ms.custom: references_regions, build-2023
 ---
 
-# Shelf Image Composition (Stitching & Rectification): Prepare images for Product Recognition
+# Shelf Image Composition (preview)
 
 Part of the Product Recognition workflow involves fixing and modifying the input images so the service can perform correctly. 
 
-This guide shows you how to use the Stitching API to combine multiple images of the same physical shelf: this gives you a composite image of the entire retail shelf, even if it's only viewed partially by multiple different cameras.
+This guide shows you how to use the **Stitching API** to combine multiple images of the same physical shelf: this gives you a composite image of the entire retail shelf, even if it's only viewed partially by multiple different cameras.
 
-This guide also shows you how to use the Rectification API to correct for perspective distortion when you stitch together different images.
+This guide also shows you how to use the **Rectification API** to correct for perspective distortion when you stitch together different images.
 
 ## Prerequisites
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/) 
