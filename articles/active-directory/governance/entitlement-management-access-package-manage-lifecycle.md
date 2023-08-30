@@ -36,6 +36,8 @@ You can directly convert ungoverned users to be governed by using the **Mark Gue
 
 ## Manage guest user lifecycle in the Azure portal
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 To manage user lifecycle, you'd follow these steps:
 
 **Prerequisite role:** Global administrator, User administrator, Catalog owner, Access package manager or Access package assignment manager

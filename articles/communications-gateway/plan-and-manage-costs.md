@@ -11,7 +11,7 @@ ms.date: 12/06/2022
 
 # Plan and manage costs for Azure Communications Gateway
 
-This article describes how you plan for and manage costs for Azure Communications Gateway.
+This article describes how you are charged for Azure Communications Gateway and how you can plan for and manage these costs.
 
 After you've started using Azure Communications Gateway, you can use Cost Management features to set budgets and monitor costs. You can also review forecasted costs and identify spending trends to identify areas where you might want to act.
 
