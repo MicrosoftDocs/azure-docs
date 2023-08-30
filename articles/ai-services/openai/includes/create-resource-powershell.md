@@ -75,7 +75,7 @@ To deploy a model, use the [New-AzCognitiveServicesAccountDeployment](/powershel
 ```azurepowershell-interactive
 $model = New-Object -TypeName 'Microsoft.Azure.Management.CognitiveServices.Models.DeploymentModel' -Property @{
     Name = 'text-embedding-ada-002'
-    Version = '1'
+    Version = '2'
     Format = 'OpenAI'
 }
 
