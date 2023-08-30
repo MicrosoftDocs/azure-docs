@@ -147,6 +147,7 @@ To Ingest Netflow data into Microsoft sentinel, Filebeat and Logstash needs to b
 
 1. Open a terminal and run the command: 
 > `systemctl start filebeat` 
+
 2. This command will start running filebeat in the background. To see the logs stop the filebeat (`systemctl stop filebeat`) then run the following command: 
 > `filebeat run -e`
 
@@ -154,6 +155,7 @@ To Ingest Netflow data into Microsoft sentinel, Filebeat and Logstash needs to b
 
 1. In another terminal run the command: 
 > `/usr/share/logstash/bin/logstash --path.settings /etc/logstash -f /etc/logstash/cisco-netflow-to-sentinel.conf &` 
+
 2. This command will start running the logstash in the background. To see the logs of logstash kill the above process and run the following command : 
 > `/usr/share/logstash/bin/logstash --path.settings /etc/logstash -f /etc/logstash/cisco-netflow-to-sentinel.conf`
 
