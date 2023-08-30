@@ -276,7 +276,7 @@ The following steps deploy and test the application.
       echo $APP_URL
       ```
 
-      If the web page isn't loaded correctly or it shows `502 Bad Gateway`, that's because the app is starting. You can wait for a while and refresh the web page later.
+      If the web page doesn't render correctly or returns a `502 Bad Gateway` error, that's because the app is still starting in the background. Wait for a few minutes and then try again.
 
 ## Clean up resources
 
