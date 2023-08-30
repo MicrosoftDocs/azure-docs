@@ -317,9 +317,9 @@ If your environment has strict network requirements or firewalls that limit traf
 * [Firewall permissions for single tenant logic apps - Azure portal](create-single-tenant-workflows-azure-portal.md#firewall-setup)
 * [Firewall permissions for single tenant logic apps - Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#firewall-setup)
 
-## Backup and restore run history
+## Back up and restore run history
 
-Standard workflows in single-tenant Azure Logic Apps currently don't support backup and restore for workflow run history.
+Standard workflows in single-tenant Azure Logic Apps currently don't support back up and restore for workflow run history.
 
 ## Next steps
 
