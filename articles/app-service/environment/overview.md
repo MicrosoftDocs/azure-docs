@@ -173,7 +173,7 @@ App Service Environment v3 is available in the following regions:
 
 ### In-region data residency
 
-An App Service Environment will only store customer data including app content, settings and secrets within the region where it's deployed. All data is guaranteed to remain in the region. This is true for both regional and zone redundant App Service Environment.
+An App Service Environment will only store customer data including app content, settings and secrets within the region where it's deployed. All data is guaranteed to remain in the region.
 
 ## App Service Environment v2
 
