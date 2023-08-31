@@ -16,6 +16,8 @@ ms.subservice: sap-automation
 
 ## Supported operating systems
 
+The automation framework supports the following operating systems.
+
 ### Control plane
 
 The deployer virtual machine of the control plane must be deployed on Linux because the Ansible controllers only work on Linux.
@@ -50,7 +52,7 @@ The following distributions have been tested with the framework:
 
 ## Supported database back ends
 
-The framework supports the following database back ends:
+The automation framework supports the following database back ends:
 
 - SAP HANA
 - DB2
@@ -110,7 +112,7 @@ The automation framework can use the following Azure services, features, and cap
 - Azure Key Vault
     - New or existing key vaults
     - Customer-managed keys for disk encryption
-- Azure Application Security Groups
+- Azure application security groups
 - Azure Files for NFS
 - Azure NetApp Files
     - For shared files
