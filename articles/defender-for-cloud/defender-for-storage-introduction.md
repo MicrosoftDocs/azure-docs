@@ -74,7 +74,7 @@ Defender for Storage continuously analyzes data and control plane logs from prot
 ### Malware Scanning (powered by Microsoft Defender Antivirus)
 
 > [!NOTE]
-> **Malware Scanning** **billing will begin on September 3, 2023.** You are encouraged to use the “Monthly capping” feature to define the cap on GB scanned per storage account per month and control costs.
+> **Billing for Malware Scanning begins on September 3, 2023.** To limit expenses, use the `Monthly capping` feature to set a cap on the amount of GB scanned per month, per storage account to help you control your costs.
 Malware Scanning in Defender for Storage helps protect storage accounts from malicious content by performing a full malware scan on uploaded content in near real time, applying Microsoft Defender Antivirus capabilities. It's designed to help fulfill security and compliance requirements to handle untrusted content. Every file type is scanned, and scan results are returned for every file. The Malware Scanning capability is an agentless SaaS solution that allows simple setup at scale, with zero maintenance, and supports automating response at scale.
 This is a configurable feature in the new Defender for Storage plan that is priced per GB scanned.
 Learn more about [Malware Scanning](defender-for-storage-malware-scan.md).
