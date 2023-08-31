@@ -64,7 +64,7 @@ Customers may subscribe to the [Azure Service Health Dashboard](https://azure.mi
 
 Microsoft also recommends that you design your application to prepare for the possibility of write failures. Your application should expose write failures in a way that alerts you to the possibility of an outage in the primary region.
 
-## Understand the account failover process
+## Understand the failover process
 
 To fully understand the impact that customer-managed account failover would have on your users and applications, it is helpful to know what happens during every step of the failover and failback process. For details about how the process works, see [How customer-managed storage account failover works](storage-failover-customer-managed-unplanned.md).
 
