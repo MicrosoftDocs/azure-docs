@@ -191,6 +191,8 @@ kubectl delete deployment azure-vote-front
 kubectl delete service azure-vote-front
 ```
 
+[!INCLUDE [cache-delete-resource-group](includes/cache-delete-resource-group.md)]
+
 ## Related Content
 <!-- Do we want this particular link in this section.
 
