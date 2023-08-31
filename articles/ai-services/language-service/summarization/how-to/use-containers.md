@@ -27,6 +27,7 @@ Containers enable you to host the Summarization API on your own infrastructure. 
 
 [!INCLUDE [Gathering required parameters](../../../containers/includes/container-gathering-required-parameters.md)]
 
+<!---
 ## Host computer requirements and recommendations
 
 [!INCLUDE [Host Computer requirements](../../../../../includes/cognitive-services-containers-host-computer.md)]
@@ -38,20 +39,40 @@ The following table describes the minimum and recommended specifications for the
 | **Summarization**   | 1 core, 2GB memory | 1 core, 4GB memory |15 | 30| 
 
 CPU core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
+--->
 
 ## Get the container image with `docker pull`
 
-The Summarization container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services/textanalytics/` repository and is named `language`. The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-services/textanalytics/language`
+The Summarization container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services/textanalytics/` repository and is named `summarization`. The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-services/textanalytics/language`
 
 To use the latest version of the container, you can use the `latest` tag. You can also find a full list of [tags on the MCR](https://mcr.microsoft.com/product/azure-cognitive-services/textanalytics/language/tags).
 
 Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from the Microsoft Container Registry.
 
 ```
-docker pull mcr.microsoft.com/azure-cognitive-services/textanalytics/language:latest
+docker pull mcr.microsoft.com/azure-cognitive-services/textanalytics/summarization:latest
 ```
 
 [!INCLUDE [Tip for using docker list](../../../../../includes/cognitive-services-containers-docker-list-tip.md)]
+
+## Download the summarization models
+
+A pre-requisite for running the summarization container is to download the models first. This can be done by running one of the following commands:
+
+```bash
+docker run -v {HOST_MODELS_PATH}:/models mcr.microsoft.com/azure-cognitive-services/textanalytics/summarization downloadModels=ExtractiveSummarization billing={ENDPOINT_URI} apikey={API_KEY}
+docker run -v {HOST_MODELS_PATH}:/models mcr.microsoft.com/azure-cognitive-services/textanalytics/summarization downloadModels=AbstractiveSummarization billing={ENDPOINT_URI} apikey={API_KEY}
+docker run -v {HOST_MODELS_PATH}:/models mcr.microsoft.com/azure-cognitive-services/textanalytics/summarization downloadModels=ConversationSummarization billing={ENDPOINT_URI} apikey={API_KEY}
+```
+> [!NOTE]
+> It's not recommended to download models for all skills inside the same `HOST_MODELS_PATH`, as the container loads all models inside the `HOST_MODELS_PATH`. Doing so would use a large amount of memory. It's recommended to only download the model for the skill you need in a particular `HOST_MODELS_PATH`.
+> In order to ensure compatibility between models and the container, re-download the utilized models whenever you create a container using a new image version. When using a disconnected container, the license should be downloaded again after downloading the models.
+
+Then run the following command (note the `rai_terms=accept` part)
+
+```bash
+docker run -p 5000:5000 -v {HOST_MODELS_PATH}:/models mcr.microsoft.com/azure-cognitive-services/textanalytics/summarization eula=accept rai_terms=accept billing={ENDPOINT_URI} apikey={API_KEY}
+```
 
 ## Run the container with `docker run`
 
