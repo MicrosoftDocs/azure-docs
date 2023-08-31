@@ -18,6 +18,9 @@ This article provides coverage information for Azure Maps routing. Upon a search
 
 In the [Azure Maps routing coverage tables], the following information is available.
 
+::: zone pivot="route-v1"
+<!-----------------------------ROUTING V1 ------------------------------------------------------------------------------>
+
 ### Calculate Route
 
 The Calculate Route service calculates a route between an origin and a destination, passing through waypoints if they're specified. For more information, see [Get Route Directions] in the REST API documentation.
@@ -29,6 +32,22 @@ The Calculate Reachable Range service calculates a set of locations that can be 
 ### Matrix Routing
 
 The Matrix Routing service calculates travel time and distance between all possible pairs in a list of origins and destinations. It doesn't provide any detailed information about the routes. You can get one-to-many, many-to-one, or many-to-many route options simply by varying the number of origins and/or destinations. For more information, see [Matrix Routing service] in the REST API documentation.
+
+::: zone-end
+
+<!-----------------------------ROUTING V2 ------------------------------------------------------------------------------>
+::: zone pivot="route-v2"
+In the [Azure Maps routing coverage tables], the following information is available.
+
+### Road Data / Routing (Driving and Walking)
+
+**Good** - The country/region has detailed road data available in most populated centers and most of these have been verified for accuracy. Coverage is updated frequently. Remote areas may lack some road information.
+
+**Fair** - At a minimum, the country/region has major road data available and some detailed road data. Most often, these roads haven't been verified for accuracy. Coverage is updated over time. Visit the map to assess if the current version meets the needs of your application.
+
+**Major Roads Only** - At a minimum, the country/region coverage includes major roads. These roads haven't been verified for accuracy. Coverage is updated over time. Visit the map to assess if the current version meets the needs of your application.
+
+::: zone-end
 
 ### Real-time Traffic
 
@@ -46,6 +65,18 @@ The Azure Maps Truck Routing API provides travel routes that take truck attribut
 
 Azure Maps supports truck routing in the countries/regions indicated in the following tables.
 
+::: zone pivot="route-v2"
+
+### Route direction services
+
+Route Directions V2 API returns the ideal route between a start location, or origin, and an end location, or destination. You can choose to get a route for walking, automobile (driving) or commercial trucks. You can also request route details such as distance, estimated travel time, and step-by-step instructions to navigate the route.
+
+For more information about the Route Directions V2 API, see [Azure Maps Route Service] in the REST API documentation.
+
+::: zone-end
+
+## Azure Maps routing coverage tables
+
 ::: zone pivot="route"
 
 <!------------------------------------------------------------------
@@ -57,9 +88,7 @@ Azure Maps supports truck routing in the countries/regions indicated in the foll
 |   ◑    | Region has partial routing data. |
 ---------------------------------------------------------------->
 
-## Azure Maps routing coverage tables
-
-The following tables provide coverage information for Azure Maps routing.
+The following tables provide coverage information for version 1 of the Azure Maps routing service:
 <!-------------------------------ROUTING------------------------------------------------------------------------------->
 ### Americas
 
@@ -323,6 +352,12 @@ The following tables provide coverage information for Azure Maps routing.
 
 <!-----------------------------ROUTING V2 ------------------------------------------------------------------------------>
 ::: zone pivot="route-v2"
+
+The Azure Maps Routing v2 service contains different levels of geographic coverage for every country/region in the world. The following table contains details about coverage for:
+
+- Road Data / Routing (Driving and Walking)
+- Traffic
+- Truck Routing
 
 | Country/Region                             | Road Data / Routing | Traffic | Truck Routing |
 |--------------------------------------------|---------------------|:-------:|:-------------:|
@@ -591,6 +626,8 @@ For more coverage tables, see:
 - Check out coverage for [Render].
 
 [Azure Maps routing coverage tables]: #azure-maps-routing-coverage-tables
+<!----- TODO: Update with link to route v2 docs when available ----------->
+[Azure Maps Route Service]: https://github.com/Azure/azure-rest-api-specs/blob/koyasu221b-maps-Route-2023-10-01-preview/specification/maps/data-plane/Route/preview/2023-10-01-preview/route.json
 [Geocoding]: geocoding-coverage.md
 [Get Route Directions]: /rest/api/maps/route/get-route-directions
 [Get Route Range]: /rest/api/maps/route/get-route-range
