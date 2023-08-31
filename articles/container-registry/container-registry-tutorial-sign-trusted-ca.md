@@ -45,7 +45,7 @@ In this article:
     # Download, extract and install
     curl -Lo notation.tar.gz https://github.com/notaryproject/notation/releases/download/v1.0.0/notation_1.0.0_linux_amd64.tar.gz
                     
-    # Copy the notation cli to the desired bin directory in your PATH
+    # Copy the notation cli to the desired bin directory in your PATH, for example
     cp ./notation /usr/local/bin
     ```
 
@@ -82,7 +82,7 @@ In this article:
     # Name of the existing Azure Key Vault used to store the signing keys 
     AKV_NAME=myakv 
     
-    # New desired certificate name used to sign and verify 
+    # Name of the certificate created or imported in AKV 
     CERT_NAME=wabbit-networks-io 
     
     # X.509 certificate subject
@@ -105,7 +105,7 @@ In this article:
 
 ## Sign in with Azure CLI
 
-```azure-cli
+```bash
 az login
 ```
 
@@ -124,7 +124,7 @@ The requirements for root and intermediate certificates are as follows:
 
 The requirements for signing certificates are as follows:
 - X.509 certificate properties:
-  - Subject MUST contain `common name (CN)`, `country (C)`, `state or province (ST)`, and `organization (O)`.
+  - Subject MUST contain `common name (CN)`, `country (C)`, `state or province (ST)`, and `organization (O)`. In this tutorial, `$CERT_SUBJECT` is used as the subject.
   - X.509 key usage flags must be `DigitalSignature`.
   - Extended Key Usages (EKUs) must be empty or `1.3.6.1.5.5.7.3.3` (for Codesigning).
 - Key properties:
@@ -154,14 +154,14 @@ To import a certificate, follow these steps:
 
 1. Build and push a new image with ACR Tasks. Always use `digest` to identify the image for signing, because tags are mutable and and can be overwritten.
 
-    ```azurecli-interactive
+    ```bash
     DIGEST=$(az acr build -r $ACR_NAME -t $REGISTRY/${REPO}:$TAG $IMAGE_SOURCE --no-logs --query "outputImages[0].digest" -o tsv)
     IMAGE=$REGISTRY/${REPO}@$DIGEST
     ```
 
 2. Authenticate with your individual Azure AD identity to use an ACR token. 
 
-    ```azurecli-interactive
+    ```bash
     export USER_NAME="00000000-0000-0000-0000-000000000000" 
     export PASSWORD=$(az acr login --name $ACR_NAME --expose-token --output tsv --query accessToken) 
     notation login -u $USER_NAME -p $PASSWORD $REGISTRY 
@@ -176,27 +176,27 @@ To import a certificate, follow these steps:
     
    To set the subscription that contains the AKV resources, run the following command:
 
-   ```azure-cli
+   ```bash
    az account set --subscription <your_subscription_id>
    ```
     
    If the certificate contains the entire certificate chain, the principal must be granted key permission `Sign`, secret permission `Get`, and certificate permissions `Get`. To grant these permissions to the principal, run the following command:
 
-   ```azure-cli
+   ```bash
    USER_ID=$(az ad signed-in-user show --query id -o tsv)
    az keyvault set-policy -n $AKV_NAME --key-permissions sign --secret-permissions get --certificate-permissions get --object-id $USER_ID
    ```
     
    If the certificate doesn't contain the chain, the principal must be granted key permission `Sign`, and certificate permissions `Get`. To grant these permissions to the principal, run the following command:
     
-   ```azure-cli
+   ```bash
    USER_ID=$(az ad signed-in-user show --query id -o tsv)
    az keyvault set-policy -n $AKV_NAME --key-permissions sign --certificate-permissions get --object-id $USER_ID
    ```
 
 4. Get the Key ID for a certificate, assuming the certificate name is $CERT_NAME. A certificate in AKV can have multiple versions, the following command get the Key Id for the latest version.
 
-   ```azurecli-interactive
+   ```bash
    KEY_ID=$(az keyvault certificate show -n $CERT_NAME --vault-name $AKV_NAME --query 'kid' -o tsv) 
    ```
 
@@ -204,19 +204,19 @@ To import a certificate, follow these steps:
 
    If the certificate contains the entire certificate chain, run the following command:
 
-   ```azurecli-interactive
-   notation sign --signature-format cose $IMAGE –id $KEY_ID --plugin azure-kv 
+   ```bash
+   notation sign --signature-format cose $IMAGE --id $KEY_ID --plugin azure-kv 
    ```
 
    If the certificate does not contain the chain, you need to use an additional plugin parameter `--plugin-config ca_certs=<ca_bundle_file>` to pass the CA certificates in a PEM file to AKV plugin, run the following command:
 
-   ```azurecli-interactive
-   notation sign --signature-format cose $IMAGE –id $KEY_ID --plugin azure-kv --plugin-config ca_certs=<ca_bundle_file> 
+   ```bash
+   notation sign --signature-format cose $IMAGE --id $KEY_ID --plugin azure-kv --plugin-config ca_certs=<ca_bundle_file> 
    ```
 
 6. View the graph of signed images and associated signatures. 
 
-    ```azurecli-interactive
+    ```bash
     notation ls $IMAGE 
     ```
 
