@@ -47,7 +47,7 @@ The **AS2 (v2)** connector has no triggers. The following table describes the ac
 
 * The logic app resource and workflow where you want to use the AS2 operations.
 
-* An [integration account resource](logic-apps-enterprise-integration-create-integration-account.md) to define and store artifacts for use in enterprise integration and B2B workflows.
+* An [integration account resource](./enterprise-integration/create-integration-account.md) to define and store artifacts for use in enterprise integration and B2B workflows.
 
   * Both your integration account and logic app resource must exist in the same Azure subscription and Azure region.
 
@@ -59,8 +59,8 @@ The **AS2 (v2)** connector has no triggers. The following table describes the ac
 
   | Logic app workflow | Link required? |
   |--------------------|----------------|
-  | Consumption | - **AS2 (v2)** connector: Connection required, but no link required <br>- **AS2** connector: [Link required](logic-apps-enterprise-integration-create-integration-account.md?tabs=consumption#link-account), but no connection required |
-  | Standard | - **AS2 (v2)** connector: [Link required](logic-apps-enterprise-integration-create-integration-account.md?tabs=standard#link-account), but no connection required <br>- **AS2** connector: Connection required, but no link required |
+  | Consumption | - **AS2 (v2)** connector: Connection required, but no link required <br>- **AS2** connector: [Link required](./enterprise-integration/create-integration-account.md?tabs=consumption#link-account), but no connection required |
+  | Standard | - **AS2 (v2)** connector: [Link required](./enterprise-integration/create-integration-account.md?tabs=standard#link-account), but no connection required <br>- **AS2** connector: Connection required, but no link required |
 
 * If you use [Azure Key Vault](../key-vault/general/overview.md) for certificate management, check that your vault keys permit the **Encrypt** and **Decrypt** operations. Otherwise, the encoding and decoding actions fail.
 
