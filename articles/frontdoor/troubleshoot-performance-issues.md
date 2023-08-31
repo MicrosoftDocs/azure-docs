@@ -3,7 +3,7 @@ title: 'General Performance Troubleshooting of Azure Front Door'
 titleSuffix: Azure Front Door
 description: In this article, investigate, diagnose and resolve potential latency or bandwidth issues associated with an Azure Front Door related site performance
 services: frontdoor
-author: stdoroff
+author: sbdoroff
 ms.service: frontdoor
 ms.topic: how-to
 ms.workload: infrastructure-services
