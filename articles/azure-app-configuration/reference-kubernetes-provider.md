@@ -89,14 +89,14 @@ The `spec.keyValues.keyVaults.refresh` property has the following child property
 
 |Name|Description|Required|Type|
 |---|---|---|---|
-|interval|The interval for Secret's refresh, must be greater than 1 minute|false|duration string|
+|interval|The interval for Secret's refresh, must be greater than 1 minute|true|duration string|
 
 The `spec.keyValues.refresh` property has the following child properties.
 
 |Name|Description|Required|Type|
 |---|---|---|---|
 |monitoring|The key-values that are monitored by the provider, provider automatically refreshes the ConfigMap or Secret if value change in any designated key-value|true|object|
-|interval|The interval for ConfigMap's refresh, default value is 30 seconds, must be greater than 1 second|true|duration string|
+|interval|The interval for ConfigMap's refresh, default value is 30 seconds, must be greater than 1 second|false|duration string|
 
 The `spec.keyValues.refresh.monitoring.keyValues` is an array of objects, which have the following child properties.
 
