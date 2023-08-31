@@ -63,7 +63,7 @@ If you'd like to download a completed version of the app you build in this tutor
 5. Set the **Language** to **Swift** and select **Next**.
 6. Select a folder to create your app and select **Create**.
 
-## Register your application
+## Register the application
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
