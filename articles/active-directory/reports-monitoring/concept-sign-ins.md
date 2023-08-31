@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/28/2023
+ms.date: 08/31/2023
 ms.author: sarahlipsey
 ms.reviewer: besiler
 ---
@@ -83,7 +83,7 @@ When reviewing the logs for this situation, the sign-in logs for the home tenant
 
 ### Non-interactive user sign-ins
 
-Non-interactive sign-ins are done *on behalf of* a user. These sign-ins were performed by a client app or OS components on behalf of a user and don't require the user to provide an authentication factor. Instead, the device or client app uses a token or code to authenticate or access a resource on behalf of a user. In general, the user perceives these sign-ins as happening in the background.
+Non-interactive sign-ins are done *on behalf of a* user. These sign-ins were performed by a client app or OS components on behalf of a user and don't require the user to provide an authentication factor. Instead, Azure AD recognizes when the user's token needs to be refreshed and does so behind the scenes, without interrupting the user's session. In general, the user perceives these sign-ins as happening in the background.
 
 ![Screenshot of the non-interactive user sign-ins log.](media/concept-sign-ins/sign-in-logs-user-noninteractive.png)
 

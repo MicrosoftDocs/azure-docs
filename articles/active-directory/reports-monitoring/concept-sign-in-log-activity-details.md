@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/30/2023
+ms.date: 08/31/2023
 ms.author: sarahlipsey
 ms.reviewer: besiler
 ---
@@ -22,7 +22,7 @@ Azure AD logs all sign-ins into an Azure tenant for compliance purposes. As an I
 
 This article explains the values on the Basic info tab of the sign-ins log.
 
-# [Basic info tab](#tab/basic-info-tab)
+## [Basic info](#tab/basic-info)
 
 The Basic info tab contains most of the details that are also displayed in the table. You can launch the Sign-in Diagnostic from the Basic info tab. For more information, see [How to use the Sign-in Diagnostic](howto-use-sign-in-diagnostics.md).
 
@@ -32,11 +32,11 @@ If a sign-in failed, you can get more information about the reason in the Basic 
 
 ![Screenshot of the sign-in error code on the basics tab.](media/concept-sign-in-log-activity-details/sign-in-error-code.png)
 
-# [Location and Device tabs](#tab/location-and-device-tabs)
+## [Location and Device](#tab/location-and-device)
 
 The **Location** and **Device info** tabs display general information about the location and IP address of the user. The Device info tab provides details on the browser and operating system used to sign in. This tab also provides details on if the device is compliant, managed, or hybrid Azure AD joined.
 
-# [Authentication details tab](#tab/authentication-details-tab)<h3 id="authentication-details"></h3>
+## [Authentication details](#tab/authentication-details)
 
 The **Authentication Details** tab in the details of a sign-in log provides the following information for each authentication attempt:
 
