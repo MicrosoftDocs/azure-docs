@@ -5,7 +5,7 @@ author: dlepow
 ms.service: api-center
 ms.topic: tutorial
 ms.date: 08/31/2023
-ms.author: danlep
+ms.author: danlep 
 ms.custom: 
 ---
 
@@ -261,7 +261,7 @@ Here you add a deployment by associating one of your APIs with the environment y
 
     :::image type="content" source="media/set-up-api-center/add-deployment.png" alt-text="Screenshot of adding an API deployment in the portal." :::
 
-1. Select **Create**
+1. Select **Create**.
 
 In this tutorial, you learned how to use the portal to:
 > [!div class="checklist"]
