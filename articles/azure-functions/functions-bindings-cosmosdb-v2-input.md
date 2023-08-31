@@ -740,7 +740,7 @@ This section contains the following examples that read a single document by spec
 
 The following example shows a [TypeScript function](functions-reference-node.md?tabs=typescript) that reads a single document and updates the document's text value.
 
-# [v4](#tab/nodejs-v4)
+# [Model v4](#tab/nodejs-v4)
 
 ```typescript
 import { app, input, InvocationContext, output } from '@azure/functions';
@@ -776,7 +776,7 @@ app.storageQueue('storageQueueTrigger1', {
 });
 ```
 
-# [v3](#tab/nodejs-v3)
+# [Model v3](#tab/nodejs-v3)
 
 TypeScript samples are not documented for model v3.
 
@@ -788,7 +788,7 @@ TypeScript samples are not documented for model v3.
 
 The following example shows a [TypeScript function](functions-reference-node.md?tabs=typescript) that retrieves a single document. The function is triggered by an HTTP request that uses a query string to specify the ID and partition key value to look up. That ID and partition key value are used to retrieve a `ToDoItem` document from the specified database and collection.
 
-# [v4](#tab/nodejs-v4)
+# [Model v4](#tab/nodejs-v4)
 
 ```typescript
 import { app, HttpRequest, HttpResponseInit, input, InvocationContext } from '@azure/functions';
@@ -823,7 +823,7 @@ app.http('httpTrigger1', {
 });
 ```
 
-# [v3](#tab/nodejs-v3)
+# [Model v3](#tab/nodejs-v3)
 
 TypeScript samples are not documented for model v3.
 
@@ -835,7 +835,7 @@ TypeScript samples are not documented for model v3.
 
 The following example shows a [TypeScript function](functions-reference-node.md?tabs=typescript) that retrieves a single document. The function is triggered by an HTTP request that uses route data to specify the ID and partition key value to look up. That ID and partition key value are used to retrieve a `ToDoItem` document from the specified database and collection.
 
-# [v4](#tab/nodejs-v4)
+# [Model v4](#tab/nodejs-v4)
 
 ```typescript
 import { app, HttpRequest, HttpResponseInit, input, InvocationContext } from '@azure/functions';
@@ -871,7 +871,7 @@ app.http('httpTrigger1', {
 });
 ```
 
-# [v3](#tab/nodejs-v3)
+# [Model v3](#tab/nodejs-v3)
 
 TypeScript samples are not documented for model v3.
 
@@ -885,7 +885,7 @@ The following example shows a [TypeScript function](functions-reference-node.md?
 
 The queue trigger provides a parameter `departmentId`. A queue message of `{ "departmentId" : "Finance" }` would return all records for the finance department.
 
-# [v4](#tab/nodejs-v4)
+# [Model v4](#tab/nodejs-v4)
 
 ```typescript
 import { app, input, InvocationContext } from '@azure/functions';
@@ -912,7 +912,7 @@ app.storageQueue('storageQueueTrigger1', {
 });
 ```
 
-# [v3](#tab/nodejs-v3)
+# [Model v3](#tab/nodejs-v3)
 
 TypeScript samples are not documented for model v3.
 
@@ -934,7 +934,7 @@ This section contains the following examples that read a single document by spec
 
 The following example shows a [JavaScript function](functions-reference-node.md) that reads a single document and updates the document's text value.
 
-# [v4](#tab/nodejs-v4)
+# [Model v4](#tab/nodejs-v4)
 
 ```javascript
 const { app, input, output } = require('@azure/functions');
@@ -968,7 +968,7 @@ app.storageQueue('storageQueueTrigger1', {
 });
 ```
 
-# [v3](#tab/nodejs-v3)
+# [Model v3](#tab/nodejs-v3)
 
 Here's the binding data in the *function.json* file:
 
@@ -1015,7 +1015,7 @@ Here's the JavaScript code:
 
 The following example shows a [JavaScript function](functions-reference-node.md) that retrieves a single document. The function is triggered by an HTTP request that uses a query string to specify the ID and partition key value to look up. That ID and partition key value are used to retrieve a `ToDoItem` document from the specified database and collection.
 
-# [v4](#tab/nodejs-v4)
+# [Model v4](#tab/nodejs-v4)
 
 ```javascript
 const { app, input } = require('@azure/functions');
@@ -1048,7 +1048,7 @@ app.http('httpTrigger1', {
 });
 ```
 
-# [v3](#tab/nodejs-v3)
+# [Model v3](#tab/nodejs-v3)
 
 Here's the *function.json* file:
 
@@ -1108,7 +1108,7 @@ module.exports = async function (context, req, toDoItem) {
 
 The following example shows a [JavaScript function](functions-reference-node.md) that retrieves a single document. The function is triggered by an HTTP request that uses route data to specify the ID and partition key value to look up. That ID and partition key value are used to retrieve a `ToDoItem` document from the specified database and collection.
 
-# [v4](#tab/nodejs-v4)
+# [Model v4](#tab/nodejs-v4)
 
 ```javascript
 const { app, input } = require('@azure/functions');
@@ -1142,7 +1142,7 @@ app.http('httpTrigger1', {
 });
 ```
 
-# [v3](#tab/nodejs-v3)
+# [Model v3](#tab/nodejs-v3)
 
 Here's the *function.json* file:
 
@@ -1206,7 +1206,7 @@ The following example shows a [JavaScript function](functions-reference-node.md)
 
 The queue trigger provides a parameter `departmentId`. A queue message of `{ "departmentId" : "Finance" }` would return all records for the finance department.
 
-# [v4](#tab/nodejs-v4)
+# [Model v4](#tab/nodejs-v4)
 
 ```javascript
 const { app, input } = require('@azure/functions');
@@ -1231,7 +1231,7 @@ app.storageQueue('storageQueueTrigger1', {
 });
 ```
 
-# [v3](#tab/nodejs-v3)
+# [Model v3](#tab/nodejs-v3)
 
 Here's the binding data in the *function.json* file:
 
@@ -1803,11 +1803,11 @@ _Applies only to the Python v1 programming model._
 ::: zone-end
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
 
-# [v4](#tab/nodejs-v4)
+# [Model v4](#tab/nodejs-v4)
 
 The following table explains the properties that you can set on the `options` object passed to the `input.cosmosDB()` method. The "type", "direction", and "name" properties can be ignored for model v4.
 
-# [v3](#tab/nodejs-v3)
+# [Model v3](#tab/nodejs-v3)
 
 The following table explains the binding configuration properties that you set in the *function.json* file, where properties differ by extension version:  
 
@@ -1883,11 +1883,11 @@ From the [Java functions runtime library](/java/api/overview/azure/functions/run
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
 
-# [v4](#tab/nodejs-v4)
+# [Model v4](#tab/nodejs-v4)
 
 Updates are not made automatically upon function exit. Instead, use `context.extraOutputs.set()` to make updates. See the [JavaScript example](#example) for more detail.
 
-# [v3](#tab/nodejs-v3)
+# [Model v3](#tab/nodejs-v3)
 
 Updates are not made automatically upon function exit. Instead, use `context.bindings.<documentName>In` and `context.bindings.<documentName>Out` to make updates. See the [JavaScript example](#example) for more detail.
 

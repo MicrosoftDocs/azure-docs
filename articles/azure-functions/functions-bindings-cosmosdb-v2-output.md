@@ -347,7 +347,7 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
 
-# [v4](#tab/nodejs-v4)
+# [Model v4](#tab/nodejs-v4)
 
 The following example shows a storage queue triggered [TypeScript function](functions-reference-node.md?tabs=typescript) for a queue that receives JSON in the following format:
 
@@ -461,7 +461,7 @@ app.storageQueue('storageQueueTrigger1', {
 });
 ```
 
-# [v3](#tab/nodejs-v3)
+# [Model v3](#tab/nodejs-v3)
 
 TypeScript samples are not documented for model v3.
 
@@ -470,7 +470,7 @@ TypeScript samples are not documented for model v3.
 ::: zone-end
 ::: zone pivot="programming-language-javascript"  
 
-# [v4](#tab/nodejs-v4)
+# [Model v4](#tab/nodejs-v4)
 
 The following example shows a storage queue triggered [JavaScript function](functions-reference-node.md) for a queue that receives JSON in the following format:
 
@@ -555,7 +555,7 @@ app.storageQueue('storageQueueTrigger1', {
 });
 ```
 
-# [v3](#tab/nodejs-v3)
+# [Model v3](#tab/nodejs-v3)
 
 The following example shows an Azure Cosmos DB output binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function uses a queue input binding for a queue that receives JSON in the following format:
 
@@ -807,11 +807,11 @@ _Applies only to the Python v1 programming model._
 ::: zone-end
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
 
-# [v4](#tab/nodejs-v4)
+# [Model v4](#tab/nodejs-v4)
 
 The following table explains the properties that you can set on the `options` object passed to the `output.cosmosDB()` method. The "type", "direction", and "name" properties can be ignored for model v4.
 
-# [v3](#tab/nodejs-v3)
+# [Model v3](#tab/nodejs-v3)
 
 The following table explains the binding configuration properties that you set in the *function.json* file, where properties differ by extension version:  
 

@@ -81,7 +81,7 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
 
-# [v4](#tab/nodejs-v4)
+# [Model v4](#tab/nodejs-v4)
 
 The following example shows an HTTP triggered [TypeScript function](functions-reference-node.md?tabs=typescript) that creates a queue item for each HTTP request received.
 
@@ -130,7 +130,7 @@ app.http('httpTrigger1', {
 });
 ```
 
-# [v3](#tab/nodejs-v3)
+# [Model v3](#tab/nodejs-v3)
 
 TypeScript samples are not documented for model v3.
 
@@ -139,7 +139,7 @@ TypeScript samples are not documented for model v3.
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
 
-# [v4](#tab/nodejs-v4)
+# [Model v4](#tab/nodejs-v4)
 
 The following example shows an HTTP triggered [JavaScript function](functions-reference-node.md) that creates a queue item for each HTTP request received.
 
@@ -184,7 +184,7 @@ app.http('httpTrigger1', {
 });
 ```
 
-# [v3](#tab/nodejs-v3)
+# [Model v3](#tab/nodejs-v3)
 
 The following example shows an HTTP trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function creates a queue item for each HTTP request received.
 
@@ -503,7 +503,7 @@ _Applies only to the Python v1 programming model._
 ::: zone-end
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
 
-# [v4](#tab/nodejs-v4)
+# [Model v4](#tab/nodejs-v4)
 
 The following table explains the properties that you can set on the `options` object passed to the `output.storageQueue()` method.
 
@@ -512,7 +512,7 @@ The following table explains the properties that you can set on the `options` ob
 |**queueName** | The name of the queue. |
 |**connection** | The name of an app setting or setting collection that specifies how to connect to Azure Queues. See [Connections](#connections).|
 
-# [v3](#tab/nodejs-v3)
+# [Model v3](#tab/nodejs-v3)
 
 The following table explains the binding configuration properties that you set in the *function.json* file.
 
@@ -624,11 +624,11 @@ There are two options for writing to a queue from a function by using the [Queue
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript"
 
-# [v4](#tab/nodejs-v4)
+# [Model v4](#tab/nodejs-v4)
 
 Access the output queue item by returning the value directly or using `context.extraOutputs.set()`. You can use a string or a JSON-serializable object for the queue item payload.
 
-# [v3](#tab/nodejs-v3)
+# [Model v3](#tab/nodejs-v3)
 
 Access the output queue item by using `context.bindings.<name>` where `<name>` is the value specified in the `name` property of *function.json*. You can use a string or a JSON-serializable object for the queue item payload.
 

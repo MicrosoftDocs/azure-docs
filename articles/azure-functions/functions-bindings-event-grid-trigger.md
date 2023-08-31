@@ -191,7 +191,7 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
 
-# [v4](#tab/nodejs-v4)
+# [Model v4](#tab/nodejs-v4)
 
 The following example shows an event grid trigger [TypeScript function](functions-reference-node.md?tabs=typescript).
 
@@ -207,7 +207,7 @@ app.eventGrid('eventGridTrigger1', {
 });
 ```
 
-# [v3](#tab/nodejs-v3)
+# [Model v3](#tab/nodejs-v3)
 
 TypeScript samples are not documented for model v3.
 
@@ -216,7 +216,7 @@ TypeScript samples are not documented for model v3.
 ::: zone-end
 ::: zone pivot="programming-language-javascript"  
 
-# [v4](#tab/nodejs-v4)
+# [Model v4](#tab/nodejs-v4)
 
 The following example shows an event grid trigger [JavaScript function](functions-reference-node.md).
 
@@ -230,7 +230,7 @@ app.eventGrid('eventGridTrigger1', {
 });
 ```
 
-# [v3](#tab/nodejs-v3)
+# [Model v3](#tab/nodejs-v3)
 
 The following example shows a trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding.
 
@@ -386,11 +386,11 @@ The [EventGridTrigger](/java/api/com.microsoft.azure.functions.annotation.eventg
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
 ## Configuration
 
-# [v4](#tab/nodejs-v4)
+# [Model v4](#tab/nodejs-v4)
 
 The `options` object passed to the `app.eventGrid()` method currently doesn't support any properties for model v4.
 
-# [v3](#tab/nodejs-v3)
+# [Model v3](#tab/nodejs-v3)
 
 The following table explains the binding configuration properties that you set in the *function.json* file.
 

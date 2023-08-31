@@ -93,7 +93,7 @@ The following example shows a [C# function](../articles/azure-functions/dotnet-i
 ::: zone-end 
 ::: zone pivot="programming-language-typescript"  
 
-# [v4](#tab/nodejs-v4)
+# [Model v4](#tab/nodejs-v4)
 
 The following example shows an Event Hubs trigger [TypeScript function](../articles/azure-functions/functions-reference-node.md?tabs=typescript). The function reads [event metadata](#event-metadata) and logs the message.
 
@@ -138,7 +138,7 @@ app.eventHub('eventHubTrigger1', {
 });
 ```
 
-# [v3](#tab/nodejs-v3)
+# [Model v3](#tab/nodejs-v3)
 
 TypeScript samples are not documented for model v3.
 
@@ -147,7 +147,7 @@ TypeScript samples are not documented for model v3.
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
 
-# [v4](#tab/nodejs-v4)
+# [Model v4](#tab/nodejs-v4)
 
 The following example shows an Event Hubs trigger [JavaScript function](../articles/azure-functions/functions-reference-node.md). The function reads [event metadata](#event-metadata) and logs the message.
 
@@ -189,7 +189,7 @@ app.eventHub('eventHubTrigger1', {
 
 ```
 
-# [v3](#tab/nodejs-v3)
+# [Model v3](#tab/nodejs-v3)
 
 The following example shows an Event Hubs trigger binding in a *function.json* file and a [JavaScript function](../articles/azure-functions/functions-reference-node.md) that uses the binding. The function reads [event metadata](#event-metadata) and logs the message.
 
@@ -463,7 +463,7 @@ _Applies only to the Python v1 programming model._
 ::: zone-end
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
 
-# [v4](#tab/nodejs-v4)
+# [Model v4](#tab/nodejs-v4)
 
 The following table explains the properties that you can set on the `options` object passed to the `app.eventHub()` method.
 
@@ -474,7 +474,7 @@ The following table explains the properties that you can set on the `options` ob
 |**cardinality** | Set to `many` in order to enable batching.  If omitted or set to `one`, a single message is passed to the function.|
 |**connection** | The name of an app setting or setting collection that specifies how to connect to Event Hubs. See [Connections](#connections).|
 
-# [v3](#tab/nodejs-v3)
+# [Model v3](#tab/nodejs-v3)
 
 The following table explains the binding configuration properties that you set in the *function.json* file.
 

@@ -84,7 +84,7 @@ public void run(
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
 
-# [v4](#tab/nodejs-v4)
+# [Model v4](#tab/nodejs-v4)
 
 The following example shows a blob trigger [TypeScript code](functions-reference-node.md). The function writes a log when a blob is added or updated in the `samples-workitems` container.
 
@@ -106,7 +106,7 @@ app.storageBlob('storageBlobTrigger1', {
 });
 ```
 
-# [v3](#tab/nodejs-v3)
+# [Model v3](#tab/nodejs-v3)
 
 TypeScript samples are not documented for model v3.
 
@@ -115,7 +115,7 @@ TypeScript samples are not documented for model v3.
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
 
-# [v4](#tab/nodejs-v4)
+# [Model v4](#tab/nodejs-v4)
 
 The following example shows a blob trigger [JavaScript code](functions-reference-node.md). The function writes a log when a blob is added or updated in the `samples-workitems` container.
 
@@ -135,7 +135,7 @@ app.storageBlob('storageBlobTrigger1', {
 });
 ```
 
-# [v3](#tab/nodejs-v3)
+# [Model v3](#tab/nodejs-v3)
 
 The following example shows a blob trigger binding in a *function.json* file and [JavaScript code](functions-reference-node.md) that uses the binding. The function writes a log when a blob is added or updated in the `samples-workitems` container.
 
@@ -332,7 +332,7 @@ _Applies only to the Python v1 programming model._
 ::: zone-end
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
 
-# [v4](#tab/nodejs-v4)
+# [Model v4](#tab/nodejs-v4)
 
 The following table explains the properties that you can set on the `options` object passed to the `app.storageBlob()` method.
 
@@ -341,7 +341,7 @@ The following table explains the properties that you can set on the `options` ob
 |**path** | The [container](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources) to monitor.  May be a [blob name pattern](#blob-name-patterns). |
 |**connection** | The name of an app setting or setting collection that specifies how to connect to Azure Blobs. See [Connections](#connections).|
 
-# [v3](#tab/nodejs-v3)
+# [Model v3](#tab/nodejs-v3)
 
 The following table explains the binding configuration properties that you set in the *function.json* file.
 
@@ -404,7 +404,7 @@ The blob trigger provides several metadata properties. These properties can be u
 |`properties` |The blob's system properties. |
 |`metadata`   |The user-defined metadata for the blob.|
 
-# [v4](#tab/nodejs-v4)
+# [Model v4](#tab/nodejs-v4)
 
 Metadata can be obtained from the `triggerMetadata` property of the supplied `context` object, as shown in the following example, which logs the path to the triggering blob (`blobTrigger`), including the container:
 
@@ -412,7 +412,7 @@ Metadata can be obtained from the `triggerMetadata` property of the supplied `co
 context.log(`Full blob path: ${context.triggerMetadata.blobTrigger}`);
 ```
 
-# [v3](#tab/nodejs-v3)
+# [Model v3](#tab/nodejs-v3)
 
 Metadata can be obtained from the `bindingData` property of the supplied `context` object, as shown in the following example, which logs the path to the triggering blob (`blobTrigger`), including the container:
 
@@ -458,11 +458,11 @@ If you get an error message when trying to bind to one of the Storage SDK types,
 The `@BlobTrigger` attribute is used to give you access to the blob that triggered the function. Refer to the [trigger example](#example) for details.
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
-# [v4](#tab/nodejs-v4)
+# [Model v4](#tab/nodejs-v4)
 
 Access the blob data as the first argument to your function.
 
-# [v3](#tab/nodejs-v3)
+# [Model v3](#tab/nodejs-v3)
 
 Access blob data using `context.bindings.<NAME>` where `<NAME>` matches the value defined in *function.json*.
 

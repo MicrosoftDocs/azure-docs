@@ -89,7 +89,7 @@ The following example shows a [C# function](dotnet-isolated-process-guide.md) th
 ::: zone-end 
 ::: zone pivot="programming-language-typescript"  
 
-# [v4](#tab/nodejs-v4)
+# [Model v4](#tab/nodejs-v4)
 
 The following example shows a timer triggered [TypeScript function](functions-reference-node.md?tabs=typescript) that sends a single message to an event hub:
 
@@ -132,7 +132,7 @@ app.timer('timerTrigger1', {
 });
 ```
 
-# [v3](#tab/nodejs-v3)
+# [Model v3](#tab/nodejs-v3)
 
 TypeScript samples are not documented for model v3.
 
@@ -141,7 +141,7 @@ TypeScript samples are not documented for model v3.
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
 
-# [v4](#tab/nodejs-v4)
+# [Model v4](#tab/nodejs-v4)
 
 The following example shows a timer triggered [JavaScript function](functions-reference-node.md) that sends a single message to an event hub:
 
@@ -184,7 +184,7 @@ app.timer('timerTrigger1', {
 });
 ```
 
-# [v3](#tab/nodejs-v3)
+# [Model v3](#tab/nodejs-v3)
 
 The following example shows an event hub trigger binding in a *function.json* file and a function that uses the binding. The function writes an output message to an event hub.
 
@@ -368,7 +368,7 @@ _Applies only to the Python v1 programming model._
 ::: zone-end
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
 
-# [v4](#tab/nodejs-v4)
+# [Model v4](#tab/nodejs-v4)
 
 The following table explains the properties that you can set on the `options` object passed to the `output.eventHub()` method.
 
@@ -377,7 +377,7 @@ The following table explains the properties that you can set on the `options` ob
 |**eventHubName** | The name of the event hub. When the event hub name is also present in the connection string, that value overrides this property at runtime. |
 |**connection**  | The name of an app setting or setting collection that specifies how to connect to Event Hubs. To learn more, see [Connections](#connections).|
 
-# [v3](#tab/nodejs-v3)
+# [Model v3](#tab/nodejs-v3)
 
 The following table explains the binding configuration properties that you set in the *function.json* file.
 
@@ -476,11 +476,11 @@ Complete PowerShell examples are pending.
 ::: zone-end 
 ::: zone pivot="programming-language-javascript,programming-language-typescript"
 
-# [v4](#tab/nodejs-v4)
+# [Model v4](#tab/nodejs-v4)
 
 Access the output message by returning the value directly or using `context.extraOutputs.set()`.
 
-# [v3](#tab/nodejs-v3)
+# [Model v3](#tab/nodejs-v3)
 
 Access the output event by using `context.bindings.<name>` where `<name>` is the value specified in the `name` property of *function.json*.
 

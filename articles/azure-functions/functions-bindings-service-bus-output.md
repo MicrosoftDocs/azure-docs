@@ -96,7 +96,7 @@ Java functions can also write to a Service Bus topic. The following example uses
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
 
-# [v4](#tab/nodejs-v4)
+# [Model v4](#tab/nodejs-v4)
 
 The following example shows a timer triggered [TypeScript function](functions-reference-node.md?tabs=typescript) that sends a queue message every 5 minutes.
 
@@ -139,7 +139,7 @@ app.timer('timerTrigger1', {
 });
 ```
 
-# [v3](#tab/nodejs-v3)
+# [Model v3](#tab/nodejs-v3)
 
 TypeScript samples are not documented for model v3.
 
@@ -148,7 +148,7 @@ TypeScript samples are not documented for model v3.
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
 
-# [v4](#tab/nodejs-v4)
+# [Model v4](#tab/nodejs-v4)
 
 The following example shows a timer triggered [JavaScript function](functions-reference-node.md) that sends a queue message every 5 minutes.
 
@@ -191,7 +191,7 @@ app.timer('timerTrigger1', {
 });
 ```
 
-# [v3](#tab/nodejs-v3)
+# [Model v3](#tab/nodejs-v3)
 
 The following example shows a Service Bus output binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function uses a timer trigger to send a queue message every 15 seconds.
 
@@ -446,7 +446,7 @@ _Applies only to the Python v1 programming model._
 ::: zone-end
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
 
-# [v4](#tab/nodejs-v4)
+# [Model v4](#tab/nodejs-v4)
 
 The following table explains the properties that you can set on the `options` object passed to the `output.serviceBusQueue()` method.
 
@@ -462,7 +462,7 @@ The following table explains the properties that you can set on the `options` ob
 |**topicName**|Name of the topic. |
 |**connection**|The name of an app setting or setting collection that specifies how to connect to Service Bus. See [Connections](#connections).|
 
-# [v3](#tab/nodejs-v3)
+# [Model v3](#tab/nodejs-v3)
 
 The following table explains the binding configuration properties that you set in the *function.json* file.
 
@@ -559,11 +559,11 @@ Use the [Azure Service Bus SDK](../service-bus-messaging/index.yml) rather than 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
 
-# [v4](#tab/nodejs-v4)
+# [Model v4](#tab/nodejs-v4)
 
 Access the output message by returning the value directly or using `context.extraOutputs.set()`.
 
-# [v3](#tab/nodejs-v3)
+# [Model v3](#tab/nodejs-v3)
 
 Access the output message by using `context.bindings.<name>` where `<name>` is the value specified in the `name` property of *function.json*.
 

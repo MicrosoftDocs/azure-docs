@@ -281,7 +281,7 @@ class EventGridEvent {
 ::: zone-end  
 ::: zone pivot="programming-language-typescript" 
 
-# [v4](#tab/nodejs-v4)
+# [Model v4](#tab/nodejs-v4)
 
 The following example shows a timer triggered [TypeScript function](functions-reference-node.md?tabs=typescript) that outputs a single event:
 
@@ -353,7 +353,7 @@ app.timer('timerTrigger1', {
 });
 ```
 
-# [v3](#tab/nodejs-v3)
+# [Model v3](#tab/nodejs-v3)
 
 TypeScript samples are not documented for model v3.
 
@@ -362,7 +362,7 @@ TypeScript samples are not documented for model v3.
 ::: zone-end
 ::: zone pivot="programming-language-javascript" 
 
-# [v4](#tab/nodejs-v4)
+# [Model v4](#tab/nodejs-v4)
 
 The following example shows a timer triggered [JavaScript function](functions-reference-node.md) that outputs a single event:
 
@@ -434,7 +434,7 @@ app.timer('timerTrigger1', {
 });
 ```
 
-# [v3](#tab/nodejs-v3)
+# [Model v3](#tab/nodejs-v3)
 
 The following example shows the Event Grid output binding data in the *function.json* file.
 
@@ -690,7 +690,7 @@ public class Function {
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
 ## Configuration
 
-# [v4](#tab/nodejs-v4)
+# [Model v4](#tab/nodejs-v4)
 
 The following table explains the properties that you can set on the `options` object passed to the `output.eventGrid()` method.
 
@@ -699,7 +699,7 @@ The following table explains the properties that you can set on the `options` ob
 |**topicEndpointUri** | The name of an app setting that contains the URI for the custom topic, such as `MyTopicEndpointUri`. |
 |**topicKeySetting** | The name of an app setting that contains an access key for the custom topic. |
 
-# [v3](#tab/nodejs-v3)
+# [Model v3](#tab/nodejs-v3)
 
 The following table explains the binding configuration properties that you set in the *function.json* file.
 
@@ -793,11 +793,11 @@ Send individual messages by calling a method parameter such as `out EventGridOut
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
 
-# [v4](#tab/nodejs-v4)
+# [Model v4](#tab/nodejs-v4)
 
 Access the output message by returning the value directly or using `context.extraOutputs.set()`.
 
-# [v3](#tab/nodejs-v3)
+# [Model v3](#tab/nodejs-v3)
 
 Access the output event by using `context.bindings.<name>` where `<name>` is the value specified in the `name` property of *function.json*.
 

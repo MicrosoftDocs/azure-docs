@@ -143,7 +143,7 @@ def main(mytimer: func.TimerRequest) -> None:
 
 The following example shows a timer trigger [TypeScript function](functions-reference-node.md?tabs=typescript).
 
-# [v4](#tab/nodejs-v4)
+# [Model v4](#tab/nodejs-v4)
 
 ```TypeScript
 import { app, InvocationContext, Timer } from '@azure/functions';
@@ -158,7 +158,7 @@ app.timer('timerTrigger1', {
 });
 ```
 
-# [v3](#tab/nodejs-v3)
+# [Model v3](#tab/nodejs-v3)
 
 TypeScript samples are not documented for model v3.
 
@@ -169,7 +169,7 @@ TypeScript samples are not documented for model v3.
 
 The following example shows a timer trigger [JavaScript function](functions-reference-node.md).
 
-# [v4](#tab/nodejs-v4)
+# [Model v4](#tab/nodejs-v4)
 
 ```JavaScript
 const { app } = require('@azure/functions');
@@ -182,7 +182,7 @@ app.timer('timerTrigger1', {
 });
 ```
 
-# [v3](#tab/nodejs-v3)
+# [Model v3](#tab/nodejs-v3)
 
 Here's the binding data in the *function.json* file:
 
@@ -307,7 +307,7 @@ _Applies only to the Python v1 programming model._
 ::: zone-end
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
 
-# [v4](#tab/nodejs-v4)
+# [Model v4](#tab/nodejs-v4)
 
 The following table explains the properties that you can set on the `options` object passed to the `app.timer()` method.
 
@@ -317,7 +317,7 @@ The following table explains the properties that you can set on the `options` ob
 |**runOnStartup**| If `true`, the function is invoked when the runtime starts. For example, the runtime starts when the function app wakes up after going idle due to inactivity. when the function app restarts due to function changes, and when the function app scales out. *Use with caution.* **runOnStartup** should rarely if ever be set to `true`, especially in production. |
 |**useMonitor**| Set to `true` or `false` to indicate whether the schedule should be monitored. Schedule monitoring persists schedule occurrences to aid in ensuring the schedule is maintained correctly even when function app instances restart. If not set explicitly, the default is `true` for schedules that have a recurrence interval greater than or equal to 1 minute. For schedules that trigger more than once per minute, the default is `false`. |
 
-# [v3](#tab/nodejs-v3)
+# [Model v3](#tab/nodejs-v3)
 
 The following table explains the binding configuration properties that you set in the *function.json* file.
 

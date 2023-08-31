@@ -288,7 +288,7 @@ public HttpResponseMessage run(
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
 
-# [v4](#tab/nodejs-v4)
+# [Model v4](#tab/nodejs-v4)
 
 The following example shows an HTTP trigger [TypeScript function](functions-reference-node.md?tabs=typescript). The function looks for a `name` parameter either in the query string or the body of the HTTP request.
 
@@ -310,7 +310,7 @@ app.http('httpTrigger1', {
 });
 ```
 
-# [v3](#tab/nodejs-v3)
+# [Model v3](#tab/nodejs-v3)
 
 TypeScript samples are not documented for model v3.
 
@@ -319,7 +319,7 @@ TypeScript samples are not documented for model v3.
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
 
-# [v4](#tab/nodejs-v4)
+# [Model v4](#tab/nodejs-v4)
 
 The following example shows an HTTP trigger [JavaScript function](functions-reference-node.md). The function looks for a `name` parameter either in the query string or the body of the HTTP request.
 
@@ -339,7 +339,7 @@ app.http('httpTrigger1', {
 });
 ```
 
-# [v3](#tab/nodejs-v3)
+# [Model v3](#tab/nodejs-v3)
 
 The following example shows a trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function looks for a `name` parameter either in the query string or the body of the HTTP request.
 
@@ -594,7 +594,7 @@ _Applies only to the Python v1 programming model._
 ::: zone-end
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
 
-# [v4](#tab/nodejs-v4)
+# [Model v4](#tab/nodejs-v4)
 
 The following table explains the properties that you can set on the `options` object passed to the `app.http()` method.
 
@@ -604,7 +604,7 @@ The following table explains the properties that you can set on the `options` ob
 | **methods** | An array of the HTTP methods to which the function  responds. If not specified, the function responds to all HTTP methods. See [customize the HTTP endpoint](#customize-the-http-endpoint). |
 | **route** |  Defines the route template, controlling to which request URLs your function responds. The default value if none is provided is `<functionname>`. For more information, see [customize the HTTP endpoint](#customize-the-http-endpoint). |
 
-# [v3](#tab/nodejs-v3)
+# [Model v3](#tab/nodejs-v3)
 
 The following table explains the binding configuration properties that you set in the *function.json* file.
 
@@ -797,7 +797,7 @@ public class HttpTriggerJava {
 ::: zone-end 
 ::: zone pivot="programming-language-typescript"  
 
-# [v4](#tab/nodejs-v4)
+# [Model v4](#tab/nodejs-v4)
 
 As an example, the following TypeScript code defines a `route` property for an HTTP trigger with two parameters, `category` and `id`. The example reads the parameters from the request and returns their values in the response.
 
@@ -819,7 +819,7 @@ app.http('httpTrigger1', {
 });
 ```
 
-# [v3](#tab/nodejs-v3)
+# [Model v3](#tab/nodejs-v3)
 
 TypeScript samples are not documented for model v3.
 
@@ -828,7 +828,7 @@ TypeScript samples are not documented for model v3.
 ::: zone-end 
 ::: zone pivot="programming-language-javascript"  
 
-# [v4](#tab/nodejs-v4)
+# [Model v4](#tab/nodejs-v4)
 
 As an example, the following JavaScript code defines a `route` property for an HTTP trigger with two parameters, `category` and `id`. The example reads the parameters from the request and returns their values in the response.
 
@@ -848,7 +848,7 @@ app.http('httpTrigger1', {
 });
 ```
 
-# [v3](#tab/nodejs-v3)
+# [Model v3](#tab/nodejs-v3)
 
 As an example, the following *function.json* file defines a `route` property for an HTTP trigger with two parameters, `category` and `id`:
 
@@ -1013,7 +1013,7 @@ The following configuration shows how the `{id}` parameter is passed to the bind
 ---
 ::: zone-end
 ::: zone pivot="programming-language-typescript"
-# [v4](#tab/nodejs-v4)
+# [Model v4](#tab/nodejs-v4)
 
 ```typescript
 import { app, HttpRequest, HttpResponseInit, input, InvocationContext } from '@azure/functions';
@@ -1038,14 +1038,14 @@ app.http('httpTrigger1', {
 });
 ```
 
-# [v3](#tab/nodejs-v3)
+# [Model v3](#tab/nodejs-v3)
 
 TypeScript samples are not documented for model v3.
 
 ---
 ::: zone-end
 ::: zone pivot="programming-language-javascript"
-# [v4](#tab/nodejs-v4)
+# [Model v4](#tab/nodejs-v4)
 
 ```javascript
 const { app, input } = require('@azure/functions');
@@ -1068,7 +1068,7 @@ app.http('httpTrigger1', {
 });
 ```
 
-# [v3](#tab/nodejs-v3)
+# [Model v3](#tab/nodejs-v3)
 
 ```json
 {

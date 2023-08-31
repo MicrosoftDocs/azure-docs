@@ -82,7 +82,7 @@ public void run(
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
 
-# [v4](#tab/nodejs-v4)
+# [Model v4](#tab/nodejs-v4)
 
 The following example shows a queue trigger [TypeScript function](functions-reference-node.md?tabs=typescript). The function polls the `myqueue-items` queue and writes a log each time a queue item is processed.
 
@@ -108,7 +108,7 @@ app.storageQueue('storageQueueTrigger1', {
 
 The [usage](#usage) section explains `queueItem`. The [message metadata section](#message-metadata) explains all of the other variables shown.
 
-# [v3](#tab/nodejs-v3)
+# [Model v3](#tab/nodejs-v3)
 
 TypeScript samples are not documented for model v3.
 
@@ -117,7 +117,7 @@ TypeScript samples are not documented for model v3.
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
 
-# [v4](#tab/nodejs-v4)
+# [Model v4](#tab/nodejs-v4)
 
 The following example shows a queue trigger [JavaScript function](functions-reference-node.md). The function polls the `myqueue-items` queue and writes a log each time a queue item is processed.
 
@@ -141,7 +141,7 @@ app.storageQueue('storageQueueTrigger1', {
 
 The [usage](#usage) section explains `queueItem`. The [message metadata section](#message-metadata) explains all of the other variables shown.
 
-# [v3](#tab/nodejs-v3)
+# [Model v3](#tab/nodejs-v3)
 
 The following example shows a queue trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function polls the `myqueue-items` queue and writes a log each time a queue item is processed.
 
@@ -394,7 +394,7 @@ _Applies only to the Python v1 programming model._
 ::: zone-end
 ::: zone pivot="programming-language-javascript,programming-language-typescript"
 
-# [v4](#tab/nodejs-v4)
+# [Model v4](#tab/nodejs-v4)
 
 The following table explains the properties that you can set on the `options` object passed to the `app.storageQueue()` method.
 
@@ -403,7 +403,7 @@ The following table explains the properties that you can set on the `options` ob
 |**queueName** | The name of the queue to poll. |
 |**connection** | The name of an app setting or setting collection that specifies how to connect to Azure Queues. See [Connections](#connections).|
 
-# [v3](#tab/nodejs-v3)
+# [Model v3](#tab/nodejs-v3)
 
 The following table explains the binding configuration properties that you set in the *function.json* file.
 
@@ -500,11 +500,11 @@ Earlier versions of this extension in the isolated worker process only support b
 The [QueueTrigger](/java/api/com.microsoft.azure.functions.annotation.queuetrigger) annotation gives you access to the queue message that triggered the function.
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
-# [v4](#tab/nodejs-v4)
+# [Model v4](#tab/nodejs-v4)
 
 Access the queue item as the first argument to your function. If the payload is JSON, the value is deserialized into an object.
 
-# [v3](#tab/nodejs-v3)
+# [Model v3](#tab/nodejs-v3)
 
 Access the queue item using `context.bindings.<NAME>` where `<NAME>` matches the value defined in *function.json*. If the payload is JSON, the value is deserialized into an object.
 

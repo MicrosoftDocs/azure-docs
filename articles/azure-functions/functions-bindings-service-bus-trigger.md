@@ -104,7 +104,7 @@ Java functions can also be triggered when a message is added to a Service Bus to
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
 
-# [v4](#tab/nodejs-v4)
+# [Model v4](#tab/nodejs-v4)
 
 The following example shows a Service Bus trigger [TypeScript function](functions-reference-node.md?tabs=typescript). The function reads [message metadata](#message-metadata) and logs a Service Bus queue message.
 
@@ -125,7 +125,7 @@ app.serviceBusQueue('serviceBusQueueTrigger1', {
 });
 ```
 
-# [v3](#tab/nodejs-v3)
+# [Model v3](#tab/nodejs-v3)
 
 TypeScript samples are not documented for model v3.
 
@@ -134,7 +134,7 @@ TypeScript samples are not documented for model v3.
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
 
-# [v4](#tab/nodejs-v4)
+# [Model v4](#tab/nodejs-v4)
 
 The following example shows a Service Bus trigger [JavaScript function](functions-reference-node.md). The function reads [message metadata](#message-metadata) and logs a Service Bus queue message.
 
@@ -153,7 +153,7 @@ app.serviceBusQueue('serviceBusQueueTrigger1', {
 });
 ```
 
-# [v3](#tab/nodejs-v3)
+# [Model v3](#tab/nodejs-v3)
 
 The following example shows a Service Bus trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function reads [message metadata](#message-metadata) and logs a Service Bus queue message.
 
@@ -448,7 +448,7 @@ _Applies only to the Python v1 programming model._
 ::: zone-end
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
 
-# [v4](#tab/nodejs-v4)
+# [Model v4](#tab/nodejs-v4)
 
 The following table explains the properties that you can set on the `options` object passed to the `app.serviceBusQueue()` or `app.serviceBusTopic()` methods.
 
@@ -462,7 +462,7 @@ The following table explains the properties that you can set on the `options` ob
 |**isSessionsEnabled**| `true` if connecting to a [session-aware](../service-bus-messaging/message-sessions.md) queue or subscription. `false` otherwise, which is the default value.|
 |**autoComplete**| Must be `true` for non-C# functions, which means that the trigger should either automatically call complete after processing, or the function code manually calls complete.<br/><br/>When set to `true`, the trigger completes the message automatically if the function execution completes successfully, and abandons the message otherwise.<br/><br/>Exceptions in the function results in the runtime calls `abandonAsync` in the background. If no exception occurs, then `completeAsync` is called in the background. This property is available only in Azure Functions 2.x and higher. |
 
-# [v3](#tab/nodejs-v3)
+# [Model v3](#tab/nodejs-v3)
 
 The following table explains the binding configuration properties that you set in the *function.json* file.
 
@@ -571,11 +571,11 @@ The incoming Service Bus message is available via a `ServiceBusQueueMessage` or 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
 
-# [v4](#tab/nodejs-v4)
+# [Model v4](#tab/nodejs-v4)
 
 Access the queue or topic message as the first argument to your function. The Service Bus message is passed into the function as either a string or JSON object.
 
-# [v3](#tab/nodejs-v3)
+# [Model v3](#tab/nodejs-v3)
 
 Access the queue or topic message by using `context.bindings.<name from function.json>`. The Service Bus message is passed into the function as either a string or JSON object.
 
