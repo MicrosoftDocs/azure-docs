@@ -49,7 +49,7 @@ To use what-if in Azure CLI, you must have Azure CLI 2.14.0 or later. If needed,
 
 When you use what-if in PowerShell or Azure CLI, the output includes color-coded results that help you see the different types of changes.
 
-![Resource Manager template deployment what-if operation fullresourcepayload and change types](./media/template-deploy-what-if/resource-manager-deployment-whatif-change-types.png)
+:::image type="content" source="./media/template-deploy-what-if/resource-manager-deployment-whatif-change-types.png" alt-text="Screenshot of Resource Manager template deployment what-if operation with full resource payload and change types.":::
 
 The text output is:
 
@@ -264,7 +264,7 @@ az deployment group what-if \
 
 The what-if output appears similar to:
 
-![Resource Manager template deployment what-if operation output](./media/template-deploy-what-if/resource-manager-deployment-whatif-change-types.png)
+:::image type="content" source="./media/template-deploy-what-if/resource-manager-deployment-whatif-change-types.png" alt-text="Screenshot of Resource Manager template deployment what-if operation output showing changes.":::
 
 The text output is:
 
@@ -360,7 +360,7 @@ az deployment group create \
 
 Because no resources are defined in the template and the deployment mode is set to complete, the virtual network will be deleted.
 
-![Resource Manager template deployment what-if operation output deployment mode complete](./media/template-deploy-what-if/resource-manager-deployment-whatif-output-mode-complete.png)
+:::image type="content" source="./media/template-deploy-what-if/resource-manager-deployment-whatif-output-mode-complete.png" alt-text="Screenshot of Resource Manager template deployment what-if operation output in deployment mode complete.":::
 
 The text output is:
 

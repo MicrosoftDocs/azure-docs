@@ -88,10 +88,10 @@ The following tables show data that's included or isn't in Cost Management. All 
 
 | **Included** | **Not included** |
 | --- | --- |
-| Azure service usage⁵        | Support charges - For more information, see [Invoice terms explained](../understand/understand-invoice.md). |
-| Marketplace offering usage⁶ | Taxes - For more information, see [Invoice terms explained](../understand/understand-invoice.md). |
-| Marketplace purchases⁶      | Credits - For more information, see [Invoice terms explained](../understand/understand-invoice.md). |
-| Reservation purchases⁷      |  |
+| Azure service usage (including deleted resources)⁵ | Unbilled services (e.g., free tier resources) |
+| Marketplace offering usage⁶ | Support charges - For more information, see [Invoice terms explained](../understand/understand-invoice.md). |
+| Marketplace purchases⁶      | Taxes - For more information, see [Invoice terms explained](../understand/understand-invoice.md). |
+| Reservation purchases⁷      | Credits - For more information, see [Invoice terms explained](../understand/understand-invoice.md). |
 | Amortization of reservation purchases⁷      |  |
 | New Commerce non-Azure products (Microsoft 365 and Dynamics 365) ⁸ | |
 
@@ -102,6 +102,8 @@ _⁶ Marketplace purchases aren't available for MSDN and Visual Studio offers at
 _⁷ Reservation purchases are only available for Enterprise Agreement (EA) and Microsoft Customer Agreement accounts at this time._
 
 _⁸ Only available for specific offers._
+
+Please note Cost Management data only includes the usage and purchases from services and resources that are actively running. Cost data is historical and will include resources, resource groups, and subscriptions that have been stopped, deleted, or cancelled and may not reflect the same resources, resource groups, and subscriptions you see in other tools, like Azure Resource Manager or Azure Resource Graph, which only show the current resources that are deployed in your subscriptions. Not all resources emit usage and therefore may not be represented in the cost data. Similarly, some resources are not tracked by Azure Resource Manager and may not be represented in subscription resources. 
 
 ## How tags are used in cost and usage data
 

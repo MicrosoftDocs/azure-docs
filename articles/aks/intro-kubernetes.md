@@ -175,7 +175,7 @@ Learn more about deploying and managing AKS.
 [azure-monitor-overview]: ../azure-monitor/overview.md
 [container-insights]: ../azure-monitor/containers/container-insights-overview.md
 [azure-monitor-managed-prometheus]: ../azure-monitor/essentials/prometheus-metrics-overview.md
-[collect-control-plane-logs]: monitor-aks.md#collect-control-plane-logs
+[collect-resource-logs]: monitor-aks.md#resource-logs
 [azure-monitor-logs]: ../azure-monitor/logs/data-platform-logs.md
 [helm]: quickstart-helm.md
 [aks-best-practices]: best-practices.md

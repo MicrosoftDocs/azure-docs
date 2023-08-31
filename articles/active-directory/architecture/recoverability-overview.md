@@ -100,7 +100,7 @@ Create a process of predefined communications to make others aware of the issue 
 Document the state of your tenant and its objects regularly. Then if a hard delete or misconfiguration occurs, you have a roadmap to recovery. The following tools can help you document your current state:
 
 - [Microsoft Graph APIs](/graph/overview) can be used to export the current state of many Azure AD configurations.
-- [Azure AD Exporter](https://github.com/microsoft/azureadexporter) is a tool you can use to export your configuration settings.
+- [Entra Exporter](https://github.com/microsoft/entraexporter) is a tool you can use to export your configuration settings.
 - [Microsoft 365 Desired State Configuration](https://github.com/microsoft/Microsoft365DSC/wiki/What-is-Microsoft365DSC) is a module of the PowerShell Desired State Configuration framework. You can use it to export configurations for reference and application of the prior state of many settings.
 - [Conditional Access APIs](https://github.com/Azure-Samples/azure-ad-conditional-access-apis) can be used to manage your Conditional Access policies as code.
 
@@ -124,7 +124,7 @@ Microsoft Graph APIs are highly customizable based on your organizational needs.
 
 *Securely store these configuration exports with access provided to a limited number of admins.
 
-The [Azure AD Exporter](https://github.com/microsoft/azureadexporter) can provide most of the documentation you need:
+The [Entra Exporter](https://github.com/microsoft/entraexporter) can provide most of the documentation you need:
 
 - Verify that you've implemented the desired configuration.
 - Use the exporter to capture current configurations.
@@ -132,7 +132,7 @@ The [Azure AD Exporter](https://github.com/microsoft/azureadexporter) can provid
 - Store the output in a secure location with limited access.
 
 > [!NOTE]
-> Settings in the legacy multifactor authentication portal for Application Proxy and federation settings might not be exported with the Azure AD Exporter, or with the Microsoft Graph API.
+> Settings in the legacy multifactor authentication portal for Application Proxy and federation settings might not be exported with the Entra Exporter, or with the Microsoft Graph API.
 The [Microsoft 365 Desired State Configuration](https://github.com/microsoft/Microsoft365DSC/wiki/What-is-Microsoft365DSC) module uses Microsoft Graph and PowerShell to retrieve the state of many of the configurations in Azure AD. This information can be used as reference information or, by using PowerShell Desired State Configuration scripting, to reapply a known good state.
 
  Use [Conditional Access Graph APIs](https://github.com/Azure-Samples/azure-ad-conditional-access-apis) to manage policies like code. Automate approvals to promote policies from preproduction environments, backup and restore, monitor change, and plan ahead for emergencies.
