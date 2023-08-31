@@ -153,8 +153,8 @@ The following behavior differences exist between kubenet and Azure CNI:
 | Pod-VM connectivity; VM in the same virtual network                                          | Works when initiated by pod       | Works both ways | Works when initiated by pod                                                                                                                       | Works when initiated by pod                                                                                      |
 | Pod-VM connectivity; VM in peered virtual network                                            | Works when initiated by pod       | Works both ways | Works when initiated by pod                                                                                                                       | Works when initiated by pod                                                                                      |
 | On-premises access using VPN or Express Route                                                | Works when initiated by pod       | Works both ways | Works when initiated by pod                                                                                                                       | Works when initiated by pod                                                                                      |
-| Expose Kubernetes services using a load balancer service, App Gateway, or ingress controller | Supported                         | Supported       | [No Application Gateway Ingress Controller (AGIC) support][azure-cni-overlay#limitations-with-azure-cni-overlay] | Same limitations when using Overlay mode |
-| Support for Windows node pools                                                               | Not Supported                     | Supported       | Supported                                                                                   | [Available only for Linux and not for Windows.][azure-cni-powered-by-cilium#limitations]                         |
+| Expose Kubernetes services using a load balancer service, App Gateway, or ingress controller | Supported                         | Supported       | [No Application Gateway Ingress Controller (AGIC) support][[azure-cni-overlay-limitations]] | Same limitations when using Overlay mode |
+| Support for Windows node pools                                                               | Not Supported                     | Supported       | Supported                                                                                   | [Available only for Linux and not for Windows.][azure-cni-powered-by-cilium-limitations]                         |
 
 Regarding DNS, with both kubenet and Azure CNI plugins DNS are offered by CoreDNS, a deployment running in AKS with its own autoscaler. For more information on CoreDNS on Kubernetes, see [Customizing DNS Service](https://kubernetes.io/docs/tasks/administer-cluster/dns-custom-nameservers/). CoreDNS by default is configured to forward unknown domains to the DNS functionality of the Azure Virtual Network where the AKS cluster is deployed. Hence, Azure DNS and Private Zones will work for pods running in AKS.
 
@@ -283,5 +283,7 @@ For more information on core Kubernetes and AKS concepts, see the following arti
 [nsg-traffic]: ../virtual-network/network-security-group-how-it-works.md
 [azure-cni-aks]: configure-azure-cni.md
 [azure-cni-overlay]: azure-cni-overlay.md
+[azure-cni-overlay-limitations]: azure-cni-overlay.md#limitations-with-azure-cni-overlay
 [azure-cni-powered-by-cilium]: azure-cni-powered-by-cilium.md
+[azure-cni-powered-by-cilium-limitations]: azure-cni-powered-by-cilium.md#limitations
 [use-byo-cni]: use-byo-cni.md
