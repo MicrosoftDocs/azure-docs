@@ -5,7 +5,7 @@ ms.topic: reference
 ms.date: 03/04/2022
 ms.devlang: csharp, java, javascript, python
 ms.custom: devx-track-csharp, H1Hack27Feb2017, devx-track-extended-java, devx-track-js, devx-track-python
-zone_pivot_groups: programming-languages-set-functions-lang-workers
+zone_pivot_groups: programming-languages-set-functions
 ---
 
 # Twilio binding for Azure Functions
@@ -63,7 +63,7 @@ You can add the extension to your project by explicitly installing the [NuGet pa
 ---
 
 ::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-python,programming-language-java,programming-language-powershell"  
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-java,programming-language-powershell"  
 
 ## Install bundle
 
@@ -216,7 +216,7 @@ public static async Task Run(string myQueueItem, IAsyncCollector<CreateMessageOp
 ---
 
 ::: zone-end
-::: zone pivot="programming-language-javascript"
+::: zone pivot="programming-language-javascript,programming-language-typescript"
 The following example shows a Twilio output binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding.
 
 Here's binding data in the *function.json* file:
@@ -383,7 +383,7 @@ The [TwilioSmsOutput](/java/api/com.microsoft.azure.functions.annotation.twilios
 Place the [TwilioSmsOutput](/java/api/com.microsoft.azure.functions.annotation.twiliosmsoutput) annotation on an [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.outputbinding) parameter, where `T` may be any native Java type such as `int`, `String`, `byte[]`, or a POJO type.
 
 ::: zone-end 
-::: zone pivot="programming-language-javascript,programming-language-python,programming-language-powershell"  
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell"  
 ## Configuration
 
 The following table explains the binding configuration properties that you set in the *function.json* file, which differs by runtime version:
