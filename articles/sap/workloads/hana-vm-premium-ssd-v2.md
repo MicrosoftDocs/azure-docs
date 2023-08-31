@@ -126,8 +126,8 @@ For the **/hana/log** volume. the configuration would look like:
 | M416s_v2 | 5,700 GiB | 2,000 MBps | 80,000 | 512 GB | 400 MBps | 5,000 | 1,024 GB |
 | M416s_8_v2 | 5,700 GiB | 2,000 MBps | 80,000 | 512 GB | 400 MBps | 5,000 | 1,024 GB |
 | M416ms_v2 | 11,400 GiB | 2,000 MBps | 80,000 | 512 GB | 400 MBps | 5,000 | 1,024 GB |
-| M832isx<sup>1</sup> | 14902 GiB | larger than 2,000 Mbps | 80,000 | 600 MBps | 9,000 | 1,024 GB |
-| M832isx_v2<sup>1</sup> | 23088 GiB | larger than 2,000 Mbps | 80,000 | 600 MBps | 9,000 | 1,024 GB |
+| M832isx<sup>1</sup> | 14902 GiB | larger than 2,000 Mbps | 80,000 | 512 GB | 600 MBps | 9,000 | 1,024 GB |
+| M832isx_v2<sup>1</sup> | 23088 GiB | larger than 2,000 Mbps | 80,000 | 512 GB | 600 MBps | 9,000 | 1,024 GB |
 
 <sup>1</sup> VM type not available by default. Please contact your Microsoft account team
 
@@ -170,6 +170,8 @@ For **/hana/log**, a similar approach of using two disks could look like:
 | M416ms_v2 | 11,400 GiB | 2 | 256 GB | 5,000 | 6,000 | 0 | 400 MBps | 250 MBps | 150 MBps |
 | M832isx<sup>1</sup> | 14902 GiB | 1 | 512 GB | 9,000 | 3,000 | 6,000 | 600 MBps | 125 MBps | 475 MBps |
 | M832isx<sup>1</sup> | 14902 GiB | 2 | 256 GB | 9,000 | 6,000 | 3,000 | 600 MBps | 250 MBps | 350 MBps |
+
+<sup>1</sup> VM type not available by default. Please contact your Microsoft account team
 
 These tables combined with the [prices of IOPS and throughput](https://azure.microsoft.com/pricing/details/managed-disks/) should give you an idea how striping across multiple Premium SSD v2 disks could reduce the costs for the particular storage configuration you're looking at. Based on these calculations, you can decide whether to move ahead with a single disk approach for **/hana/data** and/or **/hana/log**. 
 
