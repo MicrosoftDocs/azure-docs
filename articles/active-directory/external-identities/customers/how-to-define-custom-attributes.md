@@ -47,7 +47,7 @@ If your application relies on certain built-in or custom user attributes, you ca
 
    :::image type="content" source="media/how-to-define-custom-attributes/add-attribute.png" alt-text="Screenshot of the pane for adding an attribute." lightbox="media/how-to-define-custom-attributes/add-attribute.png":::
 
-1. Select **Create**. The custom attribute is now available in the list of user attributes and can be [added to your user flows](#include-the-attributes-in-a-sign-up-flow).
+1. Select **Create**. The custom attribute is now available in the list of user attributes and can be [added to your user flows](#include-custom-attributes-in-a-sign-up-flow).
 
 ### About referencing custom attributes
 
