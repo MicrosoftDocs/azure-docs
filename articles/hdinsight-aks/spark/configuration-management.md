@@ -45,12 +45,12 @@ When user updates a configuration in the management portal the corresponding ser
 
 1. Add the desired configuration and click on “Ok” and then click on "Save".
 
-   :::image type="content" source="./media/configuration-management/save-configuration.png" alt-text="Screenshot showing how to save configuration.":::
+   :::image type="content" source="./media/configuration-management/delete-configuration.png" alt-text="Screenshot showing how to save configuration.":::
 
 1. The configurations are updated and the cluster is restarted.
 1. To delete the configurations, click on the delete icon next to the textbox.
 
-    :::image type="content" source="./media/configuration-management/delete-configuration.png" alt-text="Screenshot showing how to delete  configuration.":::
+    :::image type="content" source="./media/configuration-management/save-configuration.png" alt-text="Screenshot showing how to delete  configuration.":::
 
 1. Click on “Ok” and then click on “Save”.
 
