@@ -5,6 +5,7 @@ description: Customize Azure AD authentication session configuration including u
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
+ms.custom: has-azure-ad-ps-ref
 ms.topic: how-to
 ms.date: 07/18/2023
 
@@ -109,7 +110,7 @@ When administrators select **Every time**, it will require full reauthentication
 
 A persistent browser session allows users to remain signed in after closing and reopening their browser window.
 
-The Azure AD default for browser session persistence allows users on personal devices to choose whether to persist the session by showing a “Stay signed in?” prompt after successful authentication. If browser persistence is configured in AD FS using the guidance in the article [AD FS single sign-on settings](/windows-server/identity/ad-fs/operations/ad-fs-single-sign-on-settings#enable-psso-for-office-365-users-to-access-sharepoint-online), we'll comply with that policy and persist the Azure AD session as well. You can also configure whether users in your tenant see the “Stay signed in?” prompt by changing the appropriate setting in the [company branding pane](../fundamentals/customize-branding.md).
+The Azure AD default for browser session persistence allows users on personal devices to choose whether to persist the session by showing a “Stay signed in?” prompt after successful authentication. If browser persistence is configured in AD FS using the guidance in the article [AD FS single sign-on settings](/windows-server/identity/ad-fs/operations/ad-fs-single-sign-on-settings#enable-psso-for-office-365-users-to-access-sharepoint-online), we'll comply with that policy and persist the Azure AD session as well. You can also configure whether users in your tenant see the “Stay signed in?” prompt by changing the appropriate setting in the [company branding pane](../fundamentals/how-to-customize-branding.md).
 
 In persistent browsers, cookies stay stored in the user’s device even after a user closes the browser. These cookies could have access to Azure Active Directory artifacts, and those artifacts are useable until token expiry regardless of the Conditional Access policies placed on the resource environment. So, token caching can be in direct violation of desired security policies for authentication. While it may seem convenient to store tokens beyond the current session, doing so can create a security vulnerability by allowing unauthorized access to Azure Active Directory artifacts.
 
@@ -128,8 +129,8 @@ To make sure that your policy works as expected, the recommended best practice i
 
 ### Policy 1: Sign-in frequency control
 
-1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
-1. Browse to **Microsoft Entra ID (Azure AD)** > **Protection** > **Conditional Access**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Browse to **Protection** > **Conditional Access**.
 1. Select **Create new policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
 1. Choose all required conditions for customer’s environment, including the target cloud apps.
@@ -146,8 +147,8 @@ To make sure that your policy works as expected, the recommended best practice i
 
 ### Policy 2: Persistent browser session
 
-1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
-1. Browse to **Microsoft Entra ID (Azure AD)** > **Protection** > **Conditional Access**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Browse to **Protection** > **Conditional Access**.
 1. Select **Create new policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
 1. Choose all required conditions.
@@ -159,15 +160,15 @@ To make sure that your policy works as expected, the recommended best practice i
    1. Select **Persistent browser session**.
 
       > [!NOTE]
-      > Persistent Browser Session configuration in Azure AD Conditional Access overrides the “Stay signed in?” setting in the company branding pane in the Azure portal for the same user if you have configured both policies.
+      > Persistent Browser Session configuration in Azure AD Conditional Access overrides the “Stay signed in?” setting in the company branding pane for the same user if you have configured both policies.
 
    1. Select a value from dropdown.
 1. Save your policy.
 
 ### Policy 3: Sign-in frequency control every time risky user
 
-1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
-1. Browse to **Microsoft Entra ID (Azure AD)** > **Protection** > **Conditional Access**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Browse to **Protection** > **Conditional Access**.
 1. Select **Create new policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
 1. Under **Assignments**, select **Users or workload identities**.

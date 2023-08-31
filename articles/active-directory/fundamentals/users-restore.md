@@ -73,7 +73,7 @@ When a user account is deleted from the organization, the account is in a suspen
 You can permanently delete a user from your organization without waiting the 30 days for automatic deletion. A permanently deleted user can't be restored by you, another administrator, nor by Microsoft customer support.
 
 >[!Note]
->If you permanently delete a user by mistake, you'll have to create a new user and manually enter all the previous information. For more information about creating a new user, see [Add or delete users](add-users-azure-active-directory.md).
+>If you permanently delete a user by mistake, you'll have to create a new user and manually enter all the previous information. For more information about creating a new user, see [Add or delete users](./add-users.md).
 
 ### To permanently delete a user
 
@@ -87,11 +87,11 @@ You can permanently delete a user from your organization without waiting the 30 
 
 After you've restored or deleted your users, you can:
 
-- [Add or delete users](add-users-azure-active-directory.md)
+- [Add or delete users](./add-users.md)
 
-- [Assign roles to users](active-directory-users-assign-role-azure-portal.md)
+- [Assign roles to users](./how-subscriptions-associated-directory.md)
 
-- [Add or change profile information](active-directory-users-profile-azure-portal.md)
+- [Add or change profile information](./how-to-manage-user-profile-info.md)
 
 - [Add guest users from another organization](../external-identities/what-is-b2b.md)
 

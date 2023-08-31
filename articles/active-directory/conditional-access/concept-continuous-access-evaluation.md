@@ -149,14 +149,7 @@ The CAE setting has been moved to under the Conditional Access blade. New CAE cu
 
 #### Migration
 
-Customers who have configured CAE settings under Security before have to migrate settings to a new Conditional Access policy. Use the steps that follow to migrate your CAE settings to a Conditional Access policy.
-
-:::image type="content" source="media/concept-continuous-access-evaluation/migrate-continuous-access-evaluation.png" alt-text="Portal view showing the option to migrate continuous access evaluation to a Conditional Access policy." lightbox="media/concept-continuous-access-evaluation/migrate-continuous-access-evaluation.png":::
-
-1. Sign in to the **Azure portal** as a Conditional Access Administrator, Security Administrator, or Global Administrator. 
-1. Browse to **Azure Active Directory** > **Security** > **Continuous access evaluation**. 
-1. You have the option to **Migrate** your policy. This action is the only one that you have access to at this point.
-1. Browse to **Conditional Access** and you find a new policy named **Conditional Access policy created from CAE settings** with your settings configured. Administrators can choose to customize this policy or create their own to replace it.
+Customers who have configured CAE settings under Security before have to migrate settings to a new Conditional Access policy.
 
 The following table describes the migration experience of each customer group based on previously configured CAE settings. 
 
@@ -178,7 +171,7 @@ Changes made to Conditional Access policies and group membership made by adminis
 When Conditional Access policy or group membership changes need to be applied to certain users immediately, you have two options. 
 
 - Run the [revoke-mgusersign PowerShell command](/powershell/module/microsoft.graph.users.actions/revoke-mgusersigninsession) to revoke all refresh tokens of a specified user.
-- Select "Revoke Session" on the user profile page in the Azure portal to revoke the user's session to ensure that the updated policies are applied immediately.
+- Select "Revoke Session" on the user profile page to revoke the user's session to ensure that the updated policies are applied immediately.
 
 ### IP address variation and networks with IP address shared or unknown egress IPs 
 

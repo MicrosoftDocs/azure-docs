@@ -2,12 +2,12 @@
 title: 'Tutorial: Configure both routing preference options for a virtual machine - Azure portal'
 titlesuffix: Azure Virtual Network
 description: Use this tutorial to learn how to configure both routing preference options for a virtual machine using the Azure portal.
-author: asudbring
-ms.author: allensu
+ms.date: 08/24/2023
+ms.author: mbender
+author: mbender-ms
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: tutorial
-ms.date: 10/01/2021
 ms.custom: template-tutorial
 ---
 

@@ -1,12 +1,9 @@
 ---
 title: Azure resource logs 
 description: Learn how to stream Azure resource logs to a Log Analytics workspace in Azure Monitor.
-author: bwren
 services: azure-monitor
 ms.topic: conceptual
-ms.custom: ignite-2022
-ms.date: 07/26/2023
-ms.author: bwren
+ms.date: 08/08/2023
 ms.reviewer: lualderm
 ---
 
@@ -93,7 +90,8 @@ Most Azure resources write data to the workspace in either **Azure diagnostics**
 
 All Azure services will eventually use the resource-specific mode. As part of this transition, some resources allow you to select a mode in the diagnostic setting. Specify resource-specific mode for any new diagnostic settings because this mode makes the data easier to manage. It also might help you avoid complex migrations later.
   
-   ![Screenshot that shows the Diagnostics settings mode selector.](media/resource-logs/diagnostic-settings-mode-selector.png)
+:::image type="content" source="media/resource-logs/diagnostic-settings-mode-selector.png" alt-text="Screenshot that shows the Diagnostics settings mode selector." lightbox="media/resource-logs/diagnostic-settings-mode-selector.png":::
+
 
 > [!NOTE]
 > For an example that sets the collection mode by using an Azure Resource Manager template, see [Resource Manager template samples for diagnostic settings in Azure Monitor](./resource-manager-diagnostic-settings.md#diagnostic-setting-for-recovery-services-vault).

@@ -99,4 +99,4 @@ The activation process typically takes only a few minutes and then you can use y
 
 ## Next steps
 
-Now that you have Azure AD Premium, you can [customize your domain](add-custom-domain.md), add your [corporate branding](customize-branding.md), [create a tenant](create-new-tenant.md), and [add groups](active-directory-groups-create-azure-portal.md) and [users](add-users-azure-active-directory.md).
+Now that you have Azure AD Premium, you can [customize your domain](add-custom-domain.md), add your [corporate branding](./how-to-customize-branding.md), [create a tenant](create-new-tenant.md), and [add groups](./how-to-manage-groups.md) and [users](./add-users.md).

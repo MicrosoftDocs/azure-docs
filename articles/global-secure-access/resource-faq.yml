@@ -17,7 +17,7 @@ sections:
   - name: Common platform questions
     questions:
       - question: | 
-          I received an error when trying to access 
+          I received an error when trying to access a tenant I have access to.
         answer: |
           If you have enabled universal tenant restrictions and you're accessing the Microsoft Entra admin center for one of the allow listed tenants, you may see an "Access denied" error.
           Add the following feature flag to the Microsoft Entra admin center:
@@ -48,3 +48,9 @@ sections:
             I can't access an internal resource using the hostname or FQDN when IP is configured in Quick Access.
           answer: |
             Private DNS is currently not supported. Specify the Hostname or FQDN being used to access the internal resource in the Quick Access configuration along with the respective port.
+  - name: Remote networks
+    questions:
+        - question: |
+            I've configured my customer premises equipment (CPE) and Global Secure Access, but the two aren't connecting. I've specified the Local and Peer BGP IP addresses, but the connection isn't working.
+          answer: |
+            Make sure you've reversed the BGP IP addresses between the CPE and Global Secure Access. For example, if you specified the Local BGP IP address as 1.1.1.1 and the Peer BGP IP address as 0.0.0.0 for the CPE, then you'd swap those in Global Secure Access. So the Local BGP IP address in Global Secure Access is 0.0.0.0 and the Peer GBP IP address is 1.1.1.1.

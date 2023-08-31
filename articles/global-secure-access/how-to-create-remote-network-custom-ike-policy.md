@@ -14,7 +14,7 @@ ms.custom:
 
 IPSec tunnel is a bidirectional communication. This article provides the steps to set up the policy side the communication channel using the Microsoft Graph API. The other side of the communication is configured on your customer premises equipment. 
 
-For more information about creating a remote network and the custom IKE policy, see [Create a remote network](how-to-create-remote-networks.md#create-a-remote-network-with-the-microsoft-entra-admin-center) and [Remote network configurations](reference-remote-network-configurations.md).
+For more information about creating a remote network and the custom IKE policy, see [Create a remote network](how-to-create-remote-networks.md#create-a-remote-network) and [Remote network configurations](reference-remote-network-configurations.md).
 
 
 ## Prerequisites

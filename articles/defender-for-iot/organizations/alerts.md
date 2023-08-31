@@ -59,7 +59,7 @@ For more information, see [Securing IoT devices in the enterprise](concept-enter
 
 ## Managing OT alerts in a hybrid environment
 
-Users working in hybrid environments may be managing OT alerts in [Defender for IoT](https://ms.portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) on the Azure portal, the OT sensor, and an on-premises management console.
+Users working in hybrid environments may be managing OT alerts in [Defender for IoT](https://portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) on the Azure portal, the OT sensor, and an on-premises management console.
 
 Alert statuses are fully synchronized between the Azure portal and the OT sensor, and between the sensor and the on-premises management console. This means that regardless of where you manage the alert in Defender for IoT, the alert is updated in other locations as well.
 

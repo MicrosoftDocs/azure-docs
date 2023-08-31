@@ -47,9 +47,9 @@ As an administrator, you can set:
 
 - **The user risk level that triggers the generation of this email** - By default, the risk level is set to “High” risk.
 - **The recipients of this email** - Users in the Global Administrator, Security Administrator, or Security Reader roles are automatically added to this list. We attempt to send emails to the first 20 members of each role. If a user is enrolled in PIM to elevate to one of these roles on demand, then **they will only receive emails if they are elevated at the time the email is sent**.
-   - Optionally you can **Add custom email here** users defined must have the appropriate permissions to view the linked reports in the Azure portal.
+   - Optionally you can **Add custom email here** users defined must have the appropriate permissions to view the linked reports.
 
-Configure the users at risk email in the **Azure portal** under **Azure Active Directory** > **Security** > **Identity Protection** > **Users at risk detected alerts**.
+Configure the users at risk email in the [Microsoft Entra admin center](https://entra.microsoft.com) under **Protection** > **Identity Protection** > **Users at risk detected alerts**.
 
 ## Weekly digest email
 
@@ -68,7 +68,7 @@ Users in the Global Administrator, Security Administrator, or Security Reader ro
 
 As an administrator, you can switch sending a weekly digest email on or off and choose the users assigned to receive the email.
 
-Configure the weekly digest email in the **Azure portal** under **Azure Active Directory** > **Security** > **Identity Protection** > **Weekly digest**.
+Configure the weekly digest email in the [Microsoft Entra admin center](https://entra.microsoft.com) > **Protection** > **Identity Protection** > **Weekly digest**.
 
 ## See also
 

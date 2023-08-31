@@ -84,6 +84,7 @@ RESOURCE_NAME='alb-test'
 
 RESOURCE_ID=$(az network alb show --resource-group $RESOURCE_GROUP --name $RESOURCE_NAME --query id -o tsv)
 FRONTEND_NAME='frontend'
+az network alb frontend create -g $RESOURCE_GROUP -n $FRONTEND_NAME --alb-name $AGFC_NAME
 ```
 
 2. Create a Gateway
