@@ -20,19 +20,23 @@ azcmagent connect [authentication] --subscription-id [subscription] --resource-g
 Connect a server using the default login method (interactive browser or device code).
 
 ```
-azcmagent connect --subscription "Production" --resource-group "HybridServers" --location "eastus"
+azcmagent connect --subscription-id "Production" --resource-group "HybridServers" --location "eastus"
+```
+
+```
+azcmagent connect --subscription-id "Production" --resource-group "HybridServers" --location "eastus" --use-device-code
 ```
 
 Connect a server using a service principal.
 
 ```
-azcmagent connect --subscription "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee" --resource-group "HybridServers" --location "australiaeast" --service-principal-id "ID" --service-principal-secret "SECRET" --tenant-id "TENANT"
+azcmagent connect --subscription-id "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee" --resource-group "HybridServers" --location "australiaeast" --service-principal-id "ID" --service-principal-secret "SECRET" --tenant-id "TENANT"
 ```
 
 Connect a server using a private endpoint and device code login method.
 
 ```
-azcmagent connect --subscription "Production" --resource-group "HybridServers" --location "koreacentral" --use-device-code --private-link-scope "/subscriptions/.../Microsoft.HybridCompute/privateLinkScopes/ScopeName"
+azcmagent connect --subscription-id "Production" --resource-group "HybridServers" --location "koreacentral" --use-device-code --private-link-scope "/subscriptions/.../Microsoft.HybridCompute/privateLinkScopes/ScopeName"
 ```
 
 ## Authentication options
