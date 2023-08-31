@@ -30,7 +30,7 @@ Although there are different tools for connection pooling, in this section, we d
 **PgBouncer** is an efficient connection pooler designed for PostgreSQL, offering the advantage of reducing processing time and optimizing resource usage in managing multiple client connections to one or more databases. **PgBouncer** incorporates three distinct pooling mode for connection rotation:
 
 - **Session pooling:** This method assigns a server connection to the client application for the entire duration of the client's connection. Upon disconnection of the client application, PgBouncer promptly returns the server connection back to the pool. This pooling mechanism is the default setting. (Note: It isn't recommended in most of the cases and don't give any performance benefits over classic connections).
-- **Transaction pooling:** With transaction pooling, a server connection is dedicated to the client client application during a transaction. Once the transaction is successfully completed, **PgBouncer** intelligently releases the server connection, making it available again within the pool. This is the default mode in Flexible server, and it does not support prepared transactions.
+- **Transaction pooling:** With transaction pooling, a server connection is dedicated to the client application during a transaction. Once the transaction is successfully completed, **PgBouncer** intelligently releases the server connection, making it available again within the pool. Transaction pooling is the default mode in Flexible server, and it does not support prepared transactions.
 - **Statement pooling:** In statement pooling, a server connection is allocated to the client application for each individual statement. Upon the statement's completion, the server connection is promptly returned to the connection pool. It's important to note that multi-statement transactions are not supported in this mode.
 
 The effective utilization of PgBouncer can be categorized into three distinct usage patterns.
@@ -50,7 +50,7 @@ When utilizing this approach, PgBouncer is deployed on the same server where you
 
 ### I. PgBouncer deployed in Application VM
 
-If your application runs on an Azure VM, you have the option to set up PgBouncer on the same VM. To install and configure PgBouncer as a connection pooling proxy with Azure Database for PostgreSQL, follow the instructions provided in the following [link](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/steps-to-install-and-setup-pgbouncer-connection-pooling-proxy/ba-p/730555).
+If your application runs on an Azure VM, you can set up PgBouncer on the same VM. To install and configure PgBouncer as a connection pooling proxy with Azure Database for PostgreSQL, follow the instructions provided in the following [link](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/steps-to-install-and-setup-pgbouncer-connection-pooling-proxy/ba-p/730555).
 
 :::image type="content" source="./media/concepts-connection-pooling-best-practices/co-location.png" alt-text="Diagram for App co-location on VM":::
 
@@ -66,7 +66,7 @@ Overall, deploying PgBouncer in an application server provides a more efficient,
 
 **Limitations:**
 
-- **Single point of failure:** If PgBouncer is deployed as a single instance on the application server, it becomes a potential single point of failure. If the PgBouncer instance goes down, it can disrupt the entire database connection pool, causing downtime for the application. To mitigate this, you can set up multiple PgBouncer instances behind a load balancer for high availability.
+- **Single point of failure:** If PgBouncer is deployed as a single instance on the application server, it becomes a potential single point of failure. If the PgBouncer instance goes down, it can disrupt the entire database connection pool, causing downtime for the application. To mitigate Single point of failure, you can set up multiple PgBouncer instances behind a load balancer for high availability.
 - **Limited scalability:** PgBouncer scalability depends on the capacity of the server where it's deployed. If the application server reaches its connection limit, PgBouncer may become a bottleneck, limiting the ability to scale the application. You may need to distribute the connection load across multiple PgBouncer instances or consider alternative solutions like connection pooling at the application level.
 - **Configuration complexity:** Configuring and fine-tuning PgBouncer can be complex, especially when considering factors such as connection limits, pool sizing, and load balancing. Administrators need to carefully tune the PgBouncer configuration to match the application's requirements and ensure optimal performance and stability.
 
@@ -78,7 +78,7 @@ It's possible to utilize **PgBouncer** as a sidecar container if your applicatio
 
 The sidecar pattern is typically used with containers being coscheduled as an atomic container group. This tightly couples the application and sidecar lifecycles and shares resources such as hostname and networking to make efficient use of resources. The PgBouncer sidecar operates alongside the application container within the same pod in Azure Kubernetes Service (AKS) with 1:1 mapping, serving as a connection pooling proxy for Azure Database for PostgreSQL.
 
-This sidecar pattern is typically used with containers being coscheduled as an atomic container group. This strongly binds the application and sidecar lifecycles and has shared resources such hostname and networking. By using this setup, PgBouncer optimizes connection management and facilitates efficient communication between the application and the Azure Database for PostgreSQL.
+This sidecar pattern is typically used with containers being coscheduled as an atomic container group. sidecar pattern strongly binds the application and sidecar lifecycles and has shared resources such hostname and networking. By using this setup, PgBouncer optimizes connection management and facilitates efficient communication between the application and the Azure Database for PostgreSQL.
 
 Microsoft has published a [**PgBouncer** sidecar proxy image](https://hub.docker.com/_/microsoft-azure-oss-db-tools-pgbouncer-sidecar) in Microsoft container registry.
 
@@ -86,7 +86,7 @@ Refer [this](https://techcommunity.microsoft.com/t5/azure-database-for-postgresq
 
 :::image type="content" source="./media/concepts-connection-pooling-best-practices/sidecar-proxy.png" alt-text="Diagram for App co-location on Sidecar":::
 
-Below are some key benefits & limitations of this deployment method.
+Refer some key benefits & limitations of this deployment method.
 
 **Benefits:**
 
@@ -98,7 +98,7 @@ By considering PgBouncer as an AKS sidecar, you can use these advantages to enha
 
 **Limitations:**
 
-- **Connection Performance Issues:** Largehund-scale applications that utilize thousands of pods, each running sidecar PgBouncer, may encounter potential challenges related to database connection exhaustion. This situation can result in performance degradation and service disruptions. Deploying a sidecar PgBouncer for each pod increases the number of concurrent connections to the database server, which can exceed its capacity.As a result, the database may struggle to handle the high volume of incoming connections, leading to performance issues such as increased response times or even service outages.
+- **Connection Performance Issues:** Largehund-scale applications that utilize thousands of pods, each running sidecar PgBouncer, may encounter potential challenges related to database connection exhaustion. This situation can result in performance degradation and service disruptions. Deploying a sidecar PgBouncer for each pod increases the number of concurrent connections to the database server, which can exceed its capacity.As a result, the database may struggle to handle the high volume of incoming connections, may lead to performance issues such as increased response times or even service outages.
 - **Complex Deployment:** The utilization of the sidecar pattern introduces a level of complexity to the deployment process, as it involves running two containers within the same pod. This can potentially complicate troubleshooting and debugging activities, requiring extra effort to identify and resolve issues.
 - **Scaling Challenges:** Moreover, it's important to note that the sidecar pattern may not be the ideal choice for applications that demand high scalability. The inclusion of a sidecar container can impose more resource requirements, potentially limiting the number of pods that can be effectively created and managed.
 
@@ -110,14 +110,14 @@ When utilizing this approach, PgBouncer is deployed as a centralized service, in
 
 ### I. PgBouncer deployed in ubuntu VM
 
-**PgBouncer** connection proxy is setup between the application and database layer as shown in the image below. Since Azure Database for PostgreSQL is a fully managed platform service, user won't be able to install any external services on DB server. In this case, if your application is running on an Azure VM, you can setup **PgBouncer** on the same VM. If the application is running on a managed service like Azure App Services or Azure Functions, you'll need to provision a separate Ubuntu VM to run **PgBouncer** proxy.
+**PgBouncer** connection proxy is setup between the application and database layer as shown in the image below. Since Azure Database for PostgreSQL is a fully managed platform service, user won't be able to install any external services on DB server. In this case, if your application is running on an Azure VM, you can setup **PgBouncer** on the same VM. If the application is running on a managed service like Azure App Services or Azure Functions, you need to provision a separate Ubuntu VM to run **PgBouncer** proxy.
 
 Refer [link](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/steps-to-install-and-setup-pgbouncer-connection-pooling-proxy/ba-p/730555)  to install and setup PgBouncer connection pooling proxy with Azure Database for PostgreSQL.
 
 
 :::image type="content" source="./media/concepts-connection-pooling-best-practices/deploying-vm.png" alt-text="Diagram for App co-location on Vm with Load Balancer":::
 
-Below are some key benefits & limitations of this deployment method.
+Refer some key benefits & limitations of this deployment method.
 
 **Benefits:**
 
@@ -156,7 +156,7 @@ By considering **PgBouncer** as a standalone service within AKS, you can use the
 
 **Limitations:**
 
-- **Increased N/W Latency:** When deploying **PgBouncer** as a standalone service, it's important to consider the potential introduction of additional latency. This is due to the need for connections to be passed between the application and the PgBouncer service over the network. It's crucial to evaluate the latency requirements of your application and consider the trade-offs between centralized connection management and potential latency issues.
+- **Increased N/W Latency:** When deploying **PgBouncer** as a standalone service, it's important to consider the potential introduction of more latency. This is due to the need for connections to be passed between the application and the PgBouncer service over the network. It's crucial to evaluate the latency requirements of your application and consider the trade-offs between centralized connection management and potential latency issues.
 
 While **PgBouncer** running as a standalone service offers benefits such as centralized management and resource optimization, it's important to assess the impact of potential latency on your application's performance to ensure it aligns with your specific requirements.
 
@@ -166,7 +166,7 @@ Azure Database for PostgreSQL – Flexible Server offers [PgBouncer](https://git
 
 Refer link to enable and setup PgBouncer connection pooling in Azure DB for PostgreSQL Flexible server
 
-Below are some key benefits & limitations of this deployment method.
+Refer some key benefits & limitations of this deployment method.
 
 **Benefits:**
 
@@ -180,15 +180,15 @@ By using the benefits of inbuilt PgBouncer with Flexible Server, users can enjoy
 
 **Limitations:**
 
-- **Not supported with Burstable:** **PgBouncer** is currently not supported with Burstable server compute tier. If you change the compute tier from General Purpose or Memory Optimized to Burstable tier, you will lose the **PgBouncer** capability.
+- **Not supported with Burstable:** **PgBouncer** is currently not supported with Burstable server compute tier. If you change the compute tier from General Purpose or Memory Optimized to Burstable tier, you lose the **PgBouncer** capability.
 - **Re-establish connections after restarts:** Whenever the server is restarted during scale operations, HA failover, or a restart, the **PgBouncer** is also restarted along with the server virtual machine. Hence, existing connections must be re-established.
 
-_We have discussed different ways of implementing PgBouncer and the table below summarizes which deployment method to opt for:_
+_We have discussed different ways of implementing PgBouncer and the table summarizes which deployment method to opt for:_
 
 
 
 |**Selection Criteria**|**PgBouncer on App VM**|**PgBouncer on VM using ALB***|**PgBouncer on AKS Sidecar**|**PgBouncer as a Service**|**Flexible Server Inbuilt PgBouncer**|
-|:-:|:-:|:-:|:-:|:-:|:-:|
+|---|:-:|:-:|:-:|:-:|:-:|
 |Simplified Management|:::image type="icon" source="./media/concepts-connection-pooling-best-practices/yellow.png":::|:::image type="icon" source="./media/concepts-connection-pooling-best-practices/yellow.png":::|:::image type="icon" source="./media/concepts-connection-pooling-best-practices/red.png":::|:::image type="icon" source="./media/concepts-connection-pooling-best-practices/red.png":::|:::image type="icon" source="./media/concepts-connection-pooling-best-practices/green.png":::|
 |HA|:::image type="icon" source="./media/concepts-connection-pooling-best-practices/yellow.png":::|:::image type="icon" source="./media/concepts-connection-pooling-best-practices/yellow.png":::|:::image type="icon" source="./media/concepts-connection-pooling-best-practices/green.png":::|:::image type="icon" source="./media/concepts-connection-pooling-best-practices/green.png":::|:::image type="icon" source="./media/concepts-connection-pooling-best-practices/green.png":::|
 |Containerized Apps|:::image type="icon" source="./media/concepts-connection-pooling-best-practices/yellow.png":::|:::image type="icon" source="./media/concepts-connection-pooling-best-practices/yellow.png":::|:::image type="icon" source="./media/concepts-connection-pooling-best-practices/green.png":::|:::image type="icon" source="./media/concepts-connection-pooling-best-practices/green.png":::|:::image type="icon" source="./media/concepts-connection-pooling-best-practices/green.png":::|
