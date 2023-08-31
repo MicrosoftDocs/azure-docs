@@ -362,6 +362,7 @@ See the [Example section](#example) for complete examples.
 
 When a timer trigger function is invoked, a timer object is passed into the function. The following JSON is an example representation of the timer object.
 
+::: zone pivot="programming-language-csharp,programming-language-java,programming-language-powershell,programming-language-python"
 ```json
 {
     "Schedule":{
@@ -375,6 +376,22 @@ When a timer trigger function is invoked, a timer object is passed into the func
     "IsPastDue":false
 }
 ```
+::: zone-end  
+::: zone pivot="programming-language-javascript,programming-language-typescript"
+```json
+{
+    "schedule":{
+        "adjustForDST": true
+    },
+    "scheduleStatus": {
+        "last":"2016-10-04T10:15:00+00:00",
+        "lastUpdated":"2016-10-04T10:16:00+00:00",
+        "next":"2016-10-04T10:20:00+00:00"
+    },
+    "isPastDue":false
+}
+```
+::: zone-end  
 
 The `isPastDue` property is `true` when the current function invocation is later than scheduled. For example, a function app restart might cause an invocation to be missed.
 
