@@ -60,7 +60,7 @@ Zone redundancy requires a virtual network with an infrastructure subnet.  You c
 1. You can select **Internal** or **External** for the *Virtual IP*.
 1. Select **Create**.
 
-:::image type="content" source="../container-apps/media/screen-shot-vnet-configuration.png" alt-text="Screen shot of Networking tab in Create Container Apps Environment page.":::
+:::image type="content" source="../container-apps/media/screen-shot-vnet-configuration.png" alt-text="Screenshot of Networking tab in Create Container Apps Environment page.":::
 
 ##### Enable zone redundancy with the Azure CLI
 
