@@ -1738,23 +1738,6 @@ groups:
     title: Studio
   - id: programming-language-csharp
     title: C#
-  - id: programming-language-java
-    title: Java
-  - id: programming-language-javascript
-    title: JavaScript
-  - id: programming-language-python
-    title: Python
-  - id: rest-api
-    title: REST
-# Owner: mbullwin
-- id: openai-quickstart-new2
-  title: Programming languages
-  prompt: Choose your preferred usage method
-  pivots:
-  - id: programming-language-studio
-    title: Studio
-  - id: programming-language-csharp
-    title: C#
   - id: programming-language-go
     title: Go
   - id: programming-language-java
