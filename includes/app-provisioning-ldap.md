@@ -41,7 +41,7 @@ For more information, see the [Generic LDAP Connector reference](/microsoft-iden
  
     [!INCLUDE [active-directory-p1-license.md](active-directory-p1-license.md)]
  - The Hybrid Identity Administrator role for configuring the provisioning agent and the Application Administrator or Cloud Application Administrator roles for configuring provisioning in the Azure portal.
- - The Azure AD users to be provisioned to the LDAP directory must already be populated with the attributes that will be required by the directory server schema and are specific to each user.  For example, if the directory server requires each user to have a unique number between 10000 and 30000 as their User ID number to support a POSIX workload, then you would need to extend the Azure AD schema and populate that attribute on the users in scope of the LDAP-based application.
+ - The Azure AD users to be provisioned to the LDAP directory must already be populated with the attributes that will be required by the directory server schema and are specific to each user.  For example, if the directory server requires each user to have a unique number between 10000 and 30000 as their User ID number to support a POSIX workload, then you would need to extend the Azure AD schema and populate that attribute on the users in scope of the LDAP-based application.  See [Graph extensibility](/graph/extensibility-overview?tabs=http#directory-azure-ad-extensions) for how to create additional directory extensions.
 
 ### More recommendations and limitations
 The following bullet points are more recommendations and limitations.
@@ -335,12 +335,20 @@ Follow these steps to confirm that the connector host has started and has identi
  5. After the connection test is successful and indicates that the supplied credentials are authorized to enable provisioning, select **Save**.</br>
      [![Screenshot that shows testing an agent.](.\media\app-provisioning-sql\configure-9.png)](.\media\app-provisioning-sql\configure-9.png#lightbox)
 
+## Extend the Azure AD schema (optional)
+
+If your directory server requires additional attributes that are not part of the default Azure AD schema for users, then when provisioning you can configure to supply values of those attributes from a constant, from an expression transformed from other Azure AD attributes, or by extending the Azure AD schema.
+
+If the directory server requires users to have an attribute, such as `uidNumber` for the OpenLDAP POSIX schema, and that attribute is not already part of your Azure AD schema for a user, and must be unique for each user, then you will need to use the [directory extension feature](../articles/active-directory/app-provisioning/user-provisioning-sync-attributes-for-mapping.md) to add that attribute as an extension.
+
+If your users originate in Active Directory Domain Services, and has the attribute in that directory, then you can use Azure AD Connect or Azure AD Connect cloud sync to configure that the attribute should be synched from Active Directory Domain Services to Azure AD, so that it is available for provisioning to other systems.
+
+If your users originate in Azure AD, then you will need to [define a directory extension](/graph/extensibility-overview?tabs=http#define-the-directory-extension) for each required attribute. Then, [update the Azure AD users](/graph/extensibility-overview?tabs=http#update-or-delete-directory-extensions) to be provisioned to give each user a value of those attributes.
 
 ## Configure attribute mapping
 
 In this section, you'll configure the mapping between the Azure AD user's attributes and the attributes that you previously selected in the ECMA Host configuration wizard.  Later when the connector creates an object in a directory server, the attributes of an Azure AD user will then be sent through the connector to the directory server to be part of that new object.
 
- 1. Ensure that the Azure AD schema includes the attributes that are required by the directory server. If the directory server requires users to have an attribute, such as `uidNumber` for the OpenLDAP POSIX schema, and that attribute is not already part of your Azure AD schema for a user, then you will need to use the [directory extension feature](../articles/active-directory/app-provisioning/user-provisioning-sync-attributes-for-mapping.md) to add that attribute as an extension.
  1. In the Azure AD portal, under **Enterprise applications**, select the **On-premises ECMA app** application, and then select the **Provisioning** page.
  2. Select **Edit provisioning**.
  3. Expand **Mappings** and select **Provision Azure Active Directory Users**.  If this is the first time you've configured the attribute mappings for this application, there will be only one mapping present, for a placeholder.
@@ -374,26 +382,58 @@ In this section, you'll configure the mapping between the Azure AD user's attrib
 
      |Mapping type|Source attribute|Target attribute|
      |-----|-----|-----|
-     |Direct|displayName|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:displayName|
+     |Direct|`displayName`|`urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:displayName`|
 
      For OpenLDAP:
 
      |Mapping type|Source attribute|Target attribute|
      |-----|-----|-----|
-     |Direct|displayName|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:cn|
-     |Direct|surname|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:sn|
-     |Direct|userPrincipalName|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:mail|
+     |Direct|`displayName`|`urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:cn`|
+     |Direct|`surname`|`urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:sn`|
+     |Direct|`userPrincipalName`|`urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:mail`|
 
-     For OpenLDAP with the POSIX schema, you will also need to supply the `gidNumber`, `homeDirectory`, `uid` and `uidNumber` attributes.
+     For OpenLDAP with the POSIX schema, you will also need to supply the `gidNumber`, `homeDirectory`, `uid` and `uidNumber` attributes.   Each user requires a unique `uid` and a unique `uidNumber`. Typically the `homedirectory` is set by an expression. For example, if the `uid` if a user is generated by the expression such as `Join("/", "/home", ToLower(Word([userPrincipalName], 1, "@"), ))`.  And depending on your use case you may wish to have all the users be in the same group, so would assign the `gidNumber` from a constant.
+
+     |Mapping type|Source attribute|Target attribute|
+     |-----|-----|-----|
+     |Direct|`ToLower(Word([userPrincipalName], 1, "@"), )`|`urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:uid`|
+     |Direct|(attribute specific to your directory)|`urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:uidNumber`|
+     |Direct|`Join("/", "/home", ToLower(Word([userPrincipalName], 1, "@"), ))`|`urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:homeDirectory`|
+     |Constant|`10000`|`urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:gidNumber`|
 
  1. If provisioning into a directory other than AD LDS, then add a mapping to `urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:userPassword` that sets an initial random password for the user.  For AD LDS, there is no mapping for **userPassword**.
 
  6. Select **Save**.
 
-## Ensure users have required attribute values
+## Ensure users to be provisioned to the application have required attributes
 
-If you are planning on creating new users in the LDAP directory, then you will need to ensure that the Azure AD representation of those users have the source attributes.
+If there are people who have existing user accounts in the LDAP directory, then you will need to ensure that the Azure AD user representation has the attributes required for matching.
 
+If you are planning on creating new users in the LDAP directory, then you will need to ensure that the Azure AD representation of those users have the source attributes required by the user schema of the target directory.
+
+You can use the [Microsoft Graph PowerShell cmdlets](https://www.powershellgallery.com/packages/Microsoft.Graph) to automate checking users for the required attributes.
+
+For example, suppose your provisioning required users to have three attributes `DisplayName`,`surname` and `extension_656b1c479a814b1789844e76b2f459c3_MyNewProperty`. You could use the `Get-MgUser` cmdlet to retrieve each user and check if the required attributes are present.  Note that the Graph v1.0 `Get-MgUser` cmdlet does not by default include any of a user's directory extension attributes unless the attributes as specified as properties to return.
+
+```powershell
+$userPrincipalNames = (
+ "alice@contoso.com",
+ "bob@contoso.com",
+ "carol@contoso.com" )
+
+$requiredBaseAttributes = ("DisplayName","surname")
+$requiredExtensionAttributes = ("extension_656b1c479a814b1789844e76b2f459c3_MyNewProperty")
+
+$select = "id"
+foreach ($a in $requiredExtensionAttributes) { $select += ","; $select += $a;}
+foreach ($a in $requiredBaseAttributes) { $select += ","; $select += $a;}
+
+foreach ($un in $userPrincipalNames) {
+   $nu = Get-MgUser -UserId $un -Property $select -ErrorAction Stop
+   foreach ($a in $requiredBaseAttributes) { if ($nu.$a -eq $null) { write-output "$un missing $a"} }
+   foreach ($a in $requiredExtensionAttributes) { if ($nu.AdditionalProperties.ContainsKey($a) -eq $false) { write-output "$un missing $a" } }
+}
+```
 
 ## Assign users to an application
 Now that you have the Azure AD ECMA Connector Host talking with Azure AD, and the attribute mapping configured, you can move on to configuring who's in scope for provisioning. 
