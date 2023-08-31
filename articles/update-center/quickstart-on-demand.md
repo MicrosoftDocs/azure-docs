@@ -59,6 +59,8 @@ As per the last assessment performed on the selected machines, you can now selec
 
 1. In the **Update Manager|Getting started** page, in **On-demand assessment and updates**, select **Install updates by machines**.
 
+ :::image type="content" source="./media/quickstart-on-demand/quickstart-install-updates.png" alt-text="Screenshot showing how to access install update settings option to install the updates for virtual machines.":::
+
 1. In the **Install one-time updates** page, select one or more machines from the list in the **Machines** tab and click **Next**.
 
 1. In **Updates**, specify the updates to include in the deployment and click **Next**:
