@@ -373,12 +373,12 @@ groups:
     title: Java
   - id: programming-language-javascript
     title: JavaScript
+  - id: programming-language-typescript
+    title: TypeScript
   - id: programming-language-powershell
     title: PowerShell
   - id: programming-language-python
     title: Python
-  - id: programming-language-typescript
-    title: TypeScript
 - id: programming-languages-set-functions-temp
   title: Programming languages
   prompt: Choose a programming language
