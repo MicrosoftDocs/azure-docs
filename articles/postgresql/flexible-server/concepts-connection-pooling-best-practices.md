@@ -55,7 +55,7 @@ If your application runs on an Azure VM, you can set up PgBouncer on the same VM
 :::image type="content" source="./media/concepts-connection-pooling-best-practices/co-location.png" alt-text="Diagram for App co-location on VM":::
 
 
-Deploying PgBouncer in an application server can provide several advantages, especially when working with PostgreSQL databases. Refer some key benefits & limitations of this deployment method.
+Deploying PgBouncer in an application server can provide several advantages, especially when working with PostgreSQL databases. Some of the key benefits & limitations of this deployment method are:
 
 **Benefits:**
 
@@ -86,7 +86,7 @@ Refer [this](https://techcommunity.microsoft.com/t5/azure-database-for-postgresq
 
 :::image type="content" source="./media/concepts-connection-pooling-best-practices/sidecar-proxy.png" alt-text="Diagram for App co-location on Sidecar":::
 
-Refer some key benefits & limitations of this deployment method.
+Some of the key benefits & limitations of this deployment method are:
 
 **Benefits:**
 
@@ -98,7 +98,7 @@ By considering PgBouncer as an AKS sidecar, you can use these advantages to enha
 
 **Limitations:**
 
-- **Connection Performance Issues:** Largehund-scale applications that utilize thousands of pods, each running sidecar PgBouncer, may encounter potential challenges related to database connection exhaustion. This situation can result in performance degradation and service disruptions. Deploying a sidecar PgBouncer for each pod increases the number of concurrent connections to the database server, which can exceed its capacity.As a result, the database may struggle to handle the high volume of incoming connections, may lead to performance issues such as increased response times or even service outages.
+- **Connection Performance Issues:** Largehund-scale applications that utilize thousands of pods, each running sidecar PgBouncer, may encounter potential challenges related to database connection exhaustion. This situation can result in performance degradation and service disruptions. Deploying a sidecar PgBouncer for each pod increases the number of concurrent connections to the database server, which can exceed its capacity. As a result, the database may struggle to handle the high volume of incoming connections, may lead to performance issues such as increased response times or even service outages.
 - **Complex Deployment:** The utilization of the sidecar pattern introduces a level of complexity to the deployment process, as it involves running two containers within the same pod. This can potentially complicate troubleshooting and debugging activities, requiring extra effort to identify and resolve issues.
 - **Scaling Challenges:** Moreover, it's important to note that the sidecar pattern may not be the ideal choice for applications that demand high scalability. The inclusion of a sidecar container can impose more resource requirements, potentially limiting the number of pods that can be effectively created and managed.
 
@@ -110,14 +110,14 @@ When utilizing this approach, PgBouncer is deployed as a centralized service, in
 
 ### I. PgBouncer deployed in ubuntu VM
 
-**PgBouncer** connection proxy is setup between the application and database layer as shown in the image. Since Azure Database for PostgreSQL is a fully managed platform service, user won't be able to install any external services on DB server. In this case, if your application is running on an Azure VM, you can setup **PgBouncer** on the same VM. If the application is running on a managed service like Azure App Services or Azure Functions, you need to provision a separate Ubuntu VM to run **PgBouncer** proxy.
+**PgBouncer** connection proxy is set up between the application and database layer as shown in the image. Since Azure Database for PostgreSQL is a fully managed platform service, user won't be able to install any external services on DB server. In this case, if your application is running on an Azure VM, you can set up **PgBouncer** on the same VM. If the application is running on a managed service like Azure App Services or Azure Functions, you need to provision a separate Ubuntu VM to run **PgBouncer** proxy.
 
-Refer [link](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/steps-to-install-and-setup-pgbouncer-connection-pooling-proxy/ba-p/730555)  to install and setup PgBouncer connection pooling proxy with Azure Database for PostgreSQL.
+Refer [link](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/steps-to-install-and-setup-pgbouncer-connection-pooling-proxy/ba-p/730555)  to install and set up PgBouncer connection pooling proxy with Azure Database for PostgreSQL.
 
 
 :::image type="content" source="./media/concepts-connection-pooling-best-practices/deploying-vm.png" alt-text="Diagram for App co-location on Vm with Load Balancer":::
 
-Refer some key benefits & limitations of this deployment method.
+Some of the key benefits & limitations of this deployment method are:
 
 **Benefits:**
 
@@ -144,7 +144,7 @@ By utilizing **PgBouncer** as a separate service, you can efficiently manage and
 
 :::image type="content" source="./media/concepts-connection-pooling-best-practices/centralized-aks.png" alt-text="Diagram for PGBouncer as a service within AKS":::
 
-Refer some key benefits & limitations of this deployment method.
+Some of the key benefits & limitations of this deployment method are:
 
 **Benefits:**
 
@@ -164,9 +164,9 @@ While **PgBouncer** running as a standalone service offers benefits such as cent
 
 Azure Database for PostgreSQL – Flexible Server offers [PgBouncer](https://github.com/pgbouncer/pgbouncer) as a built-in connection pooling solution. This is offered as an optional service that can be enabled on a per-database server basis. PgBouncer runs in the same virtual machine as the Postgres database server. As the number of connections increases beyond a few hundreds or thousand, Postgres may encounter resource limitations. In such cases, built-in PgBouncer can provide a significant advantage by improving the management of idle and short-lived connections at the database server.
 
-Refer link to enable and setup PgBouncer connection pooling in Azure DB for PostgreSQL Flexible server
+Refer link to enable and set up PgBouncer connection pooling in Azure DB for PostgreSQL Flexible server
 
-Refer some key benefits & limitations of this deployment method.
+Some of the key benefits & limitations of this deployment method are:
 
 **Benefits:**
 
