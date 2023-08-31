@@ -134,12 +134,6 @@ resource runPowerShellInline 'Microsoft.Resources/deploymentScripts@2020-10-01' 
 }
 ```
 
-> [!NOTE]
-> The example is for demonstration purposes. The properties `scriptContent` and `primaryScriptUri` can't coexist in a Bicep file.
-
-> [!NOTE]
-> The _scriptContent_ shows a script with multiple lines.  The Azure portal and Azure DevOps pipeline can't parse a deployment script with multiple lines. You can either chain the PowerShell commands (by using semicolons or _\\r\\n_ or _\\n_) into one line, or use the `primaryScriptUri` property with an external script file. There are many free JSON string escape/unescape tools available. For example, [https://www.freeformatter.com/json-escape.html](https://www.freeformatter.com/json-escape.html).
-
 Property value details:
 
 - `identity`: For deployment script API version 2020-10-01 or later, a user-assigned managed identity is optional unless you need to perform any Azure-specific actions in the script.  For the API version 2019-10-01-preview, a managed identity is required as the deployment script service uses it to execute the scripts. When the identity property is specified, the script service calls `Connect-AzAccount -Identity` before invoking the user script. Currently, only user-assigned managed identity is supported. To login with a different identity, you can call [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) in the script.
