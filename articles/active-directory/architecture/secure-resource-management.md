@@ -62,7 +62,7 @@ The following diagram summarizes the resource model we just described.
 
 **Azure Lighthouse** - [Azure Lighthouse](../../lighthouse/overview.md) enables resource management across tenants. Organizations can delegate roles at the subscription or resource group level to identities in another tenant.
 
-Subscriptions that enable [delegated resource management](../../lighthouse/concepts/azure-delegated-resource-management.md) with Azure Lighthouse have attributes that indicate the tenant IDs that can manage subscriptions or resource groups, and mapping between the built-in RBAC role in the resource tenant to identities in the service provider tenant. At runtime, Azure Resource Manager will consume these attributes to authorize tokens coming from the service provider tenant.
+Subscriptions that enable [delegated resource management](../../lighthouse/concepts/architecture.md) with Azure Lighthouse have attributes that indicate the tenant IDs that can manage subscriptions or resource groups, and mapping between the built-in RBAC role in the resource tenant to identities in the service provider tenant. At runtime, Azure Resource Manager will consume these attributes to authorize tokens coming from the service provider tenant.
 
 It's worth noting that Azure Lighthouse itself is modeled as an Azure resource provider, which means that aspects of the delegation across a tenant can be targeted through Azure Policies.
 
@@ -99,7 +99,7 @@ An enterprise agreement can be configured to support multiple tenants by setting
 
 It's important to note that the default configuration described above grants the Azure EA Account Owner privileges to manage the resources in any subscriptions they created. For subscriptions holding production workloads, consider decoupling billing and resource management by changing the service administrator of the subscription right after creation.
 
- To further decouple and prevent the account owner from regaining service administrator access to the subscription, the subscription's tenant can be [changed](../fundamentals/active-directory-how-subscriptions-associated-directory.md) after creation. If the account owner doesn't have a user object in the Azure AD tenant the subscription is moved to, they can't regain the service owner role.
+ To further decouple and prevent the account owner from regaining service administrator access to the subscription, the subscription's tenant can be [changed](../fundamentals/how-subscriptions-associated-directory.md) after creation. If the account owner doesn't have a user object in the Azure AD tenant the subscription is moved to, they can't regain the service owner role.
 
 To learn more, visit [Azure roles, Azure AD roles, and classic subscription administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md).  
 
@@ -129,7 +129,7 @@ Azure ABAC builds on Azure RBAC by adding role assignment conditions based on at
 
 ## Conditional Access
 
-Azure AD [Conditional Access](../../role-based-access-control/conditional-access-azure-management.md) can be used to manage access to Azure management endpoints. Conditional Access policies can be applied to the Microsoft Azure Management cloud app to protect the Azure resource management endpoints such as:
+Azure AD [Conditional Access](../conditional-access/concept-conditional-access-cloud-apps.md) can be used to manage access to Azure management endpoints. Conditional Access policies can be applied to the Microsoft Azure Management cloud app to protect the Azure resource management endpoints such as:
 
 * Azure Resource Manager Provider (services)
 
@@ -336,7 +336,7 @@ For this isolated model, it's assumed that there's no connectivity to the VNet t
 
 * [Introduction to delegated administration and isolated environments](secure-introduction.md)
 
-* [Azure AD fundamentals](../fundamentals/secure-fundamentals.md)
+* [Azure AD fundamentals](./secure-fundamentals.md)
 
 * [Resource isolation in a single tenant](secure-single-tenant.md)
 

@@ -58,6 +58,23 @@ The parameter `replicate_wild_ignore_table` creates a replication filter for tab
 - With **public access**, ensure that the source server has a public IP address, that DNS is publicly accessible, or that the source server has a fully qualified domain name (FQDN).
 - With **private access**, ensure that the source server name can be resolved and is accessible from the VNet where the Azure Database for MySQL instance is running. (For more details, visit [Name resolution for resources in Azure virtual networks](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)).
 
+### Generated Invisible Primary Key
+
+For MySQL version 8.0 and above, [Generated Invisible Primary Keys](https://dev.mysql.com/doc/refman/8.0/en/create-table-gipks.html)(GIPK) is enabled by default for all the Azure Database for MySQL Flexible Servers. MySQL 8.0+ servers adds the invisible column *my_row_id* to the tables and a primary key on that column, where the InnoDB table is created without an explicit primary key. This feature, when enabled may impact some of the data-in replication use cases, as described below:
+
+- Data-in replication fails with replication error: “**ERROR 1068 (42000): Multiple primary key defined**” if source server creates a Primary key on the table without Primary Key. For mitigation, run the following sql command, skip replication error and restart [data-in replication](how-to-data-in-replication.md). 
+
+   ```sql
+   alter table <table name> drop column my_row_id, add primary key <primary key name>(<column name>);
+   ```
+
+- Data-in replication fails with replication error: "**ERROR 1075 (42000): Incorrect table definition; there can be only one auto column and it must be defined as a key**" if source server adds an auto_increment column as Unique Key. For mitigation, run the following sql command, set "[sql_generate_invisible_primary_key](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_sql_generate_invisible_primary_key)" as OFF, skip replication error and restart [data-in replication](how-to-data-in-replication.md).
+   ```sql
+   alter table <table name> drop column my_row_id, modify <column name> int auto_increment;
+   ```
+
+- Data-in replication fails if source server runs any other SQL that isn't supported when "[sql_generate_invisible_primary_key](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_sql_generate_invisible_primary_key)" is ON. For example, create a partition table. In such a scenario mitigation is to set "[sql_generate_invisible_primary_key](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_sql_generate_invisible_primary_key)" as OFF and restart [data-in replication](how-to-data-in-replication.md). 
+
 ## Next steps
 
 - Learn more on how to [set up data-in replication](how-to-data-in-replication.md)

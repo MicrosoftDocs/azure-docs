@@ -10,7 +10,7 @@ ms.date: 07/19/2023
 <!-- 
 For clarity of structure, a separate markdown file is used to describe how to prepare event-driven project.
 
-[!INCLUDE [prepare-spring-project-event-driven](../../includes/quickstart-deploy-event-driven-app/prepare-spring-project-event-driven.md)]
+[!INCLUDE [prepare-spring-project-event-driven](prepare-spring-project-event-driven.md)]
 
 -->
 
@@ -18,7 +18,7 @@ Use the following steps to prepare the sample locally.
 
 ### [Azure portal](#tab/Azure-portal)
 
-[!INCLUDE [prepare-spring-project-git-event-driven](../../includes/quickstart-deploy-event-driven-app/prepare-spring-project-git-event-driven.md)]
+[!INCLUDE [prepare-spring-project-git-event-driven](prepare-spring-project-git-event-driven.md)]
 
 ### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
@@ -45,7 +45,6 @@ These steps use AZD to initialize the event-driven application from the Azure De
    (✓) Done: Downloading template code to: <your-local-path>
 
    Enter a new environment name: <your-env-name>
-
 
    SUCCESS: New project initialized!
    You can view the template code in your directory: <your-local-path>

@@ -215,12 +215,12 @@ After you configure the servers, you can add Azure AD MFA as an additional authe
 
 ## Prepare Staged Rollout 
 
-Now you're ready to enable [Staged Rollout](../hybrid/how-to-connect-staged-rollout.md). Staged Rollout helps you to iteratively move your users to either PHS or PTA while also migrating their on-premises MFA settings.
+Now you're ready to enable [Staged Rollout](../hybrid/connect/how-to-connect-staged-rollout.md). Staged Rollout helps you to iteratively move your users to either PHS or PTA while also migrating their on-premises MFA settings.
 
-* Be sure to review the [supported scenarios](../hybrid/how-to-connect-staged-rollout.md#supported-scenarios). 
-* First, you'll need to do either the [prework for PHS](../hybrid/how-to-connect-staged-rollout.md#pre-work-for-password-hash-sync) or the [prework for PTA](../hybrid/how-to-connect-staged-rollout.md#pre-work-for-pass-through-authentication). We  recommend PHS. 
-* Next, you'll do the [prework for seamless SSO](../hybrid/how-to-connect-staged-rollout.md#pre-work-for-seamless-sso). 
-* [Enable the Staged Rollout of cloud authentication](../hybrid/how-to-connect-staged-rollout.md#enable-a-staged-rollout-of-a-specific-feature-on-your-tenant) for your selected authentication method. 
+* Be sure to review the [supported scenarios](../hybrid/connect/how-to-connect-staged-rollout.md#supported-scenarios). 
+* First, you'll need to do either the [prework for PHS](../hybrid/connect/how-to-connect-staged-rollout.md#pre-work-for-password-hash-sync) or the [prework for PTA](../hybrid/connect/how-to-connect-staged-rollout.md#pre-work-for-pass-through-authentication). We  recommend PHS. 
+* Next, you'll do the [prework for seamless SSO](../hybrid/connect/how-to-connect-staged-rollout.md#pre-work-for-seamless-sso). 
+* [Enable the Staged Rollout of cloud authentication](../hybrid/connect/how-to-connect-staged-rollout.md#enable-a-staged-rollout-of-a-specific-feature-on-your-tenant) for your selected authentication method. 
 * Add the group(s) you created for Staged Rollout. Remember that you'll add users to groups iteratively, and that they can't be dynamic groups or nested groups. 
 
 ## Register users for Azure AD MFA
@@ -283,7 +283,7 @@ Detailed Azure AD MFA registration information can be found on the Registration 
 
 Monitor applications you moved to Azure AD with the App sign-in health workbook or the application activity usage report.
 
-* **App sign-in health workbook**. See [Monitoring application sign-in health for resilience](../fundamentals/monitor-sign-in-health-for-resilience.md) for detailed guidance on using this workbook.
+* **App sign-in health workbook**. See [Monitoring application sign-in health for resilience](../architecture/monitor-sign-in-health-for-resilience.md) for detailed guidance on using this workbook.
 * **Azure AD application activity usage report**. This [report](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsageAndInsightsMenuBlade/Azure%20AD%20application%20activity) can be used to view the successful and failed sign-ins for individual applications as well as the ability to drill down and view sign-in activity for a specific application. 
 
 ## Clean up tasks
@@ -293,7 +293,7 @@ We recommend reviewing MFA Server logs to ensure no users or applications are us
 
 ### Convert your domains to managed authentication
 
-You should now [convert your federated domains in Azure AD to managed](../hybrid/migrate-from-federation-to-cloud-authentication.md#convert-domains-from-federated-to-managed) and remove the Staged Rollout configuration. 
+You should now [convert your federated domains in Azure AD to managed](../hybrid/connect/migrate-from-federation-to-cloud-authentication.md#convert-domains-from-federated-to-managed) and remove the Staged Rollout configuration. 
 This conversion ensures new users use cloud authentication without being added to the migration groups.
 
 ### Revert claims rules on AD FS and remove MFA Server authentication provider
@@ -347,5 +347,5 @@ For more information about migrating applications to Azure, see [Resources for m
 ## Next steps
 
 - [Migrate from Microsoft MFA Server to Azure AD MFA (Overview)](how-to-migrate-mfa-server-to-azure-mfa.md)
-- [Migrate applications from Windows Active Directory to Azure AD](../manage-apps/migrate-application-authentication-to-azure-active-directory.md)
-- [Plan your cloud authentication strategy](../fundamentals/deployment-plans.md)
+- [Migrate applications from Windows Active Directory to Azure AD](../manage-apps/migrate-adfs-apps-phases-overview.md)
+- [Plan your cloud authentication strategy](../architecture/deployment-plans.md)

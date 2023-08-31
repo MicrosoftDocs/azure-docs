@@ -5,8 +5,8 @@ ms.service: mysql
 ms.subservice: single-server
 ms.topic: quickstart
 ms.devlang: javascript
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js, mode-api, devx-track-linux
 ms.date: 05/03/2023
 ---

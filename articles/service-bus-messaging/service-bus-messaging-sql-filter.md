@@ -2,12 +2,12 @@
 title: Azure Service Bus Subscription Rule SQL Filter syntax | Microsoft Docs
 description: This article provides details about SQL filter grammar. A SQL filter supports a subset of the SQL-92 standard.  
 ms.topic: article
-ms.date: 05/31/2022
+ms.date: 08/16/2023
 ---
 
 # Subscription Rule SQL Filter Syntax
 
-A *SQL filter* is one of the available filter types for Service Bus topic subscriptions. It's a text expression that leans on a subset of the SQL-92 standard. Filter expressions are used with the `sqlExpression` element of the 'sqlFilter' property of a Service Bus `Rule` in an [Azure Resource Manager template](service-bus-resource-manager-namespace-topic-with-rule.md), or the Azure CLI `az servicebus topic subscription rule create` command's [`--filter-sql-expression`](/cli/azure/servicebus/topic/subscription/rule#az-servicebus-topic-subscription-rule-create) argument, and several SDK functions that allow managing subscription rules. The allowed expressions are shown below.
+A *SQL filter* is one of the available filter types for Service Bus topic subscriptions. It's a text expression that leans on a subset of the SQL-92 standard. Filter expressions are used with the `sqlExpression` element of the 'sqlFilter' property of a Service Bus `Rule` in an [Azure Resource Manager template](service-bus-resource-manager-namespace-topic-with-rule.md), or the Azure CLI `az servicebus topic subscription rule create` command's [`--filter-sql-expression`](/cli/azure/servicebus/topic/subscription/rule#az-servicebus-topic-subscription-rule-create) argument, and several SDK functions that allow managing subscription rules. The allowed expressions are shown in this section.
 
 Service Bus Premium also supports the [JMS SQL message selector syntax](https://docs.oracle.com/javaee/7/api/javax/jms/Message.html) through the JMS 2.0 API.
 
@@ -52,7 +52,7 @@ Service Bus Premium also supports the [JMS SQL message selector syntax](https://
   
 ## Remarks
 
-An attempt to access a non-existent system property is an error, while an attempt to access a non-existent user property isn't an error. Instead, a non-existent user property is internally evaluated as an unknown value. An unknown value is treated specially during operator evaluation.  
+An attempt to access a nonexistent system property is an error, while an attempt to access a nonexistent user property isn't an error. Instead, a nonexistent user property is internally evaluated as an unknown value. An unknown value is treated specially during operator evaluation.  
   
 ## property_name  
   
@@ -211,7 +211,7 @@ Consider the following Sql Filter semantics:
   
 ### Property evaluation semantics  
   
-- An attempt to evaluate a non-existent system property throws a `FilterException` exception.  
+- An attempt to evaluate a nonexistent system property throws a `FilterException` exception.  
   
 - A property that doesn't exist is internally evaluated as **unknown**.  
   

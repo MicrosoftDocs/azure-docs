@@ -25,7 +25,7 @@ monikerRange: '<=doc-intel-3.1.0'
 
 ## Migrating from v3.1 preview API version
 
-Preview APIs are periodically deprecated. If you're using a preview API version, update your application to target the GA API version. To migrate from the 2023-02-28-preview API version to the `2023-07-31` (GA) API version using the SDK, update to the [current version of the language specific SDK](sdk-overview.md).
+Preview APIs are periodically deprecated. If you're using a preview API version, update your application to target the GA API version. To migrate from the 2023-02-28-preview API version to the `2023-07-31` (GA) API version using the SDK, update to the [current version of the language specific SDK](sdk-overview-v3-1.md).
 
 The `2023-07-31` (GA) API has a few updates and changes from the preview API version:
 

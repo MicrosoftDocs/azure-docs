@@ -10,7 +10,7 @@ ms.workload: identity
 ms.date: 7/6/2022
 ms.subservice: hybrid
 ms.author: billmath
-ms.custom: has-adal-ref
+ms.custom: has-adal-ref, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 ---
 
@@ -77,6 +77,7 @@ To read more about autoupgrade, see [Azure AD Connect: Automatic upgrade](how-to
  - We have enabled Auto Upgrade for tenants with custom synchronization rules. Note that deleted (not disabled) default rules will be re-created and enabled upon Auto Upgrade.
  - We have added Microsoft Azure AD Connect Agent Updater service to the install. This new service will be used for future auto upgrades.
  - We have removed the Synchronization Service WebService Connector Config program from the install.
+ - Default sync rule “In from AD – User Common” was updated to flow the employeeType attribute.
 
 ### Bug Fixes
  - We have made improvements to accessibility.
