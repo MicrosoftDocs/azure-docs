@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/logic-apps/logic-apps-enterprise-integration-create-integration-account.md",
+            "redirect_url": "/azure/logic-apps/enterprise-integration/create-integration-account",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/logic-apps/connect-virtual-network-vnet-isolated-environment.md",
             "redirect_url": "/azure/logic-apps/connect-virtual-vnet-isolated-environment-overview",
             "redirect_document_id": false
@@ -227,12 +232,12 @@
         },
         {
             "source_path_from_root": "/articles/app-service-logic/app-service-logic-enterprise-integration-accounts.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-enterprise-integration-create-integration-account",
+            "redirect_url": "/azure/logic-apps/enterprise-integration/create-integration-account",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/app-service-logic/app-service-logic-enterprise-integration-create-integration-account.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-enterprise-integration-create-integration-account",
+            "redirect_url": "/azure/logic-apps/enterprise-integration/create-integration-account",
             "redirect_document_id": false
         },
         {
@@ -527,8 +532,8 @@
         },
         {
             "source_path_from_root": "/articles/logic-apps/logic-apps-enterprise-integration-accounts.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-enterprise-integration-create-integration-account",
-            "redirect_document_id": true
+            "redirect_url": "/azure/logic-apps/enterprise-integration/create-integration-account",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/logic-apps/logic-apps-enterprise-integration-as2-encode.md",
