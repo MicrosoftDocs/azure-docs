@@ -28,7 +28,6 @@ Azure Functions provides a guarantee of support for the major versions of suppor
 
 > [!NOTE]
 >Because Azure Functions can remove the support of older minor versions at any time after a new minor version is available, you shouldn't pin your function apps to a specific minor/patch version of a programming language.  
->
 
 ## Custom handlers
 
@@ -43,12 +42,12 @@ Starting with version 2.x, the runtime is designed to offer [language extensibil
 ### [Isolated process](#tab/isolated-process)
 
 > [!div class="nextstepaction"]
-> [Develop .NET isolated worker process functions](../articles/azure-functions/dotnet-isolated-process-guide.md).
+> [.NET isolated worker process reference](dotnet-isolated-process-guide.md).
 
 ### [In-process](#tab/in-process)
 
 > [!div class="nextstepaction"]
-> [C# class library developer reference](functions-dotnet-class-library.md)   
+> [In-process C# developer reference](functions-dotnet-class-library.md)   
 
 ---
 
