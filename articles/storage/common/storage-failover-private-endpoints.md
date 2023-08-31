@@ -72,7 +72,7 @@ This topology supports the following scenarios, and each scenario has its own co
 | [Scenario 1 - Storage Account Failover](#scenario-1---storage-account-failover) | A service interruption to the storage account hosted in the primary region requires it to be failed over to a secondary region. | No changes required. |
 | [Scenario 2 - Other Services Failover](#scenario-2---other-services-failover) | A service interruption to services in the primary region requires them to be failed over to a secondary region.  The storage account doesn't need to be failed over.  | If the outage impacts the DNS servers hosted in the primary region, then the conditional forwarders from on-premises need to be updated to the secondary region. |
 | [Scenario 3 - Whole Region Outage](#scenario-3---whole-region-outage) | A service interruption to multiple services in a region requires both the storage account and other services to be failed over. | Conditional forwarders from on-premises DNS need to be updated to the secondary region. |
-| [Scenario 4 - Running in HA](#scenario-4---running-in-ha) | The services and storage accounts are working in Azure in an active/active configuration. | If a region's DNS or storage account is impacted, conditional forwarders on-premises need to be updated to operational regions. |
+| [Scenario 4 - Running in High-Availability](#scenario-4---running-in-high-availability) | The services and storage accounts are working in Azure in an active/active configuration. | If a region's DNS or storage account is impacted, conditional forwarders on-premises need to be updated to operational regions. |
 
 ### Scenario 1 - storage account failover
 
