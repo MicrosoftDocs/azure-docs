@@ -63,7 +63,7 @@ To see which users and groups are consuming licenses, select a product. Under **
 **Problem:** One of the products that's specified in the group contains a service plan that conflicts with another service plan that's already assigned to the user via a different product. Some service plans are configured in a way that they can't be assigned to the same user as another, related service plan.
 
 > [!TIP]
-> Previously, Exchange Online Plan1 and Plan2 could not be duplicated but now they can be duplicated.
+> Previously, Exchange Online Plan1 and Plan2 were unique and couldn't be duplicated. Now, both service plans have been updated to allow duplication.
 > If you are experiencing conflicts with these service plans, try reprocessing them.
 
 The decision about how to resolve conflicting product licenses always belongs to the administrator. Azure AD doesn't automatically resolve license conflicts.
