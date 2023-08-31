@@ -31,7 +31,8 @@ The following tutorial notebook shows an example of training machine learning mo
     :::image type="content" source="./media/use-machine-learning-notebook-on-spark/jupyter-notebook.png" alt-text="Screenshot showing Jupyter Notebook.":::
 
 1. Import Spark MLlib Libraries to create the pipeline
-    ```import pyspark
+    ```
+    import pyspark
     from pyspark.ml import Pipeline, PipelineModel
     from pyspark.ml.classification import LogisticRegression
     from pyspark.ml.feature import VectorAssembler, StringIndexer, IndexToString
