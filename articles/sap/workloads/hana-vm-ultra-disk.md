@@ -75,6 +75,7 @@ The recommendations are often exceeding the SAP minimum requirements as stated e
 <sup>1</sup> VM type not available by default. Please contact your Microsoft account team
 <sup>2</sup> Maximum throughput provided by the VM and throughput requirement by SAP HANA workload, especially savepoint activity,  can force you to deploy significant more throughput and IOPS
 
+
 **The values listed are intended to be a starting point and need to be evaluated against the real demands.** The advantage with Azure Ultra disk is that the values for IOPS and throughput can be adapted without the need to shut down the VM or halting the workload applied to the system.   
 
 > [!NOTE]
