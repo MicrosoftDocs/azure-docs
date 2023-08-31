@@ -26,7 +26,7 @@ In this tutorial:
 > [!div class="checklist"]
 >
 > - Create an Android app project in _Android Studio_
-> - Register the app in the Azure portal
+> - Register the app in the Microsoft Entra admin center
 > - Add code to support user sign-in and sign-out
 > - Add code to call the Microsoft Graph API
 > - Test the app
@@ -51,7 +51,7 @@ Follow these steps to create a new project if you don't already have an Android 
 1. Open Android Studio, and select **Start a new Android Studio project**.
 2. Select **Basic Activity** and select **Next**.
 3. Enter a name for the application, such as _MSALAndroidapp_.
-4. Record the package name to be used in the Azure portal in later steps.
+4. Record the package name to be used in later steps.
 5. Change the language from **Kotlin** to **Java**.
 6. Set the **Minimum SDK API level** to **API 19** or higher, and select **Finish**.
 
@@ -59,10 +59,10 @@ Follow these steps to create a new project if you don't already have an Android 
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
-1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
-1. Search for and select **Azure Active Directory**.
-1. Under **Manage**, select **App registrations** > **New registration**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Application Developer](../roles/permissions-reference.md#application-developer).
+1. If access to multiple tenants is available, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
+1. Browse to **Identity** > **Applications** > **App registrations**.
+1. Select **New registration**.
 1. Enter a **Name** for your application. Users of your app might see this name, and you can change it later.
 1. For **Supported account types**, select **Accounts in any organizational directory (Any Azure AD directory - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox)**. For information on different account types, select the **Help me choose** option.
 1. Select **Register**.
@@ -129,8 +129,8 @@ Follow these steps to create a new project if you don't already have an Android 
    </activity>
    ```
 
-   - Use your Azure portal **Package name** to replace `android:host=.` value. It should look like `com.azuresamples.msalandroidapp`.
-   - Use your Azure portal **Signature Hash** to replace `android:path=` value. Ensure that there's a leading `/` at the beginning of your Signature Hash. It should look like `/1wIqXSqBj7w+h11ZifsnqwgyKrY=`.
+   - Use the **Package name** to replace `android:host=.` value. It should look like `com.azuresamples.msalandroidapp`.
+   - Use the **Signature Hash** to replace `android:path=` value. Ensure that there's a leading `/` at the beginning of your Signature Hash. It should look like `/1wIqXSqBj7w+h11ZifsnqwgyKrY=`.
 
    You can find these values in the Authentication blade of your app registration as well.
 
