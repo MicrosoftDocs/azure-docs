@@ -126,7 +126,7 @@ Now if Teams user sents an image, you should see something like the following:
 
 <IMAGE3_TBA>
 
-Please note that in a Teams Interop Chat, we currently only support Communication Users to recieve inline images sent by the Teams user. To learm more about what features are supported, please refer to the [UI library Use Cases](../../concepts/ui-library/includes/web-ui-use-cases.md)
+Please note that in a Teams Interop Chat, we currently only support Communication Users to recieve inline images sent by the Teams user. To learm more about what features are supported, please refer to the [UI library Use Cases](../concepts/ui-library/includes/web-ui-use-cases.md)
 
 ## Next steps
 
