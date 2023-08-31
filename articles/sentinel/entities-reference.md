@@ -18,23 +18,22 @@ Each one of the identifiers in the **required identifiers** column is necessary 
 
 For best results&mdash;for guaranteed unique identification&mdash;you should use identifiers from the **strongest identifiers** column whenever possible. The use of multiple strong identifiers enables correlation between strong identifiers from varying data sources and schemas. This correlation in turn allows Microsoft Sentinel to provide more comprehensive insights for a given entity.
 
-| Entity type | Identifiers | Required identifiers | Strongest identifiers |
+| Entity type | Identifiers | Strong identifiers | Weak identifiers |
 | - | - | - | - |
-| [**User account**](#user-account)<br>*(Account)* | Name<br>FullName<br>NTDomain<br>DnsDomain<br>UPNSuffix<br>Sid<br>AadTenantId<br>AadUserId<br>PUID<br>IsDomainJoined<br>DisplayName<br>ObjectGuid | FullName<br>Sid<br>Name<br>AadUserId<br>PUID<br>ObjectGuid | Name + NTDomain<br>Name + UPNSuffix<br>AADUserId<br>Sid |
-| [**Host**](#host) | DnsDomain<br>NTDomain<br>HostName<br>FullName<br>NetBiosName<br>AzureID<br>OMSAgentID<br>OSFamily<br>OSVersion<br>IsDomainJoined | FullName<br>HostName<br>NetBiosName<br>AzureID<br>OMSAgentID | HostName + NTDomain<br>HostName + DnsDomain<br>NetBiosName + NTDomain<br>NetBiosName + DnsDomain<br>AzureID<br>OMSAgentID |
-| [**IP address**](#ip-address)<br>*(IP)* | Address | Address | |
-| [**Malware**](#malware) | Name<br>Category | Name | |
-| [**File**](#file) | Directory<br>Name | Name | |
-| [**Process**](#process) | ProcessId<br>CommandLine<br>ElevationToken<br>CreationTimeUtc | CommandLine<br>ProcessId | |
-| [**Cloud application**](#cloud-application)<br>*(CloudApplication)* | AppId<br>Name<br>InstanceName | AppId<br>Name | |
-| [**Domain name**](#domain-name)<br>*(DNS)* | DomainName | DomainName | |
+| [**Account**](#account) | Name<br>NTDomain<br>DnsDomain<br>UPNSuffix<br>Sid<br>AadTenantId<br>AadUserId<br>PUID<br>IsDomainJoined<br>DisplayName<br>ObjectGuid | Name+UPNSuffix<br>AADUserId<br>Sid<br>&nbsp;*(except built-in account)*<br> Host+Sid<br>Name+NTDomain<br>&nbsp;*(if NTDomain != Host)*<br>Name+NTDomain+Host<br>&nbsp;*(if NTDomain is workgroup)*<br>Name+DnsDomain<br>PUID<br>ObjectGuid | Name |
+| [**Host**](#host) | DnsDomain<br>NTDomain<br>HostName<br>FullName<br>NetBiosName<br>AzureID<br>OMSAgentID<br>OSFamily<br>OSVersion<br>IsDomainJoined | HostName+NTDomain<br>HostName+DnsDomain<br>NetBiosName+NTDomain<br>NetBiosName+DnsDomain<br>AzureID<br>OMSAgentID | HostName<br>NetBiosName |
+| [**IP**](#ip) | Address<br>AddressScope | Address<br>&nbsp;*(global IP address)*<br>Address+AddressScope<br>&nbsp;*(non-global IP address)* | |
+| [**URL**](#url) | Url | Url<br>&nbsp;*(if absolute URL)* | Url<br>&nbsp;*(if relative URL)* |
 | [**Azure resource**](#azure-resource) | ResourceId | ResourceId | |
+| [**Cloud application**](#cloud-application)<br>*(CloudApplication)* | AppId<br>Name<br>InstanceName | AppId<br>&nbsp;*(without InstanceName)*<br>Name<br>&nbsp;*(without InstanceName)*<br>AppId+InstanceName<br>Name+InstanceName | |
+| [**DNS Resolution**](#dns-resolution)<br>***WHAT DO I DO HERE?*** | DomainName | DomainName | |
+| [**File**](#file) | Directory<br>Name | Name | |
 | [**File hash**](#file-hash)<br>*(FileHash)* | Algorithm<br>Value | Algorithm + Value | |
+| [**Malware**](#malware) | Name<br>Category | Name | |
+| [**Process**](#process) | ProcessId<br>CommandLine<br>ElevationToken<br>CreationTimeUtc | CommandLine<br>ProcessId | |
 | [**Registry key**](#registry-key) | Hive<br>Key | Hive<br>Key | Hive + Key |
 | [**Registry value**](#registry-value) | Name<br>Value<br>ValueType | Name | |
 | [**Security group**](#security-group) | DistinguishedName<br>SID<br>ObjectGuid | DistinguishedName<br>SID<br>ObjectGuid | |
-| [**URL**](#url) | Url | Url | |
-| [**IoT device**](#iot-device) | IoTHub<br>DeviceId<br>DeviceName<br>IoTSecurityAgentId<br>DeviceType<br>Source<br>SourceRef<br>Manufacturer<br>Model<br>OperatingSystem<br>IpAddress<br>MacAddress<br>Protocols<br>SerialNumber | IoTHub<br>DeviceId | IoTHub + DeviceId |
 | [**Mailbox**](#mailbox) | MailboxPrimaryAddress<br>DisplayName<br>Upn<br>ExternalDirectoryObjectId<br>RiskLevel | MailboxPrimaryAddress | |
 | [**Mail cluster**](#mail-cluster) | NetworkMessageIds<br>CountByDeliveryStatus<br>CountByThreatType<br>CountByProtectionStatus<br>Threats<br>Query<br>QueryTime<br>MailCount<br>IsVolumeAnomaly<br>Source<br>ClusterSourceIdentifier<br>ClusterSourceType<br>ClusterQueryStartTime<br>ClusterQueryEndTime<br>ClusterGroup | Query<br>Source | Query + Source |
 | [**Mail message**](#mail-message) | Recipient<br>Urls<br>Threats<br>Sender<br>P1Sender<br>P1SenderDisplayName<br>P1SenderDomain<br>SenderIP<br>P2Sender<br>P2SenderDisplayName<br>P2SenderDomain<br>ReceivedDate<br>NetworkMessageId<br>InternetMessageId<br>Subject<br>BodyFingerprintBin1<br>BodyFingerprintBin2<br>BodyFingerprintBin3<br>BodyFingerprintBin4<br>BodyFingerprintBin5<br>AntispamDirection<br>DeliveryAction<br>DeliveryLocation<br>Language<br>ThreatDetectionMethods | NetworkMessageId<br>Recipient | NetworkMessageId + Recipient |
@@ -48,7 +47,7 @@ The following section contains a more in-depth look at the full schemas of each 
 > [!NOTE]
 > A question mark following the value in the **Type** column indicates the field is nullable.
 
-## User account
+## Account
 
 *Entity name: Account*
 
