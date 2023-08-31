@@ -5,9 +5,9 @@ author: rashi-ms
 ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 06/29/2023
+ms.date: 08/24/2023
 ms.service: azure-migrate
-ms.custom: MVC, engagement-fy23
+ms.custom: MVC, engagement-fy24
 #Customer intent: As a VMware VM admin, I want to assess my VMware VMs in preparation for migration to Azure.
 ---
 
