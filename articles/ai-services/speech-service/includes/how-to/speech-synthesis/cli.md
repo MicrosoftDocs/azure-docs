@@ -30,13 +30,13 @@ The Speech CLI produces natural language in English through the computer speaker
 
 ## Synthesize speech to a file
 
-- Run the following command to change the output from your speaker to a .wav file:
+- Run the following command to change the output from your speaker to a *.wav* file:
 
   ```console
   spx synthesize --text "I'm excited to try text to speech" --audio output greetings.wav
   ```
 
-The Speech CLI produces natural language in English in the *greetings.wav* audio file.
+The Speech CLI produces natural language in English to the *greetings.wav* audio file.
 
 ## Run and use a container
 

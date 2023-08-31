@@ -28,7 +28,7 @@ function synthesizeSpeech() {
 synthesizeSpeech();
 ```
 
-All neural voices are multilingual and fluent in their own language and English. For example, if the input text in English is "I'm excited to try text to speech" and you select `es-ES-ElviraNeural`, the text is spoken in English with a Spanish accent.
+All neural voices are multilingual and fluent in their own language and English. For example, if the input text in English is, "I'm excited to try text to speech," and you select `es-ES-ElviraNeural`, the text is spoken in English with a Spanish accent.
 
 If the voice doesn't speak the language of the input text, the Speech service doesn't create synthesized audio. For a full list of supported neural voices, see [Language and voice support for the Speech service](../../../language-support.md?tabs=tts).
 
@@ -75,8 +75,8 @@ When you run the program, synthesized audio is played from the speaker. This res
 
 Create a [`SpeechSynthesizer`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesizer) object. This object runs text to speech conversions and outputs to speakers, files, or other output streams. `SpeechSynthesizer` accepts as parameters:
 
-- The [`SpeechConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig) object that you created in the previous step
-- An [`AudioConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig) object that specifies how output results should be handled
+- The [`SpeechConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig) object that you created in the previous step.
+- An [`AudioConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig) object that specifies how output results should be handled.
 
 1. Create an `AudioConfig` instance to automatically write the output to a *.wav* file by using the `fromAudioFileOutput()` static function:
 
@@ -111,7 +111,7 @@ function synthesizeSpeech() {
 }
 ```
 
-Run the program. Synthesized speech is written to a .wav file in the location that you specified.
+Run the program. Synthesized speech is written to a *.wav* file in the location that you specified.
 
 ---
 
@@ -119,7 +119,7 @@ Run the program. Synthesized speech is written to a .wav file in the location th
 
 # [browserjs](#tab/browserjs)
 
-You can use the resulting audio data as an in-memory stream rather than directly writing to a file. With in-memory stream, you can build custom behavior, including:
+You can use the resulting audio data as an in-memory stream rather than directly writing to a file. With in-memory stream, you can build custom behavior:
 
 - Abstract the resulting byte array as a seekable stream for custom downstream services.
 - Integrate the result with other APIs or services.
@@ -183,11 +183,11 @@ function synthesizeSpeech() {
 
 # [nodejs](#tab/nodejs)
 
-For many scenarios in speech application development, you might need the audio data as an in-memory stream rather than directly writing to a file. You can build custom behavior, including:
+For many scenarios in speech application development, you might need the audio data as an in-memory stream rather than directly writing to a file. You can build custom behavior:
 
 - Abstract the resulting byte array as a seekable stream for custom downstream services.
 - Integrate the result with other APIs or services.
-- Modify the audio data and write custom .wav headers.
+- Modify the audio data and write custom *.wav* headers.
 
 In the following example, you save the result to a [`SpeechSynthesisResult`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesisresult) variable. The `SpeechSynthesisResult.audioData` property returns an `ArrayBuffer` value of the output data, the default browser stream type. For server-side code, convert `ArrayBuffer` to a buffer stream.
 

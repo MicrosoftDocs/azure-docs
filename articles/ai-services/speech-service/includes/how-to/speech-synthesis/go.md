@@ -141,7 +141,7 @@ For detailed information about the classes, see the [`SpeechConfig`](https://pkg
 
 ## Text to speech to in-memory stream
 
-You can use the resulting audio data as an in-memory stream rather than directly writing to a file. With in-memory stream, you can build custom behavior, including:
+You can use the resulting audio data as an in-memory stream rather than directly writing to a file. With in-memory stream, you can build custom behavior:
 
 - Abstract the resulting byte array as a seekable stream for custom downstream services.
 - Integrate the result with other APIs or services.
@@ -150,7 +150,7 @@ You can use the resulting audio data as an in-memory stream rather than directly
 You can make this change to the previous example. Remove the `AudioConfig` block, because you manage the output behavior manually from this point onward for increased control. Then pass `nil` for `AudioConfig` in the `SpeechSynthesizer` constructor.
 
 > [!NOTE]
-> Passing `NULL` for `AudioConfig`, rather than omitting it as you did in the previous speaker output example, will not play the audio by default on the current active output device.
+> Passing `nil` for `AudioConfig`, rather than omitting it as you did in the previous speaker output example, will not play the audio by default on the current active output device.
 
 Save the result to a [`SpeechSynthesisResult`](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go/speech#SpeechSynthesisResult) variable. The `AudioData` property returns a `[]byte` instance for the output data. You can work with this `[]byte` instance manually, or you can use the [`AudioDataStream`](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go/speech#AudioDataStream) class to manage the in-memory stream.
 In this example, you use the `NewAudioDataStreamFromSpeechSynthesisResult()` static function to get a stream from the result.
@@ -296,7 +296,7 @@ speechConfig.SetSpeechSynthesisLanguage("en-US")
 speechConfig.SetSpeechSynthesisVoiceName("en-US-JennyNeural")
 ```
 
-All neural voices are multilingual and fluent in their own language and English. For example, if the input text in English is "I'm excited to try text to speech" and you select `es-ES-ElviraNeural`, the text is spoken in English with a Spanish accent.
+All neural voices are multilingual and fluent in their own language and English. For example, if the input text in English is, "I'm excited to try text to speech," and you select `es-ES-ElviraNeural`, the text is spoken in English with a Spanish accent.
 
 If the voice doesn't speak the language of the input text, the Speech service doesn't create synthesized audio. For a full list of supported neural voices, see [Language and voice support for the Speech service](../../../language-support.md?tabs=tts).
 
@@ -339,7 +339,7 @@ While using the [SpeechSynthesizer](https://pkg.go.dev/github.com/Microsoft/cogn
 
 [!INCLUDE [Event types](events.md)]
 
-Here's an example that shows how to subscribe to events for speech synthesis. You can follow the instructions in the [quickstart](../../../get-started-text-to-speech.md?pivots=go), but replace the contents of that `speech-synthesis.go` file with the following Go code.
+Here's an example that shows how to subscribe to events for speech synthesis. You can follow the instructions in the [quickstart](../../../get-started-text-to-speech.md?pivots=go), but replace the contents of that `speech-synthesis.go` file with the following Go code:
 
 ```go
 package main
