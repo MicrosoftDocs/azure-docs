@@ -60,5 +60,5 @@ request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportB
  
 **Next steps**
 
-Learn how to [create a cluster in the portal](quickstart-create-portal.md).
-See [Azure regions with availability zones](../../reliability/availability-zones-service-support.md#azure-regions-with-availability-zone-support)
+- Learn how to [create a cluster in the portal](quickstart-create-portal.md).
+- See [Azure regions with availability zones](../../reliability/availability-zones-service-support.md#azure-regions-with-availability-zone-support)
