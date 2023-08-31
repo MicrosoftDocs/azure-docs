@@ -28,24 +28,9 @@ To run this sample, you need:
 - [Java Development Kit (JDK)](https://openjdk.java.net/) 8 or greater
 - [Maven](https://maven.apache.org/)
 
-
-## Register and download your quickstart app
-
-You have two options to start your quickstart application: Express (Option 1 below), and Manual (Option 2)
-
-### Option 1: Register and auto configure your app and then download your code sample
-
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Application Developer](../roles/permissions-reference.md#application-developer).
-1. Browse to **Identity** > **Applications** > **Application registrations**.
-1. Select **New registration**.
-1. Enter a name for your application and select **Register**.
-1. Follow the instructions to download and automatically configure your new application with just one click.
-
-### Option 2: Register and manually configure your application and code sample
-
-#### Step 1: Register your application
-
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+### Step 1: Register the application
 
 To register your application and add the app's registration information to your solution manually, follow these steps:
 
@@ -61,10 +46,10 @@ To register your application and add the app's registration information to your 
 1. Select **Application permissions**.
 1. Under **User** node, select **User.Read.All**, then select **Add permissions**.
 
-#### Step 2: Download the Java project
+### Step 2: Download the Java project
 [Download the Java daemon project](https://github.com/Azure-Samples/ms-identity-java-daemon/archive/master.zip)
 
-#### Step 3: Configure the Java project
+### Step 3: Configure the Java project
 
 1. Extract the zip file to a local folder close to the root of the disk, for example, *C:\Azure-Samples*.
 1. Navigate to the sub folder **msal-client-credential-secret**.
@@ -81,18 +66,18 @@ To register your application and add the app's registration information to your 
    - `Enter_the_Client_Secret_Here` - replace this value with the client secret created on step 1.
 
 >[!TIP]
->To find the values of **Application (client) ID**, **Directory (tenant) ID**, go to the app's **Overview** page in the Azure portal. To generate a new key, go to **Certificates & secrets** page.
+>To find the values of **Application (client) ID**, **Directory (tenant) ID**, go to the app's **Overview** page. To generate a new key, go to **Certificates & secrets** page.
 
-#### Step 4: Admin consent
+### Step 4: Admin consent
 
 If you try to run the application at this point, you'll receive *HTTP 403 - Forbidden* error: `Insufficient privileges to complete the operation`. This error happens because any *app-only permission* requires Admin consent: a global administrator of your directory must give consent to your application. Select one of the options below depending on your role:
 
-##### Global tenant administrator
+#### Global tenant administrator
 
 
-If you are a global tenant administrator, go to **API Permissions** page in **App registrations** in the Azure portal and select **Grant admin consent for {Tenant Name}** (Where {Tenant Name} is the name of your directory).
+If you are a global tenant administrator, go to **API Permissions** page in **App registrations** and select **Grant admin consent for {Tenant Name}** (Where {Tenant Name} is the name of your directory).
 
-##### Standard user
+#### Standard user
 
 If you're a standard user of your tenant, then you need to ask a global administrator to grant admin consent for your application. To do this, give the following URL to your administrator:
 
@@ -105,7 +90,7 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
  * `Enter_the_Application_Id_Here` - is the **Application (client) ID** for the application you registered.
 
 
-#### Step 5: Run the application
+### Step 5: Run the application
 
 You can test the sample directly by running the main method of ClientCredentialGrant.java from your IDE.
 
@@ -172,8 +157,8 @@ ConfidentialClientApplication cca =
 
 | Where: |Description |
 |---------|---------|
-| `CLIENT_SECRET` | Is the client secret created for the application in Azure portal. |
-| `CLIENT_ID` | Is the **Application (client) ID** for the application registered in the Azure portal. You can find this value in the app's **Overview** page in the Azure portal. |
+| `CLIENT_SECRET` | Is the client secret created for the application. |
+| `CLIENT_ID` | Is the **Application (client) ID** for the registered application. You can find this value in the app's **Overview** page. |
 | `AUTHORITY`    | The STS endpoint for user to authenticate. Usually `https://login.microsoftonline.com/{tenant}` for public cloud, where {tenant} is the name of your tenant or your tenant ID.|
 
 ### Requesting tokens
@@ -212,7 +197,7 @@ IAuthenticationResult result;
 
 |Where:| Description |
 |---------|---------|
-| `SCOPE` | Contains the scopes requested. For confidential clients, this should use the format similar to `{Application ID URI}/.default` to indicate that the scopes being requested are the ones statically defined in the app object set in the Azure portal (for Microsoft Graph, `{Application ID URI}` points to `https://graph.microsoft.com`). For custom web APIs, `{Application ID URI}` is defined under the **Expose an API** section in **App registrations** in the Azure portal.|
+| `SCOPE` | Contains the scopes requested. For confidential clients, this should use the format similar to `{Application ID URI}/.default` to indicate that the scopes being requested are the ones statically defined in the app object (for Microsoft Graph, `{Application ID URI}` points to `https://graph.microsoft.com`). For custom web APIs, `{Application ID URI}` is defined under the **Expose an API** section in **App registrations**.|
 
 [!INCLUDE [Help and support](includes/error-handling-and-tips/help-support-include.md)]
 

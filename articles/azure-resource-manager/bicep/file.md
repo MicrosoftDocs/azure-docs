@@ -3,7 +3,7 @@ title: Bicep file structure and syntax
 description: Describes the structure and properties of a Bicep file using declarative syntax.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 06/06/2023
+ms.date: 08/30/2023
 ---
 
 # Understand the structure and syntax of Bicep files
@@ -22,6 +22,8 @@ A Bicep file has the following elements.
 metadata <metadata-name> = ANY
 
 targetScope = '<scope>'
+
+func <user-defined-function-name> (<argument-name> <data-type>, <argument-name> <data-type>, ...) <function-data-type> => <expression>
 
 @<decorator>(<argument>)
 param <parameter-name> <parameter-data-type> = <default-value>
@@ -94,6 +96,21 @@ The allowed values are:
 * **tenant** - used for [tenant deployments](deploy-to-tenant.md).
 
 In a module, you can specify a scope that is different than the scope for the rest of the Bicep file. For more information, see [Configure module scope](modules.md#set-module-scope)
+
+## Functions (Preview)
+
+> [!NOTE]
+> To enable the preview feature, see [Enable experimental features](./bicep-config.md#enable-experimental-features).
+
+In your Bicep file, you can create your own functions in addition to using the [standard Bicep functions](./bicep-functions.md) that are automatically available within your Bicep files. Create your own functions when you have complicated expressions that are used repeatedly in your Bicep files.
+
+```bicep
+func buildUrl(https bool, hostname string, path string) string => '${https ? 'https' : 'http'}://${hostname}${empty(path) ? '' : '/${path}'}'
+
+output azureUrl string = buildUrl(true, 'microsoft.com', 'azure')
+```
+
+For more information, see [User-defined functions](./user-defined-functions.md).
 
 ## Parameters
 
