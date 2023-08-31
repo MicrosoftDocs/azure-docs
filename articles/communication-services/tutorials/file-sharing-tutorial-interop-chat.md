@@ -33,7 +33,7 @@ In a Teams Interopability Chat ("Interop Chat"), we can enable file sharing betw
 
 ## Download code
 
-Access the code for this tutorial on [GitHub TBA](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/XXXXXXXXTBA).
+Access the code for this tutorial on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/ui-library-quickstart-teams-interop-meeting-chat).
 
 ## Prerequisites
 
@@ -43,6 +43,8 @@ Access the code for this tutorial on [GitHub TBA](https://github.com/Azure-Sampl
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../quickstarts/create-communication-resource.md).
 - Using the UI library version [1.7.0-beta.1](https://www.npmjs.com/package/@azure/communication-react/v/1.7.0-beta.1) or the latest.
 - Have a Teams meeting created and the meeting link ready.
+- Familar with how [ChatWithChat Composite](https://azure.github.io/communication-ui-library/?path=/docs/composites-call-with-chat-basicexample--basic-example) works.
+
 
 ## Background
 
@@ -52,46 +54,9 @@ In this tutoria, we will be checking out how file sharing works in an Interop Ch
 
 # Overview
 
-As mentioned above, since we need to join a Teams meeting first, we need to leverage the ChatWithChat Composite from the UI library. Let's create it like the following:
+Similar to how we are [Adding Inline Image Support](./inline-image-tutorial-interop-chat.md) to the UI library, we need a `CallWithChat` Composite created like this:
 
 ```js
-import { TeamsMeetingLinkLocator } from '@azure/communication-calling';
-import { AzureCommunicationTokenCredential, CommunicationUserIdentifier } from '@azure/communication-common';
-import {
-  CallAndChatLocator,
-  CallWithChatComposite,
-  useAzureCommunicationCallWithChatAdapter,
-  CallWithChatCompositeOptions
-} from '@azure/communication-react';
-import { Theme, PartialTheme, Spinner } from '@fluentui/react';
-import React, { useMemo } from 'react';
-
-export type CallWithChatExampleProps = {
-  // Props needed for the construction of the CallWithChatAdapter
-  userId: CommunicationUserIdentifier;
-  token: string;
-  displayName: string;
-  endpointUrl: string;
-  /**
-   * For CallWithChat you need to provide either a teams meeting locator or a CallAndChat locator
-   * for the composite
-   *
-   * CallAndChatLocator: This locator is comprised of a groupId call locator and a chat thread
-   * threadId for the session. See documentation on the {@link CallAndChatLocator} to see types of calls supported.
-   * {callLocator: ..., threadId: ...}
-   *
-   * TeamsMeetingLinkLocator: this is a special locator comprised of a Teams meeting link
-   * {meetingLink: ...}
-   */
-  locator: TeamsMeetingLinkLocator | CallAndChatLocator;
-
-  // Props to customize the CallWithChatComposite experience
-  fluentTheme?: PartialTheme | Theme;
-  compositeOptions?: CallWithChatCompositeOptions;
-  callInvitationURL?: string;
-  formFactor?: 'desktop' | 'mobile';
-};
-
 export const CallWithChatExperience = (props: CallWithChatExampleProps): JSX.Element => {
   // Construct a credential for the user with the token retrieved from your server. This credential
   // must be memoized to ensure useAzureCommunicationCallWithChatAdapter is not retriggered on every render pass.
@@ -113,25 +78,59 @@ export const CallWithChatExperience = (props: CallWithChatExampleProps): JSX.Ele
     return <Spinner label="Initializing..." />;
   }
 
-  return (
-    <CallWithChatComposite
-      adapter={adapter}
-      fluentTheme={props.fluentTheme}
-      formFactor={props.formFactor}
-      joinInvitationURL={props.callInvitationURL}
-      options={props.compositeOptions}
-    />
-  );
+  return <CallWithChatComposite adapter={adapter} fluentTheme={props.fluentTheme} options={props.compositeOptions} />;
 };
 
 ```
 
-The sample code above is from [ChatWithChat Composite Storybook](https://azure.github.io/communication-ui-library/?path=/docs/composites-call-with-chat-basicexample--basic-example)
+Noticing it needs `CallWithChatExampleProps` which is defined as the following:
 
-And that's all we need to do.
+```js
+export type CallWithChatExampleProps = {
+  // Props needed for the construction of the CallWithChatAdapter
+  userId: CommunicationUserIdentifier;
+  token: string;
+  displayName: string;
+  endpointUrl: string;
+  locator: TeamsMeetingLinkLocator | CallAndChatLocator;
+
+  // Props to customize the CallWithChatComposite experience
+  fluentTheme?: PartialTheme | Theme;
+  compositeOptions?: CallWithChatCompositeOptions;
+  callInvitationURL?: string;
+};
+
+```
+
+To be able to start the Composite for meeting chat, we need to pass `TeamsMeetingLinkLocator` which looks like this:
+
+```js
+{ "meetingLink": "<TEAMS_MEETING_LINK>" }
+```
+
+Please note that meeting link should look something like `https://teams.microsoft.com/l/meetup-join/19%3ameeting_XXXXXXXXXXX%40thread.v2/XXXXXXXXXXX`
+
+And this is all you need! And there's no other set up needed to enable inline image specifically. 
+
+## Permissions
+
+When file is shared from a Teams client, the Teams user has options to set the file permissions to be:
+ - "Anyone"
+ - "People in your organization"
+ - "People currently in this chat"
+ - "People with existing access"
+ - "People you choose"
+
+Specifically, the UI library currently only supports "Anyone" and "People you choose" (with email address) and all other permissions are not supported. If Teams user sent a file with unsupported permissions, the Communication user might be prompted to a login page or denied access when they click on the file attachment in the chat thread.
 
 
-TBA
+![Teams File Permissions](./media/file-sharing-tutorial-interop-chat-0.png "Screenshot of a Teams client listing out file permissions.")
+
+
+Moreover, the Teams user's tenant admin might impose some additional restrictions on file sharing, including disabling some file permissions or disabling file sharing all together. 
+
+## Run the code
+
 
 ## Next steps
 
