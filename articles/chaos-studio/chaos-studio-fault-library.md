@@ -173,12 +173,12 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 
 | Property | Value |
 |-|-|
-| Capability name | DiskIOPressure-1.0 |
+| Capability name | DiskIOPressure-1.1 |
 | Target type | Microsoft-Agent |
 | Supported OS types | Windows |
 | Description | Uses the [diskspd utility](https://github.com/Microsoft/diskspd/wiki) to add disk pressure to a Virtual Machine. Pressure is added to the primary disk by default, or the disk specified with the targetTempDirectory parameter. This fault has five different modes of execution. The artificial disk pressure is removed at the end of the duration or if the experiment is canceled. |
 | Prerequisites | None. |
-| Urn | urn:csci:microsoft:agent:diskIOPressure/1.0 |
+| Urn | urn:csci:microsoft:agent:diskIOPressure/1.1 |
 | Parameters (key, value) |  |
 | pressureMode | The preset mode of disk pressure to add to the primary storage of the VM. Must be one of the `PressureModes` in the following table. |
 | targetTempDirectory | (Optional) The directory to use for applying disk pressure. For example, "D:/Temp". If the parameter is not included, pressure is added to the primary disk. |
@@ -202,7 +202,7 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
   "actions": [
     {
       "type": "continuous",
-      "name": "urn:csci:microsoft:agent:diskIOPressure/1.0",
+      "name": "urn:csci:microsoft:agent:diskIOPressure/1.1",
       "parameters": [
         {
           "key": "pressureMode",
@@ -228,12 +228,12 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 
 | Property | Value |
 |-|-|
-| Capability name | LinuxDiskIOPressure-1.0 |
+| Capability name | LinuxDiskIOPressure-1.1 |
 | Target type | Microsoft-Agent |
 | Supported OS types | Linux |
 | Description | Uses stress-ng to apply pressure to the disk. One or more worker processes are spawned that perform I/O processes with temporary files. Pressure is added to the primary disk by default, or the disk specified with the targetTempDirectory parameter. For information on how pressure is applied, see the [stress-ng](https://wiki.ubuntu.com/Kernel/Reference/stress-ng) article. |
 | Prerequisites | Running the fault on a Linux VM requires the **stress-ng** utility to be installed. To install it, use the package manager for your Linux distro:<ul><li>APT command to install stress-ng: `sudo apt-get update && sudo apt-get -y install unzip && sudo apt-get -y install stress-ng`</li><li>YUM command to install stress-ng: `sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm && sudo yum -y install stress-ng` |
-| Urn | urn:csci:microsoft:agent:linuxDiskIOPressure/1.0 |
+| Urn | urn:csci:microsoft:agent:linuxDiskIOPressure/1.1 |
 | Parameters (key, value) |  |
 | workerCount | Number of worker processes to run. Setting `workerCount` to 0 generated as many worker processes as there are number of processors. |
 | fileSizePerWorker | Size of the temporary file that a worker performs I/O operations against. Integer plus a unit in bytes (b), kilobytes (k), megabytes (m), or gigabytes (g) (for example, 4 m for 4 megabytes and 256 g for 256 gigabytes). |
@@ -249,7 +249,7 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
   "actions": [
     {
       "type": "continuous",
-      "name": "urn:csci:microsoft:agent:linuxDiskIOPressure/1.0",
+      "name": "urn:csci:microsoft:agent:linuxDiskIOPressure/1.1",
       "parameters": [
         {
           "key": "workerCount",
@@ -501,12 +501,12 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 
 | Property | Value |
 |-|-|
-| Capability name | NetworkLatency-1.0 |
+| Capability name | NetworkLatency-1.1 |
 | Target type | Microsoft-Agent |
 | Supported OS types | Windows, Linux. |
 | Description | Increases network latency for a specified port range and network block. At least one destinationFilter or inboundDestinationFilter array must be provided. |
 | Prerequisites | Agent (for Windows) must run as administrator. If the agent is installed as a VM extension, it runs as administrator by default. |
-| Urn | urn:csci:microsoft:agent:networkLatency/1.0 |
+| Urn | urn:csci:microsoft:agent:networkLatency/1.1 |
 | Parameters (key, value) |  |
 | latencyInMilliseconds | Amount of latency to be applied in milliseconds. |
 | destinationFilters | Delimited JSON array of packet filters defining which outbound packets to target. Maximum of 16.|
@@ -530,7 +530,7 @@ The parameters **destinationFilters** and **inboundDestinationFilters** use the 
   "actions": [
     {
       "type": "continuous",
-      "name": "urn:csci:microsoft:agent:networkLatency/1.0",
+      "name": "urn:csci:microsoft:agent:networkLatency/1.1",
       "parameters": [
         {
           "key": "destinationFilters",
@@ -565,12 +565,12 @@ The parameters **destinationFilters** and **inboundDestinationFilters** use the 
 
 | Property | Value |
 |-|-|
-| Capability name | NetworkDisconnect-1.0 |
+| Capability name | NetworkDisconnect-1.1 |
 | Target type | Microsoft-Agent |
 | Supported OS types | Windows, Linux. |
 | Description | Blocks outbound network traffic for specified port range and network block. At least one destinationFilter or inboundDestinationFilter array must be provided. |
 | Prerequisites | Agent (for Windows) must run as administrator. If the agent is installed as a VM extension, it runs as administrator by default. |
-| Urn | urn:csci:microsoft:agent:networkDisconnect/1.0 |
+| Urn | urn:csci:microsoft:agent:networkDisconnect/1.1 |
 | Parameters (key, value) |  |
 | destinationFilters | Delimited JSON array of packet filters defining which outbound packets to target. Maximum of 16.|
 | inboundDestinationFilters | Delimited JSON array of packet filters defining which inbound packets to target. Maximum of 16. |
@@ -593,7 +593,7 @@ The parameters **destinationFilters** and **inboundDestinationFilters** use the 
   "actions": [
     {
       "type": "continuous",
-      "name": "urn:csci:microsoft:agent:networkDisconnect/1.0",
+      "name": "urn:csci:microsoft:agent:networkDisconnect/1.1",
       "parameters": [
         {
           "key": "destinationFilters",
