@@ -161,7 +161,7 @@ You can configure **private links** to connect to Azure Event Grid to **publish 
 
 ## How much does Event Grid cost?
 
-Azure Event Grid offers two tiers and uses a pay-per-event pricing model. For details on pricing, see [Azure Event Grid pricing](https://azure.microsoft.com/pricing/details/event-grid/). To learn more about the capabilities for each tier, see [Choosing the right Event Grid tier](choose-right-tier.md).
+Azure Event Grid offers two tiers and uses a pay-per-use pricing model. For details on pricing, see [Azure Event Grid pricing](https://azure.microsoft.com/pricing/details/event-grid/). To learn more about the capabilities for each tier, see [Choose the right Event Grid tier](choose-right-tier.md).
 
 ## Next steps
 
