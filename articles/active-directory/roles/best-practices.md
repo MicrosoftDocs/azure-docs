@@ -69,7 +69,7 @@ Microsoft recommends that you keep two break glass accounts that are permanently
 
 ## 6. Limit the number of privileged role assignments to less than 10
 
-Some roles include privileged permissions, such as the ability to update credentials. Since these roles can potentially lead to elevation of privilege, you should limit the use of these privileged role assignments to **fewer than 10** in your organization. You can can identity roles, permissions, and role assignments that are privileged by looking for the **PRIVILEGED** label. For more information, see [Privileged roles and permissions in Azure AD](privileged-roles-permissions.md).
+Some roles include privileged permissions, such as the ability to update credentials. Since these roles can potentially lead to elevation of privilege, you should limit the use of these privileged role assignments to **fewer than 10** in your organization. You can identity roles, permissions, and role assignments that are privileged by looking for the **PRIVILEGED** label. For more information, see [Privileged roles and permissions in Azure AD](privileged-roles-permissions.md).
 
 ## 7. Use groups for Azure AD role assignments and delegate the role assignment
 
