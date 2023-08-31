@@ -65,7 +65,7 @@ To assign a user or group account to an enterprise application:
 :::zone pivot="aad-powershell"
 
 1. Open an elevated Windows PowerShell command prompt.
-1. Run `Connect-AzureAD` and sign as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Run `Connect-AzureAD` and sign in as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Use the following script to assign a user and role to an application:
 
     ```powershell
@@ -127,7 +127,8 @@ This example assigns the user Britta Simon to the Microsoft Workplace Analytics 
 ## Unassign users, and groups, from an application
 
 1. Open an elevated Windows PowerShell command prompt.
-1. Run `Connect-AzureAD` and sign in with a Global Administrator user account. Use the following script to remove a user and role from an application.
+1. Run `Connect-AzureAD` and sign in as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Use the following script to remove a user and role from an application.
 
     ```powershell
     # Store the proper parameters
@@ -174,7 +175,7 @@ $assignments | ForEach-Object {
 :::zone pivot="ms-powershell"
 
 1. Open an elevated Windows PowerShell command prompt.
-1. Run `Connect-MgGraph -Scopes "Application.ReadWrite.All", "Directory.ReadWrite.All", "AppRoleAssignment.ReadWrite.All"` and sign as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Run `Connect-MgGraph -Scopes "Application.ReadWrite.All", "Directory.ReadWrite.All", "AppRoleAssignment.ReadWrite.All"` and sign in as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Use the following script to assign a user and role to an application:
 
 ```powershell    
@@ -203,7 +204,7 @@ New-MgUserAppRoleAssignment -UserId $userId -BodyParameter $params |
 ## Unassign users, and groups, from an application
 
 1. Open an elevated Windows PowerShell command prompt.
-1. Run `Connect-MgGraph -Scopes "Application.ReadWrite.All", "Directory.ReadWrite.All", "AppRoleAssignment.ReadWrite.All"` and sign in with a Global Administrator user account. Use the following script to remove a user and role from an application.
+1. Run `Connect-MgGraph -Scopes "Application.ReadWrite.All", "Directory.ReadWrite.All", "AppRoleAssignment.ReadWrite.All"` and sign in as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). Use the following script to remove a user and role from an application.
 ```powershell
 # Get the user and the service principal
 
@@ -238,7 +239,7 @@ $assignments | ForEach-Object {
 
 :::zone pivot="ms-graph"
 
-1. To assign users and groups to an application, sign in to [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. To assign users and groups to an application, sign in to [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 
     You'll need to consent to the following permissions: 
 
