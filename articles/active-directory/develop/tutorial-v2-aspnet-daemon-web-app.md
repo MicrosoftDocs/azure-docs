@@ -62,7 +62,7 @@ Or [download the sample in a zip file](https://github.com/Azure-Samples/ms-ident
 
 This sample has one project. To register the application with your Azure AD tenant, you can either:
 
-- Follow the steps in [Choose the Azure AD tenant](#choose-the-tenant) and [Configure the sample to use your tenant](#configure-the-sample-to-use-your-tenant).
+- Follow the steps in [Choose the tenant](#choose-the-tenant) and [Configure the sample to use your tenant](#configure-the-sample-to-use-your-tenant).
 - Use PowerShell scripts that:
   - *Automatically* create the Azure AD applications and related objects (passwords, permissions, dependencies) for you.
   - Modify the Visual Studio projects' configuration files.
