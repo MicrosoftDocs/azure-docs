@@ -122,7 +122,7 @@ You can initiate an account failover from the Azure portal, PowerShell, Azure CL
 
 ## Supported storage account types
 
-All geo-redundant offerings support [Microsoft-managed failover](#microsoft-managed-failover) in the event of a disaster in the primary region. In addition, some account types support customer-managed account failover, as shown in the following table:
+All geo-redundant offerings support [Microsoft-managed failover](storage-failover-overview.md#microsoft-managed-failover) in the event of a disaster in the primary region. In addition, some account types support customer-managed account failover, as shown in the following table:
 
 | Type of failover | GRS/RA-GRS | GZRS/RA-GZRS |
 |---|---|---|
@@ -218,13 +218,6 @@ If your storage account is configured for read access to the secondary, then you
 
 > [!CAUTION]
 > An account failover should not be used as part of your data migration strategy.
-
-## Microsoft-managed failover
-
-In extreme circumstances where the original primary region is deemed unrecoverable within a reasonable amount of time due to a major disaster, Microsoft may initiate a regional failover. In this case, no action on your part is required. Until the Microsoft-managed failover has completed, you won't have write access to your storage account. Your applications can read from the secondary region if your storage account is configured for RA-GRS or RA-GZRS.
-
-> [!NOTE]
-> A Microsoft-managed failover would be initiated for an entire physical unit, such as a region, datacenter or scale unit. It cannot be initiated for individual storage accounts, subscriptions, or tenants. For the ability to selectively failover your individual storage accounts, use customer-managed account failover described previously in this article.
 
 ## See also
 

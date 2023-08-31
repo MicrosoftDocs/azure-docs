@@ -43,10 +43,10 @@ A customer-managed account failover usually involves some data loss. For more de
 
 ### Microsoft-managed failover
 
-In extreme circumstances where an entire region is unavailable due to a significant disaster, Microsoft may initiate a failover of all storage accounts in the affected region. In this case, no action on your part is required. Until the Microsoft-managed failover has completed, you won't have write access to your storage account. Your applications can read from the secondary region if your storage account is configured for RA-GRS or RA-GZRS.
+In extreme circumstances where the original primary region is deemed unrecoverable within a reasonable amount of time due to a major disaster, Microsoft may initiate a regional failover. In this case, no action on your part is required. Until the Microsoft-managed failover has completed, you won't have write access to your storage account. Your applications can read from the secondary region if your storage account is configured for RA-GRS or RA-GZRS.
 
-> [!IMPORTANT]
-> A Microsoft-managed failover is extremely rare and would be used only in the event of a significant disaster in the region. It would only be used to failover **all** affected resources in the primary region. It would not be used to failover individual storage accounts. Customers should not rely on it as part of their disaster recovery plan. Instead, create a plan that relies primarily on customer-managed failover for unexpected regional outages.
+> [!NOTE]
+> A Microsoft-managed failover would be initiated for an entire physical unit, such as a region, datacenter or scale unit. It cannot be initiated for individual storage accounts, subscriptions, or tenants. For the ability to selectively failover your individual storage accounts, use customer-managed account failover described previously in this article. Customers should not rely on Microsoft-managed failover as part of their disaster recovery plan. Instead, create a plan that relies primarily on customer-managed failover for unexpected regional outages.
 
 ## Storage account types that support failover
 
