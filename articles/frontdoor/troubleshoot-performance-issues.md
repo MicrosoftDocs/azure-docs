@@ -99,7 +99,7 @@ If one of the origin servers are slow, then the first request for an object via 
          ```
 
 1. Continue to request against the endpoint until the *x-cache* header has a *TCP_HIT* value
-1. ***If the performance issue is resolved***, then the issue was based on the origin's speed, and isn't the AFD's performance.  The AFD's cache settings or the origin need to be address by it's owner to resolve the performance issue.
+1. ***If the performance issue is resolved***, then the issue was based on the origin's speed, and isn't the AFD's performance.  The AFD's cache settings or the origin need to be address by its owner to resolve the performance issue.
 1. ***If the issue persists***, then the issue may be with the client requesting the content or the AFD  
   A. Move to Scenario 2 to identify
 
@@ -147,7 +147,7 @@ A webpage often consists of many files.  The way the website benefits from the A
 - Page customer attempts to load: https://contoso.com
 - **Explanation**: When the page loads, the initial file at the "/" directory calls other files, which build the page.  These files are images, JavaScript, text files and more.  If those files aren't called via the AFD hostname, *contoso.com*, the AFD is ***not*** being utilized.  So, if one of the file requested by the website is *`http://www.images.fabrikam.com/businessimage.jpg`* the file is ***not*** benefiting from the use of the AFD.  Instead, the file is being requested directly, from the *`images.fabrikam.com`* server, by the browser on the requesting client.
 
-   :::image type="content" source="media/troubleshoot-performance-issues/afd-cdn-performance.jpg" alt-text="Example of multiple, differently sourced files for a singular website and how it affects AFD performance":::
+   :::image type="content" source="media/troubleshoot-performance-issues/afd-cdn-performance.jpg" alt-text="Diagram of multiple, differently sourced files for a singular website and how it affects AFD performance.":::
 
 ### Scenario 3 | Environment Information Needed
 
@@ -169,7 +169,7 @@ A webpage often consists of many files.  The way the website benefits from the A
    > Developer tools in your browser can be used to determine the source of the files being served
 1. Note the source of files
 1. Identify which files are utilizing the AFD hostname and which aren't
-  A. Example: From the above example, an AFD hosted image would be something like `https://www.contoso.com/productimage1.jpg` and that which wouldn't is something like `http://www.images.fabrikam.com/businessimage.jpg`
+  A. Example: From the above example, an AFD hosted image would be, `https://www.contoso.com/productimage1.jpg`, and that which wouldn't be, `http://www.images.fabrikam.com/businessimage.jpg`
 1. Once gathered test performance for file being served from AFD, its origin and, if applicable, the testing webpage
    > [!IMPORTANT]
    > If the origin or testing webpage is served from a geographical region closer to the tool testing performance, a tool or requesting client may need to be used in another region to examine the AFD POP's proximity benefit  
