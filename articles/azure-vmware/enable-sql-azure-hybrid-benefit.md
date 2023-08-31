@@ -24,7 +24,7 @@ You can also choose to view a video tutorial for configuring Azure Hybrid Benefi
 
 1. From your Azure VMware Solution private cloud, select Azure hybrid benefit, then Create host-VM placement policy.
 
- :::image type="content" source="media/sql-azure-hybrid-benefit/azure-hybrid-benefit.png" alt-text="Diagram that shows how to create a host new virtual machine placement policy.":::
+    :::image type="content" source="media/sql-azure-hybrid-benefit/azure-hybrid-benefit.png" alt-text="Diagram that shows how to create a host new virtual machine placement policy.":::
 
 1. Fill in the required fields for creating the placement policy.
      1. **Name** – Select the name that identifies this policy.

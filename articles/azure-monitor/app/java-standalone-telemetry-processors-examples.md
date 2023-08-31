@@ -355,9 +355,12 @@ For example, given `http.url = http://example.com/path?queryParam1=value1,queryP
 }
 ```
 
-The following sample shows how to process spans that have a span name that matches regex patterns.
-This processor removes the `token` attribute. It obfuscates the `password` attribute in spans where the span name matches `auth.*`
-and where the span name doesn't match `login.*`.
+### Mask
+
+For example, given `http.url = https://example.com/user/12345622` is updated to `http.url = https://example.com/user/****` using either of the below configurations.
+
+
+First configuration example:
 
 ```json
 {
@@ -366,27 +369,12 @@ and where the span name doesn't match `login.*`.
     "processors": [
       {
         "type": "attribute",
-        "include": {
-          "matchType": "regexp",
-          "spanNames": [
-            "auth.*"
-          ]
-        },
-        "exclude": {
-          "matchType": "regexp",
-          "spanNames": [
-            "login.*"
-          ]
-        },
         "actions": [
           {
-            "key": "password",
-            "value": "obfuscated",
-            "action": "update"
-          },
-          {
-            "key": "token",
-            "action": "delete"
+            "key": "http.url",
+            "pattern": "user\\/\\d+",
+            "replace": "user\\/****",
+            "action": "mask"
           }
         ]
       }
@@ -395,6 +383,29 @@ and where the span name doesn't match `login.*`.
 }
 ```
 
+
+Second configuration example with regular expression group name:
+
+```json
+{
+  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
+  "preview": {
+    "processors": [
+      {
+        "type": "attribute",
+        "actions": [
+          {
+            "key": "http.url",
+            "pattern": "^(?<userGroupName>[a-zA-Z.:\/]+)\d+",
+            "replace": "${userGroupName}**",
+            "action": "mask"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
 
 ## Span processor samples
 
