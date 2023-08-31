@@ -485,7 +485,7 @@
         href: share-using-app-registration.md
       - name: Direct share
         href: share-gallery-direct.md
-      - name: Community gallery
+      - name: Community gallery (preview)
         href: share-gallery-community.md
     - name: Images
       items:
@@ -711,7 +711,7 @@
         href: ./linux/image-builder-troubleshoot.md
       - name: Image Builder Reliability
         displayName: Image builder, images, building, reliability, resiliency, recovery
-        href: image-builder-reliability.md
+        href: ../reliability/reliability-image-builder.md?toc=/azure/virtual-machines/toc.json&bc=/azure/virtual-machines/breadcrumb/toc.json
       - name: Image Optimization
         displayName: Image builder, images, building, boot, optimization, prefetch
         href: vm-boot-optimization.md
