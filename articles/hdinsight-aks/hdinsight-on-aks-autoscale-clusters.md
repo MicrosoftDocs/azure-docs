@@ -167,7 +167,7 @@ The default value is set to **180 seconds**
 
 **Schedule based auto scale**
 
-You can create an HDInsight on AKS cluster with schedule-based Autoscaling an Azure Resource Manager template, by adding an autoscale to the clusterProfile -> autoscaleProfile section. 
+You can create an HDInsight on AKS cluster with schedule-based Autoscaling using an Azure Resource Manager template, by adding an autoscale to the clusterProfile -> autoscaleProfile section. 
 
 The autoscale node contains a recurrence that has a timezone and schedule that describes when the change takes place. For a complete Resource Manager template, see sample JSON
 
@@ -234,7 +234,7 @@ The autoscale node contains a recurrence that has a timezone and schedule that d
 
 **Load based auto scale**
 
-You can create an HDInsight on AKS cluster with load-based Autoscaling an Azure Resource Manager template, by adding an autoscale to the clusterProfile -> autoscaleProfile section. 
+You can create an HDInsight on AKS cluster with load-based Autoscaling using an Azure Resource Manager template, by adding an autoscale to the clusterProfile -> autoscaleProfile section. 
 
 The autoscale node contains 
 
@@ -302,7 +302,7 @@ You can resume once you would like to resume the autoscale operations.
 > [!TIP]
 > When you configure multiple schedules, and you're pausing the autoscale, it doesn't trigger the next schedule. The node count remains same, even if the nodes are in a decommissioned state.
 
-### Copy Auto scale Configs
+### Copy Auto Scale Configurations 
 
 Using the Azure portal, you can now copy the same autoscale configurations for a same cluster shape across your cluster pool, you can use this feature and export or import the same configurations.
 
