@@ -9,7 +9,6 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 05/07/2021
 ms.author: brsteph
-ms.subservice: common 
 
 ---
 # Failover considerations for storage accounts with private endpoints
