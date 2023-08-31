@@ -260,6 +260,6 @@ An Apache Spark cluster on HDInsight on AKS. For instructions, see [Create an 
      
 1. Click on the Application ID in Yarn to view detailed logs of the job.
 
-   :::image type="content" source="./media/submit-manage-jobs/view-logs.png" alt-text="View Logs." lightbox="./media/submit-manage-jobs/view-logs":::
+   :::image type="content" source="./media/submit-manage-jobs/view-logs.png" alt-text="View Logs." lightbox="./media/submit-manage-jobs/view-logs.png":::
 
 
