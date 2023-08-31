@@ -91,7 +91,7 @@ This table contains the networking parameters.
 > | `web_subnet_nsg_name`            | The name of the `web` network security group                    | Optional	 |                              |
 > | `web_subnet_nsg_arm_id`          | The Azure resource identifier for the `web` network security group    | Mandatory | For brown-field deployments |
 
-This table contains the networking parameters if Azure NetApp Files are used.
+This table contains the networking parameters if Azure NetApp Files is used.
 
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                         | Description                                                          | Type      | Notes                              |
