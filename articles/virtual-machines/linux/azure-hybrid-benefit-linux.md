@@ -54,7 +54,7 @@ You can invoke AHB at the time of virtual machine creation. Benefits of doing so
 - It enables future licensing mode changes. These changes aren't available with a BYOS-only image or if you bring your own virtual machine.
 - The virtual machine is connected to Red Hat Update Infrastructure (RHUI) by default, to help keep it up to date and secure. You can change the updated mechanism after deployment at any time.
 
-#### [Enable AHB in Azure portal](#tab/ahbportalnewvms)
+#### [Enable AHB in Azure portal](#tab/ahbNewPortal)
 To enable Azure Hybrid Benefit when you create a virtual machine, use the following procedure. (The SUSE workflow is the same as the RHEL example shown here.)
 
 1. Go to the [Azure portal](https://portal.azure.com/).
@@ -69,9 +69,13 @@ To enable Azure Hybrid Benefit when you create a virtual machine, use the follow
 
    ![Screenshot of the Azure Hybrid Benefit configuration pane after you create a virtual machine.](./media/azure-hybrid-benefit/create-configuration-blade.png)
 
+#### [Enable AHB in Azure portal](#tab/ahbExistingCli)
 
+No Data
+
+---
 ### Existing VM
-#### [Enable AHB in Azure portal](#tab/ahbportalexistingvms)
+#### [Azure portal](#tab/ahbExistingPortal)
 To enable Azure Hybrid Benefit on an existing virtual machine:
 
 1. Go to the [Azure portal](https://portal.azure.com/).
@@ -80,6 +84,9 @@ To enable Azure Hybrid Benefit on an existing virtual machine:
 
 ![Screenshot of the Azure portal that shows the Licensing section of the configuration page for Azure Hybrid Benefit.](./media/azure-hybrid-benefit/create-configuration-blade.png)
 
+#### [Enable AHB in Azure portal](#tab/ahbExistingCli)
+
+No Data
 
 ---
 
@@ -110,7 +117,7 @@ From within the virtual machine itself, you can query the attested metadata in A
 
 ## PAYG to BYOS conversions
 
-### Operating system prerequisites
+### Operating system instructions
 #### [Red Hat (RHEL)](#tab/rhelpaygreqs)
 
 Azure Hybrid Benefit for converting PAYG virtual machines to BYOS for RHEL is available to Red Hat customers who meet the following criteria:
@@ -247,7 +254,6 @@ az vm update -g myResourceGroup -n myVmName --license-type SLES_BYOS
 
 ## BYOS to PAYG conversions
 
-### Azure CLI
 #### [Single VM](#tab/paygclisingle)
 
 If the system was originally a PAYG image and you want to return the VM to a PAYG model, use a `--license-type` value of `None`. For example:
@@ -282,7 +288,7 @@ az vm list -o json | jq '.[] | {Virtual MachineName: .name, ResourceID: .id}'
 ---
 
 ### Operating system instructions
-#### [Red Hat (RHEL) PAYG Conversion](#tab/rhelpaygconversion)
+#### [Red Hat (RHEL)](#tab/rhelpaygconversion)
 
 To start using Azure Hybrid Benefit for Red Hat:
 
@@ -311,7 +317,7 @@ To start using Azure Hybrid Benefit for Red Hat:
 > [!Note]
 > In the unlikely event that the extension can't install repositories or there are any other issues, switch the license type back to empty and reach out to Microsoft support. This ensures that you don't get billed for software updates.  
 
-#### [SUSE (SLES) PAYG Conversion](#tab/slespaygconversion)
+#### [SUSE (SLES)](#tab/slespaygconversion)
 
 After you successfully install the `AHBForSLES` extension, you can use the `az vm update` command to update the existing license type on your running virtual machines. For SLES virtual machines, run the command and set the `--license-type` parameter to one of the following license types: `SLES`, `SLES_SAP`, or `SLES_HPC`.
 
