@@ -58,7 +58,8 @@ You can opt out of telemetry, but make sure you understand this feature before d
 - **`cert-api.access.redhat.com`**: Used for Red Hat telemetry.
 - **`api.access.redhat.com`**: Used for Red Hat telemetry.
 - **`infogw.api.openshift.com`**: Used for Red Hat telemetry.
-- **`https://cloud.redhat.com/api/ingress`**: Use in the cluster for the insights operator who integrates with Red Hat Insights.
+- **`https://cloud.redhat.com/api/ingress`**: Use in the cluster for the insights operator who integrates with Red Hat Insights (required in 4.10 and earlier only).
+- **`https://console.redhat.com/api/ingress`**: Use in the cluster for the insights operator who integrates with Red Hat Insights.
 In OpenShift Container Platform, customers can opt out of reporting health and usage information. However, connected clusters allow Red Hat to react more quickly to problems and better support our customers, and better understand how product upgrades clusters. Check details here: https://docs.openshift.com/container-platform/4.6/support/remote_health_monitoring/opting-out-of-remote-health-reporting.html.
 
 ---
