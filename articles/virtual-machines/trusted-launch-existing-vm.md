@@ -20,9 +20,10 @@ Azure Virtual Machines supports enabling Trusted Launch on existing [Azure Gener
 [Trusted launch](trusted-launch.md) is a way to enable foundational compute security on [Azure Generation 2 VMs](generation-2.md). Trusted launch protects your Virtual Machines against advanced and persistent attack techniques like boot kits and rootkits by combining infrastructure technologies like Secure Boot, vTPM and Boot Integrity Monitoring on your VM.
 
 > [!IMPORTANT]
+> Enabling Trusted Launch on existing virtual machines (VMs) is currently not supported for following scenarios:
 >
-> - Enabling Trusted Launch on existing Azure Generation 1 VMs is currently not supported.
-> - Enabling Trusted Launch on existing Azure Virtual Machine Scale Sets (VMSS) Uniform & Flex is currently not supported.
+> - Azure Generation 1 VMs is currently not supported.
+> - Azure Virtual Machine Scale Sets (VMSS) Uniform & Flex is currently not supported.
 
 ## Prerequisites
 
@@ -58,7 +59,10 @@ This section steps through using the Azure portal to enable Trusted Launch on ex
 :::image type="content" source="./media/trusted-launch/04-g2totl-select-dropdown.png" alt-text="Screenshot of the Security type drop-down.":::
 
 5. Select **Trusted Launch** under drop-down and select check-boxes to enable **Secure Boot** and **vTPM**. Click **Save** after making required changes.
+
 > [!NOTE]
+>
+> - Generation 2 VMs created using [Azure Compute Gallery (ACG)](azure-compute-gallery.md), [Managed Image](capture-image-resource.md), [OS Disk](./scripts/create-vm-from-managed-os-disks.md) cannot be upgraded to Trusted Launch using Portal. Please ensure [OS Version is supported for Trusted Launch](trusted-launch.md#operating-systems-supported) and use PowerShell, CLI or ARM template to execute upgrade.
 > - After enabling Trusted Launch, currently virtual machine cannot be rolled back to security type **Standard** (Non-Trusted Launch configuration).
 > - **vTPM** is enabled by default.
 > - **Secure Boot** is recommended to be enabled (not enabled by default) if you are not using custom unsigned kernel or drivers. Secure Boot preserves boot integrity and enables foundational security for VM.
