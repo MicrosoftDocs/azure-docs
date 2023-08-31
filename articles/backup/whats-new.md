@@ -16,6 +16,8 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 ## Updates summary
 
+- September 2023
+  - [Multi-user authorization using Resource Guard for Backup vault is now generally available](#multi-user-authorization-using-resource-guard-for-backup-vault-is-now-generally-available)
 - August 2023
   - [Save your MARS backup passphrase securely to Azure Key Vault (preview)](#save-your-mars-backup-passphrase-securely-to-azure-key-vault-preview)
   - [Cross Region Restore for MARS Agent (preview)](#cross-region-restore-for-mars-agent-preview)
@@ -64,6 +66,11 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 - February 2021
   - [Backup for Azure Blobs (in preview)](#backup-for-azure-blobs-in-preview)
 
+## Multi-user authorization using Resource Guard for Backup vault is now generally available
+
+Azure Backup now supports multi-user authorization (MUA) that allows you to add an additional layer of protection to critical operations on your Backup vaults. For MUA, Azure Backup uses the Azure resource, Resource Guard, to ensure critical operations are performed only with applicable authorization.
+
+For more information, see [MUA for Backup vault](multi-user-authorization-concept.md?tabs=backup-vault).
 
 ## Save your MARS backup passphrase securely to Azure Key Vault (preview)
 
