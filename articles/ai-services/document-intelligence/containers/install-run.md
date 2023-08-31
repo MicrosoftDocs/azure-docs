@@ -51,10 +51,6 @@ In this article you learn how to download, install, and run Document Intelligenc
 
 ::: moniker-end
 
-> [!IMPORTANT]
->
-> * To use Document Intelligence containers, you must submit an online request, and have it approved. For more information, _see_ [Request approval to run container](#request-approval-to-run-container).
-
 ## Prerequisites
 
 To get started, you need an active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
