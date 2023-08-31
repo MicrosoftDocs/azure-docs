@@ -1,5 +1,5 @@
 ---
-title: Custom Reports from Verizon | Microsoft Docs
+title: Custom Reports from Edgio | Microsoft Docs
 description: 'You can view usage patterns for your CDN by using the following reports: Bandwidth, Data Transferred, Hits, Cache Statuses, Cache Hit Ratio, IPV4/IPV6 Data Transferred.'
 services: cdn
 documentationcenter: ''
@@ -16,14 +16,16 @@ ms.date: 10/11/2017
 ms.author: duau
 
 ---
-# Custom Reports from Verizon
+# Custom Reports from Edgio
 
 [!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
-By using Verizon Custom Reports via the Manage portal for Verizon profiles, you can define the type of data to be collected for edge CNAMEs reports.
+By using Edgio Custom Reports via the Manage portal for Edgio profiles, you can define the type of data to be collected for edge CNAMEs reports.
 
 
-## Accessing Verizon Custom Reports
+<a name='accessing-verizon-custom-reports'></a>
+
+## Accessing Edgio Custom Reports
 1. From the CDN profile blade, click the **Manage** button.
    
     ![CDN profile Manage button](./media/cdn-reports/cdn-manage-btn.png)
@@ -84,4 +86,3 @@ You can export the data in Excel format by clicking the Excel symbol to the righ
 
 ## Considerations
 Reports can be generated only within the last 18 months.
-
