@@ -1253,6 +1253,8 @@
         "articles/active-directory/**/*.md": "Microsoft Entra",
         "articles/active-directory/**/*.yml": "Microsoft Entra",
         "articles/azure-arc/**/*.md": "Azure Arc",
+        "articles/azure-cache-for-redis/**/*.md": "Azure Cache for Redis",
+        "articles/azure-cache-for-redis/**/*.yml": "Azure Cache for Redis",
         "articles/azure-fluid-relay/**/*.md": "Azure Fluid Relay",
         "articles/azure-fluid-relay/**/*.yml": "Azure Fluid Relay",
         "articles/azure-government/**/*.md": "Azure Government",
