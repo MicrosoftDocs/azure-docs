@@ -456,10 +456,10 @@ You can update `scalingMode` by invoking the `updateScalingMode` method:
 view.updateScalingMode('Crop');
 ```
 
-## Send video streams from different cameras from the same desktop device.
-- You can send video streams from two different cameras from a single desktop browser tab/app, in the same call, with the following code snippet:
+## Send video streams from two different cameras, in the same call from the same desktop device.
 [!INCLUDE [Public Preview Disclaimer](../../../../includes/public-preview-include.md)]
 This is supported as part of version 1.17.1-beta.1+ on desktop.
+- You can send video streams from two different cameras from a single desktop browser tab/app, in the same call, with the following code snippet:
 ```js
 // Create your first CallAgent with identity A
 const callClient1 = new CallClient();
@@ -483,3 +483,5 @@ const callObj2 = callAgent2.join({ groupId: '123' }, { videoOptions: { localVide
 await callObj2.muteIncomingAudio();
 await callObj2.mute();
 ```
+Limitations:
+- OnMac Safari, background blur video effects (from @azure/communication-effects), can only be applied to one camera
