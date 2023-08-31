@@ -10,10 +10,11 @@ ms.date: 08/29/2023
 
 This article describes resolutions to troubleshoot errors, that you might come across when creating clusters on HDInsight on AKS.
 
+
 |Sr No|Error message|Cause|Resolution|
 |-|-|-|-|
-|1|InternalServerError  UnrecognizableError|This could be due to incorrect template used. Currently, database connectors are allowed only through ARM template. Hence the validation of configuration isn't possible on template.|-|
-|2|InvalidClusterSpec  - ServiceDependencyFailure - Invalid configuration|Max memory per node error.|Refer the Max memory configurations [Property value types](https://trino.io/docs/current/admin/properties-resource-management.html#query-max-memory-per-node).|
+|1|InternalServerError  UnrecognizableError|This could be due to incorrect template used. Currently, database connectors are allowed only through ARM template. Hence the validation of configuration isn't possible on template.| |
+|2|InvalidClusterSpec - ServiceDependencyFailure - Invalid configuration|Max memory per node error.|Refer the Max memory configurations [Property value types](https://trino.io/docs/current/admin/properties-resource-management.html#query-max-memory-per-node).|
 |3|WaitingClusterResourcesReadyTimeOut - Metastoreservice unready|This could be due to the container name may only contain lowercase letters, numbers, and hyphens.  Container name must begin with a letter or a number.|Each hyphen must be preceded by and follow by a nonhyphen character. The name must also be between 3 and 63 characters long.|
 |4|InvalidClusterSpec -Invalid configuration - ClusterUpsertActivity|Error: Invalid configuration property `hive.metastore.uri: may not be null`.|[Refer to the Hive connector documentation](https://trino.io/docs/current/connector/hive.html#connector-hive--page-root).|
 |5|`InternalServerError - An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure()' to the 'UseSqlServer' call`.||Retry the operation or open a support ticket to Azure HDInsight team.|
@@ -29,7 +30,7 @@ This article describes resolutions to troubleshoot errors, that you might come a
 |15|`EntityStoreOperationError - ARM/AKS sdk error`|A database operation failed on AKS side during cluster update.|Retry the operation after some time. If the issue persists,  open a support ticket to Azure HDInsight team.|
 |16|`InternalServerError - {"exception":"System.Threading.Tasks.TaskCanceledException","message":"The operation was canceled."}`|This error caused due to various issues.|retry the operation or open a support ticket to Azure HDInsight team.|
 |17|`InternalServerError - {"exception":"System.IO.IOException","message":"Unable to read data from the transport connection: A connection attempt failed because the connected party didn't properly respond after a period of time, or established connection failed because connected host has failed to respond."}`|This error caused due to various issues.|retry the operation after some time. If the issue persists, open a support ticket to Azure HDInsight team.|
-|18|`InternalServerError - Null reference exception occurs in RP code`.|This error caused due to various issues.|retry the operation or open a support ticket to Azure HDInsight team.|
+|18|`InternalServerError - Null reference exception occurs in RP code`.|This error caused due to various issues.|Retry the operation or open a support ticket to Azure HDInsight team.|
 |19|`InternalServerError - {"code":"InternalServerError","message":"An internal error has occurred, exception: 'InvalidOperationException, Sequence contains no elements.'"}`|This error caused due to various issues.|retry the operation or open a support ticket to Azure HDInsight team.|
 |20|`InternalServerError - {"code":"InternalServerError","message":"An internal error has occurred, exception: 'ArgumentNullException, Value can't be null. (Parameter 'roleAssignmentGuid')'"}`|This error caused due to various issues.|retry the operation or open a support ticket to Azure HDInsight team.|
 |21|` OperationNotAllowed - {"code":"OperationNotAllowed","message":"An Azure service request has failed. ErrorCode: 'OperationNotAllowed', ErrorMessage: 'Service request failed.\\r\\nStatus: 409 (Conflict)\\r\\n\\r\\nContent:\\r\\n{\\ n \\"code\\": \\"OperationNotAllowed\\",\\ n \\"details\\": null,\\ n \\"message\\": \\"Operation  isn't allowed: Another agent pool operation (Scaling) is in progress, wait for it to finish before starting a new operation.`|Another agent pool operation (Scaling) is in progress. This error caused due to RP Service Fabric reboot.|Wait for the previous operation to finish before starting a new operation. If the issue persists after retry, open a support ticket to Azure HDInsight team.|
@@ -54,6 +55,3 @@ This article describes resolutions to troubleshoot errors, that you might come a
 ## Next steps
 * [Troubleshoot cluster configuration](./trino/trino-configuration-troubleshoot.md).
 
-
-
-For more information, see [Troubleshoot cluster configuration](./trino/trino-configuration-troubleshoot.md).
