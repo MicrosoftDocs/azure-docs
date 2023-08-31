@@ -35,7 +35,7 @@ The architecture of the authentication process across clouds is as follows:
 
 1. Microsoft Defender for Cloud CSPM service acquires an Azure AD token with a validity life time of 1 hour that is signed by the Azure AD using the RS256 algorithm. 
 
-1. The Azure AD token is exchanged with AWS short living credentials and Defender for Cloud's CPSM service assumes the CSPM IAM role (assumed with web identity).
+1. The Azure AD token is exchanged with AWS short living credentials and Defender for Cloud's CSPM service assumes the CSPM IAM role (assumed with web identity).
 
 1. Since the principle of the role is a federated identity as defined in a trust relationship policy, the AWS identity provider validates the Azure AD token against the Azure AD through a process that includes:
 

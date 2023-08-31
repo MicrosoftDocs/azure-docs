@@ -209,17 +209,14 @@ Azure OpenAI on your data provides several search options you can use when you a
 * [Simple search](/azure/search/search-lucene-query-architecture)
 
 * [Semantic search](/azure/search/semantic-search-overview)
-* [Vector search](/azure/search/vector-search-overview) using Ada [embedding](./understand-embeddings.md) models. 
+* [Vector search](/azure/search/vector-search-overview) using Ada [embedding](./understand-embeddings.md) models, available in [select regions](models.md#embeddings-models-1). 
 
     To enable vector search, you will need a `text-embedding-ada-002` deployment in your Azure OpenAI resource. Select your embedding deployment when connecting your data, then select one of the vector search types under **Data management**.  
 
 > [!IMPORTANT]
-> 
-> * [Semantic search](/azure/search/semantic-search-overview#availability-and-pricing) and [vector search](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) are subject to additional pricing. You need to choose **Basic or higher SKU** to enable semantic search or vector search, for more details on [pricing tier difference](/azure/search/search-sku-tier) and [service limits](/azure/search/search-limits-quotas-capacity).
-> 
-> 
->    * Currently Azure OpenAI on your data supports semantic search for the following language: English, French, Spanish, Portuguese, Italian, Germany, Chinese(Zh), Japanese, Korean, Russian, Arabic. Don't enable semantic search if your data is in other languages.
->    
+> * [Semantic search](/azure/search/semantic-search-overview#availability-and-pricing) and [vector search](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) are subject to additional pricing. You need to choose **Basic or higher SKU** to enable semantic search or vector search. See [pricing tier difference](/azure/search/search-sku-tier) and [service limits](/azure/search/search-limits-quotas-capacity) for more information.
+> * Currently Azure OpenAI on your data supports semantic search for the following language: English, French, Spanish, Portuguese, Italian, Germany, Chinese(Zh), Japanese, Korean, Russian, Arabic. Don't enable semantic search if your data is in other languages.
+
 | Search option       | Retrieval type | Additional pricing? |Benefits|
 |---------------------|------------------------|---------------------| -------- |
 | *simple*            | Simple search                       | No additional pricing.                    |It performs fast and flexible query parsing and matching over searchable fields, using terms or phrases in any supported language, with or without operators.|
