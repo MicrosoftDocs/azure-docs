@@ -30,12 +30,13 @@ iSCSI traffic isolation using a second vNIC - iSCSI traffic to Elastic SAN volum
 
 Enable “Accelerated Networking”. 
 
+## Client configurations
 
-## MPIO
+### MPIO
 
 The following settings should provide optimal performance with MPIO on either Windows or Linux.
 
-### Linux
+#### Linux
 
 
 |Setting  |Description  |Recommended value  |
@@ -51,7 +52,7 @@ The following settings should provide optimal performance with MPIO on either Wi
 
 
 
-### Windows
+#### Windows
 
 |Setting  |Description  |Dependency  |Recommended value  |
 |---------|---------|---------|---------|
@@ -59,11 +60,11 @@ The following settings should provide optimal performance with MPIO on either Wi
 |Load balancing policy     |Load balancing policy         |N/A         |Round robin       |
 |Disk time out     |Length of time the server waits before marking the I/O request as timed out.         |N/A         |120 sec         |
 
-## iSCSI
+### iSCSI
 
 If MPIO is enabled, set iSCSI timers to immediately defer commands to the multipathing layer. This ensures that I/O errors are retried and queued if all paths fail in the multipath layer.
 
-### Windows
+#### Windows
 
 - Increase disk timeout value to prevent application from noticing I/O errors due to link loss. See MPIO Windows section for details.
 - srbTimeoutDelta has a default value of 15 seconds. With the Microsoft iSCSI initiator, srbTimeoutDelta is added to the disk class driver's timeoutvalue (default of 10 seconds) when SCSI requests are being built. So the default SCCSI timeout value will be 25 seconds.
@@ -73,7 +74,7 @@ If MPIO is enabled, set iSCSI timers to immediately defer commands to the multip
 - LinkDownTime
 - EnableNOPOut
 
-### Linux
+#### Linux
 
 - NOP-Out interval and timeout: To help monitor problems, iSCSI layer sends a NOP-Out request to each target. If a NOP-Out request times out, the iSCSI layer responds by failing any running commands and instructing the SCSI layer to requeue those commands when possible. When multipath is being used, the SCSI layer fails those running commands and defer them to the multipath layer. The multipath layer then retries those commands on another path. If multipath isn't being used, those commands are retried five times before failing altogether.
 - node.conn[0].timeo.noop_out_interval = 0 
@@ -94,7 +95,7 @@ Replacement_timeout: controls how long the iSCSI layer should wait for a timed-o
 
 node.session.timeo.replacement_timeout = [replacement_timeout] 
 
-## TCP
+### TCP
 
 - Set No Delay (Nagle's Algorithm)
 - Set delayed ACK
