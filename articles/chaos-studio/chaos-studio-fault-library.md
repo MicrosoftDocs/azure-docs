@@ -176,11 +176,12 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 | Capability name | DiskIOPressure-1.0 |
 | Target type | Microsoft-Agent |
 | Supported OS types | Windows |
-| Description | Uses the [diskspd utility](https://github.com/Microsoft/diskspd/wiki) to add disk pressure to the primary storage of the VM where it's injected during the fault action. This fault has five different modes of execution. The artificial disk pressure is removed at the end of the duration or if the experiment is canceled. |
+| Description | Uses the [diskspd utility](https://github.com/Microsoft/diskspd/wiki) to add disk pressure to a Virtual Machine. Pressure is added to the primary disk by default, or the disk specified with the targetTempDirectory parameter. This fault has five different modes of execution. The artificial disk pressure is removed at the end of the duration or if the experiment is canceled. |
 | Prerequisites | None. |
 | Urn | urn:csci:microsoft:agent:diskIOPressure/1.0 |
 | Parameters (key, value) |  |
 | pressureMode | The preset mode of disk pressure to add to the primary storage of the VM. Must be one of the `PressureModes` in the following table. |
+| targetTempDirectory | (Optional) The directory to use for applying disk pressure. For example, "D:/Temp". If the parameter is not included, pressure is added to the primary disk. |
 | virtualMachineScaleSetInstances | An array of instance IDs when this fault is applied to a virtual machine scale set. Required for virtual machine scale sets. |
 
 ### Pressure modes
@@ -208,6 +209,10 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
           "value": "PremiumStorageP10IOPS"
         },
         {
+          "key": "targetTempDirectory",
+          "value": "C:/temp/"
+        },
+        {
           "key": "virtualMachineScaleSetInstances",
           "value": "[0,1,2]"
         }
@@ -226,13 +231,14 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 | Capability name | LinuxDiskIOPressure-1.0 |
 | Target type | Microsoft-Agent |
 | Supported OS types | Linux |
-| Description | Uses stress-ng to apply pressure to the disk. One or more worker processes are spawned that perform I/O processes with temporary files. For information on how pressure is applied, see the [stress-ng](https://wiki.ubuntu.com/Kernel/Reference/stress-ng) article. |
+| Description | Uses stress-ng to apply pressure to the disk. One or more worker processes are spawned that perform I/O processes with temporary files. Pressure is added to the primary disk by default, or the disk specified with the targetTempDirectory parameter. For information on how pressure is applied, see the [stress-ng](https://wiki.ubuntu.com/Kernel/Reference/stress-ng) article. |
 | Prerequisites | Running the fault on a Linux VM requires the **stress-ng** utility to be installed. To install it, use the package manager for your Linux distro:<ul><li>APT command to install stress-ng: `sudo apt-get update && sudo apt-get -y install unzip && sudo apt-get -y install stress-ng`</li><li>YUM command to install stress-ng: `sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm && sudo yum -y install stress-ng` |
 | Urn | urn:csci:microsoft:agent:linuxDiskIOPressure/1.0 |
 | Parameters (key, value) |  |
 | workerCount | Number of worker processes to run. Setting `workerCount` to 0 generated as many worker processes as there are number of processors. |
 | fileSizePerWorker | Size of the temporary file that a worker performs I/O operations against. Integer plus a unit in bytes (b), kilobytes (k), megabytes (m), or gigabytes (g) (for example, 4 m for 4 megabytes and 256 g for 256 gigabytes). |
 | blockSize | Block size to be used for disk I/O operations, capped at 4 megabytes. Integer plus a unit in bytes, kilobytes, or megabytes (for example, 512 k for 512 kilobytes). |
+| targetTempDirectory | (Optional) The directory to use for applying disk pressure. For example, "/tmp/". If the parameter is not included, pressure is added to the primary disk. |
 | virtualMachineScaleSetInstances | An array of instance IDs when this fault is applied to a virtual machine scale set. Required for virtual machine scale sets. |
 
 ### Sample JSON
@@ -256,6 +262,10 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
         {
           "key": "blockSize",
           "value": "256k"
+        },
+        {
+          "key": "targetTempDirectory",
+          "value": "/tmp/"
         },
         {
           "key": "virtualMachineScaleSetInstances",
@@ -494,17 +504,23 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 | Capability name | NetworkLatency-1.0 |
 | Target type | Microsoft-Agent |
 | Supported OS types | Windows, Linux. |
-| Description | Increases network latency for a specified port range and network block. |
+| Description | Increases network latency for a specified port range and network block. At least one destinationFilter or inboundDestinationFilter array must be provided. |
 | Prerequisites | Agent (for Windows) must run as administrator. If the agent is installed as a VM extension, it runs as administrator by default. |
 | Urn | urn:csci:microsoft:agent:networkLatency/1.0 |
 | Parameters (key, value) |  |
 | latencyInMilliseconds | Amount of latency to be applied in milliseconds. |
-| destinationFilters | Delimited JSON array of packet filters defining which outbound packets to target for fault injection. Maximum of 16. |
+| destinationFilters | Delimited JSON array of packet filters defining which outbound packets to target. Maximum of 16.|
+| inboundDestinationFilters | Delimited JSON array of packet filters defining which inbound packets to target. Maximum of 16. |
+| virtualMachineScaleSetInstances | An array of instance IDs when this fault is applied to a virtual machine scale set. Required for virtual machine scale sets. |
+
+The parameters **destinationFilters** and **inboundDestinationFilters** use the following array of packet filters.
+
+| Property | Value |
+|-|-|
 | address | IP address that indicates the start of the IP range. |
 | subnetMask | Subnet mask for the IP address range. |
 | portLow | (Optional) Port number of the start of the port range. |
 | portHigh | (Optional) Port number of the end of the port range. |
-| virtualMachineScaleSetInstances | An array of instance IDs when this fault is applied to a virtual machine scale set. Required for virtual machine scale sets. |
 
 ### Sample JSON
 
@@ -518,6 +534,10 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
       "parameters": [
         {
           "key": "destinationFilters",
+          "value": "[ { \"address\": \"23.45.229.97\", \"subnetMask\": \"255.255.255.224\", \"portLow\": \"5000\", \"portHigh\": \"5200\" } ]"
+        },
+        {
+          "key": "inboundDestinationFilters",
           "value": "[ { \"address\": \"23.45.229.97\", \"subnetMask\": \"255.255.255.224\", \"portLow\": \"5000\", \"portHigh\": \"5200\" } ]"
         },
         {
@@ -548,16 +568,22 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 | Capability name | NetworkDisconnect-1.0 |
 | Target type | Microsoft-Agent |
 | Supported OS types | Windows, Linux. |
-| Description | Blocks outbound network traffic for specified port range and network block. |
+| Description | Blocks outbound network traffic for specified port range and network block. At least one destinationFilter or inboundDestinationFilter array must be provided. |
 | Prerequisites | Agent (for Windows) must run as administrator. If the agent is installed as a VM extension, it runs as administrator by default. |
 | Urn | urn:csci:microsoft:agent:networkDisconnect/1.0 |
 | Parameters (key, value) |  |
-| destinationFilters | Delimited JSON array of packet filters defining which outbound packets to target for fault injection. Maximum of 16. |
+| destinationFilters | Delimited JSON array of packet filters defining which outbound packets to target. Maximum of 16.|
+| inboundDestinationFilters | Delimited JSON array of packet filters defining which inbound packets to target. Maximum of 16. |
+| virtualMachineScaleSetInstances | An array of instance IDs when this fault is applied to a virtual machine scale set. Required for virtual machine scale sets. |
+
+The parameters **destinationFilters** and **inboundDestinationFilters** use the following array of packet filters.
+
+| Property | Value |
+|-|-|
 | address | IP address that indicates the start of the IP range. |
 | subnetMask | Subnet mask for the IP address range. |
 | portLow | (Optional) Port number of the start of the port range. |
 | portHigh | (Optional) Port number of the end of the port range. |
-| virtualMachineScaleSetInstances | An array of instance IDs when this fault is applied to a virtual machine scale set. Required for virtual machine scale sets. |
 
 ### Sample JSON
 
@@ -571,6 +597,10 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
       "parameters": [
         {
           "key": "destinationFilters",
+          "value": "[ { \"address\": \"23.45.229.97\", \"subnetMask\": \"255.255.255.224\", \"portLow\": \"5000\", \"portHigh\": \"5200\" } ]"
+        },
+        {
+          "key": "inboundDestinationFilters",
           "value": "[ { \"address\": \"23.45.229.97\", \"subnetMask\": \"255.255.255.224\", \"portLow\": \"5000\", \"portHigh\": \"5200\" } ]"
         },
         {
@@ -692,7 +722,7 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 
 * The agent-based network faults currently only support IPv4 addresses.
 
-## Azure Resource Manager virtual machine shutdown
+## Virtual Machine shutdown
 | Property | Value |
 |-|-|
 | Capability name | Shutdown-1.0 |
@@ -726,7 +756,7 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 }
 ```
 
-## Azure Resource Manager virtual machine scale set instance shutdown
+## Virtual Machine Scale Set instance shutdown
 
 This fault has two available versions that you can use, Version 1.0 and Version 2.0. The main difference is that Version 2.0 allows you to filter by availability zones, only shutting down instances within a specified zone or zones.
 
