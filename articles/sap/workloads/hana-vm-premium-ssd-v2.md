@@ -56,7 +56,7 @@ When you look up the price list for Azure managed disks, then it becomes apparen
 - You try to simplify your storage architecture by using a single disk for **/hana/data** and **/hana/log** and pay for more IOPS and throughput as needed to achieve the levels we recommend below. With the awareness that a single disk has a throughput level of 1,200 MBps and 80,000 IOPS.
 - You want to benefit of the 3,000 IOPS and 125MBps that come for free with each disk. To do so, you would build multiple smaller disks that sum up to the capacity you need and then build a striped volume with a logical volume manager across these multiple disks. Striping across multiple disks would give you the possibility to reduce the IOPS and throughput cost factors. But would result in some more efforts in automating deployments and operating such solutions.
 
-Since we don't want to define which direction you should go, we're leaving the decision to you on whether to take the single disk approach or to take the multiple disk approach. Though keep in mind that the single disk approach can hit its limitations with the 1,200MB/sec throughput. There might be a point where you need to stretch /hana/data across multiple volumes. also keep in mind that the capabilities of Azure VMs in providing storage throughput are going to grow over time. And that HANA savepoints are extremely critical and demand high throughput for the **/hana/data** volume
+Since we don't want to define which direction you should go, we're leaving the decision to you on whether to take the single disk approach or to take the multiple disk approach. Though keep in mind that the single disk approach can hit its limitations with the 1,200MB/sec throughput. There might be a point where you need to stretch /hana/data across multiple volumes. also keep in mind that the capabilities of Azure VMs in providing storage throughput are going to grow over time. And that HANA savepoints are critical and demand high throughput for the **/hana/data** volume
 
 > [!IMPORTANT]
 > You have the possibility to define the sector size of Azure Premium SSD v2 as 512 Bytes or 4096 Bytes. Default sector size is 4096 Bytes. Tests conducted with HCMT did not reveal any significant differences in performance and throughput between the different sector sizes. This sector size is different than stripe sizes that you need to define when using a logical volume manager.
@@ -91,8 +91,8 @@ Configuration for SAP **/hana/data** volume:
 | M416s_v2 | 5,700 GiB | 2,000 MBps | 80,000 | 6,848 GB | 1,200 MBps| 17,000 | 
 | M416s_8_v2 | 7,600 GiB | 2,000 MBps | 80,000 | 9,120 GB | 1,250 MBps| 20,000 | 
 | M416ms_v2 | 11,400 GiB | 2,000 MBps | 80,000 | 13,680 GB | 1,300 MBps| 25,000 | 
-| M832isx<sup>1</sup> | 14902 GiB | larger than 2,000 Mbps | 80,000 | 19,200 GB | 2,000 MBps<sup>2</sup> | 40,000 | 
-| M832isx_v2<sup>1</sup> | 23088 GiB | larger than 2,000 Mbps | 80,000 | 28,400 GB | 2,000 MBps<sup>2</sup> | 60,000 | 
+| M832isx<sup>1</sup> | 14,902 GiB | larger than 2,000 Mbps | 80,000 | 19,200 GB | 2,000 MBps<sup>2</sup> | 40,000 | 
+| M832isx_v2<sup>1</sup> | 23,088 GiB | larger than 2,000 Mbps | 80,000 | 28,400 GB | 2,000 MBps<sup>2</sup> | 60,000 | 
 
 <sup>1</sup> VM type not available by default. Please contact your Microsoft account team
 
@@ -127,8 +127,8 @@ For the **/hana/log** volume. the configuration would look like:
 | M416s_v2 | 5,700 GiB | 2,000 MBps | 80,000 | 512 GB | 400 MBps | 5,000 | 1,024 GB |
 | M416s_8_v2 | 5,700 GiB | 2,000 MBps | 80,000 | 512 GB | 400 MBps | 5,000 | 1,024 GB |
 | M416ms_v2 | 11,400 GiB | 2,000 MBps | 80,000 | 512 GB | 400 MBps | 5,000 | 1,024 GB |
-| M832isx<sup>1</sup> | 14902 GiB | larger than 2,000 Mbps | 80,000 | 512 GB | 600 MBps | 9,000 | 1,024 GB |
-| M832isx_v2<sup>1</sup> | 23088 GiB | larger than 2,000 Mbps | 80,000 | 512 GB | 600 MBps | 9,000 | 1,024 GB |
+| M832isx<sup>1</sup> | 14,902 GiB | larger than 2,000 Mbps | 80,000 | 512 GB | 600 MBps | 9,000 | 1,024 GB |
+| M832isx_v2<sup>1</sup> | 23,088 GiB | larger than 2,000 Mbps | 80,000 | 512 GB | 600 MBps | 9,000 | 1,024 GB |
 
 <sup>1</sup> VM type not available by default. Please contact your Microsoft account team
 
@@ -151,9 +151,9 @@ A few examples on how combining multiple Premium SSD v2 disks with a stripe set 
 | M416ms_v2 | 11,400 GiB | 1 | 13,680 | 25,000 | 3,000 | 22,000 | 1,200 MBps | 125 MBps | 1,075 MBps |
 | M416ms_v2 | 11,400 GiB | 2 | 6,840 | 25,000 | 6,000 | 19,000 | 1,200 MBps | 250 MBps | 950 MBps |
 | M416ms_v2 | 11,400 GiB | 4 | 3,420 | 25,000 | 12,000 | 13,000 | 1,200 MBps | 500 MBps | 700 MBps |
-| M832isx<sup>1</sup> | 14902 GiB | 2 | 7,451 GB | 40,000 | 6,000 | 34,000 | 2,000 MBps | 250 MBps | 1750 MBps |
-| M832isx<sup>1</sup> | 14902 GiB | 4 | 3,726 GB | 40,000 | 12,000 | 28,000 | 2,000 MBps | 500 MBps | 1500 MBps |
-| M832isx<sup>1</sup> | 14902 GiB | 8 | 1,863 GB | 40,000 | 24,000 | 16,000 | 2,000 MBps | 1,000 MBps | 1000 MBps |
+| M832isx<sup>1</sup> | 14,902 GiB | 2 | 7,451 GB | 40,000 | 6,000 | 34,000 | 2,000 MBps | 250 MBps | 1750 MBps |
+| M832isx<sup>1</sup> | 14,902 GiB | 4 | 3,726 GB | 40,000 | 12,000 | 28,000 | 2,000 MBps | 500 MBps | 1500 MBps |
+| M832isx<sup>1</sup> | 14,902 GiB | 8 | 1,863 GB | 40,000 | 24,000 | 16,000 | 2,000 MBps | 1,000 MBps | 1000 MBps |
 
 <sup>1</sup> VM type not available by default. Please contact your Microsoft account team
 
@@ -169,8 +169,8 @@ For **/hana/log**, a similar approach of using two disks could look like:
 | M128s, M128ds_v2, M128s_v2 | 2,048 GiB | 2 | 256 GB | 4,000 | 6,000 | 0 | 300 MBps | 250 MBps | 50 MBps |
 | M416ms_v2 | 11,400 GiB | 1 | 512 GB | 5,000 | 3,000 | 2,000 | 400 MBps | 125 MBps | 275 MBps |
 | M416ms_v2 | 11,400 GiB | 2 | 256 GB | 5,000 | 6,000 | 0 | 400 MBps | 250 MBps | 150 MBps |
-| M832isx<sup>1</sup> | 14902 GiB | 1 | 512 GB | 9,000 | 3,000 | 6,000 | 600 MBps | 125 MBps | 475 MBps |
-| M832isx<sup>1</sup> | 14902 GiB | 2 | 256 GB | 9,000 | 6,000 | 3,000 | 600 MBps | 250 MBps | 350 MBps |
+| M832isx<sup>1</sup> | 14,902 GiB | 1 | 512 GB | 9,000 | 3,000 | 6,000 | 600 MBps | 125 MBps | 475 MBps |
+| M832isx<sup>1</sup> | 14,902 GiB | 2 | 256 GB | 9,000 | 6,000 | 3,000 | 600 MBps | 250 MBps | 350 MBps |
 
 <sup>1</sup> VM type not available by default. Please contact your Microsoft account team
 

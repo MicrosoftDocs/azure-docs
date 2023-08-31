@@ -49,26 +49,26 @@ The recommendations are often exceeding the SAP minimum requirements as stated e
 
 | VM SKU | RAM | Max. VM I/O<br /> Throughput | /hana/data volume | /hana/data I/O throughput | /hana/data IOPS | /hana/log volume | /hana/log I/O throughput | /hana/log IOPS |
 | --- | --- | --- | --- | --- | --- | --- | --- | -- |
-| E20ds_v4 | 160 GiB | 480 MB/s | 200 GB | 400 MBps | 2,500 | 80 GB | 250 MB | 1,800 |
-| E32ds_v4 | 256 GiB | 768 MB/s | 300 GB | 400 MBps | 2,500 | 128 GB | 250 MBps | 1,800 |
-| E48ds_v4 | 384 GiB | 1152 MB/s | 460 GB | 400 MBps | 3,000 | 192 GB | 250 MBps | 1,800 |
-| E64ds_v4 | 504 GiB | 1200 MB/s | 610 GB | 400 MBps | 3,500 |  256 GB | 250 MBps | 1,800 |
-| E64s_v3 | 432 GiB | 1,200 MB/s | 610 GB | 400 MBps | 3,500 | 220 GB | 250 MB | 1,800 |
-| M32ts | 192 GiB | 500 MB/s | 250 GB | 400 MBps | 2,500 | 96 GB | 250 MBps  | 1,800 |
-| M32ls | 256 GiB | 500 MB/s | 300 GB | 400 MBps | 2,500 | 256 GB | 250 MBps  | 1,800 |
-| M64ls | 512 GiB | 1,000 MB/s | 620 GB | 400 MBps | 3,500 | 256 GB | 250 MBps  | 1,800 |
-| M32dms_v2, M32ms_v2 | 875 GiB | 500 MB/s |  1,200 GB | 600 MBps | 5,000 | 512 GB | 250 MBps  | 2,500 |
-| M64s, M64ds_v2, M64s_v2 | 1,024 GiB | 1,000 MB/s |  1,200 GB | 600 MBps | 5,000 | 512 GB | 250 MBps  | 2,500 |
-| M64ms, M64dms_v2, M64ms_v2 | 1,792 GiB | 1,000 MB/s | 2,100 GB | 600 MBps | 5,000 | 512 GB | 250 MBps  | 2,500 |
-| M128s, M128ds_v2, M128s_v2 | 2,048 GiB | 2,000 MB/s |2,400 GB | 750 MBps | 7,000 | 512 GB | 250 MBps  | 2,500 |
-| M192ids_v2, M192is_v2 | 2,048 GiB | 2,000 MB/s |2,400 GB | 750 MBps | 7,000 | 512 GB | 250 MBps  | 2,500 | 
-| M128ms, M128dms_v2, M128ms_v2 | 3,892 GiB | 2,000 MB/s | 4,800 GB | 750 MBps |9,600 | 512 GB | 250 MBps  | 2,500 | 
-| M192idms_v2, M192ims_v2 | 4,096 GiB | 2,000 MB/s | 4,800 GB | 750 MBps |9,600 | 512 GB | 250 MBps  | 2,500 | 
-| M208s_v2 | 2,850 GiB | 1,000 MB/s | 3,500 GB | 750 MBps | 7,000 | 512 GB | 250 MBps  | 2,500 | 
-| M208ms_v2 | 5,700 GiB | 1,000 MB/s | 7,200 GB | 750 MBps | 14,400 | 512 GB | 250 MBps  | 2,500 | 
-| M416s_v2 | 5,700 GiB | 2,000 MB/s | 7,200 GB | 1,000 MBps | 14,400 | 512 GB | 400 MBps  | 4,000 |
+| E20ds_v4 | 160 GiB | 480 MBps | 200 GB | 400 MBps | 2,500 | 80 GB | 250 MB | 1,800 |
+| E32ds_v4 | 256 GiB | 768 MBps | 300 GB | 400 MBps | 2,500 | 128 GB | 250 MBps | 1,800 |
+| E48ds_v4 | 384 GiB | 1152 MBps | 460 GB | 400 MBps | 3,000 | 192 GB | 250 MBps | 1,800 |
+| E64ds_v4 | 504 GiB | 1200 MBps | 610 GB | 400 MBps | 3,500 |  256 GB | 250 MBps | 1,800 |
+| E64s_v3 | 432 GiB | 1,200 MBps | 610 GB | 400 MBps | 3,500 | 220 GB | 250 MB | 1,800 |
+| M32ts | 192 GiB | 500 MBps | 250 GB | 400 MBps | 2,500 | 96 GB | 250 MBps  | 1,800 |
+| M32ls | 256 GiB | 500 MBps | 300 GB | 400 MBps | 2,500 | 256 GB | 250 MBps  | 1,800 |
+| M64ls | 512 GiB | 1,000 MBps | 620 GB | 400 MBps | 3,500 | 256 GB | 250 MBps  | 1,800 |
+| M32dms_v2, M32ms_v2 | 875 GiB | 500 MBps |  1,200 GB | 600 MBps | 5,000 | 512 GB | 250 MBps  | 2,500 |
+| M64s, M64ds_v2, M64s_v2 | 1,024 GiB | 1,000 MBps |  1,200 GB | 600 MBps | 5,000 | 512 GB | 250 MBps  | 2,500 |
+| M64ms, M64dms_v2, M64ms_v2 | 1,792 GiB | 1,000 MBps | 2,100 GB | 600 MBps | 5,000 | 512 GB | 250 MBps  | 2,500 |
+| M128s, M128ds_v2, M128s_v2 | 2,048 GiB | 2,000 MBps |2,400 GB | 750 MBps | 7,000 | 512 GB | 250 MBps  | 2,500 |
+| M192ids_v2, M192is_v2 | 2,048 GiB | 2,000 MBps |2,400 GB | 750 MBps | 7,000 | 512 GB | 250 MBps  | 2,500 | 
+| M128ms, M128dms_v2, M128ms_v2 | 3,892 GiB | 2,000 MBps | 4,800 GB | 750 MBps |9,600 | 512 GB | 250 MBps  | 2,500 | 
+| M192idms_v2, M192ims_v2 | 4,096 GiB | 2,000 MBps | 4,800 GB | 750 MBps |9,600 | 512 GB | 250 MBps  | 2,500 | 
+| M208s_v2 | 2,850 GiB | 1,000 MBps | 3,500 GB | 750 MBps | 7,000 | 512 GB | 250 MBps  | 2,500 | 
+| M208ms_v2 | 5,700 GiB | 1,000 MBps | 7,200 GB | 750 MBps | 14,400 | 512 GB | 250 MBps  | 2,500 | 
+| M416s_v2 | 5,700 GiB | 2,000 MBps | 7,200 GB | 1,000 MBps | 14,400 | 512 GB | 400 MBps  | 4,000 |
 | M416s_8_v2 | 7,600 | 2,000 MBps | 9,500 GB | 1,250 MBps | 20,000 | 512 GB | 400 MBps  | 4,000 |
-| M416ms_v2 | 11,400 GiB | 2,000 MB/s | 14,400 GB | 1,500 MBps | 28,800 | 512 GB | 400 MBps  | 4,000 |   
+| M416ms_v2 | 11,400 GiB | 2,000 MBps | 14,400 GB | 1,500 MBps | 28,800 | 512 GB | 400 MBps  | 4,000 |   
 | M832isx<sup>1</sup> | 14902 GiB | larger than 2,000 Mbps | 19,200 GB | 2,000 MBps<sup>2</sup> | 40,000 | 512 GB | 600 MBps | 9,000 |
 | M832isx_v2<sup>1</sup> | 23088 GiB | larger than 2,000 Mbps | 28,400 GB | 2,000 MBps<sup>2</sup> | 60,000 | 512 GB | 600 MBps | 9,000 |
 
