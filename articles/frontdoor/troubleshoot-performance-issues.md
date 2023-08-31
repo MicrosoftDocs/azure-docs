@@ -3,12 +3,12 @@ title: 'General Performance Troubleshooting of Azure Front Door'
 titleSuffix: Azure Front Door
 description: In this article, investigate, diagnose and resolve potential latency or bandwidth issues associated with an Azure Front Door related site performance
 services: frontdoor
-author: stdoroff
+author: sbdoroff
 ms.service: frontdoor
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 08/30/2023
-ms.author: stdoroff
+ms.author: sbdoroff
 #Customer intent: As a <type of user>, I want <some goal> so that <some reason>.
 ---
 
@@ -123,7 +123,7 @@ High latency, or low bandwidth, could be because of an ISP issue, the customer i
 
 ### Scenario 2 | Troubleshooting Steps
 
-1. To check the path to the POP, use [PathPing](https://learn.microsoft.com/windows-server/administration/windows-commands/pathping) or similar tool for 500 packets to check the network route.  *PathPing maxes at 250 queries.  To test to 500, run the below query twice*
+1. To check the path to the POP, use [PathPing](/windows-server/administration/windows-commands/pathping) or similar tool for 500 packets to check the network route.  *PathPing maxes at 250 queries.  To test to 500, run the below query twice*
 
     ```Console
        pathping /q 250 <Full URL of Affected File>
@@ -145,7 +145,7 @@ A webpage often consists of many files.  The way the website benefits from the A
 - Origin: origin.contoso.com
 - AFD Custom Domain: contoso.com
 - Page customer attempts to load: https://contoso.com
-- **Explanation**: When the page loads, the initial file at the "/" directory calls other files, which build the page.  These files are images, JavaScript, text files and more.  If those files aren't called via the AFD hostname, *contoso.com*, the AFD is ***not*** being utilized.  So, if one of the file requested by the website is *http://www.images.fabrikam.com/businessimage.jpg* the file is ***not*** benefiting from the use of the AFD.  Instead, the file is being requested directly, from the *images.fabrikam.com* server, by the browser on the requesting client.
+- **Explanation**: When the page loads, the initial file at the "/" directory calls other files, which build the page.  These files are images, JavaScript, text files and more.  If those files aren't called via the AFD hostname, *contoso.com*, the AFD is ***not*** being utilized.  So, if one of the file requested by the website is *`http://www.images.fabrikam.com/businessimage.jpg`* the file is ***not*** benefiting from the use of the AFD.  Instead, the file is being requested directly, from the *`images.fabrikam.com`* server, by the browser on the requesting client.
 
    :::image type="complex" source="media/troubleshoot-performance-issues/AFDCDNPerformance.jpg" alt-text="Example of multiple, differently sourced files for a singular website and how it affects AFD performance":::
 
@@ -171,7 +171,7 @@ A webpage often consists of many files.  The way the website benefits from the A
    > Developer tools in your browser can be used to determine the source of the files being served
 1. Note the source of files
 1. Identify which files are utilizing the AFD hostname and which aren't
-  A. Example: From the above example, an AFD hosted image would be something like https://www.contoso.com/productimage1.jpg and that which wouldn't is something like http://www.images.fabrikam.com/businessimage.jpg
+  A. Example: From the above example, an AFD hosted image would be something like `https://www.contoso.com/productimage1.jpg` and that which wouldn't is something like `http://www.images.fabrikam.com/businessimage.jpg`
 1. Once gathered test performance for file being served from AFD, its origin and, if applicable, the testing webpage
    > [!IMPORTANT]
    > If the origin or testing webpage is served from a geographical region closer to the tool testing performance, a tool or requesting client may need to be used in another region to examine the AFD POP's proximity benefit  
