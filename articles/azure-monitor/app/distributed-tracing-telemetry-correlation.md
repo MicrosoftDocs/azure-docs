@@ -171,9 +171,9 @@ It's important to make sure the incoming and outgoing configurations are exactly
 
 ### Enable W3C distributed tracing support for web apps
 
-This feature is in `Microsoft.ApplicationInsights.JavaScript`. 
+This feature is in `Microsoft.ApplicationInsights.JavaScript`. Whether this feature is enabled by default is determined by which domain host the requests are sent to.
 
-If requests are sent to the same hosting domain as the hosting page, this feature is enabled by default and uses the AI_AND_W3C setting (for example, the hosting page is `example.com` and the Ajax requests are sent to `example.com`). To disable it, use the [`distributedTracingMode` configuration field](./javascript-sdk-configuration.md#sdk-configuration). AI_AND_W3C is provided for backward compatibility with any legacy services instrumented by Application Insights.
+If requests are sent to the same domain host as the hosting page, this feature is enabled by default and uses the AI_AND_W3C setting (for example, the hosting page is `example.com` and the Ajax requests are sent to `example.com`). To disable it, use the [`distributedTracingMode` configuration field](./javascript-sdk-configuration.md#sdk-configuration). AI_AND_W3C is provided for backward compatibility with any legacy services instrumented by Application Insights.
 
 - **[npm-based setup](./javascript-sdk.md?tabs=npmpackage#get-started)**
 
