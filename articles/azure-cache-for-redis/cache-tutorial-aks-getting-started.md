@@ -171,7 +171,7 @@ Run the following command to get the endpoint for your application:
 kubectl get service azure-vote-front
 ```
 
-You may see that the EXTERNAL-IP has status <pending> for a few minutes. Keep retrying and the status will be replaced by an IP address.
+You might see that the EXTERNAL-IP has status `<pending>` for a few minutes. Keep retrying until the status is replaced by an IP address.
 
 ```output
 NAME                   TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)        AGE
@@ -192,4 +192,6 @@ kubectl delete service azure-vote-front
 ```
 
 ## Related Content
-- [Use Azure Key Vault Provider to securely store your access key](https://learn.microsoft.com/azure/aks/csi-secrets-store-driver)
+<!-- Do we want this particular link in this section.
+
+- [Use Azure Key Vault Provider to securely store your access key](https://learn.microsoft.com/azure/aks/csi-secrets-store-driver) -->
