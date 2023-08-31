@@ -13,7 +13,7 @@ ms.custom: devx-track-ansible
 
 # Download SAP software
 
-You need a copy of the SAP software before you can use [SAP Deployment Automation Framework](deployment-framework.md). [Prepare your Azure environment](#configure-key-vault) so that you can put the SAP media in your storage account. Then, [download the SAP software by using Ansible playbooks](#download-sap-software).
+You need a copy of the SAP software before you can use [SAP Deployment Automation Framework](deployment-framework.md). [Prepare your Azure environment](#configure-a-key-vault) so that you can put the SAP media in your storage account. Then, [download the SAP software by using Ansible playbooks](#download-sap-software).
 
 ## Prerequisites
 
@@ -55,7 +55,7 @@ First, configure your deployer key vault secrets. For this example configuration
 
 ## Download SAP software
 
-Next, [configure your SAP parameters file](#configure-parameters-file) for the download process. Then, [download the SAP software by using Ansible playbooks](#download-sap-software).
+Next, [configure your SAP parameters file](#configure-the-parameters-file) for the download process. Then, [download the SAP software by using Ansible playbooks](#download-sap-software).
 
 ### Configure the parameters file
 
