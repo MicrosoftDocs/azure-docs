@@ -7,14 +7,14 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/31/2023
+ms.date: 09/01/2023
 ---
 
 # Exchange EDIFACT messages using workflows in Azure Logic Apps
 
 To send and receive EDIFACT messages in workflows that you create using Azure Logic Apps, use the **EDIFACT** connector, which provides operations that support and manage EDIFACT communication.
 
-This guide shows how to add the EDIFACT encoding and decoding actions to an existing logic app workflow. The **EDIFACT** connector doesn't include any triggers, so you can use any trigger to start your workflow. The examples in this guide use the [Request trigger](../connectors/connectors-native-reqres.md).
+This guide shows how to add the EDIFACT encoding and decoding actions to an existing logic app workflow. When no **EDIFACT** trigger is available, you can any trigger to start your workflow. The examples in this guide use the [Request trigger](../connectors/connectors-native-reqres.md).
 
 ## Connector technical reference
 
@@ -26,14 +26,27 @@ The **EDIFACT** connector has different versions, based on [logic app type and h
 | **Consumption** | Integration service environment (ISE) | **EDIFACT** managed connector (Standard class) and **EDIFACT** ISE version, which has different message limits than the Standard class. The **EDIFACT** connector provides only actions, but you can use any trigger that works for your scenario. For more information, review the following documentation: <br><br>- [EDIFACT managed connector reference](/connectors/edifact/) <br>- [EDIFACT message limits](logic-apps-limits-and-config.md#b2b-protocol-limits) |
 | **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | **EDIFACT** built-in connector (preview) and **EDIFACT** managed connector. The built-in version differs in the following ways: <br><br>- The built-in version provides only actions, but you can use any trigger that works for your scenario. <br><br>- The built-in version can directly access Azure virtual networks. You don't need an on-premises data gateway.<br><br>For more information, review the following documentation: <br><br>- [EDIFACT managed connector reference](/connectors/edifact/) <br>- [EDIFACT built-in connector operations](#edifact-built-in-operations) <br>- [EDIFACT message limits](logic-apps-limits-and-config.md#b2b-protocol-limits) |
 
-<a name="edifact-built-in-operations"></a>
+### Limitations and known issues
+
+* The preview **EDIFACT** built-in connector is in preview and is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+* The preview **EDIFACT** built-in connector actions currently support payloads up to at least 100 MB.
+
+* The preview **EDIFACT Decode** built-in connector action currently doesn't include the following capabilities:
+
+  * Check for duplicate interchange, group, and transaction set control numbers, if configured.
+
+  * Preserve the entire interchange.
+
+  Otherwise, the preview **EDIFACT Encode** and **EDIFACT decode** built-in connector actions have capabilities similar to the managed connector actions.
+
+<a name="edifact-operations"></a>
+
+### EDIFACT connector operations (Consumption and Standard workflows)
+
+#### 
 
 ### EDIFACT built-in operations (Standard workflows only - Preview)
-
-> [!NOTE]
->
-> This capability is in preview and is subject to the 
-> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 The **EDIFACT** built-in connector has no triggers. The following table describes the actions that the **EDIFACT** connector provides for establishing security and reliability when transmitting messages:
 
@@ -41,80 +54,6 @@ The **EDIFACT** built-in connector has no triggers. The following table describe
 |--------|-------------|
 | [**EDIFACT Encode** action](#encode) | |
 | [**EDIFACT Decode** action](#decode) | |
-
-### EDIFACT managed connector operations (Consumption and Standard workflows)
-
-#### 
-
-#### Encode to EDIFACT message action
-
-This action performs the following tasks:
-
-* Resolve the agreement by matching the sender qualifier & identifier and receiver qualifier and identifier.
-
-* Serialize the Electronic Data Interchange (EDI), which converts XML-encoded messages into EDI transaction sets in the interchange.
-
-* Apply transaction set header and trailer segments.
-
-* Generate an interchange control number, a group control number, and a transaction set control number for each outgoing interchange.
-
-* Replace separators in the payload data.
-
-* Validate EDI and partner-specific properties, such as the schema for transaction-set data elements against the message schema, transaction-set data elements, and extended validation on transaction-set data elements.
-
-* Generate an XML document for each transaction set.
-
-* Request a technical acknowledgment, functional acknowledgment, or both, if configured.
-
-  * As a technical acknowledgment, the CONTRL message indicates the receipt for an interchange.
-
-  * As a functional acknowledgment, the CONTRL message indicates the acceptance or rejection for the received interchange, group, or message, including a list of errors or unsupported functionality.
-
-### Decode EDIFACT message action
-
-This action performs the following tasks:
-
-* Validate the envelope against the trading partner agreement.
-
-* Resolve the agreement by matching the sender qualifier and identifier along with the receiver qualifier and identifier.
-
-* Split an interchange into multiple transaction sets when the interchange has more than one transaction, based on the agreement's **Receive Settings**.
-
-* Disassemble the interchange.
-
-* Validate Electronic Data Interchange (EDI) and partner-specific properties, such as the interchange envelope structure, the envelope schema against the control schema, the schema for the transaction-set data elements against the message schema, and extended validation on transaction-set data elements.
-
-* Verify that the interchange, group, and transaction set control numbers aren't duplicates, if configured, for example:
-
-  * Check the interchange control number against previously received interchanges.
-
-  * Check the group control number against other group control numbers in the interchange.
-
-  * Check the transaction set control number against other transaction set control numbers in that group.
-
-* Split the interchange into transaction sets, or preserve the entire interchange, for example:
-
-  * Split Interchange as transaction sets - suspend transaction sets on error.
-
-    The decoding action splits the interchange into transaction sets and parses each transaction set. The action outputs only those transaction sets that fail validation to `badMessages`, and outputs the remaining transactions sets to `goodMessages`.
-
-  * Split Interchange as transaction sets - suspend interchange on error.
-
-    The decoding action splits the interchange into transaction sets and parses each transaction set. If one or more transaction sets in the interchange fail validation, the action outputs all the transaction sets in that interchange to `badMessages`.
-
-  * Preserve Interchange - suspend transaction sets on error.
-
-    The decoding action preserves the interchange and processes the entire batched interchange. The action outputs only those transaction sets that fail validation to `badMessages`, and outputs the remaining transactions sets to `goodMessages`.
-
-  * Preserve Interchange - suspend interchange on error.
-
-    The decoding action preserves the interchange and processes the entire batched interchange. If one or more transaction sets in the interchange fail validation, the action outputs all the transaction sets in that interchange to `badMessages`.
-
-* Generate a technical acknowledgment, functional acknowledgment, or both, if configured.
-
-  * A technical acknowledgment or the CONTRL ACK, which reports the results from a syntactical check on the complete received interchange.
-
-  * A functional acknowledgment that acknowledges the acceptance or rejection for the received interchange or group.
 
 ## Prerequisites
 
@@ -151,6 +90,28 @@ This action performs the following tasks:
 <a name="encode"></a>
 
 ## Encode EDIFACT messages
+
+The **EDIFACT** managed connector action named **Encode to EDIFACT message** action and the **EDIFACT** built-in connector action named **EDIFACT Encode** performs the following tasks:
+
+* Resolve the agreement by matching the sender qualifier & identifier and receiver qualifier and identifier.
+
+* Serialize the Electronic Data Interchange (EDI), which converts XML-encoded messages into EDI transaction sets in the interchange.
+
+* Apply transaction set header and trailer segments.
+
+* Generate an interchange control number, a group control number, and a transaction set control number for each outgoing interchange.
+
+* Replace separators in the payload data.
+
+* Validate EDI and partner-specific properties, such as the schema for transaction-set data elements against the message schema, transaction-set data elements, and extended validation on transaction-set data elements.
+
+* Generate an XML document for each transaction set.
+
+* Request a technical acknowledgment, functional acknowledgment, or both, if configured.
+
+  * As a technical acknowledgment, the CONTRL message indicates the receipt for an interchange.
+
+  * As a functional acknowledgment, the CONTRL message indicates the acceptance or rejection for the received interchange, group, or message, including a list of errors or unsupported functionality.
 
 ### [Consumption](#tab/consumption)
 
@@ -235,6 +196,53 @@ This action performs the following tasks:
 <a name="decode"></a>
 
 ## Decode EDIFACT messages
+
+### Decode EDIFACT message action
+
+This action performs the following tasks:
+
+* Validate the envelope against the trading partner agreement.
+
+* Resolve the agreement by matching the sender qualifier and identifier along with the receiver qualifier and identifier.
+
+* Split an interchange into multiple transaction sets when the interchange has more than one transaction, based on the agreement's **Receive Settings**.
+
+* Disassemble the interchange.
+
+* Validate Electronic Data Interchange (EDI) and partner-specific properties, such as the interchange envelope structure, the envelope schema against the control schema, the schema for the transaction-set data elements against the message schema, and extended validation on transaction-set data elements.
+
+* Verify that the interchange, group, and transaction set control numbers aren't duplicates, if configured, for example:
+
+  * Check the interchange control number against previously received interchanges.
+
+  * Check the group control number against other group control numbers in the interchange.
+
+  * Check the transaction set control number against other transaction set control numbers in that group.
+
+* Split the interchange into transaction sets, or preserve the entire interchange, for example:
+
+  * Split Interchange as transaction sets - suspend transaction sets on error.
+
+    The decoding action splits the interchange into transaction sets and parses each transaction set. The action outputs only those transaction sets that fail validation to `badMessages`, and outputs the remaining transactions sets to `goodMessages`.
+
+  * Split Interchange as transaction sets - suspend interchange on error.
+
+    The decoding action splits the interchange into transaction sets and parses each transaction set. If one or more transaction sets in the interchange fail validation, the action outputs all the transaction sets in that interchange to `badMessages`.
+
+  * Preserve Interchange - suspend transaction sets on error.
+
+    The decoding action preserves the interchange and processes the entire batched interchange. The action outputs only those transaction sets that fail validation to `badMessages`, and outputs the remaining transactions sets to `goodMessages`.
+
+  * Preserve Interchange - suspend interchange on error.
+
+    The decoding action preserves the interchange and processes the entire batched interchange. If one or more transaction sets in the interchange fail validation, the action outputs all the transaction sets in that interchange to `badMessages`.
+
+* Generate a technical acknowledgment, functional acknowledgment, or both, if configured.
+
+  * A technical acknowledgment or the CONTRL ACK, which reports the results from a syntactical check on the complete received interchange.
+
+  * A functional acknowledgment that acknowledges the acceptance or rejection for the received interchange or group.
+
 
 ### [Consumption](#tab/consumption)
 
