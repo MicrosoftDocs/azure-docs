@@ -53,8 +53,8 @@ If your application relies on certain built-in or custom user attributes, you ca
 
 The custom attributes you create are added to the *b2c-extensions-app* registered in your customer tenant. If you want to call a custom attribute from an application or manage it via Microsoft Graph, use the naming convention `extension_<b2c-extensions-app-id>_<custom-attribute-name>` where:
 
-- `<extensions-app-id>` is the *b2c-extensions-app* application ID with no hyphens.
-- `<custom-attribute-name>` is the name you assigned to the attribute.
+- `<b2c-extensions-app-id>` is the *b2c-extensions-app* application ID with no hyphens.
+- `<custom-attribute-name>` is the name you assigned to the custom attribute.
 
 To find the application ID for the *b2c-extensions-app* registered in your customer tenant:
 
