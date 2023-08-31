@@ -148,7 +148,7 @@ The default value is set to **180 seconds**
    > * In case of a continuous window of beyond 24 hours across days, you're required to set Auto scale schedule across days, and autoscale assumes 23:59 as 00:00 (with same node count) spanning across two days from 22:00 to 23:59, 00:00 to 02:00 as 22:00 to 02:00.
    > * The schedules are set in Coordinated Universal Time (UTC), by default. You can always update to time zone that corresponds to your local time zone in the drop down available. When you are on a time zone that observes Daylight Savings, the schedule does not adjust automatically, you are required to manage the schedule updates accordingly.
 
-### Create a cluster Load based Auto scale
+### Create a cluster with Load based Auto scale
 
 1. Once your cluster pool is created, create a [new cluster](./quickstart-create-cluster.md) with your desired workload (on the Cluster type), and complete the other steps as part of the normal cluster creation process.
 1. On the **Configuration** tab, enable **Auto scale** toggle.
