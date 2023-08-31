@@ -195,14 +195,15 @@ _We have discussed different ways of implementing PgBouncer and the table below 
 |Reduced Network Overhead & Latency|:::image type="icon" source="./media/concepts-connection-pooling-best-practices/green.png":::|:::image type="icon" source="./media/concepts-connection-pooling-best-practices/yellow.png":::|:::image type="icon" source="./media/concepts-connection-pooling-best-practices/green.png":::|:::image type="icon" source="./media/concepts-connection-pooling-best-practices/yellow.png":::|:::image type="icon" source="./media/concepts-connection-pooling-best-practices/yellow.png":::|
 |Fine grain control on monitoring and debugging|:::image type="icon" source="./media/concepts-connection-pooling-best-practices/green.png":::|:::image type="icon" source="./media/concepts-connection-pooling-best-practices/green.png":::|:::image type="icon" source="./media/concepts-connection-pooling-best-practices/red.png":::|:::image type="icon" source="./media/concepts-connection-pooling-best-practices/red.png":::|:::image type="icon" source="./media/concepts-connection-pooling-best-practices/green.png":::|
 
-<br></br>
 
-<span style="display: inline-block; width: 10px; height: 10px; background-color: black;"></span> **Legend**
+:::image type="icon" source="./media/concepts-connection-pooling-best-practices/black.png"::: **Legend**
+
+
 |**Difficulty Level**|**Symbol**|
-|---|---|
-|Easy|:::image type="icon" source="./media/concepts-connection-pooling-best-practices/green.png":::|
-|Medium|:::image type="icon" source="./media/concepts-connection-pooling-best-practices/yellow.png":::|
-|Difficult|:::image type="icon" source="./media/concepts-connection-pooling-best-practices/red.png":::|
+|---|:-:|
+|Easy |:::image type="icon" source="./media/concepts-connection-pooling-best-practices/green.png":::|
+|Medium| :::image type="icon" source="./media/concepts-connection-pooling-best-practices/yellow.png":::|
+|Difficult |:::image type="icon" source="./media/concepts-connection-pooling-best-practices/red.png":::|
 
 
 *ALB: Azure Load Balancer
