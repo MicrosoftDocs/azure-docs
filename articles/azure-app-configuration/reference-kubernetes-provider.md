@@ -299,7 +299,7 @@ Supporting different type of ConfigMap data is useful when you want to consume t
 
 Key-values that are fetched from Azure App Configuration are stored in the ConfigMap as is by default, the ConfigMap you get contains the same number of data items as the key-values you selected from Azure App Configuration.
 
-Set to `json`, `yaml` or `properties` if you want to bundle all selected key-values into single data item in different types, and consume the ConfigMap as a mounted file. In this case, the ConfigMap you get contains a single data item that use the `fileStyleConfigMap.key` as key, all bundled key-values as the value.
+Set to `json`, `yaml` or `properties` if you want to bundle all selected key-values into single data item in different types, and consume the ConfigMap as a mounted file. In this case, the ConfigMap you get contains a single data item that use the `configMapData.key` as key, all bundled key-values as the value.
 
 For example, you can create an `AzureAppConfigurationProvider` with following settings.
 
@@ -312,7 +312,7 @@ spec:
   endpoint: <your-app-configuration-store-endpoint>
   target:
     configMapName: configmap-created-by-appconfig-provider
-    fileStyleConfigMap:
+    configMapData:
       format: json
       key: appSettings.json
   keyValues:
