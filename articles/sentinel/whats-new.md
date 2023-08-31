@@ -24,6 +24,7 @@ See these [important announcements](#announcements) about recent changes to feat
 
 ## August 2023
 
+- [New incident investigation experience is now GA](#new-incident-investigation-experience-is-now-ga)
 - [Updated MISP2Sentinel solution utilizes the new upload indicators API.](#updated-misp2sentinel-solution)
 
 ### New incident investigation experience is now GA
