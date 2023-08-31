@@ -62,7 +62,7 @@ Or [download the sample in a zip file](https://github.com/Azure-Samples/ms-ident
 
 This sample has one project. To register the application with your Azure AD tenant, you can either:
 
-- Follow the steps in [Register the sample with your Azure Active Directory tenant](#register-the-client-app-dotnet-web-daemon-v2) and [Configure the sample to use your Azure AD tenant](#choose-the-azure-ad-tenant).
+- Follow the steps in [Choose the Azure AD tenant](#choose-the-tenant) and [Configure the sample to use your tenant](#configure-the-sample-to-use-your-tenant).
 - Use PowerShell scripts that:
   - *Automatically* create the Azure AD applications and related objects (passwords, permissions, dependencies) for you.
   - Modify the Visual Studio projects' configuration files.
@@ -88,7 +88,7 @@ If you want to use the automation:
 
 If you don't want to use the automation, use the steps in the following sections.
 
-### Choose the Azure AD tenant
+### Choose the tenant
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
@@ -117,7 +117,7 @@ If you don't want to use the automation, use the steps in the following sections
 1. In the **Application permissions** section, ensure that the right permissions are selected: **User.Read.All**.
 1. Select **Add permissions**.
 
-## Configure the sample to use your Azure AD tenant
+## Configure the sample to use your tenant
 
 In the following steps, **ClientID** is the same as "application ID" or **AppId**.
 
