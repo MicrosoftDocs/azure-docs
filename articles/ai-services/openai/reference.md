@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: conceptual
-ms.date: 07/19/2023
+ms.date: 08/25/2023
 author: mrbullwinkle
 ms.author: mbullwin
 recommendations: false
@@ -54,10 +54,12 @@ POST https://{your-resource-name}.openai.azure.com/openai/deployments/{deploymen
 
 **Supported versions**
 
-- `2023-03-15-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-03-15-preview/inference.json)
 - `2022-12-01` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/stable/2022-12-01/inference.json)
+- `2023-03-15-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-03-15-preview/inference.json)
 - `2023-05-15` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/stable/2023-05-15/inference.json)
 - `2023-06-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-06-01-preview/inference.json)
+- `2023-07-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-07-01-preview/inference.json)
+- `2023-08-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-08-01-preview/inference.json)
 
 **Request body**
 
@@ -116,7 +118,7 @@ In the example response, `finish_reason` equals `stop`. If `finish_reason` equal
 Get a vector representation of a given input that can be easily consumed by machine learning models and other algorithms.
 
 > [!NOTE]
-> We currently do not support batching of embeddings into a single API call. If you receive the error `InvalidRequestError: Too many inputs. The max number of inputs is 1.  We hope to increase the number of inputs per request soon.`, this typically occurs when an array of embeddings is attempted to be passed as a batch rather than a single string. The string can be up to 8191 tokens in length when using the text-embedding-ada-002 (Version 2) model.
+> OpenAI currently allows a larger number of array inputs with `text-embedding-ada-002`. Azure OpenAI currently supports input arrays up to 16 for `text-embedding-ada-002 (Version 2)`. Both require the max input token limit per API request to remain under 8191 for this model.
 
 **Create an embedding**
 
@@ -134,16 +136,19 @@ POST https://{your-resource-name}.openai.azure.com/openai/deployments/{deploymen
 
 **Supported versions**
 
-- `2023-03-15-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-03-15-preview/inference.json)
 - `2022-12-01` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/stable/2022-12-01/inference.json)
+- `2023-03-15-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-03-15-preview/inference.json)
 - `2023-05-15` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/stable/2023-05-15/inference.json)
+- `2023-06-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-06-01-preview/inference.json)
+- `2023-07-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-07-01-preview/inference.json)
+- `2023-08-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-08-01-preview/inference.json)
 
 **Request body**
 
 | Parameter | Type | Required? | Default | Description |
 |--|--|--|--|--|
-| ```input```| string | Yes | N/A | Input text to get embeddings for, encoded as a string. The number of input tokens varies depending on what [model you are using](./concepts/models.md). <br> Unless you're embedding code, we suggest replacing newlines (\n) in your input with a single space, as we have observed inferior results when newlines are present.|
-| ```user``` | string | No | Null | A unique identifier representing for your end-user. This will help Azure OpenAI monitor and detect abuse. **Do not pass PII identifiers instead use pseudoanonymized values such as GUIDs** |
+| ```input```| string or array | Yes | N/A | Input text to get embeddings for, encoded as an array or string. The number of input tokens varies depending on what [model you are using](./concepts/models.md). Only `text-embedding-ada-002 (Version 2)` supports array input.|
+| ```user``` | string | No | Null | A unique identifier representing your end-user. This will help Azure OpenAI monitor and detect abuse. **Do not pass PII identifiers instead use pseudoanonymized values such as GUIDs** |
 
 #### Example request
 
@@ -198,7 +203,8 @@ POST https://{your-resource-name}.openai.azure.com/openai/deployments/{deploymen
 - `2023-03-15-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-03-15-preview/inference.json)
 - `2023-05-15` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/stable/2023-05-15/inference.json)
 - `2023-06-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-06-01-preview/inference.json)
-- `2023-07-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-07-01-preview/generated.json)
+- `2023-07-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-07-01-preview/inference.json)
+- `2023-08-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-08-01-preview/inference.json)
 
 #### Example request
 
@@ -303,6 +309,8 @@ POST {your-resource-name}/openai/deployments/{deployment-id}/extensions/chat/com
 
 **Supported versions**
 - `2023-06-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-06-01-preview/inference.json)
+- `2023-07-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-07-01-preview/inference.json)
+- `2023-08-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-08-01-preview/inference.json)
 
 #### Example request
 
@@ -310,11 +318,12 @@ POST {your-resource-name}/openai/deployments/{deployment-id}/extensions/chat/com
 curl -i -X POST YOUR_RESOURCE_NAME/openai/deployments/YOUR_DEPLOYMENT_NAME/extensions/chat/completions?api-version=2023-06-01-preview \
 -H "Content-Type: application/json" \
 -H "api-key: YOUR_API_KEY" \
--H "chatgpt_url: YOUR_RESOURCE_URL" \
--H "chatgpt_key: YOUR_API_KEY" \
 -d \
 '
 {
+    "temperature": 0,
+    "max_tokens": 1000,
+    "top_p": 1.0,
     "dataSources": [
         {
             "type": "AzureCognitiveSearch",
@@ -386,13 +395,16 @@ The following parameters can be used inside of the `parameters` field inside of 
 | `topNDocuments` | number | Optional | 5 | Number of documents that need to be fetched for document augmentation.  |
 | `queryType` | string | Optional | simple |  Indicates which query option will be used for Azure Cognitive Search. |
 | `semanticConfiguration` | string | Optional | null |  The semantic search configuration. Only available when `queryType` is set to `semantic`.  |
-| `roleInformation` | string | Optional | null |  Gives the model instructions about how it should behave and the context it should reference when generating a response. Corresponds to the “System Message” in Azure OpenAI Studio. <!--See [Using your data](./concepts/use-your-data.md#system-message) for more information.--> There’s a 100 token limit, which counts towards the overall token limit.|
+| `roleInformation` | string | Optional | null |  Gives the model instructions about how it should behave and the context it should reference when generating a response. Corresponds to the "System Message" in Azure OpenAI Studio. See [Using your data](./concepts/use-your-data.md#system-message) for more information. There’s a 100 token limit, which counts towards the overall token limit.|
+| `filter` | string | Optional | null | The filter pattern used for [restricting access to sensitive documents](./concepts/use-your-data.md#document-level-access-control)
+| `embeddingEndpoint` | string | Optional | null | the endpoint URL for an Ada embedding model deployment. Used for [vector search](./concepts/use-your-data.md#search-options). | 
+| `embeddingKey` | string | Optional | null | the API key for an Ada embedding model deployment. Used for [vector search](./concepts/use-your-data.md#search-options). | 
 
 ## Image generation
 
 ### Request a generated image
 
-Generate a batch of images from a text caption. Image generation is currently only available with `api-version=2023-06-01-preview`.
+Generate a batch of images from a text caption.
 
 ```http
 POST https://{your-resource-name}.openai.azure.com/openai/images/generations:submit?api-version={api-version}
@@ -407,7 +419,9 @@ POST https://{your-resource-name}.openai.azure.com/openai/images/generations:sub
 
 **Supported versions**
 
-- `2023-06-01-preview`
+- `2023-06-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-06-01-preview/inference.json)
+- `2023-07-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-07-01-preview/inference.json)
+- `2023-08-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-08-01-preview/inference.json)
 
 **Request body**
 
@@ -460,7 +474,9 @@ GET https://{your-resource-name}.openai.azure.com/openai/operations/images/{oper
 
 **Supported versions**
 
-- `2023-06-01-preview`
+- `2023-06-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-06-01-preview/inference.json)
+- `2023-07-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-07-01-preview/inference.json)
+- `2023-08-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-08-01-preview/inference.json)
 
 #### Example request
 
@@ -511,7 +527,9 @@ DELETE https://{your-resource-name}.openai.azure.com/openai/operations/images/{o
 
 **Supported versions**
 
-- `2023-06-01-preview`
+- `2023-06-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-06-01-preview/inference.json)
+- `2023-07-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-07-01-preview/inference.json)
+- `2023-08-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-08-01-preview/inference.json)
 
 #### Example request
 

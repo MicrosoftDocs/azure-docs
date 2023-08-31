@@ -73,7 +73,7 @@ Federated identity providers (IdPs) such as Active Directory Federation Services
 
 Learn more:
 
-* [Protecting Microsoft 365 from on-premises attacks](../fundamentals/protect-m365-from-on-premises-attacks.md)
+* [Protecting Microsoft 365 from on-premises attacks](../architecture/protect-m365-from-on-premises-attacks.md)
 * [Deploying AD Federation Services in Azure](/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs)
 * [Configuring AD FS for user certificate authentication](/windows-server/identity/ad-fs/operations/configure-user-certificate-authentication)
 

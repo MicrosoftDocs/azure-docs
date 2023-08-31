@@ -5,7 +5,7 @@ description: Learn how to calculate the cost of storing and maintaining data in 
 author: normesta
 
 ms.author: normesta
-ms.date: 05/30/2023
+ms.date: 08/10/2023
 ms.service: storage
 ms.topic: conceptual
 ---
@@ -287,10 +287,6 @@ This scenario assumes a monthly ingest of 200,000 files totaling 10,240 GB in si
 Archive storage is the lowest cost tier. However, it can take up to 15 hours to rehydrate 10 GiB files. To learn more, see [Blob rehydration from the Archive tier](archive-rehydrate-overview.md). The archive tier might not be the best fit if your workloads must read data quickly. The cool tier offers a near real-time read latency with a lower price than that the hot tier. Understanding your access requirements will help you to choose between the cool, cold, and archive tiers.
 
 The following table compares the cost of archive storage with the cost of cool and cold storage by using the [Sample prices](#sample-prices) that appear in this article. This scenario assumes a monthly ingest of 200,000 files totaling 10,240 GB in size to archive. It also assumes 1 read each month about 10% of stored capacity (1024 GB), and 10% of total transactions (20,000).
-
-> [!IMPORTANT]
-> The cold tier is currently in PREVIEW. To learn more, see [Cold tier (preview)](access-tiers-overview.md#cold-tier-preview).
-
 <br><br>
 
 <table>

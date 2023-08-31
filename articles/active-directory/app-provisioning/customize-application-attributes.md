@@ -123,7 +123,7 @@ Applications and systems that support customization of the attribute list includ
 > Editing the list of supported attributes is only recommended for administrators who have customized the schema of their applications and systems, and have first-hand knowledge of how their custom attributes have been defined or if a source attribute isn't automatically displayed in the Azure portal UI. This sometimes requires familiarity with the APIs and developer tools provided by an application or system. The ability to edit the list of supported attributes is locked down by default, but customers can enable the capability by navigating to the following URL: https://portal.azure.com/?Microsoft_AAD_Connect_Provisioning_forceSchemaEditorEnabled=true . You can then navigate to your application to view the [attribute list](#editing-the-list-of-supported-attributes). 
 
 > [!NOTE]
-> When a directory extension attribute in Azure AD doesn't show up automatically in your attribute mapping drop-down, you can manually add it to the "Azure AD attribute list".  When manually adding Azure AD directory extension attributes to your provisioning app, note that directory extension attribute names are case-sensitive. For example: If you have a directory extension attribute named `extension_53c9e2c0exxxxxxxxxxxxxxxx_acmeCostCenter`, make sure you enter it in the same format as defined in the directory.     
+> When a directory extension attribute in Azure AD doesn't show up automatically in your attribute mapping drop-down, you can manually add it to the "Azure AD attribute list".  When manually adding Azure AD directory extension attributes to your provisioning app, note that directory extension attribute names are case-sensitive. For example: If you have a directory extension attribute named `extension_53c9e2c0exxxxxxxxxxxxxxxx_acmeCostCenter`, make sure you enter it in the same format as defined in the directory. Provisioning multi-valued directory extension attributes is not supported.    
 
 When you're editing the list of supported attributes, the following properties are provided:
 
@@ -348,7 +348,7 @@ Selecting this option forces a resynchronization of all users while the provisio
 - The attribute `IsSoftDeleted` is often part of the default mappings for an application. `IsSoftdeleted` can be true in one of four scenarios: 1) The user is out of scope due to being unassigned from the application. 2) The user is out of scope due to not meeting a scoping filter. 3) The user has been soft deleted in Azure AD. 4) The property `AccountEnabled` is set to false on the user. It's not recommended to remove the `IsSoftDeleted` attribute from your attribute mappings.
 - The Azure AD provisioning service doesn't support provisioning null values.
 - They primary key, typically "ID", shouldn't be included as a target attribute in your attribute mappings. 
-- The role attribute typically needs to be mapped using an expression, rather than a direct mapping. For more information about role mapping, see [Provisioning a role to a SCIM app](#Provisioning a role to a SCIM app). 
+- The role attribute typically needs to be mapped using an expression, rather than a direct mapping. For more information about role mapping, see [Provisioning a role to a SCIM app](#provisioning-a-role-to-a-scim-app). 
 - While you can disable groups from your mappings, disabling users isn't supported. 
 
 ## Next steps

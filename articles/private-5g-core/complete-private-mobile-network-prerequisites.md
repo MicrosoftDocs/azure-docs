@@ -20,7 +20,7 @@ In this how-to guide, you'll carry out each of the tasks you need to complete be
 
 ## Get access to Azure Private 5G Core for your Azure subscription
 
-Contact your trials engineer and ask them to register your Azure subscription for access to Azure Private 5G Core. If you don't already have a trials engineer and are interested in trialing Azure Private 5G Core, contact your Microsoft account team, or express your interest through the [partner registration form](https://aka.ms/privateMECMSP).
+Contact your trials engineer and ask them to register your Azure subscription for access to Azure Private 5G Core. If you don't already have a trials engineer and are interested in trialing Azure Private 5G Core, contact your Microsoft account team, or express your interest through the [partner registration form](https://forms.office.com/r/4Q1yNRakXe).
 
 ## Choose the core technology type (5G or 4G)
 

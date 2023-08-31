@@ -2,8 +2,9 @@
 title: Enable detected clothing feature
 description: Azure AI Video Indexer detects clothing associated with the person wearing it in the video and provides information such as the type of clothing detected and the timestamp of the appearance (start, end). The API returns the detection confidence level.
 ms.topic: how-to
-ms.date: 08/02/2023
-ms.author: juliako
+ms.date: 08/07/2023
+ms.author: inhenkel
+author: IngridAtMicrosoft
 ---
 
 # Enable detected clothing feature (preview)
@@ -19,7 +20,7 @@ The newly added clothing detection feature is available when indexing your file 
  
 :::image type="content" source="./media/detected-clothing/index-video.png" alt-text="This screenshot represents an indexing video option":::  
 
-When you choose to see **Insights** of your video on the [Azure AI Video Indexer](https://www.videoindexer.ai/) website, the People's detected clothing could be viewed from the **Observed People** tracing insight. When choosing a thumbnail of a person the detected clothing became available.
+When you choose to see **Insights** of your video on the [Azure AI Video Indexer](https://www.videoindexer.ai/) website, the People's detected clothing could be viewed from the **Observed People** tracking insight. When choosing a thumbnail of a person the detected clothing became available.
 
 :::image type="content" source="./media/detected-clothing/observed-people.png" alt-text="Observed people screenshot":::  
  
@@ -29,7 +30,7 @@ If you're interested to view People's detected clothing in the Timeline of your 
  
 Searching for a specific clothing to return all the observed people wearing it's enabled using the search bar of either the **Insights** or from the **Timeline** of your video on the Azure AI Video Indexer website.
 
-The following JSON response illustrates what Azure AI Video Indexer returns when tracing observed people having detected clothing associated:
+The following JSON response illustrates what Azure AI Video Indexer returns when tracking observed people having detected clothing associated:
 
 ```json
 "observedPeople": [
@@ -102,4 +103,4 @@ As the detected clothing feature uses observed people tracking, the tracking qua
 
 ## Next steps 
 
-[Trace observed people in a video](observed-people-tracing.md)
+[Track observed people in a video](observed-people-tracking.md)

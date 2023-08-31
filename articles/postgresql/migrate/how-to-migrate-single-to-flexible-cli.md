@@ -125,15 +125,14 @@ The structure of the JSON is:
 {
 "properties": {
  "sourceDbServerResourceId":"/subscriptions/<subscriptionid>/resourceGroups/<src_ rg_name>/providers/Microsoft.DBforPostgreSQL/servers/<source server name>",
-
-"sourceServerUserName": "<username>@<servername>",
-"targetServerUserName": "<username>",
 "secretParameters": {
     "adminCredentials": 
     {
       "sourceServerPassword": "<password>",
       "targetServerPassword": "<password>"
     }
+   "sourceServerUserName": "<username>@<servername>",
+   "targetServerUserName": "<username>"
 },
 
 "dbsToMigrate": 
@@ -153,9 +152,9 @@ The `create` parameters that go into the json file format are as shown below:
 | Parameter | Type | Description |
 | ---- | ---- | ---- |
 | `sourceDbServerResourceId` | Required |  This parameter is the resource ID of the Single Server source and is mandatory. |
+| `adminCredentials` | Required | This parameter lists passwords for admin users for both the Single Server source and the Flexible Server target. These passwords help to authenticate against the source and target servers.
 | `sourceServerUserName` | Required | The default value is the admin user created during the creation of single server and the password provided will be used for authentication against this user. In case you are not using the default user, this parameter is the user or role on the source server used for performing the migration. This user should have necessary privileges and ownership on the database objects involved in the migration and should be a member of **azure_pg_admin** role. |
 | `targetServerUserName` | Required | The default value is the admin user created during the creation of flexible server and the password provided will be used for authentication against this user. In case you are not using the default user, this parameter is the user or role on the target server used for performing the migration. This user should be a member of **azure_pg_admin**, **pg_read_all_settings**, **pg_read_all_stats**,**pg_stat_scan_tables** roles and should have the **Create role, Create DB** attributes. |
-| `secretParameters` | Required | This parameter lists passwords for admin users for both the Single Server source and the Flexible Server target. These passwords help to authenticate against the source and target servers.
 | `dbsToMigrate` | Required | Specify the list of databases that you want to migrate to Flexible Server. You can include a maximum of eight database names at a time. |
 | `overwriteDbsInTarget` | Required | When set to true (default), if the target server happens to have an existing database with the same name as the one you're trying to migrate, migration tool automatically overwrites the database. |
 | `SetupLogicalReplicationOnSourceDBIfNeeded` | Optional | You can enable logical replication on the source server automatically by setting this property to `true`. This change in the server settings requires a server restart with a downtime of two to three minutes. |

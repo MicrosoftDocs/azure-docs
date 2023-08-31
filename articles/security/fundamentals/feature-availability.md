@@ -2,8 +2,10 @@
 title: Cloud feature availability for commercial and US Government customers
 description: This article describes security feature availability in Azure and Azure Government clouds
 author: TerryLanfear
+manager: rkarlin
 ms.author: terrylan
 ms.service: security
+ms.subservice: security-fundamentals
 ms.custom: ignite-2022
 ms.topic: reference
 ms.date: 01/13/2023

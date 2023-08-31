@@ -1,5 +1,5 @@
 ---
-title: Document layout analysis - Document Intelligence
+title: Document layout analysis - Document Intelligence (formerly Form Recognizer)
 titleSuffix: Azure AI services
 description: Extract text, tables, selections, titles, section headings, page headers, page footers, and more with layout analysis model from Document Intelligence.
 author: laujan
@@ -415,6 +415,7 @@ The following table lists the supported languages for print text by the most rec
   |:-----|:----:|
   |Rwa|rwk|
   |Sadri (Devanagari)|sck|
+  |Sakha|sah|
   |Samburu|saq|
   |Samoan (Latin)|sm|
   |Sango|sg|
@@ -483,7 +484,6 @@ The following table lists the supported languages for print text by the most rec
   |Western Frisian|fy|
   |Wolof|wo|
   |Xhosa|xh|
-  |Yakut|sah|
   |Yucatec Maya|yua|
   |Zapotec|zap|
   |Zarma|dje|

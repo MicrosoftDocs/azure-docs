@@ -1,7 +1,7 @@
 ---
 title: Overview of Azure Resource Graph
 description: Understand how the Azure Resource Graph service enables complex querying of resources at scale across subscriptions and tenants.
-ms.date: 06/15/2022
+ms.date: 08/15/2023
 ms.topic: overview
 ms.custom: devx-track-arm-template
 ms.author: davidsmatlak
@@ -17,10 +17,9 @@ provide the following abilities:
 - Query resources with complex filtering, grouping, and sorting by resource properties.
 - Explore resources iteratively based on governance requirements.
 - Assess the impact of applying policies in a vast cloud environment.
-- [Query changes made to resource properties](./how-to/get-resource-changes.md)
-  (preview).
+- [Query changes made to resource properties](./how-to/get-resource-changes.md).
 
-In this documentation, you'll go over each feature in detail.
+In this documentation, you review each feature in detail.
 
 > [!NOTE]
 > Azure Resource Graph powers Azure portal's search bar, the new browse **All resources** experience,
@@ -53,8 +52,8 @@ With Azure Resource Graph, you can:
 
 - Access the properties returned by resource providers without needing to make individual calls to
   each resource provider.
-- View the last seven days of resource configuration changes to see what properties changed and
-  when. (preview)
+- View the last 14 days of resource configuration changes to see which properties changed and
+  when.
 
 > [!NOTE]
 > As a _preview_ feature, some `type` objects have additional non-Resource Manager properties
@@ -89,23 +88,23 @@ First, for details on operations and functions that can be used with Azure Resou
 
 ## Permissions in Azure Resource Graph
 
-To use Resource Graph, you must have appropriate rights in [Azure role-based access
-control (Azure RBAC)](../../role-based-access-control/overview.md) with at least read access to the
-resources you want to query. Without at least `read` permissions to the Azure object or object
-group, results won't be returned.
+To use Resource Graph, you must have appropriate rights in [Azure role-based access control (Azure
+RBAC)](../../role-based-access-control/overview.md) with at least `read` access to the resources you
+want to query. No results are returned if you don't have at least `read` permissions to the Azure
+object or object group.
 
 > [!NOTE]
 > Resource Graph uses the subscriptions available to a principal during login. To see resources of a
 > new subscription added during an active session, the principal must refresh the context. This
 > action happens automatically when logging out and back in.
 
-Azure CLI and Azure PowerShell use subscriptions that the user has access to. When using REST API
-directly, the subscription list is provided by the user. If the user has access to any of the
+Azure CLI and Azure PowerShell use subscriptions that the user has access to. When you use a REST
+API, the subscription list is provided by the user. If the user has access to any of the
 subscriptions in the list, the query results are returned for the subscriptions the user has access
-to. This behavior is the same as when calling
-[Resource Groups - List](/rest/api/resources/resourcegroups/list) \- you get resource groups you've
-access to without any indication that the result may be partial. If there are no subscriptions in
-the subscription list that the user has appropriate rights to, the response is a _403_ (Forbidden).
+to. This behavior is the same as when calling [Resource Groups - List](/rest/api/resources/resourcegroups/list)
+because you get resource groups that you can access, without any indication that the result may be
+partial. If there are no subscriptions in the subscription list that the user has appropriate rights
+to, the response is a _403_ (Forbidden).
 
 > [!NOTE]
 > In the **preview** REST API version `2020-04-01-preview`, the subscription list may be omitted.

@@ -14,6 +14,11 @@ ms.custom: mvc, engagement-fy23
 
 [Azure Migrate](migrate-services-overview.md) helps you to discover, assess, and migrate on-premises servers, apps, and data to the Microsoft Azure cloud. This article summarizes new releases and features in Azure Migrate.
 
+## Update (August 2023)
+- Azure Migrate now helps you gain deeper insights into the support posture of your IT estate by providing insights into Windows server and SQL Server license support information. You can stay ahead of license support deadlines with *Support ends in* information that helps to understand the time left until the end of support for respective servers and databases.
+- Azure Migrate also provides clear guidance regarding actionable steps that can be taken to secure servers and databases in extended support or out of support.
+- Envision Extended Security Update (ESU) savings for out of support Windows Server and SQL Server licenses using Azure Migrate Business case. 
+
 ## Update (July 2023)
 - Discover Azure Migrate from Operations Manager console: Operations Manager 2019 UR3 and later allows you to discover Azure Migrate from console. You can now generate a complete inventory of your on-premises environment without appliance. This can be used in Azure Migrate to assess machines at scale. [Learn more](https://support.microsoft.com/topic/discover-azure-migrate-for-operations-manager-04b33766-f824-4e99-9065-3109411ede63).
 - Public Preview: Upgrade your Windows OS during Migration using the Migration and modernization tool in your VMware environment. [Learn more](how-to-upgrade-windows.md).

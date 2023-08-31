@@ -56,7 +56,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
                                           .Build();
 ```
 
-The [claims expected by Azure AD](active-directory-certificate-credentials.md) in the signed assertion are:
+The [claims expected by Azure AD](./certificate-credentials.md) in the signed assertion are:
 
 Claim type | Value | Description
 ---------- | ---------- | ----------
