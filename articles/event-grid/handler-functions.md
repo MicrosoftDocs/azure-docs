@@ -2,7 +2,7 @@
 title: Use a function in Azure as an event handler for Azure Event Grid events
 description: Describes how you can use functions created in and hosted by Azure Functions as event handlers for Event Grid events. 
 ms.topic: conceptual
-ms.date: 05/23/2022
+ms.date: 08/31/2023
 ---
 
 # Use a function as an event handler for Event Grid events
@@ -22,8 +22,6 @@ We recommend that you use the first approach (Event Grid trigger) as it has the 
 > [!NOTE]
 > - When you add an event subscription using an Azure function, Event Grid fetches the access key for the target function using Event Grid service principal's credentials. The permissions are granted to Event Grid when you register the Event Grid resource provider in their Azure subscription. 
 > - If you protect your Azure function with an **Azure Active Directory** application, you'll have to take the generic webhook approach using the HTTP trigger. Use the Azure function endpoint as a webhook URL when adding the subscription.
-
-
 
 ## Tutorials
 

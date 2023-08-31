@@ -26,7 +26,6 @@ If you're looking for the latest release notes, you can find them in the [What's
 |--|--|
 | [Replacing the "Key Vaults should have purge protection enabled" recommendation with combined recommendation "Key Vaults should have deletion protection enabled"](#replacing-the-key-vaults-should-have-purge-protection-enabled-recommendation-with-combined-recommendation-key-vaults-should-have-deletion-protection-enabled) | June 2023|
 | [Changes to the Defender for DevOps recommendations environment source and resource ID](#changes-to-the-defender-for-devops-recommendations-environment-source-and-resource-id) | August 2023 |
-| [DevOps Resource Deduplication for Defender for DevOps](#devops-resource-deduplication-for-defender-for-devops) | August 2023 |
 | [Update naming format of Azure Center for Internet Security standards in regulatory compliance](#update-naming-format-of-azure-center-for-internet-security-standards-in-regulatory-compliance) | August 2023 |
 | [Preview alerts for DNS servers to be deprecated](#preview-alerts-for-dns-servers-to-be-deprecated) | August 2023 |
 | [Deprecate and replace recommendations App Service Client Certificates](#deprecate-and-replace-recommendations-app-service-client-certificates) | August 2023 |
@@ -34,6 +33,7 @@ If you're looking for the latest release notes, you can find them in the [What's
 | [Replacing secret scanning recommendation results in Defender for DevOps from CredScan with GitHub Advanced Security for Azure DevOps powered secret scanning](#replacing-secret-scanning-recommendation-results-in-defender-for-devops-from-credscan-with-github-advanced-security-for-azure-devops-powered-secret-scanning) | September 2023 |
 | [Change to the Log Analytics daily cap](#change-to-the-log-analytics-daily-cap) | September 2023 |
 | [Deprecating and replacing "Microsoft Defender for Storage plan should be enabled" recommendation](#deprecating-and-replacing-microsoft-defender-for-storage-plan-should-be-enabled-recommendation) | September 2023|
+| [DevOps Resource Deduplication for Defender for DevOps](#devops-resource-deduplication-for-defender-for-devops) | September 2023 |
 | [Defender for Cloud plan and strategy for the Log Analytics agent deprecation](#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation) | August 2024 |
 
 ### Replacing secret scanning recommendation results in Defender for DevOps from CredScan with GitHub Advanced Security for Azure DevOps powered secret scanning
@@ -177,16 +177,6 @@ Additionally, customers that have created custom queries using the DevOps workbo
 
 The experience on the recommendations page will be impacted and require customers to query under "All recommendations" to view the new DevOps recommendations. For Azure DevOps, deprecated assessments may continue to show for a maximum of 14 days if new pipelines are not run.  Refer to [Defender for DevOps Common questions](/azure/defender-for-cloud/faq-defender-for-devops#why-don-t-i-see-recommendations-for-findings-) for details.
 
-### DevOps Resource Deduplication for Defender for DevOps
-
-**Estimated date for change: August 2023**
-
-To improve the Defender for DevOps user experience and enable further integration with Defender for Cloud's rich set of capabilities, Defender for DevOps will no longer support duplicate instances of a DevOps organization to be onboarded to an Azure tenant.
-
-If you don't have an instance of a DevOps organization onboarded more than once to your organization, no further action is required. If you do have more than one instance of a DevOps organization onboarded to your tenant, the subscription owner will be notified and will need to delete the DevOps Connector(s) they don't want to keep by navigating to Defender for Cloud Environment Settings.
-
-Customers will have until July 31, 2023 to resolve this issue. After this date, only the most recent DevOps Connector created where an instance of the DevOps organization exists will remain onboarded to Defender for DevOps. For example, if Organization Contoso exists in both connectorA and connectorB, and connectorB was created after connectorA, then connectorA will be removed from Defender for DevOps.
-
 ### Update naming format of Azure Center for Internet Security standards in regulatory compliance
 
 **Estimated date for change: August 2023**
@@ -280,6 +270,16 @@ The recommendation `Microsoft Defender for Storage plan should be enabled` will 
 | [Microsoft Defender for Storage should be enabled](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f640d2586-54d2-465f-877f-9ffc1d2109f4) | Microsoft Defender for Storage detects potential threats to your storage accounts. It helps prevent the three major impacts on your data and workload: malicious file uploads, sensitive data exfiltration, and data corruption. The new Defender for Storage plan includes malware scanning and sensitive data threat detection.This plan also provides a predictable pricing structure (per storage account) for control over coverage and costs. | Audit, disabled | 1.0.0 |
 
 Learn more about [Microsoft Defender for Storage](defender-for-storage-introduction.md).
+
+### DevOps Resource Deduplication for Defender for DevOps
+
+**Estimated date for change: September 2023**
+
+To improve the Defender for DevOps user experience and enable further integration with Defender for Cloud's rich set of capabilities, Defender for DevOps will no longer support duplicate instances of a DevOps organization to be onboarded to an Azure tenant.
+
+If you don't have an instance of a DevOps organization onboarded more than once to your organization, no further action is required. If you do have more than one instance of a DevOps organization onboarded to your tenant, the subscription owner will be notified and will need to delete the DevOps Connector(s) they don't want to keep by navigating to Defender for Cloud Environment Settings.
+
+Customers will have until September 30, 2023 to resolve this issue. After this date, only the most recent DevOps Connector created where an instance of the DevOps organization exists will remain onboarded to Defender for DevOps. For example, if Organization Contoso exists in both connectorA and connectorB, and connectorB was created after connectorA, then connectorA will be removed from Defender for DevOps.
 
 ## Next steps
 
