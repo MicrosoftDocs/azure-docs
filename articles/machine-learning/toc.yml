@@ -660,10 +660,8 @@
       items:
         - name: Monitor generative AI applications in production
           href: how-to-monitor-LLM-safety-quality.md
-        - name: Configure monitoring resources
-          href: how-to-configure-workspace-connection.md
-        - name: Understand evaluation metrics 
-          href: concept-evaluation-metrics-guidance.md
+        - name: Configure prerequisite monitoring resources
+          href: how-to-configure-monitoring-connection.md
     - name: Retrieval Augmented Generation (RAG)
       items:
         - name: What is RAG
