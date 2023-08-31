@@ -65,21 +65,47 @@ What parameters are configured in your data asset will dictate what metrics you 
 | Relevance | Required | Required | Required | -- |  
 | Similarity | Required | Required | -- | Required |  
 
+# Prerequisite: PromptFlow setup
+create connection following this guidance. DO NOT delete the connection once it's used in the flow. 
+- https://learn.microsoft.com/en-us/azure/machine-learning/prompt-flow/get-started-prompt-flow?view=azureml-api-2#connection
+create runtime following this guidance
+- https://learn.microsoft.com/en-us/azure/machine-learning/prompt-flow/how-to-create-manage-runtime?view=azureml-api-2
+clone a sample flow or create flow from scratch, specify the connection and runtime, run it
+After run successfully, select "Deploy" and finish the deploy wizard by following this guidance.
+- https://learn.microsoft.com/en-us/azure/machine-learning/prompt-flow/how-to-deploy-for-real-time-inference?view=azureml-api-2 
+Remember to grant permissions to the endpoint identity. If you use system-assigned identity, you need to assign "AzureML Data Scientist" role of workspace to the endpoint identity.
+- https://learn.microsoft.com/en-us/azure/machine-learning/prompt-flow/how-to-deploy-for-real-time-inference?view=azureml-api-2#grant-permissions-to-the-endpoint
+The deployment creation may take more than 15 mins. After deployment creation finishes, you can test it in endpoint detail page UI.
+
+
+
 # Getting started
-Define GPT-4 endpoint for calculating hallucination  
-    - Attach workspace UAI with access to the AOAI resource 
-    - API connection in workspace (should be able to represent Batch endpoint) 
+1. Create an Azure OpenAI resource which will be used as your evaluation endpoint    
+1. Create a User Assigned Managed Identity (UAI) 
+    - You need to assign enough permission. To assign a role, you need to have owner or have Microsoft.Authorization/roleAssignments/write permission on resource.
+1. Grant permission to your UAI for your Azure OpenAI resource 
+    - Owner role should be assigned. Confirm this in your Access control of your portal
+    - In your resource group key vault, create an access policy with 'list secret' permissions to your UAI
+1. Create a connection to your evaluation endpoint  
+    - Attach workspace UAI with the correct access to the AOAI resource 
+    - Add your API connection in workspace (this will represent your AOAI endpoint) 
     - If no workspace connection, alert and provide prompt to guide users to create one 
     - Configuring permissions
-Create an online endpoint (promptflow)	  
-    - Specifies “flow outputs” to collect production data ( Prompt| Completion | Context | Ground truth) 
-    - Put into dataframe and log it, joining inputs and outputs  
-    - Create PF deployment  
-Create Model monitor 
+1. Configure your PromptFlow application
+    1. inputs & outputs 
+    1. Deploy your promptflow application
+1. Ensure your authentication uses key-based auth and user-assigned ID. 
+    4.1. choose your subscription and user-assigned identity 
+1. Enable inferencing data collection (Model Data Collector) 
+1. Enable your desired outputs (flow outputs) in the endpoint response ( Prompt| Completion | Context | Ground truth) 
+1. Choose your Azure OpenAI connection and deployment name 
+1. Review parameters and deploy
+1. Confirm data collection is working 
+1. Create Model monitor 
     - Select deployed GPT4 LLM annotator model to create your monitoring signal  
     - Select target LLM output dataset (inputs & outputs ) 
     - Select metrics 
-Consume/view metric in Studio UI 
+1. Consume/view metric in Studio UI 
     - View the metrics over time 
     - View histogram of distributions 
     - View samples of violations 
