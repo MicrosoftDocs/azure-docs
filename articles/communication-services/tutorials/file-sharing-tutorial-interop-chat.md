@@ -4,8 +4,6 @@ titleSuffix: An Azure Communication Services tutorial
 description: Learn how to use the UI Library to enable file sharing in Teams Interoperability Chat
 author: jpeng-ms
 services: azure-communication-services
-
-author: jpeng-ms
 ms.author: jopeng
 ms.date: 08/03/2023
 ms.topic: tutorial
@@ -52,7 +50,7 @@ First of all, we need to understand that Teams Interop Chat is part of a Teams m
 Once the Communication Service User is admitted, they would be able to start any chat related operations. 
 In this tutoria, we will be checking out how file sharing works in an Interop Chat.
 
-# Overview
+## Overview
 
 Similar to how we are [Adding Inline Image Support](./inline-image-tutorial-interop-chat.md) to the UI library, we need a `CallWithChat` Composite created like this:
 
@@ -110,7 +108,7 @@ To be able to start the Composite for meeting chat, we need to pass `TeamsMeetin
 
 Please note that meeting link should look something like `https://teams.microsoft.com/l/meetup-join/19%3ameeting_XXXXXXXXXXX%40thread.v2/XXXXXXXXXXX`
 
-And this is all you need! And there's no other set up needed to enable inline image specifically. 
+And this is all you need! And there's no other set up needed to enable the Communication User to receive file attachments from the Teams user. 
 
 ## Permissions
 
@@ -141,6 +139,10 @@ Simply click on the chat button located on lower-right to reveal the chat panel 
 
 ![ACS getting a file](./media/file-sharing-tutorial-interop-chat-2.png "Screenshot of ACS UI library receiving one file.")
 
+And now if the user click on the file attachment card, a new tab would be opened like the following where the user can download the file:
+
+![File Content](./media/file-sharing-tutorial-interop-chat-3.png "Screenshot of Sharepoint webpage that shows the file content.")
+
 
 ## Next steps
 
@@ -154,3 +156,4 @@ You may also want to:
 - [Learn about client and server architecture](../concepts/client-and-server-architecture.md)
 - [Learn about authentication](../concepts/authentication.md)
 - [Add file sharing with UI Library in Azure Communication Service Chat](./file-sharing-tutorial-acs-chat.md)
+- [Add inline image with UI Library in Teams Interoperability Chat](./inline-image-tutorial-interop-chat.md)
