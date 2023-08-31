@@ -35,6 +35,7 @@ Granting tenant-wide admin consent requires you to sign in as a user that is aut
 To grant tenant-wide admin consent, you need:
 
 - An Azure AD user account with one of the following roles:
+
    - Global Administrator or Privileged Role Administrator, for granting consent for apps requesting any permission, for any API.
    - Cloud Application Administrator or Application Administrator, for granting consent for apps requesting any permission for any API, _except_ Azure AD Graph or Microsoft Graph app roles (application permissions).
    - A custom directory role that includes the [permission to grant permissions to applications](../roles/custom-consent-permissions.md), for the permissions required by the application.
@@ -100,7 +101,7 @@ In the example, the resource enterprise application is Microsoft Graph of object
 
 ## Grant admin consent for delegated permissions
 
-1. Connect to Microsoft Graph PowerShell:
+1. Connect to Microsoft Graph PowerShell and sign in as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 
    ```powershell
    Connect-MgGraph -Scopes "Application.ReadWrite.All", "DelegatedPermissionGrant.ReadWrite.All"
@@ -136,7 +137,7 @@ New-MgOauth2PermissionGrant -BodyParameter $params |
 
 In the following example, you grant the Microsoft Graph enterprise application (the principal of ID `b0d9b9e3-0ecf-4bfd-8dab-9273dd055a94`) an app role (application permission) of ID `df021288-bdef-4463-88db-98f22de89214` that's exposed by a resource enterprise application of ID `7ea9e944-71ce-443d-811c-71e8047b557a`.
 
-1. Connect to Microsoft Graph PowerShell:
+1. Connect to Microsoft Graph PowerShell and sign in as a [Global Administrator](../roles/permissions-reference.md#global-administrator).
 
    ```powershell
    Connect-MgGraph -Scopes "Application.ReadWrite.All", "AppRoleAssignment.ReadWrite.All"
@@ -169,7 +170,9 @@ Use [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) to gr
 
 ## Grant admin consent for delegated permissions
 
-In the following example, you'll grant delegated permissions defined by a resource enterprise application to a client enterprise application on behalf of all users.
+In the following example, you'll grant delegated permissions defined by a resource enterprise application to a client enterprise application on behalf of all users. 
+
+You need to sign in as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 
 In the example, the resource enterprise application is Microsoft Graph of object ID `7ea9e944-71ce-443d-811c-71e8047b557a`. The Microsoft Graph defines the delegated permissions, `User.Read.All` and `Group.Read.All`. The consentType is `AllPrincipals`, indicating that you're consenting on behalf of all users in the tenant. The object ID of the client enterprise application is `b0d9b9e3-0ecf-4bfd-8dab-9273dd055a941`.
 
@@ -202,7 +205,9 @@ In the example, the resource enterprise application is Microsoft Graph of object
    ```
 ## Grant admin consent for application permissions
 
-In the following example, you grant the Microsoft Graph enterprise application (the principal of ID `b0d9b9e3-0ecf-4bfd-8dab-9273dd055a94`) an app role (application permission) of ID `df021288-bdef-4463-88db-98f22de89214` that's exposed by a resource enterprise application of ID `7ea9e944-71ce-443d-811c-71e8047b557a`.
+In the following example, you grant the Microsoft Graph enterprise application (the principal of ID `b0d9b9e3-0ecf-4bfd-8dab-9273dd055a94`) an app role (application permission) of ID `df021288-bdef-4463-88db-98f22de89214` that's exposed by a resource enterprise application of ID `7ea9e944-71ce-443d-811c-71e8047b557a`. 
+
+You need to sign in as sign as a [Global Administrator](../roles/permissions-reference.md#global-administrator).
 
 1. Retrieve the app roles defined by Microsoft graph in your tenant. Identify the app role that you'll grant the client enterprise application. In this example, the app role ID is `df021288-bdef-4463-88db-98f22de89214`
 
