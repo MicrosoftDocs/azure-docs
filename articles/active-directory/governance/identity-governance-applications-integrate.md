@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 
 Once you've [established the policies](identity-governance-applications-define.md) for who should have access to an application, then you can [connect your application to Azure AD](../manage-apps/what-is-application-management.md) and then [deploy the policies](identity-governance-applications-deploy.md) for governing access to them.
 
-Microsoft Entra identity governance can be integrated with many applications, using [standards](../architecture/auth-sync-overview.md) such as OpenID Connect, SAML, SCIM, SQL and LDAP.  Through these standards, you can use Azure AD with many popular SaaS applications and on-premises applications, including applications that your organization has developed.  This deployment plan covers how to connect your application to Azure AD and enable identity governance features to be used for that application.
+Microsoft Entra identity governance can be integrated with many applications, including well-known applications such as SAP and those using [standards](../architecture/auth-sync-overview.md) such as OpenID Connect, SAML, SCIM, SQL, LDAP, SOAP and REST.  Through these standards, you can use Azure AD with many popular SaaS applications and on-premises applications, including applications that your organization has developed.  This deployment plan covers how to connect your application to Azure AD and enable identity governance features to be used for that application.
 
 In order for Microsoft Entra identity governance to be used for an application, the application must first be integrated with Azure AD. An application being integrated with Azure AD means one of two requirements must be met:
 
@@ -84,6 +84,9 @@ Next, if the application implements a provisioning protocol, then you should con
      | SCIM | configure an application with the [provisioning agent for on-premises SCIM-based apps](../app-provisioning/on-premises-scim-provisioning.md)|
      | local user accounts, stored in a SQL database |  configure an application with the  [provisioning agent for on-premises SQL-based applications](../app-provisioning/on-premises-sql-connector-configure.md)|
      | local user accounts, stored in an LDAP directory | configure an application with the [provisioning agent for on-premises LDAP-based applications](../app-provisioning/on-premises-ldap-connector-configure.md) |
+     | local user accounts, managed through a SOAP or REST API | configure an application with the [provisioning agent with the web services connector](../app-provisioning/on-premises-web-services-connector.md)|
+     | local user accounts, managed through a MIM connector | configure an application with the [provisioning agent with a custom connector](../app-provisioning/on-premises-custom-connector.md)|
+     | SAP ECC with NetWeaver AS ABAP 7.0 or later | configure an application with the [provisioning agent with a SAP ECC configured web services connector](../app-provisioning/on-premises-sap-connector-configure.md)|
 
 1. If your application uses Microsoft Graph to query groups from Azure AD, then [consent](../develop/application-consent-experience.md) to the applications to have the appropriate permissions to read from your tenant.
 
