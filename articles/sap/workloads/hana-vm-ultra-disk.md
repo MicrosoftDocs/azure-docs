@@ -9,7 +9,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.workload: infrastructure
-ms.date: 07/13/2023
+ms.date: 08/30/2023
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -66,8 +66,14 @@ The recommendations are often exceeding the SAP minimum requirements as stated e
 | M192idms_v2, M192ims_v2 | 4,096 GiB | 2,000 MB/s | 4,800 GB | 750 MBps |9,600 | 512 GB | 250 MBps  | 2,500 | 
 | M208s_v2 | 2,850 GiB | 1,000 MB/s | 3,500 GB | 750 MBps | 7,000 | 512 GB | 250 MBps  | 2,500 | 
 | M208ms_v2 | 5,700 GiB | 1,000 MB/s | 7,200 GB | 750 MBps | 14,400 | 512 GB | 250 MBps  | 2,500 | 
-| M416s_v2 | 5,700 GiB | 2,000 MB/s | 7,200 GB | 1,000 MBps | 14,400 | 512 GB | 400 MBps  | 4,000 | 
+| M416s_v2 | 5,700 GiB | 2,000 MB/s | 7,200 GB | 1,000 MBps | 14,400 | 512 GB | 400 MBps  | 4,000 |
+| M416s_8_v2 | 7,600 | 2,000 MBps | 9,500 GB | 1,250 MBps | 20,000 | 512 GB | 400 MBps  | 4,000 |
 | M416ms_v2 | 11,400 GiB | 2,000 MB/s | 14,400 GB | 1,500 MBps | 28,800 | 512 GB | 400 MBps  | 4,000 |   
+| M832isx<sup>1</sup> | 14902 GiB | larger than 2,000 Mbps | 19,200 GB | 2,000 MBps<sup>2</sup> | 40,000 | 512 GB | 600 MBps | 9,000 |
+| M832isx_v2<sup>1</sup> | 23088 GiB | larger than 2,000 Mbps | 28,400 GB | 2,000 MBps<sup>2</sup> | 60,000 | 512 GB | 600 MBps | 9,000 |
+
+<sup>1</sup> VM type not available by default. Please contact your Microsoft account team
+<sup>2</sup> Maximum throughput provided by the VM and throughput requirement by SAP HANA workload, especially savepoint activity,  can force you to deploy significant more throughput and IOPS
 
 **The values listed are intended to be a starting point and need to be evaluated against the real demands.** The advantage with Azure Ultra disk is that the values for IOPS and throughput can be adapted without the need to shut down the VM or halting the workload applied to the system.   
 
