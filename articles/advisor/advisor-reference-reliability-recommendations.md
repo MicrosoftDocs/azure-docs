@@ -63,6 +63,12 @@ We recommend configuring the Azure Front Door customer certificate secret to ‘
 Learn more about [Front Door Profile - SwitchVersionBYOC (Switch Secret version to ‘Latest’ for the Azure Front Door customer certificate)](/azure/frontdoor/standard-premium/how-to-configure-https-custom-domain#certificate-renewal-and-changing-certificate-types).
 ## Compute
 
+### Migrate Virtual Machines to Availability Zones
+
+By migrating virtual machines to Availability Zones, you can ensure the isolation of your VMs from potential failures in other zones. With this, you can expect enhanced resiliency in your workload by avoiding downtime and business interruptions. 
+
+Learn more about [Availability Zones](../reliability/availability-zones-overview.md).
+
 ### Enable Backups on your Virtual Machines
 
 Enable backups for your virtual machines and secure your data
