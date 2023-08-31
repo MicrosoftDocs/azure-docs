@@ -1,6 +1,6 @@
 ---
-title:  Request a core limit increase
-description: Learn how to request a core limit (quota) increase to expand capacity for your labs in Azure Lab Services.
+title:  Request a quota limit increase for Dev Box resources
+description: Learn how to request a quota increase to expand the number of dev box resources you can use in your subscription. Request an increase for dev box cores and other resources.
 services: dev-box
 ms.service: dev-box
 author: RoseHJM
@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 08/22/2023
 ---
 
-# Request a core limit increase
+# Request a quota limit increase
 
 This article describes how to submit a support request for increasing the number of resources for Microsoft Dev Box in your Azure subscription. 
 
@@ -34,6 +34,19 @@ You'll find submitting a support request for additional quota is quicker if you 
 
    Dev Box resources can exist in many regions. You can choose to deploy resources in multiple regions close to your dev box users. For more information about Azure regions, how they relate to global geographies, and which services are available in each region, see [Azure global infrastructure](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/).
 
+- **Choose the quota type of the additional quota.**
+
+   The following Dev Box resources are limited by subscription. You can request an increase in the number of resources for each of these types.
+
+   - Dev box definitions
+   - Dev centers
+   - Network settings
+   - Pools
+   - Projects
+   - Network connections
+   - Dev Box general cores
+   - Other
+
 ## Submit a new support request
 
 Follow these steps to request a limit increase:  
@@ -42,47 +55,33 @@ Follow these steps to request a limit increase:
 
     :::image type="content" source="./media/how-to-request-capacity-increase/submit-new-request.png" alt-text="Screenshot of the Azure portal home page, highlighting the Request core limit increase button.":::
 
+1. On the **Help + support** page, select **Create a support request**.
+
+    :::image type="content" source="./media/how-to-request-capacity-increase/create-support-request.png" alt-text="Screenshot of the Help + support page, highlighting Create a support request.":::
+
 1. On the **New support request** page, enter the following information, and then select **Next**.
 
     | Name              | Value   |
     | ----------------- | ------- |
     | **Issue type**    | *Service and subscription limits (quotas)* |
     | **Subscription**  | Select the subscription to which the request applies. |
-    | **Quota type**    | *Azure Lab Services* |
+    | **Quota type**    | *Microsoft Dev Box* |
 
-1. On the **Additional details** tab, select **Enter details** in the **Problem details** section.
-
-
-
-
-
-As you complete the **Quota details**, Azure 
-
-### Select the quota type
-
-The following Dev Box resources are limited by subscription. You can request an increase in the number of resources for each of these types.
-
-- Dev box definitions
-- Dev centers
-- Network settings
-- Pools
-- Projects
-- Network connections
-- Dev Box general cores
-- Other
-
-
+1. On the **Additional details** tab, in the **Problem details** section, select **Enter details**.
  
+    :::image type="content" source="media/how-to-request-capacity-increase/enter-details.png" alt-text="Screenshot of the New support request page, highlighting Enter details."::: 
 
-### limit decrease
+1. In **Quota details**, enter the following information, and then select **Next**.
+ 
+    | Name              | Value   |
+    | ----------------- | ------- |
+    | **Region**        | Select the **Region** in which you want to increase your quota. | 
+    | **Quota type**    | When you select a Region, Azure displays your current usage and your current for all quota types. </br> Select the **Quota type** that you want to increase. | 
+    | **New total limit** | Enter the new total limit that you want to request. |
+    | **Is it a limit decrease?** | Select **Yes** or **No**. |
+    | **Additional information** | Enter any extra information about your request. |
 
-
-Additional info
-
-Maybe for price decrease
-
-
-When you've entered the required information and any extra details, select **Save and continue**.
+    :::image type="content" source="media/how-to-request-capacity-increase/quota-details.png" alt-text="Screenshot of the Quota details pane.":::
 
 ## Complete the support request
 
@@ -122,5 +121,7 @@ To complete the support request, enter the following information:
 
 1. On the **Review + create** tab, review the information, and then select **Create**.
  
-## Next steps
+## Related content
 
+- To learn how to check your quota usage, see [Determine usage and quota](./how-to-determine-your-quota-usage.md).
+- Check the default quota for each resource type by subscription type: [Microsoft Dev Box limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#microsoft-dev-box-limits)
