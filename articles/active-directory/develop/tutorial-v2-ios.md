@@ -125,7 +125,7 @@ carthage update --platform macOS
 
 You can also use Git Submodule, or check out the latest release to use as a framework in your application.
 
-## Add your app registration
+## Add the app registration
 
 Next, we add your app registration to your code.
 
