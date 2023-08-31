@@ -68,7 +68,7 @@ Microsoft also recommends that you design your application to prepare for the po
 
 To fully understand the impact that customer-managed account failover would have on your users and applications, it is helpful to know what happens during every step of the failover and failback process. For details about how the process works, see [How customer-managed storage account failover works](storage-failover-customer-managed-unplanned.md).
 
-## Anticipate data loss and file inconsistencies
+## Anticipate data loss and file or data inconsistencies
 
 > [!CAUTION]
 > A storage account failover usually involves some data loss. It's important to understand this risk before initiating a failover.
@@ -77,9 +77,12 @@ Because data is written asynchronously from the primary region to the secondary 
 
 When you force a failover, all data in the primary region is lost as the secondary region becomes the new primary region. All data already copied to the secondary is maintained when the failover happens. However, any data written to the primary that has not also been copied to the secondary is lost permanently.
 
-Additionally, since replication for storage accounts with a hierarchical namespace enabled (Azure Data Lake Storage Gen2) occurs at the file level,if an outage in the primary region occurs, it is possible that only some of the files in a container or directory might have successfully replicated to the secondary region.
+Additionally, you might experience file or data inconsistencies if one or both of the following apply:
 
-For more details about accounting for these scenarios, see [Data loss and file inconsistencies](storage-failover-overview.md#data-loss-and-file-inconsistencies).
+- You failover storage accounts with hierarchical namespace enabled (Azure Data Lake Storage Gen2).
+- You failover storage accounts with [change feed](../blobs/storage-blob-change-feed.md) enabled.
+
+For more details about how to handle these scenarios, see [Data loss and file or data inconsistencies](storage-failover-overview.md#data-loss-and-file-or-data-inconsistencies).
 
 ## Supported storage account types
 

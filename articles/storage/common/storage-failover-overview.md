@@ -20,7 +20,7 @@ Azure Storage supports account failover for geo-redundant storage accounts. With
 This article describes the concepts and process involved with an account failover, and discusses how to prepare your storage account for recovery with the least amount of impact to your users.
 
 > [!CAUTION]
-> Storage account failover usually involves some data loss, and potentially file inconsistencies. In your [disaster recovery plan](storage-disaster-recovery-guidance.md), it's important to consider the impact that an account failover would have on your data before initiating one. For more details, see [Data loss and file inconsistencies](#data-loss-and-file-inconsistencies).
+> Storage account failover usually involves some data loss, and potentially file inconsistencies. In your [disaster recovery plan](storage-disaster-recovery-guidance.md), it's important to consider the impact that an account failover would have on your data before initiating one. For more details, see [Data loss and file or data inconsistencies](#data-loss-and-file-or-data-inconsistencies).
 
 ## Failover options
 
@@ -35,8 +35,8 @@ Each type of failover has a unique set of use cases and corresponding expectatio
 
 | Type                               | Failover Scope  | Use case | Expected data loss | HNS supported |
 |------------------------------------|-----------------|----------|---------------------|---------------|
-| Customer-managed                   | Storage account | The storage service endpoints for the primary region become unavailable, but the secondary region is available. <br></br> An Azure Advisory in which Microsoft advises you to perform a failover operation of storage accounts potentially affected by an outage. | [Yes](#data-loss-and-file-inconsistencies) | [Yes *(In preview)*](#azure-data-lake-storage-gen2) |
-| Microsoft-managed                  | Entire region   | The primary region becomes completely unavailable due to a significant disaster, but the secondary region is available. | [Yes](#data-loss-and-file-inconsistencies) | [Yes](#azure-data-lake-storage-gen2) |
+| Customer-managed                   | Storage account | The storage service endpoints for the primary region become unavailable, but the secondary region is available. <br></br> An Azure Advisory in which Microsoft advises you to perform a failover operation of storage accounts potentially affected by an outage. | [Yes](#data-loss-and-file-or-data-inconsistencies) | [Yes *(In preview)*](#azure-data-lake-storage-gen2) |
+| Microsoft-managed                  | Entire region   | The primary region becomes completely unavailable due to a significant disaster, but the secondary region is available. | [Yes](#data-loss-and-file-or-data-inconsistencies) | [Yes](#azure-data-lake-storage-gen2) |
 
 ### Customer-managed failover
 
@@ -51,10 +51,10 @@ In extreme circumstances where the original primary region is deemed unrecoverab
 > [!NOTE]
 > A Microsoft-managed failover would be initiated for an entire physical unit, such as a region, datacenter or scale unit. It cannot be initiated for individual storage accounts, subscriptions, or tenants. For the ability to selectively failover your individual storage accounts, use customer-managed account failover described previously in this article. Customers should not rely on Microsoft-managed failover as part of their disaster recovery plan. Instead, create a plan that relies primarily on customer-managed failover for unexpected regional outages.
 
-## Data loss and file inconsistencies
+## Data loss and file or data inconsistencies
 
 > [!CAUTION]
-> Storage account failover usually involves some data loss, and potentially file inconsistencies. In your [disaster recovery plan](storage-disaster-recovery-guidance.md), it's important to consider the impact that an account failover would have on your data before initiating one. 
+> Storage account failover usually involves some data loss, and potentially file inconsistencies. In your [disaster recovery plan](storage-disaster-recovery-guidance.md), it's important to consider the impact that an account failover would have on your data before initiating one.
 
 Because data is written asynchronously from the primary region to the secondary region, there is always a delay before a write to the primary region is copied to the secondary region. If the primary region becomes unavailable, the most recent writes may not yet have been copied to the secondary region.
 
@@ -62,7 +62,7 @@ When you force a failover, all data in the primary region is lost as the seconda
 
 All data already copied to the secondary is maintained when the failover happens. However, any data written to the primary that has not also been copied to the secondary is lost permanently.
 
-#### Last sync time
+### Last sync time
 
 The **Last Sync Time** property indicates the most recent time that data from the primary region is guaranteed to have been written to the secondary region. For accounts that have a hierarchical namespace, the same **Last Sync Time** property also applies to the metadata managed by the hierarchical namespace, including ACLs. All data and metadata written prior to the last sync time is available on the secondary, while data and metadata written after the last sync time may not have been written to the secondary, and may be lost. Use this property in the event of an outage to estimate the amount of data loss you may incur by initiating an account failover.
 
@@ -70,11 +70,32 @@ As a best practice, design your application so that you can use the last sync ti
 
 For more information about checking the **Last Sync Time** property, see [Check the Last Sync Time property for a storage account](last-sync-time-get.md).
 
-#### File consistency for Azure Data Lake Storage Gen2
+### File consistency for Azure Data Lake Storage Gen2
 
 Replication for storage accounts with a hierarchical namespace enabled (Azure Data Lake Storage Gen2) occurs at the file level. This means that if an outage in the primary region occurs, it is possible that only some of the files in a container or directory might have successfully replicated to the secondary region. Consistency for all files in a container or directory is not guaranteed. Take this into account when creating your disaster recovery plan.
 
-## Storage account types that support failover
+### Change feed and blob data inconsistencies
+
+Storage account failover of geo-redundant storage accounts with [the change feed](../blobs/storage-blob-change-feed.md) enabled may result in inconsistencies between the change feed logs and the blob data and/or metadata. Such inconsistencies can result from the asynchronous nature of both updates to the change logs and the replication of blob data from the primary to the secondary region. The only situation in which inconsistencies would not be expected is when all of the current log records have been successfully flushed to the log files and all of the storage data has been successfully replicated from the primary to the secondary region.
+
+For more information about how to determine potential data loss during storage account failover due to asynchronous replication, see [Anticipate data loss and file inconsistencies](#anticipate-data-loss-and-file-inconsistencies). For information about how change feed works see [How the change feed works](../blobs/storage-blob-change-feed.md#how-the-change-feed-works).
+
+Keep in mind that other storage account features require the change feed to be enabled such as [operational backup of Azure Blob Storage](../../backup/blob-backup-support-matrix.md#limitations), [Object replication](../blobs/object-replication-overview.md) and [Point-in-time restore for block blobs](../blobs/point-in-time-restore-overview.md).
+
+## The time and cost of failing over
+
+The time it takes to fail over after initiation can vary though typically less than one hour.
+
+A customer-managed failover associated with an outage in the primary region loses its geo-redundancy after a failover (and failback). Your storage account is automatically converted to locally redundant storage (LRS) in the new primary region during a failover and storage account in the original primary region is deleted. You can re-enable geo-redundant storage (GRS) or read-access geo-redundant storage (RA-GRS) for the account, but note that converting from LRS to GRS or RA-GRS incurs an additional cost. The cost is due to the network egress charges to re-replicate the data to the new secondary region. For additional information, see [Bandwidth Pricing Details](https://azure.microsoft.com/pricing/details/bandwidth/).
+
+After you re-enable GRS for your storage account, Microsoft begins replicating the data in your account to the new secondary region. Replication time depends on many factors, which include:
+
+- The number and size of the objects in the storage account. Many small objects can take longer than fewer and larger objects.
+- The available resources for background replication, such as CPU, memory, disk, and WAN capacity. Live traffic takes priority over geo replication.
+- If using Blob storage, the number of snapshots per blob.
+- If using Table storage, the [data partitioning strategy](/rest/api/storageservices/designing-a-scalable-partitioning-strategy-for-azure-table-storage). The replication process can't scale beyond the number of partition keys that you use.
+
+## Supported storage account types
 
 Account failover is available for general-purpose v1, general-purpose v2, and Blob storage account types with Azure Resource Manager deployments.
 
@@ -109,19 +130,6 @@ The following features and services are not supported for account failover:
 - Storage accounts that have hierarchical namespace enabled (Data Lake Storage Gen2) are only supported with [Microsoft-managed failover](#microsoft-managed-failover). They are not supported for [customer-managed failover](#customer-managed-failover).
 - A storage account containing premium block blobs cannot be failed over. Storage accounts that support premium block blobs do not currently support geo-redundancy.
 - A storage account containing any [WORM immutability policy](../blobs/immutable-storage-overview.md) enabled containers cannot be failed over. Unlocked/locked time-based retention or legal hold policies prevent failover in order to maintain compliance.
-
-## The time and cost of failing over
-
-The time it takes to fail over after initiation can vary though typically less than one hour.
-
-A customer-managed failover associated with an outage in the primary region loses its geo-redundancy after a failover (and failback). Your storage account is automatically converted to locally redundant storage (LRS) in the new primary region during a failover and storage account in the original primary region is deleted. You can re-enable geo-redundant storage (GRS) or read-access geo-redundant storage (RA-GRS) for the account, but note that converting from LRS to GRS or RA-GRS incurs an additional cost. The cost is due to the network egress charges to re-replicate the data to the new secondary region. For additional information, see [Bandwidth Pricing Details](https://azure.microsoft.com/pricing/details/bandwidth/).
-
-After you re-enable GRS for your storage account, Microsoft begins replicating the data in your account to the new secondary region. Replication time depends on many factors, which include:
-
-- The number and size of the objects in the storage account. Many small objects can take longer than fewer and larger objects.
-- The available resources for background replication, such as CPU, memory, disk, and WAN capacity. Live traffic takes priority over geo replication.
-- If using Blob storage, the number of snapshots per blob.
-- If using Table storage, the [data partitioning strategy](/rest/api/storageservices/designing-a-scalable-partitioning-strategy-for-azure-table-storage). The replication process can't scale beyond the number of partition keys that you use.
 
 ## Additional considerations
 
