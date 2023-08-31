@@ -1,6 +1,6 @@
 --- 
-title: How to determine your quota usage 
-description: Learn how to determine where the cores for your subscription are used and if you have any spare capacity against your quota.  
+title: How to determine your resource usage and quota 
+description: Learn how to determine where the Dev Box resources for your subscription are used and if you have any spare capacity against your quota.  
 services: dev-box
 ms.service: dev-box
 author: RoseHJM
@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 08/21/2023 
 --- 
 
-# Determine usage and quota  
+# Determine resource usage and quota  
 
 To ensure that resources are available for customers, Microsoft Dev Box has a limit on the number of each type of resource that can be used in a subscription. This limit is called a quota. You can see the default quota for each resource type by subscription type here: 
 

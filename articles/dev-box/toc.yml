@@ -62,7 +62,11 @@ items:
     - name: Configure Dev Box Hibernation
       href: how-to-configure-dev-box-hibernation.md
     - name: Hibernate your Dev Box
-      href: how-to-hibernate-your-dev-box.md  
+      href: how-to-hibernate-your-dev-box.md
+    - name: Determine resource usage and quota
+      href: how-to-determine-your-quota-usage.md
+    - name: Request a quota limit increase
+      href: how-to-request-quota-increase.md   
     - name: Configure Azure Diagnostic Logs
       href: how-to-configure-dev-box-azure-diagnostic-logs.md
 - name: Reference

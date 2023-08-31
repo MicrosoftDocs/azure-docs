@@ -15,6 +15,14 @@ This article describes how to submit a support request for increasing the number
 
 When you reach the limit for a resource in your subscription, you can request a limit increase (sometimes called a capacity increase, or a quota increase) to extend the number of resources available. The request process allows the Microsoft Dev Box team to ensure that your subscription isn't involved in any cases of fraud or unintentional, sudden large-scale deployments. 
 
+The time it takes to increase your quota varies depending on the VM size, region, and number of resources requested.  You won't have to go through the process of requesting extra capacity often, but to ensure you have the resources you require when you need them, you should:
+
+- Request capacity as far in advance as possible.
+- If possible, be flexible on the region where you're requesting capacity.
+- Recognize that capacity remains assigned for the lifetime of a subscription. When dev box resources are deleted, the capacity remains assigned to the subscription. 
+- Request extra capacity only if you need more than is already assigned to your subscription. 
+- Make incremental requests for VM cores rather than making large, bulk requests. Break requests for large numbers of cores into smaller requests for extra flexibility in how those requests are fulfilled.
+
 Learn more about the general [process for creating Azure support requests](/azure/azure-portal/supportability/how-to-create-azure-support-request).
 
 ## Prerequisites
