@@ -82,7 +82,7 @@ func main() {
 		// The user asks a question
 		{Role: to.Ptr(azopenai.ChatRoleUser), Content: to.Ptr("Does Azure OpenAI support customer managed keys?")},
 
-		// The reply would come back from the ChatGPT. You'd add it to the conversation so we can maintain context.
+		// The reply would come back from the Azure OpenAI model. You'd add it to the conversation so we can maintain context.
 		{Role: to.Ptr(azopenai.ChatRoleAssistant), Content: to.Ptr("Yes, customer managed keys are supported by Azure OpenAI")},
 
 		// The user answers the question based on the latest reply.
