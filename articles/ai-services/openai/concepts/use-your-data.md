@@ -224,7 +224,7 @@ Azure OpenAI on your data provides several search options you can use when you a
 | *semantic*          |  Semantic search  |  Additional pricing for [semantic search](/azure/search/semantic-search-overview#availability-and-pricing) usage.                  |      
 | *vector*            | Vector search       | [Additional pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) on your Azure OpenAI account from calling the embedding model.                    |   
 | *vector + simple*   | A hybrid of vector search and simple search | [Additional pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) on your Azure OpenAI account from calling the embedding model.            |      
-| *vector + semantic* | A hybrid of vector search and semantic search for retrieval.     | [Additional pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) on your Azure OpenAI account from calling the embedding model, and additional pricing for [semantic search](/azure/search/semantic-search-overview#availability-and-pricing) usage.                    |     
+| *vector + semantic + simple * | A hybrid of vector search, simple search (keyword based) and  semantic search for retrieval     | [Additional pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) on your Azure OpenAI account from calling the embedding model, and additional pricing for [semantic search](/azure/search/semantic-search-overview#availability-and-pricing) usage.                    |     
 
 The optimal search option can vary depending on your dataset and use-case. You may need to experiment with multiple options to determine which works best for your use-case.
 

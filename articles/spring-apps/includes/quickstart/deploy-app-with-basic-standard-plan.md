@@ -73,12 +73,6 @@ Open your web browser and go to the [Azure portal](https://portal.azure.com/). E
    azd auth login
    ```
 
-1. Use the following command to enable the Azure Spring Apps feature:
-
-   ```bash
-   azd config set alpha.springapp on
-   ```
-
 1. Use the following command to set the template using the Standard plan:
 
    ```bash
