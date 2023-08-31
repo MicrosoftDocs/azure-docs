@@ -313,7 +313,7 @@ spec:
   target:
     configMapName: configmap-created-by-appconfig-provider
     configMapData:
-      format: json
+      type: json
       key: appSettings.json
   keyValues:
     selectors:
