@@ -15,7 +15,7 @@ ms.subservice: chat
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-In a Teams Interopability Chat ("Interop Chat"), we can enable communication users to receive inline images sent by Teams users. Please note, letting communication users to send inline images to Teams users are currently not supported. To learn more about what current is supported by the UI library, please refer to [this document](../concepts/ui-library/includes/web-ui-use-cases.md) for more information.
+In a Teams Interopability Chat ("Interop Chat"), we can enable communication users to receive inline images sent by Teams users. Please note, letting communication users to send inline images to Teams users are currently not supported. To learn more about what current is supported by the UI library, please refer to [UI library Use Cases](../concepts/ui-library/includes/web-ui-use-cases.md) for more information.
 
 >[!IMPORTANT]
 >
@@ -48,7 +48,7 @@ First of all, we need to understand that Teams Interop Chat is part of a Teams m
 Once the Communication Service User is admitted to the call, they would be able to start any chat related operations. 
 In this tutoria, we will be checking out how inline image works in Interop chat.
 
-# Overview
+## Overview
 
 As mentioned above, since we need to join a Teams meeting first, we need to leverage the ChatWithChat Composite from the UI library. Let's recall that we can create a ChatWithChat Composite [Storybook page](https://azure.github.io/communication-ui-library/?path=/docs/composites-call-with-chat-basicexample--basic-example) like the following:
 
@@ -122,6 +122,8 @@ Simply click on the chat button located on lower-right to reveal the chat panel 
 ![ACS getting two images](./media/inline-image-tutorial-interop-chat-2.png "Screenshot of ACS UI library receiving 2 inline images.")
 
 Please note that in a Teams Interop Chat, we currently only support Communication Users to recieve inline images sent by the Teams user. To learm more about what features are supported, please refer to the [UI library Use Cases](../concepts/ui-library/includes/web-ui-use-cases.md)
+
+
 
 ## Next steps
 
