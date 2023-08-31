@@ -3,7 +3,7 @@ GPT-Star metrics can be defined for any sequence-to-sequence task by adapting th
 
 Metrics compatibility: https://learn.microsoft.com/en-us/azure/machine-learning/prompt-flow/how-to-bulk-test-evaluate-flow?view=azureml-api-2#understand-the-built-in-evaluation-metrics
 
-> [!NOTE] Large language model evaluations are prone to the same bias that humans are. Always ensure there is a human-in-the-loop to view 
+> [!NOTE] Large language model evaluations are prone to the same bias that humans are. If possible, ensure there is a human-in-the-loop for production scenarios.
 
 
 ### Groundedness
