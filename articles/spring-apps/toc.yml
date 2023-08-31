@@ -28,6 +28,8 @@ items:
     href: quickstart-deploy-event-driven-app.md
   - name: Launch your first microservice apps
     href: quickstart-deploy-microservice-apps.md
+  - name: Launch your first Java Native Image app
+    href: quickstart-deploy-java-native-image-app.md
 - name: Tutorials
   expanded: true
   items:
@@ -69,6 +71,8 @@ items:
     items:
      - name: Custom DNS name
        href: how-to-custom-domain.md
+  - name: Authenticate client with Spring Cloud Gateway
+    href: tutorial-authenticate-client-with-gateway.md
 - name: Concepts
   items:
   - name: App and deployment

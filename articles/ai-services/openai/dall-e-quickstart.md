@@ -16,10 +16,42 @@ zone_pivot_groups: openai-quickstart-dall-e
 
 # Quickstart: Generate images with Azure OpenAI Service
 
+> [!NOTE]
+> The image generation API creates an image from a text prompt. It does not edit existing images or create variations.
 
 ::: zone pivot="programming-language-studio"
 
 [!INCLUDE [Studio quickstart](includes/dall-e-studio.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-csharp"
+
+[!INCLUDE [C# SDK quickstart](includes/dall-e-dotnet.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-java"
+
+[!INCLUDE [Java SDK quickstart](includes/dall-e-java.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+
+[!INCLUDE [JavaScript SDK quickstart](includes/dall-e-javascript.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-go"
+
+[!INCLUDE [Go SDK quickstart](includes/dall-e-go.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+[!INCLUDE [Python SDK quickstart](includes/dall-e-python.md)]
 
 ::: zone-end
 
@@ -29,8 +61,3 @@ zone_pivot_groups: openai-quickstart-dall-e
 
 ::: zone-end
 
-::: zone pivot="programming-language-python"
-
-[!INCLUDE [Python SDK quickstart](includes/dall-e-python.md)]
-
-::: zone-end

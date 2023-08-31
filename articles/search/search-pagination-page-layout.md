@@ -68,7 +68,7 @@ Count won't be affected by routine maintenance or other workloads on the search 
 
 By default, the search engine returns up to the first 50 matches. The top 50 are determined by search score, assuming the query is full text search or semantic search. Otherwise, the top 50 are an arbitrary order for exact match queries (where uniform "@searchScore=1.0" indicates arbitrary ranking).
 
-To control the paging of all documents returned in a result set, add `$top` and `$skip` parameters to the query request. The following list explains the logic.
+To control the paging of all documents returned in a result set, add `$top` and `$skip` parameters to the GET query request or `top` and `skip` to the POST query request. The following list explains the logic.
 
 + Return the first set of 15 matching documents plus a count of total matches: `GET /indexes/<INDEX-NAME>/docs?search=<QUERY STRING>&$top=15&$skip=0&$count=true`
 
@@ -100,6 +100,40 @@ On the service, assume a fifth document is added to the index in between query c
 ```
 
 Notice that document 2 is fetched twice. This is because the new document 5 has a greater value for rating, so it sorts before document 2 and lands on the first page. While this behavior might be unexpected, it's typical of how a search engine behaves.
+
+### Paging through large numbers of results
+
+Using `$top` and `$skip` allows a search query to page through 100,000 results. A value greater than 100,000 may not be used for `$skip`. It's possible to work around this limitation if a field has the ["filterable"](./search-filters.md) and ["sortable"] attributes.
+
+1. Issue a query to return a full page of sorted results.
+```http
+POST /indexes/good-books/docs/search?api-version=2020-06-30
+    {  
+      "search": "divine secrets",
+      "top": 50,
+      "orderby": "id asc"
+    }
+```
+2. Choose the last result returned by the search query. An example result with only an "id" value is shown here.
+```json
+{
+    "id": "50"
+}
+```
+3. Use that "id" value in a range query to fetch the next page of results. This "id" field should have unique values, otherwise pagination may include duplicate results.
+```http
+POST /indexes/good-books/docs/search?api-version=2020-06-30
+    {  
+      "search": "divine secrets",
+      "top": 50,
+      "orderby": "id asc",
+      "filter": "id ge 50"
+    }
+```
+4. Pagination ends when the query returns 0 results.
+
+> [!NOTE]
+> The "filterable" and "sortable" attributes can only be enabled when a field is first added to an index, they cannot be enabled on an existing field.
 
 ## Ordering results
 
