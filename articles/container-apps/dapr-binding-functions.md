@@ -14,9 +14,9 @@ ms.custom: devx-track-linux
 
 # Deploy the Dapr binding for Azure Functions in Azure Container Apps
 
+Need blurb for intro.
 
-
-In this guide, you learn how to create an Azure Container Apps application 
+This guide demonstrates using the Dapr binding for Azure Functions template to deploy a Dapr-enabled container app. 
 
 ## Prerequisites
 
@@ -25,13 +25,27 @@ In this guide, you learn how to create an Azure Container Apps application
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 - Install [Git](https://git-scm.com/downloads)
 
-## Create resource group
+## Set up the environment
 
 1. In the terminal, log into your Azure subscription. 
 
    ```powershell
    az login
    ```
+
+1. Clone the [Dapr binding for Azure Functions repo](https://github.com/Azure/azure-functions-dapr-extension).
+
+   ```powershell
+   git clone https://github.com/Azure/azure-functions-dapr-extension.git
+   ```
+
+1. From the root directory, change into the folder holding the template.
+
+   ```powershell
+   cd samples/sample-infra
+   ```
+
+## Create resource group
 
 1. Create a resource group for your container app.
 
@@ -42,10 +56,18 @@ In this guide, you learn how to create an Azure Container Apps application
 
 ## Deploy the Azure Function templates
 
-1. Create a deployment group and specify the template you'd like to deploy
+1. Create a deployment group and specify the template you'd like to deploy.
 
    ```powershell
    az deployment group create --resource-group {resourceGroupName} --template-file deploy-samples.bicep
    ```
+
+1. When prompted by the CLI, enter a resource name prefix. The name you choose must be a combination of numbers and lowercase letters, 3 and 24 characters in length.
+
+   ```dotnetcli
+   Please provide string value for 'resourceNamePrefix' (? for help): yourresourcenameprefix 
+   ```
+
+
 
 ## Next steps
