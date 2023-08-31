@@ -107,7 +107,7 @@ To be able to start the Composite for meeting chat, we need to pass `TeamsMeetin
 { "meetingLink": "<TEAMS_MEETING_LINK>" }
 ```
 
-Please note that meeting link should look something like "https://teams.microsoft.com/l/meetup-join/19%3ameeting_XXXXXXXXXXX%40thread.v2/XXXXXXXXXXX"
+Please note that meeting link should look something like `https://teams.microsoft.com/l/meetup-join/19%3ameeting_XXXXXXXXXXX%40thread.v2/XXXXXXXXXXX`
 
 And this is all you need! And there's no other set up needed to enable inline image specifically. 
 
