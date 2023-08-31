@@ -32,14 +32,14 @@ Each type of failover has a unique set of use cases and corresponding expectatio
 
 | Type                               | Failover Scope  | Use case | Expected data loss | HNS supported |
 |------------------------------------|-----------------|----------|---------------------|---------------|
-| Customer-managed                   | Storage account | The storage service endpoints for the primary region become unavailable, but the secondary region is available. <br></br> An Azure Advisory in which Microsoft advises you to perform a failover operation of storage accounts potentially affected by an outage. | [Yes](#failover-and-data-loss) | [Yes *(In preview)*](#azure-data-lake-storage-gen2) |
-| Microsoft-managed                  | Entire region   | The primary region becomes completely unavailable due to a significant disaster, but the secondary region is available. | [Yes](#failover-and-data-loss) | [Yes](#azure-data-lake-storage-gen2) |
+| Customer-managed                   | Storage account | The storage service endpoints for the primary region become unavailable, but the secondary region is available. <br></br> An Azure Advisory in which Microsoft advises you to perform a failover operation of storage accounts potentially affected by an outage. | [Yes](#data-loss-and-file-inconsistencies) | [Yes *(In preview)*](#azure-data-lake-storage-gen2) |
+| Microsoft-managed                  | Entire region   | The primary region becomes completely unavailable due to a significant disaster, but the secondary region is available. | [Yes](#data-loss-and-file-inconsistencies) | [Yes](#azure-data-lake-storage-gen2) |
 
 ### Customer-managed failover
 
 If the data endpoints for the storage services in your storage account become unavailable in the primary region, you can fail over to the secondary region. After the failover is complete, the secondary region becomes the new primary and users can proceed to access data in the new primary region.
 
-A customer-managed account failover usually involves some data loss. For more details about potential data loss from this type of failover, see [Failure and data loss](#failover-and-data-loss).
+A customer-managed account failover usually involves some data loss. For more details about potential data loss from this type of failover, see [Failure and data loss](#data-loss-and-file-inconsistencies).
 
 ### Microsoft-managed failover
 
