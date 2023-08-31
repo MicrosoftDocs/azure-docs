@@ -93,7 +93,7 @@ Azure Maps have been localized in variety languages across its services. The fol
 <sup>1</sup> Neutral Ground Truth (Local) - Official languages for all regions in local scripts if available<br>
 <sup>2</sup> Neutral Ground Truth (Latin) - Latin exonyms are used if available
 
-## Azure Maps v2 supported languages
+## Routing v2 services (preview) supported languages
 
 Azure Maps have been localized in variety languages across its services. The following table provides the supported language codes for the routing v2 services. The routing column in the following table includes routes for driving and walking.
 
