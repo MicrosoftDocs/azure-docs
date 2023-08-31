@@ -1,6 +1,6 @@
 ---
 title: Control Azure CDN caching behavior with query strings - premium tier
-description: Azure CDN query string caching controls how files are cached when a web request contains a query string. This article describes query string caching in the Azure CDN Premium from Verizon product.
+description: Azure CDN query string caching controls how files are cached when a web request contains a query string. This article describes query string caching in the Azure CDN Premium from Edgio product.
 services: cdn
 documentationcenter: ''
 author: duongau
@@ -26,7 +26,7 @@ ms.author: duau
 With Azure Content Delivery Network (CDN), you can control how files are cached for a web request that contains a query string. In a web request with a query string, the query string is that portion of the request that occurs after a question mark (?). A query string can contain one or more key-value pairs, in which the field name and its value are separated by an equals sign (=). Each key-value pair is separated by an ampersand (&). For example, http:\//www.contoso.com/content.mov?field1=value1&field2=value2. If there is more than one key-value pair in a query string of a request, their order does not matter. 
 
 > [!IMPORTANT]
-> The standard and premium CDN products provide the same query string caching functionality, but the user interface is different. This article describes the interface for **Azure CDN Premium from Verizon**. For query string caching with Azure CDN standard products, see [Control Azure CDN caching behavior with query strings - standard tier](cdn-query-string.md).
+> The standard and premium CDN products provide the same query string caching functionality, but the user interface is different. This article describes the interface for **Azure CDN Premium from Edgio**. For query string caching with Azure CDN standard products, see [Control Azure CDN caching behavior with query strings - standard tier](cdn-query-string.md).
 >
 
 
@@ -60,4 +60,3 @@ Three query string modes are available:
 > [!IMPORTANT]
 > Because it takes time for the registration to propagate through the CDN, cache string settings changes might not be immediately visible. Propagation usually completes in 10 minutes.
  
-
