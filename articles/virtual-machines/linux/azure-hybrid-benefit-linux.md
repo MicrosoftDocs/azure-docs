@@ -71,15 +71,21 @@ To enable Azure Hybrid Benefit when you create a virtual machine, use the follow
 
 #### [Azure CLI](#tab/ahbNewCli)
 
-You can use the `az vm update` command to update new virtual machines after they've been created. 
+You can use the `az vm extension` and `az vm update` commands to update new virtual machines after they've been created. 
 
+1. Install the extension
+```azurecli
+az vm extension
+```
+
+1. Update with the correct license type
 ```azurecli
 az vm update
 ```
 
--RHEL License Types: RHEL_BASE, RHEL_EUS, RHEL_SAPAPPS, RHEL_SAPHA, RHEL_BASESAPAPPS, RHEL_BASESAPHA​
+- RHEL License Types: RHEL_BASE, RHEL_EUS, RHEL_SAPAPPS, RHEL_SAPHA, RHEL_BASESAPAPPS, RHEL_BASESAPHA​
 
--SLES License Types: SLES_STANDARD, SLES_SAP, SLES_HPC​
+- SLES License Types: SLES_STANDARD, SLES_SAP, SLES_HPC​
 
 ---
 ### Enabling AHB on Existing VM
@@ -94,15 +100,21 @@ To enable Azure Hybrid Benefit on an existing virtual machine:
 
 #### [Azure CLI](#tab/ahbExistingCli)
 
-You can use the `az vm update` command to update existing virtual machines. 
+You can use the `az vm extension` and `az vm update` commands to update existing virtual machines. 
 
+1. Install the extension
 ```azurecli
-az vm update
+az vm extension
 ```
 
--RHEL License Types: RHEL_BASE, RHEL_EUS, RHEL_SAPAPPS, RHEL_SAPHA, RHEL_BASESAPAPPS, RHEL_BASESAPHA​
+1. Update with the correct license type
+```azurecli
+az vm update
+``````
 
--SLES License Types: SLES_STANDARD, SLES_SAP, SLES_HPC​
+- RHEL License Types: RHEL_BASE, RHEL_EUS, RHEL_SAPAPPS, RHEL_SAPHA, RHEL_BASESAPAPPS, RHEL_BASESAPHA​
+
+- SLES License Types: SLES_STANDARD, SLES_SAP, SLES_HPC​
 
 ---
 
