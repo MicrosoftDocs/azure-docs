@@ -16,13 +16,13 @@ Get started with Azure Communication Services by using the Communication Service
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - The latest version [.NET Core client library](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
 - An Azure Email Communication Services Resource created and ready with a provisioned domain [Get started with Creating Email Communication Resource](../create-email-communication-resource.md)
-- An active Communication Services resource connected with Email Domain . [Get started by Connecting Email Resource with a Communication Resource](../connect-email-communication-resource.md)
+- An active Communication Services resource connected with Email Domain. [Get started by Connecting Email Resource with a Communication Resource](../connect-email-communication-resource.md)
 
 Completing this quick start incurs a small cost of a few USD cents or less in your Azure account.
 
 ## Sending an Email using Try Email
 
-Try Email helps you kick starting with sending email using Azure Communciation Services and as well verifying the configuration for your application to send email. It also helps to jump-start your email notification development with the code snippet in your prefered choice of launguage.
+Try Email helps you kick starting with sending email using Azure Communication Services and as well verifying the configuration for your application to send email. It also helps to jump-start your email notification development with the code snippet in your preferred choice of language.
 
 To send a message to a recipient, and to specify the message subject and body, 
 
@@ -30,11 +30,11 @@ To send a message to a recipient, and to specify the message subject and body,
 
     :::image type="content" source="../media/tryemail-domains-select.png" alt-text="Screenshot that shows the left navigation panel for Try Email." lightbox="../media/tryemail-domains-select.png":::
 
-2. Select one of the verified domains from drop down.
+2. Select one of the verified domains from drop-down.
 
    :::image type="content" source="../media/tryemail-domains-selected-domain.png" alt-text="Screenshot that shows the left navigation panel for Try Email." lightbox="../media/tryemail-domains-select.png":::
 
-3. Combose the email to send
+3. Compose the email to send
     - Enter Recipient email address
     - Enter Subject
     - Write the Email Body
@@ -49,7 +49,7 @@ To send a message to a recipient, and to specify the message subject and body,
  
     :::image type="content" source="../media/tryemail-sent-success.png" alt-text="Screenshot that shows one of the verified email domains is now connected." lightbox="../media/email-domains-connected.png":::
    
-6. You can now also copy Sample Code Snippet to Send an Email to use start your sample proof of concept to send notifications.
+6. You can now also copy the sample *Code Snippet* to send an email to use in your sample project to send notifications.
    - Select Language of your choice
    - Click Insert my Connection
    - Click Copy
