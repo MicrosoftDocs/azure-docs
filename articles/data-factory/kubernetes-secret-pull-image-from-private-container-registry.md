@@ -41,7 +41,7 @@ In the Airflow environment setup window, scroll to the bottom and expand the **A
 
 Provide the required field **Secret name**, select **Private registry auth** for the **Secret type**, and enter the other required fields. The **Registry server URL** should be the URL of your private container registry, for example, ```\registry_name\>.azurecr.io```.
 
-:::image type="content" source="media/kubernetes-secret-pull-image-from-private-container-registry/create-airflow-secret.png" alt-text="Screenshot showing the Create airflow secret window and its fields.":::
+:::image type="content" source="media/kubernetes-secret-pull-image-from-private-container-registry/create-airflow-secret.png" alt-text="Screenshot showing the Create airflow secret window and its fields." lightbox="media/kubernetes-secret-pull-image-from-private-container-registry/create-airflow-secret.png" :::
 
 Once you proivde the required fields, select **Apply** to add the secret.
 
