@@ -171,9 +171,7 @@ It's important to make sure the incoming and outgoing configurations are exactly
 
 ### Enable W3C distributed tracing support for web apps
 
-This feature is in `Microsoft.ApplicationInsights.JavaScript`. Whether this feature is enabled by default is determined by which domain host the requests are sent to.
-
-If requests are sent to the same domain host as the hosting page, this feature is enabled by default and uses the AI_AND_W3C setting (for example, the hosting page is `example.com` and the Ajax requests are sent to `example.com`). To disable it, use the [`distributedTracingMode` configuration field](./javascript-sdk-configuration.md#sdk-configuration). AI_AND_W3C is provided for backward compatibility with any legacy services instrumented by Application Insights.
+This feature is enabled by default for Javascript and the headers are automatically included when the hosting page domain is the same as the domain the requests are sent to (for example, the hosting page is `example.com` and the Ajax requests are sent to `example.com`). To change the distributed tracing mode, use the [`distributedTracingMode` configuration field](./javascript-sdk-configuration.md#sdk-configuration). AI_AND_W3C is provided by default for backward compatibility with any legacy services instrumented by Application Insights.
 
 - **[npm-based setup](./javascript-sdk.md?tabs=npmpackage#get-started)**
 
@@ -189,7 +187,7 @@ If requests are sent to the same domain host as the hosting page, this feature i
       distributedTracingMode: 2 // DistributedTracingModes.W3C
   ```
 
-If the XMLHttpRequest or Fetch Ajax requests are sent to a different domain host, including sub-domains, the correlation headers are not included by default. To enable this feature, set the [`enableCorsCorrelation` configuration field](./javascript-sdk-configuration.md#sdk-configuration) to `true`. If you set `enableCorsCorrelation` to `true`, all XMLHttpRequest and Fetch Ajax requests include the correlating headers. As a result, if the server that is being called does not support the `traceparent` header, the request may fail, depending on the browser / version. If the browser / version is unsupported, the browser won’t send the request.
+If the XMLHttpRequest or Fetch Ajax requests are sent to a different domain host, including sub-domains, the correlation headers are not included by default. To enable this feature, set the [`enableCorsCorrelation` configuration field](./javascript-sdk-configuration.md#sdk-configuration) to `true`. If you set `enableCorsCorrelation` to `true`, all XMLHttpRequest and Fetch Ajax requests include the correlation headers. As a result, if the application on the server that is being called doesn't support the `traceparent` header, the request may fail, depending on whether the browser / version can validate the request based on which headers the server will accept.
 
 > [!IMPORTANT]
 > To see all configurations required to enable correlation, see the [JavaScript correlation documentation](./javascript.md#enable-distributed-tracing).
