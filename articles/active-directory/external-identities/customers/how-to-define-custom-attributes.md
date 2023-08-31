@@ -35,8 +35,8 @@ If your application relies on certain built-in or custom user attributes, you ca
 
 ## Create custom attributes
 
-1. In the [Microsoft Entra admin center](https://entra.microsoft.com/), select **Azure Active Directory**.
-1. Select **External Identities** > **Overview**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
+1. Browse to **Identity** > **External Identities** > **Overview**.
 1. Select **Custom user attributes**. The available user attributes are listed.
 1. To add an attribute, select **Add**. In the **Add an attribute** pane, enter the following values:
 
@@ -52,11 +52,11 @@ If your application relies on certain built-in or custom user attributes, you ca
 
 Follow these steps to add sign-up attributes to a user flow you've already created. (For a new user flow, see [Create a sign-up and sign-in user flow for customers](how-to-user-flow-sign-up-sign-in-customers.md).)
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
 
 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to your customer tenant.
 
-1. In the left pane, select **Azure Active Directory** > **External Identities** > **User flows**.
+1. Browse to **Identity** > **External Identities** > **User flows**.
 
 1. Select the user flow from the list.
 
@@ -70,9 +70,9 @@ Follow these steps to add sign-up attributes to a user flow you've already creat
 
 You can choose the order in which the attributes are displayed on the sign-up page.
 
-1. In the [Microsoft Entra admin center](https://entra.microsoft.com/), select **Azure Active Directory**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
 
-1. In the left pane, select **Azure Active Directory** > **External Identities** > **User flows**.
+1. Browse to **Identity** > **External Identities** > **User flows**.
 
 1. From the list, select your user flow.
 

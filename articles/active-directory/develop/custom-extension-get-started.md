@@ -3,14 +3,14 @@ title: Get started with custom claims providers (preview)
 titleSuffix: Microsoft identity platform
 description: Learn how to develop and register an Azure Active Directory custom authentication extensions REST API. The custom authentication extension allows you to source claims from a data store that is external to Azure Active Directory.  
 services: active-directory
-author: yoelhor
+author: davidmu1
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 05/23/2023
+ms.date: 08/16/2023
 ms.author: davidmu
 ms.custom: aaddev
 ms.reviewer: JasSuri
@@ -19,7 +19,7 @@ ms.reviewer: JasSuri
 
 # Configure a custom claim provider token issuance event (preview)
 
-This article describes how to configure and setup a custom claims provider with the [token issuance start event](custom-claims-provider-overview.md#token-issuance-start-event-listener) type. This event is triggered right before the token is issued, and allows you to call a REST API to add claims to the token. 
+This article describes how to configure and set up a custom claims provider with the [token issuance start event](custom-claims-provider-overview.md#token-issuance-start-event-listener) type. This event is triggered right before the token is issued, and allows you to call a REST API to add claims to the token. 
 
 This how-to guide demonstrates the token issuance start event with a REST API running in Azure Functions and a sample OpenID Connect application. Before you start, take a look at following video, which demonstrates how to configure Azure AD custom claims provider with Function App:
 
@@ -157,14 +157,11 @@ The following screenshot demonstrates how to configure the Azure HTTP trigger fu
 
 In this step, you configure a custom authentication extension, which will be used by Azure AD to call your Azure function. The custom authentication extension contains information about your REST API endpoint, the claims that it parses from your REST API, and how to authenticate to your REST API. Follow these steps to register a custom authentication extension:
 
-# [Azure portal](#tab/azure-portal)
+# [Microsoft Entra admin center](#tab/entra-admin-center)
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Under **Azure services**, select **Azure Active Directory**.
-1. Ensure your user account has the Global Administrator or Application Administrator and Authentication Extensibility Administrator role. Otherwise, learn how to [assign a role](../roles/manage-roles-portal.md).
-1. From the menu, select **Enterprise applications**.
-1. Under **Manage**, select the **Custom authentication extensions**.
-1. Select **Create a custom authentication extension**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Application Administrator](../roles/permissions-reference.md#application-developer) and [Authentication Administrator](../roles/permissions-reference.md#authentication-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
+1. Select **Custom authentication extensions**, and then select **Create a custom authentication extension**.
 1. In **Basics**, select the **tokenIssuanceStart** event and select **Next**.
 1. In **Endpoint Configuration**, fill in the following properties:
 
@@ -191,90 +188,109 @@ In this step, you configure a custom authentication extension, which will be use
 
 # [Microsoft Graph](#tab/microsoft-graph)
 
-Create an Application Registration to authenticate your custom authentication extension to your Azure Function.
+Register an application to authenticate your custom authentication extension to your Azure Function.
 
-1. Sign in to the [Microsoft Graph Explorer](https://aka.ms/ge) using an account whose home tenant is the tenant you wish to manage your custom authentication extension in.
-1. Set the HTTP method to **POST**.
-1. Paste the URL: `https://graph.microsoft.com/v1.0/applications`
-1. Select **Request Body** and paste the following JSON:
+1. Sign in to [Graph Explorer](https://aka.ms/ge) using an account whose home tenant is the tenant you wish to manage your custom authentication extension in. The account must have the privileges to create and manage an application registration in the tenant.
+2. Run the following request.
 
-    ```json
+    # [HTTP](#tab/http)
+    ```http
+    POST https://graph.microsoft.com/v1.0/applications
+    Content-type: application/json
+    
     {
-      "displayName": "authenticationeventsAPI"
+        "displayName": "authenticationeventsAPI"
     }
     ```
 
-1. Select **Run Query** to submit the request.
+    # [C#](#tab/csharp)
+    [!INCLUDE [sample-code](~/microsoft-graph/includes/snippets/csharp/v1/tutorial-application-basics-create-app-csharp-snippets.md)]
+    
+    # [Go](#tab/go)
+    [!INCLUDE [sample-code](~/microsoft-graph/includes/snippets/go/v1/tutorial-application-basics-create-app-go-snippets.md)]
+    
+    # [Java](#tab/java)
+    [!INCLUDE [sample-code](~/microsoft-graph/includes/snippets/java/v1/tutorial-application-basics-create-app-java-snippets.md)]
+    
+    # [JavaScript](#tab/javascript)
+    [!INCLUDE [sample-code](~/microsoft-graph/includes/snippets/javascript/v1/tutorial-application-basics-create-app-javascript-snippets.md)]
+    
+    # [PHP](#tab/php)
+    Snippet not available.
+    
+    # [PowerShell](#tab/powershell)
+    [!INCLUDE [sample-code](~/microsoft-graph/includes/snippets/powershell/v1/tutorial-application-basics-create-app-powershell-snippets.md)]
+    
+    # [Python](#tab/python)
+    [!INCLUDE [sample-code](~/microsoft-graph/includes/snippets/python/v1/tutorial-application-basics-create-app-python-snippets.md)]
+    
+    ---
 
-1. Copy the **Application ID** value (*appId*) from the response. You need this value later, which is referred to as the `{authenticationeventsAPI_AppId}`. Also get the object ID of the app (*ID*), which is referred to as `{authenticationeventsAPI_ObjectId}` from the response.
+3. From the response, record the value of **id** and **appId** of the newly created app registration. These values will be referenced in this article as `{authenticationeventsAPI_ObjectId}` and `{authenticationeventsAPI_AppId}` respectively.
 
-Create a service principal in the tenant for the authenticationeventsAPI app registration:
+Create a service principal in the tenant for the authenticationeventsAPI app registration.
 
-1. Set the HTTP method to **POST**.
-1. Paste the URL: `https://graph.microsoft.com/v1.0/servicePrincipals`
-1. Select **Request Body** and paste the following JSON:
+Still in Graph Explorer, run the following request. Replace `{authenticationeventsAPI_AppId}` with the value of **appId** that you recorded from the previous step.
 
-    ```json
-    {
-        "appId": "{authenticationeventsAPI_AppId}"
-    }
-    ```
-
-1. Select **Run Query** to submit the request.
+```http
+POST https://graph.microsoft.com/v1.0/servicePrincipals
+Content-type: application/json
+    
+{
+    "appId": "{authenticationeventsAPI_AppId}"
+}
+```
 
 ### Set the App ID URI, access token version, and required resource access
 
 Update the newly created application to set the application ID URI value, the access token version, and the required resource access.
 
-1. Set the HTTP method to **PATCH**.
-1. Paste the URL: `https://graph.microsoft.com/v1.0/applications/{authenticationeventsAPI_ObjectId}`
-1. Select **Request Body** and paste the following JSON:
+In Graph Explorer, run the following request. 
+   - Set the application ID URI value in the *identifierUris* property. Replace `{Function_Url_Hostname}` with the hostname of the `{Function_Url}` you recorded earlier.
+   - Set the `{authenticationeventsAPI_AppId}` value with the **appId** that you recorded earlier.
+   - An example value is `api://authenticationeventsAPI.azurewebsites.net/f4a70782-3191-45b4-b7e5-dd415885dd80`. Take note of this value as you'll use it later in this article in place of `{functionApp_IdentifierUri}`.
 
-    Set the application ID URI value in the *identifierUris* property. Replace `{Function_Url_Hostname}` with the hostname of the `{Function_Url}` you recorded earlier. 
-    
-    Set the `{authenticationeventsAPI_AppId}` value with the App ID generated from the app registration created in the previous step.
-    
-    An example value would be `api://authenticationeventsAPI.azurewebsites.net/f4a70782-3191-45b4-b7e5-dd415885dd80`. Take note of this value as it is used in following steps and is referenced as `{functionApp_IdentifierUri}`.
-    
-    ```json
+```http
+POST https://graph.microsoft.com/v1.0/applications/{authenticationeventsAPI_ObjectId}
+Content-type: application/json
+
+{
+"identifierUris": [
+    "api://{Function_Url_Hostname}/{authenticationeventsAPI_AppId}"
+],    
+"api": {
+    "requestedAccessTokenVersion": 2,
+    "acceptMappedClaims": null,
+    "knownClientApplications": [],
+    "oauth2PermissionScopes": [],
+    "preAuthorizedApplications": []
+},
+"requiredResourceAccess": [
     {
-        "identifierUris": [
-            "api://{Function_Url_Hostname}/{authenticationeventsAPI_AppId}"
-        ],    
-        "api": {
-            "requestedAccessTokenVersion": 2,
-            "acceptMappedClaims": null,
-            "knownClientApplications": [],
-            "oauth2PermissionScopes": [],
-            "preAuthorizedApplications": []
-        },
-        "requiredResourceAccess": [
+        "resourceAppId": "00000003-0000-0000-c000-000000000000",
+        "resourceAccess": [
             {
-                "resourceAppId": "00000003-0000-0000-c000-000000000000",
-                "resourceAccess": [
-                    {
-                        "id": "214e810f-fda8-4fd7-a475-29461495eb00",
-                        "type": "Role"
-                    }
-                ]
+                "id": "214e810f-fda8-4fd7-a475-29461495eb00",
+                "type": "Role"
             }
         ]
     }
-    ```
-
-1. Select **Run Query** to submit the request.
+]
+}
+```
 
 ### Register a custom authentication extension
 
-Next, you register the custom authentication extension. You register the custom authentication extension by associating it with the App Registration for the Azure Function, and your Azure Function endpoint `{Function_Url}`.
+Next, you register the custom authentication extension. You register the custom authentication extension by associating it with the app registration for the Azure Function, and your Azure Function endpoint `{Function_Url}`.
 
-1. Set the HTTP method to **POST**.
-1. Paste the URL: `https://graph.microsoft.com/beta/identity/customAuthenticationExtensions`
-1. Select **Request Body** and paste the following JSON:
+1. In Graph Explorer, run the following request. Replace `{Function_Url}` with the hostname of your Azure Function app. Replace `{functionApp_IdentifierUri}` with the identifierUri used in the previous step.
+   - You'll need the *CustomAuthenticationExtension.ReadWrite.All* delegated permission. 
 
-    Replace `{Function_Url}` with the hostname of your Azure Function app. Replace `{functionApp_IdentifierUri}` with the identifierUri used in the previous step.
+    # [HTTP](#tab/http)
+    ```http
+    POST https://graph.microsoft.com/beta/identity/customAuthenticationExtensions
+    Content-type: application/json
     
-    ```json
     {
         "@odata.type": "#microsoft.graph.onTokenIssuanceStartCustomExtension",
         "displayName": "onTokenIssuanceStartCustomExtension",
@@ -297,16 +313,36 @@ Next, you register the custom authentication extension. You register the custom 
         ]
     }
     ```
+    # [C#](#tab/csharp)
+    [!INCLUDE [sample-code](~/microsoft-graph/api-reference/beta/includes/snippets/csharp/create-customauthenticationextension-from--csharp-snippets.md)]
+    
+    # [Go](#tab/go)
+    [!INCLUDE [sample-code](~/microsoft-graph/api-reference/beta/includes/snippets/go/create-customauthenticationextension-from--go-snippets.md)]
+    
+    # [Java](#tab/java)
+    [!INCLUDE [sample-code](~/microsoft-graph/api-reference/beta/includes/snippets/java/create-customauthenticationextension-from--java-snippets.md)]
+    
+    # [JavaScript](#tab/javascript)
+    [!INCLUDE [sample-code](~/microsoft-graph/api-reference/beta/includes/snippets/javascript/create-customauthenticationextension-from--javascript-snippets.md)]
+    
+    # [PHP](#tab/php)
+    [!INCLUDE [sample-code](~/microsoft-graph/api-reference/beta/includes/snippets/php/create-customauthenticationextension-from--php-snippets.md)]
+    
+    # [PowerShell](#tab/powershell)
+    [!INCLUDE [sample-code](~/microsoft-graph/api-reference/beta/includes/snippets/powershell/create-customauthenticationextension-from--powershell-snippets.md)]
+    
+    # [Python](#tab/python)
+    [!INCLUDE [sample-code](~/microsoft-graph/api-reference/beta/includes/snippets/python/create-customauthenticationextension-from--python-snippets.md)]
 
-1. Select **Run Query** to submit the request.
+    ---
 
-Record the ID value of the created custom claims provider object. The ID is needed in a later step and is referred to as the `{customExtensionObjectId}`.
+1. Record the **id** value of the created custom claims provider object. You'll use the value later in this tutorial in place of `{customExtensionObjectId}`.
 
 ---
 
 ### 2.2 Grant admin consent
 
-After your custom authentication extension is created, you'll be taken to the **Overview** tab of the new custom authentication extension.
+After your custom authentication extension is created, open the **Overview** tab of the new custom authentication extension.
 
 From the **Overview** page, select the **Grant permission** button to give admin consent to the registered app, which allows the custom authentication extension to authenticate to your API. The custom authentication extension uses `client_credentials` to authenticate to the Azure Function App using the `Receive custom authentication extension HTTP requests` permission.
 
@@ -322,8 +358,9 @@ Follow these steps to register the **jwt.ms** web application:
 
 ### 3.1 Register a test web application
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to **Azure Active Directory**.
-1. Select **App registrations**, and then select **New registration**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Application Administrator](../roles/permissions-reference.md#application-developer).
+1. Browse to **Identity** > **Applications** > **Application registrations**.
+1. Select **New registration**.
 1. Enter a **Name** for the application. For example, **My Test application**.
 1. Under **Supported account types**, select **Accounts in this organizational directory only**.
 1. In the **Select a platform** dropdown in **Redirect URI**, select **Web** and then enter `https://jwt.ms` in the URL text box.
@@ -335,7 +372,7 @@ The following screenshot shows how to register the *My Test application*.
 
 ### 3.1 Get the application ID
 
-In your app registration, under **Overview**, copy the **Application (client) ID**. The app ID is referred to as the `{App_to_enrich_ID}` in later steps.
+In your app registration, under **Overview**, copy the **Application (client) ID**. The app ID is referred to as the `{App_to_enrich_ID}` in later steps. In Microsoft Graph, it's referenced by the **appId** propety.
 
 :::image type="content" border="false"source="media/custom-extension-get-started/get-the-test-application-id.png" alt-text="Screenshot that shows how to copy the application ID.":::
 
@@ -375,12 +412,12 @@ For tokens to be issued with claims incoming from the custom authentication exte
 
 Follow these steps to connect the *My Test application* with your custom authentication extension:
 
-# [Azure portal](#tab/azure-portal)
+# [Microsoft Entra admin center](#tab/entra-admin-center)
 
 First assign the custom authentication extension as a custom claims provider source:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to **Azure Active Directory**.
-1. Select **App registrations**, and find the *My Test application* registration you created.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Application Administrator](../roles/permissions-reference.md#application-administrator).
+1. Browse to **Identity** > **Applications** > **Application registrations**.
 1. In the **Overview** page, under **Managed application in local directory**, select **My Test application**.
 1. Under **Manage**, select **Single sign-on**.
 1. Under **Attributes & Claims**, select **Edit**.
@@ -404,16 +441,17 @@ Next, assign the attributes from the custom claims provider, which should be iss
 
 # [Microsoft Graph](#tab/microsoft-graph)
 
-First create an event listener to trigger a custom authentication extension using the token issuance start event:
+First create an event listener to trigger a custom authentication extension for the *My Test application* using the token issuance start event.
 
-1. Sign in to the [Microsoft Graph Explorer](https://aka.ms/ge) using an account whose home tenant is the tenant you wish to manage your custom authentication extension in.
-1. Set the HTTP method to **POST**.
-1. Paste the URL: `https://graph.microsoft.com/beta/identity/authenticationEventListeners`
-1. Select **Request Body** and paste the following JSON:
+1. Sign in to [Graph Explorer](https://aka.ms/ge) using an account whose home tenant is the tenant you wish to manage your custom authentication extension in.
+1. Run the following request. Replace `{App_to_enrich_ID}` with the app ID of *My Test application* recorded earlier. Replace `{customExtensionObjectId}` with the custom authentication extension ID recorded earlier.
+    - You'll need the *EventListener.ReadWrite.All* delegated permission. 
 
-    Replace `{App_to_enrich_ID}` with the app ID of *My Test application* recorded earlier. Replace `{customExtensionObjectId}` with the custom authentication extension ID recorded earlier.
-
-    ```json
+    # [HTTP](#tab/http)
+    ```http
+    POST https://graph.microsoft.com/beta/identity/authenticationEventListeners
+    Content-type: application/json
+    
     {
         "@odata.type": "#microsoft.graph.onTokenIssuanceStartListener",
         "conditions": {
@@ -436,15 +474,40 @@ First create an event listener to trigger a custom authentication extension usin
     }
     ```
 
-1. Select **Run Query** to submit the request.
+    # [C#](#tab/csharp)
+    [!INCLUDE [sample-code](~/microsoft-graph/api-reference/beta/includes/snippets/csharp/create-authenticationeventlistener-from--csharp-snippets.md)]
+    
+    # [Go](#tab/go)
+    [!INCLUDE [sample-code](~/microsoft-graph/api-reference/beta/includes/snippets/go/create-authenticationeventlistener-from--go-snippets.md)]
+    
+    # [Java](#tab/java)
+    [!INCLUDE [sample-code](~/microsoft-graph/api-reference/beta/includes/snippets/java/create-authenticationeventlistener-from--java-snippets.md)]
+    
+    # [JavaScript](#tab/javascript)
+    [!INCLUDE [sample-code](~/microsoft-graph/api-reference/beta/includes/snippets/javascript/create-authenticationeventlistener-from--javascript-snippets.md)]
+    
+    # [PHP](#tab/php)
+    [!INCLUDE [sample-code](~/microsoft-graph/api-reference/beta/includes/snippets/php/create-authenticationeventlistener-from--php-snippets.md)]
+    
+    # [PowerShell](#tab/powershell)
+    [!INCLUDE [sample-code](~/microsoft-graph/api-reference/beta/includes/snippets/powershell/create-authenticationeventlistener-from--powershell-snippets.md)]
+    
+    # [Python](#tab/python)
+    [!INCLUDE [sample-code](~/microsoft-graph/api-reference/beta/includes/snippets/python/create-authenticationeventlistener-from--python-snippets.md)]
+    
+    ---
 
-Next, create the claims mapping policy, which describes which claims can be issued to an application from a custom claims provider:
 
-1. Set the HTTP method to **POST**.
-1. Paste the URL: `https://graph.microsoft.com/v1.0/policies/claimsmappingpolicies`
-1. Select **Request Body** and paste the following JSON:
+Next, create the claims mapping policy, which describes which claims can be issued to an application from a custom claims provider.
 
-    ```json
+1. Still in Graph Explorer, run the following request. You'll need the *Policy.ReadWrite.ApplicationConfiguration* delegated permission.
+
+
+    # [HTTP](#tab/http)
+    ```http
+    POST https://graph.microsoft.com/v1.0/policies/claimsMappingPolicies
+    Content-type: application/json
+
     {
         "definition": [
             "{\"ClaimsMappingPolicy\":{\"Version\":1,\"IncludeBasicClaimSet\":\"true\",\"ClaimsSchema\":[{\"Source\":\"CustomClaimsProvider\",\"ID\":\"DateOfBirth\",\"JwtClaimType\":\"dob\"},{\"Source\":\"CustomClaimsProvider\",\"ID\":\"CustomRoles\",\"JwtClaimType\":\"my_roles\"},{\"Source\":\"CustomClaimsProvider\",\"ID\":\"CorrelationId\",\"JwtClaimType\":\"correlationId\"},{\"Source\":\"CustomClaimsProvider\",\"ID\":\"ApiVersion\",\"JwtClaimType\":\"apiVersion \"},{\"Value\":\"tokenaug_V2\",\"JwtClaimType\":\"policy_version\"}]}}"
@@ -453,29 +516,77 @@ Next, create the claims mapping policy, which describes which claims can be issu
         "isOrganizationDefault": false
     }
     ```
+    # [C#](#tab/csharp)
+    [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/csharp/create-claimsmappingpolicy-from-claimsmappingpolicies-csharp-snippets.md)]
+    
+    # [Go](#tab/go)
+    [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/go/create-claimsmappingpolicy-from-claimsmappingpolicies-go-snippets.md)]
+    
+    # [Java](#tab/java)
+    [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/java/create-claimsmappingpolicy-from-claimsmappingpolicies-java-snippets.md)]
+    
+    # [JavaScript](#tab/javascript)
+    [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/javascript/create-claimsmappingpolicy-from-claimsmappingpolicies-javascript-snippets.md)]
+    
+    # [PHP](#tab/php)
+    [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/php/create-claimsmappingpolicy-from-claimsmappingpolicies-php-snippets.md)]
+    
+    # [PowerShell](#tab/powershell)
+    [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/powershell/create-claimsmappingpolicy-from-claimsmappingpolicies-powershell-snippets.md)]
+    
+    # [Python](#tab/python)
+    [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/python/create-claimsmappingpolicy-from-claimsmappingpolicies-python-snippets.md)]
+    
+    ---
 
-1. Record the `ID` generated in the response, later it's referred to as `{claims_mapping_policy_ID}`.
-1. Select **Run Query** to submit the request.
+2. Record the `ID` generated in the response, later it's referred to as `{claims_mapping_policy_ID}`.
 
-Get the `servicePrincipal` objectId:
+Get the service principal object ID:
 
-1. Set the HTTP method to **GET**.
-1. Paste the URL: `https://graph.microsoft.com/v1.0/servicePrincipals(appId='{App_to_enrich_ID}')/claimsMappingPolicies/$ref`. Replace `{App_to_enrich_ID}` with *My Test Application* App ID.
-1. Record the `id` value, later it's referred to as `{test_App_Service_Principal_ObjectId}`.
+1. Run the following request in Graph Explorer. Replace `{App_to_enrich_ID}` with the **appId** of *My Test Application*.
 
-Assign the claims mapping policy to the `servicePrincipal` of *My Test Application*:
+    ```http
+    GET https://graph.microsoft.com/v1.0/servicePrincipals(appId='{App_to_enrich_ID}')
+    ```
 
-1. Set the HTTP method to **POST**.
-1. Paste the URL: `https://graph.microsoft.com/v1.0/servicePrincipals/{test_App_Service_Principal_ObjectId}/claimsMappingPolicies/$ref`
-1. Select **Request Body** and paste the following JSON:
+Record the value of **id**.
 
-    ```json
+Assign the claims mapping policy to the service principal of *My Test Application*.
+
+1. Run the following request in Graph Explorer. You'll need the *Policy.ReadWrite.ApplicationConfiguration* and *Application.ReadWrite.All* delegated permission.
+
+    # [HTTP](#tab/http)
+    ```http
+    POST https://graph.microsoft.com/v1.0/servicePrincipals/{test_App_Service_Principal_ObjectId}/claimsMappingPolicies/$ref
+    Content-type: application/json
+
     {
         "@odata.id": "https://graph.microsoft.com/v1.0/policies/claimsMappingPolicies/{claims_mapping_policy_ID}"
     }
     ```
 
-1. Select **Run Query** to submit the request.
+    # [C#](#tab/csharp)
+    [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/csharp/create-claimsmappingpolicy-from-serviceprincipal-csharp-snippets.md)]
+    
+    # [Go](#tab/go)
+    [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/go/create-claimsmappingpolicy-from-serviceprincipal-go-snippets.md)]
+    
+    # [Java](#tab/java)
+    [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/java/create-claimsmappingpolicy-from-serviceprincipal-java-snippets.md)]
+    
+    # [JavaScript](#tab/javascript)
+    [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/javascript/create-claimsmappingpolicy-from-serviceprincipal-javascript-snippets.md)]
+    
+    # [PHP](#tab/php)
+    [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/php/create-claimsmappingpolicy-from-serviceprincipal-php-snippets.md)]
+    
+    # [PowerShell](#tab/powershell)
+    [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/powershell/create-claimsmappingpolicy-from-serviceprincipal-powershell-snippets.md)]
+    
+    # [Python](#tab/python)
+    [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/python/create-claimsmappingpolicy-from-serviceprincipal-python-snippets.md)]
+    
+    ---
 
 ---
 
@@ -517,7 +628,7 @@ If you configured the [Microsoft identity provider](#step-5-protect-your-azure-f
 
 1. Under the **App registration**, enter the application ID (client ID) of the *Azure Functions authentication events API* app registration [you created previously](#step-2-register-a-custom-authentication-extension).
 
-1. Go to your Azure AD tenant in which your custom authentication extension is registered, and select **Azure Active Directory** > **App registrations**.
+1. In the Microsoft Entra admin center:
     1. Select the *Azure Functions authentication events API* app registration [you created previously](#step-2-register-a-custom-authentication-extension).
     1. Select **Certificates & secrets** > **Client secrets** > **New client secret**.
     1. Add a description for your client secret.
