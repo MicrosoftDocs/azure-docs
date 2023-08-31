@@ -54,7 +54,7 @@ Use the following steps to create a service instance:
 
    :::image type="content" source="../../media/tutorial-authenticate-client-with-gateway/create-service-instance.png" alt-text="Screenshot of the Azure portal that shows the Create a resource page with Azure Spring Apps highlighted." lightbox="../../media/tutorial-authenticate-client-with-gateway/create-service-instance.png":::
 
-1. Fill out the **Basics** form. Use the following table as a guide for completing the form. The recommended value for **Plan** is **Standard consumption & dedicated (preview)**.
+1. Fill out the **Basics** form with the following information:
 
    | Setting                    | Suggested value                              | Description                                                                                                                                                                                                                                                                                        |
    |----------------------------|----------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
