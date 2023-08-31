@@ -35,7 +35,7 @@ Open the Azure Data Factory Studio and select the **Manage** tab from the left t
 
 In the Airflow environment setup window, scroll to the bottom and expand the **Advanced** section, then select **+ New** under **Kubernetes secrets**.
 
-:::image type="content" source="media/kubernetes-secret-pull-image-from-private-container-registry/add-kubernetes-secret.png" alt-text="Screenshot showing the Airflow environment setup window with the Advanced section expanded to show the Kubernetes secrets section.":::
+:::image type="content" source="media/kubernetes-secret-pull-image-from-private-container-registry/add-kubernetes-secret.png" alt-text="Screenshot showing the Airflow environment setup window with the Advanced section expanded to show the Kubernetes secrets section." lightbox="media/kubernetes-secret-pull-image-from-private-container-registry/add-kubernetes-secret.png":::
 
 ### Step 3: Configure authentication
 
