@@ -112,7 +112,7 @@ The command output should show that the JAR app failed to start due to insuffici
 
 The following figure shows the optimized memory usage for the Native Image deployment for a constant workload of 400 requests per second into the Petclinic application. The memory usage is about 1/5th of the memory consumed by its equivalent JAR deployment.
 
-:::image type="content" source="./media/quickstart-deploy-java-native-image-app/optimized-memory-usage-native-vs-jar-app.jpg" alt-text="Screenshot of the optimized memory usage of a Native Image deployment in Azure Spring Apps." lightbox="./media/quickstart-deploy-java-native-image-app/optimized-memory-usage-native-vs-jar-app.jpg":::
+:::image type="content" source="./media/quickstart-deploy-java-native-image-app/optimized-memory-usage.png" alt-text="Screenshot of the optimized memory usage of a Native Image deployment in Azure Spring Apps." lightbox="./media/quickstart-deploy-java-native-image-app/optimized-memory-usage.png":::
 
 Native Images offer quicker startup times and reduced runtime memory overhead when compared to the conventional Java Virtual Machine (JVM).
 
