@@ -32,7 +32,7 @@ Many customers start with the free service. The free tier is limited to three in
 
 Check the **Overview** page for the service to see how many indexes, indexers, and data sources you already have. 
 
-:::image type="content" source="media/search-get-started-portal/overview-quota-usage.png" alt-text="Screenshot of the Overview page for an Azure Cognitive Search service instance in the Azure portal, showing the number of indexes, indexers, and data sources." lightbox="media/search-get-started-portal/overview-quota-usage-expanded.png" border="false":::
+:::image type="content" source="media/search-get-started-portal/overview-quota-usage.png" alt-text="Screenshot of the Overview page for an Azure Cognitive Search service instance in the Azure portal, showing the number of indexes, indexers, and data sources." border="false":::
 
 ## Create and load an index
 
@@ -85,7 +85,7 @@ The **Import data** wizard supports the creation of an AI-enrichment pipeline fo
 
 The Azure Cognitive Search service generates a schema for the built-in hotels-sample index. Except for a few advanced filter examples, queries in the documentation and samples that target the hotels-sample index run on this index definition. The definition is shown on the **Customize target index** tab in the **Import data** wizard:
 
-:::image type="content" source="media/search-get-started-portal/hotels-sample-generated-index.png" alt-text="Screenshot that shows the generated index definition for the hotels-sample data source in the Import data wizard." lightbox="media/search-get-started-portal/hotels-sample-generated-index-expanded.png" border="false":::
+:::image type="content" source="media/search-get-started-portal/hotels-sample-generated-index.png" alt-text="Screenshot that shows the generated index definition for the hotels-sample data source in the Import data wizard." border="false":::
 
 Typically, in a code-based exercise, index creation is completed prior to loading data. The **Import data** wizard condenses these steps by generating a basic index for any data source it can crawl.
 
@@ -96,17 +96,15 @@ Each index is configured with the following settings:
 - The index **Key** provides the unique document identifier. The value is always a string.
 - If you want autocomplete or suggested queries, you can specify language **Analyzers** or **Suggesters**.
 
-Each field has a name, data type, and _attributes_ that control how to use the field in the search index. The **Customize target index** tab uses checkboxes to enable or disable the attribute for all fields or specific fields.
+Each field has a name, data type, and _attributes_ that control how to use the field in the search index.
 
-The following table summarizes the attributes.
+The **Customize target index** tab uses checkboxes to enable or disable the following attributes for all fields or specific fields.
 
-| Attribute | Description |
-| --- | --- |
-| **Retrievable** | Indicates whether to include the field contents in the search index. |
-| **Filterable** | Indicates whether to make the field contents available as filters for the search index. |
-| **Sortable** | Indicates whether to make field contents available for sorting the search index. |
-| **Facetable** | Indicates whether to use the field contents for faceted navigation structure. |
-| **Searchable** | Indicates whether to use the field contents in full text search. Strings are searchable. Numeric fields and Boolean fields are often marked as not searchable. |
+- **Retrievable**: Include the field contents in the search index.
+- **Filterable**: Allow the field contents to be used as filters for the search index.
+- **Sortable**: Make the field contents available for sorting the search index.
+- **Facetable**: Use the field contents for faceted navigation structure.
+- **Searchable**: Include the field contents in full text search. Strings are searchable. Numeric fields and Boolean fields are often marked as not searchable.
 
 The storage requirements for the index can vary as a result of attribute selection. For example, enabling a field as **Filterable** requires more storage, but enabling a field as **Retrievable** doesn't. For more information, see [Example demonstrating the storage implications of attributes and suggesters](search-what-is-an-index.md#example-demonstrating-the-storage-implications-of-attributes-and-suggesters).
 
@@ -180,9 +178,7 @@ To clearly understand what you can and can't edit during index design, take a mi
 
 ## <a name="query-index"></a> Query with Search explorer
 
-You now have a search index that can be queried with the [**Search explorer**](search-explorer.md) tool in Azure Cognitive Search. 
-
-**Search explorer** sends REST calls that conform to the [Search Documents REST API](/rest/api/searchservice/search-documents). The tool supports [simple query syntax](/rest/api/searchservice/simple-query-syntax-in-azure-search) and [full Lucene query syntax](/rest/api/searchservice/lucene-query-syntax-in-azure-search).
+You now have a search index that can be queried with the **Search explorer** tool in Azure Cognitive Search. **Search explorer** sends REST calls that conform to the [Search Documents REST API](/rest/api/searchservice/search-documents). The tool supports [simple query syntax](/rest/api/searchservice/simple-query-syntax-in-azure-search) and [full Lucene query syntax](/rest/api/searchservice/lucene-query-syntax-in-azure-search).
 
 You can access the tool from the **Search explorer** tab on the index page and from the **Overview** page for the service.
 
@@ -210,11 +206,13 @@ You can access the tool from the **Search explorer** tab on the index page and f
 
    :::image type="content" source="media/search-get-started-portal/search-explorer-query-results.png" alt-text="Screenshot that shows long results for a query in the Search Explorer tool and the mini-map.":::
 
+For more information, see [Quickstart: Use Search explorer to run queries in the Azure portal](search-explorer.md).
+
 ## Run more example queries
 
 The queries in the following table are designed for searching the hotels-sample index with **Search Explorer**. The results are returned as verbose JSON documents. All fields marked as **Retrievable** in the index can appear in the results.
 
-| Query syntax | Query type | Description | Usage |
+| Query syntax | Query type | Description | Results |
 | --- | --- | --- | --- |
 | `search=spa` | Full text query | The `search=` parameter searches for specific keywords. | The query seeks hotel data that contains the keyword `spa` in any searchable field in the document. |
 | `search=beach &$filter=Rating gt 4` | Filtered query | The `filter` parameter filters on the supplied conditions. | The query seeks beach hotels with a rating value greater than four. |
@@ -222,7 +220,7 @@ The queries in the following table are designed for searching the hotels-sample 
 | `search=* &facet=Category &$top=2` | Facet query on a string value | The `facet` parameter returns an aggregated count of documents that match the specified field. <br> - The specified field must be marked as **Facetable** in the index. <br> - On an empty or unqualified search, all documents are represented. | The query seeks the aggregated count for the `Category` field and displays the top 2. |
 | `search=spa &facet=Rating`| Facet query on a numeric value | Same description as previous example | The query seeks spa hotels for the `Rating` field data. <br> - The `Rating` field can be specified as a facet because it's marked as **Retrievable**, **Filterable**, and **Facetable** in the index. <br> - The `Rating` field has numeric values (1 through 5) that are suitable for grouping results by each value. |
 | `search=beach &highlight=Description &$select=HotelName, Description, Category, Tags` | Hit highlighting | The `highlight` parameter applies highlighting to matching instances of the specified keyword in the document data. | The query seeks and highlights instances of the keyword `beach` in the `Description` field, and displays the corresponding hotel names, descriptions, category, and tags. |
-| `search=seatle` followed by <br> `search=seatle~ &queryType=full` | Fuzzy search | By default, misspelled query terms like `seatle` for `Seattle` fail to return matches in a typical search. The `queryType=full` parameter invokes the full Lucene query parser, which supports the tilde `~` operand. When these parameters are present, the query performs a fuzzy search for the specified keyword. The query seeks matching results along with results that are similar to but not an exact match to the keyword. | The first query returns no results because the keyword `seatle` is misspelled. <br> - The second query invokes the full Lucene query parser to match instances of the term `seatle~`. |
+| Original: `search=seatle` <br><br> Adjusted: `search=seatle~ &queryType=full` | Fuzzy search | By default, misspelled query terms like `seatle` for `Seattle` fail to return matches in a typical search. The `queryType=full` parameter invokes the full Lucene query parser, which supports the tilde `~` operand. When these parameters are present, the query performs a fuzzy search for the specified keyword. The query seeks matching results along with results that are similar to but not an exact match to the keyword. | The original query returns no results because the keyword `seatle` is misspelled. <br><br> The adjusted query invokes the full Lucene query parser to match instances of the term `seatle~`. |
 | `$filter=geo.distance(Location, geography'POINT(-122.12 47.67)') le 5 &search=* &$select=HotelName, Address/City, Address/StateProvince &$count=true` | Geospatial search | The `$filter=geo.distance` parameter filters all results for positional data based on the specified `Location` and `geography'POINT` coordinates. | The query seeks hotels that are within 5 kilometers of the latitude longitude coordinates `-122.12 47.67`, which is "Redmond, Washington, USA." The query displays the total number of matches `&$count=true` with the hotel names and address locations. |
 
 Take a minute to try a few of these example queries for your index. For more information about queries, see [Querying in Azure Cognitive Search](search-query-overview.md).
