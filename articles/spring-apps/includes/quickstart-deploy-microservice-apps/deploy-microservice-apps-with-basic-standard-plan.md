@@ -17,7 +17,7 @@ For clarity of structure, a separate markdown file is used to describe how to de
 
 Use the following steps to prepare the sample locally.
 
-### [Azure portal](#tab/Azure-portal)
+### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
 
 1. Use the following command to clone the sample GitHub project:
 
@@ -59,7 +59,7 @@ These steps use AZD to initialize the Pet Clinic application from the Azure Deve
    Enter a new environment name: <your-env-name>
    
    SUCCESS: New project initialized!
-   You can view the template code in your directory: <your-local-path>s
+   You can view the template code in your directory: <your-local-path>
    Learn more about running 3rd party code on our DevHub: https://aka.ms/azd-third-party-code-notice
    ```
 
@@ -69,7 +69,7 @@ These steps use AZD to initialize the Pet Clinic application from the Azure Deve
 
 The main resource you need to run this sample is an Azure Spring Apps instance. Use the following steps to create this resource.
 
-### [Azure portal](#tab/Azure-portal)
+### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
 
 ### 3.1. Sign in to the Azure portal
 
@@ -148,7 +148,7 @@ Use the following steps to create the service instance:
    ```output
    SUCCESS: Your application was provisioned in Azure in xx minutes xx seconds.
    You can view the resources created under the resource group rg-<your-environment-name> in Azure Portal:
-   https://portal.azure.com/#@/resource/subscriptions/<your-subscription-id>/resourceGroups/<your-resource-group>/overview
+   https://portal.azure.com/#@/resource/subscriptions/<your-subscription-id>/resourceGroups/rg-<your-environment-name>/overview
    ```
 
    > [!NOTE]
@@ -160,7 +160,7 @@ Use the following steps to create the service instance:
 
 You can now deploy the app to Azure Spring Apps.
 
-### [Azure portal](#tab/Azure-portal)
+### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
 
 Use the following steps to deploy the microservice applications using the [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Spring-Apps):
 

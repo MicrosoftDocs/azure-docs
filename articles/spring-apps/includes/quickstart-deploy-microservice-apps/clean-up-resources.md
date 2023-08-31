@@ -17,7 +17,7 @@ For clarity of structure, a separate markdown file is used to describe how to cl
 
 If you plan to continue working with subsequent quickstarts and tutorials, you might want to leave these resources in place. When you no longer need the resources, you can clean up unnecessary resources to avoid Azure charges.
 
-### [Azure portal](#tab/Azure-portal)
+### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
 
 You can delete the Azure resource group, which includes all the resources in the resource group. Use the following steps to delete the entire resource group, including the newly created service:
 

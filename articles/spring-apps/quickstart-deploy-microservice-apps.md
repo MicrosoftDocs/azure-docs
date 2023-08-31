@@ -38,12 +38,12 @@ The diagram shows the following architectural flows and relationships of the Pet
 
 This article provides the following options for deploying to Azure Spring Apps:
 
-- Azure portal - This is a more conventional way to create resources and deploy applications step by step. This approach is suitable for Spring developers who are using Azure cloud services for the first time.
-- Azure Developer CLI: This is a more efficient way to automatically create resources and deploy applications through simple commands, and it covers application code and infrastructure as code files needed to provision the Azure resources. This approach is suitable for Spring developers who are familiar with Azure cloud services.
+- The Azure portal and Maven plugin are a more conventional way to create resources and deploy applications step by step. It's suitable for Spring developers who are using Azure cloud services for the first time.
+- The Azure Developer CLI is a more efficient way to automatically create resources and deploy applications through simple commands. It covers application code and infrastructure as code files needed to provision the Azure resources. It's suitable for Spring developers who are familiar with Azure cloud services.
 
 ## 1. Prerequisites
 
-### [Azure portal](#tab/Azure-portal)
+### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
 
 - An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 - [Git](https://git-scm.com/downloads).
@@ -54,7 +54,7 @@ This article provides the following options for deploying to Azure Spring Apps:
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - [Git](https://git-scm.com/downloads).
 - [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
-- [Azure Developer CLI](https://aka.ms/azd-install), version 1.0.2 or higher.
+- [Azure Developer CLI](https://aka.ms/azd-install), version 1.2.0 or higher.
 
 ---
 
