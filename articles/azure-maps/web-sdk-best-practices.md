@@ -30,7 +30,7 @@ If self-hosting the Azure Maps Web SDK via the npm module, be sure to use the ca
 
 ```json
 "dependencies": {
-  "azure-maps-control": "^2.2.6"
+  "azure-maps-control": "^3.0.0"
 }
 ```
 

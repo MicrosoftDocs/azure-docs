@@ -17,12 +17,12 @@ With the explosion of social media, electronic commerce, and the hyper-personali
 
 Standard content delivery network (CDN) capability includes the ability to cache files closer to end users to speed up delivery of static files. However, with dynamic web applications, caching that content in edge locations isn't possible because the server generates the content in response to user behavior. Speeding up the delivery of such content is more complex than traditional edge caching and requires an end-to-end solution that finely tunes each element along the entire data path from inception to delivery. With Azure CDN dynamic site acceleration (DSA) optimization, the performance of web pages with dynamic content is measurably improved.
 
-**Azure CDN from Akamai** and **Azure CDN from Verizon** both offer DSA optimization through the **Optimized for** menu during endpoint creation. Dynamic site acceleration from Microsoft is offered via [Azure Front Door Service](../frontdoor/front-door-overview.md).
+**Azure CDN from Akamai** and **Azure CDN from Edgio** both offer DSA optimization through the **Optimized for** menu during endpoint creation. Dynamic site acceleration from Microsoft is offered via [Azure Front Door Service](../frontdoor/front-door-overview.md).
 
 > [!Important]
 > For **Azure CDN from Akamai** profiles, you are allowed to change the optimization of a CDN endpoint after it has been created.
 >   
-> For **Azure CDN from Verizon** profiles, you cannot change the optimization of a CDN endpoint after it has been created.
+> For **Azure CDN from Edgio** profiles, you cannot change the optimization of a CDN endpoint after it has been created.
 
 ## CDN endpoint configuration to accelerate delivery of dynamic files
 
@@ -82,7 +82,7 @@ Route optimization chooses the most optimal path to the origin so that a site is
 
 The Akamai network uses techniques to collect real-time data and compare various paths through different nodes in the Akamai server, as well as the default BGP route across the open Internet to determine the fastest route between the origin and the CDN edge. These techniques avoid Internet congestion points and long routes. 
 
-Similarly, the Verizon network uses a combination of Anycast DNS, high capacity support PoPs, and health checks, to determine the best gateways to best route data from the client to the origin.
+Similarly, the Edgio network uses a combination of Anycast DNS, high capacity support PoPs, and health checks, to determine the best gateways to best route data from the client to the origin.
  
 As a result, fully dynamic and transactional content is delivered more quickly and more reliably to end users, even when it's uncacheable. 
 
@@ -98,7 +98,7 @@ Transmission Control Protocol (TCP) is the standard of the Internet protocol sui
 
 TCP *slow start* is an algorithm of the TCP protocol that prevents network congestion by limiting the amount of data sent over the network. It starts off with small congestion window sizes between sender and receiver until the maximum is reached or packet loss is detected.
 
- Both **Azure CDN from Akamai** and **Azure CDN from Verizon** profiles eliminate TCP slow start with the following three steps:
+ Both **Azure CDN from Akamai** and **Azure CDN from Edgio** profiles eliminate TCP slow start with the following three steps:
 
 1. Health and bandwidth monitoring is used to measure the bandwidth of connections between edge PoP servers.
     
@@ -112,7 +112,7 @@ When you're using a CDN, fewer unique machines connect to your origin server dir
 
 As previously mentioned, several handshake requests are required to establish a TCP connection. Persistent connections, which get implemented by the `Keep-Alive` HTTP header, reuse existing TCP connections for multiple HTTP requests to save round-trip times and speed up delivery. 
 
-**Azure CDN from Verizon** also sends periodic keep-alive packets over the TCP connection to prevent an open connection from being closed.
+**Azure CDN from Edgio** also sends periodic keep-alive packets over the TCP connection to prevent an open connection from being closed.
 
 #### Tuning TCP packet parameters
 
@@ -146,7 +146,7 @@ With DSA, caching is turned off by default on the CDN, even when the origin incl
 
 If you have a website with a mix of static and dynamic assets, it's best to take a hybrid approach to get the best performance. 
 
-For **Azure CDN Standard from Verizon** and **Azure CDN Standard from Akamai** profiles, you can turn on caching for specific DSA endpoints by using [caching rules](cdn-caching-rules.md).
+For **Azure CDN Standard from Edgio** and **Azure CDN Standard from Akamai** profiles, you can turn on caching for specific DSA endpoints by using [caching rules](cdn-caching-rules.md).
 
 To access caching rules:
 
@@ -158,7 +158,7 @@ To access caching rules:
 
 2. Create a global or custom caching rule to turn on caching for your DSA endpoint. 
 
-For **Azure CDN Premium from Verizon** profiles only, you turn on caching for specific DSA endpoints by using the [rules engine](./cdn-verizon-premium-rules-engine.md). Any rules that are created affect only those endpoints of your profile that are optimized for DSA. 
+For **Azure CDN Premium from Edgio** profiles only, you turn on caching for specific DSA endpoints by using the [rules engine](./cdn-verizon-premium-rules-engine.md). Any rules that are created affect only those endpoints of your profile that are optimized for DSA. 
 
 To access the rules engine:
     

@@ -24,7 +24,7 @@ The IP firewall rules are applied at the Service Bus namespace level. Therefore,
     - Azure Functions
 
 > [!NOTE]
-> You see the **Networking** tab only for **premium** namespaces. To set IP firewall rules for the other tiers,  use [Azure Resource Manager templates](#use-resource-manager-template).
+> You see the **Networking** tab only for **premium** namespaces. To set IP firewall rules for the other tiers,  use [Azure Resource Manager templates](#use-resource-manager-template), [Azure CLI](#use-azure-cli), [PowerShell](#use-azure-powershell) or [REST API](#rest-api).
 
 ## Use Azure portal
 
@@ -150,7 +150,7 @@ Use the following Azure PowerShell commands to add, list, remove, update, and de
 - [`New-AzServiceBusIPRuleConfig`](/powershell/module/az.servicebus/new-azservicebusipruleconfig) and [`Set-AzServiceBusNetworkRuleSet`](/powershell/module/az.servicebus/set-azservicebusnetworkruleset) together to add an IP firewall rule
 - [`Remove-AzServiceBusIPRule`](/powershell/module/az.servicebus/remove-azservicebusiprule) to remove an IP firewall rule.
 
-## default action and public network access 
+## Default action and public network access 
 
 ### REST API
 
@@ -160,7 +160,7 @@ From API version **2021-06-01-preview onwards**, the default value of the `defau
 
 The API version **2021-06-01-preview onwards** also introduces a new property named `publicNetworkAccess`. If it's set to `Disabled`, operations are restricted to private links only. If it's set to `Enabled`, operations are allowed over the public internet. 
 
-For more information about these properties, see [Create or Update Network Rule Set](/rest/api/servicebus/preview/namespaces-network-rule-set/create-or-update-network-rule-set) and [Create or Update Private Endpoint Connections](/rest/api/servicebus/preview/private-endpoint-connections/create-or-update).
+For more information about these properties, see [Create or Update Network Rule Set](/rest/api/servicebus/controlplane-preview/namespaces-network-rule-set/create-or-update-network-rule-set) and [Create or Update Private Endpoint Connections](/rest/api/servicebus/controlplane-preview/private-endpoint-connections/create-or-update).
 
 > [!NOTE]
 > None of the above settings bypass validation of claims via SAS or Azure AD authentication. The authentication check always runs after the service validates the network checks that are configured by `defaultAction`, `publicNetworkAccess`, `privateEndpointConnections` settings.
