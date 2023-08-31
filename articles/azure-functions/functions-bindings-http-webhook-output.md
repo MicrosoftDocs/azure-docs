@@ -42,6 +42,8 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 
 ::: zone-end 
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
+[!INCLUDE [functions-nodejs-model-tabs-description](../../includes/functions-nodejs-model-tabs-description.md)]
+
 ## Configuration
 
 # [Model v4](#tab/nodejs-v4)

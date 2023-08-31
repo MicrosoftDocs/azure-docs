@@ -18,6 +18,9 @@ Use the Event Hubs output binding to write events to an event stream. You must h
 
 Make sure the required package references are in place before you try to implement an output binding.
 
+::: zone pivot="programming-language-javascript,programming-language-typescript"
+[!INCLUDE [functions-nodejs-model-tabs-description](../../includes/functions-nodejs-model-tabs-description.md)]
+::: zone-end
 ::: zone pivot="programming-language-python"
 Azure Functions supports two programming models for Python. The way that you define your bindings depends on your chosen programming model.
 
