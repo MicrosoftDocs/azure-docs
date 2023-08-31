@@ -1,10 +1,10 @@
 ---
 title: Tutorial - Get started with Azure API Center (preview) | Microsoft Docs
-description: Set up your API center for API discovery, reuse, and governance. Register APIs, add versions and definitions, set metadata properties, and more.
+description: In this tutorial, set up an API center for API discovery, reuse, and governance. Register APIs, add versions and definitions, set metadata properties, and more.
 author: dlepow
 ms.service: api-center
 ms.topic: tutorial
-ms.date: 08/30/2023
+ms.date: 08/31/2023
 ms.author: danlep
 ms.custom: 
 ---
@@ -102,16 +102,18 @@ Here you define two example properties: *Line of business* and *Public-facing*; 
 
 1. On the **Assignments** tab, select **Required** for APIs. Select **Not applicable** for Deployments and Environments. 
 
+1. On the **Review + Create** tab, review the settings and select **Create**. 
+
     The property is added to the list.
 
 1. Select **View schema > API** to see the metadata schema for APIs, which includes built-in properties and the properties that you added.
 
-    :::image type="content" source="media/set-up-api-center/metadata-schema.png" alt-text="Screenshot of metadata schema in the portal.":::
+    :::image type="content" source="media/set-up-api-center/metadata-schema.png" alt-text="Screenshot of metadata schema in the portal." lightbox="media/set-up-api-center/metadata-schema.png":::
 
 > [!NOTE]
 > * Add properties in the schema at any time and apply them to APIs and other entities in your API center. 
-> * After adding a property, you can change its assignment to an entity, for example from required to optional.
-> * You can't delete, change the type, or unassign properties that are currently set in entities. 
+> * After adding a property, you can change its assignment to an entity, for example from required to optional for APIs.
+> * You can't delete, unassign, or change the type of properties that are currently set in entities. Remove them from the entities first, and then you can delete or change them.
 
 ## Add APIs
 
@@ -145,6 +147,8 @@ The following steps register two sample APIs: Swagger Petstore API and Demo Conf
     | **Line of business** | If you added this custom property, make a selection from the dropdown, such as **Marketing**. | Custom metadata property that identifies the business unit that owns the API. |
     | **Public-facing**  | If you added this custom property, select the checkbox.    |  Custom metadata property that identifies whether the API is public-facing or internal only.     |
 
+    :::image type="content" source="media/set-up-api-center/register-api.png" alt-text="Screenshot of registering an API in the portal.":::
+
 1. Select **Create**.
 1. Repeat the preceding three steps to register another API, such as the Demo Conference API.
 
@@ -168,7 +172,6 @@ Here you add a version to one of your APIs:
 
 1. On the Demo Conference API page, select **Versions** > **+ Add version**.
 
-    <!-- Update screenshot -->
     :::image type="content" source="media/set-up-api-center/add-version.png" alt-text="Screenshot of adding an API version in the portal.":::
 
 1. In the **Add API version** page: 
@@ -197,6 +200,9 @@ Here you add a version to one of your APIs:
         | **Version** | Enter a version identifier of your choice, such as *2.0*. | Specification version. |
         |**Document**        | Browse to a definition file for the Demo Conference API.      |  API definition file.     |
 
+        :::image type="content" source="media/set-up-api-center/add-definition.png" alt-text="Screenshot of adding an API definition in the portal." lightbox="media/set-up-api-center/add-definition.png":::
+
+
     1. Select **Create**.
 
 ## Add an environment
@@ -215,7 +221,7 @@ Here you add information about a fictitious Azure API Management environment to 
     |-------|-----|-----------|
     |**Title**| Enter *My Testing*.| Name you choose for the environment.  |
     |**Identification**|After you enter the preceding title, API Center generates this identifier, which you can override.| Azure resource name for the environment.|
-    |**Environment type**| Optionally select **Testing** from the dropdown.| Type of environment for APIs.|
+    |**Environment type**| Select **Testing** from the dropdown.| Type of environment for APIs.|
     | **Description** | Optionally enter a description. | Description of the environment. |
     | **Server** | | |
     |**Type**| Optionally select **Azure API Management** from the dropdown.|Type of API management solution used.|
@@ -225,6 +231,9 @@ Here you add information about a fictitious Azure API Management environment to 
     | **Instructions** | Optionally select **Edit** and enter onboarding instructions in standard Markdown. | Instructions to onboard to APIs from the environment. |
     | **Line of business** | If you added this custom property, optionally make a selection from the dropdown, such as **IT**. | Custom metadata property that identifies the business unit that manages APIs in the environment. |
 
+    :::image type="content" source="media/set-up-api-center/create-environment.png" alt-text="Screenshot of adding an API environment in the portal." :::
+
+1. Select **Create**.
 
 ## Add a deployment
 
@@ -246,8 +255,13 @@ Here you add a deployment by associating one of your APIs with the environment y
     |**Identification**|After you enter the preceding title, API Center generates this identifier, which you can override.| Azure resource name for the deployment.|
     | **Description** | Optionally enter a description. | Description of the deployment. |
     | **Environment** | Make a selection from the dropdown, such as *My Testing*, or optionally select **Create new**.| New or existing environment where the API version is deployed. |
-    | **Runtime URL** | Enter a base URL such as `https://api.contoso.com/conference`. | Base runtime URL for the API in the environment.  |
     | **Definition file** | Select or upload an API definition file for the Demo Conference API. | API definition file. |
+    | **Runtime URL** | Enter a base URL such as `https://api.contoso.com/conference`. | Base runtime URL for the API in the environment.  |
+    | **Line of business** | If you added this custom property, optionally make a selection from the dropdown, such as **IT**. | Custom metadata property that identifies the business unit that manages APIs in the environment. |
+
+    :::image type="content" source="media/set-up-api-center/add-deployment.png" alt-text="Screenshot of adding an API deployment in the portal." :::
+
+1. Select **Create**
 
 In this tutorial, you learned how to use the portal to:
 > [!div class="checklist"]
