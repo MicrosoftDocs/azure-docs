@@ -86,6 +86,40 @@ To create sample snapshots and check how the snapshots feature work, use the sna
 1. Select **Create** to generate the sample snapshot.
 1. Check out the snapshot result generated under **Generated sample snapshot**. The sample snapshot displays all keys that are included in the sample snapshot, according to your selection.
 
+## Use snapshots
+
+You can select any number of snapshots for the application's configuration. Selecting a snapshot adds all of its key-values. Once added to a configuration, the key-values from snapshots are treated the same as any other key-value.
+
+If you have an application using Azure App Configuration, you can update it with the following sample code to use snapshots. You only need to provide the name of the snapshot, which is case-sensitive.
+
+### [.NET](#tab/dotnet)
+
+Edit the call to the `AddAzureAppConfiguration` method, which is often found in the `program.cs` file of your application. If you don't have an application, you can reference any of the .NET quickstart guides, like [creating an ASP.NET core app with Azure App Configuration](./quickstart-aspnet-core-app.md).
+
+**Add snapshots to your configuration**
+
+```csharp
+configurationBuilder.AddAzureAppConfiguration(options =>
+{
+    options.Connect(Environment.GetEnvironmentVariable("ConnectionString"));
+
+    // Select an existing snapshot by name. This will add all of the key-values from the snapshot to this application's configuration.
+    options.SelectSnapshot("SnapshotName1");
+
+    // You can use any combination of Select and SelectSnapshot.
+    options.Select("*");
+    options.SelectSnapshot("SnapshotName2");
+    
+    // Other changes to options
+});
+```
+
+> [!NOTE]
+> Snapshot support is available if you use version **7.0.0-preview** or later of any of the following packages.
+> - `Microsoft.Extensions.Configuration.AzureAppConfiguration`
+> - `Microsoft.Azure.AppConfiguration.AspNetCore`
+> - `Microsoft.Azure.AppConfiguration.Functions.Worker`
+
 ## Manage active snapshots
 
 The page under **Operations** > **Snapshots (preview)** displays two tabs: **Active snapshots** and **Archived snapshots**. Select **Active snapshots** to view the list of all active snapshots in an App Configuration store.
@@ -121,34 +155,6 @@ Detailed view of snapshot is available in the archive state as well. In the **Ar
 In the **Archived snapshots** tab, select the ellipsis **...** on the right of an archived snapshot and select **Recover** to recover a snapshot. Confirm App Configuration snapshot recovery by selecting **Yes** or cancel with **No**. Once a snapshot has been recovered, a notification appears to confirm the operation and the list of archived snapshots is updated.
 
    :::image type="content" source="./media/howto-create-snapshots/recover-snapshots.png" alt-text="Screenshot of the recover option in the archived snapshots.":::
-
-## Use snapshots
-
-You can select any number of snapshots for a configuration. Selecting a snapshot adds each of its individual key-values. Once added to a configuration, the key-values from snapshots are treated the same as any other key-value.
-
-If you have an application using Azure App Configuration, you can update it with the following sample code to use snapshots. You only need to provide the name of the snapshot. If you don't have an application, you can reference any of the quickstart guides, like [creating an ASP.NET core app with Azure App Configuration](./quickstart-aspnet-core-app.md).
-
-### [.NET](#tab/dotnet)
-
-Edit the call to the `AddAzureAppConfiguration` method, which is often found in the `program.cs` file of your application.
-
-**Add snapshots to your configuration**
-
-```csharp
-configurationBuilder.AddAzureAppConfiguration(options =>
-{
-    // Select an existing snapshot by name and add its key-values to your configuration
-    options.SelectSnapshot("SnapshotName");
-
-    // Other changes to options
-});
-```
-
-> [!NOTE]
-> Snapshot support is available if you use version **7.0.0-preview** or later of any of the following packages.
-> - `Microsoft.Extensions.Configuration.AzureAppConfiguration`
-> - `Microsoft.Azure.AppConfiguration.AspNetCore`
-> - `Microsoft.Azure.AppConfiguration.Functions.Worker`
 
 ## Next steps
 
