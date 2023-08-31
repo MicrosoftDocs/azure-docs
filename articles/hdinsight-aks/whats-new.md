@@ -2,7 +2,7 @@
 title: What's new in HDInsight on AKS?
 description: An introduction to new concepts in HDInsight on AKS that aren't in HDInsight.
 ms.service: hdinsight-aks
-ms.topic: concept
+ms.topic: conceptual
 ms.date: 08/31/2023
 ---
 
