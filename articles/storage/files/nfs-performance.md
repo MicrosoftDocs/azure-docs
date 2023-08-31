@@ -1,16 +1,15 @@
 ---
-title: Improve NFS Azure file share performance with nconnect
-description: Learn how using nconnect with Linux clients can improve the performance of NFS Azure file shares at scale.
+title: Improve NFS Azure file share performance
+description: Learn how to improve the performance of NFS Azure file shares at scale using the nconnect mount option for Linux clients.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 03/20/2023
+ms.date: 08/31/2023
 ms.author: kendownie
 ---
 
-# Improve NFS Azure file share performance with `nconnect`
-
-`Nconnect` is a client-side Linux mount option that increases performance at scale by allowing you to use more TCP connections between the client and the Azure Premium Files service for NFSv4.1, while maintaining the resiliency of platform as a service (PaaS).
+# Improve NFS Azure file share performance
+This article explains how you can improve performance for NFS Azure file shares.
 
 ## Applies to
 | File share type | SMB | NFS |
@@ -18,6 +17,10 @@ ms.author: kendownie
 | Standard file shares (GPv2), LRS/ZRS | ![No, this article doesn't apply to standard SMB Azure file shares LRS/ZRS.](../media/icons/no-icon.png) | ![NFS shares are only available in premium Azure file shares.](../media/icons/no-icon.png) |
 | Standard file shares (GPv2), GRS/GZRS | ![No, this article doesn't apply to standard SMB Azure file shares GRS/GZRS.](../media/icons/no-icon.png) | ![NFS is only available in premium Azure file shares.](../media/icons/no-icon.png) |
 | Premium file shares (FileStorage), LRS/ZRS | ![No, this article doesn't apply to premium SMB Azure file shares.](../media/icons/no-icon.png) | ![Yes, this article applies to premium NFS Azure file shares.](../media/icons/yes-icon.png) |
+
+## `Nconnect`
+
+`Nconnect` is a client-side Linux mount option that increases performance at scale by allowing you to use more TCP connections between the client and the Azure Premium Files service for NFSv4.1, while maintaining the resiliency of platform as a service (PaaS).
 
 ## Benefits of `nconnect`
 
@@ -30,7 +33,6 @@ With `nconnect`, you can increase performance at scale using fewer client machin
 | Throughput (write)     | 64K, 1024K    | 3x                          |
 | Throughput (read)      | All I/O sizes | 2-4x                        |
 
-
 ## Prerequisites
 
 - The latest Linux distributions fully support `nconnect`. For older Linux distributions, ensure that the Linux kernel version is 5.3 or higher.
@@ -40,9 +42,9 @@ With `nconnect`, you can increase performance at scale using fewer client machin
 
 We achieved the following performance results when using the `nconnect` mount option with NFS Azure file shares on Linux clients at scale. For more information on how we achieved these results, see [performance test configuration](#performance-test-configuration).
 
-:::image type="content" source="media/nfs-nconnect-performance/nconnect-iops-improvement.png" alt-text="Screenshot showing average improvement in IOPS when using nconnect with NFS Azure file shares." border="false":::
+:::image type="content" source="media/nfs-performance/nconnect-iops-improvement.png" alt-text="Screenshot showing average improvement in IOPS when using nconnect with NFS Azure file shares." border="false":::
 
-:::image type="content" source="media/nfs-nconnect-performance/nconnect-throughput-improvement.png" alt-text="Screenshot showing average improvement in throughput when using nconnect with NFS Azure file shares." border="false":::
+:::image type="content" source="media/nfs-performance/nconnect-throughput-improvement.png" alt-text="Screenshot showing average improvement in throughput when using nconnect with NFS Azure file shares." border="false":::
 
 ## Recommendations
 
@@ -168,7 +170,7 @@ When using the `nconnect` mount option, you should closely evaluate workloads th
 
 Not all workloads require high-scale IOPS or throughout performance. For smaller scale workloads, `nconnect` might not make sense. Use the following table to decide whether `nconnect` will be advantageous for your workload. Scenarios highlighted in green are recommended, while those highlighted in red are not. Those highlighted in yellow are neutral.
 
-:::image type="content" source="media/nfs-nconnect-performance/nconnect-latency-comparison.png" alt-text="Screenshot showing various read and write I O scenarios with corresponding latency to indicate when nconnect is advisable." border="false":::
+:::image type="content" source="media/nfs-performance/nconnect-latency-comparison.png" alt-text="Screenshot showing various read and write I O scenarios with corresponding latency to indicate when nconnect is advisable." border="false":::
 
 ## See also
 - For mounting instructions, see [Mount NFS file Share to Linux](storage-files-how-to-mount-nfs-shares.md).
