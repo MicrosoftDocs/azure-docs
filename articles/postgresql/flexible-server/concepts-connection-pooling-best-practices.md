@@ -5,7 +5,7 @@ ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
 ms.author: ramyerrabotu
-author: AwdotiaRomanowna
+author: rayi
 ms.date: 08/30/2023
 ---
 
@@ -194,6 +194,7 @@ _We have discussed different ways of implementing PgBouncer and the table below 
 |Containerized Apps|:::image type="icon" source="./media/concepts-connection-pooling-best-practices/yellow.png":::|:::image type="icon" source="./media/concepts-connection-pooling-best-practices/yellow.png":::|:::image type="icon" source="./media/concepts-connection-pooling-best-practices/green.png":::|:::image type="icon" source="./media/concepts-connection-pooling-best-practices/green.png":::|:::image type="icon" source="./media/concepts-connection-pooling-best-practices/green.png":::|
 |Reduced Network Overhead & Latency|:::image type="icon" source="./media/concepts-connection-pooling-best-practices/green.png":::|:::image type="icon" source="./media/concepts-connection-pooling-best-practices/yellow.png":::|:::image type="icon" source="./media/concepts-connection-pooling-best-practices/green.png":::|:::image type="icon" source="./media/concepts-connection-pooling-best-practices/yellow.png":::|:::image type="icon" source="./media/concepts-connection-pooling-best-practices/yellow.png":::|
 |Fine grain control on monitoring and debugging|:::image type="icon" source="./media/concepts-connection-pooling-best-practices/green.png":::|:::image type="icon" source="./media/concepts-connection-pooling-best-practices/green.png":::|:::image type="icon" source="./media/concepts-connection-pooling-best-practices/red.png":::|:::image type="icon" source="./media/concepts-connection-pooling-best-practices/red.png":::|:::image type="icon" source="./media/concepts-connection-pooling-best-practices/green.png":::|
+
 
 
 :::image type="icon" source="./media/concepts-connection-pooling-best-practices/black.png"::: **Legend**
