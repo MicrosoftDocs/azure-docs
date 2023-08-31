@@ -484,4 +484,6 @@ await callObj2.muteIncomingAudio();
 await callObj2.mute();
 ```
 Limitations:
+- This must be done with two different call agents with different identities, hence the code snippet shows two call agents being used.
+- Sending two cameras with one CallAgent is currently not supported.
 - OnMac Safari, background blur video effects (from @azure/communication-effects), can only be applied to one camera
