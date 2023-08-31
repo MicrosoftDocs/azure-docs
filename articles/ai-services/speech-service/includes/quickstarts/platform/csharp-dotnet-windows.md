@@ -42,7 +42,7 @@ You need to install the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget
 
    If the check box next to **.NET desktop development** is already selected, select **Close** to close the dialog.
 
-   ![Screenshot that shows enabling .NET desktop development.](~/articles/ai-services/speech-service/media/sdk/vs-enable-net-desktop-workload.png)
+   :::image type="content" source="~/articles/ai-services/speech-service/media/sdk/vs-enable-net-desktop-workload.png" alt-text="Screenshot that shows enabling .NET desktop development." lightbox="~/articles/ai-services/speech-service/media/sdk/vs-enable-net-desktop-workload.png":::
 
 1. Close Visual Studio Installer.
 
@@ -52,7 +52,7 @@ You need to install the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget
 
 1. In the upper-right corner, find the **Package Source** drop-down box, and make sure that **nuget.org** is selected.
 
-   ![Screenshot that shows NuGet Package Manager.](~/articles/ai-services/speech-service/media/sdk/vs-nuget-package-manager.png)
+   :::image type="content" source="~/articles/ai-services/speech-service/media/sdk/vs-nuget-package-manager.png" alt-text="Screenshot that shows NuGet Package Manager." lightbox="~/articles/ai-services/speech-service/media/sdk/vs-nuget-package-manager.png":::
 
 1. In the upper-left corner, select **Browse**.
 
@@ -60,7 +60,7 @@ You need to install the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget
 
 1. From the search results, select the **Microsoft.CognitiveServices.Speech** package, and then select **Install** to install the latest stable version.
 
-   ![Screenshot that shows installing the Microsoft.CognitiveServices.Speech NuGet package.](~/articles/ai-services/speech-service/media/sdk/qs-csharp-dotnet-windows-03-nuget-install-1.0.0.png)
+   :::image type="content" source="~/articles/ai-services/speech-service/media/sdk/qs-csharp-dotnet-windows-03-nuget-install-1.0.0.png" alt-text="Screenshot that shows installing the Microsoft.CognitiveServices.Speech NuGet package." lightbox="~/articles/ai-services/speech-service/media/sdk/qs-csharp-dotnet-windows-03-nuget-install-1.0.0.png":::
 
 1. Accept all agreements and licenses to start the installation.
 
@@ -74,7 +74,7 @@ To build and run the console application, create a platform configuration that m
 
 1. In the **Active solution platform** drop-down box, select **New**. The **New Solution Platform** dialog appears.
 
-   ![Screenshot that shows the Configuration Manager dialog.](~/articles/ai-services/speech-service/media/sdk/vs-configuration-manager-dialog-box.png)
+   :::image type="content" source="~/articles/ai-services/speech-service/media/sdk/vs-configuration-manager-dialog-box.png" alt-text="Screenshot that shows the Configuration Manager dialog." lightbox="~/articles/ai-services/speech-service/media/sdk/vs-configuration-manager-dialog-box.png":::
 
 1. In the **Type or select the new platform** drop-down box:
    - If you're running 64-bit Windows, select **x64**.

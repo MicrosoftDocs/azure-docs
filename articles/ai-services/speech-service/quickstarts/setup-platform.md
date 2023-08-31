@@ -1,7 +1,7 @@
 ---
 title: Install the Speech SDK
 titleSuffix: Azure AI services
-description: In this quickstart, you'll learn how to install the Speech SDK for your preferred programming language.
+description: In this quickstart, you learn how to install the Speech SDK for your preferred programming language.
 services: cognitive-services
 author: eric-urban
 manager: nitinme

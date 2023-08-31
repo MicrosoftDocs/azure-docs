@@ -39,7 +39,7 @@ Install-Package Microsoft.CognitiveServices.Speech
 
 ---
 
-You can follow a guide below for additional options.
+You can follow these guides for more options.
 
 **Choose your target environment**
 

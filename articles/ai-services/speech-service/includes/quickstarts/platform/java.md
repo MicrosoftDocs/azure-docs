@@ -20,7 +20,7 @@ This guide shows how to install the [Speech SDK](~/articles/ai-services/speech-s
 
 # [Android](#tab/android)
 
-The Speech SDK is compatible with Android devices that have 32/64-bit ARM and Intel x86/x64 compatible processors.
+The Speech SDK is compatible with Android devices that have 32/64-bit ARM processor and Intel x86/x64 compatible processors.
 
 ---
 

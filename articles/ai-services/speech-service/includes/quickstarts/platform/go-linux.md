@@ -20,7 +20,7 @@ You must install the [Go binary version 1.13 or later](https://go.dev/dl/).
 
 ### Configure the Go environment
 
-The following steps enable your Go environment to find the Speech SDK. In both steps, replace `<architecture>` with the processor architecture of your CPU. This will be `x86`, `x64`, `arm32`, or `arm64`.
+The following steps enable your Go environment to find the Speech SDK. In both steps, replace `<architecture>` with the processor architecture of your CPU: `x86`, `x64`, `arm32`, or `arm64`.
 
 1. Because the bindings rely on `cgo`, you need to set the environment variables so Go can find the SDK. 
 

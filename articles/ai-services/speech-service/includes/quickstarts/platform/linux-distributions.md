@@ -32,7 +32,7 @@ export SSL_CERT_DIR=/etc/ssl/certs
 Notes on installation:
 - Check https://www.openssl.org/source/ for the latest OpenSSL 1.x version to use.
 - The setting of `SSL_CERT_DIR` must be in effect systemwide or at least in the console where applications that use the Speech SDK are launched from, otherwise OpenSSL 1.x installed in `/usr/local` may not find certificates.
-- Ensure that the console output from `ldconfig -v` includes `/usr/local/lib` as it should on modern systems by default. If this isn't the case, set `LD_LIBRARY_PATH` (with the same scope as `SSL_CERT_DIR`) to add `/usr/local/lib` to the library path:
+- Ensure that the console output from `ldconfig -v` includes `/usr/local/lib` as it should on modern systems by default. If it doesn't, set `LD_LIBRARY_PATH` (with the same scope as `SSL_CERT_DIR`) to add `/usr/local/lib` to the library path:
   ```Bash
   export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
   ```

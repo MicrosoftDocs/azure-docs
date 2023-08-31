@@ -39,7 +39,7 @@ Create a new project in Android Studio and add the Speech SDK for Java as a libr
 1. Select **API 23: Android 6.0 (Marshmallow)** in the **Minimum API level** selection box. 
 1. Select **Finish**.
 
-Android Studio takes some moments to prepare your new project. If this is your first time using Android Studio, it may take a few minutes to set preferences, accept licenses, and complete the wizard. 
+Android Studio takes some moments to prepare your new project. For your first time using Android Studio, it may take a few minutes to set preferences, accept licenses, and complete the wizard. 
 
 #### Install the Speech SDK for Java on Android
 

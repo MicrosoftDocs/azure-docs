@@ -16,7 +16,7 @@ This guide shows how to install the [Speech SDK](~/articles/ai-services/speech-s
 
 1. Choose a directory to which the Speech SDK files should be extracted, and set the `SPEECHSDK_ROOT` environment variable to point to that directory. This variable makes it easy to refer to the directory in future commands. 
 
-   For example, if you want to use the directory `speechsdk` in your home directory, use a command like the following:
+   For example, if you want to use the directory `speechsdk` in your home directory, use a command like the following example:
 
    ```sh
    export SPEECHSDK_ROOT="$HOME/speechsdk"

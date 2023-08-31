@@ -37,7 +37,7 @@ To install the Speech SDK for Unity, follow these steps:
 
 1. Ensure that all files are selected, and then select **Import**. After a few moments, the Unity asset package is imported into your project.
 
-   [![Screenshot of the Import Unity Package dialog in the Unity Editor.](~/articles/ai-services/speech-service/media/sdk/qs-csharp-unity-01-import.png)](~/articles/ai-services/speech-service/media/sdk/qs-csharp-unity-01-import.png#lightbox)
+   :::image type="content" source="~/articles/ai-services/speech-service/media/sdk/qs-csharp-unity-01-import.png" alt-text="Screenshot of the Import Unity Package dialog in the Unity Editor." lightbox="~/articles/ai-services/speech-service/media/sdk/qs-csharp-unity-01-import.png":::
 
 For more information about importing asset packages into Unity, see the [Unity documentation](https://docs.unity3d.com/Manual/AssetPackages.html).
 
