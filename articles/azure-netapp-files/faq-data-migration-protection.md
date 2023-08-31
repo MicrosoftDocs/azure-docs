@@ -6,7 +6,7 @@ ms.workload: storage
 ms.topic: conceptual
 author: b-hchen
 ms.author: anfdocs
-ms.date: 12/16/2022
+ms.date: 08/31/2023
 ---
 # Data migration and protection FAQs for Azure NetApp Files
 
@@ -27,7 +27,9 @@ The requirements for data migration from on premises to Azure NetApp Files are a
 - Transfer the source data to the target volume by using your preferred file copy tool.
 
 >[!NOTE]
->[AzCopy](../storage/common/storage-use-azcopy-v10.md) can only be used in migration scenarios where the source or target is a storage account. Azure NetApp Files is not a storage account.
+>[AzCopy](../storage/common/storage-use-azcopy-v10.md) can only be used in migration scenarios where the source *or* target is a storage account, which Azure NetApp Files is not. Azure NetApp Files can be the source OR target in an AzCopy operation, but not both.
+
+For information about the Azure File Migration Program, see [Azure Storage migration tools comparison - Unstructured data](azure/storage/solution-integration/validated-partners/data-management/migration-tools-comparison). 
 
 ## Where does Azure NetApp Files store customer data?   
 
