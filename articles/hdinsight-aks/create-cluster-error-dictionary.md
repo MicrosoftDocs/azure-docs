@@ -3,7 +3,7 @@ title: Create a cluster - error dictionary in Azure HDInsight on AKS
 description: Learn how to troubleshoot errors that occur when creating Azure HDInsight on AKS clusters
 ms.service: hdinsight-aks
 ms.topic: troubleshooting
-ms.date: 08/29/2023
+ms.date: 08/31/2023
 ---
 
 # Cluster creation errors on Azure HDInsight on AKS
@@ -12,7 +12,7 @@ This article describes resolutions to troubleshoot errors, that you might come a
 
 
 |Sr No|Error message|Cause|Resolution|
-|-|-|-|-|
+|----|-----|-----|-----|
 |1|InternalServerError  UnrecognizableError|This could be due to incorrect template used. Currently, database connectors are allowed only through ARM template. Hence the validation of configuration isn't possible on template.| |
 |2|InvalidClusterSpec - ServiceDependencyFailure - Invalid configuration|Max memory per node error.|Refer the Max memory configurations [Property value types](https://trino.io/docs/current/admin/properties-resource-management.html#query-max-memory-per-node).|
 |3|WaitingClusterResourcesReadyTimeOut - Metastoreservice unready|This could be due to the container name may only contain lowercase letters, numbers, and hyphens.  Container name must begin with a letter or a number.|Each hyphen must be preceded by and follow by a nonhyphen character. The name must also be between 3 and 63 characters long.|
