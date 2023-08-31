@@ -1,12 +1,13 @@
 ---
 title: Ransomware protection in Azure
 description: Ransomware protection in Azure
-author: msmbaldwin
+author: TerryLanfear
+manager: rkarlin
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.author: mbaldwin
-ms.date: 01/10/2022
+ms.author: terrylan
+ms.date: 8/31/2023
 
 ---
 
