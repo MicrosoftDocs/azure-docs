@@ -32,7 +32,7 @@ Azure Write Accelerator is a functionality that is available for Azure M-Series 
 
 The caching recommendations for Azure premium disks below are assuming the I/O characteristics for SAP HANA that list like:
 
-- There hardly is any read workload against the HANA data files. Exceptions are large sized I/Os after restart of the HANA instance or when data is loaded into HANA. Another case of larger read I/Os against data files can be HANA database backups. As a result read caching mostly does not make sense since in most of the cases, all data file volumes need to be read completely. 
+- There hardly is any read workload against the HANA data files. Exceptions are large sized I/Os after restart of the HANA instance or when data is loaded into HANA. Another case of larger read I/Os against data files can be HANA database backups. As a result read caching mostly doesn't make sense since in most of the cases, all data file volumes need to be read completely. 
 - Writing against the data files is experienced in bursts based by HANA savepoints and HANA crash recovery. Writing savepoints is asynchronous and aren't holding up any user transactions. Writing data during crash recovery is performance critical in order to get the system responding fast again. However, crash recovery should be rather exceptional situations
 - There are hardly any reads from the HANA redo files. Exceptions are large I/Os when performing transaction log backups, crash recovery, or in the restart phase of a HANA instance.  
 - Main load against the SAP HANA redo log file is writes. Dependent on the nature of workload, you can have I/Os as small as 4 KB or in other cases I/O sizes of 1 MB or more. Write latency against the SAP HANA redo log is performance critical.
@@ -51,7 +51,7 @@ For Azure premium storage disks smaller or equal to 512 GiB in capacity, burst f
 
 The ideal cases where this burst functionality can be planned in is likely going to be the volumes or disks that contain data files for the different DBMS. The I/O workload expected against those volumes, especially with small to mid-ranged systems is expected to look like:
 
-- Low to moderate read workload since data ideally is cached in memory, or like in the case of HANA should be completely in memory
+- Low to moderate read workload since data ideally is cached in memory, or like with SAP HANA should be completely in memory
 - Bursts of write triggered by database checkpoints or savepoints that are issued on a regular basis
 - Backup workload that reads in a continuous stream in cases where backups aren't executed via storage snapshots
 - For SAP HANA, load of the data into memory after an instance restart
@@ -230,7 +230,7 @@ A less costly alternative for such configurations could look like:
 
 <sup>2</sup> The VM family supports [Azure Write Accelerator](../../virtual-machines/how-to-enable-write-accelerator.md), but there's a potential that the IOPS limit of Write accelerator could limit the disk configurations IOPS capabilities
 
-In the case of combining the data and log volume for SAP HANA, the disks building the striped volume shouldn't have read cache or read/write cache enabled.
+When combining the data and log volume for SAP HANA, the disks building the striped volume shouldn't have read cache or read/write cache enabled.
 
 There are VM types listed that aren't certified with SAP and as such not listed in the so called [SAP HANA hardware directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). Feedback of customers was that those non-listed VM types were used successfully for some non-production tasks.
 

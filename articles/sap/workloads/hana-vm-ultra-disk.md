@@ -25,7 +25,7 @@ This document is about HANA storage configurations for Azure Ultra Disk storage 
 Another Azure storage type is called [Azure Ultra disk](../../virtual-machines/disks-types.md#ultra-disks). The significant difference between Azure storage offered so far and Ultra disk is that the disk capabilities aren't bound to the disk size anymore. As a customer you can define these capabilities for Ultra disk:
 
 - Size of a disk ranging from 4 GiB to 65,536 GiB
-- IOPS range from 100 IOPS to 160K IOPS (maximum depends on VM types as well)
+- IOPS range from 100 IOPS to 160,000 IOPS (maximum depends on VM types as well)
 - Storage throughput from 300 MB/sec to 2,000 MB/sec
 
 Ultra disk gives you the possibility to define a single disk that fulfills your size, IOPS, and disk throughput range. Instead of using logical volume managers like LVM or MDADM on top of Azure premium storage to construct volumes that fulfill IOPS and storage throughput requirements. You can run a configuration mix between Ultra disk and premium storage. As a result, you can limit the usage of Ultra disk to the performance critical **/hana/data** and **/hana/log** volumes and cover the other volumes with Azure premium storage
