@@ -134,9 +134,9 @@ Create a workload virtual machine, and place it in the **SN-Workload** subnet.
 
 **Review + Create**
 
-Review the summary, and then select **Create**. This will take a few minutes to complete.
+Review the summary, and then select **Create**. This takes a few minutes to complete.
 
-After deployment finishes, note the private IP address for the virtual machine. It will be used later when you configure the firewall. Select the virtual machine name. Select **Overview**, and under **Networking** note the private IP address.
+After deployment finishes, note the private IP address for the virtual machine. It is used later when you configure the firewall. Select the virtual machine name. Select **Overview**, and under **Networking** note the private IP address.
 
 [!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
@@ -161,7 +161,7 @@ After deployment finishes, note the private IP address for the virtual machine. 
 5. Accept the other defaults, and then select **Review + create**.
 6. Review the summary, and then select **Create** to create the firewall.
 
-   This will take a few minutes to deploy.
+   This takes a few minutes to deploy.
 7. After deployment completes, go to the **RG-DNAT-Test** resource group, and select the **FW-DNAT-test** firewall.
 8. Note the firewall's private and public IP addresses. You'll use them later when you create the default route and NAT rule.
 
