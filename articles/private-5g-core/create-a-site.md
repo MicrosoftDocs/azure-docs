@@ -57,7 +57,7 @@ In this step, you'll create the mobile network site resource representing the ph
 1. Use the information you collected in [Collect access network values](collect-required-information-for-a-site.md#collect-access-network-values) to fill out the fields in the **Access network** section.
 
     > [!NOTE]
-    > **ASE N2 virtual subnet** and **ASE N3 virtual subnet** (if this site will support 5G UEs) or **ASE S1-MME virtual subnet** and **ASE S1-U virtual subnet** (if this site will support 4G UEs) must match the corresponding virtual network names on port 5 on your Azure Stack Edge Pro device.
+    > **ASE N2 virtual subnet** and **ASE N3 virtual subnet** (if this site will support 5G UEs), **ASE S1-MME virtual subnet** and **ASE S1-U virtual subnet** (if this site will support 4G UEs), or **ASE N2/S1-MME virtual subnet** and **ASE N3/S1-U virtual subnet** (if this site will support both 4G and 5G UEs) must match the corresponding virtual network names on port 5 on your Azure Stack Edge Pro device.
 
 1. In the **Attached data networks** section, select **Attach data network**. Choose whether you want to use an existing data network or create a new one, then use the information you collected in [Collect data network values](collect-required-information-for-a-site.md#collect-data-network-values) to fill out the fields. Note the following:
     - **ASE N6 virtual subnet** (if this site will support 5G UEs) or **ASE SGi virtual subnet** (if this site will support 4G UEs) must match the corresponding virtual network name on port 6 on your Azure Stack Edge Pro device.

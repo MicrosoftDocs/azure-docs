@@ -24,7 +24,7 @@ Contact your trials engineer and ask them to register your Azure subscription fo
 
 ## Choose the core technology type (5G or 4G)
 
-Choose whether each site in the private mobile network should provide coverage for 5G or 4G user equipment (UEs). A single site can't support 5G and 4G UEs simultaneously. If you're deploying multiple sites, you can choose to have some sites support 5G UEs and others support 4G UEs.
+Choose whether each site in the private mobile network should provide coverage for 5G, 4G or combined 4G and 5G user equipment (UEs). If you're deploying multiple sites they can each support different core technology types.
 
 ## Allocate subnets and IP addresses
 
@@ -62,8 +62,14 @@ Depending on your networking requirements (for example, if a limited set of subn
 
 - Network address in CIDR notation.
 - Default gateway.
-- One IP address for the control plane interface. For 5G, this interface is the N2 interface, whereas for 4G, it's the S1-MME interface.*
-- One IP address for the user plane interface. For 5G, this interface is the N3 interface, whereas for 4G, it's the S1-U interface.*
+- One IP address for the control plane interface.
+  - For 5G, this interface is the N2 interface
+  - For 4G, this the S1-MME interface.
+  - For combined 4G and 5G this is the N2/S1-MME interface.
+- One IP address for the user plane interface.
+  - For 5G, this interface is the N3 interface
+  - For 4G, this the S1-U interface.
+  - For combined 4G and 5G this is the N3/S1-U interface.
 - One IP address for port 3 on the Azure Stack Edge Pro 2 device.
 
 :::zone-end
@@ -72,8 +78,14 @@ Depending on your networking requirements (for example, if a limited set of subn
 
 - Network address in CIDR notation.
 - Default gateway.
-- One IP address for the control plane interface. For 5G, this interface is the N2 interface, whereas for 4G, it's the S1-MME interface.*
-- One IP address for the user plane interface. For 5G, this interface is the N3 interface, whereas for 4G, it's the S1-U interface.*
+- One IP address for the control plane interface.
+  - For 5G, this interface is the N2 interface
+  - For 4G, this the S1-MME interface.
+  - For combined 4G and 5G this is the N2/S1-MME interface.
+- One IP address for the user plane interface.
+  - For 5G, this interface is the N3 interface
+  - For 4G, this the S1-U interface.
+  - For combined 4G and 5G this is the N3/S1-U interface.
 - One IP address for port 5 on the Azure Stack Edge Pro GPU device.
 
 :::zone-end
@@ -85,6 +97,9 @@ Allocate the following IP addresses for each data network in the site:
 - Network address in CIDR notation.
 - Default gateway.
 - One IP address for the user plane interface. For 5G, this interface is the N6 interface, whereas for 4G, it's the SGi interface.*
+  - For 5G, this interface is the N6 interface
+  - For 4G, this the SGi interface.
+  - For combined 4G and 5G this is the N6/SGi interface.
 
 :::zone pivot="ase-pro-2"
 
