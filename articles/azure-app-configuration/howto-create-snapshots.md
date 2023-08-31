@@ -104,11 +104,9 @@ configurationBuilder.AddAzureAppConfiguration(options =>
     options.Connect(Environment.GetEnvironmentVariable("ConnectionString"));
 
     // Select an existing snapshot by name. This will add all of the key-values from the snapshot to this application's configuration.
-    options.SelectSnapshot("SnapshotName1");
+    options.SelectSnapshot("SnapshotName");
 
     // You can use any combination of Select and SelectSnapshot.
-    options.Select("*");
-    options.SelectSnapshot("SnapshotName2");
     
     // Other changes to options
 });
