@@ -24,12 +24,30 @@ See these [important announcements](#announcements) about recent changes to feat
 
 ## August 2023
 
+- [New incident investigation experience is now GA](#new-incident-investigation-experience-is-now-ga)
 - [Updated MISP2Sentinel solution utilizes the new upload indicators API.](#updated-misp2sentinel-solution)
+- [New and improved entity pages](#new-and-improved-entity-pages)
+
+### New incident investigation experience is now GA
+
+Microsoft Sentinel's comprehensive [incident investigation and case management experience](incident-investigation.md) is now generally available in both commercial and government clouds. This experience includes the revamped incident page, which itself includes displays of the incident's entities, insights, and similar incidents for comparison. The new experience also includes an incident log history and a task list.
+
+Also generally available are the similar incidents widget and the ability to add entities to your threat intelligence list of indicators of compromise (IoCs).
+
+- Learn more about [investigating incidents](investigate-incidents.md) in Microsoft Sentinel.
 
 ### Updated MISP2Sentinel solution
 The open source threat intelligence sharing platform, MISP, has an updated solution to push indicators to Microsoft Sentinel. This notable solution utilizes the new [upload indicators API](#connect-threat-intelligence-with-the-upload-indicators-api) to take advantage of workspace granularity and align the MISP ingested TI to STIX-based properties.
 
 Learn more about the implementation details from the [MISP blog entry for MISP2Sentinel](https://www.misp-project.org/2023/08/26/MISP-Sentinel-UploadIndicatorsAPI.html/).
+
+### New and improved entity pages
+
+Microsoft Sentinel now provides you enhanced and enriched entity pages and panels, giving you more security information on user accounts, full entity data to enrich your incident context, and a reduction in latency for a faster, smoother experience.
+
+- Read more about these changes in this blog post: [Taking Entity Investigation to the Next Level: Microsoft Sentinel’s Upgraded Entity Pages](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/taking-entity-investigation-to-the-next-level-microsoft-sentinel/ba-p/3878382).
+
+- Learn more about [entities in Microsoft Sentinel](entities.md).
 
 ## July 2023
 
@@ -37,7 +55,7 @@ Learn more about the implementation details from the [MISP blog entry for MISP2S
 - Announcement: [Changes to Microsoft Defender for Office 365 connector alerts that apply when disconnecting and reconnecting](#changes-to-microsoft-defender-for-office-365-connector-alerts-that-apply-when-disconnecting-and-reconnecting)
 - [Content Hub generally available and centralization changes released](#content-hub-generally-available-and-centralization-changes-released)
 - [Deploy incident response playbooks for SAP](#deploy-incident-response-playbooks-for-sap)
-- [Microsoft Sentinel solution for D365 Finance and Operations (Preview)](#microsoft-sentinel-solution-for-d365-finance-and-operations-preview)
+- [Microsoft Sentinel solution for Dynamics 365 Finance and Operations (Preview)](#microsoft-sentinel-solution-for-dynamics-365-finance-and-operations-preview)
 - [Simplified pricing tiers](#simplified-pricing-tiers) in [Announcements](#announcements) section below
 - [Monitor and optimize the execution of your scheduled analytics rules (Preview)](#monitor-and-optimize-the-execution-of-your-scheduled-analytics-rules-preview)
 
@@ -64,9 +82,9 @@ Take advantage of Microsoft Sentinel's security orchestration, automation, and r
 
 Learn more about [Microsoft Sentinel incident response playbooks for SAP](sap/sap-incident-response-playbooks.md).
 
-### Microsoft Sentinel solution for D365 Finance and Operations (Preview)
+### Microsoft Sentinel solution for Dynamics 365 Finance and Operations (Preview)
 
-The Microsoft Sentinel Solution for D365 Finance and Operations monitors and protects your Dynamics 365 Finance and Operations system: It collects audits and activity logs from the Dynamics 365 Finance and Operations environment, and detects threats, suspicious activities, illegitimate activities, and more. 
+The Microsoft Sentinel Solution for Dynamics 365 Finance and Operations monitors and protects your Dynamics 365 Finance and Operations system: It collects audits and activity logs from the Dynamics 365 Finance and Operations environment, and detects threats, suspicious activities, illegitimate activities, and more. 
 
 The solution includes the **Dynamics 365 Finance and Operations** connector and [built-in analytics rules](dynamics-365/dynamics-365-finance-operations-security-content.md#built-in-analytics-rules) to detect suspicious activity in your Dynamics 365 Finance and Operations environment.
 
