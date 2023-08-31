@@ -32,7 +32,7 @@ This architecture uses a primary and secondary region that can be used to handle
 
 The geo-redundant storage account is deployed in the primary region, but has private endpoints for its blob endpoint in both regions.  
 
-[ ![Diagram of PE environment](./media/storage-failover-private-endpoints/storage-failover-private-endpoints-topology.png) ](./media/storage-failover-private-endpoints/storage-failover-private-endpoints-topology.png#lightbox)
+[ ![Diagram of PE environment.](./media/storage-failover-private-endpoints/storage-failover-private-endpoints-topology.png) ](./media/storage-failover-private-endpoints/storage-failover-private-endpoints-topology.png#lightbox)
 
 The two private endpoints can't use the same Private DNS Zone for the same endpoint.  As a result, each region uses its own Private DNS Zone.  Each regional zone is attached to the hub network for the region. This design uses the [DNS forwarder scenario](../../private-link/private-endpoint-dns.md#virtual-network-and-on-premises-workloads-using-a-dns-forwarder) to provide resolution.
 
