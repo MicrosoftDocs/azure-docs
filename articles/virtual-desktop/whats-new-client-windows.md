@@ -4,7 +4,7 @@ description: Learn about recent changes to the Remote Desktop client for Windows
 ms.topic: release-notes
 author: heidilohr
 ms.author: helohr
-ms.date: 08/29/2023
+ms.date: 08/31/2023
 ---
 
 # What's new in the Remote Desktop client for Windows
@@ -51,7 +51,7 @@ In this release, we've made the following changes:
 
 *Date published: July 11, 2023*
 
-Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW17Yn9), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW17VPy), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW17VPx)
+Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW17f1J), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW17mKo), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW17sgF)
 
 In this release, we've made the following changes:
 
