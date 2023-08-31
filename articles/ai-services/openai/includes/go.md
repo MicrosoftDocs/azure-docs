@@ -9,79 +9,29 @@ ms.subservice: openai
 ms.topic: include
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 08/23/2023
+ms.date: 08/30/2023
 keywords: 
 ---
 
-[Source code](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/ai/azopenai) | [Package (Go)](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai) 
+[Source code](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/ai/azopenai) | [Package (Go)](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai)| [Samples](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai#pkg-examples)
 
 ## Prerequisites
 
 - An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true)
 - Access granted to the Azure OpenAI service in the desired Azure subscription.
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI Service by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access?azure-portal=true).
-- [LTS versions of Node.js](https://github.com/nodejs/release#release-schedule)
+- [Go 1.21.0](https://go.dev/dl/) or higher installed locally.
 - An Azure OpenAI Service resource with the text-davinci-003 model deployed. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
-
-> [!div class="nextstepaction"]
-> [I ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVASCRIPT&Pillar=AOAI&&Product=gpt&Page=quickstart&Section=Prerequisites)
 
 ## Set up
 
-### Retrieve key and endpoint
+[!INCLUDE [get-key-endpoint](get-key-endpoint.md)]
 
-To successfully make a call against Azure OpenAI, you need an **endpoint** and a **key**.
-
-|Variable name | Value |
-|--------------------------|-------------|
-| `ENDPOINT`               | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. Alternatively, you can find the value in the **Azure OpenAI Studio** > **Playground** > **Code View**. An example endpoint is: `https://docs-test-001.openai.azure.com/`.|
-| `API-KEY` | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. You can use either `KEY1` or `KEY2`.|
-
-Go to your resource in the Azure portal. The **Endpoint and Keys** can be found in the **Resource Management** section. Copy your endpoint and access key as you'll need both for authenticating your API calls. You can use either `KEY1` or `KEY2`. Always having two keys allows you to securely rotate and regenerate keys without causing a service disruption.
-
-:::image type="content" source="../media/quickstarts/endpoint.png" alt-text="Screenshot of the overview UI for an OpenAI Resource in the Azure portal with the endpoint and access keys location circled in red." lightbox="../media/quickstarts/endpoint.png":::
-
-Create and assign persistent environment variables for your key and endpoint.
-
-### Environment variables
-
-# [Command Line](#tab/command-line)
-
-```CMD
-setx AZURE_OPENAI_KEY "REPLACE_WITH_YOUR_KEY_VALUE_HERE" 
-```
-
-```CMD
-setx AZURE_OPENAI_ENDPOINT "REPLACE_WITH_YOUR_ENDPOINT_HERE" 
-```
-
-# [PowerShell](#tab/powershell)
-
-```powershell
-[System.Environment]::SetEnvironmentVariable('AZURE_OPENAI_KEY', 'REPLACE_WITH_YOUR_KEY_VALUE_HERE', 'User')
-```
-
-```powershell
-[System.Environment]::SetEnvironmentVariable('AZURE_OPENAI_ENDPOINT', 'REPLACE_WITH_YOUR_ENDPOINT_HERE', 'User')
-```
-
-# [Bash](#tab/bash)
-
-```Bash
-echo export AZURE_OPENAI_KEY="REPLACE_WITH_YOUR_KEY_VALUE_HERE" >> /etc/environment && source /etc/environment
-```
-
-```Bash
-echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/environment && source /etc/environment
-```
----
-
-> [!div class="nextstepaction"]
-> [I ran into an issue with the setup.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVASCRIPT&Pillar=AOAI&&Product=gpt&Page=quickstart&Section=Set-up-the-environment)
+[!INCLUDE [environment-variables](environment-variables.md)]
 
 ## Create a sample application
 
- Create a new file named completion.go. Copy the following code into the completion.go file.
+ Create a new file named completions.go. Copy the following code into the completions.go file.
 
 ```go
 package main
@@ -162,9 +112,6 @@ go run completions.go
 
 Microsoft was founded on April 4, 1975.
 ```
-
-> [!div class="nextstepaction"]
-> [I ran into an issue when running the code sample.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVASCRIPT&Pillar=AOAI&&Product=gpt&Page=quickstart&Section=Create-application)
 
 ## Clean up resources
 
