@@ -10,7 +10,7 @@ ms.date: 09/01/2023
 
 # Enable Azure Hybrid Benefit for SQL Server in Azure VMware Solution
 
-In this article, you’ll learn how to configure Azure Hybrid Benefit for SQL Server in an Azure VMware Solution private cloud by configuring a placement policy. 
+In this article, you’ll learn how to configure Azure Hybrid Benefit for SQL Server in an Azure VMware Solution private cloud by configuring a placement policy.
 The placement policy defines the hosts that are running SQL Server as well as the virtual machines on that host.  
 
 > [!IMPORTANT]
