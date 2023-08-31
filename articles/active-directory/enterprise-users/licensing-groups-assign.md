@@ -1,6 +1,6 @@
 ---
 title: Assign licenses to a group
-description: How to assign licenses to users by means of Azure Active Directory group licensing
+description: How to assign licenses to users with Azure Active Directory group licensing
 services: active-directory
 keywords: Azure AD licensing
 documentationcenter: ''
