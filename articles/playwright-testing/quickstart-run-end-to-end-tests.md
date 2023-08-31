@@ -124,7 +124,7 @@ To generate the access key, perform the following steps:
 
 1. Open a terminal window, and paste and run the value you copied previously. 
 
-    The command creates an environment variable `PLAYWRIGHT_SERVICE_ACCESS_KEY`. The [service configuration file](#2-add-microsoft-playwright-testing-configuration) references this environment variable to connect to your workspace.
+    The command creates an environment variable `PLAYWRIGHT_SERVICE_ACCESS_KEY`. The [service configuration file](#add-microsoft-playwright-testing-configuration) references this environment variable to connect to your workspace.
 
 ## Configure the service region endpoint
 
@@ -142,7 +142,7 @@ To get the service endpoint URL, perform the following steps:
 
 1. Open a terminal window, and paste and run the value you copied previously. 
 
-    The command creates an environment variable `PLAYWRIGHT_SERVICE_URL`. The [service configuration file](#2-add-microsoft-playwright-testing-configuration) references this environment variable to connect to your workspace.
+    The command creates an environment variable `PLAYWRIGHT_SERVICE_URL`. The [service configuration file](#add-microsoft-playwright-testing-configuration) references this environment variable to connect to your workspace.
 
 ## Run your tests at scale with Microsoft Playwright Testing
 
