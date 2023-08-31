@@ -39,14 +39,14 @@ The **EDIFACT** built-in connector has no triggers. The following table describe
 
 | Action | Description |
 |--------|-------------|
-| [**EDIFACT Encode** action](#encode) | Provides encryption, digital signing, and acknowledgments through Message Disposition Notifications (MDN), which help support non-repudiation. For example, this action applies AS2/HTTP headers and performs the following tasks when configured: <br><br>- Sign outgoing messages. <br>- Encrypt outgoing messages. <br>- Compress the message. <br>- Transmit the file name in the MIME header. |
-| [**EDIFACT Decode** action](#decode) | Provide decryption, digital signing, and acknowledgments through Message Disposition Notifications (MDN). For example, this action performs the following tasks when configured: <br><br>- Process AS2/HTTP headers. <br>- Reconcile received MDNs with the original outbound messages. <br>- Update and correlate records in the non-repudiation database. <br>- Write records for AS2 status reporting. <br>- Output payload contents as base64-encoded.  <br>-  Determine whether MDNs are required. Based on the AS2 agreement, determine whether MDNs should be synchronous or asynchronous. <br>- Generate synchronous or asynchronous MDNs based on the AS2 agreement. <br>- Set the correlation tokens and properties on MDNs. <br>- Verify the signature. <br>- Decrypt the messages. <br>- Decompress the message. <br>- Check and disallow message ID duplicates. |
-
-The following sections provide more information about the tasks that you can complete using the EDIFACT encoding and decoding actions.
+| [**EDIFACT Encode** action](#encode) | |
+| [**EDIFACT Decode** action](#decode) | |
 
 ### EDIFACT managed connector operations (Consumption and Standard workflows)
 
-### Encode to EDIFACT message action
+#### 
+
+#### Encode to EDIFACT message action
 
 This action performs the following tasks:
 
@@ -138,7 +138,7 @@ This action performs the following tasks:
   | Logic app workflow | Link required? |
   |--------------------|----------------|
   | Consumption | Connection to integration account required, but no link required. You can create the connection when you add the **EDIFACT** operation to your workflow. |
-  | Standard | Connection to integration account required, but no link required. You can create the connection when you add the **EDIFACT** operation to your workflow. |
+  | Standard | - **EDIFACT** managed connector: Connection to integration account required, but no link required. You can create the connection when you add the **EDIFACT** operation to your workflow. <br><br>- **EDIFACT** built-in connector: [Link required](logic-apps-enterprise-integration-create-integration-account.md?tabs=azure-portal%2Cstandard#link-account), but no connection required. |
 
 * The logic app resource and workflow where you want to use the EDIFACT operations.
 
