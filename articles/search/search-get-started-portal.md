@@ -30,15 +30,15 @@ Search queries iterate over an index that contains searchable data, metadata, an
 
 Many customers start with the free service. The free tier is limited to three indexes, three data sources, and three indexers. Make sure you have room for extra items before you begin. This quickstart creates one of each object.
 
-Check the service overview page to find out how many indexes, indexers, and data sources you already have. 
+Check the **Overview** page for the service to see how many indexes, indexers, and data sources you already have. 
 
-:::image type="content" source="media/search-get-started-portal/tiles-indexers-datasources.png" alt-text="Screenshot of lists of indexes, indexers, and data sources in the service dashboard in the Azure portal." border="true":::
+:::image type="content" source="media/search-get-started-portal/overview-quota-usage.png" alt-text="Screenshot of the Overview page for an Azure Cognitive Search service instance in the Azure portal, showing the number of indexes, indexers, and data sources." lightbox="media/search-get-started-portal/overview-quota-usage-expanded.png" border="false":::
 
 ## Create and load an index
 
 Azure Cognitive Search uses an indexer via the **Import data** wizard. The hotels-sample data set is hosted on Microsoft on Azure Cosmos DB and accessed over an internal connection. You don't need your own Azure Cosmos DB account or source files to access the data.
 
-### Start the wizard and create a data source
+### Start the wizard
 
 To get started, browse to your Azure Cognitive Search service in the Azure portal and open the **Import data** wizard.
 
@@ -48,73 +48,95 @@ To get started, browse to your Azure Cognitive Search service in the Azure porta
 
 1. On the **Overview** page, select **Import data** to create and populate a search index.
 
-   :::image type="content" source="media/search-import-data-portal/import-data-cmd.png" alt-text="Screenshot of the Import data command in the command bar." border="true":::
+   :::image type="content" source="media/search-import-data-portal/import-data-cmd.png" alt-text="Screenshot that shows how to open the Import data wizard in the Azure portal.":::
 
    The **Import data** wizard opens.
 
-1. In the wizard, select **Connect to your data** > **Samples** > **hotels-sample**.
+### Connect to a data source
 
-   In this quickstart, you use the hotels sample data source, which is built in. To create your own data source, you need to specify a name, type, and connection information. After you create a data source, it becomes an "existing data source" that can be reused in other import operations.
+The next step is to connect to a data source to use for the search index.
 
-   :::image type="content" source="media/search-get-started-portal/import-datasource-sample.png" alt-text="Screenshot of the select sample dataset page in the wizard." border="true":::
+1. In the **Import data** wizard on the **Connect to your data** tab, expand the **Data Source** dropdown list and select **Samples**.
 
-1. Select **Next** to continue.
+1. In the list of built-in samples, select **hotels-sample**.
 
-### Skip AI enrichment options
+   In this quickstart, you use the built-in hotels-sample data source.
+
+   :::image type="content" source="media/search-get-started-portal/import-hotels-sample.png" alt-text="Screenshot that shows how to select the hotels-sample data source in the Import data wizard." border="false":::
+
+   If you want to create your own data source, you need to specify a name, type, and connection information. After you create a data source, it becomes an "existing data source" that can be reused in other import operations.
+
+1. Select **Next: Add cognitive skills (Optional)** to continue.
+
+### Skip configuration for cognitive skills
 
 The **Import data** wizard supports the creation of an AI-enrichment pipeline for incorporating the Azure AI services algorithms into indexing. For more information, see [AI enrichment in Azure Cognitive Search](cognitive-search-concept-intro.md).
 
-For this quickstart, skip the AI enrichment configuration page. Continue to the **Customize target index** page.
+1. For this quickstart, ignore the AI enrichment configuration options on the **Add cognitive skills** tab.
 
-:::image type="content" source="media/search-get-started-portal/skip-cog-skill-step.png" alt-text="Screenshot of the Skip cognitive skill button in the wizard." border="true":::
+1. Select **Skip to: Customize target index** to continue.
+
+   :::image type="content" source="media/search-get-started-portal/skip-cognitive-skills.png" alt-text="Screenshot that shows how to Skip to the Customize target index tab in the Import data wizard.":::
 
 > [!TIP]
-> You can step through an AI-indexing example in two other articles: [Quickstart: Create a skillset in the Azure portal](cognitive-search-quickstart-blob.md) and [Tutorial: Use REST and AI to generate searchable content from Azure blobs](cognitive-search-tutorial-blob.md).
+> If you want to try an AI-indexing example, see the following articles:
+> - [Quickstart: Create a skillset in the Azure portal](cognitive-search-quickstart-blob.md)
+> - [Tutorial: Use REST and AI to generate searchable content from Azure blobs](cognitive-search-tutorial-blob.md)
 
 ### Configure the index
 
-For the built-in hotels sample index, a default index schema is defined for you. Except for a few advanced filter examples, queries in the documentation and samples that target the hotel-samples index run on this index definition:
+The Azure Cognitive Search service generates a schema for the built-in hotels-sample index. Except for a few advanced filter examples, queries in the documentation and samples that target the hotels-sample index run on this index definition. The definition is shown on the **Customize target index** tab in the **Import data** wizard:
 
-:::image type="content" source="media/search-get-started-portal/hotelsindex.png" alt-text="Screenshot of the generated hotels index definition in the wizard." border="true":::
+:::image type="content" source="media/search-get-started-portal/hotels-sample-generated-index.png" alt-text="Screenshot that shows the generated index definition for the hotels-sample data source in the Import data wizard." border="false":::
 
-Typically, in a code-based exercise, index creation is completed prior to loading data. The **Import data** wizard condenses these steps by generating a basic index for any data source it can crawl. Minimally, an index requires a _name_ and a _fields_ collection. One of the fields should be marked as the _document key_ to uniquely identify each document. Additionally, you can specify language analyzers or suggesters if you want autocomplete or suggested queries.
+Typically, in a code-based exercise, index creation is completed prior to loading data. The **Import data** wizard condenses these steps by generating a basic index for any data source it can crawl.
 
-Fields have a data type and attributes. The check boxes across the top are _attributes_ that control how the field is used. The following table summarizes the attributes.
+Each index is configured with the following settings:
 
-| Attribute | Description | Details |
-| --- | --- | --- |
-| **Key** | The unique document identifier. | - Required attribute. <br> - Only one field can be the document key. <br> - The value is always a string. |
-| **Retrievable** | Specifies whether to include field contents in search results list. | - Default is enabled (show in search results). <br> - Disable the attribute to mark individual fields as off limits for search results, such as for fields used only in filter expressions. |
-| **Filterable** | Specifies whether fields can be used as filters for the search results. | MORE INFO HERE |
-| **Sortable** | Specifies whether fields can be used for sorting the search results. | MORE INFO HERE  |
-| **Facetable** | Specifies whether fields can be used for faceted navigation structure. | MORE INFO HERE  |
-| **Searchable** | Specifies that a field is included in full text search. | - Strings are searchable. <br> - Numeric fields and Boolean fields are often marked as not searchable. |
+- At a minimum, the index requires an **Index name** and a collection of **Fields** with at least one field.
+- One field must be marked as the _document key_ to uniquely identify each document. Only one field can be the document key.
+- The index **Key** provides the unique document identifier. The value is always a string.
+- If you want autocomplete or suggested queries, you can specify language **Analyzers** or **Suggesters**.
 
-Storage requirements can vary as a result of attribute selection. For example, **Filterable** requires more storage, but **Retrievable** doesn't. For more information, see [Example demonstrating the storage implications of attributes and suggesters](search-what-is-an-index.md#example-demonstrating-the-storage-implications-of-attributes-and-suggesters).
+Each field has a name, data type, and _attributes_ that control how to use the field in the search index. The **Customize target index** tab uses checkboxes to enable or disable the attribute for all fields or specific fields.
 
-By default, the **Import data** wizard scans the data source for unique identifiers as the basis for the key field. *Strings* are attributed as **Retrievable** and **Searchable**. *Integers* are attributed as **Retrievable**, **Filterable**, **Sortable**, and **Facetable**.
+The following table summarizes the attributes.
+
+| Attribute | Description |
+| --- | --- |
+| **Retrievable** | Indicates whether to include the field contents in the search index. |
+| **Filterable** | Indicates whether to make the field contents available as filters for the search index. |
+| **Sortable** | Indicates whether to make field contents available for sorting the search index. |
+| **Facetable** | Indicates whether to use the field contents for faceted navigation structure. |
+| **Searchable** | Indicates whether to use the field contents in full text search. Strings are searchable. Numeric fields and Boolean fields are often marked as not searchable. |
+
+The storage requirements for the index can vary as a result of attribute selection. For example, enabling a field as **Filterable** requires more storage, but enabling a field as **Retrievable** doesn't. For more information, see [Example demonstrating the storage implications of attributes and suggesters](search-what-is-an-index.md#example-demonstrating-the-storage-implications-of-attributes-and-suggesters).
+
+By default, the **Import data** wizard scans the data source for unique identifiers as the basis for the **Key** field. _Strings_ are attributed as **Retrievable** and **Searchable**. _Integers_ are attributed as **Retrievable**, **Filterable**, **Sortable**, and **Facetable**.
 
 Follow these steps to configure the index:
 
-1. Accept the default values for the attributes.
+1. Accept the system-generated values for the **Index name** (_hotels-sample-index_) and **Key** field (_HotelId_).
+
+1. Accept the system-generated values for all field attributes.
 
    > [!IMPORTANT]
-   > If you rerun the wizard and use an existing hotels data source, the index isn't configured with default attributes.
+   > If you rerun the wizard and use an existing hotels-sample data source, the index isn't configured with default attributes.
    > You have to manually select attributes on future imports. 
 
-1. Select **Next** to continue.
+1. Select **Next: Create an indexer** to continue.
 
 ### Configure the indexer
 
-On the **TITLE HERE** page, select **Indexer** > **Name**, and enter a name for the indexer.
+The last step is to configure the indexer for the search index. This object defines an executable process. You can configure the indexer to run on a recurring schedule.
 
-This object defines an executable process. You can configure the indexer to run on a recurring schedule.
+1. Accept the system-generated value for the **Indexer name** (_hotels-sample-indexer_).
 
-For this quickstart, use the default option to run the indexer once, immediately.
+1. For this quickstart, use the default option to run the indexer once, immediately.
 
-Select **Submit** to create and simultaneously run the indexer.
+1. Select **Submit** to create and simultaneously run the indexer.
 
-:::image type="content" source="media/search-get-started-portal/hotels-indexer.png" alt-text="Screenshot of the hotels indexer definition in the Import data wizard." border="true":::
+   :::image type="content" source="media/search-get-started-portal/hotels-sample-indexer.png" alt-text="Screenshot that shows how to configure the indexer for the hotels-sample data source in the Import data wizard." border="false":::
 
 
 
@@ -177,7 +199,7 @@ All of the queries in this section are designed for **Search Explorer** and the 
 | `search=spa` | Simple full text query with top N results. The **`search=`** parameter is used for keyword search. In this quickstart, the query seeks hotel data that contains *spa* in any searchable field in the document. |
 | `search=beach &$filter=Rating gt 4` | Filtered query. In this quickstart, the query seeks ratings greater than `4`. |
 | `search=spa &$select=HotelName,Description,Tags &$count=true &$top=10` | Parameterized query. The **`&`** symbol is used to append search parameters, which can be specified in any order. </br>**`$select`** parameter returns a subset of fields for more concise search results. </br>**`$count=true`** parameter returns the total count of all documents that match the query. </br>**`$top=10`** returns the highest ranked 10 documents out of the total. By default, Azure Cognitive Search returns the first 50 best matches. You can increase or decrease the amount using this parameter. |
-| `search=* &facet=Category &$top=2` | Facet query used to return an aggregated count of documents that match a facet value you provide. On an empty or unqualified search, all documents are represented. In the hotels index, the Category field is marked as "facetable." |
+| `search=* &facet=Category &$top=2` | Facet query used to return an aggregated count of documents that match a facet value you provide. On an empty or unqualified search, all documents are represented. In the hotels-sample index, the Category field is marked as "facetable." |
 | `search=spa &facet=Rating`| Facet on numeric values. This query is facet for rating, on a text search for "spa." The term "Rating" can be specified as a facet because the field is marked as retrievable, filterable, and facetable in the index. Its numeric values (1 through 5) are suitable for grouping results by each value. |
 | `search=beach &highlight=Description &$select=HotelName, Description, Category, Tags` | Hit highlighting. In this quickstart, the term "beach" is highlighted when it appears in the "Description" field. |
 | `search=seatle` followed by </br>`search=seatle~ &queryType=full` | Fuzzy search. By default, misspelled query terms like `seatle` for "Seattle" fail to return matches in typical search. The first example returns no results. Adding **`queryType=full`** invokes the full Lucene query parser, which supports the `~` operand for fuzzy search. |
