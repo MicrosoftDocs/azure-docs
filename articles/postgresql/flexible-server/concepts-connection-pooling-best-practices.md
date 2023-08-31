@@ -59,7 +59,7 @@ Deploying PgBouncer in an application server can provide several advantages, esp
 
 **Benefits:**
 
-- **Reduced Latency:** By deploying **PgBouncer** on the same Application VM, communication between the primary application and the connection pooler is efficient due to their proximity. This minimizes latency and ensures smooth and swift interactions.
+- **Reduced Latency:** By deploying **PgBouncer** on the same Application VM, communication between the primary application and the connection pooler is efficient due to their proximity. deploying PgBouncer in Application VM minimizes latency and ensures smooth and swift interactions.
 - **Improved security:** **PgBouncer** can act as a secure intermediary between the application and the database, providing an extra layer of security. It can enforce authentication and encryption, ensuring that only authorized clients can access the database.
 
 Overall, deploying PgBouncer in an application server provides a more efficient, secure, and scalable approach to managing connections to PostgreSQL databases, enhancing the performance and reliability of the application.
@@ -74,9 +74,9 @@ It's important to weigh these limitations against the benefits and evaluate whet
 
 ### II. PgBouncer deployed as an AKS sidecar
 
-It's possible to utilize **PgBouncer** as a sidecar container if your application is containerized and running on [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/), [Azure Container Instance (ACI)](https://azure.microsoft.com/products/container-instances), [Azure Container Apps (ACA)](https://azure.microsoft.com/products/container-apps/), or [Azure Red Hat OpenShift (ARO)](https://azure.microsoft.com/products/openshift/). The Sidecar pattern draws its inspiration from the concept of a sidecar attached to a motorcycle, where an auxiliary container, known as the sidecar container, is affixed to a parent application. This pattern enriches the parent application by extending its functionalities and delivering supplementary support.
+It's possible to utilize **PgBouncer** as a sidecar container if your application is containerized and running on [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/), [Azure Container Instance (ACI)](https://azure.microsoft.com/products/container-instances), [Azure Container Apps (ACA)](https://azure.microsoft.com/products/container-apps/), or [Azure Red Hat OpenShift (ARO)](https://azure.microsoft.com/products/openshift/). The Sidecar pattern draws its inspiration from the concept of a sidecar that attached to a motorcycle, where an auxiliary container, known as the sidecar container, is attached to a parent application. This pattern enriches the parent application by extending its functionalities and delivering supplementary support.
 
-The sidecar pattern is typically used with containers being coscheduled as an atomic container group. This tightly couples the application and sidecar lifecycles and shares resources such as hostname and networking to make efficient use of resources. The PgBouncer sidecar operates alongside the application container within the same pod in Azure Kubernetes Service (AKS) with 1:1 mapping, serving as a connection pooling proxy for Azure Database for PostgreSQL.
+The sidecar pattern is typically used with containers being coscheduled as an atomic container group. deploying PgBouncer in an AKS sidecar tightly couples the application and sidecar lifecycles and shares resources such as hostname and networking to make efficient use of resources. The PgBouncer sidecar operates alongside the application container within the same pod in Azure Kubernetes Service (AKS) with 1:1 mapping, serving as a connection pooling proxy for Azure Database for PostgreSQL.
 
 This sidecar pattern is typically used with containers being coscheduled as an atomic container group. sidecar pattern strongly binds the application and sidecar lifecycles and has shared resources such hostname and networking. By using this setup, PgBouncer optimizes connection management and facilitates efficient communication between the application and the Azure Database for PostgreSQL.
 
@@ -90,7 +90,7 @@ Refer some key benefits & limitations of this deployment method.
 
 **Benefits:**
 
-- **Reduced Latency:** By deploying **PgBouncer** as an AKS sidecar, communication between the primary application and the connection pooler is seamless and efficient due to their proximity. This minimizes latency and ensures smooth and swift interactions.
+- **Reduced Latency:** By deploying **PgBouncer** as an AKS sidecar, communication between the primary application and the connection pooler is seamless and efficient due to their proximity. Deploying  PgBouncer an AKS sidecar minimizes latency and ensures smooth and swift interactions.
 - **Simplified Management and Deployment:** The tight coupling of **PgBouncer** with the application container simplifies the management and deployment process. Both components are tightly integrated, allowing for easier administration and seamless coordination.
 - **High Availability and Connection Resiliency:** If an application container failure or restart, the **PgBouncer** sidecar container closely follows, ensuring high availability. This setup guarantees connection resiliency and maintains predictable performance even during failovers, contributing to a reliable and robust system.
 
@@ -110,7 +110,7 @@ When utilizing this approach, PgBouncer is deployed as a centralized service, in
 
 ### I. PgBouncer deployed in ubuntu VM
 
-**PgBouncer** connection proxy is setup between the application and database layer as shown in the image below. Since Azure Database for PostgreSQL is a fully managed platform service, user won't be able to install any external services on DB server. In this case, if your application is running on an Azure VM, you can setup **PgBouncer** on the same VM. If the application is running on a managed service like Azure App Services or Azure Functions, you need to provision a separate Ubuntu VM to run **PgBouncer** proxy.
+**PgBouncer** connection proxy is setup between the application and database layer as shown in the image. Since Azure Database for PostgreSQL is a fully managed platform service, user won't be able to install any external services on DB server. In this case, if your application is running on an Azure VM, you can setup **PgBouncer** on the same VM. If the application is running on a managed service like Azure App Services or Azure Functions, you need to provision a separate Ubuntu VM to run **PgBouncer** proxy.
 
 Refer [link](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/steps-to-install-and-setup-pgbouncer-connection-pooling-proxy/ba-p/730555)  to install and setup PgBouncer connection pooling proxy with Azure Database for PostgreSQL.
 
@@ -122,7 +122,7 @@ Refer some key benefits & limitations of this deployment method.
 **Benefits:**
 
 - **Seamless Integration with Managed Services:** If your application is hosted on a managed service platform such as Azure App Services or Azure Functions, deploying PgBouncer on a VM allows for easy integration with your existing infrastructure.
-- **Simplified Setup on Azure VM:** If you're already running your application on an Azure VM, setting up PgBouncer on the same VM is straightforward. This ensures that PgBouncer is deployed in close proximity to your application, minimizing network latency and maximizing performance.
+- **Simplified Setup on Azure VM:** If you're already running your application on an Azure VM, setting up PgBouncer on the same VM is straightforward. deploying the  PgBouncer in VM ensures that PgBouncer is deployed in close proximity to your application, minimizing network latency and maximizing performance.
 - **Non-Intrusive Configuration:** By deploying PgBouncer on a VM, you can avoid modifying server parameters on Azure PostgreSQL. This is useful when you want to configure PgBouncer on a flexible server. For example, changing the SSLMODE parameter to "required" on Azure PostgreSQL might cause certain applications that rely on SSLMODE=FALSE to fail. Deploying PgBouncer on a separate VM allows you to maintain the default server configuration while still using PgBouncer's benefits.
 - **Compatibility with Prepared Statements:** In-built PgBouncer does not support using prepared statements with transaction and statement pool modes. However, by deploying PgBouncer on a VM, you can overcome this limitation. This provides the flexibility to utilize prepared statements without sacrificing the advantages offered by transaction and statement pool modes.
 
@@ -176,7 +176,7 @@ Refer some key benefits & limitations of this deployment method.
 - **High Availability (HA):** In the event of a failover, where a standby server is promoted to the primary role, **PgBouncer** seamlessly restarts on the newly promoted standby without any changes required to the application connection string. This ensures continuous availability and minimizes disruption to the application.
 - **Cost Efficient:** It's cost efficient as the users don’t need to pay for extra compute like VM or the containers. Though  It does have some CPU impact as it's another process running on the same machine.
 
-By using the benefits of inbuilt PgBouncer with Flexible Server, users can enjoy the convenience of simplified configuration, the reliability of a managed service, support for various pooling modes, and seamless high availability during failover scenarios.
+With inbuilt PgBouncer in Flexible Server, users can enjoy the convenience of simplified configuration, the reliability of a managed service, support for various pooling modes, and seamless high availability during failover scenarios.
 
 **Limitations:**
 
