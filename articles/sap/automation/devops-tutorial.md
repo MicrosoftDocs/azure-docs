@@ -29,7 +29,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have an Azure subscription, you can [create a free account here](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure subscription. If you don't have an Azure subscription, you can [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
    > [!Note]
    > The free Azure account might not be sufficient to run the deployment.
@@ -42,7 +42,7 @@ The self-hosted agent virtual machine is deployed as part of the control plane d
 
 ## Overview
 
-These steps reference and use the [default naming convention](naming.md) for the automation framework. Example values are also used for naming throughout the configurations. In this tutorial, the following names are used:
+These steps reference and use the [default naming convention](naming.md) for the automation framework. Example values are also used for naming throughout the configurations. This tutorial uses the following names:
 
 - The Azure DevOps Services project name is `SAP-Deployment`.
 - The Azure DevOps Services repository name is `sap-automation`.
@@ -56,7 +56,7 @@ These steps reference and use the [default naming convention](naming.md) for the
 | Workload zone | DEP-WEEU-SAP01-INFRASTRUCTURE   | westeurope      |
 | SAP system    | DEP-WEEU-SAP01-X00              | westeurope      |
 
-The deployed infrastructure is shown in the following diagram.
+The following diagram shows the deployed infrastructure.
 
  :::image type="content" source="media/devops/automation-devops-tutorial-design.png" alt-text="Diagram that shows the DevOps tutorial infrastructure design.":::
 
