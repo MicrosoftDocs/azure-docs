@@ -7,7 +7,7 @@ author: jimmart-dev
 
 ms.service: azure-storage
 ms.topic: conceptual
-ms.date: 08/30/2023
+ms.date: 08/31/2023
 ms.author: jammart
 ms.subservice: storage-common-concepts
 ms.custom: references_regions, engagement

@@ -7,7 +7,7 @@ author: jimmart-dev
 
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 08/30/2023
+ms.date: 08/31/2023
 ms.author: jammart
 ms.subservice: storage-common-concepts
 ---

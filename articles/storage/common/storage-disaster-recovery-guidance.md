@@ -1,19 +1,19 @@
 ---
-title: Disaster recovery and storage account failover
+title: Azure storage account disaster recovery planning
 titleSuffix: Azure Storage
-description: Azure Storage supports account failover for geo-redundant storage accounts. With account failover, you can initiate the failover process for your storage account if the primary endpoint becomes unavailable.
+description: Azure Storage supports account failover for geo-redundant storage accounts. Create a disaster recovery plan for your storage accounts in the event that the endpoints in the primary region become unavailable.
 services: storage
 author: jimmart-dev
 
 ms.service: azure-storage
 ms.topic: conceptual
-ms.date: 07/31/2023
+ms.date: 08/31/2023
 ms.author: jammart
 ms.subservice: storage-common-concepts
 ms.custom: references_regions
 ---
 
-# Disaster recovery and storage account failover
+# Azure storage account disaster recovery planning
 
 Microsoft strives to ensure that Azure services are always available. However, unplanned service outages may occur. If your application requires resiliency, Microsoft recommends using geo-redundant storage, so that your data is copied to a second region. Additionally, customers should have a disaster recovery plan in place for handling a regional service outage. An important part of a disaster recovery plan is preparing to fail over to the secondary endpoint in the event that the primary endpoint becomes unavailable.
 
@@ -33,6 +33,14 @@ For more information about redundancy in Azure Storage, see [Azure Storage redun
 
 > [!WARNING]
 > Geo-redundant storage carries a risk of data loss. Data is copied to the secondary region asynchronously, meaning there is a delay between when data  written to the primary region is written to the secondary region. In the event of an outage, write operations to the primary endpoint that have not yet been copied to the secondary endpoint will be lost.
+
+## Failover for globally-redundant storage accounts
+
+x
+
+### Copying data as an alternative to failover
+
+If your storage account is configured for read access to the secondary, then you can design your application to read from the secondary endpoint. If you prefer not to fail over in the event of an outage in the primary region, you can use tools such as [AzCopy](./storage-use-azcopy-v10.md), [Azure PowerShell](/powershell/module/az.storage/), or the [Azure Data Movement library](../common/storage-use-data-movement-library.md) to copy data from your storage account in the secondary region to another storage account in an unaffected region. You can then point your applications to that storage account for both read and write availability.
 
 ## Design for high availability
 
@@ -58,67 +66,20 @@ Microsoft also recommends that you design your application to prepare for the po
 
 ## Understand the account failover process
 
-Customer-managed account failover enables you to fail your entire storage account over to the secondary region if the primary becomes unavailable for any reason. When you force a failover to the secondary region, clients can begin writing data to the secondary endpoint after the failover is complete. The failover typically takes about an hour.
+To fully understand the impact that customer-managed account failover would have on your users and applications, it is helpful to know what happens during every step of the failover and failback process. For details about how the process works, see [How customer-managed storage account failover works](storage-failover-customer-managed-unplanned.md).
 
-### How an account failover works
-
-Under normal circumstances, a client writes data to an Azure Storage account in the primary region, and that data is copied asynchronously to the secondary region. The following image shows the scenario when the primary region is available:
-
-![Clients write data to the storage account in the primary region](media/storage-disaster-recovery-guidance/primary-available.png)
-
-If the primary endpoint becomes unavailable for any reason, the client is no longer able to write to the storage account. The following image shows the scenario where the primary has become unavailable, but no recovery has happened yet:
-
-![The primary is unavailable, so clients cannot write data](media/storage-disaster-recovery-guidance/primary-unavailable-before-failover.png)
-
-The customer initiates the account failover to the secondary endpoint. The failover process updates the DNS entry provided by Azure Storage so that the secondary endpoint becomes the new primary endpoint for your storage account, as shown in the following image:
-
-![Customer initiates account failover to secondary endpoint](media/storage-disaster-recovery-guidance/failover-to-secondary.png)
-
-Write access is restored for geo-redundant accounts once the DNS entry has been updated and requests are being directed to the new primary endpoint. Existing storage service endpoints for blobs, tables, queues, and files remain the same after the failover.
-
-> [!IMPORTANT]
-> After the failover is complete, the storage account is configured to be locally redundant in the new primary endpoint. To resume replication to the new secondary, configure the account for geo-redundancy again.
->
-> Keep in mind that converting a locally redundant storage account to use geo-redundancy incurs both cost and time. For more information, see [Important implications of account failover](storage-initiate-account-failover.md#important-implications-of-account-failover).
-
-### Anticipate data loss
+## Anticipate data loss and file inconsistencies
 
 > [!CAUTION]
-> An account failover usually involves some data loss. It's important to understand the implications of account failover before initiating one.
+> A storage account failover usually involves some data loss. It's important to understand this risk before initiating a failover.
 
 Because data is written asynchronously from the primary region to the secondary region, there is always a delay before a write to the primary region is copied to the secondary region. If the primary region becomes unavailable, the most recent writes may not yet have been copied to the secondary region.
 
-When you force a failover, all data in the primary region is lost as the secondary region becomes the new primary region. The new primary region is configured to be locally redundant after the failover.
+When you force a failover, all data in the primary region is lost as the secondary region becomes the new primary region. All data already copied to the secondary is maintained when the failover happens. However, any data written to the primary that has not also been copied to the secondary is lost permanently.
 
-All data already copied to the secondary is maintained when the failover happens. However, any data written to the primary that has not also been copied to the secondary is lost permanently.
+Additionally, since replication for storage accounts with a hierarchical namespace enabled (Azure Data Lake Storage Gen2) occurs at the file level,if an outage in the primary region occurs, it is possible that only some of the files in a container or directory might have successfully replicated to the secondary region.
 
-#### Last sync time
-
-The **Last Sync Time** property indicates the most recent time that data from the primary region is guaranteed to have been written to the secondary region. For accounts that have a hierarchical namespace, the same **Last Sync Time** property also applies to the metadata managed by the hierarchical namespace, including ACLs. All data and metadata written prior to the last sync time is available on the secondary, while data and metadata written after the last sync time may not have been written to the secondary, and may be lost. Use this property in the event of an outage to estimate the amount of data loss you may incur by initiating an account failover.
-
-As a best practice, design your application so that you can use the last sync time to evaluate expected data loss. For example, if you are logging all write operations, then you can compare the time of your last write operations to the last sync time to determine which writes have not been synced to the secondary.
-
-For more information about checking the **Last Sync Time** property, see [Check the Last Sync Time property for a storage account](last-sync-time-get.md).
-
-#### File consistency for Azure Data Lake Storage Gen2
-
-Replication for storage accounts with a hierarchical namespace enabled (Azure Data Lake Storage Gen2) occurs at the file level. This means that if an outage in the primary region occurs, it is possible that only some of the files in a container or directory might have successfully replicated to the secondary region. Consistency for all files in a container or directory is not guaranteed. Take this into account when creating your disaster recovery plan.
-
-### Use caution when failing back to the original primary
-
-After you fail over from the primary to the secondary region, your storage account is configured to be locally redundant in the new primary region. You can then configure the account in the new primary region for geo-redundancy. When the account is configured for geo-redundancy after a failover, the new primary region immediately begins copying data to the new secondary region, which was the primary before the original failover. However, it may take some time before existing data in the new primary is fully copied to the new secondary.
-
-After the storage account is reconfigured for geo-redundancy, it's possible to initiate a failback from the new primary to the new secondary. In this case, the original primary region prior to the failover becomes the primary region again, and is configured to be either locally redundant or zone-redundant, depending on whether the original primary configuration was GRS/RA-GRS or GZRS/RA-GZRS. All data in the post-failover primary region (the original secondary) is lost during the failback. If most of the data in the storage account has not been copied to the new secondary before you fail back, you could suffer a major data loss.
-
-To avoid a major data loss, check the value of the **Last Sync Time** property before failing back. Compare the last sync time to the last times that data was written to the new primary to evaluate expected data loss.
-
-After a failback operation, you can configure the new primary region to be geo-redundant again. If the original primary was configured for LRS, you can configure it to be GRS or RA-GRS. If the original primary was configured for ZRS, you can configure it to be GZRS or RA-GZRS. For additional options, see [Change how a storage account is replicated](redundancy-migration.md).
-
-## Initiate an account failover
-
-You can initiate an account failover from the Azure portal, PowerShell, Azure CLI, or the Azure Storage resource provider API. For more information on how to initiate a failover, see [Initiate an account failover](storage-initiate-account-failover.md).
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+For more details about accounting for these scenarios, see [Data loss and file inconsistencies](storage-failover-overview.md#data-loss-and-file-inconsistencies).
 
 ## Supported storage account types
 
@@ -212,16 +173,12 @@ The following features and services are not supported for account failover:
 - To failover an account with SSH File Transfer Protocol (SFTP) enabled, you must first [disable SFTP for the account](../blobs/secure-file-transfer-protocol-support-how-to.md#disable-sftp-support). If you want to resume using SFTP after the failover is complete, simply [re-enable it](../blobs/secure-file-transfer-protocol-support-how-to.md#enable-sftp-support).
 - Network File System (NFS) 3.0 (NFSv3) is not supported for storage account failover. You cannot create a storage account configured for global-redundancy with NFSv3 enabled.
 
-## Copying data as an alternative to failover
-
-If your storage account is configured for read access to the secondary, then you can design your application to read from the secondary endpoint. If you prefer not to fail over in the event of an outage in the primary region, you can use tools such as [AzCopy](./storage-use-azcopy-v10.md), [Azure PowerShell](/powershell/module/az.storage/), or the [Azure Data Movement library](../common/storage-use-data-movement-library.md) to copy data from your storage account in the secondary region to another storage account in an unaffected region. You can then point your applications to that storage account for both read and write availability.
-
 > [!CAUTION]
 > An account failover should not be used as part of your data migration strategy.
 
 ## See also
 
 - [Use geo-redundancy to design highly available applications](geo-redundant-design.md)
-- [Initiate an account failover](storage-initiate-account-failover.md)
-- [Check the Last Sync Time property for a storage account](last-sync-time-get.md)
 - [Tutorial: Build a highly available application with Blob storage](../blobs/storage-create-geo-redundant-storage.md)
+- [Azure storage account failover overview](storage-failover-overview.md)
+- [Azure Storage redundancy](storage-redundancy.md)
