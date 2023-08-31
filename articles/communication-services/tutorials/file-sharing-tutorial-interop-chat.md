@@ -131,6 +131,16 @@ Moreover, the Teams user's tenant admin might impose some additional restriction
 
 ## Run the code
 
+Let's run `npm run start` then you should be able to access our sample app via `localhost:3000` like the following: 
+
+![ACS UI library](./media/inline-image-tutorial-interop-chat-0.png "Screenshot of a ACS UI library.")
+
+Simply click on the chat button located on lower-right to reveal the chat panel and now if Teams user sents some files, you should see something like the following:
+
+![Teams sending a file](./media/file-sharing-tutorial-interop-chat-1.png "Screenshot of a Teams client sending one file.")
+
+![ACS getting a file](./media/file-sharing-tutorial-interop-chat-2.png "Screenshot of ACS UI library receiving one file.")
+
 
 ## Next steps
 
