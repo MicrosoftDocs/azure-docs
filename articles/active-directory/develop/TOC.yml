@@ -708,20 +708,7 @@
             - name: Migrate to MSAL.iOS / macOS
               href: migrate-objc-adal-msal.md
         - name: MSAL Java
-          items:
-            - name: Custom token cache serialization
-              href: msal-java-token-cache-serialization.md
-            - name: Get and remove accounts from the token cache
-              href: msal-java-get-remove-accounts-token-cache.md
-            - name: Migrate to MSAL for Java
-              href: migrate-adal-msal-java.md
-            - name: AD FS support in MSAL for Java
-              href: msal-java-adfs-support.md
-            - name: Handle errors and exceptions in MSAL for Java
-              displayName: handling, catch
-              href: msal-error-handling-java.md
-            - name: Logging in MSAL for Java
-              href: msal-logging-java.md
+          href: /entra/msal/java
         - name: MSAL.js
           displayName: Angular, JavaScript, Node.js, React
           items:
@@ -830,18 +817,7 @@
               displayName: persistent, serialize, deserialize
               href: msal-node-extensions.md
         - name: MSAL Python
-          items:
-            - name: Custom token cache serialization
-              href: msal-python-token-cache-serialization.md
-            - name: Migrate to MSAL Python
-              href: migrate-python-adal-msal.md
-            - name: AD FS support in MSAL Python
-              href: msal-python-adfs-support.md
-            - name: Handle errors and exceptions in MSAL for Python
-              displayName: handling, catch
-              href: msal-error-handling-python.md
-            - name: Logging in MSAL for Python
-              href: msal-logging-python.md
+          href: /entra/msal/python/
     - name: Protocol reference (OAuth, OIDC, SAML)
       items:
         - name: OAuth 2.0 and OpenID Connect (OIDC)
