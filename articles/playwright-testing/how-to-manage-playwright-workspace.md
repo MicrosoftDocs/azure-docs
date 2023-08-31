@@ -30,6 +30,8 @@ The following table lists the differences in functionality, based on how you acc
 
 ## Create a workspace
 
+# [Playwright portal](#tab/playwright)
+
 # [Azure portal](#tab/portal)
 
 <!-- 
@@ -67,13 +69,13 @@ The following table lists the differences in functionality, based on how you acc
     :::image type="content" source="./media/how-to-manage-workspace-in-azure-portal/create-resource-deployment-complete.png" alt-text="Screenshot that shows the deployment completion information in the Azure portal."::: 
 -->
 
-# [Playwright portal](#tab/playwright)
-
 ---
 
 ## View the list of workspaces
 
 To see the list of Playwright workspaces you have access to:
+
+# [Playwright portal](#tab/playwright)
 
 # [Azure portal](#tab/portal)
 
@@ -83,24 +85,24 @@ To see the list of Playwright workspaces you have access to:
 1. Look through the list of workspaces found. You can filter based on subscription, resource groups, and locations.
 1. Select a workspace to display its details.
 
-# [Playwright portal](#tab/playwright)
-
 ---
 
 ## View workspace details
+
+# [Playwright portal](#tab/playwright)
 
 # [Azure portal](#tab/portal)
 
 1. Sign in to the [Azure portal](https://portal.azure.com/), and search for your workspace.
 1. Select the workspace to display its details.
 
-# [Playwright portal](#tab/playwright)
-
 ---
 
 ## Delete a workspace
 
 To delete a Playwright workspace:
+
+# [Playwright portal](#tab/playwright)
 
 # [Azure portal](#tab/portal)
 
@@ -112,8 +114,6 @@ To delete a Playwright workspace:
 
     > [!WARNING]
     > Once a Microsoft Playwright Testing workspace has been deleted, it cannot be recovered.
-
-# [Playwright portal](#tab/playwright)
 
 ---
 
