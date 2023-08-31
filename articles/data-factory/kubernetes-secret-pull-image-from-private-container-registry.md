@@ -16,7 +16,7 @@ ms.date: 08/30/2023
 > [!NOTE]
 > Managed Airflow for Azure Data Factory relies on the open source Apache Airflow application. Documentation and more tutorials for Airflow can be found on the Apache Airflow [Documentation](https://airflow.apache.org/docs/) or [Community](https://airflow.apache.org/community/) pages.
 
-Apache Airflow provides a range of backends for storing sensitive information like variables and connections, including Azure Key Vault. This guide shows you how to configure Azure Key Vault as the secret backend for Apache Airflow, enabling you to store and manage your sensitive information in a secure and centralized manner.
+This article explains how to add a Kubernetes secret to pull a custom image from a private container registry with Managed Airflow in Data Factory for Microsoft Fabric.
 
 ## Prerequisites
 

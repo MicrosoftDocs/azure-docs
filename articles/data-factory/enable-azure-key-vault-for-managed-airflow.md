@@ -38,14 +38,14 @@ Assign your SPN the following roles in your key vault from the [Built-in roles](
 Follow these steps to enable the Azure Key Vault as the secret backend for your Managed Airflow instance.
 
 1. Navigate to the [Managed Airflow instance's integrated runtime (IR) environment](how-does-managed-airflow-work.md).
-1. Install the [**apache-airflow-providers-microsoft-azure==5.0.2**](https://airflow.apache.org/docs/apache-airflow-providers-microsoft-azure/stable/index.html) for the **Airflow requirements** during your initial Airflow environment setup.
+1. Install the [**apache-airflow-providers-microsoft-azure**](https://airflow.apache.org/docs/apache-airflow-providers-microsoft-azure/stable/index.html) for the **Airflow requirements** during your initial Airflow environment setup.
 
    :::image type="content" source="media/enable-azure-key-vault-for-managed-airflow/airflow-environment-setup.png" alt-text="Screenshot showing the Airflow Environment Setup window highlighting the Airflow requirements.":::
 
 1. Add the following settings for the **Airflow configuration overrides** in integrated runtime properties:
 
    - **AIRFLOW__SECRETS__BACKEND**: "airflow.providers.microsoft.azure.secrets.key_vault.AzureKeyVaultBackend"
-   - **AIRFLOW__SECRETS__BACKEND_KWARGS**: "{"connections_prefix": "airflow-connections", "variables_prefix": "airflow-variables", "vault_url": \<your keyvault uri\>}”
+   - **AIRFLOW__SECRETS__BACKEND_KWARGS**: "{"connections_prefix": "airflow-connections", "variables_prefix": "airflow-variables", "vault_url": **\<your keyvault uri\>**}”
 
    :::image type="content" source="media/enable-azure-key-vault-for-managed-airflow/airflow-configuration-overrides.png" alt-text="Screenshot showing the configuration of the Airflow configuration overrides setting in the Airflow environment setup.":::
 
@@ -96,7 +96,9 @@ Follow these steps to enable the Azure Key Vault as the secret backend for your 
        get_variable_task = PythonOperator(
            task_id="get_variable",
            python_callable=retrieve_variable_from_akv,
-
+       )
+   
+   get_variable_task
    ```
 
 1. Store variables for connections in Azure Key Vault. Refer to [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md)
