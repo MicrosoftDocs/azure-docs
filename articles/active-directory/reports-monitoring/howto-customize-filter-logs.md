@@ -118,7 +118,7 @@ Customizing the columns and adjusting the filter helps to look at logs with simi
 
 ### Client app filter
 
-When reviewing where a sign-in originated, you may need use the **Client app** filter. Client app has two subcategories: **Modern authentication clients** and **Legacy authentication clients**. Modern authentication clients has two more subcategories: **Browser** and **Mobile apps and desktop clients**. There are several subcategories for Legacy authentication clients, which are defined in the [Legacy authentication client details](#legacy-authentication-client-details) table.
+When reviewing where a sign-in originated, you may need to use the **Client app** filter. Client app has two subcategories: **Modern authentication clients** and **Legacy authentication clients**. Modern authentication clients have two more subcategories: **Browser** and **Mobile apps and desktop clients**. There are several subcategories for Legacy authentication clients, which are defined in the [Legacy authentication client details](#legacy-authentication-client-details) table.
 
 ![Screenshot of the client app filter selected, with the categories highlighted.](media/concept-sign-ins/client-app-filter.png)
 
