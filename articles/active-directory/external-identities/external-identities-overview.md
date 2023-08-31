@@ -147,7 +147,7 @@ When you're considering B2B collaboration with a specific external Azure AD orga
 
 For B2B collaboration end-users who perform cross-tenant sign-ins, their home tenant branding appears, even if there isn't custom branding specified. In the following example, the company branding for Woodgrove Groceries appears on the left. The example on the right displays the default branding for the user's home tenant. 
 
-:::image type="content" source="media/external-identities-overview/b2b-comparison.png" alt-text="Comparison of the branded sign-in experience and the default sign-in experience.":::
+:::image type="content" source="media/external-identities-overview/b2b-comparison.png" alt-text="Screenshots showing a comparison of the branded sign-in experience and the default sign-in experience.":::
 
 ### Azure Active Directory B2C management
 
