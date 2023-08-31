@@ -2,7 +2,7 @@
   href: index.yml
 - name: What is Azure Cosmos DB for PostgreSQL?
   href: introduction.md
-  name: Product updates
+- name: Product updates
   href: product-updates.md
 - name: Quickstart
   items:
