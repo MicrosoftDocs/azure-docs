@@ -1,6 +1,6 @@
 ---
 title: "Use cluster connect to securely connect to Azure Arc-enabled Kubernetes clusters."
-ms.date: 04/20/2023
+ms.date: 08/30/2023
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 description: "With cluster connect, you can securely connect to Azure Arc-enabled Kubernetes clusters without requiring any inbound port to be enabled on the firewall."
@@ -100,7 +100,7 @@ Before you begin, review the [conceptual overview of the cluster connect feature
    - For an Azure AD user account:
 
      ```azurecli
-     AAD_ENTITY_OBJECT_ID=$(az ad signed-in-user show --query userPrincipalName -o tsv)
+     AAD_ENTITY_OBJECT_ID=$(az ad signed-in-user show --query id -o tsv)
      ```
 
    - For an Azure AD application:
@@ -148,7 +148,7 @@ Before you begin, review the [conceptual overview of the cluster connect feature
       kubectl create clusterrolebinding demo-user-binding --clusterrole cluster-admin --user=$AAD_ENTITY_OBJECT_ID
       ```
 
-   - If you are using Azure RBAC for authorization checks on the cluster, you can create an Azure role assignment mapped to the Azure AD entity. Example:
+   - If you are using [Azure RBAC for authorization checks](azure-rbac.md) on the cluster, you can create an Azure role assignment mapped to the Azure AD entity. Example:
 
      ```azurecli
      az role assignment create --role "Azure Arc Kubernetes Viewer" --assignee $AAD_ENTITY_OBJECT_ID --scope $ARM_ID_CLUSTER
@@ -259,13 +259,12 @@ Before you begin, review the [conceptual overview of the cluster connect feature
 You should now see a response from the cluster containing the list of all pods under the `default` namespace.
 
 ## Known limitations
-Use `az connectedk8s show` to check the Arc-enabled Kubernetes agent version.
+
+Use `az connectedk8s show` to check your Arc-enabled Kubernetes agent version.
 
 ### [Agent version < 1.11.7](#tab/agent-version)
 
-
 When making requests to the Kubernetes cluster, if the Azure AD entity used is a part of more than 200 groups, you may see the following error:
-
 
 `You must be logged in to the server (Error:Error while retrieving group info. Error:Overage claim (users with more than 200 group membership) is currently not supported.`
 
@@ -275,6 +274,7 @@ This is a known limitation. To get past this error:
 1. [Sign in](/cli/azure/create-an-azure-service-principal-azure-cli#sign-in-using-a-service-principal) to Azure CLI with the service principal before running the `az connectedk8s proxy` command.
 
 ### [Agent version >= 1.11.7](#tab/agent-version-latest)
+
 When making requests to the Kubernetes cluster, if the Azure AD service principal used is a part of more than 200 groups, you may see the following error:
 
 `Overage claim (users with more than 200 group membership) for SPN is currently not supported. For troubleshooting, please refer to aka.ms/overageclaimtroubleshoot`
@@ -283,6 +283,7 @@ This is a known limitation. To get past this error:
 
 1. Create a [service principal](/cli/azure/create-an-azure-service-principal-azure-cli), which is less likely to be a member of more than 200 groups.
 1. [Sign in](/cli/azure/create-an-azure-service-principal-azure-cli#sign-in-using-a-service-principal) to Azure CLI with the service principal before running the `az connectedk8s proxy` command.
+
 ---
 
 ## Next steps

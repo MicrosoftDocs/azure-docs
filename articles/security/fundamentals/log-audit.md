@@ -6,7 +6,6 @@ services: security
 documentationcenter: na
 author: TerryLanfear
 manager: rkarlin
-editor: TomSh
 
 ms.assetid:
 ms.service: security
@@ -14,7 +13,7 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/08/2022
+ms.date: 08/29/2023
 ms.author: terrylan
 
 ---

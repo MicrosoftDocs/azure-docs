@@ -845,6 +845,8 @@ items:
       href: concepts/email/sdk-features.md
     - name: Allowed attachment types
       href: concepts/email/email-attachment-allowed-mime-types.md
+    - name: Understanding sender reputation
+      href: concepts/email/sender-reputation-managed-suppression-list.md      
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/communication-services/
     - name: Domains
@@ -1041,20 +1043,28 @@ items:
       href: concepts/numbers/phone-number-management-for-latvia.md      
     - name: Phone number management for Luxembourg
       href: concepts/numbers/phone-number-management-for-luxembourg.md
+    - name: Phone number management for Malaysia
+      href: concepts/numbers/phone-number-management-for-malaysia.md
     - name: Phone number management for Netherlands
       href: concepts/numbers/phone-number-management-for-netherlands.md
     - name: Phone number management for New Zealand
       href: concepts/numbers/phone-number-management-for-new-zealand.md
     - name: Phone number management for Norway
       href: concepts/numbers/phone-number-management-for-norway.md
+    - name: Phone number management for Philippines
+      href: concepts/numbers/phone-number-management-for-philippines.md
     - name: Phone number management for Poland
       href: concepts/numbers/phone-number-management-for-poland.md
     - name: Phone number management for Portugal
       href: concepts/numbers/phone-number-management-for-portugal.md
+    - name: Phone number management for Saudi Arabia
+      href: concepts/numbers/phone-number-management-for-saudi-arabia.md
     - name: Phone number management for Singapore
       href: concepts/numbers/phone-number-management-for-singapore.md
     - name: Phone number management for Slovakia
       href: concepts/numbers/phone-number-management-for-slovakia.md
+    - name: Phone number management for South Korea
+      href: concepts/numbers/phone-number-management-for-south-korea.md
     - name: Phone number management for Spain
       href: concepts/numbers/phone-number-management-for-spain.md
     - name: Phone number management for Sweden
@@ -1065,6 +1075,8 @@ items:
       href: concepts/numbers/phone-number-management-for-taiwan.md
     - name: Phone number management for Thailand
       href: concepts/numbers/phone-number-management-for-thailand.md
+    - name: Phone number management for United Arab Emirates
+      href: concepts/numbers/phone-number-management-for-united-arab-emirates.md
     - name: Phone number management for United Kingdom
       href: concepts/numbers/phone-number-management-for-united-kingdom.md
     - name: Phone number management for United States

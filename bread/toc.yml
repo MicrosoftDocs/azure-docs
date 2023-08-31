@@ -136,6 +136,9 @@
   - name: Automation
     tocHref: /azure/automation/
     topicHref: /azure/automation/
+  - name: Update Manager
+    tocHref: /azure/update-center/
+    topicHref: /azure/update-center/
   - name: Internet Peering
     tocHref: /azure/internet-peering/
     topicHref: /azure/internet-peering/
