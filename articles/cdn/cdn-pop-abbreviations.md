@@ -1,6 +1,6 @@
 ---
 title: Azure CDN POP locations by abbreviation | Microsoft Docs
-description: This article lists Azure CDN POP locations, sorted by POP abbreviation, for Azure CDN from Verizon.
+description: This article lists Azure CDN POP locations, sorted by POP abbreviation, for Azure CDN from Edgio.
 services: cdn
 author: duongau
 manager: kumudd
@@ -18,13 +18,15 @@ ms.custom: references_regions
 > [!div class="op_single_selector"]
 > * [POP locations by region](cdn-pop-locations.md)
 > * [Microsoft POP locations by abbreviation](microsoft-pop-abbreviations.md)
-> * [Verizon POP locations by abbreviation](cdn-pop-abbreviations.md)
+> * [Edgio POP locations by abbreviation](cdn-pop-abbreviations.md)
 > 
 
 
-This article lists POP locations, sorted by POP abbreviation, for **Azure CDN from Verizon**.
+This article lists POP locations, sorted by POP abbreviation, for **Azure CDN from Edgio**.
 
-## Verizon POP locations
+<a name='verizon-pop-locations'></a>
+
+## Edgio POP locations
 
 Abbreviation | Location | Region
 | --- | --- | --- |
@@ -174,5 +176,5 @@ XIJ | Kuwait | Europe
 
 ## Next steps
 
-* View [Azure CDN from Verizon POP locations by metro](cdn-pop-locations.md#partners).
+* View [Azure CDN from Edgio POP locations by metro](cdn-pop-locations.md#partners).
 * Learn how to [create an Azure CDN profile](cdn-create-new-endpoint.md).
