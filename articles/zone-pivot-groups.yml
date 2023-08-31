@@ -1799,10 +1799,18 @@ groups:
   pivots:
   - id: programming-language-studio
     title: Studio
-  - id: rest-api
-    title: REST
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-go
+    title: Go
   - id: programming-language-python
     title: Python
+  - id: rest-api
+    title: REST
 # Owner: diberry
 - id: app-service-webjob
   title: WebJob types
