@@ -30,6 +30,8 @@ This video provides an overview of how to change an access package.
 
 ## Check catalog for resources
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 If you need to add resources to an access package, you should check whether the resources you need are available in the access package's catalog. If you're an access package manager, you can't add resources to a catalog, even if you own them. You're restricted to using the resources available in the catalog.
 
 **Prerequisite role:** Global administrator, Identity Governance administrator, User administrator, Catalog owner, or Access package manager
@@ -191,21 +193,21 @@ You can add a resource role to an access package using Microsoft Graph. A user i
 
 ### Add resource roles to an access package with Microsoft PowerShell
 
-You can also create an access package in PowerShell with the cmdlets from the [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) module version 1.16.0 or a later 1.x.x module version, or Microsoft Graph PowerShell cmdlets beta module version 2.1.x or later beta module version.  This script illustrates using the Graph `beta` profile and Microsoft Graph PowerShell cmdlets module version 1.x.x.
+You can also create an access package in PowerShell with the cmdlets from the [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) beta module version 2.1.x or later beta module version.  This script illustrates using the Graph `beta` profile and Microsoft Graph PowerShell cmdlets module version 2.4.0.
 
-First, you would retrieve the ID of the catalog, and of the resources and their roles in that catalog that you wish to include in the access package, using a script similar to the following.
+First, you would retrieve the ID of the catalog, and of the resource and its roles in that catalog that you wish to include in the access package, using a script similar to the following.  This assumes there is a single application resource in the catalog.
 
 ```powershell
 Connect-MgGraph -Scopes "EntitlementManagement.ReadWrite.All"
-Select-MgProfile -Name "beta"
-$catalog = Get-MgEntitlementManagementAccessPackageCatalog -Filter "displayName eq 'Marketing'"
 
-$rsc = Get-MgEntitlementManagementAccessPackageCatalogAccessPackageResource -AccessPackageCatalogId $catalog.Id -Filter "resourceType eq 'Application'" -ExpandProperty "accessPackageResourceScopes"
-$filt = "(originSystem eq 'AadApplication' and accessPackageResource/id eq '" + $rsc[0].Id + "')"
-$rr = Get-MgEntitlementManagementAccessPackageCatalogAccessPackageResourceRole -AccessPackageCatalogId $catalog.Id -Filter $filt -ExpandProperty "accessPackageResource"
+$catalog = Get-MgBetaEntitlementManagementAccessPackageCatalog -Filter "displayName eq 'Marketing'"
+
+$rsc = Get-MgBetaEntitlementManagementAccessPackageCatalogAccessPackageResource -AccessPackageCatalogId $catalog.Id -Filter "resourceType eq 'Application'" -ExpandProperty "accessPackageResourceScopes"
+$filt = "(originSystem eq 'AadApplication' and accessPackageResource/id eq '" + $rsc.Id + "')"
+$rr = Get-MgBetaEntitlementManagementAccessPackageCatalogAccessPackageResourceRole -AccessPackageCatalogId $catalog.Id -Filter $filt -ExpandProperty "accessPackageResource"
 ```
 
-Then, assign the resource roles to the access package.  For example, if you wished to include the second resource role of the first resource returned earlier as a resource role of an access package, you would use a script similar to the following.
+Then, assign the resource role from that resource to the access package.  For example, if you wished to include the second resource role of the resource returned earlier as a resource role of an access package, you would use a script similar to the following.
 
 ```powershell
 $apid = "cdd5f06b-752a-4c9f-97a6-82f4eda6c76d"
@@ -216,18 +218,18 @@ $rparams = @{
 	   DisplayName = $rr[2].DisplayName
 	   OriginSystem = $rr[2].OriginSystem
 	   AccessPackageResource = @{
-	      Id = $rsc[0].Id
-	      ResourceType = $rsc[0].ResourceType
-	      OriginId = $rsc[0].OriginId
-	      OriginSystem = $rsc[0].OriginSystem
+	      Id = $rsc.Id
+	      ResourceType = $rsc.ResourceType
+	      OriginId = $rsc.OriginId
+	      OriginSystem = $rsc.OriginSystem
 	   }
 	}
 	AccessPackageResourceScope = @{
-	   OriginId = $rsc[0].OriginId
-	   OriginSystem = $rsc[0].OriginSystem
+	   OriginId = $rsc.OriginId
+	   OriginSystem = $rsc.OriginSystem
 	}
 }
-New-MgEntitlementManagementAccessPackageResourceRoleScope -AccessPackageId $apid -BodyParameter $rparams
+New-MgBetaEntitlementManagementAccessPackageResourceRoleScope -AccessPackageId $apid -BodyParameter $rparams
 ```
 
 ## Remove resource roles

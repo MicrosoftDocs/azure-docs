@@ -10,6 +10,9 @@ ms.date: 11/14/2022
 
 To provide [File Integrity Monitoring (FIM)](file-integrity-monitoring-overview.md), the Azure Monitor Agent (AMA) collects data from machines according to [data collection rules](../azure-monitor/essentials/data-collection-rule-overview.md). When the current state of your system files is compared with the state during the previous scan, FIM notifies you about suspicious modifications.
 
+> [!NOTE]
+> As part of our Defender for Cloud updated strategy, the Azure Monitor Agent will no longer be required to receive all the capabilities of Defender for Servers. All features that currently rely on the Azure Monitor Agent, including those described on this page, will be available through [Microsoft Defender for Endpoint integration](integration-defender-for-endpoint.md) or [agentless scanning](concept-agentless-data-collection.md), by August 2024. To access the full capabilities of Defender for SQL server on machines, the Azure monitoring Agent (also known as AMA) is required. For more information about the feature road map, see [this announcement](upcoming-changes.md#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation).
+
 File Integrity Monitoring with the Azure Monitor Agent offers:
 
 - **Compatibility with the unified monitoring agent** - Compatible with the [Azure Monitor Agent](../azure-monitor/agents/agents-overview.md) that enhances security, reliability, and facilitates multi-homing experience to store data.
@@ -20,9 +23,9 @@ File Integrity Monitoring with the Azure Monitor Agent offers:
 
 In this article you'll learn how to:
 
-   - [Enable File Integrity Monitoring with AMA](#enable-file-integrity-monitoring-with-ama)
-   - [Edit the list of tracked files and registry keys](#edit-the-list-of-tracked-files-and-registry-keys)
-   - [Exclude machines from File Integrity Monitoring](#exclude-machines-from-file-integrity-monitoring) 
+- [Enable File Integrity Monitoring with AMA](#enable-file-integrity-monitoring-with-ama)
+- [Edit the list of tracked files and registry keys](#edit-the-list-of-tracked-files-and-registry-keys)
+- [Exclude machines from File Integrity Monitoring](#exclude-machines-from-file-integrity-monitoring)
 
 ## Availability
 
@@ -45,19 +48,19 @@ To track changes to your files on machines with AMA:
 
 To enable File Integrity Monitoring (FIM), use the FIM recommendation to select machines to monitor:
 
-   1. From Defender for Cloud's sidebar, open the **Recommendations** page.
-   1. Select the recommendation [File integrity monitoring should be enabled on machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/9b7d740f-c271-4bfd-88fb-515680c33440). Learn more about [Defender for Cloud recommendations](review-security-recommendations.md).
-   1. Select the machines that you want to use File Integrity Monitoring on, select **Fix**, and select **Fix X resources**.
+1. From Defender for Cloud's sidebar, open the **Recommendations** page.
+1. Select the recommendation [File integrity monitoring should be enabled on machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/9b7d740f-c271-4bfd-88fb-515680c33440). Learn more about [Defender for Cloud recommendations](review-security-recommendations.md).
+1. Select the machines that you want to use File Integrity Monitoring on, select **Fix**, and select **Fix X resources**.
 
-        The recommendation fix:
+    The recommendation fix:
 
-        - Installs the `ChangeTracking-Windows` or `ChangeTracking-Linux` extension on the machines.
-        - Generates a data collection rule (DCR) for the subscription, named `Microsoft-ChangeTracking-[subscriptionId]-default-dcr`, that defines what files and registries should be monitored based on default settings. The fix attaches the DCR to all machines in the subscription that have AMA installed and FIM enabled.
-        - Creates a new Log Analytics workspace with the naming convention `defaultWorkspace-[subscriptionId]-fim` and with the default workspace settings.
-   
-        You can update the DCR and Log Analytics workspace settings later.
-   
- 1. From Defender for Cloud's sidebar, go to **Workload protections** > **File integrity monitoring**, and select the banner to show the results for machines with Azure Monitor Agent.
+    - Installs the `ChangeTracking-Windows` or `ChangeTracking-Linux` extension on the machines.
+    - Generates a data collection rule (DCR) for the subscription, named `Microsoft-ChangeTracking-[subscriptionId]-default-dcr`, that defines what files and registries should be monitored based on default settings. The fix attaches the DCR to all machines in the subscription that have AMA installed and FIM enabled.
+    - Creates a new Log Analytics workspace with the naming convention `defaultWorkspace-[subscriptionId]-fim` and with the default workspace settings.
+
+    You can update the DCR and Log Analytics workspace settings later.
+
+1. From Defender for Cloud's sidebar, go to **Workload protections** > **File integrity monitoring**, and select the banner to show the results for machines with Azure Monitor Agent.
 
     :::image type="content" source="media/file-integrity-monitoring-enable-ama/file-integrity-monitoring-azure-monitoring-agent-banner.png" alt-text="Screenshot of banner in File integrity monitoring to show the results for machines with Azure Monitor Agent.":::
 
@@ -82,9 +85,9 @@ To edit the list of tracked files and registries:
 1. Select the DCR that you want to update for a subscription.
 
     Each file in the list of Windows registry keys, Windows files, and Linux files contains a definition for a file or registry key, including name, path, and other options. You can also set **Enabled** to **False** to untrack the file or registry key without removing the definition.
-    
+
     Learn more about [system file and registry key definitions](../automation/change-tracking/manage-change-tracking.md#track-files).
-    
+
 1. Select a file, and then add or edit the file or registry key definition.
 
 1. Select **Add** to save the changes.
@@ -95,7 +98,7 @@ Every machine in the subscription that is attached to the DCR is monitored. You 
 
 To exclude a machine from File Integrity Monitoring:
 
-1.  In the list of monitored machines in the FIM results, select the menu (**...**) for the machine
+1. In the list of monitored machines in the FIM results, select the menu (**...**) for the machine
 1. Select **Detach data collection rule**.
 
 :::image type="content" source="media/file-integrity-monitoring-enable-ama/file-integrity-monitoring-azure-monitoring-agent-detach-rule.png" alt-text="Screenshot of the option to detach a machine from a data collection rule and exclude the machines from File Integrity Monitoring." lightbox="media/file-integrity-monitoring-enable-ama/file-integrity-monitoring-azure-monitoring-agent-detach-rule.png":::
