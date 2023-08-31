@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Add a guest user and send an invitation'
-description: Use this quickstart to learn how Azure AD admins can add B2B guest users in the Azure portal and walk through the B2B invitation workflow.
+description: Use this quickstart to learn how Azure AD admins can add B2B guest users in the Microsoft Entra admin center and walk through the B2B invitation workflow.
 services: active-directory
 ms.author: cmulligan
 author: csmulligan
@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 With Azure AD [B2B collaboration](what-is-b2b.md), you can invite anyone to collaborate with your organization using their own work, school, or social account.
 
-In this quickstart, you'll learn how to add a new guest user to your Azure AD directory in the Azure portal. You'll also send an invitation and see what the guest user's invitation redemption process looks like. 
+In this quickstart, you'll learn how to add a new guest user to your Azure AD directory in the Microsoft Entra admin center. You'll also send an invitation and see what the guest user's invitation redemption process looks like. 
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -40,9 +40,9 @@ To complete the scenario in this quickstart, you need:
 
 This quickstart guide provides the basic steps to invite an external user. To learn about all of the properties and settings that you can include when you invite an external user, see [How to create and delete a user](../fundamentals/how-to-create-delete-users.md).
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using one of the roles listed in the Prerequisites.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User administrator](../roles/permissions-reference.md#user-administrator).
 
-1. Navigate to **Azure Active Directory** > **Users**.
+1. Browse to **Identity** > **Users** > **All users**.
 
 1. Select **Invite external user** from the menu. 
 
@@ -94,14 +94,13 @@ Now sign in as the guest user to see the invitation.
 
 When no longer needed, delete the test guest user.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's been assigned the Global administrator or User administrator role.
-1. Select the **Azure Active Directory** service.
-1. Under **Manage**, select **Users**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **User settings**.
 1. Select the test user, and then select **Delete user**.
 
 ## Next steps
 
-In this quickstart, you created a guest user in the Azure portal and sent an invitation to share apps. Then you viewed the redemption process from the guest user's perspective, and verified that the guest user was able to access their My Apps page. 
-To learn more about adding guest users for collaboration, see [Add Azure Active Directory B2B collaboration users in the Azure portal](add-users-administrator.md).
+In this quickstart, you created a guest user in the Microsoft Entra admin center and sent an invitation to share apps. Then you viewed the redemption process from the guest user's perspective, and verified that the guest user was able to access their My Apps page. 
+To learn more about adding guest users for collaboration, see [Add Azure Active Directory B2B collaboration users in the Microsoft Entra admin center](add-users-administrator.md).
 To learn more about adding guest users with PowerShell, see [Add and invite guests with PowerShell](b2b-quickstart-invite-powershell.md).
 You can also bulk invite guest users [via the portal](tutorial-bulk-invite.md) or [via PowerShell](bulk-invite-powershell.md). 

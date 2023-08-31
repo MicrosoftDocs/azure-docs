@@ -34,8 +34,9 @@ For B2B collaboration with other Azure AD organizations, you should also review 
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator account and open the **Azure Active Directory** service.
-1. Select **External Identities** > **External collaboration settings**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [External Identity Provider administrator](../roles/permissions-reference.md#external-identity-provider-administrator).
+
+1. Browse to **Identity** > **External Identities** > **External collaboration settings**.
 
 1. Under **Guest user access**, choose the level of access you want guest users to have:
   
@@ -80,7 +81,7 @@ External collaboration settings can be configured by using the Microsoft Graph A
 
 - For **Guest user access restrictions** and **Guest invite restrictions**, use the [authorizationPolicy](/graph/api/resources/authorizationpolicy?view=graph-rest-1.0&preserve-view=true) resource type.
 - For the **Enable guest self-service sign up via user flows** setting, use [authenticationFlowsPolicy](/graph/api/resources/authenticationflowspolicy?view=graph-rest-1.0&preserve-view=true) resource type.
-- For email one-time passcode settings (now on the **All identity providers** page in the Azure portal), use the [emailAuthenticationMethodConfiguration](/graph/api/resources/emailAuthenticationMethodConfiguration?view=graph-rest-1.0&preserve-view=true) resource type.
+- For email one-time passcode settings (now on the **All identity providers** page in the Microsoft Entra admin center), use the [emailAuthenticationMethodConfiguration](/graph/api/resources/emailAuthenticationMethodConfiguration?view=graph-rest-1.0&preserve-view=true) resource type.
 
 ## Assign the Guest Inviter role to a user
 
