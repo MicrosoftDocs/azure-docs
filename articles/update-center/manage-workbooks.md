@@ -14,7 +14,7 @@ ms.topic: how-to
 
 This article describes how to create a workbook and how to edit a workbook to create customized reports.
 
-## Create a report
+## Create a workbook
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to Update Manager.
 1. Under **Monitoring**, select **Update reports** to view the Update Manager| Update reports | Gallery.
