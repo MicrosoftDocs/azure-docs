@@ -585,7 +585,7 @@ No. ICMP traffic that's sourced from a subnet with service endpoints enabled won
 
 ### How do NSGs on a subnet work with service endpoints?
 
-To reach the Azure service, NSGs need to allow outbound connectivity. If your NSGs are opened to all internet outbound traffic, the service endpoint traffic should work. You can also limit the outbound traffic to service IPs only by using the service tags.  
+To reach the Azure service, NSGs need to allow outbound connectivity. If your NSGs are opened to all internet outbound traffic, the service endpoint traffic should work. You can also limit the outbound traffic to only service IP addresses by using the service tags.  
 
 ### What permissions do I need to set up service endpoints?
 
@@ -595,7 +595,7 @@ To secure Azure service resources to a virtual network, you must have **Microsof
 
 For more information about built-in roles and assigning specific permissions to custom roles, see [Azure custom roles](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-### Can I filter virtual network traffic to Azure services, allowing only specific Azure service resources, over virtual network service endpoints?
+### Can I filter virtual network traffic to Azure services over service endpoints?
 
 You can use virtual network service endpoint policies to filter virtual network traffic to Azure services, allowing only specific Azure service resources over the service endpoints. Endpoint policies provide granular access control from the virtual network traffic to the Azure services.
 
@@ -641,11 +641,11 @@ You can cancel the migration as long as resources are still in the prepared stat
 
 ### Can I revert the migration if the commit operation failed?
 
-You can't reverse a migration if the commit operation failed. All migration operations, including the commit operation, can't be changed after you start it. We recommend that you retry the operation after a short period. If the operation continues to fail, submit a support request.
+You can't reverse a migration if the commit operation failed. All migration operations, including the commit operation, can't be changed after you start them. We recommend that you retry the operation after a short period. If the operation continues to fail, submit a support request.
 
 ### Can I validate my subscription or resources to see if they're capable of migration?
 
-Yes. The first step in preparing for migration is to validate if resources can be migrated. If the validation fails, you'll receive messages for all the reasons why the migration can't be completed.
+Yes. The first step in preparing for migration is to validate that resources can be migrated. If the validation fails, you'll receive messages for all the reasons why the migration can't be completed.
 
 ### Are Application Gateway resources migrated as part of the virtual network migration from classic to Resource Manager?  
 
@@ -657,7 +657,7 @@ Azure VPN Gateway resources are migrated as part of the virtual network migratio
 
 ### Is a service interruption associated with migrating classic VPN gateways to Resource Manager?  
 
-You won't experience any service interruption with your VPN connection when you're migrating to Resource Manager. Existing workloads will continue to function without loss of on-premises connectivity during the migration.
+You won't experience any service interruption with your VPN connection when you're migrating to Resource Manager. Existing workloads will continue to function with full on-premises connectivity during the migration.
 
 ### Do I need to reconfigure my on-premises device after the VPN gateway is migrated to Resource Manager?
 
