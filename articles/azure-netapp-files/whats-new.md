@@ -21,6 +21,10 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+<!-- date tbd -->
+* [Azure NetApp Files double encryption at rest](double-encryption-at-rest.md) is now generally available (GA). 
+
+
 ## August 2023
 
 * [Cross-region replication enhancement: re-establish deleted volume replication](reestablish-deleted-volume-relationships.md) (Preview)
