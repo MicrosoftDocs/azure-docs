@@ -43,9 +43,9 @@ In the [Azure Maps routing coverage tables], the following information is availa
 
 **Good** - The country/region has detailed road data available in most populated centers and most of these have been verified for accuracy. Coverage is updated frequently. Remote areas may lack some road information.
 
-**Fair** - At a minimum, the country/region has major road data available and some detailed road data. Most often, these roads haven't been verified for accuracy. Coverage is updated over time. Visit the map to assess if the current version meets the needs of your application.
+**Fair** - At a minimum, the country/region has major road data available and some detailed road data. Most often, these roads haven't been verified for accuracy. Coverage is updated over time.
 
-**Major Roads Only** - At a minimum, the country/region coverage includes major roads. These roads haven't been verified for accuracy. Coverage is updated over time. Visit the map to assess if the current version meets the needs of your application.
+**Major Roads Only** - At a minimum, the country/region coverage includes major roads. These roads haven't been verified for accuracy. Coverage is updated over time.
 
 ::: zone-end
 
@@ -69,7 +69,7 @@ Azure Maps supports truck routing in the countries/regions indicated in the foll
 
 ### Route direction services
 
-Route Directions V2 API returns the ideal route between a start location, or origin, and an end location, or destination. You can choose to get a route for walking, automobile (driving) or commercial trucks. You can also request route details such as distance, estimated travel time, and step-by-step instructions to navigate the route.
+Route Directions V2 API (preview) returns the ideal route between a start location, or origin, and an end location, or destination. You can choose to get a route for walking, automobile (driving) or commercial trucks. You can also request route details such as distance, estimated travel time, and step-by-step instructions to navigate the route.
 
 For more information about the Route Directions V2 API, see [Azure Maps Route Service] in the REST API documentation.
 
@@ -353,7 +353,7 @@ The following tables provide coverage information for version 1 of the Azure Map
 <!-----------------------------ROUTING V2 ------------------------------------------------------------------------------>
 ::: zone pivot="route-v2"
 
-The Azure Maps Routing v2 service contains different levels of geographic coverage for every country/region in the world. The following table contains details about coverage for:
+The Azure Maps Routing v2 service (preview) contains different levels of geographic coverage for every country/region in the world. The following table contains details about coverage for:
 
 - Road Data / Routing (Driving and Walking)
 - Traffic
