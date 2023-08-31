@@ -14,6 +14,19 @@ ms.custom: mvc
 
 Known issues associated with migrations to Azure Database for MySQL are described in the following sections.
 
+## Schema Migration Issue for v8.0 MySQL Flexible Server target
+
+- **Error**: Fatal error migrating the source's schema to target MySQL Flexible Server with engine version 8.0. This error indicates that the server parameter sql_generate_invisible_primary_key for target MySQL Flexible Server  has been set to ON.
+
+  **Potential error message**: 
+  - "Unknown error."
+  - "Failed to generate invisible primary key. Auto-increment column already exists."
+  - "The column 'my_row_id' in the target table 'table name' in database 'database' does not exist on the source table."
+
+  **Limitation**: This error occurs during the schema migration phase or change data capture phase, if the schema migration option has been selected for the DMS migration project and the server parameter sql_generate_invisible_primary_key for target MySQL Flexible Server has been set to ON.
+
+  **Workaround**: Set the server parameter sql_generate_invisible_primary_key for target MySQL Flexible Server to OFF. The server parameter can be found in the Server parameters Blade under the All tab for the target MySQL Flexible Server. Additionally, drop the target database and start over the DMS migration to not have any mismatched schemas.
+
 ## Incompatible SQL Mode
 
 One or more incompatible SQL modes can cause many different errors. Below is an example error along with server modes that should be looked at if this error occurs.

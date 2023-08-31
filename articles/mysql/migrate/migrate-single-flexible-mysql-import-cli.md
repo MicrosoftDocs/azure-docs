@@ -186,7 +186,6 @@ Below is the benchmarked performance based on varying number of tables for 10 Gi
 ## Post-import steps
 
 - Copy the following properties from the source Single Server to target Flexible Server post MySQL Import operation is completed successfully:
-  - Server parameters
   - Firewall rules
   - Read-Replicas
   - Monitoring page settings (Alerts, Metrics, and Diagnostic settings)
