@@ -163,12 +163,12 @@ The optional `failureThreshold` setting defines the number of attempts Container
 
 ## Default configuration
 
-If ingress is enabled, the following default probes are automatically added to the main app container if none is defined for each type.
+If ingress is enabled, the following default probes are automatically added to the main app container if none of the probe configurations have been modified. If any of the configurations have been modified, the remaining values will use [Kubernetes defaults](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.28/#probe-v1-core).
 
 | Probe type | Default values |
-|---|---|
-| Startup | Protocol: TCP<br>Port: ingress target port<br>Timeout: 1 second<br>Period: 1 second<br>Initial delay: 1 second<br>Success threshold: 1<br>Failure threshold: `timeoutSeconds` |
-| Readiness | Protocol: TCP<br>Port: ingress target port<br>Timeout: 5 seconds<br>Period: 5 seconds<br>Initial delay: 3 seconds<br>Success threshold: 1<br>Failure threshold: `timeoutSeconds / 5` |
+| -- | -- |
+| Startup | Protocol: TCP<br>Port: ingress target port<br>Timeout: 3 seconds<br>Period: 1 second<br>Initial delay: 1 second<br>Success threshold: 1<br>Failure threshold: 240 seconds |
+| Readiness | Protocol: TCP<br>Port: ingress target port<br>Timeout: 5 seconds<br>Period: 5 seconds<br>Initial delay: 3 seconds<br>Success threshold: 1<br>Failure threshold: 48 seconds |
 | Liveness | Protocol: TCP<br>Port: ingress target port |
 
 If your app takes an extended amount of time to start (which is common in Java) you often need to customize the probes so your container doesn't crash.
