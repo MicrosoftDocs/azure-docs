@@ -103,6 +103,7 @@ Configuration for SAP **/hana/data** volume:
 | M832isx_v2<sup>1</sup> | 23088 GiB | larger than 2,000 Mbps | 4 x P60<sup>1</sup> | 2,000 MBps | no bursting | 64,000 | no bursting |
 
 <sup>1</sup> VM type not available by default. Please contact your Microsoft account team
+
 <sup>2</sup> Maximum throughput provided by the VM and throughput requirement by SAP HANA workload, especially savepoint activity,  can force you to deploy significant more premium storage v1 capacity. 
 
 

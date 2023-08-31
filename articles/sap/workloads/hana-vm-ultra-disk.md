@@ -73,6 +73,7 @@ The recommendations are often exceeding the SAP minimum requirements as stated e
 | M832isx_v2<sup>1</sup> | 23088 GiB | larger than 2,000 Mbps | 28,400 GB | 2,000 MBps<sup>2</sup> | 60,000 | 512 GB | 600 MBps | 9,000 |
 
 <sup>1</sup> VM type not available by default. Please contact your Microsoft account team
+
 <sup>2</sup> Maximum throughput provided by the VM and throughput requirement by SAP HANA workload, especially savepoint activity,  can force you to deploy significant more throughput and IOPS
 
 
