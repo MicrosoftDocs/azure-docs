@@ -5,10 +5,10 @@ services: active-directory
 author: shlipsey3
 manager: amycolannino
 ms.service: active-directory
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/22/2023
+ms.date: 08/30/2023
 ms.author: sarahlipsey
 ms.reviewer: besiler
 ---
@@ -88,15 +88,15 @@ Filtering the sign-in logs is a helpful way to quickly find logs that match a sp
 
 Some filter options prompt you to select more options. Follow the prompts to make the selection you need for the filter. You can add multiple filters. 
 
-Select the **Add filters** option from the top of the table to get started.
+1. Select the **Add filters** button, choose a filter option and select **Apply**.
 
-![Screenshot of the sign-in logs page with the Add filters option highlighted.](./media/howto-customize-filter-logs/sign-in-logs-add-filters.png)
+    ![Screenshot of the sign-in logs page with the Add filters option highlighted.](./media/howto-customize-filter-logs/sign-in-logs-add-filters.png)
 
-Once you apply a filter, you may either enter a specific detail - such as a Request ID - or select another filter option. 
+1. Either enter a specific detail - such as a Request ID - or select another filter option. 
 
-![Screenshot of the filter options with a field to enter filter details open.](./media/howto-customize-filter-logs/sign-in-logs-filter-options.png)
+    ![Screenshot of the filter options with a field to enter filter details open.](./media/howto-customize-filter-logs/sign-in-logs-filter-options.png)
 
-You can filter on several details. The following table describes some commonly used filters. Not all filter options are described.
+You can filter on several details. The following table describes some commonly used filters. *Not all filter options are described.*
 
 | Filter | Description |
 | --- | --- |
@@ -115,22 +115,24 @@ Customizing the columns and adjusting the filter helps to look at logs with simi
 
 :::image type="content" source="media/howto-customize-filter-logs/sign-in-activity-details.png" alt-text="Screenshot of the sign-in activity details." lightbox="media/howto-customize-filter-logs/sign-in-activity-details-expanded.png":::
 
-### Considerations for sign-in logs
 
-- **IP address and location:** There's no definitive connection between an IP address and where the computer with that address is physically located. Mobile providers and VPNs issue IP addresses from central pools that are often far from where the client device is actually used. Currently, converting IP address to a physical location is a best effort based on traces, registry data, reverse lookups and other information.
+### Client app filter
 
-- **Conditional Access:** 
-    - *Not applied:* No policy applied to the user and application during sign-in.
-    - *Success:* One or more Conditional Access policies applied to or were evaluated for the user and application (but not necessarily the other conditions) during sign-in. Even though a Conditional Access policy might not apply, if it was evaluated, the Conditional Access status shows *Success*.
-    - *Failure:* The sign-in satisfied the user and application condition of at least one Conditional Access policy and grant controls are either not satisfied or set to block access. 
+When reviewing where a sign-in originated, you may need to use the **Client app** filter. Client app has two subcategories: **Modern authentication clients** and **Legacy authentication clients**. Modern authentication clients have two more subcategories: **Browser** and **Mobile apps and desktop clients**. There are several subcategories for Legacy authentication clients, which are defined in the [Legacy authentication client details](#legacy-authentication-client-details) table.
 
-- **Home tenant name:** Due to privacy commitments, Azure AD doesn't populate the home tenant name field during cross-tenant scenarios.
+![Screenshot of the client app filter selected, with the categories highlighted.](media/concept-sign-ins/client-app-filter.png)
 
-- **Multifactor authentication:** When a user signs in with MFA, several separate MFA events are actually taking place. For example, if a user enters the wrong validation code or doesn't respond in time, additional MFA events are sent to reflect the latest status of the sign-in attempt. These sign-in events appear as one line item in the Azure AD sign-in logs. That same sign-in event in Azure Monitor, however, appears as multiple line items. These events all have the same `correlationId`.
+**Browser** sign-ins include all sign-in attempts from web browsers. When viewing the details of a sign-in from a browser, the **Basic info** tab shows **Client app: Browser**.
 
-- **Client app:** The **Client app** filter option has two subcategories: **Modern authentication clients** and **Legacy authentication clients**.
-    - *Browser* and *Mobile apps and desktop clients* are the two options in the Modern authentication clients category.
-    - Review the following table for the *Legacy authentication client* details.
+![Screenshot of the sign-in details, with the client app detail highlighted.](media/concept-sign-ins/client-app-browser.png)
+
+On the **Device info** tab, **Browser** shows the details of the web browser. The browser type and version are listed, but in some cases, the name of the browser and version is not available. You may see something like **Rich Client 4.0.0.0**. 
+
+![Screenshot of the sign-in activity details with a Rich Client browser example highlighted.](media/concept-sign-ins/browser-rich-client.png)
+
+#### Legacy authentication client details
+
+The following table provides the details for each of the *Legacy authentication client* options.
 
 |Name|Description|
 |---|---|
