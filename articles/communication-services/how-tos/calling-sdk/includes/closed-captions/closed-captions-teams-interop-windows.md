@@ -64,8 +64,23 @@ private void OnIsCaptionsEnabledChanged(object sender, PropertyChangedEventArgs 
 ``` cs 
 teamsCaptions.CaptionsReceived += OnCaptionsReceived;
 
-private void OnCaptionsReceived(object sender, TeamsCaptionsReceivedEventArgs info)
+private void OnCaptionsReceived(object sender, TeamsCaptionsReceivedEventArgs eventArgs)
 {
+    // Information about the speaker.
+    // eventArgs.Speaker
+    // The original text with no transcribed.
+    // eventArgs.SpokenText
+    // language identifier for the captions text.
+    // eventArgs.CaptionLanguage
+    // language identifier for the speaker.
+    // eventArgs.SpokenLanguage
+    // The transcribed text.
+    // eventArgs.CaptionText
+    // Timestamp denoting the time when the corresponding speech was made.
+    // eventArgs.Timestamp
+    // CaptionsResultKind is Partial if text contains partially spoken sentence.
+    // It is set to Final once the sentence has been completely transcribed.
+    // eventArgs.ResultKind
 }
 ```
 
