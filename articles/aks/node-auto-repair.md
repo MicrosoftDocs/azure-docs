@@ -35,7 +35,7 @@ AKS engineers investigate alternative remediations if auto-repair is unsuccessfu
 
 > [!NOTE]
 > Auto-repair is not triggered if the following taints are present on the node:` node.cloudprovider.kubernetes.io/shutdown`, `ToBeDeletedByClusterAutoscaler`
-> The overall auto repair process can take upto an hour to complete. AKS retries for a max of 3 times for each step. 
+> The overall auto repair process can take up to an hour to complete. AKS retries for a max of 3 times for each step. 
 
 ## Node auto-drain
 
