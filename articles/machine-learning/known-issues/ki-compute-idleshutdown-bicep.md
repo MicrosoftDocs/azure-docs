@@ -12,7 +12,7 @@ ms.custom: known-issue
 
 # Known issue  - Idleshutdown property in Bicep template causes error
 
-When creating an Azure Machine Learning compute instance through Bicep, using the `idleTimeBeforeShutdown` property as described in the API reference [Microsoft.MachineLearningServices workspaces/computes API reference](/azure/templates/microsoft.machinelearningservices/workspaces/computes?pivots=deployment-language-bicep) results in an error.
+When creating an Azure Machine Learning compute instance through Bicep compiled using [msbuild/nuget](../../azure-resource-manager/bicep/msbuild-bicep-file.md), using the `idleTimeBeforeShutdown` property as described in the API reference [Microsoft.MachineLearningServices workspaces/computes API reference](/azure/templates/microsoft.machinelearningservices/workspaces/computes?pivots=deployment-language-bicep) results in an error.
 
  
 
@@ -26,7 +26,7 @@ When creating an Azure Machine Learning compute instance through Bicep, using th
 
 **Symptoms**
 
-When creating an Azure Machine Learning compute instance through Bicep, using the `idleTimeBeforeShutdown` property as described in the API reference [Microsoft.MachineLearningServices workspaces/computes API reference](/azure/templates/microsoft.machinelearningservices/workspaces/computes?pivots=deployment-language-bicep) results in an error.
+When creating an Azure Machine Learning compute instance through Bicep compiled using [msbuild/nuget](../../azure-resource-manager/bicep/msbuild-bicep-file.md), using the `idleTimeBeforeShutdown` property as described in the API reference [Microsoft.MachineLearningServices workspaces/computes API reference](/azure/templates/microsoft.machinelearningservices/workspaces/computes?pivots=deployment-language-bicep) results in an error.
 
 :::image type="content" source="media/ki-compute-idelshutdown-bicep/error.png" alt-text="An screenshot depicting the error message resulting from the IdleShutdown property being set" lightbox="media/ki-compute-idelshutdown-bicep/error.png":::
 
