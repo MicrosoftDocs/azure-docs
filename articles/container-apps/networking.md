@@ -40,7 +40,7 @@ Container Apps has two different [environment types](environment.md#types), whic
 | Environment type | Description | Supported plan types |
 |---|---|---|
 | Workload profiles | Supports user defined routes (UDR) and egress through NAT Gateway. The minimum required subnet size is `/27`. | Consumption, Dedicated |
-| Consumption only | Doesn't support user defined routes (UDR) and egress through NAT Gateway. The minimum required subnet size is `/23`. | Consumption |
+| Consumption only | Doesn't support user defined routes (UDR), egress through NAT Gateway, peering through a remote gateway, or other custom egress. The minimum required subnet size is `/23`. | Consumption |
 
 ## Accessibility levels
 
