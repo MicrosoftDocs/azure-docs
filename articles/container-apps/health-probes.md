@@ -163,7 +163,7 @@ The optional `failureThreshold` setting defines the number of attempts Container
 
 ## Default configuration
 
-If ingress is enabled, the following default probes are automatically added to the main app container if none of the probe configurations have been modified. If any of the configurations have been modified, the remaining values will use [Kubernetes defaults](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.28/#probe-v1-core).
+If ingress is enabled, the following default probes are automatically added to the main app container if none is defined for each type.
 
 | Probe type | Default values |
 | -- | -- |
