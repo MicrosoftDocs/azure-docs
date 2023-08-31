@@ -65,7 +65,7 @@ There is an [upload limit](../quotas-limits.md), and there are some caveats abou
 
     This will impact the quality of Azure Cognitive Search and the model response. 
 
-## Virtual network support & private network support
+## Virtual network support & private endpoint support
 
 You can protect Azure OpenAI resources in [virtual networks and private endpoints](/azure/ai-services/cognitive-services-virtual-networks) the same way as any Azure AI service.
 
@@ -78,8 +78,7 @@ Learn more about the [manual approval workflow](/azure/private-link/private-endp
 After you approve the request in your search service, you can start using the [chat completions extensions API](/azure/ai-services/openai/reference#completions-extensions). Public network access can be disabled for that search service.
 
 > [!NOTE]
-> Virtual network support & private networks are only supported for the API, and not currently supported for Azure OpenAI Studio. 
-
+> Virtual networks & private endpoints are only supported for the API, and not currently supported for Azure OpenAI Studio. 
 ### Storage accounts in private virtual networks
 
 Storage accounts in virtual networks and private endpoints are currently not supported by Azure OpenAI on your data.
@@ -215,13 +214,16 @@ Azure OpenAI on your data provides several search options you can use when you a
     To enable vector search, you will need a `text-embedding-ada-002` deployment in your Azure OpenAI resource. Select your embedding deployment when connecting your data, then select one of the vector search types under **Data management**.  
 
 > [!IMPORTANT]
-> * [Semantic search](/azure/search/semantic-search-overview#availability-and-pricing) and [vector search](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) are subject to additional pricing.
-> * Currently Azure OpenAI on your data supports semantic search for English data only. Only enable semantic search if both your documents and use case are in English.
-
+> 
+> * [Semantic search](/azure/search/semantic-search-overview#availability-and-pricing) and [vector search](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) are subject to additional pricing. You need to choose **Basic or up SKU** to enable semantic search or vector search, for more details on [pricing tier difference](/azure/search/search-sku-tier) and [service limits](/azure/search/search-limits-quotas-capacity).
+> 
+> 
+>    * Currently Azure OpenAI on your data supports semantic search for the following language: English, French, Spanish, Portuguese, Italian, Germany, Chinese(Zh), Japanese, Korean, Russian, Arabic. Don't enable semantic search if your data is in other languages.
+>    
 | Search option       | Retrieval type | Additional pricing? |Benefits|
 |---------------------|------------------------|---------------------| -------- |
 | *simple*            | Simple search                       | No additional pricing.                    |It performs fast and flexible query parsing and matching over searchable fields, using terms or phrases in any supported language, with or without operators.|
-| *semantic*          |  Semantic search  |  Additional pricing for [semantic search](/azure/search/semantic-search-overview#availability-and-pricing) usage.                  |It improves the precision and relevance of search results by using AI to understand the semantic meaning of query terms and documents. |
+| *semantic*          |  Semantic search  |  Additional pricing for [semantic search](/azure/search/semantic-search-overview#availability-and-pricing) usage.                  |It improves the precision and relevance of search results by using a reranker (with AI models) to understand the semantic meaning of query terms and documents returned by the initial search ranker|
 | *vector*            | Vector search       | [Additional pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) on your Azure OpenAI account from calling the embedding model.                    |It enables you to find documents that are similar to a given query input based on the vector embeddings of the content. |
 | *vector + simple*   | A hybrid of vector search and simple search | [Additional pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) on your Azure OpenAI account from calling the embedding model.            |It performs similarity search over vector fields using vector embeddings, while also supporting flexible query parsing and full text search over alphanumeric fields using term queries.|
 | *vector + semantic* + simple| A hybrid of vector search, semantic and simple search for retrieval.     | [Additional pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) on your Azure OpenAI account from calling the embedding model, and additional pricing for [semantic search](/azure/search/semantic-search-overview#availability-and-pricing) usage.                    |It leverages vector embeddings, language understanding and flexible query parsing to create rich search experiences and generative AI apps that can handle complex and diverse information retrieval scenarios. |
