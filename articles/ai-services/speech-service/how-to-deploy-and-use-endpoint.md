@@ -33,9 +33,10 @@ To create a custom neural voice endpoint:
 1. Select **Custom Voice** > Your project name > **Deploy model** > **Deploy model**. 
 1. Select a voice model that you want to associate with this endpoint.  
 1. Enter a **Name** and **Description** for your custom endpoint.
-1. Select **Endpoint type** according to your scenarios. 
-   - High performance: Optimized for scenarios with real-time and high-volume synthesis requests, such as conversational AI, call-center bots. It takes around 5 minutes to deploy or resume an endpoint. For the supported regions for this endpoint type, see footnotes in the [regions](regions.md#speech-service) table. 
-   - Fast resume: Optimized for audio content creation scenarios with less frequent synthesis requests. Easy and quick to deploy or resume an endpoint in under a minute.
+1. Select **Endpoint type** according to your scenarios. This step is required for deploying from Speech Studio.
+   - High performance: Optimized for scenarios with real-time and high-volume synthesis requests, such as conversational AI, call-center bots. It takes around 5 minutes to deploy or resume an endpoint. For the supported regions for this endpoint type, see footnotes in the [regions](regions.md#speech-service) table. If your resource is in a supported region, the default setting for the endpoint type is High performance. Alternatively, if the resource is in an unsupported region, the only available option is Fast resume.
+   - Fast resume: Optimized for audio content creation scenarios with less frequent synthesis requests. Easy and quick to deploy or resume an endpoint in under a minute. Fast resume is accessible in all the [regions](regions.md#speech-service) supported for text to speech service.
+   
 1. Select **Deploy** to create your endpoint.
 
 After your endpoint is deployed, the endpoint name appears as a link. Select the link to display information specific to your endpoint, such as the endpoint key, endpoint URL, and sample code. When the status of the deployment is **Succeeded**, the endpoint is ready for use.
