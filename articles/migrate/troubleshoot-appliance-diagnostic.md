@@ -6,7 +6,8 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: troubleshooting
-ms.date: 08/11/2021
+ms.date: 07/11/2023
+ms.custom: engagement-fy24
 ---
 
 # Diagnose and solve issues with Azure Migrate appliance
