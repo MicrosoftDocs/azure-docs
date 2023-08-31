@@ -312,45 +312,32 @@ app.timer('timerTrigger1', {
 });
 ```
 
-Here's TypeScript code that creates multiple events:
+To output multiple events, return an array instead of a single object. For example:
 
 ```typescript
-import { app, EventGridPartialEvent, InvocationContext, output, Timer } from '@azure/functions';
-
-export async function timerTrigger1(myTimer: Timer, context: InvocationContext): Promise<EventGridPartialEvent[]> {
-    const timeStamp = new Date().toISOString();
-    return [
-        {
-            id: 'message-id',
-            subject: 'subject-name',
-            dataVersion: '1.0',
-            eventType: 'event-type',
-            data: {
-                name: 'John Henry',
-            },
-            eventTime: timeStamp,
+const timeStamp = new Date().toISOString();
+return [
+    {
+        id: 'message-id',
+        subject: 'subject-name',
+        dataVersion: '1.0',
+        eventType: 'event-type',
+        data: {
+            name: 'John Henry',
         },
-        {
-            id: 'message-id-2',
-            subject: 'subject-name',
-            dataVersion: '1.0',
-            eventType: 'event-type',
-            data: {
-                name: 'John Doe',
-            },
-            eventTime: timeStamp,
+        eventTime: timeStamp,
+    },
+    {
+        id: 'message-id-2',
+        subject: 'subject-name',
+        dataVersion: '1.0',
+        eventType: 'event-type',
+        data: {
+            name: 'John Doe',
         },
-    ];
-}
-
-app.timer('timerTrigger1', {
-    schedule: '0 */5 * * * *',
-    return: output.eventGrid({
-        topicEndpointUri: 'MyEventGridTopicUriSetting',
-        topicKeySetting: 'MyEventGridTopicKeySetting',
-    }),
-    handler: timerTrigger1,
-});
+        eventTime: timeStamp,
+    },
+];
 ```
 
 # [Model v3](#tab/nodejs-v3)
@@ -393,45 +380,32 @@ app.timer('timerTrigger1', {
 });
 ```
 
-Here's JavaScript code that creates multiple events:
+To output multiple events, return an array instead of a single object. For example:
 
 ```javascript
-const { app, output } = require('@azure/functions');
-
-const eventGridOutput = output.eventGrid({
-    topicEndpointUri: 'MyEventGridTopicUriSetting',
-    topicKeySetting: 'MyEventGridTopicKeySetting',
-});
-
-app.timer('timerTrigger1', {
-    schedule: '0 */5 * * * *',
-    return: eventGridOutput,
-    handler: (myTimer, context) => {
-        const timeStamp = new Date().toISOString();
-        return [
-            {
-                id: 'message-id',
-                subject: 'subject-name',
-                dataVersion: '1.0',
-                eventType: 'event-type',
-                data: {
-                    name: 'John Henry',
-                },
-                eventTime: timeStamp,
-            },
-            {
-                id: 'message-id-2',
-                subject: 'subject-name',
-                dataVersion: '1.0',
-                eventType: 'event-type',
-                data: {
-                    name: 'John Doe',
-                },
-                eventTime: timeStamp,
-            },
-        ];
+const timeStamp = new Date().toISOString();
+return [
+    {
+        id: 'message-id',
+        subject: 'subject-name',
+        dataVersion: '1.0',
+        eventType: 'event-type',
+        data: {
+            name: 'John Henry',
+        },
+        eventTime: timeStamp,
     },
-});
+    {
+        id: 'message-id-2',
+        subject: 'subject-name',
+        dataVersion: '1.0',
+        eventType: 'event-type',
+        data: {
+            name: 'John Doe',
+        },
+        eventTime: timeStamp,
+    },
+];
 ```
 
 # [Model v3](#tab/nodejs-v3)

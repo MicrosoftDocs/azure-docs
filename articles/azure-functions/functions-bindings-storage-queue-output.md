@@ -107,27 +107,10 @@ app.http('httpTrigger1', {
 });
 ```
 
-You can send multiple messages at once by defining a message array for the output binding. The following JavaScript code sends two queue messages with hard-coded values for each HTTP request received.
+To output multiple messages, return an array instead of a single object. For example:
 
 ```typescript
-import { app, HttpRequest, HttpResponseInit, InvocationContext, output } from '@azure/functions';
-
-const queueOutput = output.storageQueue({
-    queueName: 'outqueue',
-    connection: 'MyStorageConnectionAppSetting',
-});
-
-export async function httpTrigger1(request: HttpRequest, context: InvocationContext): Promise<HttpResponseInit> {
-    context.extraOutputs.set(queueOutput, ['message 1', 'message 2']);
-    return { body: 'Created queue item.' };
-}
-
-app.http('httpTrigger1', {
-    methods: ['GET', 'POST'],
-    authLevel: 'anonymous',
-    extraOutputs: [queueOutput],
-    handler: httpTrigger1,
-});
+context.extraOutputs.set(queueOutput, ['message 1', 'message 2']);
 ```
 
 # [Model v3](#tab/nodejs-v3)
@@ -163,25 +146,10 @@ app.http('httpTrigger1', {
 });
 ```
 
-You can send multiple messages at once by defining a message array for the output binding. The following JavaScript code sends two queue messages with hard-coded values for each HTTP request received.
+To output multiple messages, return an array instead of a single object. For example:
 
 ```javascript
-const { app, output } = require('@azure/functions');
-
-const queueOutput = output.storageQueue({
-    queueName: 'outqueue',
-    connection: 'MyStorageConnectionAppSetting',
-});
-
-app.http('httpTrigger1', {
-    methods: ['GET', 'POST'],
-    authLevel: 'anonymous',
-    extraOutputs: [queueOutput],
-    handler: async (request, context) => {
-        context.extraOutputs.set(queueOutput, ['message 1', 'message 2']);
-        return { body: 'Created queue item.' };
-    },
-});
+context.extraOutputs.set(queueOutput, ['message 1', 'message 2']);
 ```
 
 # [Model v3](#tab/nodejs-v3)

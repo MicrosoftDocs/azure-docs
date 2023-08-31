@@ -410,55 +410,23 @@ app.storageQueue('storageQueueTrigger1', {
 });
 ```
 
-For bulk insert form the objects first and pass the array as the extra output. Here's the TypeScript code:
+To output multiple documents, return an array instead of a single object. For example:
 
 ```typescript
-import { app, InvocationContext, output } from '@azure/functions';
-
-interface MyQueueItem {
-    name: string;
-    employeeId: string;
-    address: string;
-}
-
-interface MyCosmosItem {
-    id: string;
-    name: string;
-    employeeId: string;
-    address: string;
-}
-
-export async function storageQueueTrigger1(
-    queueItem: MyQueueItem,
-    context: InvocationContext
-): Promise<MyCosmosItem[]> {
-    return [
-        {
-            id: 'John Henry-123456',
-            name: 'John Henry',
-            employeeId: '123456',
-            address: 'A town nearby',
-        },
-        {
-            id: 'John Doe-123457',
-            name: 'John Doe',
-            employeeId: '123457',
-            address: 'A town far away',
-        },
-    ];
-}
-
-app.storageQueue('storageQueueTrigger1', {
-    queueName: 'inputqueue',
-    connection: 'MyStorageConnectionAppSetting',
-    return: output.cosmosDB({
-        databaseName: 'MyDatabase',
-        collectionName: 'MyCollection',
-        createIfNotExists: true,
-        connectionStringSetting: 'MyAccount_COSMOSDB',
-    }),
-    handler: storageQueueTrigger1,
-});
+return [
+    {
+        id: 'John Henry-123456',
+        name: 'John Henry',
+        employeeId: '123456',
+        address: 'A town nearby',
+    },
+    {
+        id: 'John Doe-123457',
+        name: 'John Doe',
+        employeeId: '123457',
+        address: 'A town far away',
+    },
+];
 ```
 
 # [Model v3](#tab/nodejs-v3)
@@ -520,39 +488,23 @@ app.storageQueue('storageQueueTrigger1', {
 });
 ```
 
-For bulk insert form the objects first and pass the array as the extra output. Here's the JavaScript code:
+To output multiple documents, return an array instead of a single object. For example:
 
 ```javascript
-const { app, output } = require('@azure/functions');
-
-const cosmosOutput = output.cosmosDB({
-    databaseName: 'MyDatabase',
-    collectionName: 'MyCollection',
-    createIfNotExists: true,
-    connectionStringSetting: 'MyAccount_COSMOSDB',
-});
-
-app.storageQueue('storageQueueTrigger1', {
-    queueName: 'inputqueue',
-    connection: 'MyStorageConnectionAppSetting',
-    return: cosmosOutput,
-    handler: (queueItem, context) => {
-        return [
-            {
-                id: 'John Henry-123456',
-                name: 'John Henry',
-                employeeId: '123456',
-                address: 'A town nearby',
-            },
-            {
-                id: 'John Doe-123457',
-                name: 'John Doe',
-                employeeId: '123457',
-                address: 'A town far away',
-            },
-        ];
+return [
+    {
+        id: 'John Henry-123456',
+        name: 'John Henry',
+        employeeId: '123456',
+        address: 'A town nearby',
     },
-});
+    {
+        id: 'John Doe-123457',
+        name: 'John Doe',
+        employeeId: '123457',
+        address: 'A town far away',
+    },
+];
 ```
 
 # [Model v3](#tab/nodejs-v3)

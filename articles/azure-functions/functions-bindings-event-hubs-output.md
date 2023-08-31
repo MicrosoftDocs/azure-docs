@@ -111,25 +111,12 @@ app.timer('timerTrigger1', {
 });
 ```
 
-The following example sends multiple messages:
+To output multiple messages, return an array instead of a single object. For example:
 
 ```typescript
-import { app, InvocationContext, output, Timer } from '@azure/functions';
-
-export async function timerTrigger1(myTimer: Timer, context: InvocationContext): Promise<string[]> {
-    const timeStamp = new Date().toISOString();
-    const message = `Message created at: ${timeStamp}`;
-    return [`1: ${message}`, `2: ${message}`];
-}
-
-app.timer('timerTrigger1', {
-    schedule: '0 */5 * * * *',
-    return: output.eventHub({
-        eventHubName: 'myeventhub',
-        connection: 'MyEventHubSendAppSetting',
-    }),
-    handler: timerTrigger1,
-});
+const timeStamp = new Date().toISOString();
+const message = `Message created at: ${timeStamp}`;
+return [`1: ${message}`, `2: ${message}`];
 ```
 
 # [Model v3](#tab/nodejs-v3)
@@ -163,25 +150,12 @@ app.timer('timerTrigger1', {
 });
 ```
 
-The following example sends multiple messages:
+To output multiple messages, return an array instead of a single object. For example:
 
 ```javascript
-const { app, output } = require('@azure/functions');
-
-const eventHubOutput = output.eventHub({
-    eventHubName: 'myeventhub',
-    connection: 'MyEventHubSendAppSetting',
-});
-
-app.timer('timerTrigger1', {
-    schedule: '0 */5 * * * *',
-    return: eventHubOutput,
-    handler: (myTimer, context) => {
-        const timeStamp = new Date().toISOString();
-        const message = `Message created at: ${timeStamp}`;
-        return [`1: ${message}`, `2: ${message}`];
-    },
-});
+const timeStamp = new Date().toISOString();
+const message = `Message created at: ${timeStamp}`;
+return [`1: ${message}`, `2: ${message}`];
 ```
 
 # [Model v3](#tab/nodejs-v3)
