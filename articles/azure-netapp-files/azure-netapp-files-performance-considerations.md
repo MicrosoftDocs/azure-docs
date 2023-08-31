@@ -12,10 +12,14 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/02/2022
+ms.date: 08/31/2023
 ms.author: anfdocs
 ---
 # Performance considerations for Azure NetApp Files
+
+> [!IMPORTANT]   
+> This article addresses performance considerations for *regular volumes* only.   
+> For *large volumes*, see [Requirements and considerations for large volumes](large-volumes-requirements-considerations.md#requirements-and-considerations). 
 
 The [throughput limit](azure-netapp-files-service-levels.md) for a volume with automatic QoS is determined by a combination of the quota assigned to the volume and the service level selected. For volumes with manual QoS, the throughput limit can be defined individually. When you make performance plans about Azure NetApp Files, you need to understand several considerations. 
 
