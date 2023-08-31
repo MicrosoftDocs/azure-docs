@@ -147,7 +147,7 @@ A webpage often consists of many files.  The way the website benefits from the A
 - Page customer attempts to load: https://contoso.com
 - **Explanation**: When the page loads, the initial file at the "/" directory calls other files, which build the page.  These files are images, JavaScript, text files and more.  If those files aren't called via the AFD hostname, *contoso.com*, the AFD is ***not*** being utilized.  So, if one of the file requested by the website is *`http://www.images.fabrikam.com/businessimage.jpg`* the file is ***not*** benefiting from the use of the AFD.  Instead, the file is being requested directly, from the *`images.fabrikam.com`* server, by the browser on the requesting client.
 
-   :::image type="content" source="media/troubleshoot-performance-issues/AFDCDNPerformance.jpg" alt-text="Example of multiple, differently sourced files for a singular website and how it affects AFD performance":::
+   :::image type="content" source="media/troubleshoot-performance-issues/afd-cdn-performance.jpg" alt-text="Example of multiple, differently sourced files for a singular website and how it affects AFD performance":::
 
 ### Scenario 3 | Environment Information Needed
 
