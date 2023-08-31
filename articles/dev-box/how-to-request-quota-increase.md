@@ -91,6 +91,7 @@ Follow these steps to request a limit increase:
 
     :::image type="content" source="media/how-to-request-capacity-increase/quota-details.png" alt-text="Screenshot of the Quota details pane.":::
 
+1. Select **Save and continue**.
 ## Complete the support request
 
 To complete the support request, enter the following information:
