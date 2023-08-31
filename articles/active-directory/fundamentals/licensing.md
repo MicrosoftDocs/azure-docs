@@ -41,11 +41,11 @@ The following licenses are available for use with Microsoft Entra ID.  The type 
 
 ## Azure AD connect V2
 
-[!INCLUDE [active-directory-free-license.md](../includes/active-directory-free-license.md)]
+[!INCLUDE [Information about free tier services](../includes/licensing-free-license.md)]
 
 ## Azure AD connect health
 
-[!INCLUDE [active-directory-free-license.md](../includes/active-directory-p1-license.md)]
+[!INCLUDE [Services available in the P1](../includes/licensing-p1-license.md)]
 
 ## Conditional Access
 
