@@ -157,3 +157,4 @@ You may also want to:
 - [Learn about authentication](../concepts/authentication.md)
 - [Add file sharing with UI Library in Azure Communication Service Chat](./file-sharing-tutorial-acs-chat.md)
 - [Add inline image with UI Library in Teams Interoperability Chat](./inline-image-tutorial-interop-chat.md)
+- [UI library Use Cases](../concepts/ui-library/includes/web-ui-use-cases.md)
