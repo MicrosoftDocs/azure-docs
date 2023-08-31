@@ -54,7 +54,7 @@ You can invoke AHB at the time of virtual machine creation. Benefits of doing so
 - It enables future licensing mode changes. These changes aren't available with a BYOS-only image or if you bring your own virtual machine.
 - The virtual machine is connected to Red Hat Update Infrastructure (RHUI) by default, to help keep it up to date and secure. You can change the updated mechanism after deployment at any time.
 
-#### [Enable AHB in Azure portal](#tab/ahbNewPortal)
+#### [Azure portal](#tab/ahbNewPortal)
 To enable Azure Hybrid Benefit when you create a virtual machine, use the following procedure. (The SUSE workflow is the same as the RHEL example shown here.)
 
 1. Go to the [Azure portal](https://portal.azure.com/).
@@ -69,7 +69,7 @@ To enable Azure Hybrid Benefit when you create a virtual machine, use the follow
 
    ![Screenshot of the Azure Hybrid Benefit configuration pane after you create a virtual machine.](./media/azure-hybrid-benefit/create-configuration-blade.png)
 
-#### [Enable AHB in Azure portal](#tab/ahbExistingCli)
+#### [Azure CLI](#tab/ahbNewCli)
 
 No Data
 
@@ -84,7 +84,7 @@ To enable Azure Hybrid Benefit on an existing virtual machine:
 
 ![Screenshot of the Azure portal that shows the Licensing section of the configuration page for Azure Hybrid Benefit.](./media/azure-hybrid-benefit/create-configuration-blade.png)
 
-#### [Enable AHB in Azure portal](#tab/ahbExistingCli)
+#### [Azure CLI](#tab/ahbExistingCli)
 
 No Data
 
@@ -157,7 +157,7 @@ To start using Azure Hybrid Benefit for SUSE:
 
 You can use the `az vm update` command to update existing virtual machines. 
 
-#### [RHEL](#tab/rhelAzcliByosConv)
+#### [Red Hat (RHEL)](#tab/rhelAzcliByosConv)
 * For RHEL virtual machines, run the command with a `--license-type` parameter of `RHEL_BYOS`.
 ```azurecli
 # This will enable BYOS on a RHEL virtual machine using Azure Hybrid Benefit
@@ -213,7 +213,7 @@ az vm update -g myResourceGroup -n myVmName --license-type RHEL_BYOS
     sudo ahb-service -status
     ```
 
-#### [SLES](#tab/slesAzcliByosConv)
+#### [SUSE (SLES)](#tab/slesAzcliByosConv)
 * For SLES virtual machines, run the command with a `--license-type` parameter of `SLES_BYOS`.
 ```azurecli
 # This will enable BYOS on a SLES virtual machine
