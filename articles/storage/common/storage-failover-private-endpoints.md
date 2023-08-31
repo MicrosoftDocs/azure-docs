@@ -133,7 +133,7 @@ For connectivity from on-premises data center locations, if the outage impacts a
 
 While both regions are healthy, the service operates as illustrated:
 
-[ ![Diagram of topology with services in both regions working independently.](./media/storage-failover-private-endpoints/storage-failover-private-endpoints-scenario-4.png) (./media/storage-failover-private-endpoints/storage-failover-private-endpoints-scenario-4.png#lightbox)]
+[ ![Diagram of topology with services in both regions working independently.](./media/storage-failover-private-endpoints/storage-failover-private-endpoints-scenario-4.png) ](./media/storage-failover-private-endpoints/storage-failover-private-endpoints-scenario-4.png#lightbox)
 
 ## Next steps
 
