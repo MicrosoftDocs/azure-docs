@@ -174,10 +174,10 @@ An Apache Spark cluster on HDInsight on AKS. For instructions, see [Create an 
 1. Paste the following code into the vim file
    ```
    import pandas as pd
-   import matplotlib.pyplot` as plt
+   import matplotlib.pyplot as plt
              
    From pyspark.sql import SparkSession
-   Spark = SparkSession.builder.master(‘yarn’).appName(‘SparkSampleCode’).getOrCreate()
+   Spark = SparkSession.builder.master('yarn').appName('SparkSampleCode').getOrCreate()
    // Initialize spark context
    data1 = [22,40,10,50,70]
    s1 = pd.Series(data1)   #One-dimensional ndarray with axis labels (including time series).
