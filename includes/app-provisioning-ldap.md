@@ -41,7 +41,7 @@ For more information, see the [Generic LDAP Connector reference](/microsoft-iden
  
     [!INCLUDE [active-directory-p1-license.md](active-directory-p1-license.md)]
  - The Hybrid Identity Administrator role for configuring the provisioning agent and the Application Administrator or Cloud Application Administrator roles for configuring provisioning in the Azure portal.
- - The Azure AD users to be provisioned to the LDAP directory must already be populated with the attributes that will be required by the directory server schema and are specific to each user.  For example, if the directory server requires each user to have a unique number between 10000 and 30000 as their User ID number to support a POSIX workload, then you would need to extend the Azure AD schema and populate that attribute on the users in scope of the LDAP-based application.  See [Graph extensibility](/graph/extensibility-overview?tabs=http#directory-azure-ad-extensions) for how to create additional directory extensions.
+ - The Azure AD users to be provisioned to the LDAP directory must already be populated with the attributes that will be required by the directory server schema and are specific to each user.  For example, if the directory server requires each user to have a unique number between 10000 and 30000 as their User ID number to support a POSIX workload, then you would need to either generate that number from an existing attribute on the user, or extend the Azure AD schema and populate that attribute on the users in scope of the LDAP-based application.  See [Graph extensibility](/graph/extensibility-overview?tabs=http#directory-azure-ad-extensions) for how to create additional directory extensions.
 
 ### More recommendations and limitations
 The following bullet points are more recommendations and limitations.
@@ -339,11 +339,11 @@ Follow these steps to confirm that the connector host has started and has identi
 
 If your directory server requires additional attributes that are not part of the default Azure AD schema for users, then when provisioning you can configure to supply values of those attributes from a constant, from an expression transformed from other Azure AD attributes, or by extending the Azure AD schema.
 
-If the directory server requires users to have an attribute, such as `uidNumber` for the OpenLDAP POSIX schema, and that attribute is not already part of your Azure AD schema for a user, and must be unique for each user, then you will need to use the [directory extension feature](../articles/active-directory/app-provisioning/user-provisioning-sync-attributes-for-mapping.md) to add that attribute as an extension.
+If the directory server requires users to have an attribute, such as `uidNumber` for the OpenLDAP POSIX schema, and that attribute is not already part of your Azure AD schema for a user, and must be unique for each user, then you will need to either generate that attribute from other attributes of the user via an [expression](../articles/active-directory/app-provisioning/functions-for-customizing-application-data.md), or use the [directory extension feature](../articles/active-directory/app-provisioning/user-provisioning-sync-attributes-for-mapping.md) to add that attribute as an extension.
 
 If your users originate in Active Directory Domain Services, and has the attribute in that directory, then you can use Azure AD Connect or Azure AD Connect cloud sync to configure that the attribute should be synched from Active Directory Domain Services to Azure AD, so that it is available for provisioning to other systems.
 
-If your users originate in Azure AD, then you will need to [define a directory extension](/graph/extensibility-overview?tabs=http#define-the-directory-extension) for each required attribute. Then, [update the Azure AD users](/graph/extensibility-overview?tabs=http#update-or-delete-directory-extensions) to be provisioned to give each user a value of those attributes.
+If your users originate in Azure AD, then for each new attribute you will need to store on a user, you will need to [define a directory extension](/graph/extensibility-overview?tabs=http#define-the-directory-extension). Then, [update the Azure AD users](/graph/extensibility-overview?tabs=http#update-or-delete-directory-extensions) that are planned to be provisioned, to give each user a value of those attributes.
 
 ## Configure attribute mapping
 
@@ -392,7 +392,7 @@ In this section, you'll configure the mapping between the Azure AD user's attrib
      |Direct|`surname`|`urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:sn`|
      |Direct|`userPrincipalName`|`urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:mail`|
 
-     For OpenLDAP with the POSIX schema, you will also need to supply the `gidNumber`, `homeDirectory`, `uid` and `uidNumber` attributes.   Each user requires a unique `uid` and a unique `uidNumber`. Typically the `homeDirectory` is set by an expression derived from the user's userID. For example, if the `uid` if a user is part of their user principal Name, then their home directory could be generated by the expression such as `Join("/", "/home", ToLower(Word([userPrincipalName], 1, "@"), ))`.  And depending on your use case you may wish to have all the users be in the same group, so would assign the `gidNumber` from a constant.
+     For OpenLDAP with the POSIX schema, you will also need to supply the `gidNumber`, `homeDirectory`, `uid` and `uidNumber` attributes.   Each user requires a unique `uid` and a unique `uidNumber`. Typically the `homeDirectory` is set by an expression derived from the user's userID. For example, if the `uid` of a user is generated by an expression derived from their user principal name, then the value for that user's home directory could be generated by a similar expression also derived from their user principal name.  And depending on your use case you may wish to have all the users be in the same group, so would assign the `gidNumber` from a constant.
 
      |Mapping type|Source attribute|Target attribute|
      |-----|-----|-----|
@@ -413,7 +413,7 @@ If you are planning on creating new users in the LDAP directory, then you will n
 
 You can use the [Microsoft Graph PowerShell cmdlets](https://www.powershellgallery.com/packages/Microsoft.Graph) to automate checking users for the required attributes.
 
-For example, suppose your provisioning required users to have three attributes `DisplayName`,`surname` and `extension_656b1c479a814b1789844e76b2f459c3_MyNewProperty`. You could use the `Get-MgUser` cmdlet to retrieve each user and check if the required attributes are present.  Note that the Graph v1.0 `Get-MgUser` cmdlet does not by default include any of a user's directory extension attributes unless the attributes as specified as properties to return.
+For example, suppose your provisioning required users to have three attributes `DisplayName`,`surname` and `extension_656b1c479a814b1789844e76b2f459c3_MyNewProperty`. You could use the `Get-MgUser` cmdlet to retrieve each user and check if the required attributes are present.  Note that the Graph v1.0 `Get-MgUser` cmdlet does not by default return any of a user's directory extension attributes, unless the attributes are specified in the request as one of the properties to return.
 
 ```powershell
 $userPrincipalNames = (
