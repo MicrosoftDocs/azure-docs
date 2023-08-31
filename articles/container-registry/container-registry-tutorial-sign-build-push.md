@@ -40,7 +40,7 @@ In this tutorial:
     curl -Lo notation.tar.gz https://github.com/notaryproject/notation/releases/download/v1.0.0/notation_1.0.0_linux_amd64.tar.gz
     tar xvzf notation.tar.gz
             
-    # Copy the Notation binary to the desired bin directory in your $PATH
+    # Copy the Notation binary to the desired bin directory in your $PATH, for example
     cp ./notation /usr/local/bin
     ```
 
@@ -75,9 +75,9 @@ In this tutorial:
 1. Configure AKV resource names.
 
     ```bash
-    # Name of the existing Azure Key Vault used to store the signing keys
+    # Name of the existing AKV used to store the signing keys
     AKV_NAME=myakv
-    # New desired key name used to sign and verify
+    # Name of the certificate created in AKV
     CERT_NAME=wabbit-networks-io
     CERT_SUBJECT="CN=wabbit-networks.io,O=Notation,L=Seattle,ST=WA,C=US"
     CERT_PATH=./${CERT_NAME}.pem
@@ -100,7 +100,7 @@ In this tutorial:
 
 ## Sign in with Azure CLI
 
-```azure-cli
+```bash
 az login
 ```
 
@@ -111,15 +111,20 @@ To learn more about Azure CLI and how to sign in with it, see [Sign in with Azur
 To create a self-signed certificate and sign a container image in AKV, you must assign proper access policy to a principal. The permissions that you grant for a principal should include at least certificate permissions `Create` and `Get` for creating and get certificates, and key permissions `Sign` for signing. A principal can be user principal, service principal or managed identity. In this tutorial, the access policy is assigned to a signed-in Azure user. To learn more about assigning policy to a principal, see [Assign Access Policy](/azure/key-vault/general/assign-access-policy).
 
 ### Set the subscription that contains the AKV resource
-```azure-cli
+
+```bash
 az account set --subscription <your_subscription_id>
 ```
 
 ### Set the access policy in AKV
-```azure-cli
+
+```bash
 USER_ID=$(az ad signed-in-user show --query id -o tsv)
 az keyvault set-policy -n $AKV_NAME --certificate-permissions create get --key-permissions sign --object-id $USER_ID
 ```
+
+> [!NOTE]
+> The permissions granted are necessary for creating a certificate and signing a container image. Depending on your requirements, you may need to grant additional permissions.
 
 ## Create a self-signed signing certificate in AKV (Azure CLI)
 
@@ -158,7 +163,7 @@ The following steps show how to create a self-signed signing certificate for tes
 
 2. Create the certificate.
 
-    ```azure-cli
+    ```bash
     az keyvault certificate create -n $CERT_NAME --vault-name $AKV_NAME -p @my_policy.json
     ```
 
@@ -166,16 +171,16 @@ The following steps show how to create a self-signed signing certificate for tes
 
 1. Build and push a new image with ACR Tasks. Always use digest to identify the image for signing, because tags are mutable and and can be overwritten.
 
-    ```azure-cli
+    ```bash
     DIGEST=$(az acr build -r $ACR_NAME -t $REGISTRY/${REPO}:$TAG $IMAGE_SOURCE --no-logs --query "outputImages[0].digest" -o tsv)
     IMAGE=$REGISTRY/${REPO}@$DIGEST
     ```
 
 2. Authenticate with your individual Azure AD identity to use an ACR token. 
 
-    ```azure-cli
-    export USER_NAME="00000000-0000-0000-0000-000000000000"
-    export PASSWORD=$(az acr login --name $ACR_NAME --expose-token --output tsv --query accessToken)
+    ```bash
+    USER_NAME="00000000-0000-0000-0000-000000000000"
+    PASSWORD=$(az acr login --name $ACR_NAME --expose-token --output tsv --query accessToken)
     notation login -u $USER_NAME -p $PASSWORD $REGISTRY
     ```
 
@@ -207,8 +212,7 @@ To verify the container image, you need to add the root certificate that signs t
 1. Download public certificate.
 
     ```bash
-    CERT_ID=$(az keyvault certificate show -n $KEY_NAME --vault-name $AKV_NAME --query 'id' -o tsv)
-    az keyvault certificate download --file $CERT_PATH --id $CERT_ID --encoding PEM
+    az keyvault certificate download --name $CERT_NAME --vault-name $AKV_NAME --file $CERT_PATH
     ```
 
 2. Add the downloaded public certificate to named trust store for signature verification.
