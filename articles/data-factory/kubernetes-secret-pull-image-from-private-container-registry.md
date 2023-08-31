@@ -29,7 +29,7 @@ This article explains how to add a Kubernetes secret to pull a custom image from
 
 Open the Azure Data Factory Studio and select the **Manage** tab from the left toolbar, then select **Apache Airflow** under **Workflow Orchestration Manager**. Finally, select **+ New** to create a new Managed Airflow environment.
 
-:::image type="content" source="media/kubernetes-secret-pull-image-from-private-container-registry/create-new-airflow-environment.png" alt-text="Screenshot showing the steps to create a new Managed Airflow environment in the Azure Data Factory Studio.":::
+:::image type="content" source="media/kubernetes-secret-pull-image-from-private-container-registry/create-new-airflow-environment.png" alt-text="Screenshot showing the steps to create a new Managed Airflow environment in the Azure Data Factory Studio." lightbox="media/kubernetes-secret-pull-image-from-private-container-registry/create-new-airflow-environment.png":::
 
 ### Step 2: Add a Kubernetes secret
 
@@ -43,7 +43,7 @@ Provide the required field **Secret name**, select **Private registry auth** for
 
 :::image type="content" source="media/kubernetes-secret-pull-image-from-private-container-registry/create-airflow-secret.png" alt-text="Screenshot showing the Create airflow secret window and its fields." lightbox="media/kubernetes-secret-pull-image-from-private-container-registry/create-airflow-secret.png" :::
 
-Once you proivde the required fields, select **Apply** to add the secret.
+Once you provide the required fields, select **Apply** to add the secret.
 
 ## Next steps
 

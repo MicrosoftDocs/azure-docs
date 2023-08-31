@@ -40,22 +40,22 @@ Follow these steps to enable the Azure Key Vault as the secret backend for your 
 1. Navigate to the [Managed Airflow instance's integrated runtime (IR) environment](how-does-managed-airflow-work.md).
 1. Install the [**apache-airflow-providers-microsoft-azure**](https://airflow.apache.org/docs/apache-airflow-providers-microsoft-azure/stable/index.html) for the **Airflow requirements** during your initial Airflow environment setup.
 
-   :::image type="content" source="media/enable-azure-key-vault-for-managed-airflow/airflow-environment-setup.png" alt-text="Screenshot showing the Airflow Environment Setup window highlighting the Airflow requirements.":::
+   :::image type="content" source="media/enable-azure-key-vault-for-managed-airflow/airflow-environment-setup.png" alt-text="Screenshot showing the Airflow Environment Setup window highlighting the Airflow requirements."  lightbox="media/enable-azure-key-vault-for-managed-airflow/airflow-environment-setup.png":::
 
 1. Add the following settings for the **Airflow configuration overrides** in integrated runtime properties:
 
    - **AIRFLOW__SECRETS__BACKEND**: "airflow.providers.microsoft.azure.secrets.key_vault.AzureKeyVaultBackend"
    - **AIRFLOW__SECRETS__BACKEND_KWARGS**: "{"connections_prefix": "airflow-connections", "variables_prefix": "airflow-variables", "vault_url": **\<your keyvault uri\>**}”
 
-   :::image type="content" source="media/enable-azure-key-vault-for-managed-airflow/airflow-configuration-overrides.png" alt-text="Screenshot showing the configuration of the Airflow configuration overrides setting in the Airflow environment setup.":::
+   :::image type="content" source="media/enable-azure-key-vault-for-managed-airflow/airflow-configuration-overrides.png" alt-text="Screenshot showing the configuration of the Airflow configuration overrides setting in the Airflow environment setup."  lightbox="media/enable-azure-key-vault-for-managed-airflow/airflow-configuration-overrides.png":::
 
 1. Add the following for the **Environment variables** configuration in the Airflow integrated runtime properties:
 
-   - **AZURE_CLIENT_ID** = \<Client Id of SPN\>
+   - **AZURE_CLIENT_ID** = \<Client ID of SPN\>
    - **AZURE_TENANT_ID** = \<Tenant Id\>
    - **AZURE_CLIENT_SECRET** = \<Client Secret of SPN\>
 
-   :::image type="content" source="media/enable-azure-key-vault-for-managed-airflow/environment-variables.png" alt-text="Screenshot showing the Environment variables section of the Airflow integrated runtime properties.":::
+   :::image type="content" source="media/enable-azure-key-vault-for-managed-airflow/environment-variables.png" alt-text="Screenshot showing the Environment variables section of the Airflow integrated runtime properties."  lightbox="media/enable-azure-key-vault-for-managed-airflow/environment-variables.png":::
 
 1. Then you can use variables and connections and they will automatically be stored in Azure Key Vault. The name of connections and variables need to follow AIRFLOW__SECRETS__BACKEND_KWARGS as defined previously. For more information, refer to [Azure-key-vault as secret backend](https://airflow.apache.org/docs/apache-airflow-providers-microsoft-azure/stable/secrets-backends/azure-key-vault.html).
 
@@ -103,7 +103,7 @@ Follow these steps to enable the Azure Key Vault as the secret backend for your 
 
 1. Store variables for connections in Azure Key Vault. Refer to [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md)
 
-   :::image type="content" source="media/enable-azure-key-vault-for-managed-airflow/secrets-configuration.png" alt-text="Screenshot showing the configuration of secrets in Azure Key Vault.":::
+   :::image type="content" source="media/enable-azure-key-vault-for-managed-airflow/secrets-configuration.png" alt-text="Screenshot showing the configuration of secrets in Azure Key Vault."  lightbox="media/enable-azure-key-vault-for-managed-airflow/secrets-configuration.png":::
 
 ## Next steps
 
