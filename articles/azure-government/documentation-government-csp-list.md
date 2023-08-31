@@ -5,7 +5,7 @@ ms.service: azure-government
 ms.topic: article
 author: todorgb
 ms.author: todorb
-ms.date: 02/15/2023
+ms.date: 08/31/2023
 ---
 
 # Azure Government authorized reseller list
@@ -512,6 +512,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 
 |LSP name|Email|Phone|
 |----------------------------|---------------------------|-----------------------------------|
+|Carahsoft Technology Corporation|microsoft@carahsoft.com|844-MSFTGOV|
 |CDW Corp.|cdwgsales@cdwg.com|800-808-4239|
 |Dell Corp.|Get_Azure@Dell.com|888-375-9857|
 |Insight Public Sector|federal@insight.com|800-467-4448|
