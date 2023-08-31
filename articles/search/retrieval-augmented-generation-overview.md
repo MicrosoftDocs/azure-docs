@@ -52,7 +52,7 @@ A high-level summary of the pattern looks like this:
 + Send the top ranked search results to the LLM.
 + Use the language understanding and reasoning capabilities of the LLM to generate a response to the initial prompt.
 
-Cognitive Search provides the data, but doesn't train the model. In RAG there is no training. The LLM is pretrained using public data, but it generates responses that are augmented by information from the retriever.
+Cognitive Search provides the data, but doesn't train the model. In RAG there's no training. The LLM is pretrained using public data, but it generates responses that are augmented by information from the retriever.
 
 RAG patterns that include Cognitive Search have the elements indicated in the following illustration.
 
@@ -85,7 +85,7 @@ Since you probably know what kind of content you want to search over, consider t
 |--------------|------------|----------|
 | text | tokens, unaltered text | [Indexers](search-indexer-overview.md) can pull plain text from other Azure resources like Azure Storage and Cosmos DB. You can also [push any JSON content](search-what-is-data-import.md) to an index. To modify text in flight, use [analyzers](search-analyzers.md) and [normalizers](search-normalizers.md) to add lexical processing during indexing. [Synonym maps](search-synonyms.md) are useful if source documents are missing terminology that might be used in a query. |
 | text | vectors <sup>1</sup> | Text can be chunked and vectorized externally and then [indexed as vector fields](vector-search-how-to-create-index.md) in your index. |
-| image | tokens, unaltered text <sup>2</sup> | [Skills](cognitive-search-working-with-skillsets.md) for OCR and Image Analysis canprocess images for text recognition or image characteristics. Image information is converted to searchable text and added to the index. Skills have an indexer requirement. |
+| image | tokens, unaltered text <sup>2</sup> | [Skills](cognitive-search-working-with-skillsets.md) for OCR and Image Analysis can process images for text recognition or image characteristics. Image information is converted to searchable text and added to the index. Skills have an indexer requirement. |
 | image | vectors <sup>1</sup> | Images can be vectorized externally for a mathematical representation of image content and then [indexed as vector fields](vector-search-how-to-create-index.md) in your index. |
 | video | vectors <sup>1</sup> | Video files can be vectorized externally for a mathematical representation of video content and then [indexed as vector fields](vector-search-how-to-create-index.md) in your index. |
 | audio | vectors <sup>1</sup> | Audio files can be vectorized externally for a mathematical representation of audio content and then [indexed as vector fields](vector-search-how-to-create-index.md) in your index. |
@@ -119,9 +119,9 @@ There's no query type in Cognitive Search - not even semantic search or vector s
 A query's response provides the input to the LLM, so the quality of your search results is critical to success. Results are a tabular row set. The composition or structure of the results depends on:
 
 + Fields that determine which parts of the index are included in the response.
-+ Rows the represent a match from index.
++ Rows that represent a match from index.
 
-Fields appear in search results when the attribute is "retrievable". A field definition in the index schema has attributes, and those determine whether a field is used in a response. Only "retrievable" fields are returned in full text or vector query results. By default all "retrievable" fields are returned, but you can use "select" to specify a subset. Besides "retrievable", there are no restrictions on the field. Fields can be of any length or type. Regarding length, there is no maximum field length limit in Cognitive Search, but there are limits on the [size of an API request](search-limits-quotas-capacity.md#api-request-limits).
+Fields appear in search results when the attribute is "retrievable". A field definition in the index schema has attributes, and those determine whether a field is used in a response. Only "retrievable" fields are returned in full text or vector query results. By default all "retrievable" fields are returned, but you can use "select" to specify a subset. Besides "retrievable", there are no restrictions on the field. Fields can be of any length or type. Regarding length, there's no maximum field length limit in Cognitive Search, but there are limits on the [size of an API request](search-limits-quotas-capacity.md#api-request-limits).
 
 Rows are matches to the query, ranked by relevance, similarity, or both. By default, results are capped at the top 50 matches for full text search or k-nearest-neighbor matches for vector search. You can change the defaults to increase or decrease the limit up to the maximum of 1,000 documents. You can also use top and skip paging parameters to retrieve results as a series of paged results.
 
