@@ -148,14 +148,14 @@ This table defines the parameters used for defining the key vault information.
 > | Variable                           | Description                                                    | Type        | 
 > | ---------------------------------- | -------------------------------------------------------------- | ----------- | 
 > | `dns_label`                        | If specified, is the DNS name of the private DNS zone          | Optional    | 
-> | `dns_resource_group_name`          | The name of the resource group that contains the Private DNS zone | Optional    | 
+> | `dns_resource_group_name`          | The name of the resource group that contains the private DNS zone | Optional    | 
 
 ## NFS support
 
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                           | Description                                                             | Type        | Notes  |
 > | ---------------------------------- | ----------------------------------------------------------------------- | ----------- | ------ |
-> | `NFS_provider`                     | Defines what NFS back end to use. The options are `AFS` for Azure Files NFS or `ANF` for Azure NetApp files, `NONE` for NFS from the SCS server, or `NFS` for an external NFS solution.  | Optional | |
+> | `NFS_provider`                     | Defines what NFS back end to use. The options are `AFS` for Azure Files NFS or `ANF` for Azure NetApp Files, `NONE` for NFS from the SCS server, or `NFS` for an external NFS solution.  | Optional | |
 > | `install_volume_size`              | Defines the size (in GB) for the `install` volume.                        | Optional    | |
 > | `install_private_endpoint_id`      | Azure resource ID for the `install` private endpoint.                     | Optional    | For existing endpoints|
 > | `transport_volume_size`            | Defines the size (in GB) for the `transport` volume.                      | Optional    | |
@@ -214,10 +214,10 @@ ANF_service_level         = "Ultra"
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                            | Description                                                          | Type     |
 > | ----------------------------------- | -------------------------------------------------------------------- | -------- |
-> | `use_custom_dns_a_registration`	    | Use an existing Private DNS zone.                                     | Optional |
-> | `management_dns_subscription_id`	  | Subscription ID for the subscription that contains the Private DNS zone. | Optional |
-> | `management_dns_resourcegroup_name`	| Resource group that contains the Private DNS zone.                       | Optional |
-> | `dns_label`	                        | DNS name of the Private DNS zone.                                     | Optional |
+> | `use_custom_dns_a_registration`	    | Use an existing private DNS zone.                                     | Optional |
+> | `management_dns_subscription_id`	  | Subscription ID for the subscription that contains the private DNS zone. | Optional |
+> | `management_dns_resourcegroup_name`	| Resource group that contains the private DNS zone.                       | Optional |
+> | `dns_label`	                        | DNS name of the private DNS zone.                                     | Optional |
 
 ## Other parameters
 
