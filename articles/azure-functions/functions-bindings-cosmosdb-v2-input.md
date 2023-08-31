@@ -1885,11 +1885,11 @@ From the [Java functions runtime library](/java/api/overview/azure/functions/run
 
 # [Model v4](#tab/nodejs-v4)
 
-Updates are not made automatically upon function exit. Instead, use `context.extraOutputs.set()` to make updates. See the [JavaScript example](#example) for more detail.
+Access the document by using `context.extraInputs.get()`.
 
 # [Model v3](#tab/nodejs-v3)
 
-Updates are not made automatically upon function exit. Instead, use `context.bindings.<documentName>In` and `context.bindings.<documentName>Out` to make updates. See the [JavaScript example](#example) for more detail.
+Access the document by using `context.bindings.<name>` where `<name>` is the value specified in the `name` property of *function.json*.
 
 ---
 
