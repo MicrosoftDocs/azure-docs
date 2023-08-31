@@ -1,5 +1,5 @@
 ---
-title: Understand how Azure Storage account failover to recover from a service endpoint outage works
+title: How Azure Storage account customer-managed failover works
 titleSuffix: Azure Storage
 description: Azure Storage supports account failover for geo-redundant storage accounts to recover from a service endpoint outage. Learn what happens to your storage account and storage services during a customer-managed failover to the secondary region if the primary endpoint becomes unavailable.
 services: storage
@@ -7,13 +7,13 @@ author: jimmart-dev
 
 ms.service: azure-storage
 ms.topic: conceptual
-ms.date: 08/30/2023
+ms.date: 08/31/2023
 ms.author: jammart
 ms.subservice: storage-common-concepts
 ms.custom: 
 ---
 
-# How failover to recover from a service endpoint outage works
+# How customer-managed storage account failover works
 
 Customer-managed account failover enables you to fail over your entire geo-redundant storage account to the secondary region if the storage service endpoints for the primary region become unavailable. During failover, the original secondary region becomes the new primary and all storage service endpoints for blobs, tables, queues and files are redirected to the new primary region. After the storage service endpoint outage has been resolved, you can perform another failover operation to *fail back* to the original primary region.
 

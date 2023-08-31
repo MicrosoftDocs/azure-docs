@@ -7,7 +7,7 @@ author: jimmart-dev
 
 ms.service: azure-storage
 ms.topic: conceptual
-ms.date: 08/30/2023
+ms.date: 08/31/2023
 ms.author: jammart
 ms.subservice: storage-common-concepts
 ms.custom: 
@@ -16,8 +16,6 @@ ms.custom:
 # Azure storage account failover overview
 
 Azure Storage supports account failover for geo-redundant storage accounts. With account failover, you can initiate the failover process for your storage account if the primary storage service endpoints become unavailable. The failover updates the DNS entries for the storage service endpoints such that the endpoints for the secondary region become the new primary endpoints for your storage account. Once the failover is complete, clients can begin writing to the new primary endpoints.
-
-Account failover is available for general-purpose v1, general-purpose v2, and Blob storage account types with Azure Resource Manager deployments.
 
 This article describes the concepts and process involved with an account failover, and discusses how to prepare your storage account for recovery with the least amount of impact to your users.
 
@@ -52,6 +50,8 @@ In extreme circumstances where an entire region is unavailable due to a signific
 
 ## Storage account types that support failover
 
+Account failover is available for general-purpose v1, general-purpose v2, and Blob storage account types with Azure Resource Manager deployments.
+
 All geo-redundant offerings support Microsoft-managed failover. In addition, some account types support customer-managed account failover, as shown in the following table:
 
 | Type of failover | GRS/RA-GRS | GZRS/RA-GZRS |
@@ -73,10 +73,10 @@ All geo-redundant offerings support Microsoft-managed failover. In addition, som
 
 [!INCLUDE [updated-for-az](../../../includes/storage-failover-unplanned-hns-preview-include.md)]
 
-## Failover and data loss
+## Data loss and file inconsistencies
 
 > [!CAUTION]
-> Customer-managed account failover usually involves some data loss. In your disaster recovery plan, it's important to consider the impact an account failover would have on your data.
+> Storage account failover usually involves some data loss. In your disaster recovery plan, it's important to consider the impact an account failover would have on your data.
 
 Because data is written asynchronously from the primary region to the secondary region, there is always a delay before a write to the primary region is copied to the secondary region. If the primary region becomes unavailable, the most recent writes may not yet have been copied to the secondary region.
 
@@ -84,11 +84,17 @@ When you force a failover, all data in the primary region is lost as the seconda
 
 All data already copied to the secondary is maintained when the failover happens. However, any data written to the primary that has not also been copied to the secondary is lost permanently.
 
-The **Last Sync Time** property indicates the most recent time that data from the primary region is guaranteed to have been written to the secondary region. All data written prior to the last sync time  is available on the secondary, while data written after the last sync time may not have been written to the secondary and may be lost. Use this property in the event of an outage to estimate the amount of data loss you may incur by initiating an account failover.
+#### Last sync time
+
+The **Last Sync Time** property indicates the most recent time that data from the primary region is guaranteed to have been written to the secondary region. For accounts that have a hierarchical namespace, the same **Last Sync Time** property also applies to the metadata managed by the hierarchical namespace, including ACLs. All data and metadata written prior to the last sync time is available on the secondary, while data and metadata written after the last sync time may not have been written to the secondary, and may be lost. Use this property in the event of an outage to estimate the amount of data loss you may incur by initiating an account failover.
 
 As a best practice, design your application so that you can use the last sync time to evaluate expected data loss. For example, if you are logging all write operations, then you can compare the time of your last write operations to the last sync time to determine which writes have not been synced to the secondary.
 
 For more information about checking the **Last Sync Time** property, see [Check the Last Sync Time property for a storage account](last-sync-time-get.md).
+
+#### File consistency for Azure Data Lake Storage Gen2
+
+Replication for storage accounts with a hierarchical namespace enabled (Azure Data Lake Storage Gen2) occurs at the file level. This means that if an outage in the primary region occurs, it is possible that only some of the files in a container or directory might have successfully replicated to the secondary region. Consistency for all files in a container or directory is not guaranteed. Take this into account when creating your disaster recovery plan.
 
 ## Unsupported features and services
 
