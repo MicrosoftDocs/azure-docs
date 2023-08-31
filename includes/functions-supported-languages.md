@@ -40,9 +40,12 @@ For more information, see [Develop C# class library functions using Azure Functi
 
 | Supported version | Support level | Expected community EOL date |
 | ---- | ---- |--- |
+| .NET 8 | Preview<sup>*</sup> | `<<TBD>>` |
 | .NET 7 | GA | `<<TBD>>` |
 | .NET 6 (LTS) | GA | `<<TBD>>` |
 | .NET Framework 4.8 | GA | `<<TBD>>` |
+
+<sup>*</sup> Preview support for .NET 8 function apps is currently limited to Linux applications. To develop using .NET 8 Preview SDKs in Visual Studio, you must use [Visual Studio 2022 Preview](https://visualstudio.microsoft.com/vs/preview/).
 
 For more information, see [Guide for running C# Azure Functions in an isolated worker process](../articles/azure-functions/dotnet-isolated-process-guide.md).
 
@@ -102,3 +105,5 @@ For more information, see [Azure Functions Python developer guide](../articles/a
 ::: zone-end
 
 For information about planned changes to language support, see [Azure roadmap](https://azure.microsoft.com/roadmap/?tag=functions).
+
+[isolated]: ../articles/azure-functions/dotnet-isolated-process-guide.md

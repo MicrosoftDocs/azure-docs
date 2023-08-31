@@ -161,9 +161,7 @@ You can configure **private links** to connect to Azure Event Grid to **publish 
 
 ## How much does Event Grid cost?
 
-Azure Event Grid uses a pay-per-event pricing model. You only pay for what you use. For the push-style delivery that is generally available, the first 100,000 operations per month are free. Examples of operations include event publication, event delivery, delivery attempts, event filter evaluations that refer to event data properties (sometimes referred to as Advanced Filters), and events sent to a dead letter location. For details, see the [pricing page](https://azure.microsoft.com/pricing/details/event-grid/).
-
-Event Grid operations involving Namespaces and its resources, including MQTT and pull HTTP delivery operations, are in public preview and are available at no charge today.
+Azure Event Grid offers two tiers and uses a pay-per-use pricing model. For details on pricing, see [Azure Event Grid pricing](https://azure.microsoft.com/pricing/details/event-grid/). To learn more about the capabilities for each tier, see [Choose the right Event Grid tier](choose-right-tier.md).
 
 ## Next steps
 
@@ -175,7 +173,7 @@ Event Grid operations involving Namespaces and its resources, including MQTT and
 
 ### Data distribution using pull or push  delivery
 
-- [Pull delivery overview](pull-delivery-overview.md).
-- [Push delivery overview](push-delivery-overview.md).
+- [Pull delivery overview](pull-delivery-overview.md)
+- [Push delivery overview](push-delivery-overview.md)
 - [Concepts](concepts.md)
-- Quickstart: [Publish and subscribe to app events using namespace topics](publish-events-using-namespace-topics.md).
+- Quickstart: [Publish and subscribe to app events using namespace topics](publish-events-using-namespace-topics.md)
