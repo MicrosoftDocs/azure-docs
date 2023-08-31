@@ -3,10 +3,7 @@ title: Enable inline image using UI Library in Teams Interoperability Chat
 titleSuffix: An Azure Communication Services tutorial
 description: Learn how to use the UI Library to enable inline image support in Teams Interoperability Chat
 author: jpeng-ms
-ms.author: jopeng
 services: azure-communication-services
-
-author: jpeng-ms
 ms.author: jopeng
 ms.date: 08/03/2023
 ms.topic: tutorial
