@@ -85,14 +85,15 @@ The `cassandra-reset-auth-replication` command lets a user change their schema f
 ```azurecli-interactive
     az managed-cassandra cluster invoke-command --resource-group <rg> --cluster-name <cluster> --host <ip of data node> --command-name cassandra-reset-auth-replication --arguments password="<datacenters>"
 ```
-The `tree` command lets a user see their sstables.
+The `sstable-tree` command lets a user see their sstables.
 ```azurecli-interactive
-    az managed-cassandra cluster invoke-command --resource-group <rg> --cluster-name <cluster> --host <ip of data node> --command-name tree
+    az managed-cassandra cluster invoke-command --resource-group <rg> --cluster-name <cluster> --host <ip of data node> --command-name sstable-tree
 ```
 The `sstable-delete` command lets a user delete their sstables made before a certain time.
 ```azurecli-interactive
     az managed-cassandra cluster invoke-command --resource-group <rg> --cluster-name <cluster> --host <ip of data node> --command-name sstable-delete --arguments datetime="<YYYY-MM-DD hh:mm:ss>"
 ```
+Datetime argument must be formatted as shown above. You can also add --dry-run="" as an argument to see which files will be deleted.
 ## List of supported `sstable` commands
 
 For more information on each command, see https://cassandra.apache.org/doc/latest/cassandra/tools/sstable/index.html
