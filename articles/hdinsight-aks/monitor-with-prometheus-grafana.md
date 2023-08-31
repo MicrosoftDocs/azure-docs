@@ -50,7 +50,7 @@ You can use pre created workspaces or create a new one while your'e configuring 
 
 ### Use precreated workspace
 
-1. Click on configure to **enable** Azure Prometheus monitoring.
+1. Click on **configure** to enable Azure Prometheus monitoring.
 
     :::image type="content" source="./media/monitor-with-prometheus-grafana/integration-configure-tab.png" alt-text="Screenshot showing integration configure tab." border="true" lightbox="./media/monitor-with-prometheus-grafana/integration-configure-tab.png":::
 
