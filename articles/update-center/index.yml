@@ -77,17 +77,6 @@ landingContent:
             url: dynamic-scope-overview.md
       - linkListType: tutorial
         links:
-          - text: Check and install on-demand updates
-            url: quickstart-on-demand.md
-
-  - title: Dynamic scoping (preview)
-    linkLists:     
-      - linkListType: concept
-        links:
-          - text: About Dynamic scoping (preview)
-            url: dynamic-scope-overview.md
-      - linkListType: tutorial
-        links:
           - text: Schedule updates on Dynamic scopes (preview)
             url: tutorial-dynamic-grouping-for-scheduled-patching.md
       - linkListType: how-to-guide
