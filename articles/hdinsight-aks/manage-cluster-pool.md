@@ -51,7 +51,7 @@ For more information, see [manage access](./hdinsight-on-aks-manage-authorizatio
 
 ## Enable integration with Azure services
 
-   In the Azure portal, use Integrations blade in your cluster pool to configure the supported Azure services. Currently, we support Log Analytics and Azure managed Prometheus and Grafana, which has to be configured at cluster pool before you can enable at cluster level.
+   In the Azure portal, use Monitor settings blade in your cluster pool to configure the supported Azure services. Currently, we support Log Analytics and Azure managed Prometheus and Grafana, which has to be configured at cluster pool before you can enable at cluster level.
 
    * Learn more about [Azure Monitor Integration](./how-to-azure-monitor-integration.md).
    * For more information, see [how to enable Log Analytics](./how-to-azure-monitor-integration.md).
