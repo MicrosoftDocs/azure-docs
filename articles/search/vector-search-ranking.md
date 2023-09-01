@@ -28,15 +28,15 @@ In a typical application, the input value within a query request would be fed in
 
 For example, if a query request is about dogs, the model maps the query into a vector that exists somewhere in the cluster of vectors representing documents about dogs. Identifying which vectors are the most similar to the query, based on a similarity metric, determines which documents are the most relevant.
 
-### Similarity metrics
+### Similarity metrics used to measure nearness
 
-A similarity metric measures the distance between neighboring vectors. Commonly used similarity metrics include `cosine`, `euclidean` (also known as `l2 norm`), and `dotProduct`, which are summarized here:
+A similarity metric measures the distance between neighboring vectors. Commonly used similarity metrics include `cosine`, `euclidean` (also known as `l2 norm`), and `dotProduct`, which are summarized in the following table.
 
-+ `cosine` calculates the angle between two vectors. Cosine is the similarity metric used by [Azure OpenAI embedding models](/azure/ai-services/openai/concepts/understand-embeddings#cosine-similarity).
-
-+ `euclidean` calculates the Euclidean distance between two vectors, which is the l2-norm of the difference of the two vectors.
-
-+ `dotProduct` is affected by both vectors' magnitudes and the angle between them.
+| Metric | Description |
+|--------|-------------|
+| `cosine` | Calculates the angle between two vectors. Cosine is the similarity metric used by [Azure OpenAI embedding models](/azure/ai-services/openai/concepts/understand-embeddings#cosine-similarity). |
+| `euclidean` | Calculates the Euclidean distance between two vectors, which is the l2-norm of the difference of the two vectors. |
+| `dotProduct` | Calculates the products of vectors' magnitudes and the angle between them. |
 
 For normalized embedding spaces, `dotProduct` is equivalent to the `cosine` similarity, but is more efficient.
 

@@ -60,7 +60,7 @@ BM25 similarity adds two parameters to control the relevance score calculation.
 
 ## Enable BM25 scoring on older services
 
-If you're running a search service that was created from March 2014 through July 15, 2020, you can enable BM25 by setting a "similarity" property on new indexes. The property is only exposed on new indexes, so if want BM25 on an existing index, you must drop and [rebuild the index](search-howto-reindex.md) with a "similarity" property set to "Microsoft.Azure.Search.BM25Similarity".
+If you're running a search service that was created from March 2014 through July 15, 2020, you can enable BM25 by setting a "similarity" property on new indexes. The property is only exposed on new indexes, so if you want BM25 on an existing index, you must drop and [rebuild the index](search-howto-reindex.md) with a "similarity" property set to "Microsoft.Azure.Search.BM25Similarity".
 
 Once an index exists with a "similarity" property, you can switch between `BM25Similarity` or `ClassicSimilarity`. 
 

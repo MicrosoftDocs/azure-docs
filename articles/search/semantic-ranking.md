@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/14/2023
+ms.date: 08/31/2023
 ---
 
 # Semantic ranking in Azure Cognitive Search
