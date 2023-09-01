@@ -40,16 +40,31 @@
 - name: Why might I need it? # WHY?
  # expanded: true
   items:
-  - name: Building confidential computing solutions
-    href: confidential-computing-solutions.md
-  - name: Deploying solutions on confidential computing
-    href: confidential-computing-deployment-models.md
-  - name: Attestation
-    href: attestation-solutions.md
+#-------- "lost" block
+  - name: Threat Scenarios and protection goals # make all the sub-headings point to a header in the threat-scenarios.md page
+    href: threat-scenarios.md
+  - name: Multi-party collaboration
+    href: threat-scenarios.md#multi-party-collaboration # new #p2
   - name: Data cleanroom solutions on confidential computing
     href: multi-party-data.md
-  - name: Confidential AI solutions
-    href: confidential-ai.md
+  - name: It's the future #maybe change link to a page that references the below, and explains why it's the future
+    href: https://azure.microsoft.com/en-us/blog/key-foundations-for-protecting-your-data-with-azure-confidential-computing/ # New, house-view.. why is it the future - x-links to a lot of MarkRus material tying it back to strategic direction/vision
+  - name: Privacy by-default
+    href: TODO.md # we need to say something about our approach to how we're baking it into our products, and how we're working with partners to do the same, but this is a journey - call to action - what services do YOU want/priority order  - work with your field/account team?
+  - name: Confidential AI
+    href: confidential-ai.md  
+#---------
+#  - name: Building confidential computing solutions
+#    href: confidential-computing-solutions.md
+#    href: confidential-computing-deployment-models.md
+#  - name: Deploying solutions on confidential computing
+#  - name: Attestation
+#    href: attestation-solutions.md
+#  - name: Data cleanroom solutions on confidential computing
+#    href: multi-party-data.md
+#  - name: Confidential AI solutions
+#    href: confidential-ai.md
+# ----------- Continuted from live TOC
   - name: Confidential virtual machines
     items:
     - name: About confidential VMs
