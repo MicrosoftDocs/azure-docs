@@ -434,7 +434,7 @@ To create the Resource Guard in a tenant different from the vault tenant as a Se
      
 1. Search for **Resource Guards** in the search bar and select the corresponding item from the dropdown list.
     
-   :::image type="content" source="./media/multi-user-authorization/resource-guards-preview-inline.png" alt-text="Screenshot showing resource guards for Backup vault." lightbox="./media/multi-user-authorization/resource-guards-preview-expanded.png":::
+   :::image type="content" source="./media/multi-user-authorization/resource-guards.png" alt-text="Screenshot showing resource guards for Backup vault." lightbox="./media/multi-user-authorization/resource-guards.png":::
     
    1. Select **Create** to create a Resource Guard.
    1. In the Create blade, fill in the required details for this Resource Guard.
