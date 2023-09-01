@@ -220,17 +220,20 @@ az aro create \
 ```
 
 > [!NOTE]
-> The UserDefinedRouting flag can only be used when creating clusters with -`-apiserver-visibility Private` and `--ingress-visibility Private` parameters.
+> The UserDefinedRouting flag can only be used when creating clusters with `--apiserver-visibility Private` and `--ingress-visibility Private` parameters.
 > 
 
 This User Defined Routing option prevents a public IP address from being provisioned. User Defined Routing (UDR) allows you to create custom routes in Azure to override the default system routes or to add more routes to a subnet's route table. See 
 [Virtual network traffic routing](../virtual-network/virtual-networks-udr-overview.md) to learn more.
 
-> [!NOTE]
+> [!IMPORTANT]
 > Be sure to specify the correct subnet with the properly configured routing table when creating your private cluster. 
 
 For egress, the User Defined Routing option ensures that the newly created cluster has the egress lockdown feature enabled to allow you to secure outbound traffic from your new private cluster. See [Control egress traffic for your Azure Red Hat OpenShift (ARO) cluster (preview)](howto-restrict-egress.md) to learn more.
 
+> [!NOTE]
+> If you choose the User Defined Routing network type, you're completely responsible for managing the egress of your cluster's routing outside of your virtual network (for example, getting access to public internet). Azure Red Hat OpenShift cannot manage this for you.
+> 
 ## Connect to the private cluster
 
 You can log into the cluster using the `kubeadmin` user.  Run the following command to find the password for the `kubeadmin` user.
