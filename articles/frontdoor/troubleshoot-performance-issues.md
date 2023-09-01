@@ -14,11 +14,11 @@ ms.author: stdoroff
 
 # Azure Front Door Performance 
 
-Performance issues can originate in several potential areas.  This troubleshooting guide will assist in identifying which hop along the data-path is most likely the root of the issue and how to resolve.  As a brief overview, the issue could be at the Azure Front Door, the origin, the requesting client or the path between any of these hops.
+Performance issues can originate in several potential areas.  This troubleshooting guide helps identify which hop along the data-path is most likely the root of the issue and how to resolve.  As a brief overview, the issue could be at the Azure Front Door, the origin, the requesting client or the path between any of these hops.
 
 ## Check for Known Issues
 
-Before beginning, be sure to check for any [known issues on the Azure Front Door platform](https://azure.status.microsoft/status), any known ISPs in the path or on the requesting client's ability to connect and retrieve data.
+Before beginning, be sure to check for any known issues on the [Azure Front Door platform](https://azure.status.microsoft/status), ISPs in the path or the requesting client's ability to connect and retrieve data.
 
 ## Scenario 1: Investigate the Origin
 
@@ -37,10 +37,10 @@ If one of the origin servers are slow, then the first request for an object via 
 1. Check the response headers from the affected request  
 
     > [!TIP]
-    > To check response headers, utilize your browser's Developer Tools (F12), select the *Networking* tab, then the relevant file to be investigated, then the *Headers* tab. ***If the file is missing*** the page need to be reloaded with Developer Tools (F12) open.
+    > To check response headers, examples using `curl` in Bash are below. Your browser's developer tools (F12) can also be used.  For browser's developer tools, select the *Networking* tab, then the relevant file to be investigated, then the *Headers* tab. ***If the file is missing*** the page need to be reloaded with developer tools (F12) open.
      
     - The initial response should have an *x-cache* header with *TCP_MISS* value
-    - Requests with this value are forwarded by the Azure Front Door's POP to the origin and returning on that same path to the requesting client
+    - Requests with this value are forwarded by the Azure Front Door's POP to the origin. The origin sends the return traffic on that same path to the requesting client.
     - Examples
       - TCP_MISS
 
@@ -126,21 +126,21 @@ High latency, or low bandwidth, could be because of an ISP issue, the customer i
 1. To check the path to the POP, use [PathPing](/windows-server/administration/windows-commands/pathping) or similar tool for 500 packets to check the network route.  *PathPing maxes at 250 queries.  To test to 500, run the below query twice*
 
     ```Console
-       pathping /q 250 <Full URL of Affected File>
+       pathping /q 250 <Full URL of affected file>
     ```
 
 1. Determine if the traffic is taking a path that would add time or travel to a distant region
    - Look for IP, city or region codes that don't take a reasonable route based on the customer’s geography (example: a customer in Europe getting routed to the United States), or excessive number of hops
-1. Test from a different requesting client in the same region
+1. To rule out requesting client settings, test from a different requesting client in the same region
 1. **If additional hops or remote regions are identified**, the issue is with the client accessing the Azure Front Door POP and not with the Azure Front Door itself.  Hops between endpoints needs to be addressed by the connectivity or VPN provider.
-1. **If additional hops or remote regions are not identified** AND the content is being served from cache (x-cache: TCP_HIT), the issue is with the Azure Front Door and a Support Request may need to be created.  Include a reference to this troubleshooting article and steps taken.
-   - ***Note***: , when the content is being served from the origin (x-cache: TCP_MISS), see Scenario 1 above
+1. **If additional hops or remote regions are not identified AND the content is being served from cache (x-cache: TCP_HIT)**, the issue is with the Azure Front Door and a Support Request may need to be created.  Include a reference to this troubleshooting article and steps taken.
+   - ***Note***: If the content is being served from the origin (x-cache: TCP_MISS), see [Scenario 1](troubleshoot-performance-issues.md#scenario-1-investigate-the-origin) above
 
 ## Scenario 3: A Website Loads Slowly
 
-There are some scenarios where there is ***not*** an issue with a single file but the performance of the whole, Azure Front Door proxied, webpage is unsatisfactory.  Site performance is revealed by a webpage performance tool and shows under performance compared to the webpage outside of Azure Front Door.
+There are some scenarios where there is ***not*** an issue with a single file but the performance of the whole, Azure Front Door proxied, webpage.  Site performance is measured by a webpage performance tool.  These tools may identify that the Azure Front Door proxied webpage under performs compared to the same webpage outside of the Azure Front Door system.
 
-A webpage often consists of many files.  The way the website benefits from the Azure Front Door is only if each file in the webpage is being served from the Azure Front Door.  Additionally, the Azure Front Door must be configured to maximize the benefit.  For example:
+A webpage consists of many files.  The way the website benefits from the Azure Front Door is only if each file in the webpage is being served from the Azure Front Door.  Additionally, the Azure Front Door must be configured to maximize the benefit.  For example:
 
 - Origin: origin.contoso.com
 - Azure Front Door Custom Domain: contoso.com
@@ -155,7 +155,7 @@ A webpage often consists of many files.  The way the website benefits from the A
   - Endpoint Hostname
   - Endpoint Custom Domain (if applicable)
   - Origin Hostname
-    - Geographical location of the origin
+    - Geographic location of the origin
 - Full URL of Affected Webpage
 - Tool and metric, which is measuring performance
 
@@ -166,22 +166,24 @@ A webpage often consists of many files.  The way the website benefits from the A
    > If it is based on a third part tool, Microsoft cannot discern what is being measure by tools not owned by Microsoft
 1. Pull up the Azure Front Door webpage in a Browser with Developer Tools (F12) enabled
    > [!NOTE]
-   > Developer tools in your browser can be used to determine the source of the files being served
-1. Note the source of files
+   > Your browser's developer tools (F12) in your browser can be used to determine the source of the files being served. To view the *Request URL*, open developer tools (F12), select the *Networking* tab, then the relevant file to be investigated, then the *General*. ***If the file is missing*** the page need to be reloaded with developer tools (F12) open.
+1. Note the source, or *Requesting URL*, of files
 1. Identify which files are utilizing the Azure Front Door hostname and which aren't
   A. Example: From the above example, an Azure Front Door hosted image would be, `https://www.contoso.com/productimage1.jpg`, and that which wouldn't be, `http://www.images.fabrikam.com/businessimage.jpg`
 1. Once gathered test performance for file being served from Azure Front Door, its origin and, if applicable, the testing webpage
    > [!IMPORTANT]
    > If the origin or testing webpage is served from a geographical region closer to the tool testing performance, a tool or requesting client may need to be used in another region to examine the Azure Front Door POP's proximity benefit  
-  
-   > [!CAUTION]
-   > If files are meant to be cached, be sure to test files that have the response header *x-cache: TCP_HIT*
-  
+ 
    > [!IMPORTANT]
    > Any files served from outside the Azure Front Door's hostname will not be able to benefit from it and the webpage may need to be redesigned to do so
  
-1. **If the collected data shows that files are being issued from servers outside the Azure Front Door's hostname or performance is better at the Azure Front Door**, the Azure Front Door is working as expected  
+   > [!CAUTION]
+   > If files are meant to be cached, be sure to test files that have the response header *x-cache: TCP_HIT*
+  
+1. **If the collected data shows that files are being issued from servers outside the Azure Front Door's hostname**, the Azure Front Door is working as expected  
   A. Slowly loading websites may require a change in webpage design, for assistance in optimizing your website to use an Azure Front Door, connect with your website design team or our [Microsoft Solution Providers](https://www.microsoft.com/solution-providers/home)
    > [!NOTE]
    > Slowly loading websites issue could take time to review based on the complexity of a website's design and it's file calling instructions
+1. **If the collected data shows that files' loading performance are better at the Azure Front Door compared to the origin or test site**, the Azure Front Door is working as expected.
+    A. The issue may have to do with individual client request issues.  See [Scenario 1](troubleshoot-performance-issues.md#scenario-1-investigate-the-origin) above.
 1. **If the collected data shows that performance is ***not*** better at the Azure Front Door**, a Support Request is likely required for further investigation.  Include a reference to this troubleshooting article and steps taken.
