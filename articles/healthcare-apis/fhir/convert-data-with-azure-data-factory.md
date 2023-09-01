@@ -21,7 +21,7 @@ In this article, we detail how to use Azure Data Factory (ADF) with the $convert
 Before getting started, ensure you have taken the following steps:
 
 1. Deploy an instance of the [FHIR service](fhir-portal-quickstart.md). The FHIR service is used to invoke the [$convert-data](overview-of-convert-data.md) operation.
-2. By default, the ADF pipeline in this scenario uses the [predefined templates provided by Microsoft](configure-settings-convert-data.md#default-templates) for conversion. If your use case requires customized templates, you'll want to set up your [Azure Container Registry instance to host your own templates](configure-settings-convert-data.md#host-your-own-templates) to be used for the conversion operation. 
+2. By default, the ADF pipeline in this scenario uses the [predefined templates provided by Microsoft](configure-settings-convert-data.md#default-templates) for conversion. If your use case requires customized templates, set up your [Azure Container Registry instance to host your own templates](configure-settings-convert-data.md#host-your-own-templates) to be used for the conversion operation. 
 3. Create storage account(s) with [Azure Data Lake Storage Gen2 (ADLS Gen2) capabilities](../../storage/blobs/create-data-lake-storage-account.md) by enabling a hierarchical namespace and container(s) to store the data to read from and write to.
 
    > [!NOTE]
