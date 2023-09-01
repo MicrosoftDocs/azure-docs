@@ -139,7 +139,7 @@ additionalContent:
           url: https://github.com/Azure-Samples/azure-health-data-services-samples
           # Card
         - title: Quickstart templates
-          summary: Sample code
+          summary: Sample Azure Resource Manager (ARM) templates
           url: https://learn.microsoft.com/samples/browse/?terms=azure%20health%20data%20services
         # Card
         - title: Healthcare & Life Sciences blog
