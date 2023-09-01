@@ -32,8 +32,12 @@ To enable Azure AD authentication, complete the following steps:
 
 * An API Management instance in the Developer or Premium service tier. If needed, complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
 * Provision a [gateway resource](api-management-howto-provision-self-hosted-gateway.md) on the instance.
-* Enable a [managed identity](api-management-howto-use-managed-service-identity.md) on the instance.
+* Enable a [system-assigned managed identity](api-management-howto-use-managed-service-identity.md) on the instance.
 * Self-hosted gateway container image version 2.2 or later
+
+### Limitations notes
+
+* Only system-assigned managed identity is supported.
 
 ## Create custom roles
 
@@ -245,7 +249,6 @@ kubectl apply -f mygw.yaml
 ```
 
 [!INCLUDE [api-management-self-hosted-gateway-kubernetes-services](../../includes/api-management-self-hosted-gateway-kubernetes-services.md)]
-
 
 ## Next steps
 
