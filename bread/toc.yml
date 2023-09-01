@@ -651,7 +651,7 @@
         topicHref: /azure/hdinsight/storm/apache-storm-overview
   - name: HDInsight on AKS
     tocHref: /azure/hdinsight-aks/
-    topicHref: /azure/hdinsight-aks/
+    topicHref: ../articles/hdinsight-aks/index.yml
     items:
       - name: Flink
         tocHref: /azure/hdinsight-aks/flink
