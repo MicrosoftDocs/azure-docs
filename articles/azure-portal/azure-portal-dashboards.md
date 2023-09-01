@@ -27,7 +27,7 @@ This example shows how to create a new private dashboard with an assigned name.
 
     This action opens the **Tile Gallery**, from which you can select tiles that display different types of information. You'll also see an empty grid representing the dashboard layout, where you can arrange the tiles.
 
-1. Select the text in the dashboard label and enter **Example Dashboard**, or another name that will help you easily identify the custom dashboard.
+1. Select the text in the dashboard label and enter a name that will help you easily identify the custom dashboard.
 
     :::image type="content" source="media/azure-portal-dashboards/dashboard-name.png" alt-text="Screenshot of an empty grid with the Tile Gallery.":::
 
@@ -53,7 +53,7 @@ To add tiles to a dashboard by using the Tile Gallery, follow these steps.
 
 1. Select **Add** to add the tile to the dashboard with a default size and location. Or, drag the tile to the grid and place it where you want. 
 
-1. To save your changes, select **Save**. You can also preview the changes without saving by selecting **Preview**. This preview mode also allows you to see how [filters](#set-and-override-dashboard-filters) affect your tiles. From the preview screen, you can select **Save** to keep the changes, **Cancel** to remove them, or **Edit** to go back to the editing options and make further changes.
+1. To save your changes, select **Save**. You can also preview the changes without saving by selecting **Preview**. This preview mode also allows you to see how [filters](#apply-dashboard-filters) affect your tiles. From the preview screen, you can select **Save** to keep the changes, **Cancel** to remove them, or **Edit** to go back to the editing options and make further changes.
 
    :::image type="content" source="media/azure-portal-dashboards/dashboard-save.png" alt-text="Screenshot of the Save and Preview options for an edited dashboard.":::
 
