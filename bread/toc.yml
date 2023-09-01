@@ -649,6 +649,19 @@
       - name: Storm
         tocHref: /azure/hdinsight/storm
         topicHref: /azure/hdinsight/storm/apache-storm-overview
+  - name: HDInsight on AKS
+    tocHref: /azure/hdinsight-aks/
+    topicHref: /azure/hdinsight-aks/
+    items:
+      - name: Flink
+        tocHref: /azure/hdinsight-aks/flink
+        topicHref: /azure/hdinsight-aks/flink/flink-overview
+      - name: Spark
+        tocHref: /azure/hdinsight-aks/spark
+        topicHref: /azure/hdinsight-aks/spark/hdinsight-on-aks-spark-overview
+      - name: Trino
+        tocHref: /azure/hdinsight-aks/trino
+        topicHref: /azure/hdinsight-aks/trino/trino-overview  
   - name: Health Data Services
     tocHref: /azure/healthcare-apis/
     topicHref: /azure/healthcare-apis/
