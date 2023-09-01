@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 08/31/2023
+ms.date: 09/01/2023
 ms.custom: mode-ui
 ---
 
 # Quickstart: Create a search index in the Azure portal
 
-In this Azure Cognitive Search quickstart, you create your first _search index_ by using the [**Import data** wizard](search-import-data-portal.md) and a built-in sample data source consisting of fictitious hotel data. The wizard guides you through the creation of a search index (hotels-sample-index) to help you write interesting queries within minutes. 
+In this Azure Cognitive Search quickstart, you create your first _search index_ by using the [**Import data** wizard](search-import-data-portal.md) and a built-in sample data source consisting of fictitious hotel data. The wizard guides you through the creation of a search index to help you write interesting queries within minutes. 
 
 Search queries iterate over an index that contains searchable data, metadata, and other constructs that optimize certain search behaviors. An indexer is a source-specific crawler that can read metadata and content from supported Azure data sources. Normally, indexers are created programmatically. In the Azure portal, you can create them through the **Import data** wizard. For more information, see [Indexes in Azure Cognitive Search](search-what-is-an-index.md) and [Indexers in Azure Cognitive Search](search-indexer-overview.md) .
 
@@ -24,7 +24,7 @@ Search queries iterate over an index that contains searchable data, metadata, an
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
 
-- An Azure Cognitive Search service (any tier, any region). [Create a service](search-create-service-portal.md) or [find an existing service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
+- An Azure Cognitive Search service for any tier and any region. [Create a service](search-create-service-portal.md) or [find an existing service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
 
 ### Check for space
 
@@ -32,19 +32,17 @@ Many customers start with the free service. The free tier is limited to three in
 
 Check the **Overview** page for the service to see how many indexes, indexers, and data sources you already have. 
 
-:::image type="content" source="media/search-get-started-portal/overview-quota-usage.png" alt-text="Screenshot of the Overview page for an Azure Cognitive Search service instance in the Azure portal, showing the number of indexes, indexers, and data sources." border="false":::
+:::image type="content" source="media/search-get-started-portal/overview-quota-usage.png" alt-text="Screenshot of the Overview page for an Azure Cognitive Search service instance in the Azure portal, showing the number of indexes, indexers, and data sources." lightbox="media/search-get-started-portal/overview-quota-usage.png" border="false":::
 
 ## Create and load an index
 
-Azure Cognitive Search uses an indexer via the **Import data** wizard. The hotels-sample data set is hosted on Microsoft on Azure Cosmos DB and accessed over an internal connection. You don't need your own Azure Cosmos DB account or source files to access the data.
+Azure Cognitive Search uses an indexer by using the **Import data** wizard. The hotels-sample data set is hosted on Microsoft on Azure Cosmos DB and accessed over an internal connection. You don't need your own Azure Cosmos DB account or source files to access the data.
 
 ### Start the wizard
 
 To get started, browse to your Azure Cognitive Search service in the Azure portal and open the **Import data** wizard.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure account.
-
-1. [Go to your Azure Cognitive Search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/).
+1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure account, and go to your Azure Cognitive Search service.
 
 1. On the **Overview** page, select **Import data** to create and populate a search index.
 
@@ -62,7 +60,7 @@ The next step is to connect to a data source to use for the search index.
 
    :::image type="content" source="media/search-get-started-portal/import-hotels-sample.png" alt-text="Screenshot that shows how to select the hotels-sample data source in the Import data wizard." border="false":::
 
-   In this quickstart, you use a built-in data source. If you want to create your own data source, you need to specify a name, type, and connection information. After you create a data source, it becomes an "existing data source" that can be reused in other import operations.
+   In this quickstart, you use a built-in data source. If you want to create your own data source, you need to specify a name, type, and connection information. After you create a data source, it can be reused in other import operations.
 
 1. Select **Next: Add cognitive skills (Optional)** to continue.
 
@@ -137,7 +135,7 @@ After you complete the **Import data** wizard, you can monitor creation of the i
 
 1. In the **Indexers** box, select **View indexers**.
 
-   :::image type="content" source="media/search-get-started-portal/view-indexers.png" alt-text="Screenshot that shows how to check the status of the indexer creation process in the Azure portal.":::
+   :::image type="content" source="media/search-get-started-portal/view-indexers.png" alt-text="Screenshot that shows how to check the status of the indexer creation process in the Azure portal." lightbox="media/search-get-started-portal/view-indexers.png":::
 
    It can take a few minutes for the page results to update in the Azure portal. You should see the newly created indexer in the list with a status of _In progress_ or _Success_. The list also shows the number of documents indexed.
 
@@ -153,7 +151,7 @@ On the **Overview** page for the service, you can do a similar check for the ind
 
    :::image type="content" source="media/search-get-started-portal/indexes-list.png" alt-text="Screenshot of the Indexes list on the Azure Cognitive Search service dashboard in the Azure portal.":::
 
-1. To view the scheme for the new index, select the index name, **hotels-sample-index**. 
+1. To view the schema for the new index, select the index name, **hotels-sample-index**. 
 
 1. On the **hotels-sample-index** index page, select the **Fields** tab to view the index schema.
    
