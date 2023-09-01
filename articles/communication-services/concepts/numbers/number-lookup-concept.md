@@ -14,7 +14,7 @@ ms.service: azure-communication-services
 
 # Number Lookup overview
 
-[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
+[!INCLUDE [Private Preview Notice](../../includes/public-preview-include.md)]
 
 Azure Communication Services enable you to retrieve insights and look up a specific phone number using the Azure Communication Services Number Lookup SDK. It is part of the Phone Numbers SDK and can be used to support customer service scenarios, appointment reminders, two-factor authentication, and other real-time communication needs. Azure Communication Services Number Lookup allows you to reliably retrieve number insights before engaging with end-users.
 
@@ -43,6 +43,14 @@ The main benefits the solution will provide to ACS customers can be summarized o
 *Contoso, a marketing company, wants to launch a large SMS campaign to promote a product. Contoso checks the current carrier details for the different numbers he is targeting with this campaign to estimate the cost based on what ACS is charging him.*
 
 ![Diagram showing call recording architecture using calling client sdk.](../numbers/mvp-use-case.png)
+
+## Pricing
+
+
+| Request                                                     | Price per API query                                              | 
+| ------------------------------------------------------------| -----------------------------------------------------------------|
+| Get Number Type and Carrier details, query per phone number | $0.005                                                           |
+
 
 ## Next steps
 
