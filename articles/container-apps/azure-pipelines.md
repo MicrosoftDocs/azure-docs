@@ -49,7 +49,7 @@ The task uses the Dockerfile in `appSourcePath` to build the container image. If
 
 #### Deploy an existing container image to Container Apps
 
-The following snippet shows how to deploy an existing container image to Container Apps. The task authenticates with the registry using the service connection. If the service connection's identity isn't assigned the `AcrPush` role for the registry, supply the credentials using the `acrUsername` and `acrPassword` input parameters.
+The following snippet shows how to deploy an existing container image to Container Apps. The task authenticates with the registry using the service connection. If the service connection's identity isn't assigned the `AcrPush` role for the registry, supply the registry's admin credentials using the `acrUsername` and `acrPassword` input parameters.
 
 ```yaml
 steps:
@@ -68,7 +68,7 @@ steps:
 
 The Azure Container Apps task needs to authenticate with your Azure Container Registry to push the container image. The container app also needs to authenticate with your Azure Container Registry to pull the container image.
 
-To push images, the task automatically authenticates with the container registry specified in `acrName` using the service connection provided in `azureSubscription`. If the service connection's identity isn't assigned the `AcrPush` role for the registry, supply the credentials using `acrUsername` and `acrPassword`.
+To push images, the task automatically authenticates with the container registry specified in `acrName` using the service connection provided in `azureSubscription`. If the service connection's identity isn't assigned the `AcrPush` role for the registry, supply the registry's admin credentials using `acrUsername` and `acrPassword`.
 
 To pull images, Azure Container Apps uses either managed identity (recommended) or admin credentials to authenticate with the Azure Container Registry. To use managed identity, the target container app for the task must be [configured to use managed identity](managed-identity-image-pull.md). To authenticate with the registry's admin credentials, set the task's `acrUsername` and `acrPassword` inputs.
 
