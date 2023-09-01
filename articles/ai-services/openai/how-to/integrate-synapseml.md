@@ -149,7 +149,7 @@ df = spark.createDataFrame(
 
 ## Create the OpenAICompletion Apache Spark client
 
-To apply the Azure OpenAI Completion service to the dataframe, create an `OpenAICompletion` object that serves as a distributed client. Parameters of the service can be set either with a single value, or by a column of the dataframe with the appropriate setters on the `OpenAICompletion` object.
+To apply Azure OpenAI Completion generation to the dataframe, create an `OpenAICompletion` object that serves as a distributed client. Parameters can be set either with a single value, or by a column of the dataframe with the appropriate setters on the `OpenAICompletion` object.
 
 In this example, you set the `maxTokens` parameter to 200. A token is around four characters, and this limit applies to the sum of the prompt and the result. You also set the `promptCol` parameter with the name of the prompt column in the dataframe, such as **prompt**.
 
@@ -170,7 +170,7 @@ completion = (
 
 ## Transform the dataframe with the OpenAICompletion client
 
-After you have the dataframe and completion client, you can transform your input dataset and add a column called `completions` with all of the information the service adds. In this example, select only the text for simplicity.
+After you have the dataframe and completion client, you can transform your input dataset and add a column called `completions` with all of the text generated from the Azure OpenAI completion API. In this example, select only the text for simplicity.
 
 ```python
 from pyspark.sql.functions import col
