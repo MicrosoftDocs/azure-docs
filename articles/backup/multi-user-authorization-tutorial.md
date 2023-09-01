@@ -69,7 +69,7 @@ To create the Resource Guard in a tenant different from the vault tenant as a Se
 1. Optionally, add any tags to the Resource Guard as per the requirements
 1. Select **Review + Create** and then follow notifications for status and successful creation of the Resource Guard.
 
-# [Backup vault](#tab/backup-services-vault)
+# [Backup vault](#tab/backup-vault)
 
 To create the Resource Guard in a tenant different from the vault tenant as a Security admin, follow these steps:
 
@@ -111,7 +111,7 @@ To select the operations for protection, follow these steps:
 1. Optionally, you can also update the description for the Resource Guard using this blade. 
 1. Select **Save**.
 
-# [Backup vault](#tab/backup-services-vault)
+# [Backup vault](#tab/backup-vault)
 
 To select the operations for protection, follow these steps:
 
