@@ -131,24 +131,24 @@ To find the IP address of the VM for SSH, follow these steps:
 1. Go to the [Azure portal](https://portal.azure.com) and sign-in with your username and password.
 2. Type 'Kubernetes Cluster (Operator Nexus)' in the search box and select the 'Kubernetes Cluster' service from the list of results.
 
-:::image type="content" source="media/k8s/search-kubernetes-service.png" alt-text="Screenshot of browsing Nexus Kubernetes service.":::
+:::image type="content" source="media/nexus-kubernetes/search-kubernetes-service.png" alt-text="Screenshot of browsing Nexus Kubernetes service.":::
 
 3. Look for the specific 'Nexus Kubernetes cluster' resource you need to use the search.
 
-:::image type="content" source="media/k8s/search-kubernetes-cluster.png" alt-text="Screenshot of browsing Nexus Kubernetes cluster.":::
+:::image type="content" source="media/nexus-kubernetes/search-kubernetes-cluster.png" alt-text="Screenshot of browsing Nexus Kubernetes cluster.":::
 
 4. Once you've found the right resource by matching its name with the cluster name, Select the resource to go to the 'Kubernetes Cluster' home page.
 
-:::image type="content" source="media/k8s/kubernetes-cluster-home.png" alt-text="Screenshot of Nexus Kubernetes cluster home page.":::
+:::image type="content" source="media/nexus-kubernetes/kubernetes-cluster-home.png" alt-text="Screenshot of Nexus Kubernetes cluster home page.":::
 
 5. Once you've found the right resource by matching its name with the cluster name, go to the 'Kubernetes Cluster Nodes' section in the left menu.
 
-:::image type="content" source="media/k8s/kubernetes-cluster-nodes.png" alt-text="Screenshot of browsing Nexus Kubernetes cluster nodes.":::
+:::image type="content" source="media/nexus-kubernetes/kubernetes-cluster-nodes.png" alt-text="Screenshot of browsing Nexus Kubernetes cluster nodes.":::
 
 6. Select on the Kubernetes node name you're interested in to see its details.
 7. Check the 'Attached Networks' tab to find the IP address of the node's 'Layer 3 Network' that used as CNI network.
 
-:::image type="content" source="media/k8s/control-plane--network-attachment.png" alt-text="Screenshot of browsing Nexus Kubernetes cluster node networks.":::
+:::image type="content" source="media/nexus-kubernetes/control-plane--network-attachment.png" alt-text="Screenshot of browsing Nexus Kubernetes cluster node networks.":::
 
 ## Next steps
 
