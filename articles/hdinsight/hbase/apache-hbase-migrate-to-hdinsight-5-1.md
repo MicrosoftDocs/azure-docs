@@ -237,13 +237,13 @@ sudo -u hbase hdfs dfs -Dfs.azure.page.blob.dir="/hbase-wals" -cp <source-contai
         :::image type="content" source="./media/apache-hbase-migrate-new-version/verify-master-process.png" alt-text="Screenshot showing how to verify master process." border="false"::: 
 
 
-1. Execute the script [migrate-hbase-source.sh](https://github.com/Azure/hbase-utils/blob/master/scripts/migrate-hbase-source.sh) on the source cluster and [migrate-hbase-dest.sh](https://github.com/Azure/hbase-utils/blob/master/scripts/migrate-hbase-dest.sh) on the destination cluster. Use the following instructions to execute these scripts.
+1. Execute the script [migrate-to-HDI5.1-hbase-source.sh ](https://github.com/Azure/hbase-utils/blob/master/scripts/migrate-to-HDI5.1-hbase-source.sh) on the source cluster and [migrate-hbase-dest.sh](https://github.com/Azure/hbase-utils/blob/master/scripts/migrate-hbase-dest.sh) on the destination cluster. Use the following instructions to execute these scripts.
    > [!NOTE]  
    > These scripts don't copy the HBase old WALs as part of the migration; therefore, the scripts are not to be used on clusters that have either HBase Backup or Replication feature enabled.
 
 2. On source cluster
    ```bash
-   sudo bash migrate-hbase-source.sh
+   sudo bash migrate-to-HDI5.1-hbase-source.sh 
    ```
    
 3. On destination cluster
