@@ -8,7 +8,7 @@
      - name: Use-cases and scenarios
        href: use-cases-scenarios.md #DONE, link to the learn page  
        # sub sections here for use-cases 
-     - name: Silicon Level Innovation
+     - name: Silicon Level Innovation #p2
        expanded: true
        items:
         - name: AMD EPYC, SEV-SNP
