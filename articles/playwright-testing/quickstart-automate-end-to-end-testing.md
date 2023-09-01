@@ -223,8 +223,10 @@ Update the CI workflow definition to run your Playwright tests with the Playwrig
 
     When the CI workflow is triggered, your Playwright tests will run in your Microsoft Playwright Testing workspace on cloud-hosted browsers, across 20 parallel workers.
 
-## Next steps
+## Related content
 
 You've successfully set up a continuous end-to-end testing workflow to run your Playwright tests at scale on cloud-hosted browsers.
 
-- Learn more about [managing workspaces in the Azure portal](./how-to-manage-playwright-workspace.md).
+- [Grant users access to a workspace](./how-to-manage-workspace-access.md)
+
+- [Manage your workspaces](./how-to-manage-playwright-workspace.md)

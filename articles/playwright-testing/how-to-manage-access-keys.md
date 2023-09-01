@@ -102,6 +102,6 @@ To delete an existing workspace access key:
 
 1. Select **Delete** in the **Delete Key** confirmation popup window, to delete the access key.
 
-## Next steps
+## Related content
 
 - Learn more about [managing access to a workspace](./how-to-manage-workspace-access.md).
