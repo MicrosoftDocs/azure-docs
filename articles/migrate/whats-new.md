@@ -6,8 +6,8 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.service: azure-migrate
-ms.date: 07/26/2023
-ms.custom: mvc, engagement-fy23
+ms.date: 08/24/2023
+ms.custom: mvc, engagement-fy24
 ---
 
 # What's new in Azure Migrate

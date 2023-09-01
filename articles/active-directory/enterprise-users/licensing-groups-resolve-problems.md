@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
-ms.date: 06/24/2022
+ms.date: 08/31/2023
 ms.author: barclayn
 ms.reviewer: sumitp
 ms.custom: it-pro
@@ -63,8 +63,8 @@ To see which users and groups are consuming licenses, select a product. Under **
 **Problem:** One of the products that's specified in the group contains a service plan that conflicts with another service plan that's already assigned to the user via a different product. Some service plans are configured in a way that they can't be assigned to the same user as another, related service plan.
 
 > [!TIP]
-> Exchange Online Plan1 and Plan2 were previously non-duplicable service plans. However, now they are service plans that can be duplicated.
-> If you are experiencing conflicts with these service plans, please try reprocessing them.
+> Previously, Exchange Online Plan1 and Plan2 were unique and couldn't be duplicated. Now, both service plans have been updated to allow duplication.
+> If you are experiencing conflicts with these service plans, try reprocessing them.
 
 The decision about how to resolve conflicting product licenses always belongs to the administrator. Azure AD doesn't automatically resolve license conflicts.
 
@@ -114,7 +114,7 @@ Updating license assignment on a user causes the proxy address calculation to be
 ## LicenseAssignmentAttributeConcurrencyException in audit logs
 
 **Problem:** User has LicenseAssignmentAttributeConcurrencyException for license assignment in audit logs.
-When group-based licensing tries to process concurrent license assignment of same license to a user, this exception is recorded on the user. This usually happens when a user is a member of more than one group with same assigned license. Azure AD will retry processing the user license and will resolve the issue. There is no action required from the customer to fix this issue.
+When group-based licensing tries to process concurrent license assignment of same license to a user, this exception is recorded on the user. This usually happens when a user is a member of more than one group with same assigned license. Azure AD retries processing the user license until the issue is resolved. There is no action required from the customer to fix this issue.
 
 ## More than one product license assigned to a group
 

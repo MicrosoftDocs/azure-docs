@@ -1776,6 +1776,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/site-recovery/vmware-physical-secondary-support-matrix.md",
+            "redirect_url": "/azure/site-recovery/vmware-physical-secondary-architecture",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/site-recovery/switch-replication-appliance-preview.md",
             "redirect_url": "/azure/site-recovery/switch-replication-appliance-modernized",
             "redirect_document_id": false
@@ -2516,6 +2521,11 @@
         {
             "source_path_from_root": "/articles/frontdoor/standard-premium/concept-endpoint-manager.md",
             "redirect_url": "/azure/frontdoor/manager",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/frontdoor/standard-premium/faq.md",
+            "redirect_url": "/azure/frontdoor/front-door-faq",
             "redirect_document_id": false
         },
         {

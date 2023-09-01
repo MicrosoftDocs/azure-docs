@@ -1,9 +1,9 @@
 ---
 title: Node.js application using Socket.io - Azure
-description: Use this tutorial to learn how to host a socket.IO-based chat application on Azure. Socket.IO provides real time communication for a Node.js server and clients.
+description: Socket.IO is now natively supported on Azure. This old tutorial shows how to self-host a socket.IO-based chat application on Azure. The latest recommendation is to let Socket.IO provide real time communication for a Node.js server and clients, and let Azure manage scaling client connections.
 ms.topic: article
 ms.service: cloud-services
-ms.date: 02/21/2023
+ms.date: 08/31/2023
 author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
@@ -12,10 +12,11 @@ ms.custom: compute-evergreen, devx-track-js
 
 # Build a Node.js chat application with Socket.IO on an Azure Cloud Service (classic)
 
-[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
-
 > [!TIP]
 > Socket.IO is now natively supported on Azure. To scale out a Socket.IO app to handle thousands of connections, it is often frustrating. Now that Azure natively supports Socket.IO, you can let Azure handle scalability and availability. [Learn more about how you can get any Socket.IO app running on Azure with a few lines of code](https://learn.microsoft.com/azure/azure-web-pubsub/socketio-overview). 
+
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
+
 
 Socket.IO provides real time communication between your Node.js
 server and clients. This tutorial walks you through hosting a

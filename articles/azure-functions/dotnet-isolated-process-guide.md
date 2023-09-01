@@ -372,9 +372,7 @@ The trigger attribute specifies the trigger type and binds input data to a metho
 
 The `Function` attribute marks the method as a function entry point. The name must be unique within a project, start with a letter and only contain letters, numbers, `_`, and `-`, up to 127 characters in length. Project templates often create a method named `Run`, but the method name can be any valid C# method name.
 
-Bindings can provide data as strings, arrays, and serializable types, such as plain old class objects (POCOs). You can also bind to [types from some service SDKs](#sdk-types).
-
-For HTTP triggers, you must use [HttpRequestData] and [HttpResponseData] to access the request and response data. This is because you don't have access to the original HTTP request and response objects when using .NET Functions isolated worker process.
+Bindings can provide data as strings, arrays, and serializable types, such as plain old class objects (POCOs). You can also bind to [types from some service SDKs](#sdk-types). For HTTP triggers, see the [HTTP trigger](#http-trigger) section below.
 
 For a complete set of reference samples for using triggers and bindings with isolated worker process functions, see the [binding extensions reference sample](https://github.com/Azure/azure-functions-dotnet-worker/blob/main/samples/Extensions). 
 
