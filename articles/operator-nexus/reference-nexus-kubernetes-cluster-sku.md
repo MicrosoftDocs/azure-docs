@@ -22,8 +22,8 @@ The primary difference between the two types of VMs is their approach to emulato
 
 All these SKUs are having the following characteristics:
 
-1. Dedicated host-to-VM CPU mapping
-2. Reserved CPUs for Kubelet are 0 and 1, except for NC_G2_8_v1 and NC_P4_28_v1
+- Dedicated host-to-VM CPU mapping
+- Reserved CPUs for Kubelet are 0 and 1, except for NC_G2_8_v1 and NC_P4_28_v1
 
 These VM SKUs can be used for both worker and control plane nodes within the Azure Operator Nexus Kubernetes cluster.
 
