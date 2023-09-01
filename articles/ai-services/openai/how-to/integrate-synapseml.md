@@ -36,7 +36,7 @@ This tutorial shows how to apply large language models at a distributed scale by
    - To install SynapseML for your Apache Spark cluster, see [Install SynapseML](#install-synapseml).
 
 > [!NOTE]
-> This article is designed to work with the [Azure OpenAI Service legacy models](/azure/ai-services/openai/concepts/legacy-models) that support prompt-based completions like `Text-Davinci-003`. Newer models like the current `GPT-3.5 Turbo` and `GPT-4` model series are designed to work with the new chat completion API that expects a specially formatted array of messages as input. 
+> This article is designed to work with the [Azure OpenAI Service legacy models](/azure/ai-services/openai/concepts/legacy-models) like `Text-Davinci-003`, which support prompt-based completions. Newer models like the current `GPT-3.5 Turbo` and `GPT-4` model series are designed to work with the new chat completion API that expects a specially formatted array of messages as input. 
 > 
 > The Azure OpenAI SynapseML integration supports the latest models via the [OpenAIChatCompletion()](https://github.com/microsoft/SynapseML/blob/0836e40efd9c48424e91aa10c8aa3fbf0de39f31/cognitive/src/main/scala/com/microsoft/azure/synapse/ml/cognitive/openai/OpenAIChatCompletion.scala#L24) transformer, which isn't demonstrated in this article. After the [release of the GPT-3.5 Turbo Instruct model](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/announcing-updates-to-azure-openai-service-models/ba-p/3866757), the newer model will be the preferred model to use with this article.
 
