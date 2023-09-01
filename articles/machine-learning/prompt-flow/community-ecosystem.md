@@ -9,7 +9,7 @@ ms.topic: conceptual
 author: jiaochenlu
 ms.author: chenlujiao
 ms.reviewer: lagayhar
-ms.date: 08/30/2023
+ms.date: 09/08/2023
 ---
 
 # Prompt Flow community ecosystem (preview)

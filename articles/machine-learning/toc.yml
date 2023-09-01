@@ -646,6 +646,8 @@
               href: ./prompt-flow/how-to-enable-streaming-mode.md
             - name: Integrate Prompt Flow with LLM-based application DevOps 
               href: ./prompt-flow/how-to-integrate-with-llm-app-devops.md
+            - name: Set up end-to-end LLMOps with Prompt Flow and GitHub 
+              href: ./prompt-flow/how-to-end-to-end-llmops-with-prompt-flows.md
         - name: Tools Reference
           items:
             - name: LLM tool
@@ -1046,6 +1048,8 @@
         href: how-to-setup-mlops-azureml.md
       - name: Set up MLOps with GitHub Actions
         href: how-to-setup-mlops-github-azure-ml.md
+      - name: Set up LLMOps with Prompt Flow and GitHub 
+        href: ./prompt-flow/how-to-end-to-end-llmops-with-prompt-flows.md
 - name: Monitor your models
   items:
     - name: Model data collection

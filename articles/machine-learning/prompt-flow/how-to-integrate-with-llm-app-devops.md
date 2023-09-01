@@ -9,7 +9,7 @@ ms.topic: how-to
 author: jiaochenlu
 ms.author: chenlujiao
 ms.reviewer: lagayhar
-ms.date: 08/30/2023
+ms.date: 09/08/2023
 ---
 
 # Integrate Prompt Flow with LLM-based application DevOps (preview)
@@ -415,3 +415,5 @@ The last step to go to production is to deploy your flow as an online endpoint i
 For more information on how to deploy your flow, see [Deploy flows to Azure Machine Learning managed online endpoint for real-time inference with CLI and SDK](deploy-to-code.md).
 
 ## Next steps
+
+- [Set up end-to-end LLMOps with Prompt Flow and GitHub](how-to-end-to-end-llmops-with-prompt-flows.md)

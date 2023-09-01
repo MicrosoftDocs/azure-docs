@@ -9,7 +9,7 @@ ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.reviewer: lagayhar
-ms.date: 08/30/2023
+ms.date: 09/08/2023
 ---
 
 # How to use streaming endpoints deployed from Prompt Flow (preview)
