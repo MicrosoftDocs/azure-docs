@@ -65,8 +65,55 @@ teamsCaptions.on('CaptionsActiveChanged', captionsActiveChangedHandler);
 ```
 
 ### Add a listener for captions data received
+Handle the returned TeamsCaptionsInfo data object. 
+
+Note: The object contains a resultType prop that indicates whether the data is a partial caption or a finalized version of the caption. ResultType `partial` indicates live unedited caption, while `final` indicates a finalized interpreted version of the sentence (i.e includes punctuation and capitlization).
+
 ```typescript
-const captionsReceivedHandler : TeamsCaptionsHandler = (data: TeamsCaptionsInfo) => { /* USER CODE HERE - E.G. RENDER TO DOM */ }; 
+let currentCaptionLanguage : string;
+const captionsReceivedHandler : TeamsCaptionsHandler = (data: TeamsCaptionsInfo) => { 
+    /** USER CODE HERE - E.G. RENDER TO DOM 
+     * data.captionLanguage
+     * data.captionText
+     * data.resultType
+     * data.speaker
+     * data.spokenText
+     * data.timeStamp
+    */
+   // Example code:
+   // Create a dom element, i.e. div, with id "captionArea" before proceeding with the sample code
+    if (!this._currentCaptionLanguage || this._currentCaptionLanguage === data.captionLanguage) {
+        let mri: string;
+        switch (data.speaker.identifier.kind) {
+            case 'communicationUser': { mri = data.speaker.identifier.communicationUserId; break; }
+            case 'microsoftTeamsUser': { mri = data.speaker.identifier.microsoftTeamsUserId; break; }
+            case 'phoneNumber': { mri = data.speaker.identifier.phoneNumber; break; }
+        }
+        const outgoingCaption = `prefix${mri.replace(/:/g, '').replace(/-/g, '')}`;
+
+        let captionArea = document.getElementById("captionArea");
+        const captionText = `${data.timestamp.toUTCString()}
+            ${data.speaker.displayName}: ${data.captionText ?? data.spokenText}`;
+
+        let foundCaptionContainer = captionArea.querySelector(`.${outgoingCaption}[isNotFinal='true']`);
+        if (!foundCaptionContainer) {
+            let captionContainer = document.createElement('div');
+            captionContainer.setAttribute('isNotFinal', 'true');
+            captionContainer.style['borderBottom'] = '1px solid';
+            captionContainer.style['whiteSpace'] = 'pre-line';
+            captionContainer.textContent = captionText;
+            captionContainer.classList.add(newClassName);
+
+            captionArea.appendChild(captionContainer);
+        } else {
+            foundCaptionContainer.textContent = captionText;
+
+            if (captionData.resultType === 'Final') {
+                foundCaptionContainer.setAttribute('isNotFinal', 'false');
+            }
+        }
+    }
+}; 
 teamsCaptions.on('CaptionsReceived', captionsReceivedHandler); 
 ```
 
