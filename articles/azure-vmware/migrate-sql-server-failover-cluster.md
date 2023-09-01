@@ -1,22 +1,24 @@
 ---
-title: Migrate SQL Server failover cluster to Azure VMware Solution
-description: Learn how to migrate SQL Server failover cluster to Azure VMware Solution
+title: Migrate SQL Server Failover cluster to Azure VMware Solution
+description: Learn how to migrate SQL Server Failover cluster to Azure VMware Solution
+author: jjaygbay1
+ms.author: jacobjaygbay
 ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 6/20/2023
 ms.custom: engagement-fy23
 ---
 
-#  Migrate SQL Server failover cluster to Azure VMware Solution
+#  Migrate SQL Server Failover cluster to Azure VMware Solution
 
 In this article, you'll learn how to migrate a Microsoft SQL Server Failover cluster instance to Azure VMware Solution. Currently Azure VMware Solution service doesn't support VMware Hybrid Linked Mode to connect an on-premises vCenter Server with one running in Azure VMware Solution. Due to this constraint, this process requires the use of VMware HCX for the migration. For more details about configuring HCX, see [Install and activate VMware HCX in Azure VMware Solution](install-vmware-hcx.md). 
 
 VMware HCX doesn't support migrating virtual machines with SCSI controllers in physical sharing mode attached to a virtual machine. However, you can overcome this limitation by performing the steps shown in this procedure and by using VMware HCX Cold Migration to move the different virtual machines that make up the cluster. 
 
-:::image type="content" source="media/sql-server-hybrid-benefit/migrated-sql-failover-cluster.png" alt-text="Diagram showing the architecture of SQL failover server for Azure VMware Solution." border="false" lightbox="media/sql-server-hybrid-benefit/migrated-sql-failover-cluster.png":::
+:::image type="content" source="media/sql-server-hybrid-benefit/migrated-sql-failover-cluster.png" alt-text="Diagram showing the architecture of SQL Server Failover for Azure VMware Solution." border="false" lightbox="media/sql-server-hybrid-benefit/migrated-sql-failover-cluster.png":::
 
 > [!NOTE]
-> This procedure requires a full shutdown of the cluster. Since the Microsoft SQL Server service will be unavailable during the migration, plan accordingly for the downtime period .  
+> This procedure requires a full shutdown of the cluster. Since the Microsoft SQL Server service will be unavailable during the migration, plan accordingly for the downtime period.  
 
 ## Prerequisites
 
@@ -28,13 +30,18 @@ VMware HCX doesn't support migrating virtual machines with SCSI controllers in p
 - VMware HCX must be configured between your on-premises datacenter and the Azure VMware Solution private cloud that runs the migrated workloads. For more details about installing VMware HCX, see [Azure VMware Solution documentation](install-vmware-hcx.md).
 - Ensure that all the network segments in use by the Microsoft SQL Server are extended into your Azure VMware Solution private cloud. To verify this step, see [Configure VMware HCX network extension](configure-hcx-network-extension.md).
 
-VMware HCX over VPN is supported in Azure VMware Solution for workload migration. However, due to the size of database workloads it isn't recommended for Microsoft SQL Server Failover Cluster Instance and Microsoft SQL Server Always-On migrations, especially for production workloads. ExpressRoute connectivity is recommended as more performant and reliable. For Microsoft SQL Server Standalone and non-production workloads this can be suitable, depending upon the size of the database, to migrate. 
+VMware HCX over VPN is supported in Azure VMware Solution for workload migration. 
+However, due to the size of database workloads it isn't recommended for Microsoft SQL Server Failover Cluster Instance and Microsoft SQL Server Always On migrations, especially for production workloads. 
+ExpressRoute connectivity is recommended as more performant and reliable. For Microsoft SQL Server Standalone and non-production workloads this can be suitable, depending upon the size of the database, to migrate. 
 
-Microsoft SQL Server 2019 and 2022 were tested with Windows Server 2019 and 2022 Data Center edition with the virtual machines deployed in the on-premises environment. Windows Server and SQL Server have been configured following best practices and recommendations from Microsoft and VMware. The on-premises source infrastructure was VMware vSphere 7.0 Update 3 and VMware vSAN running on Dell PowerEdge servers and Intel Optane P4800X SSD NVMe devices.
+Microsoft SQL Server 2019 and 2022 were tested with Windows Server 2019 and 2022 Data Center edition with the virtual machines deployed in the on-premises environment. 
+Windows Server and SQL Server have been configured following best practices and recommendations from Microsoft and VMware. 
+The on-premises source infrastructure was VMware vSphere 7.0 Update 3 and VMware vSAN running on Dell PowerEdge servers and Intel Optane P4800X SSD NVMe devices.
 
 ## Downtime considerations
 
-Predicting downtime during a migration will depend upon the size of the database to be migrated and the speed of the private network connection to Azure cloud. Migration of SQL Server Failover Cluster Instances Always On to Azure VMware Solution requires a full downtime of the database and all cluster nodes, however you should plan for the migration to be executed during off-peak hours with an approved change window.
+Predicting downtime during a migration will depend upon the size of the database to be migrated and the speed of the private network connection to Azure cloud. 
+Migration of SQL Server Failover Cluster Instances Always On to Azure VMware Solution requires a full downtime of the database and all cluster nodes, however you should plan for the migration to be executed during off-peak hours with an approved change window.
 
 The table below indicates the downtime for each Microsoft SQL Server topology.
 
@@ -65,7 +72,7 @@ If the cluster uses a **File** **share witness** running on-premises, then the t
 - Disaster Recovery and Business Continuity: For a disaster recovery scenario, the best and most reliable option is to create a **Cloud Witness** running in Azure Storage. 
 - Application Modernization: For this use case, the best option is to deploy a **Cloud Witness**.
 
-For more information about quorum configuration and management, see [Failover Clustering documentation](https://learn.microsoft.com/windows-server/failover-clustering/manage-cluster-quorum). For more information about deploying a Cloud witness in Azure Blob Storage, see [Deploy a Cloud Witness for a Failover Cluster](https://learn.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness) documentation for the details.
+For more information about quorum configuration and management, see [Failover Clustering documentation](/windows-server/failover-clustering/manage-cluster-quorum). For more information about deploying a Cloud witness in Azure Blob Storage, see [Deploy a Cloud Witness for a Failover Cluster](/windows-server/failover-clustering/deploy-cloud-witness) documentation for the details.
 
 ## Migrate failover cluster
 
@@ -122,16 +129,16 @@ For illustration purposes, in this document we're using a two-node cluster with 
 
 :::image type="content" source="media/sql-server-hybrid-benefit/sql-failover-5.png" alt-text="Diagram showing a verification of SQL Server Management Studio connection  to the migrated cluster instance database." border="false" lightbox="media/sql-server-hybrid-benefit/sql-failover-5.png":::
     
-Finally, check the connectivity to SQL from other systems and applications in your infrastructure and verify that all applications using the database(s) can still access them. 
+Finally, check the connectivity to SQL Server from other systems and applications in your infrastructure and verify that all applications using the database(s) can still access them. 
 
 ## Next steps
 
-- [Enable SQL Azure hybrid benefit for Azure VMware Solution](enable-sql-azure-hybrid-benefit.md). 
+- [Enable Azure Hybrid Benefit for SQL Server in Azure VMware Solution](enable-sql-azure-hybrid-benefit.md). 
 - [Create a placement policy in Azure VMware Solution](create-placement-policy.md)  
-- [Windows Server Failover Clustering Documentation](https://learn.microsoft.com/windows-server/failover-clustering/failover-clustering-overview)
-- [Microsoft SQL Server 2019 Documentation](https://learn.microsoft.com/sql/sql-server/?view=sql-server-ver15)
-- [Microsoft SQL Server 2022 Documentation](https://learn.microsoft.com/sql/sql-server/?view=sql-server-ver16)
-- [Windows Server Technical Documentation](https://learn.microsoft.com/windows-server/)
+- [Windows Server Failover Clustering Documentation](/windows-server/failover-clustering/failover-clustering-overview)
+- [Microsoft SQL Server 2019 Documentation](/sql/sql-server/?view=sql-server-ver15&preserve-view=true)
+- [Microsoft SQL Server 2022 Documentation](/sql/sql-server/?view=sql-server-ver16&preserve-view=true)
+- [Windows Server Technical Documentation](/windows-server/)
 - [Planning Highly Available, Mission Critical SQL Server Deployments with VMware vSphere](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/solutions/vmware-vsphere-highly-available-mission-critical-sql-server-deployments.pdf)
 - [Microsoft SQL Server on VMware vSphere Availability and Recovery Options](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/solutions/sql-server-on-vmware-availability-and-recovery-options.pdf)
 - [VMware KB 100 2951 – Tips for configuring Microsoft SQL Server in a virtual machine](https://kb.vmware.com/s/article/1002951)

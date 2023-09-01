@@ -11,7 +11,7 @@ ms.date: 03/15/2023
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.custom: "it-pro"
+ms.custom: it-pro, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 ---
 

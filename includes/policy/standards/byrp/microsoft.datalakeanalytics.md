@@ -2,7 +2,7 @@
 author: davidsmatlak
 ms.service: azure-policy
 ms.topic: include
-ms.date: 08/03/2023
+ms.date: 08/25/2023
 ms.author: davidsmatlak
 ms.custom: generated
 ---
@@ -137,7 +137,7 @@ For more information about this compliance standard, see
 
 |Domain |Control ID |Control title |Policy<br /><sub>(Azure portal)</sub> |Policy version<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|
-|Access Control and Passwords |NZISM Security Benchmark AC-18 |16.6.9 Events to be logged |[Resource logs in Data Lake Analytics should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc95c74d9-38fe-4f0d-af86-0c7d626a315c) |[5.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Data%20Lake/DataLakeAnalytics_AuditDiagnosticLog_Audit.json) |
+|Access Control and Passwords | AC-18 |16.6.9 Events to be logged |[Resource logs in Data Lake Analytics should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc95c74d9-38fe-4f0d-af86-0c7d626a315c) |[5.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Data%20Lake/DataLakeAnalytics_AuditDiagnosticLog_Audit.json) |
 
 ## Reserve Bank of India IT Framework for Banks v2016
 

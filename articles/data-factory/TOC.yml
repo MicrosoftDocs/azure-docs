@@ -1320,6 +1320,12 @@ items:
       href: how-does-managed-airflow-work.md
     - name: How to change the Airflow password
       href: password-change-airflow.md
+    - name: Enable Azure Key Vault for Airflow
+      href: enable-azure-key-vault-for-managed-airflow.md
+    - name: Add Kubernetes secret to access a private container registry
+      href: kubernetes-secret-pull-image-from-private-container-registry.md
+    - name: Rest APIs for managing the Airflow integrated runtime
+      href: rest-apis-for-airflow-integrated-runtime.md
   - name: Pricing
     href: airflow-pricing.md
 - name: Reference

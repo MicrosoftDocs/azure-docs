@@ -13,7 +13,7 @@ ms.workload: identity
 ms.date: 01/09/2023
 ms.author: barclayn
 ms.reviewer: sumitp
-ms.custom: it-pro
+ms.custom: it-pro, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 ---
 

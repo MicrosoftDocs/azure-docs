@@ -74,7 +74,7 @@ When you assign a role at a parent scope, those permissions are inherited to the
 
 [!INCLUDE [Scope for Azure RBAC least privilege](../../includes/role-based-access-control/scope-least.md)] For more information, see [Understand scope](scope-overview.md).
 
-## Step 4. Check your prerequisites
+## Step 4: Check your prerequisites
 
 To assign roles, you must be signed in with a user that is assigned a role that has role assignments write permission, such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator) at the scope you are trying to assign the role. Similarly, to remove a role assignment, you must have the role assignments delete permission.
 
@@ -85,7 +85,7 @@ If your user account doesn't have permission to assign a role within your subscr
 
 If you are using a service principal to assign roles, you might get the error "Insufficient privileges to complete the operation." This error is likely because Azure is attempting to look up the assignee identity in Azure Active Directory (Azure AD) and the service principal cannot read Azure AD by default. In this case, you need to grant the service principal permissions to read data in the directory. Alternatively, if you are using Azure CLI, you can create the role assignment by using the assignee object ID to skip the Azure AD lookup. For more information, see [Troubleshoot Azure RBAC](troubleshooting.md).
 
-## Step 5. Assign role
+## Step 5: Assign role
 
 Once you know the security principal, role, and scope, you can assign the role. You can assign roles using the Azure portal, Azure PowerShell, Azure CLI, Azure SDKs, or REST APIs.
 

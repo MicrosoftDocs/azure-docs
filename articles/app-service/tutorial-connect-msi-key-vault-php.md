@@ -6,7 +6,7 @@ ms.topic: tutorial
 ms.date: 10/26/2021
 
 ms.reviewer: madsd 
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, AppServiceConnectivity
 ---
 
 # Tutorial: Secure Cognitive Service connection from PHP App Service using Key Vault

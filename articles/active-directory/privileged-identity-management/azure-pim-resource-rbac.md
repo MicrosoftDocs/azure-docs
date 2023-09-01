@@ -1,6 +1,6 @@
 ---
 title: View audit report for Azure resource roles in Privileged Identity Management (PIM)
-description: View activity and audit history for Azure resource roles in Azure AD Privileged Identity Management (PIM).
+description: View activity and audit history for Azure resource roles in Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 ---
 # View activity and audit history for Azure resource roles in Privileged Identity Management
 
-With Privileged Identity Management (PIM) in Azure Active Directory (Azure AD), part of Microsoft Entra, you can view activity, activations, and audit history for Azure resources roles within your organization. This includes subscriptions, resource groups, and even virtual machines. Any resource within the Azure portal that leverages the Azure role-based access control functionality can take advantage of the security and lifecycle management capabilities in Privileged Identity Management. If you want to retain audit data for longer than the default retention period, you can use Azure Monitor to route it to an Azure storage account. For more information, see [Archive Azure AD logs to an Azure storage account](../reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md).
+With Privileged Identity Management (PIM) in Azure Active Directory (Azure AD), part of Microsoft Entra, you can view activity, activations, and audit history for Azure resources roles within your organization. This includes subscriptions, resource groups, and even virtual machines. Any resource within the Microsoft Entra admin center that leverages the Azure role-based access control functionality can take advantage of the security and lifecycle management capabilities in Privileged Identity Management. If you want to retain audit data for longer than the default retention period, you can use Azure Monitor to route it to an Azure storage account. For more information, see [Archive Azure AD logs to an Azure storage account](../reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md).
 
 > [!NOTE]
 > If your organization has outsourced management functions to a service provider who uses [Azure Lighthouse](../../lighthouse/overview.md), role assignments authorized by that service provider won't be shown here.
@@ -27,7 +27,7 @@ With Privileged Identity Management (PIM) in Azure Active Directory (Azure AD), 
 
 To see what actions a specific user took in various resources, you can view the Azure resource activity that's associated with a given activation period.
 
-1. Open **Azure AD Privileged Identity Management**.
+1. Open **Privileged Identity Management**.
 
 1. Select **Azure resources**.
 
@@ -49,7 +49,7 @@ To see what actions a specific user took in various resources, you can view the 
 
 You may have a compliance requirement where you must provide a complete list of role assignments to auditors. Privileged Identity Management enables you to query role assignments at a specific resource, which includes role assignments for all child resources. Previously, it was difficult for administrators to get a complete list of role assignments for a subscription and they had to export role assignments for each specific resource. Using Privileged Identity Management, you can query for all active and eligible role assignments in a subscription including role assignments for all resource groups and resources.
 
-1. Open **Azure AD Privileged Identity Management**.
+1. Open **Privileged Identity Management**.
 
 1. Select **Azure resources**.
 
@@ -69,7 +69,7 @@ You may have a compliance requirement where you must provide a complete list of 
 
 Resource audit gives you a view of all role activity for a resource.
 
-1. Open **Azure AD Privileged Identity Management**.
+1. Open **Privileged Identity Management**.
 
 1. Select **Azure resources**.
 
@@ -113,8 +113,10 @@ My audit enables you to view your personal role activity.
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with Privileged Role administrator role permissions, and open Azure AD.
-1. Select **Audit logs**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) with Privileged Role administrator role permissions.
+
+1. Browse to **Identity** > **Audit logs**.
+
 1. Use the **Service** filter to display only audit events for the Privileged identity Management service. On the **Audit logs** page, you can:
 
     - See the reason for an audit event in the **Status reason** column.
@@ -124,7 +126,7 @@ My audit enables you to view your personal role activity.
 
 1. Select an audit log event to see the ticket number on the **Activity** tab of the **Details** pane.
   
-    [![Check the ticket number for the audit event](media/azure-pim-resource-rbac/audit-event-ticket-number.png "Check the ticket number for the audit event")](media/azure-pim-resource-rbac/audit-event-ticket-number.png)]
+    [![Check the ticket number for the audit event](media/azure-pim-resource-rbac/audit-event-ticket-number.png "Check the ticket number for the audit event")](media/azure-pim-resource-rbac/audit-event-ticket-number.png)
 
 1. You can view the requester (person activating the role) on the **Targets** tab of the **Details** pane for an audit event. There are three target types for Azure resource roles:
 

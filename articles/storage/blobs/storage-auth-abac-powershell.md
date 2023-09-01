@@ -8,7 +8,7 @@ ms.service: azure-storage
 ms.topic: tutorial
 ms.author: jammart
 ms.reviewer: nachakra
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, has-azure-ad-ps-ref
 ms.date: 03/15/2023
 ---
 

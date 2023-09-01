@@ -27,7 +27,7 @@ To help you troubleshoot certain types of issues, you may be asked for any of th
 * **Short Code Program Brief ID**: This ID is used to identify a short code program brief application.
 * **Email message ID**: This ID is used to identify Send Email requests.
 * **Correlation ID**: This ID is used to identify requests made using Call Automation. 
-* **Call logs**: These logs contain detailed information that are used to troubleshoot calling and network issues.
+* **Call logs**: These logs contain detailed information can be used to troubleshoot calling and network issues.
 
 Also take a look at our [service limits](service-limits.md) documentation for more information on throttling and limitations.
 
@@ -157,6 +157,15 @@ Console.WriteLine($"Email operation id = {emailSendOperation.Id}");
 ```
 ---
 
+## Accessing Support Files in the Calling SDK
+
+[!INCLUDE [Public Preview](../includes/public-preview-include.md)]
+
+Calling SDK provides convenience methods to get access to the Log Files. To actively collect, it is encouraged to pair this functionality with your applications support tooling.
+
+[Log File Access Conceptual Document](../concepts/voice-video-calling/retrieve-support-files.md)
+[Log File Access Tutorials](../tutorials/log-file-retrieval-tutorial.md)
+
 ## Enable and access call logs
 
 # [JavaScript](#tab/javascript)
@@ -172,7 +181,7 @@ const callClient = new CallClient({ logger });
 ```
 
 You can use AzureLogger to redirect the logging output from Azure SDKs by overriding the `AzureLogger.log` method:
-You can log to the browser console, a file, buffer, send to our own service, etc... If you are going to send logs over
+You can log to the browser console, a file, buffer, send to our own service, etc. If you are going to send logs over
 the network to your own service, do not send a request per log line because this will affect browser performance. Instead, accumulate logs lines and send them in batches.
 ```javascript
 // Redirect log output
@@ -184,7 +193,7 @@ AzureLogger.log = (...args) => {
 
 # [iOS](#tab/ios)
 
-When developing for iOS, your logs are stored in `.blog` files. Note that you can't view the logs directly because they're encrypted.
+In an iOS Application, logs are stored in `.blog` files. Note that you can't view the logs directly because they're encrypted.
 
 These can be accessed by opening Xcode. Go to Windows > Devices and Simulators > Devices. Select your device. Under Installed Apps, select your application and click on "Download container".
 
@@ -192,7 +201,7 @@ This process gives you a `xcappdata` file. Right-click on this file and select â
 
 # [Android](#tab/android)
 
-When developing for Android, your logs are stored in `.blog` files. Note that you can't view the logs directly because they're encrypted.
+In an Android application, logs are stored in `.blog` files. Note that you can't view the logs directly because they're encrypted.
 
 On Android Studio, navigate to the Device File Explorer by selecting View > Tool Windows > Device File Explorer from both the simulator and the device. The `.blog` file is located within your application's directory, which should look something like `/data/data/[app_name_space:com.contoso.com.acsquickstartapp]/files/acs_sdk.blog`. You can attach this file to your support request.
 
@@ -200,7 +209,7 @@ On Android Studio, navigate to the Device File Explorer by selecting View > Tool
 
 ## Enable and access call logs (Windows)
 
-When developing for Windows, your logs are stored in `.blog` files. Note that you can't view the logs directly because they're encrypted.
+In a Windows application, logs are stored in `.blog` files. Note that you can't view the logs directly because they're encrypted.
 
 These are accessed by looking at where your app is keeping its local data. There are many ways to figure out where a UWP app keeps its local data, the following steps are just one of these ways:
 1. Open a Windows Command Prompt (Windows Key + R)
@@ -209,6 +218,7 @@ These are accessed by looking at where your app is keeping its local data. There
 4. Please check if the app ID of your application matches with the one returned by the previous command.
 5. Open the folder with the logs by typing `start ` followed by the path returned by the step 3. For example: `start C:\Users\myuser\AppData\Local\Packages\e84000dd-df04-4bbc-bf22-64b8351a9cd9_k2q8b5fxpmbf6`
 6. Please attach all the `*.blog` and `*.etl` files to your Azure support request.
+
 
 ## Finding Azure Active Directory information
 
@@ -396,7 +406,11 @@ The Azure Communication Services SMS SDK uses the following error codes to help 
 | 9999 | Message failed to deliver due to unknown error/failure| Try resending the message |
 
 
+
 ## Related information
 - Access logs for [voice and video](./analytics/logs/voice-and-video-logs.md), [chat](./analytics/logs/chat-logs.md), [email](./analytics/logs/email-logs.md), [network traversal](./analytics/logs/network-traversal-logs.md), [recording](./analytics/logs/recording-logs.md), [SMS](./analytics/logs/sms-logs.md) and [call automation](./analytics/logs/call-automation-logs.md).
+- Log Filename APIs for Calling SDK
 - [Metrics](metrics.md)
 - [Service limits](service-limits.md)
+
+

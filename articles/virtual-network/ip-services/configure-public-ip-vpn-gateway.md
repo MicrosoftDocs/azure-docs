@@ -2,8 +2,8 @@
 title: Manage a public IP address with a VPN gateway
 titleSuffix: Azure Virtual Network
 description: Learn about the ways a public IP address is used with a VPN gateway and how to change the configuration.
-author: asudbring
-ms.author: allensu
+author: mbender-ms
+ms.author: mbender
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to 

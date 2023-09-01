@@ -35,21 +35,6 @@ The following figure illustrates the architecture for the popular MPI libraries.
 
 ![Architecture for popular MPI libraries](./media/hpc/mpi-architecture.png)
 
-## UCX
-
-[Unified Communication X (UCX)](https://github.com/openucx/ucx) is a framework of communication APIs for HPC. It is optimized for MPI communication over InfiniBand and works with many MPI implementations such as OpenMPI and MPICH.
-
-```bash
-wget https://github.com/openucx/ucx/releases/download/v1.4.0/ucx-1.4.0.tar.gz
-tar -xvf ucx-1.4.0.tar.gz
-cd ucx-1.4.0
-./configure --prefix=<ucx-install-path>
-make -j 8 && make install
-```
-
-> [!NOTE]
-> Recent builds of UCX have fixed an [issue](https://github.com/openucx/ucx/pull/5965) whereby the right InfiniBand interface is chosen in the presence of multiple NIC interfaces. For more information, see [Troubleshooting known issues with HPC and GPU VMs](hb-hc-known-issues.md) on running MPI over InfiniBand when Accelerated Networking is enabled on the VM.
-
 ## HPC-X
 
 The [HPC-X software toolkit](https://www.mellanox.com/products/hpc-x-toolkit) contains UCX and HCOLL and can be built against UCX.
@@ -287,7 +272,7 @@ cat /sys/class/infiniband/mlx5_0/ports/1/pkeys/1
 0x7fff
 ```
 
-Use the partition other than default (0x7fff) partition key. UCX requires the MSB of p-key to be cleared. For example, set UCX_IB_PKEY as 0x000b for 0x800b.
+Please note interfaces are named as mlx5_ib* inside HPC VM image.
 
 Also note that as long as the tenant (Availability Set or Virtual Machine Scale Set) exists, the PKEYs remain the same. This is true even when nodes are added/deleted. New tenants get different PKEYs.
 

@@ -180,4 +180,4 @@ For more information about `docker run` with Speech containers, see [Install and
 
 * See the [Speech containers overview](speech-container-overview.md)
 * Review [configure containers](speech-container-configuration.md) for configuration settings
-* Use more [Azure AI services containers](../cognitive-services-container-support.md)
+* Use more [Azure AI containers](../cognitive-services-container-support.md)

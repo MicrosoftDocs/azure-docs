@@ -10,17 +10,17 @@ ms.author: pafarley
 
 ## Prerequisites
 
-This guide assumes you have successfully followed the steps mentioned in the [quickstart](/azure/cognitive-services/computer-vision/quickstarts-sdk/image-analysis-client-library-40) page. This means:
+This guide assumes you have successfully followed the steps mentioned in the [quickstart](/azure/ai-services/computer-vision/quickstarts-sdk/image-analysis-client-library-40) page. This means:
 
 * You have <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="created a Computer Vision resource"  target="_blank">created a Computer Vision resource </a> and obtained a key and endpoint URL.
-* You have the appropriate SDK package installed and you have a running [quickstart](/azure/cognitive-services/computer-vision/quickstarts-sdk/image-analysis-client-library-40) application. You can modify this quickstart application based on code examples here.
+* You have the appropriate SDK package installed and you have a running [quickstart](/azure/ai-services/computer-vision/quickstarts-sdk/image-analysis-client-library-40) application. You can modify this quickstart application based on code examples here.
 
 ## Authenticate against the service
 
 To authenticate against the Image Analysis service, you need a Computer Vision key and endpoint URL.
 
 > [!TIP]
-> Don't include the key directly in your code, and never post it publicly. See the Cognitive Services [security](/azure/cognitive-services/security-features) article for more authentication options like [Azure Key Vault](/azure/cognitive-services/use-key-vault). 
+> Don't include the key directly in your code, and never post it publicly. See the Azure AI services [security](/azure/ai-services/security-features) article for more authentication options like [Azure Key Vault](/azure/ai-services/use-key-vault). 
 
 The SDK example assumes that you defined the environment variables `VISION_KEY` and `VISION_ENDPOINT` with your key and endpoint.
 
@@ -49,7 +49,7 @@ Create a new **VisionSource** object from the URL of the image you want to analy
 
 ### Select visual features when using the standard model
 
-The Analysis 4.0 API gives you access to all of the service's image analysis features. Choose which operations to do based on your own use case. See the [overview](/azure/cognitive-services/computer-vision/overview-image-analysis) for a description of each feature. The example in this section adds all of the available visual features, but for practical usage you likely need fewer. 
+The Analysis 4.0 API gives you access to all of the service's image analysis features. Choose which operations to do based on your own use case. See the [overview](/azure/ai-services/computer-vision/overview-image-analysis) for a description of each feature. The example in this section adds all of the available visual features, but for practical usage you likely need fewer. 
 
 Visual features 'Captions' and 'DenseCaptions' are only supported in the following Azure regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US.
 
@@ -64,7 +64,7 @@ Create a new [ImageAnalysisOptions](/dotnet/api/azure.ai.vision.imageanalysis.im
 
 ### Set model name when using a custom model
 
-You can also do image analysis with a custom trained model. To create and train a model, see [Create a custom Image Analysis model](/azure/cognitive-services/computer-vision/how-to/model-customization). Once your model is trained, all you need is the model's name. You do not need to specify visual features if you use a custom model.
+You can also do image analysis with a custom trained model. To create and train a model, see [Create a custom Image Analysis model](/azure/ai-services/computer-vision/how-to/model-customization). Once your model is trained, all you need is the model's name. You do not need to specify visual features if you use a custom model.
 
 
 To use a custom model, create the [ImageAnalysisOptions](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisoptions) object and set the [ModelName](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisoptions.modelname#azure-ai-vision-imageanalysis-imageanalysisoptions-modelname) property. You don't need to set any other properties on **ImageAnalysisOptions**. There's no need to set the [Features](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisoptions.features#azure-ai-vision-imageanalysis-imageanalysisoptions-features) property, as you do with the standard model, since your custom model already implies the visual features the service extracts.

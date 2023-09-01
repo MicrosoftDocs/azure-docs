@@ -1,5 +1,5 @@
 ---
-title: Use Azure AI services containers on-premises
+title: Use Azure AI containers on-premises
 titleSuffix: Azure AI services
 description: Learn how to use Docker containers to use Azure AI services on-premises.
 services: cognitive-services
@@ -14,7 +14,7 @@ keywords: on-premises, Docker, container, Kubernetes
 #Customer intent: As a potential customer, I want to know more about how Azure AI services provides and supports Docker containers for each service.
 ---
 
-# What are Azure AI services containers?
+# What are Azure AI containers?
 
 Azure AI services provides several [Docker containers](https://www.docker.com/what-container) that let you use the same APIs that are available in Azure, on-premises. Using these containers gives you the flexibility to bring Azure AI services closer to your data for compliance, security or other operational reasons. Container support is currently available for a subset of Azure AI services.
 
@@ -33,7 +33,7 @@ Containerization is an approach to software distribution in which an application
 
 ## Containers in Azure AI services
 
-Azure AI services containers provide the following set of Docker containers, each of which contains a subset of functionality from services in Azure AI services. You can find instructions and image locations in the tables below.
+Azure AI containers provide the following set of Docker containers, each of which contains a subset of functionality from services in Azure AI services. You can find instructions and image locations in the tables below.
 
 > [!NOTE]
 > See [Install and run Document Intelligence containers](document-intelligence/containers/install-run.md) for **Azure AI Document Intelligence** container instructions and image locations.
@@ -88,7 +88,7 @@ Additionally, some containers are supported in the Azure AI services [multi-serv
 
 ## Prerequisites
 
-You must satisfy the following prerequisites before using Azure AI services containers:
+You must satisfy the following prerequisites before using Azure AI containers:
 
 **Docker Engine**: You must have Docker Engine installed locally. Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms), and [Windows](https://docs.docker.com/docker-for-windows/). On Windows, Docker must be configured to support Linux containers. Docker containers can also be deployed directly to [Azure Kubernetes Service](../aks/index.yml) or [Azure Container Instances](../container-instances/index.yml).
 

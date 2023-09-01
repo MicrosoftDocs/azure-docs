@@ -13,7 +13,7 @@ ms.topic: how-to
 ms.date: 06/12/2023
 ms.author: barclayn
 ms.reviewer: krbain
-ms.custom: "it-pro;seo-update-azuread-jan"
+ms.custom: it-pro, seo-update-azuread-jan, has-azure-ad-ps-ref
 
 ms.collection: M365-identity-device-management
 ---

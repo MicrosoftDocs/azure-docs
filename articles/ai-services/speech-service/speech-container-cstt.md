@@ -292,4 +292,4 @@ sudo chown -R nonroot:nonroot <YOUR_LOCAL_MACHINE_PATH_1> <YOUR_LOCAL_MACHINE_PA
 
 * See the [Speech containers overview](speech-container-overview.md)
 * Review [configure containers](speech-container-configuration.md) for configuration settings
-* Use more [Azure AI services containers](../cognitive-services-container-support.md)
+* Use more [Azure AI containers](../cognitive-services-container-support.md)

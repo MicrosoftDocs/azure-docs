@@ -34,6 +34,8 @@ The following sections provide you with a quick guide to the default quotas and 
 | Total size of all files per resource | 1 GB | 
 | Max training job time (job will fail if exceeded) | 720 hours |
 | Max training job size (tokens in training file) x (# of epochs) | 2 Billion |
+| Max size of all files per upload (Azure OpenAI on your data) | 16 MB |
+
 
 <sup>1</sup> Default quota limits are subject to change.
 
