@@ -126,6 +126,9 @@ digest=$(az acr manifest show-metadata -r $registry -n "$repo:$tag" --query dige
 az acr manifest show-metadata -r $registry -n "$repo@$digest"
 ```
 
+> [!NOTE]
+> If the image attributes are set with `writeEnabled=false` or `deleteEnabled=false`, then it will block image deletion.
+
 ## Protect an image or repository from deletion
 
 ### Protect an image from deletion
