@@ -412,9 +412,6 @@
     - name: Custom Vision Service
       tocHref: /azure/ai-services/custom-vision-service/
       topicHref: /azure/ai-services/custom-vision-service/
-    - name: Entity Linking
-      tocHref: /azure/cognitive-services/entitylinking/
-      topicHref: /azure/cognitive-services/entitylinking/home
     - name: Anomaly Finder
       tocHref: /azure/cognitive-services/labs/anomaly-finder/
       topicHref: /azure/cognitive-services/anomaly-detector/overview
