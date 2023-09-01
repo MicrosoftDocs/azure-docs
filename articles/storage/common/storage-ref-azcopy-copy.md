@@ -58,7 +58,7 @@ azcopy copy [source] [destination] [flags]
 
 ## Examples
 
-Upload a single file by using OAuth authentication. If you haven't yet logged into AzCopy, please run the azcopy login command before you run the following command.
+Upload a single file by using OAuth authentication. If you haven't yet logged into AzCopy, run the azcopy login command before you run the following command.
 
 `azcopy cp "/path/to/file.txt" "https://[account].blob.core.windows.net/[container]/[path/to/blob]"`
 
@@ -101,7 +101,7 @@ Upload files and directories to Azure Storage account and set the query-string e
 - Keys and values are URL encoded and the key-value pairs are separated by an ampersand('&')
 - While setting tags on the blobs, there are additional permissions('t' for tags) in SAS without which the service will give authorization error back.
 
-Download a single file by using OAuth authentication. If you haven't yet logged into AzCopy, please run the azcopy login command before you run the following command.
+Download a single file by using OAuth authentication. If you haven't yet logged into AzCopy, run the azcopy login command before you run the following command.
 
 `azcopy cp "https://[account].blob.core.windows.net/[container]/[path/to/blob]" "/path/to/file.txt"`
 
@@ -179,7 +179,7 @@ Copy all buckets to Blob Storage from an Amazon Web Services (AWS) region by usi
 
 `azcopy cp "https://s3-[region].amazonaws.com/" "https://[destaccount].blob.core.windows.net?[SAS]" --recursive=true`
 
-Copy a subset of buckets by using a wildcard symbol (*) in the bucket name. Like the previous examples, you'll need an access key and a SAS token. Make sure to set the environment variable AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY for AWS S3 source.
+Copy a subset of buckets by using a wildcard symbol (*) in the bucket name. Like the previous examples, you need an access key and a SAS token. Make sure to set the environment variable AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY for AWS S3 source.
 
 `azcopy cp "https://s3.amazonaws.com/[bucket*name]/" "https://[destaccount].blob.core.windows.net?[SAS]" --recursive=true`
 
@@ -247,7 +247,7 @@ Copy a subset of buckets by using a wildcard symbol (*) in the bucket name from 
 
 `--cpk-by-name`    (string)    Client provided key by name that gives clients making requests against Azure Blob storage an option to provide an encryption key on a per-request basis. Provided key name will be fetched from Azure Key Vault and will be used to encrypt the data
 
-`--cpk-by-value`    Client provided key by name that let clients making requests against Azure Blob storage an option to provide an encryption key on a per-request basis. Provided key and its hash will be fetched from environment variables
+`--cpk-by-value`    Client provided key by name that lets clients making requests against Azure Blob storage an option to provide an encryption key on a per-request basis. Provided key and its hash will be fetched from environment variables
 
 `--decompress`    Automatically decompress files when downloading, if their content-encoding indicates that they're compressed. The supported content-encoding values are 'gzip' and 'deflate'. File extensions of '.gz'/'.gzip' or '.zz' aren't necessary, but will be removed if present.
 
@@ -313,7 +313,7 @@ Copy a subset of buckets by using a wildcard symbol (*) in the bucket name from 
 
 `--recursive`    Look into subdirectories recursively when uploading from local file system.
 
-`--s2s-detect-source-changed`    Detect if the source file/blob changes while it is being read. (This parameter only applies to service-to-service copies, because the corresponding check is permanently enabled for uploads and downloads.)
+`--s2s-detect-source-changed`    Detect if the source file/blob changes while it's being read. (This parameter only applies to service-to-service copies, because the corresponding check is permanently enabled for uploads and downloads.)
 
 `--s2s-handle-invalid-metadata`   (string)    Specifies how invalid metadata keys are handled. Available options: ExcludeIfInvalid, FailIfInvalid, RenameIfInvalid. (default 'ExcludeIfInvalid'). (default "ExcludeIfInvalid")
 
