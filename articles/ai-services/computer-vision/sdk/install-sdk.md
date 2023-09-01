@@ -10,8 +10,8 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 08/01/2023
 ms.author: pafarley
-ms.custom: devx-track-python, devx-track-csharp
-zone_pivot_groups: programming-languages-vision-40-sdk
+ms.custom: devx-track-python, devx-track-csharp, devx-track-dotnet
+zone_pivot_groups: programming-languages-vision-40-sdk 
 ---
 
 # Install the Vision SDK
