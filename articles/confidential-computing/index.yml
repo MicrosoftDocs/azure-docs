@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Azure confidential computing
-summary: Azure confidential computing offers solutions to enable isolation of your sensitive data while it's being processed in the cloud. Learn how to create and deploy applications based on confidential computing infrastructure by reading concepts, completing tutorials, and working with code samples. Use Microsoft products built on confidential computing to keep your workloads as secure as possible. 
+summary: Azure confidential computing offers solutions to enable isolation of your sensitive data while it's being processed in the cloud. Learn how to deploy any application on confidential computing infrastructure by reading concepts, completing tutorials, and working with code samples. Use Microsoft products built on confidential computing to keep your workloads as secure as possible. 
 
 metadata:
   title: Azure confidential computing
@@ -29,10 +29,16 @@ landingContent:
             url: overview.md
           - text: What is Azure confidential computing?
             url: overview-azure-products.md
-          - text: Why use Azure confidential computing?
-            url: why-use-azure-confidential-computing.md #TODO  
-          - text: Choose your confidential computing offering #
+          - text: Choose your confidential computing offering
             url: use-cases-scenarios.md 
+      - linkListType: quickstart
+        links:
+          - text: Building confidential computing solutions
+            url: confidential-computing-solutions.md
+          - text: Deploying confidential computing solutions
+            url: confidential-computing-deployment-models.md
+          - text: Cleanroom solutions on confidential computing
+            url: multi-party-data.md
       - linkListType: concept
         links:
           - text: Microsoft Azure Attestation
@@ -49,14 +55,6 @@ landingContent:
             url: https://learn.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-enclaves
           - text: Azure IoT Edge
             url: ../iot-edge/deploy-confidential-applications.md
-      - linkListType: quickstart
-        links:
-          - text: Building confidential computing solutions
-            url: confidential-computing-solutions.md
-          - text: Deploying confidential computing solutions
-            url: confidential-computing-deployment-models.md
-          - text: Cleanroom solutions on confidential computing
-            url: multi-party-data.md
       - linkListType: whats-new
         links:
           - text: What's new?
@@ -78,8 +76,6 @@ landingContent:
             url: guest-attestation-confidential-vms.md
           - text: Microsoft Defender for Cloud integration
             url: guest-attestation-defender-for-cloud.md
-          - text: Virtual TPMs in Azure confidential VMs
-            url: virtual-tpms-in-azure-confidential-vm.md
       - linkListType: quickstart
         links:
           - text: Create an AMD confidential VM in the Azure portal
@@ -92,14 +88,8 @@ landingContent:
         links:
           - text: Use sample app for guest attestation
             url: guest-attestation-example.md
-          - text: How to leverage virtual TPMs in Azure confidential VMs
-            url: how-to-leverage-virtual-tpms-in-azure-confidential-vms.md
           - text: Create a custom image for a confidential VM
             url: how-to-create-custom-image-confidential-vm.md
-          - text: Harden a Linux image to remove sudo users
-            url: harden-the-linux-image-to-remove-sudo-users.md
-          - text: Harden a Linux image to remove azure guest agent
-            url: harden-a-linux-image-to-remove-azure-guest-agent.md
       - linkListType: reference
         links:
           - text: AMD confidential VMs FAQ 
@@ -119,14 +109,14 @@ landingContent:
   - title: Container compute
     linkLists:
       - linkListType: overview
-        links:
+        links: 
         - text: Confidential containers on Azure overview
           url: confidential-containers.md
         - text: Confidential VM with AMD SEV-SNP node pools in AKS
           url: confidential-node-pool-aks.md
         - text: App enclave nodes with Intel SGX in AKS
           url: confidential-nodes-aks-overview.md
-
+       
       - linkListType: quickstart
         links:
           - text: Hello world with Confidential containers with Azure Container Instances (ACI)
@@ -161,37 +151,7 @@ landingContent:
         links:
           - text: Confidential containers with Azure Container Instances (ACI) with AMD SEV-SNP Protection - Public preview 
             url: https://techcommunity.microsoft.com/t5/apps-on-azure-blog/announcing-public-preview-of-confidential-containers-on-azure/ba-p/3755623
-##SG Added
-  - title: Confidential Data Services
-    linkLists:
-      - linkListType: overview
-        links: 
-        - text: IaaS vs. Paas?
-          url: TODO.md
-        - text: Data Options
-          url: TODO.md
-        - text: App enclave nodes with Intel SGX in AKS
-          url: confidential-nodes-aks-overview.md
-      - linkListType: concept
-        links:
-          - text: something 1
-            url: TODO.md
-          - text: something 2
-            url: TODO.md
-      - linkListType: quickstart
-        links:
-          - text: Databricks
-            url: TODO.md
-          - text: SQL Always Encrypted with Enclaves
-            url: TODO.md
-          - text: Azure Data Explorer
-            url: TODO.md
-      - linkListType: whats-new
-        links:
-          - text: Databricks Announcement
-            url: TODO.md
-          - text: ADX Announcement
-            url: TODO.md
+
 ## Row 2
 # Card
   - title: Virtual machines with app enclaves
@@ -214,9 +174,9 @@ landingContent:
             url: ../virtual-machines/dcv2-series.md
           - text: DCsv3 and DCdsv3-series virtual machines
             url: ../virtual-machines/dcv3-series.md
-## Row 2 # these are a bit lost - re-titled
+## Row 2
 # Card
-  - title: Secure key release (SKR)
+  - title: Concepts
     linkLists:
       - linkListType: concept
         links: 

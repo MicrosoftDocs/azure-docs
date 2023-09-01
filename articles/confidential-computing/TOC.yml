@@ -95,7 +95,6 @@
         href: skr-flow-confidential-containers-azure-container-instance.md
       - name: SKR Policy Examples
         href: skr-policy-examples.md
-#moved-------
   - name: Virtual Machines with App Enclaves
     items:
     - name: App enclaves overview
@@ -140,7 +139,6 @@
       items: 
       - name: Confidential VM node pools in AKS
         href: confidential-node-pool-aks.md
-  #moved-------      
     - name: References
       items:
       - name: DCasv5 and DCadsv5-series
@@ -151,7 +149,6 @@
         href: https://azure.microsoft.com/pricing/details/virtual-machines/linux/#DC1s-C8s%20v2
       - name: Regions
         href: https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machine
-#relocated---------
   - name: SQL Always Encrypted with Secure Enclaves # x-link to SQL docs #done
     href: https://learn.microsoft.com/en-us/sql/relational-databases/security/encryption/configure-always-encrypted-enclaves?view=sql-server-ver16
   - name: SQL on Confidential Virtual Machines #done
@@ -164,12 +161,12 @@
     href: https://learn.microsoft.com/en-us/azure/confidential-computing/quick-create-confidential-vm-portal-amd # x-link to AVD docs
   - name: Azure Confidential Ledger #done
     href: ../confidential-ledger/overview.md
-  - name: Confidential Consortium Framework (CCF) #done < seems to be missing from livesite now?
-    href: ../confidential-consortium-framework/overview.md
-  - name: Machine Learning (ML-AI) Quickstarts
+#  - name: Confidential Consortium Framework (CCF) #done < seems to be missing from livesite now?
+#    href: ../confidential-consortium-framework/overview.md
+  - name: Machine Learning
     expanded: true
     items:
-  - name: Confidential Machine Learning (ML) #done
+  - name: Confidential Machine Learning #done
     href: https://docs.microsoft.com/en-us/azure/machine-learning/how-to-secure-training-data
   - name: Secure Key Release (SKR) with Azure Key Vault
     items:
