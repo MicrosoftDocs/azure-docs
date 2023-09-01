@@ -7,7 +7,7 @@ ms.custom: references_regions
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 05/31/2023
+ms.date: 08/31/2023
 
 
 ---
