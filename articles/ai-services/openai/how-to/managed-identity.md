@@ -25,7 +25,7 @@ In the following sections, you'll use  the Azure CLI to assign roles, and obtain
 -   Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at [https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
 
 - [Custom subdomain names are required to enable features like Azure Active Directory (Azure AD) for authentication.](
-/articles/ai-services/cognitive-services-custom-subdomains)
+../../cognitive-services-custom-subdomains.md)
 
 - Azure CLI - [Installation Guide](/cli/azure/install-azure-cli)
 - The following Python libraries: os, requests, json
@@ -68,14 +68,14 @@ Assigning yourself to the "Cognitive Services User" role will allow you to use y
 
 Use the access token to authorize your API call by setting the `Authorization` header value.
 
-```yaml
+
 ```bash
 curl ${endpoint%/}/openai/deployments/YOUR_DEPLOYMENT_NAME/completions?api-version=2023-05-15 \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer $accessToken" \
 -d '{ "prompt": "Once upon a time" }'
 ```
-```
+
 ## Authorize access to managed identities
 
 OpenAI supports Azure Active Directory (Azure AD) authentication with [managed identities for Azure resources](../../../active-directory/managed-identities-azure-resources/overview.md). Managed identities for Azure resources can authorize access to Azure AI services resources using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. By using managed identities for Azure resources together with Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud.  
