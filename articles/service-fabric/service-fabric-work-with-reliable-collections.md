@@ -225,11 +225,11 @@ Alternatively, you can perform a multi-phase upgrade.
 2. Upgrade service to a new version that
     - creates a new, V2 collection;
     - performs add, update and delete operations on both V1 and V2 collections in a single transaction;
-    - performs read operations on the V1 collection to maintain compatibility with replicas still running the older version
+    - performs read operations on the V1 collection only.
 3. Copy all data from the V1 collection to the V2 collection.
     - This can be done in a background process by the service version deployed in step 2.
 4. Upgrade service to a new version that
-    - performs read operations on the V2 collection;
+    - performs read operations on the V2 collection only;
     - still performs add, update and delete operations on both V1 and V2 collections to maintain the option of rolling back to V1.
 5. Upgrade service to a new version that
     - performs all operations on the V2 collection only;
