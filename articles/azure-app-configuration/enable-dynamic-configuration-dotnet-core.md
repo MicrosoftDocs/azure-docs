@@ -93,27 +93,54 @@ Calling the `ConfigureRefresh` method alone won't cause the configuration to ref
 
 ### Configuration refresh using dependency injection
 
-As an alternative to manually getting `IConfigurationRefresher` in the previous code, you can resolve the instance of `IConfigurationRefresherProvider` that is registered in `IServiceCollection` by `AddAzureAppConfiguration`. You can then refresh the configuration by calling `TryRefreshAsync` on each of its refreshers. An example of this refresh implementation can be seen in the following code. 
+In the previous code, you are manually saving an instance of `IConfigurationRefresher` to invoke `TryRefreshAsync`. Alternatively, if you're using dependency injection to resolve your services, you can reference the steps below.
 
-```csharp
-class DependencyInjectionExample
-{
-    private readonly IEnumerable<IConfigurationRefresher> _refreshers = null;
+1. Register the required App Configuration services by invoking `AddAzureAppConfiguration` on your `IServiceCollection`.
 
-    public DependencyInjectionExample(IConfigurationRefresherProvider refresherProvider)
+    #### [.NET 6.0+](#tab/core6x)
+    Add the following code to *Program.cs*. 
+
+    ```csharp
+    // Add Azure App Configuration services to IServiceCollection
+    builder.Services.AddAzureAppConfiguration();
+    ```
+
+    #### [.NET Core 3.x](#tab/core3x)
+    Open *Startup.cs*, and update the `ConfigureServices` method.
+
+    ```csharp
+    public void ConfigureServices(IServiceCollection services)
     {
-        _refreshers = refresherProvider.Refreshers;
-    }
+        // Add Azure App Configuration services to IServiceCollection
+        services.AddAzureAppConfiguration();
+        
+        // Existing code
+        // ... ...
+    }   
+    ```
+    ---
 
-    public async Task RefreshConfiguration()
+1. Refresh your configuration by resolving an instance of `IConfigurationRefresherProvider` from your service collection and invoking `TryRefreshAsync` on each of its refreshers.
+    
+    ```csharp
+    class SampleConfigRefresher
     {
-        foreach (var refresher in _refreshers)
+        private readonly IEnumerable<IConfigurationRefresher> _refreshers = null;
+
+        public SampleConfigRefresher(IConfigurationRefresherProvider refresherProvider)
         {
-            _ = refresher.TryRefreshAsync();
+            _refreshers = refresherProvider.Refreshers;
+        }
+
+        public async Task RefreshConfiguration()
+        {
+            foreach (var refresher in _refreshers)
+            {
+                _ = refresher.TryRefreshAsync();
+            }
         }
     }
-}
-```
+    ```
 
 ## Build and run the app locally
 
