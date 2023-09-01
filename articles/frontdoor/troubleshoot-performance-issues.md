@@ -119,9 +119,9 @@ High latency or low bandwidth could be the result of an ISP problem, if you're u
   - Origin host name
 - Full URL of the affected file
 - Requesting client information
-  - Requesting the client IP
-  - Requesting the client location
-  - Requesting the client path to the Azure environment (usually identified with [tracert](/windows-server/administration/windows-commands/tracert), [pathping](/windows-server/administration/windows-commands/pathping), or a similar tool)
+  - Requesting client IP
+  - Requesting client location
+  - Requesting client path to the Azure environment (usually identified with [tracert](/windows-server/administration/windows-commands/tracert), [pathping](/windows-server/administration/windows-commands/pathping), or a similar tool)
 
 ### Scenario 2: Troubleshooting steps
 
@@ -139,7 +139,7 @@ High latency or low bandwidth could be the result of an ISP problem, if you're u
 1. To rule out requesting client settings, test from a different requesting client in the same region.
 1. If you identify additional hops or remote regions, the problem is with the client accessing the Azure Front Door POP and not with the Azure Front Door service itself. The connectivity or VPN provider needs to address hops between endpoints.
 
-   If you don't identify additional hops or remote regions *and* the content is being served from the cache (`x-cache: TCP_HIT`), the problem is with the Azure Front Door service. You might need to create a support request. Include a reference to this troubleshooting article and steps that you took.
+   If you don't identify additional hops or remote regions *and* the content is being served from the cache (`x-cache: TCP_HIT`), the problem is with the Azure Front Door service. You might need to create a support request. Include a reference to this troubleshooting article and the steps that you took.
 
 > [!NOTE]
 > When the content is being served from the origin (`x-cache: TCP_MISS`), see [Scenario 1](troubleshoot-performance-issues.md#scenario-1-investigate-the-origin) earlier in this article.
@@ -156,7 +156,7 @@ Consider the following example:
 - Azure Front Door custom domain: `contoso.com`
 - Page that you're trying to load: `https://contoso.com`
 
-When the page loads, the initial file at the "/" directory calls other files, which build the page. These files are images, JavaScript, text files, and more. If those files aren't called via the Azure Front Door host name (`contoso.com`), the page is *not* using Azure Front Door. So, if one of the files that the website requests is `http://www.images.fabrikam.com/businessimage.jpg`, the file is *not* benefiting from the use of Azure Front Door. Instead, the browser on the requesting client is requesting the file directly from the `images.fabrikam.com` server.
+When the page loads, the initial file at the "/" directory calls other files, which build the page. These files are images, JavaScript, text files, and more. If those files aren't called via the Azure Front Door host name (`contoso.com`), the page is not using Azure Front Door. So, if one of the files that the website requests is `http://www.images.fabrikam.com/businessimage.jpg`, the file is not benefiting from the use of Azure Front Door. Instead, the browser on the requesting client is requesting the file directly from the `images.fabrikam.com` server.
 
 :::image type="content" source="media/troubleshoot-performance-issues/azure-front-door-performance.jpg" alt-text="Diagram of multiple, differently sourced files for a singular website and how that configuration affects Azure Front Door performance.":::
 
@@ -203,4 +203,4 @@ When the page loads, the initial file at the "/" directory calls other files, wh
 
    - If the collected data shows that the files' loading performance is better at Azure Front Door compared to the origin or test site, Azure Front Door is working as expected. The source of the problem might be individual client requests. In that case, see [Scenario 1](troubleshoot-performance-issues.md#scenario-1-investigate-the-origin) earlier in this article.
 
-   - If the collected data shows that performance is *not* better at Azure Front Door, you likely need to file a support request for further investigation. Include a reference to this troubleshooting article and that steps that you took.
+   - If the collected data shows that performance is *not* better at Azure Front Door, you likely need to file a support request for further investigation. Include a reference to this troubleshooting article and the steps that you took.
