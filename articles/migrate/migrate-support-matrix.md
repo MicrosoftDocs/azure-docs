@@ -5,8 +5,8 @@ author: jyothisuri
 ms.author: jsuri
 ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 01/03/2023
-ms.custom: engagement-fy23
+ms.date: 07/27/2023
+ms.custom: engagement-fy24
 ---
 
 # Azure Migrate support matrix

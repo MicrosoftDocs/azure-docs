@@ -37,9 +37,9 @@ When encrypting traffic to send to your network, Azure Communications Gateway pr
 
 Azure Communications Gateway uses mutual TLS for SIP, meaning that both the client and the server for the connection verify each other.
 
-You must manage the certificates that your network presents to Azure Communications Gateway. By default, Azure Communications Gateway supports the DigiCert Global Root G2 certificate and the Baltimore CyberTrust Root certificate as root certificate authority (CA) certificates. If the certificate that your network presents to Azure Communications Gateway uses a different root CA certificate, you must provide this certificate to your onboarding team when you [prepare for live traffic](prepare-for-live-traffic.md#1-connect-azure-communications-gateway-to-your-networks).
+You must manage the certificates that your network presents to Azure Communications Gateway. By default, Azure Communications Gateway supports the DigiCert Global Root G2 certificate and the Baltimore CyberTrust Root certificate as root certificate authority (CA) certificates. If the certificate that your network presents to Azure Communications Gateway uses a different root CA certificate, you must provide this certificate to your onboarding team when you [connect Azure Communications Gateway to your networks](deploy.md#8-connect-azure-communications-gateway-to-your-networks).
 
-We manage the certificate that Azure Communications Gateway uses to connect to your network and Microsoft Phone System. Azure Communications Gateway's certificate uses the DigiCert Global Root G2 certificate as the root CA certificate. If your network doesn't already support this certificate as a root CA certificate, you must download and install this certificate when you [prepare for live traffic](prepare-for-live-traffic.md#1-connect-azure-communications-gateway-to-your-networks).
+We manage the certificate that Azure Communications Gateway uses to connect to your network and Microsoft Phone System. Azure Communications Gateway's certificate uses the DigiCert Global Root G2 certificate as the root CA certificate. If your network doesn't already support this certificate as a root CA certificate, you must download and install this certificate when you [connect Azure Communications Gateway to your networks](deploy.md#8-connect-azure-communications-gateway-to-your-networks).
 
 ### Cipher suites for SIP and RTP
 
@@ -68,4 +68,5 @@ The following cipher suites are used for encrypting SIP and RTP.
 ## Next steps
 
 - Read the [security baseline for Azure Communications Gateway](/security/benchmark/azure/baselines/azure-communications-gateway-security-baseline?toc=/azure/communications-gateway/toc.json&bc=/azure/communications-gateway/breadcrumb/toc.json)
-- Learn about [how Azure Communications Gateway communicates with Microsoft Teams and your network](interoperability.md).
+- Learn about [how Azure Communications Gateway communicates with Microsoft Teams](interoperability-operator-connect.md).
+- Learn about [planning an Azure Communications Gateway deployment](get-started.md)

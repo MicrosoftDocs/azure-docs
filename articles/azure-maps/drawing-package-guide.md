@@ -334,9 +334,9 @@ Defining text properties enables you to associate text entities that fall inside
 > * Stair
 > * Elevator
 
-### Download
+### Review + Create
 
-When finished, select the **Download** button to view the manifest. When you finished verifying that it's ready, select the **Download** button to save it locally so that you can include it in the drawing package to import into your Azure Maps Creator resource.
+When finished, select the **Create + Download** button to download a copy of the drawing package and start the map creation process. For more information on the map creation process, see [Create indoor map with the onboarding tool].
 
 :::image type="content" source="./media/creator-indoor-maps/onboarding-tool/review-download.png" alt-text="Screenshot showing the manifest JSON.":::
 
@@ -364,3 +364,4 @@ You should now have all the DWG drawings prepared to meet Azure Maps Conversion 
 [manifest files]: drawing-requirements.md#manifest-file-1
 [wayfinding]: creator-indoor-maps.md#wayfinding-preview
 [facility level]: drawing-requirements.md#facility-level
+[Create indoor map with the onboarding tool]: creator-onboarding-tool.md
