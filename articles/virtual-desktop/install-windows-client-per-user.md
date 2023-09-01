@@ -64,7 +64,7 @@ Here's how to install the client on a per-user basis using a PowerShell script w
    | Detection method | Select **File or folder exists** |
    | Assignments | Assign to users you want to use the Remote Desktop client |
 
-#### [Configuration Manager](#tab/configmanager)
+#### [Configuration Manager](#tab/configmgr)
 
 Here's how to install the client on a per-user basis using a PowerShell script with Configuration Manager as a *Script Installer*.
 
