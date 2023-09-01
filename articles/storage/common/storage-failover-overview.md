@@ -20,7 +20,7 @@ Azure Storage supports account failover for geo-redundant storage accounts. With
 This article describes the concepts and process involved with an account failover, and discusses how to prepare your storage account for recovery with the least amount of impact to your users.
 
 > [!CAUTION]
-> Storage account failover usually involves some data loss, and potentially file inconsistencies. In your [disaster recovery plan](storage-disaster-recovery-guidance.md), it's important to consider the impact that an account failover would have on your data before initiating one. For more details, see [Data loss and file or data inconsistencies](#data-loss-and-file-or-data-inconsistencies).
+> Storage account failover usually involves some data loss, and potentially file inconsistencies. In your [disaster recovery plan](storage-disaster-recovery-guidance.md), it's important to consider the impact that an account failover would have on your data before initiating one. For more details, see [Data loss and inconsistencies](#data-loss-and-inconsistencies).
 
 ## Failover options
 
@@ -35,8 +35,8 @@ Each type of failover has a unique set of use cases and corresponding expectatio
 
 | Type                               | Failover Scope  | Use case | Expected data loss | HNS supported |
 |------------------------------------|-----------------|----------|---------------------|---------------|
-| Customer-managed                   | Storage account | The storage service endpoints for the primary region become unavailable, but the secondary region is available. <br></br> An Azure Advisory in which Microsoft advises you to perform a failover operation of storage accounts potentially affected by an outage. | [Yes](#data-loss-and-file-or-data-inconsistencies) | [Yes *(In preview)*](#azure-data-lake-storage-gen2) |
-| Microsoft-managed                  | Entire region   | The primary region becomes completely unavailable due to a significant disaster, but the secondary region is available. | [Yes](#data-loss-and-file-or-data-inconsistencies) | [Yes](#azure-data-lake-storage-gen2) |
+| Customer-managed                   | Storage account | The storage service endpoints for the primary region become unavailable, but the secondary region is available. <br></br> An Azure Advisory in which Microsoft advises you to perform a failover operation of storage accounts potentially affected by an outage. | [Yes](#data-loss-and-inconsistencies) | [Yes *(In preview)*](#azure-data-lake-storage-gen2) |
+| Microsoft-managed                  | Entire region   | The primary region becomes completely unavailable due to a significant disaster, but the secondary region is available. | [Yes](#data-loss-and-inconsistencies) | [Yes](#azure-data-lake-storage-gen2) |
 
 ### Customer-managed failover
 
@@ -51,7 +51,7 @@ In extreme circumstances where the original primary region is deemed unrecoverab
 > [!NOTE]
 > A Microsoft-managed failover would be initiated for an entire physical unit, such as a region, datacenter or scale unit. It cannot be initiated for individual storage accounts, subscriptions, or tenants. For the ability to selectively failover your individual storage accounts, use customer-managed account failover described previously in this article. Customers should not rely on Microsoft-managed failover as part of their disaster recovery plan. Instead, create a plan that relies primarily on customer-managed failover for unexpected regional outages.
 
-## Data loss and file or data inconsistencies
+## Data loss and inconsistencies
 
 > [!CAUTION]
 > Storage account failover usually involves some data loss, and potentially file inconsistencies. In your [disaster recovery plan](storage-disaster-recovery-guidance.md), it's important to consider the impact that an account failover would have on your data before initiating one.
@@ -78,7 +78,7 @@ Replication for storage accounts with a hierarchical namespace enabled (Azure Da
 
 Storage account failover of geo-redundant storage accounts with [the change feed](../blobs/storage-blob-change-feed.md) enabled may result in inconsistencies between the change feed logs and the blob data and/or metadata. Such inconsistencies can result from the asynchronous nature of both updates to the change logs and the replication of blob data from the primary to the secondary region. The only situation in which inconsistencies would not be expected is when all of the current log records have been successfully flushed to the log files and all of the storage data has been successfully replicated from the primary to the secondary region.
 
-For more information about how to determine potential data loss during storage account failover due to asynchronous replication, see [Data loss and file or data inconsistencies](#data-loss-and-file-or-data-inconsistencies). For information about how change feed works see [How the change feed works](../blobs/storage-blob-change-feed.md#how-the-change-feed-works).
+For more information about how to determine potential data loss during storage account failover due to asynchronous replication, see [Data loss and inconsistencies](#data-loss-and-inconsistencies). For information about how change feed works see [How the change feed works](../blobs/storage-blob-change-feed.md#how-the-change-feed-works).
 
 Keep in mind that other storage account features require the change feed to be enabled such as [operational backup of Azure Blob Storage](../../backup/blob-backup-support-matrix.md#limitations), [Object replication](../blobs/object-replication-overview.md) and [Point-in-time restore for block blobs](../blobs/point-in-time-restore-overview.md).
 

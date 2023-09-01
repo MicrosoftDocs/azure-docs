@@ -7,7 +7,7 @@ author: jimmart-dev
 
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 08/31/2023
+ms.date: 09/01/2023
 ms.author: jammart
 ms.subservice: storage-common-concepts
 ---
@@ -19,7 +19,7 @@ If the primary endpoint for your geo-redundant storage account becomes unavailab
 This article shows how to initiate an account failover for your storage account using the Azure portal, PowerShell, or Azure CLI. To learn more about account failover, see [Disaster recovery and storage account failover](storage-disaster-recovery-guidance.md).
 
 > [!WARNING]
-> An account failover typically results in some data loss. To understand the implications of an account failover and to prepare for data loss, review [Understand the account failover process](storage-disaster-recovery-guidance.md#understand-the-failover-process).
+> An account failover typically results in some data loss. To understand the implications of an account failover and to prepare for data loss, review [Data loss and inconsistencies](storage-failover-overview.md#data-loss-and-inconsistencies).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

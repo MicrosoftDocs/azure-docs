@@ -178,7 +178,7 @@ When read access to the secondary is enabled, your application can be read from 
 
 #### Plan for data loss
 
-Because data is replicated asynchronously from the primary to the secondary region, the secondary region is typically behind the primary region in terms of write operations. If a disaster were to strike the primary region, it's likely that some data would be lost and that files within a directory or container would not be consistent. For more information about how to plan for potential data loss, see [Data loss and file or data inconsistencies](storage-failover-overview.md#data-loss-and-file-or-data-inconsistencies).
+Because data is replicated asynchronously from the primary to the secondary region, the secondary region is typically behind the primary region in terms of write operations. If a disaster were to strike the primary region, it's likely that some data would be lost and that files within a directory or container would not be consistent. For more information about how to plan for potential data loss, see [Data loss and inconsistencies](storage-failover-overview.md#data-loss-and-inconsistencies).
 
 ## Summary of redundancy options
 

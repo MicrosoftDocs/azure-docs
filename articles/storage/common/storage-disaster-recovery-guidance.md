@@ -82,7 +82,7 @@ Additionally, you might experience file or data inconsistencies if one or both o
 - You failover storage accounts with hierarchical namespace enabled (Azure Data Lake Storage Gen2).
 - You failover storage accounts with [change feed](../blobs/storage-blob-change-feed.md) enabled.
 
-For more details about how to handle these scenarios, see [Data loss and file or data inconsistencies](storage-failover-overview.md#data-loss-and-file-or-data-inconsistencies).
+For more details about how to handle these scenarios, see [Data loss and inconsistencies](storage-failover-overview.md#data-loss-and-inconsistencies).
 
 ## Supported storage account types
 
