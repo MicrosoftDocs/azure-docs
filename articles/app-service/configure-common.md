@@ -14,6 +14,12 @@ This article explains how to configure common settings for web apps, mobile back
 
 ## Configure app settings
 
+> [!NOTE]
+> - App settings names can only contain letters, numbers (0-9), periods ("."), and underscores ("_")
+> - Special characters in the value of an App Setting must be escaped as needed by the target OS
+>
+> For example to set an environment variable in App Service Linux with the value `"pa$$w0rd\"` the string for the app setting should be: `"pa\$\$w0rd\\"`  
+
 In App Service, app settings are variables passed as environment variables to the application code. For Linux apps and custom containers, App Service passes app settings to the container using the `--env` flag to set the environment variable in the container. In either case, they're injected into your app environment at app startup. When you add, remove, or edit app settings, App Service triggers an app restart. 
 
 For ASP.NET and ASP.NET Core developers, setting app settings in App Service are like setting them in `<appSettings>` in *Web.config* or *appsettings.json*, but the values in App Service override the ones in *Web.config* or *appsettings.json*. You can keep development settings (for example, local MySQL password) in *Web.config* or *appsettings.json* and production secrets (for example, Azure MySQL database password) safely in App Service. The same code uses your development settings when you debug locally, and it uses your production secrets when deployed to Azure.

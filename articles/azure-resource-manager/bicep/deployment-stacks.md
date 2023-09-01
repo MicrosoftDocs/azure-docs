@@ -138,7 +138,7 @@ az stack mg create \
   --name '<deployment-stack-name>' \
   --location '<location>' \
   --template-file '<bicep-file-name>' \
-  --deployment-subscription-id '<subscription-id>' \
+  --deployment-subscription '<subscription-id>' \
   --deny-settings-mode 'none'
 ```
 
@@ -313,7 +313,7 @@ az stack mg create \
   --name '<deployment-stack-name>' \
   --location '<location>' \
   --template-file '<bicep-file-name>' \
-  --deployment-subscription-id '<subscription-id>' \
+  --deployment-subscription '<subscription-id>' \
   --deny-settings-mode 'none'
 ```
 

@@ -364,7 +364,7 @@ While Azure Synapse Analytics supports a variety of linked service connections (
  - Azure SQL Data Warehouse (Dedicated and Serverless)
  - Azure Storage
 
- #### mssparkutils.credenials.getToken()
+ #### mssparkutils.credentials.getToken()
  When you need an OAuth bearer token to access services directly, you can use the `getToken` method. The following resources are supported:
 
 | Service Name                                          | String literal to be used in API call |

@@ -11,7 +11,7 @@ ms.custom: template-how-to
 
 # Azure Data Manager for Agriculture Preview as Event Grid source 
 
-This article provides the properties and schema for Azure Data Manager for Agriculture events. For an introduction to event schemas, see [Azure Event Grid](https://learn.microsoft.com/azure/event-grid/event-schema) event schema.
+This article provides the properties and schema for Azure Data Manager for Agriculture events. For an introduction to event schemas, see [Azure Event Grid](/azure/event-grid/event-schema) event schema.
 
 ## Prerequisites
 
@@ -35,7 +35,7 @@ Here are example scenarios for consuming events in our service:
 2. If there are modifications to data-plane resources such as party, fields, farms and other similar elements, you can react to changes and you can trigger workflows.
 
 ## Filtering events
-You can filter Data Manager for Agriculture <a href="https://docs.microsoft.com/cli/azure/eventgrid/event-subscription" target="_blank"> events </a> by event type, subject, or fields in the data object. Filters in Event Grid match the beginning or end of the subject so that events that match can go to the subscriber.
+You can filter Data Manager for Agriculture <a href="/cli/azure/eventgrid/event-subscription" target="_blank"> events </a> by event type, subject, or fields in the data object. Filters in Event Grid match the beginning or end of the subject so that events that match can go to the subscriber.
 
 For instance, for the PartyChanged event, to receive notifications for changes for a particular party with ID Party1234, you may use the subject filter "EndsWith" as shown:
 
@@ -47,14 +47,14 @@ Subjects in an event schema provide 'starts with' and 'exact match' filters as w
 
 Similarly, to filter the same event for a group of party IDs, use the Advanced filter on partyId field in the event data object. In a single subscription, you may add five advanced filters with a limit of 25 values for each key filtered.
 
-To learn more about how to apply filters, see <a href = "https://docs.microsoft.com/azure/event-grid/how-to-filter-events" target = "_blank"> filter events for Event Grid. </a>
+To learn more about how to apply filters, see <a href = "/azure/event-grid/how-to-filter-events" target = "_blank"> filter events for Event Grid. </a>
 
 ## Subscribing to events
 You can subscribe to Data Manager for Agriculture events by using Azure portal or Azure Resource Manager client. Each of these provide the user with a set of functionalities. Refer to following resources to know more about each method.
 
-<a href = "https://docs.microsoft.com/azure/event-grid/subscribe-through-portal#:~:text=Create%20event%20subscriptions%201%20Select%20All%20services.%202,event%20types%20option%20checked.%20...%20More%20items..." target = "_blank"> Subscribe to events using portal </a>
+<a href = "/azure/event-grid/subscribe-through-portal" target = "_blank"> Subscribe to events using portal </a>
 
-<a href = "https://docs.microsoft.com/azure/event-grid/sdk-overview" target = "_blank"> Subscribe to events using the ARM template client </a>
+<a href = "/azure/event-grid/sdk-overview" target = "_blank"> Subscribe to events using the ARM template client </a>
 
 ## Practices for consuming events
 
@@ -62,7 +62,7 @@ Applications that handle Data Manager for Agriculture events should follow a few
 
 * Check that the eventType is one you're prepared to process, and don't assume that all events you receive are the types you expect.
 * As messages can arrive out of order, use the modifiedTime and etag fields to understand the order of events for any particular object.
-* Data Manager for Agriculture events guarantees at-least-once delivery to subscribers, which ensures that all messages are outputted. However due to retries or availability of subscriptions, duplicate messages may occasionally occur. To learn more about message delivery and retry, see <a href = "https://docs.microsoft.com/azure/event-grid/delivery-and-retry" target = "_blank">Event Grid message delivery and retry </a>
+* Data Manager for Agriculture events guarantees at-least-once delivery to subscribers, which ensures that all messages are outputted. However due to retries or availability of subscriptions, duplicate messages may occasionally occur. To learn more about message delivery and retry, see <a href = "/azure/event-grid/delivery-and-retry" target = "_blank">Event Grid message delivery and retry </a>
 * Ignore fields you don't understand. This practice will help keep you resilient to new features that might be added in the future.
 
 
@@ -74,7 +74,6 @@ Applications that handle Data Manager for Agriculture events should follow a few
 |Microsoft.AgFoodPlatform.FarmChangedV2| Published when a farm is created /updated/deleted in an Azure Data Manager for Agriculture resource
 |Microsoft.AgFoodPlatform.FieldChangedV2|Published when a Field is created /updated/deleted in an Azure Data Manager for Agriculture resource
 |Microsoft.AgFoodPlatform.SeasonalFieldChangedV2|Published when a Seasonal Field is created /updated/deleted in an Azure Data Manager for Agriculture resource
-|Microsoft.AgFoodPlatform.BoundaryChangedV2|Published when a farm is created /updated/deleted in an Azure Data Manager for Agriculture resource
 |Microsoft.AgFoodPlatform.CropChanged|Published when a Crop is created /updated/deleted in an Azure Data Manager for Agriculture resource
 |Microsoft.AgFoodPlatform.CropProductChanged|Published when a Crop Product is created /updated/deleted in an Azure Data Manager for Agriculture resource
 |Microsoft.AgFoodPlatform.SeasonChanged|Published when a Season is created /updated/deleted in an Azure Data Manager for Agriculture resource
@@ -209,7 +208,6 @@ For sensor mapping events, the data object contains following properties:
 |:-----| :----| :----|
 sensorId| string| ID associated with the sensor.
 partyId| string| ID associated with the party.
-boundaryId| string| ID associated with the boundary.
 sensorPartnerId| string| ID associated with the sensorPartner.
 | ID |	string|	Unique ID of resource.
 actionType|	string|	Indicates the change that triggered publishing of the event. Applicable values are created, updated, deleted
@@ -238,29 +236,13 @@ eTag|	string|	Implements optimistic concurrency.
 description|	string|	Textual description of the resource.
 name|	string|	Name to identify resource.
 
-Boundary events have the following data object:
-
-|Property   |Type  |Description |
-|:---------|:---------|:---------|
-| ID      |     string    |  User defined ID of boundary       |
-|actionType    |  string       |   Indicates the change that triggered publishing of the event. Applicable values are created, updated, deleted.      |
-|modifiedDateTime    |   string      |   Indicates the time at which the event was last modified.      |
-|createdDateTime    |  string       |    Indicates the time at which the resource was created.     |
-|status    |   string      |    Contains the user defined status of the object.     |
-|eTag    |   string      |    Implements optimistic concurrency.    |
-|partyId   |   string      |    ID of the party it belongs to.     |
-|parentId    |   string      |    ID of the parent boundary belongs.     |
-|parentType   |   string      |    Type of the parent boundary belongs to. Applicable values are Field, SeasonalField, Zone, Prescription, PlantTissueAnalysis, ApplicationData, PlantingData, TillageData, HarvestData etc.    |
-|description    |   string      |    Textual description of the resource.    |
-|properties   |   string      |    It contains user defined key – value pair.    |
-
 Seasonal field events have the following data object:
 
 Property|	Type|	Description
 |:-----| :----| :----|
 ID |	string|	User defined ID of the seasonal field
 farmId|	string|	User defined ID of the farm that seasonal field is associated with.
-partyId|	string|	Id of the party it belongs to.
+partyId|	string|	ID of the party it belongs to.
 seasonId|	string|	User defined ID of the season that seasonal field is associated with.
 fieldId|	string|	User defined ID of the field that seasonal field is associated with.
 name|	string|	User defined name of the seasonal field.
@@ -277,8 +259,8 @@ Insight events have the following data object:
 Property|	Type|	Description
 |:-----| :----| :----|
 modelId| string| ID of the associated model.|
-resourceId| string| User-defined ID of the resource such as farm, field, boundary etc.|
-resourceType| string | Name of the resource type. Applicable values are Party, Farm, Field, SeasonalField, Boundary etc.|
+resourceId| string| User-defined ID of the resource such as farm, field etc.|
+resourceType| string | Name of the resource type. Applicable values are Party, Farm, Field, SeasonalField etc.|
 partyId| string| ID of the party it belongs to.|
 modelVersion| string| Version of the associated model.|
 ID |	string|	User defined ID of the resource.|
@@ -296,7 +278,7 @@ InsightAttachment events have the following data object:
 Property|	Type|	Description
 |:-----| :----| :----|
 modelId| string| ID of the associated model.
-resourceId| string| User-defined ID of the resource such as farm, field, boundary etc.
+resourceId| string| User-defined ID of the resource such as farm, field etc.
 resourceType| string | Name of the resource type.
 partyId| string| ID of the party it belongs to.
 insightId| string| ID associated with the insight resource.
@@ -316,7 +298,7 @@ Property|	Type|	Description
 |:-----| :----| :----|
 | ID |	string|	User defined ID of the field.
 farmId|	string|	User defined ID of the farm that  field is associated with.
-partyId|	string|	Id of the party it belongs to.
+partyId|	string|	ID of the party it belongs to.
 name|	string|	User defined name of the field.
 actionType|	string|	Indicates the change that triggered publishing of the event. Applicable values are created, updated, deleted.
 properties|	Object| It contains user defined key-value pairs.
@@ -378,7 +360,7 @@ AttachmentChanged event has the following data object
 
 Property|	Type|	Description
 |:-----| :----| :----|
-resourceId| string| User-defined ID of the resource such as farm, field, boundary etc.
+resourceId| string| User-defined ID of the resource such as farm, field etc.
 resourceType| string | Name of the resource type.
 partyId| string| ID of the party it belongs to.
 | ID |	string|	User defined ID of the resource.
@@ -412,7 +394,7 @@ PrescriptionChanged event has the following data object
 |Property | Type| Description|
 |:-----| :----| :----|
 prescriptionMapId|string|	User-defined ID of the associated prescription map.
-partyId| string|Id of the party it belongs to.
+partyId| string|ID of the party it belongs to.
 | ID |	string|	User-defined ID of the prescription.
 actionType|	string|	Indicates the change triggered during publishing of the event. Applicable values are Created, Updated, Deleted
 status| string|	Contains the user-defined status of the prescription.
@@ -466,7 +448,7 @@ NutrientAnalysisChanged event has the following data object:
 |:-----| :----| :----|
 parentId| string| ID of the parent nutrient analysis belongs to.
 parentType|	string|	Type of the parent nutrient analysis belongs to. Applicable value(s) are PlantTissueAnalysis.
-partyId| string|Id of the party it belongs to.
+partyId| string|ID of the party it belongs to.
 | ID |	string|	User-defined ID of nutrient analysis.
 actionType|	string|	Indicates the change that is triggered during publishing of the event. Applicable values are Created, Updated, Deleted.
 properties|	object|	It contains user-defined key-value pairs.

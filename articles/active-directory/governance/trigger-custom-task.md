@@ -25,15 +25,15 @@ Lifecycle Workflows can be used to trigger custom tasks via an extension to Azur
 For more information about Lifecycle Workflows extensibility, see: [Workflow Extensibility](lifecycle-workflow-extensibility.md).
 
 
-## Create a custom task extension using the Azure portal
+## Create a custom task extension using the Microsoft Entra admin center
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 To use a custom task extension in your workflow, first a custom task extension must be created to be linked with an Azure Logic App. You're able to create a Logic App at the same time you're creating a custom task extension. To do this, you complete these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Lifecycle Workflows Administrator](../roles/permissions-reference.md#lifecycle-workflows-administrator).
 
-1. Select **Azure Active Directory** and then select **Identity Governance**. 
-
-1. In the left menu, select **Lifecycle Workflows**. 
+1. Browse to **Identity governance** > **Lifecycle workflows** > **workflows**.
 
 1. On the Lifecycle workflows screen, select **Custom task extension**. 
 

@@ -316,11 +316,11 @@ You can find a full list and description of server error codes in [Azure AD auth
 
 - Azure AD can't authenticate the device to issue a PRT.
 
-- The device might have been deleted or disabled in the Azure portal. (For more information, see [Why do my users see an error message saying "Your organization has deleted the device" or "Your organization has disabled the device" on their Windows 10/11 devices?](./faq.yml#why-do-my-users-see-an-error-message-saying--your-organization-has-deleted-the-device--or--your-organization-has-disabled-the-device--on-their-windows-10-11-devices))
+- The device might have been deleted or disabled. (For more information, see [Why do my users see an error message saying "Your organization has deleted the device" or "Your organization has disabled the device" on their Windows 10/11 devices?](./faq.yml#why-do-my-users-see-an-error-message-saying--your-organization-has-deleted-the-device--or--your-organization-has-disabled-the-device--on-their-windows-10-11-devices))
 
 ##### Solution
 
-Re-register the device based on the device join type. For instructions, see [I disabled or deleted my device in the Azure portal or by using Windows PowerShell. But the local state on the device says it's still registered. What should I do?](./faq.yml#i-disabled-or-deleted-my-device-in-the-azure-portal-or-by-using-windows-powershell--but-the-local-state-on-the-device-says-it-s-still-registered--what-should-i-do).
+Re-register the device based on the device join type. For instructions, see [I disabled or deleted my device. But the local state on the device says it's still registered. What should I do?](./faq.yml#i-disabled-or-deleted-my-device--but-the-local-state-on-the-device-says-it-s-still-registered--what-should-i-do).
 </details>
 
 <details>

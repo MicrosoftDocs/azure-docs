@@ -18,7 +18,7 @@ This article covers new features and improvements for Azure Communications Gatew
 
 From May 2023, you can deploy Mobile Control Point (MCP) as part of Azure Communications Gateway. MCP is an IMS Application Server that simplifies interworking with Microsoft Phone System for mobile calls. It ensures calls are only routed to the Microsoft Phone System when a user is eligible for Teams Phone Mobile services. This process minimizes the changes you need in your mobile network to route calls into Microsoft Teams. For more information, see [Mobile Control Point in Azure Communications Gateway for Teams Phone Mobile](mobile-control-point.md).
 
-You can add MCP when you deploy Azure Communications Gateway or by requesting changes to an existing deployment. For more information, see [Prepare to deploy Azure Communications Gateway](prepare-to-deploy.md) and [Deploy Azure Communications Gateway](deploy.md) or [Get support or request changes to your Azure Communications Gateway](request-changes.md)
+You can add MCP when you deploy Azure Communications Gateway or by requesting changes to an existing deployment. For more information, see [Deploy Azure Communications Gateway](deploy.md) or [Get support or request changes to your Azure Communications Gateway](request-changes.md)
 
 ### Authentication with managed identities for Operator Connect APIs
 
@@ -31,4 +31,4 @@ This new authentication model replaces an earlier model that required you to cre
 ## Next steps
 
 - [Learn more about Azure Communications Gateway](overview.md).
-- [Prepare to deploy Azure Communications Gateway](prepare-to-deploy.md).
+- [Get started with Azure Communications Gateway](get-started.md).

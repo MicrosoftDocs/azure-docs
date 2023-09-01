@@ -20,7 +20,7 @@ You have the ability to enable the **Defender CSPM** plan, which offers extra pr
 
 For availability and to learn more about the features offered by each plan, see the [Defender CSPM plan options](concept-cloud-security-posture-management.md#defender-cspm-plan-options).
 
-You can learn more about Defender for CSPM's pricing on [the pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/). 
+You can learn more about Defender CSPM's pricing on [the pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/). 
 
 ## Prerequisites
 
@@ -32,11 +32,11 @@ You can learn more about Defender for CSPM's pricing on [the pricing page](https
 
 - In order to gain access to all of the features available from the CSPM plan, the plan must be enabled by the **Subscription Owner**.
 
-## Enable the Defender for CSPM plan
+## Enable the Defender CSPM plan
 
 When you enable Defender for Cloud, you automatically receive the protections offered by the Foundational CSPM capabilities. In order to gain access to the other features provided by Defender CSPM, you need to enable the Defender CSPM plan on your subscription.
 
-**To enable the Defender for CSPM plan on your subscription**:
+**To enable the Defender CSPM plan on your subscription**:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 

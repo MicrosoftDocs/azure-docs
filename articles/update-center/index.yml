@@ -1,13 +1,13 @@
 ### YamlMime:Landing
 
-title: Update management center (preview) documentation
+title: Azure Update Manager (preview) documentation
 metadata:
-  title: Update management center (preview) documentation
-  description: Learn how to use update management center (preview) in Azure to manage updates on machines across Azure and hybrid environments.
-  services: Update-management-center
+  title: Azure Update Manager (preview) documentation
+  description: Learn how to use Update Manager (preview) in Azure to manage updates on machines across Azure and hybrid environments.
+  services: Update-manager
   author: SnehaSudhir
   manager: jsuri
-  ms.service: Update-management-center
+  ms.service: Update-manager
   ms.topic: landing-page
   ms.date: 07/04/2023
   ms.author: sudhirsneha
@@ -15,11 +15,11 @@ metadata:
 landingContent:
 
   # Card (optional)
-  - title: About Update management center
+  - title: About Azure Update Manager
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Update management center (preview)?
+          - text: What is Azure Update Manager (preview)?
             url: overview.md
   # Card
   - title: Manage machine update state
