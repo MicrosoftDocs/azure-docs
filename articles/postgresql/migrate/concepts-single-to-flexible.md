@@ -216,7 +216,7 @@ The following table summarizes the list of networking scenarios supported by the
 
 The migration tool automatically allow lists all extensions used by your single server databases on your flexible server except for the ones whose libraries need to be loaded at the server start. 
 
-Use the following select command on your Single Server databases to list all the extensions that are being used.
+Use the following select command to list all the extensions used on your Single server databases.
 
 ```sql
     select * from pg_extension;
@@ -234,7 +234,7 @@ Check if the list contains any of the following extensions:
 
 If yes, then follow the below steps.
 
-Go to the server parameters blade and search for **shared_preload_libraries** parameter. Pg_cron and pg_stat_statements extensions are selected by default. Select the list of above extensions used by the single server database to this parameter and select Save.
+Go to the server parameters blade and search for **shared_preload_libraries** parameter. PG_CRON and PG_STAT_STATEMENTS extensions are selected by default. Select the list of above extensions used by your single server databases to this parameter and select Save.
 
 :::image type="content" source="./media/concepts-single-to-flexible/shared-preload-libraries.png" alt-text="Diagram that shows allow listing of shared preload libraries on Flexible Server." lightbox="./media/concepts-single-to-flexible/shared-preload-libraries.png":::
 
@@ -245,7 +245,7 @@ For the changes to take effect, server restart would be required.
 Use the **Save and Restart** option and wait for the flexible server to restart.
 
 > [!NOTE]  
-> If TIMESCALEDB, POSTGIS_TOPOLOGY, POSTGIS_TIGER_GEOCODER, POSTGRES_FDW or PG_PARTMAN extensions are used in your single server database, please raise a support request since the migration tool will not be able to migrate these extensions.
+> If TIMESCALEDB, POSTGIS_TOPOLOGY, POSTGIS_TIGER_GEOCODER, POSTGRES_FDW or PG_PARTMAN extensions are used in your single server, please raise a support request since the migration tool does not handle these extensions.
 
 ##### Create AAD users on target server
 > [!NOTE]  
