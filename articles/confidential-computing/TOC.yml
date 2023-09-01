@@ -1,7 +1,7 @@
 - name: Azure Confidential Computing
   href: ./index.yml
 - name: What is confidential computing? # WHAT?
-#  expanded: true
+  expanded: true
   items:
      - name: Real-time Protection of data whilst in-use # what keys are where+protect what #p1
        href: overview.md # DONE #p1
