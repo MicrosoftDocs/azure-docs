@@ -106,6 +106,10 @@ To get the list of Playwright workspaces that you have access to:
 
 1. Select a workspace to display its details.
 
+    You can navigate to the workspace in the Playwright portal by selecting the dashboard URL in the workspace **Overview** page.
+
+    :::image type="content" source="./media/how-to-manage-playwright-workspace/azure-portal-workspace-details-dashboard-url.png" alt-text="Screenshot that shows the workspace Overview page in the Azure portal, highlighting the Playwright portal URL.":::
+
 ---
 
 ## Delete a workspace
