@@ -89,18 +89,121 @@
       - name: Create Web App with Redis cache - ARM template
         displayName: Resource Manager
         href: cache-web-app-arm-with-redis-cache-provision.md
+- name: Developing and using library
+  items:
+    - name: Build old toc
+      items:
+      - name: Development FAQs
+        href: cache-development-faq.yml
+    - name: Diagnose and troubleshoot old toc
+      items:
+      - name: Troubleshoot connectivity issues
+        href: cache-troubleshoot-connectivity.md
+      - name: Troubleshoot latency and timeouts
+        href: cache-troubleshoot-timeouts.md
+      - name: Troubleshoot client 
+        href: cache-troubleshoot-client.md
+      - name: Troubleshoot Redis server
+        href: cache-troubleshoot-server.md
+      - name: Troubleshoot data loss
+        href: cache-troubleshoot-data-loss.md
+      - name: Troubleshooting FAQs
+        href: cache-monitor-troubleshoot-faq.yml 
 - name: Logs and monitoring
   items:
+    - name: Monitor old toc
+      items:
+    - name: Monitor in Azure portal
+      href: cache-how-to-monitor.md
+    - name: Set alerts for exceptions
+      href: cache-how-to-monitor.md#create-alerts
+    - name: Monitor with diagnostic logs
+      href: cache-monitor-diagnostic-settings.md
+    - name: Use Insights to understand performance and utilization
+      href: cache-insights-overview.md
 - name: Scaling and performance
   items:
+  - name: Scale old toc
+    items:
+    - name: Change the size and tier of a cache
+      href: cache-how-to-scale.md
+    - name: Use Redis cluster to scale in/out
+      href: cache-how-to-premium-clustering.md
+          - name: Build
+      items:
+      - name: Development FAQs
+        href: cache-development-faq.yml
+
+
+    - name: Diagnose and troubleshoot
+      items:
+      - name: Troubleshoot connectivity issues
+        href: cache-troubleshoot-connectivity.md
+      - name: Troubleshoot latency and timeouts
+        href: cache-troubleshoot-timeouts.md
+      - name: Troubleshoot client 
+        href: cache-troubleshoot-client.md
+      - name: Troubleshoot Redis server
+        href: cache-troubleshoot-server.md
+      - name: Troubleshoot data loss
+        href: cache-troubleshoot-data-loss.md
+      - name: Troubleshooting FAQs
+        href: cache-monitor-troubleshoot-faq.yml
 - name: Authentication
   items:
 - name: Security and networking
   items:
-- name: Resource management
+  - name: Security old toc
+    items:
+    - name: Network isolation options
+      href: cache-network-isolation.md
+    - name: Security controls by Azure Policy
+      displayName: regulatory, compliance, standards, domains
+      href: ./security-controls-policy.md
+    - name: Security baseline
+      href: /security/benchmark/azure/baselines/azure-cache-for-redis-security-baseline?toc=/azure/azure-cache-for-redis/TOC.json
+- name: Resource management (cache management)
   items:
+  - name: Manage old toc
+    items:
+    - name: Configure in Azure portal
+      href: cache-configure.md
+    - name: Import/Export data
+      href: cache-how-to-import-export-data.md
+    - name: Configure disk encryption 
+      href: cache-how-to-encryption.md
+    - name: Reboot
+      href: cache-administration.md#reboot
+    - name: Schedule updates
+      href: cache-administration.md#schedule-updates
+    - name: Configure redis-cli.exe access
+      href: cache-how-to-redis-cli-tool.md
+    - name: Create and manage a cache using CLI
+      href: cache-manage-cli.md
+    - name: Move between regions
+      href: cache-moving-resources.md
+    - name: Publishing Azure Cache for Redis events
+      href: cache-event-grid.md
+    - name: Remove TLS 1.0 and 1.1
+      href: cache-remove-tls-10-11.md
+    - name: Management FAQs
+      href: cache-management-faq.yml
+    - name: Azure Functions
+      href: ../azure-functions/functions-bindings-cache.md
+    - name: Role-based access control
+      href: cache-configure-role-based-access-control.md
+    - name: Azure AD for authentication
+      href: cache-azure-active-directory-for-authentication.md
 - name: Resiliency
   items:
+  - name: Resiliency old toc
+    items:
+    - name: High availability
+      href: cache-high-availability.md
+    - name: Failover and patching
+      href: cache-failover.md
+    - name: Migrate to availability zone support
+      href: ../availability-zones/migrate-cache-redis.md
 - name: Samples
   items:
   - name: PowerShell samples
@@ -172,14 +275,6 @@
         href: cache-tutorial-write-behind.md
   - name: Concepts
     items:
-      - name: Resiliency
-        items:
-        - name: High availability
-          href: cache-high-availability.md
-        - name: Failover and patching
-          href: cache-failover.md
-        - name: Migrate to availability zone support
-          href: ../availability-zones/migrate-cache-redis.md
       - name: Best practices
         items:
          - name: Client libraries
@@ -200,86 +295,13 @@
            href: cache-best-practices-scale.md
          - name: Server load management
            href: cache-best-practices-server-load.md
-      - name: Security
-        items:
-        - name: Network isolation options
-          href: cache-network-isolation.md
-        - name: Security controls by Azure Policy
-          displayName: regulatory, compliance, standards, domains
-          href: ./security-controls-policy.md
-        - name: Security baseline
-          href: /security/benchmark/azure/baselines/azure-cache-for-redis-security-baseline?toc=/azure/azure-cache-for-redis/TOC.json
       - name: Redis modules 
         href: cache-redis-modules.md
       - name: Caching architecture
         href: /azure/architecture/best-practices/caching?toc=/azure/redis-cache/toc.json
   - name: How-to guides
     items:
-    - name: Build
-      items:
-      - name: Development FAQs
-        href: cache-development-faq.yml
-    - name: Manage
-      items:
-      - name: Configure in Azure portal
-        href: cache-configure.md
-      - name: Import/Export data
-        href: cache-how-to-import-export-data.md
-      - name: Configure disk encryption 
-        href: cache-how-to-encryption.md
-      - name: Reboot
-        href: cache-administration.md#reboot
-      - name: Schedule updates
-        href: cache-administration.md#schedule-updates
-      - name: Configure redis-cli.exe access
-        href: cache-how-to-redis-cli-tool.md
-      - name: Create and manage a cache using CLI
-        href: cache-manage-cli.md
-      - name: Move between regions
-        href: cache-moving-resources.md
-      - name: Publishing Azure Cache for Redis events
-        href: cache-event-grid.md
-      - name: Remove TLS 1.0 and 1.1
-        href: cache-remove-tls-10-11.md
-      - name: Management FAQs
-        href: cache-management-faq.yml
-      - name: Azure Functions
-        href: ../azure-functions/functions-bindings-cache.md
-      - name: Role-based access control
-        href: cache-configure-role-based-access-control.md
-      - name: Azure AD for authentication
-        href: cache-azure-active-directory-for-authentication.md
-    - name: Monitor
-      items:
-      - name: Monitor in Azure portal
-        href: cache-how-to-monitor.md
-      - name: Set alerts for exceptions
-        href: cache-how-to-monitor.md#create-alerts
-      - name: Monitor with diagnostic logs
-        href: cache-monitor-diagnostic-settings.md
-      - name: Use Insights to understand performance and utilization
-        href: cache-insights-overview.md
-    - name: Scale
-      items:
-      - name: Change the size and tier of a cache
-        href: cache-how-to-scale.md
-      - name: Use Redis cluster to scale in/out
-        href: cache-how-to-premium-clustering.md
-    - name: Diagnose and troubleshoot
-      items:
-      - name: Troubleshoot connectivity issues
-        href: cache-troubleshoot-connectivity.md
-      - name: Troubleshoot latency and timeouts
-        href: cache-troubleshoot-timeouts.md
-      - name: Troubleshoot client 
-        href: cache-troubleshoot-client.md
-      - name: Troubleshoot Redis server
-        href: cache-troubleshoot-server.md
-      - name: Troubleshoot data loss
-        href: cache-troubleshoot-data-loss.md
-      - name: Troubleshooting FAQs
-        href: cache-monitor-troubleshoot-faq.yml
-  - name: Resources
+  - name: (Additional) Resources
     items:
     - name: Azure Cache for Redis FAQs
       href: cache-faq.yml
