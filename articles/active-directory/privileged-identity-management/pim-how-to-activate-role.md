@@ -1,19 +1,18 @@
 ---
-title: Activate Azure AD roles in PIM - Azure Active Directory | Microsoft Docs
+title: Activate Azure AD roles in PIM
 description: Learn how to activate Azure AD roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: amsliu
+author: billmath
 manager: amycolannino
 editor: ''
-
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 02/02/2022
-ms.author: amsliu
-ms.reviewer: shaunliu
+ms.date: 3/15/2023
+ms.author: billmath
+ms.reviewer: ilyal
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
@@ -25,11 +24,18 @@ If you have been made *eligible* for an administrative role, then you must *acti
 
 This article is for administrators who need to activate their Azure AD role in Privileged Identity Management.
 
+>[!IMPORTANT]
+>When a role is activated, Azure AD PIM temporarily adds active assignment for the role. Azure AD PIM creates active assignment (assigns user to a role) within seconds. When deactivation (manual or through activation time expiration) happens, Azure AD PIM removes the active assignment within seconds as well.
+>
+>Application may provide access based on the role the user has. In some situations, application access may not immediately reflect the fact that user got role assigned or removed. If application previously cached the fact that user does not have a role – when user tries to access application again, access may not be provided. Similarly, if application previously cached the fact that user has a role – when role is deactivated, user may still get access. Specific situation depends on the application’s architecture. For some applications, signing out and signing back in may help get access added or removed.
+
 ## Activate a role
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 When you need to assume an Azure AD role, you can request activation by opening **My roles** in Privileged Identity Management.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Open **Azure AD Privileged Identity Management**. For information about how to add the Privileged Identity Management tile to your dashboard, see [Start using Privileged Identity Management](pim-getting-started.md).
 
@@ -230,13 +236,7 @@ If you don't require activation of a role that requires approval, you can cancel
 
 ## Deactivate a role assignment
 
-When a role assignment is activated, you'll see a **Deactivate** option in the PIM portal for the role assignment. When you select **Deactivate**, there's a short time lag before the role is deactivated. Also, you can't deactivate a role assignment within five minutes after activation.
-
-## Troubleshoot portal delay
-
-### Permissions aren't granted after activating a role
-
-When you activate a role in Privileged Identity Management, the activation might not instantly propagate to all portals that require the privileged role. Sometimes, even if the change is propagated, web caching in a portal may cause a delay before the change takes effect. If your activation is delayed, sign out of the portal you're trying to perform the action and then sign back in. In the Azure portal, PIM signs you out and back in automatically.
+When a role assignment is activated, you'll see a **Deactivate** option in the PIM portal for the role assignment. Also, you can't deactivate a role assignment within five minutes after activation.
 
 ## Next steps
 

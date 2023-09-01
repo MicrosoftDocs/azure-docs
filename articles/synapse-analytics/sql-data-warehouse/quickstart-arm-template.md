@@ -3,11 +3,13 @@ title: Create a dedicated SQL pool (formerly SQL DW) by using Azure Resource Man
 description: Learn how to create an Azure Synapse Analytics SQL pool by using Azure Resource Manager template.
 services: azure-resource-manager
 author: WilliamDAssafMSFT
-ms.service: azure-resource-manager
+ms.service: synapse-analytics
+ms.subservice: sql-dw
+tags: azure-resource-manager
 ms.topic: quickstart
 ms.author: wiassaf
 ms.date: 06/09/2020
-ms.custom: devx-track-azurepowershell, subject-armqs, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ---
 
 # Quickstart: Create an Azure Synapse Analytics dedicated SQL pool (formerly SQL DW) by using an ARM template
@@ -37,7 +39,7 @@ The template defines one resource:
 ## Deploy the template
 
 1. Select the following image to sign in to Azure and open the template. This template creates a dedicated SQL pool (formerly SQL DW).
-   
+
    [![Deploy to Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.sql%2Fsql-data-warehouse-transparent-encryption-create%2Fazuredeploy.json)
 
 1. Enter or update the following values:
@@ -49,7 +51,7 @@ The template defines one resource:
    * **SQL Administrator login**: Enter the administrator username for the SQL Server.
    * **SQL Administrator password**: Enter the administrator password for the SQL Server.
    * **Data Warehouse Name**: Enter a dedicated SQL pool name.
-   * **Transparent Data Encryption**: Accept the default, enabled. 
+   * **Transparent Data Encryption**: Accept the default, enabled.
    * **Service Level Objective**: Accept the default, DW400c.
    * **Location**: Accept the default location of the resource group.
    * **Review and Create**: Select.
@@ -64,7 +66,7 @@ You can either use the Azure portal to check the deployed resources, or use Azur
 ```azurecli-interactive
 echo "Enter the resource group where your dedicated SQL pool (formerly SQL DW) exists:" &&
 read resourcegroupName &&
-az resource list --resource-group $resourcegroupName 
+az resource list --resource-group $resourcegroupName
 ```
 
 # [PowerShell](#tab/PowerShell)

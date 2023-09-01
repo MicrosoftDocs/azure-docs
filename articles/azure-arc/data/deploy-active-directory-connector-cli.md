@@ -4,6 +4,7 @@ description: Tutorial to deploy an Active Directory connector using Azure CLI
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data-sqlmi
+ms.custom: devx-track-azurecli
 author: mikhailalmeida
 ms.author: mialmei
 ms.reviewer: mikeray
@@ -336,4 +337,3 @@ az arcdata ad-connector delete --name arcadc --data-controller-name arcdc --reso
 * [Tutorial – Deploy AD connector in customer-managed keytab mode](deploy-customer-managed-keytab-active-directory-connector.md)
 * [Tutorial – Deploy AD connector in system-managed keytab mode](deploy-system-managed-keytab-active-directory-connector.md)
 * [Deploy Arc-enabled SQL Managed Instance with Active Directory Authentication](deploy-active-directory-sql-managed-instance.md).
-

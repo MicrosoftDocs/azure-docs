@@ -2,13 +2,13 @@
 title: Access control model for Azure Data Lake Storage Gen2
 titleSuffix: Azure Storage
 description: Learn how to configure container, directory, and file-level access in accounts that have a hierarchical namespace.
-author: jimmart-dev
+author: normesta
 
-ms.subservice: data-lake-storage-gen2
-ms.service: storage
+ms.service: azure-data-lake-storage
 ms.topic: conceptual
-ms.date: 03/07/2023
-ms.author: jammart
+ms.date: 04/24/2023
+ms.author: normesta
+ms.custom: engagement-fy23
 ---
 
 # Access control model in Azure Data Lake Storage Gen2
@@ -49,8 +49,6 @@ Azure ABAC builds on Azure RBAC by adding role assignment conditions based on at
 
 For more information on using Azure ABAC to control access to Azure Storage, see [Authorize access to Azure Blob Storage using Azure role assignment conditions](storage-auth-abac.md).
 
-For the status of attributes applicable to Data Lake Storage Gen2, see [Status of condition features in Azure Storage](../common/authorize-data-access.md#status-of-condition-features-in-azure-storage).
-
 ## Access control lists (ACLs)
 
 ACLs give you the ability to apply "finer grain" level of access to directories and files. An *ACL* is a permission construct that contains a series of *ACL entries*. Each ACL entry associates security principal with an access level. To learn more, see [Access control lists (ACLs) in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
@@ -64,11 +62,13 @@ During security principal-based authorization, permissions are evaluated as show
 
 1. Azure determines whether a role assignment exists for the principal.
     - If a role assignment exists, the role assignment conditions (2) are evaluated next.
-    - If not, the ACLs (3) are evaluated next.
-1. Azure determines whether all of the ABAC role assignment conditions, if any exist, match the attributes of the request.
+    - If not, the ACLs (4) are evaluated next.
+1. Azure determines whether any ABAC role assignment conditions exist.
     - If no conditions exist, access is granted.
-    - If conditions exist and all of them match the attributes of the request, access is granted.
-    - If conditions exist and at least one of them does not match the attributes of the request, the ACLs (3) are evaluated next.
+    - If conditions exist, they are evaluated to see if they match the request (3).
+1. Azure determines whether all of the ABAC role assignment conditions match the attributes of the request.
+    - If all of them match, access is granted.
+    - If at least one of them does not match, the ACLs (4) are evaluated next.
 1. If access has not been explicitly granted after evaluating the role assignments and conditions, the ACLs are evaluated.
     - If the ACLs permit the requested level of access, access is granted.
     - If not, access is denied.
@@ -81,7 +81,7 @@ The following diagram shows the permission flow for three common operations: lis
 > [!div class="mx-imgBorder"]
 > ![data lake storage permission flow example](./media/control-access-permissions-data-lake-storage/data-lake-storage-permissions-example.png)
 
-## Permissions table: Combining Azure RBAC and ACL
+## Permissions table: Combining Azure RBAC, ABAC, and ACLs
 
 The following table shows you how to combine Azure roles, conditions, and ACL entries so that a security principal can perform the operations listed in the **Operation** column. This table shows a column that represents each level of a fictitious directory hierarchy. There's a column for the root directory of the container (`/`), a subdirectory named **Oregon**, a subdirectory of the Oregon directory named **Portland**, and a text file in the Portland directory named **Data.txt**. Appearing in those columns are [short form](data-lake-storage-access-control.md#short-forms-for-permissions) representations of the ACL entry required to grant permissions. **N/A** (_Not applicable_) appears in the column if an ACL entry is not required to perform the operation.
 

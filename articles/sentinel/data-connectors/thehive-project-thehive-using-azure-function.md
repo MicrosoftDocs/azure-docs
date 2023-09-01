@@ -1,6 +1,6 @@
 ---
-title: "TheHive Project - TheHive (using Azure Function) connector for Microsoft Sentinel"
-description: "Learn how to install the connector TheHive Project - TheHive (using Azure Function) to connect your data source to Microsoft Sentinel."
+title: "TheHive Project - TheHive (using Azure Functions) connector for Microsoft Sentinel"
+description: "Learn how to install the connector TheHive Project - TheHive (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
 ms.date: 02/23/2023
@@ -8,7 +8,7 @@ ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
-# TheHive Project - TheHive (using Azure Function) connector for Microsoft Sentinel
+# TheHive Project - TheHive (using Azure Functions) connector for Microsoft Sentinel
 
 The [TheHive](http://thehive-project.org/) data connector provides the capability to ingest common TheHive events into Microsoft Sentinel through Webhooks. TheHive can notify external system of modification events (case creation, alert update, task assignment) in real time. When a change occurs in the TheHive, an HTTPS POST request with event information is sent to a callback data connector URL.  Refer to [Webhooks documentation](https://docs.thehive-project.org/thehive/legacy/thehive3/admin/webhooks/) for more information. The connector provides ability to get events which helps to examine potential security risks, analyze your team's use of collaboration, diagnose configuration problems and more.
 
@@ -17,7 +17,7 @@ The [TheHive](http://thehive-project.org/) data connector provides the capabilit
 | Connector attribute | Description |
 | --- | --- |
 | **Application settings** | TheHiveBearerToken<br/>WorkspaceID<br/>WorkspaceKey<br/>logAnalyticsUri (optional) |
-| **Azure function app code** | https://aka.ms/sentinel-TheHive-functionapp |
+| **Azure functions app code** | https://aka.ms/sentinel-TheHive-functionapp |
 | **Log Analytics table(s)** | TheHive_CL<br/> |
 | **Data collection rules support** | Not currently supported |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com) |
@@ -35,9 +35,9 @@ TheHive
 
 ## Prerequisites
 
-To integrate with TheHive Project - TheHive (using Azure Function) make sure you have: 
+To integrate with TheHive Project - TheHive (using Azure Functions) make sure you have: 
 
-- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://learn.microsoft.com/azure/azure-functions/).
+- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](/azure/azure-functions).
 - **Webhooks Credentials/permissions**: **TheHiveBearerToken**, **Callback URL** are required for working Webhooks. See the documentation to learn more about [configuring Webhooks](https://docs.thehive-project.org/thehive/installation-and-configuration/configuration/webhooks/).
 
 
@@ -48,7 +48,7 @@ To integrate with TheHive Project - TheHive (using Azure Function) make sure you
    >  This data connector uses Azure Functions based on HTTP Trigger for waiting POST requests with logs to pull its logs into Microsoft Sentinel. This might result in additional data ingestion costs. Check the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) for details.
 
 
->**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](https://learn.microsoft.com/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
+>**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
 
 
 > [!NOTE]
@@ -91,7 +91,7 @@ Use the following step-by-step instructions to deploy the TheHive data connector
 
 **1. Deploy a Function App**
 
-> **NOTE:** You will need to [prepare VS code](https://learn.microsoft.com/azure/azure-functions/functions-create-first-function-python#prerequisites) for Azure function development.
+> **NOTE:** You will need to [prepare VS code](/azure/azure-functions/functions-create-first-function-python) for Azure function development.
 
 1. Download the [Azure Function App](https://aka.ms/sentinel-TheHive-functionapp) file. Extract archive to your local development computer.
 2. Start VS Code. Choose File in the main menu and select Open Folder.

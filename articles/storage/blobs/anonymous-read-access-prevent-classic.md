@@ -4,14 +4,13 @@ titleSuffix: Azure Storage
 description: Learn how to prevent anonymous requests against a classic storage account by disabling anonymous public access to containers.
 author: tamram
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 11/09/2022
 ms.author: tamram
 ms.reviewer: nachakra
-ms.subservice: blobs
 ms.devlang: powershell, azurecli
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, engagement-fy23
+ms.custom: devx-track-azurepowershell, engagement-fy23
 ---
 
 # Remediate anonymous public read access to blob data (classic deployments)

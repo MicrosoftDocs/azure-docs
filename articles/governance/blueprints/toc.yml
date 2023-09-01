@@ -157,7 +157,7 @@
   - name: Azure PowerShell
     href: /powershell/module/az.blueprint/#blueprint
   - name: Azure SDK for .NET
-    href: /dotnet/api/overview/azure/blueprint/management/management-blueprint
+    href: /dotnet/api/microsoft.azure.management.blueprint
   - name: REST
     href: /rest/api/blueprints/
   - name: PSGallery (Az.Blueprint module)

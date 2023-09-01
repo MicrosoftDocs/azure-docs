@@ -3,6 +3,7 @@ title: Adapt your R script to run in production
 titleSuffix: Azure Machine Learning
 description: 'Learn how to modify your existing R scripts to run in production on Azure Machine Learning'
 ms.service: machine-learning
+ms.subservice: core
 ms.date: 01/11/2023
 ms.topic: how-to
 author: wahalulu
@@ -278,7 +279,7 @@ RUN pip install MLflow
 RUN ln -f /usr/bin/python3 /usr/bin/python
 
 # Install R packages required for logging with MLflow (these are necessary)
-RUN R -e "install.packages('MLflow', dependencies = TRUE, repos = 'https://cloud.r-project.org/')"
+RUN R -e "install.packages('mlflow', dependencies = TRUE, repos = 'https://cloud.r-project.org/')"
 RUN R -e "install.packages('carrier', dependencies = TRUE, repos = 'https://cloud.r-project.org/')"
 RUN R -e "install.packages('optparse', dependencies = TRUE, repos = 'https://cloud.r-project.org/')"
 RUN R -e "install.packages('tcltk2', dependencies = TRUE, repos = 'https://cloud.r-project.org/')"

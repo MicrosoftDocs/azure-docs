@@ -5,7 +5,7 @@ author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: how-to 
-ms.custom: kr2b-contr-experiment
+ms.custom: kr2b-contr-experiment, devx-track-python
 ms.date: 05/23/2022
 ---
 

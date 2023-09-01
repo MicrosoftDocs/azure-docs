@@ -23,7 +23,7 @@ This is an example for configuring `System-assigned managed identity` on a `Virt
 1. Open [Azure portal](https://portal.azure.com/), Search for and select a Virtual Machine.
 1. Under **Settings** section, select **Identity**.
 1. On the **System assigned** tab, toggle the **Status** to **On**.
-   ![Screenshot of virtual machine - identity](./media/aad-authorization/identity-virtual-machine.png)
+   ![Screenshot of virtual machine - identity.](./media/howto-authorize-from-managed-identity/identity-virtual-machine.png)
 1. Click the **Save** button to confirm the change.
 
 ### How to create user-assigned managed identities
@@ -57,7 +57,7 @@ This sample shows how to assign a `Web PubSub Service Owner` role to a system-as
 
    The following screenshot shows an example of the Access control (IAM) page for a Web PubSub resource.
 
-   ![Screenshot of access control](./media/aad-authorization/access-control.png)
+   ![Screenshot of access control.](./media/howto-authorize-from-managed-identity/access-control.png)
 
 1. Click **Add > Add role assignment**.
 
@@ -65,7 +65,7 @@ This sample shows how to assign a `Web PubSub Service Owner` role to a system-as
 
 1. Click **Next**.
 
-   ![Screenshot of adding role assignment](./media/aad-authorization/add-role-assignment.png)
+   ![Screenshot of adding role assignment.](./media/howto-authorize-from-managed-identity/add-role-assignment.png)
 
 1. On the **Members** tab, under **Assign access to** section, select **Managed identity**.
 
@@ -79,7 +79,7 @@ This sample shows how to assign a `Web PubSub Service Owner` role to a system-as
 
 2. Click **Next**.
 
-   ![Screenshot of assigning role to managed identities](./media/aad-authorization/assign-role-to-managed-identities.png)
+   ![Screenshot of assigning role to managed identities.](./media/howto-authorize-from-managed-identity/assign-role-to-managed-identities.png)
 
 3. Click **Review + assign** to confirm the change.
 
@@ -104,5 +104,7 @@ We officially support 4 programming languages:
 ## Next steps
 
 See the following related articles:
+
 - [Overview of Azure AD for Web PubSub](concept-azure-ad-authorization.md)
 - [Authorize request to Web PubSub resources with Azure AD from Azure applications](howto-authorize-from-application.md)
+- [Disable local authentication](./howto-disable-local-auth.md)

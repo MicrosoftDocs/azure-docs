@@ -4,7 +4,8 @@ description: Describes the functions to use in a Bicep file for working with obj
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 12/09/2022
+ms.custom: devx-track-bicep
+ms.date: 03/19/2023
 ---
 
 # Object functions for Bicep
@@ -166,7 +167,7 @@ The output from the preceding example with the default values is:
 
 `items(object)`
 
-Converts a dictionary object to an array.
+Converts a dictionary object to an array. See [toObject](bicep-functions-lambda.md#toobject) about converting an array to an object.
 
 Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 

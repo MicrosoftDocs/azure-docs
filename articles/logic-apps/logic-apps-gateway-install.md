@@ -277,6 +277,7 @@ Here are ways that you can match your on-premises Active Directory accounts with
 
 ## Next steps
 
-* [Connect to on-premises data from logic apps](logic-apps-gateway-connection.md)
+* [Connect to on-premises data from logic app workflows](logic-apps-gateway-connection.md)
 * [Enterprise integration features](logic-apps-enterprise-integration-overview.md)
-* [Connectors for Azure Logic Apps](../connectors/apis-list.md)
+* [Managed connectors for Azure Logic Apps](../connectors/managed.md)
+* [Built-in connectors for Azure Logic Apps](../connectors/built-in.md)

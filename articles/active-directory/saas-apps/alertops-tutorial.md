@@ -118,15 +118,10 @@ In this section, you'll enable Britta Simon to use Azure single sign-on by grant
 
 ## Configure AlertOps SSO
 
-1. To automate the configuration within AlertOps, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-	![My apps extension](common/install-myappssecure-extension.png)
 
-2. After adding extension to the browser, click on **Setup AlertOps** will direct you to the AlertOps application. From there, provide the admin credentials to sign into AlertOps. The browser extension will automatically configure the application for you and automate steps 3-5.
 
-	![Setup configuration](common/setup-sso.png)
-
-3. If you want to setup AlertOps manually, open a new web browser window and sign into your AlertOps company site as an administrator and perform the following steps:
+1. In a different web browser window, sign in to your AlertOps company site as an administrator
 
 4. Click on the **Account settings** from the user profile.
 

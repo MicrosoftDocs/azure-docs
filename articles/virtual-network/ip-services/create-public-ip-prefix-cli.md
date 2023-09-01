@@ -103,7 +103,20 @@ The removal of the **`--zone`** parameter is the default selection for standard 
 
 ---
 
+# [**Routing Preference Interent IPv4 prefix**](#tab/ipv4-routing-pref)
 
+To create a IPv4 public IP prefix with routing preference Internet, enter **RoutingPreference=Internet** in the **`--ip-tags`** parameter.
+
+```azurecli-interactive
+  az network public-ip prefix create \
+    --length 28 \
+    --name myPublicIpPrefix-rpinternet \
+    --resource-group QuickStartCreateIPPrefix-rg \
+    --location eastus2 \
+    --version IPv4
+    --iptags 'RoutingPreference=Internet'
+```
+---
 
 ## IPv6
 

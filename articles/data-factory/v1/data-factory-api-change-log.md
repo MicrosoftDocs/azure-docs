@@ -6,9 +6,10 @@ ms.author: weetok
 ms.reviewer: jonburchel
 ms.service: data-factory
 ms.subservice: v1
+ms.custom: devx-track-dotnet
 ms.topic: conceptual
 robots: noindex
-ms.date: 10/22/2021
+ms.date: 04/12/2023
 ---
 
 # Azure Data Factory - .NET API change log

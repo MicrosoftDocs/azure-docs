@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 05/11/2022
+ms.date: 07/24/2022
 ms.author: cshoe
 ---
 
@@ -21,3 +21,4 @@ Refer to the following samples to learn how to use Azure Container Apps in diffe
 | [Deploy a shopping cart Orleans app to Container Apps](https://github.com/Azure-Samples/orleans-blazor-server-shopping-cart-on-container-apps) | An end-to-end example shopping cart app built in ASP.NET Core Blazor Server with Orleans deployed to Azure Container Apps. |
 | [ASP.NET Core front-end with two back-end APIs on Azure Container Apps](https://github.com/Azure-Samples/dotNET-FrontEnd-to-BackEnd-on-Azure-Container-Apps )<br /> | This sample demonstrates ASP.NET Core 6.0 can be used to build a cloud-native application hosted in Azure Container Apps. |
 | [ASP.NET Core front-end with two back-end APIs on Azure Container Apps (with Dapr)](https://github.com/Azure-Samples/dotNET-FrontEnd-to-BackEnd-with-DAPR-on-Azure-Container-Apps )<br /> | Demonstrates how ASP.NET Core 6.0 is used to build a cloud-native application hosted in Azure Container Apps using Dapr. |
+| [Deploy Drupal on Azure Container Apps](https://github.com/Azure-Samples/drupal-on-azure-container-apps) | Demonstrates how to deploy a Drupal site to Azure Container Apps, with Azure Database for MariaDB, and Azure Files to store static assets.  |

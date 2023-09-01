@@ -2,11 +2,11 @@
 title: Manage Azure Monitor Agent
 description: Options for managing Azure Monitor Agent on Azure virtual machines and Azure Arc-enabled servers.
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
-ms.date: 1/30/2022
+author: guywi-ms
+ms.author: guywild
+ms.date: 7/18/2023
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.reviewer: shseth
+ms.reviewer: jeffwo
 
 ---
 
@@ -58,7 +58,7 @@ The following prerequisites must be met prior to installing Azure Monitor Agent.
 - **Networking**: If you use network firewalls, the [Azure Resource Manager service tag](../../virtual-network/service-tags-overview.md) must be enabled on the virtual network for the virtual machine. The virtual machine must also have access to the following HTTPS endpoints:
 
   -	global.handler.control.monitor.azure.com
-  -	`<virtual-machine-region-name>`.handler.control.monitor.azure.com (example: westus.handler.control.azure.com)
+  -	`<virtual-machine-region-name>`.handler.control.monitor.azure.com (example: westus.handler.control.monitor.azure.com)
   -	`<log-analytics-workspace-id>`.ods.opinsights.azure.com (example: 12345a01-b1cd-1234-e1f2-1234567g8h99.ods.opinsights.azure.com)  
     (If you use private links on the agent, you must also add the [dce endpoints](../essentials/data-collection-endpoint-overview.md#components-of-a-data-collection-endpoint)).
 

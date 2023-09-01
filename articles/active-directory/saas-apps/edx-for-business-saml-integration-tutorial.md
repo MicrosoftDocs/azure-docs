@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with edX for Business SAML Integration | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with edX for Business SAML Integration'
 description: Learn how to configure single sign-on between Azure Active Directory and edX for Business SAML Integration.
 services: active-directory
 author: jeevansd

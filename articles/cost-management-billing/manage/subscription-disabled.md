@@ -8,17 +8,17 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 11/10/2022
+ms.date: 05/11/2023
 ms.author: banders
 ---
 
 # Reactivate a disabled Azure subscription
 
-Your Azure subscription can get disabled because your credit has expired, you reached your spending limit, have an overdue bill, hit your credit card limit, or because the subscription was canceled by the Account Administrator. See what issue applies to you and follow the steps in this article to get your subscription reactivated.
+Your Azure subscription can get disabled because your credit has expired or if you reached your spending limit. It can also get disabled if you have an overdue bill, hit your credit card limit, or because the Account Administrator canceled the subscription. See what issue applies to you and follow the steps in this article to get your subscription reactivated.
 
 ## Your credit is expired
 
-When you sign up for an Azure free account, you get a Free Trial subscription, which provides you $200 Azure credit in your billing currency for 30 days and 12 months of free services. At the end of 30 days, Azure disables your subscription. Your subscription is disabled to protect you from accidentally incurring charges for usage beyond the credit and free services included with your subscription. To continue using Azure services, you must [upgrade your subscription](upgrade-azure-subscription.md). After you upgrade, your subscription still has access to free services for 12 months. You only get charged for usage beyond the free service quantity limits.
+When you sign up for an Azure free account, you get a Free Trial subscription, which provides you $200 Azure credit in your billing currency for 30 days and 12 months of free services. At the end of 30 days, Azure disables your subscription. Your subscription is disabled to protect you from accidentally incurring charges for usage beyond the credit and free services included with your subscription. To continue using Azure services, you must [upgrade your subscription](upgrade-azure-subscription.md). After you upgrade the subscription, you still have access to free services for 12 months. You only get charged for usage beyond the free service quantity limits.
 
 ## You reached your spending limit
 
@@ -40,9 +40,11 @@ To resolve a past due balance, see one of the following articles:
 
 To resolve the issue, [switch to a different credit card](change-credit-card.md). Or if you're representing a business, you can [switch to pay by invoice](pay-by-invoice.md).
 
-## The subscription was accidentally canceled
+## The subscription was canceled
 
-If you're the Account Administrator and accidentally canceled a pay-as-you-go subscription, you can reactivate it in the Azure portal.
+If you're the Account Administrator or subscription Owner and you canceled a pay-as-you-go subscription, you can reactivate it in the Azure portal.
+
+If you're a billing administrator (partner billing administrator or Enterprise Administrator), you may not have the required permission to reactive the subscription. If this situation applies to you, contact the Account Administrator, or subscription Owner and ask them to reactivate the subscription.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Go to Subscriptions and then select the canceled subscription.
@@ -53,11 +55,11 @@ For other subscription types, [contact support](https://portal.azure.com/?#blade
 
 ## After reactivation
 
-After your subscription is reactivated, there might be a delay in creating or managing resources. If the delay exceeds 30 minutes, contact [Azure Billing Support](https://go.microsoft.com/fwlink/?linkid=2083458) for assistance. Most Azure resources automatically resume and don't require any action. However, we recommend that you check your Azure service resources and restart any that don't resume automatically.
+After your subscription is reactivated, there might be a delay in creating or managing resources. If the delay exceeds 30 minutes, contact [Azure Billing Support](https://go.microsoft.com/fwlink/?linkid=2083458) for assistance. Most Azure resources automatically resume and don't require any action. However, we recommend that you check your Azure service resources and restart them if, if necessary.
 
 ## Upgrade a disabled free account
 
-If you use resources that aren’t free and your subscription gets disabled because you run out of credit, and then you upgrade your subscription, the resources get enabled after upgrade. This situation will result in you getting charged for the resources used. For more information about upgrading a free account, see [Upgrade your Azure account](upgrade-azure-subscription.md).
+If you use resources that aren’t free and your subscription gets disabled because you run out of credit, and then you upgrade your subscription, the resources get enabled after upgrade. This situation results in you getting charged for the resources used. For more information about upgrading a free account, see [Upgrade your Azure account](upgrade-azure-subscription.md).
 
 ## Need help? Contact us.
 

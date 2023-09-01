@@ -44,6 +44,10 @@ landingContent:
         links: 
           - text: Provision and configure Azure Firewall and Application Gateway
             url: https://mslabs.cloudguides.com/en-us/guides/Azure%20Networking%20Solutions%20-%20Exercise%204
+          - text: Secure your network infrastructure with Azure Firewall and Azure DDoS Protection
+            url: https://mslearn.cloudguides.com/guides/Secure%20your%20network%20infrastructure%20with%20Azure%20Firewall%20and%20Azure%20DDoS%20Protection
+          - text: Enhance network visibility and threat detection through Azure network security integrations with Microsoft Sentinel
+            url: https://mslearn.cloudguides.com/guides/Enhance%20network%20visibility%20and%20threat%20detection%20through%20Azure%20network%20security%20integrations%20with%20Microsoft%20Sentinel
 
   # Card
   - title: Learn about Azure Firewall Premium
@@ -119,3 +123,11 @@ landingContent:
             url: /azure/architecture/example-scenario/gateway/application-gateway-before-azure-firewall
           - text: Firewall, App Gateway for virtual networks
             url: /azure/architecture/example-scenario/gateway/firewall-application-gateway
+
+# Card
+  - title: Learn about Azure network security
+    linkLists:
+      - linkListType: overview
+        links:
+         - text: Azure network security
+           url: ../networking/security/index.yml

@@ -8,14 +8,14 @@ ms.subservice: flexible-server
 ms.topic: tutorial
 ms.devlang: php
 ms.date: 8/11/2020
-ms.custom: mvc, devx-track-azurecli
+ms.custom: mvc, build-2023, build-2023-dataai
 ---
 
 # Tutorial: Build a PHP (Laravel) and MySQL Flexible Server app on Azure App Service
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-[Azure App Service](../../app-service/overview.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial shows how to create a secure PHP app in Azure App Service that's connected to a MySQL database (using Azure Database for MySQL Flexible Server). When you're finished, you'll have a [Laravel](https://laravel.com/) app running on Azure App Service on Linux.
+[Azure App Service](../../app-service/overview.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial shows how to create a secure PHP app in Azure App Service that's connected to a MySQL database (using Azure Database for MySQL - Flexible Server). When you're finished, you'll have a [Laravel](https://laravel.com/) app running on Azure App Service on Linux.
 
 :::image type="content" source="./media/tutorial-php-database-app/azure-portal-browse-app-2.png" alt-text="Screenshot of the Azure app example titled Task List showing new tasks added.":::
 
@@ -72,7 +72,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 
 ## 2 - Set up database connectivity
 
-The creation wizard generated a connection string to the database for you, but not in a format that's useable for your code yet. In this step, you create [app settings](../../app-service/configure-common.md#configure-app-settings) with the format that your app needs.
+The creation wizard generated [app settings](../../app-service/configure-common.md#configure-app-settings) for you to use to connect to the database, but not in a format that's useable for your code yet. In this step, you edit and update app settings to the format that your app needs.
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|

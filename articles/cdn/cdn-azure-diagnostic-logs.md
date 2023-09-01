@@ -36,9 +36,9 @@ An Azure CDN profile is required for the following steps. Refer to [create an Az
 
 Follow these steps enable logging for your Azure CDN endpoint:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. In the Azure portal, navigate to **All resources** -> **your-cdn-profile**
+2. In the Azure portal, navigate to **All resources** > **your-cdn-profile**.
 
 2. Select the CDN endpoint for which you want to enable diagnostics logs:
 

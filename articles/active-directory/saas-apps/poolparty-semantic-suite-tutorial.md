@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with PoolParty Semantic Suite | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with PoolParty Semantic Suite'
 description: Learn how to configure single sign-on between Azure Active Directory and PoolParty Semantic Suite.
 services: active-directory
 author: jeevansd

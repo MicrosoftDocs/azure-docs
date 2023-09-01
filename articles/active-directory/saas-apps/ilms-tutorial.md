@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with iLMS | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with iLMS'
 description: Learn how to configure single sign-on between Azure Active Directory and iLMS.
 services: active-directory
 author: jeevansd

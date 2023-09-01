@@ -2,7 +2,8 @@
 title: User-defined functions in templates
 description: Describes how to define and use user-defined functions in an Azure Resource Manager template (ARM template).
 ms.topic: conceptual
-ms.date: 04/12/2021
+ms.custom: devx-track-arm-template
+ms.date: 05/22/2023
 ---
 
 # User-defined functions in ARM template
@@ -73,7 +74,7 @@ The following example shows a template that includes a user-defined function to 
  "resources": [
    {
      "type": "Microsoft.Storage/storageAccounts",
-     "apiVersion": "2019-04-01",
+     "apiVersion": "2022-09-01",
      "name": "[contoso.uniqueName(parameters('storageNamePrefix'))]",
      "location": "South Central US",
      "sku": {
@@ -102,7 +103,6 @@ When defining a user function, there are some restrictions:
 * The function can only use parameters that are defined in the function. When you use the [parameters](template-functions-deployment.md#parameters) function within a user-defined function, you're restricted to the parameters for that function.
 * The function can't call other user-defined functions.
 * The function can't use the [reference](template-functions-resource.md#reference) function or any of the [list](template-functions-resource.md#list) functions.
-* The function can't use the [dateTimeAdd](template-functions-date.md#datetimeadd) function.
 * Parameters for the function can't have default values.
 
 ## Next steps

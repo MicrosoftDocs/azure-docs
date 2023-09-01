@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, niding, azla
 ms.topic: reference
 ms.custom: engagement-fy23
-ms.date: 09/20/2022
+ms.date: 04/07/2023
 ---
 
 # Reference guide to workflow expression functions in Azure Logic Apps and Power Automate
@@ -5343,6 +5343,11 @@ And returns this result XML:
 
 Check XML for nodes or values that match an XPath (XML Path Language) expression, and return the matching nodes or values. An XPath expression, or just "XPath", helps you navigate an XML document structure so that you can select nodes or compute values in the XML content.
 
+> [!NOTE]
+> 
+> In Consumption and Standard logic apps, all function expressions use the [.NET XPath library](/dotnet/api/system.xml.xpath). 
+> XPath expressions are compatible with the underlying .NET library and support only the expression that the underlying .NET library supports.
+
 ```
 xpath('<xml>', '<xpath>')
 ```
@@ -5380,15 +5385,15 @@ Suppose that you have this `'items'` XML string:
 </produce>
 ```
 
-This example passes in the XPath expression, `'/produce/item/name'`, to find the nodes that match the `<name></name>` node in the `'items'` XML string, and returns an array with those node values:
+This example passes in the XPath expression, `'/produce/item/name/text()'`, to find the nodes that match the `<name></name>` node in the `'items'` XML string, and returns an array with those node values:
 
-`xpath(xml(parameters('items')), '/produce/item/name')`
+`xpath(xml(parameters('items')), '/produce/item/name/text()')`
 
 The example also uses the [parameters()](#parameters) function to get the XML string from `'items'` and convert the string to XML format by using the [xml()](#xml) function.
 
-Here's the result array with the nodes that match `<name></name`:
+Here's the result array populated with values of the nodes that match `<name></name>`:
 
-`[ <name>Gala</name>, <name>Honeycrisp</name> ]`
+`[ Gala, Honeycrisp ]`
 
 *Example 2*
 

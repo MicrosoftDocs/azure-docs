@@ -2,11 +2,9 @@
 title: Resource Manager template samples for action groups
 description: Sample Azure Resource Manager templates to deploy Azure Monitor action groups.
 ms.topic: sample
-author: bwren
-ms.author: bwren
+ms.custom: devx-track-arm-template
 ms.date: 04/27/2022
 ms.reviewer: dukek
-
 ---
 
 # Resource Manager template samples for action groups in Azure Monitor

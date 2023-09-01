@@ -1,5 +1,5 @@
 ---
-title: Understand user tokens in B2B collaboration - Azure AD
+title: Understand user tokens in B2B collaboration
 description: User token reference for Azure Active Directory B2B collaboration.
 
 services: active-directory

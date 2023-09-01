@@ -13,29 +13,29 @@ metadata:
   ms.collection: collection
   author: msjasteppe
   ms.author: jasteppe
-  ms.date: 01/30/2023
+  ms.date: 07/11/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
 
-  - title: Start with Events
+  - title: About Events
     linkLists:
       - linkListType: overview
         links:
           - text: What are Events?
             url: events-overview.md
             
-  - title: Using Events
+  - title: Deploy Events
     linkLists:
       - linkListType: quickstart
         links:
           - text: Deploy Events using the Azure portal
             url: events-deploy-portal.md
                    
-  - title: Events message structure
+  - title: Events message structures
     linkLists:
       - linkListType: concept
         links:
-          - text: Events message structure
+          - text: Events message structures
             url: events-message-structure.md 

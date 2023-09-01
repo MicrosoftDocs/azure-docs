@@ -5,13 +5,13 @@ description: Learn how to configure Azure Storage encryption with customer-manag
 services: storage
 author: tamram
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 05/05/2022
 ms.author: tamram
 ms.reviewer: ozgun
-ms.subservice: common 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.subservice: storage-common-concepts
+ms.custom: devx-track-azurecli
 ---
 
 # Configure encryption with customer-managed keys stored in Azure Key Vault Managed HSM

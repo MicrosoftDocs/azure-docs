@@ -3,11 +3,15 @@ title: Azure Automation Update Management overview
 description: This article provides an overview of the Update Management feature that implements updates for your Windows and Linux machines.
 services: automation
 ms.subservice: update-management
-ms.date: 11/25/2022
+ms.date: 04/22/2023
 ms.topic: conceptual
 ---
 
 # Update Management overview
+
+> [!Important]
+> - Automation Update management relies on [Log Analytics agent](../../azure-monitor/agents/log-analytics-agent.md) (aka MMA agent), which is on a deprecation path and won’t be supported after **August 31, 2024**. [Update management center (Preview)](../../update-center/overview.md) (UMC) is the v2 version of Automation Update management and the future of Update management in Azure. UMC is a native service in Azure and does not rely on [Log Analytics agent](../../azure-monitor/agents/log-analytics-agent.md) or [Azure Monitor agent](../../azure-monitor/agents/agents-overview.md).
+> - Guidance for migrating from Automation Update management to Update management center will be provided to customers once the latter is Generally Available. For customers using Automation Update management, we recommend continuing to use the Log Analytics agent and **NOT** migrate to Azure Monitoring agent until migration guidance is provided for Update management or else Automation Update management will not work. Also, the Log Analytics agent would not be deprecated before moving all Automation Update management customers to UMC.
 
 You can use Update Management in Azure Automation to manage operating system updates for your Windows and Linux virtual machines in Azure, physical or VMs in on-premises environments, and in other cloud environments. You can quickly assess the status of available updates and manage the process of installing required updates for your machines reporting to Update Management. 
 
@@ -45,7 +49,7 @@ If the Windows Update Agent (WUA) on the Windows machine is configured to report
 
 You can deploy and install software updates on machines that require the updates by creating a scheduled deployment. Updates classified as *Optional* aren't included in the deployment scope for Windows machines. Only required updates are included in the deployment scope.
 
-The scheduled deployment defines which target machines receive the applicable updates. It does so either by explicitly specifying certain machines or by selecting a [computer group](../../azure-monitor/logs/computer-groups.md) that's based on log searches of a specific set of machines (or based on an [Azure query](query-logs.md) that dynamically selects Azure VMs based on specified criteria). These groups differ from [scope configuration](../../azure-monitor/insights/solution-targeting.md), which is used to control the targeting of machines that receive the configuration to enable Update Management. This prevents them from performing and reporting update compliance, and install approved required updates.
+The scheduled deployment defines which target machines receive the applicable updates. It does so either by explicitly specifying certain machines or by selecting a [computer group](../../azure-monitor/logs/computer-groups.md) that's based on log searches of a specific set of machines (or based on an [Azure query](query-logs.md) that dynamically selects Azure VMs based on specified criteria). These groups differ from [scope configuration](/previous-versions/azure/azure-monitor/insights/solution-targeting), which is used to control the targeting of machines that receive the configuration to enable Update Management. This prevents them from performing and reporting update compliance, and install approved required updates.
 
 While defining a deployment, you also specify a schedule to approve and set a time period during which updates can be installed. This period is called the maintenance window. A 10-minute span of the maintenance window is reserved for reboots, assuming one is needed and you selected the appropriate reboot option. If patching takes longer than expected and there's less than 10 minutes in the maintenance window, a reboot won't occur.
 

@@ -26,13 +26,13 @@ The `set-variable` policy declares a [context](api-management-policy-expressions
 
 | Attribute | Description                                                              | Required |
 | --------- | ------------------------------------------------------------------------ | -------- |
-| name      | The name of the variable.                                                | Yes      |
-| value     | The value of the variable. This can be an expression or a literal value. | Yes      |
+| name      | The name of the variable.  Policy expressions aren't allowed.                                               | Yes      |
+| value     | The value of the variable. This can be an expression or a literal value. Policy expressions are allowed.  | Yes      |
 
 ## Usage
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, backend, on-error
-- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
+- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
 
 ## Allowed types

@@ -5,14 +5,13 @@ description: Learn how to configure BGP for VPN gateways using PowerShell.
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 01/09/2023
+ms.date: 07/12/2023
 ms.author: cherylmc 
 ms.custom: devx-track-azurepowershell
-
 ---
 # How to configure BGP for VPN Gateway: PowerShell
 
-This article helps you enable BGP on cross-premises site-to-site (S2S) VPN connections and VNet-to-VNet connections using Azure PowerShell. You can also create this configuration using the [Azure portal](bgp-howto.md) or [CLI](bgp-how-to-cli.md) steps.
+This article helps you enable BGP on cross-premises site-to-site (S2S) VPN connections and VNet-to-VNet connections using Azure PowerShell. If you aren't familiar with this type of configuration, you may find it easier to use the [Azure portal](bgp-howto.md) version of this article.
 
 BGP is the standard routing protocol commonly used in the Internet to exchange routing and reachability information between two or more networks. BGP enables the VPN gateways and your on-premises VPN devices, called BGP peers or neighbors, to exchange "routes" that will inform both gateways on the availability and reachability for those prefixes to go through the gateways or routers involved. BGP can also enable transit routing among multiple networks by propagating routes a BGP gateway learns from one BGP peer to all other BGP peers.
 
@@ -112,7 +111,7 @@ $gwipconf1 = New-AzVirtualNetworkGatewayIpConfig -Name $GWIPconfName1 -Subnet $s
 
 #### 2. Create the VPN gateway with the AS number
 
-Create the virtual network gateway for TestVNet1. BGP requires a Route-Based VPN gateway, and also an additional parameter *-Asn* to set the ASN (AS Number) for TestVNet1. If you don't set the ASN parameter, ASN 65515 is assigned. Creating a gateway can take a while (45 minutes or more to complete).
+Create the virtual network gateway for TestVNet1. BGP requires a Route-Based VPN gateway, and also an additional parameter *-Asn* to set the ASN (AS Number) for TestVNet1. Make sure to specify the *-Asn* parameter. If you don't set the -Asn parameter, ASN 65515 (which does not work for this configuration) is assigned by default. Creating a gateway can take a while (45 minutes or more to complete).
 
 ```azurepowershell-interactive
 New-AzVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Location $Location1 -IpConfigurations $gwipconf1 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1 -Asn $VNet1ASN

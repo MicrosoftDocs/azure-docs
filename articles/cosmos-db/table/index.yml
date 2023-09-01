@@ -23,7 +23,7 @@ landingContent:
         links:
           - text: What is Azure Cosmos DB for Table?
             url: introduction.md
-          - text: text
+          - text: FAQ
             url: table-api-faq.yml
       - linkListType: concept
         links:

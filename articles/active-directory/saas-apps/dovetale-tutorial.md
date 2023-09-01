@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Dovetale | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Dovetale'
 description: Learn how to configure single sign-on between Azure Active Directory and Dovetale.
 services: active-directory
 author: jeevansd
@@ -160,6 +160,4 @@ When you click the Dovetale tile in the Access Panel, you should be automaticall
 
 - [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
-
-- [Try Dovetale with Azure AD](https://aad.portal.azure.com/)
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)

@@ -80,6 +80,8 @@ items:
         href: create-custom-ip-address-prefix-powershell.md
       - name: CLI (IPv4)
         href: create-custom-ip-address-prefix-cli.md
+      - name: Portal (IPv6)
+        href: create-custom-ip-address-prefix-ipv6-portal.md   
       - name: PowerShell (IPv6)
         href: create-custom-ip-address-prefix-ipv6-powershell.md
       - name: CLI (IPv6)
@@ -120,6 +122,8 @@ items:
         href: associate-public-ip-address-vm.md
       - name: Dissociate public IP address from a VM
         href: remove-public-ip-address-vm.md
+      - name: Upgrade a basic public IP address on a VM
+        href: public-ip-upgrade-vm.md
       - name: Add dual-stack network to an existing VM
         items:
         - name: Portal

@@ -36,6 +36,11 @@ The following table lists the supported configurable cryptographic algorithms an
 
 [!INCLUDE [Important requirements table](../../includes/vpn-gateway-ipsec-ike-requirements-include.md)]
 
+> [!NOTE]
+> IKEv2 Integrity is used for both Integrity and PRF(pseudo-random function). 
+> If IKEv2 Encryption  algorithm specified is GCM*, the value passed in IKEv2 Integrity is used for PRF only and implicitly we set IKEv2 Integrity to GCM*. In all other cases, the value passed in IKEv2 Integrity is used for both IKEv2 Integrity and PRF.
+>
+
 ### Diffie-Hellman groups
 
 The following table lists the corresponding Diffie-Hellman groups supported by the custom policy:

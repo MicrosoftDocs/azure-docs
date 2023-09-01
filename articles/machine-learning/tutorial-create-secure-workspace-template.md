@@ -1,18 +1,19 @@
 ---
-title: Use a template to create a secure workspace
+title: "Use a template to create a secure workspace"
 titleSuffix: Azure Machine Learning
 description: Use a template to create an Azure Machine Learning workspace and required Azure services inside a secure virtual network.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
-ms.custom: ignite-2022
+ms.custom: ignite-2022, build-2023
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 12/02/2021
+ms.date: 06/05/2023
 ms.topic: tutorial
+monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
-# How to create a secure workspace by using template
+# Tutorial: How to create a secure workspace by using template
 
 Templates provide a convenient way to create reproducible service deployments. The template defines what will be created, with some information provided by you when you use the template. For example, specifying a unique name for the Azure Machine Learning workspace.
 
@@ -29,6 +30,8 @@ In this tutorial, you learn how to use a [Microsoft Bicep](../azure-resource-man
     * Azure Bastion host
     * Azure Machine Learning Virtual Machine (Data Science Virtual Machine)
     * The __Bicep__ template also creates an Azure Kubernetes Service cluster, and a separate resource group for it.
+
+[!INCLUDE [managed-vnet-note](includes/managed-vnet-note.md)]
 
 ## Prerequisites
 
@@ -120,7 +123,7 @@ The template consists of multiple files. The following table describes what each
 | [compute.tf](https://github.com/Azure/terraform/blob/master/quickstart/201-machine-learning-moderately-secure/compute.tf) | Defines an Azure Machine Learning compute instance and cluster. |
 
 > [!TIP]
-> The [Terraform Azure provider](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs) supports additional arguments that are not used in this tutorial. For example, the [environment](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs#environment) argument allows you to target cloud regions such as Azure Government and Azure China 21ViaNet.
+> The [Terraform Azure provider](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs) supports additional arguments that are not used in this tutorial. For example, the [environment](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs#environment) argument allows you to target cloud regions such as Azure Government and Microsoft Azure operated by 21Vianet.
 
 ---
 
@@ -250,8 +253,10 @@ When using the Terraform template, the jump box name is passed using the `dsvm_n
 > 
 > * [Create/manage VMs (Linux)](../virtual-machines/linux/tutorial-manage-vm.md).
 > * [Create/manage VMs (Windows)](../virtual-machines/windows/tutorial-manage-vm.md).
-> * [Create/manage compute instance](how-to-create-manage-compute-instance.md).
+> * [Create compute instance](how-to-create-compute-instance.md).
 
+:::moniker range="azureml-api-2"
 To continue learning how to use the secured workspace from the DSVM, see [Tutorial: Azure Machine Learning in a day](tutorial-azure-ml-in-a-day.md).
+:::moniker-end
 
 To learn more about common secure workspace configurations and input/output requirements, see [Azure Machine Learning secure workspace traffic flow](concept-secure-network-traffic-flow.md).

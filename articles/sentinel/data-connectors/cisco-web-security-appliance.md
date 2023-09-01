@@ -17,7 +17,7 @@ ms.author: cwatson
 | Connector attribute | Description |
 | --- | --- |
 | **Log Analytics table(s)** | Syslog (CiscoWSAEvent)<br/> |
-| **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
+| **Data collection rules support** | [Workspace transform DCR](../../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com) |
 
 ## Query samples

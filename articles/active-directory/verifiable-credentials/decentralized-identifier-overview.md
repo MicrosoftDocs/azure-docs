@@ -53,7 +53,7 @@ Microsoft’s verifiable credential solution uses decentralized credentials (DID
 
 ## What are Verifiable Credentials?
 
-We use IDs in our daily lives. We have drivers licenses that we use as evidence of our ability to operate a car. Universities issue diplomas that prove we attained a level of education. We use passports to prove who we are to authorities as we arrive to other countries. The data model describes how we could handle these types of scenarios when working over the internet but in a secure manner that respects users' privacy. You can get additional information in The [Verifiable Credentials Data Model 1.0](https://www.w3.org/TR/vc-data-model/).
+We use IDs in our daily lives. We have drivers licenses that we use as evidence of our ability to operate a car. Universities issue diplomas that prove we attained a level of education. We use passports to prove who we are to authorities as we arrive to other countries/regions. The data model describes how we could handle these types of scenarios when working over the internet but in a secure manner that respects users' privacy. You can get additional information in The [Verifiable Credentials Data Model 1.0](https://www.w3.org/TR/vc-data-model/).
 
 In short, verifiable credentials are data objects consisting of claims made by the issuer attesting information about a subject. These claims are identified by schema and include the DID issuer and subject. The issuer's DID creates a digital signature as proof that they attest to this information.
 

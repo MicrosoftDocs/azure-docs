@@ -6,7 +6,7 @@ author: OwenRichards1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: quickstart
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 04/11/2019
 ms.author: owenrichards
@@ -22,6 +22,8 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 
 ## Prerequisites
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Node.js](https://nodejs.org/en/download/)
 * [Visual Studio Code](https://code.visualstudio.com/download) (to edit project files)
@@ -32,7 +34,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 >
 > ### Option 1 (Express): Register and auto configure your app and then download your code sample
 >
-> 1. Go to the <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs" target="_blank">Azure portal - App registrations</a> quickstart experience.
+> 1. Sign in to the <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs" target="_blank">Azure portal - App registrations</a> quickstart experience.
 > 1. Enter a name for your application.
 > 1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
 > 1. Select **Register**.
@@ -163,7 +165,7 @@ After the browser loads the application, select **Sign In**. The first time that
 
 ### How the sample works
 
-![How the sample JavaScript SPA works: 1. The SPA initiates sign in. 2. The SPA acquires an ID token from the Microsoft identity platform. 3. The SPA calls acquire token. 4. The Microsoft identity platform returns an Access token to the SPA. 5. The SPA makes and HTTP GET request with the Acess Token to the Microsoft Graph API. 6. The Graph API returns an HTTP response to the SPA.](media/quickstart-v2-javascript/javascriptspa-intro.svg)
+![How the sample JavaScript SPA works: 1. The SPA initiates sign in. 2. The SPA acquires an ID token from the Microsoft identity platform. 3. The SPA calls acquire token. 4. The Microsoft identity platform returns an Access token to the SPA. 5. The SPA makes and HTTP GET request with the Access Token to the Microsoft Graph API. 6. The Graph API returns an HTTP response to the SPA.](media/quickstart-v2-javascript/javascriptspa-intro.svg)
 
 ### msal.js
 

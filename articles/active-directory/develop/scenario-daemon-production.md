@@ -29,9 +29,9 @@ If you're an ISV creating a daemon application that can run in several tenants, 
 - Provisions a service principal for the application.
 - Grants consent to the application.
 
-You'll need to explain to your customers how to perform these operations. For more info, see [Requesting consent for an entire tenant](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant).
+You'll need to explain to your customers how to perform these operations. For more info, see [Requesting consent for an entire tenant](./permissions-consent-overview.md#requesting-consent-for-an-entire-tenant).
 
-[!INCLUDE [Common steps to move to production](../../../includes/active-directory-develop-scenarios-production.md)]
+[!INCLUDE [Pre-requisites](./includes/scenarios/scenarios-production.md)]
 
 ## Code samples
 

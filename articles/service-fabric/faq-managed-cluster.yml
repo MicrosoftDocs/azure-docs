@@ -96,7 +96,18 @@ sections:
           Can I select between automatic and manual upgrades for my cluster runtime?
         answer: |
           Yes, you can select between automatic and manual upgrades. For more information, see [cluster upgrades](./how-to-managed-cluster-upgrades.md).
+
+      - question: |
+          Can I set up maintenance control for my cluster?
+        answer: |
+          Yes, you can enable [maintenance control](./how-to-managed-cluster-maintenance-control.md)
+
+      - question: |
+          Why do I get 'Your connection isn't private' when connecting to Service Fabric Explorer (SFX) on a managed cluster?
+        answer: |
+          Connecting to a Service Fabric Explorer (SFX) endpoint on a managed cluster will result in a certificate error 'NET::ERR_CERT_AUTHORITY_INVALID' regardless of certificate being used or cluster configuration. This is because the cluster nodes are using the managed 'cluster' certificate when binding FabricGateway (19000) and FabricHttpGateway (19080) TCP ports and is by design.
           
+
   - name: Applications
     questions:
       - question: |

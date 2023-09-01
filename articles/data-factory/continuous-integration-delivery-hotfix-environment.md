@@ -8,7 +8,7 @@ ms.author: abnarain
 ms.reviewer: jburchel
 ms.topic: conceptual
 ms.date: 01/11/2023
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ---
 
 # Using a hotfix production environment

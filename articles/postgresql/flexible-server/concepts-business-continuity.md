@@ -19,7 +19,7 @@ ms.date: 11/30/2021
 - Earthquake causes a power outage and temporary disables a data center or an availability zone.
 - Database patching required to fix a bug or security issue.
 
-Flexible server provides features that protect data and mitigates downtime for your mission critical databases in the event of planned and unplanned downtime events. Built on top of the Azure infrastructure that already offers robust resiliency and availability, flexible server has business continuity features that provide another fault-protection, address recovery time requirements, and reduce data loss exposure. As you architect your applications, you should consider the downtime tolerance - which is the recovery time objective (RTO) and data loss exposure - which is the recovery point objective (RPO). For example, your business-critical database requires  stricter uptime requirements compared to a test database.
+The flexible server provides features that protect data and mitigates downtime for your mission-critical databases during planned and unplanned downtime events. Built on top of the Azure infrastructure that offers robust resiliency and availability, the flexible server has business continuity features that provide another fault-protection, address recovery time requirements, and reduce data loss exposure. As you architect your applications, you should consider the downtime tolerance - the recovery time objective (RTO), and data loss exposure - the recovery point objective (RPO). For example, your business-critical database requires stricter uptime than a test database.
 
 The table below illustrates the features that Flexible server offers.
 
@@ -32,6 +32,18 @@ The table below illustrates the features that Flexible server offers.
 | **Zone redundant backup** | Flexible server backups are automatically and securely stored in a zone redundant storage within a region if the region supports AZs. During a zone-level failure where your server is provisioned, and if your server isn't configured with zone redundancy, you can still restore your database using the latest restore point in a different zone. For more information, see [Concepts - Backup and Restore](./concepts-backup-restore.md).| Only applicable in regions where multiple zones are available.|
 | **Geo redundant backup** | Flexible server backups are copied to a remote region. that helps with disaster recovery situation in the event of the primary server region is down. | This feature is currently enabled in selected regions. It takes a longer RTO and a higher RPO depending on the size of the data to restore and amount of recovery to perform.  |
 | **Read Replica** | Cross Region read replicas can be deployed to protect your databases from region-level failures. Read replicas are updated asynchronously using PostgreSQL's physical replication technology, and may lag the primary. For more information, see [Concepts - Read Replicas](./concepts-read-replicas.md).| Supported in general purpose and memory optimized compute tiers. |
+
+
+The following table compares RTO and RPO in a **typical workload** scenario:
+
+| **Capability** | **Burstable** | **General Purpose** | **Memory optimized** |
+| :------------: | :-------: | :-----------------: | :------------------: |
+| Point in Time Restore from backup | Any restore point within the retention period <br/> RTO - Varies <br/>RPO < 15 min| Any restore point within the retention period <br/> RTO - Varies <br/>RPO < 15 min | Any restore point within the retention period <br/> RTO - Varies <br/>RPO < 15 min |
+| Geo-restore from geo-replicated backups | RTO - Varies <br/>RPO < 1 h  | RTO - Varies <br/>RPO < 1 h | RTO - Varies <br/>RPO < 1 h |
+| Read replicas | RTO - Minutes* <br/>RPO < 5 min* | RTO - Minutes* <br/>RPO < 5 min*| RTO - Minutes* <br/>RPO < 5 min*|
+
+\* RTO and RPO **can be much higher** in some cases depending on various factors including latency between sites, the amount of data to be transmitted, and importantly primary database write workload. 
+
 
 ## Planned downtime events
 
@@ -55,20 +67,29 @@ Though we continuously strive to provide high availability, there are times when
 
 In the event of the Azure Database for PostgreSQL - Flexible Server service outage, you'll be able to see additional details related to the outage in the following places.
 
- * **Azure Portal Banner**
+* **Azure portal banner**
 If your subscription is identified to be impacted, there will be an outage alert of a Service Issue in your Azure portal **Notifications**.
- :::image type="content" source="./media/business-continuity/notification-service-issue-example.png" alt-text=" Screenshot showing notifications in Azure Portal.":::
+:::image type="content" source="./media/business-continuity/notification-service-issue-example.png" alt-text=" Screenshot showing notifications in Azure portal.":::
 * **Help + support** or **Support + troubleshooting**
 When you create support ticket from **Help + support** or **Support + troubleshooting**, there will be information about any issues impacting your resources. Select View outage details for more information and a summary of impact. There will also be an alert in the New support request page.
-:::image type="content" source="./media/business-continuity/help-support-service-health-notification.png" alt-text=" Screenshot showing Help Support notifications in Azure Portal.":::
+:::image type="content" source="./media/business-continuity/help-support-service-health-notification.png" alt-text=" Screenshot showing Help Support notifications in Azure portal.":::
 *  **Service Help**
 The **Service Health** page in the Azure portal contains information about Azure data center status globally. Search for "service health" in the search bar in the Azure portal, then view Service issues in the Active events category. You can also view the health of individual resources in the **Resource health** page of any resource under the Help menu. A sample screenshot of the Service Health page follows, with information about an active service issue in Southeast Asia.
 :::image type="content" source="./media/business-continuity/service-health-service-issues-example-map.png" alt-text=" Screenshot showing service outage in Service Health portal.":::
+
+*  **Email notification** 
+If you've set up alerts, an email notification will arrive when a service outage impacts your subscription and resource. The emails arrive from "azure-noreply@microsoft.com". The body of the email begins with "The activity log alert ... was triggered by a service issue for the Azure subscription...". For more information on service health alerts, see [Receive activity log alerts on Azure service notifications using Azure portal](/azure/service-health/alerts-activity-log-service-notifications-portal).
+
+
+> [!IMPORTANT]
+> As the name implies, temporary tablespaces in PostgreSQL are used for temporary objects, as well as other internal database operations, such as sorting. Therefore we do not recommend creating user schema objects in temporary tablespace, as we dont guarantee durability of such objects after Server restarts, HA failovers, etc.
+
+
 ### Unplanned downtime: failure scenarios and service recovery
 
 Below are some unplanned failure scenarios and the recovery process. 
 
-| **Scenario** | **Recovery process** <br> [Servers configured without zone-redundant HA]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | **Recovery process** <br> [Servers configured with Zone-redundant HA] |
+| **Scenario** | **Recovery process** <br> [Servers configured without zone-redundant HA]| **Recovery process** <br> [Servers configured with Zone-redundant HA] |
 | ---------- |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| ------- |
 | <B>Database server failure | If the database server is down, Azure will attempt to restart the database server. If that fails, the database server will be restarted on another physical node.  <br /> <br /> The recovery time (RTO) is dependent on various factors including the activity at the time of fault such as large transaction and the volume of recovery to be performed during the database server startup process. <br /> <br /> Applications using the PostgreSQL databases need to be built in a way that they detect and retry dropped connections and failed transactions.                                                                                                                                                                  | If the database server failure is detected, the server is failed over to the standby server, thus reducing downtime. For more information, see [HA concepts page](./concepts-high-availability.md). RTO is expected to be 60-120s, with zero data loss. |
 | <B>Storage failure | Applications don't see any impact for any storage-related issues such as a disk failure or a physical block corruption. As the data is stored in three copies, the copy of the data is served by the surviving storage. The corrupted data block is automatically repaired and a new copy of the data is automatically created.                                                                                                                                                                                                                                                                                                                                                                                                   | For any rare and non-recoverable errors such as the entire storage is inaccessible, the flexible server is failed over to the standby replica to reduce the downtime. For more information, see [HA concepts page](./concepts-high-availability.md). |
@@ -76,8 +97,16 @@ Below are some unplanned failure scenarios and the recovery process.
 | <b> Availability zone failure | To recover from a zone-level failure, you can perform point-in-time restore using the backup and choosing a custom restore point with the latest time to restore the latest data. A new flexible server will be deployed in another non-impacted zone. The time taken to restore depends on the previous backup and the volume of transaction logs to recover.                                                                                                                                                                                                                                                                                                                                                                     | Flexible server is automatically failed over to the standby server within 60-120s with zero data loss. For more information, see [HA concepts page](./concepts-high-availability.md). | 
 | <b> Region failure | If your server is configured with geo-redundant backup, you can perform geo-restore in the paired region. A new server will be provisioned and recovered to the last available data that was copied to this region. <br /> <br /> You can also use cross region read replicas. In the event of region failure you can perform disaster recovery operation by promoting your read replica to be a standalone read-writeable server. RPO is expected to be up to 5 minutes (data loss possible) except in the case of severe regional failure when the RPO can be close to the replication lag at the time of failure.                                                                                                               | Same process. |
 
+
+### Configure your database after recovery from regional failure
+
+* If you are using geo-restore or geo-replica to recover from an outage, you must make sure that the connectivity to the new server is properly configured so that the normal application function can be resumed. You can follow the [Post-restore tasks](concepts-backup-restore.md#geo-redundant-backup-and-restore).
+* If you've previously set up a diagnostic setting on the original server, make sure to do the same on the target server if necessary as explained in [Configure and Access Logs in Azure Database for PostgreSQL - Flexible Server](howto-configure-and-access-logs.md).
+* Setup telemetry alerts, you need to make sure your existing alert rule settings are updated to map to the new server. For more information about alert rules, see [Use the Azure portal to set up alerts on metrics for Azure Database for PostgreSQL - Flexible Server](howto-alert-on-metrics.md).
+
+
 > [!IMPORTANT]
-> Deleted servers **cannot** be restored. If you delete the server, all databases that belong to the server are also deleted and cannot be recovered. Use [Azure resource lock](../../azure-resource-manager/management/lock-resources.md) to help prevent accidental deletion of your server.
+> Deleted servers can be restored. If you delete the server, you can follow our guidance [Restore a dropped Azure Database for PostgreSQL Flexible server](how-to-restore-dropped-server.md) to recover. Use Azure resource lock to help prevent accidental deletion of your server.
 
 ## Next steps
 

@@ -1,8 +1,7 @@
 ---
 title: Language Support Policy
 description: App Service language runtime support policies 
-author: jeffmartinez
-
+author: jeffwmartinez
 ms.topic: article
 ms.date: 01/23/2023
 ms.author: jefmarti
@@ -26,13 +25,13 @@ App Service follows community support timelines for the lifecycle of the runtime
 ## Notifications
 End-of-life dates for runtime versions are determined independently by their respective stacks and are outside the control of App Service.  App Service will send reminder notifications to subscription owners for upcoming end-of-life runtime versions 12 months prior to the end-of-life date.
 
-Those who receive notifications include account administrators, service administrators, and co-administrators.  Contributors, readers, or other roles won't directly receive notifications, unless they opt-in to receive notification emails, using [Service Health Alerts](/azure/service-health/alerts-activity-log-service-notifications-portal).  
+Those who receive notifications include account administrators, service administrators, and co-administrators.  Contributors, readers, or other roles won't directly receive notifications, unless they opt-in to receive notification emails, using [Service Health Alerts](../service-health/alerts-activity-log-service-notifications-portal.md).  
 
 ## Language runtime version support timelines
 To learn more about specific language support policy timelines, visit the following resources:
 
-- [ASP.NET](https://aka.ms/aspnetrelease)
-- [.NET](https://aka.ms/dotnetrelease)
+- [.NET and ASP.NET Core](https://aka.ms/dotnetrelease)
+- [.NET Framework and ASP.NET](https://aka.ms/aspnetrelease)
 - [Node](https://aka.ms/noderelease)
 - [Java](https://aka.ms/javarelease)
 - [Python](https://aka.ms/pythonrelease)
@@ -48,5 +47,4 @@ To learn more about how to update your App Service application language versions
 - [Node](https://github.com/Azure/app-service-linux-docs/blob/master/Runtime_Support/node_support.md#node-on-linux-app-service)
 - [Java](https://github.com/Azure/app-service-linux-docs/blob/master/Runtime_Support/java_support.md#java-on-app-service)
 - [Python](https://github.com/Azure/app-service-linux-docs/blob/master/Runtime_Support/python_support.md#how-to-update-your-app-to-target-a-different-version-of-python)
-- [PHP](https://github.com/Azure/app-service-linux-docs/blob/master/Runtime_Support/php_support.md#how-to-update-your-app-to-target-a-different-version-of-php)    
-
+- [PHP](https://github.com/Azure/app-service-linux-docs/blob/master/Runtime_Support/php_support.md#how-to-update-your-app-to-target-a-different-version-of-php)

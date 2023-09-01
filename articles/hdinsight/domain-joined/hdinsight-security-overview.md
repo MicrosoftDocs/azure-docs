@@ -4,7 +4,7 @@ description: Learn the various methods to ensure enterprise security in Azure HD
 ms.service: hdinsight
 ms.topic: overview
 ms.custom: seoapr2020, ignite-2022
-ms.date: 04/14/2022
+ms.date: 05/24/2023
 #Customer intent: As a user of Azure HDInsight, I want to learn the means that Azure HDInsight offers to ensure security for the enterprise.
 ---
 

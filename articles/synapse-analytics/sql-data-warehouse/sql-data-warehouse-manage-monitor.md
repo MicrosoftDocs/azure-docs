@@ -92,10 +92,10 @@ ORDER BY step_index;
 
 When a DSQL plan is taking longer than expected, the cause can be a complex plan with many DSQL steps or just one step taking a long time.  If the plan is many steps with several move operations, consider optimizing your table distributions to reduce data movement. The [Table distribution](sql-data-warehouse-tables-distribute.md) article explains why data must be moved to solve a query. The article also explains some distribution strategies to minimize data movement.
 
-To investigate further details about a single step, the `operation_type` column of the long-running query step and note the **Step Index**:
+To investigate further details about a single step, inspect the `operation_type` column of the long-running query step and note the **Step Index**:
 
-* Proceed with Step 3 for **SQL operations**: OnOperation, RemoteOperation, ReturnOperation.
-* Proceed with Step 4 for **Data Movement operations**: ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation.
+* For **SQL operations** (OnOperation, RemoteOperation, ReturnOperation), proceed with [STEP 3](#step-3-investigate-sql-on-the-distributed-databases)
+* For **Data Movement operations** (ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation), proceed with [STEP 4](#step-4-investigate-data-movement-on-the-distributed-databases).
 
 ### STEP 3: Investigate SQL on the distributed databases
 

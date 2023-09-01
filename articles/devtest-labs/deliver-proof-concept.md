@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 03/22/2022
+ms.custom: UpdateFrequency2
 ---
 
 # Deliver a proof of concept for Azure DevTest Labs enterprise deployment

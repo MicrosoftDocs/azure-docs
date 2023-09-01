@@ -3,7 +3,7 @@ title: "Pulse Connect Secure connector for Microsoft Sentinel"
 description: "Learn how to install the connector Pulse Connect Secure to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 02/23/2023
+ms.date: 03/25/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -16,8 +16,6 @@ The [Pulse Connect Secure](https://www.pulsesecure.net/products/pulse-connect-se
 
 | Connector attribute | Description |
 | --- | --- |
-| **Kusto function alias** | PulseConnectSecure |
-| **Kusto function url** | https://aka.ms/sentinelgithubparserspulsesecurevpn |
 | **Log Analytics table(s)** | Syslog (PulseConnectSecure)<br/> |
 | **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com) |
@@ -58,7 +56,8 @@ To integrate with Pulse Connect Secure make sure you have:
 ## Vendor installation instructions
 
 
->This data connector depends on a parser based on a Kusto Function to work as expected. [Follow the steps](https://aka.ms/sentinelgithubparserspulsesecurevpn) to use this Kusto functions alias, **PulseConnectSecure**
+> [!NOTE]
+   >  This data connector depends on a parser based on a Kusto Function to work as expected which is deployed as part of the solution. To view the function code in Log Analytics, open Log Analytics/Microsoft Sentinel Logs blade, click Functions and search for the alias Pulse Connect Secure and load the function code or click [here](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Pulse%20Connect%20Secure/Parsers/PulseConnectSecure.txt), on the second line of the query, enter the hostname(s) of your Pulse Connect Secure device(s) and any other unique identifiers for the logstream. The function usually takes 10-15 minutes to activate after solution installation/update.
 
 1. Install and onboard the agent for Linux
 
@@ -77,7 +76,7 @@ Configure the facilities you want to collect and their severities.
 
 3. Configure and connect the Pulse Connect Secure
 
-[Follow the instructions](https://docs.pulsesecure.net/WebHelp/Content/PCS/PCS_AdminGuide_8.2/Configuring Syslog.htm) to enable syslog streaming of Pulse Connect Secure logs. Use the IP address or hostname for the Linux device with the Linux agent installed as the Destination IP address.
+[Follow the instructions](https://docs.pulsesecure.net/WebHelp/Content/PCS/PCS_AdminGuide_8.2/Configuring%20Syslog.htm) to enable syslog streaming of Pulse Connect Secure logs. Use the IP address or hostname for the Linux device with the Linux agent installed as the Destination IP address.
 
 
 

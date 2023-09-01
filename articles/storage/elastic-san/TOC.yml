@@ -14,6 +14,8 @@ items:
     href: elastic-san-planning.md
   - name: Scale targets
     href: elastic-san-scale-targets.md
+  - name: Performance
+    href: elastic-san-performance.md
 - name: How to
   items:
   - name: Deploy an Elastic SAN
@@ -22,6 +24,8 @@ items:
     href: elastic-san-connect-windows.md
   - name: Connect to an Elastic SAN volume - Linux
     href: elastic-san-connect-linux.md
+  - name: Connect to an Elastic SAN volume - AKS
+    href: elastic-san-connect-aks.md
   - name: Expand an Elastic SAN
     href: elastic-san-expand.md
   - name: Configure virtual networks

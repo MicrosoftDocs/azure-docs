@@ -3,7 +3,7 @@ title: Create Bicep files - Visual Studio Code
 description: Use Visual Studio Code and the Bicep extension to Bicep files for deploy Azure resources
 ms.date: 11/03/2022
 ms.topic: quickstart
-ms.custom: devx-track-azurepowershell, mode-ui
+ms.custom: mode-ui, devx-track-bicep
 #Customer intent: As a developer new to Azure deployment, I want to learn how to use Visual Studio Code to create and edit Bicep files, so I can use them to deploy Azure resources.
 ---
 

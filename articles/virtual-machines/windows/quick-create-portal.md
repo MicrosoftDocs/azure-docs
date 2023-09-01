@@ -21,14 +21,14 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at https://portal.azure.com.
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create virtual machine
 
 1. Enter *virtual machines* in the search.
 1. Under **Services**, select **Virtual machines**.
 1. In the **Virtual machines** page, select **Create** and then **Azure virtual machine**. The **Create a virtual machine** page opens.
-1. Under **Instance details**, enter *myVM* for the **Virtual machine name** and choose *Windows Server 2019 Datacenter - Gen 2* for the **Image**. Leave the other defaults.
+1. Under **Instance details**, enter *myVM* for the **Virtual machine name** and choose *Windows Server 2022 Datacenter - Gen 2* for the **Image**. Leave the other defaults.
 
     :::image type="content" source="media/quick-create-portal/instance-details.png" alt-text="Screenshot of the Instance details section where you provide a name for the virtual machine and select its region, image and size.":::
 

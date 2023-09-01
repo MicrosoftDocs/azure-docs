@@ -1,5 +1,5 @@
 ---
-title: Configure Azure Active Directory B2C with eID-Me
+title: Configure Azure Active Directory B2C with Bluink eID-Me for identity verification
 titleSuffix: Azure AD B2C
 description: Learn how to integrate Azure AD B2C authentication with eID-Me for identity verification 
 services: active-directory-b2c
@@ -8,239 +8,185 @@ manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 1/30/2022
+ms.date: 03/10/2023
 ms.author: gasinh
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
 
-# Configure eID-Me with Azure Active Directory B2C for identity verification
+# Configure Azure Active Directory B2C with Bluink eID-Me for identity verification
 
-[!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
+## Before you begin
 
+Azure Active Directory B2C (Azure AD B2C) has two methods to define users interaction with applications: predefined user flows, or configurable custom policies. 
+Custom policies address complex scenarios. For most scenarios, we recommend user flows. See, [User flows and custom policies overview](./user-flow-overview.md)
 
-In this sample article, we provide guidance on how to integrate Azure Active Directory B2C (Azure AD B2C) authentication with [eID-Me](https://bluink.ca). eID-Me is an identity verification and decentralized digital identity solution for Canadian citizens. With eID-Me, Azure AD B2C tenants can strongly verify the identity of their users, obtain verified identity claims during sign up and sign in, and support multifactor authentication (MFA) and password-free sign-in using a secure digital identity. It enables organizations to meet Identity Assurance Level (IAL) 2 and Know Your Customer (KYC) requirements. This solution provides users secure sign-up and sign in experience while reducing fraud.
+##  Integrate Azure AD B2C authentication with eID-Me
 
+Learn to integrate Azure AD B2C authentication with Bluink eID-Me, an identity verification and decentralized digital identity solution for Canadian citizens. With eID-Me, Azure AD B2C tenants verify user identity, obtain verified sign-up and sign-in identity claims. Integration supports multi-factor authentication and passwordless sign-in with a secure digital identity. Organizations can meet Identity Assurance Level (IAL) 2 and Know Your Customer (KYC) requirements. 
 
+To learn more, go to bluink.ca: [Bluink Ltd](https://bluink.ca)
 
 ## Prerequisites
 
-To get started, you'll need:
+To get started, you need:
 
-- [A Relying Party account with eID-Me](https://bluink.ca/eid-me/solutions/id-verification#contact-form).
+* A Relying Party account with eID-Me
+  * Go to bluink.ca to [learn more](https://bluink.ca/eid-me/solutions/id-verification#contact-form) and request a demo
+* An Azure subscription
+  * If you don't have one, get an [Azure free account](https://azure.microsoft.com/free)
+* An Azure AD B2C tenant linked to the Azure subscription
+  * See, [Tutorial: Create an Azure AD B2C tenant](tutorial-create-tenant.md)
+* A trial or production version of the eID-Me Digital ID App
+  * Go to bluink.ca to [Download the eID-Me Digital ID App](https://bluink.ca/eid-me/download) 
 
-- An Azure subscription. If you don't have one, get a [free
-account](https://azure.microsoft.com/free).
-
-- An [Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
-
-- A [trial or production version](https://bluink.ca/eid-me/download) of eID-Me smartphone apps for users.
-
-::: zone pivot="b2c-custom-policy"
-- Complete the steps in the article [get started with custom policies in Azure Active Directory B2C](./tutorial-create-user-flows.md?pivots=b2c-custom-policy).
-
-::: zone-end
+See also, [Tutorial: Create user flows and custom policies in Azure AD B2C](./tutorial-create-user-flows.md?pivots=b2c-custom-policy).
 
 ## Scenario description
 
 eID-Me integrates with Azure AD B2C as an OpenID Connect (OIDC) identity provider. The following components comprise the eID-Me solution with Azure AD B2C:
 
+* **Azure AD B2C tenant** - configured as a relying party in eID-Me enables eID-Me to trust an Azure AD B2C tenant for sign-up and sign-in
+* **Azure AD B2C tenant application** - the assumption is tenants need an Azure AD B2C tenant application
+  * The application receives identity claims received by Azure AD B2C during transaction
+* **eID-Me smartphone apps** - Azure AD B2C tenant users need the app for iOS or Android
+* **Issued eID-Me digital identities** - from eID-Me identity proofing 
+  * Users are issued a digital identity to the digital wallet in the app. Valid identity documents are required.
 
-- **An Azure AD B2C tenant**: Your Azure AD B2C tenant need be configured as a Relying Party in eID-Me. This allows the eID-Me identity provider to trust your Azure AD B2C tenant for sign up and sign in.
+The eID-Me apps authenticate users during transactions. The X509 public key authentication provides passwordless MFA, using a private signing key in the eID-Me digital identity.
 
+The following diagram illustrates eID-Me identity proofing, which occurs outside Azure AD B2C flows.
 
-- **An Azure AD B2C tenant application**: Although not strictly required, it's assumed that tenants need to have an Azure AD B2C tenant application. The application can receive identity claims received by Azure AD B2C during an eID-Me transaction.
-
-
-- **eID-Me smartphone apps**: Users of your Azure AD B2C tenant need to have the eID-Me smartphone app for iOS or Android.
-
-
-- **Issued eID-Me digital identities**: Before using eID-Me, users need to successfully go through the eID-Me identity proofing process. They need to have been issued a digital identity to the digital wallet within the app. This process is done from home and usually takes minutes provided the users have valid identity documents.
-
-
-The eID-Me apps also provide strong authentication of the user during any transaction. X509 public key authentication using a private signing key contained within the eID-Me digital identity provides passwordless MFA.
-
-The following diagram shows the identity proofing process, which occurs outside of Azure AD B2C flows.
-
-![Screenshot shows the architecture of an identity proofing process flow in eID-Me](./media/partner-eid-me/partner-eid-me-identity-proofing.png)
-
-| Steps | Description                                                                                                  |
-| :---- | :----------------------------------------------------------------------------------------------------------- |
-| 1.    | User uploads a selfie capture into the eID-Me smartphone application.                                        |
-| 2.    | User scans and uploads a government issued identification document such as Passport or Driver license into the eID-Me smartphone application. |
-| 3.    | The eID-Me smartphone application submits this data to eID-Me identity service for verification.  |                                          
-| 4.    | A digital identity is issued to the user and saved in the application.                    |
-
-The following architecture diagram shows the implementation.
-
-![Screenshot shows the architecture of an Azure AD B2C integration with eID-Me](./media/partner-eid-me/partner-eid-me-architecture-diagram.png)
-
-| Steps | Description                                                                                                                                         |
-| :---- | :-------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1.    | User opens Azure AD B2C's sign in page, and then signs in or signs up by entering their username.                                                   |
-| 2.    | User is forwarded to Azure AD B2C’s combined sign-in and sign-up policy.                                                                           |
-| 3.    | Azure AD B2C redirects the user to the eID-Me identity router using the OIDC authorization code flow.                                               |
-| 4.    | The eID-Me router sends a push notification to the user’s mobile app including all context details of the authentication and authorization request. |
-| 5.    | The user reviews the authentication challenge; if accepted the user is prompted for identity claims, proving the user’s identity.                   |
-| 6.    | The challenge response is returned to the eID-Me router.                                                                                            |
-| 7.    | The eID-Me router then replies to Azure AD B2C with the authentication result.                                                                      |
-| 8.    | Response from Azure AD B2C is sent as an ID token to the application.                                                                               |
-| 9.    | Based on the authentication result, the user is granted or denied access.                                                                                  |
+   ![Diagram of the identity proofing flow in eID-Me.](./media/partner-eid-me/partner-eid-me-identity-proofing.png)
 
 
-## Onboard with eID-Me
+1. User uploads a selfie to the eID-Me smartphone application.
+2. User scans and uploads a government issued identification document, such as passport or driver license, to the eID-Me smartphone application.
+3. eID-Me submits data to the identity service for verification.
+4. User is issued a digital identity, which is saved in the application.
 
-[Contact eID-Me](https://bluink.ca/contact) and configure a test or production environment to set up Azure AD B2C tenants as a Relying Party. Tenants must determine what identity claims they'll need from their consumers as they sign up using eID-Me.
+The following diagram illustrates Azure AD B2C integration with eID-Me.
 
-## Step 1: Configure an application in eID-Me
+   ![Diagram of Azure AD B2C integration with eID-Me.](./media/partner-eid-me/partner-eid-me-architecture-diagram.png)
 
-To configure your tenant application as a Relying Party in eID-Me the following information should be supplied to eID-Me:
 
-| Property                           | Description                                                                                                                                                                                                                                                                                                                                                                                                      |
-| :--------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Name                               | Azure AD B2C/your desired application name                                                                                                                                                                                                                                                                                                                                                                       |
-| Domain                             | name.onmicrosoft.com                                                                                                                                                                                                                                                                                                                                                                                             |
-| Redirect URIs                      | https://jwt.ms                                                                                                                                                                                                                                                                                                                                                                       |
-| Redirect URLs                      | `https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp`<br>For Example: `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`<br>If you use a custom domain, enter https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp.<br> Replace your-domain-name with your custom domain, and your-tenant-name with the name of your tenant. |
-| URL for application home page      | Will be displayed to the end user                                                                                                                                                                                                                                                                                                                                                                                |
-| URL for application privacy policy | Will be displayed to the end user                                                                                                                                                                                                                                                                                                                                                                                |
+1. User opens the Azure AD B2C sign-in page and signs in or signs up with a username.
+2. User forwarded to Azure AD B2C sign-in and sign-up policy.
+3. Azure AD B2C redirects the user to the eID-Me identity router using the OIDC authorization code flow.
+4. The router sends push notification to the user mobile app with authentication and authorization request details.
+5. The user authentication challenge appears, then a prompt for identity claims appears.
+6. The challenge response goes to the router.
+7. The router replies to Azure AD B2C with an authentication result.
+8. Azure AD B2C ID token response goes to the application.
+9. User is granted or denied access.
 
-eID-Me will provide a Client ID and a Client Secret once the Relying Party has been configured with eID-Me. 
+## Get started with eID-Me
+
+Go to the bluink.ca [Contact Us](https://bluink.ca/contact) page to request a demo with the goal of configuring a test or production environment to set up Azure AD B2C tenants as a relying party. Tenants determine identity claims needed from consumers that sign up with eID-Me.
+
+## Configure an application in eID-Me
+
+To configure your tenant application as an eID-ME relying party in eID-Me, supply the following information:
+
+| Property | Description|
+| ---- | --- |
+| Name | Azure AD B2C, or another application name |
+| Domain| name.onmicrosoft.com|
+| Redirect URIs| https://jwt.ms|
+| Redirect URLs| `https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp`<br>For Example: `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`<br>For a custom domain, enter https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp.|
+| Application home page URL| Appears to the end user|
+| Application privacy policy URL| Appears to the end user|
 
 >[!NOTE]
->You'll need Client ID and Client secret later to configure the Identity provider in Azure AD B2C.
+>When the relying party is configurede, ID-Me provides a Client ID and a Client Secret. Note the Client ID and Client Secret to configure the identity provider (IdP) in Azure AD B2C.
 
-::: zone pivot="b2c-user-flow"
+## Add a new Identity provider in Azure AD B2C
 
-## Step 2: Add a new Identity provider in Azure AD B2C
+For the following instructions, use the directory with the Azure AD B2C tenant.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/#home) as the global administrator of your Azure AD B2C tenant.
+1. Sign in to the [Azure portal](https://portal.azure.com/#home) as Global Administrator of the Azure AD B2C tenant.
+2. In the top menu, select **Directory + subscription**.
+3. Select the directory with the tenant.
+4. In the top-left corner of the Azure portal, select **All services**.
+5. Search for and select **Azure AD B2C**.
+6. Navigate to **Dashboard** > **Azure Active Directory B2C** > **Identity providers**.
+7. Select **New OpenID Connect Provider**.
+8. Select **Add**.
 
-2. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your tenant.
+## Configure an identity provider
 
-3. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
+To configure an identity provider:
 
-4. Navigate to **Dashboard** > **Azure Active Directory B2C** > **Identity providers**.
+1. Select **Identity provider type** > **OpenID Connect**.
+2. In the identity provider form, for **Name**, enter **eID-Me Passwordless** or another name.
+3. For **Client ID**, enter the Client ID from eID-Me.
+4. For **Client Secret**, enter the Client Secret from eID-Me.
+5. For **Scope**, select **openid email profile**.
+6. For **Response type**, select **code**.
+7. For **Response mode**, select **form post**.
+8. Select **OK**.
+9. Select **Map this identity provider’s claims**.
+10. For **User ID**, use **sub**.
+11. For **Display name**, use **name**.
+12. For **Given name**, use **given_name**.
+13. For **Surname**, use **family_name**.
+14. For **Email**, use **email**.
+15. Select **Save**.
 
-5. Select **New OpenID Connect Provider**.
+## Configure multi-factor authentication
 
-6. Select **Add**.
+eID-Me is a multi-factor authenticator, therefore user-flow multi-factor authentication configuration isn't needed. 
 
-## Step 3: Configure an Identity provider
+## Create a user flow policy
 
-To configure an identity provider, follow these steps:
+For the following instructions, eID-Me appears as a new OIDC identity provider in B2C identity providers.  
 
-1. Select **Identity provider type** > **OpenID Connect**
-
-2. Fill out the form to set up the Identity provider:
-
-   | Property      | Value                                           |
-   | :------------ | :---------------------------------------------- |
-   | Name          | Enter eID-Me Passwordless/a name of your choice |
-   | Client ID     | Provided by eID-Me                              |
-   | Client Secret | Provided by eID-Me                              |
-   | Scope         | openid email profile                            |
-   | Response type | code                                            |
-   | Response mode | form post                                       |
-
-3. Select **OK**.
-
-4. Select **Map this identity provider’s claims**.
-
-5. Fill out the form to map the Identity provider:
-
-   | Property     | Value             |
-   | :----------- | :---------------- |
-   | User ID      | sub               |
-   | Display name | name              |
-   | Given name   | given_name        |
-   | Surname      | family_name       |
-   | Email        | email             |
-
-6. Select **Save** to complete the setup for your new OIDC Identity provider.
-
-## Step 4: Configure multi-factor authentication
-
-eID-Me is a decentralized digital identity with strong two-factor user authentication built in. Since eID-Me is already a multi-factor authenticator, you don't need to configure any multi-factor authentication settings in your user flows when using eID-Me. eID-Me offers a fast and simple user experience, which also eliminates the need for any additional passwords.
-
-## Step 5: Create a user flow policy
-
-You should now see eID-Me as a new OIDC Identity provider listed within your B2C identity providers.  
-
-1. In your Azure AD B2C tenant, under **Policies**, select **User flows**.  
-
-2. Select **New user flow**
-
+1. In the Azure AD B2C tenant, under **Policies**, select **User flows**.  
+2. Select **New user flow**.
 3. Select **Sign up and sign in** > **Version** > **Create**.
-
-4. Enter a **Name** for your policy.
-
-5. In the Identity providers section, select your newly created eID-Me Identity provider.  
-
-6. Select **None** for Local Accounts to disable email and password-based authentication.
-
-7. Select **Run user flow**
-
-8. In the form, enter the Replying URL, such as `https://jwt.ms`.
-
-9. The browser will be redirected to the eID-Me sign-in page. Enter the account name registered during User registration. The user will receive a push notification to their mobile device where the eID-Me application is installed; upon opening the notification, the user will be presented with an authentication challenge
-
-10. Once the authentication challenge is accepted, the browser will redirect the user to the replying URL.
-
-## Next steps
-
-For additional information, review the following articles:
-
-- [eID-Me and Azure AD B2C integration guide](https://bluink.ca/eid-me/azure-b2c-integration-guide)
-
-- [Custom policies in Azure AD B2C](./custom-policy-overview.md)
-
-- [Get started with custom policies in Azure AD B2C](./tutorial-create-user-flows.md?pivots=b2c-custom-policy)
-
-::: zone-end
-
-::: zone pivot="b2c-custom-policy"
+4. Enter a policy **Name**.
+5. In **Identity providers**, select the created eID-Me identity provider.  
+6. For **Local Accounts**, select **None**. The selection disables email and password authentication.
+7. Select **Run user flow**.
+8. Enter a **Replying URL**, such as `https://jwt.ms`.
+9. The browser  redirects to the eID-Me sign-in page. 
+10. Enter the account name from user registration. 
+11. The user receives push notification on the mobile device with eID-Me.
+12. An authentication challenge appears.
+13. The challenge is accepted and the browser redirects to the replying URL.
 
 >[!NOTE]
->In Azure AD B2C, [**custom policies**](./user-flow-overview.md) are designed primarily to address complex scenarios. For most scenarios, we recommend that you use built-in [**user flows**](./user-flow-overview.md).
+>Azure Active Directory B2C (Azure AD B2C) has two methods to define users interaction with applications: predefined user flows, or configurable custom policies. 
+Custom policies address complex scenarios. For most scenarios, we recommend user flows. See, [User flows and custom policies overview](./user-flow-overview.md)
 
-## Step 2: Create a policy key
+## Create a policy key
 
-Store the client secret that you previously recorded in your Azure AD B2C tenant.
+Store the Client Secret you recorded in your Azure AD B2C tenant. For the following instructions, use the directory with the Azure AD B2C tenant. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
+2. In the portal toolbar, select the **Directories + subscriptions**.
+3. On the **Portal settings, Directories + subscriptions** page, in the **Directory name** list, locate your Azure AD B2C directory.
+4. Select **Switch**.
+5. In the top-left corner of the Azure portal, select **All services**.
+6. Search for and select **Azure AD B2C**.
+7. On the Overview page, select **Identity Experience Framework**.
+8. Select **Policy Keys**.
+9. Select **Add**.
+10. For **Options**, choose **Manual**.
+11. Enter a **Name** for the policy key. For example, `eIDMeClientSecret`. The prefix `B2C_1A_` is added to the key name.
+12. In **Secret**, enter the Client Secret you noted.
+13. For **Key usage**, select **Signature**.
+14. Select **Create**.
 
-2. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+## Configure eID-Me as an Identity provider
 
-3. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+Define eID-Me as a claims provider to enable users to sign in with eID-Me. Azure AD B2C communicates with it, through an endpoint. The endpoint provides claims used by Azure AD B2C to verify user authentication with a digital ID on their device.
 
-4. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
-
-5. On the Overview page, select **Identity Experience Framework**.
-
-6. Select **Policy Keys** and then select **Add**.
-
-7. For **Options**, choose `Manual`.
-
-8. Enter a **Name** for the policy key. For example, `eIDMeClientSecret`. The prefix `B2C_1A_` is added automatically to the name of your key.
-
-9. In **Secret**, enter your client secret that you previously recorded.
-
-10. For **Key usage**, select `Signature`.
-
-11. Select **Create**.
-
-## Step 3: Configure eID-Me as an Identity provider
-
-To enable users to sign in using eID-Me decentralized identity, you need to define eID-Me as a claims provider that Azure AD B2C can communicate with through an endpoint. The endpoint provides a set of claims that are used by Azure AD B2C to verify a specific user has authenticated using digital ID available on their device, proving the user’s identity.
-
-You can define eID-Me as a claims provider by adding it to the **ClaimsProvider** element in the extension file of your policy
+To define eID-Me as a claims provider, add it to the **ClaimsProvider** element in the policy extension file.
 
 1. Open the `TrustFrameworkExtensions.xml`.
-
-2. Find the **ClaimsProviders** element. If it doesn't exist, add it under the root element.
-
-3. Add a new **ClaimsProvider** as follows:
+2. Find the **ClaimsProviders** element. If it doesn't appear, add it under the root element.
+3. Add a new **ClaimsProvider**:
 
    ```xml
       <ClaimsProvider>
@@ -292,15 +238,18 @@ You can define eID-Me as a claims provider by adding it to the **ClaimsProvider*
     </ClaimsProvider>
    ```
 
-4. Set **eid_me_rp_client_id** with your eID-Me Relying Party Client ID.
+4. For **eid_me_rp_client_id** enter the eID-Me relying-party Client ID.
+5. Select **Save**.
 
-5. Save the file.
+### Supported identity claims
 
-There are additional identity claims that eID-Me supports and can be added. 
+You can add more identity claims that eID-Me supports. 
 
-1. Open the `TrustFrameworksExtension.xml`
+1. Open the `TrustFrameworksExtension.xml`.
+2. Find the `BuildingBlocks` element. 
 
-2. Find the `BuildingBlocks` element.  This is where additional identity claims that eID-Me supports can be added. Full lists of supported eID-Me identity claims with descriptions are mentioned at `http://www.oid-info.com/get/1.3.6.1.4.1.50715` with the OIDC identifiers used here [https://eid-me.bluink.ca/.well-known/openid-configuration](https://eid-me.bluink.ca/.well-known/openid-configuration).
+> [!NOTE]
+> Find supported eID-Me identity claims lists on [OID repository](http://www.oid-info.com/get/1.3.6.1.4.1.50715) with OIDC identifiers on [well-known/openid-configuration](https://eid-me.bluink.ca/.well-known/openid-configuration).
 
    ```xml
    <BuildingBlocks>
@@ -428,29 +377,29 @@ There are additional identity claims that eID-Me supports and can be added.
 
    ```
 
-## Step 4: Add a user journey
+## Add a user journey
 
-At this point, the identity provider has been set up, but it's not yet available in any of the sign-in pages. If you don't have your own custom user journey, create a duplicate of an existing template user journey, otherwise continue to the next step.  
+For the following instructions, the identity provider is set up, but not in any sign-in pages. If you don't have a custom user journey, copy a template user journey.  
 
-1. Open the `TrustFrameworkBase.xml` file from the starter pack.
+1. From the starter pack, open the `TrustFrameworkBase.xml` file.
+2. Locate and copy the contents of the **UserJourneys** element that includes ID=`SignUpOrSignIn`.
+3. Open the `TrustFrameworkExtensions.xml`.
+4. Locate the **UserJourneys** element. If the element doesn't appear, add one.
+5. Paste the contents of the **UserJourney** element as a child of the **UserJourneys** element.
+6. Rename the user journey ID, for example, ID=`CustomSignUpSignIn`.
 
-2. Find and copy the entire contents of the **UserJourneys** element that includes ID=`SignUpOrSignIn`.
+## Add the identity provider to a user journey
 
-3. Open the `TrustFrameworkExtensions.xml` and find the **UserJourneys** element. If the element doesn't exist, add one.
+Add the new identity provider to the user journey. 
 
-4. Paste the entire content of the **UserJourney** element that you copied as a child of the **UserJourneys** element.
+1. In the user journey, locate the orchestration step element with Type=`CombinedSignInAndSignUp`, or Type=`ClaimsProviderSelection`. It's usually the first orchestration step. The **ClaimsProviderSelections** element has a list of identity providers users sign in with. The order of the elements controls the order of the sign-in buttons the user sees. 
+2. Add a **ClaimsProviderSelection** XML element. 
+3. Set the **TargetClaimsExchangeId** value to a friendly name.
+4. In the next orchestration step, add a **ClaimsExchange** element. 
+5. Set the **Id** to the target claims exchange ID value. 
+6. Update the v**TechnicalProfileReferenceId** value to the technical profile ID you created.
 
-5. Rename the ID of the user journey. For example,  ID=`CustomSignUpSignIn`
-
-## Step 5: Add the identity provider to a user journey
-
-Now that you have a user journey, add the new identity provider to the user journey. 
-
-1. Find the orchestration step element that includes Type=`CombinedSignInAndSignUp`, or Type=`ClaimsProviderSelection` in the user journey. It's usually the first orchestration step. The **ClaimsProviderSelections** element contains a list of identity providers that a user can sign in with. The order of the elements controls the order of the sign-in buttons presented to the user. Add a **ClaimsProviderSelection** XML element. Set the value of **TargetClaimsExchangeId** to a friendly name.
-
-2. In the next orchestration step, add a **ClaimsExchange** element. Set the **Id** to the value of the target claims exchange ID. Update the value of **TechnicalProfileReferenceId** to the ID of the technical profile you created earlier.
-
-   The following XML demonstrates **7** orchestration steps of a user journey with the identity provider:
+The following XML demonstrates seven user journey orchestration steps with the identity provider:
 
    ```xml
     <UserJourney Id="eIDME-SignUpOrSignIn">
@@ -531,9 +480,9 @@ Now that you have a user journey, add the new identity provider to the user jour
 
    ```
 
-## Step 6: Configure the relying party policy
+## Configure the relying party policy
 
-The relying party policy specifies the user journey which Azure AD B2C will execute. You can also control what claims are passed to your application by adjusting the **OutputClaims** element of the **eID-Me-OIDC-Signup** TechnicalProfile element. In this sample, the application will receive the user’s postal code, locality, region, IAL, portrait, middle name, and birth date. It also receives the boolean **signupConditionsSatisfied** claim, which indicates whether an account has been created or not:
+The relying party policy specifies the user journey Azure AD B2C executes. You can control claims passed to your application. Adjust the **OutputClaims** element of the **eID-Me-OIDC-Signup** TechnicalProfile element. In the following sample, the application receives user postal code, locality, region, IAL, portrait, middle name, and birth date. It receives the boolean **signupConditionsSatisfied** claim, which indicates whether an account was created.
 
    ```xml
     <RelyingParty>
@@ -564,41 +513,39 @@ The relying party policy specifies the user journey which Azure AD B2C will exec
 
    ```
 
-## Step 7: Upload the custom policy
+## Upload the custom policy
+
+For the following instructions, use the directory with the Azure AD B2C tenant. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com/#home).
+2. In the portal toolbar, select the **Directories + subscriptions**.
+3. On the **Portal settings, Directories + subscriptions** page, in the **Directory name** list, locate the Azure AD B2C directory.
+4. Select **Switch**.
+5. In the Azure portal, search for and select **Azure AD B2C**.
+6. Under **Policies**, select **Identity Experience Framework**.
+7. Select **Upload Custom Policy**. 
+8. Upload the two policy files you changed in the following order: 
 
-2. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+  * The extension policy, for example `TrustFrameworkBase.xml`
+  * The relying party policy, for example `SignUp.xml`
 
-3. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+## Test the custom policy
 
-4. In the [Azure portal](https://portal.azure.com/#home), search for and select **Azure AD B2C**.
+1. Select the relying party policy, for example `B2C_1A_signup`.
+2. For **Application**, select a web application you registered. 
+3. The **Reply URL** is `https://jwt.ms`.
+4. Select **Run now**.
+5. The sign-up policy invokes eID-Me.
+6. For sign-in, select **eID-Me**.
+7. The browser redirects to `https://jwt.ms`. 
+8. The token contents returned by Azure AD B2C appear.
 
-5. Under Policies, select **Identity Experience Framework**.
-Select **Upload Custom Policy**, and then upload the two policy files that you changed, in the following order: the extension policy, for example `TrustFrameworkBase.xml`, then the relying party policy, such as `SignUp.xml`.
-
-## Step 8: Test your custom policy
-
-1. Select your relying party policy, for example `B2C_1A_signup`.
-
-2. For **Application**, select a web application that you [previously registered](./tutorial-register-applications.md). The **Reply URL** should show `https://jwt.ms`.
-
-3. Select the **Run now** button.
-
-4. The sign-up policy should invoke eID-Me immediately.  If sign-in is used, then select eID-Me to sign in with eID-Me.
-
-If the sign-in process is successful, your browser is redirected to `https://jwt.ms`, which displays the contents of the token returned by Azure AD B2C.
+Learn more: [Tutorial: Register a web application in Azure AD B2C](./tutorial-register-applications.md)
 
 ## Next steps
 
-For additional information, review the following articles:
+* [Azure AD B2C custom policy overview](./custom-policy-overview.md)
+* [Tutorial: Create user flows and custom policies in Azure Active Directory B2C](./tutorial-create-user-flows.md?pivots=b2c-custom-policy)
+* [A Custom Policy Template and Sample ASP.NET Core Web app for integrating eID-Me with Azure AD B2C](https://github.com/bluink-stephen/eID-Me_Azure_AD_B2C)
+* Go to bluink.ca for the [Azure AD B2C ID Verification Integration Guide | eID-Me](https://bluink.ca/eid-me/azure-b2c-integration-guide)
 
-- [Custom policies in Azure AD B2C](./custom-policy-overview.md)
-
-- [Get started with custom policies in Azure AD B2C](./tutorial-create-user-flows.md?pivots=b2c-custom-policy)
-
-- [Sample code to integrate Azure AD B2C with eID-Me](https://github.com/bluink-stephen/eID-Me_Azure_AD_B2C)
-
-- [eID-Me and Azure AD B2C integration guide](https://bluink.ca/eid-me/azure-b2c-integration-guide)
-
-::: zone-end

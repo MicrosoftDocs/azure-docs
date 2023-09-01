@@ -4,7 +4,7 @@ description: How to set up Apache Spark Streaming to process an event once and o
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
-ms.date: 04/27/2022
+ms.date: 05/25/2023
 ---
 
 # Create Apache Spark Streaming jobs with exactly-once event processing

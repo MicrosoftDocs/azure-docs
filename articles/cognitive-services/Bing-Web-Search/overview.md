@@ -1,6 +1,6 @@
 ---
 title: What is the Bing Web Search API?
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: The Bing Web Search API is a RESTful service that provides instant answers to web search queries. Configure results to include web pages, images, videos, news, and more. Results are provided as JSON and based on search relevance and your Bing Web Search subscriptions.
 services: cognitive-services
 author: aahill
@@ -15,11 +15,11 @@ ms.custom: seodec2018
 
 # What is the Bing Web Search API?
 
-[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 
 The Bing Web Search API is a RESTful service that provides instant answers to user queries. Search results are easily configured to include web pages, images, videos, news, translations, and more. Bing Web Search provides the results as JSON based on search relevance and your Bing Web Search subscriptions.
 
-This API is optimal for applications that need access to all content that is relevant to a user's search query. If you're building an application that requires only a specific type of result, consider using the [Bing Image Search API](../Bing-Image-Search/overview.md), [Bing Video Search API](../bing-video-search/overview.md), or [Bing News Search API](../Bing-News-Search/search-the-web.md). See [Cognitive Services APIs](../index.yml) for a complete list of Bing Search APIs.
+This API is optimal for applications that need access to all content that is relevant to a user's search query. If you're building an application that requires only a specific type of result, consider using the [Bing Image Search API](../bing-image-search/overview.md), [Bing Video Search API](../bing-video-search/overview.md), or [Bing News Search API](../bing-news-search/search-the-web.md). See [Azure AI services APIs](../../ai-services/index.yml) for a complete list of Bing Search APIs.
 
 Want to see how it works? Try our [Bing Web Search API demo](https://azure.microsoft.com/services/cognitive-services/bing-web-search-api/).
 

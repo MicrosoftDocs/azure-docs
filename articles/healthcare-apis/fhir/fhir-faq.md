@@ -49,7 +49,7 @@ FHIR service is our implementation of the FHIR specification that sits in the Az
 
 * FHIR service has a limit of 4 TB, and Azure API for FHIR supports more than 4 TB.
 * FHIR service support [transaction bundles](https://www.hl7.org/fhir/http.html#transaction).
-* Azure API for FHIR has more platform features (such as private link, customer managed keys, and logging) that aren't yet available in FHIR service in Azure Health Data Services. More details will follow on these features by GA.
+* Azure API for FHIR has more platform features (such as customer managed keys, and cross region DR) that aren't yet available in FHIR service in Azure Health Data Services.
 
 ### What's the difference between the FHIR service in Azure Health Data Services and the open-source FHIR server?
 
@@ -138,10 +138,6 @@ There are two basic Delete types supported within the FHIR service. These are [D
 
 To perform health check on FHIR service , enter `{{fhirurl}}/health/check` in the GET request. You should be able to see Status of FHIR service. HTTP Status code response with 200 and OverallStatus as "Healthy" in response, means your health check is succesful.
 In case of errors, you will recieve error response with HTTP status code 404 (Not Found) or status code 500 (Internal Server Error), and detailed information in response body in some scenarios.
-
-### Where can I see some examples of using the FHIR service within a workflow?
-
-We have a collection of reference architectures available on the [Health Architecture GitHub page](https://github.com/microsoft/health-architectures).
 
 ## Next steps
 

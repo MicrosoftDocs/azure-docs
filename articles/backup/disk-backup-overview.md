@@ -2,10 +2,10 @@
 title: Overview of Azure Disk Backup
 description: Learn about the Azure Disk backup solution.
 ms.topic: conceptual
-ms.date: 03/10/2022
+ms.date: 07/21/2023
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Overview of Azure Disk Backup
@@ -61,6 +61,18 @@ Consider Azure Disk Backup in scenarios where:
 - Backup Vault uses Managed Identity to access other Azure resources. To configure backup of a managed disk and to restore from past backup, Backup Vault’s managed identity requires a set of permissions on the source disk, the snapshot resource group where snapshots are created and managed, and the target resource group where you want to restore the backup. You can grant permissions to the managed identity by using Azure role-based access control (Azure RBAC). Managed identity is a service principal of a special type that may only be used with Azure resources. Learn more about [Managed Identities](../active-directory/managed-identities-azure-resources/overview.md).
 
 - Currently Azure Disk Backup supports operational backup of managed disks and doesn't copy the backups to Backup Vault storage. Refer to the [support matrix](disk-backup-support-matrix.md) for a detailed list of supported and unsupported scenarios, and region availability.
+
+## How does the disk backup scheduling and retention period work?
+
+Azure Disk Backup currently supports only the Operational Tier, which helps store backups as Disk Snapshots in your tenant that aren't moved to the vault. The backup policy defines the schedule and retention period of your backups in the Operational Tier (when the snapshots will be taken and how long they will be retained).
+
+By using the Azure Disk backup policy, you can define the backup schedule with Hourly frequency of 1, 2, 4, 6, 8, or 12 hours and Daily frequency. Although backups have scheduled timing as per the policy, there can be a difference in the actual start time of the backups from the scheduled one.
+
+The retention period of snapshots is governed by the snapshot limit for a disk. Currently, a maximum of 500 snapshots can be retained for a disk. If the limit is reached, no new snapshots can be taken, and you need to delete the older snapshots. 
+
+The retention period for a backup also follows the maximum limit of 450 snapshots with 50 snapshots kept aside for on-demand backups.
+
+For example, if the scheduling frequency for backups is set as Daily, then you can set the retention period for backups at a maximum value of 450 days. Similarly, if the scheduling frequency for backups is set as Hourly with a 1-hour frequency, then you can set the retention for backups at a maximum value of 18 days. 
 
 ## Pricing
 

@@ -30,7 +30,7 @@ Read [Adobe’s article on licensing](https://helpx.adobe.com/enterprise/using/l
 
 ### Lab plan settings
 
-[!INCLUDE [must have lab plan](./includes/lab-services-class-type-lab-plan.md)]
+Once you have an Azure subscription, you can create a new lab plan in Azure Lab Services. For more information about creating a new lab plan, see the quickstart on [how to set up a lab plan](./quick-create-resources.md). You can also use an existing lab plan.
 
 This lab uses a Windows 10 Azure Marketplace images as the base VM image. You first need to enable this image in your lab plan. This lets lab creators then select the image as a base image for their lab.
 
@@ -121,7 +121,7 @@ To fix this issue:
 
 This section provides a cost estimate for running this class for 25 users. There are 20 hours of scheduled class time. Also, each user gets 10 hours quota for homework or assignments outside scheduled class time. The virtual machine size we chose was **Small GPU (Visualization)**, which is 160 lab units.
 
-25 students \* (20 scheduled hours + 10 quota hours) \* 160 Lab Units * 0.01 USD per hour = 1200.00 USD
+25 lab users \* (20 scheduled hours + 10 quota hours) \* 160 Lab Units * 0.01 USD per hour = 1200.00 USD
 
 >[!IMPORTANT]
 > This cost estimate is for example purposes only.  For current details on pricing, see [Azure Lab Services Pricing](https://azure.microsoft.com/pricing/details/lab-services/).  

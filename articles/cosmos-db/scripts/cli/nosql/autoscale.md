@@ -8,7 +8,7 @@ ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: sample
 ms.date: 06/22/2022
-ms.custom: kr2b-contr-experiment, ignite-2022
+ms.custom: kr2b-contr-experiment, ignite-2022, devx-track-azurecli
 ---
 
 # Create an Azure Cosmos DB for NoSQL account, database, and container with autoscale

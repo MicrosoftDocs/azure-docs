@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Use a managed identity to access Azure SQL Database - Windows - Azure AD'
+title: 'Tutorial: Use a managed identity to access Azure SQL Database - Windows'
 description: A tutorial that walks you through the process of using a Windows VM system-assigned managed identity to access Azure SQL Database.
 services: active-directory
 documentationcenter: ''
@@ -11,13 +11,12 @@ ms.subservice: msi
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/11/2022
+ms.date: 05/25/2023
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ---
 # Tutorial: Use a Windows VM system-assigned managed identity to access Azure SQL
 
-[!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 This tutorial shows you how to use a system-assigned identity for a Windows virtual machine (VM) to access Azure SQL Database. Managed Service Identities are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication, without needing to insert credentials into your code. You learn how to:
 
@@ -50,11 +49,12 @@ There are two steps to granting your VM access to a database:
 **To [configure Azure AD authentication](/azure/azure-sql/database/authentication-aad-configure):**
 
 1. In the Azure portal, select **SQL servers** from the left-hand navigation.
-2. Click the SQL server to be enabled for Azure AD authentication.
+2. Select the SQL server to be enabled for Azure AD authentication.
 3. In the **Settings** section of the blade, click **Active Directory admin**.
 4. In the command bar, click **Set admin**.
 5. Select an Azure AD user account to be made an administrator of the server, and click **Select.**
 6. In the command bar, click **Save.**
+
 
 ### Create contained user
 
@@ -63,7 +63,7 @@ This section shows how to create a contained user in the database that represent
 - [Universal Authentication with SQL Database and Azure Synapse Analytics (SSMS support for MFA)](/azure/azure-sql/database/authentication-mfa-ssms-overview)
 - [Configure and manage Azure Active Directory authentication with SQL Database or Azure Synapse Analytics](/azure/azure-sql/database/authentication-aad-configure)
 
-SQL DB requires unique Azure AD display names. With this, the Azure AD accounts such as users, groups and Service Principals (applications), and VM names enabled for managed identity must be uniquely defined in Azure AD regarding their display names. SQL DB checks the Azure AD display name during T-SQL creation of such users and if it is not unique, the command fails requesting to provide a unique Azure AD display name for a given account.
+SQL DB requires unique Azure AD display names. With this, the Azure AD accounts such as users, groups and Service Principals (applications), and VM names enabled for managed identity must be uniquely defined in Azure AD regarding their display names. SQL DB checks the Azure AD display name during T-SQL creation of such users and if it isn't unique, the command fails requesting to provide a unique Azure AD display name for a given account.
 
 **To create a contained user:**
 
@@ -75,7 +75,7 @@ SQL DB requires unique Azure AD display names. With this, the Azure AD accounts 
 6. In the **Connect to database** field, enter the name of the non-system database you want to configure.
 7. Click **Connect**. Complete the sign-in process.
 8. In the **Object Explorer**, expand the **Databases** folder.
-9. Right-click on a user database and click **New query**.
+9. Right-click on a user database and select **New query**.
 10. In the query window, enter the following line, and click **Execute** in the toolbar:
 
     > [!NOTE]
@@ -89,7 +89,7 @@ SQL DB requires unique Azure AD display names. With this, the Azure AD accounts 
 11. Clear the query window, enter the following line, and click **Execute** in the toolbar:
 
     > [!NOTE]
-    > `VMName` in the following command is the name of the VM that you enabled system assigned identity on in the prerequsites section.
+    > `VMName` in the following command is the name of the VM that you enabled system assigned identity on in the prerequisites section.
 
     ```sql
     ALTER ROLE db_datareader ADD MEMBER [VMName]
@@ -111,7 +111,7 @@ using Microsoft.Data.SqlClient;
 try
 {
 //
-// Open a connection to the server using Active Direcotry Managed Identity authentication.
+// Open a connection to the server using Active Directory Managed Identity authentication.
 //
 string connectionString = "Data Source=<AZURE-SQL-SERVERNAME>; Initial Catalog=<DATABASE>; Authentication=Active Directory Managed Identity; Encrypt=True";
 SqlConnection conn = new SqlConnection(connectionString);
@@ -124,7 +124,7 @@ conn.Open();
 Alternatively, a quick way to test the end-to-end setup without having to write and deploy an app on the VM is using PowerShell.
 
 1. In the portal, navigate to **Virtual Machines** and go to your Windows virtual machine and in the **Overview**, click **Connect**.
-2. Enter in your **Username** and **Password** for which you added when you created the Windows VM.
+2. Enter in your **VM admin credential** which you added when you created the Windows VM.
 3. Now that you have created a **Remote Desktop Connection** with the virtual machine, open **PowerShell** in the remote session.
 4. Using PowerShell’s `Invoke-WebRequest`, make a request to the local managed identity's endpoint to get an access token for Azure SQL.
 

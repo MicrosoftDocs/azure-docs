@@ -137,7 +137,7 @@ GROUP BY A, C
 
 The data warehouse optimizer can automatically use deployed materialized views to improve query performance.  This support is applied transparently to queries that don't reference the views and to queries that use aggregates unsupported in materialized views creation.  No query change is needed. You can check a query's estimated execution plan to confirm if a materialized view is used. 
 
-- For more information on retrieving the actual execution plan, see [Monitor your Azure Synapse Analytics dedicated SQL pool workload using DMVs](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-monitor#monitor-query-execution). 
+- For more information on retrieving the actual execution plan, see [Monitor your Azure Synapse Analytics dedicated SQL pool workload using DMVs](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md#monitor-query-execution). 
 - You can retrieve an [estimated execution plan through SQL Server Management Studio (SSMS)](/sql/relational-databases/performance/display-the-estimated-execution-plan?view=azure-sqldw-latest&preserve-view=true) or [SET SHOWPLAN_XML](/sql/t-sql/statements/set-showplan-xml-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 
 **Monitor materialized views**
@@ -274,7 +274,7 @@ ORDER BY t_s_secyear.customer_id
 OPTION ( LABEL = 'Query04-af359846-253-3');
 ```
 
-Check the query's [estimated execution plan](/sql/relational-databases/performance/display-the-estimated-execution-plan.md). There are 18 shuffles and 17 joins operations, which take more time to execute. 
+Check the query's [estimated execution plan](/sql/relational-databases/performance/display-the-estimated-execution-plan). There are 18 shuffles and 17 joins operations, which take more time to execute. 
 
 Now, let's create one materialized view for each of the three sub-SELECT statements.
 
@@ -367,5 +367,5 @@ With materialized views, the same query runs much faster without any code change
 
 For more development tips, see [Synapse SQL development overview](develop-overview.md).
 
-- [Monitor your Azure Synapse Analytics dedicated SQL pool workload using DMVs](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-monitor). 
-- [View estimated execution plan](/sql/relational-databases/performance/display-the-estimated-execution-plan.md)
+- [Monitor your Azure Synapse Analytics dedicated SQL pool workload using DMVs](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md). 
+- [View estimated execution plan](/sql/relational-databases/performance/display-the-estimated-execution-plan)

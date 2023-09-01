@@ -1,5 +1,5 @@
 ---
-title: Assign or remove licenses - Azure Active Directory | Microsoft Docs
+title: Assign or remove licenses
 description: Instructions about how to assign or remove Azure Active Directory licenses from your users or groups.
 services: active-directory
 author: barclayn
@@ -16,7 +16,7 @@ ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
 
-# Assign or remove licenses in the Azure Active Directory portal
+# Assign or remove licenses in the Azure portal
 
 Many Azure Active Directory (Azure AD) services require you to license each of your users or groups (and associated members) for that service. Only users with active licenses will be able to access and use the licensed Azure AD services for which that's true. Licenses are applied per tenant and don't transfer to other tenants. 
 
@@ -30,7 +30,7 @@ There are several Azure AD license plans:
 
 - Azure AD Premium P2
 
-For specific information about each license plan and the associated licensing details, see [What license do I need?](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing). To sign up for Azure AD premium license plans see [here](./active-directory-get-started-premium.md).
+For specific information about each license plan and the associated licensing details, see [What license do I need?](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing). To sign up for Azure AD premium license plans see [here](./get-started-premium.md).
 
 Not all Microsoft services are available in all locations. Before a license can be assigned to a group, you must specify the **Usage location** for all members. You can set this value in the **Azure Active Directory &gt; Users &gt;** select a user **&gt; Properties &gt; Settings** area in Azure AD. When assigning licenses to a group or bulk updates such as disabling the synchronization status for the organization, any user whose usage location isn't specified inherits the location of the Azure AD organization.
 
@@ -40,7 +40,9 @@ You can view your available service plans, including the individual licenses, ch
 
 ### To find your service plan and plan details
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) using a License administrator account in your Azure AD organization.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+1. Sign in to the [Azure portal](https://portal.azure.com) using a License administrator account in your Azure AD organization.
 
 1. Select **Azure Active Directory**, and then select **Licenses**.
 
@@ -148,4 +150,4 @@ After you've assigned your licenses, you can perform the following processes:
 
 - [Scenarios, limitations, and known issues using groups to manage licensing in Azure Active Directory](../enterprise-users/licensing-group-advanced.md)
 
-- [Add or change profile information](active-directory-users-profile-azure-portal.md)
+- [Add or change profile information](./how-to-manage-user-profile-info.md)

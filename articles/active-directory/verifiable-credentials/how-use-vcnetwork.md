@@ -22,7 +22,7 @@ ms.author: barclayn
 
 To use the Entra Verified ID Network, you need to have completed the following.
 
-- Complete the [Getting Started](get-started-verifiable-credentials.md) and subsequent [tutorial set](enable-your-tenant-verifiable-credentials.md).
+- Complete the [Getting Started](./verifiable-credentials-configure-tenant.md) and subsequent [tutorial set](./verifiable-credentials-configure-tenant.md).
 
 ## What is the Entra Verified ID Network?
 

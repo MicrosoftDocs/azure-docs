@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Azure Active Directory single sign-on (SSO) integration with Dotcom-Monitor | Microsoft Docs"
+title: "Tutorial: Azure Active Directory single sign-on (SSO) integration with Dotcom-Monitor"
 description: Learn how to configure single sign-on between Azure Active Directory and Dotcom-Monitor.
 services: active-directory
 author: jeevansd

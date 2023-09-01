@@ -58,6 +58,8 @@
     href: resource-health-checks-resource-types.md
   - name: Impacted Resources Support for Outages
     href: impacted-resources-outage.md
+  - name: Impacted Resources Support for Security Incidents
+    href: impacted-resources-security.md
   - name: Resource Health FAQ
     href: resource-health-faq.yml
   - name: Resource Health VM status annotations

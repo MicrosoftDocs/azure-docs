@@ -2,11 +2,11 @@
 title: Encryption of backup data using customer-managed keys
 description: Learn how Azure Backup allows you to encrypt your backup data using customer-managed keys (CMK).
 ms.topic: conceptual
-ms.date: 01/13/2023
+ms.date: 08/02/2023
 ms.custom: devx-track-azurepowershell-azurecli, devx-track-azurecli
-author: jyothisuri
 ms.service: backup
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Encryption of backup data using customer-managed keys
@@ -37,7 +37,6 @@ In this article, you'll learn how to:
 - The Recovery Services vault can be encrypted only with keys stored in Azure Key Vault, located in the **same region**. Also, keys must be [supported](../key-vault/keys/about-keys.md#key-types-and-protection-methods) **RSA keys** only and should be in **enabled** state.
 
 - Moving CMK encrypted Recovery Services vault across Resource Groups and Subscriptions isn't currently supported.
-- Recovery Services vaults encrypted with customer-managed keys currently don't support cross-region restore of backed-up instances.
 - When you move a Recovery Services vault already encrypted with customer-managed keys to a new tenant, you'll need to update the Recovery Services vault to recreate and reconfigure the vault's managed identity and CMK (which should be in the new tenant). If this isn't done, the backup and restore operations will fail. Also, any Azure role-based access control (Azure RBAC) permissions set up within the subscription will need to be reconfigured.
 
 - This feature can be configured through the Azure portal and PowerShell.
@@ -462,6 +461,9 @@ The process to configure and perform backups to a Recovery Services vault encryp
 
 Data stored in the Recovery Services vault can be restored according to the steps described [here](./backup-azure-arm-restore-vms.md). When restoring from a Recovery Services vault encrypted using customer-managed keys, you can choose to encrypt the restored data with a Disk Encryption Set (DES).
 
+>[!Note]
+>The experience described in this section only applies to restore of data from CMK encrypted vaults. When you restore data from a vault that isn't using CMK encryption, the restored data would be encrypted using Platform Managed Keys. If you restore from an instant recovery snapshot, it would be encrypted using the mechanism used for encrypting the source disk.
+
 #### Restore VM/disk
 
 1. When you recover disk / VM from a *Snapshot* recovery point, the restored data will be encrypted with the DES used for encrypting the source VM's disks.
@@ -487,7 +489,7 @@ To specify the Disk Encryption Set under Encryption Settings in the restore pane
 2. From the dropdown, select the DES you wish to use for the restored disk(s). **Ensure you have access to the DES.**
 
 >[!NOTE]
->The ability to choose a DES while restoring isn't available if you're restoring a VM that uses Azure Disk Encryption.
+>The ability to choose a `DES` while restore is now supported if you're doing Cross Region Restore. However, it's currently not suppported if you're restoring a VM that uses Azure Disk Encryption.
 
 ![Encrypt disk using your key](./media/encryption-at-rest-with-cmk/encrypt-disk-using-your-key.png)
 

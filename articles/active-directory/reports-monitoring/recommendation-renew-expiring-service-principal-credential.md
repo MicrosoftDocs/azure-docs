@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory recommendation - Renew expiring service principal credentials (preview) | Microsoft Docs
+title: Azure Active Directory recommendation - Renew expiring service principal credentials (preview)
 description: Learn why you should renew expiring service principal credentials.
 services: active-directory
 author: shlipsey3
@@ -86,4 +86,4 @@ When renewing service principal credentials using Microsoft Graph, you need to r
 - [Review the Azure AD recommendations overview](overview-recommendations.md)
 - [Learn how to use Azure AD recommendations](howto-use-recommendations.md)
 - [Explore the Microsoft Graph API properties for recommendations](/graph/api/resources/recommendation)
-- [Learn about securing service principals](../fundamentals/service-accounts-principal.md)
+- [Learn about securing service principals](../architecture/service-accounts-principal.md)

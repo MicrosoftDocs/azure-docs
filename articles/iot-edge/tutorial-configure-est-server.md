@@ -3,7 +3,7 @@ title: Tutorial - Configure Enrollment over Secure Transport Server (EST) for Az
 description: This tutorial shows you how to set up an Enrollment over Secure Transport (EST) server for Azure IoT Edge.
 author: PatAltimore
 ms.author: patricka
-ms.date: 01/05/2023
+ms.date: 03/16/2023
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
@@ -81,10 +81,12 @@ The Dockerfile uses Ubuntu 18.04, a [Cisco library called `libest`](https://gith
     # Setting the root CA expiration to 20 years
     RUN sed -i "s|-days 365|-days 7300 |g" ./createCA.sh
      
-    ## If you want to host your EST server in the cloud (for example, an Azure Container Instance),
-    ## change myestserver.westus.azurecontainer.io to the fully qualified DNS name of your EST server 
-    ## and uncomment the next line.
-    # RUN sed -i "s|ip6-localhost|myestserver.westus.azurecontainer.io |g" ./ext.cnf
+    ## If you want to host your EST server remotely (for example, an Azure Container Instance),
+    ## change myestserver.westus.azurecontainer.io to the fully qualified DNS name of your EST server
+    ## OR, change the IP address
+    ## and uncomment the corresponding line.
+    # RUN sed -i "s|DNS.2 = ip6-localhost|DNS.2 = myestserver.westus.azurecontainer.io|g" ./ext.cnf
+    # RUN sed -i "s|IP.2 = ::1|IP.2 = <YOUR EST SERVER IP ADDRESS>|g" ./ext.cnf
      
     # Set EST server certificate to be valid for 10 years
     RUN sed -i "s|-keyout \$EST_SERVER_PRIVKEY -subj|-keyout \$EST_SERVER_PRIVKEY -days 7300 -subj |g" ./createCA.sh

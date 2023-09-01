@@ -4,7 +4,7 @@ description: Learn how to request host quota/capacity for Azure VMware Solution.
 ms.topic: how-to
 ms.custom: contperf-fy21q3
 ms.service: azure-vmware
-ms.date: 09/27/2021
+ms.date: 06/20/2023
 
 #Customer intent: As an Azure service admin, I want to request hosts for either a new private cloud deployment or I want to have more hosts allocated in an existing private cloud.
 
@@ -42,7 +42,7 @@ You'll need an Azure account in an Azure subscription that adheres to one of the
  
    - Region Name
    - Number of hosts
-   - Any other details
+   - Any other details, including Availability Zone requirements for integrating with other Azure services (e.g. Azure NetApp Files, Azure Blob Storage)
 
    >[!NOTE]
    >Azure VMware Solution requires a minimum of three hosts and recommends redundancy of N+1 hosts. 
@@ -94,7 +94,7 @@ Access the Azure portal using the **Admin On Behalf Of** (AOBO) procedure from P
    
       - Region Name
       - Number of hosts
-      - Any other details
+      - Any other details, including Availability Zone requirements for integrating with other Azure services (e.g. Azure NetApp Files, Azure Blob Storage)
       - Is intended to host multiple customers?
    
       >[!NOTE]

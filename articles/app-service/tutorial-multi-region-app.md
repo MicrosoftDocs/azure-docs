@@ -4,6 +4,7 @@ description: Learn how to build a multi-region app on Azure App Service that can
 keywords: azure app service, web app, multiregion, multi-region, multiple regions
 author: seligj95
 ms.topic: tutorial
+ms.custom: devx-track-azurecli, devx-track-bicep
 ms.date: 2/8/2023
 ms.author: jordanselig
 ---
@@ -276,7 +277,7 @@ This section contains frequently asked questions that can help you further secur
 
 ### What is the recommended method for managing and deploying application infrastructure and Azure resources?
 
-For this tutorial, you used the Azure CLI to deploy your infrastructure resources. Consider configuring a continuous deployment mechanism to manage your application infrastructure. Since you're deploying resources in different regions, you'll need to independently manage those resources across the regions. To ensure the resources are identical across each region, infrastructure as code (IaC) such as [Azure Resource Manager templates](../azure-resource-manager/management/overview.md) or [Terraform](/azure/developer/terraform/overview) should be used with deployment pipelines such as [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines.md) or [GitHub Actions](https://docs.github.com/actions). This way, if configured appropriately, any change to resources would trigger updates across all regions you're deployed to. For more information, see [Continuous deployment to Azure App Service](deploy-continuous-deployment.md).
+For this tutorial, you used the Azure CLI to deploy your infrastructure resources. Consider configuring a continuous deployment mechanism to manage your application infrastructure. Since you're deploying resources in different regions, you'll need to independently manage those resources across the regions. To ensure the resources are identical across each region, infrastructure as code (IaC) such as [Azure Resource Manager templates](../azure-resource-manager/management/overview.md) or [Terraform](/azure/developer/terraform/overview) should be used with deployment pipelines such as [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) or [GitHub Actions](https://docs.github.com/actions). This way, if configured appropriately, any change to resources would trigger updates across all regions you're deployed to. For more information, see [Continuous deployment to Azure App Service](deploy-continuous-deployment.md).
 
 ### How can I use staging slots to practice safe deployment to production?
 

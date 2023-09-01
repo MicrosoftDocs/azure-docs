@@ -4,10 +4,10 @@ description: How to reuse an existing virtual network for an Azure Payment HSM
 services: payment-hsm
 author: msmbaldwin
 ms.service: payment-hsm
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.topic: overview
 ms.date: 09/12/2022
 ms.author: mbaldwin
-
 ---
 # How to reuse an existing virtual network
 

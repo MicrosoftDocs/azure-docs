@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 05/05/2022
+ms.date: 06/29/2023
 ms.author: cwerner
 ms.custom: aaddev, contperf-fy21q1, mode-api
 ms.reviewer: lenalepa, aragra, sureshja
@@ -28,6 +28,8 @@ By specifying a web API's scopes in your client app's registration, the client a
 * Completion of [Quickstart: Configure an application to expose a web API](quickstart-configure-app-expose-web-apis.md)
 
 ## Add permissions to access your web API
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 In the first scenario, you grant a client app access to your own web API, both of which you should have registered as part of the prerequisites. If you don't yet have both a client app and a web API registered, complete the steps in the two [Prerequisites](#prerequisites) articles.
 

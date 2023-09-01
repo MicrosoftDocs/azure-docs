@@ -4,7 +4,7 @@ description: Learn how to use Apache Spark REST API to submit Spark jobs remotel
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 04/01/2022
+ms.date: 04/24/2023
 ---
 
 # Use Apache Spark REST API to submit remote jobs to an HDInsight Spark cluster

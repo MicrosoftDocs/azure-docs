@@ -8,8 +8,8 @@ ms.topic: conceptual
 ms.date: 10/25/2022
 ms.author: cherylmc
 ms.custom: engagement-fy23
-
 ---
+
 # Configure P2S for access based on users and groups - Azure AD authentication
 
 When you use Azure AD as the authentication method for P2S, you can configure P2S to allow different access for different users and groups. If you want different sets of users to be able to connect to different VPN gateways, you can register multiple apps in AD and link them to different VPN gateways. This article helps you set up an Azure AD tenant for P2S Azure AD authentication and create and register multiple apps in Azure AD for allowing different access for different users and groups. For more information about point-to-site protocols and authentication, see [About point-to-site VPN](point-to-site-about.md).
@@ -66,7 +66,7 @@ In this section, you can register additional applications for various users and 
     * Azure Public: `41b23e61-6c1e-4545-b367-cd054e0ed4b4`
     * Azure Government: `51bb15d4-3a4f-4ebf-9dca-40096fe32426`
     * Azure Germany: `538ee9e6-310a-468d-afef-ea97365856a9`
-    * Azure China 21Vianet: `49f817b6-84ae-4cc0-928c-73f27289b3aa`
+    * Microsoft Azure operated by 21Vianet: `49f817b6-84ae-4cc0-928c-73f27289b3aa`
 1. Select the checkbox for the **Authorized scopes** to include. Then, click **Add application**.
 
    :::image type="content" source="./media/openvpn-azure-ad-tenant-multi-app/add-application.png" alt-text="Screenshot of Azure Active Directory add client application page." lightbox="./media/openvpn-azure-ad-tenant-multi-app/add-application.png":::
@@ -124,5 +124,7 @@ In this section, you generate and download the Azure VPN Client profile configur
 
 ## Next steps
 
-* To connect to your virtual network, you must configure the Azure VPN client on your client computers. See [Configure a VPN client for P2S VPN connections](openvpn-azure-ad-client.md).
+* * To connect to your virtual network, you must configure the Azure VPN client on your client computers. See [Configure a VPN client for P2S VPN connections](openvpn-azure-ad-client.md).
 * For frequently asked questions, see the **Point-to-site** section of the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md#P2S).
+
+

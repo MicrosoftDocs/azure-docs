@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Curricula SAML | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Curricula SAML'
 description: Learn how to configure single sign-on between Azure Active Directory and Curricula SAML.
 services: active-directory
 author: jeevansd

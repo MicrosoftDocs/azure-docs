@@ -42,7 +42,7 @@ If using a tool like [Postman], it should look like this:
 
 :::image type="content" source="./media/tutorial-creator-indoor-maps/stateset-header.png"alt-text="A screenshot of Postman showing the Header tab of the POST request that shows the Content Type Key with a value of application forward slash json.":::
 
-Finally, in the **Body** of the HTTP request, include the style information in raw JSON format, this applies different colors to the `occupied` property depending on its value:
+Finally, in the **Body** of the HTTP request, include the style information in raw JSON format, which applies different colors to the `occupied` property depending on its value:
 
 ```json
 {
@@ -61,13 +61,13 @@ Finally, in the **Body** of the HTTP request, include the style information in r
 }
 ```
 
-After the response returns successfully, copy the `statesetId` from the response body. In the next section, you'll use the `statesetId` to change the `occupancy` property state of the unit with feature `id` "UNIT26". If using Postman, it will appear as follows:
+After the response returns successfully, copy the `statesetId` from the response body. In the next section, you'll use the `statesetId` to change the `occupancy` property state of the unit with feature `id` "UNIT26". If using Postman, it appears as follows:
 
 :::image type="content" source="./media/tutorial-creator-indoor-maps/response-stateset-id.png"alt-text="A screenshot of Postman showing the resource Stateset ID value in the responses body.":::
 
 ## Update a feature state
 
-In this section you will learn how to update the `occupied` state of the unit with feature `id` "UNIT26". To do this, create a new **HTTP PUT Request** calling the [Feature Statesets API]. The request should look like the following URL (replace `{statesetId}` with the `statesetId` obtained in [Create a feature stateset](#create-a-feature-stateset)):
+This section demonstrates how to update the `occupied` state of the unit with feature `id` "UNIT26". To update the `occupied` state, create a new **HTTP PUT Request** calling the [Feature Statesets API]. The request should look like the following URL (replace `{statesetId}` with the `statesetId` obtained in [Create a feature stateset]):
 
 ```http
 https://us.atlas.microsoft.com/featurestatesets/{statesetId}/featureStates/UNIT26?api-version=2.0&subscription-key={Your-Azure-Maps-Subscription-key}
@@ -79,7 +79,7 @@ If using a tool like [Postman], it should look like this:
 
 :::image type="content" source="./media/tutorial-creator-indoor-maps/stateset-header.png"alt-text="A screenshot of the header tab information for stateset creation.":::
 
-Finally, in the **Body** of the HTTP request, include the style information in raw JSON format, this applies different colors to the `occupied` property depending on its value:
+Finally, in the **Body** of the HTTP request, include the style information in raw JSON format, which applies different colors to the `occupied` property depending on its value:
 
 ```json
 {
@@ -96,11 +96,11 @@ Finally, in the **Body** of the HTTP request, include the style information in r
 >[!NOTE]
 > The update will be saved only if the time posted stamp is after the time stamp of the previous request.
 
-Once the HTTP request is sent and the update completes, you'll receive a `200 OK` HTTP status code. If you implemented [dynamic styling] for an indoor map, the update displays at the specified time stamp in your rendered map.
+Once the HTTP request is sent and the update completes, you receive a `200 OK` HTTP status code. If you implemented [dynamic styling] for an indoor map, the update displays at the specified time stamp in your rendered map.
 
 ## Additional information
 
-* For information on how to retrieve the state of a feature using its feature id, see [Feature State - List States].
+* For information on how to retrieve the state of a feature using its feature ID, see [Feature State - List States].
 * For information on how to delete the stateset and its resources, see [Feature State - Delete Stateset].
 * For information on using the Azure Maps Creator [Feature State service] to apply styles that are based on the dynamic properties of indoor map data features, see how to article [Implement dynamic styling for Creator indoor maps].
 
@@ -113,16 +113,24 @@ Learn how to implement dynamic styling for indoor maps.
 > [!div class="nextstepaction"]
 > [dynamic styling]
 
+<!---------   Internal Links     --------------->
+[Create a feature stateset]: #create-a-feature-stateset
+
+<!---------   learn.microsoft.com links     --------------->
 [Access to Creator Services]: how-to-manage-creator.md#access-to-creator-services
+[Check the dataset creation status]: tutorial-creator-indoor-maps.md#check-the-dataset-creation-status
+[Creator Indoor Maps]: creator-indoor-maps.md
+[dynamic styling]: indoor-map-dynamic-styling.md
+[Implement dynamic styling for Creator indoor maps]: indoor-map-dynamic-styling.md
 [Query datasets with WFS API]: how-to-creator-wfs.md
-[Stateset API]: /rest/api/maps/v2/feature-state/create-stateset
+
+<!---------   External Links     --------------->
+[Postman]: https://www.postman.com/
+
+<!---------   REST API Links     --------------->
+[Feature State - Delete Stateset]: /rest/api/maps/v2/feature-state/delete-stateset
+[Feature State - List States]: /rest/api/maps/v2/feature-state/list-states
+[Feature State service]: /rest/api/maps/v2/feature-state
 [Feature Statesets API]: /rest/api/maps/v2/feature-state/create-stateset
 [Feature statesets]: /rest/api/maps/v2/feature-state
-[Check the dataset creation status]: tutorial-creator-indoor-maps.md#check-the-dataset-creation-status
-[dynamic styling]: indoor-map-dynamic-styling.md
-[Feature State - List States]: /rest/api/maps/v2/feature-state/list-states
-[Feature State - Delete Stateset]: /rest/api/maps/v2/feature-state/delete-stateset
-[Feature State service]: /rest/api/maps/v2/feature-state
-[Implement dynamic styling for Creator indoor maps]: indoor-map-dynamic-styling.md
-[Creator Indoor Maps]: creator-indoor-maps.md
-[Postman]: https://www.postman.com/
+[Stateset API]: /rest/api/maps/v2/feature-state/create-stateset

@@ -7,6 +7,7 @@ services: synapse-analytics
 ms.service: synapse-analytics 
 ms.topic: conceptual
 ms.subservice: spark
+ms.custom: devx-track-dotnet
 ms.date: 05/01/2020 
 ms.reviewer: sngun
 ---
@@ -18,6 +19,13 @@ ms.reviewer: sngun
 It provides .NET bindings for Spark, which allows you to access Spark APIs through C# and F#. With .NET for Apache Spark, you can also write and execute user-defined functions for Spark written in .NET. The .NET APIs for Spark enable you to access all aspects of Spark DataFrames that help you analyze your data, including Spark SQL, Delta Lake, and Structured Streaming.
 
 You can analyze data with .NET for Apache Spark through Spark batch job definitions or with interactive Azure Synapse Analytics notebooks. In this article, you learn how to use .NET for Apache Spark with Azure Synapse using both techniques.
+
+>[!IMPORTANT]
+> The [.NET for Apache Spark](/previous-versions/dotnet/spark/what-is-apache-spark-dotnet) is an open-source project under the .NET Foundation that currently requires the .NET 3.1 library, which has reached the out-of-support status. We would like to inform users of Azure Synapse Spark of the removal of the .NET for Apache Spark library in the Azure Synapse Runtime for Apache Spark version 3.3. Users may refer to the [.NET Support Policy](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) for more details on this matter.
+>
+> As a result, it will no longer be possible for users to utilize Apache Spark APIs via C# and F#, or execute C# code in notebooks within Synapse or through Apache Spark Job definitions in Synapse. It is important to note that this change affects only Azure Synapse Runtime for Apache Spark 3.3 and above. 
+> 
+> We will continue to support .NET for Apache Spark in all previous versions of the Azure Synapse Runtime according to [their lifecycle stages](runtime-for-apache-spark-lifecycle-and-supportability.md). However, we do not have plans to support .NET for Apache Spark in Azure Synapse Runtime for Apache Spark 3.3 and future versions. We recommend that users with existing workloads written in C# or F# migrate to Python or Scala. Users are advised to take note of this information and plan accordingly.
 
 ## Submit batch jobs using the Spark job definition
 
@@ -113,7 +121,7 @@ Dotnet Spark 1.0.0 uses a different debug architecture than 1.1.1+. You will hav
 
 ## Next steps
 
-* [.NET for Apache Spark documentation](/dotnet/spark/)
+* [.NET for Apache Spark documentation](/previous-versions/dotnet/spark/what-is-apache-spark-dotnet)
 * [.NET for Apache Spark Interactive guides](/dotnet/spark/how-to-guides/dotnet-interactive-udf-issue)
 * [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/)
 * [.NET Interactive](https://devblogs.microsoft.com/dotnet/creating-interactive-net-documentation/)

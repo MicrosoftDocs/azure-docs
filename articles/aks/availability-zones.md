@@ -1,10 +1,9 @@
 ---
 title: Use availability zones in Azure Kubernetes Service (AKS)
 description: Learn how to create a cluster that distributes nodes across availability zones in Azure Kubernetes Service (AKS)
-ms.custom: fasttrack-edit, references_regions, devx-track-azurecli
+ms.custom: fasttrack-edit, references_regions, devx-track-azurecli, devx-track-linux
 ms.topic: article
 ms.date: 02/22/2023
-
 ---
 
 # Create an Azure Kubernetes Service (AKS) cluster that uses availability zones
@@ -59,11 +58,9 @@ If a single zone becomes unavailable, your applications continue to run on clust
 
 ## Create an AKS cluster across availability zones
 
-When you create a cluster using the [az aks create][az-aks-create] command, the `--zones` parameter specifies the zones to deploy agent nodes into. The control plane components such as etcd or the API spread across the available zones in the region during cluster deployment. The specific zones that the control plane components spread across, are independent of what explicit zones you select for the initial node pool.
+When you create a cluster using the [az aks create][az-aks-create] command, the `--zones` parameter specifies the availability zones to deploy agent nodes into. The availability zones that the managed control plane components are deployed into are **not** controlled by this parameter. They are automatically spread across all availability zones (if present) in the region during cluster deployment.
 
-If you don't specify any zones for the default agent pool when you create an AKS cluster, the control plane components aren't present in availability zones. You can add more node pools using the [az aks nodepool add][az-aks-nodepool-add] command and specify `--zones` for new nodes. The command converts the AKS control plane to spread across availability zones.
-
-The following example creates an AKS cluster named *myAKSCluster* in the resource group named *myResourceGroup* with a total of three nodes. One agent in zone *1*, one in *2*, and then one in *3*.
+The following example creates an AKS cluster named *myAKSCluster* in the resource group named *myResourceGroup* with a total of three nodes. One agent node in zone *1*, one in *2*, and then one in *3*.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus2
@@ -100,7 +97,7 @@ kubectl describe nodes | grep -e "Name:" -e "topology.kubernetes.io/zone"
 
 The following example output shows the three nodes distributed across the specified region and availability zones, such as *eastus2-1* for the first availability zone and *eastus2-2* for the second availability zone:
 
-```console
+```output
 Name:       aks-nodepool1-28993262-vmss000000
             topology.kubernetes.io/zone=eastus2-1
 Name:       aks-nodepool1-28993262-vmss000001
@@ -113,13 +110,13 @@ As you add more nodes to an agent pool, the Azure platform automatically distrib
 
 With Kubernetes versions 1.17.0 and later, AKS uses the newer label `topology.kubernetes.io/zone` and the deprecated `failure-domain.beta.kubernetes.io/zone`. You can get the same result from running the `kubelet describe nodes` command in the previous step, by running the following script:
 
- ```console
+ ```bash
 kubectl get nodes -o custom-columns=NAME:'{.metadata.name}',REGION:'{.metadata.labels.topology\.kubernetes\.io/region}',ZONE:'{metadata.labels.topology\.kubernetes\.io/zone}'
 ```
 
 The following example resembles the output with more verbose details:
 
-```console
+```output
 NAME                                REGION   ZONE
 aks-nodepool1-34917322-vmss000000   eastus   eastus-1
 aks-nodepool1-34917322-vmss000001   eastus   eastus-2
@@ -139,7 +136,7 @@ az aks scale \
 
 When the scale operation completes after a few minutes, run the command `kubectl describe nodes | grep -e "Name:" -e "topology.kubernetes.io/zone"` in a Bash shell. The following output resembles the results:
 
-```console
+```output
 Name:       aks-nodepool1-28993262-vmss000000
             topology.kubernetes.io/zone=eastus2-1
 Name:       aks-nodepool1-28993262-vmss000001
@@ -161,7 +158,7 @@ kubectl scale deployment nginx --replicas=3
 
 By viewing nodes where your pods are running, you see pods are running on the nodes corresponding to three different availability zones. For example, with the command `kubectl describe pod | grep -e "^Name:" -e "^Node:"` in a Bash shell, you see the following example output:
 
-```console
+```output
 Name:         nginx-6db489d4b7-ktdwg
 Node:         aks-nodepool1-28993262-vmss000000/10.240.0.4
 Name:         nginx-6db489d4b7-v7zvj

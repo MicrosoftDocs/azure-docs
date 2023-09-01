@@ -1,8 +1,8 @@
 ---
 title: Integrate Azure Blob Storage with Service Connector
 description: Integrate Azure Blob Storage into your application with Service Connector
-author: maud-lv
-ms.author: malev
+author: mcleanbyron
+ms.author: mcleans
 ms.service: service-connector
 ms.custom: event-tier1-build-2022
 ms.topic: how-to
@@ -93,7 +93,7 @@ Use the connection details below to connect compute services to Blob Storage. Fo
 | AZURE_STORAGEBLOB_CLIENTSECRET     | Your client secret    | `<client-secret>`                                       |
 | AZURE_STORAGEBLOB_TENANTID         | Your tenant ID        | `<tenant-ID>`                                           |
 
-### Azure Spring Cloud
+### Azure Spring Apps
 
 #### secret / connection string
 

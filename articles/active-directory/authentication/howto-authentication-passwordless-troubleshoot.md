@@ -1,5 +1,5 @@
 ---
-title: Known issues and troubleshooting for hybrid FIDO2 security keys - Azure Active Directory
+title: Known issues and troubleshooting for hybrid FIDO2 security keys
 description: Learn about some known issues and ways to troubleshoot passwordless hybrid FIDO2 security key sign-in using Azure Active Directory 
 
 services: active-directory

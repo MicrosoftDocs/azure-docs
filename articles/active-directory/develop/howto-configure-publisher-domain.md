@@ -9,9 +9,9 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 01/05/2023
+ms.date: 04/27/2023
 ms.author: owenrichards
-ms.reviewer: xurobert, brianokoyo
+ms.reviewer: xurobert
 ms.custom: contperf-fy21q4, aaddev
 ---
 
@@ -67,6 +67,8 @@ If your multitenant was registered *after November 30, 2020*:
 If your app was registered *before May 21, 2019*, your app's consent prompt shows *unverified*, even if you haven't set a publisher domain. We recommend that you set the publisher domain value so that users can see this information in your app's consent prompt.
 
 ## Set a publisher domain in the Azure portal
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 To set a publisher domain for your app by using the Azure portal:
 

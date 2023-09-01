@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Get image insights using the REST API and Python - Bing Visual Search"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn how to upload an image using the Bing Visual Search API and Python, and then get insights about the image.
 services: cognitive-services
 manager: nitinme
@@ -14,7 +14,7 @@ ms.custom: devx-track-python, mode-api
 
 # Quickstart: Get image insights using the Bing Visual Search REST API and Python
 
-[!INCLUDE [Bing move notice](../../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../../bing-web-search/includes/bing-move-notice.md)]
 
 Use this quickstart to make your first call to the Bing Visual Search API. This Python application uploads an image to the API and displays the information it returns. Although this application is written in Python, the API is a RESTful Web service compatible with most programming languages.
 
@@ -32,7 +32,7 @@ Use this quickstart to make your first call to the Bing Visual Search API. This 
     import requests, json
     ```
 
-2. Create variables for your subscription key, endpoint, and the path to the image you're uploading. For the value of `BASE_URI`, you can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+2. Create variables for your subscription key, endpoint, and the path to the image you're uploading. For the value of `BASE_URI`, you can use the global endpoint in the following code, or use the [custom subdomain](../../../ai-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```python
 

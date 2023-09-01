@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory recommendation - Renew expiring application credentials (preview) | Microsoft Docs
+title: Azure Active Directory recommendation - Renew expiring application credentials (preview)
 description: Learn why you should renew expiring application credentials.
 services: active-directory
 author: shlipsey3

@@ -195,7 +195,7 @@ While the *Predicates* define the validation to check against a claim type, the 
         </Parameters>
       </Predicate>
     
-      <Predicate Id="AllowedAADCharacters" Method="MatchesRegex" HelpText="An invalid character was provided.">
+      <Predicate Id="AllowedCharacters" Method="MatchesRegex" HelpText="An invalid character was provided.">
         <Parameters>
           <Parameter Id="RegularExpression">(^([0-9A-Za-z\d@#$%^&amp;*\-_+=[\]{}|\\:',?/`~"();! ]|(\.(?!@)))+$)|(^$)</Parameter>
         </Parameters>

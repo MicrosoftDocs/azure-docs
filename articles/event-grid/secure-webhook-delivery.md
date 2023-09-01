@@ -49,16 +49,16 @@ This section shows how to configure the event subscription by using an Azure AD 
     PS /home/user>Connect-AzureAD -TenantId $webhookAadTenantId
     ```
 
-4. Open the [following script](scripts/event-grid-powershell-webhook-secure-delivery-azure-ad-user.md) and update the values of **$webhookAppObjectId** and **$eventSubscriptionWriterUserPrincipalName** with your identifiers, then continue to run the script.
+4. Open the [following script](scripts/powershell-webhook-secure-delivery-azure-ad-user.md) and update the values of **$webhookAppObjectId** and **$eventSubscriptionWriterUserPrincipalName** with your identifiers, then continue to run the script.
 
     - Variables:
         - **$webhookAppObjectId**: Azure AD application ID created for the webhook
-        - **$eventSubscriptionWriterUserPrincipalName**: Azure user principal name of the user who will create event subscription
+        - **$eventSubscriptionWriterUserPrincipalName**: Azure user principal name of the user who creates event subscription
 
     > [!NOTE]
     > You don't need to modify the value of **$eventGridAppId**. In this script, **AzureEventGridSecureWebhookSubscriber** is set for the **$eventGridRoleName**. Remember, you must be a member of the [Azure AD Application Administrator role](../active-directory/roles/permissions-reference.md#all-roles) or be an owner of the service principal of webhook app in Azure AD to execute this script.
 
-    If you see the following error message, you need to elevate to the service principal. An additional access check has been introduced as part of create or update of event subscription on March 30, 2021 to address a security vulnerability. The subscriber client's service principal needs to be either an owner or have a role assigned on the destination application service principal. 
+    If you see the following error message, you need to elevate to the service principal. An extra access check has been introduced as part of create or update of event subscription on March 30, 2021 to address a security vulnerability. The subscriber client's service principal needs to be either an owner or have a role assigned on the destination application service principal. 
     
     ```
     New-AzureADServiceAppRoleAssignment: Error occurred while executing NewServicePrincipalAppRoleAssignment
@@ -75,7 +75,7 @@ This section shows how to configure the event subscription by using an Azure AD 
     4. On the **Additional features** tab, do these steps:
         1. Select **Use AAD authentication**, and configure the tenant ID and application ID:
         2. Copy the Azure AD tenant ID from the output of the script and enter it in the **AAD Tenant ID** field.
-        3. Copy the Azure AD application ID from the output of the script and enter it in the **AAD Application ID** field. You can use the AAD Application ID URI instead of using the application ID. For more information about application ID URI, see [this article](../app-service/configure-authentication-provider-aad.md).
+        3. Copy the Azure AD application ID from the output of the script and enter it in the **AAD Application ID** field. You can use the Azure AD Application ID URI instead of using the application ID. For more information about application ID URI, see [this article](../app-service/configure-authentication-provider-aad.md).
     
             ![Secure Webhook action](./media/secure-webhook-delivery/aad-configuration.png)
 
@@ -85,9 +85,9 @@ This section shows how to configure the event subscription by using an Azure AD 
 
 1. Create an Azure AD application for the Event Grid subscription writer configured to work with the Microsoft directory (Single tenant).
 
-2. Create a secret for the Azure AD application and save the value (you'll need this value later).
+2. Create a secret for the Azure AD application and save the value (you need this value later).
 
-3. Go to the **Access control (IAM)** page for the Event Grid topic and assign **Event Grid Contributor** role to the Event Grid subscription writer app. This step will allow you to have access to the Event Grid resource when you logged-in into Azure with the Azure AD application by using Azure CLI.
+3. Go to the **Access control (IAM)** page for the Event Grid topic and assign **Event Grid Contributor** role to the Event Grid subscription writer app. This step allows you to have access to the Event Grid resource when you logged-in into Azure with the Azure AD application by using Azure CLI.
 
 4. Create an Azure AD application for the webhook configured to work with the Microsoft directory (Single tenant).
 
@@ -103,7 +103,7 @@ This section shows how to configure the event subscription by using an Azure AD 
     PS /home/user>Connect-AzureAD -TenantId $webhookAadTenantId
     ```
 
-7. Open the [following script](scripts/event-grid-powershell-webhook-secure-delivery-azure-ad-app.md) and update the values of **$webhookAppObjectId** and **$eventSubscriptionWriterAppId** with your identifiers, then continue to run the script.
+7. Open the [following script](scripts/powershell-webhook-secure-delivery-azure-ad-app.md) and update the values of **$webhookAppObjectId** and **$eventSubscriptionWriterAppId** with your identifiers, then continue to run the script.
 
     - Variables:
         - **$webhookAppObjectId**: Azure AD application ID created for the webhook
@@ -112,7 +112,7 @@ This section shows how to configure the event subscription by using an Azure AD 
     > [!NOTE]
     > You don't need to modify the value of **```$eventGridAppId```**. In this script, **AzureEventGridSecureWebhookSubscriber** as set for the **```$eventGridRoleName```**. Remember, you must be a member of the [Azure AD Application Administrator role](../active-directory/roles/permissions-reference.md#all-roles) or be an owner of the service principal of webhook app in Azure AD to execute this script.
 
-8. Log in as the Event Grid subscription writer Azure AD Application by running the command.
+8. Sign-in as the Event Grid subscription writer Azure AD Application by running the command.
 
     ```azurecli
     PS /home/user>az login --service-principal -u [REPLACE_WITH_EVENT_GRID_SUBSCRIPTION_WRITER_APP_ID] -p [REPLACE_WITH_EVENT_GRID_SUBSCRIPTION_WRITER_APP_SECRET_VALUE] --tenant [REPLACE_WITH_TENANT_ID]
@@ -134,11 +134,11 @@ This section shows how to configure the event subscription by using an Azure AD 
 
 ## Deliver events to a Webhook in a different Azure AD tenant 
 
-To secure the connection between your event subscription and your webhook endpoint that are in different Azure AD tenants, you'll need to use an Azure AD **application** as shown in this section. Currently, it's not possible to secure this connection by using an Azure AD **user** in the Azure portal. 
+To secure the connection between your event subscription and your webhook endpoint that are in different Azure AD tenants, you need to use an Azure AD **application** as shown in this section. Currently, it's not possible to secure this connection by using an Azure AD **user** in the Azure portal. 
 
 ![Multitenant events with Azure AD and Webhooks](./media/secure-webhook-delivery/multitenant-diagram.png)
 
-Based on the diagram above, follow next steps to configure both tenants.
+Based on the diagram, follow next steps to configure both tenants.
 
 ### Tenant A
 
@@ -146,7 +146,7 @@ Do the following steps in **Tenant A**:
 
 1. Create an Azure AD application for the Event Grid subscription writer configured to work with any Azure AD directory (Multi-tenant).
 
-2. Create a secret for the Azure AD application, and save the value (you'll need this value later).
+2. Create a secret for the Azure AD application, and save the value (you need this value later).
 
 3. Navigate to the **Access control (IAM)** page for the Event Grid topic. Assign the **Event Grid Contributor** role to Azure AD application of the Event Grid subscription writer. This step allows the application to have access to the Event Grid resource when you sign in into Azure with the Azure AD application by using Azure CLI.
 
@@ -164,7 +164,7 @@ Do the following steps in **Tenant B**:
         PS /home/user>$webhookAadTenantId = "[REPLACE_WITH_YOUR_TENANT_ID]"
         PS /home/user>Connect-AzureAD -TenantId $webhookAadTenantId
         ```
-7. Open the [following script](scripts/event-grid-powershell-webhook-secure-delivery-azure-ad-app.md), and update values of **$webhookAppObjectId** and **$eventSubscriptionWriterAppId** with your identifiers, then continue to run the script.
+7. Open the [following script](scripts/powershell-webhook-secure-delivery-azure-ad-app.md), and update values of **$webhookAppObjectId** and **$eventSubscriptionWriterAppId** with your identifiers, then continue to run the script.
 
     - Variables:
         - **$webhookAppObjectId**: Azure AD application ID created for the webhook
@@ -173,7 +173,7 @@ Do the following steps in **Tenant B**:
             > [!NOTE]
             > You don't need to modify the value of **```$eventGridAppId```**. In this script, **AzureEventGridSecureWebhookSubscriber** is set for **```$eventGridRoleName```**. Remember, you must be a member of the [Azure AD Application Administrator role](../active-directory/roles/permissions-reference.md#all-roles) or be an owner of the service principal of webhook app in Azure AD to execute this script.
 
-    If you see the following error message, you need to elevate to the service principal. An additional access check has been introduced as part of create or update of event subscription on March 30, 2021 to address a security vulnerability. The subscriber client's service principal needs to be either an owner or have a role assigned on the destination application service principal. 
+    If you see the following error message, you need to elevate to the service principal. An extra access check has been introduced as part of create or update of event subscription on March 30, 2021 to address a security vulnerability. The subscriber client's service principal needs to be either an owner or have a role assigned on the destination application service principal. 
     
     ```
     New-AzureADServiceAppRoleAssignment: Error occurred while executing NewServicePrincipalAppRoleAssignment

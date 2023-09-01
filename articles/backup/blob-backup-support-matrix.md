@@ -5,8 +5,8 @@ ms.topic: conceptual
 ms.date: 02/20/2023
 ms.custom: references_regions
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Support matrix for Azure Blobs backup
@@ -47,8 +47,6 @@ Operational backup of blobs uses blob point-in-time restore, blob versioning, so
 - If there are [immutable blobs](../storage/blobs/immutable-storage-overview.md#about-immutable-storage-for-blobs) among those being restored, such immutable blobs won't be restored to their state as per the selected recovery point. However, other blobs that don't have immutability enabled will be restored to the selected recovery point as expected.
 
 # [Vaulted backup](#tab/vaulted-backup)
-
-The vaulted backup is currently in preview in the following regions: France Central, Canada Central, Canada East, US East, US South.
 
 - You can back up only block blobs in a *standard general-purpose v2 storage account* using the vaulted backup solution for blobs.
 - HNS-enabled storage accounts are currently not supported. This includes *ADLS Gen2 accounts*, *accounts using NFS 3.0*, and *SFTP protocols* for blobs.

@@ -37,6 +37,6 @@ For iOS, see [Enabling Cross App SSO in iOS](single-sign-on-macos-ios.md).
 
 [Integrating Apps to AzureAD](./quickstart-register-app.md)<br>
 
-[Permissions and consent in the Microsoft identity platform](./v2-permissions-and-consent.md)<br>
+[Permissions and consent in the Microsoft identity platform](./permissions-consent-overview.md)<br>
 
 [AzureAD Microsoft Q&A](/answers/topics/azure-active-directory.html)

@@ -1,12 +1,12 @@
 ---
 title: "Use permissions in Azure Spring Apps"
 description: This article shows you how to create custom roles that delegate permissions to Azure Spring Apps resources.
-author: karlerickson
+author: KarlErickson
 ms.author: karler
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 09/04/2020
-ms.custom: devx-track-java, event-tier1-build-2022
+ms.custom: devx-track-java, devx-track-extended-java, event-tier1-build-2022, devx-track-jenkins
 ---
 
 # How to use permissions in Azure Spring Apps
@@ -14,7 +14,7 @@ ms.custom: devx-track-java, event-tier1-build-2022
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
 This article shows you how to create custom roles that delegate permissions to Azure Spring Apps resources. Custom roles extend [Azure built-in roles](../role-based-access-control/built-in-roles.md) with various stock permissions.
 
@@ -73,38 +73,38 @@ The Developer role includes permissions to restart apps and see their log stream
    * **Read : Get Azure Spring Apps service instance**
    * **Other : List Azure Spring Apps service instance test keys**
 
-   (For Enterprise tier only) Under **Microsoft.AppPlatform/Spring/buildServices**, select:
+   (For Enterprise plan only) Under **Microsoft.AppPlatform/Spring/buildServices**, select:
 
    * **Read : Read Microsoft Azure Spring Apps Build Services**
    * **Other : Get an Upload URL in Azure Spring Apps**
 
-   (For Enterprise tier only) Under **Microsoft.AppPlatform/Spring/buildServices/builds**, select:
+   (For Enterprise plan only) Under **Microsoft.AppPlatform/Spring/buildServices/builds**, select:
 
    * **Read : Read Microsoft Azure Spring Apps Builds**
    * **Write : Write Microsoft Azure Spring Apps Builds**
 
-   (For Enterprise tier only) Under **Microsoft.AppPlatform/Spring/buildServices/builds/results**, select:
+   (For Enterprise plan only) Under **Microsoft.AppPlatform/Spring/buildServices/builds/results**, select:
 
    * **Read : Read Microsoft Azure Spring Apps Build Results**
    * **Other : Get an Log File URL in Azure Spring Apps**
 
-   (For Enterprise tier only) Under **Microsoft.AppPlatform/Spring/buildServices/builders**, select:
+   (For Enterprise plan only) Under **Microsoft.AppPlatform/Spring/buildServices/builders**, select:
 
    * **Read : Read Microsoft Azure Spring Apps Builders**
    * **Write : Write Microsoft Azure Spring Apps Builders**
    * **Delete : Delete Microsoft Azure Spring Apps Builders**
 
-   (For Enterprise tier only) Under **Microsoft.AppPlatform/Spring/buildServices/builders/buildpackBindings**, select:
+   (For Enterprise plan only) Under **Microsoft.AppPlatform/Spring/buildServices/builders/buildpackBindings**, select:
 
    * **Read : Read Microsoft Azure Spring Apps Builder BuildpackBinding**
    * **Write : Write Microsoft Azure Spring Apps Builder BuildpackBinding**
    * **Delete : Delete Microsoft Azure Spring Apps Builder BuildpackBinding**
 
-   (For Enterprise tier only) Under **Microsoft.AppPlatform/Spring/buildServices/supportedBuildpacks**, select:
+   (For Enterprise plan only) Under **Microsoft.AppPlatform/Spring/buildServices/supportedBuildpacks**, select:
 
    * **Read : Read Microsoft Azure Spring Apps Supported Buildpacks**
 
-   (For Enterprise tier only) Under **Microsoft.AppPlatform/Spring/buildServices/supportedStacks**, select:
+   (For Enterprise plan only) Under **Microsoft.AppPlatform/Spring/buildServices/supportedStacks**, select:
 
    * **Read : Read Microsoft Azure Spring Apps Supported Stacks**
 
@@ -166,7 +166,7 @@ The Developer role includes permissions to restart apps and see their log stream
 
 8. Paste in the following JSON to define the Developer role:
 
-   * Basic/Standard tier
+   * Basic/Standard plan
 
       ```json
       {
@@ -205,7 +205,7 @@ The Developer role includes permissions to restart apps and see their log stream
       }
       ```
 
-   * Enterprise tier
+   * Enterprise plan
 
       ```json
       {
@@ -288,43 +288,43 @@ This procedure defines a role that has permissions to deploy, test, and restart 
    * **Other : List Azure Spring Apps service instance test keys**
    * **Other : Regenerate Azure Spring Apps service instance test key**
 
-   (For Enterprise tier only) Under **Microsoft.AppPlatform/Spring/buildServices**, select:
+   (For Enterprise plan only) Under **Microsoft.AppPlatform/Spring/buildServices**, select:
 
    * **Read : Read Microsoft Azure Spring Apps Build Services**
    * **Other : Get an Upload URL in Azure Spring Apps**
   
-   (For Enterprise tier only) Under **Microsoft.AppPlatform/Spring/buildServices/agentPools**, select:
+   (For Enterprise plan only) Under **Microsoft.AppPlatform/Spring/buildServices/agentPools**, select:
 
    * **Read : Read Microsoft Azure Spring Apps Agent Pools**
    * **Write : Write Microsoft Azure Spring Apps Agent Pools**
 
-   (For Enterprise tier only) Under **Microsoft.AppPlatform/Spring/buildServices/builds**, select:
+   (For Enterprise plan only) Under **Microsoft.AppPlatform/Spring/buildServices/builds**, select:
 
    * **Read : Read Microsoft Azure Spring Apps Builds**
    * **Write : Write Microsoft Azure Spring Apps Builds**
 
-   (For Enterprise tier only) Under **Microsoft.AppPlatform/Spring/buildServices/builds/results**, select:
+   (For Enterprise plan only) Under **Microsoft.AppPlatform/Spring/buildServices/builds/results**, select:
 
    * **Read : Read Microsoft Azure Spring Apps Build Results**
    * **Other : Get an Log File URL in Azure Spring Apps**
 
-   (For Enterprise tier only) Under **Microsoft.AppPlatform/Spring/buildServices/builders**, select:
+   (For Enterprise plan only) Under **Microsoft.AppPlatform/Spring/buildServices/builders**, select:
 
    * **Read : Read Microsoft Azure Spring Apps Builders**
    * **Write : Write Microsoft Azure Spring Apps Builders**
    * **Delete : Delete Microsoft Azure Spring Apps Builders**
 
-   (For Enterprise tier only) Under **Microsoft.AppPlatform/Spring/buildServices/builders/buildpackBindings**, select:
+   (For Enterprise plan only) Under **Microsoft.AppPlatform/Spring/buildServices/builders/buildpackBindings**, select:
 
    * **Read : Read Microsoft Azure Spring Apps Builder BuildpackBinding**
    * **Write : Write Microsoft Azure Spring Apps Builder BuildpackBinding**
    * **Delete : Delete Microsoft Azure Spring Apps Builder BuildpackBinding**
 
-   (For Enterprise tier only) Under **Microsoft.AppPlatform/Spring/buildServices/supportedBuildpacks**, select:
+   (For Enterprise plan only) Under **Microsoft.AppPlatform/Spring/buildServices/supportedBuildpacks**, select:
 
    * **Read : Read Microsoft Azure Spring Apps Supported Buildpacks**
 
-   (For Enterprise tier only) Under **Microsoft.AppPlatform/Spring/buildServices/supportedStacks**, select:
+   (For Enterprise plan only) Under **Microsoft.AppPlatform/Spring/buildServices/supportedStacks**, select:
 
    * **Read : Read Microsoft Azure Spring Apps Supported Stacks**
 
@@ -393,7 +393,7 @@ This procedure defines a role that has permissions to deploy, test, and restart 
 
 5. Paste in the following JSON to define the DevOps Engineer role:
 
-   * Basic/Standard tier
+   * Basic/Standard plan
 
       ```json
       {
@@ -443,7 +443,7 @@ This procedure defines a role that has permissions to deploy, test, and restart 
       }
       ```
 
-   * Enterprise tier
+   * Enterprise plan
 
       ```json
       {
@@ -569,7 +569,7 @@ This procedure defines a role that has permissions to deploy, test, and restart 
 
 5. Paste in the following JSON to define the Ops - Site Reliability Engineering role:
 
-   * Enterprise/Basic/Standard tier
+   * Enterprise/Basic/Standard plan
 
       ```json
       {
@@ -629,38 +629,38 @@ This role can create and configure everything in Azure Spring Apps and apps with
    * **Other : List Azure Spring Apps service instance test keys**
    * **Other : Regenerate Azure Spring Apps service instance test key**
   
-   (For Enterprise tier only) Under **Microsoft.AppPlatform/Spring/buildServices**, select:
+   (For Enterprise plan only) Under **Microsoft.AppPlatform/Spring/buildServices**, select:
 
    * **Read : Read Microsoft Azure Spring Apps Build Services**
    * **Other : Get an Upload URL in Azure Spring Apps**
 
-   (For Enterprise tier only) Under **Microsoft.AppPlatform/Spring/buildServices/builds**, select:
+   (For Enterprise plan only) Under **Microsoft.AppPlatform/Spring/buildServices/builds**, select:
 
    * **Read : Read Microsoft Azure Spring Apps Builds**
    * **Write : Write Microsoft Azure Spring Apps Builds**
 
-   (For Enterprise tier only) Under **Microsoft.AppPlatform/Spring/buildServices/builds/results**, select:
+   (For Enterprise plan only) Under **Microsoft.AppPlatform/Spring/buildServices/builds/results**, select:
 
    * **Read : Read Microsoft Azure Spring Apps Build Results**
    * **Other : Get an Log File URL in Azure Spring Apps**
 
-   (For Enterprise tier only) Under **Microsoft.AppPlatform/Spring/buildServices/builders**, select:
+   (For Enterprise plan only) Under **Microsoft.AppPlatform/Spring/buildServices/builders**, select:
 
    * **Read : Read Microsoft Azure Spring Apps Builders**
    * **Write : Write Microsoft Azure Spring Apps Builders**
    * **Delete : Delete Microsoft Azure Spring Apps Builders**
 
-   (For Enterprise tier only) Under **Microsoft.AppPlatform/Spring/buildServices/builders/buildpackBindings**, select:
+   (For Enterprise plan only) Under **Microsoft.AppPlatform/Spring/buildServices/builders/buildpackBindings**, select:
 
    * **Read : Read Microsoft Azure Spring Apps Builder BuildpackBinding**
    * **Write : Write Microsoft Azure Spring Apps Builder BuildpackBinding**
    * **Delete : Delete Microsoft Azure Spring Apps Builder BuildpackBinding**
 
-   (For Enterprise tier only) Under **Microsoft.AppPlatform/Spring/buildServices/supportedBuildpacks**, select:
+   (For Enterprise plan only) Under **Microsoft.AppPlatform/Spring/buildServices/supportedBuildpacks**, select:
 
    * **Read : Read Microsoft Azure Spring Apps Supported Buildpacks**
 
-   (For Enterprise tier only) Under **Microsoft.AppPlatform/Spring/buildServices/supportedStacks**, select:
+   (For Enterprise plan only) Under **Microsoft.AppPlatform/Spring/buildServices/supportedStacks**, select:
 
    * **Read : Read Microsoft Azure Spring Apps Supported Stacks**
 
@@ -730,7 +730,7 @@ This role can create and configure everything in Azure Spring Apps and apps with
 
 5. Paste in the following JSON to define the Azure Pipelines / Jenkins / GitHub Actions role:
 
-   * Basic/Standard tier
+   * Basic/Standard plan
 
       ```json
       {
@@ -779,7 +779,7 @@ This role can create and configure everything in Azure Spring Apps and apps with
       }
       ```
 
-   * Enterprise tier
+   * Enterprise plan
 
       ```json
       {

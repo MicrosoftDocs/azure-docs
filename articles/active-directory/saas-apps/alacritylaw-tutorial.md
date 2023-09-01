@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with AlacrityLaw | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with AlacrityLaw'
 description: Learn how to configure single sign-on between Azure Active Directory and AlacrityLaw.
 services: active-directory
 author: jeevansd

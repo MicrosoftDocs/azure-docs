@@ -33,6 +33,9 @@ For more information on those first two scenarios, where the application support
 
 This article covers the third scenario. For some legacy applications it might not be feasible to remove other identity providers or local credential authentication from the application, or enable support for provisioning protocols for those applications. For those applications, if you want to use Azure AD to review who has access to that application, or remove someone's access from that application, you'll need to create assignments in Azure AD that represent application users.  This article covers that scenario of an application that does not use Azure AD as its identity provider and does not support provisioning.
 
+## License requirements
+[!INCLUDE [active-directory-entra-governance-license.md](../../../includes/active-directory-entra-governance-license.md)]
+
 ## Terminology
 
 This article illustrates the process for managing application role assignments by using the [Microsoft Graph PowerShell cmdlets](https://www.powershellgallery.com/packages/Microsoft.Graph). It uses the following Microsoft Graph terminology.
@@ -49,7 +52,7 @@ When you create an assignment for a user to an access package, Azure AD entitlem
 
 - You must have one of the following licenses in your tenant:
 
-  - Azure AD Premium P2
+  - Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance
   - Enterprise Mobility + Security E5 license
 
 - You need to have an appropriate administrative role. If this is the first time you're performing these steps, you need the Global Administrator role to authorize the use of Microsoft Graph PowerShell in your tenant.

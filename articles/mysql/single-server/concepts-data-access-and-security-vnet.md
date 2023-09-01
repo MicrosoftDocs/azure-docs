@@ -4,8 +4,8 @@ description: 'Describes how VNet service endpoints work for your Azure Database 
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: conceptual
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.date: 06/20/2022
 ---
 

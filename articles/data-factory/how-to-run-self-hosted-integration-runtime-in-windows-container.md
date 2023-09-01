@@ -1,14 +1,13 @@
 ---
 title: How to run Self-Hosted Integration Runtime in Windows container
 description: Learn about how to run Self-Hosted Integration Runtime in Windows container.
-
 ms.author: lle
 author: lrtoyou1223
 ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/10/2022
+ms.date: 07/20/2023
 ---
 
 # How to run Self-Hosted Integration Runtime in Windows container
@@ -48,16 +47,27 @@ Azure Data Factory provides Windows container support for the Self-Hosted Integr
    docker build . -t "yourDockerImageName" 
    ```
 
-1. Run the Docker container:
+1. Run the container with specific arguments by passing environment variables:
 
    ```console
-   docker run -d -e NODE_NAME="irNodeName" -e AUTH_KEY="IR_AUTHENTICATION_KEY" -e ENABLE_HA=true -e HA_PORT=8060 "yourDockerImageName"    
+    docker run -d -e AUTH_KEY=<ir-authentication-key> \
+    [-e NODE_NAME=<ir-node-name>] \
+    [-e ENABLE_HA={true|false}] \
+    [-e HA_PORT=<port>] \
+    [-e ENABLE_AE={true|false}] \
+    [-e AE_TIME=<expiration-time-in-seconds>] \
+    <yourDockerImageName>   
    ```
 
-   > [!NOTE]
-   > The `AUTH_KEY` environment variable is mandatory and must be set to the auth key value for your data factory.
-   >
-   > The `NODE_NAME`, `ENABLE_HA` and `HA_PORT` environment variables are optional. If you don't set their values, the command will use default values. The default value of `ENABLE_HA` is `false`, and the default value of `HA_PORT` is `8060`.
+|Name|Necessity|Default|Description|
+|---|---|---|---|
+| `AUTH_KEY` | Required | | The authentication key for the self-hosted integration runtime. |
+| `NODE_NAME` | Optional | `hostname` | The specified name of the node. |
+| `ENABLE_HA` | Optional | `false` | The flag to enable high availability and scalability.<br/> It supports up to 4 nodes registered to the same IR when `HA` is enabled, otherwise only 1 is allowed. |
+| `HA_PORT` | Optional | `8060` | The port to set up a high availability cluster. |
+| `ENABLE_AE` | Optional | `false` | The flag to enable offline nodes auto-expiration.<br/> If enabled, the expired nodes will be removed automatically from the IR when a new node is attempting to register.<br/> Only works when `ENABLE_HA=true`. |
+| `AE_TIME` | Optional | `600` |  The expiration timeout duration for offline nodes in seconds. <br/>Should be no less than 600 (10 minutes). |
+
 
 ## Container health check
 

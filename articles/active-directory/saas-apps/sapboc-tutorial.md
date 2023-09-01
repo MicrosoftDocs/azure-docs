@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with SAP Analytics Cloud | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with SAP Analytics Cloud'
 description: Learn how to configure single sign-on between Azure Active Directory and SAP Analytics Cloud.
 services: active-directory
 author: jeevansd

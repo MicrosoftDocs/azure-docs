@@ -1,16 +1,14 @@
 ---
-title: Expose an on-prem WCF REST service to clients using Azure Relay
+title: Expose an on-premises WCF REST service to clients using Azure Relay
 description: This tutorial describes how to expose an on-premises WCF REST service to an external client by using Azure WCF Relay.
 ms.topic: tutorial
-ms.custom: devx-track-dotnet
-ms.date: 06/21/2022
+ms.custom:
+ms.date: 08/11/2023
 ---
 
 # Tutorial: Expose an on-premises WCF REST service to external client by using Azure WCF Relay
 
-This tutorial describes how to build a WCF Relay client application and service using Azure Relay. For a similar tutorial that uses [Service Bus messaging](../service-bus-messaging/service-bus-messaging-overview.md), see [Get started with Service Bus queues](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
-
-Working through this tutorial gives you an understanding of the steps to create a WCF Relay client and service application. Like their original WCF counterparts, a service is a construct that exposes one or more endpoints. Each endpoint exposes one or more service operations. The endpoint of a service specifies an address where the service can be found, a binding that contains the information that a client must communicate with the service, and a contract that defines the functionality provided by the service to its clients. The main difference between WCF and WCF Relay is that the endpoint is exposed in the cloud instead of locally on your computer.
+This tutorial describes how to build a WCF Relay client application and a service using Azure Relay. Like their original WCF counterparts, a service is a construct that exposes one or more endpoints. Each **endpoint** exposes one or more service operations. The endpoint of a service specifies an **address** where the service can be found, a **binding** that contains the information that a client must communicate with the service, and a **contract** that defines the functionality provided by the service to its clients. The main difference between WCF and WCF Relay is that the endpoint is exposed in the cloud instead of locally on your computer.
 
 After you work through the sequence of sections in this tutorial, you'll have a running service. You'll also have a client that can invoke the operations of the service. 
 
@@ -176,7 +174,7 @@ Creating an Azure relay requires that you first create the contract by using an 
 The configuration file is similar to a WCF configuration file. It includes the service name, endpoint, and binding. The endpoint is the location Azure Relay exposes for clients and hosts to communicate with each other. The binding is the type of protocol that is used to communicate. The main difference is that this configured service endpoint refers to a [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) binding, which isn't part of the .NET Framework. [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) is one of the bindings defined by the service.
 
 1. In **Solution Explorer**, double-click **App.config** to open the file in the Visual Studio editor.
-1. In the `<appSettings>` element, replace the placeholders with the name of your service namespace, and the SAS key that you copied in an earlier step.
+1. In the `<appSettings>` element, replace the placeholders with the name of your Azure Relay namespace, and the SAS key that you copied in an earlier step.
 1. Within the `<system.serviceModel>` tags, add a `<services>` element. You can define multiple relay applications in a single configuration file. However, this tutorial defines only one.
 
     ```xml
@@ -734,7 +732,7 @@ namespace Microsoft.ServiceBus.Samples
 1. Both console windows open and prompt you for the namespace name. The service must run first, so in the **EchoService** console window, enter the namespace and then select Enter.
 1. Next, the console prompts you for your SAS key. Enter the SAS key and select Enter.
 
-    Here is example output from the console window. The values here are just examples.
+    Here's example output from the console window. The values here are just examples.
 
     `Your Service Namespace: myNamespace`
 

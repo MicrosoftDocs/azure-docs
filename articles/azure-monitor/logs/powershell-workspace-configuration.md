@@ -4,7 +4,7 @@ description: PowerShell samples show how to configure a Log Analytics workspace 
 ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
-ms.date: 03/28/2022
+ms.date: 07/02/2023
 ms.reviewer: yossiy
 ms.custom: devx-track-azurepowershell
 

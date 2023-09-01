@@ -8,7 +8,7 @@ ms.subservice: apache-cassandra
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.devlang: csharp, java, golang
-ms.custom: devx-track-csharp, devx-track-java, devx-track-golang, ignite-2022
+ms.custom: devx-track-csharp, devx-track-java, devx-track-golang, ignite-2022, devx-track-dotnet, devx-track-extended-java
 ---
 # Find the request unit charge for operations executed in Azure Cosmos DB for Apache Cassandra
 [!INCLUDE[Cassandra](../includes/appliesto-cassandra.md)]

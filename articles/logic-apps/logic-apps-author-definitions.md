@@ -35,7 +35,7 @@ open the Code View editor when working
 in the Azure portal or in Visual Studio,
 or copy the definition into any editor that you want.
 If you're new to Azure Logic Apps, review
-[how to create your first logic app workflow](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+[Create an example Consumption logic app workflow](../logic-apps/quickstart-create-example-consumption-workflow.md).
 
 > [!NOTE]
 > Some Azure Logic Apps capabilities, such as defining

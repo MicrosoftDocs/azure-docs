@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.date: 11/17/2021
 ms.author: jomondi
 ms.reviewer: phsignor
-ms.custom: contperf-fy21q2
+ms.custom: contperf-fy21q2, enterprise-apps
 
 #customer intent: As an admin, I want to configure risk-based step-up consent.
 ---

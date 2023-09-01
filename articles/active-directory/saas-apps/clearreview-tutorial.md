@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Clear Review | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Clear Review'
 description: Learn how to configure single sign-on between Azure Active Directory and Clear Review.
 services: active-directory
 author: jeevansd

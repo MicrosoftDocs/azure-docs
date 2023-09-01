@@ -125,7 +125,7 @@ For information about when this file is updated and when the IP addresses change
 In the Developer, Basic, Standard, and Premium tiers of API Management, the public IP address or addresses (VIP) and private VIP addresses (if configured in the internal VNet mode) are static for the lifetime of a service, with the following exceptions:
 
 * The API Management service is deleted and then re-created.
-* The service subscription is [suspended](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states) or [warned](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states) (for example, for nonpayment) and then reinstated.
+* The service subscription is disabled or warned (for example, for nonpayment) and then reinstated. [Learn more about subscription states](/azure/cost-management-billing/manage/subscription-states)
 * (Developer and Premium tiers) Azure Virtual Network is added to or removed from the service.
 * (Developer and Premium tiers) API Management service is switched between external and internal VNet deployment mode.
 * (Developer and Premium tiers) API Management service is moved to a different subnet.

@@ -39,7 +39,7 @@ Azure Firewall supports both Classic rules and policies, but policies is the rec
 
 ## Basic, Standard, and Premium policies
 
-Azure Firewall supports Basic (preview), Standard, and Premium policies. The following table summarizes the difference between these policies:
+Azure Firewall supports Basic, Standard, and Premium policies. The following table summarizes the difference between these policies:
 
 
 |Policy type|Feature support  | Firewall SKU support|
@@ -53,7 +53,8 @@ Azure Firewall supports Basic (preview), Standard, and Premium policies. The fol
 
 New policies can be created from scratch or inherited from existing policies. Inheritance allows DevOps to create local firewall policies on top of organization mandated base policy.
 
-Policies created with non-empty parent policies inherit all rule collections from the parent policy. 
+Policies created with non-empty parent policies inherit all rule collections from the parent policy. The parent policy and the child policy must be in the same region. A firewall policy can be associated with firewalls across regions regardless where they are stored.
+
 Network rule collections inherited from a parent policy are always prioritized over network rule collections defined as part of a new policy. The same logic also applies to application rule collections. However, network rule collections are always processed before application rule collections regardless of inheritance.
 
 Threat Intelligence mode is also inherited from the parent policy. You can set your threat Intelligence mode to a different value to override this behavior, but you can't turn it off. It's only possible to override with a stricter value. For example, if your parent policy is set to **Alert only**, you can configure this local policy to **Alert and deny**.
@@ -64,7 +65,11 @@ NAT rule collections aren't inherited because they're specific to a given firewa
 
 With inheritance, any changes to the parent policy are automatically applied down to associated firewall child policies.
 
+## Built-in high availability
 
+High availability is built in, so there's nothing you need to configure.
+
+Azure Firewall Policy is replicated to a paired Azure region. For example, if one Azure region goes down, Azure Firewall policy becomes active in the paired Azure region. The paired region is automatically selected based on the region where the policy is created. For more information, see [Cross-region replication in Azure: Business continuity and disaster recovery](../reliability/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies).
 
 ## Pricing
 
@@ -72,4 +77,6 @@ Policies are billed based on firewall associations. A policy with zero or one fi
 
 ## Next steps
 
-To learn how to deploy an Azure Firewall, see [Tutorial: Secure your cloud network with Azure Firewall Manager using the Azure portal](secure-cloud-network.md).
+- Learn how to deploy an Azure Firewall - [Tutorial: Secure your cloud network with Azure Firewall Manager using the Azure portal](secure-cloud-network.md)
+- [Learn more about Azure network security](../networking/security/index.yml)
+

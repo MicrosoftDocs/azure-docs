@@ -5,7 +5,7 @@ services: automation
 ms.subservice: process-automation
 ms.date: 09/23/2021
 ms.topic: how-to 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-arm-template
 #Customer intent: As a developer, I want to use Runbooks to deploy ARM templates so that I can increase efficiency.
 ---
 
@@ -26,7 +26,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 * [Azure Storage account](../storage/common/storage-account-create.md) in which to store the Resource Manager template.
 
-* Azure PowerShell installed on a local machine. See [Install the Azure PowerShell Module](/powershell/azure/install-az-ps) for information about how to get Azure PowerShell. You'll also need module [Az.ManagedServiceIdentity](/powershell/module/az.managedserviceidentity). `Az.ManagedServiceIdentity` is a preview module and not installed as part of the Az module. To install it, run `Install-Module -Name Az.ManagedServiceIdentity`
+* Azure PowerShell installed on a local machine. See [Install the Azure PowerShell Module](/powershell/azure/install-azure-powershell) for information about how to get Azure PowerShell. You'll also need module [Az.ManagedServiceIdentity](/powershell/module/az.managedserviceidentity). `Az.ManagedServiceIdentity` is a preview module and not installed as part of the Az module. To install it, run `Install-Module -Name Az.ManagedServiceIdentity`
 
 ## Assign permissions to managed identities
 

@@ -29,7 +29,11 @@ Azure confidential computing can help you:
 
 - **Ensure secure and untrusted collaboration**: Tackle industry-wide work-scale problems by combing data across organizations, even competitors, to unlock broad data analytics and deeper insights.
 
-- **Isolate processing**: Offer a new wave of products that remove liability on private data with blind processing. User data can't even be retrieved by the service provider. 
+- **Isolate processing**: Offer a new wave of products that remove liability on private data with blind processing. User data can't even be retrieved by the service provider.
+
+## What's new in Azure confidential computing
+
+> [!VIDEO https://www.youtube.com/embed/ds48uwDaA-w]
 
 ## Azure offerings
 Verifying that applications are running confidentially form the very foundation of confidential computing. This verification is multi-pronged and relies on the following suite of Azure offerings:

@@ -3,7 +3,7 @@ title: 'Quickstart: Create a function app on Azure Arc'
 description: Get started with Azure Functions on Azure Arc by deploying your first function app.
 ms.topic: quickstart
 ms.date: 09/02/2022
-ms.custom: mode-other, devx-track-azurecli 
+ms.custom: mode-other, devx-track-azurecli, build-2023
 ms.devlang: azurecli
 ---
 
@@ -15,6 +15,8 @@ In this quickstart, you create an Azure Functions project and deploy it to a fun
 > Support for running functions on an Azure Arc-enabled Kubernetes cluster is currently in preview.  
 >  
 > Publishing PowerShell function projects to Azure Arc-enabled Kubernetes clusters isn't currently supported. If you need to deploy PowerShell functions to Azure Arc-enabled Kubernetes clusters, [create your function app in a container](create-first-function-arc-custom-container.md). 
+
+If you need to customize the container in which your function app runs, instead see [Create your first containerized functions on Azure Arc (preview)](create-first-function-arc-custom-container.md).
 
 ## Prerequisites
 

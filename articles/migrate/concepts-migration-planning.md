@@ -4,8 +4,9 @@ description: Provides guidance on building a migration plan with Azure Migrate.
 author: rashi-ms
 ms.author: rajosh
 ms.manager: abhemraj
+ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 02/27/2023
+ms.date: 07/10/2023
 ms.custom: engagement-fy23
 ---
 
@@ -122,7 +123,7 @@ A few recommendations:
     **Over-provisioned servers** | Export the assessment report and filter for servers with high CPU utilization (%) and memory utilization (%).  Solve capacity constraints, prevent overstrained servers from breaking, and increase performance by migrating these servers to Azure. In Azure, use autoscaling capabilities to meet demand.<br/><br/> Analyze assessment reports to investigate storage constraints. Analyze disk IOPS and throughput, and the recommended disk type.
 
 - **Start small, then go big**: Start by moving apps and workloads that  present minimal risk and complexity, to build confidence in your migration strategy. Analyze Azure Migrate assessment recommendations together with your CMDB repository, to find and migrate dev/test workloads that might be candidates for pilot migrations. Feedback and learnings from pilot migrations can be helpful as you begin migrating production workloads.
-- **Comply**: Azure maintains the largest compliance portfolio in the industry, in terms of breadth and depth of offerings. Use compliance requirements to prioritize migrations, so that apps and workloads comply with your national, regional, and industry-specific standards and laws. This is especially true for organizations that deal with business-critical process, hold sensitive information, or are in heavily regulated industries. In these types of organizations, standards and regulations abound, and might change often, being difficult to keep up with.
+- **Comply**: Azure maintains the largest compliance portfolio in the industry, in terms of breadth and depth of offerings. Use compliance requirements to prioritize migrations, so that apps and workloads comply with your national/regional and industry-specific standards and laws. This is especially true for organizations that deal with business-critical process, hold sensitive information, or are in heavily regulated industries. In these types of organizations, standards and regulations abound, and might change often, being difficult to keep up with.
 
 ## Finalize the migration plan
 
@@ -149,6 +150,16 @@ When you're ready for migration, use the Migration and modernization tool, and t
 
 - With the Migration and modernization tool, you can migrate on-premises VMs and servers, or VMs located in other private or public cloud (including AWS, GCP) with around zero downtime.
 - Azure DMS provides a fully managed service that's designed to enable seamless migrations from multiple database sources to Azure Data platforms, with minimal downtime.
+
+### Upgrade Windows OS
+
+Azure Migrate provides an option to customers to upgrade their Windows Server OS seamlessly during the migration. Azure Migrate OS upgrade allows you to move from an older operating system to a newer one while keeping your settings, server roles, and data intact. [Learn more](how-to-upgrade-windows.md).
+
+Azure Migrate OS upgrade uses an Azure VM [Custom script extension](../virtual-machines/extensions/custom-script-windows.md) to perform the following activities for an in-place upgrade experience:
+
+- A data disk containing Windows Server setup files is created and attached to the VM.
+- A Custom Script Extension called `InPlaceOsUpgrade` is enabled on the VM, which downloads a script from the storage account and initiates the upgrade in a quiet mode.
+
 
 ## Next steps
 

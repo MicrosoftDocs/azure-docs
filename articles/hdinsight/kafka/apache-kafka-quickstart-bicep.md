@@ -5,7 +5,7 @@ author: yeturis
 ms.author: sairamyeturi
 ms.service: hdinsight
 ms.topic: quickstart
-ms.custom: subject-armqs, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ms.date: 07/20/2022
 #Customer intent: I need to create a Kafka cluster so that I can use it to process streaming data
 ---

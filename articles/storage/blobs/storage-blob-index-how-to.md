@@ -7,10 +7,9 @@ author: normesta
 ms.author: normesta
 ms.date: 07/21/2022
 ms.service: storage
-ms.subservice: blobs
 ms.topic: how-to
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-azurepowershell
 ---
 
 # Use blob index tags to manage and find data on Azure Blob Storage

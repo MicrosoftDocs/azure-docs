@@ -352,7 +352,7 @@ After you add the custom domain and configure your application, users will still
 
 ## (Optional) Azure Front Door advanced configuration
 
-You can use Azure Front Door advanced configuration, such as [Azure Web Application Firewall (WAF)](partner-azure-web-application-firewall.md). Azure WAF provides centralized protection of your web applications from common exploits and vulnerabilities.
+You can use Azure Front Door advanced configuration, such as [Azure Web Application Firewall (WAF)](partner-web-application-firewall.md). Azure WAF provides centralized protection of your web applications from common exploits and vulnerabilities.
 
 When using custom domains, consider the following points:
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Box | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Box'
 description: Learn how to configure single sign-on between Azure Active Directory and Box.
 services: active-directory
 author: jeevansd
@@ -129,15 +129,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Box SSO
 
-1. To automate the configuration within Box, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
-
-	![My apps extension](common/install-myappssecure-extension.png)
-
-2. After adding extension to the browser, click on **Set up Box** will direct you to the Box application. From there, provide the admin credentials to sign into Box. The browser extension will automatically configure the application for you and automate step 3.
-
-	![Setup configuration](common/setup-sso.png)
-
-3. If you want to setup Box manually, in a different web browser window, sign in to your Box company site as an administrator and follow the procedure in [Set up SSO on your own](https://community.box.com/t5/How-to-Guides-for-Admins/Setting-Up-Single-Sign-On-SSO-for-your-Enterprise/ta-p/1263#ssoonyourown).
+1. In a different web browser window, sign in to your Box company site as an administrator and follow the procedure in [Set up SSO on your own](https://community.box.com/t5/How-to-Guides-for-Admins/Setting-Up-Single-Sign-On-SSO-for-your-Enterprise/ta-p/1263#ssoonyourown).
 
 > [!NOTE]
 > If you are unable to configure the SSO settings for your Box account, you need to send the downloaded **Federation Metadata XML** to [Box support team](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire). They set this setting to have the SAML SSO connection set properly on both sides.

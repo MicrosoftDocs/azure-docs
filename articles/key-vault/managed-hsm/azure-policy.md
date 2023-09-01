@@ -6,8 +6,8 @@ ms.author: mbaldwin
 ms.date: 03/31/2021
 ms.service: key-vault
 ms.subservice: general
+ms.custom: devx-track-azurecli
 ms.topic: how-to
-
 ---
 
 # Integrate Azure Managed HSM with Azure Policy (preview)

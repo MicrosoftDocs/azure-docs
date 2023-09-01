@@ -6,6 +6,7 @@ author: terencefan
 ms.author: tefa
 ms.date: 11/15/2021
 ms.service: azure-web-pubsub
+ms.custom: devx-track-extended-java
 ms.topic: how-to
 ---
 

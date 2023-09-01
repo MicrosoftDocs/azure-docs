@@ -2,8 +2,8 @@
 title: Enable automatic certificate rotation in a Batch pool
 description: You can create a Batch pool with a managed identity and a certificate that will automatically be renewed.
 ms.topic: conceptual
-ms.date: 07/16/2021
-
+ms.custom: devx-track-linux
+ms.date: 05/24/2023
 ---
 # Enable automatic certificate rotation in a Batch pool
 
@@ -61,10 +61,10 @@ Request Body
                 "imageReference": {
                     "publisher": "canonical",
                     "offer": "ubuntuserver",
-                    "sku": "18.04-lts",
+                    "sku": "20.04-lts",
                     "version": "latest"
                 },
-                "nodeAgentSkuId": "batch.node.ubuntu 18.04",
+                "nodeAgentSkuId": "batch.node.ubuntu 20.04",
                 "extensions": [
                     {
                         "name": "KVExtensions",

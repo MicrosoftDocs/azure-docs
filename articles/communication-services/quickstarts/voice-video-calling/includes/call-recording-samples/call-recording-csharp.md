@@ -1,20 +1,20 @@
 ---
 author: dbasantes
 ms.service: azure-communication-services
-ms.date: 10/14/2022
+ms.date: 06/11/2023
 ms.topic: include
 ms.custom: public_preview
 ---
 ## Sample Code
 
-You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/ServerRecording)
+You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/CallRecording)
 
 ## Prerequisites
 
 - You need an Azure account with an active subscription.
 - Deploy a Communication Service resource. Record your resource **connection string**.
 - Subscribe to events via [Azure Event Grid](../../../../../event-grid/event-schema-communication-services.md).
-- Download the [.NET SDK](https://www.nuget.org/packages/Azure.Communication.CallAutomation/1.0.0-beta.1)
+- Download the [.NET SDK](https://dotnet.microsoft.com/en-us/download/dotnet)
 
 ## Before you start
 
@@ -38,13 +38,13 @@ Let's get started with a few simple steps!
 ## 1. Create a Call Automation client
 
 Call Recording APIs are part of the Azure Communication Services [Call Automation](../../../../concepts/call-automation/call-automation.md) libraries. Thus, it's necessary to create a Call Automation client. 
-To create a call automation client, you'll use your Communication Services connection string and pass it to `CallAutomationClient` object.
+To create a call automation client, you use your Communication Services connection string and pass it to `CallAutomationClient` object.
 
 ```csharp
 CallAutomationClient callAutomationClient = new CallAutomationClient("<ACSConnectionString>");
 ```
 
-## 2. Start recording session with StartRecordingOptions using 'StartRecordingAsync' API
+## 2. Start recording session with StartRecordingOptions using 'StartAsync' API
 
 Use the `serverCallId` received during initiation of the call.
 - RecordingContent is used to pass the recording content type. Use audio
@@ -57,14 +57,14 @@ StartRecordingOptions recordingOptions = new StartRecordingOptions(new ServerCal
     RecordingContent = RecordingContent.Audio,
     RecordingChannel = RecordingChannel.Unmixed,
     RecordingFormat = RecordingFormat.Wav,
-    RecordingStateCallbackEndpoint = new Uri("<CallbackUri>");
+    RecordingStateCallbackUri = new Uri("<CallbackUri>");
 };
-Response<RecordingStateResult> response = await callAutomationClient.getCallRecording()
-.StartRecordingAsync(recordingOptions);
+Response<RecordingStateResult> response = await callAutomationClient.GetCallRecording()
+.StartAsync(recordingOptions);
 ```
 
 ### 2.1. Only for Unmixed - Specify a user on channel 0
-To produce unmixed audio recording files, you can use the `AudioChannelParticipantOrdering` functionality to specify which user you want to record on channel 0. The rest of the participants will be assigned to a channel as they speak. If you use `RecordingChannel.Unmixed` but don't use `AudioChannelParticipantOrdering`, Call Recording will assign channel 0 to the first participant speaking. 
+To produce unmixed audio recording files, you can use the `AudioChannelParticipantOrdering` functionality to specify which user you want to record on channel 0. The rest of the participants are assigned to a channel as they speak. If you use `RecordingChannel.Unmixed` but don't use `AudioChannelParticipantOrdering`, Call Recording assigns channel 0 to the first participant speaking. 
 
 ```csharp
 StartRecordingOptions recordingOptions = new StartRecordingOptions(new ServerCallLocator("<ServerCallId>")) 
@@ -72,36 +72,51 @@ StartRecordingOptions recordingOptions = new StartRecordingOptions(new ServerCal
     RecordingContent = RecordingContent.Audio,
     RecordingChannel = RecordingChannel.Unmixed,
     RecordingFormat = RecordingFormat.Wav,
-    RecordingStateCallbackEndpoint = new Uri("<CallbackUri>"),
+    RecordingStateCallbackUri = new Uri("<CallbackUri>"),
     AudioChannelParticipantOrdering = { new CommunicationUserIdentifier("<ACS_USER_MRI>") }
     
 };
-Response<RecordingStateResult> response = await callAutomationClient.getCallRecording().StartRecordingAsync(recordingOptions);
-```
-The `StartRecordingAsync` API response contains the `recordingId` of the recording session.
-
-## 3.	Stop recording session using 'StopRecordingAsync' API
-
-Use the `recordingId` received in response of `startRecordingWithResponse`.
-
-```csharp
-var stopRecording = await callAutomationClient.GetCallRecording().StopRecordingAsync(recording.Value.RecordingId);
+Response<RecordingStateResult> response = await callAutomationClient.GetCallRecording().StartAsync(recordingOptions);
 ```
 
-## 4.	Pause recording session using 'PauseRecordingAsync' API
-
-Use the `recordingId` received in response of `startRecordingWithResponse`.
+### 2.2. Only for Unmixed - Specify channel affinity
 
 ```csharp
-var pauseRecording = await callAutomationClient.GetCallRecording ().PauseRecordingAsync(recording.Value.RecordingId);
+var channelAffinity = new ChannelAffinity(new CommunicationUserIdentifier("<ACS_USER_MRI>")) { Channel = 0};
+StartRecordingOptions recordingOptions = new StartRecordingOptions(new ServerCallLocator("<ServerCallId>"))
+{
+   RecordingContent = RecordingContent.Audio,
+   RecordingChannel = RecordingChannel.Unmixed,
+   RecordingFormat = RecordingFormat.Wav,
+   RecordingStateCallbackUri = new Uri("<CallbackUri>"),
+   ChannelAffinity = new List<ChannelAffinity>{ channelAffinity }
+};
+Response<RecordingStateResult> response = await callAutomationClient.GetCallRecording().StartAsync(recordingOptions);
+```
+The `StartAsync` API response contains the `recordingId` of the recording session.
+
+## 3.	Stop recording session using 'StopAsync' API
+
+Use the `recordingId` received in response of `StartAsync`.
+
+```csharp
+var stopRecording = await callAutomationClient.GetCallRecording().StopAsync(recordingId);
 ```
 
-## 5.	Resume recording session using 'ResumeRecordingAsync' API
+## 4.	Pause recording session using 'PauseAsync' API
 
-Use the `recordingId` received in response of `startRecordingWithResponse`.
+Use the `recordingId` received in response of `StartAsync`.
 
 ```csharp
-var resumeRecording = await callAutomationClient.GetCallRecording().ResumeRecordingAsync(recording.Value.RecordingId);
+var pauseRecording = await callAutomationClient.GetCallRecording ().PauseAsync(recordingId);
+```
+
+## 5.	Resume recording session using 'ResumeAsync' API
+
+Use the `recordingId` received in response of `StartAsync`.
+
+```csharp
+var resumeRecording = await callAutomationClient.GetCallRecording().ResumeAsync(recordingId);
 ```
 
 ## 6.	Download recording File using 'DownloadToAsync' API
@@ -110,7 +125,7 @@ Use an [Azure Event Grid](../../../../../event-grid/event-schema-communication-s
 
 An Event Grid notification `Microsoft.Communication.RecordingFileStatusUpdated` is published when a recording is ready for retrieval, typically a few minutes after the recording process has completed (for example, meeting ended, recording stopped). Recording event notifications include `contentLocation` and `metadataLocation`, which are used to retrieve both recorded media and a recording metadata file.
 
-Below is an example of the event schema.
+Example of the event schema:
 
 ```
 {
@@ -141,19 +156,19 @@ Below is an example of the event schema.
 }
 ```
 
-Use `DownloadStreamingAsync` API for downloading the recorded media.
+Use `DownloadToAsync` API for downloading the recorded media.
 
 ```csharp
 var recordingDownloadUri = new Uri(contentLocation);
-var response = await callAutomationClient.GetCallRecording().DownloadStreamingAsync(recordingDownloadUri);
+var response = await callAutomationClient.GetCallRecording().DownloadToAsync(recordingDownloadUri, fileName);
 ```
-The `downloadLocation` for the recording can be fetched from the `contentLocation` attribute of the `recordingChunk`. `DownloadStreamingAsync` method returns response of type `Response<Stream>`, which contains the downloaded content.
+The `downloadLocation` for the recording can be fetched from the `contentLocation` attribute of the `recordingChunk`. `DownloadToAsync` method downloads the content into provided filename.
 
-## 7. Delete recording content using 'DeleteRecordingAsync' API
+## 7. Delete recording content using 'DeleteAsync' API
 
-Use `DeleteRecordingAsync` API for deleting the recording content (for example, recorded media, metadata)
+Use `DeleteAsync` API for deleting the recording content (for example, recorded media, metadata)
 
 ```csharp
 var recordingDeleteUri = new Uri(deleteLocation);
-var response = await callAutomationClient.GetCallRecording().DeleteRecordingAsync(recordingDeleteUri);
+var response = await callAutomationClient.GetCallRecording().DeleteAsync(recordingDeleteUri);
 ```

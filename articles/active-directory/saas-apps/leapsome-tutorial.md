@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Leapsome | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Leapsome'
 description: Learn how to configure single sign-on between Azure Active Directory and Leapsome.
 services: active-directory
 author: jeevansd
@@ -96,10 +96,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	| Name | Source Attribute | Namespace |
 	| ---------------| --------------- | --------- |  
-	| firstname | user.givenname | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-	| lastname | user.surname | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-	| title | user.jobtitle | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-	| picture | URL to the employee's picture | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+	| firstname | user.givenname | https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+	| lastname | user.surname | https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+	| title | user.jobtitle | https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+	| picture | URL to the employee's picture | https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
 	| | |
 
 	> [!Note]

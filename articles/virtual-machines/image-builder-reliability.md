@@ -30,7 +30,7 @@ Azure availability zones-enabled services are designed to provide the right leve
 
 ## Disaster recovery: cross-region failover
 
-In the event of a region-wide disaster, Azure can provide protection from regional or large geography disasters with disaster recovery by making use of another region. For more information on Azure disaster recovery architecture, see [Azure to Azure disaster recovery architecture](/azure/site-recovery/azure-to-azure-architecture).
+In the event of a region-wide disaster, Azure can provide protection from regional or large geography disasters with disaster recovery by making use of another region. For more information on Azure disaster recovery architecture, see [Azure to Azure disaster recovery architecture](../site-recovery/azure-to-azure-architecture.md).
 
 To ensure fast and easy recovery for Azure Image Builder (AIB), it's recommended to run an image template in region pairs or multiple regions when designing your AIB solution. You'll also want to replicate resources from the start when you're setting up your image templates.
 
@@ -42,18 +42,18 @@ Microsoft will be responsible for outage detection, notifications, and support i
 
 #### Outage detection, notification, and management
 
-Microsoft will send a notification if there's an outage for the Azure Image Builder (AIB) Service. The common outage symptom includes image templates getting 500 errors when attempting to run. Customers can review Azure Image Builder outage notifications and status updates through [support request management.](/azure/azure-portal/supportability/how-to-manage-azure-support-request)
+Microsoft will send a notification if there's an outage for the Azure Image Builder (AIB) Service. The common outage symptom includes image templates getting 500 errors when attempting to run. Customers can review Azure Image Builder outage notifications and status updates through [support request management.](../azure-portal/supportability/how-to-manage-azure-support-request.md)
 
 
 #### Set up disaster recovery and outage detection
 
 Customers are responsible for setting up disaster recovery for their Azure Image Builder (AIB) environment, as there isn't a region failover at the AIB service side. Both the control plane (service side) and data plane will need to configure by the customer.
 
-The high level guidelines include creating a AIB resource in another region close by and replicating your resources. For more information, see the [supported regions](/azure/virtual-machines/image-builder-overview#regions) and what resources are involved in [AIB]( /azure/virtual-machines/image-builder-overviewl#how-it-works) creation.
+The high level guidelines include creating a AIB resource in another region close by and replicating your resources. For more information, see the [supported regions](./image-builder-overview.md#regions) and what resources are involved in [AIB]( /azure/virtual-machines/image-builder-overview#how-it-works) creation.
 
 ### Single-region geography disaster recovery
 
-On supporting single-region geography for Azure Image Builder, the challenge will be to get the image template resource since the region isn't available. For those cases, customers can either maintain a copy of an image template locally or can use [Azure Resource Graph](/azure/governance/resource-graph/) from the Azure portal or Azure CLI to get an Image template resource.
+On supporting single-region geography for Azure Image Builder, the challenge will be to get the image template resource since the region isn't available. For those cases, customers can either maintain a copy of an image template locally or can use [Azure Resource Graph](../governance/resource-graph/index.yml) from the Azure portal or Azure CLI to get an Image template resource.
 
 Below are instructions on how to get an image template resource using Resource Graph from the Azure portal:
 
@@ -73,7 +73,7 @@ Microsoft and its customers operate under the Shared responsibility model. This 
 When planning where to replicate a template, consider:
 
 - AIB region availability:
-    - Choose [AIB supported regions](/azure/virtual-machines/image-builder-overview#regions) close to your users.
+    - Choose [AIB supported regions](./image-builder-overview.md#regions) close to your users.
     - AIB continually expands into new regions.
 - Azure paired regions:
     - For your geographic area, choose two regions paired together.
@@ -81,12 +81,12 @@ When planning where to replicate a template, consider:
 
 ## Additional guidance
 
-In regards to customer data processing information, refer to the Azure Image Builder [data residency](/azure/virtual-machines/linux/image-builder-json#data-residency) details.
+In regards to customer data processing information, refer to the Azure Image Builder [data residency](./linux/image-builder-json.md#data-residency) details.
 
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Reliability in Azure](/azure/reliability/overview)
-> [Enable Azure VM disaster recovery between availability zones](/azure/site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery)
-> [Azure Image Builder overview](/azure/virtual-machines/image-builder-overview)
+> [Reliability in Azure](../reliability/overview.md)
+> [Enable Azure VM disaster recovery between availability zones](../site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md)
+> [Azure Image Builder overview](./image-builder-overview.md)

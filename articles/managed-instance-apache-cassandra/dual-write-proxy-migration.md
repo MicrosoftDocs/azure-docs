@@ -126,7 +126,7 @@ java -jar target/cassandra-proxy-1.0-SNAPSHOT-fat.jar <source-server> <destinati
 ```
 
 > [!WARNING]
-> Installing and running the proxy remotely on a separate machine (rather than running it on all nodes in your source Apache Cassandra cluster) will impact performance while the live migration occurs. While it will work functionally, the client driver won't be able to open connections to all nodes within the cluster, and will rely on the single co-ordinator node (where the proxy is installed) to make connections.
+> If you prefer to run the proxy remotely on a separate machine (rather than running it on all nodes in your source Apache Cassandra cluster), we recommend deploying the proxy to the same number of machines as you have nodes in your cluster, and setting up a substitution for their IP addresses in system.peers using configuration in the proxy mentioned [here](https://github.com/Azure-Samples/cassandra-proxy#ghost-proxy). If you do not do this, it may impact performance while the live migration occurs, as the client driver won't be able to open connections to all nodes within the cluster.
 
 ### Allow zero application code changes
 

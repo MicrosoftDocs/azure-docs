@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Onshape | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Onshape'
 description: Learn how to configure single sign-on between Azure Active Directory and Onshape.
 services: active-directory
 author: jeevansd

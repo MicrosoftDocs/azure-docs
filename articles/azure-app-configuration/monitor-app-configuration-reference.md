@@ -2,11 +2,12 @@
 title: Monitoring Azure App Configuration data reference
 description: Important Reference material needed when you monitor App Configuration
 services: azure-app-configuration
-author: maud-lv
-ms.author: malev
+author: mcleanbyron
+ms.author: mcleans
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 05/05/2021
+ms.custom: horz-monitor
 ---
 
 

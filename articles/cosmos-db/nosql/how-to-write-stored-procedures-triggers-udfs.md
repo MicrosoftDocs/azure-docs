@@ -9,7 +9,7 @@ ms.date: 03/01/2023
 ms.author: sidandrews
 ms.reviewer: jucocchi
 ms.devlang: javascript
-ms.custom: devx-track-js
+ms.custom:
 ---
 
 # How to write stored procedures, triggers, and user-defined functions in Azure Cosmos DB

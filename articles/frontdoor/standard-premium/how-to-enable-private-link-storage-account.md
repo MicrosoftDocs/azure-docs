@@ -53,6 +53,10 @@ In this section, you'll map the Private Link service to a private endpoint creat
 
 1. Then select **Add** to save your configuration. Then select **Update** to save the origin group settings.
 
+> [!NOTE]
+> Ensure the **origin path** in your routing rule is configured correctly with the storage container file path so file requests can be acquired.
+> 
+
 ## Approve private endpoint connection from the storage account
 
 1. Go to the storage account you configure Private Link for in the last section. Select **Networking** under **Settings**.

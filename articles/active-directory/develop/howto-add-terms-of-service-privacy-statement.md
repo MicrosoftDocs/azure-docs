@@ -52,6 +52,9 @@ When the terms of service and privacy statement are ready, you can add links to 
 * [Using the Microsoft Graph API](#msgraph-rest-api)
 
 ### <a name="azure-portal"></a>Using the Azure portal
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Follow these steps in the Azure portal.
 
 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a> and select the correct Azure AD tenant(not B2C).
@@ -80,7 +83,7 @@ If you prefer to modify the app object JSON directly, you can use the manifest e
 
 ### <a name="msgraph-rest-api"></a>Using the Microsoft Graph API
 
-To programmatically [update your app](/graph/api/application-update?view=graph-rest-1.0&tabs=http), you can use the Microsoft Graph API to update all your apps to include links to the terms of service and privacy statement documents.
+To programmatically [update your app](/graph/api/application-update), you can use the Microsoft Graph API to update all your apps to include links to the terms of service and privacy statement documents.
 
 ```
 PATCH https://graph.microsoft.com/v1.0/applications/{applicationObjectId}

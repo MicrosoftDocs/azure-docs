@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 02/14/2022
+ms.custom: UpdateFrequency2
 ---
 
 # Manage lab policies to control costs in Azure DevTest Labs

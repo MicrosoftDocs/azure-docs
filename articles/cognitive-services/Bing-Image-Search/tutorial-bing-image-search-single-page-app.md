@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Create a single-page web app - Bing Image Search API"
-titleSuffix: Azure cognitive services
+titleSuffix: Azure AI services
 description: The Bing Image Search API enables you to search the web for high-quality, relevant images. Use this tutorial to build a single-page web application that can send search queries to the API, and display the results within the webpage.
 services: cognitive-services
 author: aahill
@@ -11,14 +11,14 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.devlang: javascript
-ms.custom: devx-track-js
+ms.custom:
 ---
 
 # Tutorial: Create a single-page app using the Bing Image Search API
 
-[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 
-The Bing Image Search API enables you to search the web for high-quality, relevant images. Use this tutorial to build a single-page web application that can send search queries to the API, and display the results within the webpage. This tutorial is similar to the [corresponding tutorial](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md) for Bing Web Search.
+The Bing Image Search API enables you to search the web for high-quality, relevant images. Use this tutorial to build a single-page web application that can send search queries to the API, and display the results within the webpage. This tutorial is similar to the [corresponding tutorial](../bing-web-search/tutorial-bing-web-search-single-page-app.md) for Bing Web Search.
 
 The tutorial app illustrates how to:
 
@@ -35,7 +35,7 @@ The tutorial app illustrates how to:
 
 ## Manage and store user subscription keys
 
-This application uses web browsers' persistent storage to store API subscription keys. If no key is stored, the webpage will prompt the user for their key and store it for later use. If the key is later rejected by the API, The app will remove it from storage. This sample uses the global endpoint. You can also use the [custom subdomain](../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+This application uses web browsers' persistent storage to store API subscription keys. If no key is stored, the webpage will prompt the user for their key and store it for later use. If the key is later rejected by the API, The app will remove it from storage. This sample uses the global endpoint. You can also use the [custom subdomain](../../ai-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
 
 Define `storeValue` and `retrieveValue` functions to use either the `localStorage` object (if the browser supports it) or a cookie.

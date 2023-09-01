@@ -9,7 +9,7 @@ ms.date: 12/20/2022
 author: garrodonnell
 ms.author: godonnell
 manager: CelesteDG
-ms.custom: "it-pro"
+ms.custom: it-pro, b2c-support, build-2023
 zone_pivot_groups: b2c-policy-type
 ---
 
@@ -144,7 +144,6 @@ Content-type: application/json
      }
  ],
  "displayName": "John Smith",
- "objectId": "11111111-0000-0000-0000-000000000000",
  "givenName":"John",
  "surname":"Smith",
  "step": "PostFederationSignup",
@@ -198,7 +197,6 @@ Content-type: application/json
      }
  ],
  "displayName": "John Smith",
- "objectId": "11111111-0000-0000-0000-000000000000",
  "givenName":"John",
  "surname":"Smith",
  "jobTitle":"Supplier",

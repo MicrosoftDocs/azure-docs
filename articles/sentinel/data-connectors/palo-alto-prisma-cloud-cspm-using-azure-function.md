@@ -43,7 +43,7 @@ PaloAltoPrismaCloudAudit_CL
 
 To integrate with Palo Alto Prisma Cloud CSPM (using Azure Function) make sure you have: 
 
-- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://learn.microsoft.com/azure/azure-functions/).
+- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](/azure/azure-functions).
 - **Palo Alto Prisma Cloud API Credentials**: **Prisma Cloud API Url**, **Prisma Cloud Access Key ID**, **Prisma Cloud Secret Key** are required for Prisma Cloud API connection. See the documentation to learn more about [creating Prisma Cloud Access Key](https://docs.paloaltonetworks.com/prisma/prisma-cloud/prisma-cloud-admin/manage-prisma-cloud-administrators/create-access-keys.html) and about [obtaining Prisma Cloud API Url](https://prisma.pan.dev/api/cloud/api-urls)
 
 
@@ -54,7 +54,7 @@ To integrate with Palo Alto Prisma Cloud CSPM (using Azure Function) make sure y
    >  This connector uses Azure Functions to connect to the Palo Alto Prisma Cloud REST API to pull logs into Microsoft sentinel. This might result in additional data ingestion costs. Check the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) for details.
 
 
->**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](https://learn.microsoft.com/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
+>**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
 
 
 > [!NOTE]
@@ -93,7 +93,7 @@ Use the following step-by-step instructions to deploy the Prisma Cloud data conn
 
 **1. Deploy a Function App**
 
-> **NOTE:** You will need to [prepare VS code](https://learn.microsoft.com/azure/azure-functions/create-first-function-vs-code-python) for Azure function development.
+> **NOTE:** You will need to [prepare VS code](/azure/azure-functions/create-first-function-vs-code-python) for Azure function development.
 
 1. Download the [Azure Function App](https://aka.ms/sentinel-PaloAltoPrismaCloud-functionapp) file. Extract archive to your local development computer.
 2. Start VS Code. Choose File in the main menu and select Open Folder.

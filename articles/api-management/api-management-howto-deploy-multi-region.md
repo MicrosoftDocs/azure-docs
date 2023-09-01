@@ -177,6 +177,8 @@ This section provides considerations for multi-region deployments when the API M
 
 ## Next steps
 
+* Learn more about configuring API Management for [high availability](high-availability.md).
+
 * Learn more about [zone redundancy](../reliability/migrate-api-mgt.md) to improve the availability of an API Management instance in a region.
 
 * For more information about virtual networks and API Management, see:

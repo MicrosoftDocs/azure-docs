@@ -3,7 +3,7 @@ title: Apache Hive View times out from query result - Azure HDInsight
 description: Apache Hive View times out when fetching a query result in Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 02/11/2022
+ms.date: 04/24/2023
 ---
 
 # Scenario: Apache Hive View times out when fetching a query result in Azure HDInsight
@@ -12,7 +12,7 @@ This article describes troubleshooting steps and possible resolutions for issues
 
 ## Issue
 
-When running certain queries from the Apache Hive view, the following error may be encountered:
+When you run certain queries from the Apache Hive view, the following error may be encountered:
 
 ```
 ERROR [ambari-client-thread-1] [HIVE 2.0.0 AUTO_HIVE20_INSTANCE] NonPersistentCursor:131 - Result fetch timed out
@@ -51,7 +51,7 @@ java.util.concurrent.TimeoutException: deadline passed
 
 ## Cause
 
-The Hive View default timeout value may not be suitable for the query you are running. The specified time period is too short for the Hive View to fetch the query result.
+The Hive View default timeout value may not be suitable for the query you're running. The specified time period is too short for the Hive View to fetch the query result.
 
 ## Resolution
 
@@ -61,22 +61,22 @@ The Hive View default timeout value may not be suitable for the query you are ru
    ```
    Confirm the Hive View instance name `AUTO_HIVE20_INSTANCE` by going to YOUR_USERNAME > Manage Ambari > Views. Get the instance name from the Name column. If it doesn't match, then replace this value. **Do not use the URL Name column**.
 
-2. Restart the active Ambari server by running the following. If you get an error message saying it's not the active Ambari server, just ssh into the next headnode and repeat this step. Note down the PID of the current Ambari server process.
+2. Restart the active Ambari server by running the following. If you get an error message saying it's not the active Ambari server, ssh into the next headnode and repeat this step. Note down the PID of the current Ambari server process.
    ```
    sudo ambari-server status 
    sudo systemctl restart ambari-server
    ```
-3. Confirm Ambari server actually restarted. If you followed the steps, you will notice the PID has changed.
+3. Confirm Ambari server restarted. If you followed the steps, you notice the PID has changed.
    ```
    sudo ambari-server status
    ```
    
 ## Notes
-If you get a 502 error, then that is coming from the HDI gateway. You can confirm by opening web inspector, go to network tab, then re-submit query. You'll see a request fail, returning a 502 status code, and the time will show 2 mins elapsed.
+If you get a 502 error, then that is coming from the HDI gateway. You can confirm by opening web inspector, go to network tab, then resubmit query. You see a request fail, returning a 502 status code, and the time shows two mins elapsed.
 
-The query is not suited for Hive View. It is recommended that you either try the following instead:
+The query isn't suited for Hive View. It's recommended that you either try the following instead:
 - Use beeline
-- Re-write the query to be more optimal
+- Rewrite the query to be more optimal
 
 ## Next steps
 

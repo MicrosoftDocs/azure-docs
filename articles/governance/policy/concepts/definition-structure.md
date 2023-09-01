@@ -3,8 +3,8 @@ title: Details of the policy definition structure
 description: Describes how policy definitions are used to establish conventions for Azure resources in your organization.
 ms.date: 08/29/2022
 ms.topic: conceptual
-ms.author: timwarner
-author: timwarner-msft
+ms.author: davidsmatlak
+author: davidsmatlak
 ---
 # Azure Policy definition structure
 
@@ -142,11 +142,12 @@ The following Resource Provider modes are fully supported:
   [Azure Key Vault](../../../key-vault/general/overview.md). For more information on these policy
   definitions, see
   [Integrate Azure Key Vault with Azure Policy](../../../key-vault/general/azure-policy.md).
+- `Microsoft.Network.Data` for managing [Azure Virtual Network Manager](../../../virtual-network-manager/overview.md) custom membership policies using Azure Policy.
 
 The following Resource Provider modes are currently supported as a **[preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)**:
 
-- `Microsoft.Network.Data` for managing [Azure Virtual Network Manager](../../../virtual-network-manager/overview.md) custom membership policies using Azure Policy.
-- `Microsoft.ManagedHSM.Data` for managing [Managed HSM](../../../key-vault/managed-hsm/overview.md) keys using Azure Policy.
+- `Microsoft.ManagedHSM.Data` for managing [Managed HSM](../../../key-vault/managed-hsm/azure-policy.md) keys using Azure Policy.
+- `Microsoft.DataFactory.Data` for using Azure Policy to deny [Azure Data Factory](../../../data-factory/introduction.md) outbound traffic domain names not specified in an allow list.
 
 > [!NOTE]
 >Unless explicitly stated, Resource Provider modes only support built-in policy definitions, and exemptions are not supported at the component-level.
@@ -189,6 +190,9 @@ you can reuse that policy for different scenarios by using different values.
 > Parameters may be added to an existing and assigned definition. The new parameter must include the
 > **defaultValue** property. This prevents existing assignments of the policy or initiative from
 > indirectly being made invalid.
+
+> [!NOTE]
+> Parameters can't be removed from a policy definition that's been assigned.
 
 ### Parameter properties
 
@@ -1174,7 +1178,7 @@ Limits to the size of objects that are processed by policy functions during poli
 }
 ```
 
-The length of the string created by the `concat()` function depends of the value of properties in the evaluated resource.
+The length of the string created by the `concat()` function depends on the value of properties in the evaluated resource.
 
 | Limit | Value | Example |
 |:---|:---|:---|

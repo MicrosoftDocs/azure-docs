@@ -1,18 +1,16 @@
 ---
-# Mandatory fields.
 title: Create a data history connection
 titleSuffix: Azure Digital Twins
 description: See how to set up a data history connection for historizing Azure Digital Twins updates into Azure Data Explorer.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 03/02/2023
+ms.date: 06/29/2023
 ms.topic: how-to
 ms.service: digital-twins
-ms.custom: event-tier1-build-2022
+ms.custom: event-tier1-build-2022, devx-track-azurecli
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
@@ -93,6 +91,9 @@ As part of the [data history connection setup](#set-up-data-history-connection) 
 
 For more information about Event Hubs and their capabilities, see the [Event Hubs documentation](../event-hubs/event-hubs-about.md).
 
+>[!NOTE]
+>While setting up data history, local authorization must be *enabled* on the event hub. If you ultimately want to have local authorization disabled on your event hub, disable the authorization after setting up the connection. You'll also need to adjust some permissions, described in [Restrict network access to data history resources](#restrict-network-access-to-data-history-resources) later in this article.
+
 # [CLI](#tab/cli) 
 
 Use the following CLI commands to create the required resources. The commands use several local variables (`$location`, `$resourcegroup`, `$eventhubnamespace`, and `$eventhub`) that were created earlier in [Set up local variables for CLI session](#set-up-local-variables-for-cli-session).
@@ -122,6 +123,9 @@ Remember the names you give to these resources so you can use them later.
 Next, create a Kusto (Azure Data Explorer) cluster and database to receive the data from Azure Digital Twins. 
 
 As part of the [data history connection setup](#set-up-data-history-connection) later, you'll grant the Azure Digital Twins instance the *Contributor* role on at least the database (it can also be scoped to the cluster), and the *Admin* role on the database.
+
+>[!IMPORTANT]
+>Make sure that the cluster has public network access enabled. If the Azure Data Explorer cluster has [public network access disabled](/azure/data-explorer/security-network-restrict-public-access), Azure Digital Twins will be unable to configure the tables and other required artifacts, and data history setup will fail.
 
 # [CLI](#tab/cli) 
 
@@ -182,11 +186,6 @@ When executing the above command, you'll be given the option of assigning the ne
 
 For regular data plane operation, these roles can be reduced to a single Azure Event Hubs Data Sender role, if desired.
 
->[!NOTE]
-> If you encounter the error "Could not create Azure Digital Twins instance connection. Unable to create table and mapping rule in database. Check your permissions for the Azure Database Explorer and run `az login` to refresh your credentials," resolve the error by adding yourself as an *AllDatabasesAdmin* under Permissions in your Azure Data Explorer cluster.
->
->If you're using the Cloud Shell and encounter the error "Failed to connect to MSI. Please make sure MSI is configured correctly," try running the command with a local Azure CLI installation instead.
-
 # [Portal](#tab/portal)
 
 Start by navigating to your Azure Digital Twins instance in the Azure portal (you can find the instance by entering its name into the portal search bar). Then complete the following steps.
@@ -230,6 +229,27 @@ After setting up the data history connection, you can optionally remove the role
 
 >[!NOTE]
 >Once the connection is set up, the default settings on your Azure Data Explorer cluster will result in an ingestion latency of approximately 10 minutes or less. You can reduce this latency by enabling [streaming ingestion](/azure/data-explorer/ingest-data-streaming) (less than 10 seconds of latency) or an [ingestion batching policy](/azure/data-explorer/kusto/management/batchingpolicy). For more information about Azure Data Explorer ingestion latency, see [End-to-end ingestion latency](concepts-data-history.md#end-to-end-ingestion-latency).
+
+### Restrict network access to data history resources
+
+If you'd like to restrict network access to the resources involved in data history (your Azure Digital Twins instance, event hub, or Azure Data Explorer cluster), you should set those restrictions *after* setting up the data history connection. This includes disabling local access for your resources, among other measures to reduce network access.
+
+To make sure your data history resources can communicate with each other, you should also modify the data connection for the Azure Data Explorer database to use a system-assigned managed identity.
+
+Follow the order of steps below to make sure your data history connection is set up properly when your resources need reduced network access.
+1. Make sure local authorization is *enabled* on your data history resources (your Azure Digital Twins instance, event hub, and Azure Data Explorer cluster)
+1. [Create the data history connection](#set-up-data-history-connection)
+1. Update the data connection for the Azure Data Explorer database to use a system-assigned managed identity. In the Azure portal, you can do this by navigating to the Azure Data Explorer cluster and using **Databases** in the menu to navigate to the data history database. In the database menu, select **Data connections**. In the table entry for your data history connection, you should see the option to **Assign managed identity**, where you can choose **System-assigned**.
+    :::image type="content" source="media/how-to-create-data-history-connection/database-managed-identity.png" alt-text="Screenshot of the option to assign a managed identity to a data connection in the Azure portal." lightbox="media/how-to-create-data-history-connection/database-managed-identity.png":::
+1. Now, you can disable local authorization or set other network restrictions for your desired resources, by changing the access settings on your Azure Digital Twins instance, event hub, or Azure Data Explorer cluster.
+
+### Troubleshoot connection setup
+
+Here are a few common errors you might encounter when setting up a data history connection, and how to resolve them.
+
+* If you have public network access disabled for your Azure Data Explorer cluster, you'll encounter an error that the service failed to create the data history connection, with the message "The resource could not ACT due to an internal server error." Data history setup will fail if the Azure Data Explorer cluster has [public network access disabled](/azure/data-explorer/security-network-restrict-public-access), since Azure Digital Twins will be unable to configure the tables and other required artifacts.
+* (CLI users) If you encounter the error "Could not create Azure Digital Twins instance connection. Unable to create table and mapping rule in database. Check your permissions for the Azure Database Explorer and run `az login` to refresh your credentials," resolve the error by adding yourself as an *AllDatabasesAdmin* under Permissions in your Azure Data Explorer cluster.
+* (Cloud Shell users) If you're using the Cloud Shell and encounter the error "Failed to connect to MSI. Please make sure MSI is configured correctly," try running the command with a local Azure CLI installation instead.
 
 ## Verify with a sample twin graph
 
@@ -372,7 +392,7 @@ The results should show the outflow numbers changing over time.
 
 ## Next steps 
 
-To keep exploring the dairy scenario, you can view [more sample queries on GitHub](https://github.com/Azure-Samples/azure-digital-twins-getting-started/blob/main/adt-adx-queries/Dairy_operation_with_data_history/ContosoDairyDataHistoryQueries.kql) that show how you can monitor the performance of the dairy operation based on machine type, factory, maintenance technician, and various combinations of these parameters.
+To keep exploring the dairy scenario, you can view [more sample queries on GitHub](https://github.com/Azure-Samples/azure-digital-twins-getting-started/blob/main/adt-adx-queries/Dairy_operation_with_data_history) that show how you can monitor the performance of the dairy operation based on machine type, factory, maintenance technician, and various combinations of these parameters.
 
 To build Grafana dashboards that visualize the performance of the dairy operation, read [Creating dashboards with Azure Digital Twins, Azure Data Explorer, and Grafana](https://github.com/Azure-Samples/azure-digital-twins-getting-started/tree/main/adt-adx-queries/Dairy_operation_with_data_history/Visualize_with_Grafana).
 
