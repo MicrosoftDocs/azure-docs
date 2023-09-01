@@ -75,7 +75,21 @@ extension CallObserver: TeamsCaptionsDelegate {
     
     // listener for captions data received
     public func teamsCaptions(_ teamsCaptions: TeamsCaptions, didReceiveCaptions:TeamsCaptionsReceivedEventArgs) {
-        
+            // Information about the speaker.
+            // didReceiveCaptions.speaker
+            // The original text with no transcribed.
+            // didReceiveCaptions.spokenText
+            // language identifier for the captions text.
+            // didReceiveCaptions.captionLanguage
+            // language identifier for the speaker.
+            // didReceiveCaptions.spokenLanguage
+            // The transcribed text.
+            // didReceiveCaptions.captionText
+            // Timestamp denoting the time when the corresponding speech was made.
+            // didReceiveCaptions.timestamp
+            // CaptionsResultType is Partial if text contains partially spoken sentence.
+            // It is set to Final once the sentence has been completely transcribed.
+            // didReceiveCaptions.resultType
     }
 }
 
