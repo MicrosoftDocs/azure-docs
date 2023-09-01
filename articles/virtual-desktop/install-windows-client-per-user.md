@@ -55,14 +55,14 @@ Here's how to install the client on a per-user basis using a PowerShell script w
    |--|--|
    | Install command | `powershell.exe -ExecutionPolicy Bypass -WindowStyle Hidden -File .\Install.ps1` |
    | Uninstall command | `powershell.exe -ExecutionPolicy Bypass -WindowStyle Hidden -File .\Uninstall.ps1` |
-   | Install behavior | Select **User** |
-   | Operating system architecture | Select **64-bit** |
-   | Detection rules format | Select **Manually configure detection rules** |
-   | Detection rule type | Select **File** |
+   | Install behavior | Select **User**. |
+   | Operating system architecture | Select **64-bit**. |
+   | Detection rules format | Select **Manually configure detection rules**. |
+   | Detection rule type | Select **File**. |
    | Detection rule path | `%LOCALAPPDATA%\Programs\Remote Desktop\` |
    | Detection rule file or folder | `msrdc.exe` |
-   | Detection method | Select **File or folder exists** |
-   | Assignments | Assign to users you want to use the Remote Desktop client |
+   | Detection method | Select **File or folder exists**. |
+   | Assignments | Assign to users you want to use the Remote Desktop client. |
 
 #### [Configuration Manager](#tab/configmgr)
 
@@ -88,17 +88,17 @@ Here's how to install the client on a per-user basis using a PowerShell script w
 
    | Parameter | Value/Description |
    |--|--|
-   | Deployment type | Select **Script Installer** |
-   | Content location | Enter the UNC path to the new folder you created |
+   | Deployment type | Select **Script Installer**. |
+   | Content location | Enter the UNC path to the new folder you created. |
    | Installation program | `powershell.exe -ExecutionPolicy Bypass -WindowStyle Hidden -File .\Install.ps1` |
    | Uninstall program | `powershell.exe -ExecutionPolicy Bypass -WindowStyle Hidden -File .\Uninstall.ps1` |
-   | Detection method | Select **Configure rules to detect the presence of this deployment type** |
-   | Detection rule setting type | Select **File System** |
-   | Detection rule type | Select **File** |
+   | Detection method | Select **Configure rules to detect the presence of this deployment type**. |
+   | Detection rule setting type | Select **File System**. |
+   | Detection rule type | Select **File**. |
    | Detection rule path | `%LOCALAPPDATA%\Programs\Remote Desktop\` |   
    | Detection rule file or folder name | `msrdc.exe` |
-   | Detection rule criteria | Select **The file system setting must exist on the target system to indicate presence of this application** |
-   | Installation behavior | Select **Install for user** |
+   | Detection rule criteria | Select **The file system setting must exist on the target system to indicate presence of this application**. |
+   | Installation behavior | Select **Install for user**. |
 
 1. Follow the steps in [Deploy applications with Configuration Manager](/mem/configmgr/apps/deploy-use/deploy-applications) to deploy the Remote Desktop client to your users.
 
