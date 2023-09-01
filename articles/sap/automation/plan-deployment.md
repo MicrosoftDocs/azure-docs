@@ -32,7 +32,7 @@ Before you design your control plane, consider the following questions:
 * How is outbound internet provided for the virtual machines?
 * Are you going to deploy Azure Firewall for outbound internet connectivity?
 * Are private endpoints required for storage accounts and the key vault?
-* Are you going to use an existing Private DNS zone for the virtual machines or will you use the control plane for it?
+* Are you going to use an existing private DNS zone for the virtual machines or will you use the control plane for it?
 * Are you going to use Azure Bastion for secure remote access to the virtual machines?
 * Are you going to use the SAP Deployment Automation Framework configuration web application for performing configuration and deployment activities?
 
@@ -85,10 +85,10 @@ enable_firewall_for_keyvaults_and_storage = true
 
 When you plan the DNS configuration for the automation framework, consider the following questions:
 
- - Is there an existing Private DNS that the solutions can integrate with or do you need to use a custom Private DNS zone for the deployment environment?
+ - Is there an existing private DNS that the solutions can integrate with or do you need to use a custom private DNS zone for the deployment environment?
  - Are you going to use predefined IP addresses for the virtual machines or let Azure assign them dynamically?
 
-You can integrate with an existing Private DNS zone by providing the following values in your `tfvars` files:
+You can integrate with an existing private DNS zone by providing the following values in your `tfvars` files:
 
 ```tfvars
 management_dns_subscription_id = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -96,13 +96,13 @@ management_dns_subscription_id = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 use_custom_dns_a_registration = false
 ```
 
-Without these values, a Private DNS zone is created in the SAP library resource group.
+Without these values, a private DNS zone is created in the SAP library resource group.
 
 For more information, see the [in-depth explanation of how to configure the deployer](configure-control-plane.md).
 
 ## SAP library configuration
 
-The SAP library resource group provides storage for SAP installation media, Bill of Material files, Terraform state files, and, optionally, the Private DNS zones. The configuration file defines the region and environment name for the SAP library. For parameter information and examples, see [Configure the SAP library for automation](configure-control-plane.md).
+The SAP library resource group provides storage for SAP installation media, Bill of Material files, Terraform state files, and, optionally, the private DNS zones. The configuration file defines the region and environment name for the SAP library. For parameter information and examples, see [Configure the SAP library for automation](configure-control-plane.md).
 
 ## Workload zone planning
 
@@ -124,7 +124,7 @@ Before you design your workload zone layout, consider the following questions:
 * In which regions do you need to deploy workloads?
 * How many workload zones does your scenario require (development, quality assurance, and production)?
 * Are you deploying into new virtual networks or are you using existing virtual networks?
-* How is DNS configured (integrated with existing DNS or deployed a Private DNS zone in the control plane)?
+* How is DNS configured (integrated with existing DNS or deployed a private DNS zone in the control plane)?
 * What storage type do you need for the shared storage (Azure Files NFS or Azure NetApp Files)?
 
 For more information, see [Configure a workload zone deployment for automation](deploy-workload-zone.md).
