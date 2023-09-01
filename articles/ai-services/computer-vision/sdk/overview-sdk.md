@@ -15,7 +15,7 @@ ms.custom: devx-track-python, devx-track-csharp, devx-track-dotnet
 
 # Vision SDK overview
 
-The Vision SDK (Preview) provides a convenient way to access the Image Analysis service using [version 4.0 of the REST APIs](https://aka.ms/vision-4-0-ref). It is available for the programming languages and platforms mentioned below.
+The Vision SDK (Preview) provides a convenient way to access the Image Analysis service using [version 4.0 of the REST APIs](https://aka.ms/vision-4-0-ref).
 
 [!INCLUDE [License Notice](./license-notice-sdk.md)]
 
@@ -35,15 +35,15 @@ The Vision SDK supports the following languages and platforms:
 
 ### GitHub samples
 
-In depth samples are available in the [Azure-Samples/azure-ai-vision-sdk](https://github.com/Azure-Samples/azure-ai-vision-sdk) repository on GitHub.
+Numerous samples are available in the [Azure-Samples/azure-ai-vision-sdk](https://github.com/Azure-Samples/azure-ai-vision-sdk) repository on GitHub.
 
 ## Getting help
 
-If you need assistance using the Vision SDK, would like to report a bug or suggest a new features, please open a [GitHub issue in the samples repository](https://github.com/Azure-Samples/azure-ai-vision-sdk/issues). The development team monitors these issues.
+If you need assistance using the Vision SDK, would like to report a bug or suggest new features, open a [GitHub issue in the samples repository](https://github.com/Azure-Samples/azure-ai-vision-sdk/issues). The SDK development team monitors these issues.
 
 Before you create a new issue:
 * Make sure you first scan to see if a similar issue already exists.
-* Find the sample closest to your scenario and run it to see if you see the same issue in the sample code. 
+* Find the sample closest to your scenario and run it to see if you see the same issue in the sample code.
 
 ## Next steps
 

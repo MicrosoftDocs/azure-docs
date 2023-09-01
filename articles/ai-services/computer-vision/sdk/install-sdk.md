@@ -1,7 +1,7 @@
 ---
 title: Install the Vision SDK
 titleSuffix: Azure AI services
-description: In this guide, you'll learn how to install the Vision SDK for your preferred programming language.
+description: In this guide, you learn how to install the Vision SDK for your preferred programming language.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
