@@ -71,7 +71,21 @@ public void addOnIsCaptionsEnabledChangedListener() {
 
 ``` java 
 TeamsCaptionsListener captionsListener = (TeamsCaptionsReceivedEvent args) -> {
-
+  // Information about the speaker.
+  // CallerInfo participantInfo = args.getSpeaker();
+  // The original text with no transcribed.
+  // args.getSpokenText();
+  // language identifier for the captions text.
+  // args.getCaptionLanguage();
+  // language identifier for the speaker.
+  // args.getSpokenLanguage();
+  // The transcribed text.
+  // args.getCaptionText();
+  // Timestamp denoting the time when the corresponding speech was made.
+  // args.getTimestamp();
+  // CaptionsResultType is Partial if text contains partially spoken sentence.
+  // It is set to Final once the sentence has been completely transcribed.
+  // args.getResultType() == CaptionsResultType.FINAL;
 }; 
 public void addOnCaptionsReceivedListener() {
   teamsCaptions.addOnCaptionsReceivedListener(captionsListener); 
