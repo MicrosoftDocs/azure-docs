@@ -72,6 +72,8 @@ For a demonstration of how to add a connected organization, watch the following 
 
 ## View the list of connected organizations
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 **Prerequisite role**: *Global administrator*, *Identity Governance administrator*,  or *User administrator*
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).

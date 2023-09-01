@@ -37,7 +37,7 @@ The following procedure provides step-by-step instructions for disabling public 
 3. Select the **namespace** from the list to which you want to add a private endpoint.
 4. On the left menu, select the **Networking** tab under **Settings**.
 1. On the **Networking** page, for **Public network access**, select **Disabled** if you want the namespace to be accessed only via private endpoints. 
-1. For **Allow trusted Microsoft services to bypass this firewall**, select **Yes** if you want to allow [trusted Microsoft services](#trusted-services) to bypass this firewall. 
+1. For **Allow trusted Microsoft services to bypass this firewall**, select **Yes** if you want to allow [trusted Microsoft services](#trusted-microsoft-services) to bypass this firewall. 
 
     :::image type="content" source="./media/private-link-service/public-access-disabled.png" alt-text="Screenshot of the Networking page with public network access as Disabled.":::
 1. Select the **Private endpoint connections** tab at the top of the page

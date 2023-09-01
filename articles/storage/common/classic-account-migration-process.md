@@ -67,7 +67,7 @@ The Validation step analyzes the state of resources in the classic deployment mo
 The Validation step doesn't check for VM disks that may be associated with the storage account. You must check your storage accounts manually to determine whether they contain VM disks. For more information, see the following articles:
 
 - [Migrate classic storage accounts to Azure Resource Manager](classic-account-migrate.md)
-- [Migrate VMs to Resource Manager with PowerShell](../../virtual-machines/migration-classic-resource-manager-ps.md#step-52-migrate-a-storage-account)
+- [Migrate VMs to Resource Manager with PowerShell](../../virtual-machines/migration-classic-resource-manager-ps.md#step-5b-migrate-a-storage-account)
 - [Migrate VMs to Resource Manager using Azure CLI](../../virtual-machines/migration-classic-resource-manager-cli.md#step-5-migrate-a-storage-account)
 
 Keep in mind that it's not possible to check for every constraint that the Azure Resource Manager stack might impose on the storage account during migration. Some constraints are only checked when the resources undergo transformation in the next step of migration (the Prepare step).

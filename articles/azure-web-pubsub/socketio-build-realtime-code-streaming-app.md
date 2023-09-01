@@ -1,6 +1,7 @@
 ---
 title: Build a real-time code-streaming app by using Socket.IO and host it on Azure
 description: Learn how to build an app that allows coders to share coding activities with their audience in real time by using Web PubSub for Socket.IO. 
+keywords: Socket.IO, Socket.IO on Azure, multi-node Socket.IO, scaling Socket.IO
 author: xingsy97
 ms.author: siyuanxing
 ms.date: 08/01/2023
