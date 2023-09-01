@@ -26,7 +26,7 @@
  #    - name: Application Enclaves vs. (Virtual Machines | Containers) --removed, dup of /developing/ and /deploying/ below
  #      href: application-development.md # existing, need to update to reflect new format #done
      - name: Secret & Key Mangement #p1
-       href: TODO.md # details on AKV and mHSM, and how they're used in the context of Confidential Computing #stubbed
+       href:  # details on AKV and mHSM, and how they're used in the context of Confidential Computing #stubbed
      - name: Attestation #p1 #done # EXISTING, use updated page - explain what attestation is, and why it's important, and give some practical examples of where its used #done
        href: attestation-solutions.md 
      - name: Hardware attestation vs. software attestation #p1  new, why HW based attestation is better than the rest
