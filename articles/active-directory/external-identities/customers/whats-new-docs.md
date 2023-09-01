@@ -1,7 +1,7 @@
 ---
 title: "What's new in Azure Active Directory for customers"
 description: "New and updated documentation for the Azure Active Directory for customers documentation."
-ms.date: 08/17/2023
+ms.date: 09/01/2023
 ms.service: active-directory
 ms.subservice: ciam
 ms.topic: reference
@@ -14,6 +14,29 @@ manager: CelesteDG
 # Azure Active Directory for customers: What's new
 
 Welcome to what's new in Azure Active Directory for customers documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. 
+
+## August 2023
+
+### New articles
+
+- [Quickstart: Get started with guide walkthrough](quickstart-get-started-guide.md)
+- [Tutorial: Add sign-in and sign-out to a Vanilla JavaScript single-page app for a customer tenant](tutorial-single-page-app-vanillajs-sign-in-sign-out.md)
+- [Sign in users in a sample Node.js CLI application.](sample-cli-app-node-sign-in-users.md)
+- [Tutorial: Prepare a Node.js CLI application for authentication](tutorial-cli-app-node-sign-in-prepare-app.md)
+- [Prepare your customer tenant to sign in users in a Node.js CLI application](tutorial-cli-app-node-sign-in-prepare-tenant.md)
+- [Authenticate users in a Node.js CLI application - Build app](tutorial-cli-app-node-sign-in-sign-out.md)
+- [Tutorial: Use role-based access control in your .NET MAUI](tutorial-desktop-maui-role-based-access-control.md)
+- [Tutorial: Use role-based access control in your .NET MAUI app](tutorial-mobile-maui-role-based-access-control.md)
+
+### Updated articles
+
+- [Collect user attributes during sign-up](how-to-define-custom-attributes.md) - Custom attribute update
+- [Quickstart: Create a tenant (preview)](quickstart-tenant-setup.md) - Get started guide update
+- [Add and manage admin accounts](how-to-manage-admin-accounts.md) - Editorial review
+- [Tutorial: Prepare a Vanilla JavaScript single-page app for authentication in a customer tenant](tutorial-single-page-app-vanillajs-prepare-app.md) - Editorial review
+- [Azure AD for customers documentation](index.yml) - Editorial review
+- [Tutorial: Sign in users in .NET MAUI app](tutorial-desktop-app-maui-sign-in-sign-out.md) - Add app roles to .NET MAUI app and receive them in the ID token
+- [Tutorial: Sign in users in .NET MAUI shell app](tutorial-mobile-app-maui-sign-in-sign-out.md) - Add app roles to .NET MAUI app and receive them in the ID token 
 
 ## July 2023
 
