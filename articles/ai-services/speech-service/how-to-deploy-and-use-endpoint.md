@@ -33,6 +33,10 @@ To create a custom neural voice endpoint:
 1. Select **Custom Voice** > Your project name > **Deploy model** > **Deploy model**. 
 1. Select a voice model that you want to associate with this endpoint.  
 1. Enter a **Name** and **Description** for your custom endpoint.
+1. Select **Endpoint type** according to your scenario. If your resource is in a supported region, the default setting for the endpoint type is *High performance*. Otherwise, if the resource is in an unsupported region, the only available option is *Fast resume*.
+   - *High performance*: Optimized for scenarios with real-time and high-volume synthesis requests, such as conversational AI, call-center bots. It takes around 5 minutes to deploy or resume an endpoint. For information about regions where the *High performance* endpoint type is supported, see the footnotes in the [regions](regions.md#speech-service) table. 
+   - *Fast resume*: Optimized for audio content creation scenarios with less frequent synthesis requests. Easy and quick to deploy or resume an endpoint in under a minute. The *Fast resume* endpoint type is supported in all [regions](regions.md#speech-service) where text to speech is available.
+   
 1. Select **Deploy** to create your endpoint.
 
 After your endpoint is deployed, the endpoint name appears as a link. Select the link to display information specific to your endpoint, such as the endpoint key, endpoint URL, and sample code. When the status of the deployment is **Succeeded**, the endpoint is ready for use.
