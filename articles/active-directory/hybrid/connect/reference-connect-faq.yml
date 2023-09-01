@@ -381,7 +381,7 @@ sections:
           
           * Search for technical questions and answers or ask your own questions by going to [the Azure AD community](/answers/topics/azure-active-directory.html).
           
-          [Get support for Azure AD](../../fundamentals/active-directory-troubleshooting-support-howto.md)
+          [Get support for Azure AD](../../fundamentals/how-to-get-support.md)
           
       - question: |
           Why am I seeing Events 6311 and 6401 occur after Sync Step Errors?

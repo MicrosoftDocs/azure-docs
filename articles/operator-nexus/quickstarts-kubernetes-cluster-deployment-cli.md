@@ -51,8 +51,8 @@ To define these variables, use the following set commands and replace the exampl
 
 ```bash
 RESOURCE_GROUP="myResourceGroup"
-LOCATION="$(az group show --name $RESOURCE_GROUP --query location | tr -d '\"')"
-SUBSCRIPTION_ID="$(az account show -o tsv --query id)"
+SUBSCRIPTION_ID="<Azure subscription ID>"
+LOCATION="$(az group show --name $RESOURCE_GROUP --query location --subscription $SUBSCRIPTION_ID -o tsv)"
 CUSTOM_LOCATION="/subscriptions/<subscription_id>/resourceGroups/<managed_resource_group>/providers/microsoft.extendedlocation/customlocations/<custom-location-name>"
 CSN_ARM_ID="/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.NetworkCloud/cloudServicesNetworks/<csn-name>"
 CNI_ARM_ID="/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.NetworkCloud/l3Networks/<l3Network-name>"
@@ -78,20 +78,20 @@ After defining these variables, you can create the Kubernetes cluster by executi
 
 ```azurecli
 az networkcloud kubernetescluster create \
---name "${CLUSTER_NAME}" \
---resource-group "${RESOURCE_GROUP}" \
---subscription "${SUBSCRIPTION_ID}" \
---extended-location name="${CUSTOM_LOCATION}" type=CustomLocation \
---location "${LOCATION}" \
---kubernetes-version "${K8S_VERSION}" \
---aad-configuration admin-group-object-ids="[${AAD_ADMIN_GROUP_OBJECT_ID}]" \
---admin-username "${ADMIN_USERNAME}" \
---ssh-key-values "${SSH_PUBLIC_KEY}" \
---control-plane-node-configuration \
+  --name "${CLUSTER_NAME}" \
+  --resource-group "${RESOURCE_GROUP}" \
+  --subscription "${SUBSCRIPTION_ID}" \
+  --extended-location name="${CUSTOM_LOCATION}" type=CustomLocation \
+  --location "${LOCATION}" \
+  --kubernetes-version "${K8S_VERSION}" \
+  --aad-configuration admin-group-object-ids="[${AAD_ADMIN_GROUP_OBJECT_ID}]" \
+  --admin-username "${ADMIN_USERNAME}" \
+  --ssh-key-values "${SSH_PUBLIC_KEY}" \
+  --control-plane-node-configuration \
     count="${CONTROL_PLANE_COUNT}" \
     vm-sku-name="${CONTROL_PLANE_VM_SIZE}" \
---initial-agent-pool-configurations "[{count:${INITIAL_AGENT_POOL_COUNT},mode:System,name:${INITIAL_AGENT_POOL_NAME},vm-sku-name:${INITIAL_AGENT_POOL_VM_SIZE}}]" \
---network-configuration \
+  --initial-agent-pool-configurations "[{count:${INITIAL_AGENT_POOL_COUNT},mode:System,name:${INITIAL_AGENT_POOL_NAME},vm-sku-name:${INITIAL_AGENT_POOL_VM_SIZE}}]" \
+  --network-configuration \
     cloud-services-network-id="${CSN_ARM_ID}" \
     cni-network-id="${CNI_ARM_ID}" \
     pod-cidrs="[${POD_CIDR}]" \
@@ -132,6 +132,7 @@ az networkcloud kubernetescluster agentpool create \
   --name "${AGENT_POOL_NAME}" \
   --kubernetes-cluster-name "${CLUSTER_NAME}" \
   --resource-group "${RESOURCE_GROUP}" \
+  --subscription "${SUBSCRIPTION_ID}" \
   --extended-location name="${CUSTOM_LOCATION}" type=CustomLocation \
   --count "${AGENT_POOL_COUNT}" \
   --mode "${AGENT_POOL_MODE}" \

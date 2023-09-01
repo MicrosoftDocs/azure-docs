@@ -17,11 +17,11 @@ ms.date: 05/09/2023
 
 [!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
-You no longer need to [create and manage compute](./how-to-create-attach-compute-cluster.md) to train your model in a scalable way. Your job can instead be submitted to a new compute target type, called _serverless compute_. Serverless compute is the easiest way to run training jobs on Azure Machine Learning. Serverless compute is a fully-managed, on-demand compute. It is created, scaled, and managed by Azure Machine Learning for you. Through model training with serverless compute, machine learning  professionals can focus on their expertise of building machine learning models and not have to learn about compute infrastructure or setting it up.
+You no longer need to [create and manage compute](./how-to-create-attach-compute-cluster.md) to train your model in a scalable way. Your job can instead be submitted to a new compute target type, called _serverless compute_. Serverless compute is the easiest way to run training jobs on Azure Machine Learning. Serverless compute is a fully managed, on-demand compute. It is created, scaled, and managed by Azure Machine Learning for you. Through model training with serverless compute, machine learning  professionals can focus on their expertise of building machine learning models and not have to learn about compute infrastructure or setting it up.
 
 [!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
-Machine learning professionals can specify the resources the job needs. Azure Machine Learning manages the compute infrastructure, and provides managed network isolation reducing the burden on you.
+Machine learning professionals can specify the resources the job needs. Azure Machine Learning manages the compute infrastructure, and provides managed network (preview) isolation reducing the burden on you.
 
 Enterprises can also reduce costs by specifying optimal resources for each job. IT Admins can still apply control by specifying cores quota at subscription and workspace level and apply Azure policies.
 
@@ -57,7 +57,7 @@ Serverless compute can be used to run command, sweep, AutoML, pipeline, distribu
 * When using [Azure Machine Learning designer](concept-designer.md), select **Serverless** as default compute.
 
 > [!IMPORTANT]
-> If you want to use serverless compute with a workspace that is configured for network isolation, the workspace must be using a managed network isolation (preview). For more information, see [workspace managed network isolation](how-to-managed-network.md).
+> If you want to use serverless compute with a workspace that is configured for network isolation, the workspace must be using managed network isolation. For more information, see [workspace managed network isolation](how-to-managed-network.md).
 
 
 ## Performance considerations

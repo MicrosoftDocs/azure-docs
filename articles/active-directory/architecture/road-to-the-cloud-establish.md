@@ -19,9 +19,9 @@ Before you migrate identity and access management (IAM) from Active Directory to
 
 If you're using Microsoft Office 365, Exchange Online, or Teams, then you're already using Azure AD. Your next step is to establish more Azure AD capabilities:
 
-* Establish hybrid identity synchronization between Active Directory and Azure AD by using [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md) or [Azure AD Connect cloud sync](../cloud-sync/what-is-cloud-sync.md).
+* Establish hybrid identity synchronization between Active Directory and Azure AD by using [Azure AD Connect](../hybrid/connect/whatis-azure-ad-connect.md) or [Azure AD Connect cloud sync](../hybrid/cloud-sync/what-is-cloud-sync.md).
 
-* [Select authentication methods](../hybrid/choose-ad-authn.md). We strongly recommend password hash synchronization.
+* [Select authentication methods](../hybrid/connect/choose-ad-authn.md). We strongly recommend password hash synchronization.
 
 * Secure your hybrid identity infrastructure by following [Five steps to securing your identity infrastructure](../../security/fundamentals/steps-secure-identity.md).
 

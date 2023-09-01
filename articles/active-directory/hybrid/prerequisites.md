@@ -63,7 +63,7 @@ For more information on the cloud sync prerequisites, see [Azure AD Connect prer
 |-----|-----|
 |Enterprise administrator|Required to install Azure AD Connect.|
 |Hybrid Identity administrator|Required to configure cloud sync.  This account cannot be a guest account.  This account must be a school or organization account and can't be a Microsoft account.|
-|Custom settings|If you use the custom settings installation path, you have more options. You can specify the following information:</br>• [AD DS Connector account](reference-connect-accounts-permissions.md)</br>• [ADSync Service account](reference-connect-accounts-permissions.md)</br>• [Azure AD Connector account](reference-connect-accounts-permissions.md).  </br>For more information, see [Custom installation settings](reference-connect-accounts-permissions.md#custom-settings).|
+|Custom settings|If you use the custom settings installation path, you have more options. You can specify the following information:</br>• [AD DS Connector account](./connect/reference-connect-accounts-permissions.md)</br>• [ADSync Service account](./connect/reference-connect-accounts-permissions.md)</br>• [Azure AD Connector account](./connect/reference-connect-accounts-permissions.md).  </br>For more information, see [Custom installation settings](./connect/reference-connect-accounts-permissions.md#custom-settings).|
 
 For more information on the Azure AD Connect accounts, see [Azure AD Connect: Accounts and permissions](connect/reference-connect-accounts-permissions.md).
 

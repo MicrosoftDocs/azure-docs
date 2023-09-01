@@ -87,8 +87,8 @@ You can edit properties by selecting the pencil icon next to any category, which
 
 User operations
 
-- [Add or change profile information](../fundamentals/active-directory-users-profile-azure-portal.md)
-- [Add or delete users](../fundamentals/add-users-azure-active-directory.md)
+- [Add or change profile information](../fundamentals/how-to-manage-user-profile-info.md)
+- [Add or delete users](../fundamentals/add-users.md)
 
 Bulk operations
 

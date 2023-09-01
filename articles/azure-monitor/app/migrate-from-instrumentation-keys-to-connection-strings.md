@@ -91,7 +91,7 @@ Connection strings provide a single configuration setting and eliminate the need
 
 - **Reliability**: Connection strings make telemetry ingestion more reliable by removing dependencies on global ingestion endpoints.
 - **Security**: Connection strings allow authenticated telemetry ingestion by using [Azure Active Directory (Azure AD) authentication for Application Insights](azure-ad-authentication.md).
-- **Customized endpoints (sovereign or hybrid cloud environments)**: Endpoint settings allow sending data to a specific [Azure Government region](create-new-resource.md#regions-that-require-endpoint-modification). ([See examples](sdk-connection-string.md#set-a-connection-string).)
+- **Customized endpoints (sovereign or hybrid cloud environments)**: Endpoint settings allow sending data to a specific Azure Government region. ([See examples](sdk-connection-string.md#set-a-connection-string).)
 - **Privacy (regional endpoints)**: Connection strings ease privacy concerns by sending data to regional endpoints, ensuring data doesn't leave a geographic region.
 
 ## Supported SDK versions

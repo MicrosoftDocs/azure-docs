@@ -6,7 +6,7 @@ manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ankitadutta
-ms.date: 08/01/2023
+ms.date: 08/16/2023
 ---
 
 # Add Azure Automation runbooks to recovery plans

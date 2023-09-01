@@ -91,7 +91,7 @@ By default the policy provides an option to exclude the current user from the po
 
 ![Warning, don't lock yourself out!](./media/concept-conditional-access-users-groups/conditional-access-users-and-groups-lockout-warning.png)
 
-If you do find yourself locked out, see [What to do if you're locked out of the Azure portal?](troubleshoot-conditional-access.md#what-to-do-if-youre-locked-out-of-the-azure-portal)
+If you do find yourself locked out, see [What to do if you're locked out?](troubleshoot-conditional-access.md#what-to-do-if-youre-locked-out)
 
 ### External partner access
 

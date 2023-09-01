@@ -11,7 +11,7 @@ ms.workload: identity
 ms.date: 12/10/2021
 ms.author: ryanwi
 ms.reviewer: stsoneff
-ms.custom: azureday1
+ms.custom: azureday1, AppServiceIdentity
 #Customer intent: As an application developer, I want to learn how to secure access to a web app running on Azure App Service.
 ms.subservice: web-apps
 ---

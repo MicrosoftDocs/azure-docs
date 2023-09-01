@@ -8,7 +8,7 @@ ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 3/27/2022
 ms.author: RunCai
-ms.custom: mode-ui, devx-track-linux
+ms.custom: mode-ui, devx-track-linux, has-azure-ad-ps-ref
 ---
 
 # Quickstart: Create confidential VM on AMD in the Azure portal

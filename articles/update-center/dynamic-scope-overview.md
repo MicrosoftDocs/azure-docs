@@ -1,7 +1,7 @@
 ---
 title: An overview of dynamic scoping (preview) 
 description: This article provides information about dynamic scoping (preview), its purpose and advantages.
-ms.service: update-management-center
+ms.service: azure-update-manager
 ms.date: 07/05/2023
 ms.topic: conceptual
 author: SnehaSudhir 
@@ -29,7 +29,6 @@ The criteria will be evaluated at the scheduled run time, which will be the fina
   > [!NOTE]
   > You can associate one dynamic scope to one schedule.
 
-## Prerequisites
 
 [!INCLUDE [dynamic-scope-prerequisites.md](includes/dynamic-scope-prerequisites.md)]
 

@@ -304,7 +304,7 @@ If your compute instance is behind a VNet, you need to make the following change
 - Make sure the managed identity of workspace have `Storage Blob Data Contributor`, `Storage Table Data Contributor` roles on the workspace default storage account.
 
 > [!NOTE] 
-> This only works if your AOAI and other cognitive services allow access from all networks.
+> This only works if your AOAI and other Azure AI services allow access from all networks.
 
 ### Managed endpoint runtime related
 

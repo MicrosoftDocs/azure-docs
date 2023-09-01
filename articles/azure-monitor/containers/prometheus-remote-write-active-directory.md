@@ -174,11 +174,11 @@ This step is only required if you didn't enable Azure Key Vault Provider for Sec
         # Required only for AAD based auth
         volumes:
           - name: secrets-store-inline
-        csi:
-          driver: secrets-store.csi.k8s.io
-          readOnly: true
-          volumeAttributes:
-            secretProviderClass: azure-kvname-user-msi
+            csi:
+              driver: secrets-store.csi.k8s.io
+              readOnly: true
+              volumeAttributes:
+                secretProviderClass: azure-kvname-user-msi
         containers:
           - name: prom-remotewrite
             image: <CONTAINER-IMAGE-VERSION>

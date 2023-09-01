@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 05/22/2023
 ms.author: ryanwi
-ms.custom: contperf-fy21q4-portal, aaddev, identityplatformtop40
+ms.custom: contperf-fy21q4-portal, aaddev, identityplatformtop40, has-azure-ad-ps-ref
 ms.reviewer: sureshja
 ---
 
@@ -103,7 +103,7 @@ az ad sp list --filter "appId eq '{AppId}'"
 
 ### Consequences of modifying and deleting applications
 
-Any changes that you make to your application object are also reflected in its service principal object in the application's home tenant only (the tenant where it was registered). This means that deleting an application object will also delete its home tenant service principal object. However, restoring that application object through the app registrations UI won't restore its corresponding service principal. For more information on deletion and recovery of applications and their service principal objects, see [delete and recover applications and service principal objects](../manage-apps/recover-deleted-apps-faq.md).
+Any changes that you make to your application object are also reflected in its service principal object in the application's home tenant only (the tenant where it was registered). This means that deleting an application object will also delete its home tenant service principal object. However, restoring that application object through the app registrations UI won't restore its corresponding service principal. For more information on deletion and recovery of applications and their service principal objects, see [delete and recover applications and service principal objects](../manage-apps/delete-recover-faq.yml).
 
 ## Example
 
