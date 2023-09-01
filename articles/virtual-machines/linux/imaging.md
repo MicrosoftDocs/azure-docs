@@ -1,14 +1,14 @@
 ---
 title: Overview of creating Linux images for Azure
 description: How to bring your Linux VM images or create new images to use in Azure.
-author: danielsollondon
+author: cynthn
 ms.service: virtual-machines
 ms.subservice: imaging
 ms.collection: linux
 ms.topic: overview
 ms.workload: infrastructure
-ms.date: 06/22/2020
-ms.author: danis
+ms.date: 09/01/2023
+ms.author: cynthn
 ms.reviewer: cynthn
 
 ---
@@ -101,7 +101,9 @@ If you still need to create your own image, ensure it meets the [image prerequis
 - [CentOS-based Distributions](create-upload-centos.md)
 - [Debian Linux](debian-create-upload-vhd.md)
 - [Flatcar Container Linux](flatcar-create-upload-vhd.md)
+- [FreeBSD](freebsd-intro-on-azure.md)
 - [Oracle Linux](oracle-create-upload-vhd.md)
+- [OpenBSD](create-upload-openbsd.md)
 - [Red Hat Enterprise Linux](redhat-create-upload-vhd.md)
 - [SLES & openSUSE](suse-create-upload-vhd.md)
 - [Ubuntu](create-upload-ubuntu.md)
