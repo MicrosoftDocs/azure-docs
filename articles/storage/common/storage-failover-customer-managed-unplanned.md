@@ -7,7 +7,7 @@ author: jimmart-dev
 
 ms.service: azure-storage
 ms.topic: conceptual
-ms.date: 08/31/2023
+ms.date: 09/01/2023
 ms.author: jammart
 ms.subservice: storage-common-concepts
 ms.custom: 
@@ -48,9 +48,9 @@ After failback, you can configure your storage account to be geo-redundant again
 To learn how to initiate a failover, see [Initiate a storage account failover](storage-initiate-account-failover.md).
 
 > [!CAUTION]
-> An customer-managed account failover usually involves some data loss. Before failing over your storage account, it's important to understand the implications of doing so.
+> An customer-managed account failover usually involves some data loss. Before failing over your storage account, it's important to understand the implications of doing so on your data.
 >
-> For details on expectations for data loss with the various types storage account failover, see [Failover and data loss](storage-failover-overview.md#data-loss-and-file-inconsistencies).
+> For details on expectations for data loss with the various types storage account failover, see [Data loss and file or data inconsistencies](storage-failover-overview.md#data-loss-and-file-or-data-inconsistencies).
 
 ## The failover and failback process
 
@@ -87,9 +87,9 @@ Under normal circumstances, a client writes data to a storage account in the pri
 
 ![Clients write data to the storage account in the primary region](media/storage-failover-customer-managed-common/pre-failover-grs.png)
 
-### The storage service endpoints become unavailable in the primary region
+### The storage service endpoints become unavailable in the primary region (GRS/RA-GRS)
 
-If the primary storage service endpoints become unavailable for any reason (1), the client is no longer able to write to the storage account. Depending on the underlying cause of the outage, replication to the secondary region may no longer be functioning (2), [so some data loss should be expected](storage-failover-overview.md#data-loss-and-file-inconsistencies). The following image shows the scenario where the primary endpoints have become unavailable, but no recovery has occurred yet:
+If the primary storage service endpoints become unavailable for any reason (1), the client is no longer able to write to the storage account. Depending on the underlying cause of the outage, replication to the secondary region may no longer be functioning (2), [so some data loss should be expected](storage-failover-overview.md#data-loss-and-file-or-data-inconsistencies). The following image shows the scenario where the primary endpoints have become unavailable, but no recovery has occurred yet:
 
 ![The primary is unavailable, so clients cannot write data](media/storage-failover-customer-managed-unplanned/primary-unavailable-before-failover-grs.png).
 
@@ -150,9 +150,9 @@ Under normal circumstances, a client writes data to a storage account in the pri
 
 ![Clients write data to the storage account in the primary region (GZRS)](media/storage-failover-customer-managed-common/pre-failover-gzrs.png)
 
-### The storage service endpoints become unavailable in the primary region
+### The storage service endpoints become unavailable in the primary region (GZRS/RA-GZRS)
 
-If the primary storage service endpoints become unavailable for any reason (1), the client is no longer able to write to the storage account. Depending on the underlying cause of the outage, replication to the secondary region may no longer be functioning (2), [so some data loss should be expected](storage-failover-overview.md#data-loss-and-file-inconsistencies). The following image shows the scenario where the primary endpoints have become unavailable, but no recovery has occurred yet:
+If the primary storage service endpoints become unavailable for any reason (1), the client is no longer able to write to the storage account. Depending on the underlying cause of the outage, replication to the secondary region may no longer be functioning (2), [so some data loss should be expected](storage-failover-overview.md#data-loss-and-file-or-data-inconsistencies). The following image shows the scenario where the primary endpoints have become unavailable, but no recovery has occurred yet:
 
 ![The primary is unavailable, so clients cannot write data (GZRS)](media/storage-failover-customer-managed-unplanned/primary-unavailable-before-failover-gzrs.png).
 

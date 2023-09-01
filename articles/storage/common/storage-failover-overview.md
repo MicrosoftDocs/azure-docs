@@ -7,7 +7,7 @@ author: jimmart-dev
 
 ms.service: azure-storage
 ms.topic: conceptual
-ms.date: 08/31/2023
+ms.date: 09/01/2023
 ms.author: jammart
 ms.subservice: storage-common-concepts
 ms.custom: 
@@ -78,7 +78,7 @@ Replication for storage accounts with a hierarchical namespace enabled (Azure Da
 
 Storage account failover of geo-redundant storage accounts with [the change feed](../blobs/storage-blob-change-feed.md) enabled may result in inconsistencies between the change feed logs and the blob data and/or metadata. Such inconsistencies can result from the asynchronous nature of both updates to the change logs and the replication of blob data from the primary to the secondary region. The only situation in which inconsistencies would not be expected is when all of the current log records have been successfully flushed to the log files and all of the storage data has been successfully replicated from the primary to the secondary region.
 
-For more information about how to determine potential data loss during storage account failover due to asynchronous replication, see [Anticipate data loss and file inconsistencies](#anticipate-data-loss-and-file-inconsistencies). For information about how change feed works see [How the change feed works](../blobs/storage-blob-change-feed.md#how-the-change-feed-works).
+For more information about how to determine potential data loss during storage account failover due to asynchronous replication, see [Data loss and file or data inconsistencies](#data-loss-and-file-or-data-inconsistencies). For information about how change feed works see [How the change feed works](../blobs/storage-blob-change-feed.md#how-the-change-feed-works).
 
 Keep in mind that other storage account features require the change feed to be enabled such as [operational backup of Azure Blob Storage](../../backup/blob-backup-support-matrix.md#limitations), [Object replication](../blobs/object-replication-overview.md) and [Point-in-time restore for block blobs](../blobs/point-in-time-restore-overview.md).
 
