@@ -6,7 +6,7 @@ author: mrbullwinkle
 ms.author: mbullwin 
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 08/25/2023
+ms.date: 09/01/2023
 manager: nitinme
 keywords: ChatGPT
 

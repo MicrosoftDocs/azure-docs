@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: include
-ms.date: 08/28/2023
+ms.date: 09/01/2023
 author: ChrisHMSFT
 ms.author: chrhoder
 keywords: 
