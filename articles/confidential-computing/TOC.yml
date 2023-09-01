@@ -43,10 +43,8 @@
 #-------- "lost" block
   - name: Threat Scenarios and protection goals # make all the sub-headings point to a header in the threat-scenarios.md page
     href: threat-scenarios.md
-  - name: Multi-party collaboration
-    href: threat-scenarios.md #multi-party-collaboration # new #p1
-  - name: Data cleanroom solutions on confidential computing
-    href: multi-party-data.md
+  - name: Multi-party and cleanroom collaboration
+    href: multi-party-data.md #multi-party-collaboration # new #p1
   - name: It's the future #maybe change link to a page that references the below, and explains why it's the future
     href: https://azure.microsoft.com/en-us/blog/key-foundations-for-protecting-your-data-with-azure-confidential-computing/ # New, house-view.. why is it the future - x-links to a lot of MarkRus material tying it back to strategic direction/vision
 #  - name: Privacy by-default #p3
@@ -178,36 +176,36 @@
       href: skr-flow-confidential-containers-azure-container-instance.md
     - name: SKR Policy Examples
       href: skr-policy-examples.md  
-  - name: Partner Solutions
+- name: Partner Solutions
+  items:
+  - name: Overview
+    href: partner-pages/partner-pages-index.md
+  - name: Anjuna
+    href: partner-pages/anjuna.md
+  - name: BeeKeeperAI
+    href: partner-pages/beekeeperai.md
+  - name: Decentriq
+    href: partner-pages/decentriq.md
+  - name: Edgeless
+    href: partner-pages/edgeless.md
+  - name: Enclaive
+    href: partner-pages/enclaive.md
+  - name: Fortanix
     items:
-    - name: Overview
-      href: partner-pages/partner-pages-index.md
-    - name: Anjuna
-      href: partner-pages/anjuna.md
-    - name: BeeKeeperAI
-      href: partner-pages/beekeeperai.md
-    - name: Decentriq
-      href: partner-pages/decentriq.md
-    - name: Edgeless
-      href: partner-pages/edgeless.md
-    - name: Enclaive
-      href: partner-pages/enclaive.md
-    - name: Fortanix
-      items:
-      - name: About Fortanix
-        href: partner-pages/fortanix.md
-      - name: Fortanix Confidential Computing Manager
-        href: how-to-fortanix-confidential-computing-manager.md
-      - name: Fortanix Confidential Computing Manager Node Agent
-        href: how-to-fortanix-confidential-computing-manager-node-agent.md
-    - name: Habu
-      href: partner-pages/habu.md
-    - name: Mithril Security
-      href: partner-pages/mithril.md
-    - name: Opaque
-      href: partner-pages/opaque.md
-    - name: Scone
-      href: partner-pages/scone.md
+    - name: About Fortanix
+      href: partner-pages/fortanix.md
+    - name: Fortanix Confidential Computing Manager
+      href: how-to-fortanix-confidential-computing-manager.md
+    - name: Fortanix Confidential Computing Manager Node Agent
+      href: how-to-fortanix-confidential-computing-manager-node-agent.md
+  - name: Habu
+    href: partner-pages/habu.md
+  - name: Mithril Security
+    href: partner-pages/mithril.md
+  - name: Opaque
+    href: partner-pages/opaque.md
+  - name: Scone
+    href: partner-pages/scone.md
 - name: Resources
   items:
   - name: Join our Tech Community
