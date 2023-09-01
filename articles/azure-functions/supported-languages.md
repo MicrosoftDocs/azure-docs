@@ -8,15 +8,13 @@ zone_pivot_groups: programming-languages-set-functions
 
 # Supported languages in Azure Functions
 
-This article explains the levels of support offered for languages that you can use with Azure Functions. It also describes strategies for creating functions using languages not natively supported.
-
-Select your preferred development language at the top of the article.
+This article explains the levels of support offered for your preferred language when using Azure Functions. It also describes strategies for creating functions using languages not natively supported.
 
 [!INCLUDE [functions-support-levels](../../includes/functions-support-levels.md)]
 
 ## Languages by runtime version 
 
-[Several versions of the Azure Functions runtime](functions-versions.md) are available. The following table shows which languages are supported in each runtime version.
+[Several versions of the Azure Functions runtime](functions-versions.md) are available. 
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)] 
 

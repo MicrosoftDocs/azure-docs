@@ -6,8 +6,9 @@ ms.date: 08/23/2023
 ms.author: glenga
 ms.custom: include file
 ---
-
 ::: zone pivot="programming-language-csharp"
+The following table shows the runtime and language versions supported for C# functions. Select your preferred development language at the top of the article. 
+
 The supported version of .NET depends on both your Functions runtime version and your chosen .NET worker process model:
 
 ### [Isolated process](#tab/isolated-process)
@@ -57,6 +58,8 @@ Running C# functions in an isolated worker process isn't supported by version 1.
 
 ::: zone-end
 ::: zone pivot="programming-language-java"  
+The following table shows the runtime version and language versions supported for Java functions. Select your preferred development language at the top of the article.
+
 | Supported version | Support level | Expected community EOL date |
 | ---- | ---- |--- |
 | Java 17 | GA | `<<TBD>>` |
@@ -67,6 +70,8 @@ For more information, see [Azure Functions Java developer guide](../articles/azu
 
 ::: zone-end
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
+The following table shows the runtime and language versions supported for Node.js functions. Select your preferred development language at the top of the article.
+
 ### [v4.x](#tab/v4)
 
 | Supported version | Support level | Expected community EOL date |
@@ -86,6 +91,8 @@ For more information, see [Azure Functions Java developer guide](../articles/azu
 TypeScript is supported through transpiling to JavaScript. For more information, see the [Azure Functions Node.js developer guide](../articles/azure-functions/functions-reference-node.md#supported-versions).
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
+The following table shows the runtime version and language versions supported for PowerShell functions. Select your preferred development language at the top of the article.
+
 | Supported version | Support level | Expected community EOL date |
 | ---- | ---- |--- |
 | PowerShell 7.2 | GA | `<<TBD>>` |
@@ -93,6 +100,8 @@ TypeScript is supported through transpiling to JavaScript. For more information,
 For more information, see [Azure Functions PowerShell developer guide](../articles/azure-functions/functions-reference-powershell.md).
 ::: zone-end
 ::: zone pivot="programming-language-python"
+The following table shows the runtime version and language versions supported for Python functions. Select your preferred development language at the top of the article.
+
 | Supported version | Support level | Expected community EOL date |
 | ---- | ---- |--- |
 | Python 3.11 | Preview | N/A |

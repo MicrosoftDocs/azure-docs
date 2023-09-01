@@ -28,8 +28,6 @@ This article details some of the differences between these versions, how you can
 
 All functions in a function app must share the same language. You chose the language of functions in your function app when you create the app. The language of your function app is maintained in the [FUNCTIONS\_WORKER\_RUNTIME](functions-app-settings.md#functions_worker_runtime) setting, and shouldn't be changed when there are existing functions. 
 
-The following table indicates which programming languages are currently supported in each runtime version.
-
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
 
 ## <a name="creating-1x-apps"></a>Run on a specific version
