@@ -14,7 +14,7 @@ ms.author: stdoroff
 
 # Azure Front Door Performance 
 
-Performance issues can originate in several potential areas.  This guide  in identifying which hop along the data-path is most likely the root of the issue and how to resolve.  As a brief overview, the issue could be at the Azure Front Door, the origin, the requesting client or the path between any of these hops.
+Performance issues can originate in several potential areas.  This troubleshooting guide will assist in identifying which hop along the data-path is most likely the root of the issue and how to resolve.  As a brief overview, the issue could be at the Azure Front Door, the origin, the requesting client or the path between any of these hops.
 
 ## Check for Known Issues
 

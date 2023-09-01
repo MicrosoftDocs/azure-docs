@@ -525,5 +525,5 @@ The following instructions illustrate how to check OpenLDAP.
 
  1. Open a terminal window with a command shell on the system with OpenLDAP.
  1. Type the command `ldapsearch -D "cn=admin,dc=contoso,dc=lab" -W -s sub -b dc=contoso,dc=lab -LLL (objectclass=inetOrgPerson)`
- 1. Chek that the resulting LDIF includes the users provisioned from Azure AD.
+ 1. Check that the resulting LDIF includes the users provisioned from Azure AD.
 
