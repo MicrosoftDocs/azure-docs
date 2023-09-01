@@ -134,7 +134,7 @@ High latency, or low bandwidth, could be because of an ISP issue, the customer i
 1. To rule out requesting client settings, test from a different requesting client in the same region
 1. **If additional hops or remote regions are identified**, the issue is with the client accessing the Azure Front Door POP and not with the Azure Front Door itself.  Hops between endpoints needs to be addressed by the connectivity or VPN provider.
 1. **If additional hops or remote regions are not identified AND the content is being served from cache (x-cache: TCP_HIT)**, the issue is with the Azure Front Door and a Support Request may need to be created.  Include a reference to this troubleshooting article and steps taken.
-   - ***Note***: If the content is being served from the origin (x-cache: TCP_MISS), see [Scenario 1](frontdoor/troubleshoot-performance-issues#scenario-1-investigate-the-origin) above
+   - ***Note***: If the content is being served from the origin (x-cache: TCP_MISS), see [Scenario 1](troubleshoot-performance-issues.md#scenario-1-investigate-the-origin) above
 
 ## Scenario 3: A Website Loads Slowly
 
@@ -185,5 +185,5 @@ A webpage consists of many files.  The way the website benefits from the Azure F
    > [!NOTE]
    > Slowly loading websites issue could take time to review based on the complexity of a website's design and it's file calling instructions
 1. **If the collected data shows that files' loading performance are better at the Azure Front Door compared to the origin or test site**, the Azure Front Door is working as expected.
-    A. The issue may have to do with individual client request issues.  See [Scenario 1](frontdoor/troubleshoot-performance-issues#scenario-1-investigate-the-origin) above.
+    A. The issue may have to do with individual client request issues.  See [Scenario 1](troubleshoot-performance-issues.md#scenario-1-investigate-the-origin) above.
 1. **If the collected data shows that performance is ***not*** better at the Azure Front Door**, a Support Request is likely required for further investigation.  Include a reference to this troubleshooting article and steps taken.
