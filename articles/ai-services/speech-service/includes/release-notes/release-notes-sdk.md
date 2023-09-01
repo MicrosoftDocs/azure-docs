@@ -35,7 +35,10 @@ This table shows the previous and new object names for real-time diarization and
 #### Bug fixes
 
 * Fixed macOS minimum supported version https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/2017
-
+* Fixed Pronunciation Assessment bug:
+  - Addressed phoneme accuracy scores issue, ensuring they now accurately reflect only the specific mispronounced phoneme. https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1917
+  - Resolved an issue where the Pronunciation Assessment feature was inaccurately identifying entirely correct pronunciations as erroneous, particularly in situations where words could have multiple valid pronunciations. https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1530
+  
 #### Samples
 
 * **CSharp**
