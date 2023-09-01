@@ -108,7 +108,7 @@ Note: if include and exclude flags are used together, only files matching the in
 
 ## Options
 
-`--block-size-mb`    (float)    Use this block size (specified in MiB) when uploading to Azure Storage or downloading from Azure Storage. Default is automatically calculated based on file size. Decimal fractions are allowed (For example: 0.25).
+`--block-size-mb`    (float)    Use this block size (specified in MiB) when uploading to Azure Storage or downloading from Azure Storage. Default is automatically calculated based on file size. Decimal fractions are allowed (For example: 0.25). When uploading or downloading, the maximum allowed block size is 0.75 * AZCOPY_BUFFER_GB. To learn more, see [Optimize memory use](storage-use-azcopy-optimize.md#optimize-memory-use).
 
 `--check-md5`    (string)    Specifies how strictly MD5 hashes should be validated when downloading. This option is only available when downloading. Available values include: NoCheck, LogOnly, FailIfDifferent, FailIfDifferentOrMissing. (default 'FailIfDifferent'). (default "FailIfDifferent")
 

@@ -229,7 +229,7 @@ Copy a subset of buckets by using a wildcard symbol (*) in the bucket name from 
 
 `--block-blob-tier`    (string)    upload block blob to Azure Storage using this blob tier. (default "None")
 
-`--block-size-mb`    (float)    Use this block size (specified in MiB) when uploading to Azure Storage, and downloading from Azure Storage. The default value is automatically calculated based on file size. Decimal fractions are allowed (For example: 0.25).
+`--block-size-mb`    (float)    Use this block size (specified in MiB) when uploading to Azure Storage, and downloading from Azure Storage. The default value is automatically calculated based on file size. Decimal fractions are allowed (For example: 0.25). When uploading or downloading, the maximum allowed block size is 0.75 * AZCOPY_BUFFER_GB. To learn more, see [Optimize memory use](storage-use-azcopy-optimize.md#optimize-memory-use).
 
 `--cache-control`    (string)    Set the cache-control header. Returned on download.
 
