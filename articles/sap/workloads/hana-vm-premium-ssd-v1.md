@@ -97,7 +97,7 @@ Configuration for SAP **/hana/data** volume:
 | M208s_v2 | 2,850 GiB | 1,000 MBps | 4 x P30 | 800 MBps | no bursting | 20,000| no bursting | 
 | M208ms_v2 | 5,700 GiB | 1,000 MBps | 4 x P40 | 1,000 MBps | no bursting | 30,000 | no bursting |
 | M416s_v2 | 5,700 GiB | 2,000 MBps | 4 x P40 | 1,000 MBps | no bursting | 30,000 | no bursting |
-| M416s_8_v2 | 7,600 | 2,000 MBps | 5 x P40 | 1,250 MBps | no bursting | 37,500 | no bursting |
+| M416s_8_v2 | 7,600 | 2,000 MBps | 4 x P40 | 1,000 MBps | no bursting | 30,000 | no bursting |
 | M416ms_v2 | 11,400 GiB | 2,000 MBps | 4 x P50 | 1,000 MBps | no bursting | 30,000 | no bursting |
 | M832isx<sup>1</sup> | 14,902 GiB | larger than 2,000 Mbps | 4 x P60<sup>1</sup> | 2,000 MBps | no bursting | 64,000 | no bursting |
 | M832isx_v2<sup>1</sup> | 23,088 GiB | larger than 2,000 Mbps | 4 x P60<sup>1</sup> | 2,000 MBps | no bursting | 64,000 | no bursting |
