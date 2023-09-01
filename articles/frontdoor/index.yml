@@ -125,6 +125,18 @@ landingContent:
             url: ../web-application-firewall/afds/waf-front-door-create-portal.md
 
   # Card
+  - title: Service integration
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Azure Storage Account integration with Front Door
+            url: integrate-storage-account.md
+      - linkListType: architecture
+        links:
+          - text: Expose Azure Spring Apps through a reverse proxy
+            url: /azure/architecture/web-apps/spring-apps/guides/spring-cloud-reverse-proxy
+
+  # Card
   - title: Configure reports, metrics, and logs
     linkLists:
       - linkListType: how-to-guide

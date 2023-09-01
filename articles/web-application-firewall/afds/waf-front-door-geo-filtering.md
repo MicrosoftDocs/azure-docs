@@ -5,7 +5,7 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: conceptual
-ms.date: 08/31/2021
+ms.date: 08/25/2023
 ms.author: victorh
 ---
 

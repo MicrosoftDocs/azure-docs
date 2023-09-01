@@ -28,9 +28,9 @@ Follow the steps in this article to approve or deny requests for group membershi
 
 As a delegated approver, you receive an email notification when an Azure resource role request is pending your approval. You can view pending requests in Privileged Identity Management.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
 
-1. Select **Azure AD Privileged Identity Management** > **Approve requests** > **Groups**.
+1. Browse to **Identity governance** > **Privileged Identity Management** > **Approve requests** > **Groups**.
 
 1. In the **Requests for role activations** section, you see a list of requests pending your approval.
 
@@ -75,7 +75,7 @@ When you activate a role in Privileged Identity Management, the activation might
 
 If your activation is delayed:
 
-1. Sign out of the Azure portal and then sign back in.
+1. Sign out of the Microsoft Entra admin center and then sign back in.
 1. In Privileged Identity Management, verify that you're listed as the member of the role.
 
 ## Next steps

@@ -7,7 +7,7 @@ ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.date: 05/23/2023
+ms.date: 08/15/2023
 ms.reviewer: cynthn
 #Customer intent: As an IT administrator, I want to learn about how to create shared VM images to minimize the number of post-deployment configuration tasks.
 ---

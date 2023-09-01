@@ -97,7 +97,6 @@ This section guides you through the steps to configure the Azure AD provisioning
    |---|---|---|---|
    |userName|String|&check;|&check;
    |active|Boolean||&check;
-   |externalId|String||&check;
    |name.givenName|String||&check;
    |name.familyName|String||&check;
    
@@ -108,7 +107,6 @@ This section guides you through the steps to configure the Azure AD provisioning
    |Attribute|Type|Supported for filtering|Required by Postman|
    |---|---|---|---|
    |displayName|String|&check;|&check;
-   |externalId|String||&check;
    |members|Reference||
    
 1. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
