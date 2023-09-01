@@ -99,7 +99,7 @@ Upload files and directories to Azure Storage account and set the query-string e
 - To set tags {key = "bla bla", val = "foo"} and {key = "bla bla 2", val = "bar"}, use the following syntax:
 - `azcopy cp "/path/*foo/*bar*" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --blob-tags="bla%20bla=foo&bla%20bla%202=bar"`
 - Keys and values are URL encoded and the key-value pairs are separated by an ampersand('&')
-- While setting tags on the blobs, there are additional permissions('t' for tags) in SAS without which the service will give authorization error back.
+- While setting tags on the blobs, there are more permissions('t' for tags) in SAS without which the service will give authorization error back.
 
 Download a single file by using OAuth authentication. If you haven't yet logged into AzCopy, run the azcopy login command before you run the following command.
 
@@ -245,11 +245,11 @@ Copy a subset of buckets by using a wildcard symbol (*) in the bucket name from 
 
 `--content-type`   (string)    Specifies the content type of the file. Implies no-guess-mime-type. Returned on download.
 
-`--cpk-by-name`    (string)    Client provided key by name that gives clients making requests against Azure Blob storage an option to provide an encryption key on a per-request basis. Provided key name will be fetched from Azure Key Vault and will be used to encrypt the data
+`--cpk-by-name`    (string)    Client provided key by name that gives clients making requests against Azure Blob storage an option to provide an encryption key on a per-request basis. Provided key name is fetched from Azure Key Vault and is used to encrypt the data
 
-`--cpk-by-value`    Client provided key by name that lets clients making requests against Azure Blob storage an option to provide an encryption key on a per-request basis. Provided key and its hash will be fetched from environment variables
+`--cpk-by-value`    Client provided key by name that lets clients making requests against Azure Blob storage an option to provide an encryption key on a per-request basis. Provided key and its hash is fetched from environment variables
 
-`--decompress`    Automatically decompress files when downloading, if their content-encoding indicates that they're compressed. The supported content-encoding values are 'gzip' and 'deflate'. File extensions of '.gz'/'.gzip' or '.zz' aren't necessary, but will be removed if present.
+`--decompress`    Automatically decompress files when downloading, if their content-encoding indicates that they're compressed. The supported content-encoding values are 'gzip' and 'deflate'. File extensions of '.gz'/'.gzip' or '.zz' aren't necessary, but is removed if present.
 
 `--disable-auto-decoding`    False by default to enable automatic decoding of illegal chars on Windows. Can be set to true to disable automatic decoding.
 
@@ -295,7 +295,7 @@ Copy a subset of buckets by using a wildcard symbol (*) in the bucket name from 
 
 `--no-guess-mime-type`    Prevents AzCopy from detecting the content-type based on the extension or content of the file.
 
-`--overwrite`    (string)    Overwrite the conflicting files and blobs at the destination if this flag is set to true. (default 'true') Possible values include 'true', 'false', 'prompt', and 'ifSourceNewer'. For destinations that support folders, conflicting folder-level properties will be overwritten this flag is 'true' or if a positive response is provided to the prompt. (default "true")
+`--overwrite`    (string)    Overwrite the conflicting files and blobs at the destination if this flag is set to true. (default 'true') Possible values include 'true', 'false', 'prompt', and 'ifSourceNewer'. For destinations that support folders, conflicting folder-level properties are overwritten if this flag is 'true' or if a positive response is provided to the prompt. (default "true")
 
 `--page-blob-tier`    (string)    Upload page blob to Azure Storage using this blob tier. (default 'None'). (default "None")
 
@@ -303,11 +303,11 @@ Copy a subset of buckets by using a wildcard symbol (*) in the bucket name from 
 
 `--preserve-owner`    Only has an effect in downloads, and only when `--preserve-smb-permissions` is used. If true (the default), the file Owner and Group are preserved in downloads. If set to false, 
 
-`--preserve-smb-permissions` will still preserve ACLs but Owner and Group will be based on the user running AzCopy (default true)
+`--preserve-smb-permissions` will still preserve ACLs but Owner and Group is based on the user running AzCopy (default true)
 
 `--preserve-permissions`    False by default. Preserves ACLs between aware resources (Windows and Azure Files, or Azure Data Lake Storage Gen2 to Azure Data Lake Storage Gen2). For Hierarchical Namespace accounts, you'll need a container SAS or OAuth token with Modify Ownership and Modify Permissions permissions. For downloads, you'll also need the `--backup` flag to restore permissions where the new Owner won't be the user running AzCopy. This flag applies to both files and folders, unless a file-only filter is specified (for example, include-pattern).
 
-`--preserve-smb-info`    For SMB-aware locations, flag will be set to true by default. Preserves SMB property info (last write time, creation time, attribute bits) between SMB-aware resources (Windows and Azure Files). Only the attribute bits supported by Azure Files will be transferred; any others will be ignored. This flag applies to both files and folders, unless a file-only filter is specified (for example, include-pattern). The info transferred for folders is the same as that for files, except for `Last Write Time` which is never preserved for folders. (default true)
+`--preserve-smb-info`    For SMB-aware locations, flag is set to true by default. Preserves SMB property info (last write time, creation time, attribute bits) between SMB-aware resources (Windows and Azure Files). Only the attribute bits supported by Azure Files are transferred; any others are ignored. This flag applies to both files and folders, unless a file-only filter is specified (for example, include-pattern). The info transferred for folders is the same as that for files, except for `Last Write Time` which is never preserved for folders. (default true)
 
 `--put-md5`    Create an MD5 hash of each file, and save the hash as the Content-MD5 property of the destination blob or file. (By default the hash is NOT created.) Only available when uploading.
 
