@@ -23,21 +23,14 @@ using Azure.AI.OpenAI;
 using System.Text.Json;
 using static System.Environment;
 
-string endpoint = GetEnvironmentVariable("AOAIEndpoint");
-string key = GetEnvironmentVariable("AOAIKey");
-
-var client = new OpenAIClient(new Uri(endpoint), new AzureKeyCredential(key));
-
+string azureOpenAIEndpoint = GetEnvironmentVariable("AOAIEndpoint");
+string azureOpenAIKey = GetEnvironmentVariable("AOAIKey");
 string searchEndpoint = GetEnvironmentVariable("SearchEndpoint");
 string searchKey = GetEnvironmentVariable("SearchKey");
 string searchIndex = GetEnvironmentVariable("SearchIndex");
+string deploymentName = GetEnvironmentVariable("AOAIDeploymentId");
 
-var searchDataExtension = new AzureCognitiveSearchChatExtensionConfiguration()
-{
-    SearchEndpoint = new Uri(searchEndpoint),
-    SearchKey = new AzureKeyCredential(searchKey),
-    IndexName = searchIndex,
-};
+var client = new OpenAIClient(new Uri(azureOpenAIEndpoint), new AzureKeyCredential(azureOpenAIKey));
 
 var chatCompletionsOptions = new ChatCompletionsOptions()
 {
@@ -47,11 +40,17 @@ var chatCompletionsOptions = new ChatCompletionsOptions()
     },
     AzureExtensionsOptions = new AzureChatExtensionsOptions()
     {
-        Extensions = { searchDataExtension },
+        Extensions =
+        {
+            new AzureCognitiveSearchChatExtensionConfiguration()
+            {
+                SearchEndpoint = new Uri(searchEndpoint),
+                SearchKey = new AzureKeyCredential(searchKey),
+                IndexName = searchIndex,
+            },
+        }
     }
 };
-
-string deploymentName = GetEnvironmentVariable("AOAIDeploymentId");
 
 Response<ChatCompletions> response = client.GetChatCompletions(deploymentName, chatCompletionsOptions);
 
@@ -133,16 +132,14 @@ string key = GetEnvironmentVariable("AOAIKey");
 
 var client = new OpenAIClient(new Uri(endpoint), new AzureKeyCredential(key));
 
+string azureOpenAIEndpoint = GetEnvironmentVariable("AOAIEndpoint");
+string azureOpenAIKey = GetEnvironmentVariable("AOAIKey");
 string searchEndpoint = GetEnvironmentVariable("SearchEndpoint");
 string searchKey = GetEnvironmentVariable("SearchKey");
 string searchIndex = GetEnvironmentVariable("SearchIndex");
+string deploymentName = GetEnvironmentVariable("AOAIDeploymentId");
 
-var searchDataExtension = new AzureCognitiveSearchChatExtensionConfiguration()
-{
-    SearchEndpoint = new Uri(searchEndpoint),
-    SearchKey = new AzureKeyCredential(searchKey),
-    IndexName = searchIndex,
-};
+var client = new OpenAIClient(new Uri(azureOpenAIEndpoint), new AzureKeyCredential(azureOpenAIKey));
 
 var chatCompletionsOptions = new ChatCompletionsOptions()
 {
@@ -152,11 +149,17 @@ var chatCompletionsOptions = new ChatCompletionsOptions()
     },
     AzureExtensionsOptions = new AzureChatExtensionsOptions()
     {
-        Extensions = { searchDataExtension },
+        Extensions =
+        {
+            new AzureCognitiveSearchChatExtensionConfiguration()
+            {
+                SearchEndpoint = new Uri(searchEndpoint),
+                SearchKey = new AzureKeyCredential(searchKey),
+                IndexName = searchIndex,
+            },
+        }
     }
 };
-
-string deploymentName = GetEnvironmentVariable("AOAIDeploymentId");
 
 Response<StreamingChatCompletions> response = await client.GetChatCompletionsStreamingAsync(
     deploymentName,
