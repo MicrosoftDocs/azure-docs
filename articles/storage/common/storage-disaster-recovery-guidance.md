@@ -81,10 +81,11 @@ When you force a failover, all data in the primary region is lost as the seconda
 
 All data already copied to the secondary is maintained when the failover happens. However, any data written to the primary that has not also been copied to the secondary region is lost permanently.
 
-Additionally, you might experience file or data inconsistencies if your storage accounts have one or both of the following enabled:
+Additionally, you might experience file or data inconsistencies if your storage accounts have one or more of the following enabled:
 
 - Hierarchical namespace (Azure Data Lake Storage Gen2).
 - [Change feed](../blobs/storage-blob-change-feed.md).
+- [Point-in-time restore for block blobs](../blobs/point-in-time-restore-overview.md).
 
 For more details about how to handle these scenarios, see [Data loss and inconsistencies](storage-failover-overview.md#data-loss-and-inconsistencies).
 
@@ -128,20 +129,6 @@ Unmanaged disks are stored as page blobs in Azure Storage. When a VM is running 
 8. Start the new VM.
 
 Keep in mind that any data stored in a temporary disk is lost when the VM is shut down.
-
-### Change feed and blob data inconsistencies
-
-Storage account failover of geo-redundant storage accounts with [the change feed](../blobs/storage-blob-change-feed.md) enabled may result in inconsistencies between the change feed logs and the blob data and/or metadata. Such inconsistencies can result from the asynchronous nature of both updates to the change logs and the replication of blob data from the primary to the secondary region. The only situation in which inconsistencies would not be expected is when all of the current log records have been successfully flushed to the log files and all of the storage data has been successfully replicated from the primary to the secondary region.
-
-For more information about how to determine potential data loss during storage account failover due to asynchronous replication, see [Anticipate data loss and file or data inconsistencies](#anticipate-data-loss-and-file-or-data-inconsistencies). For information about how change feed works see [How the change feed works](../blobs/storage-blob-change-feed.md#how-the-change-feed-works).
-
-Keep in mind that other storage account features require the change feed to be enabled such as [operational backup of Azure Blob Storage](../../backup/blob-backup-support-matrix.md#limitations), [Object replication](../blobs/object-replication-overview.md) and [Point-in-time restore for block blobs](../blobs/point-in-time-restore-overview.md).
-
-### Point-in-time restore
-
-Customer-managed failover is supported for general-purpose v2 standard tier storage accounts that include block blobs. However, performing a customer-managed failover on a storage account resets the earliest possible restore point for the account. Data for [Point-in-time restore for block blobs](../blobs/point-in-time-restore-overview.md) is only consistent up to the failover completion time. As a result, you can only restore block blobs to a point in time no earlier than the failover completion time. You can check the failover completion time in the redundancy tab of your storage account in the Azure Portal.
-
-For example, suppose you have set the retention period to 30 days. If more than 30 days have elapsed since the failover, then you can restore to any point within that 30 days. However, if fewer than 30 days have elapsed since the failover, then you can't restore to a point prior to the failover, regardless of the retention period. For example, if it's been 10 days since the failover, then the earliest possible restore point is 10 days in the past, not 30 days in the past.
 
 ## See also
 
