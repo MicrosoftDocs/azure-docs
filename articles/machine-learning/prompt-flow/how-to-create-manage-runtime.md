@@ -22,10 +22,10 @@ Prompt flow's runtime provides the computing resources required for the applicat
 
 ## Runtime type
 
-You can choose between two types of runtimes for Prompt flow: [compute instance (CI)](../concept-compute-instance.md), [serverless/automatic](../how-to-use-serverless-compute) and [managed online endpoint/deployment](../concept-endpoints-online.md). Here are some differences between them to help you decide which one suits your needs.
+You can choose between two types of runtimes for Prompt flow: [compute instance (CI)](../concept-compute-instance.md), [automatic](../how-to-use-serverless-compute) and [managed online endpoint/deployment](../concept-endpoints-online.md). Here are some differences between them to help you decide which one suits your needs.
 
-| Runtime type                                 |Compute instance runtime| Serverless/automatic runtime |Managed online deployment runtime (depracated)|
-|----------------------------------------------|----------|--------------------------|----------------------------------------------|
+| Runtime type                                 |Compute instance runtime| Automatic runtime |Managed online deployment runtime (depracated)|
+|----------------------------------------------|------------------------|--------------------|----------------------------------------------|
 | Team shared                                  | N                                 |Y                         |Y|
 | User isolation                               | Y                                 |Y                         |N|
 | OBO/identity support                         | Y                                 |N                         |N|
@@ -85,60 +85,6 @@ If you didn't have compute instance, create a new one: [Create and manage an Azu
 
        :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-ci-existing-custom-application-ui.png" alt-text="Screenshot of add compute instance runtime with custom application dropdown highlighted. " lightbox = "./media/how-to-create-manage-runtime/runtime-creation-ci-existing-custom-application-ui.png":::
 
-### Create managed online endpoint runtime in UI
-
-> [!IMPORTANT]
-> managed online endpoint/deployment as runtime is **deprecated**. Please use [Migrate guide for managed online endpoint/deployment runtime](./migrate-mir-runtime.md).
-
-1. Specify the runtime name.
-    :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-mir-runtime-runtime-name.png" alt-text="Screenshot of add managed online deployment runtime. " lightbox = "./media/how-to-create-manage-runtime/runtime-creation-mir-runtime-runtime-name.png":::
-
-1. Select existing or create a new deployment as runtime
-    1. Select create new deployment as runtime.
-    :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-mir-runtime-deployment-new.png" alt-text="Screenshot of add managed online deployment runtime with deployment highlighted. " lightbox = "./media/how-to-create-manage-runtime/runtime-creation-mir-runtime-deployment-new.png":::
-
-        There are two options for deployment as runtime: `new` and `existing`. If you choose `new`, we'll create a new deployment for you. If you choose `existing`, you need to provide the name of an existing deployment as runtime.
-
-        If you're new to Prompt flow, select `new` and we'll create a new deployment for you.
-
-        - Select identity type of endpoint.
-            :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-mir-runtime-identity.png" alt-text="Screenshot of add managed online deployment runtime with endpoint identity type highlighted. " lightbox = "./media/how-to-create-manage-runtime/runtime-creation-mir-runtime-identity.png":::
-    
-            You need [assign sufficient permission](#grant-sufficient-permissions-to-use-the-runtime) to system assigned identity or user assigned identity.
-    
-            To learn more, see [Access Azure resources from an online endpoint with a managed identity](../how-to-access-resources-from-endpoints-managed-identities.md)
-
-        - Select environment used for this runtime.
-            :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-mir-runtime-env.png" alt-text="Screenshot of add managed online deployment runtime wizard on the environment page. " lightbox = "./media/how-to-create-manage-runtime/runtime-creation-mir-runtime-env.png":::
-            
-            Follow [Customize environment with docker context for runtime](how-to-customize-environment-runtime.md#customize-environment-with-docker-context-for-runtime) to build your custom environment.
-
-        - Choose the appropriate SKU and instance count.
-        
-            > [!NOTE]
-            > For **Virtual machine**, since the Prompt flow runtime is memory-bound, it’s better to select a virtual machine SKU with more than 8GB of memory. For the list of supported sizes, see [Managed online endpoints SKU list](../reference-managed-online-endpoints-vm-sku-list.md).
-    
-             :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-mir-runtime-compute.png" alt-text="Screenshot of add managed online deployment runtime wizard on the compute page. " lightbox = "./media/how-to-create-manage-runtime/runtime-creation-mir-runtime-compute.png":::
-
-            > [!NOTE]
-            > Creating a managed online deployment runtime using new deployment may take several minutes.
-
-    1. Select existing deployment as runtime.
-
-        -  To use an existing managed online deployment as a runtime, you can choose it from the available options. Each runtime corresponds to one managed online deployment.
-
-            :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-mir-runtime-existing-deployment.png" alt-text="Screenshot of add managed online deployment runtime wizard on the runtime page. " lightbox = "./media/how-to-create-manage-runtime/runtime-creation-mir-runtime-existing-deployment.png":::
-
-        -  You can select from existing endpoint and existing deployment as runtime.
-
-            :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-mir-runtime-existing-deployment-select-endpoint.png" alt-text="Screenshot of add managed online deployment runtime on the endpoint page with an endpoint selected. " lightbox = "./media/how-to-create-manage-runtime/runtime-creation-mir-runtime-existing-deployment-select-endpoint.png":::
-
-         -  We'll verify that this deployment meets the runtime requirements.
-
-            :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-mir-runtime-existing-deployment-select-deployment.png" alt-text="Screenshot of add managed online deployment runtime on the deployment page. " lightbox = "./media/how-to-create-manage-runtime/runtime-creation-mir-runtime-existing-deployment-select-deployment.png":::
-
-    To learn, see [[how to create managed online deployment, which can be used as Prompt flow runtime](how-to-customize-environment-runtime.md#create-managed-online-deployment-that-can-be-used-as-prompt-flow-runtime).]
-
 ## Grant sufficient permissions to use the runtime
 
 After creating the runtime, you need to grant the necessary permissions to use it.
@@ -164,6 +110,53 @@ When performing a bulk test, you can use the original runtime in the flow or cha
 
 :::image type="content" source="./media/how-to-create-manage-runtime/runtime-authoring-bulktest.png" alt-text="Screenshot of the bulk run and evaluate wizard on the bulk run setting page with runtime highlighted. " lightbox = "./media/how-to-create-manage-runtime/runtime-authoring-bulktest.png":::
 
+### Using automatic runtime in Prompt flow authoring
+
+There is `automatic` runtime which is leverage serverless compute, when using automtic runtime you didn't need to manged the compute resource manaully and environments.
+- Compute resource will be warm up when you're using it, so the first run may take serveral mintutes to prepare compute. If your didn't specify instance_type when submit flow run we will use `Standard_E4s_v3` as default instance type. You can use Flow UI and CLI / SDK change it to other version. Please make sure you have enouth quota on this instance type.
+
+:::image type="content" source="./media/how-to-create-manage-runtime/runtime-config-automatic-instance-type.png" alt-text="Screenshot of show how to specify instence type in flow. " lightbox = "./media/how-to-create-manage-runtime/runtime-config-automatic-instance-type.png":::
+
+
+```yaml
+$schema: https://azuremlschemas.azureedge.net/promptflow/latest/Run.schema.json
+flow: <path_to_flow>
+data: <path_to_flow_data>
+
+# define cloud resource
+resources:
+    instance_type: Standard_E4s_v3 # use this part to specify instance type for batch run
+connections:
+  note_name1:
+    connection: <connection_name>
+    deployment_name: <deployment_name>
+  note_name2:
+    connection: <connection_name>
+    deployment_name: <deployment_name>
+```
+
+```python
+instance_type = 'Standard_E4s_v3' # use this part to specify instance type for batch run
+base_run = pf.run(
+    flow=flow,
+    data=data,
+    runtime=runtime,  
+    connections=connections,  
+    resources={'instance_type': instance_type},
+)
+```
+
+
+- Enviroment of the runtime support dynamic package installation, you can specify the packages your want in `requirements.txt` in your prompt flow folder. Every time you using the `automatic` runtime, we will install the packages your defined in `requirements.txt`. You need ensure in `flow.dag.yaml` you have defined the `python_requirements_txt` in `environment` section.
+
+```yaml
+...
+environment:
+    python_requirements_txt: requirements.txt
+```
+- `automatic` runtime will try best to reuse the same compute sesseion to provide better performance, if there is no activity in the compute session for 30 minutes, the compute resource will be released.
+
+
 ## Update runtime from UI
 
 We regularly update our base image (`mcr.microsoft.com/azureml/promptflow/promptflow-runtime`) to include the latest features and bug fixes. We recommend that you update your runtime to the [latest version](https://mcr.microsoft.com/v2/azureml/promptflow/promptflow-runtime/tags/list) if possible.
@@ -184,14 +177,6 @@ Go to runtime detail page and select update button at the top. You can change ne
 ## Troubleshooting guide for runtime
 
 ### Common issues
-
-#### Failed to perform workspace run operations due to invalid authentication
-
-:::image type="content" source="./media/how-to-create-manage-runtime/mir-without-ds-permission.png" alt-text="Screenshot of a long error on the flow page. " lightbox = "./media/how-to-create-manage-runtime/mir-without-ds-permission.png":::
-
-This means the identity of the managed endpoint doesn't have enough permissions, see [Grant sufficient permissions to use the runtime](#grant-sufficient-permissions-to-use-the-runtime) to grant sufficient permissions to the identity or user.
-
-If you just assigned the permissions, it will take a few minutes to take effect.
 
 #### My runtime is failed with a system error **runtime not ready** when using a custom environment
 
@@ -274,41 +259,6 @@ If your compute instance is behind a VNet, you need to make the following change
 
 > [!NOTE] 
 > This only works if your AOAI and other cognitive services allow access from all networks.
-
-### Managed endpoint runtime related
-
-#### Managed endpoint failed with an internal server error. Endpoint creation was successful, but failed to create deployment for the newly created workspace.
-
-- Runtime status shows as failed with an internal server error.
-    :::image type="content" source="./media/how-to-create-manage-runtime/mir-without-acr-runtime-detail-error.png" alt-text="Screenshot of the runtime status showing failed on the runtime detail page. " lightbox = "./media/how-to-create-manage-runtime/mir-without-acr-runtime-detail-error.png":::
-- Check the related endpoint.
-    :::image type="content" source="./media/how-to-create-manage-runtime/mir-without-acr-runtime-detail-endpoint.png" alt-text="Screenshot of the runtime detail page, highlighting the managed endpoint. " lightbox = "./media/how-to-create-manage-runtime/mir-without-acr-runtime-detail-endpoint.png":::
-- Endpoint was created successfully, but there are no deployments created.
-    :::image type="content" source="./media/how-to-create-manage-runtime/mir-without-acr-runtime-endpoint-detail.png" alt-text="Screenshot of the endpoint detail page with successful creation. " lightbox = "./media/how-to-create-manage-runtime/mir-without-acr-runtime-endpoint-detail.png":::
-
-##### Potential root cause and solution
-
-The issue may occur when you create a managed endpoint using a system-assigned identity. The system tries to grant ACR pull permission to this identity, but for a newly created workspace, please go to the workspace detail page in Azure to check whether the workspace has a linked ACR.
-
-:::image type="content" source="./media/how-to-create-manage-runtime/mir-without-acr-runtime-workspace-top-right.png" alt-text="Screenshot of workspace detail page in Azure. " lightbox = "./media/how-to-create-manage-runtime/mir-without-acr-runtime-workspace-top-right.png":::
-
-:::image type="content" source="./media/how-to-create-manage-runtime/mir-without-acr-runtime-workspace-non-acr.png" alt-text="Screenshot of the overview page with container registry highlighted. " lightbox = "./media/how-to-create-manage-runtime/mir-without-acr-runtime-workspace-non-acr.png":::
-
-If there's no ACR, you can create a new custom environment from curated environments on the environment page.
-
-:::image type="content" source="./media/how-to-create-manage-runtime/mir-without-acr-runtime-acr-creation.png" alt-text="Screenshot of the create environment wizard on the settings page. " lightbox = "./media/how-to-create-manage-runtime/mir-without-acr-runtime-acr-creation.png":::
-
-After creating a new custom environment, a linked ACR will be automatically created for the workspace. You can return to the workspace detail page in Azure to confirm.
-
-:::image type="content" source="./media/how-to-create-manage-runtime/mir-without-acr-runtime-workspace-with-acr.png" alt-text="Screenshot of the overview and workspace detail page with container registry highlighted. " lightbox = "./media/how-to-create-manage-runtime/mir-without-acr-runtime-workspace-with-acr.png":::
-
-Delete the failed managed endpoint runtime and create a new one to test.
-
-#### We are unable to connect to this deployment as runtime. Please make sure this deployment is ready to use.
-
-:::image type="content" source="./media/how-to-create-manage-runtime/mir-existing-unable-connected.png" alt-text="Screenshot of. " lightbox = "./media/how-to-create-manage-runtime/mir-existing-unable-connected.png":::
-
-If you encounter with this issue, please check the deployment status and make sure it's build on top of runtime base image. 
 
 ## Next steps
 
