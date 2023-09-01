@@ -42,12 +42,12 @@ When you create a workspace in the Playwright portal, a new resource group and a
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Select the menu button in the upper-left corner of the portal, and then select **Create a resource** a resource.
 
-    :::image type="content" source="./media/how-to-manage-playwright-workspace/azure-portal-create-resource.png" alt-text="Screenshot that shows the Azure portal menu to create a new resource.":::
+    :::image type="content" source="./media/how-to-manage-playwright-workspace/azure-portal-create-resource.png" alt-text="Screenshot that shows the Azure portal menu to create a new resource." lightbox="./media/how-to-manage-playwright-workspace/azure-portal-create-resource.png":::
 
 1. Enter *Microsoft Playwright Testing* in the search box.
 1. Select **Microsoft Playwright Testing (Preview)**.
 
-    :::image type="content" source="./media/how-to-manage-playwright-workspace/azure-portal-search-playwright-resource.png" alt-text="Screenshot that shows the Azure Marketplace search page with the Microsoft Playwright Testing search result.":::
+    :::image type="content" source="./media/how-to-manage-playwright-workspace/azure-portal-search-playwright-resource.png" alt-text="Screenshot that shows the Azure Marketplace search page with the Microsoft Playwright Testing search result." lightbox="./media/how-to-manage-playwright-workspace/azure-portal-search-playwright-resource.png":::
 
 1. On the Microsoft Playwright Testing page, select **Create**.
 1. Provide the following information to configure a new Microsoft Playwright Testing workspace:
@@ -70,7 +70,7 @@ When you create a workspace in the Playwright portal, a new resource group and a
 
 1. To view the new workspace, select **Go to resource**.
 
-    :::image type="content" source="./media/how-to-manage-playwright-workspace/create-resource-deployment-complete.png" alt-text="Screenshot that shows the deployment completion information in the Azure portal."::: 
+    :::image type="content" source="./media/how-to-manage-playwright-workspace/create-resource-deployment-complete.png" alt-text="Screenshot that shows the deployment completion information in the Azure portal." lightbox="./media/how-to-manage-playwright-workspace/create-resource-deployment-complete.png"::: 
 
 ---
 
@@ -84,7 +84,7 @@ To get the list of Playwright workspaces that you have access to:
 
 1. Select your current workspace in the top of the screen, and then select **Manage all workspaces**.
 
-    :::image type="content" source="./media/how-to-manage-playwright-workspace/playwright-portal-manage-all-workspaces.png" alt-text="Screenshot that shows the Playwright portal, highlighting the Manage all workspaces menu item.":::
+    :::image type="content" source="./media/how-to-manage-playwright-workspace/playwright-portal-manage-all-workspaces.png" alt-text="Screenshot that shows the Playwright portal, highlighting the Manage all workspaces menu item." lightbox="./media/how-to-manage-playwright-workspace/playwright-portal-manage-all-workspaces.png":::
 
 1. On the **Workspaces** page, you can now see all the workspaces that you have access to.
 
@@ -100,7 +100,7 @@ To get the list of Playwright workspaces that you have access to:
 
 1. Select **Microsoft Playwright Testing Preview** from the **Services** section to view all your workspaces.
 
-    :::image type="content" source="./media/how-to-manage-playwright-workspace/azure-portal-search-playwright-workspaces.png" alt-text="Screenshot that shows the search box in the Azure portal, to search for Microsoft Playwright Testing resources.":::
+    :::image type="content" source="./media/how-to-manage-playwright-workspace/azure-portal-search-playwright-workspaces.png" alt-text="Screenshot that shows the search box in the Azure portal, to search for Microsoft Playwright Testing resources." lightbox="./media/how-to-manage-playwright-workspace/azure-portal-search-playwright-workspaces.png":::
 
 1. Look through the list of workspaces found. You can filter based on subscription, resource groups, and locations.
 
@@ -108,7 +108,7 @@ To get the list of Playwright workspaces that you have access to:
 
     You can navigate to the workspace in the Playwright portal by selecting the dashboard URL in the workspace **Overview** page.
 
-    :::image type="content" source="./media/how-to-manage-playwright-workspace/azure-portal-workspace-details-dashboard-url.png" alt-text="Screenshot that shows the workspace Overview page in the Azure portal, highlighting the Playwright portal URL.":::
+    :::image type="content" source="./media/how-to-manage-playwright-workspace/azure-portal-workspace-details-dashboard-url.png" alt-text="Screenshot that shows the workspace Overview page in the Azure portal, highlighting the Playwright portal URL." lightbox="./media/how-to-manage-playwright-workspace/azure-portal-workspace-details-dashboard-url.png":::
 
 ---
 
@@ -124,7 +124,7 @@ To delete a Playwright workspace:
 
 1. On the **Workspaces** page, select the ellipsis (**...**) next to your workspace, and then select **Delete workspace**.
 
-    :::image type="content" source="./media/how-to-manage-playwright-workspace/playwright-portal-delete-workspace.png" alt-text="Screenshot that shows the Workspaces page in the Playwright portal, highlighting the Delete workspace menu item.":::
+    :::image type="content" source="./media/how-to-manage-playwright-workspace/playwright-portal-delete-workspace.png" alt-text="Screenshot that shows the Workspaces page in the Playwright portal, highlighting the Delete workspace menu item." lightbox="./media/how-to-manage-playwright-workspace/playwright-portal-delete-workspace.png":::
 
 1. On the **Delete Workspace** page, select **Delete** to confirm the deletion of the workspace.
 
@@ -137,7 +137,7 @@ To delete a Playwright workspace:
 1. Navigate to your Playwright workspace.
 1. Select **Delete** to delete the workspace.
 
-    :::image type="content" source="./media/how-to-manage-playwright-workspace/azure-portal-delete-workspace.png" alt-text="Screenshot that shows the delete workspace functionality in the Azure portal.":::
+    :::image type="content" source="./media/how-to-manage-playwright-workspace/azure-portal-delete-workspace.png" alt-text="Screenshot that shows the delete workspace functionality in the Azure portal." lightbox="./media/how-to-manage-playwright-workspace/azure-portal-delete-workspace.png":::
 
     > [!WARNING]
     > Deleting a workspace is an irreversible action. The workspace and the activity log can't be recovered.

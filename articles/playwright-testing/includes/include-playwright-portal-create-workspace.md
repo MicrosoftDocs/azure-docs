@@ -21,7 +21,7 @@ ms.date: 09/01/2023
     |**Azure subscription**     | Select the Azure subscription that you want to use for this Microsoft Playwright Testing workspace. |
     |**Region**     | Select a geographic location to host your workspace. <BR>This location also determines where the test execution results and related artifacts are stored. |
 
-    :::image type="content" source="../media/include-playwright-portal-create-workspace/playwright-testing-create-workspace.png" alt-text="Screenshot that shows the 'Create workspace' page in the Playwright portal.":::
+    :::image type="content" source="../media/include-playwright-portal-create-workspace/playwright-testing-create-workspace.png" alt-text="Screenshot that shows the 'Create workspace' page in the Playwright portal." lightbox="../media/include-playwright-portal-create-workspace/playwright-testing-create-workspace.png":::
 
 1. Select **Create workspace** to create the workspace in your subscription.
 
