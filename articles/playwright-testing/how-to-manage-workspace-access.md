@@ -109,4 +109,6 @@ Here are a few things to be aware of while you use Azure role-based access contr
 
 ## Related content
 
-- Learn more about [managing workspace access keys](./how-to-manage-access-keys.md).
+- Get started with [running Playwright tests at scale](./quickstart-run-end-to-end-tests.md)
+
+- Learn how to [manage Playwright Testing workspaces](./how-to-manage-playwright-workspace.md)

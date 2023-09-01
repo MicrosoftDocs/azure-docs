@@ -47,7 +47,7 @@ The following table lists the supported browser types:
 
 By default, Playwright uses the Chromium browser.
 
-## Next steps
+## Related content
 
 - Learn how to [run Playwright tests at scale with Microsoft Playwright Testing](./quickstart-run-end-to-end-tests.md).
 - Learn more about [automating end-to-end tests in your CI workflow](./quickstart-automate-end-to-end-testing.md).

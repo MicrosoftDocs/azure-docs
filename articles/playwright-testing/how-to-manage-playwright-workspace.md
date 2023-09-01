@@ -143,5 +143,7 @@ To delete a Playwright workspace:
 ## Related content
 
 - [Configure region affinity for a workspace](./how-to-configure-region-affinity.md)
+
 - [Manage workspace access](./how-to-manage-workspace-access.md)
-- [Manage access keys for a workspace](./how-to-manage-access-keys.md)
+
+- Get started with [running Playwright tests at scale](./quickstart-run-end-to-end-tests.md)
