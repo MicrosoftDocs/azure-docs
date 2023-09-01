@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Scale a container app'
+title: 'Tutorial: Scale an Azure Container Apps application'
 description: Scale an Azure Container Apps application using the Azure CLI.
 services: container-apps
 author: v-jaswel
