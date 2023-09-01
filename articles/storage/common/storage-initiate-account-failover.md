@@ -29,7 +29,7 @@ Before you can perform an account failover on your storage account, make sure th
 
 > [!div class="checklist"]
 > - Your storage account is configured for geo-replication (GRS, GZRS, RA-GRS or RA-GZRS). For more information about Azure Storage redundancy, see [Azure Storage redundancy](storage-redundancy.md).
-> - The type of your storage account supports customer-initiated failover. See [Supported storage account types](storage-disaster-recovery-guidance.md#supported-storage-account-types).
+> - The type of your storage account supports customer-initiated failover. See [Supported storage account types](storage-failover-overview.md#supported-storage-account-types).
 > - Your storage account doesn't have any features or services enabled that are not supported for account failover. See [Unsupported features and services](storage-failover-overview.md#unsupported-features-and-services) for a detailed list.
 
 ## Initiate the failover

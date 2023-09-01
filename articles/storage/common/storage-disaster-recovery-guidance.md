@@ -36,7 +36,9 @@ For more information about redundancy in Azure Storage, see [Azure Storage redun
 
 ## Failover for globally-redundant storage accounts
 
-x
+Azure storage accounts configured as globally-redundant support failover to the secondary region in the event of an outage in the primary region. The ability to fail over should be a key consideration of your overall disaster recovery plan.
+
+LRS and 
 
 ### Copying data as an alternative to failover
 
@@ -68,51 +70,27 @@ Microsoft also recommends that you design your application to prepare for the po
 
 To fully understand the impact that customer-managed account failover would have on your users and applications, it is helpful to know what happens during every step of the failover and failback process. For details about how the process works, see [How customer-managed storage account failover works](storage-failover-customer-managed-unplanned.md).
 
-## Anticipate data loss and file or data inconsistencies
+## Anticipate data loss and inconsistencies
 
 > [!CAUTION]
-> A storage account failover usually involves some data loss. It's important to understand this risk before initiating a failover.
+> Storage account failover usually involves some data loss, and potentially file and data inconsistencies. In your disaster recovery plan, it's important to consider the impact that an account failover would have on your data before initiating one.
 
-Because data is written asynchronously from the primary region to the secondary region, there is always a delay before a write to the primary region is copied to the secondary region. If the primary region becomes unavailable, the most recent writes may not yet have been copied to the secondary region.
+Because data is written asynchronously from the primary region to the secondary region, there is always a delay before a write to the primary region is copied to the secondary. If the primary region becomes unavailable, the most recent writes may not yet have been copied to the secondary.
 
-When you force a failover, all data in the primary region is lost as the secondary region becomes the new primary region. All data already copied to the secondary is maintained when the failover happens. However, any data written to the primary that has not also been copied to the secondary is lost permanently.
+When you force a failover, all data in the primary region is lost as the secondary region becomes the new primary region. The new primary region is configured to be locally redundant after the failover.
 
-Additionally, you might experience file or data inconsistencies if one or both of the following apply:
+All data already copied to the secondary is maintained when the failover happens. However, any data written to the primary that has not also been copied to the secondary region is lost permanently.
 
-- You failover storage accounts with hierarchical namespace enabled (Azure Data Lake Storage Gen2).
-- You failover storage accounts with [change feed](../blobs/storage-blob-change-feed.md) enabled.
+Additionally, you might experience file or data inconsistencies if your storage accounts have one or both of the following enabled:
+
+- Hierarchical namespace (Azure Data Lake Storage Gen2).
+- [Change feed](../blobs/storage-blob-change-feed.md).
 
 For more details about how to handle these scenarios, see [Data loss and inconsistencies](storage-failover-overview.md#data-loss-and-inconsistencies).
 
 ## Supported storage account types
 
-All geo-redundant offerings support [Microsoft-managed failover](storage-failover-overview.md#microsoft-managed-failover) in the event of a disaster in the primary region. In addition, some account types support customer-managed account failover, as shown in the following table:
-
-| Type of failover | GRS/RA-GRS | GZRS/RA-GZRS |
-|---|---|---|
-| **Customer-managed failover** | General-purpose v2 accounts</br> General-purpose v1 accounts</br> Legacy Blob Storage accounts | General-purpose v2 accounts |
-| **Microsoft-managed failover** | All account types | General-purpose v2 accounts |
-
-> [!IMPORTANT]
->
-> **Classic storage accounts**
->
-> Customer-managed account failover is only supported for storage accounts deployed using the Azure Resource Manager (ARM) deployment model. The Azure Service Manager (ASM) deployment model, also known as *classic*, is not supported. To make classic storage accounts eligible for customer-managed account failover, they must first be [migrated to the ARM model](classic-account-migration-overview.md). Your storage account must be accessible to perform the upgrade, so the primary region cannot currently be in a failed state.
->
-> In the event of a disaster that affects the primary region, Microsoft will manage the failover for classic storage accounts. For more information, see [Microsoft-managed failover](storage-failover-overview.md#microsoft-managed-failover).
->
-> **Azure Data Lake Storage Gen2**
->
-> Customer-managed account failover for accounts that have a hierarchical namespace (Azure Data Lake Storage Gen2) is currently in PREVIEW and only supported in the following regions:
->
-> - (Asia Pacific) Central India
-> - (Europe) Switzerland North
-> - (Europe) Switzerland West
-> - (North America) Canada Central
->
-> To opt in to the preview, see [Set up preview features in Azure subscription](../../azure-resource-manager/management/preview-features.md) and specify `AllowHNSAccountFailover` as the feature name.
->
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+All geo-redundant offerings support [Microsoft-managed failover](storage-failover-overview.md#microsoft-managed-failover) in the event of a disaster in the primary region. However, limitations apply to the types of storage accounts that support customer-managed failover. For more details, see [Supported storage account types](storage-failover-overview.md#supported-storage-account-types).
 
 ## Additional considerations
 
