@@ -656,6 +656,9 @@
       - name: Flink
         tocHref: /azure/hdinsight-aks/flink
         topicHref: /azure/hdinsight-aks/flink/flink-overview
+      - name: Release Notes
+        tocHref: /azure/hdinsight-aks/release-notes
+        topicHref: /azure/hdinsight-aks/release-notes/hdinsight-aks-release-notes
       - name: Spark
         tocHref: /azure/hdinsight-aks/spark
         topicHref: /azure/hdinsight-aks/spark/hdinsight-on-aks-spark-overview
