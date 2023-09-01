@@ -37,6 +37,7 @@ See the following sections for examples.
 ## Lock an image or repository 
 
 ### Show the current repository attributes
+
 To see the current attributes of a repository, run the following [az acr repository show][az-acr-repository-show] command:
 
 ```azurecli
@@ -83,6 +84,27 @@ To lock the *myrepo* repository and all images in it, run the following command:
 az acr repository update \
     --name myregistry --repository myrepo \
     --write-enabled false
+```
+
+### List the current repository attributes
+
+To update the repository attributes to indicate image lock listing, run the [az acr repository update][az-acr-repository-update] command.
+
+```azurecli
+az acr repository update \
+    --name myregistry --repository myrepo \ 
+    --list-enabled false
+```
+
+### Show the image attributes on image lock 
+ 
+To query the tags on a image lock with `--list-enabled false` enabled on the attribute, run the [az acr repository show][az-acr-repository-show] command.
+
+```azurecli
+az acr repository show-manifests \
+    --name myregistry --repository myrepo \
+    --query "[?listEnabled==null].tags" 
+    --output table
 ```
 
 ## Check image attributes for tag and its corresponding manifest.
