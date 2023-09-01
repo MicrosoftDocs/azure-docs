@@ -25,8 +25,11 @@ SFU will receive multiple qualities  of the content and will choose the quality 
 ## Limitations
 Web endpoints support simulcast only for video content with maximum two distinct qualities. 
 
-## Resolutions
-In adaptive simulcast, there are no set resolutions for high- and low-quality video streams. Optimal set of either single or multiple streams are chosen. If every subscriber to video is requesting and capable of receiving maximum resolution what publisher can provide, only that maximum resolution will be sent.
-Following resolutions are supported and requested by the receivers in web simulcast – 180p, 240p, 360p, 540p, 720p.
-In limited input resolution, resolution received will be capped at that resolution.
-In simulcast, effective resolution sent can be also degraded internally, thus actual received resolution of video can vary.
+## Available video resolutions
+In an adaptive simulcast environment there are no set resolutions for high or low quality simulcast video streams. Instead, based on many different varables, either a single or multiple video steams will be delivered. If every subscriber to video is requesting and capable of receiving maximum resolution what publisher can provide, only that maximum resolution will be sent.
+Following resolutions are supported and requested by the receivers in web simulcast:
+* 180p
+* 240p
+* 360p
+* 540p
+* 720p
