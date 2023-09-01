@@ -220,8 +220,8 @@ Furthermore, service code is upgraded one upgrade domain at a time. So, during a
 
 Alternatively, you can perform a multi-phase upgrade. 
 1. Upgrade service to a new version that
-    - has both the original version, V1 of the data contracts, and the new version, V2 of the data contracts.
-    - During this phase, the service must continue accessing data in the original, V1 collection using V1 data contracts.
+    - has both the original V1, and the new V2 version of the data contracts included in the service code package.
+    - performs all operations on the original, V1 collection using the V1 data contracts.
 2. Upgrade service to a new version that
     - creates a new, V2 collection;
     - performs add, update and delete operations on both V1 and V2 collections in a single transaction;
@@ -235,11 +235,11 @@ Alternatively, you can perform a multi-phase upgrade.
     - performs all operations on the V2 collection only;
     - going back to V1 is no longer possible with a service rollback and would require rolling forward with reversed steps 2-4.
 6. Upgrade service a new version that
-    - removes V1 collection from the [StateManager](/dotnet/api/microsoft.servicefabric.services.runtime.statefulservice.statemanager).
+    - removes the V1 collection from the [StateManager](/dotnet/api/microsoft.servicefabric.services.runtime.statefulservice.statemanager).
 7. Wait for log truncation.
     - By default, this happens every 50MB of writes (adds, updates, and removes) to reliable collections.
 8. Upgrade service to a new version that
-    - no longer has the V1 data contracts.
+    - no longer has the V1 data contracts included in the service code package.
 
 ## Next steps
 To learn about creating forward compatible data contracts, see [Forward-Compatible Data Contracts](/dotnet/framework/wcf/feature-details/forward-compatible-data-contracts)
