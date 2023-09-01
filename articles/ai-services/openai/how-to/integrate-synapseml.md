@@ -8,7 +8,7 @@ ms.service: cognitive-services
 ms.subservice: openai
 ms.custom: build-2023, build-2023-dataai
 ms.topic: how-to
-ms.date: 08/30/2023
+ms.date: 09/01/2023
 author: ChrisHMSFT
 ms.author: chrhoder
 recommendations: false
@@ -26,14 +26,19 @@ This tutorial shows how to apply large language models at a distributed scale by
 
 - Access granted to Azure OpenAI in your Azure subscription.
 
+   Currently, you must submit an application to access Azure OpenAI Service. To apply for access, complete <a href="https://aka.ms/oai/access" target="_blank">this form</a>. If you need assistance, open an issue on this repo to contact Microsoft.
+
 - An Azure OpenAI resource. [Create a resource](create-resource.md?pivots=web-portal#create-a-resource).
 
 - An Apache Spark cluster with SynapseML installed.
+
    - Create a [serverless Apache Spark pool](../../../synapse-analytics/get-started-analyze-spark.md#create-a-serverless-apache-spark-pool).
    - To install SynapseML for your Apache Spark cluster, see [Install SynapseML](#install-synapseml).
 
 > [!NOTE]
-> Currently, you must submit an application to access Azure OpenAI Service. To apply for access, complete <a href="https://aka.ms/oai/access" target="_blank">this form</a>. If you need assistance, open an issue on this repo to contact Microsoft.
+> This article is designed to work with the [Azure OpenAI Service legacy models](/azure/ai-services/openai/concepts/legacy-models) that support prompt-based completions like `Text-Davinci-003`. Newer models like the current `GPT-3.5 Turbo` and `GPT-4` model series are designed to work with the new chat completion API that expects a specially formatted array of messages as input. 
+> 
+> The Azure OpenAI SynapseML integration supports the latest models via the [OpenAIChatCompletion()](https://github.com/microsoft/SynapseML/blob/0836e40efd9c48424e91aa10c8aa3fbf0de39f31/cognitive/src/main/scala/com/microsoft/azure/synapse/ml/cognitive/openai/OpenAIChatCompletion.scala#L24) transformer, which isn't demonstrated in this article. After the [release of the GPT-3.5 Turbo Instruct model](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/announcing-updates-to-azure-openai-service-models/ba-p/3866757), the newer model will be the preferred model to use with this article.
 
 We recommend that you [create an Azure Synapse workspace](../../../synapse-analytics/get-started-create-workspace.md). However, you can also use Azure Databricks, Azure HDInsight, Spark on Kubernetes, or the Python environment with the `pyspark` package.
 
@@ -223,10 +228,6 @@ completed_batch_df = batch_completion.transform(batch_df).cache()
 display(completed_batch_df)
 ```
 
-The following image shows example output with completions for multiple prompts in a request:
-
-:::image type="content" source="../media/how-to/synapse-studio-request-batch-output.png" alt-text="Screenshot that shows completions for multiple prompts in a single request in Azure Synapse Analytics Studio." border="false":::
-
 > [!NOTE]
 > There's currently a limit of 20 prompts in a single request and a limit of 2048 tokens, or approximately 1500 words.
 
@@ -248,10 +249,6 @@ completed_autobatch_df = (df
 display(completed_autobatch_df)
 ```
 
-The following image shows example output for an automatic mini-batcher that transposes data to row format:
-
-:::image type="content" source="../media/how-to/synapse-studio-transpose-data-output.png" alt-text="Screenshot that shows completions for an automatic mini-batcher in Azure Synapse Analytics Studio." border="false":::
-
 ### Prompt engineering for translation
 
 Azure OpenAI can solve many different natural language tasks through _prompt engineering_. For more information, see [Learn how to generate or manipulate text](completions.md). In this example, you can prompt for language translation:
@@ -267,13 +264,9 @@ translate_df = spark.createDataFrame(
 display(completion.transform(translate_df))
 ```
 
-The following image shows example output for language translation prompts:
-
-:::image type="content" source="../media/how-to/synapse-studio-language-translation-output.png" alt-text="Screenshot that shows completions for language translation prompts in Azure Synapse Analytics Studio." border="false":::
-
 ### Prompt for question answering
 
-Azure OpenAI also supports prompting the GPT-3 model for general-knowledge question answering:
+Azure OpenAI also supports prompting the `Text-Davinci-003` model for general-knowledge question answering:
 
 ```python
 qa_df = spark.createDataFrame(
@@ -287,11 +280,7 @@ qa_df = spark.createDataFrame(
 display(completion.transform(qa_df))
 ```
 
-The following image shows example output for general-knowledge question answering:
-
-:::image type="content" source="../media/how-to/synapse-studio-question-answer-output.png" alt-text="Screenshot that shows completions for general-knowledge question answering in Azure Synapse Analytics Studio." border="false":::
-
 ## Next steps
 
-- Learn how to work with the [GPT-35-Turbo and GPT-4 models](/azure/ai-services/openai/how-to/chatgpt?pivots=programming-language-chat-completions).
+- Learn how to work with the [GPT-35 Turbo and GPT-4 models](/azure/ai-services/openai/how-to/chatgpt?pivots=programming-language-chat-completions).
 - Learn more about the [Azure OpenAI Service models](../concepts/models.md).
