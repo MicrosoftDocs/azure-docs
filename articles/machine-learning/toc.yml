@@ -1330,21 +1330,21 @@
     - name: Known issues
       items:
         - name: Active known issues for Azure Machine Learning
-          href: ./known-issues/azureml-known-issues.md
+          href: ./known-issues/azure-machine-learning-known-issues.md
         - name: Compute instance known issues
           items:
           - name: Jupyter R Kernel does not start in new compute instance images
-            href: ./known-issues/ki-jupyter-r-kernel-not-starting.md
+            href: ./known-issues/jupyter-r-kernel-not-starting.md
           - name: Provisioning error when creating a compute instance with A10 SKU
-            href: ./known-issues/ki-compute-a10-sku-not-supported.md
+            href: ./known-issues/compute-a10-sku-not-supported.md
           - name: Idleshutdown property in Bicep template causes error
-            href: ./known-issues/ki-compute-idleshutdown-bicep.md
+            href: ./known-issues/compute-idleshutdown-bicep.md
           - name: Slowness in compute instance terminal from a mounted path
-            href: ./known-issues/ki-compute-slowness-terminal-mounted-path.md
+            href: ./known-issues/compute-slowness-terminal-mounted-path.md
           - name: Creating compute instance after a workspace move causes Etag conflict error
-            href: ./known-issues/ki-workspace-move-ci-same-name.md
+            href: ./known-issues/workspace-move-ci-same-name.md
           - name: Application Sharing Policy isn't supported 
-            href: ./known-issues/ki-applicaton-sharing-policy-not-supported.md
+            href: ./known-issues/applicaton-sharing-policy-not-supported.md
 - name: Samples
   items:
     - name: Jupyter Notebooks

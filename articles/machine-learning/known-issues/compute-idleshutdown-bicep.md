@@ -34,7 +34,7 @@ When creating an Azure Machine Learning compute instance through Bicep compiled 
 
 To allow the property to be set, you can suppress warnings with the `#disable-next-line` directive. Enter `#disable-next-line BCP037` in the template above the line with the warning: 
 
-:::image type="content" source="media/compute-idelshutdown-bicep/disable-next-line.png" alt-text="Screenshot depicting the use of the #disable-next-line directive.":::
+:::image type="content" source="media/compute-idleshutdown-bicep/disable-next-line.png" alt-text="Screenshot depicting the use of the #disable-next-line directive.":::
 
 ## Next steps
 
