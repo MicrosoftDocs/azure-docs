@@ -7,7 +7,7 @@ author: jimmart-dev
 
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 08/31/2023
+ms.date: 09/01/2023
 ms.author: jammart
 ms.subservice: storage-common-concepts
 ms.custom: engagement-fy23, references_regions
@@ -237,7 +237,7 @@ Make sure the region where your storage account is located supports all of the d
 
 ### Feature conflicts
 
-Some storage account features are not compatible with other features or operations. For example, the ability to failover to the secondary region is the key feature of geo-redundancy, but other features are not compatible with failover. For more information about features and services not supported with failover, see [Unsupported features and services](storage-disaster-recovery-guidance.md#unsupported-features-and-services). Converting an account to GRS, GZRS, or RA-GZRS might be blocked if a conflicting feature is enabled, or it might be necessary to disable the feature later before initiating a failover.
+Some storage account features are not compatible with other features or operations. For example, the ability to failover to the secondary region is the key feature of geo-redundancy, but other features are not compatible with failover. For more information about features and services not supported with failover, see [Unsupported features and services](storage-failover-overview.md#unsupported-features-and-services). Converting an account to GRS, GZRS, or RA-GZRS might be blocked if a conflicting feature is enabled, or it might be necessary to disable the feature later before initiating a failover.
 
 ### Storage account type
 
