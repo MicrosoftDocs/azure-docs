@@ -6,7 +6,7 @@ Confidential computing enabled services use keys managed by the [hardware root o
 
 This is a key part of protection for Confidential virtual machines (CVM) and many other services built upon CVMs like [confidential node pools on AKS](confidential-node-pools-aks.md) or data services that support confidential SKUs like Azure Data Explorer.
 
-For example, systems can be configured so that keys are only released once code has proven (via Attestation) that it is executing inside a TEE - this is known as [Secure Key Release (SKR)](concept-skr-attestation.md) - this can be useful for applications that need to read encrypted data from Azure blob storage into a TEE where it can be securely decrypted and processed in the clear.
+For example, systems can be configured so that keys are only released once code has proven (via Attestation) that it is executing inside a TEE - this is known as [Secure Key Release (SKR)](concept-skr-attestation.md) - this powerful feature is useful for applications that need to read encrypted data from Azure blob storage into a TEE where it can be securely decrypted and processed in the clear.
 
 CVMs rely on virtual Trusted Platform Modules (vTPM) you can read more about this in [Virtual TPMs in Azure](virtual-tpms-in-azure-confidential-vm.md)
 
