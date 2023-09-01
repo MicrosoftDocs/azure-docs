@@ -132,7 +132,7 @@ Calling the `ConfigureRefresh` method alone won't cause the configuration to ref
 
 ### Configuration refresh using dependency injection
 
-In the previous code, you are manually saving an instance of `IConfigurationRefresher` to invoke `TryRefreshAsync`. Alternatively, if you're using dependency injection to resolve your services, you can reference the steps below.
+In the previous code, you're manually saving an instance of `IConfigurationRefresher` to invoke `TryRefreshAsync`. Alternatively, if you're using dependency injection to resolve your services, you can reference the following steps.
 
 1. Register the required App Configuration services by invoking `AddAzureAppConfiguration` on your `IServiceCollection`.
 
