@@ -213,7 +213,7 @@ Internally, Reliable Collections serialize your objects using .NET's DataContrac
 Furthermore, service code is upgraded one upgrade domain at a time. So, during an upgrade, you have two different versions of your service code running simultaneously. You must avoid having the new version of your service code use the new schema as old versions of your service code might not be able to handle the new schema. When possible, you should design each version of your service to be forward compatible by one version. Specifically, this means that V1 of your service code should be able to ignore any schema elements it does not explicitly handle. However, it must be able to save any data it doesn't explicitly know about and write it back out when updating a dictionary key or value.
 
 > [!WARNING]
-> While you can modify the schema of a key, you must ensure that your key's hash code and equals algorithms are stable. If you change how either of these algorithms operate, you will not be able to look up the key within the reliable dictionary ever again.
+> While you can modify the schema of a key, you must ensure that your key's hash code, equality and comparison algorithms are stable. If you change how either of these algorithms operate, you will not be able to look up the key within the reliable dictionary ever again.
 > .NET Strings can be used as a key but use the string itself as the key--do not use the result of String.GetHashCode as the key.
 
 Alternatively, you can perform a multi-phase upgrade. 
