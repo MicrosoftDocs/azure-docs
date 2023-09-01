@@ -1,0 +1,52 @@
+---
+title: Vision SDK Overview
+titleSuffix: Azure AI services
+description: In this guide, you'll learn how to install the Vision SDK for your preferred programming language.
+services: cognitive-services
+author: PatrickFarley
+manager: nitinme
+ms.service: cognitive-services
+ms.subservice: computer-vision
+ms.topic: overview
+ms.date: 08/01/2023
+ms.author: pafarley
+ms.custom: devx-track-python, devx-track-csharp, devx-track-dotnet
+zone_pivot_groups: programming-languages-vision-40-sdk
+---
+
+# Vision SDK Overview
+
+The Vision SDK (Preview) provides a convenient way to access the Image Analysis service using [version 4.0 of the REST APIs](https://aka.ms/vision-4-0-ref). It is available for the programming languages and platforms mentioned below.
+
+[!INCLUDE [License Notice](./license-notice-sdk.md)]
+
+## Supported languages
+
+The Vision SDK supports the following languages and platforms:
+
+| Programming language | Reference | Platform support |
+|----------------------|----------|----------|
+| [C#](quickstarts/setup-platform.md?pivots=programming-language-csharp) <sup>1</sup> | [.NET](/dotnet/api/microsoft.cognitiveservices.speech) | Windows, UWP, Linux |
+| [C++](quickstarts/setup-platform.md?pivots=programming-language-cpp) <sup>2</sup> | [C++](/cpp/cognitive-services/speech/) | Windows, Linux |
+| [Python](quickstarts/setup-platform.md?pivots=programming-language-python) | [Python](/python/api/azure-cognitiveservices-speech/) | Windows, Linux |
+
+<sup>1 The Vision SDK for C# is based on .NET Standard 2.0. See [.NET Standard](/dotnet/standard/net-standard?tabs=net-standard-2-0#net-implementation-support) documentation.</sup>
+
+<sup>2 C isn't a supported programming language for the Speech SDK.</sup>
+
+### GitHub samples
+
+In depth samples are available in the [Azure-Samples/azure-ai-vision-sdk](https://github.com/Azure-Samples/azure-ai-vision-sdk) repository on GitHub.
+
+## Getting help
+
+If you need assistance using the Vision SDK, would like to report a bug or suggest a new features, please open a [GitHub issue in the samples repository](https://github.com/Azure-Samples/azure-ai-vision-sdk/issues). The development team monitors these issues.
+
+Before you create a new issue:
+* Make sure you first scan to see if a similar issue already exists.
+* Find the sample closest to your scenario and run it to see if you see the same issue in the sample code. 
+
+## Next steps
+
+- [Install the SDK](./install-sdk.md)
+- [Try the Image Analysis Quickstart](../quickstarts-sdk/image-analysis-client-library-40.md)
