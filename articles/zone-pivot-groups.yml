@@ -1738,6 +1738,8 @@ groups:
     title: Studio
   - id: programming-language-csharp
     title: C#
+  - id: programming-language-go
+    title: Go
   - id: programming-language-java
     title: Java
   - id: programming-language-javascript

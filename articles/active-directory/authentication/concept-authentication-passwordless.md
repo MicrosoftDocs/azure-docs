@@ -136,7 +136,7 @@ The following providers offer FIDO2 security keys of different form factors that
 | [Nymi](https://www.nymi.com/nymi-band) | ![y] | ![n]| ![y]| ![n]| ![n] |
 | [Octatco](https://octatco.com/) | ![y] | ![y]| ![n]| ![n]| ![n] |
 | [OneSpan Inc.](https://www.onespan.com/products/fido) | ![n] | ![y]| ![n]| ![y]| ![n] |
-| [PONE Biometrics](https://ponebiometrics.com/) | ![n] | ![n]| ![n]| ![y]| ![n] |
+| [PONE Biometrics](https://ponebiometrics.com/) | ![y] | ![n]| ![n]| ![y]| ![n] |
 | [Precision Biometric](https://www.innait.com/product/fido/) | ![n] | ![y]| ![n]| ![n]| ![n] |
 | [RSA](https://www.rsa.com/products/securid/) | ![n] | ![y]| ![n]| ![n]| ![n] |
 | [Sentry](https://sentryenterprises.com/) | ![n] | ![n]| ![y]| ![n]| ![n] |

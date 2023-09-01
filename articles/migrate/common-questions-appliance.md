@@ -6,8 +6,8 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.custom: ignite-2022, engagement-fy23
-ms.date: 12/12/2022
+ms.custom: ignite-2022, engagement-fy24
+ms.date: 08/24/2022
 ---
 
 # Azure Migrate appliance: Common questions
