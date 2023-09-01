@@ -8,15 +8,15 @@
      - name: Use-cases and scenarios
        href: use-cases-scenarios.md #DONE, link to the learn page  
        # sub sections here for use-cases 
-     - name: Silicon Level Innovation #p2
-       expanded: true
-       items:
-        - name: AMD EPYC, SEV-SNP #p2
-          href: TODO.md ##new need to make this more >what is the silicon innovation, and how does it work with Azure Confidential Computing
-        - name: Intel SGX, TDX #p2
-          href: TODO.md #new  # need to make this more >what is the silicon innovation, and how does it work with Azure Confidential Computing
-        - name: NVIDIA #p2
-          href: TODO.md # 1 pager that can be expanded as offerings grow, with x-links to vendor pages
+    #  - name: Silicon Level Innovation #p2
+    #    expanded: true
+    #    items:
+    #     - name: AMD EPYC, SEV-SNP #p2
+    #       href: TODO.md ##new need to make this more >what is the silicon innovation, and how does it work with Azure Confidential Computing
+    #     - name: Intel SGX, TDX #p2
+    #       href: TODO.md #new  # need to make this more >what is the silicon innovation, and how does it work with Azure Confidential Computing
+    #     - name: NVIDIA #p2
+    #       href: TODO.md # 1 pager that can be expanded as offerings grow, with x-links to vendor pages
      - name: Confidential computing on Azure #DONE, #existing page  - shows the ACC products
        href: overview-azure-products.md 
      - name: Trusted Execution Environment (TEE) #p1
@@ -35,8 +35,8 @@
        href: confidential-computing-deployment-models.md
 #     - name: Developing confidential computing solutions #moved from original #done #removed - content is dup of previous
 #       href: confidential-computing-solutions.md 
-     - name: Container solutions overview #seems lost
-       href: choose-confidential-containers-offerings.md
+#     - name: Container solutions overview #seems lost - removed
+#       href: choose-confidential-containers-offerings.md
 - name: Why might I need it? # WHY?
   expanded: true
   items:
@@ -52,19 +52,7 @@
 #  - name: Privacy by-default #p3
 #    href: TODO.md # we need to say something about our approach to how we're baking it into our products, and how we're working with partners to do the same, but this is a journey - call to action - what services do YOU want/priority order  - work with your field/account team?
   - name: Confidential AI
-    href: confidential-ai.md  
-#---------
-#  - name: Building confidential computing solutions
-#    href: confidential-computing-solutions.md
-#    href: confidential-computing-deployment-models.md
-#  - name: Deploying solutions on confidential computing
-#  - name: Attestation
-#    href: attestation-solutions.md
-#  - name: Data cleanroom solutions on confidential computing
-#    href: multi-party-data.md
-#  - name: Confidential AI solutions
-#    href: confidential-ai.md
-# ----------- Continuted from live TOC
+    href: confidential-ai.md
 - name: How do I get it? # HOW?
   expanded: true
   items:
