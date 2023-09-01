@@ -136,6 +136,8 @@ az vm start \
 
 This section steps through using the Azure PowerShell to enable Trusted Launch on existing Azure Generation 2 VM.
 
+Make sure that you've installed the latest [Azure PowerShell](https://learn.microsoft.com/en-us/powershell/azure/install-azps-windows?view=azps-10.2.0) and are logged in to an Azure account with [Connect-AzAccount](https://learn.microsoft.com/en-us/powershell/module/az.accounts/connect-azaccount?view=azps-10.2.0).
+
 1. Log in to Azure Subscription
 
 ```azurepowershell-interactive
