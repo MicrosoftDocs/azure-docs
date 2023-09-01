@@ -91,7 +91,7 @@ Choose the operations you want to protect using the Resource Guard out of all su
 
 To exempt operations, follow these steps:
 
-1. In the Resource Guard created above, go to **Properties**.
+1. In the Resource Guard created above, go to **Properties** > **Recocery Services vault** tab.
 2. Select **Disable** for operations that you want to exclude from being authorized using the Resource Guard.
 
    >[!Note]
@@ -461,7 +461,7 @@ To select the operations for protection, follow these steps:
 1. In the Resource Guard that you've created, go to **Properties** > **Backup vault** tab.
 1. Select **Disable** for the operations that you want to exclude from being authorized.
 
-   You can't disable the **Remove MUA protection** operation.
+   You can't disable the **Remove MUA protection** and **Disable soft delete** operations.
 
 1. Optionally, in the **Backup vaults** tab, update the description for the Resource Guard.
 1. Select **Save**.
