@@ -219,26 +219,27 @@ Furthermore, service code is upgraded one upgrade domain at a time. So, during a
 > .NET Strings can be used as a key but use the string itself as the key--do not use the result of String.GetHashCode as the key.
 
 Alternatively, you can perform a multi-phase upgrade. 
-1. Deploy a new service version that
+1. Upgrade service to a new version that
     - has both the original version, V1 of the data contracts, and the new version, V2 of the data contracts.
     - During this phase, the service must continue accessing data in the original, V1 collection using V1 data contracts.
-2. Deploy a new service version where
-    - a new, V2 collection iscreated;
-    - all add, update and delete operations are performed on both V1 and V2 collections in a single transaction;
-    - all read operations are performed on the V1 collection to maintain compatibility with replicas still running the older version
-3. Copy all data from all data from the V1 collection to the V2 collection.
-    - this can be done by the same service version deployed in step 3;
-4. Deploy a new service version where
-    - all read operations are performed on the V2 collection;
-    - all add, update and delete operations are still performed on both V1 and V2 collections to maintain the option of rolling back to V1 if necessary.
-5. Deploy a new service version where
-    - all operations are performed on the V2 collection only;
+2. Upgrade service to a new version that
+    - creates a new, V2 collection;
+    - performs add, update and delete operations on both V1 and V2 collections in a single transaction;
+    - performs read operations on the V1 collection to maintain compatibility with replicas still running the older version
+3. Copy all data from the V1 collection to the V2 collection.
+    - This can be done in a background process by the service version deployed in step 3.
+4. Upgrade service to a new version that
+    - performs read operations on the V2 collection;
+    - still performs add, update and delete operations on both V1 and V2 collections to maintain the option of rolling back to V1.
+5. Upgrade service to a new version that
+    - performs all operations on the V2 collection only;
     - going back to V1 is no longer possible with a service rollback and would require rolling forward with reversed steps 2-4.
-6. Deploy a new service version that
+6. Upgrade service a new version that
     - removes V1 collection from the [StateManager](/dotnet/api/microsoft.servicefabric.services.runtime.statefulservice.statemanager).
-7. Wait for log truncation. By default, this happens every 50MB of writes (adds, updates, and removes) to reliable collections.
-8. Deploy a new version where
-    - the V1 data contract has been removed.
+7. Wait for log truncation.
+    - By default, this happens every 50MB of writes (adds, updates, and removes) to reliable collections.
+8. Upgrade service to a new version that
+    - no longer has the V1 data contracts.
 
 ## Next steps
 To learn about creating forward compatible data contracts, see [Forward-Compatible Data Contracts](/dotnet/framework/wcf/feature-details/forward-compatible-data-contracts)
