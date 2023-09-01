@@ -19,7 +19,7 @@ Once the Flink cluster is created, you can observe on the left pane the **Settin
 
 :::image type="content" source="./media/flink-web-ssh-on-portal-to-flink-sql/create-pod-and-connect-to-web-ssh.png" alt-text="Screenshot showing How to create POD and connect to webssh.":::
 
-## Flink SQL 
+## Apache Flink SQL 
 
 #### Connecting to SQL Client 
 
@@ -33,7 +33,7 @@ You're now on SQL Client on Flink
 
 Refer to [this](https://nightlies.apache.org/flink/flink-docs-master/docs/dev/table/sqlclient/) document to perform few more tests. 
 
-## Flink DataStream
+## Apache Flink DataStream
 
 Flink provides a Command-Line Interface (CLI)  `bin/flink` to run programs that are packaged as JAR files and to control their execution. 
 

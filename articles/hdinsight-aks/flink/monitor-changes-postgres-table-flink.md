@@ -1,16 +1,16 @@
 ---
-title: Change Data Capture (CDC) of PostgreSQL table using FlinkSQL
-description: Learn how to perform CDC on PostgreSQL table using FlinkSQL CDC
+title: Change Data Capture (CDC) of PostgreSQL table using Apache FlinkSQL
+description: Learn how to perform CDC on PostgreSQL table using Apache FlinkSQL CDC
 ms.service: hdinsight-aks
 ms.topic: how-to
 ms.date: 08/29/2023
 ---
 
-# Change Data Capture (CDC) of PostgreSQL table using FlinkSQL
+# Change Data Capture (CDC) of PostgreSQL table using Apache FlinkSQL
 
 Change Data Capture (CDC) is a technique you can use to track row-level changes in database tables in response to create, update, and delete operations. In this article, we use [CDC Connectors for Apache Flink®](https://github.com/ververica/flink-cdc-connectors), which offer a set of source connectors for Apache Flink. The connectors integrate [Debezium®](https://nightlies.apache.org/flink/flink-docs-master/docs/connectors/table/formats/debezium/#debezium-format) as the engine to capture the data changes.  
 
-Flink supports to interpret Debezium JSON and Avro messages as INSERT/UPDATE/DELETE messages into Flink SQL system. 
+Flink supports to interpret Debezium JSON and Avro messages as INSERT/UPDATE/DELETE messages into Apache Flink SQL system. 
 
 This support is useful in many cases to:
 
@@ -74,7 +74,7 @@ Now, let's learn how to monitor changes on PostgreSQL table using Flink-SQL CDC.
 
          ALTER USER `<username>` WITH REPLICATION;
 
-## Create Flink PostgreSQL CDC table
+## Create Apache Flink PostgreSQL CDC table
 
 - To create Flink PostgreSQL CDC table,  download all the dependent jars. Use the `pom.xml` file with the following contents.
 

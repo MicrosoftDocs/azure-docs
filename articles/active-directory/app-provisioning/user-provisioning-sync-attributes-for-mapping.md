@@ -43,7 +43,7 @@ Next, if one or more of the users that will need access to the application do no
 The following sections outline how to create extension attributes for a tenant with cloud only users, and for a tenant with Active Directory users.
 
 ## Create an extension attribute in a tenant with cloud only users
-You can use Microsoft Graph and PowerShell to extend the user schema for users in Azure AD.  This is necessary if you do not have any users who need that attribute and originate in on-premises Active Directory. (If you do have Active Directory, then continue reading below in the section on how to [use the Azure AD Connect directory extension feature to synchronize the attribute to Azure AD](#create-an-extension-attribute-using-azure-ad-connect).)
+You can use Microsoft Graph and PowerShell to extend the user schema for users in Azure AD.  This is necessary if you have any users who need that attribute and do not originate in on-premises Active Directory. (If you do have Active Directory, then continue reading below in the section on how to [use the Azure AD Connect directory extension feature to synchronize the attribute to Azure AD](#create-an-extension-attribute-using-azure-ad-connect).)
 
 Once schema extensions are created, these extension attributes are automatically discovered when you next visit the provisioning page in the Azure portal, in most cases.
 
@@ -82,7 +82,7 @@ Content-type: application/json
   "extension_inputAppId_extensionName": "extensionValue"
 }
 ```
-Finally, verify the attribute for the user. To learn more, see [Get a user](/graph/api/user-get).
+Finally, verify the attribute for the user. To learn more, see [Get a user](/graph/api/user-get).  Note that the Graph v1.0 does not by default return any of a user's directory extension attributes, unless the attributes are specified in the request as one of the properties to return.
 
 ```json
 GET https://graph.microsoft.com/v1.0/users/{id}?$select=displayName,extension_inputAppId_extensionName

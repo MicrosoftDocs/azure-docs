@@ -14,7 +14,7 @@ In this article, learn how to perform Change Data Capture of SQL Server using Da
 
 ## Prerequisites
 
-* [HDInsight on AKS Flink 1.16.0](../flink/flink-create-cluster-portal.md)
+* [HDInsight on AKS Apache Flink 1.16.0](../flink/flink-create-cluster-portal.md)
 * [HDInsight Kafka](../../hdinsight/kafka/apache-kafka-get-started.md)
   * You're required to ensure the network settings are taken care as described on [Using HDInsight Kafka](../flink/process-and-consume-data.md); that's to make sure HDInsight on AKS Flink and HDInsight Kafka are in the same VNet 
 * Azure SQLServer 
@@ -42,12 +42,12 @@ To optimize, configure and run a Debezium SQL Server connector. It's helpful to 
 
 ## Apache Flink on HDInsight on AKS
 
-Apache Flink is a framework and distributed processing engine for stateful computations over unbounded and bounded data streams. Flink has been designed to run in all common cluster environments, perform computations at in-memory speed and at any scale.
+Apache Flink is a framework and distributed processing engine for stateful computations over unbounded and bounded data streams. Apache Flink has been designed to run in all common cluster environments, perform computations at in-memory speed and at any scale.
 
 For more information, refer
 
 * [Apache Flink®—Stateful Computations over Data Streams](https://flink.apache.org/)
-* [What is Flink in HDInsight on AKS](./flink-overview.md)
+* [What is Apache Flink in HDInsight on AKS](./flink-overview.md)
 
 ## Apache Kafka on HDInsight
 

@@ -8,8 +8,12 @@
       href: overview.md
     - name: Compare container options in Azure
       href: compare-options.md
+    - name: Code to cloud options
+      href: code-to-cloud-options.md
     - name: Overview
       items:
+        - name: Start here
+          href: start.md
         - name: What's new
           href: whats-new.md
         - name: Plans
@@ -111,7 +115,7 @@
         - name: With a job
           href: tutorial-event-driven-jobs.md
     - name: Reliability in Azure Container Apps
-      href: disaster-recovery.md
+      href: ../reliability/reliability-azure-container-apps.md
 - name: Logs and monitoring
   items:
     - name: Overview
@@ -257,7 +261,7 @@
       href: quotas.md
 - name: API docs and reference
   items:
-    - name: ARM and YAML specifications
+    - name: ARM & YAML specifications
       href: azure-resource-manager-api-spec.md
     - name: Azure CLI
       href: /cli/azure/containerapp?view=azure-cli-latest&preserve-view=true

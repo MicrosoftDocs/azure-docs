@@ -65,7 +65,7 @@ If you **remove nodes** (scale down) from an HDInsight on AKS cluster:
 
 |Question|Answer|
 | -------- | -------- |
-|What’s the impact of scaling operations on Flink cluster?|Any scaling operation is likely to trigger a restart of the service, which causes job failures. New jobs can be submitted when the scaling process is completed. In Flink, scale down triggers job restarts and scale up operation can’t trigger job restarts.|
+|What’s the impact of scaling operations on Apache Flink cluster?|Any scaling operation is likely to trigger a restart of the service, which causes job failures. New jobs can be submitted when the scaling process is completed. In Apache Flink, scale down triggers job restarts and scale up operation can’t trigger job restarts.|
 
 
 ### Apache Spark

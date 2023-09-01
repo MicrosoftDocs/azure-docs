@@ -109,11 +109,14 @@ Use one of the following two ways to configure the connection string:
 
 - Use configuration object:
 
-    ```javascript
-    const { ApplicationInsightsClient, ApplicationInsightsConfig } = require("applicationinsights");
-    const config = new ApplicationInsightsConfig();
-    config.azureMonitorExporterConfig.connectionString = "<Your Connection String>";
-    const appInsights = new ApplicationInsightsClient(config);
+    ```typescript
+   const { useAzureMonitor, AzureMonitorOpenTelemetryOptions } = require("@azure/monitor-opentelemetry");
+    const options: AzureMonitorOpenTelemetryOptions = {
+        azureMonitorExporterConfig: {
+            connectionString: "<your connection string>"
+        }
+    };
+    useAzureMonitor(options);
 
     ```
 
@@ -209,21 +212,23 @@ To set the cloud role instance, see [cloud role instance](java-standalone-config
 
 Set the Cloud Role Name and the Cloud Role Instance via [Resource](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/sdk.md#resource-sdk) attributes. Cloud Role Name uses `service.namespace` and `service.name` attributes, although it falls back to `service.name` if `service.namespace` isn't set. Cloud Role Instance uses the `service.instance.id` attribute value. For information on standard attributes for resources, see [Resource Semantic Conventions](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/semantic_conventions/README.md).
 
-```javascript
+```typescript
 ...
-const { ApplicationInsightsClient, ApplicationInsightsConfig } = require("applicationinsights");
+const { useAzureMonitor, AzureMonitorOpenTelemetryOptions } = require("@azure/monitor-opentelemetry");
 const { Resource } = require("@opentelemetry/resources");
 const { SemanticResourceAttributes } = require("@opentelemetry/semantic-conventions");
 // ----------------------------------------
 // Setting role name and role instance
 // ----------------------------------------
-const config = new ApplicationInsightsConfig();
-config.resource = new Resource({
-    [SemanticResourceAttributes.SERVICE_NAME]: "my-helloworld-service",
+const customResource = new Resource({
+    [SemanticResourceAttributes.SERVICE_NAME]: "my-service",
     [SemanticResourceAttributes.SERVICE_NAMESPACE]: "my-namespace",
     [SemanticResourceAttributes.SERVICE_INSTANCE_ID]: "my-instance",
 });
-const appInsights = new ApplicationInsightsClient(config);
+const options: AzureMonitorOpenTelemetryOptions = {
+    resource: customResource
+};
+useAzureMonitor(options);
 ```
 
 ### [Python](#tab/python)
@@ -286,11 +291,15 @@ Starting from 3.4.0, rate-limited sampling is available and is now the default. 
 
 #### [Node.js](#tab/nodejs)
 
-```javascript
-const { ApplicationInsightsClient, ApplicationInsightsConfig } = require("applicationinsights");
-const config = new ApplicationInsightsConfig();
-config.samplingRatio = 0.75;
-const appInsights = new ApplicationInsightsClient(config);
+The sampler expects a sample rate of between 0 and 1 inclusive. A rate of 0.1 means approximately 10% of your traces are sent.
+
+```typescript
+const { useAzureMonitor, AzureMonitorOpenTelemetryOptions } = require("@azure/monitor-opentelemetry");
+
+const options: AzureMonitorOpenTelemetryOptions = {
+    samplingRatio: 0.1
+};
+useAzureMonitor(options);
 ```
 
 #### [Python](#tab/python)
@@ -393,15 +402,16 @@ For more information about Java, see the [Java supplemental documentation](java-
 
 #### [Node.js](#tab/nodejs)
 
-```javascript
-const { ApplicationInsightsClient, ApplicationInsightsConfig } = require("applicationinsights");
+We support the credential classes provided by [Azure Identity](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity#credential-classes).
+
+```typescript
+const { useAzureMonitor, AzureMonitorOpenTelemetryOptions } = require("@azure/monitor-opentelemetry");
 const { ManagedIdentityCredential } = require("@azure/identity");
 
-const credential = new ManagedIdentityCredential();
-
-const config = new ApplicationInsightsConfig();
-config.azureMonitorExporterConfig.aadTokenCredential = credential;
-const appInsights = new ApplicationInsightsClient(config);
+const options: AzureMonitorOpenTelemetryOptions = {
+    credential: new ManagedIdentityCredential()
+};
+useAzureMonitor(options);
 ```
 
 #### [Python](#tab/python)
@@ -511,15 +521,19 @@ By default, the AzureMonitorExporter uses one of the following locations for off
 To override the default directory, you should set `storageDirectory`.
 
 For example:
-```javascript
-const { ApplicationInsightsClient, ApplicationInsightsConfig } = require("applicationinsights");
-const config = new ApplicationInsightsConfig();
-config.azureMonitorExporterConfig = {
-    connectionString: "<Your Connection String>",
-    storageDirectory: "C:\\SomeDirectory",
-    disableOfflineStorage: false
+
+
+```typescript
+const { useAzureMonitor, AzureMonitorOpenTelemetryOptions } = require("@azure/monitor-opentelemetry");
+
+const options: AzureMonitorOpenTelemetryOptions = {
+    azureMonitorExporterConfig = {
+        connectionString: "<Your Connection String>",
+        storageDirectory: "C:\\SomeDirectory",
+        disableOfflineStorage: false
+    }
 };
-const appInsights = new ApplicationInsightsClient(config);
+useAzureMonitor(options);
 ```
 
 To disable this feature, you should set `disableOfflineStorage = true`.
@@ -621,15 +635,17 @@ For more information about Java, see the [Java supplemental documentation](java-
 
 2. Add the following code snippet. This example assumes you have an OpenTelemetry Collector with an OTLP receiver running. For details, see the [example on GitHub](https://github.com/open-telemetry/opentelemetry-js/tree/main/examples/otlp-exporter-node).
 
-    ```javascript
-    const { ApplicationInsightsClient, ApplicationInsightsConfig } = require("applicationinsights");
+    ```typescript
+    const { useAzureMonitor, AzureMonitorOpenTelemetryOptions } = require("@azure/monitor-opentelemetry");
     const { BatchSpanProcessor } = require('@opentelemetry/sdk-trace-base');
     const { OTLPTraceExporter } = require('@opentelemetry/exporter-trace-otlp-http');
-    
-    const appInsights = new ApplicationInsightsClient(new ApplicationInsightsConfig());
+
+    useAzureMonitor();
     const otlpExporter = new OTLPTraceExporter();
-    appInsights.getTraceHandler().addSpanProcessor(new BatchSpanProcessor(otlpExporter));
+    const tracerProvider = trace.getTracerProvider().getDelegate();
+    tracerProvider.addSpanProcessor(new BatchSpanProcessor(otlpExporter));
     ```
+
 
 #### [Python](#tab/python)
 

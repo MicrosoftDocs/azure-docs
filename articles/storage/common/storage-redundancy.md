@@ -103,6 +103,12 @@ ZRS is supported for premium file shares (Azure Files) through the `FileStorage`
 
 For a list of regions that support zone-redundant storage (ZRS) for premium file share accounts, see [Azure Files zone-redundant storage for premium file shares](../files/redundancy-premium-file-shares.md).
 
+#### Managed disks
+
+ZRS is supported for managed disks with the following [limitations](../../virtual-machines/disks-redundancy.md#limitations).
+
+For a list of regions that support zone-redundant storage (ZRS) for managed disks, see [regional availability](../../virtual-machines/disks-redundancy.md#regional-availability).
+
 ## Redundancy in a secondary region
 
 For applications requiring high durability, you can choose to additionally copy the data in your storage account to a secondary region that is hundreds of miles away from the primary region. If your storage account is copied to a secondary region, then your data is durable even in the case of a complete regional outage or a disaster in which the primary region isn't recoverable.
@@ -241,7 +247,7 @@ Unmanaged disks don't support ZRS or GZRS.
 For pricing information for each redundancy option, see [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/).
 
 > [!NOTE]
-> Azure Premium Disk Storage currently supports only locally redundant storage (LRS). Block blob storage accounts support locally redundant storage (LRS) and zone redundant storage (ZRS) in certain regions.
+Block blob storage accounts support locally redundant storage (LRS) and zone redundant storage (ZRS) in certain regions.
 
 ### Support for customer-managed account failover
 
@@ -290,3 +296,4 @@ Azure Storage regularly verifies the integrity of data stored using cyclic redun
     - [Azure Files](https://azure.microsoft.com/pricing/details/storage/files/)
     - [Table Storage](https://azure.microsoft.com/pricing/details/storage/tables/)
     - [Queue Storage](https://azure.microsoft.com/pricing/details/storage/queues/)
+    - [Azure Disks](https://azure.microsoft.com/pricing/details/managed-disks/)
