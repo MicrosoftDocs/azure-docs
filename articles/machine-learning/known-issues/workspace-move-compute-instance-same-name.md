@@ -1,6 +1,7 @@
 ---
-title: Known issue - After a workspace move Etag conflict error when creating a compute instance with the same name.
-description: After a moving a workspace to a different subscription or resource group, creating a compute instance with the same name as a previous compute instance will fail with an Etag conflict error.
+title: Known issue - After a workspace move, creating a compute instance with the same name as a previous compute instance will fail
+titleSuffix: Azure Machine Learning
+description: After moving a workspace to a different subscription or resource group, creating a compute instance with the same name as a previous compute instance will fail with an Etag conflict error.
 author: s-polly
 ms.author: scottpolly
 ms.topic: troubleshooting  
@@ -31,8 +32,8 @@ When you make a workspace move the compute resources aren't moved to the target 
 
 ## Solutions and workarounds
 
-The following are workarounds for this issue. Use a different name for the compute instance.
+To resolve this issue, use a different name for the compute instance.
 
 ## Next steps
 
-- [About known issues](azureml-known-issues.md)
+- [About known issues](azure-machine-learning-known-issues.md)

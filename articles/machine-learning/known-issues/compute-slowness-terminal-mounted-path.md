@@ -1,5 +1,6 @@
 ---
 title: Known issue - Slowness in compute instance terminal from a mounted path
+titleSuffix: Azure Machine Learning
 description: While using the compute instance terminal inside a mounted path of data folder, any commands executed from the terminal result in slowness.
 author: s-polly
 ms.author: scottpolly
@@ -24,7 +25,7 @@ While using the compute instance terminal inside a mounted path of a data folder
 
 ## Symptoms
 
-While using the compute instance terminal inside a mounted path of a data folder, any commands executed from the terminal result in slowness. This issue is restricted to the terminal; running the commands from SDK sing a notebook works as expected.
+While using the compute instance terminal inside a mounted path of a data folder, any commands executed from the terminal result in slowness. This issue is restricted to the terminal; running the commands from SDK using a notebook works as expected.
 
 ### Cause
 
@@ -48,4 +49,4 @@ On the CI set the path making sure that `LD_LIBRARY_PATH` doesn't contain an emp
 
 ## Next steps
 
-- [About known issues](azureml-known-issues.md)
+- [About known issues](azure-machine-learning-known-issues.md)

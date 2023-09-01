@@ -1,5 +1,6 @@
 ---
 title: Known issue - Compute instance | Jupyter R Kernel doesn't start in new compute instance images 
+titleSuffix: Azure Machine Learning
 description: When trying to launch an R kernel in JupyterLab or a notebook in a new compute instance, the kernel fails to start
 author: s-polly
 ms.author: scottpolly
@@ -53,4 +54,4 @@ jupyter kernelspec list
 
 ## Next steps
 
-- [About known issues](azureml-known-issues.md)
+- [About known issues](azure-machine-learning-known-issues.md)

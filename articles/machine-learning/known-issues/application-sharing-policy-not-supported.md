@@ -1,5 +1,6 @@
 ---
 title: Known issue - Application Sharing Policy isn't supported 
+titleSuffix: Azure Machine Learning
 description: Configuring the applicationSharingPolicy property for a compute instance has no effect
 author: s-polly
 ms.author: scottpolly
@@ -37,4 +38,4 @@ There's no workaround as this property isn't supported. The documentation will b
  
 ## Next steps
 
-- [About known issues](azureml-known-issues.md)
+- [About known issues](azure-machine-learning-known-issues.md)
