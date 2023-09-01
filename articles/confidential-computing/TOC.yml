@@ -11,32 +11,32 @@
      - name: Silicon Level Innovation #p2
        expanded: true
        items:
-        - name: AMD EPYC, SEV-SNP
-          href: virtual-machine-solutions-amd.md #existing # need to make this more >what is the silicon innovation, and how does it work with Azure Confidential Computing
-        - name: Intel SGX, TDX 
-          href: virtual-machine-solutions-sgx.md #existing  # need to make this more >what is the silicon innovation, and how does it work with Azure Confidential Computing
-        - name: NVIDIA 
-          href: TODO.md # new, keep the page like this, then we can have a 1 pager that can be expanded as offerings grow, with x-links to vendor pages
-     - name: Confidential computing on Azure
-       href: overview-azure-products.md #DONE, #existing page 
+        - name: AMD EPYC, SEV-SNP #p2
+          href: TODO.md ##new need to make this more >what is the silicon innovation, and how does it work with Azure Confidential Computing
+        - name: Intel SGX, TDX #p2
+          href: TODO.md #new  # need to make this more >what is the silicon innovation, and how does it work with Azure Confidential Computing
+        - name: NVIDIA #p2
+          href: TODO.md # 1 pager that can be expanded as offerings grow, with x-links to vendor pages
+     - name: Confidential computing on Azure #DONE, #existing page  - shows the ACC products
+       href: overview-azure-products.md 
      - name: Trusted Execution Environment (TEE) #p1
        href: trusted-execution-environment.md # new, an easy to understandding of what a TEE is - explain like the black box example #stubbed
-     - name: Trusted Compute Base (TCB) #p1
+     - name: Trusted Compute Base (TCB) #p1 #done
        href: trusted-compute-base.md #an easy to understandding of what a TCB is - what it means to be in/out of the TCB #stubbed
-     - name: Application Enclaves vs. (Virtual Machines | Containers)
-       href: application-development.md # existing, need to update to reflect new format #done
+ #    - name: Application Enclaves vs. (Virtual Machines | Containers) --removed, dup of /developing/ and /deploying/ below
+ #      href: application-development.md # existing, need to update to reflect new format #done
      - name: Secret & Key Mangement #p1
        href: TODO.md # details on AKV and mHSM, and how they're used in the context of Confidential Computing #stubbed
-     - name: Attestation
-       href: attestation-solutions.md # EXISTING, use updated page - explain what attestation is, and why it's important, and give some practical examples of where its used #done
-     - name: Hardware attestation vs. software attestation #p1
-       href: hardware-attestation-approach.md # new, why HW based attestation is better than the rest #
-     - name: Building confidential computing solutions #moved from original
-       href: confidential-computing-solutions.md
-     - name: Deploying solutions on confidential computing #moved from original
+     - name: Attestation #p1 #done # EXISTING, use updated page - explain what attestation is, and why it's important, and give some practical examples of where its used #done
+       href: attestation-solutions.md 
+     - name: Hardware attestation vs. software attestation #p1  new, why HW based attestation is better than the rest
+       href: hardware-attestation-approach.md 
+     - name: Deploying solutions on confidential computing #moved from original #done
        href: confidential-computing-deployment-models.md
-     - name: Container solutions overview
-       href: choose-confidential-containers-offerings.md 
+#     - name: Developing confidential computing solutions #moved from original #done #removed - content is dup of previous
+#       href: confidential-computing-solutions.md 
+     - name: Container solutions overview #seems lost
+       href: choose-confidential-containers-offerings.md
 - name: Why might I need it? # WHY?
  # expanded: true
   items:
@@ -44,13 +44,13 @@
   - name: Threat Scenarios and protection goals # make all the sub-headings point to a header in the threat-scenarios.md page
     href: threat-scenarios.md
   - name: Multi-party collaboration
-    href: threat-scenarios.md#multi-party-collaboration # new #p2
+    href: threat-scenarios.md #multi-party-collaboration # new #p1
   - name: Data cleanroom solutions on confidential computing
     href: multi-party-data.md
   - name: It's the future #maybe change link to a page that references the below, and explains why it's the future
     href: https://azure.microsoft.com/en-us/blog/key-foundations-for-protecting-your-data-with-azure-confidential-computing/ # New, house-view.. why is it the future - x-links to a lot of MarkRus material tying it back to strategic direction/vision
-  - name: Privacy by-default
-    href: TODO.md # we need to say something about our approach to how we're baking it into our products, and how we're working with partners to do the same, but this is a journey - call to action - what services do YOU want/priority order  - work with your field/account team?
+#  - name: Privacy by-default #p3
+#    href: TODO.md # we need to say something about our approach to how we're baking it into our products, and how we're working with partners to do the same, but this is a journey - call to action - what services do YOU want/priority order  - work with your field/account team?
   - name: Confidential AI
     href: confidential-ai.md  
 #---------
@@ -65,6 +65,10 @@
 #  - name: Confidential AI solutions
 #    href: confidential-ai.md
 # ----------- Continuted from live TOC
+- name: How do I get it? # HOW?
+  expanded: true
+  items:
+#relocated---------
   - name: Confidential virtual machines
     items:
     - name: About confidential VMs
@@ -79,16 +83,31 @@
       href: guest-attestation-defender-for-cloud.md
     - name: Virtual TPMs in Azure confidential VMs
       href: virtual-tpms-in-azure-confidential-vm.md
-    - name: References
+    - name: Key rotation for Azure confidential VMs
+      href: key-rotation-offline.md
+    - name: Use sample app with guest attestation
+      href: guest-attestation-example.md
+    - name: Leverage virtual TPMs in Azure confidential VMs
+      href: how-to-leverage-virtual-tpms-in-azure-confidential-vms.md
+    - name: Create a custom image for a confidential VM
+      href: how-to-create-custom-image-confidential-vm.md
+    - name: Image hardening techniques for deployment
       items:
-      - name: DCasv5 and DCadsv5-series
-        href: ../virtual-machines/dcasv5-dcadsv5-series.md
-      - name: ECasv5 and ECadsv5-series
-        href: ../virtual-machines/ecasv5-ecadsv5-series.md
-      - name: Pricing
-        href: https://azure.microsoft.com/pricing/details/virtual-machines/linux/#DC1s-C8s%20v2
-      - name: Regions
-        href: https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machine
+      - name: Harden a Linux image to remove sudo users
+        href: harden-the-linux-image-to-remove-sudo-users.md
+      - name: Harden a Linux image to remove Azure guest agent
+        href: harden-a-linux-image-to-remove-azure-guest-agent.md
+    - name: Secure Key Release (SKR) with Azure Key Vault
+      items:
+      - name: SKR with Azure Confidential Computing Concept
+        href: concept-skr-attestation.md
+      - name: SKR with AMD SEV-SNP based Confidential VMs
+        href: skr-flow-confidential-vm-sev-snp.md
+      - name: SKR with Confidential containers on Azure Container Instance
+        href: skr-flow-confidential-containers-azure-container-instance.md
+      - name: SKR Policy Examples
+        href: skr-policy-examples.md
+#moved-------
   - name: Virtual Machines with App Enclaves
     items:
     - name: App enclaves overview
@@ -133,35 +152,47 @@
       items: 
       - name: Confidential VM node pools in AKS
         href: confidential-node-pool-aks.md
-- name: How To
-  expanded: true
-  items:
-  - name: Azure confidential VMs
+  #moved-------      
+    - name: References
+      items:
+      - name: DCasv5 and DCadsv5-series
+        href: ../virtual-machines/dcasv5-dcadsv5-series.md
+      - name: ECasv5 and ECadsv5-series
+        href: ../virtual-machines/ecasv5-ecadsv5-series.md
+      - name: Pricing
+        href: https://azure.microsoft.com/pricing/details/virtual-machines/linux/#DC1s-C8s%20v2
+      - name: Regions
+        href: https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machine
+#relocated---------
+  - name: SQL Always Encrypted with Secure Enclaves # x-link to SQL docs #done
+    href: https://learn.microsoft.com/en-us/sql/relational-databases/security/encryption/configure-always-encrypted-enclaves?view=sql-server-ver16
+  - name: SQL on Confidential Virtual Machines #done
+    href: https://learn.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/sql-vm-create-confidential-vm-how-to?view=azuresql-vm
+  - name: Confidential Databricks (PREVIEW) #done
+    href: https://techcommunity.microsoft.com/t5/azure-confidential-computing/confidential-vm-option-for-azure-databricks-preview/ba-p/3827982#:~:text=Azure%20Databricks%20now%20supports%20using%20Confidential%20computing%20VM,Azure%20Databricks%20workload%20securely%20%26%20confidentially%20on%20Azure
+  - name: Confidential Azure Data Explorer (PREVIEW) #done
+    href: https://techcommunity.microsoft.com/t5/azure-data-explorer-blog/confidential-vm-option-for-azure-data-explorer-public-preview/ba-p/3827343
+  - name: Azure Virtual Desktop (AVD) Confidential Desktop #done
+    href: https://learn.microsoft.com/en-us/azure/confidential-computing/quick-create-confidential-vm-portal-amd # x-link to AVD docs
+  - name: Azure Confidential Ledger #done
+    href: ../confidential-ledger/overview.md
+  - name: Confidential Consortium Framework (CCF) #done < seems to be missing from livesite now?
+    href: ../confidential-consortium-framework/overview.md
+  - name: Machine Learning (ML-AI) Quickstarts
+    expanded: true
     items:
-    - name: Key rotation for Azure confidential VMs
-      href: key-rotation-offline.md
-    - name: Use sample app with guest attestation
-      href: guest-attestation-example.md
-    - name: Leverage virtual TPMs in Azure confidential VMs
-      href: how-to-leverage-virtual-tpms-in-azure-confidential-vms.md
-    - name: Create a custom image for a confidential VM
-      href: how-to-create-custom-image-confidential-vm.md
-    - name: Image hardening techniques for deployment
-      items:
-      - name: Harden a Linux image to remove sudo users
-        href: harden-the-linux-image-to-remove-sudo-users.md
-      - name: Harden a Linux image to remove Azure guest agent
-        href: harden-a-linux-image-to-remove-azure-guest-agent.md
-    - name: Secure Key Release (SKR) with Azure Key Vault
-      items:
-      - name: SKR with Azure Confidential Computing Concept
-        href: concept-skr-attestation.md
-      - name: SKR with AMD SEV-SNP based Confidential VMs
-        href: skr-flow-confidential-vm-sev-snp.md
-      - name: SKR with Confidential containers on Azure Container Instance
-        href: skr-flow-confidential-containers-azure-container-instance.md
-      - name: SKR Policy Examples
-        href: skr-policy-examples.md
+  - name: Confidential Machine Learning (ML) #done
+    href: https://docs.microsoft.com/en-us/azure/machine-learning/how-to-secure-training-data
+  - name: Secure Key Release (SKR) with Azure Key Vault
+    items:
+    - name: SKR with Azure Confidential Computing Concept
+      href: concept-skr-attestation.md
+    - name: SKR with AMD SEV-SNP based Confidential VMs
+      href: skr-flow-confidential-vm-sev-snp.md
+    - name: SKR with Confidential containers on Azure Container Instance
+      href: skr-flow-confidential-containers-azure-container-instance.md
+    - name: SKR Policy Examples
+      href: skr-policy-examples.md  
   - name: Partner Solutions
     items:
     - name: Overview
