@@ -293,6 +293,7 @@ The `@queue_output` decorator on the function is used to define a named binding 
 --- 
 
 ::: zone-end
+[!INCLUDE [functions-add-output-binding-example-all-langs](../../includes/functions-add-output-binding-example-all-languages.md)]
 
 This example definition connects to a storage queue named `outqueue`, where the connection string for the storage account is set in the `MyStorageConnection` application setting in local.settings.json.
 
