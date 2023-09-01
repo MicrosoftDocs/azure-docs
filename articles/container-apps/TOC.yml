@@ -195,7 +195,7 @@
     - name: Create and deploy a container app using the CLI
       href: tutorial-deploy-first-app-cli.md
     - name: Scale a container app
-      href: tutorial-scaling.md      
+      href: tutorial-scaling.md
     - name: Build a multiple app scenario
       expanded: true
       items:

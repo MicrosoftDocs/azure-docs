@@ -342,7 +342,7 @@ In the first shell, where you ran the `az containerapp logs show` command, the o
 1. In the *Scale and Replicas* page, select **Replicas**.
 1. Your container app now has more than one replica running.
 
-:::image type="content" source="media/scale-app/azure-container-apps-scale-replicas.png" alt-text="Container app replicas.":::
+:::image type="content" source="media/scale-app/azure-container-apps-scale-replicas.png" alt-text="Screenshot of container app replicas.":::
 
 You may need to select **Refresh** to see the new replicas.
 
@@ -353,16 +353,16 @@ You may need to select **Refresh** to see the new replicas.
 1. Select the blue checkmark icon to finish editing the splitting.
 1. The graph shows the requests received by your container app, split by replica.
 
-:::image type="content" source="media/scale-app/azure-container-apps-scale-replicas-metrics-1.png" alt-text="Container app metrics graph, showing requests split by replica.":::
+    :::image type="content" source="media/scale-app/azure-container-apps-scale-replicas-metrics-1.png" alt-text="Container app metrics graph, showing requests split by replica.":::
 
 1. By default, the graph scale is set to last 24 hours, with a time granularity of 15 minutes. Select the scale and change it to the last 30 minutes, with a time granularity of one minute. Select the **Apply** button.
 1. Select on the graph and drag to highlight the recent increase in requests received by your container app.
 
-:::image type="content" source="media/scale-app/azure-container-apps-scale-replicas-metrics-2.png" alt-text="Container app metrics graph, showing requests split by replica, with a scale of 30 minutes and time granularity of one minute.":::
+:::image type="content" source="media/scale-app/azure-container-apps-scale-replicas-metrics-2.png" alt-text="Screenshot of container app metrics graph, showing requests split by replica, with a scale of 30 minutes and time granularity of one minute.":::
 
 The following screenshot shows a zoomed view of how the requests received by your container app are divided among replicas.
 
-:::image type="content" source="media/scale-app/azure-container-apps-scale-replicas-metrics-3.png" alt-text="Container app metrics graph, showing requests split by replica, in a zoomed view.":::
+:::image type="content" source="media/scale-app/azure-container-apps-scale-replicas-metrics-3.png" alt-text="Screenshot of container app metrics graph, showing requests split by replica, in a zoomed view.":::
 
 ## Clean up resources
 
