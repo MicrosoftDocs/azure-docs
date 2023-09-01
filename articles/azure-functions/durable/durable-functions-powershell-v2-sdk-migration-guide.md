@@ -30,7 +30,9 @@ By creating a standalone DF PowerShell SDK package, we're able to overcome these
 
 ## Deprecation plan for the built-in DF PowerShell SDK
 
-For now, the built-in DF SDK in the PowerShell worker will remain available. At some point in the future, versions of the PowerShell worker for new PowerShell releases will not contain a built-in DF SDK. At this point, users will need to install the SDK separately using this standalone package; the installation steps are described below. 
+The built-in DF SDK in the PowerShell worker will remain available for PowerShell 7.4, 7.2, and prior releases.
+
+We plan to eventually release a new **major** version of the PowerShell worker without the built-in SDK. At that point, users would need to install the SDK separately using this standalone package; the installation steps are described below.
 
 ## Install and enable the SDK
 
