@@ -1,6 +1,6 @@
 ---
 title: Monitor GitOps (Flux v2) status and activity
-ms.date: 08/11/2023
+ms.date: 08/17/2023
 ms.topic: how-to
 description: Learn how to monitor status, compliance, resource consumption, and reconciliation activity for GitOps with Flux v2.
 ---
@@ -24,18 +24,18 @@ Follow these steps to import dashboards that let you monitor Flux extension depl
 > [!NOTE]
 > These steps describe the process for importing the dashboard to [Azure Managed Grafana](/azure/managed-grafana/overview). You can also [import this dashboard to any Grafana instance](https://grafana.com/docs/grafana/latest/dashboards/manage-dashboards/#import-a-dashboard). With this option, a service principal must be used; managed identity is not supported for data connection outside of Azure Managed Grafana.
 
-1. Create an Azure Managed Grafana instance by using the [Azure portal](/azure/managed-grafana/quickstart-managed-grafana-portal) or [Azure CLI](/azure/managed-grafana/quickstart-managed-grafana-cli). Ensure that you're able to access Grafana by selecting its endpoint on the Overview page. You need at least **Reader** level permissions. You can check your access by going to **Access control (IAM)** on the Grafana instance.  
-1. If you're using a managed identity for the Azure Managed Grafana instance, follow these steps to assign it a Reader role on the subscription(s):
+1. Create an Azure Managed Grafana instance by using the [Azure portal](/azure/managed-grafana/quickstart-managed-grafana-portal) or [Azure CLI](/azure/managed-grafana/quickstart-managed-grafana-cli). Ensure that you're able to access Grafana by selecting its endpoint on the Overview page. You need at least **Grafana Editor** level permissions to view and edit dashboards. You can check your access by going to **Access control (IAM)** on the Grafana instance.  
+1. If you're using a managed identity for the Azure Managed Grafana instance, follow these steps to assign it the **Monitoring Reader** role on the subscription(s):
 
    1. In the Azure portal, navigate to the subscription that you want to add.
    1. Select **Access control (IAM)**.
    1. Select **Add role assignment**.
-   1. Select the **Reader** role, then select **Next**.
+   1. Select the **Monitoring Reader** role, then select **Next**.
    1. On the **Members** tab, select **Managed identity**, then choose **Select members**.
    1. From the **Managed identity** list, select the subscription where you created your Azure Managed Grafana Instance. Then select **Azure Managed Grafana** and the name of your Azure Managed Grafana instance.
    1. Select **Review + Assign**.
 
-   If you're using a service principal, grant the **Reader** role to the service principal that you'll use for your data source connection. Follow these same steps, but select **User, group, or service principal** in the **Members** tab, then select your service principal. (If you aren't using Azure Managed Grafana, you must use a service principal for data connection access.)
+   If you're using a service principal, grant the **Monitoring Reader** role to the service principal that you'll use for your data source connection. Follow these same steps, but select **User, group, or service principal** in the **Members** tab, then select your service principal. (If you aren't using Azure Managed Grafana, you must use a service principal for data connection access.)
 
 1. [Create the Azure Monitor Data Source connection](https://grafana.com/docs/grafana/latest/datasources/azure-monitor/) in your Azure Managed Grafana instance. This connection lets the dashboard access Azure Resource Graph data.
 1. Download the [GitOps Flux - Application Deployments Dashboard](https://github.com/Azure/fluxv2-grafana-dashboards/blob/main/dashboards/GitOps%20Flux%20-%20Application%20Deployments%20Dashboard.json).

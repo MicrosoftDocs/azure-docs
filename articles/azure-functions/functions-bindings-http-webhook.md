@@ -47,7 +47,7 @@ Functions 1.x apps automatically have a reference the [Microsoft.Azure.WebJobs](
 Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Http), version 3.x.
 
 > [!NOTE]
-> An additional extension package is needed for [ASP.NET Core integration in .NET Isolated](./dotnet-isolated-process-guide.md#aspnet-core-integration-preview)
+> An additional extension package is needed for [ASP.NET Core integration in .NET Isolated](./dotnet-isolated-process-guide.md#aspnet-core-integration)
 
 # [Functions v1.x](#tab/functionsv1/isolated-process)
 

@@ -85,7 +85,7 @@ The following table lists common dynamic membership rule errors and how to corre
 
 These articles provide additional information on Azure Active Directory.
 
-* [Managing access to resources with Azure Active Directory groups](../fundamentals/active-directory-manage-groups.md)
+* [Managing access to resources with Azure Active Directory groups](../fundamentals/concept-learn-about-groups.md)
 * [Application Management in Azure Active Directory](../manage-apps/what-is-application-management.md)
-* [What is Azure Active Directory?](../fundamentals/active-directory-whatis.md)
+* [What is Azure Active Directory?](../fundamentals/whatis.md)
 * [Integrating your on-premises identities with Azure Active Directory](../hybrid/whatis-hybrid-identity.md)

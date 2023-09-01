@@ -35,16 +35,16 @@ If a non-administrative user of organization 'Contoso' creates a test organizati
 
 ## Synchronization independence
 
-You can configure each Azure AD organization independently to get data synchronized from different AD forests, using the Azure AD Connect tool.  See [topologies for Azure AD Connect](../hybrid/plan-connect-topologies.md) for more information on supported topologies when there are multiple Azure AD tenants.
+You can configure each Azure AD organization independently to get data synchronized from different AD forests, using the Azure AD Connect tool.  See [topologies for Azure AD Connect](../hybrid/connect/plan-connect-topologies.md) for more information on supported topologies when there are multiple Azure AD tenants.
 
 ## Add an Azure AD organization
 
 To add an Azure AD organization in the Azure portal, sign in to the [Azure portal](https://portal.azure.com) with an account that is an Azure AD Global Administrator, and select **New**.
 
 > [!NOTE]
-> Unlike other Azure resources, your Azure AD organizations are not child resources of an Azure subscription. If your Azure subscription is canceled or expired, you can still access your Azure AD organization's data using Azure PowerShell, the Microsoft Graph API, or the Microsoft 365 admin center. You can also [associate another subscription with the organization](../fundamentals/active-directory-how-subscriptions-associated-directory.md).
+> Unlike other Azure resources, your Azure AD organizations are not child resources of an Azure subscription. If your Azure subscription is canceled or expired, you can still access your Azure AD organization's data using Azure PowerShell, the Microsoft Graph API, or the Microsoft 365 admin center. You can also [associate another subscription with the organization](../fundamentals/how-subscriptions-associated-directory.md).
 >
 
 ## Next steps
 
-For Azure AD licensing considerations and best practices, see [What is Azure Active Directory licensing?](../fundamentals/active-directory-licensing-whatis-azure-portal.md).
+For Azure AD licensing considerations and best practices, see [What is Azure Active Directory licensing?](../fundamentals/licensing-whatis-azure-portal.md).

@@ -46,7 +46,7 @@ After the failover group is provisioned, you can view it in Azure portal.
 
 :::image type="content" source="media/managed-instance-disaster-recovery-portal/failover-group-overview.png" alt-text="Screenshot of Azure portal failover group.":::
 
-## Fail over
+## Failover
 
 In the disaster recovery configuration, only one of the instances in the failover group is primary. You can fail over from the portal to migrate the primary role to the other instance in your failover group. To fail over:
 

@@ -18,10 +18,10 @@ ms.topic: how-to
 > The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-In this article, you learn how to discover, finetune and deploy Azure Open AI models at scale, using Azure Machine Learning. 
+In this article, you learn how to discover, finetune and deploy Azure OpenAI models at scale, using Azure Machine Learning. 
 
 ## Prerequisites
-- [You must have access](../ai-services/openai/overview.md#how-do-i-get-access-to-azure-openai) to the Azure Open AI service
+- [You must have access](../ai-services/openai/overview.md#how-do-i-get-access-to-azure-openai) to the Azure OpenAI Service
 - You must be in an Azure OpenAI service [supported region](../ai-services/openai/concepts/models.md#model-summary-table-and-region-availability)
 
 ## What is OpenAI Models in Azure Machine Learning?
@@ -35,7 +35,7 @@ In recent years, advancements in AI have led to the rise of large foundation mod
 - Deploying Azure OpenAI Models with Azure Machine Learning to the Azure OpenAI service
 
 ## Access Azure OpenAI models in Azure Machine Learning
-The model catalog (preview) in Azure Machine Learning studio is your starting point to explore various collections of foundation models. The Azure Open AI models collection is a collection of models, exclusively available on Azure. These models enable customers to access prompt engineering, finetuning, evaluation, and deployment capabilities for large language models available in Azure OpenAI Service. You can view the complete list of supported OpenAI models in the [model catalog](https://ml.azure.com/model/catalog), under the `Azure OpenAI Service` collection.
+The model catalog (preview) in Azure Machine Learning studio is your starting point to explore various collections of foundation models. The Azure OpenAI models collection is a collection of models, exclusively available on Azure. These models enable customers to access prompt engineering, finetuning, evaluation, and deployment capabilities for large language models available in Azure OpenAI Service. You can view the complete list of supported OpenAI models in the [model catalog](https://ml.azure.com/model/catalog), under the `Azure OpenAI Service` collection.
 
 > [!TIP] 
 >Supported OpenAI models are published to the AzureML Model Catalog. View a complete list of [Azure OpenAI models](../ai-services/openai/concepts/models.md).
@@ -124,13 +124,13 @@ You might receive any of the following errors when you try to deploy an Azure Op
     - **Fix**: Azure OpenAI failed to create. This is due to Quota issues, make sure you have enough quota for the deployment.
 
 - **Failed to fetch Azure OpenAI deployments**
-    - **Fix**: Unable to create the resource. Due to one of, the following reasons. You aren't in correct region, or you have exceeded the maximum limit of three Azure Open AI resources. You need to delete an existing Azure OpenAI resource or you need to make sure you created a workspace in one of the [supported regions](../ai-services/openai/concepts/models.md#model-summary-table-and-region-availability).
+    - **Fix**: Unable to create the resource. Due to one of, the following reasons. You aren't in correct region, or you have exceeded the maximum limit of three Azure OpenAI resources. You need to delete an existing Azure OpenAI resource or you need to make sure you created a workspace in one of the [supported regions](../ai-services/openai/concepts/models.md#model-summary-table-and-region-availability).
 
 - **Failed to get Azure OpenAI resource**
-    - **Fix**: Unable to create the resource. Due to one of, the following reasons. You aren't in correct region, or you have exceeded the maximum limit of three Azure Open AI resources. You need to delete an existing Azure OpenAI resource or you need to make sure you created a workspace in one of the [supported regions](../ai-services/openai/concepts/models.md#model-summary-table-and-region-availability).
+    - **Fix**: Unable to create the resource. Due to one of, the following reasons. You aren't in correct region, or you have exceeded the maximum limit of three Azure OpenAI resources. You need to delete an existing Azure OpenAI resource or you need to make sure you created a workspace in one of the [supported regions](../ai-services/openai/concepts/models.md#model-summary-table-and-region-availability).
 
 - **Failed to get Azure OpenAI resource**
-    - **Fix**: Unable to create the resource. Due to one of, the following reasons. You aren't in correct region, or you have exceeded the maximum limit of three Azure Open AI resources. You need to delete an existing Azure OpenAI resource or you need to make sure you created a workspace in one of the [supported regions](../ai-services/openai/concepts/models.md#model-summary-table-and-region-availability).
+    - **Fix**: Unable to create the resource. Due to one of, the following reasons. You aren't in correct region, or you have exceeded the maximum limit of three Azure OpenAI resources. You need to delete an existing Azure OpenAI resource or you need to make sure you created a workspace in one of the [supported regions](../ai-services/openai/concepts/models.md#model-summary-table-and-region-availability).
 
 - **Model Not Deployable**
     - **Fix**: This usually happens while trying to deploy a GPT-4 model. Due to high demand you need to [apply for access to use GPT-4 models](/azure/ai-services/openai/concepts/models#gpt-4-models).

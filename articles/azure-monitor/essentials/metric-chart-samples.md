@@ -11,7 +11,7 @@ ms.reviewer: vitalyg
 
 # Metric chart examples 
 
-The Azure platform offers [over a thousand metrics](/azure/azure-monitor/reference/supported-metrics/metrics-index.md), many of which have dimensions. By using [dimension filters](./metrics-charts.md), applying [splitting](./metrics-charts.md), controlling chart type, and adjusting chart settings you can create powerful diagnostic views and dashboards that provide insight into the health of your infrastructure and applications. This article shows some examples of the charts that you can build using [Metrics Explorer](./metrics-charts.md), and explains the necessary steps to configure each of these charts.
+The Azure platform offers [over a thousand metrics](/azure/azure-monitor/reference/supported-metrics/metrics-index), many of which have dimensions. By using [dimension filters](./metrics-charts.md), applying [splitting](./metrics-charts.md), controlling chart type, and adjusting chart settings you can create powerful diagnostic views and dashboards that provide insight into the health of your infrastructure and applications. This article shows some examples of the charts that you can build using [Metrics Explorer](./metrics-charts.md), and explains the necessary steps to configure each of these charts.
 
 
 ## Website CPU utilization by server instances

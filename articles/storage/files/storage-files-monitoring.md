@@ -4,7 +4,7 @@ description: Learn how to monitor the performance and availability of Azure File
 author: khdownie
 services: storage
 ms.service: azure-file-storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/07/2023
 ms.author: kendownie
 ms.devlang: csharp

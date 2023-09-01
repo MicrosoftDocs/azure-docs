@@ -12,7 +12,7 @@ ms.author: eur
 | `ar-EG` | Arabic (Egypt) | Custom Neural Voice Pro |
 | `ar-SA` | Arabic (Saudi Arabia) | Custom Neural Voice Pro |
 | `bg-BG` | Bulgarian (Bulgaria) | Custom Neural Voice Pro |
-| `ca-ES` | Catalan (Spain) | Custom Neural Voice Pro |
+| `ca-ES` | Catalan | Custom Neural Voice Pro |
 | `cs-CZ` | Czech (Czechia) | Custom Neural Voice Pro |
 | `da-DK` | Danish (Denmark) | Custom Neural Voice Pro |
 | `de-AT` | German (Austria) | Custom Neural Voice Pro |
@@ -55,7 +55,7 @@ ms.author: eur
 | `ta-IN` | Tamil (India) | Custom Neural Voice Pro |
 | `te-IN` | Telugu (India) | Custom Neural Voice Pro |
 | `th-TH` | Thai (Thailand) | Custom Neural Voice Pro |
-| `tr-TR` | Turkish (Turkey) | Custom Neural Voice Pro |
+| `tr-TR` | Turkish (Türkiye) | Custom Neural Voice Pro |
 | `vi-VN` | Vietnamese (Vietnam) | Custom Neural Voice Pro |
 | `zh-CN` | Chinese (Mandarin, Simplified) | Custom Neural Voice Pro<br/><br/>Custom Neural Voice Lite (Preview)<br/><br/>Cross-lingual voice<br/><br/>Multi-style voice (Preview) |
 | `zh-HK` | Chinese (Cantonese, Traditional) | Custom Neural Voice Pro |

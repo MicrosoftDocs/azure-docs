@@ -87,6 +87,18 @@ Based on query time range and range vectors in query over a 3-minute window (for
 | Query hours per Azure Monitor workspace | 2,000,000 |
 | Query hours per Azure tenant | 20,000,000 |
 
+**Query cost throttling limits**
+
+| Limit | Value |
+|:---|:---|
+| Maximum query cost per query | 15000 |
+| Maximum query cost for recording rules query | 3000 |
+
+Query cost calculation is done as follows:
+
+Query Cost = (Number of time series requested * (queried time duration in seconds / *Inferred time resolution of queried data*) ) / 5000
+
+*Inferred time resolution of queried data* = Number of data points stored in any one randomly selected time series keys of queried metric / queried time duration in seconds
 
 #### Alert and recording rules 
 Prometheus alert rules and recording rules are defined in PromQL. They're performed on the managed Ruler service as part of Azure Monitor managed service for Prometheus.

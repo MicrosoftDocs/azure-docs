@@ -123,7 +123,7 @@
         - name: Use Authenticator Lite 
           href: how-to-mfa-authenticator-lite.md
         - name: Use Microsoft managed settings 
-          href: how-to-mfa-microsoft-managed.md
+          href: ./concept-authentication-default-enablement.md
       - name: Windows Hello for Business
         href: /windows/security/identity-protection/hello-for-business/hello-identity-verification
       - name: Certificate-based authentication

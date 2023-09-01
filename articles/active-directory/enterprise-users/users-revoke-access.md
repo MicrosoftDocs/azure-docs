@@ -10,8 +10,8 @@ author: barclayn
 ms.author: barclayn
 manager: amycolannino
 ms.reviewer: krbain
-ms.date: 06/24/2022
-ms.custom: it-pro
+ms.date: 08/31/2023
+ms.custom: it-pro, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 ---
 
@@ -99,6 +99,7 @@ As an administrator in Azure Active Directory, open PowerShell, run ``Connect-Az
 
 >[!NOTE]
 > For information on specific roles that can perform these steps review [Azure AD built-in roles](../roles/permissions-reference.md)
+
 ## When access is revoked
 
 Once admins have taken the above steps, the user can't gain new tokens for any application tied to Azure Active Directory. The elapsed time between revocation and the user losing their access depends on how the application is granting access:
@@ -128,5 +129,5 @@ Once admins have taken the above steps, the user can't gain new tokens for any a
 ## Next steps
 
 - [Secure access practices for Azure AD administrators](../roles/security-planning.md)
-- [Add or update user profile information](../fundamentals/active-directory-users-profile-azure-portal.md)
+- [Add or update user profile information](../fundamentals/how-to-manage-user-profile-info.md)
 - [Remove or Delete a former employee](/microsoft-365/admin/add-users/remove-former-employee)

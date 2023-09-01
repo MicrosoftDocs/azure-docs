@@ -63,7 +63,7 @@ items:
         href: how-to-recognize-speech.md
       - name: Get speech recognition results
         href: get-speech-recognition-results.md
-      - name: Real-time diarization
+      - name: Real-time diarization quickstart
         href: get-started-stt-diarization.md
     - name: Batch transcription
       items:

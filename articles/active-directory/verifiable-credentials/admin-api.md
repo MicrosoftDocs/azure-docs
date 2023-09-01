@@ -924,6 +924,7 @@ If the property `customStatusEndpoint` property isn't specified, then the `anony
 | -------- | -------- | -------- |
 | `url` | string (url)| the url of the custom status endpoint |
 | `type` | string | the type of the endpoint |
+
 example:
 
 ```

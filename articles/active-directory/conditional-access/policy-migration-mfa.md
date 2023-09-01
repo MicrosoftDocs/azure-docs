@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Migrate a classic policy in the Azure portal
 
-This article shows how to migrate a classic policy that requires **multifactor authentication** for a cloud app. Although it isn't a prerequisite, we recommend that you read [Migrate classic policies in the Azure portal](policy-migration.md) before you start migrating your classic policies.
+This article shows how to migrate a classic policy that requires **multifactor authentication** for a cloud app. Although it isn't a prerequisite, we recommend that you read [Migrate classic policies](policy-migration.md) before you start migrating your classic policies.
 
 ![Classic policy details requiring MFA for Salesforce app](./media/policy-migration/33.png)
 
@@ -29,11 +29,10 @@ The migration process consists of the following steps:
 
 ## Open a classic policy
 
-[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
 
-1. Navigate to **Azure Active Directory** > **Security** > **Conditional Access**.
+1. Browse to **Protection** > **Conditional Access**.
 
 1. Select, **Classic policies**.
 
@@ -41,7 +40,7 @@ The migration process consists of the following steps:
 
 1. In the list of classic policies, select the policy you wish to migrate. Document the configuration settings so that you can re-create with a new Conditional Access policy.
 
-For examples of common policies and their configuration in the Azure portal, see the article [Common Conditional Access policies](concept-conditional-access-policy-common.md).
+For examples of common policies and their configuration, see the article [Common Conditional Access policies](concept-conditional-access-policy-common.md).
 
 ## Disable the classic policy
 
