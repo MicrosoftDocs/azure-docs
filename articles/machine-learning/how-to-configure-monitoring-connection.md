@@ -45,7 +45,6 @@ In this article, you'll perform the following tasks:
 2023-03-15-preview
 
 You will need to configure a workspace connection for your Azure OpenAI resource to have appropriate permissions. 
-    1. [LINK](../how-to-configure-monitoring-connection.md)
 1. Create an Azure OpenAI resource which will be used as your evaluation endpoint
 1. Create your user-assigned managed identity (UAI)
     1. Assign contributor access control to your UAI
@@ -58,7 +57,7 @@ You will need to configure a workspace connection for your Azure OpenAI resource
 
 
 > [!NOTE]
-> Updating connections and permissions may take several minutes to take effect. If your compute instance behind VNet, please follow [Compute instance behind VNet](https://learn.microsoft.com/en-us/azure/machine-learning/prompt-flow/how-to-create-manage-runtime?view=azureml-api-2#compute-instance-behind-vnet) to configure the network.
+> Updating connections and permissions may take several minutes to take effect. If your compute instance behind VNet, please follow [Compute instance behind VNet](prompt-flow/how-to-create-manage-runtime.md#compute-instance-behind-vnet) to configure the network.
 
 ## Next steps
 <!---What next steps are appropriate?>
