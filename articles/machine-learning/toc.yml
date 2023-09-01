@@ -1342,7 +1342,7 @@
           - name: Slowness in compute instance terminal from a mounted path
             href: ./known-issues/compute-slowness-terminal-mounted-path.md
           - name: Creating compute instance after a workspace move causes Etag conflict error
-            href: ./known-issues/workspace-move-ci-same-name.md
+            href: ./known-issues/workspace-move-compute-instance-same-name.md
           - name: Application Sharing Policy isn't supported 
             href: ./known-issues/applicaton-sharing-policy-not-supported.md
 - name: Samples
