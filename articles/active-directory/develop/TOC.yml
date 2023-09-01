@@ -536,7 +536,7 @@
             - name: Common provisioning scenarios
               href: ../app-provisioning/scim-graph-scenarios.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
             - name: Automate configuration using MS Graph
-              href: ../app-provisioning/application-provisioning-configuration-api.md?bc=%2fazure%2factive-directory%2fdevelop%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fdevelop%2ftoc.json
+              href: ../app-provisioning/application-provisioning-configuration-api.md?bc=/azure/active-directory/develop/breadcrumb/toc.json&toc=/azure/active-directory/develop/toc.json
             - name: Develop and integrate a SCIM endpoint
               href: ../app-provisioning/use-scim-to-provision-users-and-groups.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
     - name: Secure
@@ -544,11 +544,11 @@
         - name: Build for resilience
           items:
             - name: Development Overview
-              href: ../fundamentals/resilience-app-development-overview.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
+              href: ../architecture/resilience-app-development-overview.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
             - name: Client applications
-              href: ../fundamentals/resilience-client-app.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
+              href: ../architecture/resilience-client-app.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
             - name: Daemon applications
-              href: ../fundamentals/resilience-daemon-app.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
+              href: ../architecture/resilience-daemon-app.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
             - name: OpenID Connect metadata refresh
               href: howto-build-services-resilient-to-metadata-refresh.md
         - name: Use Continuous Access Evaluation APIs

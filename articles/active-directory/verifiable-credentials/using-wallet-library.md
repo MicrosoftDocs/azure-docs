@@ -115,14 +115,14 @@ Then, you have to handle the following major tasks in your app.
 - User Interface. Any visual representation of stored credentials and the UI for driving the issuance and presentation process must be implemented by you. 
 
 ## Wallet Library Demo app
-The Wallet Library comes with a demo app in the github repo that is ready to use without any modifications. You just have to build and deploy it. The demo app is a lightweight and simple implementation that illustrates issuance and presentation at its minimum. To quickly get going, you can use the QR Code Reader app to scan the QR code, and then copy and paste it into the demo app.
+The Wallet Library comes with a demo app in the GitHub repo that is ready to use without any modifications. You just have to build and deploy it. The demo app is a lightweight and simple implementation that illustrates issuance and presentation at its minimum. To quickly get going, you can use the QR Code Reader app to scan the QR code, and then copy and paste it into the demo app.
 
 In order to test the demo app, you need a webapp that issues credentials and makes presentation requests for credentials. The [Woodgrove public demo webapp](https://aka.ms/vcdemo) is used for this purpose in this tutorial.
 
 ## Building the Android sample
 On your developer machine with Android Studio, do the following:
 
-1. Download or clone the Android Wallet Library [github repo](https://github.com/microsoft/entra-verifiedid-wallet-library-android/archive/refs/heads/dev.zip). 
+1. Download or clone the Android Wallet Library [GitHub repo](https://github.com/microsoft/entra-verifiedid-wallet-library-android/archive/refs/heads/dev.zip). 
 You don’t need the walletlibrary folder and you can delete it if you like.
 1. Start Android Studio and open the parent folder of walletlibrarydemo
 
@@ -169,7 +169,7 @@ The sample app holds the issued credential in memory, so after issuance, you can
  
 ## Building the iOS sample
 On your Mac developer machine with Xcode, do the following:
-1. Download or clone the iOS Wallet Library [github repo](https://github.com/microsoft/entra-verifiedid-wallet-library-ios/archive/refs/heads/dev.zip). 
+1. Download or clone the iOS Wallet Library [GitHub repo](https://github.com/microsoft/entra-verifiedid-wallet-library-ios/archive/refs/heads/dev.zip). 
 1. Start Xcode and open the top level folder for the WalletLibrary
 1. Set focus on WalletLibraryDemo project
 

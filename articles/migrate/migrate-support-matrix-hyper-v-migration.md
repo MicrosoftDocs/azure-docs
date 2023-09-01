@@ -6,8 +6,8 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.service: azure-migrate
-ms.date: 05/23/2023
-ms.custom: engagement-fy23
+ms.date: 07/11/2023
+ms.custom: engagement-fy24
 ---
 
 # Support matrix for Hyper-V migration

@@ -194,6 +194,11 @@
             "source_path_from_root": "/articles/virtual-desktop/app-attach-glossary.md",
             "redirect_url": "/azure/virtual-desktop/what-is-app-attach",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/windows-10-multisession-faq.yml",
+            "redirect_url": "/azure/virtual-desktop/windows-multisession-faq",
+            "redirect_document_id": true
         }
     ]
 }

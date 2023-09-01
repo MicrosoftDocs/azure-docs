@@ -95,4 +95,4 @@ To resolve the error, follow these steps, or watch this [short video about how t
 
 ## Next steps
 
-Now that single sign-on is working to your application, you could [Automate user provisioning and deprovisioning to SaaS applications](../app-provisioning/user-provisioning.md) or [get started with Conditional Access](../conditional-access/app-based-conditional-access.md).
+Now that single sign-on is working to your application, you could [Automate user provisioning and deprovisioning to SaaS applications](../app-provisioning/user-provisioning.md) or [get started with Conditional Access](../conditional-access/howto-policy-approved-app-or-app-protection.md).

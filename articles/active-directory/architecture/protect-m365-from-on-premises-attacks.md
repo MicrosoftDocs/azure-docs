@@ -107,13 +107,13 @@ Credentials are a primary attack vector. Implement the following practices to ma
 
 - **Deploy multifactor authentication**. For more information, see [Plan an Azure Active Directory Multi-Factor Authentication deployment](../authentication/howto-mfa-getstarted.md).
 
-  Provision multiple strong credentials by using Azure AD multifactor authentication. That way, access to cloud resources requires an Azure AD managed credential in addition to an on-premises password. For more information, see [Build resilience with credential management](../fundamentals/resilience-in-credentials.md) and [Create a resilient access control management strategy by using Azure AD](./resilience-overview.md).
+  Provision multiple strong credentials by using Azure AD multifactor authentication. That way, access to cloud resources requires an Azure AD managed credential in addition to an on-premises password. For more information, see [Build resilience with credential management](./resilience-in-credentials.md) and [Create a resilient access control management strategy by using Azure AD](./resilience-overview.md).
 
 ### Limitations and tradeoffs
 
 Hybrid account password management requires hybrid components such as password protection agents and password writeback agents. If your on-premises infrastructure is compromised, attackers can control the machines on which these agents reside. This vulnerability won't compromise your cloud infrastructure. But your cloud accounts won't protect these components from on-premises compromise.
 
-On-premises accounts synced from Active Directory are marked to never expire in Azure AD. This setting is usually mitigated by on-premises Active Directory password settings. If your instance of Active Directory is compromised and synchronization is disabled, set the [EnforceCloudPasswordPolicyForPasswordSyncedUsers](../hybrid/how-to-connect-password-hash-synchronization.md) option to force password changes.
+On-premises accounts synced from Active Directory are marked to never expire in Azure AD. This setting is usually mitigated by on-premises Active Directory password settings. If your instance of Active Directory is compromised and synchronization is disabled, set the [EnforceCloudPasswordPolicyForPasswordSyncedUsers](../hybrid/connect/how-to-connect-password-hash-synchronization.md) option to force password changes.
 
 ## Provision user access from the cloud
 
@@ -132,7 +132,7 @@ We recommend the following provisioning methods:
   - Limit guest access to browsing groups and other properties in the directory. Use the external collaboration settings to restrict guests' ability to read groups they're not members of.
   - Block access to the Azure portal. You can make rare necessary exceptions.  Create a Conditional Access policy that includes all guests and external users. Then implement a policy to block access. See [Conditional Access](../conditional-access/concept-conditional-access-cloud-apps.md).
 
-- **Disconnected forests.** Use Azure AD cloud provisioning to connect to disconnected forests. This approach eliminates the need to establish cross-forest connectivity or trusts, which can broaden the effect of an on-premises breach. For more information, see [What is Azure AD Connect cloud sync](../cloud-sync/what-is-cloud-sync.md).
+- **Disconnected forests.** Use Azure AD cloud provisioning to connect to disconnected forests. This approach eliminates the need to establish cross-forest connectivity or trusts, which can broaden the effect of an on-premises breach. For more information, see [What is Azure AD Connect cloud sync](../hybrid/cloud-sync/what-is-cloud-sync.md).
 
 ### Limitations and tradeoffs
 
@@ -188,7 +188,7 @@ Use Azure AD Conditional Access to interpret signals and use them to make authen
 
 - Use Conditional Access to block legacy authentication protocols whenever possible. Additionally, disable legacy authentication protocols at the application level by using an application-specific configuration. See [Block legacy authentication](../conditional-access/howto-conditional-access-policy-block-legacy.md).
 
-  For more information, see [Legacy authentication protocols](../fundamentals/auth-sync-overview.md#legacy-authentication-protocols). Or see specific details for [Exchange Online](/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online#how-basic-authentication-works-in-exchange-online) and [SharePoint Online](/powershell/module/sharepoint-online/set-spotenant).
+  For more information, see [Legacy authentication protocols](./auth-sync-overview.md#legacy-authentication-protocols). Or see specific details for [Exchange Online](/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online#how-basic-authentication-works-in-exchange-online) and [SharePoint Online](/powershell/module/sharepoint-online/set-spotenant).
 
 - Implement the recommended identity and device access configurations. See [Common Zero Trust identity and device access policies](/microsoft-365/security/office-365-security/identity-access-policies).
 
@@ -275,7 +275,7 @@ Define a log storage and retention strategy, design, and implementation to facil
   - Network policy servers (NPSs) that have the Azure AD multifactor authentication RADIUS extension
   - Azure AD Connect
 
-    You must deploy Azure AD Connect Health to monitor identity synchronization. See [What is Azure AD Connect](../hybrid/whatis-azure-ad-connect.md).
+    You must deploy Azure AD Connect Health to monitor identity synchronization. See [What is Azure AD Connect](../hybrid/connect/whatis-azure-ad-connect.md).
 
 ## Next steps
 

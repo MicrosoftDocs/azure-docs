@@ -159,9 +159,12 @@ Subscriptions that contained a Log Analytics workspace or Application Insights r
 
 Access to the legacy Free Trial pricing tier was limited on July 1, 2022. Pricing information for the Standalone and Per Node pricing tiers is available [here](https://aka.ms/OMSpricing). 
 
+> [!IMPORTANT] 
+> The legacy pricing tiers do not support access to some of the newest features in Log Analytics such as ingesting data as cost-effective Basic Logs. 
+
 ### Free Trial pricing tier
 
-Workspaces in the Free Trial pricing tier will have daily data ingestion limited to 500 MB (except for security data types collected by [Microsoft Defender for Cloud](../../security-center/index.yml)). The data retention is limited to seven days. The Free Trial pricing tier is intended only for evaluation purposes. No SLA is provided for the Free Trial tier.
+Workspaces in the Free Trial pricing tier have daily data ingestion limited to 500 MB (except for security data types collected by [Microsoft Defender for Cloud](../../security-center/index.yml)). Data retention is limited to seven days. The Free Trial pricing tier is intended only for evaluation purposes, not production workloads. No SLA is provided for the Free Trial tier.
 
 > [!NOTE]
 > Creating new workspaces in, or moving existing workspaces into, the legacy Free Trial pricing tier was possible only until July 1, 2022.

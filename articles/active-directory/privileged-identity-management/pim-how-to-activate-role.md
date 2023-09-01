@@ -1,6 +1,6 @@
 ---
 title: Activate Azure AD roles in PIM
-description: Learn how to activate Azure AD roles in Azure AD Privileged Identity Management (PIM).
+description: Learn how to activate Azure AD roles in Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -31,15 +31,13 @@ This article is for administrators who need to activate their Azure AD role in P
 
 ## Activate a role
 
-[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
-
 When you need to assume an Azure AD role, you can request activation by opening **My roles** in Privileged Identity Management.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com)
 
-1. Open **Azure AD Privileged Identity Management**. For information about how to add the Privileged Identity Management tile to your dashboard, see [Start using Privileged Identity Management](pim-getting-started.md).
+1. Browse to **Identity governance** > **Privileged Identity Management** > **My roles**.  For information about how to add the Privileged Identity Management tile to your dashboard, see [Start using Privileged Identity Management](pim-getting-started.md).
 
-1. Select **My roles**, and then select **Azure AD roles** to see a list of your eligible Azure AD roles.
+1. Select **Azure AD roles** to see a list of your eligible Azure AD roles.
 
     ![My roles page showing roles you can activate](./media/pim-how-to-activate-role/my-roles.png)
 

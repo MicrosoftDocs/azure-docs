@@ -13,7 +13,6 @@ ms.author: rhurey
 ms.devlang: cpp, csharp, java, objective-c, python
 ms.custom: devx-track-csharp, ignite-fall-2021, devx-track-extended-java, devx-track-python
 zone_pivot_groups: programming-languages-set-two
-ROBOTS: NOINDEX
 ---
 
 # How to track Speech SDK memory usage

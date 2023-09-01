@@ -13,10 +13,8 @@ ms.author: jawoods
 ms.reviewer: phsignor
 zone_pivot_groups: enterprise-apps-all
 ms.collection: M365-identity-device-management
-ms.custom: enterprise-apps
-
+ms.custom: enterprise-apps, has-azure-ad-ps-ref
 #customer intent: As an admin, I want to review permissions granted to applications so that I can restrict suspicious or over privileged applications.
-
 ---
 
 # Review permissions granted to enterprise applications
@@ -87,7 +85,7 @@ $spOAuth2PermissionsGrants | ForEach-Object {
 }
 
 # Get all application permissions for the service principal
-$spApplicationPermissions = Get-AzureADServiceAppRoleAssignedTo-ObjectId $sp.ObjectId -All $true | Where-Object { $_.PrincipalType -eq "ServicePrincipal" }
+$spApplicationPermissions = Get-AzureADServiceAppRoleAssignedTo -ObjectId $sp.ObjectId -All $true | Where-Object { $_.PrincipalType -eq "ServicePrincipal" }
 
 # Remove all application permissions
 $spApplicationPermissions | ForEach-Object {

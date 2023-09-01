@@ -285,7 +285,7 @@ Content: {
 
 ### Are you calling your own API?
 
-If your daemon app calls your own web API and you weren't able to add an app permission to the daemon's app registration, you need to [Add app roles to the web API's app registration](howto-add-app-roles-in-azure-ad-apps.md).
+If your daemon app calls your own web API and you weren't able to add an app permission to the daemon's app registration, you need to [Add app roles to the web API's app registration](./howto-add-app-roles-in-apps.md).
 
 ## Next steps
 
