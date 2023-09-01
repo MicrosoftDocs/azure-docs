@@ -25,8 +25,7 @@ VMs created using the classic deployment model will follow the [Modern Lifecycle
 ## How does this affect me? 
 
 - As of February 28, 2020, customers who didn't utilize IaaS VMs through ASM in the month of February 2020 can no longer create VMs (classic). 
-- On September 6, 2023, customers will no longer be able to start IaaS VMs by using ASM. Any that are still running or allocated will be stopped and deallocated. 
-- On September 6, 2023, subscriptions that are not migrated to Azure Resource Manager will be informed regarding timelines for deleting any remaining VMs (classic).  
+- On September 6, 2023, Any classic VM that has not been migrated to ARM will be stopped and deallocated. 
 
 This retirement does *not* affect the following Azure services and functionality: 
 - Storage accounts *not* used by VMs (classic) 
