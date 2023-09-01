@@ -51,10 +51,6 @@ In this article you learn how to download, install, and run Document Intelligenc
 
 ::: moniker-end
 
-> [!IMPORTANT]
->
-> * To use Document Intelligence containers, you must submit an online request, and have it approved. For more information, _see_ [Request approval to run container](#request-approval-to-run-container).
-
 ## Prerequisites
 
 To get started, you need an active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
@@ -87,12 +83,6 @@ You also need an **Azure AI Vision API resource to process business cards, ID do
   * **{COMPUTER_VISION_KEY}**: one of the two available resource keys.
   * **{COMPUTER_VISION_ENDPOINT_URI}**: the endpoint for the resource used to track billing information.
 :::moniker-end
-
-## Request approval to run container
-
-Complete and submit the [**Azure AI services application for Gated Services**](https://aka.ms/csgate) to request access to the container.
-
-[!INCLUDE [Request access to public preview](../../../../includes/cognitive-services-containers-request-access.md)]
 
 ## Host computer requirements
 
