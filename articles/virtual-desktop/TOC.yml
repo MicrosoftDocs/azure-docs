@@ -511,8 +511,8 @@
       - name: Configure device redirections
         href: configure-device-redirections.md
       - name: Install the Remote Desktop client for Windows on a per-user basis
-        displayName: apps, clients, remote desktop, rdp, connect, intune, configuration maneger, configmgr, sccm
-        href: install-client-per-user.md
+        displayName: apps, clients, remote desktop, rdp, connect, intune, configuration manager, configmgr, sccm, mem, mdm, per user
+        href: install-windows-client-per-user.md
     - name: Set up email discovery
       displayName: connect
       href: /windows-server/remote/remote-desktop-services/rds-email-discovery?context=/azure/virtual-desktop/context/context

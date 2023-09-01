@@ -144,7 +144,7 @@ When your resource has been provisioned, you can connect Azure Communications Ga
                 </SPT>
             </TriggerPoint>
             <ApplicationServer>
-                <ServerName>sips:<mcp-hostname>;transport=tcp;service=mcp</ServerName>
+                <ServerName>sip:<mcp-hostname>;transport=tcp;service=mcp</ServerName>
                 <DefaultHandling>0</DefaultHandling>
             </ApplicationServer>
             <ProfilePartIndicator>0</ProfilePartIndicator>
