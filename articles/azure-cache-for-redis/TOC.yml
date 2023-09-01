@@ -37,7 +37,7 @@
       href: cache-rust-get-started.md
 - name: Deployment and configuration
   items:
-    - name: Plan old toc
+    - name: Plan - old toc
       items:
       - name: Choose a cache tier
         href: cache-overview.md#choosing-the-right-tier
@@ -71,7 +71,7 @@
         href: cache-how-to-premium-vnet.md
       - name: Planning FAQs
         href: cache-planning-faq.yml
-    - name: Automate old toc
+    - name: Automate - old toc
       items:
       - name: Deploy and manage using Azure PowerShell
         href: cache-how-to-manage-redis-cache-powershell.md
@@ -91,11 +91,11 @@
         href: cache-web-app-arm-with-redis-cache-provision.md
 - name: Development and using library
   items:
-    - name: Build old toc
+    - name: Build - old toc
       items:
       - name: Development FAQs
         href: cache-development-faq.yml
-    - name: Diagnose and troubleshoot old toc
+    - name: Diagnose and troubleshoot - old toc
       items:
       - name: Troubleshoot connectivity issues
         href: cache-troubleshoot-connectivity.md
@@ -111,7 +111,7 @@
         href: cache-monitor-troubleshoot-faq.yml 
 - name: Logs and monitoring
   items:
-    - name: Monitor old toc
+    - name: Monitor - old toc
       items:
     - name: Monitor in Azure portal
       href: cache-how-to-monitor.md
@@ -123,7 +123,7 @@
       href: cache-insights-overview.md
 - name: Scaling and performance
   items:
-  - name: Scale old toc
+  - name: Scale - old toc
     items:
     - name: Change the size and tier of a cache
       href: cache-how-to-scale.md
@@ -133,7 +133,7 @@
   items:
 - name: Security and networking
   items:
-  - name: Security old toc
+  - name: Security - old toc
     items:
     - name: Network isolation options
       href: cache-network-isolation.md
@@ -144,7 +144,7 @@
       href: /security/benchmark/azure/baselines/azure-cache-for-redis-security-baseline?toc=/azure/azure-cache-for-redis/TOC.json
 - name: Resource management (cache management)
   items:
-  - name: Manage old toc
+  - name: Manage - old toc
     items:
     - name: Configure in Azure portal
       href: cache-configure.md
@@ -176,7 +176,7 @@
       href: cache-azure-active-directory-for-authentication.md
 - name: Resiliency
   items:
-  - name: Resiliency old toc
+  - name: Resiliency - old toc
     items:
     - name: High availability
       href: cache-high-availability.md
