@@ -128,6 +128,8 @@ Note: if include and exclude flags are used together, only files matching the in
 
 `--exclude-regex`    (string)    Exclude the relative path of the files that match with the regular expressions. Separate regular expressions with ';'.
 
+`--force-if-read-only` When overwriting an existing file on Windows or Azure Files, force the overwrite to work even if the existing file has its read-only attribute set.
+
 `--from-to`    (string)    Optionally specifies the source destination combination. For Example: LocalBlob, BlobLocal, LocalFile, FileLocal, BlobFile, FileBlob, etc.
 
 `-h`, `--help`    help for sync
