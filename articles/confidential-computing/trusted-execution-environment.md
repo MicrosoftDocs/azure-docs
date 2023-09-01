@@ -10,7 +10,8 @@ Code executing insdide the TEE is processed in the clear but is only visible in 
 
 Technical details on how the TEE is implemented across different Azure hardware is available as follows:
 
-AMD SEV-SNP Confidential Virtual Machines (https://www.amd.com/en/developer/sev.html)
-Intel SGX enabled Virtual Machines (https://www.intel.com/content/www/us/en/architecture-and-technology/software-guard-extensions.html)
-Intel TDX Virtual Machines (https://www.intel.com/content/www/us/en/developer/articles/technical/intel-trust-domain-extensions.html) 
-NVIDIA Hardware (https://www.nvidia.com/en-gb/data-center/h100/)
+AMD SEV-SNP Confidential Virtual Machines https://www.amd.com/en/developer/sev.html <p>
+Intel SGX enabled Virtual Machines https://www.intel.com/content/www/us/en/architecture-and-technology/software-guard-extensions.html<p>
+Intel TDX Virtual Machines https://www.intel.com/content/www/us/en/developer/articles/technical/intel-trust-domain-extensions.html<p>
+NVIDIA Hardware https://www.nvidia.com/en-gb/data-center/h100/<p>
+

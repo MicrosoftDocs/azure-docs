@@ -32,6 +32,13 @@ Azure already encrypts data at rest and in transit, and confidential computing h
 
 Microsoft will not attempt to defeat customer-controlled data protection of confidential computing with customer-managed keys and verification policies in order to view or extract data in use. If faced with a legal demand to do so, we would challenge such a demand on any lawful basis, consistent with our customer commitments as outlined in this [blog] (https://blogs.microsoft.com/on-the-issues/2020/11/19/defending-your-data-edpb-gdpr/).
 
+Azure is also protected by a comprehensive defense in depth strategy offering customer protections from contractual and privacy transparency through to technical controls operated on-behalf of the customer that are independently audited and a comprehensive set of technical and infrastructure tools provided to allow customers to define their security posture.
+
+Confidential computing complements the already comprehensive defense strategy offered in Azure by allowing customers to further protect their data in-use from the cloud provider.
+
+:::image type="content" source="media/overview/builds-on-azure-security-foundations.jpg" alt-text="Graphic showing the defense in depth strategy of Azure complemented by confidential computing.":::
+
+
 ### External Threat
 
 All customers seek to protect against external actors like hackers who seek to obtain unauthorized access to resources.
