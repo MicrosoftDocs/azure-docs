@@ -31,11 +31,11 @@ In Azure, connected mode and disconnected mode refer to the state of an ExpressR
 
 When operating in connected mode, it's possible to connect to the cluster's kube-api server using the `az connectedk8s proxy` CLI command. Also it's possible to SSH into the worker nodes for troubleshooting or maintenance tasks from Azure using the ExpressRoute circuit.
 
-### Arc for Kubernetes
+### Azure Arc for Kubernetes
 
 [!INCLUDE [quickstart-cluster-connect](./includes/kubernetes-cluster/cluster-connect.md)]
 
-### Arc for servers
+### Azure Arc for servers
 
 The `az ssh arc` command allows users to remotely access a cluster VM that has been connected to Azure Arc. This method is a secure way to SSH into the cluster node directly from the command line, while in connected mode. Once the cluster VM has been registered with Azure Arc, the `az ssh arc` command can be used to manage the machine remotely, making it a quick and efficient method for remote management.
 
@@ -91,7 +91,7 @@ Reach out to your network administrator to set up this direct connection to the 
 
 Before you can connect to the cluster nodes, you need to find the IP address of the nodes. The IP address of the nodes can be found using the Azure portal or the Azure CLI.
 
-### Using the Azure CLI
+### Use the Azure CLI
 
 1. Set the RESOURCE_GROUP, CLUSTER_NAME, and SUBSCRIPTION_ID variables to match your environment.
 
@@ -130,19 +130,28 @@ To find the IP address of the VM for SSH, follow these steps:
 
 1. Go to the [Azure portal](https://portal.azure.com) and sign-in with your username and password.
 2. Type 'Kubernetes Cluster (Operator Nexus)' in the search box and select the 'Kubernetes Cluster' service from the list of results.
-:::image type="content" source="media/k8s/search-k8s-service.png" alt-text="Screenshot of browsing Nexus Kubernetes service":::
+
+:::image type="content" source="media/k8s/search-kubernetes-service.png" alt-text="Screenshot of browsing Nexus Kubernetes service.":::
+
 3. Look for the specific 'Nexus Kubernetes cluster' resource you need to use the search.
-:::image type="content" source="media/k8s/search-k8s-cluster.png" alt-text="Screenshot of browsing Nexus Kubernetes cluster":::
+
+:::image type="content" source="media/k8s/search-kubernetes-cluster.png" alt-text="Screenshot of browsing Nexus Kubernetes cluster.":::
+
 4. Once you've found the right resource by matching its name with the cluster name, Select the resource to go to the 'Kubernetes Cluster' home page.
-:::image type="content" source="media/k8s/k8s-cluster-home.png" alt-text="Screenshot of Nexus Kubernetes cluster home page":::
+
+:::image type="content" source="media/k8s/kubernetes-cluster-home.png" alt-text="Screenshot of Nexus Kubernetes cluster home page.":::
+
 5. Once you've found the right resource by matching its name with the cluster name, go to the 'Kubernetes Cluster Nodes' section in the left menu.
-:::image type="content" source="media/k8s/k8s-cluster-nodes.png" alt-text="Screenshot of browsing Nexus Kubernetes cluster nodes":::
+
+:::image type="content" source="media/k8s/kubernetes-cluster-nodes.png" alt-text="Screenshot of browsing Nexus Kubernetes cluster nodes.":::
+
 6. Select on the Kubernetes node name you're interested in to see its details.
 7. Check the 'Attached Networks' tab to find the IP address of the node's 'Layer 3 Network' that used as CNI network.
-:::image type="content" source="media/k8s/cp-network-attachment.png" alt-text="Screenshot of browsing Nexus Kubernetes cluster node networks":::
+
+:::image type="content" source="media/k8s/control-plane--network-attachment.png" alt-text="Screenshot of browsing Nexus Kubernetes cluster node networks.":::
 
 ## Next steps
 
 Try out the following articles to learn more about Azure Operator Nexus Kubernetes cluster.
-1. [Quickstart: Deploy an Azure Operator Nexus Kubernetes cluster using Bicep](./quickstarts-kubernetes-cluster-deployment-bicep.md)
-2. [How to: Monitor Azure Operator Nexus Kubernetes cluster](./howto-monitor-naks-cluster.md)
+- [Quickstart: Deploy an Azure Operator Nexus Kubernetes cluster using Bicep](./quickstarts-kubernetes-cluster-deployment-bicep.md)
+- [How to: Monitor Azure Operator Nexus Kubernetes cluster](./howto-monitor-naks-cluster.md)
