@@ -26,7 +26,11 @@ Find the DCEs associated with your Azure Monitor workspace.
 
 The page displays all of the DCEs that are associated with the Azure Monitor workspace and that enable data ingestion into the workspace. Select the DCE you want to configure with Private Link and then follow the steps to [create an Azure Monitor private link scope](../logs/private-link-configure.md) to complete the process.
 
+Once this is done, navigate to the DCR resource which was created during onboarding from the Azure Portal and choose 'Resources' under Configuration TOC.
+In the Data collection endpoint dropdown, pick a DCE in the same region as the AKS cluster. If the Azure Monitor Workspace is in the same region as the AKS cluster, you can reuse the DCE created during onboarding. If not, create a DCE in the same region as the AKS cluster and pick that in the dropdown. 
+
 > [!NOTE]
+> Please refer to[](../../../articles/managed-grafana/how-to-connect-to-data-source-privately.md) for details on how to configure private link for querying data from your Azure Monitor workspace using Grafana.
 > Please refer to [use private endpoints for queries](azure-monitor-workspace-private-endpoint.md) for details on how to configure private link for querying data from your Azure Monitor workspace.
 
 ## Private link ingestion from a private AKS cluster
