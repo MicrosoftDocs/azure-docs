@@ -2,7 +2,7 @@
 author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/11/2020
+ms.date: 09/01/2023
 ms.custom: devx-track-java
 ms.author: eur
 ---
@@ -13,7 +13,7 @@ ms.author: eur
 
 ## Create a speech configuration
 
-To call the Speech service by using the Speech SDK, you need to create a [`SpeechConfig`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig) instance. This class includes information about your subscription, like your key and associated location/region, endpoint, host, or authorization token. 
+To call the Speech service by using the Speech SDK, you need to create a [SpeechConfig](/java/api/com.microsoft.cognitiveservices.speech.speechconfig) instance. This class includes information about your subscription, like your key and associated location/region, endpoint, host, or authorization token. 
 
 Create a `SpeechConfig` instance by using your key and location/region. Create a Speech resource on the [Azure portal](https://portal.azure.com). For more information, see [Create a multi-service resource](~/articles/ai-services/multi-service-resource.md?pivots=azportal).
 
@@ -67,7 +67,7 @@ public class Program {
 }
 ```
 
-If you want to use a *specific* audio input device, you need to specify the device ID in `AudioConfig`. Learn [how to get the device ID](../../../how-to-select-audio-input-devices.md) for your audio input device.
+If you want to use a *specific* audio input device, you need to specify the device ID in `AudioConfig`. For more information on how to get the device ID for your audio input device, see [Select an audio input device with the Speech SDK](../../../how-to-select-audio-input-devices.md).
 
 ## Recognize speech from a file
 
@@ -98,11 +98,11 @@ public class Program {
 
 ## Handle errors
 
-The previous examples simply get the recognized text by using `result.getText()`. To handle errors and other responses, you need to write some code to handle the result. The following example evaluates [`result.getReason()`](/java/api/com.microsoft.cognitiveservices.speech.recognitionresult.getreason) and:
+The previous examples only get the recognized text by using `result.getText()`. To handle errors and other responses, you need to write some code to handle the result. The following example evaluates [`result.getReason()`](/java/api/com.microsoft.cognitiveservices.speech.recognitionresult.getreason) and:
 
 * Prints the recognition result: `ResultReason.RecognizedSpeech`.
-* If there is no recognition match, informs the user: `ResultReason.NoMatch`.
-* If an error is encountered, prints the error message: `ResultReason.Canceled`.
+* If there's no recognition match, it informs the user: `ResultReason.NoMatch`.
+* If an error is encountered, it prints the error message: `ResultReason.Canceled`.
 
 ```java
 switch (result.getReason()) {
@@ -203,7 +203,7 @@ speechRecognizer.stopContinuousRecognitionAsync().get();
 
 ## Change the source language
 
-A common task for speech recognition is specifying the input (or source) language. The following example shows how you would change the input language to French. In your code, find your [`SpeechConfig`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig) instance and add this line directly below it:
+A common task for speech recognition is specifying the input (or source) language. The following example shows how you would change the input language to French. In your code, find your [`SpeechConfig`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig) instance, and add this line directly below it:
 
 ```java
 config.setSpeechRecognitionLanguage("fr-FR");
@@ -213,13 +213,13 @@ config.setSpeechRecognitionLanguage("fr-FR");
 
 ## Language identification
 
-You can use [language identification](../../../language-identification.md?pivots=programming-language-java#speech-to-text) with Speech to text recognition when you need to identify the language in an audio source and then transcribe it to text.
+You can use [language identification](../../../language-identification.md?pivots=programming-language-java#speech-to-text) with speech to text recognition when you need to identify the language in an audio source and then transcribe it to text.
 
 For a complete code sample, see [language identification](../../../language-identification.md?pivots=programming-language-java#speech-to-text).
 
 ## Use a custom endpoint
 
-With [Custom Speech](../../../custom-speech-overview.md), you can upload your own data, test and train a custom model, compare accuracy between models, and deploy a model to a custom endpoint. The following example shows how to set a custom endpoint.
+With [Custom Speech](../../../custom-speech-overview.md), you can upload your own data, test and train a custom model, compare accuracy between models, and deploy a model to a custom endpoint. The following example shows how to set a custom endpoint:
 
 ```java
 SpeechConfig speechConfig = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");

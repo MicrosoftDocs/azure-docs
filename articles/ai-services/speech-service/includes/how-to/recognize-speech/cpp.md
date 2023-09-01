@@ -2,7 +2,7 @@
 author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/06/2020
+ms.date: 09/01/2023
 ms.author: eur
 ---
 
@@ -47,7 +47,7 @@ auto result = speechRecognizer->RecognizeOnceAsync().get();
 cout << "RECOGNIZED: Text=" << result->Text << std::endl;
 ```
 
-If you want to use a *specific* audio input device, you need to specify the device ID in `AudioConfig`. Learn [how to get the device ID](../../../how-to-select-audio-input-devices.md) for your audio input device.
+If you want to use a *specific* audio input device, you need to specify the device ID in `AudioConfig`. For more information on how to get the device ID for your audio input device, see [Select an audio input device with the Speech SDK](../../../how-to-select-audio-input-devices.md)
 
 ## Recognize speech from a file
 
@@ -78,8 +78,8 @@ auto result = speechRecognizer->RecognizeOnceAsync().get();
 You need to write some code to handle the result. This sample evaluates [`result->Reason`](/cpp/cognitive-services/speech/recognitionresult#reason) and:
 
 * Prints the recognition result: `ResultReason::RecognizedSpeech`.
-* If there is no recognition match, informs the user: `ResultReason::NoMatch`.
-* If an error is encountered, prints the error message: `ResultReason::Canceled`.
+* If there's no recognition match, it informs the user: `ResultReason::NoMatch`.
+* If an error is encountered, it prints the error message: `ResultReason::Canceled`.
 
 ```cpp
 switch (result->Reason)

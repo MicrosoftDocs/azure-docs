@@ -2,7 +2,7 @@
 author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/11/2020
+ms.date: 09/01/2023
 ms.author: eur
 ---
 
@@ -47,7 +47,7 @@ def from_mic():
 from_mic()
 ```
 
-If you want to use a *specific* audio input device, you need to specify the device ID in `AudioConfig`, and the pass it to the `SpeechRecognizer` constructor's `audio_config` parameter. Learn [how to get the device ID](../../../how-to-select-audio-input-devices.md) for your audio input device.
+If you want to use a *specific* audio input device, you need to specify the device ID in `AudioConfig`, and the pass it to the `SpeechRecognizer` constructor's `audio_config` parameter. For more information on how to get the device ID for your audio input device, see [Select an audio input device with the Speech SDK](../../../how-to-select-audio-input-devices.md)
 
 ## Recognize speech from a file
 
@@ -69,11 +69,11 @@ from_file()
 
 ## Handle errors
 
-The previous examples simply get the recognized text from `result.text`. To handle errors and other responses, you need to write some code to handle the result. The following code evaluates the [`result.reason`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.resultreason) property and:
+The previous examples only get the recognized text from `result.text`. To handle errors and other responses, you need to write some code to handle the result. The following code evaluates the [`result.reason`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.resultreason) property and:
 
 * Prints the recognition result: `speechsdk.ResultReason.RecognizedSpeech`.
-* If there is no recognition match, informs the user: `speechsdk.ResultReason.NoMatch`.
-* If an error is encountered, prints the error message: `speechsdk.ResultReason.Canceled`.
+* If there's no recognition match, it informs the user: `speechsdk.ResultReason.NoMatch`.
+* If an error is encountered, it prints the error message: `speechsdk.ResultReason.Canceled`.
 
 ```Python
 if result.reason == speechsdk.ResultReason.RecognizedSpeech:
@@ -101,7 +101,7 @@ audio_config = speechsdk.audio.AudioConfig(filename=weatherfilename)
 speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config, audio_config=audio_config)
 ```
 
-Next, create a variable to manage the state of speech recognition. Set the variable to `False` because at the start of recognition, you can safely assume that it's not finished.
+Next, create a variable to manage the state of speech recognition. Set the variable to `False` because at the start of recognition, you can safely assume that it's not finished:
 
 ```Python
 done = False
