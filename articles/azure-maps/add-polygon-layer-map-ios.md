@@ -16,7 +16,7 @@ This article shows you how to render the areas of `Polygon` and `MultiPolygon` f
 
 ## Prerequisites
 
-Be sure to complete the steps in the [Quickstart: Create an iOS app](quick-ios-app.md) document. Code blocks in this article can be inserted into the  `viewDidLoad` function of `ViewController`.
+Be sure to complete the steps in the [Quickstart: Create an iOS app] document. Code blocks in this article can be inserted into the  `viewDidLoad` function of `ViewController`.
 
 ## Use a polygon layer
 
@@ -134,7 +134,13 @@ The following is a screenshot of the above code rendering a polygon with a fill 
 
 See the following articles for more code samples to add to your maps:
 
-- [Create a data source](create-data-source-ios-sdk.md)
-- [Use data-driven style expressions](data-driven-style-expressions-ios-sdk.md)
-- [Add a line layer](add-line-layer-map-ios.md)
-- [Add a polygon extrusion layer](add-polygon-extrusion-layer-map-ios.md)
+- [Create a data source]
+- [Use data-driven style expressions]
+- [Add a line layer]
+- [Add a polygon extrusion layer]
+
+[Quickstart: Create an iOS app]: quick-ios-app.md
+[Create a data source]: create-data-source-ios-sdk.md
+[Use data-driven style expressions]: data-driven-style-expressions-ios-sdk.md
+[Add a line layer]: add-line-layer-map-ios.md
+[Add a polygon extrusion layer]: add-polygon-extrusion-layer-map-ios.md

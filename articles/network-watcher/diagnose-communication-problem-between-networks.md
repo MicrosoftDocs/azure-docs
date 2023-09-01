@@ -2,13 +2,11 @@
 title: 'Tutorial: Diagnose communication problem between virtual networks - Azure portal'
 titleSuffix: Azure Network Watcher
 description: In this tutorial, you learn how to use Azure Network Watcher VPN troubleshoot to diagnose a communication problem between two Azure virtual networks connected by Azure VPN gateways.
-services: network-watcher
 author: halkazwini
+ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: tutorial
-ms.workload: infrastructure-services
-ms.date: 02/28/2023
-ms.author: halkazwini
+ms.date: 07/17/2023
 ms.custom: template-tutorial, engagement-fy23
 # Customer intent: I need to determine why resources in a virtual network can't communicate with resources in a different virtual network over a VPN connection.
 ---
@@ -278,9 +276,13 @@ Fix the problem by correcting the key on **to-VNet1** connection to match the ke
 
 When no longer needed, delete the resource group and all of the resources it contains:
 
-1. Enter *myResourceGroup* in the search box at the top of the portal. When you see **myResourceGroup** in the search results, select it.
-2. Select **Delete resource group**.
-3. Enter *myResourceGroup* for **TYPE THE RESOURCE GROUP NAME:** and select **Delete**.
+1. Enter ***myResourceGroup*** in the search box at the top of the portal. When you see **myResourceGroup** in the search results, select it.
+
+1. Select **Delete resource group**.
+
+1. In **Delete a resource group**, enter ***myResourceGroup***, and then select **Delete**.
+
+1. Select **Delete** to confirm the deletion of the resource group and all its resources.
 
 ## Next steps
 

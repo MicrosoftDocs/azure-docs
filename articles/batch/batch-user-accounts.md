@@ -3,7 +3,7 @@ title: Run tasks under user accounts
 description: Learn the types of user accounts and how to configure them.
 ms.topic: how-to
 ms.date: 05/16/2023
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-linux
 ms.devlang: csharp, java, python
 ---
 # Run tasks under user accounts in Batch

@@ -44,4 +44,4 @@ When you acquire a token using `ConfidentialClientApplication.AcquireToken()` or
 
 ## Next steps
 
-For the federated case, see [Configure Azure Active Directory sign in behavior for an application by using a Home Realm Discovery policy](../manage-apps/configure-authentication-for-federated-users-portal.md)
+For the federated case, see [Configure Azure Active Directory sign-in behavior for an application by using a Home Realm Discovery policy](../manage-apps/configure-authentication-for-federated-users-portal.md)

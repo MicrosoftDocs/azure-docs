@@ -1,6 +1,6 @@
 ---
 title: Approve requests for Azure resource roles in PIM
-description: Learn how to approve or deny requests for Azure resource roles in Azure AD Privileged Identity Management (PIM).
+description: Learn how to approve or deny requests for Azure resource roles in Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -27,11 +27,9 @@ Follow the steps in this article to approve or deny requests for Azure resource 
 
 As a delegated approver, you'll receive an email notification when an Azure resource role request is pending your approval. You can view these pending requests in Privileged Identity Management.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
 
-1. Open **Azure AD Privileged Identity Management**.
-
-1. Select **Approve requests**.
+1. Browse to **Identity governance** > **Privileged Identity Management** > **Approve requests**.
 
     ![Approve requests - Azure resources page showing request to review](./media/pim-resource-roles-approval-workflow/resources-approve-requests.png)
 
@@ -74,4 +72,4 @@ Here's some information about workflow notifications:
 ## Next steps
 
 - [Email notifications in Privileged Identity Management](pim-email-notifications.md)
-- [Approve or deny requests for Azure AD roles in Privileged Identity Management](azure-ad-pim-approval-workflow.md)
+- [Approve or deny requests for Azure AD roles in Privileged Identity Management](./pim-approval-workflow.md)

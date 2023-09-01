@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/21/2023
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-linux
 ms.author: mamccrea
 author: mamccrea
 ---

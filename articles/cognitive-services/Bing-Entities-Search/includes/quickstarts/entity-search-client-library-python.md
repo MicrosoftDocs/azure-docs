@@ -1,6 +1,6 @@
 ---
 title: Bing Entity Search Python client library quickstart 
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 services: cognitive-services
 author: aahill
 manager: nitinme

@@ -271,10 +271,6 @@ subscribeToRemoteVideoStream = async (remoteVideoStream) => {
     let remoteVideoContainer = document.createElement('div');
     remoteVideoContainer.className = 'remote-video-container';
 
-    /**
-     * isReceiving API is currently an @beta feature.
-     * To use this api please use 'beta' version of Azure Communication Services Calling Web SDK.
-     */
     let loadingSpinner = document.createElement('div');
     // See the css example below for styling the loading spinner.
     loadingSpinner.className = 'loading-spinner';
@@ -366,7 +362,7 @@ CSS for styling the loading spinner over the remote video stream.
 
 ### Remote video quality
 
-Starting from 1.12(beta) version, the ACS WebJS SDK provides a new feature called OptimalVideoCount (OVC). This feature can be used to inform applications at run-time how many videos from different participants can be optimally rendered at a given moment in a group call (2+ participants). This feature exposes a property `optimalVideoCount` that is dynamically changing during the call based on the network and hardware capabilities of a local endpoint. The value of `optimalVideoCount` details how many videos from different participants application should render at a given moment. Application should handle these changes and update number of rendered videoes accordingly to the recommendation. There's a cooldown period (around 10s), between updates that to avoid too frequent of changes.
+The ACS WebJS SDK, starting in version [1.15.1](https://github.com/Azure/Communication/blob/master/releasenotes/acs-javascript-calling-library-release-notes.md#1153-stable-2023-08-18), provides a feature called Optimal Video Count (OVC). This feature can be used to inform applications at run-time how many incoming videos from different participants can be optimally rendered at a given moment in a group call (2+ participants). This feature exposes a property `optimalVideoCount` that is dynamically changing during the call based on the network and hardware capabilities of a local endpoint. The value of `optimalVideoCount` details how many videos from different participants application should render at a given moment. Applications should handle these changes and update number of rendered videoes accordingly to the recommendation. There's a cooldown period (around 10s), between updates that to avoid too frequent of changes.
 
 **Usage**
 The `optimalVideoCount` feature is a call feature
@@ -410,9 +406,6 @@ const isAvailable: boolean = remoteVideoStream.isAvailable;
 ```
 
 - `isReceiving`:
-
-    > [!NOTE]
-    > This API is provided as a preview for developers and may change based on feedback that we receive. To use this api please use 1.5.4-beta.1+ release of Azure Communication Services Calling Web SDK
     - Will inform the application if remote video stream data is being received or not. Such scenarios are:
         - I am viewing the video of a remote participant who is on mobile browser. The remote participant brings the mobile browser app to the background. I now see the RemoteVideoStream.isReceiving flag goes to false and I see their video with black frames / frozen. When the remote participant brings the mobile browser back to the foreground, I now see the RemoteVideoStream.isReceiving flag to back to true, and I see their video playing normally.
         - I am viewing the video of a remote participant who is on whatever platforms. There are network issues from either side, their video start to have bad quality, probably because of network issues, so I see the RemoteVideoStream.isReceiving flag goes to false.

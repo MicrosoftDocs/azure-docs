@@ -33,9 +33,9 @@ Additionally, it is possible for a single IP address to attempt multiple logins 
 - Expanded functionality from the previous Risky IP report, which will be deprecated after January 24, 2022.
 
 ## Requirements
-1.	Connect Health for AD FS installed and updated to the latest agent.
-2.	A Log Analytics Workspace with the “ADFSSignInLogs” stream enabled.
-3.	Permissions to use the Azure AD Monitor Workbooks. To use Workbooks, you need:
+1. Connect Health for AD FS installed and updated to the latest agent.
+2. A Log Analytics Workspace with the “ADFSSignInLogs” stream enabled.
+3. Permissions to use the Azure AD Monitor Workbooks. To use Workbooks, you need:
 - An Azure Active Directory tenant with a premium (P1 or P2) license.
 - Access to a Log Analytics Workspace and the following roles in Azure AD (if accessing Log Analytics through Azure portal): Security administrator, Security reader, Reports reader, Global administrator
 
@@ -68,6 +68,8 @@ Filter the report by IP address or user name to see an expanded view of sign-ins
 
 ## Accessing the workbook
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 To access the workbook:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -89,10 +91,12 @@ Alerting threshold can be updated through Threshold Settings. To start with, sys
 
 **Hour or Day** detection window length can be configured through the toggle button above the filters for customizing thresholds. 
 
-## Configure notification alerts using Azure Monitor Alerts through the Azure Portal:
+<a name='configure-notification-alerts-using-azure-monitor-alerts-through-the-azure-portal'></a>
+
+## Configure notification alerts using Azure Monitor Alerts through the Azure portal:
 [![Azure Alerts Rule](./media/how-to-connect-health-adfs-risky-ip-workbook/azure-alerts-rule-1.png)](./media/how-to-connect-health-adfs-risky-ip-workbook/azure-alerts-rule-1.png#lightbox)
-1.	In the Azure Portal, search for “Monitor” in the search bar to navigate to the Azure “Monitor” service. Select “Alerts” from the left menu, then “+ New alert rule”. 
-2.	On the “Create alert rule” blade:
+1. In the Azure portal, search for “Monitor” in the search bar to navigate to the Azure “Monitor” service. Select “Alerts” from the left menu, then “+ New alert rule”. 
+2. On the “Create alert rule” blade:
    * Scope: Click “Select resource” and select your Log Analytics workspace that contains the ADFSSignInLogs you wish to monitor.
    * Condition: Click “Add condition”. Select “Log” for Signal type and “Log analytics” for Monitor service. Choose “Custom log search”. 
 

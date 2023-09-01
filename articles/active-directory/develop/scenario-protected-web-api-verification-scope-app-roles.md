@@ -331,7 +331,7 @@ For a full version of `ValidateAppRole` for ASP.NET Core, see [_RolesRequiredHtt
 ---
 ### Verify app roles in APIs called on behalf of users
 
-Users can also use roles claims in user assignment patterns, as shown in [How to add app roles in your application and receive them in the token](howto-add-app-roles-in-azure-ad-apps.md). If the roles are assignable to both, checking roles will let apps sign in as users and users sign in as apps. We recommend that you declare different roles for users and apps to prevent this confusion.
+Users can also use roles claims in user assignment patterns, as shown in [How to add app roles in your application and receive them in the token](./howto-add-app-roles-in-apps.md). If the roles are assignable to both, checking roles will let apps sign in as users and users sign in as apps. We recommend that you declare different roles for users and apps to prevent this confusion.
 
 If you have defined app roles with user/group, then roles claim can also be verified in the API along with scopes. The verification logic of the app roles in this scenario remains same as if API is called by the daemon apps since there is no differentiation in the role claim for user/group and application.
 
@@ -377,4 +377,3 @@ If you set `AllowWebApiToBeAuthorizedByACL` to true, this is **your responsibili
 
 Move on to the next article in this scenario,
 [Move to production](scenario-protected-web-api-production.md).
-

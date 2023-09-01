@@ -67,15 +67,25 @@ An active Azure subscription. If you don't have an Azure subscription, create a 
 
 ## Create connected waste management application
 
-To create your application:
+To create your IoT Central application:
 
-1. Navigate to the [Azure IoT Central Build](https://aka.ms/iotcentral) site. Then sign in with a Microsoft personal, work, or school account. Select **Build** from the left-hand navigation bar and then select the **Government** tab:
+1. Navigate to the [Create IoT Central Application](https://portal.azure.com/#create/Microsoft.IoTCentral) page in the Azure portal. If prompted, sign in with your Azure account.
 
-    :::image type="content" source="media/tutorial-connected-waste-management/iot-central-government-tab-overview.png" alt-text="Screenshot showing the Azure IoT Central build site with the government app templates.":::
+1. Enter the following information:
 
-1. Select **Create app** under **Connected waste management**.
+    | Field | Description |
+    | ----- | ----------- |
+    | Subscription | The Azure subscription you want to use. |
+    | Resource group | The resource group you want to use.  You can create a new resource group or use an existing one. |
+    | Resource name | A valid Azure resource name. |
+    | Application URL | The URL subdomain for your application. The URL for an IoT Central application looks like `https://yoursubdomain.azureiotcentral.com`. |
+    | Template | **Connected Waste Management** |
+    | Region | The Azure region you want to use. |
+    | Pricing plan | The pricing plan you want to use. |
 
-To learn more, see [Create an IoT Central application](../core/howto-create-iot-central-application.md).
+1. Select **Review + create**. Then select **Create**.
+
+[!INCLUDE [iot-central-navigate-from-portal](../../../includes/iot-central-navigate-from-portal.md)]
 
 ## Walk through the application
 

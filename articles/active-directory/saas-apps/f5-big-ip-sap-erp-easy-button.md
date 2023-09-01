@@ -41,7 +41,7 @@ The SHA solution for this scenario is made up of the following:
 
 **SAP ERP application:** BIG-IP published service to be protected by and Azure AD SHA.
 
-**Azure AD:** Security Assertion Markup Language (SAML) Identity Provider (IdP) responsible for verification of user credentials, Conditional Access (CA), and SAML based SSO to the BIG-IP.
+**Azure AD:** Security Assertion Markup Language (SAML) Identity Provider (IdP) responsible for verification of user credentials, Conditional Access, and SAML based SSO to the BIG-IP.
 
 **BIG-IP:** Reverse proxy and SAML service provider (SP) to the application, delegating authentication to the SAML IdP before performing header-based SSO to the SAP service.
 
@@ -99,7 +99,7 @@ Before a client or service can access Microsoft Graph, it must be trusted by the
 
 The Easy Button client must also be registered in Azure AD, before it is allowed to establish a trust between each SAML SP instance of a BIG-IP published application, and Azure AD as the SAML IdP.
 
-1. Sign-in to the [Azure portal](https://portal.azure.com/) using an account with Application Administrative rights
+1. Sign in to the [Azure portal](https://portal.azure.com/) using an account with Application Administrative rights
 
 2. From the left navigation pane, select the **Azure Active Directory** service
 
@@ -243,9 +243,9 @@ The **Additional User Attributes** tab can support a variety of distributed syst
 
 #### Conditional Access Policy
 
-CA policies are enforced post Azure AD pre-authentication, to control access based on device, application, location, and risk signals.
+Conditional Access policies are enforced post Azure AD pre-authentication, to control access based on device, application, location, and risk signals.
 
-The **Available Policies** view, by default, will list all CA policies that do not include user based actions.
+The **Available Policies** view, by default, will list all Conditional Access policies that do not include user based actions.
 
 The **Selected Policies** view, by default, displays all policies targeting All cloud apps. These policies cannot be deselected or moved to the Available Policies list as they are enforced at a tenant level.
 
@@ -256,7 +256,7 @@ To select a policy to be applied to the application being published:
 
 Selected policies should either have an **Include** or **Exclude** option checked. If both options are checked, the selected policy is not enforced.
 
-![ Screenshot for CA policies](./media/f5-big-ip-easy-button-sap-erp/conditional-access-policy.png)
+![ Screenshot for Conditional Access policies](./media/f5-big-ip-easy-button-sap-erp/conditional-access-policy.png)
 
 >[!NOTE]
 >The policy list is enumerated only once when first switching to this tab. A refresh button is available to manually force the wizard to query your tenant, but this button is displayed only when the application has been deployed. 

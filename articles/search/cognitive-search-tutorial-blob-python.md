@@ -56,13 +56,13 @@ Optionally, you can also download the source code for this tutorial. Source code
 
 ## 1 - Create services
 
-This tutorial uses Azure Cognitive Search for indexing and queries, Cognitive Services on the backend for AI enrichment, and Azure Blob Storage to provide the data. This tutorial stays under the Cognitive Search free allocation of 20 transactions per indexer per day on Cognitive Services, so the only services you need to create are search and storage.
+This tutorial uses Azure Cognitive Search for indexing and queries, Azure AI services on the backend for AI enrichment, and Azure Blob Storage to provide the data. This tutorial stays under the Cognitive Search free allocation of 20 transactions per indexer per day on Azure AI services, so the only services you need to create are search and storage.
 
 If possible, create both in the same region and resource group for proximity and manageability. In practice, your Azure Storage account can be in any region.
 
 ### Start with Azure Storage
 
-1. [Sign in to the Azure portal](https://portal.azure.com/) and select **+ Create Resource**.
+1. Sign in to the [Azure portal](https://portal.azure.com) and select **+ Create Resource**.
 
 1. Search for *storage account* and select Microsoft's Storage Account offering.
 
@@ -74,7 +74,7 @@ If possible, create both in the same region and resource group for proximity and
 
    + **Storage account name**. If you think you might have multiple resources of the same type, use the name to disambiguate by type and region, for example *blobstoragewestus*. 
 
-   + **Location**. If possible, choose the same location used for Azure Cognitive Search and Cognitive Services. A single location voids bandwidth charges.
+   + **Location**. If possible, choose the same location used for Azure Cognitive Search and Azure AI services. A single location voids bandwidth charges.
 
    + **Account Kind**. Choose the default, *StorageV2 (general purpose v2)*.
 
@@ -104,11 +104,11 @@ If possible, create both in the same region and resource group for proximity and
 
 1. Save the connection string to Notepad. You'll need it later when setting up the data source connection.
 
-### Cognitive Services
+### Azure AI services
 
-AI enrichment is backed by Cognitive Services, including Language service and Computer Vision for natural language and image processing. If your objective was to complete an actual prototype or project, you would at this point provision Cognitive Services (in the same region as Azure Cognitive Search) so that you can attach it to indexing operations.
+AI enrichment is backed by Azure AI services, including Language service and Azure AI Vision for natural language and image processing. If your objective was to complete an actual prototype or project, you would at this point provision Azure AI services (in the same region as Azure Cognitive Search) so that you can attach it to indexing operations.
 
-Since this tutorial only uses 14 transactions, you can skip resource provisioning because Azure Cognitive Search can connect to Cognitive Services for 20 free transactions per indexer run. For larger projects, plan on provisioning Cognitive Services at the pay-as-you-go S0 tier. For more information, see [Attach Cognitive Services](cognitive-search-attach-cognitive-services.md).
+Since this tutorial only uses 14 transactions, you can skip resource provisioning because Azure Cognitive Search can connect to Azure AI services for 20 free transactions per indexer run. For larger projects, plan on provisioning Azure AI services at the pay-as-you-go S0 tier. For more information, see [Attach Azure AI services](cognitive-search-attach-cognitive-services.md).
 
 ### Azure Cognitive Search
 
@@ -120,7 +120,7 @@ You can use the Free tier to complete this tutorial.
 
 To send requests to your Azure Cognitive Search service, you'll need the service URL and an access key.
 
-1. [Sign in to the Azure portal](https://portal.azure.com/), and in your search service **Overview** page, get the name of your search service. You can confirm your service name by reviewing the endpoint URL. If your endpoint URL is `https://mydemo.search.windows.net`, your service name would be `mydemo`.
+1. Sign in to the [Azure portal](https://portal.azure.com), and in your search service **Overview** page, get the name of your search service. You can confirm your service name by reviewing the endpoint URL. If your endpoint URL is `https://mydemo.search.windows.net`, your service name would be `mydemo`.
 
 2. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
 

@@ -24,7 +24,7 @@ When you change a reservation order's directory, all reservations under the orde
 
 Use the following steps to change a reservation order's directory and its dependent reservations to another tenant.
 
-1. Sign into the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. If you're not a billing administrator but you're a reservation owner, navigate to **Reservations,** and then skip to step 5.
 1. Navigate to **Cost Management + Billing**.
     - If you're an EA admin, in the left menu, select **Billing scopes** and then in the list of billing scopes, select one.

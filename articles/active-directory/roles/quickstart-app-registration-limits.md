@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.date: 02/04/2022
 ms.author: rolyon
 ms.reviewer: vincesm
-ms.custom: it-pro, mode-other
+ms.custom: it-pro, mode-other, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 ---
 # Quickstart: Grant permission to create unlimited app registrations
@@ -32,6 +32,8 @@ For more information, see [Prerequisites to use PowerShell or Graph Explorer](pr
 ## Azure portal
 
 ### Create a custom role
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 

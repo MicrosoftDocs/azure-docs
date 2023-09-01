@@ -1,7 +1,7 @@
 ---
-title: Microsoft Defender for Cloud's main dashboard or 'overview' page
+title: Main overview page
 description: Learn about the features of the Defender for Cloud overview page
-ms.date: 03/08/2023
+ms.date: 07/20/2023
 ms.topic: conceptual
 ms.custom: ignite-2022
 ---
@@ -12,7 +12,7 @@ Microsoft Defender for Cloud's overview page is an interactive dashboard that pr
 
 You can select any element on the page to get more detailed information.
 
-:::image type="content" source="./media/overview-page/overview-01-2023.png" alt-text="Screenshot of Defender for Cloud's overview page." lightbox="./media/overview-page/overview-01-2023.png":::
+:::image type="content" source="./media/overview-page/overview-07-2023.png" alt-text="Screenshot of Defender for Cloud's overview page." lightbox="./media/overview-page/overview-07-2023.png":::
 
 ## Features of the overview page
 

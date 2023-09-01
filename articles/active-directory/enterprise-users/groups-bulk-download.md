@@ -22,10 +22,12 @@ You can download a list of all the groups in your organization to a comma-separa
 
 ## To download a list of groups
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 >[!NOTE]
 > The columns downloaded are pre-defined
 
-1. Sign in to [the Azure portal](https://portal.azure.com) with an account in your organization.
+1. Sign in to the [Azure portal](https://portal.azure.com) with an account in your organization.
 1. In Azure AD, select **Groups** > **Download groups**.
 1. On the **Groups download** page, select **Start** to receive a CSV file listing your groups.
 

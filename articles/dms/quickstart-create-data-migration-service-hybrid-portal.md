@@ -38,7 +38,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ## Sign in to the Azure portal
 
-Open your web browser, navigate to the [Microsoft Azure portal](https://portal.azure.com/), and then enter your credentials to sign in to the portal.
+From a browser, sign in to the [Azure portal](https://portal.azure.com).
 
 The default view is your service dashboard.
 

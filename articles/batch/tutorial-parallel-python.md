@@ -4,7 +4,7 @@ description: Learn how to process media files in parallel using ffmpeg in Azure 
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 05/25/2023
-ms.custom: mvc, devx-track-python
+ms.custom: mvc, devx-track-python, devx-track-linux
 ---
 
 # Tutorial: Run a parallel workload with Azure Batch using the Python API

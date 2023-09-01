@@ -6,7 +6,7 @@ author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.date: 10/11/2022
 zone_pivot_groups: programming-languages-set-fivedevlangs
-ms.custom: mode-api, devx-track-azurecli, devx-track-extended-java, devx-track-js, devx-track-python
+ms.custom: mode-api, devx-track-azurecli, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-go
 ms.devlang: azurecli
 ---
 
@@ -313,7 +313,7 @@ for (String repositoryName : client.listRepositoryNames()) {
 
 ### Currently supported environments
 
-- [LTS versions of Node.js](https://nodejs.org/about/releases/)
+- [LTS versions of Node.js](https://github.com/nodejs/release#release-schedule)
 
 See our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more details.
 

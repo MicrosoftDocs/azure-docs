@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Getting Spell Check Results using Bing Spell Check API"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Use this tutorial to build a web page that sends queries to the Bing Spell Check API, and displays the results.
 services: cognitive-services
 author: aahill
@@ -16,7 +16,7 @@ ms.custom:
 
 # Tutorial: Build a Web page Spell Check client
 
-[!INCLUDE [Bing move notice](../../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../../bing-web-search/includes/bing-move-notice.md)]
 
 In this tutorial, we'll build a Web page that allows users to query the Bing Spell Check API. The source code for this application is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/BingSpellCheckApp.html).
 

@@ -4,8 +4,7 @@ description: Find out how to create and manage action groups. Learn about notifi
 ms.topic: conceptual
 ms.date: 05/02/2023
 ms.reviewer: jagummersall
-ms.custom: references_regions
-
+ms.custom: references_regions, devx-track-arm-template, has-azure-ad-ps-ref
 ---
 # Action groups
 

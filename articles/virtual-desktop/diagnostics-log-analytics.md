@@ -101,7 +101,7 @@ You can access Log Analytics workspaces on the Azure portal or Azure Monitor.
 
 ### Access Log Analytics on Azure Monitor
 
-1. Sign into the Azure portal
+1. Sign in to the Azure portal.
 
 2. Search for and select **Monitor**.
 

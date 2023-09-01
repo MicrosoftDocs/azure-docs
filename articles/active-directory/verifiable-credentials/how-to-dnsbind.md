@@ -22,7 +22,7 @@ ms.author: barclayn
 
 To verify domain ownership to your DID, you need to have completed the following.
 
-- Complete the [Getting Started](get-started-verifiable-credentials.md) and subsequent [tutorial set](enable-your-tenant-verifiable-credentials.md).
+- Complete the [Getting Started](./verifiable-credentials-configure-tenant.md) and subsequent [tutorial set](./verifiable-credentials-configure-tenant.md).
 
 ## Verify domain ownership and distribute did-configuration.json file
 

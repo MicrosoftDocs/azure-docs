@@ -83,7 +83,7 @@ Supported values:
 
 * AzureCloud (public regions)
 * AzureUSGovernment (Azure US Government regions)
-* AzureChinaCloud (Azure China regions)
+* AzureChinaCloud (Microsoft Azure operated by 21Vianet regions)
 
 `--correlation-id`
 

@@ -27,7 +27,7 @@ Follow these steps to view the audit history for Azure AD roles.
 
 Resource audit gives you a view of all activity associated with your Azure AD roles.
 
-1. Open **Azure AD Privileged Identity Management**.
+1. Open **Privileged Identity Management**.
 
 1. Select **Azure AD roles**.
 
@@ -41,7 +41,7 @@ Resource audit gives you a view of all activity associated with your Azure AD ro
 
 My audit enables you to view your personal role activity.
 
-1. Open **Azure AD Privileged Identity Management**.
+1. Open **Privileged Identity Management**.
 
 1. Select **Azure AD roles**.
 

@@ -8,7 +8,6 @@ ms.subservice: sql-dw
 ms.topic: conceptual
 ms.date: 08/13/2020
 ms.author: wiassaf
-ms.reviewer: wiassaf
 ms.custom: seo-lt-2019
 ---
 

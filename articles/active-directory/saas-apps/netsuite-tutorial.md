@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/21/2022
+ms.date: 08/08/2023
 ms.author: jeedes
 ---
 
@@ -36,7 +36,6 @@ NetSuite supports:
 
 * IDP-initiated SSO.
 * JIT (just-in-time) user provisioning.
-* NetSuite supports [Automated user provisioning](netsuite-provisioning-tutorial.md).
 
 > [!NOTE]
 > Because the identifier of this application is a fixed string value, only one instance can be configured in one tenant.
@@ -228,8 +227,6 @@ In this section, you enable user B.Simon to use Azure single sign-on by granting
 ### Create the NetSuite test user
 
 In this section, a user called B.Simon is created in NetSuite. NetSuite supports just-in-time user provisioning, which is enabled by default. There's no action item for you in this section. If a user doesn't already exist in NetSuite, a new one is created after authentication.
-
-NetSuite also supports automatic user provisioning, you can find more details [here](./netsuite-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 ## Test SSO
 

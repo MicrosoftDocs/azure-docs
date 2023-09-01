@@ -6,7 +6,7 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 11/24/2022
+ms.date: 08/02/2023
 ms.custom: engagement-fy23
 ---
 
@@ -109,7 +109,7 @@ Calculations occur in these three stages:
 
 1. **Calculate Azure readiness**: Assess whether servers are suitable for migration to Azure.
 1. **Calculate sizing recommendations**: Estimate compute, storage, and network sizing.
-1. **Calculate monthly costs**: Calculate the estimated monthly compute and storage costs for running the servers in Azure after migration.
+1. **Calculate monthly costs**: Calculate the estimated monthly compute, storage, and security costs for running the servers in Azure after migration.
 
 Calculations are in the preceding order. A server moves to a later stage only if it passes the previous one. For example, if a server fails the Azure readiness stage, it's marked as unsuitable for Azure. Sizing and cost calculations aren't done for that server.
 
@@ -134,6 +134,7 @@ Here's what's included in an Azure VM assessment:
 **VM uptime** | The duration in days per month and hours per day for Azure VMs that won't run continuously. Cost estimates are based on that duration.<br><br> The default values are 31 days per month and 24 hours per day.
 **Azure Hybrid Benefit** | Specifies whether you have software assurance and are eligible for [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/). If the setting has the default value "Yes," Azure prices for operating systems other than Windows are considered for Windows VMs.
 **EA subscription** | Specifies that an Enterprise Agreement (EA) subscription is used for cost estimation. Takes into account the discount applicable to the subscription. <br><br> Leave the settings for reserved instances, discount (%) and VM uptime properties with their default settings.
+**Security** | Specifies whether you want to assess readiness and cost for security tooling on Azure. If the setting has the default value **Yes, with Microsoft Defender for Cloud**, it will assess security readiness and costs for your Azure VM with Microsoft Defender for Cloud.   
 
 
 [Review the best practices](best-practices-assessment.md) for creating an assessment with Azure Migrate.
@@ -153,7 +154,7 @@ To calculate readiness, the assessment reviews the server properties and operati
 
 For an Azure VM Assessment, the assessment reviews the following properties of an on-premises VM to determine whether it can run on Azure VMs.
 
-Property | Details | Azure readiness status
+**Property** | **Details** | **Azure readiness status**
 --- | --- | ---
 **Boot type** | Azure supports UEFI boot type for OS mentioned [here](./common-questions-server-migration.md#which-operating-systems-are-supported-for-migration-of-uefi-based-machines-to-azure)| Not ready if the boot type is UEFI and Operating System running on the VM is: Windows Server 2003/Windows Server 2003 R2/Windows Server 2008/Windows Server 2008 R2
 **Cores** | Each server must have no more than 128 cores, which is the maximum number an Azure VM supports.<br><br> If performance history is available, Azure Migrate considers the utilized cores for comparison. If the assessment settings specify a comfort factor, the number of utilized cores is multiplied by the comfort factor.<br><br> If there's no performance history, Azure Migrate uses the allocated cores to apply the comfort factor. | Ready if the number of cores is within the limit
@@ -187,6 +188,25 @@ Linux | See the [Linux operating systems](../virtual-machines/linux/endorsed-dis
 Other operating systems like Oracle Solaris, Apple macOS, and FreeBSD | Azure doesn't endorse these operating systems. The server might start in Azure, but Azure provides no OS support. | Conditionally ready for Azure. We recommend that you install a supported OS before migrating to Azure.  
 OS specified as **Other** in vCenter Server | Azure Migrate can't identify the OS in this case. | Unknown readiness. Ensure that Azure supports the OS running inside the VM.
 32-bit operating systems | The server might start in Azure, but Azure might not provide full support. | Conditionally ready for Azure. Consider upgrading to a 64-bit OS before migrating to Azure.
+
+### Security readiness
+
+Assessments also determine readiness of the recommended target for Microsoft Defender for Servers. A server is marked as Ready for Microsoft Defender for Servers if it has the following:
+- Minimum 2 vCores (4 vCores preferred)
+- Minimum 1 GB RAM (4 GB preferred)
+- 2 GB of disk space
+- Runs any of the following Operating Systems:
+   - Windows Server 2008 R2, 2012 R2, 2016, 2019, 2022
+   - Red Hat Enterprise Linux Server 7.2+, 8+, 9+
+   - Ubuntu 16.04, 18.04, 20.04, 22.04
+   - SUSE Linux Enterprise Server 12, 15+
+   - Debian 9, 10, 11
+   - Oracle Linux 7.2+, 8
+   - CentOS Linux 7.2+
+   - Amazon Linux 2
+- For other Operating Systems, the server is marked as **Ready with Conditions**.
+If a server is not ready to be migrated to Azure, it is marked as **Not Ready** for Microsoft Defender for Servers.
+
 
 ## Calculating sizing
 
@@ -336,6 +356,9 @@ Cost is calculated using the following logic:
 - The Ultra disk VM reservation fee is not added in the total cost. [Learn More](https://azure.microsoft.com/pricing/details/managed-disks/)
 
 Assessment calculates the total monthly storage costs by aggregating the storage costs of all servers. Currently, the calculation doesn't consider offers specified in the assessment settings.
+
+### Security cost
+For servers recommended for Azure VM, if they're ready to run Defender for Server, the Defender for Server cost (Plan 2) per server for that region is added. The assessment aggregates the cost across all servers to calculate the total monthly security cost.
 
 Costs are displayed in the currency specified in the assessment settings.
 

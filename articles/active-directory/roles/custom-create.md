@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.date: 12/09/2022
 ms.author: rolyon
 ms.reviewer: vincesm
-ms.custom: it-pro
+ms.custom: it-pro, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 ---
 # Create and assign a custom role in Azure Active Directory
@@ -32,6 +32,8 @@ For more information, see [Prerequisites to use PowerShell or Graph Explorer](pr
 ## Create a role in the Azure portal
 
 ### Create a new custom role to grant access to manage app registrations
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 

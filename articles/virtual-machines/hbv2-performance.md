@@ -5,6 +5,7 @@ services: virtual-machines
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.workload: infrastructure-services 
+ms.custom: devx-track-linux
 ms.topic: article 
 ms.date: 03/04/2023 
 ms.reviewer: cynthn

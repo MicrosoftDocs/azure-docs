@@ -5,7 +5,7 @@ services: active-directory
 author: henrymbuguakiarie
 manager: CelesteDG
 
-ms.date: 07/03/2023
+ms.date: 08/01/2023
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
@@ -17,6 +17,20 @@ ms.custom: has-adal-ref
 # Microsoft identity platform docs: What's new
 
 Welcome to what's new in the Microsoft identity platform documentation. This article lists new docs that have been added and those that have had significant updates in the last three months.
+
+## July 2023
+
+### New articles
+
+- [Deploy a web app in a pipeline and configure App Service authentication](deploy-web-app-authentication-pipeline.md) - Deploy a webapp and configure auth in a pipeline
+
+### Updated articles
+
+- [Access tokens in the Microsoft identity platform](access-tokens.md) - Improve the explanations on how to validate a token
+- [Claims mapping policy type](reference-claims-mapping-policy-type.md) - Updates to Restricted Claims Set
+- [Migrate confidential client applications from ADAL.NET to MSAL.NET](msal-net-migration-confidential-client.md) - Improving clarity in the content
+- [Single sign-on with MSAL.js](msal-js-sso.md) - Add guidance on using the loginHint claim for SSO
+- [Tutorial: Create a Blazor Server app that uses the Microsoft identity platform for authentication](tutorial-blazor-server.md) - Simplified and leverage the Microsoft Identity App Sync .NET tool
 
 ## June 2023
 
@@ -67,28 +81,3 @@ Welcome to what's new in the Microsoft identity platform documentation. This art
 - [Tutorial: Sign in users and call the Microsoft Graph API from an Android application](tutorial-v2-android.md)
 - [Tutorial: Sign in users and call the Microsoft Graph API from an Angular single-page application (SPA) using auth code flow](tutorial-v2-angular-auth-code.md)
 - [Web app that signs in users: Code configuration](scenario-web-app-sign-user-app-configuration.md)
-
-## April 2023
-
-### New articles
-
-- [Configure token lifetime policies (preview)](configure-token-lifetimes.md)
-- [Secure applications and APIs by validating claims](claims-validation.md)
-
-### Updated articles
-
-- [Authentication flow support in MSAL](msal-authentication-flows.md)
-- [A web app that calls web APIs: Acquire a token for the app](scenario-web-app-call-api-acquire-token.md)
-- [A web app that calls web APIs: Code configuration](scenario-web-app-call-api-app-configuration.md)
-- [Customize claims issued in the JSON web token (JWT) for enterprise applications (Preview)](active-directory-jwt-claims-customization.md)
-- [Customize claims issued in the SAML token for enterprise applications](active-directory-saml-claims-customization.md)
-- [Daemon app that calls web APIs - acquire a token](scenario-daemon-acquire-token.md)
-- [Daemon app that calls web APIs - call a web API from the app](scenario-daemon-call-api.md)
-- [Daemon app that calls web APIs - code configuration](scenario-daemon-app-configuration.md)
-- [Desktop app that calls web APIs: Acquire a token using WAM](scenario-desktop-acquire-token-wam.md)
-- [Microsoft identity platform access tokens](access-tokens.md)
-- [Quickstart: Get a token and call the Microsoft Graph API by using a console app's identity](quickstart-v2-netcore-daemon.md)
-- [Tutorial: Sign in users and call the Microsoft Graph API from an Android application](tutorial-v2-android.md)
-- [Web app that signs in users: App registration](scenario-web-app-sign-user-app-registration.md)
-- [Web app that signs in users: Code configuration](scenario-web-app-sign-user-app-configuration.md)
-- [Web app that signs in users: Sign-in and sign-out](scenario-web-app-sign-user-sign-in.md)

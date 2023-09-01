@@ -3,8 +3,8 @@ title: Create a persistent volume with Azure Files in Azure Kubernetes Service (
 titleSuffix: Azure Kubernetes Service
 description: Learn how to create a static or dynamic persistent volume with Azure Files for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
 ms.topic: article
-ms.custom: devx-track-azurecli
-ms.date: 05/17/2023
+ms.custom: devx-track-azurecli, devx-track-linux
+ms.date: 08/16/2023
 ---
 
 # Create and use a volume with Azure Files in Azure Kubernetes Service (AKS)
@@ -161,23 +161,23 @@ The following YAML creates a pod that uses the persistent volume claim *my-azure
     metadata:
       name: mypod
     spec:
-     containers:
-     - name: mypod
-        image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
-        resources:
-          requests:
-            cpu: 100m
-            memory: 128Mi
-          limits:
-            cpu: 250m
-            memory: 256Mi
-        volumeMounts:
-        - mountPath: "/mnt/azure"
-          name: volume
-      volumes:
-        - name: volume
-          persistentVolumeClaim:
-            claimName: my-azurefile
+      containers:
+        - name: mypod
+          image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 250m
+              memory: 256Mi
+          volumeMounts:
+            - mountPath: /mnt/azure
+              name: volume
+          volumes:
+            - name: volume
+              persistentVolumeClaim:
+                claimName: my-azurefile
     ```
 
 2. Create the pod using the [`kubectl apply`][kubectl-apply] command.
@@ -328,37 +328,37 @@ To mount the Azure Files file share into your pod, you configure the volume in t
 
 1. Create a new file named `azure-files-pod.yaml` and copy in the following contents. If you changed the name of the file share or secret name, update the `shareName` and `secretName`. You can also update the `mountPath`, which is the path where the Files share is mounted in the pod. For Windows Server containers, specify a `mountPath` using the Windows path convention, such as *'D:'*.
 
-    ```yaml
-    apiVersion: v1
-    kind: Pod
-    metadata:
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mypod
+spec:
+  nodeSelector:
+    kubernetes.io/os: linux
+  containers:
+    - image: 'mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine'
       name: mypod
-    spec:
-      nodeSelector:
-        kubernetes.io/os: linux
-      containers:
-     - image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
-        name: mypod
-        resources:
-          requests:
-            cpu: 100m
-            memory: 128Mi
-          limits:
-            cpu: 250m
-            memory: 256Mi
-        volumeMounts:
-          - name: azure
-            mountPath: /mnt/azure
-      volumes:
-     - name: azure
-        csi:
-          driver: file.csi.azure.com
-          readOnly: false
-          volumeAttributes:
-            secretName: azure-secret  # required
-            shareName: aksshare  # required
-            mountOptions: "dir_mode=0777,file_mode=0777,cache=strict,actimeo=30,nosharesock"  # optional
-    ```
+      resources:
+        requests:
+          cpu: 100m
+          memory: 128Mi
+        limits:
+          cpu: 250m
+          memory: 256Mi
+      volumeMounts:
+        - name: azure
+          mountPath: /mnt/azure
+  volumes:
+    - name: azure
+      csi: 
+        driver: file.csi.azure.com
+        readOnly: false
+        volumeAttributes:
+          secretName: azure-secret  # required
+          shareName: aksshare  # required
+          mountOptions: 'dir_mode=0777,file_mode=0777,cache=strict,actimeo=30,nosharesock'  # optional
+```
 
 2. Create the pod using the [`kubectl apply`][kubectl-apply] command.
 

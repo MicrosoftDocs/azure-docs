@@ -16,6 +16,10 @@
     href: create-virtual-machine.md
   - name: Enable SCVMM inventory resources  
     href: enable-scvmm-inventory-resources.md
+  - name: Enable guest management
+    href: enable-group-management.md
+  - name: Perform recovery operations
+    href: disaster-recovery.md
 
 - name: Reference
   items:

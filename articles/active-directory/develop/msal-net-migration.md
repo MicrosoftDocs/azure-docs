@@ -45,7 +45,8 @@ For details about the decision tree below, read [MSAL.NET or Microsoft.Identity.
 
 [See examples](https://identitydivision.visualstudio.com/DevEx/_wiki/wikis/DevEx.wiki/20413/1P-ADAL.NET-to-MSAL.NET-migration-examples) of other 1P teams who have already, or are currently, migrating from ADAL to one of the MSAL+ solutions above. See their code, and in some cases read about their migration story.
  -->
-### Deprecated ADAL.Net Nuget packages and their MSAL.Net equivalents
+### Deprecated ADAL.Net NuGet packages and their MSAL.Net equivalents
+
 You might unknowingly consume ADAL dependencies from other Azure SDKs. Below are few of the deprecated packages and their MSAL alternatives.
 
 |  ADAL.NET Package (Deprecated) | MSAL.NET Package (Current) |

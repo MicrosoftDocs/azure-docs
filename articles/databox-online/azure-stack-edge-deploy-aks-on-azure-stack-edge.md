@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/16/2023
+ms.date: 07/11/2023
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to deploy and configure Azure Kubernetes service on Azure Stack Edge.
 ---
@@ -48,7 +48,7 @@ Depending on the workloads you intend to deploy, you may need to ensure the foll
 
    ```azurepowershell
    az login
-   az ad sp show --id 'bc313c14-387c-4e7d-a58e-70417303ee3b' --query id -o tsv
+   az ad sp show --id bc313c14-387c-4e7d-a58e-70417303ee3b --query id -o tsv
    ```
   
    Here's a sample output using the Azure CLI. You can run the same commands via the Cloud Shell in the Azure portal.

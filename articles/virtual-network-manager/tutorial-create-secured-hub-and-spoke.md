@@ -5,8 +5,8 @@ author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: tutorial
-ms.date: 04/14/2023
-ms.custom: FY23 content-maintenance, engagement-FY23
+ms.date: 08/01/2023
+ms.custom: FY23 content-maintenance, engagement-FY24
 ---
 
 # Tutorial: Create a secured hub and spoke network
@@ -29,6 +29,7 @@ In this tutorial, you learn how to:
 > * Create a security configuration blocking traffic on port 80 and 443.
 > * Verify configurations were applied.
 
+:::image type="content" source="media/tutorial-create-secured-hub-and-spoke/create-secure-hub-spoke-network.png" alt-text="Diagram of secure hub and spoke topology components.":::
 ## Prerequisite
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).

@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 07/05/2023
+ms.date: 08/29/2023
 
 ms.author: justinha
 author: justinha
@@ -58,7 +58,7 @@ Install the Microsoft.Graph.Identity.Signins PowerShell module using the followi
 
 ```powershell
 Install-module Microsoft.Graph.Identity.Signins
-Connect-MgGraph -Scopes UserAuthenticationMethod.ReadWrite.All
+Connect-MgGraph -Scopes "User.Read.all","UserAuthenticationMethod.Read.All","UserAuthenticationMethod.ReadWrite.All"
 Select-MgProfile -Name beta
 ```
 
@@ -83,6 +83,8 @@ Remove-MgUserAuthenticationPhoneMethod -UserId balas@contoso.com -PhoneAuthentic
 Authentication methods can also be managed using Microsoft Graph APIs. For more information, see [Authentication and authorization basics](/graph/auth/auth-concepts).
 
 ## Manage user authentication options
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 If you're assigned the *Authentication Administrator* role, you can require users to reset their password, re-register for MFA, or revoke existing MFA sessions from their user object. To manage user settings, complete the following steps:
 

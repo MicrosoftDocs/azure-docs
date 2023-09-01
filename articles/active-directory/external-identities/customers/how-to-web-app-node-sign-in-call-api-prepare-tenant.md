@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 05/22/2023
+ms.date: 07/28/2023
 ms.custom: developer, devx-track-js
 ---
 
@@ -56,7 +56,7 @@ In this step, you create the web and the web API application registrations, and 
 
 [!INCLUDE [active-directory-b2c-app-integration-add-user-flow](./includes/register-app/add-app-role.md)]
 
-### Configure optional claims
+### Configure idtyp token claim
 
 [!INCLUDE [active-directory-b2c-app-integration-add-user-flow](./includes/register-app/add-optional-claims-access.md)]
 
