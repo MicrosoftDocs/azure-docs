@@ -6,11 +6,9 @@ ms.date: 08/01/2023
 ms.author: pafarley
 ---
 
-[Reference documentation](/dotnet/api/azure.ai.vision.imageanalysis) | Packages (NuGet): [ImageAnalysis](https://www.nuget.org/packages/Azure.AI.Vision.ImageAnalysis) | [Samples](https://github.com/Azure-Samples/azure-ai-vision-sdk)
+[Reference documentation](/dotnet/api/azure.ai.vision.imageanalysis) | [Packages (NuGet)](https://www.nuget.org/packages/Azure.AI.Vision.ImageAnalysis) | [Samples](https://github.com/Azure-Samples/azure-ai-vision-sdk)
 
 This guide shows how to install the Vision SDK for C#. 
-
-**By installing the Azure AI Vision SDK package you acknowledge the [Azure AI Vision SDK license agreement](https://aka.ms/azai/vision/license)**.
 
 ## Platform requirements
 
