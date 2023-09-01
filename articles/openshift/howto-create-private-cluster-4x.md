@@ -218,6 +218,11 @@ az aro create \
   --ingress-visibility Private \
   --outbound-type UserDefinedRouting
 ```
+
+> [!NOTE]
+> The UserDefinedRouting flag can only be used when creating clusters with -`-apiserver-visibility Private` and `--ingress-visibility Private` parameters.
+> 
+
 This User Defined Routing option prevents a public IP address from being provisioned. User Defined Routing (UDR) allows you to create custom routes in Azure to override the default system routes or to add more routes to a subnet's route table. See 
 [Virtual network traffic routing](../virtual-network/virtual-networks-udr-overview.md) to learn more.
 
