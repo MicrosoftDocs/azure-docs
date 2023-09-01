@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 08/31/2023
+ms.date: 09/01/2023
 ms.author: jasteppe
 ---
 
@@ -135,7 +135,7 @@ By setting triggers, you can simulate batch transformation of HL7v2 data. The pi
 
 ## Create a new storage event trigger
 
-In the following example, a storage event trigger is used. The storage event trigger automatically triggers the pipeline whenever a new HL7v2 data blob file to be processed is uploaded.
+In the following example, a storage event trigger is used. The storage event trigger automatically triggers the pipeline whenever a new HL7v2 data blob file to be processed is uploaded to the ADLS Gen2 storage account.
 
 To configure the pipeline to automatically run whenever a new HL7v2 blob file in the source ADLS Gen2 storage account is available to transform, follow these steps:
 
@@ -151,8 +151,8 @@ To configure the pipeline to automatically run whenever a new HL7v2 blob file in
 
    :::image type="content" source="media/convert-data/convert-data-with-azure-data-factory/create-new-storage-event-trigger.png" alt-text="Screenshot of creating a new storage event trigger." lightbox="media/convert-data/convert-data-with-azure-data-factory/create-new-storage-event-trigger.png":::
 
-7.	Select **Continue** to see the data preview for the configured settings.
-8.	Select **Continue** again to continue configuring the trigger run parameters. 
+7.	Select **Continue** to see the **Data preview** for the configured settings.
+8.	Select **Continue** again at **Data preview**  to continue configuring the trigger run parameters. 
 
 ## Configure trigger run parameters
 
@@ -166,13 +166,13 @@ For the **Transform HL7v2 health data to FHIR R4 format and write to ADLS Gen2
 > If no value is supplied during configuration, then the previously configured default value will be used for each parameter. 
 
 1. In the **New trigger** pane, within the **Trigger Run Parameters** options, use the following values:
-   * For **inputStorageFolder** use `@triggerBody.folderPath`. This parameter provides the runtime value for this parameter based on the folder path associated with the event triggered (for example: folder path of the new HL7v2 blob created/updated in the storage account configured in the trigger).
-   * For **inputStorageFile** use `@triggerBody.fileName`. This parameter provides the runtime value for this parameter based on the file associated with the event triggered (for example: file name of the new HL7v2 blob created/updated in the storage account configured in the trigger).
+   * For **inputStorageFolder** use `@triggerBody().folderPath`. This parameter provides the runtime value for this parameter based on the folder path associated with the event triggered (for example: folder path of the new HL7v2 blob created/updated in the storage account configured in the trigger).
+   * For **inputStorageFile** use `@triggerBody().fileName`. This parameter provides the runtime value for this parameter based on the file associated with the event triggered (for example: file name of the new HL7v2 blob created/updated in the storage account configured in the trigger).
    * For **rootTemplate** specify the name of the template to be used for the pipeline executions associated with this trigger (for example: `ADT_A01`).
 
 2. Select **Save** to create the new trigger. Be sure to select **Publish** on the menu bar to begin your trigger running on the defined schedule.
 
-   :::image type="content" source="media/convert-data/convert-data-with-azure-data-factory/adf-trigger-parameters.png" alt-text="Screenshot of Azure Data Factory trigger parameters." lightbox="media/convert-data/convert-data-with-azure-data-factory/adf-trigger-parameters.png":::
+   :::image type="content" source="media/convert-data/convert-data-with-azure-data-factory/trigger-run-parameters.png" alt-text="Screenshot of Azure Data Factory trigger parameters." lightbox="media/convert-data/convert-data-with-azure-data-factory/trigger-run-parameters.png":::
 
 After the trigger is published, it can be triggered manually using the **Trigger now** option. If the start time was set for a value in the past, the pipeline starts immediately. 
 
@@ -194,7 +194,7 @@ Successful pipeline executions result in the transformed FHIR R4 bundles as JSON
 
 Errors encountered during conversion, as part of the pipeline execution, results in error details captured as JSON file in the configured error destination ADLS Gen2 storage account and container.
 
-:::image type="content" source="media/convert-data/convert-data-with-azure-data-factory/adf-errors.png" alt-text="Screenshot of Azure Data Factory errors." lightbox="media/convert-data/convert-data-with-azure-data-factory/adf-errors.png":::
+:::image type="content" source="media/convert-data/convert-data-with-azure-data-factory/pipeline-errors.png" alt-text="Screenshot of Azure Data Factory errors." lightbox="media/convert-data/convert-data-with-azure-data-factory/pipeline-errors.png":::
 
 ## Next Steps
 
