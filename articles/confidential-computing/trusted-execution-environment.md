@@ -2,15 +2,15 @@
 
 ## What is a TEE?
 
-note: duplicated from overview.md
+A Trusted Execution Environment (TEE) is a segregated area of memory and CPU that is protected from the rest of the CPU using encryption, any data in the TEE can't be read or tampered with by any code outside that environment. Data can be manipulated inside the TEE by suitable authorized code.
 
-A TEE is a segregated area of memory and CPU that is protected from the rest of the CPU using encryption
+:::image type="content" source="./media/trusted-compute-base/app-enclave-vs-virtual-machine.jpg " alt-text="Image showing the Trusted Compute Base (TCB) concept mapped to Intel SGX and AMD SEV-SNP Trusted Execution Environments":::
 
-Any data in the TEE can't be read or tampered with by any code outside that environment
+Code executing insdide the TEE is processed in the clear but is only visible in encrpyted form when anything outside tries to access it, either in-memory or by reading CPU registers. this is enforced by the platform security processor embedded inside the CPU die.
 
-Data can be manipulated inside the TEE by suitable authorized code 
+Technical details on how the TEE is implemented across different Azure hardware is available as follows:
 
-Box diagram - showing what's inside can't be tampered with
-
-bank vault analogy
-
+AMD SEV-SNP Confidential Virtual Machines (https://www.amd.com/en/developer/sev.html)
+Intel SGX enabled Virtual Machines (https://www.intel.com/content/www/us/en/architecture-and-technology/software-guard-extensions.html)
+Intel TDX Virtual Machines (https://www.intel.com/content/www/us/en/developer/articles/technical/intel-trust-domain-extensions.html) 
+NVIDIA Hardware (https://www.nvidia.com/en-gb/data-center/h100/)
