@@ -21,6 +21,10 @@ This article shows you how to regain access to an ARO cluster using the Admin Ku
 
 The Admin Kubeconfig feature allows cluster access in scenarios where the kube-apiserver is available, but `openshift-ingress`, `openshift-console`, or `openshift-authentication` aren't allowing login.
 
+> [!NOTE]
+> When using the Admin Kubeconfig feature in an environment with multiple clusters, make sure you are working in the correct context. For more information about contexts, see the [Red Hat OpenShift documentation](https://docs.openshift.com/container-platform/4.12/cli_reference/openshift_cli/managing-cli-profiles.html).
+> 
+
 ## Before you begin
 
 Ensure you're running Azure CLI version 2.50.0 or later.
