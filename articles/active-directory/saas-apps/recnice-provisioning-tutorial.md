@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/10/2023
+ms.date: 09/01/2023
 ms.author: thwimmer
 ---
 
@@ -41,7 +41,17 @@ The scenario outlined in this tutorial assumes that you already have the followi
 1. Determine what data to [map between Azure AD and Recnice](../app-provisioning/customize-application-attributes.md).
 
 ## Step 2. Configure Recnice to support provisioning with Azure AD
-Contact Recnice support to configure Recnice to support provisioning with Azure AD.
+Before configuring Recnice for automatic user provisioning with Azure AD, you will need to know the Secret Token and Tenant URL.
+
+1. Sign in to your Recnice Admin Console. Click on **Account**.
+
+	![Recnice Account Page](custom/recnice-account-settings.png)
+
+2. Copy the **SCIM Key** value. This value will be entered in the **Secret Token** field in the Provisioning tab of your Recnice application in the Azure portal.
+
+	![A screenshot of the S C I M A P I key.](custom/recnice-token.png)
+
+3. The **Tenant URL** value: https://scim.recnice.com/scim/?aadOptscim062020
 
 ## Step 3. Add Recnice from the Azure AD application gallery
 
@@ -58,7 +68,7 @@ The Azure AD provisioning service allows you to scope who will be provisioned ba
 
 ## Step 5. Configure automatic user provisioning to Recnice 
 
-This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in TestApp based on user and/or group assignments in Azure AD.
+This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in Recnice based on user and/or group assignments in Azure AD.
 
 ### To configure automatic user provisioning for Recnice in Azure AD:
 
