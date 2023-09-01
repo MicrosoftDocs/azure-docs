@@ -8,7 +8,9 @@ ms.author: pafarley
 
 [Reference documentation](/cpp/cognitive-services/vision) | Packages (NuGet): [ImageAnalysis](https://www.nuget.org/packages/Azure.AI.Vision.ImageAnalysis) | [Samples](https://github.com/Azure-Samples/azure-ai-vision-sdk)
 
-This guide shows how to install the Vision SDK for C++. 
+This guide shows how to install the Vision SDK for C++.
+
+**By installing the Azure AI Vision SDK package you acknowledge the [Azure AI Vision SDK license agreement](https://aka.ms/azai/vision/license)**.
 
 ## Platform requirements
 

@@ -14,11 +14,11 @@ ms.custom: devx-track-python, devx-track-csharp
 zone_pivot_groups: programming-languages-vision-40-sdk
 ---
 
+# Overview
+
+The Vision SDK (Preview) provides a convenient way to access the Image Analysis service using [version 4.0 of the REST APIs](https://aka.ms/vision-4-0-ref). It is available for Python, C# .NET and C++ developers on Linux x64 and Windows x64 platforms.
+
 # Install the Vision SDK
-
-The Vision SDK (Preview) provides a convenient way to access the Image Analysis service using [version 4.0 of the REST APIs](https://aka.ms/vision-4-0-ref). It is available for Python, Java JRE, C# .NET and C++ developers on Linux x64 and Windows x64 platforms.
-
-**By installing the Azure AI Vision SDK package you acknowledge the [Azure AI Vision SDK license agreement](https://aka.ms/azai/vision/license)**.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# include](../includes/setup-sdk/csharp.md)]

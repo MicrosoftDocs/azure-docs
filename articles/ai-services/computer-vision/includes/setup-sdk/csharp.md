@@ -10,6 +10,8 @@ ms.author: pafarley
 
 This guide shows how to install the Vision SDK for C#. 
 
+**By installing the Azure AI Vision SDK package you acknowledge the [Azure AI Vision SDK license agreement](https://aka.ms/azai/vision/license)**.
+
 ## Platform requirements
 
 [!INCLUDE [Requirements](csharp-requirements.md)]

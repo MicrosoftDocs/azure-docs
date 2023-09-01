@@ -8,7 +8,9 @@ ms.author: pafarley
 
 [Reference documentation](/python/api/azure-ai-vision) | [Package (PyPi)](https://pypi.org/project/azure-ai-vision/) | [Samples](https://github.com/Azure-Samples/azure-ai-vision-sdk)
 
-This guide shows how to install the Vision SDK for Python. 
+This guide shows how to install the Vision SDK for Python.
+
+**By installing the Azure AI Vision SDK package you acknowledge the [Azure AI Vision SDK license agreement](https://aka.ms/azai/vision/license)**.
 
 ## Platform requirements
 
