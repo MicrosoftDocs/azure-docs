@@ -32,7 +32,7 @@ For example, if there are several SBCs available to route a call, direct routing
 
 Here's an example of the configuration:
 
-![[SIP options configuration example.](../../media/monitoring-troubleshooting-telephony/sip-options-config-routing.png)](../../media/monitoring-troubleshooting-telephony/sip-options-config-routing.png#lightbox)
+![[Screenshot showing SIP options configuration example.](../../media/monitoring-troubleshooting-telephony/sip-options-config-routing.png)](../../media/monitoring-troubleshooting-telephony/sip-options-config-routing.png#lightbox)
 
 When an Azure Communication Services SDK app makes a call to number +1 425 \<any seven digits>, direct routing evaluates the route. There are two SBCs in the route: `sbc.contoso.com` and `sbc2.contoso.com`. Both SBCs have equal priority in the route. Before picking an SBC, the routing mechanism evaluates the health of each SBC, based on when the SBC sent the SIP OPTIONS last time.
 
