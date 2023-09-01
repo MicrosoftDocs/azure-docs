@@ -245,10 +245,10 @@ A new folder is created in the project. The folder contains a new function.json 
 
 ## <a name="add-input-and-output-bindings"></a>Connect to services
 
-You can connect your function to other Azure services by adding input and output bindings. Bindings connect your function to other services without you having to write the connection code. The process for adding bindings depends on your project's language. 
+You can connect your function to other Azure services by adding input and output bindings. Bindings connect your function to other services without you having to write the connection code. 
 
 ::: zone pivot="programming-language-csharp"  
-For example, to add an output binding that writes data to a storage queue, the way you define the output binding depends on your process model:
+For example, the way you define an output binding that writes data to a storage queue depends on your process model:
 
 ### [In-process](#tab/in-process)
 
@@ -265,7 +265,7 @@ Update the function method to add a binding parameter defined by using the `Queu
 For example, to add an output binding that writes data to a storage queue you update the function method to add a binding parameter defined by using the [`QueueOutput`](/java/api/com.microsoft.azure.functions.annotation.queueoutput) annotation. The [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.outputbinding) object represents the messages that are written to an output binding when the function completes.
 ::: zone-end
 ::: zone pivot="programming-language-javascript"
-For example, to add an output binding that writes data to a storage queue, the way you define the output binding depends on your Node.js model version:
+For example, the way you define the output binding that writes data to a storage queue depends on your Node.js model version:
 
 ### [v3](#tab/node-v3)
 
@@ -282,6 +282,8 @@ Using the Node.js v4 model, you must manually add a `return:` option in the func
 [!INCLUDE [functions-add-output-binding-vs-code](../../includes/functions-add-output-binding-vs-code.md)]
 ::: zone-end
 ::: zone pivot="programming-language-python"
+For example, the way you define the output binding that writes data to a storage queue depends on your Python model version:
+
 ### [v2](#tab/python-v2)
 
 The `@queue_output` decorator on the function is used to define a named binding parameter for the output to the storage queue, where `func.Out` defines what output is written. 
@@ -294,8 +296,6 @@ The `@queue_output` decorator on the function is used to define a named binding 
 
 ::: zone-end
 [!INCLUDE [functions-add-output-binding-example-all-langs](../../includes/functions-add-output-binding-example-all-languages.md)]
-
-This example definition connects to a storage queue named `outqueue`, where the connection string for the storage account is set in the `MyStorageConnection` application setting in local.settings.json.
 
 [!INCLUDE [functions-sign-in-vs-code](../../includes/functions-sign-in-vs-code.md)]
 
