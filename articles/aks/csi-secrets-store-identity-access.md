@@ -4,7 +4,7 @@ description: Learn how to integrate the Azure Key Vault Provider for Secrets Sto
 author: nickomang 
 ms.author: nickoman
 ms.topic: article
-ms.date: 07/25/2023
+ms.date: 09/01/2023
 ms.custom: devx-track-azurecli, devx-track-linux
 ---
 
@@ -236,7 +236,8 @@ Before you begin, you must have the following prerequisites:
       name: busybox-secrets-store-inline-user-msi
     spec:
       containers:
-        - name: busybox
+        - serviceAccountName: "workload-identity-sa"
+          name: busybox
           image: registry.k8s.io/e2e-test-images/busybox:1.29-4
           command:
             - "/bin/sleep"
