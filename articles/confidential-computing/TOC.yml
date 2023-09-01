@@ -38,7 +38,7 @@
      - name: Container solutions overview #seems lost
        href: choose-confidential-containers-offerings.md
 - name: Why might I need it? # WHY?
- # expanded: true
+  expanded: true
   items:
 #-------- "lost" block
   - name: Threat Scenarios and protection goals # make all the sub-headings point to a header in the threat-scenarios.md page
