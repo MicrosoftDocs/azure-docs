@@ -158,6 +158,8 @@ Select-AzSubscription -SubscriptionName my-subscription
 New-AzResourceGroupDeployment -Name CreateAdvisorAlert -ResourceGroupName my-resource-group -TemplateFile CreateAdvisorAlert.json -emailAddress user@contoso.com
 ```
 
+
+
 ---
 
 ## Validate the deployment
@@ -175,6 +177,8 @@ az monitor activity-log alert show --resource-group my-resource-group --name Adv
 ```powershell
 Get-AzActivityLogAlert -ResourceGroupName my-resource-group -Name AdvisorAlertsTest
 ```
+
+
 
 ---
 
@@ -194,9 +198,12 @@ az group delete --name my-resource-group
 Remove-AzResourceGroup -Name my-resource-group
 ```
 
+
+
 ---
 
 ## Next steps
 
 - Get an [overview of activity log alerts](../azure-monitor/alerts/alerts-overview.md), and learn how to receive alerts.
 - Learn more about [action groups](../azure-monitor/alerts/action-groups.md).
+
