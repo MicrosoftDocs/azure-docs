@@ -162,7 +162,7 @@ To use an existing dashboard as a template for a new dashboard, follow these ste
 
 1. In the page header, select ![clone icon](./media/azure-portal-dashboards/dashboard-clone.png) **Clone**.
 
-1. A copy of the dashboard, named **Clone of *your dashboard name* ** opens in edit mode. Use the preceding steps in this article to rename and customize the dashboard.
+1. A copy of the dashboard, named **Clone of *your dashboard name* ** opens in edit mode. You can then rename and customize the dashboard.
 
 ## Publish and share a dashboard
 
@@ -170,27 +170,27 @@ When you create a dashboard, it's private by default, which means you're the onl
 
 ### Open a shared dashboard
 
-To find and open a shared dashboard, follow these steps:
+To find and open a shared dashboard, follow these steps.
 
 1. Select the arrow next to the dashboard name.
 
 1. Select from the displayed list of dashboards. If the dashboard you want to open isn't listed:
 
-    1. select **Browse all dashboards**.
+    1. Select **Browse all dashboards**.
 
         :::image type="content" source="media/azure-portal-dashboards/dashboard-browse.png" alt-text="Screenshot of dashboard selection menu.":::
 
-    1. In the **Type** field, select **Shared dashboards**.
+    1. Select the **Type equals** filter, then select **Shared dashboard**.
 
         :::image type="content" source="media/azure-portal-dashboards/dashboard-browse-all.png" alt-text="Screenshot of all dashboards selection menu.":::
 
-    1. Select one or more subscriptions. You can also enter text to filter dashboards by name.
-
-    1. Select a dashboard from the list of shared dashboards.
+    1. Select a dashboard from the list of shared dashboards. If you don't see the one you want, use the filters to limit the results shown, such as selecting a specific subscription or filtering by name.
 
 ## Delete a dashboard
 
-To permanently delete a private or shared dashboard, follow these steps:
+You can delete your private dashboards, or a shared dashboard that you created or have permissions to modify.
+
+To permanently delete a private or shared dashboard, follow these steps.
 
 1. Select the dashboard you want to delete from the list next to the dashboard name.
 
@@ -200,9 +200,8 @@ To permanently delete a private or shared dashboard, follow these steps:
 
     :::image type="content" source="media/azure-portal-dashboards/dashboard-delete-dash.png" alt-text="Screenshot of delete confirmation.":::
 
-## Recover a deleted dashboard
-
-If you're in the global Azure cloud, and you delete a _published_ dashboard in the Azure portal, you can recover that dashboard within 14 days of the delete. For more information, see [Recover a deleted dashboard in the Azure portal](recover-shared-deleted-dashboard.md).
+> [!TIP]
+> In the global Azure cloud, if you delete a _published_ dashboard in the Azure portal, you can recover that dashboard within 14 days of the delete. For more information, see [Recover a deleted dashboard in the Azure portal](recover-shared-deleted-dashboard.md).
 
 ## Next steps
 
