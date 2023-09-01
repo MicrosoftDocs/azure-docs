@@ -115,7 +115,7 @@
         - name: With a job
           href: tutorial-event-driven-jobs.md
     - name: Reliability in Azure Container Apps
-      href: disaster-recovery.md
+      href: ../reliability/reliability-azure-container-apps.md
 - name: Logs and monitoring
   items:
     - name: Overview
