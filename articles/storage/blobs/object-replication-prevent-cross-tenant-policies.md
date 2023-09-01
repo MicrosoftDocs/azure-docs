@@ -26,7 +26,7 @@ For more information on how to configure object replication policies, including 
 
 To prevent object replication across Azure AD tenants, set the **AllowCrossTenantReplication** property for the storage account to **false**. If a storage account does not currently participate in any cross-tenant object replication policies, then setting the **AllowCrossTenantReplication** property to *false* prevents future configuration of cross-tenant object replication policies with this storage account as the source or destination. However, if a storage account currently participates in one or more cross-tenant object replication policies, then setting the **AllowCrossTenantReplication** property to *false* is not permitted until you delete the existing cross-tenant policies.
 
-Cross-tenant policies are permitted by default for a storage account. However, the **AllowCrossTenantReplication** property is not set by default for a new or existing storage account and does not return a value until you explicitly set it. The storage account can participate in object replication policies across tenants when the property value is either **null** or **true**.
+Cross-tenant policies are permitted by default for a storage account. However, the **AllowCrossTenantReplication** property is not set by default for a new or existing storage account and does not return a value until you explicitly set it. The storage account can participate in object replication policies across tenants when the property value is either **null** or **true**. Setting the **AllowCrossTenantReplication** property does not incur any downtime on the storage account.
 
 ### Remediate cross-tenant replication for a new account
 

@@ -8,9 +8,9 @@ ms.service: azure-vmware
 ms.date: 3/20/2023
 ms.custom: engagement-fy23
 ---
-# Migrate Microsoft SQL Server Always On cluster to Azure VMware Solution
+# Migrate a SQL Server Always On Availability Group to Azure VMware Solution
 
-In this article, you learn how to migrate Microsoft SQL Server Always On Cluster to Azure VMware Solution. For VMware HCX, you can follow the VMware vMotion migration procedure.
+In this article, you learn how to migrate a Microsoft SQL Server Always On Availability Group  to Azure VMware Solution. For VMware HCX, you can follow the VMware vMotion migration procedure.
 
 :::image type="content" source="media/sql-server-hybrid-benefit/sql-always-on-architecture.png" alt-text="Diagram showing the architecture of Always On SQL Server for  Azure VMware Solution." border="false" lightbox="media/sql-server-hybrid-benefit/sql-always-on-architecture.png":::
 
@@ -64,9 +64,9 @@ If the cluster uses a **File share witness** running on-premises, then the type 
 
 For details about configuring and managing the quorum, see [Failover Clustering documentation](/windows-server/failover-clustering/manage-cluster-quorum). For information  about deployment of Cloud witness in Azure Blob Storage, see [Manage a cluster quorum for a Failover Cluster](/windows-server/failover-clustering/deploy-cloud-witness).
 
-## Migrate Microsoft SQL Server Always On cluster
+## Migrate SQL Server Always On Availability Group
 
-1. Access your Always On cluster with SQL Server Management Studio using administration credentials.
+1. Access your Always On Availability Group with SQL Server Management Studio using administration credentials.
    - Select your primary replica and open **Availability Group** **Properties**.
           :::image type="content" source="media/sql-server-hybrid-benefit/sql-always-on-1.png" alt-text="Diagram showing Always On Availability Group properties." border="false" lightbox="media/sql-server-hybrid-benefit/sql-always-on-1.png":::
    - Change **Availability Mode** to **Asynchronous commit** only for the replica to be migrated.
