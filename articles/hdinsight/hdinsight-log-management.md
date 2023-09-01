@@ -154,7 +154,7 @@ For certain log files, you can use a lower-priced log file archiving approach. F
 
 :::image type="content" source="./media/hdinsight-log-management/hdi-export-log-files.png" alt-text="Azure portal export activity log preview":::
 
-Alternatively, you can script log archiving with PowerShell.  For an example PowerShell script, see [Archive Azure Automation logs to Azure Blob Storage](https://gallery.technet.microsoft.com/scriptcenter/Archive-Azure-Automation-898a1aa8).
+Alternatively, you can script log archiving with PowerShell. 
 
 ### Accessing Azure Storage metrics
 
