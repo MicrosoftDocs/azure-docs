@@ -70,13 +70,7 @@ items:
     items:
     - name: FHIR search overview
       href: overview-of-search.md
-<<<<<<< HEAD
-    - name: selectable search parameters
-      href: selectable-search-parameters.md
     - name: Define custom search parameters
-=======
-    - name: Defining custom search parameters
->>>>>>> acad56bb2a2e3e467afbe93e52ced28f852063b0
       href: how-to-do-custom-search.md
     - name: How to run a reindex job
       href: how-to-run-a-reindex.md

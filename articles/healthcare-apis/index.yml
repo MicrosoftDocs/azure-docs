@@ -48,11 +48,11 @@ conceptualContent:
               text: Grant permissions to a managed identity
          
         # Card
-        - title: Health data
+        - title: FHIR data
           links:
             - url: ./fhir/overview.md
               itemType: overview
-              text: FHIR service overview
+              text: What is the FHIR service?
             - url: ./fhir/get-started-with-fhir.md
               itemType: how-to-guide
               text: Deploy the FHIR service
@@ -134,9 +134,13 @@ additionalContent:
     - title: Tools & resources 
       items:
         # Card
-        - title: Health data workflows
+        - title: Azure Health Data & AI workflows
           summary: Sample apps and code
           url: https://github.com/Azure-Samples/azure-health-data-services-samples
+          # Card
+        - title: Quickstart templates
+          summary: Sample code
+          url: https://learn.microsoft.com/samples/browse/?terms=azure%20health%20data%20services
         # Card
         - title: Healthcare & Life Sciences blog
           summary: Insights, best practices, and innovations
