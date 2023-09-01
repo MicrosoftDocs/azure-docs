@@ -27,42 +27,42 @@ Learn about various [MUA usage scenarios](multi-user-authorization-concept.md#us
 
 ## Create a Resource Guard
 
+The **Security admin** creates the Resource Guard. We recommend that you create it in a **different subscription** or a **different tenant** as the vault. However, it should be in the **same region** as the vault.
+
 >[!Note]
->The **Security admin** creates the Resource Guard. We recommend that you create it in a **different subscription** or a **different tenant** as the vault. However, it should be in the **same region** as the vault. The Backup admin must **NOT** have *contributor* access on the Resource Guard or the subscription that contains it.
+>The **Backup admin** must **NOT** have *contributor* access on the Resource Guard or the subscription that contains it.
 >
->Create the Resource Guard in a tenant different from the vault tenant.
+To create the Resource Guard in a tenant different from the vault tenant as a Security admin, follow these steps:
 
-Follow these steps:
-
-1. In the Azure portal, go to the directory under which you wish to create the Resource Guard.
+1. In the Azure portal, go to the directory under which you want to create the Resource Guard.
    
-1. Search for **Resource Guards** in the search bar and select the corresponding item from the drop-down.
+1. Search for **Resource Guards** in the search bar and select the corresponding item from the dropdown list.
 
-   - Select **Create** to start creating a Resource Guard.
-   - In the create blade, fill in the required details for this Resource Guard.
-       - Make sure the Resource Guard is in the same Azure regions as the Recovery Services vault.
-       - Also, it is helpful to add a description of how to get or request access to perform actions on associated vaults when needed. This description would also appear in the associated vaults to guide the backup admin on getting the required permissions. You can edit the description later if needed, but having a well-defined description at all times is encouraged.
+   1. Select **Create** to create a Resource Guard.
+   1. In the create blade, fill in the required details for this Resource Guard.
+       - Ensure that the Resource Guard is in the same Azure regions as the vault.
+       - Add a description on how to request access to perform actions on associated vaults when needed. This description appears in the associated vaults to guide the Backup admin on how to get the required permissions. You can edit the description later if needed, but having a well-defined description at all times is encouraged.
        
 1. On the **Protected operations** tab, select the operations you need to protect using this resource guard.
 
    You can also [select the operations to be protected after creating the resource guard](#select-operations-to-protect-using-resource-guard).
 
 1. Optionally, add any tags to the Resource Guard as per the requirements
-1. Select **Review + Create**.
-1. Follow notifications for status and successful creation of the Resource Guard.
+1. Select **Review + Create**, and then follow the notifications to monitor the creation of the Resource Guard.
 
 ### Select operations to protect using Resource Guard
 
 >[!Note]
->Choose the operations you want to protect using the Resource Guard out of all supported critical operations. By default, all supported critical operations are enabled. However, you can exempt certain operations from falling under the purview of MUA using Resource Guard. The security admin can perform the following  steps:
+>After vault creation, the Security admin can also choose the operations for protection using the Resource Guard among all supported critical operations. By default, all supported critical operations are enabled. However, the Security admin can exempt certain operations from falling under the purview of MUA using Resource Guard.
 
-Follow these steps:
+To select the operations for protection, follow these  steps:
 
-1. In the Resource Guard created above, go to **Properties**.
-1. Select **Disable** for operations that you wish to exclude from being authorized using the Resource Guard. 
+1. In the Resource Guard you have created, go to **Properties**.
+1. Select **Disable** for operations that you want to exclude from being authorized. 
 
    >[!Note]
-   >The operations **Disable soft delete** and **Remove MUA protection** cannot be disabled.
+   >You can't disable the **Disable soft delete** and **Remove MUA protection** operations.
+
 1. Optionally, you can also update the description for the Resource Guard using this blade. 
 1. Select **Save**.
 
