@@ -30,7 +30,13 @@ The following table lists the differences in functionality, based on how you acc
 
 ## Create a workspace
 
+To get started with running your Playwright tests on cloud browsers, you first create a Microsoft Playwright Testing workspace. You can create a workspace in either the Azure portal or the Playwright portal.
+
 # [Playwright portal](#tab/playwright)
+
+When you create a workspace in the Playwright portal, a new resource group and a Microsoft Playwright Testing Azure resource are created in your Azure subscription.
+
+[!INCLUDE [Create workspace in Playwright portal](./includes/include-playwright-portal-create-workspace.md)]
 
 # [Azure portal](#tab/portal)
 
@@ -76,6 +82,7 @@ The following table lists the differences in functionality, based on how you acc
 To see the list of Playwright workspaces you have access to:
 
 # [Playwright portal](#tab/playwright)
+
 
 # [Azure portal](#tab/portal)
 

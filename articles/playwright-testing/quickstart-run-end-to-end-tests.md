@@ -24,26 +24,7 @@ After you complete this quickstart, you have a Microsoft Playwright Testing work
 
 To get started with running your Playwright tests at scale on cloud browsers, you first create a Microsoft Playwright Testing workspace in the Playwright portal.
 
-1. Sign in to the [Playwright portal](https://aka.ms/mpt/portal) with your Azure account.
-
-1. If you already have a workspace, select an existing workspace, and move to the next step.
-    
-    > [!TIP]
-    > If you have multiple workspaces, you can switch to another workspace by selecting the workspace name at the top of the page, and then select **Manage all workspaces**.
-
-1. If you don't have a workspace yet, select **+ New workspace**, and then provide the following information:
-
-    |Field  |Description  |
-    |---------|---------|
-    |**Workspace name**     | Enter a unique name to identify your workspace.<BR>The name can't contain special characters, such as \\/""[]:\|<>+=;,?*@&, or whitespace. |
-    |**Azure subscription**     | Select the Azure subscription that you want to use for this Microsoft Playwright Testing workspace. |
-    |**Region**     | Select a geographic location to host your workspace. <BR>This location also determines where the test execution results and related artifacts are stored. |
-
-    :::image type="content" source="./media/quickstart-run-end-to-end-tests/playwright-testing-create-workspace.png" alt-text="Screenshot that shows the 'Create workspace' page in the Playwright portal.":::
-
-1. Select **Create workspace** to create the workspace in your subscription.
-
-    During the workspace creation, a new resource group and a Microsoft Playwright Testing Azure resource are created in your Azure subscription.
+[!INCLUDE [Create workspace in Playwright portal](./includes/include-playwright-portal-create-workspace.md)]
 
 ## Add Microsoft Playwright Testing configuration
 
