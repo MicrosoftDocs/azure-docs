@@ -1,105 +1,106 @@
 ---
 title: Install the Remote Desktop client for Windows on a per-user basis with Intune or Configuration Manager - Azure
 description: How to install the Azure Virtual Desktop client on a per-user basis with Intune or Configuration Manager.
-author: Heidilohr
+author: dknappettmsft
 ms.topic: how-to
-ms.date: 06/09/2023
-ms.author: helohr
-manager: femila
+ms.date: 09/01/2023
+ms.author: daknappe
 ---
+
 # Install the Remote Desktop client for Windows on a per-user basis with Intune or Configuration Manager
 
-You can install the Remote Desktop client on either a per-system or per-user basis. Installing it on a per-system basis installs the client on the machines for all users by default, and updates are controlled by the admin. Per-user installation installs the application into each user's profile, giving them control over when to apply updates.
+You can install the [Remote Desktop client for Windows](./users/connect-windows.md) on either a per-system or per-user basis. Installing it on a per-system basis installs the client on the machines for all users by default, and administrators control updates. Per-user installation installs the application to a subfolder within the local AppData folder of each user's profile, enabling users to install updates with needing administrative rights.
 
-Per-system is the default way to install the client. However, if you're deploying the Remote Desktop client with Intune or Configuration Manager, using the per-system method can cause the Remote Desktop client auto-update feature to stop working. In these cases, you must use the per-user method instead.
+When you install the client using `msiexec.exe`, per-system is the default method of client installation. You can use the parameters `ALLUSERS=2 MSIINSTALLPERUSER=1` with msiexec to install the client per-user, however, if you're deploying the client with Intune or Configuration Manager, using msiexec directly to install causes the client to be installed per-system, regardless of the parameters used. Wrapping the msiexec command in a PowerShell script enables the client to be successfully installed per-user.
 
 ## Prerequisites
 
 In order to install the Remote Desktop client for Windows on a per-user basis with Intune or Configuration Manager, you need the following things:
 
-- An Azure Virtual Desktop or Windows 365 deployment.
-- Download the latest version of [the Remote Desktop client](./users/connect-windows.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json).
-- Microsoft Intune, Configuration Manager or other enterprise software distribution product.
+- Devices managed by Microsoft Intune or Configuration Manager with permission to add applications.
 
-## Install the Remote Desktop client using a batch file
+- Download the latest version of [the Remote Desktop client for Windows](./users/connect-windows.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json).
 
-To install the client on a per-user basis using a batch file:
+- For Intune, you need a local Windows device to use the [Microsoft Win32 Content Prep Tool](https://github.com/Microsoft/Microsoft-Win32-Content-Prep-Tool).
+
+## Install the Remote Desktop client per-user using a PowerShell script
+
+To install the client on a per-user basis using a PowerShell script, select the relevant tab for your scenario and follow the steps.
 
 #### [Intune](#tab/intune)
 
-1. Create a new folder containing the Remote Desktop client MSI file.
+Here's how to install the client on a per-user basis using a PowerShell script with Intune as a *Windows app (Win32)*.
 
-1. Within that folder, create an `install.bat` batch file with the following content:
+1. Create a new folder on your local Windows device and add the Remote Desktop client MSI file you downloaded.
 
-   ```batch
-   cd "%~dp0"
-  
-   msiexec /i RemoteDesktop_x64.msi /qn ALLUSERS=2 MSIINSTALLPERUSER=1
+1. Within that folder, create a PowerShell script file called `Install.ps1` and add the following content, replacing `<RemoteDesktop>` with the filename of the `.msi` file you downloaded:
+
+   ```powershell
+   msiexec /i <RemoteDesktop>.msi /qn ALLUSERS=2 MSIINSTALLPERUSER=1
    ```
 
-   >[!NOTE]
-   >The RemoteDesktop_x64.msi installer name must match the MSI contained in the folder.  
+1. In the same folder, create a PowerShell script file called `Uninstall.ps1` and add the following content:
 
-1. Follow the directions in [Prepare Win32 app content for upload](/mem/intune/apps/apps-win32-prepare) to convert the folder into an `.intunewin` file.
+   ```powershell
+   $productCode = (Get-WmiObject -Class Win32_Product | Where-Object {$_.Name -eq 'Remote Desktop' -and $_.Vendor -eq 'Microsoft Corporation'}).IdentifyingNumber
 
-1. Open the **Microsoft Intune admin center**, then go to **Apps** > **All apps** and select **Add**. 
+   msiexec /x $productCode /qn
+   ```
 
-1. For the app type, select **Windows app (Win32)**.
+1. Follow the steps in [Prepare Win32 app content for upload](/mem/intune/apps/apps-win32-prepare) to package the contents of the folder into an `.intunewin` file.
 
-1. Upload your `.intunewin` file, then fill out the required app information fields.
+1. Follow the steps in [Add, assign, and monitor a Win32 app in Microsoft Intune](/mem/intune/apps/apps-win32-add) to add the Remote Desktop client. You need to specify the following information during the process:
 
-1. In the **Program** tab, select the install.bat file as the installer, then for the uninstall command use `msiexec /x (6CE4170F-A4CD-47A0-ABFD-61C59E5F4B43)`, as shown in the following screenshot.
-   
-    :::image type="content" source="./media/install-client-per-user/uninstall-command.png" alt-text="A screenshot of the Program tab. The product code in the Uninstall command field is msiexec /x (6CE4170F-A4CD-47A0-ABFD-61C59E5F4B43)." lightbox="./media/install-client-per-user/uninstall-command.png" :::
-
-1. Toggle the **Install behavior** to **User**.
-
-1. In the **Detection rules** tab, enter the same MSI product code you used for the uninstall command.
-
-1.  Follow the rest of the prompts until you complete the workflow.
-
-1. Follow the instructions in [Assign apps to groups with Microsoft Intune](/mem/intune/apps/apps-deploy) to deploy the client app to your users.
+   | Parameter | Value/Description |
+   |--|--|
+   | Install command | `powershell.exe -ExecutionPolicy Bypass -WindowStyle Hidden -File .\Install.ps1` |
+   | Uninstall command | `powershell.exe -ExecutionPolicy Bypass -WindowStyle Hidden -File .\Uninstall.ps1` |
+   | Install behavior | Select **User** |
+   | Operating system architecture | Select **64-bit** |
+   | Detection rules format | Select **Manually configure detection rules** |
+   | Detection rule type | Select **File** |
+   | Detection rule path | `%LOCALAPPDATA%\Programs\Remote Desktop\` |
+   | Detection rule file or folder | `msrdc.exe` |
+   | Detection method | Select **File or folder exists** |
+   | Assignments | Assign to users you want to use the Remote Desktop client |
 
 #### [Configuration Manager](#tab/configmanager)
 
-1. Create a new folder in your package share.
+Here's how to install the client on a per-user basis using a PowerShell script with Configuration Manager as a *Script Installer*.
 
-1. In this new folder, add the Remote Desktop client MSI file and an `install.bat` batch file with the following content:
+1. Create a new folder in your content location share for Configuration Manager and add the Remote Desktop client MSI file you downloaded.
 
-   ```batch
-   msiexec /i RemoteDesktop_x64.msi /qn ALLUSERS=2 MSIINSTALLPERUSER=1 
+1. Within that folder, create a PowerShell script file called `Install.ps1` and add the following content, replacing `<RemoteDesktop>` with the filename of the `.msi` file you downloaded:
+
+   ```powershell
+   msiexec /i <RemoteDesktop>.msi /qn ALLUSERS=2 MSIINSTALLPERUSER=1
    ```
 
-   >[!NOTE]
-   >The RemoteDesktop_x64.msi installer name must match the MSI contained in the folder.
+1. In the same folder, create a PowerShell script file called `Uninstall.ps1` and add the following content:
 
-1. Open the **Configuration Manager** and go to **Software Library** > **Application Management** > **Applications**.
+   ```powershell
+   $productCode = (Get-WmiObject -Class Win32_Product | Where-Object {$_.Name -eq 'Remote Desktop' -and $_.Vendor -eq 'Microsoft Corporation'}).IdentifyingNumber
 
-1. Follow the directions in [Manually specify application information](/mem/configmgr/apps/deploy-use/create-applications#bkmk_manual-app) to create a new application with manually specified information.
+   msiexec /x $productCode /qn
+   ```
 
-1. Enter the variables that apply to your organization into the **General Information** and **Software Center settings** fields.  
+1. Follow the steps in [Create applications in Configuration Manager](/mem/configmgr/apps/deploy-use/create-applications) and [manually specify application information](/mem/configmgr/apps/deploy-use/create-applications#bkmk_manual-app) to add the Remote Desktop client. You need to specify the following information during the process:
 
-1. In the Deployment Types tab, select the **Add** button.  
+   | Parameter | Value/Description |
+   |--|--|
+   | Deployment type | Select **Script Installer** |
+   | Content location | Enter the UNC path to the new folder you created |
+   | Installation program | `powershell.exe -ExecutionPolicy Bypass -WindowStyle Hidden -File .\Install.ps1` |
+   | Uninstall program | `powershell.exe -ExecutionPolicy Bypass -WindowStyle Hidden -File .\Uninstall.ps1` |
+   | Detection method | Select **Configure rules to detect the presence of this deployment type** |
+   | Detection rule setting type | Select **File System** |
+   | Detection rule type | Select **File** |
+   | Detection rule path | `%LOCALAPPDATA%\Programs\Remote Desktop\` |   
+   | Detection rule file or folder name | `msrdc.exe` |
+   | Detection rule criteria | Select **The file system setting must exist on the target system to indicate presence of this application** |
+   | Installation behavior | Select **Install for user** |
 
-1. Select **Script Installer** as the deployment type, then select **Next**.
-
-1. Enter the location of the folder you created in step 1 for the **Content location** field.
-
-1. Enter the path of the install.bat file in the **Installation program** field.
-
-1. For the **Uninstall program** field, enter `msiexec /x (6CE4170F-A4CD-47A0-ABFD-61C59E5F4B43)`. 
-
-    :::image type="content" source="./media/install-client-per-user/content-location-uninstall-id.png" alt-text="A screenshot of the Specify information about the content to be delivered to target devices window. The command msiexec /x (6CE4170F-A4CD-47A0-ABFD-61C59E5F4B43) is entered into the Uninstall program field ." lightbox="./media/install-client-per-user/content-location-uninstall-id.png" :::
-
-1. Next, enter the same MSI product ID you used for the uninstall command into the **Detection program** field.
-
-    :::image type="content" source="./media/install-client-per-user/msi-product-code.png" alt-text="A screenshot of the Specify how this deployment type is detected window. In the rules box, the clause lists the product ID msiexec /x (6CE4170F-A4CD-47A0-ABFD-61C59E5F4B43)." lightbox="./media/install-client-per-user/msi-product-code.png" :::
-
-1. For User Experience, toggle the installation behavior to **Install for user**.
-
-1. Follow the rest of the prompts until you've finished the workflow.
-
-1. Once you're finished, follow the instructions in [Deploy applications with Configuration Manager](/mem/configmgr/apps/deploy-use/deploy-applications) to deploy the client app to your users.
+1. Follow the steps in [Deploy applications with Configuration Manager](/mem/configmgr/apps/deploy-use/deploy-applications) to deploy the Remote Desktop client to your users.
 
 ---
 
