@@ -143,6 +143,7 @@ Before you begin, you must have the following prerequisites:
     metadata:
       name: busybox-secrets-store-inline-wi
     spec:
+      serviceAccountName: "workload-identity-sa"
       containers:
         - name: busybox
           image: registry.k8s.io/e2e-test-images/busybox:1.29-4
