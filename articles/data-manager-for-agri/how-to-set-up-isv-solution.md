@@ -23,7 +23,7 @@ Follow the following guidelines to install and use an ISV solution.
 >
 3. You are navigated to the plan selection pane where you have to give the following inputs:
     1. Click on **Authorize** button to give consent to the Solution Provider to create app needed for Solution installation.
-    2. Object ID. See [here](#identify-object-id-to-the-solution) to find your Object ID
+    2. Object ID. See [here](#identify-object-id-of-the-solution) to find your Object ID
     3. Select plan of your choice
 4. Select the Terms and Conditions checkbox and click on Add.
 5. The Solution is deployed on your ADMA instance and role assignment will be handled from the backend. 
