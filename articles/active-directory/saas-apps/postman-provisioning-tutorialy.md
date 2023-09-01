@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/01/2023
+ms.date: 08/16/2023
 ms.author: thwimmer
 ---
 
@@ -43,7 +43,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure Postman to support provisioning with Azure AD
 
-Before you begin to configure the Postman to support provisioning with Azure AD, you’ll need to generate a SCIM API token within the Postman Admin Console.
+Before you begin to configure Postman to support provisioning with Azure AD, you’ll need to generate a SCIM API token within the Postman Admin Console.
 
    > [!NOTE]
    > You can visit the page [Postman SCIM provisioning overview](https://learning.postman.com/docs/administration/scim-provisioning/scim-provisioning-overview/#enabling-scim-in-postman), to refer **Enable SCIM provisioning in Postman** steps.
@@ -54,7 +54,7 @@ Before you begin to configure the Postman to support provisioning with Azure AD,
 
    ![Screenshot of Postman authentication settings page.](media/postman-provisioning-tutorial/postman-authentication-settings.png)
 
-1. You will receive a pop up message asking If you want to **Turn on SCIM Provisioning**, click **Turn On** to enable SCIM provisioning.
+1. You will receive a pop up message asking whether you want to **Turn on SCIM Provisioning**, click **Turn On** to enable SCIM provisioning.
 
     ![Screenshot of modal to enable SCIM provisioning.](media/postman-provisioning-tutorial/postman-enable-scim-provisioning.png)
 1. To **Generate SCIM API Key**, perform the following steps:

@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/01/2023
+ms.date: 04/10/2023
 ms.author: thwimmer
 ---
 
@@ -51,7 +51,7 @@ Before configuring Recnice for automatic user provisioning with Azure AD, you wi
 
 	![Screenshot of the S C I M A P I key.](media/recnice-provisioning-tutorial/recnice-token.png)
 
-3. The **Tenant URL** value: https://scim.recnice.com/scim/?aadOptscim062020
+3. The **Tenant URL** value: `https://scim.recnice.com/scim/`.
 
 ## Step 3. Add Recnice from the Azure AD application gallery
 
