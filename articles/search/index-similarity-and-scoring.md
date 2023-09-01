@@ -6,7 +6,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/18/2023
+ms.date: 08/31/2023
 ---
 
 # Relevance and scoring in Azure Cognitive Search

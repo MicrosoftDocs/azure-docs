@@ -6,7 +6,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 04/18/2023
+ms.date: 08/31/2023
 ---
 
 # Configure relevance scoring
