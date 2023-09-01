@@ -54,7 +54,7 @@ By default, Azure configures a certificate to expire after three years when it's
 1. Save the new certificate.
 1. Download the new certificate in the correct format.
 1. Upload the new certificate to the application.
-1. Make the new certificate active in the Azure portal.
+1. Make the new certificate active in the Microsoft Entra admin center.
 
 The following two sections help you perform these steps.
 
@@ -64,9 +64,9 @@ The following two sections help you perform these steps.
 
 First, create and save new certificate with a different expiration date:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Browse to **Azure Active Directory** > **Enterprise applications**.
-1. From the list of applications, select your desired application.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**.
+1. Enter the name of the existing application in the search box, and then select the application from the search results.
 1. Under the **Manage** section, select **Single sign-on**.
 1. If the **Select a single sign-on method** page appears, select **SAML**.
 1. In the **Set up Single Sign-On with SAML** page, find the **SAML Signing Certificate** heading and select the **Edit** icon (a pencil). The **SAML Signing Certificate** page appears, which displays the status (**Active** or **Inactive**), expiration date, and thumbprint (a hash string) of each certificate.
