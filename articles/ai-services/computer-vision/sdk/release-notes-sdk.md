@@ -1,4 +1,7 @@
 ---
+title: Vision SDK release notes
+titleSuffix: Azure AI services
+description: This page shows release notes for the Azure AI Vision SDK
 author: PatrickFarley
 ms.service: cognitive-services
 ms.subservice: computer-vision
