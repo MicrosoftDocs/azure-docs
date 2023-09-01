@@ -37,7 +37,7 @@
       href: cache-rust-get-started.md
 - name: Deployment and configuration
   items:
-    - name: Plan
+    - name: Plan old toc
       items:
       - name: Choose a cache tier
         href: cache-overview.md#choosing-the-right-tier
@@ -71,7 +71,7 @@
         href: cache-how-to-premium-vnet.md
       - name: Planning FAQs
         href: cache-planning-faq.yml
-    - name: Automate
+    - name: Automate old toc
       items:
       - name: Deploy and manage using Azure PowerShell
         href: cache-how-to-manage-redis-cache-powershell.md
@@ -89,7 +89,7 @@
       - name: Create Web App with Redis cache - ARM template
         displayName: Resource Manager
         href: cache-web-app-arm-with-redis-cache-provision.md
-- name: Developing and using library
+- name: Development and using library
   items:
     - name: Build old toc
       items:
@@ -129,26 +129,6 @@
       href: cache-how-to-scale.md
     - name: Use Redis cluster to scale in/out
       href: cache-how-to-premium-clustering.md
-          - name: Build
-      items:
-      - name: Development FAQs
-        href: cache-development-faq.yml
-
-
-    - name: Diagnose and troubleshoot
-      items:
-      - name: Troubleshoot connectivity issues
-        href: cache-troubleshoot-connectivity.md
-      - name: Troubleshoot latency and timeouts
-        href: cache-troubleshoot-timeouts.md
-      - name: Troubleshoot client 
-        href: cache-troubleshoot-client.md
-      - name: Troubleshoot Redis server
-        href: cache-troubleshoot-server.md
-      - name: Troubleshoot data loss
-        href: cache-troubleshoot-data-loss.md
-      - name: Troubleshooting FAQs
-        href: cache-monitor-troubleshoot-faq.yml
 - name: Authentication
   items:
 - name: Security and networking
