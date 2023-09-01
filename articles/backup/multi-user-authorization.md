@@ -47,7 +47,7 @@ To create the Resource Guard in a tenant different from the vault tenant, follow
      
 1. Search for **Resource Guards** in the search bar and select the corresponding item from the drop-down list.
     
-   :::image type="content" source="./media/multi-user-authorization/resource-guards-preview-inline.png" alt-text="Screenshot showing resource guards." lightbox="./media/multi-user-authorization/resource-guards-preview-expanded.png":::
+   :::image type="content" source="./media/multi-user-authorization/resource-guards.png" alt-text="Screenshot shows how to search resource guards." lightbox="./media/multi-user-authorization/resource-guards.png":::
     
    - Select **Create** to start creating a Resource Guard.
    - In the create blade, fill in the required details for this Resource Guard.
@@ -91,7 +91,7 @@ Choose the operations you want to protect using the Resource Guard out of all su
 
 To exempt operations, follow these steps:
 
-1. In the Resource Guard created above, go to **Properties** > **Recocery Services vault** tab.
+1. In the Resource Guard created above, go to **Properties** > **Recovery Services vault** tab.
 2. Select **Disable** for operations that you want to exclude from being authorized using the Resource Guard.
 
    >[!Note]
