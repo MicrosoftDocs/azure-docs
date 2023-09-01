@@ -111,7 +111,7 @@ To select the operations for protection, follow these steps:
 1. Optionally, you can also update the description for the Resource Guard using this blade. 
 1. Select **Save**.
 
-# [Backup vault](#tab/backup-vices-vault)
+# [Backup vault](#tab/backup-vault)
 
 To select the operations for protection, follow these steps:
 
