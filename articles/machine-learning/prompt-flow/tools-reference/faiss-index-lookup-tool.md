@@ -16,9 +16,6 @@ ms.date: 06/30/2023
 
 Faiss Index Lookup is a tool tailored for querying within a user-provided Faiss-based vector store. In combination with our Large Language Model (LLM) tool, it empowers users to extract contextually relevant information from a domain knowledge base.
 
-## Requirements
-- embeddingstore --extra-index-url https://azuremlsdktestpypi.azureedge.net/embeddingstore
-
 ## Prerequisites
 - Prepare an accessible path on Azure Blob Storage. Here's the guide if a new storage account needs to be created:  [Azure Storage Account](../../../storage/common/storage-account-create.md).
 - Create related Faiss-based index files on Azure Blob Storage. We support the LangChain format (index.faiss + index.pkl) for the index files, which can be prepared either by employing our EmbeddingStore SDK or following the quick guide from [LangChain documentation](https://python.langchain.com/docs/modules/data_connection/vectorstores/integrations/faiss). Please refer to [the sample notebook for creating Faiss index](https://aka.ms/pf-sample-build-faiss-index) for building index using EmbeddingStore SDK.
