@@ -89,84 +89,70 @@ If you want to reuse a tile on a different dashboard, you can copy it from one d
 
 :::image type="content" source="media/azure-portal-dashboards/copy-dashboard.png" alt-text="Screenshot showing how to copy a tile in the Azure portal.":::
 
-You can then select whether to copy the tile to an existing private or shared dashboard, or create a copy of the tile within the dashboard you're already working in. You can also create a new dashboard which will include a copy of the tile by selecting **Create new**.
+You can then select whether to copy the tile to a different private or shared dashboard, or create a copy of the tile within the dashboard you're already working in. You can also create a new dashboard that includes a copy of the tile by selecting **Create new**.
 
-### Set and override dashboard filters
+## Modify tile settings
+
+Some tiles might require more configuration to show the information you want. For example, the **Metrics chart** tile has to be set up to display a metric from Azure Monitor. You can also customize tile data to override the dashboard's default time settings and filters, or to change the title and subtitle of a tile.
+
+> [!NOTE]
+> The **Markdown** tile lets you display custom, static content on your dashboard. This can be any information you provide, such as basic instructions, an image, a set of hyperlinks, or even contact information. For more information about using markdown tiles, see [Use a markdown tile on Azure dashboards to show custom content](azure-portal-markdown-tile.md).
+
+### Change the title and subtitle of a tile
+
+Some tiles allow you to edit their title and/or subtitle. To do so, select **Configure tile settings** from the context menu.
+
+:::image type="content" source="media/azure-portal-dashboards/dashboard-tile-rename.png" alt-text="Screenshot showing the Configure tile settings option.":::
+
+Make your changes, then select **Apply**.
+
+:::image type="content" source="media/azure-portal-dashboards/dashboard-title-subtitle.png" alt-text="Screenshot showing how to change the title and subtitle for a tile.":::
+
+### Complete tile configuration
+
+Any tile that requires configuration displays a banner until you customize the tile. For example, in the **Metrics chart**, the banner reads **Edit in Metrics**. Other banners may use different text, such as **Configure tile**.
+
+To customize the tile:
+
+1. If needed, select **Save** or **Cancel** near the top of the page to exit edit mode.
+
+1. Select the banner, then do the required setup.
+
+    :::image type="content" source="media/azure-portal-dashboards/dashboard-configure-tile.png" alt-text="Screenshot of a tile that requires configuration.":::
+
+### Apply dashboard filters
 
 Near the top of your dashboard, you'll see options to set the **Auto refresh** and **Time settings** for data displayed in the dashboard, along with an option to add additional filters.
 
 :::image type="content" source="media/azure-portal-dashboards/dashboard-global-filters.png" alt-text="Screenshot showing a dashboard's global filters.":::
 
-By default, data will be refreshed every hour. To change this, select **Auto refresh** and choose a new refresh interval. When you've made your selection, select **Apply**.
+To change how often data is refreshed, select **Auto refresh**, then choose a new refresh interval. When you've made your selection, select **Apply**.
 
 The default time settings are **UTC Time**, showing data for the **Past 24 hours**. To change this, select the button and choose a new time range, time granularity, and/or time zone, then select **Apply**.
 
-To apply additional filters, select **Add filter**. The options you'll see will vary depending on the tiles in your dashboard. For example, you may be able to show only data for a specific subscription or location. Select the filter you'd like to use and make your selections. The filter will then be applied to your data. To remove a filter, select the **X** in its button.
+To apply additional filters, select **Add filter**. The options you'll see will vary depending on the tiles in your dashboard. For example, you may see options to filter data for a specific subscription or location. In some cases, you'll see that no additional filters are available.
 
-Tiles which support filtering have a ![filter icon](./media/azure-portal-dashboards/dashboard-filter.png) filter icon in the top-left corner of the tile. Some tiles allow you to override the global filters with filters specific to that tile. To do so, select **Configure tile data** from the context menu, or select the filter icon, then apply the desired filters.
+If you see additional filter options, select the one you'd like to use and make your selections. The filter will then be applied to your data.
 
-If you set filters for a particular tile, the left corner of that tile displays a double filter icon, indicating that the data in that tile reflects its own filters.
+To remove a filter, select the **X** in its button.
+
+### Override dashboard filters for specific tiles
+
+Tiles which support filtering have a ![filter icon](./media/azure-portal-dashboards/dashboard-filter.png) filter icon in the top-left corner of the tile. These tiles allow you to override the global filters with filters specific to that tile.
+
+To do so, select **Configure tile settings** from the tile's context menu, or select the filter icon. Then you can change the desired filters for that tile. For example, some tiles provide an option to override the dashboard time settings at the tile level,  allowing you to select a different time span to refresh data.
+
+When you apply filters for a particular tile, the left corner of that tile changes to show a double filter icon, indicating that the data in that tile reflects its own filters.
 
 :::image type="content" source="media/azure-portal-dashboards/dashboard-filter-override.png" alt-text="Screenshot showing the icon for a tile with a filter override.":::
 
-## Modify tile settings
-
-Some tiles might require more configuration to show the information you want. For example, the **Metrics chart** tile has to be set up to display a metric from Azure Monitor. You can also customize tile data to override the dashboard's default time settings and filters.
-
-> [!NOTE]
-> A markdown tile lets you display custom, static content on your dashboard. This could be basic instructions, an image, a set of hyperlinks, or even contact information. For more information about using a markdown tile, see [Use a markdown tile on Azure dashboards to show custom content](azure-portal-markdown-tile.md).
-
-### Complete tile configuration
-
-Any tile that needs to be set up displays a banner until you customize the tile. For example, in the **Metrics chart**, the banner reads **Edit in Metrics**. Other banners may use different text, such as **Configure tile**.
-
-To customize the tile:
-
-1. In the page header select **Save** to exit edit mode.
-
-1. Select the banner, then do the required setup.
-
-    :::image type="content" source="media/azure-portal-dashboards/dashboard-configure-tile.png" alt-text="Screenshot of tile that requires configuration.":::
-
-### Customize time span for a tile
-
-Data on the dashboard shows activity and refreshes based on the global filters. Some tiles will allow you to select a different time span for just one tile. To do so, follow these steps:
-
-1. Select **Configure tile settings** from the context menu or from the ![filter icon](./media/azure-portal-dashboards/dashboard-filter.png) in the upper left corner of the tile.
-
-    :::image type="content" source="media/azure-portal-dashboards/dashboard-customize-tile-data.png" alt-text="Screenshot of tile context menu.":::
-
-1. Select the checkbox to **Override the dashboard time settings at the tile level**.
-
-    :::image type="content" source="media/azure-portal-dashboards/dashboard-override-time-settings.png" alt-text="Screenshot of dialog to configure tile time settings.":::
-
-1. Choose the time span to show for this tile. You can choose from the past 30 minutes to the past 30 days or define a custom range.
-
-1. Choose the time granularity to display.  You can show anywhere from one-minute increments to one-month.
-
-1. Select **Apply**.
-
-### Change the title and subtitle of a tile
-
-Some tiles allow you to edit their title and subtitle. To do so, select **Configure tile settings** from the context menu.
-
-:::image type="content" source="media/azure-portal-dashboards/dashboard-tile-rename.png" alt-text="Screenshot showing the Configure tile settings option.":::
-
-Make any changes to the tile's title and/or subtitle, then select **Apply**.
-
-:::image type="content" source="media/azure-portal-dashboards/dashboard-title-subtitle.png" alt-text="Screenshot showing how to change the title and subtitle for a tile.":::
- 
 ## Delete a tile
 
 To remove a tile from a dashboard, do one of the following:
 
 - Select the context menu in the upper right corner of the tile, then select **Remove from dashboard**.
 
-- Select ![edit icon](./media/azure-portal-dashboards/dashboard-edit-icon.png) **Edit** to enter customization mode. Hover in the upper right corner of the tile, then select the ![delete icon](./media/azure-portal-dashboards/dashboard-delete-icon.png) delete icon to remove the tile from the dashboard.
-
-    :::image type="content" source="media/azure-portal-dashboards/dashboard-delete-tile.png" alt-text="Screenshot showing how to remove tile from dashboard.":::
-
-
+- Select **Edit** to enter customization mode. Hover in the upper right corner of the tile, then select the ![delete icon](./media/azure-portal-dashboards/dashboard-delete-icon.png) delete icon to remove the tile from the dashboard.
 
 ## Clone a dashboard
 
@@ -176,7 +162,7 @@ To use an existing dashboard as a template for a new dashboard, follow these ste
 
 1. In the page header, select ![clone icon](./media/azure-portal-dashboards/dashboard-clone.png) **Clone**.
 
-1. A copy of the dashboard, named **Clone of** *your dashboard name* opens in edit mode. Use the preceding steps in this article to rename and customize the dashboard.
+1. A copy of the dashboard, named **Clone of *your dashboard name* ** opens in edit mode. Use the preceding steps in this article to rename and customize the dashboard.
 
 ## Publish and share a dashboard
 
