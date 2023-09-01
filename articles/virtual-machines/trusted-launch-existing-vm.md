@@ -96,8 +96,10 @@ az vm deallocate \
     --resource-group myResourceGroup --name myVm
 ```
 
-3. Enable Trusted Launch by setting `--security-type` to `TrustedLaunch`. 
+3. Enable Trusted Launch by setting `--security-type` to `TrustedLaunch`.
+
 > [!NOTE]
+>
 > - After enabling Trusted Launch, currently virtual machine cannot be rolled back to security type **Standard** (Non-Trusted Launch configuration).
 > - **vTPM** is enabled by default.
 > - **Secure Boot** is recommended to be enabled (not enabled by default) if you are not using custom unsigned kernel or drivers. Secure Boot preserves boot integrity and enables foundational security for VM.
@@ -136,7 +138,7 @@ az vm start \
 
 This section steps through using the Azure PowerShell to enable Trusted Launch on existing Azure Generation 2 VM.
 
-Make sure that you've installed the latest [Azure PowerShell](https://learn.microsoft.com/en-us/powershell/azure/install-azps-windows?view=azps-10.2.0) and are logged in to an Azure account with [Connect-AzAccount](https://learn.microsoft.com/en-us/powershell/module/az.accounts/connect-azaccount?view=azps-10.2.0).
+Make sure that you've installed the latest [Azure PowerShell](/powershell/azure/install-azps-windows) and are logged in to an Azure account with [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
 
 1. Log in to Azure Subscription
 
