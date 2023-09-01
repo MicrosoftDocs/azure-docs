@@ -35,7 +35,9 @@ Following are special cases to the previously described applicability logic:
 |Any invalid aliases in the `if` conditions     |The policy isn't applicable |
 |When the `if` conditions consist of only `kind` conditions     |The policy is applicable to all resources |
 |When the `if` conditions consist of only `name` conditions     |The policy is applicable to all resources |
-|When the `if` conditions consist of only `type` and `kind` or `type` and `name` conditions     |Only `type` conditions are considered when deciding applicability |
+|When the `if` conditions consist of only `type` and `kind` conditions     |Only `type` conditions are considered when deciding applicability |
+|When the `if` conditions consist of only `type` and `name` conditions     |Only `type` conditions are considered when deciding applicability |
+|When the `if` conditions consist of `type`, `kind`, and other conditions |Both `type` and `kind` conditions are considered when deciding applicability |
 |When the `if` conditions consist of `type`, `name`, and other conditions |Both `type` and `name` conditions are considered when deciding applicability |
 |When any conditions (including deployment parameters) include a `location` condition     |Won't be applicable to subscriptions |
 
