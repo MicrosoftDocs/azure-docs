@@ -19,7 +19,7 @@ Welcome to what's new in Azure Active Directory for customers documentation. Thi
 
 ### New articles
 
-- [Title not found in: #249348](quickstart-get-started-guide.md)
+- [Quickstart: Get started with guide walkthrough](quickstart-get-started-guide.md)
 - [Tutorial: Add sign-in and sign-out to a Vanilla JavaScript single-page app for a customer tenant](tutorial-single-page-app-vanillajs-sign-in-sign-out.md)
 - [Sign in users in a sample Node.js CLI application.](sample-cli-app-node-sign-in-users.md)
 - [Tutorial: Prepare a Node.js CLI application for authentication](tutorial-cli-app-node-sign-in-prepare-app.md)
