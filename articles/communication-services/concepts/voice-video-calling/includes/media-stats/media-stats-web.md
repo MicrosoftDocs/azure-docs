@@ -88,7 +88,7 @@ If you want to collect the data for offline inspection, we recommend that you co
 
 In either `sampleReported` event or `summaryReported` event, the media statistics data are not just a simple key-value mapping.
 
-Here is the type declartion of the event data reported by `sampleReported` event.
+Here is the type declaration of the event data reported by `sampleReported` event.
 ```typescript
 export interface MediaStatsReportSample {
     audio: {
