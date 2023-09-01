@@ -11,10 +11,9 @@ ms.topic: overview
 ms.date: 08/01/2023
 ms.author: pafarley
 ms.custom: devx-track-python, devx-track-csharp, devx-track-dotnet
-zone_pivot_groups: programming-languages-vision-40-sdk
 ---
 
-# Vision SDK Overview
+# Vision SDK overview
 
 The Vision SDK (Preview) provides a convenient way to access the Image Analysis service using [version 4.0 of the REST APIs](https://aka.ms/vision-4-0-ref). It is available for the programming languages and platforms mentioned below.
 
@@ -24,15 +23,15 @@ The Vision SDK (Preview) provides a convenient way to access the Image Analysis 
 
 The Vision SDK supports the following languages and platforms:
 
-| Programming language | Reference | Platform support |
-|----------------------|----------|----------|
-| [C#](quickstarts/setup-platform.md?pivots=programming-language-csharp) <sup>1</sup> | [.NET](/dotnet/api/microsoft.cognitiveservices.speech) | Windows, UWP, Linux |
-| [C++](quickstarts/setup-platform.md?pivots=programming-language-cpp) <sup>2</sup> | [C++](/cpp/cognitive-services/speech/) | Windows, Linux |
-| [Python](quickstarts/setup-platform.md?pivots=programming-language-python) | [Python](/python/api/azure-cognitiveservices-speech/) | Windows, Linux |
+| Programming language | Quickstart | API Reference | Platform support |
+|----------------------|------------|-----------|------------------|
+| C# <sup>1</sup> | [quickstart](../quickstarts-sdk/image-analysis-client-library-40?pivots=programming-language-csharp)  | [reference](/dotnet/api/azure.ai.vision.imageanalysis) | Windows, UWP, Linux |
+| C++ <sup>2</sup> | [quickstart](../quickstarts-sdk/image-analysis-client-library-40?pivots=programming-language-cpp)  | [reference](/cpp/cognitive-services/vision) | Windows, Linux |
+| Python | [quickstart](../quickstarts-sdk/image-analysis-client-library-40?pivots=programming-language-python) | [reference](/python/api/azure-ai-vision) | Windows, Linux |
 
 <sup>1 The Vision SDK for C# is based on .NET Standard 2.0. See [.NET Standard](/dotnet/standard/net-standard?tabs=net-standard-2-0#net-implementation-support) documentation.</sup>
 
-<sup>2 C isn't a supported programming language for the Speech SDK.</sup>
+<sup>2 ANSI-C isn't a supported programming language for the Vision SDK.</sup>
 
 ### GitHub samples
 
