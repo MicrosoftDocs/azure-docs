@@ -145,7 +145,7 @@ You can create runtime with CI(Compute Instance) or MIR(Managed Inference Runtim
    1. Create a customized environment in Azure Machine Learning studio by going to **Environments**  then select **Create**. In the settings tab under *Select environment source*, choose " Create a new docker content".
 
        Currently we support creating environment with "Create a new docker context" environment source. "Use existing docker image with optional conda file" has known [limitation](../how-to-manage-environments-v2.md#create-an-environment-from-a-conda-specification) and isn't supported now.
-    
+
         :::image type="content" source="./media/how-to-custom-tool-package-creation-and-usage/create-customized-env-step-1.png" alt-text="Screenshot of create environment in Azure Machine Learning studio."lightbox = "./media/how-to-custom-tool-package-creation-and-usage/create-customized-env-step-1.png":::
 
    1. Under **Customize**, replace the text in the Dockerfile:
@@ -154,7 +154,7 @@ You can create runtime with CI(Compute Instance) or MIR(Managed Inference Runtim
        FROM mcr.microsoft.com/azureml/promptflow/promptflow-runtime:latest
        RUN pip install -i https://test.pypi.org/simple/ my-tools-package==0.0.1
        ```
-    
+
          :::image type="content" source="./media/how-to-custom-tool-package-creation-and-usage/create-customized-env-step-2.png" alt-text="Screenshot of create environment in Azure Machine Learning studio on the customize step."lightbox ="./media/how-to-custom-tool-package-creation-and-usage/create-customized-env-step-2.png":::
     
        It will take several minutes to create the environment. After it succeeded, you can copy the Azure Container Registry (ACR) from environment detail page for the next step.
