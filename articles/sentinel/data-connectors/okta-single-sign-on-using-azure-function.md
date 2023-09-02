@@ -41,14 +41,12 @@ The [Okta Single Sign-On (SSO)](https://www.okta.com/products/single-sign-on/) c
    ```
 ## Prerequisites
 
-To integrate with Okta Single Sign-On (using Azure Function) make sure you have: 
+To integrate with Okta Single Sign-On (using Azure Function), make sure you have the following prerequisites: 
 
 - **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](/azure/azure-functions).
 - **Okta API Token**: An Okta API Token is required. See the documentation to learn more about the [Okta System Log API](https://developer.okta.com/docs/reference/api/system-log/).
 
-
 ## Vendor installation instructions
-
 
 > [!NOTE]
 > This connector uses Azure Functions to connect to Okta SSO to pull its logs into Microsoft Sentinel. This might result in additional data ingestion costs. Check the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) for details.
@@ -71,36 +69,40 @@ To integrate with Okta Single Sign-On (using Azure Function) make sure you have:
 
 **STEP 2 - Choose ONE from the following two deployment options to deploy the connector and the associated Azure Function**
 
->**IMPORTANT:** Before deploying the Okta SSO connector, have the Workspace ID and Workspace Primary Key (can be copied from the following), as well as the Okta SSO API Authorization Token, readily available.
+> [!IMPORTANT]
+> Before deploying the Okta SSO connector, have the Workspace ID and Workspace Primary Key (can be copied from the following), as well as the Okta SSO API Authorization Token, readily available.
 
-
-
-Option 1 - Azure Resource Manager (ARM) Template
+### Option 1 - Azure Resource Manager (ARM) Template
 
 This method provides an automated deployment of the Okta SSO connector using an ARM Tempate.
 
-1. Click the **Deploy to Azure** button below. 
+1. Selecgt the following **Deploy to Azure** button. 
 
 	[![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/sentineloktaazuredeployv2-solution)
-2. Select the preferred **Subscription**, **Resource Group** and **Location**. 
-3. Enter the **Workspace ID**, **Workspace Key**, **API Token** and **URI**. 
- - Use the following schema for the `uri` value: `https://<OktaDomain>/api/v1/logs?since=` Replace `<OktaDomain>` with your domain. [Click here](https://developer.okta.com/docs/reference/api-overview/#url-namespace) for further details on how to identify your Okta domain namespace. There is no need to add a time value to the URI, the Function App will dynamically append the inital start time of logs to UTC 0:00 for the current UTC date as time value to the URI in the proper format. 
- - Note: If using Azure Key Vault secrets for any of the values above, use the`@Microsoft.KeyVault(SecretUri={Security Identifier})`schema in place of the string values. Refer to [Key Vault references documentation](/azure/app-service/app-service-key-vault-references) for further details. 
-4. Mark the checkbox labeled **I agree to the terms and conditions stated above**. 
-5. Click **Purchase** to deploy.
 
-Option 2 - Manual Deployment of Azure Functions
+2. Select the preferred **Subscription**, **Resource Group** and **Location**. 
+
+3. Enter the **Workspace ID**, **Workspace Key**, **API Token** and **URI**. 
+
+   Use the following schema for the `uri` value: `https://<OktaDomain>/api/v1/logs?since=` Replace `<OktaDomain>` with your domain. [Click here](https://developer.okta.com/docs/reference/api-overview/#url-namespace) for further details on how to identify your Okta domain namespace. There is no need to add a time value to the URI. The Function App will dynamically append the initial start time of logs to UTC 0:00 for the current UTC date as a time value to the URI in the proper format. 
+
+   > [!NOTE]
+   >  If using Azure Key Vault secrets for any of the preceding values, use the`@Microsoft.KeyVault(SecretUri={Security Identifier})`schema in place of the string values. Refer to [Key Vault references documentation](/azure/app-service/app-service-key-vault-references) for further details. 
+
+4. Mark the checkbox labeled **I agree to the terms and conditions stated above**.
+   
+5. Select **Purchase** to deploy.
+
+### Option 2 - Manual Deployment of Azure Functions
 
 Use the following step-by-step instructions to deploy the Okta SSO connector manually with Azure Functions.
-
 
 **1. Create a Function App**
 
 1.  From the Azure Portal, navigate to [Function App](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Web%2Fsites/kind/functionapp), and select **+ Add**.
 2. In the **Basics** tab, ensure Runtime stack is set to **Powershell Core**. 
 3. In the **Hosting** tab, ensure the **Consumption (Serverless)** plan type is selected.
-4. Make other preferrable configuration changes, if needed, then click **Create**.
-
+4. Make other preferable configuration changes, if needed, then click **Create**.
 
 **2. Import Function App Code**
 
@@ -119,14 +121,18 @@ Use the following step-by-step instructions to deploy the Okta SSO connector man
 2. In the **Application settings** tab, select **+ New application setting**.
 
 3. Add each of the following five (5) application settings individually, with their respective string values (case-sensitive): 
-		apiToken
-		workspaceID
-		workspaceKey
-		uri
-		logAnalyticsUri (optional)
-   - Use the following schema for the `uri` value: `https://<OktaDomain>/api/v1/logs?since=` Replace `<OktaDomain>` with your domain. [Click here](https://developer.okta.com/docs/reference/api-overview/#url-namespace) for further details on how to identify your Okta domain namespace. There is no need to add a time value to the URI, the Function App will dynamically append the inital start time of logs to UTC 0:00 for the current UTC date as time value to the URI in the proper format.
-   - Note: If using Azure Key Vault secrets for any of the values above, use the`@Microsoft.KeyVault(SecretUri={Security Identifier})`schema in place of the string values. Refer to [Key Vault references documentation](/azure/app-service/app-service-key-vault-references) for further details.
-   - Use logAnalyticsUri to override the log analytics API endpoint for dedicated cloud. For example, for public cloud, leave the value empty; for Azure GovUS cloud environment, specify the value in the following format: `https://<CustomerId>.ods.opinsights.azure.us`.
+   - apiToken
+   - workspaceID
+   - workspaceKey
+   - uri
+   - logAnalyticsUri (optional)
+
+   Use the following schema for the `uri` value: `https://<OktaDomain>/api/v1/logs?since=` Replace `<OktaDomain>` with your domain. [Click here](https://developer.okta.com/docs/reference/api-overview/#url-namespace) for further details on how to identify your Okta domain namespace. There is no need to add a time value to the URI. The Function App dynamically appends the initial start time of logs to UTC 0:00 (for the current UTC date) as a time value to the URI in the proper format.
+     
+    > [!NOTE]
+    > If using Azure Key Vault secrets for any of the preceding values, use the`@Microsoft.KeyVault(SecretUri={Security Identifier})`schema in place of the string values. Refer to [Key Vault references documentation](/azure/app-service/app-service-key-vault-references) for further details.
+    
+   Use logAnalyticsUri to override the log analytics API endpoint for a dedicated cloud. For example, for the public cloud, leave the value empty; for the Azure GovUS cloud environment, specify the value in the following format: `https://<CustomerId>.ods.opinsights.azure.us`.
  
 5. Once all application settings have been entered, click **Save**.
 
