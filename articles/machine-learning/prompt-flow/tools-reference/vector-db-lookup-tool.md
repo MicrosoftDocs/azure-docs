@@ -26,10 +26,6 @@ This tool adds support for more vector databases, including Pinecone, Weaviete, 
 > Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## Requirements
-
-- embeddingstore --extra-index-url https://azuremlsdktestpypi.azureedge.net/embeddingstore
-
 ## Prerequisites
 
 The tool searches data from a third-party vector database. To use it, you should create resources in advance and establish connections between the tool and the resource.
@@ -67,7 +63,7 @@ The following is an example JSON format response returned by the tool, which inc
 |-----------------|--------|-------------------------------------------------------------------|
 | vector          | list   | vector of the entity, the vector field name is specified in input |
 | text            | string | text of the entity, the text field name is specified in input     |
-| score           | float  | computed by the BM25 similarity algorithm                         |
+| score           | float  | @search.score from the original entity, which evaluates the similarity between the entity and the query vector                   |
 | original_entity | dict   | the original response json from search REST API                   |
 
 

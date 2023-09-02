@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: sample
-ms.date: 07/17/2023
+ms.date: 08/17/2023
 ms.author: mimart
 ms.custom: it-pro
 
@@ -31,7 +31,7 @@ These samples and how-to guides demonstrate how to integrate a single-page appli
 > [!div class="mx-tdCol2BreakAll"]
 > | Language/<br/>Platform | Code sample guide | Build and integrate guide  |
 > | ------- | -------- | ------------- |
-> | JavaScript, Vanilla | &#8226; [Sign in users](./sample-single-page-app-vanillajs-sign-in.md) | &#8226; [Sign in users](how-to-single-page-app-vanillajs-prepare-tenant.md) |
+> | JavaScript, Vanilla | &#8226; [Sign in users](./sample-single-page-app-vanillajs-sign-in.md) | &#8226; [Sign in users](tutorial-single-page-app-vanillajs-prepare-tenant.md) |
 > | JavaScript, Angular | &#8226; [Sign in users](./sample-single-page-app-angular-sign-in.md) |  ---  |
 > | JavaScript, React | &#8226; [Sign in users](./sample-single-page-app-react-sign-in.md) | &#8226; [Sign in users](./tutorial-single-page-app-react-sign-in-prepare-tenant.md)   |
 
@@ -43,7 +43,7 @@ These samples and how-to guides demonstrate how to write a web application that 
 > | Language/<br/>Platform | Code sample guide | Build and integrate guide  |
 > | ------- | -------- | ------------- | 
 > | JavaScript, Node.js (Express) | &#8226; [Sign in users](./sample-web-app-node-sign-in.md)<br/> &#8226; [Sign in users and call an API](./sample-web-app-node-sign-in-call-api.md)  |  &#8226; [Sign in users](tutorial-web-app-node-sign-in-prepare-tenant.md)<br/> &#8226; [Sign in users and call an API](how-to-web-app-node-sign-in-call-api-overview.md)  |
-> | ASP.NET Core | &#8226; [Sign in users](./sample-web-app-dotnet-sign-in.md)   | &#8226; [Sign in users](how-to-web-app-dotnet-sign-in-prepare-tenant.md)   |
+> | ASP.NET Core | &#8226; [Sign in users](./sample-web-app-dotnet-sign-in.md)   | &#8226; [Sign in users](tutorial-web-app-dotnet-sign-in-prepare-tenant.md)   |
 
 ### Web API
 
@@ -112,7 +112,7 @@ These samples and how-to guides demonstrate how to write a daemon application th
 > | App type | Code sample guide | Build and integrate guide  |
 > | ------- | -------- | ------------- | 
 > | Web API| ---  | &#8226; [Secure an ASP.NET web API](tutorial-protect-web-api-dotnet-core-build-app.md)   |
-> | Web app | &#8226; [Sign in users](./sample-web-app-dotnet-sign-in.md)   | &#8226; [Sign in users](how-to-web-app-dotnet-sign-in-prepare-tenant.md)   |
+> | Web app | &#8226; [Sign in users](sample-web-app-dotnet-sign-in.md)   | &#8226; [Sign in users](tutorial-web-app-dotnet-sign-in-prepare-tenant.md)   |
 
 ### .NET (MAUI)
 
@@ -128,7 +128,7 @@ These samples and how-to guides demonstrate how to write a daemon application th
 > [!div class="mx-tdCol2BreakAll"]
 > | App type | Code sample guide | Build and integrate guide  |
 > | ------- | -------- | ------------- |
-> | Single-page application | &#8226; [Sign in users](./sample-single-page-app-vanillajs-sign-in.md) | &#8226; [Sign in users](how-to-single-page-app-vanillajs-prepare-tenant.md) |
+> | Single-page application | &#8226; [Sign in users](./sample-single-page-app-vanillajs-sign-in.md) | &#8226; [Sign in users](tutorial-single-page-app-vanillajs-prepare-tenant.md) |
 
 ### JavaScript, Angular
 

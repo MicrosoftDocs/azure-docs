@@ -5,6 +5,7 @@ description: Integrate your VPN infrastructure with Azure AD MFA by using the Ne
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
+ms.custom: has-azure-ad-ps-ref
 ms.topic: how-to
 ms.date: 01/29/2023
 

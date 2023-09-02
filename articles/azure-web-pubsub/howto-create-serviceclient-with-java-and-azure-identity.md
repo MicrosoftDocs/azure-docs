@@ -12,7 +12,7 @@ ms.topic: how-to
 
 # How to create a `WebPubSubServiceClient` with Java and Azure Identity
 
-This how-to guide shows you how to create a `WebPubSubServiceClient` with Java and Azure Identity.
+This how-to guide shows you how to create a `WebPubSubServiceClient` using Microsoft Entra ID in Java.
 
 ## Requirements
 
@@ -48,59 +48,59 @@ This how-to guide shows you how to create a `WebPubSubServiceClient` with Java a
 
 1. Create a `TokenCredential` with Azure Identity SDK.
 
-    ```java
-    package com.webpubsub.tutorial;
+   ```java
+   package com.webpubsub.tutorial;
 
-    import com.azure.core.credential.TokenCredential;
-    import com.azure.identity.DefaultAzureCredentialBuilder;
+   import com.azure.core.credential.TokenCredential;
+   import com.azure.identity.DefaultAzureCredentialBuilder;
 
-    public class App {
+   public class App {
 
-        public static void main(String[] args) {
-            TokenCredential credential = new DefaultAzureCredentialBuilder().build();
-        }
-    }
-    ```
+       public static void main(String[] args) {
+           TokenCredential credential = new DefaultAzureCredentialBuilder().build();
+       }
+   }
+   ```
 
-    `credential` can be any class that inherits from `TokenCredential` class.
+   `credential` can be any class that inherits from `TokenCredential` class.
 
-    - EnvironmentCredential
-    - ClientSecretCredential
-    - ClientCertificateCredential
-    - ManagedIdentityCredential
-    - VisualStudioCredential
-    - VisualStudioCodeCredential
-    - AzureCliCredential
+   - EnvironmentCredential
+   - ClientSecretCredential
+   - ClientCertificateCredential
+   - ManagedIdentityCredential
+   - VisualStudioCredential
+   - VisualStudioCodeCredential
+   - AzureCliCredential
 
-    To learn more, see [Azure Identity client library for Java](/java/api/overview/azure/identity-readme)
+   To learn more, see [Azure Identity client library for Java](/java/api/overview/azure/identity-readme)
 
-2. Then create a `client` with `endpoint`, `hub`, and `credential`. 
+2. Then create a `client` with `endpoint`, `hub`, and `credential`.
 
-    ```Java
-    package com.webpubsub.tutorial;
+   ```Java
+   package com.webpubsub.tutorial;
 
-    import com.azure.core.credential.TokenCredential;
-    import com.azure.identity.DefaultAzureCredentialBuilder;
-    import com.azure.messaging.webpubsub.WebPubSubServiceClient;
-    import com.azure.messaging.webpubsub.WebPubSubServiceClientBuilder;
+   import com.azure.core.credential.TokenCredential;
+   import com.azure.identity.DefaultAzureCredentialBuilder;
+   import com.azure.messaging.webpubsub.WebPubSubServiceClient;
+   import com.azure.messaging.webpubsub.WebPubSubServiceClientBuilder;
 
-    public class App {
-        public static void main(String[] args) {
+   public class App {
+       public static void main(String[] args) {
 
-            TokenCredential credential = new DefaultAzureCredentialBuilder().build();
+           TokenCredential credential = new DefaultAzureCredentialBuilder().build();
 
-            // create the service client
-            WebPubSubServiceClient client = new WebPubSubServiceClientBuilder()
-                    .endpoint("<endpoint>")
-                    .credential(credential)
-                    .hub("<hub>")
-                    .buildClient();
-        }
-    }
-    ```
+           // create the service client
+           WebPubSubServiceClient client = new WebPubSubServiceClientBuilder()
+                   .endpoint("<endpoint>")
+                   .credential(credential)
+                   .hub("<hub>")
+                   .buildClient();
+       }
+   }
+   ```
 
-    Learn how to use this client, see [Azure Web PubSub service client library for Java](/java/api/overview/azure/messaging-webpubsub-readme)
+   Learn how to use this client, see [Azure Web PubSub service client library for Java](/java/api/overview/azure/messaging-webpubsub-readme)
 
 ## Complete sample
 
-- [Simple chatroom with AAD Auth](https://github.com/Azure/azure-webpubsub/tree/main/samples/java/chatapp-aad)
+- [Simple chatroom with Microsoft Entra ID authorization](https://github.com/Azure/azure-webpubsub/tree/main/samples/java/chatapp-aad)

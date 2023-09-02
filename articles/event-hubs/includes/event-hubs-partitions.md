@@ -5,7 +5,7 @@ services: event-hubs
 author: spelluru
 ms.service: event-hubs
 ms.topic: include
-ms.date: 04/11/2022
+ms.date: 08/29/2023
 ms.author: spelluru
 ms.custom: "include file"
 
@@ -37,7 +37,7 @@ requires substantial, scaled-out, parallel processing capacity. The capacity of 
 ### Number of partitions
 The number of partitions is specified at the time of creating an event hub. It must be between 1 and the maximum partition count allowed for each pricing tier. For the partition count limit for each tier, see [this article](../event-hubs-quotas.md#basic-vs-standard-vs-premium-vs-dedicated-tiers). 
 
-We recommend that you choose at least as many partitions as you expect that are required during the peak load of your application for that particular event hub. You can't change the partition count for an event hub after its creation except for the event hub in a dedicated cluster and premium tier. The partition count for an event hub in a [dedicated Event Hubs cluster](../event-hubs-dedicated-overview.md) can be [increased](../dynamically-add-partitions.md) after the event hub has been created, but the distribution of streams across partitions will change when it's done as the mapping of partition keys to partitions changes, so you should try hard to avoid such changes if the relative order of events matters in your application.
+We recommend that you choose at least as many partitions as you expect that are required during the peak load of your application for that particular event hub. For tiers other than the premium and dedicated tiers, you can't change the partition count for an event hub after its creation. For an event hub in a premium or dedicated tier, you can [increase the partition count](../dynamically-add-partitions.md) after its creation, but you can't decrease them. The distribution of streams across partitions will change when it's done as the mapping of partition keys to partitions changes, so you should try hard to avoid such changes if the relative order of events matters in your application.
 
 Setting the number of partitions to the maximum permitted value is tempting, but always keep in mind that your event streams need to be structured such that you can indeed take advantage of multiple partitions. If you need absolute order preservation across all events or only a handful of substreams, you may not be able to take advantage of many partitions. Also, many partitions make the processing side more complex. 
 

@@ -78,7 +78,7 @@ For Voice verification, the following region codes require an opt-in.
 | 236         |  Central African Republic                      |
 | 237         |  Cameroon                                      |
 | 238         | Cabo Verde                                     |
-| 239         |  Sao Tome and Principe                         |
+| 239         |  São Tomé and Príncipe                         |
 | 240         |  Equatorial Guinea                             |
 | 241         |  Gabon                                         |
 | 242         | Congo                                          |

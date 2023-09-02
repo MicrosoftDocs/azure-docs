@@ -2,7 +2,7 @@
 title: Azure Active Directory deployment plans
 description: Guidance on Azure Active Directory deployment, such as authentication, devices, hybrid scenarios, governance, and more.
 services: active-directory
-author: gargisinha
+author: gargi-sinha
 manager: martinco
 ms.service: active-directory
 ms.subservice: fundamentals

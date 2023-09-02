@@ -6,9 +6,9 @@ author: normesta
 
 ms.service: azure-data-lake-storage
 ms.topic: conceptual
-ms.date: 06/23/2021
+ms.date: 08/18/2023
 ms.author: normesta
-ms.reviewer: yzheng
+
 ---
 
 # Known issues with Network File System (NFS) 3.0 protocol support for Azure Blob Storage
@@ -25,6 +25,8 @@ This article describes limitations and known issues of Network File System (NFS)
 - NFS 3.0 support can't be disabled in a storage account after you've enabled it.
 
 - GRS, GZRS, and RA-GRS redundancy options aren't supported when you create an NFS 3.0 storage account.
+
+- Access control lists (ACLs) can't be used to authorize an NFS 3.0 request. In fact, if the ACL or a blob or directory contains an entry for a named user or group, that file becomes inaccessible on the client for non-root users. You'll have to remove these entries to restore access to non-root users on the client.  For information about how to remove an ACL entry for named users and groups, see [How to set ACLs](data-lake-storage-access-control.md#how-to-set-acls).
 
 ## NFS 3.0 features
 

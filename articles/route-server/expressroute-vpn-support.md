@@ -6,8 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: route-server
 ms.topic: concept-article
-ms.date: 08/14/2023
-ms.custom: template-concept, engagement-fy23
+ms.date: 08/15/2023
 ---
 
 # Azure Route Server support for ExpressRoute and Azure VPN
@@ -30,12 +29,14 @@ For example, in the following diagram:
 
 You can also replace the SDWAN appliance with Azure VPN gateway. Since Azure VPN and ExpressRoute gateways are fully managed, you only need to enable the route exchange for the two on-premises networks to talk to each other.
 
-> [!IMPORTANT] 
-> Azure VPN gateway must be configured in [**active-active**](../vpn-gateway/vpn-gateway-activeactive-rm-powershell.md) mode and have the ASN set to 65515. It's not necessary to have BGP enabled on the VPN gateway.
-
-:::image type="content" source="./media/expressroute-vpn-support/expressroute-and-vpn-with-route-server.png" alt-text="Diagram showing ExpressRoute gateway and VPN gateways exchanging routes through Azure Route Server.":::
+If you enable BGP on the VPN gateway, the gateway learns *On-premises 1* routes dynamically over BGP. For more information, see [How to configure BGP for Azure VPN Gateway](../vpn-gateway/bgp-howto.md). If you don’t enable BGP on the VPN gateway, the gateway learns *On-premises 1* routes that are defined in the local network gateway of *On-premises 1*. For more information, see [Create a local network gateway](../vpn-gateway/tutorial-site-to-site-portal.md#LocalNetworkGateway). Whether you enable BGP on the VPN gateway or not, the gateway advertises the routes it learns to the Route Server if route exchange is enabled. For more information, see [Configure route exchange](quickstart-configure-route-server-portal.md#configure-route-exchange).
 
 > [!IMPORTANT] 
+> Azure VPN gateway must be configured in [**active-active**](../vpn-gateway/vpn-gateway-activeactive-rm-powershell.md) mode and have the ASN set to 65515. It's not a requirement to have BGP enabled on the VPN gateway to communicate with the Route Server.
+
+:::image type="content" source="./media/expressroute-vpn-support/expressroute-and-vpn-with-route-server.png" alt-text="Diagram showing ExpressRoute and VPN gateways exchanging routes through Azure Route Server.":::
+
+> [!NOTE] 
 > When the same route is learned over ExpressRoute, Azure VPN or an SDWAN appliance, the ExpressRoute network will be preferred.
 
 ## Next steps
