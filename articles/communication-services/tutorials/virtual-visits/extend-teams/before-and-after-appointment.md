@@ -34,7 +34,7 @@ Second, you must configure every individual communication channel. We start with
 
 The next parallel path is to send the email. After connecting to Azure Communication Services, you need to provide the sender's email. The receiver of the email can be taken from the booking property "Customer Email". Then you can provide the email subject and rich text body.
 
-The last parallel path sends a chat message to your chat solution powered by Azure Communication Services. After providing a connection to Azure Communication Services, you define the Azure Communication Services user ID that represents your organization (for example, a bot that replaces the value <APPLICATION USER ID> in the previous image). Then you select the scope "Chat" to receive an access token for this identity. Next, you create a new chat thread to send a message to this user. Lastly, you send a chat message in created chat thread about the cancellation of the Virtual appointment.
+The last parallel path sends a chat message to your chat solution powered by Azure Communication Services. After providing a connection to Azure Communication Services, you define the Azure Communication Services user ID that represents your organization (for example, a bot that replaces the value `<APPLICATION USER ID>` in the previous image). Then you select the scope "Chat" to receive an access token for this identity. Next, you create a new chat thread to send a message to this user. Lastly, you send a chat message in created chat thread about the cancellation of the Virtual appointment.
   
 ## Next steps
 -	Learn [what extensibility options you have for Virtual appointments](./overview.md)
