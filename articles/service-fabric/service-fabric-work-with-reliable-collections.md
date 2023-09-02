@@ -242,7 +242,7 @@ Alternatively, you can perform a multi-phase upgrade.
           the value to the V2 collection.
         - If the value has already been added to the V2 collection since the copy process started,
           the key should be skipped.
-        - The transaction should be committed if the `TryAddAsync` returns `true` and aborted if it returns `false`.
+        - The transaction should be committed only if the `TryAddAsync` returns `true`.
 4. Upgrade service to a new version that
     - performs read operations on the V2 collection only;
     - still performs each add, update and delete operation on first V1 and then V2 collections to maintain the option of rolling back to V1.
