@@ -63,9 +63,8 @@ To integrate with Okta Single Sign-On (using Azure Function), make sure you have
 
  [Follow these instructions](https://developer.okta.com/docs/guides/create-an-api-token/create-the-token/) to create an API Token.
 
-
-**Note** - For more information on the rate limit restrictions enforced by Okta, please refer to the **[documentation](https://developer.okta.com/docs/reference/rl-global-mgmt/)**.
-
+   > [!NOTE]
+   > For more information on the rate limit restrictions enforced by Okta, see **[OKTA developer reference documentation](https://developer.okta.com/docs/reference/rl-global-mgmt/)**.
 
 **STEP 2 - Choose ONE from the following two deployment options to deploy the connector and the associated Azure Function**
 
@@ -74,11 +73,11 @@ To integrate with Okta Single Sign-On (using Azure Function), make sure you have
 
 ### Option 1 - Azure Resource Manager (ARM) Template
 
-This method provides an automated deployment of the Okta SSO connector using an ARM Tempate.
+This method provides an automated deployment of the Okta SSO connector using an ARM Template.
 
 1. Selecgt the following **Deploy to Azure** button. 
 
-	[![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/sentineloktaazuredeployv2-solution)
+   [![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/sentineloktaazuredeployv2-solution)
 
 2. Select the preferred **Subscription**, **Resource Group** and **Location**. 
 
