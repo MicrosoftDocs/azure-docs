@@ -10,7 +10,7 @@ ms.author: geguirgu
 # MQTT Clients Life Cycle Events 
 
 Client Life Cycle events allow applications to react to events about the client connection status or the client resource operations. It allows you to:
-- Monitor your clients' connection status. For example, you can build an application that analyzes cleints' connections to optimize behavior.
+- Monitor your clients' connection status. For example, you can build an application that analyzes clients' connections to optimize behavior.
 - React with a mitigation action for client disconnections. For example, you can build an application that initiates an auto-mitigation flow or creates a support ticket every time a client is disconnected.
 - Track the namespace that your clients are attached to. For example, confirm that your clients are connected to the right namespace after you initiate a failover.  
 
@@ -264,7 +264,7 @@ az eventgrid system-topic create --resource-group <Resource Group > --name <Syst
     - Example 2: if a client gets created, then deleted within 5 seconds, EG will emit only MQTTClientDeleted event. 
 
 ### Order connection status events:
-The sequence number on the MQTTClientSessionConnected and MQTTClientSessionDisconnected events can be used to determine the last reported state of the client session's connection as the sequence number will be incremented with every new event. The sequence number for the MQTTClientSessionDisconnected will always match the sequence number of the MQTTClientSessionConnected event for the same connection. For example, the list of events and sequence numbers below is a sample of events in the right order for the same client:
+The sequence number on the MQTTClientSessionConnected and MQTTClientSessionDisconnected events can be used to determine the last reported state of the client session's connection as the sequence number is incremented with every new event. The sequence number for the MQTTClientSessionDisconnected always matches the sequence number of the MQTTClientSessionConnected event for the same connection. For example, the list of events and sequence numbers below is a sample of events in the right order for the same client:
 - MQTTClientSessionConnected > "sequenceNumber": 1
 - MQTTClientSessionDisconnected > "sequenceNumber": 1
 - MQTTClientSessionConnected > "sequenceNumber": 2
