@@ -148,7 +148,7 @@ To find the IP address of the VM for SSH, follow these steps:
 6. Select on the Kubernetes node name you're interested in to see its details.
 7. Check the 'Attached Networks' tab to find the IP address of the node's 'Layer 3 Network' that used as CNI network.
 
-:::image type="content" source="media/nexus-kubernetes/control-plane--network-attachment.png" alt-text="Screenshot of browsing Nexus Kubernetes cluster node networks.":::
+:::image type="content" source="media/nexus-kubernetes/control-plane-network-attachment.png" alt-text="Screenshot of browsing Nexus Kubernetes cluster node networks.":::
 
 ## Next steps
 
