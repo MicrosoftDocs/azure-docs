@@ -4,9 +4,10 @@ description: Learn how Azure App Service helps you develop and host web applicat
 
 ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.topic: overview
-ms.date: 07/19/2023
+ms.date: 08/31/2023
 ms.custom: UpdateFrequency3
 ms.author: msangapu
+author: msangapu-msft
 ---
 
 # App Service overview
@@ -31,6 +32,7 @@ Azure App Service is a fully managed platform as a service (PaaS) offering for d
 * **Authentication** - [Authenticate users](overview-authentication-authorization.md) using the built-in authentication component. Authenticate users with [Azure Active Directory](configure-authentication-provider-aad.md), [Google](configure-authentication-provider-google.md), [Facebook](configure-authentication-provider-facebook.md), [Twitter](configure-authentication-provider-twitter.md), or [Microsoft account](configure-authentication-provider-microsoft.md).
 * **Application templates** - Choose from an extensive list of application templates in the [Azure Marketplace](https://azure.microsoft.com/marketplace/), such as WordPress, Joomla, and Drupal.
 * **Visual Studio and Visual Studio Code integration** - Dedicated tools in Visual Studio and Visual Studio Code streamline the work of creating, deploying, and debugging.
+* **Java tools integration** - Develop and deploy to Azure without leaving your favorite development tools, such as Maven, Gradle, Visual Studio Code, IntelliJ, and Eclipse.
 * **API and mobile features** - App Service provides turn-key CORS support for RESTful API scenarios, and simplifies mobile app scenarios by enabling authentication, offline data sync, push notifications, and more.
 * **Serverless code** - Run a code snippet or script on-demand without having to explicitly provision or manage infrastructure, and pay only for the compute time your code actually uses (see [Azure Functions](../azure-functions/index.yml)).
 
@@ -42,7 +44,7 @@ App Service can also host web apps natively on Linux for supported application s
 
 ### Built-in languages and frameworks
 
-App Service on Linux supports a number of language specific built-in images. Just deploy your code. Supported languages include: Node.js, Java (8, 11, and 17), Tomcat, PHP, Python, .NET Core, and Ruby. Run [`az webapp list-runtimes --os linux`](/cli/azure/webapp#az-webapp-list-runtimes) to view the latest languages and supported versions. If the runtime your application requires is not supported in the built-in images, you can deploy it with a custom container.
+App Service on Linux supports a number of language specific built-in images. Just deploy your code. Supported languages include: Node.js, Java (Tomcat, JBoss, or with an embedded web server), PHP, Python, .NET Core, and Ruby. Run [`az webapp list-runtimes --os linux`](/cli/azure/webapp#az-webapp-list-runtimes) to view the latest languages and supported versions. If the runtime your application requires is not supported in the built-in images, you can deploy it with a custom container.
 
 Outdated runtimes are periodically removed from the Web Apps Create and Configuration blades in the Portal. These runtimes are hidden from the Portal when they are deprecated by the maintaining organization or found to have significant vulnerabilities. These options are hidden to guide customers to the latest runtimes where they will be the most successful.
 

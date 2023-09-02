@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article describes features available in Microsoft Defender for IoT, across both OT and Enterprise IoT networks, and both on-premises and in the Azure portal.
 ms.topic: whats-new
-ms.date: 08/09/2023
+ms.date: 08/28/2023
 ms.custom: enterprise-iot
 ---
 
@@ -15,6 +15,23 @@ Features released earlier than nine months ago are described in the [What's new 
 > [!NOTE]
 > Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
+
+## August 2023
+
+|Service area  |Updates  |
+|---------|---------|
+| **OT networks** | [Defender for IoT's CVEs align to CVSS v3](#defender-for-iots-cves-align-to-cvss-v3) |
+
+### Defender for IoT's CVEs align to CVSS v3
+
+CVE scores shown in the OT sensor and on the Azure portal are aligned with the [National Vulnerability Database (NVD)](https://nvd.nist.gov/vuln-metrics/cvss), and starting with Defender for IoT's August threat intelligence update, CVSS v3 scores are shown if they're relevant. If there's no CVSS v3 score relevant, the CVSS v2 score is shown instead.
+
+View CVE data from the Azure portal, either on a Defender for IoT's device detail's **Vulnerabilities** tab, with resources available with the Microsoft Sentinel solution, or in a data mining query on your OT sensor. For more information, see:
+
+- [Maintain threat intelligence packages on OT network sensors](how-to-work-with-threat-intelligence-packages.md)
+- [View full device details](how-to-manage-device-inventory-for-organizations.md#view-full-device-details)
+- [Tutorial: Investigate and detect threats for IoT devices with Microsoft Sentinel](iot-advanced-threat-monitoring.md)
+- [Create data mining queries](how-to-create-data-mining-queries.md)
 
 ## July 2023
 

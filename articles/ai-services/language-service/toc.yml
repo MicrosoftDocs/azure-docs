@@ -198,7 +198,7 @@ items:
           href: ../containers/azure-container-instance-recipe.md?context=/azure/cognitive-services/language-service/context/context
         - name: Use containers in disconnected environments
           href: ../containers/disconnected-containers.md
-        - name: Cognitive Services containers documentation
+        - name: Azure AI containers documentation
           href: ../containers/index.yml
   - name: Key phrase extraction
     items:
@@ -233,7 +233,7 @@ items:
           href: ../containers/azure-container-instance-recipe.md?context=/azure/ai-services/language-service/context/context
         - name: Use containers in disconnected environments
           href: ../containers/disconnected-containers.md
-        - name: Azure AI services containers documentation
+        - name: Azure AI containers documentation
           href: ../containers/index.yml
     - name: Tutorials
       items:
@@ -328,7 +328,7 @@ items:
             href: concepts/configure-containers.md
           - name: Use container instances
             href: ../containers/azure-container-instance-recipe.md?context=/azure/cognitive-services/language-service/context/context
-          - name: Cognitive Services containers documentation
+          - name: Azure AI containers documentation
             href: ../containers/index.yml
       - name: Concepts
         items:
@@ -559,7 +559,7 @@ items:
               href: ../containers/azure-container-instance-recipe.md?context=/azure/cognitive-services/language-service/context/context
             - name: Use containers in disconnected environments
               href: ../containers/disconnected-containers.md
-            - name: Cognitive Services containers documentation
+            - name: Azure AI containers documentation
               href: ../containers/index.yml
         - name: Tutorials
           items:
@@ -657,7 +657,7 @@ items:
             href: text-analytics-for-health/how-to/configure-containers.md
           - name: Use container instances
             href: ../containers/azure-container-instance-recipe.md?context=/azure/cognitive-services/language-service/context/context
-          - name: Cognitive Services containers documentation
+          - name: Azure AI containers documentation
             href: ../containers/index.yml
       - name: Concepts
         items:
@@ -900,7 +900,7 @@ items:
       items:
       - name: Virtual networks
         href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/language-service/context/context
-      - name: Cognitive Services security
+      - name: Azure AI services security
         href: ../security-features.md?context=/azure/cognitive-services/language-service/context/context
       - name: Encryption of data at rest
         href: concepts/encryption-data-at-rest.md

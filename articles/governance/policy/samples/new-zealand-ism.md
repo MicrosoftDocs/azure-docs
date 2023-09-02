@@ -1,7 +1,7 @@
 ---
 title: Regulatory Compliance details for New Zealand ISM Restricted
 description: Details of the New Zealand ISM Restricted Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 08/03/2023
+ms.date: 08/25/2023
 ms.topic: sample
 ms.custom: generated
 ---
@@ -327,7 +327,7 @@ This built-in initiative is deployed as part of the
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Authentication to Linux machines should require SSH keys](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F630c64f9-8b6b-4c64-b511-6544ceff6fd6) |Although SSH itself provides an encrypted connection, using passwords with SSH still leaves the VM vulnerable to brute-force attacks. The most secure option for authenticating to an Azure Linux virtual machine over SSH is with a public-private key pair, also known as SSH keys. Learn more: [https://docs.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed](../../../virtual-machines/linux/create-ssh-keys-detailed.md). |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_LinuxNoPasswordForSSH_AINE.json) |
+|[Authentication to Linux machines should require SSH keys](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F630c64f9-8b6b-4c64-b511-6544ceff6fd6) |Although SSH itself provides an encrypted connection, using passwords with SSH still leaves the VM vulnerable to brute-force attacks. The most secure option for authenticating to an Azure Linux virtual machine over SSH is with a public-private key pair, also known as SSH keys. Learn more: [https://docs.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed](../../../virtual-machines/linux/create-ssh-keys-detailed.md). |AuditIfNotExists, Disabled |[3.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_LinuxNoPasswordForSSH_AINE.json) |
 
 ### 17.9.25 Contents of KMPs
 

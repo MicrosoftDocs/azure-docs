@@ -8,7 +8,7 @@ ms.subservice: conditional-access
 ms.custom: has-azure-ad-ps-ref
 ms.topic: conceptual
 
-ms.date: 08/25/2023
+ms.date: 08/31/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -185,7 +185,7 @@ User actions are tasks that can be performed by a user. Currently, Conditional A
 
 ## Traffic forwarding profiles
 
-Traffic forwarding profiles in Global Secure Access enable administrators to define and control how traffic is routed through Microsoft Entra Internet Access and Microsoft Entra Private Access. Traffic forwarding profiles can be assigned to devices and remote networks. For an example of how to configure these traffic profiles in Conditional Access policy, see the article [How to require a compliant network check](../../global-secure-access/how-to-compliant-network.md).
+Traffic forwarding profiles in Global Secure Access enable administrators to define and control how traffic is routed through Microsoft Entra Internet Access and Microsoft Entra Private Access. Traffic forwarding profiles can be assigned to devices and remote networks. For an example of how to apply a Conditional Access policy to these traffic profiles, see the article [How to apply Conditional Access policies to the Microsoft 365 traffic profile](../../global-secure-access/how-to-target-resource-microsoft-365-profile.md).
 
 For more information about these profiles, see the article [Global Secure Access traffic forwarding profiles](../../global-secure-access/concept-traffic-forwarding.md).
 
