@@ -23,6 +23,7 @@ ms.author: alkohli
 
 ::: zone-end
 
+<!--
 ::: zone target="chromeless"
 
 ## Copy data to Azure Data Box Disk and validate
@@ -30,6 +31,7 @@ ms.author: alkohli
 After the disks are connected and unlocked, you can copy data from your source data server to your disks. After the data copy is complete, you should validate the data to ensure that it will successfully upload to Azure.
 
 ::: zone-end
+-->
 
 ::: zone target="docs"
 
@@ -224,7 +226,7 @@ The Data Box Split Copy tool helps split and copy the data on a Windows computer
 
 1. Modify the `SampleConfig.json` file.
 
-   - Provide a job name. A folder with this name is created on the Data Box Disk. This name is subsequently applied to the container in the Azure storage account associated with these disks. The job name must follow the Azure container naming conventions.
+   - Provide a job name. A folder with this name is created on the Data Box Disk. It's also used to create a container in the Azure storage account associated with these disks. The job name must follow the Azure container naming conventions.
    - Supply a source path, making note of the path format in the `SampleConfigFile.json`.
    - Enter the drive letters corresponding to the target disks. Data is taken from the source path and copied across multiple disks.
    - Provide a path for the log files. By default, log files are sent to the directory where the `.exe` file is located.
@@ -257,7 +259,7 @@ The Data Box Split Copy tool helps split and copy the data on a Windows computer
    :::image type="content" source="media/data-box-disk-deploy-copy-data/split-copy-10-sml.png" alt-text="Split copy data 10" lightbox="media/data-box-disk-deploy-copy-data/split-copy-10.png":::
    :::image type="content" source="media/data-box-disk-deploy-copy-data/split-copy-11-sml.png" alt-text="Split copy data 11" lightbox="media/data-box-disk-deploy-copy-data/split-copy-11.png":::
 
-   Examine the contents of `n:` drive and ensure that two subfolders are created that correspond to block blob and page blob format data.
+   Examine the `n:` drive contents and ensure that two subfolders are created that correspond to block blob and page blob format data.
 
    :::image type="content" source="media/data-box-disk-deploy-copy-data/split-copy-12-sml.png" alt-text="Split copy data 12" lightbox="media/data-box-disk-deploy-copy-data/split-copy-12.png":::
 
@@ -273,27 +275,23 @@ If you encounter errors while using the Split Copy tool, follow the steps within
 
 ## Validate data
 
-If you did not use the Data Box Split Copy tool to copy data, you will need to validate your data. To verify the data, perform the following steps.
+If you didn't use the Data Box Split Copy tool to copy data, you need to validate your data. Perform the following steps on each of your Data Box Disks to verify the data. If you encounter errors during validation, follow the steps within the [troubleshoot validation errors](data-box-disk-troubleshoot.md) article.
 
-1. Run the `DataBoxDiskValidation.cmd` for checksum validation in the *DataBoxDiskImport* folder of your drive. This is available for Windows environment only. Linux users need to validate that the source data that is copied to the disk meets the [prerequisites](./data-box-disk-limits.md).
-    
-    ![Data Box Disk validation tool output](media/data-box-disk-deploy-copy-data/data-box-disk-validation-tool-output.png)
+1. Run `DataBoxDiskValidation.cmd` for checksum validation in the *DataBoxDiskImport* folder of your drive. This tool is only available for the Windows environment. Linux users need to validate that the source data copied to the disk meets [Azure Data Box prerequisites](./data-box-disk-limits.md).
 
-2. Choose the appropriate option. **We recommend that you always validate the files and generate checksums by selecting option 2**. Depending upon your data size, this step may take a while. Once the script has completed, exit out of the command window. If there are any errors during validation and checksum generation, you are notified and a link to the error logs is also provided.
+   :::image type="content" source="media/data-box-disk-deploy-copy-data/data-box-disk-validation-tool-output-sml.png" alt-text="Data Box Disk validation tool output" lightbox="media/data-box-disk-deploy-copy-data/data-box-disk-validation-tool-output.png":::
 
-    ![Checksum output](media/data-box-disk-deploy-copy-data/data-box-disk-checksum-output.png)
+1. Choose the appropriate validation option when prompted. **We recommend that you always validate the files and generate checksums by selecting option 2**. After the script has completed, exit out of the command window. The time required for validation to complete depends upon the size of your data. The tool notifies you of any errors encountered during validation and checksum generation, and provides you with a link to the error logs.
 
-    > [!TIP]
-    > - Reset the tool between two runs.
-    > - The checksum process may take more time if you have a large data set containing small files (~KBs).  If you use option 1 and skip checksum creation, then you need to independently verify the data integrity of the uploaded data in Azure preferably via checksums before you delete any copies of the data in your possession.
+   :::image type="content" source="media/data-box-disk-deploy-copy-data/data-box-disk-checksum-output-sml.png" alt-text="Checksum output" lightbox="media/data-box-disk-deploy-copy-data/data-box-disk-checksum-output.png":::
 
-3. If using multiple disks, run the command for each disk.
-
-If you see errors during validation, see [troubleshoot validation errors](data-box-disk-troubleshoot.md).
+   > [!TIP]
+   > - Reset the tool between two runs.
+   > - The checksum process may take more time if you have a large data set containing many files that take up relatively little storage capacity. If you validate files and skip checksum creation, you should independently verify data integrity on the Data Box Disk prior to deleting any copies. This verification ideally includes generating checksums.
 
 ## Next steps
 
-In this tutorial, you learned about Azure Data Box Disk topics such as:
+In this tutorial, you learned how to complete the following tasks with Azure Data Box Disk:
 
 > [!div class="checklist"]
 > * Copy data to Data Box Disk
@@ -306,6 +304,7 @@ Advance to the next tutorial to learn how to return the Data Box Disk and verify
 
 ::: zone-end
 
+<!--
 ::: zone target="chromeless"
 
 ### Copy data to disks
@@ -340,3 +339,4 @@ Take the following steps to verify your data.
     For more information on data validation, see [Validate data](#validate-data). If you experience errors during validation, see [troubleshoot validation errors](data-box-disk-troubleshoot.md).
 
 ::: zone-end
+-->
