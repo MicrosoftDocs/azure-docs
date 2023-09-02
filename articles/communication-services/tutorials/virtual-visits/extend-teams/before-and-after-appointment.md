@@ -3,8 +3,6 @@ title: Extensibility of before and after appointment activities for Microsoft Te
 description: Extend Microsoft Teams Virtual appointments before and after appointment activities with Azure Communication Services, Microsoft Graph API, and Power Platform
 author: tchladek
 manager: chpalm
-services: azure-communication-services
-
 ms.author: tchladek
 ms.date: 05/22/2023
 ms.topic: tutorial
@@ -20,8 +18,8 @@ Microsoft 365 introduces triggers (examples of triggers are: button is selected,
 ## Prerequisites
 The reader of this article is expected to be familiar with: 
 -	[Microsoft Teams Virtual appointments](https://www.microsoft.com/microsoft-teams/premium/virtual-appointments) product and provided [user experience](https://guidedtour.microsoft.com/guidedtour/industry-longform/virtual-appointments/1/1) 
--	[Microsoft Graph Booking API](https://learn.microsoft.com/graph/api/resources/booking-api-overview) to manage [Microsoft Booking](https://www.microsoft.com/microsoft-365/business/scheduling-and-booking-app) via [Microsoft Graph API](https://learn.microsoft.com/graph/overview)
--	[Microsoft Graph Online meeting API](https://learn.microsoft.com/graph/api/resources/onlinemeeting) to manage [Microsoft Teams meetings](https://www.microsoft.com/microsoft-teams/online-meetings) via [Microsoft Graph API](https://learn.microsoft.com/graph/overview)
+-	[Microsoft Graph Booking API](/graph/api/resources/booking-api-overview) to manage [Microsoft Booking](https://www.microsoft.com/microsoft-365/business/scheduling-and-booking-app) via [Microsoft Graph API](/graph/overview)
+-	[Microsoft Graph Online meeting API](/graph/api/resources/onlinemeeting) to manage [Microsoft Teams meetings](https://www.microsoft.com/microsoft-teams/online-meetings) via [Microsoft Graph API](/graph/overview)
 
 ## Send SMS, email, and chat message when booking is canceled
 When a booking is canceled, there are three options to send confirmation of cancellation: SMS, email, and/or chat message. The following example shows how to configure each of the three options in Power Automate.
