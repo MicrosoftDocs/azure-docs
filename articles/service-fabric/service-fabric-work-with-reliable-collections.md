@@ -220,7 +220,8 @@ Furthermore, service code is upgraded one upgrade domain at a time. So, during a
 
 Alternatively, you can perform a multi-phase upgrade. 
 1. Upgrade service to a new version that
-    - has both the original V1, and the new V2 version of the data contracts included in the service code package.
+    - has both the original V1, and the new V2 version of the data contracts included in the service code package;
+    - registers custom V2 [state serializers](https://learn.microsoft.com/azure/service-fabric/service-fabric-reliable-services-reliable-collections-serialization#custom-serialization), if needed;
     - performs all operations on the original, V1 collection using the V1 data contracts.
 2. Upgrade service to a new version that
     - creates a new, V2 collection;
