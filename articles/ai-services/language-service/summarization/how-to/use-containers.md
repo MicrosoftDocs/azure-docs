@@ -27,19 +27,19 @@ Containers enable you to host the Summarization API on your own infrastructure. 
 
 [!INCLUDE [Gathering required parameters](../../../containers/includes/container-gathering-required-parameters.md)]
 
-<!---
 ## Host computer requirements and recommendations
 
 [!INCLUDE [Host Computer requirements](../../../../../includes/cognitive-services-containers-host-computer.md)]
 
-The following table describes the minimum and recommended specifications for the summarization container. Each CPU core must be at least 2.6 gigahertz (GHz) or faster. The allowable Transactions Per Second (TPS) are also listed.
+The following table describes the minimum and recommended specifications for the summarization container skills. Listed CPU/memory combinations are for a 4000 token input (conversation consumption is for all the aspects in the same request).
 
-|  | Minimum host specs | Recommended host specs | Minimum TPS | Maximum TPS|
-|---|---------|-------------|--|--|
-| **Summarization**   | 1 core, 2GB memory | 1 core, 4GB memory |15 | 30| 
+| Skill         | Recommended number of CPU cores  | Recommended memory |
+|---------------|----------------------------------|--------------------|
+| Abstractive   | 8.5                              | 15.5 GB            |
+| Conversation  | 16                               | 48 GB              |
+| Abstractive   | 5.5                              | 6 GB               |
 
 CPU core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
---->
 
 ## Get the container image with `docker pull`
 
