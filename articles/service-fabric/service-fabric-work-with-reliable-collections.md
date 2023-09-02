@@ -224,13 +224,19 @@ Alternatively, you can perform a multi-phase upgrade.
     - performs all operations on the original, V1 collection using the V1 data contracts.
 2. Upgrade service to a new version that
     - creates a new, V2 collection;
-    - performs add, update and delete operations on both V1 and V2 collections in a single transaction;
+    - performs each add, update and delete operation on both V1 and V2 collections in a single transaction;
     - performs read operations on the V1 collection only.
 3. Copy all data from the V1 collection to the V2 collection.
     - This can be done in a background process by the service version deployed in step 2.
+    - Enumeration of all data should be done with the
+      [IsolationLevel.Snapshot](https://learn.microsoft.com/dotnet/api/microsoft.servicefabric.data.beta.ireliablestatemanager2.createtransaction)
+      to avoid locking the entire V1 collection for the entire duration.
+    - Copying of data from the V1 to the V2 collection should be done with
+      [TryAddAsync](https://learn.microsoft.com/dotnet/api/microsoft.servicefabric.data.collections.ireliabledictionary.tryaddasync)
+      to preserve the latest V2 data that may have already been stored by the service add or update operations.
 4. Upgrade service to a new version that
     - performs read operations on the V2 collection only;
-    - still performs add, update and delete operations on both V1 and V2 collections to maintain the option of rolling back to V1.
+    - still performs each add, update and delete operation on both V1 and V2 collections to maintain the option of rolling back to V1.
 5. Upgrade service to a new version that
     - performs all operations on the V2 collection only;
     - going back to V1 is no longer possible with a service rollback and would require rolling forward with reversed steps 2-4.
