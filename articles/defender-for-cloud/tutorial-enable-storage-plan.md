@@ -21,7 +21,7 @@ Defender for Storage in Microsoft Defender for Cloud is an Azure-native layer of
 | Aspect | Details |
 |---------|---------|
 |Release state: | General Availability (GA) |
-| Feature availability: | - Activity monitoring (security alerts) - General availability (GA)<br>- Malware Scanning - Preview, General Availability (GA) on September 1, 2023<br>- Sensitive data threat detection (Sensitive Data Discovery) – Preview<br>- Malware Scanning(add-on) - free during public preview**<br><br> Above pricing applies to commercial clouds. Visit the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud) to learn more. |
+| Feature availability: |- Activity monitoring (security alerts) – General Availability (GA)<br>- Malware Scanning – General Availability (GA)<br>- Sensitive data threat detection (Sensitive Data Discovery) – Preview<br><br>Visit the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud) to learn more. |
 |Required roles and permissions: | For Malware Scanning and sensitive data threat detection at subscription and storage account levels, you need Owner roles (subscription owner/storage account owner) or specific roles with corresponding data actions. To enable Activity Monitoring, you need 'Security Admin' permissions. Read more about the required permissions. |
 | Clouds:    | :::image type="icon" source="./media/icons/yes-icon.png"::: Azure Commercial clouds*<br> :::image type="icon" source="./media/icons/no-icon.png"::: Azure Government (only activity monitoring support on the classic plan)<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure China 21Vianet<br>:::image type="icon" source="./media/icons/no-icon.png"::: Connected AWS accounts        |
 
@@ -55,4 +55,5 @@ Enabling Defender for Storage via a policy is recommended because it facilitates
 ## Next steps
 
 - Learn how to [enable and Configure the Defender for Storage plan at scale with an Azure built-in policy](defender-for-storage-policy-enablement.md).
+
 

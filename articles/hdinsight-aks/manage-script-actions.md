@@ -12,6 +12,16 @@ This article explains how you can provision script actions when you create an HD
 
 ## Use a script action during cluster creation using Azure portal
 
+1. Upload the script action in a `ADLS/WASB` storage(does not have to be the primary cluster storage). In this example we will consider an `ADLS` storage.
+   To upload a script into your storage, navigate into the target storage and the container where you want to upload it.
+
+   :::image type="content" source="./media/manage-script-actions/upload-script-action-1.png" alt-text="Screenshot showing the how to select container." border="true" lightbox="./media/manage-script-actions/upload-script-action-1.png":::
+
+1. To upload a script into your storage, navigate into the target storage and the container. Click on the upload button and select the script from your local drive.
+   After the script gets uploaded you should be able to see it in the container(see below image).
+
+   :::image type="content" source="./media/manage-script-actions/upload-script-action-2.png" alt-text="Screenshot showing how to upload the script." border="true" lightbox="./media/manage-script-actions/upload-script-action-2.png":::
+   
 1. Create a new cluster as described [here](./quickstart-create-cluster.md).
    
 1. From the Configurations tab, select **+ Add script action**.

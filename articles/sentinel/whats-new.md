@@ -24,7 +24,9 @@ See these [important announcements](#announcements) about recent changes to feat
 
 ## August 2023
 
+- [New incident investigation experience is now GA](#new-incident-investigation-experience-is-now-ga)
 - [Updated MISP2Sentinel solution utilizes the new upload indicators API.](#updated-misp2sentinel-solution)
+- [New and improved entity pages](#new-and-improved-entity-pages)
 
 ### New incident investigation experience is now GA
 
@@ -38,6 +40,14 @@ Also generally available are the similar incidents widget and the ability to add
 The open source threat intelligence sharing platform, MISP, has an updated solution to push indicators to Microsoft Sentinel. This notable solution utilizes the new [upload indicators API](#connect-threat-intelligence-with-the-upload-indicators-api) to take advantage of workspace granularity and align the MISP ingested TI to STIX-based properties.
 
 Learn more about the implementation details from the [MISP blog entry for MISP2Sentinel](https://www.misp-project.org/2023/08/26/MISP-Sentinel-UploadIndicatorsAPI.html/).
+
+### New and improved entity pages
+
+Microsoft Sentinel now provides you enhanced and enriched entity pages and panels, giving you more security information on user accounts, full entity data to enrich your incident context, and a reduction in latency for a faster, smoother experience.
+
+- Read more about these changes in this blog post: [Taking Entity Investigation to the Next Level: Microsoft Sentinel’s Upgraded Entity Pages](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/taking-entity-investigation-to-the-next-level-microsoft-sentinel/ba-p/3878382).
+
+- Learn more about [entities in Microsoft Sentinel](entities.md).
 
 ## July 2023
 
