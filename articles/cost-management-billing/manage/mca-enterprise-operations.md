@@ -137,7 +137,7 @@ To view charges for subscriptions that belonged to an account, go to the [subscr
 You can view charges for a subscription either on the [subscriptions page](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) or the Azure cost analysis. For more information on Azure cost analysis, see [explore and analyze costs with Cost analysis](../costs/quick-acm-cost-analysis.md).
 
 > [!NOTE]
-> To understand what could change upon migration from Enterprise Agreement to Microsoft Customer Agreement, refer [this](https://learn.microsoft.com/azure/cost-management-billing/costs/migrate-cost-management-api) document.
+> To understand what could change upon migration from Enterprise Agreement to Microsoft Customer Agreement, refer to the [Migrate Cost Management API](../cost-management-billing/costs/migrate-cost-management-api.md) article.
 
 ## Need help? Contact support
 
