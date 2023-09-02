@@ -75,7 +75,7 @@ To integrate with Okta Single Sign-On (using Azure Function), make sure you have
 
 This method provides an automated deployment of the Okta SSO connector using an ARM Template.
 
-1. Selecgt the following **Deploy to Azure** button. 
+1. Select the following **Deploy to Azure** button. 
 
    [![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/sentineloktaazuredeployv2-solution)
 
@@ -83,7 +83,7 @@ This method provides an automated deployment of the Okta SSO connector using an 
 
 3. Enter the **Workspace ID**, **Workspace Key**, **API Token** and **URI**. 
 
-   Use the following schema for the `uri` value: `https://<OktaDomain>/api/v1/logs?since=` Replace `<OktaDomain>` with your domain. [Click here](https://developer.okta.com/docs/reference/api-overview/#url-namespace) for further details on how to identify your Okta domain namespace. There is no need to add a time value to the URI. The Function App will dynamically append the initial start time of logs to UTC 0:00 for the current UTC date as a time value to the URI in the proper format. 
+   Use the following schema for the `uri` value: `https://<OktaDomain>/api/v1/logs?since=` Replace `<OktaDomain>` with your domain. [Click here](https://developer.okta.com/docs/reference/api-overview/#url-namespace) for further details on how to identify your Okta domain namespace. There's no need to add a time value to the URI. The Function App will dynamically append the initial start time of logs to UTC 0:00 for the current UTC date as a time value to the URI in the proper format. 
 
    > [!NOTE]
    >  If using Azure Key Vault secrets for any of the preceding values, use the`@Microsoft.KeyVault(SecretUri={Security Identifier})`schema in place of the string values. Refer to [Key Vault references documentation](/azure/app-service/app-service-key-vault-references) for further details. 
@@ -98,7 +98,7 @@ Use the following step-by-step instructions to deploy the Okta SSO connector man
 
 **1. Create a Function App**
 
-1.  From the Azure Portal, navigate to [Function App](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Web%2Fsites/kind/functionapp), and select **+ Add**.
+1.  From the Azure portal, navigate to [Function App](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Web%2Fsites/kind/functionapp), and select **+ Add**.
 2. In the **Basics** tab, ensure Runtime stack is set to **Powershell Core**. 
 3. In the **Hosting** tab, ensure the **Consumption (Serverless)** plan type is selected.
 4. Make other preferable configuration changes, if needed, then click **Create**.
@@ -126,7 +126,7 @@ Use the following step-by-step instructions to deploy the Okta SSO connector man
    - uri
    - logAnalyticsUri (optional)
 
-   Use the following schema for the `uri` value: `https://<OktaDomain>/api/v1/logs?since=` Replace `<OktaDomain>` with your domain. [Click here](https://developer.okta.com/docs/reference/api-overview/#url-namespace) for further details on how to identify your Okta domain namespace. There is no need to add a time value to the URI. The Function App dynamically appends the initial start time of logs to UTC 0:00 (for the current UTC date) as a time value to the URI in the proper format.
+   Use the following schema for the `uri` value: `https://<OktaDomain>/api/v1/logs?since=` Replace `<OktaDomain>` with your domain. For more information on how to identify your Okta domain namespace, see the [Okta Developer reference](https://developer.okta.com/docs/reference/api-overview/#url-namespace). There's no need to add a time value to the URI. The Function App dynamically appends the initial start time of logs to UTC 0:00 (for the current UTC date) as a time value to the URI in the proper format.
      
     > [!NOTE]
     > If using Azure Key Vault secrets for any of the preceding values, use the`@Microsoft.KeyVault(SecretUri={Security Identifier})`schema in place of the string values. Refer to [Key Vault references documentation](/azure/app-service/app-service-key-vault-references) for further details.
