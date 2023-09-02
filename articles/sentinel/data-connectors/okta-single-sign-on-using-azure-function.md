@@ -24,29 +24,21 @@ The [Okta Single Sign-On (SSO)](https://www.okta.com/products/single-sign-on/) c
 ## Query samples
 
 **Top 10 Active Applications**
+
    ```kusto
-Okta_CL 
-
+   Okta_CL 
    | mv-expand todynamic(target_s)  
-
    | where target_s.type == "AppInstance"  
-
    | summarize count() by tostring(target_s.alternateId)  
-
    | top 10 by count_
    ```
 
 **Top 10 Client IP Addresses**
    ```kusto
-Okta_CL 
-
+   Okta_CL 
    | summarize count() by client_ipAddress_s 
-
    | top 10 by count_
    ```
-
-
-
 ## Prerequisites
 
 To integrate with Okta Single Sign-On (using Azure Function) make sure you have: 
@@ -59,11 +51,11 @@ To integrate with Okta Single Sign-On (using Azure Function) make sure you have:
 
 
 > [!NOTE]
-   >  This connector uses Azure Functions to connect to Okta SSO to pull its logs into Microsoft Sentinel. This might result in additional data ingestion costs. Check the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) for details.
+> This connector uses Azure Functions to connect to Okta SSO to pull its logs into Microsoft Sentinel. This might result in additional data ingestion costs. Check the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) for details.
 
 
 > [!NOTE]
-   >  This connector has been updated, if you have previously deployed an earlier version, and want to update, please delete the existing Okta Azure Function before redeploying this version.
+>  This connector has been updated. If you have previously deployed an earlier version, and want to update, please delete the existing Okta Azure Function before redeploying this version.
 
 
 >**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
@@ -123,19 +115,20 @@ Use the following step-by-step instructions to deploy the Okta SSO connector man
 **3. Configure the Function App**
 
 1. In the Function App, select the Function App Name and select **Configuration**.
+
 2. In the **Application settings** tab, select **+ New application setting**.
+
 3. Add each of the following five (5) application settings individually, with their respective string values (case-sensitive): 
 		apiToken
 		workspaceID
 		workspaceKey
 		uri
 		logAnalyticsUri (optional)
- - Use the following schema for the `uri` value: `https://<OktaDomain>/api/v1/logs?since=` Replace `<OktaDomain>` with your domain. [Click here](https://developer.okta.com/docs/reference/api-overview/#url-namespace) for further details on how to identify your Okta domain namespace. There is no need to add a time value to the URI, the Function App will dynamically append the inital start time of logs to UTC 0:00 for the current UTC date as time value to the URI in the proper format.
- - Note: If using Azure Key Vault secrets for any of the values above, use the`@Microsoft.KeyVault(SecretUri={Security Identifier})`schema in place of the string values. Refer to [Key Vault references documentation](/azure/app-service/app-service-key-vault-references) for further details.
- - Use logAnalyticsUri to override the log analytics API endpoint for dedicated cloud. For example, for public cloud, leave the value empty; for Azure GovUS cloud environment, specify the value in the following format: https://<CustomerId>.ods.opinsights.azure.us. 
-4. Once all application settings have been entered, click **Save**.
-
-
+   - Use the following schema for the `uri` value: `https://<OktaDomain>/api/v1/logs?since=` Replace `<OktaDomain>` with your domain. [Click here](https://developer.okta.com/docs/reference/api-overview/#url-namespace) for further details on how to identify your Okta domain namespace. There is no need to add a time value to the URI, the Function App will dynamically append the inital start time of logs to UTC 0:00 for the current UTC date as time value to the URI in the proper format.
+   - Note: If using Azure Key Vault secrets for any of the values above, use the`@Microsoft.KeyVault(SecretUri={Security Identifier})`schema in place of the string values. Refer to [Key Vault references documentation](/azure/app-service/app-service-key-vault-references) for further details.
+   - Use logAnalyticsUri to override the log analytics API endpoint for dedicated cloud. For example, for public cloud, leave the value empty; for Azure GovUS cloud environment, specify the value in the following format: `https://<CustomerId>.ods.opinsights.azure.us`.
+ 
+5. Once all application settings have been entered, click **Save**.
 
 ## Next steps
 
