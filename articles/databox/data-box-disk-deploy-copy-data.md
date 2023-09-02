@@ -7,14 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 08/30/2023
+ms.date: 09/01/2023
 ms.author: alkohli
 
 # Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 
 # Doc scores:
 #    11/18/22: 75 (2456/62)
-#    8/30/23: 100 ()
+#    09/01/23: 100 ()
 ---
 
 ::: zone target="docs"
@@ -57,8 +57,8 @@ Review the following considerations before you copy the data to the disks:
 
 - It is your responsibility to ensure that you copy your local data to the folders that correspond to the appropriate data format. For instance, copy block blob data to the *BlockBlob* folder. If the local data format doesn't match the appropriate folder for the chosen storage type, the data upload to Azure fails in a later step.
 - While copying data, ensure that the data size conforms to the size limits described within in the [Azure storage and Data Box Disk limits](data-box-disk-limits.md) article.
-- If you want to preserve metadata such as ACLs, timestamps, and file attributes when transferring data to Azure Files, follow the guidance in the [Preserving file ACLs, attributes, and timestamps with Azure Data Box Disk](data-box-disk-file-acls-preservation.md) article.
-- If data is uploaded by both Data Box Disk and other applications simultaneously, you may experience upload job failures and data corruption.
+- To preserve metadata such as ACLs, timestamps, and file attributes when transferring data to Azure Files, follow the guidance within the [Preserving file ACLs, attributes, and timestamps with Azure Data Box Disk](data-box-disk-file-acls-preservation.md) article.
+- If you use both Data Box Disk and other applications to upload data simultaneously, you may experience upload job failures and data corruption.
 
    > [!IMPORTANT]
    >  If you specified managed disks as one of the storage destinations during order creation, the following section is applicable.
@@ -74,17 +74,17 @@ Perform the following steps to connect and copy data from your computer to the D
 
     |Selected storage destination  |Storage account type|Staging storage account type |Folders and subfolders  |
     |------------------------------|--------------------|-----------------------------|------------------------|
-    |Storage account               |GPv1 or GPv2        | NA                          | BlockBlob<br>PageBlob<br>AzureFile |
-    |Storage account               |Blob storage account| NA                          | BlockBlob              |
+    |Storage account               |GPv1 or GPv2        | NA                          | BlockBlob<br>BlockBlob_Archive<br>PageBlob<br>AzureFile |
+    |Storage account               |Blob storage account| NA                          | BlockBlob<br>BlockBlob_Archive |
     |Managed disks                 |NA                  | GPv1 or GPv2                | ManagedDisk<ul><li>PremiumSSD</li><li>StandardSSD</li><li>StandardHDD</li></ul> |
-    |Storage account<br>Managed disks |GPv1 or GPv2     | GPv1 or GPv2                | BlockBlob<br>PageBlob<br>AzureFile<br>ManagedDisk<ul><li>PremiumSSD</li><li>StandardSSD</li><li>StandardHDD</li></ul>|
-    |Storage account <br> Managed disks |Blob storage account | GPv1 or GPv2          |BlockBlob <br> ManagedDisk<ul> <li>PremiumSSD</li><li>StandardSSD</li><li>StandardHDD</li></ul> |
+    |Storage account<br>Managed disks |GPv1 or GPv2     | GPv1 or GPv2                | BlockBlob<br/>BlockBlob_Archive<br/>PageBlob<br/>AzureFile<br/>ManagedDisk<ul><li>PremiumSSD</li><li>StandardSSD</li><li>StandardHDD</li></ul>|
+    |Storage account <br> Managed disks |Blob storage account | GPv1 or GPv2          |BlockBlob<br>BlockBlob_Archive<br>ManagedDisk<ul> <li>PremiumSSD</li><li>StandardSSD</li><li>StandardHDD</li></ul> |
 
-    The following screenshot shows an order where a GPv2 storage account was specified:
+    The following screenshot shows an order where a GPv2 storage account and archive tier were specified:
 
     :::image type="content" source="media/data-box-disk-deploy-copy-data/data-box-disk-content-sml.png" alt-text="Contents of the disk drive" lightbox="media/data-box-disk-deploy-copy-data/data-box-disk-content.png":::
 
-2. Copy data to be imported as block blobs into the *BlockBlob* folder. Similarly, copy VHD or VHDX data to the *PageBlob* folder, and file share data into *AzureFile* folder.
+1. Copy data to be imported as block blobs into the *BlockBlob* folder. Similarly, copy VHD or VHDX data to the *PageBlob* folder, and file share data into *AzureFile* folder.
 
    A container is created in the Azure storage account for each subfolder under *BlockBlob* and *PageBlob* folders. All files under *BlockBlob* and *PageBlob* folders are copied into a default `$root` container under the Azure Storage account. Any files in the `$root` container are always uploaded as block blobs.
 
@@ -95,54 +95,55 @@ Perform the following steps to connect and copy data from your computer to the D
     > [!IMPORTANT]
     > All the containers, blobs, and filenames should conform to [Azure naming conventions](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). If these rules are not followed, the data upload to Azure will fail.
 
-3. When copying files, ensure that files don't exceed ~4.7 TiB for block blobs, ~8 TiB for page blobs, and ~1 TiB for Azure Files. 
-4. You can use drag and drop with File Explorer to copy the data. You can also use any SMB compatible file copy tool such as Robocopy to copy your data. Multiple copy jobs can be initiated using the following Robocopy command:
+1. When copying files, ensure that files don't exceed 4.7 TiB for block blobs, 8 TiB for page blobs, and 1 TiB for Azure Files.
+1. You can use drag and drop with File Explorer to copy the data. You can also use any SMB compatible file copy tool such as Robocopy to copy your data. Multiple copy jobs can be initiated using the following Robocopy command:
 
     `Robocopy <source> <destination>  * /MT:64 /E /R:1 /W:1 /NFL /NDL /FFT /Log:c:\RobocopyLog.txt`
 
     The parameters and options for the command are tabulated as follows:
 
-    |Parameters/Options  |Description |
-    |--------------------|------------|
-    |Source            | Specifies the path to the source directory.        |
-    |Destination       | Specifies the path to the destination directory.        |
-    |/E                  | Copies subdirectories including empty directories. |
-    |/MT[:N]             | Creates multi-threaded copies with N threads where N is an integer between 1 and 128. <br>The default value for N is 8.        |
-    |/R: \<N>             | Specifies the number of retries on failed copies. The default value of N is 1,000,000 (one million retries).        |
-    |/W: \<N>             | Specifies the wait time between retries, in seconds. The default value of N is 30 (wait time 30 seconds).        |
-    |/NFL                | Specifies that file names aren't logged.        |
-    |/NDL                | Specifies that directory names are not to be logged.        |
-    |/FFT                | Assumes FAT file times (two-second precision).        |
-    |/Log:\<Log File>     | Writes the status output to the log file (overwrites the existing log file).         |
+    |Parameters/Options |Description |
+    |-------------------|------------|
+    |Source             | Specifies the path to the source directory. |
+    |Destination        | Specifies the path to the destination directory. |
+    |/E                 | Copies subdirectories including empty directories. |
+    |/MT[:n]            | Creates multi-threaded copies with *n* threads where *n* is an integer between 1 and 128.<br>The default value for *n* is 8. |
+    |/R: \<n>           | Specifies the number of retries on failed copies.<br>The default value of *n* is 1,000,000 retries. |
+    |/W: \<n>           | Specifies the wait time between retries, in seconds.<br>The default value of *n* is 30 and corresponds to a wait time 30 seconds. |
+    |/NFL               | Specifies that file names aren't logged. |
+    |/NDL               | Specifies that directory names aren't to be logged. |
+    |/FFT               | Assumes FAT file times with a resolution precision of two seconds. |
+    |/Log:\<Log File>   | Writes the status output to the log file.<br>Any existing log file is overwritten. |
 
-    Multiple disks can be used in parallel with multiple jobs running on each disk.
+    Multiple disks can be used in parallel with multiple jobs running on each disk. Keep in mind that duplicate filenames are either overwritten or result in a copy error.
 
-6. Check the copy status when the job is in progress. The following sample shows the output of the robocopy command to copy files to the Data Box Disk.
+1. Check the copy status when the job is in progress. The following sample shows the output of the robocopy command to copy files to the Data Box Disk.
 
-    ```
-    C:\Users>robocopy
-        -------------------------------------------------------------------------------
-       ROBOCOPY     ::     Robust File Copy for Windows
-    -------------------------------------------------------------------------------
-    
+   ```Sample output
+      
+   C:\Users>robocopy
+   -------------------------------------------------------------------------------
+      ROBOCOPY     ::     Robust File Copy for Windows
+   -------------------------------------------------------------------------------
+ 
       Started : Thursday, March 8, 2018 2:34:53 PM
-           Simple Usage :: ROBOCOPY source destination /MIR
+         Simple Usage :: ROBOCOPY source destination /MIR
+
+               source :: Source Directory (drive:\path or \\server\share\path).
+          destination :: Destination Dir  (drive:\path or \\server\share\path).
+                 /MIR :: Mirror a complete directory tree.
+
+     For more usage information run ROBOCOPY /?    
+
+     ****  /MIR can DELETE files as well as copy them !
     
-                 source :: Source Directory (drive:\path or \\server\share\path).
-            destination :: Destination Dir  (drive:\path or \\server\share\path).
-                   /MIR :: Mirror a complete directory tree.
-    
-        For more usage information run ROBOCOPY /?    
-    
-    ****  /MIR can DELETE files as well as copy them !
-    
-    C:\Users>Robocopy C:\Git\azure-docs-pr\contributor-guide \\10.126.76.172\devicemanagertest1_AzFile\templates /MT:64 /E /R:1 /W:1 /FFT 
-    -------------------------------------------------------------------------------
-       ROBOCOPY     ::     Robust File Copy for Windows
-    -------------------------------------------------------------------------------
-    
+   C:\Users>Robocopy C:\Repository\guides \\10.126.76.172\devicemanagertest1_AzFile\templates /MT:64 /E /R:1 /W:1 /FFT 
+   -------------------------------------------------------------------------------
+      ROBOCOPY     ::     Robust File Copy for Windows
+   -------------------------------------------------------------------------------
+
       Started : Thursday, March 8, 2018 2:34:58 PM
-       Source : C:\Git\azure-docs-pr\contributor-guide\
+       Source : C:\Repository\guides\
          Dest : \\10.126.76.172\devicemanagertest1_AzFile\templates\
     
         Files : *.*
@@ -151,23 +152,23 @@ Perform the following steps to connect and copy data from your computer to the D
     
     ------------------------------------------------------------------------------
     
-    100%        New File                 206        C:\Git\azure-docs-pr\contributor-guide\article-metadata.md
-    100%        New File                 209        C:\Git\azure-docs-pr\contributor-guide\content-channel-guidance.md
-    100%        New File                 732        C:\Git\azure-docs-pr\contributor-guide\contributor-guide-index.md
-    100%        New File                 199        C:\Git\azure-docs-pr\contributor-guide\contributor-guide-pr-criteria.md
-                New File                 178        C:\Git\azure-docs-pr\contributor-guide\contributor-guide-pull-request-co100%  .md
-                New File                 250        C:\Git\azure-docs-pr\contributor-guide\contributor-guide-pull-request-et100%  e.md
-    100%        New File                 174        C:\Git\azure-docs-pr\contributor-guide\create-images-markdown.md
-    100%        New File                 197        C:\Git\azure-docs-pr\contributor-guide\create-links-markdown.md
-    100%        New File                 184        C:\Git\azure-docs-pr\contributor-guide\create-tables-markdown.md
-    100%        New File                 208        C:\Git\azure-docs-pr\contributor-guide\custom-markdown-extensions.md
-    100%        New File                 210        C:\Git\azure-docs-pr\contributor-guide\file-names-and-locations.md
-    100%        New File                 234        C:\Git\azure-docs-pr\contributor-guide\git-commands-for-master.md
-    100%        New File                 186        C:\Git\azure-docs-pr\contributor-guide\release-branches.md
-    100%        New File                 240        C:\Git\azure-docs-pr\contributor-guide\retire-or-rename-an-article.md
-    100%        New File                 215        C:\Git\azure-docs-pr\contributor-guide\style-and-voice.md
-    100%        New File                 212        C:\Git\azure-docs-pr\contributor-guide\syntax-highlighting-markdown.md
-    100%        New File                 207        C:\Git\azure-docs-pr\contributor-guide\tools-and-setup.md
+    100%    New File    206    C:\Repository\guides\article-metadata.md
+    100%    New File    209    C:\Repository\guides\content-channel-guidance.md
+    100%    New File    732    C:\Repository\guides\index.md
+    100%    New File    199    C:\Repository\guides\pr-criteria.md
+    100%    New File    178    C:\Repository\guides\pull-request-co.md
+    100%    New File    250    C:\Repository\guides\pull-request-ete.md
+    100%    New File    174    C:\Repository\guides\create-images-markdown.md
+    100%    New File    197    C:\Repository\guides\create-links-markdown.md
+    100%    New File    184    C:\Repository\guides\create-tables-markdown.md
+    100%    New File    208    C:\Repository\guides\custom-markdown-extensions.md
+    100%    New File    210    C:\Repository\guides\file-names-and-locations.md
+    100%    New File    234    C:\Repository\guides\git-commands-for-master.md
+    100%    New File    186    C:\Repository\guides\release-branches.md
+    100%    New File    240    C:\Repository\guides\retire-or-rename-an-article.md
+    100%    New File    215    C:\Repository\guides\style-and-voice.md
+    100%    New File    212    C:\Repository\guides\syntax-highlighting-markdown.md
+    100%    New File    207    C:\Repository\guides\tools-and-setup.md
     ------------------------------------------------------------------------------
     
                    Total    Copied   Skipped  Mismatch    FAILED    Extras
@@ -178,98 +179,97 @@ Perform the following steps to connect and copy data from your computer to the D
         
        Speed :                5620 Bytes/sec.
        Speed :               0.321 MegaBytes/min.
-       Ended : Thursday, March 8, 2018 2:34:59 PM
-        
-    C:\Users>
+       Ended : Thursday, August 31, 2023 2:34:59 PM
+
     ```
- 
+
     To optimize the performance, use the following robocopy parameters when copying the data.
 
-    |    Platform    |    Mostly small files < 512 KB                           |    Mostly medium  files 512 KB-1 MB                      |    Mostly large files > 1 MB                             |   
-    |----------------|--------------------------------------------------------|--------------------------------------------------------|--------------------------------------------------------|
-    |    Data Box Disk        |    4 Robocopy sessions* <br> 16 threads per sessions    |    2 Robocopy sessions* <br> 16 threads per sessions    |    2 Robocopy sessions* <br> 16 threads per sessions    |
-    
-    **Each Robocopy session can have a maximum of 7,000 directories and 150 million files.*
-    
-    >[!NOTE]
-    > The parameters suggested above are based on the environment used in inhouse testing.
-    
-    For more information on Robocopy command, go to [Robocopy and a few examples](https://social.technet.microsoft.com/wiki/contents/articles/1073.robocopy-and-a-few-examples.aspx).
+    | Platform      | Mostly small files < 512 KB | Mostly medium  files 512 KB-1 MB | Mostly large files > 1 MB |
+    |---------------|-----------------------------|----------------------------------|---------------------------|
+    | Data Box Disk | 4 Robocopy sessions*<br>16 threads per session | 2 Robocopy session*<br>16 threads per session | 2 Robocopy session*<br>16 threads per session |
 
-6. Open the target folder to view and verify the copied files. If you have any errors during the copy process, download the log files for troubleshooting. The log files are located as specified in the robocopy command.
- 
+    **Each Robocopy session can have a maximum of 7,000 directories and 150 million files.*
+
+    >[!NOTE]
+    > The previously suggested parameters are based on the environment used during in-house testing.
+
+    For more information on the Robocopy command, read the [Robocopy and a few examples](https://social.technet.microsoft.com/wiki/contents/articles/1073.robocopy-and-a-few-examples.aspx) article.
+
+1. Open the target folder, then view and verify the copied files. If you have any errors during the copy process, download the log files for troubleshooting. The robocopy command's output specifies the location of the log files.
+
 ### Split and copy data to disks
 
-This optional procedure may be used when you are using multiple disks and have a large dataset that needs to be split and copied across all the disks. The Data Box Split Copy tool helps split and copy the data on a Windows computer.
+The Data Box Split Copy tool helps split and copy the data on a Windows computer. This optional procedure is helpful when you have a large dataset that needs to be split and copied across multiple disks.
 
 >[!IMPORTANT]
-> Data Box Split Copy tool also validates your data. If you use Data Box Split Copy tool to copy data, you can skip the [validation step](#validate-data).
-> Split Copy tool is not supported with managed disks.
+> The Data Box Split Copy tool also validates your data. If you use Data Box Split Copy tool to copy data, you can skip the [validation step](#validate-data).
+> The Split Copy tool is not supported with managed disks.
 
-1. On your Windows computer, ensure that you have the Data Box Split Copy tool downloaded and extracted in a local folder. This tool was downloaded when you downloaded the Data Box Disk toolset for Windows.
-2. Open File Explorer. Make a note of the data source drive and drive letters assigned to Data Box Disk. 
+1. On your Windows computer, ensure that you have the Data Box Split Copy tool downloaded and extracted in a local folder. This tool is included within the Data Box Disk toolset for Windows.
+1. Open File Explorer. Make a note of the data source drive and drive letters assigned to Data Box Disk.
 
-     ![Split copy data](media/data-box-disk-deploy-copy-data/split-copy-1.png)
- 
-3. Identify the source data to copy. For instance, in this case:
-    - Following block blob data was identified.
+   :::image type="content" source="media/data-box-disk-deploy-copy-data/split-copy-1-sml.png" alt-text="Split copy data" lightbox="media/data-box-disk-deploy-copy-data/split-copy-1.png":::
 
-         ![Split copy data 2](media/data-box-disk-deploy-copy-data/split-copy-2.png)    
+1. Identify the source data to copy. For instance, in this case:
+   - The following block blob data was identified.
+   :::image type="content" source="media/data-box-disk-deploy-copy-data/split-copy-2-sml.png" alt-text="Split copy data 2" lightbox="media/data-box-disk-deploy-copy-data/split-copy-2.png":::
 
-    - Following page blob data was identified.
+   - The following page blob data was identified.
+   :::image type="content" source="media/data-box-disk-deploy-copy-data/split-copy-3-sml.png" alt-text="Split copy data 3" lightbox="media/data-box-disk-deploy-copy-data/split-copy-3.png":::
 
-         ![Split copy data 3](media/data-box-disk-deploy-copy-data/split-copy-3.png)
+1. Navigate to the folder where the software is extracted and locate the `SampleConfig.json` file. This file is a read-only file that you can modify and save.
 
-4. Navigate to the folder where the software is extracted and locate the `SampleConfig.json` file within that folder. This file is a read-only file that you can modify and save.
+   :::image type="content" source="media/data-box-disk-deploy-copy-data/split-copy-4-sml.png" alt-text="Split copy data 4" lightbox="media/data-box-disk-deploy-copy-data/split-copy-4.png":::
 
-   ![Split copy data 4](media/data-box-disk-deploy-copy-data/split-copy-4.png)
+1. Modify the `SampleConfig.json` file.
 
-5. Modify the `SampleConfig.json` file.
- 
-   - Provide a job name. This creates a folder in the Data Box Disk and eventually becomes the container in the Azure storage account associated with these disks. The job name must follow the Azure container naming conventions. 
-   - Supply a source path making note of the path format in the `SampleConfigFile.json`. 
-   - Enter the drive letters corresponding to the target disks. The data is taken from the source path and copied across multiple disks.
-   - Provide a path for the log files. By default, it is sent to the current directory where the `.exe` is located.
+   - Provide a job name. A folder with this name is created on the Data Box Disk. This name is subsequently applied to the container in the Azure storage account associated with these disks. The job name must follow the Azure container naming conventions.
+   - Supply a source path, making note of the path format in the `SampleConfigFile.json`.
+   - Enter the drive letters corresponding to the target disks. Data is taken from the source path and copied across multiple disks.
+   - Provide a path for the log files. By default, log files are sent to the directory where the `.exe` file is located.
+   - To validate the file format, go to `JSONlint`.
 
-     ![Split copy data 5](media/data-box-disk-deploy-copy-data/split-copy-5.png)
+   :::image type="content" source="media/data-box-disk-deploy-copy-data/split-copy-5-sml.png" alt-text="Split copy data 5" lightbox="media/data-box-disk-deploy-copy-data/split-copy-5.png":::
 
-6. To validate the file format, go to `JSONlint`. Save the file as `ConfigFile.json`. 
+   Save the file as `ConfigFile.json`.
 
-     ![Split copy data 6](media/data-box-disk-deploy-copy-data/split-copy-6.png)
- 
-7. Open a Command Prompt window. 
+   :::image type="content" source="media/data-box-disk-deploy-copy-data/split-copy-6-sml.png" alt-text="Split copy data 6" lightbox="media/data-box-disk-deploy-copy-data/split-copy-6.png":::
 
-8. Run the `DataBoxDiskSplitCopy.exe`. Type
+1. Open a Command Prompt window and run the `DataBoxDiskSplitCopy.exe` using the following command.
 
-    `DataBoxDiskSplitCopy.exe PrepImport /config:<Your-config-file-name.json>`
+   ```Command prompt
+   DataBoxDiskSplitCopy.exe PrepImport /config:ConfigFile.json
+   ```
 
-     ![Split copy data 7](media/data-box-disk-deploy-copy-data/split-copy-7.png)
- 
-9. Enter to continue the script.
+   :::image type="content" source="media/data-box-disk-deploy-copy-data/split-copy-7-sml.png" alt-text="Split copy data 7" lightbox="media/data-box-disk-deploy-copy-data/split-copy-7.png":::
 
-    ![Split copy data 8](media/data-box-disk-deploy-copy-data/split-copy-8.png)
+1. When prompted, press any key to continue running the tool.
+
+   :::image type="content" source="media/data-box-disk-deploy-copy-data/split-copy-8-sml.png" alt-text="Split copy data 8" lightbox="media/data-box-disk-deploy-copy-data/split-copy-8.png":::
   
-10. When the dataset is split and copied, the summary of the Split Copy tool for the copy session is presented. A sample output is shown below.
+1. After the dataset is split and copied, the summary of the Split Copy tool for the copy session is presented as shown in the following sample output.
 
-    ![Split copy data 9](media/data-box-disk-deploy-copy-data/split-copy-9.png)
- 
-11. Verify that the data is split across the target disks. 
- 
-    ![Split copy data 10](media/data-box-disk-deploy-copy-data/split-copy-10.png)
-    ![Split copy data 11](media/data-box-disk-deploy-copy-data/split-copy-11.png)
-	 
-    If you examine the contents of `n:` drive further, you will see that two sub-folders are created corresponding to block blob and page blob format data.
-    
-     ![Split copy data 12](media/data-box-disk-deploy-copy-data/split-copy-12.png)
+   :::image type="content" source="media/data-box-disk-deploy-copy-data/split-copy-9-sml.png" alt-text="Split copy data 9" lightbox="media/data-box-disk-deploy-copy-data/split-copy-9.png":::
 
-12. If the copy session fails, then to recover and resume, use the following command:
+1. Verify that the data is split properly across the target disks.
 
-    `DataBoxDiskSplitCopy.exe PrepImport /config:<configFile.json> /ResumeSession`
+   :::image type="content" source="media/data-box-disk-deploy-copy-data/split-copy-10-sml.png" alt-text="Split copy data 10" lightbox="media/data-box-disk-deploy-copy-data/split-copy-10.png":::
+   :::image type="content" source="media/data-box-disk-deploy-copy-data/split-copy-11-sml.png" alt-text="Split copy data 11" lightbox="media/data-box-disk-deploy-copy-data/split-copy-11.png":::
 
-If you see errors using the Split Copy tool, go to how to [troubleshoot Split Copy tool errors](data-box-disk-troubleshoot-data-copy.md).
+   Examine the contents of `n:` drive and ensure that two subfolders are created that correspond to block blob and page blob format data.
 
-After the data copy is complete, you can proceed to validate your data. If you used the Split Copy tool, skip the validation (Split Copy tool validates as well) and advance to the next tutorial.
+   :::image type="content" source="media/data-box-disk-deploy-copy-data/split-copy-12-sml.png" alt-text="Split copy data 12" lightbox="media/data-box-disk-deploy-copy-data/split-copy-12.png":::
 
+1. If the copy session fails, use the following command to recover and resume:
+
+   `DataBoxDiskSplitCopy.exe PrepImport /config:ConfigFile.json /ResumeSession`
+
+If you encounter errors while using the Split Copy tool, follow the steps within the [troubleshoot Split Copy tool errors](data-box-disk-troubleshoot-data-copy.md) article.
+
+>[!IMPORTANT]
+> The Data Box Split Copy tool also validates your data. If you use Data Box Split Copy tool to copy data, you can skip the [validation step](#validate-data).
+> The Split Copy tool is not supported with managed disks.
 
 ## Validate data
 
