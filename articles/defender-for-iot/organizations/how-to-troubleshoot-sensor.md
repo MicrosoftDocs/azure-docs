@@ -22,14 +22,18 @@ To perform the procedures in this article, make sure that you have:
 
 ## Check sensor - cloud connectivity issues
 
-OT sensors automatically helps you troubleshoot any connectivity issues with the Azure portal. If a sensor isn't connected, an error is indicated in the Azure portal, on the **Sites and sensors** page, and on the sensor's **Overview** page.
+OT sensors automatically helps you troubleshoot any connectivity issues with the Azure portal. If a sensor isn't connected, an error is indicated in the Azure portal, on the **Sites and sensors** page, and on the sensor's **Overview** page. For example:
+
+:::image type="content" source="media/release-notes/connectivity-error.png" alt-text="Screenshot of a connectivity error on the Overview page.":::
 
 To investigate, sign into your OT sensor and use one of the following methods:
 
-- From the sensor's **Overview** page, select the **Cloud connectivity errors** link
+- From the sensor's **Overview** page, select the **Learn more** link in the error at the top of the page
 - Select **System settings > System settings > Network monitoring > Customization > Cloud connectivity troubleshooting**
 
-The **Cloud connectivity troubleshooting** pane opens on the right. If the sensor is connected to the Azure portal, the pane indicates that **The sensor is connected to cloud successfully**. If the sensor isn't connected, a description of the issue and any mitigation instructions are listed instead.
+The **Cloud connectivity troubleshooting** pane opens on the right. If the sensor is connected to the Azure portal, the pane indicates that **The sensor is connected to cloud successfully**. If the sensor isn't connected, a description of the issue and any mitigation instructions are listed instead. For example:
+
+:::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/connectivity-troubleshooting.png" alt-text="Screenshot of the Connectivity troubleshooting pane.":::
 
 The **Cloud connectivity troubleshooting** pane covers the following types of issues:
 

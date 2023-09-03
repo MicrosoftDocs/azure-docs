@@ -2,11 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article describes features available in Microsoft Defender for IoT, across both OT and Enterprise IoT networks, and both on-premises and in the Azure portal.
 ms.topic: whats-new
-<<<<<<< HEAD
-ms.date: 08/27/2023
-=======
 ms.date: 08/28/2023
->>>>>>> 08863cefdc05c2735479033b4518a1252ddba101
 ms.custom: enterprise-iot
 ---
 
@@ -28,12 +24,14 @@ Features released earlier than nine months ago are described in the [What's new 
 
 ### Troubleshoot OT sensor connectivity
 
-Starting in version 23.1.2, OT sensors automatically help you troubleshoot connectivity issues with the Azure portal. If a sensor isn't connected, an error is indicated in the Azure portal, and on the sensor's **Overview** page.
+Starting in version 23.1.2, OT sensors automatically help you troubleshoot connectivity issues with the Azure portal. If a sensor isn't connected, an error is indicated in the Azure portal on the **Sites and sensors** page, and on the sensor's **Overview** page.
 
 From your sensor, do one of the following to open the **Cloud connectivity troubleshooting** pane, which provides details about the connectivity issues and mitigation steps:
 
 - On the **Overview** page, select the **Cloud connectivity errors** link
 - Select **System settings > Network monitoring > Customization > Cloud connectivity troubleshooting**
+
+For example:
 
 For more information, see [Troubleshoot sensor connectivity](how-to-troubleshoot-sensor.md#troubleshoot-sensor-connectivity).
 
