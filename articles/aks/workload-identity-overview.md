@@ -3,7 +3,7 @@ title: Use an Azure AD workload identity on Azure Kubernetes Service (AKS)
 description: Learn about Azure Active Directory workload identity for Azure Kubernetes Service (AKS) and how to migrate your application to authenticate using this identity.  
 ms.topic: article
 ms.custom: build-2023
-ms.date: 08/24/2023
+ms.date: 09/03/2023
 ---
 
 # Use Azure AD workload identity with Azure Kubernetes Service (AKS)
@@ -20,6 +20,12 @@ This article helps you understand this new authentication feature, and reviews t
 
 - AKS supports Azure AD workload identities on version 1.22 and higher.
 - The Azure CLI version 2.47.0 or later. Run `az --version` to find the version, and run `az upgrade` to upgrade the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+
+## Limitations
+
+The following limitations apply when you deploy Azure AD workload identity on AKS:
+* Creation of federated identity credentials is not supported on user-assigned managed identities in these [regions.][unsupported-regions-user-assigned-managed-identities]
+* A maximum of [20 federated identity credentials][general-federated-identity-credential-considerations] can be added to an application or user-assigned managed identity
 
 ## Azure Identity client libraries
 
@@ -319,3 +325,5 @@ The following table summarizes our migration or deployment recommendations for w
 [workload-identity-migration-sidecar]: workload-identity-migrate-from-pod-identity.md
 [auto-rotation]: certificate-rotation.md#certificate-auto-rotation
 [aks-virtual-nodes]: virtual-nodes.md
+[unsupported-regions-user-assigned-managed-identities]: ../active-directory/workload-identities/workload-identity-federation-considerations.md#unsupported-regions-user-assigned-managed-identities
+[general-federated-identity-credential-considerations]: ../active-directory/workload-identities/workload-identity-federation-considerations.md#general-federated-identity-credential-considerations
