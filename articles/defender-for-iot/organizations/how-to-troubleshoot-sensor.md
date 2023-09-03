@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot the sensor
 description: Troubleshoot your sensor to eliminate any problems you might be having.
-ms.date: 08/27/2023
+ms.date: 09/03/2023
 ms.topic: troubleshooting
 ---
 # Troubleshoot the sensor
@@ -37,13 +37,10 @@ The **Cloud connectivity troubleshooting** pane opens on the right. If the senso
 
 The **Cloud connectivity troubleshooting** pane covers the following types of issues:
 
-- **SSL errors when accessing an endpoint**. In such cases, you might have certificate errors, or the time on your sensor may be misconfigured. For more information, see [Manage SSL/TLS certificates](how-to-manage-individual-sensors.md#manage-ssltls-certificates) and [Synchronize time zones on an OT sensor](how-to-manage-individual-sensors.md#synchronize-time-zones-on-an-ot-sensor).
-
-- **General errors when accessing an endpoint**. In such cases, make sure all required endpoints are accessible from your sensor. You may need to configure additional endpoints in your firewall. For more information, see [Provision sensors for cloud management](ot-deploy/provision-cloud-management.md).
-
-- **DNS server unreachable**. In such cases, make sure that your DNS server is reachable from the sensor.
-
-- **Proxy authentication error**. In such cases, make sure that you've configured the required credentials in the **Sensor network settings** pane. For more information, see [Update the OT sensor network configuration](how-to-manage-individual-sensors.md#update-the-ot-sensor-network-configuration).
+- **SSL errors when accessing an endpoint**
+- **General errors when accessing an endpoint**
+- **DNS server unreachable**
+- **Proxy authentication error**
 
 ## Check system health
 

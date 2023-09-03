@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article describes features available in Microsoft Defender for IoT, across both OT and Enterprise IoT networks, and both on-premises and in the Azure portal.
 ms.topic: whats-new
-ms.date: 08/28/2023
+ms.date: 09/03/2023
 ms.custom: enterprise-iot
 ---
 
@@ -35,7 +35,7 @@ For example:
 
 :::image type="content" source="media/release-notes/connectivity-error.png" alt-text="Screenshot of a connectivity error on the Overview page.":::
 
-For more information, see [Troubleshoot sensor connectivity](how-to-troubleshoot-sensor.md#troubleshoot-sensor-connectivity).
+For more information, see [Check sensor - cloud connectivity issues](how-to-troubleshoot-sensor.md#check-sensor---cloud-connectivity-issues).
 
 ### Device inventory enhancements for local subnets
 
