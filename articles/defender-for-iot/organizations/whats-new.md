@@ -20,7 +20,7 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | **Version 23.1.3**: <br><br>- [Troubleshoot OT sensor connectivity](#troubleshoot-ot-sensor-connectivity) <br>- [Device inventory enhancements for local subnets](#device-inventory-enhancements-for-local-subnets) <br>- [Event timeline access for OT sensor readers](#event-timeline-access-for-ot-sensor-readers)|
+| **OT networks** | **Version 23.1.3**: <br>- [Troubleshoot OT sensor connectivity](#troubleshoot-ot-sensor-connectivity) <br>- [Device inventory enhancements for local subnets](#device-inventory-enhancements-for-local-subnets) <br>- [Event timeline access for OT sensor Read Only users](#event-timeline-access-for-ot-sensor-read-only-users)|
 
 ### Troubleshoot OT sensor connectivity
 
@@ -33,6 +33,8 @@ From your sensor, do one of the following to open the **Cloud connectivity troub
 
 For example:
 
+:::image type="content" source="media/release-notes/connectivity-error.png" alt-text="Screenshot of a connectivity error on the Overview page.":::
+
 For more information, see [Troubleshoot sensor connectivity](how-to-troubleshoot-sensor.md#troubleshoot-sensor-connectivity).
 
 ### Device inventory enhancements for local subnets
@@ -41,7 +43,7 @@ Starting with sensor version 23.1.3, applying a **Network location (Preview) == 
 
 For more information, see [View the device inventory](how-to-manage-device-inventory-for-organizations.md#view-the-device-inventory).
 
-### Event timeline access for OT sensor readers
+### Event timeline access for OT sensor Read Only users
 
 Starting in version 23.1.3, *Read Only* users on the OT sensor can view the **Event Timeline** page. For example:
 
