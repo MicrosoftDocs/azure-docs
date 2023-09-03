@@ -25,7 +25,7 @@ If you're looking for items older than six months, you can find them in the [Arc
 |Date |Update  |
 |----------|----------|
 | September 1 | [General Availability (GA): malware scanning in Defender for Storage](#general-availability-ga-malware-scanning-in-defender-for-storage)|
-| September 5 | [Data posture management for databases](#data-posture-management-for-databases) |
+| September 5 | [Sensitive data discovery for PaaS databases (Preview)](#sensitive-data-discovery-for-paas-databases-preview) |
 
 ### General Availability (GA): malware scanning in Defender for Storage
 
@@ -41,7 +41,7 @@ If you're using the previous plan (now renamed "Microsoft Defender for Storage (
 
 Read the [Microsoft Defender for Cloud announcement blog post](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/malware-scanning-for-cloud-storage-ga-pre-announcement-prevent/ba-p/3884470). 
 
-### Data posture management for databases
+### Sensitive data discovery for PaaS databases (Preview)
 
 September 5, 2023
 
@@ -58,8 +58,8 @@ You can learn more about data aware security posture in the following articles:
 - [Support and prerequisites for data-aware security posture](concept-data-security-posture-prepare.md)
 - [Enable data-aware security posture](data-security-posture-enable.md)
 - [Explore risks to sensitive data](data-security-review-risks.md)
-- [Azure data](attack-path-reference.md#azure-data)
-- [AWS data](attack-path-reference.md#aws-data)
+- [Azure data attack paths](attack-path-reference.md#azure-data)
+- [AWS data attack paths](attack-path-reference.md#aws-data)
 
 ## August 2023
 
