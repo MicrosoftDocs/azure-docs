@@ -51,7 +51,7 @@ Sensitive data discovery for Azure and AWS databases, adds to the shared taxonom
 
 Databases are scanned on a weekly basis. If you enable `sensitive data discovery`, discovery will run within 24 hours. The results can be viewed in the [Cloud Security Explorer](how-to-manage-cloud-security-explorer.md) or by reviewing the new [attack paths](how-to-manage-attack-path.md) for managed databases with sensitive data.
 
-Data posture management for databases is available through the [Defender CSPM plan](tutorial-enable-cspm-plan.md), and is automatically enabled on subscriptions where `sensitive data discovery` option is enabled.
+Data-aware security posture for databases is available through the [Defender CSPM plan](tutorial-enable-cspm-plan.md), and is automatically enabled on subscriptions where `sensitive data discovery` option is enabled.
 
 You can learn more about data aware security posture in the following articles:
 
