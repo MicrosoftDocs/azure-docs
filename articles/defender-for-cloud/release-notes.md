@@ -22,11 +22,24 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 ## September 2023
 
-Updates in September include:
-
-|Date |Update|
+|Date |Update  |
 |----------|----------|
+| September 1 | [General Availability (GA): malware scanning in Defender for Storage](#general-availability-ga-malware-scanning-in-defender-for-storage)|
 | September 5 | [Data posture management for databases](#data-posture-management-for-databases) |
+
+### General Availability (GA): malware scanning in Defender for Storage
+
+September 1, 2023
+
+Malware scanning is now generally available (GA) as an add-on to Defender for Storage. Malware scanning in Defender for Storage helps protect your storage accounts from malicious content by performing a full malware scan on uploaded content in near real time, using Microsoft Defender Antivirus capabilities. It's designed to help fulfill security and compliance requirements for handling untrusted content. The malware scanning capability is an agentless SaaS solution that allows setup at scale, and supports automating response at scale. 
+
+Learn more about [malware scanning in Defender for Storage](defender-for-storage-malware-scan.md).
+
+Malware scanning is priced according to your data usage and budget. Billing begins on September 3, 2023. Visit the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/) for more information. 
+
+If you're using the previous plan (now renamed "Microsoft Defender for Storage (classic)"), you'll need to proactively [migrate to the new plan](defender-for-storage-classic-migrate.md) in order to enable malware scanning. 
+
+Read the [Microsoft Defender for Cloud announcement blog post](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/malware-scanning-for-cloud-storage-ga-pre-announcement-prevent/ba-p/3884470). 
 
 ### Data posture management for databases
 
