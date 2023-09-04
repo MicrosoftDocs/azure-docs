@@ -75,47 +75,15 @@ We recommend that you use the `dotenv` module to manage your environment. With `
 
 ## Add Microsoft Playwright Testing configuration
 
-To run your Playwright tests in your Microsoft Playwright Testing workspace, you need to add a service configuration file alongside your Playwright configuration file. In a later step, you use this service configuration file with the Playwright CLI. The service configuration file references the environment variables that you specified previously.
+To run your Playwright tests in your Microsoft Playwright Testing workspace, you need to add a service configuration file alongside your Playwright configuration file. The service configuration file references the environment variables that you specified previously. In a later step, you use this service configuration file with the Playwright CLI.
+
+Use playwright.service.config.ts as a starting point:
 
 1. Create a new file `playwright.service.config.ts` alongside the `playwright.config.ts` file.
 
 1. Create a file `playwright.service.config.ts` and add the following content to it:
 
-    ```typescript
-    // playwright.service.config.ts
-    
-    import { defineConfig } from '@playwright/test';
-    import config from './playwright.config';
-    import dotenv from 'dotenv';
-    
-    dotenv.config();
-    
-    // Name the test run if it's not named yet.
-    process.env.PLAYWRIGHT_SERVICE_RUN_ID = process.env.PLAYWRIGHT_SERVICE_RUN_ID || new Date().toISOString();
-    
-    export default defineConfig(config, {
-        // Define more generous timeout for the service operation if necessary.
-        // timeout: 60000,
-        // expect: {
-        //   timeout: 10000,
-        // },
-        use: {
-        connectOptions: {
-          // Specify the service endpoint.
-          wsEndpoint: `${process.env.PLAYWRIGHT_SERVICE_URL}?cap=${JSON.stringify({
-            os: process.env.PLAYWRIGHT_SERVICE_OS || 'linux',
-            runId: process.env.PLAYWRIGHT_SERVICE_RUN_ID
-          })}`,
-          timeout: 30000,
-          headers: {
-            'x-mpt-access-key': process.env.PLAYWRIGHT_SERVICE_ACCESS_KEY!
-          },
-          // Allow service to access the localhost.
-          exposeNetwork: '<loopback>'
-        }
-      }
-    });
-    ```
+    :::code language="typescript" source="samples/get-started/playwright.service.config.ts" range="7-10,22-50" highlight="20,27":::
 
 1. Save and commit the file to your source code repository.
 
