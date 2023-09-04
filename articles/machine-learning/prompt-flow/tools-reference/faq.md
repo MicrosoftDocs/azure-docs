@@ -1,3 +1,17 @@
+---
+title: Tool FAQ
+titleSuffix: Azure Machine Learning
+description: This article addresses frequent questions about tool usage.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: core
+ms.topic: reference
+author: ChenJieting
+ms.author: chenjieting
+ms.reviewer: lagayhar
+ms.date: 09/05/2023
+---
+
 # FAQ
 
 This article addresses frequent questions about tool usage.
@@ -13,9 +27,9 @@ To resolve the issue, you have two options:
 - **Option 1**
   - Update your runtime to latest version. 
   - Click on "Raw file mode" to switch to the raw code view, then open the "flow.dag.yaml" file.
-     ![img](../media/faq/switch_to_raw_file_mode.png)
+     ![switch_to_raw_file_mode](../media/faq/switch_to_raw_file_mode.png)
   - Update the tool names.
-     ![img](../media/faq/update_tool_name.png)
+     ![update_tool_name](../media/faq/update_tool_name.png)
      
       | Tool | New tool name |
       | ---- | ---- |
