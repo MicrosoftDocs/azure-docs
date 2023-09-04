@@ -93,7 +93,7 @@ After creating the runtime, you need to grant the necessary permissions to use i
 
 To assign role, you need to have `owner` or have `Microsoft.Authorization/roleAssignments/write` permission on the resource.
 
-To use runtime, assigning the `AzureML Data Scientist` role of workspace to user (if using Compute instance as runtime) or endpoint (if using managed online endpoint as runtime). To learn more: [Manage access to an Azure Machine Learning workspace](../how-to-assign-roles.md?view=azureml-api-2&tabs=labeler&preserve-view=true)
+To use runtime, assigning the `AzureML Data Scientist` role of workspace to user (if using Compute instance as runtime) or endpoint (if using managed online endpoint as runtime). To learn more, see [Manage access to an Azure Machine Learning workspace](../how-to-assign-roles.md?view=azureml-api-2&tabs=labeler&preserve-view=true)
 
 
 > [!NOTE]
