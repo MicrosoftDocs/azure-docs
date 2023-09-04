@@ -21,7 +21,8 @@ This article describes how to configure Multi-user authorization (MUA) for Azure
 This article demonstrates Resource Guard creation in a different tenant that offers maximum protection. It also demonstrates how to  request and approve requests for performing critical operations using [Azure Active Directory Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md) in the tenant housing the Resource Guard. You can optionally use other mechanisms to manage JIT permissions on the Resource Guard as per your setup.
 
 >[!NOTE]
-> Multi-user authorization for Azure Backup is available in all public Azure regions.
+>- Multi-user authorization for Azure Backup is available in all public Azure regions.
+>- Multi-user authorization using Resource Guard for Backup vault is now generally available. [Learn more](multi-user-authorization.md?pivots=vaults-backup-vault).
 
 ## Before you start
 
@@ -410,7 +411,8 @@ This article describes how to configure Multi-user authorization (MUA) for Azure
 This article demonstrates Resource Guard creation in a different tenant that offers maximum protection. It also demonstrates how to  request and approve requests for performing critical operations using [Azure Active Directory Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md) in the tenant housing the Resource Guard. You can optionally use other mechanisms to manage JIT permissions on the Resource Guard as per your setup.
 
 >[!NOTE]
->Multi-user authorization for Azure Backup is available in all public Azure regions.
+>- Multi-user authorization using Resource Guard for Backup vault is now generally available.
+>- Multi-user authorization for Azure Backup is available in all public Azure regions.
 
 ## Before you start
 
