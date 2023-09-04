@@ -53,7 +53,7 @@ Workspace managed VNet is recommand way to support network isolation in prompt f
 
 
 ## Limitations
-- Workspace hub / leah workspace and AI studio didn't support bring your own VNet.
+- Workspace hub / leah workspace and AI studio don't support bring your own VNet.
 - Managed online endpoint only supports workspace managed VNet. If you want to use your own VNet, you may need one workspace for prompt flow authoring with your VNet and another workspace for prompt flow deployment using managed online endpoint with workspace managed VNet.
 
 ## Next steps
