@@ -1,6 +1,6 @@
 ---
 title: The regulatory compliance dashboard
-description: Learn how to add and remove regulatory standards from the regulatory compliance dashboard in Defender for Cloud
+description: Learn how to assign and remove regulatory standards from the regulatory compliance dashboard in Defender for Cloud
 ms.topic: how-to
 ms.date: 09/04/2023
 ms.custom: ignite-2022
