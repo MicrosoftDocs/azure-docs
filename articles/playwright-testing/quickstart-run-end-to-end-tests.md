@@ -93,9 +93,9 @@ You've now configured your Playwright tests to run in the cloud with Microsoft P
 
 Perform the following steps to run your Playwright tests:
 
-1. In the terminal window where you configured the environment variables:
+1. Open a terminal window and enter the following command to run your Playwright tests on remote browsers in your workspace:
 
-    Your test run on cloud browsers in your workspace. Depending on the size of your test suite, the tests run on up to 20 parallel workers.
+    Depending on the size of your test suite, the tests run on up to 20 parallel workers.
 
     ```bash
     npx playwright test --config=playwright.service.config.ts --workers=20
