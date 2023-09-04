@@ -5,7 +5,7 @@ services: active-directory
 author: henrymbuguakiarie
 manager: CelesteDG
 
-ms.date: 08/01/2023
+ms.date: 09/04/2023
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
@@ -17,6 +17,16 @@ ms.custom: has-adal-ref
 # Microsoft identity platform docs: What's new
 
 Welcome to what's new in the Microsoft identity platform documentation. This article lists new docs that have been added and those that have had significant updates in the last three months.
+
+## August 2023
+
+### Updated articles
+
+- [Call an ASP.NET Core web API with cURL](howto-call-a-web-api-with-curl.md) - Updated sign-in steps for admin center
+- [Troubleshoot publisher verification](troubleshoot-publisher-verification.md) - Removed references to aad.portal.azure.com and terminology updates for partner program updates
+- [Configure a custom claim provider token issuance event (preview)](custom-extension-get-started.md) - Updated MS Graph sections - custom claim provider token issuance event tutorial and custom authentication extensions references
+- [Customize claims issued in the JSON web token (JWT) for enterprise applications](jwt-claims-customization.md) - Updated sign-in steps for admin center
+- [Access tokens in the Microsoft identity platform](access-tokens.md) - Updated details about issuer validation
 
 ## July 2023
 

@@ -71,6 +71,8 @@ items:
     items:
      - name: Custom DNS name
        href: how-to-custom-domain.md
+  - name: Authenticate client with Spring Cloud Gateway
+    href: tutorial-authenticate-client-with-gateway.md
 - name: Concepts
   items:
   - name: App and deployment
