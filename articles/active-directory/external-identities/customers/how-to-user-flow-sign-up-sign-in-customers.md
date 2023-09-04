@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 07/12/2023
+ms.date: 09/04/2023
 ms.author: mimart
 ms.custom: it-pro
 
@@ -88,6 +88,31 @@ You can choose the order in which the attributes are displayed on the sign-up pa
    :::image type="content" source="media/how-to-user-flow-sign-up-sign-in-customers/page-layouts.png" alt-text="Screenshot of page layout options for a user flow.":::
 
 1. Select **Save**.
+
+##  Disable sign-up in a sign-up and sign-in user flow
+
+In your user flow, you can use [Microsoft Graph API](microsoft-graph-operations.md) to disable sign-up so that customer users only sign in. You need to know the ID of the user flow that you want whose sign-up you want to disable. You can't read the user flow ID from the Microsoft Entra Admin center, but you can retrieve it via Microsoft Graph API if you know the app associated with it.
+
+1. Read the application ID associated with the user flow.
+
+1. Identify the user flow ID of the user flow whose sign-up you want to disable. To do so, [List user flow associated with specific application ID](/graph/api/identitycontainer-list-authenticationeventsflows?#example-4-list-user-flow-associated-with-specific-application-id). This's a Microsoft Graph API, which requires you to know the application ID you obtained from the previous step. 
+
+1. [Update your user flow](/graph/api/authenticationeventsflow-update) to disable sign-up. 
+
+    Example:
+    
+    ```http
+    PATCH https://graph.microsoft.com/beta/identity/authenticationEventsFlows/{user-flow-id}    
+    {    
+        "@odata.type": "#microsoft.graph.externalUsersSelfServiceSignUpEventsFlow",    
+        "onInteractiveAuthFlowStart": {    
+            "@odata.type": "#microsoft.graph.onInteractiveAuthFlowStartExternalUsersSelfServiceSignUp",    
+            "isSignUpAllowed": "false"    
+      }    
+    }
+    ```
+
+    Replace `{user-flow-id}` with the user flow ID you obtained in the previous step. Notice the `isSignUpAllowed` parameter is set to *false*.
 
 ## Next steps
 
