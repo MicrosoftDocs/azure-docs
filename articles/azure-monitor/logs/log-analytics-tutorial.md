@@ -1,6 +1,7 @@
 ---
 title: "Log Analytics tutorial"
-description: Learn how to use Log Analytics in Azure Monitor to build and run a log query and analyze its results in the Azure portal.
+description: Learn how to use Log Analytics in Azure Monitor to buil<img width="795" alt="view table information" src="https://github.com/MicrosoftDocs/azure-docs/assets/130475904/90be0261-8ad5-4e61-a534-ac5c90c4ec96">
+d and run a log query and analyze its results in the Azure portal.
 ms.topic: tutorial
 author: guywild
 ms.author: guywild
@@ -43,7 +44,8 @@ The left side of the screen includes the **Tables** tab, where you can inspect t
 
 Expand the **Log Management** solution and locate the **AppRequests** table. You can expand the table to view its schema, or hover over its name to show more information about it.
 
-:::image type="content" source="media/log-analytics-tutorial/table-details.png" alt-text="Screenshot that shows the Tables view." lightbox="media/log-analytics-tutorial/table-details.png":::
+:::image type="content" source="media/log-analytics-tutorial/table-details.png" alt-text="Screenshot that shows the Tables view." lightbox="![Uploading view table information.png…]()
+":::
 
 Select the link below **Useful links** to go to the table reference that documents each table and its columns. Select **Preview data** to have a quick look at a few recent records in the table. This preview can be useful to ensure that this is the data that you're expecting before you run a query with it.
 
