@@ -33,7 +33,7 @@
   - name: Azure PowerShell
     href: /powershell/module/az.quota/
   - name: Azure REST API
-    href: /rest/api/reserved-vm-instances/quotaapi
+    href: /rest/api/quota
 - name: Resources
   items:
   - name: Azure updates

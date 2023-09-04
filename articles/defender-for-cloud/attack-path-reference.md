@@ -64,10 +64,10 @@ Prerequisite: [Enable agentless scanning](enable-vulnerability-assessment-agentl
 | Attack path display name | Attack path description |
 |--|--|
 | Internet exposed VM instance has high severity vulnerabilities | GCP VM instance '[VMInstanceName]' is reachable from the internet and has high severity vulnerabilities [Remote Code Execution]. |
-| Internet exposed VM instance with high severity vulnerabilities has read permissions to a data store | GCP VM instance '[VMInstanceName]' is reachable from the internet, has high severity vulnerabilities[Remote Code Execution] and has read permissions to a data store. | 
+| Internet exposed VM instance with high severity vulnerabilities has read permissions to a data store | GCP VM instance '[VMInstanceName]' is reachable from the internet, has high severity vulnerabilities[Remote Code Execution] and has read permissions to a data store. |
 | Internet exposed VM instance with high severity vulnerabilities has read permissions to a data store with sensitive data | GCP VM instance '[VMInstanceName]' is reachable from the internet, has high severity vulnerabilities allowing remote code execution on the machine and assigned with Service Account with read permission to GCP Storage bucket '[BucketName]' containing sensitive data. | 
-| Internet exposed VM instance has high severity vulnerabilities and high permission to a project | GCP VM instance '[VMInstanceName]' is reachable from the internet, has high severity vulnerabilities[Remote Code Execution] and has '[Permissions]' permission to project '[ProjectName]'. | 
-| Internet exposed VM instance with high severity vulnerabilities has read permissions to a Secret Manager | GCP VM instance '[VMInstanceName]' is reachable from the internet, has high severity vulnerabilities[Remote Code Execution] and has read permissions through IAM policy to GCP Secret Manager's secret '[SecretName]'. | 
+| Internet exposed VM instance has high severity vulnerabilities and high permission to a project | GCP VM instance '[VMInstanceName]' is reachable from the internet, has high severity vulnerabilities[Remote Code Execution] and has '[Permissions]' permission to project '[ProjectName]'. |
+| Internet exposed VM instance with high severity vulnerabilities has read permissions to a Secret Manager | GCP VM instance '[VMInstanceName]' is reachable from the internet, has high severity vulnerabilities[Remote Code Execution] and has read permissions through IAM policy to GCP Secret Manager's secret '[SecretName]'. |
 | Internet exposed VM instance has high severity vulnerabilities and a hosted database installed | GCP VM instance '[VMInstanceName]' with a hosted [DatabaseType] database is reachable from the internet and has high severity vulnerabilities. |
 | Internet exposed VM with high severity vulnerabilities has plaintext SSH private key | GCP VM instance '[MachineName]' is reachable from the internet, has high severity vulnerabilities [Remote Code Execution] and has plaintext SSH private key [SSHPrivateKey]. |
 | VM instance with high severity vulnerabilities has read permissions to a data store | GCP VM instance '[VMInstanceName]' has high severity vulnerabilities[Remote Code Execution] and has read permissions to a data store. | 
@@ -111,7 +111,7 @@ Prerequisite: [Enable agentless scanning](enable-vulnerability-assessment-agentl
 | Private AWS S3 bucket with sensitive data replicates data to internet exposed and publicly accessible AWS S3 bucket | Private AWS S3 bucket with sensitive data is replicating data to internet exposed and publicly accessible AWS S3 bucket|
 | RDS snapshot is publicly available to all AWS accounts (Preview) | RDS snapshot is publicly available to all AWS accounts |
 
-### GCP Data 
+### GCP data
 
 | Attack path display name | Attack path description |
 |--|--|

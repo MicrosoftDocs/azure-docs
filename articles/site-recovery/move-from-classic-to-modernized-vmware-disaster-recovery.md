@@ -57,7 +57,7 @@ Ensure the following for the replicated items you're planning to move:
 - The replicated item isn't replicating the data from Azure to on-premises.  
 - The initial replication isn't under progress and has already been completed.   
 - The replicated item isn't in the ‘resynchronization’ state.  
-- The configuration server’s version is 9.50 or later and its health is in a non critical state.  
+- The configuration server’s version is 9.50 or later and its health is in a noncritical state.  
 - The configuration server has a healthy heartbeat.  
 - The mobility service agent’s version, installed on the source machine, is 9.50 or later.  
 - The Recovery Services vaults with MSI enabled are supported.  
@@ -101,9 +101,9 @@ The same formula is used to calculate time for migration and is shown on the por
 
 ## How to define required infrastructure 
 
-When migrating machines from classic to modernized architecture, you'll need to make sure that the required infrastructure has already been registered in the modernized Recovery Services vault. Refer to the replication appliance’s [sizing and capacity details](./deploy-vmware-azure-replication-appliance-modernized.md#sizing-and-capacity) to help define the required infrastructure.  
+When migrating machines from classic to modernized architecture, you'll need to make sure that the required infrastructure has already been registered in the modernized Recovery Services vault. Refer to the replication appliance’s [sizing and capacity details](./replication-appliance-support-matrix.md#sizing-and-capacity) to help define the required infrastructure.  
 
-As a rule, you should set up the same number of replication appliances, as the number of process servers in your classic Recovery Services vault. In the classic vault, if there was one configuration server and four process servers, then you should set up four replication appliances in the modernized Recovery Services vault.  
+As a rule, you should setup the same number of replication appliances, as the number of process servers in your classic Recovery Services vault. In the classic vault, if there was one configuration server and four process servers, then you should setup four replication appliances in the modernized Recovery Services vault.  
 
 ## Pricing 
 

@@ -2,12 +2,12 @@
 title: Create an Azure virtual machine with a dual-stack network - PowerShell
 titleSuffix: Azure Virtual Network
 description: In this article, learn how to use PowerShell to create a virtual machine with a dual-stack virtual network in Azure.
-author: asudbring
-ms.author: allensu
+author: mbender-ms
+ms.author: mbender
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
-ms.date: 08/15/2022
+ms.date: 08/24/2023
 ms.custom: template-how-to, devx-track-azurepowershell
 ---
 

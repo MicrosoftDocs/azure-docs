@@ -12,7 +12,7 @@ ms.author: eur
 
 ## Select synthesis language and voice
 
-The text to speech feature in the Speech service supports more than 270 voices and more than 110 languages and variants. Refer to the full [list of supported text to speech locales](../../../language-support.md?tabs=tts) or try them in the [Voice Gallery](https://speech.microsoft.com/portal/voicegallery).
+The text to speech feature in the Speech service supports more than 400 voices and more than 140 languages and variants. Refer to the full [list of supported text to speech locales](../../../language-support.md?tabs=tts) or try them in the [Voice Gallery](https://speech.microsoft.com/portal/voicegallery).
 
 Specify the language or voice of [`SpeechConfig`](/cpp/cognitive-services/speech/speechconfig) to match your input text and use the wanted voice:
 

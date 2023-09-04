@@ -385,9 +385,6 @@ ExpressRoute Local is a SKU of ExpressRoute circuit, in addition to the Standard
 
 ExpressRoute Local may not be available for an ExpressRoute Location. For peering location and supported Azure local region, see [locations and connectivity providers](expressroute-locations-providers.md#partners).
 
- > [!NOTE]
- > The restriction of Azure regions in the same metro doesn't apply for ExpressRoute Local in Virtual WAN. 
-
 ### What are the benefits of ExpressRoute Local?
 
 While you need to pay egress data transfer for your Standard or Premium ExpressRoute circuit, you don't pay egress data transfer separately for your ExpressRoute Local circuit. In other words, the price of ExpressRoute Local includes data transfer fees. ExpressRoute Local is an economical solution if you have massive amount of data to transfer and want to have your data over a private connection to an ExpressRoute peering location near your desired Azure regions. 

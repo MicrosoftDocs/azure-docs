@@ -13,7 +13,7 @@ manager: amycolannino
 ms.reviewer: vimrang
 
 ms.collection: M365-identity-device-management
-ms.custom: has-adal-ref
+ms.custom: has-adal-ref, has-azure-ad-ps-ref
 ---
 # How to configure Azure AD certificate-based authentication
 

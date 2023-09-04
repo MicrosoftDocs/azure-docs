@@ -8,4 +8,4 @@ ms.author: eur
 
 [!INCLUDE [Header](../../common/objectivec.md)]
 
-The Speech SDK for Objective-C does not support speaker recognition. Please select another programming language or the Objective-C reference and samples linked from the beginning of this article. 
+The Speech SDK for Objective-C doesn't support speaker recognition. Please select another programming language or the Objective-C reference and samples linked from the beginning of this article. 

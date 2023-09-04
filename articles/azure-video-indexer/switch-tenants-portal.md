@@ -3,6 +3,8 @@ title: Switch between tenants on the Azure AI Video Indexer website
 description: This article shows how to switch between tenants in the Azure AI Video Indexer website. 
 ms.topic: how-to
 ms.date: 01/24/2023
+ms.author: inhenkel
+author: IngridAtMicrosoft
 ---
 
 # Switch between multiple tenants

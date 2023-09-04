@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 08/10/2023
+ms.date: 08/30/2023
 ms.custom: contperf-fy21q1, build-2023, build-2023-dataai
 ---
 # What's Azure Cognitive Search?
@@ -38,9 +38,9 @@ Across the Azure platform, Cognitive Search can integrate with other Azure servi
 
 On the search service itself, the two primary workloads are *indexing* and *querying*. 
 
-+ [**Indexing**](search-what-is-an-index.md) is an intake process that loads content into your search service and makes it searchable. Internally, inbound text is processed into tokens and store in inverted indexes, and inbound vectors are stored in vector indexes. You can upload JSON documents, or use an indexer to serialize your data into JSON.
++ [**Indexing**](search-what-is-an-index.md) is an intake process that loads content into your search service and makes it searchable. Internally, inbound text is processed into tokens and store in inverted indexes, and inbound vectors are stored in vector indexes. The document format that Cognitive Search can index is JSON. You can upload JSON documents that you've assembled, or use an indexer to retrieve and serialize your data into JSON. 
 
-  [AI enrichment](cognitive-search-concept-intro.md) through [cognitive skills](cognitive-search-working-with-skillsets.md) is an extension of indexing. If your content needs image or language analysis before it can be indexed, AI enrichment can extract text embedded in application files, translate text, and also infer text and structure from non-text files by analyzing the content. 
+  [AI enrichment](cognitive-search-concept-intro.md) through [cognitive skills](cognitive-search-working-with-skillsets.md) is an extension of indexing. If you have images or large unstructured text, you can attach image and language analysis in an indexing pipeline. AI enrichment can extract text embedded in application files, translate text, and also infer text and structure from non-text files by analyzing the content. 
 
 + [**Querying**](search-query-overview.md) can happen once an index is populated with searchable text, when your client app sends query requests to a search service and handles responses. All query execution is over a search index that you control.
 
@@ -50,13 +50,15 @@ On the search service itself, the two primary workloads are *indexing* and *quer
 
 Azure Cognitive Search is well suited for the following application scenarios:
 
-+ Consolidate heterogeneous content into a private, user-defined search index. 
++ Search over your content, isolated from the internet.
+
++ Consolidate heterogeneous content into a user-defined search index. 
 
 + Offload indexing and query workloads onto a dedicated search service.
 
 + Easily implement search-related features: relevance tuning, faceted navigation, filters (including geo-spatial search), synonym mapping, and autocomplete.
 
-+ Transform large undifferentiated text or image files, or application files stored in Azure Blob Storage or Azure Cosmos DB, into searchable chunks. This is achieved during indexing through [cognitive skills](cognitive-search-concept-intro.md) that add external processing.
++ Transform large undifferentiated text or image files, or application files stored in Azure Blob Storage or Azure Cosmos DB, into searchable chunks. This is achieved during indexing through [cognitive skills](cognitive-search-concept-intro.md) that add external processing from Azure AI.
 
 + Add linguistic or custom text analysis. If you have non-English content, Azure Cognitive Search supports both Lucene analyzers and Microsoft's natural language processors. You can also configure analyzers to achieve specialized processing of raw content, such as filtering out diacritics, or recognizing and preserving patterns in strings.
 

@@ -133,20 +133,9 @@ az feature register --namespace Microsoft.VirtualMachineImages --name MooncakePu
 
 ## OS support
 
-VM Image Builder supports the following Azure Marketplace base operating system images:
-- Ubuntu 18.04
-- Ubuntu 16.04
-- RHEL 7.6, 7.7
-- CentOS 7.6, 7.7
-- SLES 12 SP4
-- SLES 15, SLES 15 SP1
-- Windows 10 RS5 Enterprise/Enterprise multi-session/Professional
-- Windows 2016
-- Windows 2019
-- CBL-Mariner
+VM Image Builder is designed to work with all Azure Marketplace base operating system images.
 
->[!IMPORTANT]
-> These operating systems have been tested and now work with VM Image Builder. However, VM Image Builder should work with any Linux or Windows image in the marketplace.
+
 
 > [!NOTE]
 > You can now use the Azure Image Builder service inside the portal as of March 2023. [Get started](https://ms.portal.azure.com/#create/Microsoft.ImageTemplate) with building and validating custom images inside the portal.

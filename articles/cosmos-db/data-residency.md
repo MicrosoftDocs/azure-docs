@@ -25,6 +25,11 @@ In Azure Cosmos DB, you must explicitly configure the cross-region data replicat
 
 **Periodic mode Backups**: By default, periodic mode account backups will be stored in geo-redundant storage. For periodic backup modes, you can configure data redundancy at the account level. There are three redundancy options for the backup storage. They are local redundancy, zone redundancy, or geo redundancy. For more information, see [periodic backup/restore](periodic-backup-restore-introduction.md).
 
+## Residency requirements for analytical store
+
+Analytical store is resident by default as it is stored in either locally redundant or zone redundant storage. To learn more, see the [analytical store](analytical-store-introduction.md) article.
+
+
 ## Use Azure Policy to enforce the residency requirements
 
 If you have data residency requirements that require you to keep all your data in a single Azure region, you can enforce zone-redundant or locally redundant backups for your account by using an Azure Policy.  You can also enforce a policy that the Azure Cosmos DB accounts are not geo-replicated to other regions.

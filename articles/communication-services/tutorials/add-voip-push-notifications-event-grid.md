@@ -15,11 +15,11 @@ This tutorial explains how to deliver VOIP push notifications to native applicat
 
 ## Current Limitations
 The current limitations of using the ACS Native Calling SDK are that 
- * There's a 24-hour limit after the register push notification API is called when the device token information is saved. After 24 hours, the device endpoint information is deleted. Any incoming calls on those devices will not be delivered to the devices if those devices don't call the register push notification API again.
+ * There's a 24-hour limit after the register push notification API is called when the device token information is saved.
+   After 24 hours, the device endpoint information is deleted. Any incoming calls on those devices will not be delivered to the devices if those devices don't call the register push notification API again.
  * Can't deliver push notifications using Baidu or any other notification types supported by Azure Notification Hub but not yet supported in the ACS SDK.
 
 ## Setup for listening the events from Event Grid Notification
-To listen to the `Microsoft.Communication.IncomingCall` event from Event Grid notifications of the Azure Communication Calling resource in Azure.
 1. Azure functions with APIs
     1. Save device endpoint information.
     2. Delete device endpoint information.
@@ -38,4 +38,5 @@ Here are the steps to deliver the push notification:
 6. VOIP push is successfully delivered to the device and `CallAgent.handlePush` API should be called.
 
 ## Sample
-Code sample is provided [here](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/add-calling-push-notifications-event-grid).
+The sample provided below works for any Native platforms (iOS, Android , Windows).
+Code sample is provided [here](https://github.com/Azure-Samples/azure-communication-services-calling-event-grid/tree/main/add-calling-push-notifications-event-grid).

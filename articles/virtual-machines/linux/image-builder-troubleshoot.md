@@ -354,7 +354,32 @@ The `customization.log` file includes the following stages:
 - Ensure that Azure Policy and Firewall allow connectivity to remote resources.
 - Output comments to the console by using `Write-Host` or `echo`. Doing so lets you search the *customization.log* file.
 
+
 ## Troubleshoot common build errors
+
+### The template deployment failed because of policy violation
+
+#### Error
+
+```text
+{
+  "statusCode": "BadRequest",
+  "serviceRequestId": null,
+  "statusMessage": "{\"error\":{\"code\":\"InvalidTemplateDeployment\",\"message\":\"The template deployment failed because of policy violation. Please see details for more information.\",\"details\":[{\"code\":\"RequestDisallowedByPolicy\",\"target\":\"<target_name>\",\"message\":\"Resource '<resource_name>' was disallowed by policy. Policy identifiers: '[{\\\"policyAssignment\\\":{\\\"name\\\":\\\"[Initiative] KeyVault (Microsoft.KeyVault)\\\",\\\"id\\\":\\\"/providers/Microsoft.Management/managementGroups/<managementGroup_name>/providers/Microsoft.Authorization/policyAssignments/Microsoft.KeyVault\\\"},\\\"policyDefinition\\\":{\\\"name\\\":\\\"Azure Key Vault should disable public network access\\\",\\\"id\\\":\\\"/providers/Microsoft.Management/managementGroups/<managementGroup_name>/providers/Microsoft.Authorization/policyDefinitions/KeyVault.disablePublicNetworkAccess_deny_deny\\\"},\\\"policySetDefinition\\\":{\\\"name\\\":\\\"[Initiative] KeyVault (Microsoft.KeyVault)\\\",\\\"id\\\":\\\"/providers/Microsoft.Management/managementGroups/<managementGroup_name>/providers/Microsoft.Authorization/policySetDefinitions/Microsoft.KeyVault\\\"}}]'.\",\"additionalInfo\":[{\"type\":\"PolicyViolation\"}]}]}}",
+  "eventCategory": "Administrative",
+  "entity": "/subscriptions/<subscription_ID>/<resourcegroups>/<resourcegroupname>/providers/Microsoft.Resources/deployments/<deployment_name>",
+  "message": "Microsoft.Resources/deployments/validate/action",
+  "hierarchy": "<subscription_ID>/<resourcegroupname>/<policy_name>/<managementGroup_name>/<deployment_ID>"
+}
+```
+
+#### Cause
+
+The above policy violation error is a result of using an Azure Key Vault with public access disabled. At this time, Azure Image Builder doesn't support this configuration.
+
+#### Solution
+
+The Azure Key Vault must be created with public access enabled.
 
 ### Packer build command failure
 

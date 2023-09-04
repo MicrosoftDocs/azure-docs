@@ -10,7 +10,7 @@ ms.custom: devx-track-dotnet, devx-track-python, devx-track-extended-java, devx-
 ms.topic: quickstart
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 05/23/2023
+ms.date: 08/23/2023
 zone_pivot_groups: openai-quickstart-new
 recommendations: false
 ---
@@ -28,6 +28,12 @@ Use this article to get started making your first calls to Azure OpenAI.
 ::: zone pivot="programming-language-csharp"
 
 [!INCLUDE [Csharp quickstart](includes/dotnet.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-go"
+
+[!INCLUDE [Go quickstart](includes/go.md)]
 
 ::: zone-end
 

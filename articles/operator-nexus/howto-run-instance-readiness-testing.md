@@ -118,7 +118,7 @@ A service principal with the following role assignments. The supplemental script
 
 * `Contributor` - For creating and manipulating resources
 * `Storage Blob Data Contributor` - For reading from and writing to the storage blob container
-* `Azure ARC Kubernetes Admin` - For ARC enrolling the NAKS cluster
+* `Azure ARC Kubernetes Admin` - For ARC enrolling the NKS cluster
 
 Additionally, the script creates the necessary security group, and adds the service principal to the security group. If the security group exists, it adds the service principal to the existing security group.
 

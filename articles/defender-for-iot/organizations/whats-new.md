@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article describes new features available in Microsoft Defender for IoT, including both OT and Enterprise IoT networks, and both on-premises and in the Azure portal.
 ms.topic: whats-new
-ms.date: 08/14/2023
+ms.date: 08/28/2023
 ms.custom: enterprise-iot
 ---
 
@@ -16,11 +16,11 @@ Features released earlier than nine months ago are described in the [What's new 
 > Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
-## August 2023
+## October 2023
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | [Updated security stack integration guidance](#updated-security-stack-integration-guidance)|
+| **OT networks** | **Version 23.2.4**: [Updated security stack integration guidance](#updated-security-stack-integration-guidance)|
 
 ### Updated security stack integration guidance
 
@@ -28,7 +28,7 @@ Defender for IoT now has updated guidance for integrating with your security sta
 
 We now recommend using cloud connections such as via [Microsoft Sentinel](concept-sentinel-integration.md) or the [OT Security Add-on for Splunk](https://apps.splunk.com/app/5151). For on-premises integrations, we recommend that you [configure forwarding alert rules from your sensor](how-to-forward-alert-information-to-partners.md), or use [Defender for IoT's API](references-work-with-defender-for-iot-apis.md).
 
-The legacy Aruba ClearPass, Palo Alto Panorama, Splunk, and Microsoft Sentinel integrations are planned to be deprecated in an upcoming 23.x version. For customers using legacy integration methods, we recommend moving your integrations to newly recommended methods. For more information, see:
+Starting with version 23.2.4, the legacy Aruba ClearPass, Palo Alto Panorama, Splunk, and Microsoft Sentinel integrations deprecated. For any customers using legacy integrations, we recommend moving to newly recommended methods with the software update to version 23.2.4. For more information, see:
 
 - [Integrate ClearPass with Microsoft Defender for IoT (on-premises integration)](tutorial-clearpass.md)
 - [Integrate Palo Alto with Microsoft Defender for IoT](tutorial-palo-alto.md)
@@ -36,7 +36,22 @@ The legacy Aruba ClearPass, Palo Alto Panorama, Splunk, and Microsoft Sentinel i
 - [Integrate Microsoft Sentinel and Defender for IoT](concept-sentinel-integration.md)
 - [Integrations with Microsoft and partner services](integrate-overview.md)
 
+## August 2023
 
+|Service area  |Updates  |
+|---------|---------|
+| **OT networks** | [Defender for IoT's CVEs align to CVSS v3](#defender-for-iots-cves-align-to-cvss-v3) |
+
+### Defender for IoT's CVEs align to CVSS v3
+
+CVE scores shown in the OT sensor and on the Azure portal are aligned with the [National Vulnerability Database (NVD)](https://nvd.nist.gov/vuln-metrics/cvss), and starting with Defender for IoT's August threat intelligence update, CVSS v3 scores are shown if they're relevant. If there's no CVSS v3 score relevant, the CVSS v2 score is shown instead.
+
+View CVE data from the Azure portal, either on a Defender for IoT's device detail's **Vulnerabilities** tab, with resources available with the Microsoft Sentinel solution, or in a data mining query on your OT sensor. For more information, see:
+
+- [Maintain threat intelligence packages on OT network sensors](how-to-work-with-threat-intelligence-packages.md)
+- [View full device details](how-to-manage-device-inventory-for-organizations.md#view-full-device-details)
+- [Tutorial: Investigate and detect threats for IoT devices with Microsoft Sentinel](iot-advanced-threat-monitoring.md)
+- [Create data mining queries](how-to-create-data-mining-queries.md)
 
 ## July 2023
 

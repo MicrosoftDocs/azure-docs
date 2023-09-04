@@ -3,7 +3,7 @@ title: "Symantec VIP connector for Microsoft Sentinel"
 description: "Learn how to install the connector Symantec VIP to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 03/25/2023
+ms.date: 08/28/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -63,6 +63,13 @@ Configure the facilities you want to collect and their severities.
  1. Under workspace advanced settings **Configuration**, select **Data** and then **Syslog**.
  2. Select **Apply below configuration to my machines** and select the facilities and severities.
  3.  Click **Save**.
+
+
+3. Configure and connect the Symantec VIP
+
+[Follow these instructions](https://help.symantec.com/cs/VIP_EG_INSTALL_CONFIG/VIP/v134652108_v128483142/Configuring-syslog) to configure the Symantec VIP Enterprise Gateway to forward syslog. Use the IP address or hostname for the Linux device with the Linux agent installed as the Destination IP address.
+
+
 
 ## Next steps
 

@@ -41,11 +41,11 @@ Open Visual Studio, and under **Get started** select **Create a new project**. S
 
 ### Install the client SDK 
 
-Once you've created a new project, install the client SDK by right-clicking on the project solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse**, check **Include prerelease**, and search for `Azure.AI.Vision.ImageAnalysis`. Select **Install**. 
+Once you've created a new project, install the client SDK by right-clicking on the project solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse**, check **Include prerelease**, and search for `Azure.AI.Vision.ImageAnalysis`. Select **Install**. For more information, see the [SDK installation guide](../../how-to/install-sdk.md).
 
 #### [Linux](#tab/linux)
 
-Follow [these instructions](https://github.com/Azure-Samples/azure-ai-vision-sdk/blob/main/samples/cpp/image-analysis/README-Linux.md#install-the-vision-sdk-package) to install the Vision SDK for Linux.
+Follow the [SDK installation guide](../../how-to/install-sdk.md) to install the Vision SDK for Linux.
 
 ---
 

@@ -338,6 +338,31 @@ Metrics are served from port 8095, but this port isn't exposed outside the pod b
 |total_rotation_reconcile_error|The total number of rotation reconciles with error.|`os_type=<runtime os>`, `rotated=<true or false>`, `error_type=<error code>`|
 |total_rotation_reconcile_error|The distribution of how long it took to rotate secrets-store content for pods.|`os_type=<runtime os>`|
 
+## Migrate from open-source to AKS-managed Secrets Store CSI Driver
+
+1. Uninstall the open-source Secrets Store CSI Driver using the following `helm delete` command.
+
+    ```bash
+    helm delete <release name>
+    ```
+
+    > [!NOTE]
+    > If you installed the driver and provider using deployment YAMLs, you can delete the components using the following `kubectl delete` command.
+    >
+    > ```bash
+    > # Delete AKV provider pods from Linux nodes
+    > kubectl delete -f https://raw.githubusercontent.com/Azure/secrets-store-csi-driver-provider-azure/master/deployment/provider-azure-installer.yaml
+    >
+    > # Delete AKV provider pods from Windows nodes
+    > kubectl delete -f https://raw.githubusercontent.com/Azure/secrets-store-csi-driver-provider-azure/master/deployment/provider-azure-installer-windows.yaml
+    > ```
+
+2. Upgrade your existing AKS cluster with the feature using the [`az aks enable-addons`][az-aks-enable-addons] command.
+
+    ```azurecli-interactive
+    az aks enable-addons --addons azure-keyvault-secrets-provider --name myAKSCluster --resource-group myResourceGroup
+    ```
+
 ## Troubleshooting
 
 For generic troubleshooting steps, see [Azure Key Vault Provider for Secrets Store CSI Driver troubleshooting](https://azure.github.io/secrets-store-csi-driver-provider-azure/docs/troubleshooting/).

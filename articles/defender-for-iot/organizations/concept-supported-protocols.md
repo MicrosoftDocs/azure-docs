@@ -80,15 +80,6 @@ Horizon provides:
 
 :::image type="content" source="media/concept-supported-protocols/sdk-horizon.png" alt-text="Infographic that describes features provided by the Horizon SDK." border="false":::
 
-### Collaborate with the Horizon community
-
-Join our community to help lead the way towards digital transformation and industry-wide collaboration for protocol support!
-
-The Horizon ICS community shares knowledge between domain experts in critical infrastructures, building management, production lines, transportation systems, and leading industries. For example, our community shares tutorials, discussion forums, instructor-led training, educational white papers, and more.
-
-To join the Horizon community, email us at: [horizon-community@microsoft.com](mailto:horizon-community@microsoft.com)
-
-
 ## Next steps
 
 For more information:

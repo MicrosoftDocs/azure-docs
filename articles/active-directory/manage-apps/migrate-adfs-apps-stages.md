@@ -71,7 +71,7 @@ Update the configuration of your production app to point to your production Azur
 
 Your line-of-business apps are those that your organization developed or those that are a standard packaged product.
 
-Line-of-business apps that use OAuth 2.0, OpenID Connect, or WS-Federation can be integrated with Azure AD as [app registrations](../develop/quickstart-register-app.md). Integrate custom apps that use SAML 2.0 or WS-Federation as [non-gallery applications](add-application-portal.md) on the enterprise applications page in the [Entra portal](https://entra.microsoft.com/#home).
+Line-of-business apps that use OAuth 2.0, OpenID Connect, or WS-Federation can be integrated with Azure AD as [app registrations](../develop/quickstart-register-app.md). Integrate custom apps that use SAML 2.0 or WS-Federation as [non-gallery applications](add-application-portal.md) on the enterprise applications page in the [Microsoft Entra admin center](https://entra.microsoft.com/#home).
 
 ## Next steps
 

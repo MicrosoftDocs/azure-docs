@@ -1,14 +1,14 @@
 ---
-title: Updates and maintenance in update management center (preview).
-description: The article describes the updates and maintenance options available in Update management center (preview).
-ms.service: update-management-center
+title: Updates and maintenance in Azure Update Manager (preview).
+description: The article describes the updates and maintenance options available in Azure Update Manager (preview).
+ms.service: azure-update-manager
 ms.date: 05/23/2023
 ms.topic: conceptual
 author: snehasudhirG
 ms.author: sudhirsneha
 ---
 
-# Update options in update management center (preview)
+# Update options in Azure Update Manager (preview)
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
 
@@ -17,20 +17,20 @@ ms.author: sudhirsneha
 > - For Arc-enabled servers, the updates and maintenance options such as Automatic VM Guest patching in Azure, Windows automatic updates and Hotpatching aren't supported.
 
 
-This article provides an overview of the various update and maintenance options available by update management center (preview). 
+This article provides an overview of the various update and maintenance options available by Update Manager (preview). 
 
-Update management center (preview) provides you the flexibility to take an immediate action or schedule an update within a defined maintenance window. It also supports new patching methods such as [automatic VM guest patching](../virtual-machines/automatic-vm-guest-patching.md), [Hotpatching](../automanage/automanage-hotpatch.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext) and so on.
+Update Manager (preview) provides you the flexibility to take an immediate action or schedule an update within a defined maintenance window. It also supports new patching methods such as [automatic VM guest patching](../virtual-machines/automatic-vm-guest-patching.md), [Hotpatching](../automanage/automanage-hotpatch.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext) and so on.
 
 
 ## Update Now/One-time update
 
-Update management center (preview) allows you to secure your machines immediately by installing updates on demand. To perform the on-demand updates, see [Check and install one time updates](deploy-updates.md#install-updates-on-single-vm).
+Update Manager (preview) allows you to secure your machines immediately by installing updates on demand. To perform the on-demand updates, see [Check and install one time updates](deploy-updates.md#install-updates-on-single-vm).
 
 
 ## Scheduled patching
 You can create a schedule on a daily, weekly or hourly cadence as per your requirement, specify the machines that must be updated as part of the schedule, and the updates that you must install. The schedule will then automatically install the updates as per the specifications.
 
-Update management center (preview) uses maintenance control schedule instead of creating its own schedules. Maintenance control enables customers to manage platform updates. For more information, see the [Maintenance control documentation](/azure/virtual-machines/maintenance-control). 
+Update Manager (preview) uses maintenance control schedule instead of creating its own schedules. Maintenance control enables customers to manage platform updates. For more information, see the [Maintenance control documentation](/azure/virtual-machines/maintenance-control). 
 Start using [scheduled patching](scheduled-patching.md) to create and save recurring deployment schedules.
 
 > [!NOTE]
@@ -41,7 +41,7 @@ Start using [scheduled patching](scheduled-patching.md) to create and save recur
 
 This mode of patching lets the Azure platform automatically download and install all the security and critical updates on your machines every month and apply them on your machines following the availability-first principles. For more information, see [automatic VM guest patching](../virtual-machines/automatic-vm-guest-patching.md).
 
-In **Update management center** home page, go to **Update Settings** blade, select Patch orchestration as **Azure Managed - Safe Deployment** value to enable this VM property. 
+In **Update Manager** home page, go to **Update Settings** blade, select Patch orchestration as **Azure Managed - Safe Deployment** value to enable this VM property. 
 
 
 ## Windows automatic updates
@@ -51,11 +51,11 @@ This mode of patching allows operating system to automatically install updates a
 
 Hotpatching allows you to install updates on supported Windows Server Azure Edition virtual machines without requiring a reboot after installation. It reduces the number of reboots required on your mission critical application workloads running on Windows Server. For more information, see [Hotpatch for new virtual machines](../automanage/automanage-hotpatch.md)
 
-Hotpatching property is available as a setting in Update management center (preview) which you can enable by using Update settings flow. Refer to detailed instructions [here](manage-update-settings.md#configure-settings-on-single-vm)
+Hotpatching property is available as a setting in Update Manager (preview) which you can enable by using Update settings flow. Refer to detailed instructions [here](manage-update-settings.md#configure-settings-on-single-vm)
 
 :::image type="content" source="media/updates-maintenance/hot-patch-inline.png" alt-text="Screenshot that shows the hotpatch option." lightbox="media/updates-maintenance/hot-patch-expanded.png":::
 
 ## Next steps
 
-* To view update assessment and deployment logs generated by update management center (preview), see [query logs](query-logs.md).
-* To troubleshoot issues, see the [Troubleshoot](troubleshoot.md) update management center (preview).
+* To view update assessment and deployment logs generated by Update Manager (preview), see [query logs](query-logs.md).
+* To troubleshoot issues, see the [Troubleshoot](troubleshoot.md) Update Manager (preview).
