@@ -26,11 +26,11 @@ For best results&mdash;for guaranteed unique identification&mdash;you should use
 | [**URL**](#url) | Url | Url<br>&nbsp;*(if absolute URL)* | Url<br>&nbsp;*(if relative URL)* |
 | [**Azure resource**](#azure-resource) | ResourceId | ResourceId | |
 | [**Cloud application**](#cloud-application)<br>*(CloudApplication)* | AppId<br>Name<br>InstanceName | AppId<br>&nbsp;*(without InstanceName)*<br>Name<br>&nbsp;*(without InstanceName)*<br>AppId+InstanceName<br>Name+InstanceName | |
-| [**DNS Resolution**](#dns-resolution)<br>***WHAT DO I DO HERE?*** | DomainName | DomainName | |
-| [**File**](#file) | Directory<br>Name | Name | |
-| [**File hash**](#file-hash)<br>*(FileHash)* | Algorithm<br>Value | Algorithm + Value | |
-| [**Malware**](#malware) | Name<br>Category | Name | |
-| [**Process**](#process) | ProcessId<br>CommandLine<br>ElevationToken<br>CreationTimeUtc | CommandLine<br>ProcessId | |
+| [**DNS Resolution**](#dns-resolution)<br>***WHAT DO I DO HERE?*** | DomainName<br>IpAddress ***NOT&nbsp;AVAILABLE***<br>DnsServerIp ***NOT&nbsp;AVAILABLE***<br>HostIpAddress ***NOT&nbsp;AVAILABLE*** | DomainName+DnsServerIp+HostIpAddress | DomainName+HostIpAddress |
+| [**File**](#file) | Directory<br>Name | Directory+Name | |
+| [**File hash**](#file-hash)<br>*(FileHash)* | Algorithm<br>Value | Algorithm+Value | |
+| [**Malware**](#malware) | Name<br>Category | Name+Category | |
+| [**Process**](#process)<br>***WHAT DO I DO HERE?*** | ProcessId<br>CommandLine<br>ElevationToken<br>CreationTimeUtc<br>ImageFile ***NOT&nbsp;AVAILABLE***<br>Account ***NOT&nbsp;AVAILABLE***<br>ParentProcess ***NOT&nbsp;AVAILABLE***<br>Host ***NOT&nbsp;AVAILABLE***<br>LogonSession ***NOT&nbsp;AVAILABLE*** | Host+ProcessID+CreationTimeUtc<br>Host+ParentProcessId+CreationTimeUtc+CommandLine<br>Host+ProcessId+CreationTimeUtc+ImageFile<br>Host+ProcessId+CreationTimeUtc+ImageFile+FileHash | ProcessId+CreationTimeUtc+CommandLine (no Host)<br>ProcessId+CreationTimeUtc+ImageFile (no Host) |
 | [**Registry key**](#registry-key) | Hive<br>Key | Hive<br>Key | Hive + Key |
 | [**Registry value**](#registry-value) | Name<br>Value<br>ValueType | Name | |
 | [**Security group**](#security-group) | DistinguishedName<br>SID<br>ObjectGuid | DistinguishedName<br>SID<br>ObjectGuid | |
