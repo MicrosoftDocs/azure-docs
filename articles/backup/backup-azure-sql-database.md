@@ -147,9 +147,9 @@ catch
 }
 ```
 
-## Configure backup to save recovery points in local storage and Recovery Services vault simultaneously 
+## Configure simultaneous backups to save recovery points in local storage and Recovery Services vault 
 
-To configure simultaneous backups to local storage, follow these steps:
+To configure backups to save recovery points in  local storage and Recovery Services vault, follow these steps:
 
 1. Go to the `C:\Program Files\Azure Workload Backup\bin\plugins` location, and then create the file **PluginConfigSettings.json**, if it's not present.
 2. Add the comma separated key value entities, with keys `EnableLocalDiskBackupForBackupTypes` and `LocalDiskBackupFolderPath` to the JSON file.
@@ -174,7 +174,7 @@ To configure simultaneous backups to local storage, follow these steps:
  
      If there are other pre-populated entries in the JSON file, add the above two entries at the bottom of the JSON file *just before the closing curly bracket*.
 
-3. The changes take an hour to be effective. For the changes to take effect immediately, go to **TaskManager** > **Services**, right-click **AzureWLbackupPluginSvc** and select **Stop**.
+3. For the changes to take effect immediately instead of regular one hour, go to **TaskManager** > **Services**, right-click **AzureWLbackupPluginSvc** and select **Stop**.
 
    >[!Caution]
    >This action will cancel all the ongoing backup jobs.
@@ -204,12 +204,6 @@ To configure simultaneous backups to local storage, follow these steps:
    $cred = Get-Credential
                New-SmbGlobalMapping -RemotePath \\i00601p1imsa01.file.core.windows.net\rsvshare -Credential $cred -LocalPath Y:  -FullAccess @("NT AUTHORITY\SYSTEM","NT Service\AzureWLBackupPluginSvc") -Persistent $true
     ```
-
-
-
-
-
-
 
 ## Next steps
 
