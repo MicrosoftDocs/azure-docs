@@ -23,7 +23,7 @@ You can secure prompt flow using private networks. This article explains the req
 
 ## Involved services
 
-When you developing your llm application using prompt flow, you mean want to in secured environment. You can make following service as private via network setting.
+When you developing your LLM application using prompt flow, you may want a secured environment. You can make the following services private via network setting.
 - Workspace: you can make Azure machine learning workspace as private and limit inbound and outbound of it.
 - Compute resource: you can also limit inboud and outbount rule of compute resource in the worksapce.
 - Storage account: you can limit the accessibilty of the storage account to specific VNet.
