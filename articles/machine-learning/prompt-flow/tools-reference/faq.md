@@ -27,9 +27,9 @@ To resolve the issue, you have two options:
 - **Option 1**
   - Update your runtime to latest version. 
   - Click on "Raw file mode" to switch to the raw code view, then open the "flow.dag.yaml" file.
-     ![switch_to_raw_file_mode](../media/faq/switch_to_raw_file_mode.png)
+     ![switch-to-raw-file-mode](../media/faq/switch_to_raw_file_mode.png)
   - Update the tool names.
-     ![update_tool_name](../media/faq/update_tool_name.png)
+     ![update-tool-name](../media/faq/update_tool_name.png)
      
       | Tool | New tool name |
       | ---- | ---- |
