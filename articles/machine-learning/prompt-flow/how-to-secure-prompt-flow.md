@@ -35,7 +35,7 @@ When you developing your LLM application using prompt flow, you may want a secur
 
 Workspace managed VNet is the recommend way to support network isolation in prompt flow. It provides easily configuration to secure your workspace. After enabling managed VNet in the workspace level, resources related to workspace in the same VNet, will use the same network setting in the workspace level. You can also configure the workspace to use private endpoint to access other Azure resources such as Azure OpenAI, Azure content safety, and Azure cognitive search. You also can configure FQDN rule to approve outbound to non-Azure resources use by your prompt flow such as OpenAI, Pinecone etc.
 
-1. You can follow [Workspace managed network isolation](../how-to-managed-network.md) to enable workspace managed VNet.
+1. Follow [Workspace managed network isolation](../how-to-managed-network.md) to enable workspace managed VNet.
 
 2. If you want communicate with [private Azure cognitive services](../../ai-services/cognitive-services-virtual-networks.md), you need add related user defined outbound rule to related resource. Azure machine learning workspace will create private endpoint in related resource with auto approve. If the status stuck in pending, please go to related resource to approve the private endpoint manually.
 
