@@ -41,7 +41,7 @@ Workspace managed VNet is recommand way to support network isolation in prompt f
 
     :::image type="content" source="./media/how-to-secure-prompt-flow/outbound-rule-cognitive-services.png" alt-text="Screenshot of user defined outbound rule for Azure cognitive services" lightbox = "./media/how-to-secure-prompt-flow/outbound-rule-cognitive-services.png":::
 
-3. If you restrict outbound and only allow specific outbound, then you need add related user defined outbound rule to allow related FQDN.
+3. If you are restricting outbound traffic to only allow specific destinations, you must add a corresponding user-defined outbound rule to allow the relevant FQDN.
 
     :::image type="content" source="./media/how-to-secure-prompt-flow/outbound-rule-non-azure-resources.png" alt-text="Screenshot of user defined outbound rule for Azure cognitive services" lightbox = "./media/how-to-secure-prompt-flow/outbound-rule-non-azure-resources.png":::
 
