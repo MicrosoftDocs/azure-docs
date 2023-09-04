@@ -10,13 +10,8 @@ ms.service: cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: tutorial
 ms.date: 08/28/2023
+ms.custom: devx-track-js
 # CustomerIntent: As a developer, I want to connect to Azure Cosmos DB for MongoDB vCore from my Node.js application, so I can build MERN stack applications.
-
-ms.custom: devx-track-js
-
-ms.custom: devx-track-js
-
-ms.custom: devx-track-js
 ---
 
 # Tutorial: Connect a Node.js web app with Azure Cosmos DB for MongoDB vCore
