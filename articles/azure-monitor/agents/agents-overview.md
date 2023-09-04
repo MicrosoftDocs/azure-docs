@@ -212,9 +212,9 @@ View [supported operating systems for Azure Arc Connected Machine agent](../../a
 | Oracle Linux 8                                              | X | X |   |
 | Oracle Linux 7                                              | X | X | X |
 | Oracle Linux 6.4+                                           |   |  | X |
-| Red Hat Enterprise Linux Server 9+                         | X |  |   |
-| Red Hat Enterprise Linux Server 8.6                         | X<sup>3</sup> | X<sup>2</sup> | X<sup>2</sup> |
-| Red Hat Enterprise Linux Server 8+                           | X | X<sup>2</sup> | X<sup>2</sup> |
+| Red Hat Enterprise Linux Server 9+                          | X |  |   |
+| Red Hat Enterprise Linux Server 8.6+                        | X<sup>3</sup> | X<sup>2</sup> | X<sup>2</sup> |
+| Red Hat Enterprise Linux Server 8.0-8.5                     | X | X<sup>2</sup> | X<sup>2</sup> |
 | Red Hat Enterprise Linux Server 7                           | X | X | X |
 | Red Hat Enterprise Linux Server 6.7+                        |   |  | X |
 | Rocky Linux 8                                               | X | X |   |

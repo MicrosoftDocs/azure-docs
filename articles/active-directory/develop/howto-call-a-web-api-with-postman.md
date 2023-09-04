@@ -71,7 +71,7 @@ Follow these steps to create the web API registration:
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Application Developer](../roles/permissions-reference.md#application-developer).
 1. If access to multiple tenants is available, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
-1. Browse to **Identity** > **Applications** > **Application registrations**.
+1. Browse to **Identity** > **Applications** > **App registrations**.
 1. Select **New registration**.
 1. Enter a **Name** for the application, such as _NewWebAPI1_.
 1. For **Supported account types**, select **Accounts in this organizational directory only**. For information on different account types, select **Help me choose** option.
@@ -116,7 +116,7 @@ Follow these steps to create the web app registration:
 
 ::: zone pivot="no-api"
 
-Select **Home** to return to the home page. Browse to **Identity** > **Applications** > **Application registrations**.
+Select **Home** to return to the home page. Browse to **Identity** > **Applications** > **App registrations**.
 1. Select **New registration**.
 1. Enter a **Name** for the application, such as `web-app-calls-web-api`.
 1. For **Supported account types**, select **Accounts in this organizational directory only**. For information on different account types, select the **Help me choose** option.
@@ -129,7 +129,7 @@ Select **Home** to return to the home page. Browse to **Identity** > **Applicati
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Application Developer](../roles/permissions-reference.md#application-developer).
 1. If access to multiple tenants is available, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.  
-1. Browse to **Identity** > **Applications** > **Application registrations**.
+1. Browse to **Identity** > **Applications** > **App registrations**.
 1. Select **New registration**.
 1. Enter a Name for the application, such as `web-app-calls-web-api`.
 1. For **Supported account types**, select **Accounts in this organizational directory only**. For information on different account types, select the **Help me choose** option.
@@ -183,8 +183,8 @@ You may also notice the **User.Read** permission for the Microsoft Graph API. Th
 
 1. Navigate to `ms-identity-docs-code-dotnet/web-api` folder and open `appsettings.json`, replace the `{APPLICATION_CLIENT_ID}` and `{DIRECTORY_TENANT_ID}` with:
 
-   - `{APPLICATION_CLIENT_ID}` is the web API **Application (client) ID** on the app's **Overview** pane **App registrations**.
-   - `{DIRECTORY_TENANT_ID}` is the web API **Directory (tenant) ID** on the app's **Overview** pane **App registrations**.
+   - `{APPLICATION_CLIENT_ID}` is the web API **Application (client) ID** on the app's **Overview** pane.
+   - `{DIRECTORY_TENANT_ID}` is the web API **Directory (tenant) ID** on the app's **Overview** pane.
 
 1. Execute the following command to start the app:
 

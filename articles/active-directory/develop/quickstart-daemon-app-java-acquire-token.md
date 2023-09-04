@@ -28,6 +28,8 @@ To run this sample, you need:
 - [Java Development Kit (JDK)](https://openjdk.java.net/) 8 or greater
 - [Maven](https://maven.apache.org/)
 
+## Register and download your quickstart app
+
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 ### Step 1: Register the application
