@@ -102,22 +102,21 @@ To add standards to your dashboard:
 
     :::image type="content" source="media/concept-regulatory-compliance/compliance-dashboard.png" alt-text="Screenshot showing regulatory compliance dashboard."  lightbox="media/concept-regulatory-compliance/compliance-dashboard.png":::
 
-### Add a standard to your AWS accounts
+### Assign a standard to your AWS accounts
 
-To add regulatory compliance standards on AWS accounts:
+To assign regulatory compliance standards on AWS accounts:
 
 1. Navigate to **Environment settings**.
 1. Select the relevant AWS account.
 1. Select **Standards**.
 1. Select the three dots alongside the standard and select **Assign standard**.
-1. At the prompt, select **Yes**. The standard is added to your AWS account. 
+1. At the prompt, select **Yes**. The standard is assigned to your AWS account.
 
     :::image type="content" source="media/update-regulatory-compliance-packages/assign-standard-aws.png" alt-text="Screenshot of the prompt to add a regulatory compliance standard to the AWS account." lightbox="media/update-regulatory-compliance-packages/assign-standard-aws.png":::
 
+### Assign a standard to your GCP projects
 
-### Add a standard to your GCP projects
-
-To add regulatory compliance standards on GCP projects:
+To assign regulatory compliance standards on GCP projects:
 
 1. Navigate to **Environment settings**.
 1. Select the relevant GCP project.
