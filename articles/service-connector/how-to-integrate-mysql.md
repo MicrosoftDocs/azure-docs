@@ -137,7 +137,7 @@ Reference the connection details and sample codes in following tables, accordlin
 Follow these steps and sample codes to connect to Azure Database for MySQL.
 [!INCLUDE [code sample for mysql system mi](./includes/code-mysql-aad.md)]
 
----
+
 
 ### User assigned Managed Identity
 #### [.NET](#tab/dotnet)
@@ -236,7 +236,7 @@ Follow these steps and sample codes to connect to Azure Database for MySQL.
 Follow these steps and sample codes to connect to Azure Database for MySQL.
 [!INCLUDE [code sample for mysql system mi](./includes/code-mysql-aad.md)]
 
----
+
 
 ### Connection String
 
@@ -333,7 +333,7 @@ After created a `springboot` client type connection, Service Connector service w
 Follow these steps and sample codes to connect to Azure Database for MySQL.
 [!INCLUDE [code sample for mysql secrets](./includes/code-mysql-secret.md)]
 
----
+
 
 ### Service Principal
 
@@ -449,7 +449,7 @@ Follow these steps and sample codes to connect to Azure Database for MySQL.
 Follow these steps and sample codes to connect to Azure Database for MySQL.
 [!INCLUDE [code sample for mysql system mi](./includes/code-mysql-aad.md)]
 
----
+
 
 ## Next steps
 
