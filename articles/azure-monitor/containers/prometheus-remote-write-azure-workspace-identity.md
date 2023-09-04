@@ -2,6 +2,7 @@
 title: Configure remote write for Azure Monitor managed service for Prometheus using Microsoft Azure Active Directory workload identity (preview) 
 description: Configure remote write for Azure Monitor managed service for Prometheus using Microsoft Azure Active Directory workload identity (preview)
 author: EdB-MSFT
+services: azure-monitor
 ms.author: edbaynash
 ms.topic: how-to
 ms.date: 09/04/2023
@@ -124,32 +125,32 @@ ms.reviewer: rapadman
 
     Below is the example yaml if you are using kube-prometheus-stack:
 
-    ```YAML
-    prometheus:
-      prometheusSpec:
-        podMetadata:
-            labels:
-                azure.workload.identity/use: "true"
-    
-      ## https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write    
-        remoteWrite:
-        - url: 'http://localhost:8081/api/v1/write'
-    
-        containers:
-        - name: prom-remotewrite
-          image: <CONTAINER-IMAGE-VERSION>
-          imagePullPolicy: Always
-          ports:
-            - name: rw-port
-              containerPort: 8081
-          env:
-          - name: INGESTION_URL
-            value: <INGESTION_URL>
-          - name: LISTENING_PORT
-            value: '8081'
-          - name: IDENTITY_TYPE
-            value: workloadIdentity
-    ```
+```YAML
+prometheus:
+  prometheusSpec:
+    podMetadata:
+        labels:
+            azure.workload.identity/use: "true"
+
+    ## https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write    
+    remoteWrite:
+    - url: 'http://localhost:8081/api/v1/write'
+
+    containers:
+    - name: prom-remotewrite
+      image: <CONTAINER-IMAGE-VERSION>
+      imagePullPolicy: Always
+      ports:
+        - name: rw-port
+          containerPort: 8081
+      env:
+      - name: INGESTION_URL
+        value: <INGESTION_URL>
+      - name: LISTENING_PORT
+        value: '8081'
+      - name: IDENTITY_TYPE
+        value: workloadIdentity
+```
 
 1. Replace the following values in the YAML.
     
