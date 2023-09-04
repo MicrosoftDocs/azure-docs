@@ -7,6 +7,8 @@ ms.custom: devx-track-csharp, devx-track-azurecli, devx-track-dotnet
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
+author: cephalin
+ms.author: cephalin
 ---
 
 # Configure an ASP.NET Core app for Azure App Service

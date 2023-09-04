@@ -5,6 +5,8 @@ ms.topic: article
 ms.date: 10/20/2021
 ms.reviewer: mahender
 ms.custom: AppServiceIdentity
+author: cephalin
+ms.author: cephalin
 ---
 
 # Configure your App Service or Azure Functions app to login using an OpenID Connect provider

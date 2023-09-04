@@ -4,6 +4,8 @@ description: Learn how to access user identities when using the built-in authent
 ms.topic: article
 ms.date: 03/29/2021
 ms.custom: AppServiceIdentity
+author: cephalin
+ms.author: cephalin
 ---
 
 # Work with user identities in Azure App Service authentication

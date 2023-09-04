@@ -4,6 +4,8 @@ description: Configure authentication and authorization in App Service using a c
 ms.topic: article
 ms.date: 07/15/2021
 ms.custom: AppServiceIdentity
+author: cephalin
+ms.author: cephalin
 ---
 
 # File-based configuration in Azure App Service authentication

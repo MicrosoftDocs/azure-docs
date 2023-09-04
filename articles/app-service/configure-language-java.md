@@ -5,10 +5,11 @@ keywords: azure app service, web app, windows, oss, java, tomcat, jboss
 ms.devlang: java
 ms.topic: article
 ms.date: 04/12/2019
-ms.reviewer: cephalin
 ms.custom: seodec18, devx-track-java, devx-track-azurecli, devx-track-extended-java
 zone_pivot_groups: app-service-platform-windows-linux
 adobe-target: true
+author: cephalin
+ms.author: cephalin
 ---
 
 # Configure a Java app for Azure App Service

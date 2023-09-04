@@ -5,6 +5,8 @@ ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 01/31/2023
 ms.custom: seodec18, fasttrack-edit, AppServiceIdentity
+author: cephalin
+ms.author: cephalin
 ---
 
 # Configure your App Service or Azure Functions app to use Azure AD login

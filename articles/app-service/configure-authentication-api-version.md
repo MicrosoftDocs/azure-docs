@@ -4,6 +4,8 @@ description: Upgrade your App Service authentication API to V2 or pin it to a sp
 ms.topic: article
 ms.date: 02/17/2023
 ms.custom: seodec18, devx-track-azurecli, AppServiceIdentity
+author: cephalin
+ms.author: cephalin
 ---
 
 # Manage the API and runtime versions of App Service authentication

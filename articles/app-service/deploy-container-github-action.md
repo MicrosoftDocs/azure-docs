@@ -6,6 +6,8 @@ ms.date: 12/15/2021
 ms.reviewer: ushan
 ms.custom: github-actions-azure, devx-track-azurecli 
 ms.devlang: azurecli
+author: cephalin
+ms.author: cephalin
 
 ---
 
