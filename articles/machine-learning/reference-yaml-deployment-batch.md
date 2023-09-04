@@ -59,7 +59,7 @@ When `type: model`, the following syntax is enforced:
 | `settings.retry_settings.timeout` | integer | The timeout in seconds for scoring a single mini batch. Use larger values when the mini-batch size is bigger or the model is more expensive to run. | | `30` |
 | `settings.output_action` | string | Indicates how the output should be organized in the output file. Use `summary_only` if you are generating the output files as indicated at [Customize outputs in model deployments](how-to-deploy-model-custom-output.md). Use `append_row` if you are returning predictions as part of the `run()` function `return` statement. | `append_row`, `summary_only` | `append_row` |
 | `settings.output_file_name` | string | Name of the batch scoring output file. | | `predictions.csv` |
-| `environment_variables` | object | Dictionary of environment variable key-value pairs to set for each batch scoring job. | | |
+| `settings.environment_variables` | object | Dictionary of environment variable key-value pairs to set for each batch scoring job. | | |
 
 ### YAML syntax for pipeline component deployments
 

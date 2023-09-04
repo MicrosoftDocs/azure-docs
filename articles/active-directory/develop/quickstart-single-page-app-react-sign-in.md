@@ -34,26 +34,12 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-To start your quickstart application, use either of the following options.
+### Step 1: Register your application
 
-### Option 1 (Express): Register and auto configure your app and then download your code sample
-
-1. Go to the [Azure portal - App registrations](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/AngularSpaQuickstartPage/sourceType/docs) quickstart experience.
-1. Enter a name for your application.
-1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
-1. Select **Register**.
-1. Go to the quickstart pane and follow the instructions to download and automatically configure your new application.
-
-### Option 2 (Manual): Register and manually configure your application and code sample
-
-#### Step 1: Register your application
-
-[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
-
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
-1. Search for and select **Azure Active Directory**.
-Under **Manage**, select **App registrations** > **New registration**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Application Developer](../roles/permissions-reference.md#application-developer).
+1. If access to multiple tenants is available, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
+1. Browse to **Identity** > **Applications** > **App registrations**.
+1. Select **New registration**.
 1. When the **Register an application** page appears, enter a name for your application.
 1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
 1. Select **Register**. On the app **Overview** page, note the **Application (client) ID** value for later use.
@@ -64,12 +50,11 @@ Under **Manage**, select **App registrations** > **New registration**.
 1. Under **Platform Configurations** expand **Single-page application**.
 1. Confirm that under **Grant types** ![Already configured](media/quickstart-v2-javascript/green-check.png) Your Redirect URI is eligible for the Authorization Code Flow with PKCE.
 
-#### Step 2: Download the project
-
+### Step 2: Download the project
 
 To run the project with a web server by using Node.js, [download the core project files](https://github.com/Azure-Samples/ms-identity-javascript-react-spa/archive/main.zip).
 
-#### Step 3: Configure your JavaScript app
+### Step 3: Configure your JavaScript app
 
 In the *src* folder, open the *authConfig.js* file and update the `clientID`, `authority`, and `redirectUri` values in the `msalConfig` object.
 
@@ -95,17 +80,17 @@ Modify the values in the `msalConfig` section as described here:
 
 - `Enter_the_Application_Id_Here` is the **Application (client) ID** for the application you registered.
 
-   To find the value of **Application (client) ID**, go to the app registration's **Overview** page in the Azure portal.
+   To find the value of **Application (client) ID**, go to the app registration's **Overview** page.
 - `Enter_the_Cloud_Instance_Id_Here` is the instance of the Azure cloud. For the main or global Azure cloud, enter `https://login.microsoftonline.com`. For **national** clouds (for example, China), see [National clouds](authentication-national-cloud.md).
 - `Enter_the_Tenant_info_here` is set to one of the following:
   - If your application supports *accounts in this organizational directory*, replace this value with the **Tenant ID** or **Tenant name**. For example, `contoso.microsoft.com`.
 
-   To find the value of the **Directory (tenant) ID**, go to the app registration's **Overview** page in the Azure portal.
+   To find the value of the **Directory (tenant) ID**, go to the app registration's **Overview** page.
   - If your application supports *accounts in any organizational directory*, replace this value with `organizations`.
   - If your application supports *accounts in any organizational directory and personal Microsoft accounts*, replace this value with `common`. **For this quickstart**, use `common`.
   - To restrict support to *personal Microsoft accounts only*, replace this value with `consumers`.
 
-   To find the value of **Supported account types**, go to the app registration's **Overview** page in the Azure portal.
+   To find the value of **Supported account types**, go to the app registration's **Overview** page.
 - `Enter_the_Redirect_Uri_Here` is `http://localhost:3000/`.
 
 The `authority` value in your *authConfig.js* should be similar to the following if you're using the main (global) Azure cloud:
@@ -125,7 +110,7 @@ Scroll down in the same file and update the `graphMeEndpoint`.
    };
 ```
 
-#### Step 4: Run the project
+### Step 4: Run the project
 
 Run the project with a web server by using Node.js:
 

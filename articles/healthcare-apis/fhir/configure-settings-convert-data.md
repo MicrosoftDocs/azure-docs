@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 08/21/2022
+ms.date: 08/22/2022
 ms.author: jasteppe
 ---
 
@@ -33,7 +33,7 @@ To access and use the default templates for your conversion requests, ensure tha
 >
 > The default templates are provided only to help you get started with your data conversion workflow. These default templates are not intended for production and might change when Microsoft releases updates for the FHIR service. To have consistent data conversion behavior across different versions of the FHIR service, you must do the following:
 >
-> 1. Host your own copy of the templates in an Azure Container Registry instance.
+> 1. Host your own copy of the templates in an [Azure Container Registry](../../container-registry/container-registry-intro.md) (ACR) instance.
 > 2. Register the templates to the FHIR service. 
 > 3. Use your registered templates in your API calls.
 > 4. Verify that the conversion behavior meets your requirements.
@@ -104,7 +104,9 @@ In the example code, two example custom fields `customfield_message` and `custom
  
 ## Host your own templates
 
-We recommend that you host your own copy of templates in an Azure Container Registry (ACR) instance. Hosting your own templates and using them for `$convert-data` operations involves the following six steps:
+It's recommended that you host your own copy of templates in an [Azure Container Registry](../../container-registry/container-registry-intro.md) (ACR) instance. ACR can be used to host your custom templates and support with versioning.
+
+Hosting your own templates and using them for `$convert-data` operations involves the following seven steps:
 
 1. [Create an Azure Container Registry instance](#step-1-create-an-azure-container-registry-instance)
 2. [Push the templates to your Azure Container Registry instance](#step-2-push-the-templates-to-your-azure-container-registry-instance)
@@ -112,16 +114,17 @@ We recommend that you host your own copy of templates in an Azure Container Regi
 4. [Provide Azure Container Registry access to the FHIR service managed identity](#step-4-provide-azure-container-registry-access-to-the-fhir-service-managed-identity)
 5. [Register the Azure Container Registry server in the FHIR service](#step-5-register-the-azure-container-registry-server-in-the-fhir-service)
 6. [Configure the Azure Container Registry firewall for secure access](#step-6-configure-the-azure-container-registry-firewall-for-secure-access)
+7. [Verify the $convert-data operation](#step-7-verify-the-convert-data-operation)
 
 ### Step 1: Create an Azure Container Registry instance
 
-Read the [Introduction to container registries in Azure](../../container-registry/container-registry-intro.md) and follow the instructions for creating your own Azure Container Registry instance. We recommend that you place your Azure Container Registry instance in the same resource group as your FHIR service.
+Read the [Introduction to container registries in Azure](../../container-registry/container-registry-intro.md) and follow the instructions for creating your own ACR instance. We recommend that you place your ACR instance in the same resource group as your FHIR service.
 
 ### Step 2: Push the templates to your Azure Container Registry instance
 
-After you create an Azure Container Registry instance, you can use the **FHIR Converter: Push Templates** command in the [FHIR Converter extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-health-fhir-converter) to push your custom templates to your Azure Container Registry instance. Alternatively, you can use the [Template Management CLI tool](https://github.com/microsoft/FHIR-Converter/blob/main/docs/TemplateManagementCLI.md) for this purpose.
+After you create an ACR instance, you can use the **FHIR Converter: Push Templates** command in the [FHIR Converter extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-health-fhir-converter) to push your custom templates to your ACR instance. Alternatively, you can use the [Template Management CLI tool](https://github.com/microsoft/FHIR-Converter/blob/main/docs/TemplateManagementCLI.md) for this purpose.
 
-To maintain different versions of custom templates in your ACR, you may push the image containing your custom templates into your ACR instance with different image tags. 
+To maintain different versions of custom templates in your Azure Container Registry, you may push the image containing your custom templates into your ACR instance with different image tags. 
 * For more information about ACR registries, repositories, and artifacts, see [About registries, repositories, and artifacts](../../container-registry/container-registry-concepts.md).
 * For more information about image tag best practices, see [Recommendations for tagging and versioning container images](../../container-registry/container-registry-image-tag-version.md).
 
@@ -159,7 +162,7 @@ For more information about assigning roles in the Azure portal, see [Azure built
 
 ### Step 5: Register the Azure Container Registry server in the FHIR service
 
-You can register the Azure Container Registry server by using the Azure portal.
+You can register the ACR server by using the Azure portal.
 
 To use the Azure portal:
 
@@ -169,62 +172,27 @@ To use the Azure portal:
 
    :::image type="content" source="media/convert-data/configure-settings-convert-data/fhir-acr-add-registry.png" alt-text="Screenshot of the Artifacts screen for registering an Azure Container Registry with a FHIR service." lightbox="media/convert-data/configure-settings-convert-data/fhir-acr-add-registry.png":::
 
-You can register up to 20 Azure Container Registry servers in the FHIR service.
+You can register up to 20 ACR servers in the FHIR service.
 
 > [!NOTE]
 > It might take a few minutes for the registration to take effect.
 
 ### Step 6: Configure the Azure Container Registry firewall for secure access
 
-1. In the Azure portal, on the left pane, select **Networking** for the Azure Container Registry instance.
+There are many methods for securing ACR using the built-in firewall depending on your particular use case.
 
-   :::image type="content" source="media/convert-data/configure-settings-convert-data/networking-container-registry.png" alt-text="Screenshot of the Networking screen for configuring an Azure Container Registry firewall." lightbox="media/convert-data/configure-settings-convert-data/networking-container-registry.png"::: 
+* [Connect privately to an Azure container registry using Azure Private Link](../../container-registry/container-registry-private-link.md)
+* [Configure public IP network rules](../../container-registry/container-registry-access-selected-networks.md)
+* [Azure Container Registry mitigating data exfiltration with dedicated data endpoints](../../container-registry/container-registry-dedicated-data-endpoints.md)
+* [Restrict access to a container registry using a service endpoint in an Azure virtual network](../../container-registry/container-registry-vnet.md)
+* [Allow trusted services to securely access a network-restricted container registry](../../container-registry/allow-access-trusted-services.md)
+* [Configure rules to access an Azure container registry behind a firewall](../../container-registry/container-registry-firewall-access-rules.md)
+* [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519)
 
-2. On the **Public access** tab, select **Selected networks**. 
+> [!NOTE]
+> The FHIR service has been registered as a trusted Microsoft service with Azure Container Registry.
 
-3. In the **Firewall** section, specify the IP address in the **Address range** box. 
-
-Add IP ranges to allow access from the Internet or your on-premises networks. 
-
-The following table lists the IP addresses for the Azure regions where the FHIR service is available:
-
-| Azure region         | Public IP address |
-|:---------------------|:------------------|
-| Australia East       | 20.53.47.210      |
-| Brazil South         | 191.238.72.227    |
-| Canada Central       | 20.48.197.161     |
-| Central India        | 20.192.47.66      |
-| East US              | 20.62.134.242, 20.62.134.244, 20.62.134.245 |
-| East US 2            | 20.62.60.115, 20.62.60.116, 20.62.60.117 |
-| France Central       | 51.138.211.19     |
-| Germany North        | 51.116.60.240     |
-| Germany West Central | 20.52.88.224      |
-| Japan East           | 20.191.167.146    |
-| Japan West           | 20.189.228.225    |
-| Korea Central        | 20.194.75.193     |
-| North Central US     | 52.162.111.130, 20.51.0.209 |
-| North Europe         | 52.146.137.179    |
-| Qatar Central        | 20.21.36.225      |
-| South Africa North   | 102.133.220.199   |
-| South Central US     | 20.65.134.83      |
-| Southeast Asia       | 20.195.67.208     |
-| Sweden Central       | 51.12.28.100      |
-| Switzerland North    | 51.107.247.97     |
-| UK South             | 51.143.213.211    |
-| UK West              | 51.140.210.86     |
-| West Central US      | 13.71.199.119     |
-| West Europe          | 20.61.103.243, 20.61.103.244 |
-| West US 2            | 20.51.13.80, 20.51.13.84, 20.51.13.85 |
-| West US 3            | 20.150.245.165 |
-
-You can also completely disable public access to your Azure Container Registry instance while still allowing access from your FHIR service. To do so:
-
-1. In the Azure portal container registry, select **Networking**.
-2. Select the **Public access** tab, select **Disabled**, and then select **Allow trusted Microsoft services to access this container registry**.
-
-   :::image type="content" source="media/convert-data/configure-settings-convert-data/configure-private-network-container-registry.png" alt-text="Screenshot of the Networking option for disabling public network access to an Azure Container Registry instance." lightbox="media/convert-data/configure-settings-convert-data/configure-private-network-container-registry.png"::: 
-
-### Verify the $convert-data operation
+### Step 7: Verify the $convert-data operation
 
 Make a call to the `$convert-data` operation by specifying your template reference in the `templateCollectionReference` parameter:
 
@@ -234,7 +202,7 @@ You should receive a `Bundle` response that contains the health data converted i
 
 ## Next steps
 
-In this article, you've learned how to configure settings for `$convert-data` for converting health data into FHIR by using the FHIR service in Azure Health Data Services. 
+In this article, you've learned how to configure the settings for `$convert-data` to begin converting various health data formats into the FHIR format.
 
 For an overview of `$convert-data`, see
  

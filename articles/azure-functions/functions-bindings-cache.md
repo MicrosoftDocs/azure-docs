@@ -5,8 +5,8 @@ author: flang-msft
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 ms.author: franlanglois
-ms.service: cache
-ms.topic: conceptual
+ms.service: azure-functions
+ms.topic: reference
 ms.date: 07/26/2023
 
 ---
@@ -36,7 +36,7 @@ You can integrate Azure Cache for Redis and Azure Functions to build functions t
 |Streams | Yes  | Yes  |  Yes  |
 
 > [!IMPORTANT]
-> Redis triggers are not currently supported on consumption functions.
+> Redis triggers aren't currently supported for functions running in the [Consumption plan](consumption-plan.md).
 >
 
 ::: zone pivot="programming-language-csharp"

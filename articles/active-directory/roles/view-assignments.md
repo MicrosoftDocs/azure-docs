@@ -91,46 +91,51 @@ This section describes how to list role assignments with single-application scop
 
 ## PowerShell
 
-This section describes viewing assignments of a role with organization-wide scope. This article uses the [Azure Active Directory PowerShell Version 2](/powershell/module/azuread/#directory_roles) module. To view single-application scope assignments using PowerShell, you can use the cmdlets in [Assign custom roles with PowerShell](custom-assign-powershell.md).
+This section describes viewing assignments of a role with organization-wide scope. This article uses the [Microsoft Graph PowerShell](/powershell/microsoftgraph/overview) module. To view single-application scope assignments using PowerShell, you can use the cmdlets in [Assign custom roles with PowerShell](custom-assign-powershell.md).
 
-Use the [Get-AzureADMSRoleDefinition](/powershell/module/azuread/get-azureadmsroledefinition) and [Get-AzureADMSRoleAssignment](/powershell/module/azuread/get-azureadmsroleassignment) commands to list role assignments.
+Use the [Get-MgRoleManagementDirectoryRoleDefinition](/powershell/module/microsoft.graph.identity.governance/get-mgrolemanagementdirectoryroledefinition) and [Get-MgRoleManagementDirectoryRoleAssignment](/powershell/module/microsoft.graph.identity.governance/get-mgrolemanagementdirectoryroleassignment) commands to list role assignments.
 
 The following example shows how to list the role assignments for the [Groups Administrator](permissions-reference.md#groups-administrator) role.
 
 ```powershell
 # Fetch list of all directory roles with template ID
-Get-AzureADMSRoleDefinition
+Get-MgRoleManagementDirectoryRoleDefinition
 
 # Fetch a specific directory role by ID
-$role = Get-AzureADMSRoleDefinition -Id "fdd7a751-b60b-444a-984c-02652fe8fa1c"
+$role = Get-MgRoleManagementDirectoryRoleDefinition -UnifiedRoleDefinitionId fdd7a751-b60b-444a-984c-02652fe8fa1c
 
 # Fetch membership for a role
-Get-AzureADMSRoleAssignment -Filter "roleDefinitionId eq '$($role.Id)'"
+Get-MgRoleManagementDirectoryRoleAssignment -Filter "roleDefinitionId eq '$($role.Id)'"
 ```
 
 ```Example
-RoleDefinitionId                     PrincipalId                          DirectoryScopeId
-----------------                     -----------                          ----------------
-fdd7a751-b60b-444a-984c-02652fe8fa1c 04f632c3-8065-4466-9e30-e71ec81b3c36 /administrativeUnits/3883b136-67f0-412c-9b...
+Id                                            PrincipalId                          RoleDefinitionId                     DirectoryScopeId AppScop
+                                                                                                                                         eId
+--                                            -----------                          ----------------                     ---------------- -------
+lAPpYvVpN0KRkAEhdxReEH2Fs3EjKm1BvSKkcYVN2to-1 71b3857d-2a23-416d-bd22-a471854ddada 62e90394-69f5-4237-9190-012177145e10 /
+lAPpYvVpN0KRkAEhdxReEMdXLf2tIs1ClhpzQPsutrQ-1 fd2d57c7-22ad-42cd-961a-7340fb2eb6b4 62e90394-69f5-4237-9190-012177145e10 /
 ```
 
 The following example shows how to list all active role assignments across all roles, including built-in and custom roles (currently in Preview).
 
 ```powershell
-$roles = Get-AzureADMSRoleDefinition
+$roles = Get-MgRoleManagementDirectoryRoleDefinition
 foreach ($role in $roles)
 {
-  Get-AzureADMSRoleAssignment -Filter "roleDefinitionId eq '$($role.Id)'"
+  Get-MgRoleManagementDirectoryRoleAssignment -Filter "roleDefinitionId eq '$($role.Id)'"
 }
 ```
 
 ```Example
-RoleDefinitionId                     PrincipalId                          DirectoryScopeId Id
-----------------                     -----------                          ---------------- --
-e8611ab8-c189-46e8-94e1-60213ab1f814 9f9fb383-3148-46a7-9cec-5bf93f8a879c /                uB2o6InB6EaU4WAhOrH4FHwni...
-e8611ab8-c189-46e8-94e1-60213ab1f814 027c8aba-2e94-49a8-974b-401e5838b2a0 /                uB2o6InB6EaU4WAhOrH4FEqdn...
-fdd7a751-b60b-444a-984c-02652fe8fa1c 04f632c3-8065-4466-9e30-e71ec81b3c36 /administrati... UafX_Qu2SkSYTAJlL-j6HL5Dr...
-...
+Id                                            PrincipalId                          RoleDefinitionId                     DirectoryScopeId AppScop
+                                                                                                                                         eId
+--                                            -----------                          ----------------                     ---------------- -------
+lAPpYvVpN0KRkAEhdxReEH2Fs3EjKm1BvSKkcYVN2to-1 71b3857d-2a23-416d-bd22-a471854ddada 62e90394-69f5-4237-9190-012177145e10 /
+lAPpYvVpN0KRkAEhdxReEMdXLf2tIs1ClhpzQPsutrQ-1 fd2d57c7-22ad-42cd-961a-7340fb2eb6b4 62e90394-69f5-4237-9190-012177145e10 /
+4-PYiFWPHkqVOpuYmLiHa3ibEcXLJYtFq5x3Kkj2TkA-1 c5119b78-25cb-458b-ab9c-772a48f64e40 88d8e3e3-8f55-4a1e-953a-9b9898b8876b /
+4-PYiFWPHkqVOpuYmLiHa2hXf3b8iY5KsVFjHNXFN4c-1 767f5768-89fc-4a8e-b151-631cd5c53787 88d8e3e3-8f55-4a1e-953a-9b9898b8876b /
+BSub0kaAukSHWB4mGC_PModww03rMgNOkpK77ePhDnI-1 4dc37087-32eb-4e03-9292-bbede3e10e72 d29b2b05-8046-44ba-8758-1e26182fcf32 /
+BSub0kaAukSHWB4mGC_PMgzOWSgXj8FHusA4iaaTyaI-1 2859ce0c-8f17-47c1-bac0-3889a693c9a2 d29b2b05-8046-44ba-8758-1e26182fcf32 /
 ```
 
 ## Microsoft Graph API

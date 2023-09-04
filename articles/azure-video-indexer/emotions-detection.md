@@ -1,13 +1,11 @@
 ---
-title: Azure AI Video Indexer text-based emotion detection overview
-titleSuffix: Azure AI Video Indexer 
+title: Azure AI Video Indexer text-based emotion detection overview 
 description: This article gives an overview of Azure AI Video Indexer text-based emotion detection.
-author: juliako
-ms.author: juliako
-manager: femila
 ms.service: azure-video-indexer
 ms.date: 08/02/2023
 ms.topic: article
+ms.author: inhenkel
+author: IngridAtMicrosoft
 ---
 
 # Text-based emotion detection
