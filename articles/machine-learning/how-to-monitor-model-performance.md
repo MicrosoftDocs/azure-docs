@@ -138,14 +138,14 @@ from azure.ai.ml.entities import (
 # get a handle to the workspace
 ml_client = MLClient(InteractiveBrowserCredential(), subscription_id, resource_group, workspace)
 
-spark_configuration = SparkResourceConfiguration(
+spark_compute = ServerlessSparkCompute(
     instance_type="standard_e4s_v3",
     runtime_version="3.2"
 )
 
 monitoring_target = MonitoringTarget(endpoint_deployment_id="azureml:fraud_detection_endpoint:fraund_detection_deployment")
 
-monitor_definition = MonitorDefinition(compute=spark_configuration, monitoring_target=monitoring_target)
+monitor_definition = MonitorDefinition(compute=spark_compute, monitoring_target=monitoring_target)
 
 recurrence_trigger = RecurrenceTrigger(
     frequency="day",
@@ -311,45 +311,42 @@ from azure.ai.ml.entities import (
     MonitorSchedule,
     RecurrencePattern,
     RecurrenceTrigger,
-    SparkResourceConfiguration,
-    TargetDataset,
+    ServerlessSparkCompute,
+    ReferenceData
 )
 
 # get a handle to the workspace
 ml_client = MLClient(InteractiveBrowserCredential(), subscription_id, resource_group, workspace)
 
-spark_configuration = SparkResourceConfiguration(
+spark_compute = ServerlessSparkCompute(
     instance_type="standard_e4s_v3",
     runtime_version="3.2"
 )
 
-monitoring_target = MonitoringTarget(endpoint_deployment_id="azureml:fraud_detection_endpoint:fraund_detection_deployment")
+monitoring_target = MonitoringTarget(
+    ml_task="classification",
+    endpoint_deployment_id="azureml:fraud_detection_endpoint:fraund_detection_deployment"
+)
 
 # training data to be used as baseline dataset
-monitor_input_data = MonitorInputData(
-    input_dataset=Input(
+reference_data_training = ReferenceData(
+    input_data=Input(
         type="mltable",
         path="azureml:my_model_training_data:1"
     ),
-    dataset_context=MonitorDatasetContext.TRAINING,
+    target_column_name="is_fraud",
+    data_context=MonitorDatasetContext.TRAINING,
 )
 
 # create an advanced data drift signal
 features = MonitorFeatureFilter(top_n_feature_importance=20)
-numerical_metric_threshold = DataDriftMetricThreshold(
-    applicable_feature_type=MonitorFeatureType.NUMERICAL,
-    metric_name=MonitorMetricName.JENSEN_SHANNON_DISTANCE,
-    threshold=0.01
+metric_thresholds = DataDriftMetricThreshold(
+    numerical={'JENSEN_SHANNON_DISTANCE':0.01},
+    categorical={'PEARSONS_CHI_SQUARED_TEST':0.02}
 )
-categorical_metric_threshold = DataDriftMetricThreshold(
-    applicable_feature_type=MonitorFeatureType.CATEGORICAL,
-    metric_name=MonitorMetricName.PEARSONS_CHI_SQUARED_TEST,
-    threshold=0.02
-)
-metric_thresholds = [numerical_metric_threshold, categorical_metric_threshold]
 
 advanced_data_drift = DataDriftSignal(
-    baseline_dataset=monitor_input_data,
+    reference_data=reference_data_training,
     features=features,
     metric_thresholds=metric_thresholds
 )
@@ -357,49 +354,24 @@ advanced_data_drift = DataDriftSignal(
 
 # create an advanced data quality signal
 features = ['feature_A', 'feature_B', 'feature_C']
-numerical_metric_threshold = DataQualityMetricThreshold(
-    applicable_feature_type=MonitorFeatureType.NUMERICAL,
-    metric_name=MonitorMetricName.NULL_VALUE_RATE,
-    threshold=0.01
+
+metric_thresholds = DataQualityMetricThreshold(
+    numerical={'NULL_VALUE_RATE':0.01},
+    categorical={'OUT_OF_BOUNDS_RATE':0.02}
 )
-categorical_metric_threshold = DataQualityMetricThreshold(
-    applicable_feature_type=MonitorFeatureType.CATEGORICAL,
-    metric_name=MonitorMetricName.OUT_OF_BOUND_RATE,
-    threshold=0.02
-)
-metric_thresholds = [numerical_metric_threshold, categorical_metric_threshold]
 
 advanced_data_quality = DataQualitySignal(
-    baseline_dataset=monitor_input_data,
+    reference_data=reference_data_training,
     features=features,
     metric_thresholds=metric_thresholds,
     alert_enabled=False
 )
 
 # create feature attribution drift signal
-monitor_target_data = TargetDataset(
-    dataset=MonitorInputData(
-        input_dataset=Input(
-            type="uri_folder",
-            path="azureml:endpoint_name-deployment_name-model_inputs_outputs:1"
-        ),
-        dataset_context=MonitorDatasetContext.MODEL_INPUTS_OUTPUTS,
-    )
-)
-monitor_baseline_data = MonitorInputData(
-    input_dataset=Input(
-        type="mltable",
-        path="azureml:my_model_training_data:1"
-    ),
-    target_column_name="fraud_detected",
-    dataset_context=MonitorDatasetContext.TRAINING,
-)
-metric_thresholds = FeatureAttributionDriftMetricThreshold(threshold=0.9)
+metric_thresholds = FeatureAttributionDriftMetricThreshold({'normalized_discounted_cumulative_gain':0.9})
 
 feature_attribution_drift = FeatureAttributionDriftSignal(
-    target_dataset=monitor_target_data,
-    baseline_dataset=monitor_baseline_data,
-    model_type="classification",
+    reference_data=reference_data_training,
     metric_thresholds=metric_thresholds,
     alert_enabled=False
 )
@@ -418,7 +390,7 @@ alert_notification = AlertNotification(
 
 # Finally monitor definition
 monitor_definition = MonitorDefinition(
-    compute=spark_configuration,
+    compute=spark_compute,
     monitoring_target=monitoring_target,
     monitoring_signals=monitoring_signals,
     alert_notification=alert_notification
@@ -556,7 +528,7 @@ create_monitor:
         input_data:
           path: azureml:my_model_training_data:1 # use training data as comparison baseline
           type: mltable
-        dataset_context: training
+        data_context: training
         target_column_name: is_fraud
       features: 
         top_n_feature_importance: 20 # monitor drift for top 20 features
@@ -661,8 +633,9 @@ from azure.ai.ml.entities import (
     MonitorSchedule,
     RecurrencePattern,
     RecurrenceTrigger,
-    SparkResourceConfiguration,
-    TargetDataset
+    ServerlessSparkCompute,
+    ReferenceData,
+    ProductionData
 )
 
 # get a handle to the workspace
@@ -673,49 +646,41 @@ ml_client = MLClient(
    workspace
 )
 
-spark_configuration = SparkResourceConfiguration(
+spark_compute = ServerlessSparkCompute(
     instance_type="standard_e4s_v3",
     runtime_version="3.2"
 )
 
 #define target dataset (production dataset)
-input_data = MonitorInputData(
-    input_dataset=Input(
+production_data = ProductionData(
+    input_data=Input(
         type="uri_folder",
         path="azureml:my_model_production_data:1"
     ),
-    dataset_context=MonitorDatasetContext.MODEL_INPUTS,
+    data_context=MonitorDatasetContext.MODEL_INPUTS,
     pre_processing_component="azureml:production_data_preprocessing:1"
 )
 
-input_data_target = TargetDataset(dataset=input_data)
 
 # training data to be used as baseline dataset
-input_data_baseline = MonitorInputData(
-    input_dataset=Input(
+reference_data_training = ReferenceData(
+    input_data=Input(
         type="mltable",
         path="azureml:my_model_training_data:1"
     ),
-    dataset_context=MonitorDatasetContext.TRAINING
+    data_context=MonitorDatasetContext.TRAINING
 )
 
 # create an advanced data drift signal
 features = MonitorFeatureFilter(top_n_feature_importance=20)
-numerical_metric_threshold = DataDriftMetricThreshold(
-    applicable_feature_type=MonitorFeatureType.NUMERICAL,
-    metric_name=MonitorMetricName.JENSEN_SHANNON_DISTANCE,
-    threshold=0.01
+metric_thresholds = DataDriftMetricThreshold(
+    numerical={'JENSEN_SHANNON_DISTANCE':0.01},
+    categorical={'PEARSONS_CHI_SQUARED_TEST':0.02}
 )
-categorical_metric_threshold = DataDriftMetricThreshold(
-    applicable_feature_type=MonitorFeatureType.CATEGORICAL,
-    metric_name=MonitorMetricName.PEARSONS_CHI_SQUARED_TEST,
-    threshold=0.02
-)
-metric_thresholds = [numerical_metric_threshold, categorical_metric_threshold]
 
 advanced_data_drift = DataDriftSignal(
-    target_dataset=input_data_target,
-    baseline_dataset=input_data_baseline,
+    production_data=production_data,
+    reference_data=reference_data_training,
     features=features,
     metric_thresholds=metric_thresholds
 )
@@ -723,21 +688,14 @@ advanced_data_drift = DataDriftSignal(
 
 # create an advanced data quality signal
 features = ['feature_A', 'feature_B', 'feature_C']
-numerical_metric_threshold = DataQualityMetricThreshold(
-    applicable_feature_type=MonitorFeatureType.NUMERICAL,
-    metric_name=MonitorMetricName.NULL_VALUE_RATE,
-    threshold=0.01
+metric_thresholds = DataQualityMetricThreshold(
+    numerical={'NULL_VALUE_RATE':0.01},
+    categorical={'OUT_OF_BOUNDS_RATE':0.02}
 )
-categorical_metric_threshold = DataQualityMetricThreshold(
-    applicable_feature_type=MonitorFeatureType.CATEGORICAL,
-    metric_name=MonitorMetricName.OUT_OF_BOUND_RATE,
-    threshold=0.02
-)
-metric_thresholds = [numerical_metric_threshold, categorical_metric_threshold]
 
 advanced_data_quality = DataQualitySignal(
-    target_dataset=input_data_target,
-    baseline_dataset=input_data_baseline,
+    production_data=production_data,
+    reference_data=reference_data_training,
     features=features,
     metric_thresholds=metric_thresholds,
     alert_enabled="False"
@@ -756,7 +714,7 @@ alert_notification = AlertNotification(
 
 # Finally monitor definition
 monitor_definition = MonitorDefinition(
-    compute=spark_configuration,
+    compute=spark_compute,
     monitoring_signals=monitoring_signals,
     alert_notification=alert_notification
 )
@@ -847,14 +805,14 @@ create_monitor:
   monitoring_signals:
     customSignal:
       type: custom
-      data_window_size: 360
       component_id: azureml:my_custom_signal:1.0.0
       input_datasets:
         production_data:
-          input_dataset:
+          input_data:
             type: uri_folder
             path: azureml:custom_without_drift:1
-          dataset_context: test
+          data_context: test
+          data_window_size: 360
           pre_processing_component: azureml:custom_preprocessor:1.0.0
       metric_thresholds:
         - metric_name: std_dev

@@ -181,7 +181,8 @@ The feature attribution of a model may change over time due to changes in the di
 | `reference_data.target_column_name` | String | **Required**. | | |
 | `reference_data.pre_processing_component` | String | Component ID in the format of `azureml:myPreprocessing@latest` for a registered component. This is required if `reference_data.input_data.type` is `uri_folder`, see [preprocessing component specification](./how-to-monitor-model-performance.md#set-up-model-monitoring-by-bringing-your-own-production-data-to-azure-machine-learning). | | |
 | `alert_enabled` | Boolean | Turn on/off alert notification for the monitoring signal. `True` or `False` | | |
-| `metric_thresholds` | Object | Metric name and threshold for feature attribution drift in `key:value` format. When threshold is exceeded and `alert_enabled` is on, user will receive alert notification. | Allowed metric name: `normalized_discounted_cumulative_gain` | Defaut threshold of `0.02`|
+| `metric_thresholds` | Object | Metric name and threshold for feature attribution drift in `key:value` format, where `key` is the metric name, and `value` is the threshold. When threshold is exceeded and `alert_enabled` is on, user will receive alert notification. | Allowed metric name: `normalized_discounted_cumulative_gain` | |
+
 
 
 ## Remarks
