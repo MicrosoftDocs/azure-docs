@@ -286,5 +286,5 @@ For other languages, you can use the connection string and username that Service
 
 For more code samples, see [Connect to Azure databases from App Service without secrets using a managed identity](/azure/app-service/tutorial-connect-msi-azure-database?tabs=mysql#3-modify-your-code).
 
----
+
 
