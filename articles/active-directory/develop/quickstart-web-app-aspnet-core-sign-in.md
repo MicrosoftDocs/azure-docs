@@ -33,7 +33,7 @@ In this article you register a web application in the Microsoft Entra admin cent
 
 ## Register the application in the Microsoft Entra admin center
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) as at least an [Cloud Application Administrator](../roles/permissions-reference#cloud-application-administrator.md).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) as at least an [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **App registrations**.
 1. On the page that appears, select **+ New registration**.
 1. For **Name**, enter a name for the application. For example, enter *identity-client-app*. App users can see this name, and it can be changed later in **Manage** > **Branding & properties**.
