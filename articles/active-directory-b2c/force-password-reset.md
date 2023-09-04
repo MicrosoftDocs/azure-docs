@@ -12,7 +12,7 @@ ms.topic: how-to
 ms.date: 06/26/2023
 ms.author: kengaderdus
 ms.subservice: B2C
-ms.custom: b2c-support
+ms.custom: b2c-support, has-azure-ad-ps-ref
 zone_pivot_groups: b2c-policy-type
 ---
 

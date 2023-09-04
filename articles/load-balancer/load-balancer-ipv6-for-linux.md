@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/21/2023
 ms.author: mbender
-ms.custom: template-how-to, engagement-fy23, doc-a-thon
+ms.custom: template-how-to, engagement-fy23, doc-a-thon, devx-track-linux
 ---
 
 # Configure DHCPv6 for Linux VMs

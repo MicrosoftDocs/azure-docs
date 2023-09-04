@@ -24,7 +24,6 @@ Your users can use the My Apps portal to view and start the cloud-based applicat
 > [!NOTE]
 > This article covers how an admin can enable and create collections. For information for the end user about how to use the My Apps portal and collections, see [Access and use collections](https://support.microsoft.com/account-billing/organize-apps-using-collections-in-the-my-apps-portal-2dae6b8a-d8b0-4a16-9a5d-71ed4d6a6c1d).
 
-[!INCLUDE [portal updates](../includes/portal-update.md)]
 ## Prerequisites
 
 To create collections on the My Apps portal, you need:
@@ -34,9 +33,11 @@ To create collections on the My Apps portal, you need:
 
 ## Create a collection
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 To create a collection, you must have an Azure AD Premium P1 or P2 license.
 
-1. Open the [**Azure portal**](https://portal.azure.com/) and sign in as an admin with an Azure AD Premium P1 or P2 license.
+1. Sign in to the [Azure portal](https://portal.azure.com) as an admin with an Azure AD Premium P1 or P2 license.
 
 2. Go to **Azure Active Directory** > **Enterprise Applications**.
 

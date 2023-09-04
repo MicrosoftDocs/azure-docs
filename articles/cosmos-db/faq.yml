@@ -198,7 +198,7 @@ sections:
       - question: |
           Does the API for NoSQL support SQL aggregation functions?
         answer: |
-          The API for NoSQL supports low-latency aggregation at any scale via aggregate functions `COUNT`, `MIN`, `MAX`, `AVG`, and `SUM` via the SQL grammar. For more information, see [Aggregate functions](nosql/query/aggregate-functions.md).
+          The API for NoSQL supports low-latency aggregation at any scale via aggregate functions `COUNT`, `MIN`, `MAX`, `AVG`, and `SUM` via the SQL grammar.
           
       - question: |
           How does the API for NoSQL provide concurrency?

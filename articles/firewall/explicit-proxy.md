@@ -44,6 +44,8 @@ With the Explicit proxy mode (supported for HTTP/S), you can define proxy settin
    The SAS URL must have READ permissions so the firewall can upload the file. If changes are made to the PAC file, a new SAS URL needs to be generated and configured on the firewall **Enable explicit proxy** page.
 
    :::image type="content" source="media/explicit-proxy/shared-access-signature.png" alt-text="Screenshot showing generate shared access signature.":::
+
 ## Next steps
 
-To learn how to deploy an Azure Firewall, see [Deploy and configure Azure Firewall using Azure PowerShell](deploy-ps.md).
+- To learn more about Explicit proxy, see [Demystifying Explicit proxy: Enhancing Security with Azure Firewall](https://techcommunity.microsoft.com/t5/azure-network-security-blog/demystifying-explicit-proxy-enhancing-security-with-azure/ba-p/3873445).
+- To learn how to deploy an Azure Firewall, see [Deploy and configure Azure Firewall using Azure PowerShell](deploy-ps.md).

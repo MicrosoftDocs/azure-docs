@@ -225,7 +225,7 @@ az monitor alert-processing-rules list
 az monitor alert-processing-rules show --resource-group RG1 --name MyRule
 
 # Update an alert processing rule
-az monitor alert-processing-rules update --resource-group RG1 --name MyRule --status Disabled
+az monitor alert-processing-rule update --resource-group RG1 --name MyRule --enabled true
 
 # Delete an alert processing rule
 az monitor alert-processing-rules delete --resource-group RG1 --name MyRule

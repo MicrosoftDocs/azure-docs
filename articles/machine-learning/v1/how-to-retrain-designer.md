@@ -10,7 +10,7 @@ author: likebupt
 ms.reviewer: lagayhar
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: designer
+ms.custom: UpdateFrequency5, designer
 ---
 
 # Use pipeline parameters to retrain models in the designer

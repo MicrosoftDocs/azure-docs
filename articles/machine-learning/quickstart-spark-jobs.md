@@ -2,8 +2,8 @@
 title: "Configure Apache Spark jobs in Azure Machine Learning"
 titleSuffix: Azure Machine Learning
 description: Learn how to submit Apache Spark jobs with Azure Machine Learning
-author: fbsolo-ms1
-ms.author: franksolomon
+author: ynpandey
+ms.author: yogipandey
 ms.reviewer: franksolomon
 ms.service: machine-learning
 ms.subservice: mldata
@@ -14,6 +14,8 @@ ms.date: 05/22/2023
 ---
 
 # Configure Apache Spark jobs in Azure Machine Learning
+
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 The Azure Machine Learning integration, with Azure Synapse Analytics, provides easy access to distributed computing capability - backed by Azure Synapse - for scaling Apache Spark jobs on Azure Machine Learning.
 

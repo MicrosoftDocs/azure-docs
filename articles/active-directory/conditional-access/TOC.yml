@@ -68,6 +68,8 @@
     items: 
     - name: Require MFA for administrators
       href: howto-conditional-access-policy-admin-mfa.md
+    - name: Require phishing-resistant MFA for administrators
+      href: how-to-policy-phish-resistant-admin-mfa.md
     - name: Secure security info registration
       href: howto-conditional-access-policy-registration.md
     - name: Block legacy authentication
@@ -76,6 +78,8 @@
       href: howto-policy-guest-mfa.md
     - name: Require MFA for all users
       href: howto-conditional-access-policy-all-users-mfa.md
+    - name: Require MFA for Microsoft admin portals
+      href: how-to-policy-mfa-admin-portals.md
     - name: Require MFA for Azure management
       href: howto-conditional-access-policy-azure-management.md
     - name: Require MFA for risky sign-in
@@ -88,6 +92,8 @@
       href: howto-policy-unknown-unsupported-device.md
     - name: Require approved app or app protection policy
       href: howto-policy-approved-app-or-app-protection.md
+    - name: Require app protection policy for Windows
+      href: how-to-app-protection-policy-windows.md
     - name: No persistent browser session
       href: howto-policy-persistent-browser-session.md
     - name: Require compliant device, hybrid joined, or MFA for users

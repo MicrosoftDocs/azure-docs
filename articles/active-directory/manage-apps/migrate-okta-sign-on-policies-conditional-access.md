@@ -85,7 +85,7 @@ To enable hybrid Azure AD join on your Azure AD Connect server, run the configur
    >[!NOTE]
    >Hybrid Azure AD join isn't supported with the Azure AD Connect cloud provisioning agents.
 
-1. [Configure hybrid Azure AD join](../devices/howto-hybrid-azure-ad-join.md).
+1. [Configure hybrid Azure AD join](../devices/how-to-hybrid-join.md).
 2. On the **SCP configuration** page, select the **Authentication Service** dropdown. 
 
     ![Screenshot of the Authentication Service dropdown on the Microsoft Azure Active Directory Connect dialog.](media/migrate-okta-sign-on-policies-conditional-access/scp-configuration.png)
@@ -96,7 +96,7 @@ To enable hybrid Azure AD join on your Azure AD Connect server, run the configur
 7. Select **Next**.
 
     > [!TIP]
-    > If you blocked legacy authentication on Windows clients in the global or app-level sign-on policy, make a rule that enables the hybrid Azure AD join process to finish. Allow the legacy authentication stack for Windows clients. </br>To enable custom client strings on app policies, contact the [Okta Help Center](https://support.okta.com/help/). 
+    > If you blocked legacy authentication on Windows clients in the global or app-level sign-on policy, make a rule that enables the hybrid Azure AD join process to finish. Allow the legacy authentication stack for Windows clients. <br>To enable custom client strings on app policies, contact the [Okta Help Center](https://support.okta.com/help/). 
 
 ### Configure device compliance
 
@@ -118,9 +118,11 @@ If you deployed hybrid Azure AD join, you can deploy another group policy to com
 
 ## Configure Azure AD Multi-Factor Authentication tenant settings
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Before you convert to Conditional Access, confirm the base MFA tenant settings for your organization.
 
-1. Go to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Sign in as a Global Administrator.
 3. Select **Azure Active Directory** > **Users** > **Multi-Factor Authentication**.
 4. The legacy Azure AD Multi-Factor Authentication portal appears. Or select [Azure AD MFA portal](https://aka.ms/mfaportal).
@@ -157,7 +159,7 @@ Before you get started:
 * [Understand Conditional Access policy components](../conditional-access/plan-conditional-access.md)
 * [Building a Conditional Access policy](../conditional-access/concept-conditional-access-policies.md)
 
-1. Go to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com). 
 2. On **Manage Azure Active Directory**, select **View**.
 3. Create a policy. See, [Common Conditional Access policy: Require MFA for all users](../conditional-access/howto-conditional-access-policy-all-users-mfa.md).
 4. Create a device trust-based Conditional Access rule.

@@ -9,7 +9,8 @@
       "source_path_from_root": "/articles/iot-fundamentals/iot-security-ground-up.md",
       "redirect_url": "/azure/iot/iot-security-architecture",
       "redirect_document_id": false
-    },    {
+    },
+    {
       "source_path_from_root": "/articles/iot-fundamentals/security-recommendations.md",
       "redirect_url": "/azure/iot/iot-overview-security",
       "redirect_document_id": false
@@ -86,5 +87,3 @@
     }
   ]
 }
-
-

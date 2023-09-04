@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
-ms.custom: seodec18, devx-track-arm-template
+ms.custom: seodec18, devx-track-arm-template, devx-track-azurepowershell
 ---
 
 # Tutorial: Create and manage budgets
@@ -72,7 +72,7 @@ The following Azure permissions, or scopes, are supported per subscription for b
 
 ## Sign in to Azure
 
-- Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+- Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create a budget in the Azure portal
 

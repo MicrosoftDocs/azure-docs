@@ -59,7 +59,7 @@ User access tokens are generated using the Identity SDK and are associated with 
 
 ## Using identity for monitoring and metrics
 
-The user identity is intended to act as a primary key for logs and metrics collected through Azure Monitor. If you'd like to get a view of all of a specific user's calls, for example, you should set up your authentication in a way that maps a specific Azure Communication Services identity (or identities) to a singular user. Learn more about [log analytics](../concepts/analytics/query-call-logs.md), and [metrics](../concepts/metrics.md) available to you.
+The user identity is intended to act as a primary key for logs and metrics collected through Azure Monitor. If you'd like to get a view of all of a specific user's calls, for example, you should set up your authentication in a way that maps a specific Azure Communication Services identity (or identities) to a singular user. Learn more about [log analytics](../concepts/analytics/query-call-logs.md), and [metrics](../concepts/authentication.md) available to you.
 
 ## Next steps
 

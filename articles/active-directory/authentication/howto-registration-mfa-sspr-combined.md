@@ -48,7 +48,7 @@ Complete the following steps to create a policy that applies to all selected use
 
 1. Under **Cloud apps or actions**, select **User actions**. Check **Register security information**, then select **Done**.
 
-    ![Create a conditional access policy to control security info registration](media/howto-registration-mfa-sspr-combined/require-registration-from-trusted-location.png)
+    ![Create a Conditional Access policy to control security info registration](media/howto-registration-mfa-sspr-combined/require-registration-from-trusted-location.png)
 
 1. Under **Conditions** > **Locations**, configure the following options:
    1. Configure **Yes**.

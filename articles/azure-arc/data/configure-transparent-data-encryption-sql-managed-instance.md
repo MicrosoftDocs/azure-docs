@@ -9,7 +9,7 @@ ms.subservice: azure-arc-data-sqlmi
 ms.reviewer: mikeray
 ms.topic: how-to
 ms.date: 06/06/2023
-ms.custom: template-how-to, event-tier1-build-2022
+ms.custom: template-how-to, event-tier1-build-2022, devx-track-azurecli
 ---
 
 # Enable transparent data encryption on Azure Arc-enabled SQL Managed Instance (preview)

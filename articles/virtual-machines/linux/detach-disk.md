@@ -5,10 +5,9 @@ author: roygara
 ms.service: azure-disk-storage
 ms.collection: linux
 ms.topic: how-to
-ms.date: 01/09/2023
+ms.date: 08/09/2023
 ms.author: rogarana
-ms.custom: devx-track-azurecli
-
+ms.custom: devx-track-azurecli, devx-track-linux
 ---
 # How to detach a data disk from a Linux virtual machine
 
@@ -104,7 +103,7 @@ In select regions, the disk detach latency has been reduced, so you'll see an im
 
 1. In the left menu, select **Virtual Machines**.
 1. In the virtual machine blade, select **Disks**.
-1. In the **Disks** blade, to the far right of the data disk that you would like to detach, select the **X** button, to detach the disk.
+1. In the **Disks** blade, to the far right of the data disk that you would like to detach, select the detach button, to detach the disk.
 1. After the disk has been removed, select **Save** on the top of the blade.
 
 The disk stays in storage but is no longer attached to a virtual machine. The disk is not deleted.

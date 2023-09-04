@@ -11,6 +11,8 @@ ms.author: veyaddan
 # Terminology
 Key terms relevant for Event Grid namespace and MQTT resources are explained.
 
+[!INCLUDE [mqtt-preview-note](./includes/mqtt-preview-note.md)]
+
 ## Namespace
 
 An Event Grid namespace is a declarative space that provides a scope to all the nested resources or subresources such as topics, certificates, clients, client groups, topic spaces, permission bindings.  

@@ -38,7 +38,7 @@ Modernize your infrastructure at cloud scale. TmaxSoft OpenFrame makes it easy t
 
 This white paper reflects Astadia’s more than 25 years of mainframe platform modernization expertise. They explain the benefits and challenges of modernization efforts. This guide gives an overview of the IBM mainframe and an IBM mainframe-to-Azure reference architecture. It also provides a look at the Astadia success methodology.
 
-### [Deploying mainframe applications to Microsoft Azure](http://content.microfocus.com/deploying-mainframe-azure)
+### Deploying mainframe applications to Microsoft Azure
 
 Solutions from Micro Focus free you from the constraints of proprietary mainframe hardware and software. In this guide, Micro Focus explains how to deploy your COBOL and PL/I applications running in IBM mainframes to the cloud instead.
 

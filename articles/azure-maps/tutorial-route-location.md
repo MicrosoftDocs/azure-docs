@@ -13,10 +13,11 @@ ms.custom: mvc
 
 # Tutorial: How to display route directions using Azure Maps Route service and Map control
 
-This tutorial shows you how to use the Azure Maps [Route service API] and [Map control] to display route directions from start to end point. In this tutorial, you'll learn how to:
+This tutorial shows you how to use the Azure Maps [Route service API] and [Map control] to display route directions from start to end point. This tutorial demonstrates how to:
 
 > [!div class="checklist"]
-> * Create and display the Map control on a web page. 
+>
+> * Create and display the Map control on a web page.
 > * Define the display rendering of the route by defining [Symbol layers] and [Line layers].
 > * Create and add GeoJSON objects to the Map to represent start and end points.
 > * Get route directions from start and end points using the [Get Route directions API].
@@ -46,8 +47,8 @@ The following steps show you how to create and display the Map control in a web 
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css">
-        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.css" type="text/css">
+        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.js"></script>
 
         <!-- Add a reference to the Azure Maps Services Module JavaScript file. -->
         <script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script>
@@ -107,11 +108,11 @@ The following steps show you how to create and display the Map control in a web 
 
 4. Save your changes to the file and open the HTML page in a browser. The map shown is the most basic map that you can make by calling `atlas.Map` using your Azure Maps account subscription key.
 
-    :::image type="content" source="./media/tutorial-route-location/basic-map.png" alt-text="A screenshot showing the most basic map that you can make by calling atlas.Map using your Azure Maps account key.":::
+    :::image type="content" source="./media/tutorial-route-location/basic-map.png" alt-text="A screenshot showing the most basic map that you can make by calling `atlas.Map` using your Azure Maps account key.":::
 
 ## Define route display rendering
 
-In this tutorial, you'll render the route using a line layer. The start and end points are rendered using a symbol layer. For more information on adding line layers, see [Add a line layer to a map](map-add-line-layer.md). To learn more about symbol layers, see [Add a symbol layer to a map].
+In this tutorial, the route is rendered using a line layer. The start and end points are rendered using a symbol layer. For more information on adding line layers, see [Add a line layer to a map]. To learn more about symbol layers, see [Add a symbol layer to a map].
 
 1. In the `GetMap` function, after initializing the map, add the following JavaScript code.
 
@@ -148,13 +149,13 @@ In this tutorial, you'll render the route using a line layer. The start and end 
 
    Some things to know about the above JavaScript:
 
-   * This code implements the Map control's `ready` event handler. The rest of the code in this tutorial are placed inside the `ready` event handler.
+   * This code implements the Map control's `ready` event handler. The rest of the code in this tutorial is placed inside the `ready` event handler.
    * In the map control's `ready` event handler, a data source is created to store the route from start to end point.
    * To define how the route line is rendered, a line layer is created and attached to the data source. To ensure that the route line doesn't cover up the road labels, we've passed a second parameter with the value of `'labels'`.
 
-    Next, a symbol layer is created and attached to the data source. This layer specifies how the start and end points are rendered.Expressions have been added to retrieve the icon image and text label information from properties on each point object. To learn more about expressions, see [Data-driven style expressions].
+    Next, a symbol layer is created and attached to the data source. This layer specifies how the start and end points are rendered. Expressions have been added to retrieve the icon image and text label information from properties on each point object. To learn more about expressions, see [Data-driven style expressions].
 
-2. Next, set the start point at Microsoft, and the end point at a gas station in Seattle. Do this by appending the following code in the Map control's `ready` event handler:
+2. Next, set the start point at Microsoft, and the end point at a gas station in Seattle. Start and points are created by appending the following code in the Map control's `ready` event handler:
 
     ```JavaScript
     //Create the GeoJSON objects which represent the start and end points of the route.
@@ -246,23 +247,25 @@ This section shows you how to use the Azure Maps Route Directions API to get rou
 The next tutorial shows you how to create a route query with restrictions, like mode of travel or type of cargo. You can then display multiple routes on the same map.
 
 > [!div class="nextstepaction"]
-> [Find routes for different modes of travel](./tutorial-prioritized-routes.md)
+> [Find routes for different modes of travel]
 
-[Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
-[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
-[Route service API]: /rest/api/maps/route
-[Map control]: ./how-to-use-map-control.md
-[Symbol layers]: map-add-pin.md
-[Line layers]: map-add-line-layer.md
-[Get Route directions API]: /rest/api/maps/route/getroutedirections
-[route tutorial]: https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/Samples/Tutorials/Route
-[Route to a destination]: https://samples.azuremaps.com/?sample=route-to-a-destination
-[atlas]: /javascript/api/azure-maps-control/atlas
-[atlas.Map]: /javascript/api/azure-maps-control/atlas.map
+[Add a line layer to a map]: map-add-line-layer.md
 [Add a symbol layer to a map]: map-add-pin.md
+[atlas.Map]: /javascript/api/azure-maps-control/atlas.map
+[atlas]: /javascript/api/azure-maps-control/atlas
+[Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [Data-driven style expressions]: data-driven-style-expressions-web-sdk.md
+[Find routes for different modes of travel]: tutorial-prioritized-routes.md
 [GeoJSON Point objects]: https://en.wikipedia.org/wiki/GeoJSON
-[setCamera(CameraOptions | CameraBoundsOptions & AnimationOptions)]: /javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-
+[Get Route directions API]: /rest/api/maps/route/getroutedirections
+[Line layers]: map-add-line-layer.md
+[Map control]: ./how-to-use-map-control.md
 [MapControlCredential]: /javascript/api/azure-maps-rest/atlas.service.mapcontrolcredential
 [pipeline]: /javascript/api/azure-maps-rest/atlas.service.pipeline
+[Route service API]: /rest/api/maps/route
+[Route to a destination]: https://samples.azuremaps.com/?sample=route-to-a-destination
+[route tutorial]: https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/Samples/Tutorials/Route
 [routeURL]: /javascript/api/azure-maps-rest/atlas.service.routeurl
+[setCamera(CameraOptions | CameraBoundsOptions & AnimationOptions)]: /javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-
+[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
+[Symbol layers]: map-add-pin.md

@@ -2,7 +2,6 @@
 title: Configure search apps for Azure AD
 titleSuffix: Azure Cognitive Search
 description: Acquire a token from Azure Active Directory to authorize search requests to an app built on Azure Cognitive Search.
-
 author: gmndrg
 ms.author: gimondra
 ms.service: cognitive-search
@@ -21,7 +20,7 @@ This article shows you how to configure your client for Azure AD:
 
 + For authorization, you'll assign an Azure role to the managed identity that grants permissions to run queries or manage indexing jobs.
 
-+ Update your client code to call [`TokenCredential()`](/dotnet/api/azure.core.tokencredential).  For example, you can get started with new SearchClient(endpoint, new `DefaultAzureCredential()`) to authenticate via Azure AD using [Azure.Identity](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity/README.md).
++ Update your client code to call [`TokenCredential()`](/dotnet/api/azure.core.tokencredential).  For example, you can get started with new SearchClient(endpoint, new `DefaultAzureCredential()`) to authenticate via an Azure AD using [Azure.Identity](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity/README.md).
 
 ## Configure role-based access for data plane
 
@@ -31,7 +30,7 @@ In this step, configure your search service to recognize an **authorization** he
 
 ### [**Azure portal**](#tab/config-svc-portal)
 
-1. [Sign in to Azure portal](https://portal.azure.com) and open the search service page.
+1. Sign in to the [Azure portal](https://portal.azure.com) and open the search service page.
 
 1. Select **Keys** in the left navigation pane.
 

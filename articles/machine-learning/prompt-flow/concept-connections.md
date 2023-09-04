@@ -35,10 +35,11 @@ Prompt flow provides various prebuilt connections, including Azure Open AI, Open
 | [Azure Content Safety](https://aka.ms/acs-doc)               | Content Safety (Text) or Python |
 | [Cognitive Search](https://azure.microsoft.com/products/search) | Vector DB Lookup or Python      |
 | [Serp](https://serpapi.com/)                                 | Serp API or Python              |
-| Custom                                                       | Python                          |
+| [Custom](./tools-reference/python-tool.md#how-to-consume-custom-connection-in-python-tool)                                                       | Python                          |
 
 By leveraging connections in Prompt flow, users can easily establish and manage connections to external APIs and data sources, facilitating efficient data exchange and interaction within their AI applications.
 
 ## Next steps
 
 - [Get started with Prompt flow](get-started-prompt-flow.md)
+- [Consume custom connection in Python Tool](./tools-reference/python-tool.md#how-to-consume-custom-connection-in-python-tool)

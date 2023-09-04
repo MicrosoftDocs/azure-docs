@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: designer, sdkv1, event-tier1-build-2022, devx-track-python
+ms.custom: UpdateFrequency5, designer, sdkv1, event-tier1-build-2022, devx-track-python
 ---
 
 # Enable logging in Azure Machine Learning designer pipelines

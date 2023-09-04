@@ -10,7 +10,7 @@ ms.author: allensu
 
 # Interoperability in Azure back-end connectivity features - Test configuration details
 
-This article describes the configuration details of the [test setup](./connectivty-interoperability-preface.md). The test setup helps you analyze how Azure networking services interoperate at the control plane level and data plane level.
+This article describes the configuration details of the test setup. The test setup helps you analyze how Azure networking services interoperate at the control plane level and data plane level.
 
 ## Spoke virtual network connectivity by using virtual network peering
 
@@ -184,10 +184,6 @@ You might want branch virtual networks, which are in different regions, and on-p
 For more information, see [What is VPN Gateway?](../vpn-gateway/vpn-gateway-about-vpngateways.md) and [Deploy a highly available NVA](/azure/architecture/reference-architectures/dmz/nva-ha).
 
 ## Next steps
-
-Learn about [control plane analysis](./connectivty-interoperability-control-plane.md) of the test setup and the views of different virtual networks or VLANs in the topology.
-
-Learn about [data plane analysis](./connectivty-interoperability-data-plane.md) of the test setup and Azure network monitoring feature views.
 
 See the [ExpressRoute FAQ](../expressroute/expressroute-faqs.md) to:
 

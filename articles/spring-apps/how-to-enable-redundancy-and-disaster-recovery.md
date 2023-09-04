@@ -120,10 +120,10 @@ The Azure Spring Apps service doesn't provide geo-disaster recovery, but careful
 
 To plan your application, it's helpful to understand the following information about Azure regions and geographies:
 
-- Applications hosted in Azure Spring Apps run in a specific region.
 - Azure operates in multiple geographies around the world.
 - An Azure geography is a defined area of the world that contains at least one Azure region.
 - An Azure region is an area within a geography containing one or more data centers.
+- Applications hosted in Azure Spring Apps run in a specific region.
 
 Most Azure regions are paired with another region within the same geography, together making a regional pair. Azure serializes platform updates (planned maintenance) across regional pairs, ensuring that only one region in each pair is updated at a time. If an outage affects multiple regions, at least one region in each pair is prioritized for recovery.
 

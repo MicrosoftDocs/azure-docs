@@ -25,6 +25,7 @@ For example, you can use these open-source frameworks:
 - [The EGo SDK](#ego)
 - [The Intel SGX SDK](#intel-sdk)
 - [The Confidential Consortium Framework (CCF)](#ccf)
+- [Intel® Cloud Optimization Modules for Kubeflow](#intel-kubeflow)
 
 If you're not looking to write new application code, you can wrap a containerized application using [confidential container enablers](confidential-containers.md)
 
@@ -46,6 +47,11 @@ The [Intel SGX SDK](https://01.org/intel-softwareguard-extensions) is developed 
 The [Confidential Consortium Framework](https://www.microsoft.com/research/project/confidential-consortium-framework/) ([CCF](https://www.microsoft.com/research/project/confidential-consortium-framework/)) is an example of a distributed blockchain framework. The CCF is built on top of Azure confidential computing. Spearheaded by Microsoft Research, this framework uses the power of trusted execution environments (TEEs) to create a network of remote enclaves for attestation. Nodes can run on top of Azure Intel SGX virtual machines and take advantage of the enclave infrastructure. Through attestation protocols, users of the blockchain can verify the integrity of one CCF node, and effective verify the entire network.
 
 In the CCF, the decentralized ledger is made up of recorded changes to a Key-Value store that is replicated across all the network nodes. Each of these nodes runs a transaction engine that can be triggered by users of the blockchain over TLS. When you trigger an endpoint, you mutate the Key-Value store. Before the encrypted change is recorded to the decentralized ledger, it must be agreed upon by more than one node to reach agreement.
+
+### Intel® Cloud Optimization Modules for Kubeflow <a id="intel-kubeflow"></a>
+
+The [Intel® Cloud Optimization Modules for Kubeflow](https://github.com/intel/kubeflow-intel-azure/tree/main) provide an optimized machine learning Kubeflow Pipeline using XGBoost to predict the probability of a loan default. The reference architecture leverages the secure and confidential [Intel® Software Guard Extensions](../../articles/confidential-computing/confidential-computing-enclaves.md) virtual machines on an [Azure Kubernetes Services (AKS) cluster](../../articles/confidential-computing/confidential-containers-enclaves.md). It also enables the use of [Intel® optimizations for XGBoost](https://www.intel.com/content/www/us/en/developer/tools/oneapi/optimization-for-xgboost.html) and [Intel® daal4py](https://www.intel.com/content/www/us/en/developer/articles/guide/a-daal4py-introduction-and-getting-started-guide.html) to accelerate model training and inference in a full end-to-end machine learning pipeline.
+
 
 ## Next steps
 

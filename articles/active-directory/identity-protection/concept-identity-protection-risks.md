@@ -51,7 +51,7 @@ Real-time detections may not show up in reporting for 5 to 10 minutes. Offline d
 | [Atypical travel](#atypical-travel) | Offline | Premium |
 | [Anomalous Token](#anomalous-token) | Offline | Premium |
 | [Token Issuer Anomaly](#token-issuer-anomaly) | Offline | Premium |
-| [Malware linked IP address](#malware-linked-ip-address-deprecated) | Offline | Premium **[This detection has been deprecated](../fundamentals/whats-new-archive.md#planned-deprecation---malware-linked-ip-address-detection-in-identity-protection)**. |
+| [Malware linked IP address](#malware-linked-ip-address-deprecated) | Offline | Premium **This detection has been deprecated.** |
 | [Suspicious browser](#suspicious-browser) | Offline | Premium |
 | [Unfamiliar sign-in properties](#unfamiliar-sign-in-properties) | Real-time | Premium |
 | [Malicious IP address](#malicious-ip-address) | Offline | Premium |
@@ -66,7 +66,7 @@ Real-time detections may not show up in reporting for 5 to 10 minutes. Offline d
 | [Additional risk detected](#additional-risk-detected-sign-in) | Real-time or Offline | Nonpremium |
 | [Anonymous IP address](#anonymous-ip-address) | Real-time | Nonpremium |
 | [Admin confirmed user compromised](#admin-confirmed-user-compromised) | Offline | Nonpremium |
-| [Azure AD threat intelligence](#azure-ad-threat-intelligence-sign-in) | Offline | Nonpremium |
+| [Azure AD threat intelligence](#azure-ad-threat-intelligence-sign-in) | Real-time or Offline | Nonpremium |
 
 ### User risk detections
 
@@ -104,7 +104,7 @@ The algorithm ignores obvious "false positives" contributing to the impossible t
 
 #### Malware linked IP address (deprecated)
 
-**Calculated offline**. This risk detection type indicates sign-ins from IP addresses infected with malware that is known to actively communicate with a bot server. This detection matches the IP addresses of the user's device against IP addresses that were in contact with a bot server while the bot server was active. **[This detection has been deprecated](../fundamentals/whats-new-archive.md#planned-deprecation---malware-linked-ip-address-detection-in-identity-protection)**. Identity Protection no longer generates new "Malware linked IP address" detections. Customers who currently have "Malware linked IP address" detections in their tenant will still be able to view, remediate, or dismiss them until the 90-day detection retention time is reached.
+**Calculated offline**. This risk detection type indicates sign-ins from IP addresses infected with malware that is known to actively communicate with a bot server. This detection matches the IP addresses of the user's device against IP addresses that were in contact with a bot server while the bot server was active. **This detection has been deprecated**. Identity Protection no longer generates new "Malware linked IP address" detections. Customers who currently have "Malware linked IP address" detections in their tenant will still be able to view, remediate, or dismiss them until the 90-day detection retention time is reached.
 
 #### Suspicious browser
 
@@ -192,7 +192,7 @@ Customers without Azure AD Premium P2 licenses receive detections titled "additi
 
 #### Azure AD threat intelligence (sign-in)
 
-**Calculated offline**. This risk detection type indicates user activity that is unusual for the user or consistent with known attack patterns. This detection is based on Microsoft's internal and external threat intelligence sources.
+**Calculated in real-time or offline**. This risk detection type indicates user activity that is unusual for the user or consistent with known attack patterns. This detection is based on Microsoft's internal and external threat intelligence sources.
 
 ### Nonpremium user risk detections
 
@@ -218,7 +218,7 @@ Microsoft doesn't provide specific details about how risk is calculated. Each le
 
 ### Password hash synchronization
 
-Risk detections like leaked credentials require the presence of password hashes for detection to occur. For more information about password hash synchronization, see the article, [Implement password hash synchronization with Azure AD Connect sync](../hybrid/how-to-connect-password-hash-synchronization.md).
+Risk detections like leaked credentials require the presence of password hashes for detection to occur. For more information about password hash synchronization, see the article, [Implement password hash synchronization with Azure AD Connect sync](../hybrid/connect/how-to-connect-password-hash-synchronization.md).
 
 ### Why are there risk detections generated for disabled user accounts?
           

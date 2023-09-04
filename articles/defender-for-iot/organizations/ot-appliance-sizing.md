@@ -9,7 +9,7 @@ ms.topic: limits-and-quotas
 
 This article is one in a series of articles describing the [deployment path](ot-deploy/ot-deploy-path.md) for OT monitoring with Microsoft Defender for IoT, and is intended to help you choose the right appliances for your system and which hardware profile best fits your organization's network monitoring needs.
 
-You can use [physical](ot-pre-configured-appliances.md) or [virtual](ot-virtual-appliances.md) appliances, or use the supplied specifications to purchase hardware on your own.  For more information, see [Microsoft Defender for IoT - OT monitoring appliance reference | Microsoft Learn](/azure/defender-for-iot/organizations/appliance-catalog/). Results depend on hardware and resources available to the monitoring sensor.
+You can use [physical](ot-pre-configured-appliances.md) or [virtual](ot-virtual-appliances.md) appliances, or use the supplied specifications to purchase hardware on your own.  For more information, see [Microsoft Defender for IoT - OT monitoring appliance reference | Microsoft Learn](appliance-catalog/index.yml). Results depend on hardware and resources available to the monitoring sensor.
 
 :::image type="content" source="media/deployment-paths/progress-plan-and-prepare.png" alt-text="Diagram of a progress bar with Plan and prepare highlighted." border="false" lightbox="media/deployment-paths/progress-plan-and-prepare.png":::
 

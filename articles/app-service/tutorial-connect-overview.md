@@ -4,6 +4,7 @@ description: Your app service may need to connect to other Azure services such a
 
 ms.topic: tutorial
 ms.date: 02/16/2022
+ms.custom: AppServiceConnectivity
 ---
 # Securely connect to Azure services and databases from Azure App Service
 
@@ -52,7 +53,7 @@ Secrets include:
 |Keys and access tokens|Cognitive service API Key<br>GitHub personal access token<br>Twitter consumer keys and authentication tokens|
 |Connection strings|Database connection strings such as SQL server or MongoDB|
 
-:::image type="content" source="media/tutorial-connect-overview/app-service-connect-key-vault-managed-identity.png" alt-text="Image showing app service using a secret stored in Key Vault and managed with Managed identity to connect to Cognitive Services."::: 
+:::image type="content" source="media/tutorial-connect-overview/app-service-connect-key-vault-managed-identity.png" alt-text="Image showing app service using a secret stored in Key Vault and managed with Managed identity to connect to Azure AI services."::: 
 
 Benefits of managed identity integrated with Key Vault include:
 

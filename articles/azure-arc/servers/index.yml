@@ -74,8 +74,6 @@ landingContent:
             url: /cli/azure/connectedmachine
           - text: Azure PowerShell
             url: /powershell/module/az.connectedmachine/
-          - text: .NET
-            url: /dotnet/api/overview/azure/hybridcompute/management/management-hybridcompute
           - text: REST
             url: /rest/api/hybridcompute/
           - text: Java

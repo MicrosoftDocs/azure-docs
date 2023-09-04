@@ -10,7 +10,7 @@ ms.author: allensu
 
 # Interoperability in Azure - Data plane analysis
 
-This article describes the data plane analysis of the [test setup](./connectivty-interoperability-preface.md). You can also review the [test setup configuration](./connectivty-interoperability-configuration.md) and the [control plane analysis](./connectivty-interoperability-control-plane.md) of the test setup.
+This article describes the control plane analysis of the test setup. You can also review the test setup configuration and the data plane analysis of the test setup.
 
 Data plane analysis examines the path taken by packets that traverse from one local network (LAN or virtual network) to another within a topology. The data path between two local networks isn't necessarily symmetrical. Therefore, in this article, we analyze a forwarding path from a local network to another network that's separate from the reverse path.
 
@@ -381,7 +381,7 @@ Trace complete.
 
 ### Path to on-premises Location 2
 
-As we discuss in the [control plane analysis](./connectivty-interoperability-control-plane.md), the on-premises Location 1 has no visibility to on-premises Location 2 per the network configuration. The following ping results confirm: 
+As we discuss in the control plane analysis, the on-premises Location 1 has no visibility to on-premises Location 2 per the network configuration. The following ping results confirm: 
 
 ```console
 C:\Users\rb>ping 10.1.31.10
@@ -453,7 +453,7 @@ Trace complete.
 
 ### Path to the branch virtual network, on-premises Location 1, and the remote virtual network
 
-As we discuss in the [control plane analysis](./connectivty-interoperability-control-plane.md), the on-premises Location 1 has no visibility to the branch virtual network, to on-premises Location 1, or to the remote virtual network per the network configuration. 
+As we discuss in the control plane analysis, the on-premises Location 1 has no visibility to the branch virtual network, to on-premises Location 1, or to the remote virtual network per the network configuration. 
 
 ## Data path from the remote virtual network
 
@@ -491,7 +491,7 @@ Trace complete.
 
 ### Path to the branch virtual network and on-premises Location 2
 
-As we discuss in the [control plane analysis](./connectivty-interoperability-control-plane.md), the remote virtual network has no visibility to the branch virtual network or to on-premises Location 2 per the network configuration. 
+As we discuss in the control plane analysis, the remote virtual network has no visibility to the branch virtual network or to on-premises Location 2 per the network configuration. 
 
 ### Path to on-premises Location 1
 

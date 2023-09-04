@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/01/2023
+ms.date: 07/20/2023
 ms.custom: query-reference
 ---
 
@@ -33,30 +33,18 @@ IntBitAnd(<int_expr_1>, <int_expr_2>)
 
 ## Return types
 
-Returns a 64-bit integer. For more information, see [__int64](/cpp/cpp/int8-int16-int32-int64).
+Returns a 64-bit integer.
+
+> [!NOTE]
+> For more information, see [__int64](/cpp/cpp/int8-int16-int32-int64).
 
 ## Examples
 
 This example tests the function with various static values.
 
-```sql
-SELECT VALUE {
-    compareNumbers: IntBitAnd(15, 25),
-    compareZero: IntBitAnd(15, 0),
-    compareSameNumber: IntBitAnd(15, 15),
-    compareDecimal: IntBitAnd(15, 1.5)
-}
-```
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/intbitand/query.novalidate.sql" highlight="2-5":::
 
-```json
-[
-  {
-    "compareNumbers": 9,
-    "compareZero": 0,
-    "compareSameNumber": 15
-  }
-]
-```
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/intbitand/result.novalidate.json":::
 
 ## Remarks
 

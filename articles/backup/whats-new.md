@@ -2,10 +2,10 @@
 title: What's new in Azure Backup
 description: Learn about new features in Azure Backup.
 ms.topic: conceptual
-ms.date: 07/05/2023
+ms.date: 08/30/2023
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # What's new in Azure Backup
@@ -16,7 +16,11 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 ## Updates summary
 
+- August 2023
+  - [Save your MARS backup passphrase securely to Azure Key Vault (preview)](#save-your-mars-backup-passphrase-securely-to-azure-key-vault-preview)
+  - [Cross Region Restore for MARS Agent (preview)](#cross-region-restore-for-mars-agent-preview)
 - July 2023
+  - [SAP HANA System Replication database backup support is now generally available](#sap-hana-system-replication-database-backup-support-is-now-generally-available)
   - [Cross Region Restore for PostgreSQL (preview)](#cross-region-restore-for-postgresql-preview)
 - April 2023
   - [Microsoft Azure Backup Server v4 is now generally available](#microsoft-azure-backup-server-v4-is-now-generally-available)
@@ -61,11 +65,33 @@ You can learn more about the new releases by bookmarking this page or by [subscr
   - [Backup for Azure Blobs (in preview)](#backup-for-azure-blobs-in-preview)
 
 
+## Save your MARS backup passphrase securely to Azure Key Vault (preview)
+
+Azure Backup now enables you to save the MARS passphrase to Azure Key Vault automatically from the MARS console during registration or changing passphrase.
+
+The MARS agent from Azure Backup requires a passphrase provided by the user to encrypt the backups sent to and stored on Azure Recovery Services Vault. This passphrase is not shared with Microsoft and needs to be saved in a secure location to ensure that the backups can be retrieved if the server backed up with MARS goes down. 
+
+For more information, see [Save and manage MARS agent passphrase securely in Azure Key Vault](save-backup-passphrase-securely-in-azure-key-vault.md).
+
+## Cross Region Restore for MARS Agent (preview)
+
+You can now restore data from the secondary region for MARS Agent backups using Cross Region Restore on Recovery Services vaults with Geo-redundant storage (GRS) replication. You can use this capability to do recovery drills from the secondary region for audit or compliance. If disasters cause partial or complete unavailability of the primary region, you can directly access the  backup data from the secondary region.
+
+For more information, see [Cross Region Restore for MARS (preview)](about-restore-microsoft-azure-recovery-services.md#cross-region-restore-preview).
+
+## SAP HANA System Replication database backup support is now generally available
+
+Azure Backup now supports backup of HANA database with HANA System Replication. Now, the log backups from the new primary node are accepted immediately; thus provides continuous database automatic protection,
+
+This eliminates the need of manual intervention to continue backups on the new primary node during a failover. With the elimination of the need to trigger full backups for every failover, you can save costs and reduce time for continue protection.
+
+For more information, see [Back up a HANA system with replication enabled](sap-hana-database-about.md#back-up-a-hana-system-with-replication-enabled).
+
 ## Cross Region Restore for PostgreSQL (preview)
 
 Azure Backup allows you to replicate your backups to an additional Azure paired region by using Geo-redundant Storage (GRS) to protect your backups from regional outages. When you enable the backups with GRS, the backups in the secondary region become accessible only when Microsoft declares an outage in the primary region.
 
-For more information, see [Cross Region Restore support for PostgreSQL using Azure Backup (preview)](backup-vault-overview.md#cross-region-restore-support-for-postgresql-using-azure-backup-preview).
+For more information, see [Cross Region Restore support for PostgreSQL using Azure Backup](backup-vault-overview.md#cross-region-restore-support-for-postgresql-using-azure-backup-preview).
 
 ## Microsoft Azure Backup Server v4 is now generally available
 
@@ -152,7 +178,7 @@ Azure Backup now supports backup of HANA database with HANA System Replication. 
 
 This eliminates the need of manual intervention to continue backups on the new primary node during a failover. With the elimination of the need to trigger full backups for every failover, you can save costs and reduce time for continue protection.
 
-For more information, see [Back up a HANA system with replication enabled (preview)](sap-hana-database-about.md#back-up-a-hana-system-with-replication-enabled-preview).
+For more information, see [Back up a HANA system with replication enabled (preview)](sap-hana-database-about.md#back-up-a-hana-system-with-replication-enabled).
 
 ## Built-in Azure Monitor alerting for Azure Backup is now generally available
 

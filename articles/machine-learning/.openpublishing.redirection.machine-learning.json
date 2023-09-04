@@ -52,7 +52,7 @@
     },
     {
         "source_path_from_root": "/articles/machine-learning/v-fake/how-to-use-environments.md",
-        "redirect_url": "/azure/machine-learning/how-to-use-environments.md",
+        "redirect_url": "/azure/machine-learning/how-to-use-environments",
         "redirect_document_id": false
     },
     {
@@ -152,7 +152,7 @@
     },
     {
         "source_path_from_root": "/articles/machine-learning/v-fake/how-to-deploy-mlflow-models.md",
-        "redirect_url": "/azure/machine-learning/how-to-deploy-mlflow-models.md",
+        "redirect_url": "/azure/machine-learning/how-to-deploy-mlflow-models",
         "redirect_document_id": false
     },
     {
@@ -287,7 +287,7 @@
     },
     {
         "source_path_from_root": "/articles/machine-learning/v-fake/how-to-export-delete-data.md",
-        "redirect_url": "/azure/machine-learning/how-to-export-delete-data.md",
+        "redirect_url": "/azure/machine-learning/how-to-export-delete-data",
         "redirect_document_id": false
     },
     {
@@ -370,7 +370,6 @@
         "redirect_url": "/azure/machine-learning/how-to-train-model",
         "redirect_document_id": false
     },
-
     {
         "source_path_from_root": "/articles/machine-learning/how-to-train-with-rest.md",
         "redirect_url": "/azure/machine-learning/how-to-train-model",
@@ -383,7 +382,8 @@
     },
     {
         "source_path_from_root": "/articles/machine-learning/how-to-identity-based-data-access.md",
-        "redirect_url": "/azure/machine-learning/how-to-datastore"
+        "redirect_url": "/azure/machine-learning/how-to-datastore",
+        "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/machine-learning/tutorial-convert-ml-experiment-to-production.md",
@@ -986,7 +986,7 @@
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/machine-learning/overview-what-is-machine-learning-studio.md ",
+        "source_path_from_root": "/articles/machine-learning/overview-what-is-machine-learning-studio.md",
         "redirect_url": "/azure/machine-learning/overview-what-is-azure-machine-learning#studio",
         "redirect_document_id": false
     },
@@ -2257,22 +2257,22 @@
     },
     {
         "source_path_from_root": "/articles/machine-learning/reference-yaml-endpoint-managed-batch.md",
-        "redirect_url": "/azure/machine-learning/reference-yaml-endpoint-batch.md",
+        "redirect_url": "/azure/machine-learning/reference-yaml-endpoint-batch",
         "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/machine-learning/reference-yaml-endpoint-k8s-online.md",
-        "redirect_url": "/azure/machine-learning/reference-yaml-overview.md",
+        "redirect_url": "/azure/machine-learning/reference-yaml-overview",
         "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/machine-learning/reference-yaml-deployment-managed-batch.md",
-        "redirect_url": "/azure/machine-learning/reference-yaml-deployment-batch.md",
+        "redirect_url": "/azure/machine-learning/reference-yaml-deployment-batch",
         "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/machine-learning/reference-yaml-deployment-k8s-online.md",
-        "redirect_url": "/azure/machine-learning/reference-yaml-overview.md",
+        "redirect_url": "/azure/machine-learning/reference-yaml-overview",
         "redirect_document_id": false
     },
     {
@@ -2282,7 +2282,7 @@
     },
     {
         "source_path_from_root": "/articles/machine-learning/reference-yaml-compute.md",
-        "redirect_url": "/azure/machine-learning/reference-yaml-compute-aml.md",
+        "redirect_url": "/azure/machine-learning/reference-yaml-compute-aml",
         "redirect_document_id": false
     },
     {
@@ -2697,7 +2697,7 @@
     },
     {
         "source_path_from_root": "/articles/machine-learning/machine-learning-apps-text-analytics.md",
-        "redirect_url": "/azure/cognitive-services/cognitive-services-text-analytics-quick-start",
+        "redirect_url": "/azure/ai-services/cognitive-services-text-analytics-quick-start",
         "redirect_document_id": false
     },
     {

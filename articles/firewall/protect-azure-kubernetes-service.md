@@ -3,7 +3,7 @@ title: Use Azure Firewall to protect Azure Kubernetes Service (AKS) clusters
 description: Learn how to use Azure Firewall to protect Azure Kubernetes Service (AKS) clusters
 author: vhorne
 ms.service: firewall
-ms.custom: devx-track-azurecli, build-2023
+ms.custom: devx-track-azurecli, build-2023, devx-track-linux
 services: firewall
 ms.topic: how-to
 ms.date: 10/27/2022
@@ -172,23 +172,23 @@ See [virtual network route table documentation](../virtual-network/virtual-netwo
 > For applications outside of the kube-system or gatekeeper-system namespaces that needs to talk to the API server, an additional network rule to allow TCP communication to port 443 for the API server IP in addition to adding application rule for fqdn-tag AzureKubernetesService is required.
 
 
-Below are three network rules you can use to configure on your firewall, you may need to adapt these rules based on your deployment. The first rule allows access to port 9000 via TCP. The second rule allows access to port 1194 and 123 via UDP. Both these rules will only allow traffic destined to the Azure Region CIDR that we're using, in this case East US. 
+ You can use the following three network rules to configure your firewall.  You may need to adapt these rules based on your deployment. The first rule allows access to port 9000 via TCP. The second rule allows access to port 1194 and 123 via UDP. Both these rules will only allow traffic destined to the Azure Region CIDR that we're using, in this case East US. 
 
 Finally, we add a third network rule opening port 123 to an Internet time server FQDN (for example:`ntp.ubuntu.com`)  via UDP. Adding an FQDN as a network rule is one of the specific features of Azure Firewall, and you need to adapt it when using your own options.
 
 After setting the network rules, we'll also add an application rule using the `AzureKubernetesService` that covers the needed FQDNs accessible through TCP port 443 and port 80. In addition, you may need to configure additional network and application rules based on your deployment. For more information, see [Outbound network and FQDN rules for Azure Kubernetes Service (AKS) clusters](../aks/outbound-rules-control-egress.md#required-outbound-network-rules-and-fqdns-for-aks-clusters).
 
-```azurecli
-
-```
 #### Add FW Network Rules
 
+```azurecli
 az network firewall network-rule create -g $RG -f $FWNAME --collection-name 'aksfwnr' -n 'apiudp' --protocols 'UDP' --source-addresses '*' --destination-addresses "AzureCloud.$LOC" --destination-ports 1194 --action allow --priority 100
 az network firewall network-rule create -g $RG -f $FWNAME --collection-name 'aksfwnr' -n 'apitcp' --protocols 'TCP' --source-addresses '*' --destination-addresses "AzureCloud.$LOC" --destination-ports 9000
 az network firewall network-rule create -g $RG -f $FWNAME --collection-name 'aksfwnr' -n 'time' --protocols 'UDP' --source-addresses '*' --destination-fqdns 'ntp.ubuntu.com' --destination-ports 123
+```
 
 #### Add FW Application Rules
 
+```azurecli
 az network firewall application-rule create -g $RG -f $FWNAME --collection-name 'aksfwar' -n 'fqdn' --source-addresses '*' --protocols 'http=80' 'https=443' --fqdn-tags "AzureKubernetesService" --action allow --priority 100
 ```
 
@@ -236,9 +236,9 @@ az aks create -g $RG -n $AKSNAME -l $LOC \
 ```
 
 > [!NOTE]
-> To create and use your own VNet and route table with `kubenet` network plugin, you need to use [user-assigned control plane identity][bring-your-own-control-plane-managed-identity]. For system-assigned control plane identity, we cannot get the identity ID before creating cluster, which causes delay for role assignment to take effect.
-> 
-> To create and use your own VNet and route table with `azure` network plugin, both system-assigned and user-assigned managed identities are supported. 
+> To create and use your own VNet and route table with `kubenet` network plugin, you need to use a [user-assigned managed identity][bring-your-own-managed-identity]. For system-assigned managed identity, we cannot get the identity ID before creating cluster, which causes delay for role assignment to take effect.
+>
+> To create and use your own VNet and route table with `azure` network plugin, both system-assigned and user-assigned managed identities are supported.
 
 ### Enable developer access to the API server
 
@@ -546,4 +546,4 @@ az group delete -g $RG
 - Learn more about Azure Kubernetes Service, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)](../aks/concepts-clusters-workloads.md).
 
 <!-- LINKS - Internal -->
-[bring-your-own-control-plane-managed-identity]: ../aks/use-managed-identity.md#bring-your-own-control-plane-managed-identity
+[bring-your-own-managed-identity]: ../aks/use-managed-identity.md#bring-your-own-managed-identity

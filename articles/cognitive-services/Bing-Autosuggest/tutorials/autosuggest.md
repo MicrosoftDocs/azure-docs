@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Getting Automatic suggestions Results using Bing Autosuggest API"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: In this tutorial, you will build a web page that allows users to query the Bing Autosuggest API and displays the query results.
 services: cognitive-services
 author: aahill
@@ -16,7 +16,7 @@ ms.custom:
 ---
 # Tutorial: Get search suggestions on a web page
 
-[!INCLUDE [Bing move notice](../../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../../bing-web-search/includes/bing-move-notice.md)]
 
 In this tutorial, we'll build a Web page that allows users to query the Bing Autosuggest API.
 
@@ -193,7 +193,7 @@ function bingAutosuggest(query, key) {
 ```
 
 Specify the Bing Autosuggest API endpoint and declare an XMLHttpRequest object, which we will
-use to send requests. You can use the global endpoint below, or the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+use to send requests. You can use the global endpoint below, or the [custom subdomain](../../../ai-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
 ```html
     var endpoint = "https://api.cognitive.microsoft.com/bing/v7.0/Suggestions";

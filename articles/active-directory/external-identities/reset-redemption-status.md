@@ -38,7 +38,9 @@ To reset a user's redemption status, you'll need one of the following roles:
 
 ## Use the Azure portal to reset redemption status
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) using a Global administrator or User administrator account for the directory.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator or User administrator account for the directory.
 1. Search for and select **Azure Active Directory**.
 1. Select **Users**.
 1. In the list, select the user's name to open their user profile.
@@ -121,4 +123,3 @@ ContentType: application/json
 
 - [Properties of an Azure AD B2B guest user](user-properties.md)
 - [Add Azure Active Directory B2B collaboration users by using PowerShell](customize-invitation-api.md#powershell)
-

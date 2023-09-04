@@ -199,7 +199,7 @@
       "source_path_from_root": "/articles/iot-hub/iot-concepts.md",
       "redirect_url": "/azure/iot-hub/iot-concepts-and-iot-hub",
       "redirect_document_id": false
-    },   
+    },
     {
       "source_path_from_root": "/articles/iot-hub/quickstart-send-telemetry-xamarinforms.md",
       "redirect_url": "/azure/iot-hub/about-iot-hub",
@@ -565,7 +565,6 @@
       "redirect_url": "/azure/iot-hub/iot-hub-intel-edison-kit-node-get-started",
       "redirect_document_id": false
     },
-     
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-intel-edison-kit-node-lesson1-get-the-tools-mac.md",
       "redirect_url": "/azure/iot-hub/iot-hub-intel-edison-kit-node-get-started",
@@ -961,7 +960,6 @@
       "redirect_url": "/azure/iot-hub/quickstart-control-device?pivots=programming-language-java",
       "redirect_document_id": false
     },
- 
     {
       "source_path_from_root": "/articles/iot-hub/quickstart-control-device-node.md",
       "redirect_url": "/azure/iot-hub/quickstart-control-device?pivots=programming-language-nodejs",
@@ -1037,7 +1035,6 @@
       "redirect_url": "/azure/iot-hub/tutorial-firmware-update",
       "redirect_document_id": false
     },
- 
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-python-python-firmware-update.md",
       "redirect_url": "/azure/iot-hub/tutorial-firmware-update",

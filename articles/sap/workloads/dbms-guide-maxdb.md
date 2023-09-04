@@ -64,7 +64,6 @@ ms.custom: H1Hack27Feb2017
 [2243692]:https://launchpad.support.sap.com/#/notes/2243692
 
 [azure-cli]:/cli/azure/install-cli-version-1.0
-[azure-portal]:https://portal.azure.com
 [azure-ps]:/powershell/azure/
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017

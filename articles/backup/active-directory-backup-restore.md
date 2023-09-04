@@ -3,15 +3,15 @@ title: Back up and restore Active Directory
 description: Learn how to back up and restore Active Directory domain controllers.
 ms.topic: conceptual
 ms.date: 07/08/2020
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Back up and restore Active Directory domain controllers
 
 Backing up Active Directory, and ensuring successful restores in cases of corruption, compromise or disaster is a critical part of Active Directory maintenance.
 
-This article outlines the proper procedures for backing up and restoring Active Directory domain controllers with Azure Backup, whether they're Azure virtual machines or on-premises servers. It discusses a scenario where you need to restore an entire domain controller to its state at the time of backup. To see which restore scenario is appropriate for you, see [this article](/windows-server/identity/ad-ds/manage/ad-forest-recovery-determine-how-to-recover).  
+This article outlines the proper procedures for backing up and restoring Active Directory domain controllers with Azure Backup, whether they're Azure virtual machines or on-premises servers. It discusses a scenario where you need to restore an entire domain controller to its state at the time of backup. To see which restore scenario is appropriate for you, see [this article](/windows-server/identity/ad-ds/manage/forest-recovery-guide/ad-forest-recovery-guide).  
 
 >[!NOTE]
 > This article does not discuss restoring items from [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md). For information on restoring Azure Active Directory users, see [this article](../active-directory/fundamentals/active-directory-users-restore.md).

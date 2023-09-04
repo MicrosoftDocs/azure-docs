@@ -140,6 +140,7 @@ Application Gateway supports the following cipher suites from which you can choo
   - TLS_DHE_DSS_WITH_AES_128_CBC_SHA
   - TLS_DHE_DSS_WITH_AES_256_CBC_SHA256
   - TLS_DHE_DSS_WITH_AES_256_CBC_SHA
+- Constrained clients looking for "Maximum Fragment Length Negotiation" support must use the newer [**2022 Predefined**](#predefined-tls-policy) or [**Customv2 policies**](#custom-tls-policy).
 
 ## Next steps
 

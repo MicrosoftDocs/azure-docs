@@ -154,6 +154,7 @@ base_run = pf.run(
 environment:
     python_requirements_txt: requirements.txt
 ```
+
 - `automatic` runtime will try best to reuse the same compute sesseion to provide better performance, if there is no activity in the compute session for 30 minutes, the compute resource will be released.
 
 
@@ -249,16 +250,6 @@ Go to the compute instance terminal and run  `docker logs -<runtime_container_na
 :::image type="content" source="./media/how-to-create-manage-runtime/ci-flow-clone-others.png" alt-text="Screenshot of a do not have access error on the flow page. " lightbox = "./media/how-to-create-manage-runtime/ci-flow-clone-others.png":::
 
 This because you're cloning a flow from others that is using compute instance as runtime. As compute instance runtime is user isolated, you need to create your own compute instance runtime or select a managed online deployment/endpoint runtime, which can be shared with others.
-
-#### Compute instance behind VNet
-
-If your compute instance is behind a VNet, you need to make the following changes to ensure that your compute instance can be used in prompt flow:
-- See [required-public-internet-access](../how-to-secure-workspace-vnet.md#required-public-internet-access) to set your compute instance network configuration.
-- If your storage account also behind vnet, see [Secure Azure storage accounts](../how-to-secure-workspace-vnet.md#secure-azure-storage-accounts) to create private endpoints for both table and blob.
-- Make sure the managed identity of workspace have `Storage Blob Data Contributor`, `Storage Table Data Contributor` roles on the workspace default storage account.
-
-> [!NOTE] 
-> This only works if your AOAI and other cognitive services allow access from all networks.
 
 ## Next steps
 

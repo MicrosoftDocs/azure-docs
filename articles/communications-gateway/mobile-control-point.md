@@ -1,6 +1,6 @@
 ---
 title: Mobile Control Point in Azure Communications Gateway for Teams Phone Mobile
-description: Azure Communication Gateway optionally contains Mobile Control Point for anchoring Teams Phone Mobile calls in the Microsoft Could
+description: Azure Communication Gateway optionally contains Mobile Control Point for anchoring Teams Phone Mobile calls in the Microsoft Cloud
 author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
@@ -73,7 +73,7 @@ For example, you could use the following iFC (replacing *`<mcp-hostname>`* with 
         </SPT>
     </TriggerPoint>
     <ApplicationServer>
-        <ServerName>sips:<mcp-hostname>;transport=tcp;service=mcp</ServerName>
+        <ServerName>sip:<mcp-hostname>;transport=tcp;service=mcp</ServerName>
         <DefaultHandling>0</DefaultHandling>
     </ApplicationServer>
     <ProfilePartIndicator>0</ProfilePartIndicator>
@@ -82,7 +82,7 @@ For example, you could use the following iFC (replacing *`<mcp-hostname>`* with 
 
 ## Next steps
 
-- Learn about [preparing to deploy Integrated Mobile Control Point in Azure Communications Gateway](prepare-to-deploy.md)
-- Learn how to [integrate Azure Communications Gateway with Integrated Mobile Control Point with your network](prepare-for-live-traffic.md)
+- Learn about [preparing to deploying Integrated Mobile Control Point in Azure Communications Gateway](prepare-to-deploy.md)
+- Learn how to [integrate Azure Communications Gateway with Integrated Mobile Control Point with your network](prepare-for-live-traffic-operator-connect.md)
 
 

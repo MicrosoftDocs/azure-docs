@@ -23,7 +23,7 @@ This article describes ways you can customize and enhance the Azure Active Direc
 
 You can configure your single-page application to sign in users with MSAL.js in two ways:
 
-- **Pop-up window**: The authentication happens in a pop-up window, and the state of the application is preserved. Use this approach if you don't want users to move away from your application page during authentication.  There are [known issues with pop-up windows on Internet Explorer](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/internet-explorer.md#popups).
+- **Pop-up window**: The authentication happens in a pop-up window, and the state of the application is preserved. Use this approach if you don't want users to move away from your application page during authentication. There are known issues with pop-up windows on Internet Explorer.
   - To sign in with pop-up windows, use the `loginPopup` method.  
   - To sign out with pop-up windows, use the `logoutPopup` method. 
 - **Redirect**: The user is redirected to Azure AD B2C to complete the authentication flow. Use this approach if users have browser constraints or policies where pop-up windows are disabled. 
