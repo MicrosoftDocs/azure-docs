@@ -42,13 +42,13 @@ To generate an access key and store it as a CI workflow secret, perform the foll
 
 1. Select **Generate new access key**.
 
-    :::image type="content" source="./media/include-generate-access-key/playwright-testing-generate-new-access-key.png" alt-text="Screenshot that shows Microsoft Playwright Testing portal, highlighting the 'Generate access key' button.":::
+    :::image type="content" source="./media/quickstart-automate-end-to-end-testing/playwright-testing-generate-new-access-key.png" alt-text="Screenshot that shows the workspace home page in the Playwright Testing portal, highlighting the 'Generate new access key' button.":::
 
 1. Select **Generate key** and then copy the access key value.
 
-    :::image type="content" source="./media/include-generate-access-key/playwright-testing-generate-key.png" alt-text="Screenshot that shows setup guide in the Playwright Testing portal, highlighting the 'Generate key' button.":::
+    :::image type="content" source="./media/quickstart-automate-end-to-end-testing/playwright-testing-generate-key.png" alt-text="Screenshot that shows setup guide in the Playwright Testing portal, highlighting the 'Generate key' button.":::
 
-    :::image type="content" source="./media/include-generate-access-key/playwright-testing-copy-access-key.png" alt-text="Screenshot that shows how to copy the generated access key in the Playwright Testing portal.":::
+    :::image type="content" source="./media/quickstart-automate-end-to-end-testing/playwright-testing-copy-access-key.png" alt-text="Screenshot that shows how to copy the generated access key in the Playwright Testing portal.":::
 
 1. Store the access key in a CI workflow secret to avoid specifying the key in clear text in the workflow definition:
 
