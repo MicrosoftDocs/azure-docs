@@ -19,7 +19,7 @@ ms.date: 09/01/2023
     |---------|---------|
     |**Workspace name**     | Enter a unique name to identify your workspace.<BR>The name can't contain special characters, such as \\/""[]:\|<>+=;,?*@&, or whitespace. |
     |**Azure subscription**     | Select the Azure subscription that you want to use for this Microsoft Playwright Testing workspace. |
-    |**Region**     | Select a geographic location to host your workspace. <BR>This location also determines where the test execution results and related artifacts are stored. |
+    |**Region**     | Select a geographic location to host your workspace. <BR>This is the location where the test run data is stored for the workspace. |
 
     :::image type="content" source="../media/include-playwright-portal-create-workspace/playwright-testing-create-workspace.png" alt-text="Screenshot that shows the 'Create workspace' page in the Playwright portal." lightbox="../media/include-playwright-portal-create-workspace/playwright-testing-create-workspace.png":::
 
