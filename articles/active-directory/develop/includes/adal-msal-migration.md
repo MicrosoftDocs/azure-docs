@@ -28,7 +28,7 @@ ms.author: henrymbugua
 :::row:::
    :::column span="":::
       **Desktop app**
-        - [ADAL Java to MSAL Java](/entra/msal/python/advanced/migrate-adal-msal-java.md)
+        - [ADAL Java to MSAL Java](/entra/msal/python/advanced/migrate-adal-msal-java)
         - [ADAL Python to MSAL Python](/entra/msal/python/advanced/migrate-python-adal-msal)
         - [ADAL.NET to MSAL.NET](../msal-net-migration.md)
    :::column-end:::
