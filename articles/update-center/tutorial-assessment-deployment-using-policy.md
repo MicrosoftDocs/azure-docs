@@ -33,7 +33,7 @@ In this tutorial, you learn how to:
 ## Enable Periodic assessment
 
 Go to **Policy** from the Azure portal and under **Authoring**, go to **Definitions**. 
-1. From the **Category** dropdown, select **Update management center**. Select *[Preview]: Configure periodic checking for missing system updates on Azure virtual machines* for Azure machines.
+1. From the **Category** dropdown, select **Azure Update Manager**. Select *Configure periodic checking for missing system updates on Azure virtual machines* for Azure machines.
 1. When the Policy Definition opens, select **Assign**.
 1. In **Basics**, select your subscription as your scope. You can also specify a resource group within subscription as the scope and select Next.
 1. In **Parameters**, uncheck **Only show parameters that need input or review** so that you can see the values of parameters. 
@@ -51,7 +51,7 @@ You can monitor the compliance of resources under **Compliance** and remediation
 1. Under **Basics**, in the **Assign policy** page:
 	- In **Scope**, choose your subscription, resource group, and choose **Select**.
 	- Select **Policy definition** to view a list of policies.
-	- In **Available Definitions**, select **Built in** for Type and in search, enter - *[Preview] Schedule recurring updates using Update Management Center* and click **Select**.
+	- In **Available Definitions**, select **Built in** for Type and in search, enter - *Schedule recurring updates using Azure Update Manager* and click **Select**.
 	- Ensure that **Policy enforcement** is set to **Enabled** and select **Next**.
 	
 1. In **Parameters**, by default, only the Maintenance configuration ARM ID is visible. 
