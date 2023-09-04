@@ -10,6 +10,12 @@ ms.service: cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: quickstart
 ms.date: 08/28/2023
+
+ms.custom: devx-track-bicep
+
+ms.custom: devx-track-bicep
+
+ms.custom: devx-track-bicep
 ---
 
 # Quickstart: Create an Azure Cosmos DB for MongoDB vCore cluster by using a Bicep template
