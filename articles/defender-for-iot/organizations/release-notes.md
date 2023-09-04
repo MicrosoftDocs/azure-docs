@@ -2,7 +2,7 @@
 title: OT monitoring software versions - Microsoft Defender for IoT
 description: This article lists Microsoft Defender for IoT on-premises OT monitoring software versions, including release and support dates and highlights for new features.
 ms.topic: release-notes
-ms.date: 07/03/2023
+ms.date: 08/09/2023
 ---
 
 # OT monitoring software versions
@@ -100,7 +100,7 @@ To understand whether a feature is supported in your sensor version, check the r
 
 ## Versions 23.1.x
 
-### Version 23.1.1
+### Version 23.1.2
 
 **Release date**: 07/2023
 
@@ -113,6 +113,10 @@ This version includes the following updates and enhancements:
 - [Analyze sensor connectivity](how-to-manage-individual-sensors.md)
 - [UI enhancements for downloading PCAP files from the sensor](how-to-view-alerts.md#access-alert-pcap-data)
 - [*cyberx* and *cyberx_host* users aren't enabled by default](roles-on-premises.md#default-privileged-on-premises-users)
+
+> [!NOTE]
+> Due to internal improvements to the OT sensor's device inventory, column edits made to your device inventory aren't retained after updating to version 23.1.2. If you'd previously edited the columns shown in your device inventory, you'll need to make those same edits again after updating your sensor.
+>
 
 ## Versions 22.3.x
 

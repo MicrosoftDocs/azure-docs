@@ -28,22 +28,24 @@ The classic plan will be deprecated in the future, and the deprecation will be a
 
 ## Migration scenarios
 
-Migrating from the classic Defender for Storage plan to the new Defender for Storage plan is a straightforward process, and there are several ways to do it. You'll need to proactively [enable the new plan](../storage/common/azure-defender-storage-configure.md) to access its enhanced capabilities and pricing.
+Migrating from the classic Defender for Storage plan to the new Defender for Storage plan is a straightforward process, and there are several ways to do it. You'll need to proactively [enable the new plan](/azure/defender-for-cloud/tutorial-enable-storage-plan) to access its enhanced capabilities and pricing.
 
 >[!NOTE]
 > To enable the new plan, make sure to disable the old Defender for Storage policies. Look for and disable policies named "Configure Azure Defender for Storage to be enabled", "Azure Defender for Storage should be enabled", or "Configure Microsoft Defender for Storage to be enabled (per-storage account plan)".
 
 ### Migrating from the classic Defender for Storage plan enabled with per-transaction pricing
 
-If the classic Defender for Storage plan is enabled with per-transaction pricing, you can switch to the new plan at either the subscription or resource level. You can also [exclude specific storage accounts](../storage/common/azure-defender-storage-configure.md#override-defender-for-storage-subscription-level-settings) from protected subscriptions.
+If the classic Defender for Storage plan is enabled with per-transaction pricing, you can switch to the new plan at either the subscription or resource level. You can also [exclude specific storage accounts](/azure/defender-for-cloud/advanced-configurations-for-malware-scanning) from protected subscriptions.
 
 Storage accounts that were previously excluded from protected subscriptions in the per-transaction plan will not remain excluded when you switch to the new plan. However, the exclusion tags will remain on the resource and can be removed. In most cases, storage accounts that were previously excluded from protected subscriptions will benefit the most from the new pricing plan. 
 
 ### Migrating from the classic Defender for Storage plan enabled with per-storage account pricing
 
-If the classic Defender for Storage plan is enabled with per-storage account pricing, you can switch to the new plan at either the subscription or resource level. The pricing plan remains the same in the new Defender for Storage, except for extra charges for malware scanning, which are charged per GB scanned (free during preview).
+If the classic Defender for Storage plan is enabled with per-storage account pricing, you can switch to the new plan at either the subscription or resource level. The new Defender for Storage plan has the same pricing plan with the exception of malware scanning which may incur extra charges and is billed per GB scanned.
 
- You can also [exclude specific storage accounts](../storage/common/azure-defender-storage-configure.md#) from protected subscriptions.
+You can learn more about Defender for Storage's pricing model on the [Defender for Cloud pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/?v=17.23h).
+
+ You can also [exclude specific storage accounts](/azure/defender-for-cloud/advanced-configurations-for-malware-scanning) from protected subscriptions.
 
 ## Identify active Microsoft Defender for Storage pricing plans on your subscriptions
 
@@ -59,7 +61,7 @@ To help you better understand the differences between the classic plan and the n
 
 | Category | New Defender for Storage plan | Classic (per-transaction plan) | Classic (per-storage account plan) |
 | --- | --- | --- | --- |
-| Pricing structure | Cost is based on the number of storage accounts you protect\*. Add-on costs for GB scanned for malware, if enabled (free during preview) | Cost is based on the number of transactions processed | Cost is based on the number of storage accounts you protect* |
+| Pricing structure | Cost is based on the number of storage accounts you protect\*. Add-on costs for GB scanned for malware, if enabled| Cost is based on the number of transactions processed | Cost is based on the number of storage accounts you protect* |
 | Enablement options | Subscription and resource level | Subscription and resource level | Subscription only |
 | Exclusion of storage accounts from protected subscriptions | Yes | Yes | No |
 | Activity monitoring (security alerts) | Yes | Yes | Yes |
@@ -71,7 +73,7 @@ To help you better understand the differences between the classic plan and the n
 
 The new plan offers a more comprehensive feature set designed to better protect your data. It also provides a more predictable pricing plan compared to the classic plan. We recommend you migrate to the new plan to take full advantage of its benefits.
 
-Learn more about how to [enable and configure Defender for Storage](../storage/common/azure-defender-storage-configure.md).
+Learn more about how to [enable and configure Defender for Storage](/azure/defender-for-cloud/tutorial-enable-storage-plan).
 
 ## Next steps
 
@@ -79,3 +81,6 @@ In this article, you learned about migrating to the new Microsoft Defender for S
 
 > [!div class="nextstepaction"]
 > [Enable Defender for Storage](enable-enhanced-security.md)
+
+
+

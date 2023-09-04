@@ -64,6 +64,11 @@ During a push installation of the Mobility service, the following steps are perf
 1. As part of the agent installation, the Volume Shadow Copy Service (VSS) provider for Azure Site Recovery is installed. The VSS provider is used to generate application-consistent recovery points.
    - If the VSS provider installation fails, the agent installation will fail. To avoid failure of the agent installation, use [version 9.23](https://support.microsoft.com/help/4494485/update-rollup-35-for-azure-site-recovery) or higher to generate crash-consistent recovery points and do a manual install of the VSS provider.
 
+### Mobility service agent version 9.55 and higher
+
+1. The modernized architecture of mobility agent is set as default for the version 9.55 and above. Follow the instructions [here](#install-the-mobility-service-using-ui-modernized) to install the agent. 
+2. To install the modernized architecture of mobility agent on versions 9.54 and above, follow the instructions [here](#install-the-mobility-service-using-command-prompt-modernized). 
+
 
 ## Install the Mobility service using UI (Modernized)
 
@@ -76,7 +81,11 @@ Locate the installer files for the server’s operating system using the followi
 - On the appliance, go to the folder *E:\Software\Agents*.
 - Copy the installer corresponding to the source machine’s operating system and place it on your source machine in a local folder, such as *C:\Program Files (x86)\Microsoft Azure Site Recovery*.
 
+
 **Use the following steps to install the mobility service:**
+
+>[!NOTE]
+> If installing the agent version 9.54 and below, then ensure that the section [here](#install-the-mobility-service-using-command-prompt-modernized) is followed. For agent version 9.55 and above, the continue to follow the steps below. 
 
 1. Copy the installation file to the location *C:\Program Files (x86)\Microsoft Azure Site Recovery*, and run it. This will launch the installer UI: 
 

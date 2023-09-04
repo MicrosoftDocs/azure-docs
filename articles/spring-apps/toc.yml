@@ -13,7 +13,9 @@ items:
     href: cost-management.md
   - name: Compare Java application hosting options on Azure
     href: /azure/architecture/guide/technology-choices/service-for-java-comparison?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
-  - name: Migrate Spring workloads to Azure Spring Apps
+  - name: Migrate Spring Boot to Azure Spring Apps
+    href: /azure/developer/java/migration/migrate-spring-boot-to-azure-spring-apps?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
+  - name: Migrate Spring Cloud to Azure Spring Apps
     href: /azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-apps?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
 - name: Quickstarts
   expanded: true
@@ -26,6 +28,8 @@ items:
     href: quickstart-deploy-event-driven-app.md
   - name: Launch your first microservice apps
     href: quickstart-deploy-microservice-apps.md
+  - name: Launch your first Java Native Image app
+    href: quickstart-deploy-java-native-image-app.md
 - name: Tutorials
   expanded: true
   items:
@@ -67,10 +71,14 @@ items:
     items:
      - name: Custom DNS name
        href: how-to-custom-domain.md
+  - name: Authenticate client with Spring Cloud Gateway
+    href: tutorial-authenticate-client-with-gateway.md
 - name: Concepts
   items:
   - name: App and deployment
     href: concept-understand-app-and-deployment.md
+  - name: Version support for Java, Spring Boot, and more
+    href: concept-app-customer-responsibilities.md
   - name: Blue-green deployment strategies
     href: concepts-blue-green-deployment-strategies.md
   - name: Zero downtime deployment
@@ -215,6 +223,8 @@ items:
         href: connect-managed-identity-to-azure-sql.md
       - name: Azure Load Balance Solutions
         href: how-to-integrate-azure-load-balancers.md
+      - name: Use gRPC
+        href: how-to-use-grpc.md
     - name: Monitor
       items:
       - name: Alerts and action groups
@@ -365,6 +375,8 @@ items:
           href: how-to-configure-enterprise-spring-cloud-gateway.md
         - name: Configure routes
           href: how-to-use-enterprise-spring-cloud-gateway.md
+        - name: Configure route filters
+          href: how-to-configure-enterprise-spring-cloud-gateway-filters.md
         - name: Troubleshoot
           href: how-to-troubleshoot-enterprise-spring-cloud-gateway.md
       - name: Use VMware Tanzu Application Accelerator
@@ -431,6 +443,8 @@ items:
         href: connect-managed-identity-to-azure-sql.md
       - name: Azure Load Balance Solutions
         href: how-to-integrate-azure-load-balancers.md
+      - name: Use gRPC
+        href: how-to-use-grpc.md
     - name: Monitor
       items:
       - name: Alerts and action groups
@@ -543,8 +557,10 @@ items:
         href: /azure/developer/java/migration/migrate-tomcat-to-azure-spring-apps?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
 - name: Architecture
   items:
-  - name: Reference architecture
-    href: reference-architecture.md
+  - name: Architecture design
+    href: /azure/architecture/web-apps/spring-apps?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
+  - name: Landing zone accelerator
+    href: /azure/cloud-adoption-framework/scenarios/app-platform/spring-apps/landing-zone-accelerator?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
   - name: Deploy to multiple regions
     href: /azure/architecture/reference-architectures/microservices/spring-apps-multi-region?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
 - name: Reference

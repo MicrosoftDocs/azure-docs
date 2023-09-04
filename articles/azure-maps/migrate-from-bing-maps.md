@@ -173,6 +173,7 @@ Learn the details of how to migrate your Bing Maps application with these articl
 [azure.com]: https://azure.com
 [Basic snap to road logic]: https://samples.azuremaps.com/?search=Snap%20to%20road&sample=basic-snap-to-road-logic
 [Choose the right pricing tier in Azure Maps]: choose-pricing-tier.md
+[free account]: https://azure.microsoft.com/free/
 [free Azure account]: https://azure.microsoft.com/free/
 [manage authentication in Azure Maps]: how-to-manage-authentication.md
 [Microsoft Azure terms of use]: https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31

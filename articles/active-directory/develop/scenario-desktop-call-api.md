@@ -24,7 +24,7 @@ Now that you have a token, you can call a protected web API.
 
 # [.NET](#tab/dotnet)
 
-[!INCLUDE [Call web API in .NET](./includes/web-api/scenarios-call-apis-dotnet.md)]
+[!INCLUDE [Call web API in .NET](./includes/scenarios/scenarios-call-apis-dotnet.md)]
 
 # [Java](#tab/java)
 

@@ -5,7 +5,7 @@ services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.topic: faq
-ms.date: 08/03/2023
+ms.date: 08/18/2023
 ms.author: jasteppe
 ---
 
@@ -22,11 +22,22 @@ You can use the `$convert-data` endpoint as a component within an ETL (extract, 
 
 However, the `$convert-data` operation itself isn't an ETL pipeline.
 
-## How can I persist the data into the FHIR service?
+## Where can I find an example of an ETL pipeline that I can reference? 
+
+There's an example published in the [Azure Data Factory Template Gallery](../../data-factory/solution-templates-introduction.md#template-gallery) named **Transform HL7v2 health data to FHIR R4 format and write to ADLS Gen2**. This template transforms HL7v2 messages read from an Azure Data Lake Storage (ADLS) Gen2 or an Azure Blob Storage account into the FHIR R4 format. It then persists the transformed FHIR bundle JSON file into an ADLS Gen2 or a Blob Storage account. Once you’re in the Azure Data Factory Template Gallery, you can search for the template.
+
+:::image type="content" source="media/convert-data/frequently-asked-questions-convert-data/azure-data-factory-template-gallery.png" alt-text="Screenshot of the Azure Data Factory Template Gallery." lightbox="media/convert-data/frequently-asked-questions-convert-data/azure-data-factory-template-gallery.png"::: 
+
+> [!IMPORTANT]
+> The purpose of this template is to help you get started with an ETL pipeline. Any steps in this pipeline can be removed, added, edited, or customized to fit your needs.  
+>
+> In a scenario with batch processing of HL7v2 messages, this template does not take sequencing into account. Post processing will be needed if sequencing is a requirement. 
+
+## How can I persist the converted data into the FHIR service using Postman?
 
 You can use the FHIR service's APIs to persist the converted data into the FHIR service by using `POST {{fhirUrl}}/{{FHIR resource type}}` with the request body containing the FHIR resource to be persisted in JSON format. 
 
-* For more information about using Postman with the FHIR service, see [Access the Azure Health Data Services FHIR service using Postman](use-postman.md).
+For more information about using Postman with the FHIR service, see [Access the Azure Health Data Services FHIR service using Postman](use-postman.md).
 
 ## Is there a difference in the experience of the $convert-data endpoint in Azure API for FHIR versus in the Azure Health Data Services?
 

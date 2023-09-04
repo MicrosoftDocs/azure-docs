@@ -23,6 +23,12 @@
         href: network-attached-storage-concept.md 
       - name: Understand NAS protocols
         href: network-attached-storage-protocols.md
+      - name: Understand dual-protocol security style and permission behaviors
+        href: dual-protocol-permission-behaviors.md
+      - name: Understand the use of LDAP
+        href: lightweight-directory-access-protocol.md
+      - name: Understand NFS group memberships and supplemental groups
+        href: network-file-system-group-memberships.md
       - name: Understand file locking
         href: understand-file-locks.md  
   - name: Azure NetApp Files essentials 
@@ -345,6 +351,10 @@
         href: cross-region-replication-manage-disaster-recovery.md
       - name: Delete volume replications or volumes
         href: cross-region-replication-delete.md
+      - name: Re-establish volume replication relationships
+        href: reestablish-deleted-volume-relationships.md
+    - name: Manage availability zones
+      items:
       - name: Test disaster recovery
         href: test-disaster-recovery.md
     - name: Manage availability zones and cross-zone replication

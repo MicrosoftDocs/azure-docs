@@ -6,7 +6,7 @@ author: HeidiSteen
 ms.author: heidist
 
 ms.service: cognitive-search
-ms.custom: ignite-2022
+ms.custom: 
 ms.topic: conceptual
 layout: LandingPage
 ms.date: 10/17/2022

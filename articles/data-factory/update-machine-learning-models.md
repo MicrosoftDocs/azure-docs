@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.custom: synapse, devx-track-arm-template
 ms.topic: conceptual
-ms.date: 09/26/2022
+ms.date: 08/10/2023
 ---
 
 # Update Machine Learning Studio (classic) models by using Update Resource activity

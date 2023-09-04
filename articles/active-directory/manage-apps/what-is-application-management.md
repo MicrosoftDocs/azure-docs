@@ -69,7 +69,7 @@ As an administrator, you can [grant tenant-wide admin consent](grant-admin-conse
 
 ### Single sign-on
 
-Consider implementing SSO in your application. You can manually configure most applications for SSO. The most popular options in Azure AD are [SAML-based SSO and OpenID Connect-based SSO](../develop/active-directory-v2-protocols.md). Before you start, make sure that you understand the requirements for SSO and how to [plan for deployment](plan-sso-deployment.md). For more information on how to configure SAML-based SSO for an enterprise application in your Azure AD tenant, see [Enable single sign-on for an application by using Azure Active Directory](add-application-portal-setup-sso.md).
+Consider implementing SSO in your application. You can manually configure most applications for SSO. The most popular options in Azure AD are [SAML-based SSO and OpenID Connect-based SSO](../develop/v2-protocols.md). Before you start, make sure that you understand the requirements for SSO and how to [plan for deployment](plan-sso-deployment.md). For more information on how to configure SAML-based SSO for an enterprise application in your Azure AD tenant, see [Enable single sign-on for an application by using Azure Active Directory](add-application-portal-setup-sso.md).
 
 ### User, group, and owner assignment
 
@@ -89,7 +89,7 @@ Do you have an identity provider that you want Azure AD to interact with? [Home 
 
 ### User portals
 
-Azure AD provides customizable ways to deploy applications to users in your organization. For example, the [My Apps portal or the Microsoft 365 application launcher](end-user-experiences.md). My Apps gives users a single place to start their work and find all the applications to which they have access. As an administrator of an application, you should [plan how the users in your organization will use My Apps](my-apps-deployment-plan.md).
+Azure AD provides customizable ways to deploy applications to users in your organization. For example, the [My Apps portal or the Microsoft 365 application launcher](end-user-experiences.md). My Apps gives users a single place to start their work and find all the applications to which they have access. As an administrator of an application, you should [plan how the users in your organization will use My Apps](./myapps-overview.md).
 
 ## Configure properties
 
@@ -115,9 +115,9 @@ Organizations can enable MFA with [Conditional Access](../conditional-access/ove
 
 Different types of security tokens are used in an authentication flow in Azure AD depending on the protocol used. For example, [SAML tokens](../develop/reference-saml-tokens.md) are used for the SAML protocol, and [ID tokens](../develop/id-tokens.md) and [access tokens](../develop/access-tokens.md) are used for the OpenID Connect protocol. Tokens are signed with the unique certificate that's generated in Azure AD and by specific standard algorithms. 
 
-You can provide more security by [encrypting the token](howto-saml-token-encryption.md). You can also manage the information in a token including the [roles that are allowed](../develop/howto-add-app-roles-in-azure-ad-apps.md) for the application.
+You can provide more security by [encrypting the token](howto-saml-token-encryption.md). You can also manage the information in a token including the [roles that are allowed](../develop/howto-add-app-roles-in-apps.md) for the application.
 
-Azure AD uses the [SHA-256 algorithm](certificate-signing-options.md) by default to sign the SAML response. Use SHA-256 unless the application requires SHA-1. Establish a process for [managing the lifetime of the certificate](manage-certificates-for-federated-single-sign-on.md). The maximum lifetime of a signing certificate is three years. To prevent or minimize outage due to a certificate expiring, use roles and email distribution lists to ensure that certificate-related change notifications are closely monitored. 
+Azure AD uses the [SHA-256 algorithm](certificate-signing-options.md) by default to sign the SAML response. Use SHA-256 unless the application requires SHA-1. Establish a process for [managing the lifetime of the certificate](./tutorial-manage-certificates-for-federated-single-sign-on.md). The maximum lifetime of a signing certificate is three years. To prevent or minimize outage due to a certificate expiring, use roles and email distribution lists to ensure that certificate-related change notifications are closely monitored. 
 
 ## Govern and monitor
 

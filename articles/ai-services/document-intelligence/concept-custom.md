@@ -1,5 +1,5 @@
 ---
-title: Custom document models - Document Intelligence
+title: Custom document models - Document Intelligence (formerly Form Recognizer)
 titleSuffix: Azure AI services
 description: Label and train customized models for your documents and compose multiple models into a single model identifier.
 author: laujan
@@ -477,6 +477,7 @@ The following table lists the supported languages for print text by the most rec
   |Russian|ru|
   |Rwa|rwk|
   |Sadri (Devanagari)|sck|
+  |Sakha|sah|
   |Samburu|saq|
   |Samoan (Latin)|sm|
   |Sango|sg|
@@ -549,7 +550,6 @@ The following table lists the supported languages for print text by the most rec
   |Western Frisian|fy|
   |Wolof|wo|
   |Xhosa|xh|
-  |Yakut|sah|
   |Yucatec Maya|yua|
   |Zapotec|zap|
   |Zarma|dje|

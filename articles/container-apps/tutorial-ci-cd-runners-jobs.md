@@ -66,7 +66,7 @@ In this tutorial, you learn how to run Azure Pipelines agents as an [event-drive
 - **Azure DevOps organization**: If you don't have a DevOps organization with an active subscription, you [can create one for free](https://azure.microsoft.com/services/devops/).
 ::: zone-end
 
-Refer to [jobs preview limitations](jobs.md#jobs-preview-restrictions) for a list of limitations.
+Refer to [jobs restrictions](jobs.md#jobs-restrictions) for a list of limitations.
 
 ## Setup
 

@@ -5,7 +5,7 @@ author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: overview
-ms.date: 04/26/2023
+ms.date: 08/01/2023
 ms.custom: template-overview
 ---
 
@@ -20,7 +20,9 @@ Azure Communications Gateway enables Microsoft Teams calling through the Operato
     Diagram that shows how Azure Communications Gateway connects to the Microsoft Phone System and to your fixed and mobile networks. Microsoft Teams clients connect to the Microsoft Phone system. Your fixed network connects to PSTN endpoints. Your mobile network connects to Teams Phone Mobile users.
 :::image-end:::
 
-Azure Communications Gateway provides advanced SIP, RTP and HTTP interoperability functions (including Teams Certified SBC function) so that you can integrate with Operator Connect and Teams Phone Mobile quickly, reliably and in a secure manner. As part of Microsoft Azure, the network elements in Azure Communications Gateway are fully managed and include an availability SLA. This full management simplifies network operations integration and accelerates the timeline for adding new network functions into production.
+Azure Communications Gateway provides advanced SIP, RTP and HTTP interoperability functions (including Teams Certified SBC function) so that you can integrate with Operator Connect and Teams Phone Mobile quickly, reliably and in a secure manner.
+
+As part of Microsoft Azure, the network elements in Azure Communications Gateway are fully managed and include an availability SLA. This full management simplifies network operations integration and accelerates the timeline for adding new network functions into production.
 
 ## Architecture
 
@@ -45,7 +47,6 @@ Azure Communications Gateway supports the SIP and RTP requirements for Teams Cer
 
 Azure Communications Gateway's voice features include:
 
-- **Optional direct peering to Emergency Routing Service Providers (US only)** - If your network can't transmit Emergency location information in PIDF-LO (Presence Information Data Format Location Object) SIP bodies, Azure Communications Gateway can connect directly to your chosen Teams-certified Emergency Routing Service Provider (ERSP) instead. See [Emergency calling with Azure Communications Gateway](emergency-calling.md).
 - **Voice interworking** - Azure Communications Gateway can resolve interoperability issues between your network and Microsoft Teams. Its position on the edge of your network reduces disruption to your networks, especially in complex scenarios like Teams Phone Mobile where Teams Phone System is the call control element. Azure Communications Gateway includes powerful interworking features, for example:
 
   - 100rel and early media inter-working
@@ -56,27 +57,30 @@ Azure Communications Gateway's voice features include:
   - Media transcoding
   - Ringback injection
 - **Call control integration for Teams Phone Mobile** - Azure Communications Gateway includes an optional IMS Application Server called Mobile Control Point (MCP). MCP ensures calls are only routed to the Microsoft Phone System when a user is eligible for Teams Phone Mobile services. This process minimizes the changes you need in your mobile network to route calls into Microsoft Teams. For more information, see [Mobile Control Point in Azure Communications Gateway for Teams Phone Mobile](mobile-control-point.md).
+-  **Optional direct peering to Emergency Routing Service Providers for Operator Connect and Teams Phone Mobile (US only)** - If your network can't transmit Emergency location information in PIDF-LO (Presence Information Data Format Location Object) SIP bodies, Azure Communications Gateway can connect directly to your chosen Teams-certified Emergency Routing Service Provider (ERSP) instead. See [Emergency calling for Operator Connect and Teams Phone Mobile with Azure Communications Gateway](emergency-calling-operator-connect.md).
 
-## API features
+## Number Management Portal for provisioning for Operator Connect and Teams Phone Mobile
 
-Azure Communications Gateway includes optional API integration features. These features can help you to speed up your rollout and monetization of Teams Calling support.
+Launching Operator Connect or Teams Phone Mobile requires you to use the Operator Connect APIs to provision subscribers (instead of the Operator Connect Portal). Azure Communications Gateway offers a Number Management Portal integrated into the Azure portal. This portal uses the Operator Connect APIs, allowing you to pass the certification process and sell Operator Connect or Teams Phone Mobile services while you carry out a custom API integration project. 
 
-### Number Management Portal
-
-Operator Connect and Teams Phone Mobile require API integration between your IT systems and Microsoft Teams for flow-through provisioning and automation. After your deployment has been certified and launched, you must not use the Operator Connect portal for provisioning. You can use Azure Communications Gateway's Number Management Portal instead. This Azure portal feature enables you to pass the certification process and sell Operator Connect or Teams Phone Mobile services while you carry out a custom API integration project.
+For more information, see [Number Management Portal for provisioning with Operator Connect APIs](interoperability-operator-connect.md#number-management-portal-for-provisioning-with-operator-connect-apis) and [Manage an enterprise with Azure Communications Gateway's Number Management Portal for Operator Connect and Teams Phone Mobile](manage-enterprise-operator-connect.md).
 
 The Number Management Portal is available as part of the optional API Bridge feature.
 
 > [!TIP]
 > The Number Management Portal does not allow your enterprise customers to manage Teams Calling. For example, it does not provide self-service portals.
 
-### CallDuration upload
+## API integration
 
-Azure Communications Gateway can use the Operator Connect APIs to upload information about the duration of individual calls into the Microsoft Teams environment. This allows Microsoft Teams clients to display the call duration recorded by your network, instead of the call duration recorded by Microsoft Teams. Providing this information to Microsoft Teams is a requirement of the Operator Connect program that Azure Communications Gateway performs on your behalf. 
+Azure Communications Gateway includes API integration features. These features can help you to speed up your rollout and monetization of Teams Calling support.
 
+These features include:
+
+- The Number Management Portal for provisioning (part of the optional API Bridge feature), as described in [Number Management Portal for provisioning for Operator Connect and Teams Phone Mobile](#number-management-portal-for-provisioning-for-operator-connect-and-teams-phone-mobile).
+- For Operator Connect and Teams Phone Mobile programs, upload of call duration data to Microsoft Teams. For more information, see [Providing call duration data to Microsoft Teams](interoperability-operator-connect.md#providing-call-duration-data-to-microsoft-teams).
 
 ## Next steps
 
-- [Learn how Azure Communications Gateway fits into your network](interoperability.md).
-- [Learn about onboarding to Microsoft Teams and Azure Communications Gateway's Included Benefits](onboarding.md).
-- [Prepare to deploy Azure Communications Gateway](prepare-to-deploy.md).
+- [Learn how to get started with Azure Communications Gateway](get-started.md)
+- [Learn how Azure Communications Gateway fits into your network](role-in-network.md).
+- [Learn about the latest Azure Communications Gateway features](whats-new.md)

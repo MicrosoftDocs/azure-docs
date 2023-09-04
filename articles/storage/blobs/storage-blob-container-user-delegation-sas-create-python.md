@@ -5,7 +5,7 @@ description: Learn how to create a user delegation SAS for a container with Azur
 services: storage
 author: pauljewellmsft
 
-ms.service: azure-storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 06/09/2023
 ms.author: pauljewell

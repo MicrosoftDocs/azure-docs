@@ -105,7 +105,7 @@ A client application requests [authorization](#authorization) from a resource ow
 
 The process of a [resource owner](#resource-owner) granting authorization to a [client application](#client-application), to access protected resources under specific [permissions](#permissions), on behalf of the resource owner. Depending on the permissions requested by the client, an administrator or user will be asked for consent to allow access to their organization/individual data respectively. Note, in a [multi-tenant](#multi-tenant-application) scenario, the application's [service principal](#service-principal-object) is also recorded in the tenant of the consenting user.
 
-See [consent framework](consent-framework.md) for more information.
+See [consent framework](./application-consent-experience.md) for more information.
 
 ## ID token
 
@@ -234,35 +234,35 @@ A type of [client application](#client-application) that executes all code on a 
 
 ## Workload identity
 
-An identity used by a software workload like an application, service, script, or container to authenticate and access other services and resources. In Azure AD, workload identities are apps, service principals, and managed identities.  For more information, see [workload identity overview](workload-identities-overview.md).
+An identity used by a software workload like an application, service, script, or container to authenticate and access other services and resources. In Azure AD, workload identities are apps, service principals, and managed identities.  For more information, see [workload identity overview](../workload-identities/workload-identities-overview.md).
 
 ## Workload identity federation
 
-Allows you to securely access Azure AD protected resources from external apps and services without needing to manage secrets (for supported scenarios).  For more information, see [workload identity federation](workload-identity-federation.md).
+Allows you to securely access Azure AD protected resources from external apps and services without needing to manage secrets (for supported scenarios).  For more information, see [workload identity federation](../workload-identities/workload-identity-federation.md).
 
 ## Next steps
 
 Many of the terms in this glossary are related to the OAuth 2.0 and OpenID Connect protocols. Though you don't need to know how the protocols work "on the wire" to use the identity platform, knowing some protocol basics can help you more easily build and debug authentication and authorization in your apps:
 
-- [OAuth 2.0 and OpenID Connect (OIDC) in the Microsoft identity platform](active-directory-v2-protocols.md)
+- [OAuth 2.0 and OpenID Connect (OIDC) in the Microsoft identity platform](./v2-protocols.md)
 
 <!--Image references-->
 
 <!--Reference style links -->
 [AAD-App-Manifest]:reference-app-manifest.md
 [AAD-App-SP-Objects]:app-objects-and-service-principals.md
-[AAD-Auth-Scenarios]:authentication-scenarios.md
-[AAD-Dev-Guide]:azure-ad-developers-guide.md
+[AAD-Auth-Scenarios]:./authentication-vs-authorization.md
+[AAD-Dev-Guide]:../develop.md
 [Graph-Perm-Scopes]: /graph/permissions-reference
 [Graph-App-Resource]: /graph/api/resources/application
 [Graph-Sp-Resource]: /graph/api/resources/serviceprincipal
 [Graph-User-Resource]: /graph/api/resources/user
-[AAD-How-Subscriptions-Assoc]:../fundamentals/active-directory-how-subscriptions-associated-directory.md
-[AAD-How-To-Integrate]: ./active-directory-how-to-integrate.md
+[AAD-How-Subscriptions-Assoc]:../fundamentals/how-subscriptions-associated-directory.md
+[AAD-How-To-Integrate]: ./how-to-integrate.md
 [AAD-How-To-Tenant]:quickstart-create-new-tenant.md
-[AAD-Integrating-Apps]:quickstart-v1-integrate-apps-with-azure-ad.md
+[AAD-Integrating-Apps]:./quickstart-register-app.md
 [AAD-Multi-Tenant-Overview]:howto-convert-app-to-be-multi-tenant.md
-[AAD-Security-Token-Claims]: ./active-directory-authentication-scenarios/#claims-in-azure-ad-security-tokens
+[AAD-Security-Token-Claims]: ./authentication-vs-authorization.md#claims-in-azure-ad-security-tokens
 [AAD-Tokens-Claims]:access-tokens.md
 [Azure portal]: https://portal.azure.com
 [AAD-RBAC]: ../../role-based-access-control/role-assignments-portal.md

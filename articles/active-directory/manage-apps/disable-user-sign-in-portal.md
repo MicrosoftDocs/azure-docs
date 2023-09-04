@@ -11,10 +11,9 @@ ms.topic: how-to
 ms.date: 2/23/2023
 ms.author: jomondi
 ms.reviewer: ergreenl
-ms.custom: it-pro, enterprise-apps
+ms.custom: it-pro, enterprise-apps, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 zone_pivot_groups: enterprise-apps-all
-
 #customer intent: As an admin, I want to disable user sign-in for an application so that no user can sign in to it in Azure Active Directory.
 ---
 # Disable user sign-in for an application

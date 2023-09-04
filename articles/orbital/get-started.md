@@ -39,7 +39,7 @@ Contacts are scheduled at a designated time for a particular combination of a sp
 
 ## 3. Integrate partner networks
 
-If you're using one of Azure Orbital Ground Station's partner ground station networks, [integrate the partner network](partner-network-integration.md)
+If you're using one of Azure Orbital Ground Station's partner ground station networks, [integrate the partner network](partner-network-integration.md).
 
 ## 4. Configure the modem
 

@@ -275,13 +275,13 @@ To query a file located in Azure Storage, your serverless SQL pool endpoint need
 
 To grant the ability manage credentials:
 
-- To allow a user to create or drop a server-level credential, an administrator must grant the `ALTER ANY CREDENTIAL` permission to the user. For example:
+- To allow a user to create or drop a server-level credential, an administrator must grant the `ALTER ANY CREDENTIAL` permission to its login in the master database. For example:
 
     ```sql
-    GRANT ALTER ANY CREDENTIAL TO [user_name];
+    GRANT ALTER ANY CREDENTIAL TO [login_name];
     ```
     
-- To allow a user to create or drop a database scoped credential, an administrator must grant the `CONTROL` permission on the database to the user. For example:
+- To allow a user to create or drop a database scoped credential, an administrator must grant the `CONTROL` permission on the database to the database user in the user database. For example:
 
     ```sql
     GRANT CONTROL ON DATABASE::[database_name] TO [user_name];
@@ -291,16 +291,16 @@ To grant the ability manage credentials:
 
 Database users who access external storage must have permission to use credentials. To use the credential, a user must have the `REFERENCES` permission on a specific credential. 
 
-To grant the `REFERENCES` permission on a server-level credential for a user, use the following T-SQL query:
+To grant the `REFERENCES` permission on a server-level credential for a login, use the following T-SQL query in the master database:
 
 ```sql
-GRANT REFERENCES ON CREDENTIAL::[server-level_credential] TO [user];
+GRANT REFERENCES ON CREDENTIAL::[server-level_credential] TO [login_name];
 ```
 
-To grant a `REFERENCES` permission on a database-scoped credential for a user, use the following T-SQL query:
+To grant a `REFERENCES` permission on a database-scoped credential for a database user, use the following T-SQL query in the user database:
 
 ```sql
-GRANT REFERENCES ON DATABASE SCOPED CREDENTIAL::[database-scoped_credential] TO [user];
+GRANT REFERENCES ON DATABASE SCOPED CREDENTIAL::[database-scoped_credential] TO [user_name];
 ```
 
 ## Server-level credential

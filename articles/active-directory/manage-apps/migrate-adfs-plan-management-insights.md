@@ -55,9 +55,9 @@ Azure AD provides a centralized access location to manage your migrated apps. Si
 
 You can also use the [Azure portal](https://portal.azure.com/) to audit all your apps from a centralized location,
 
-- **Audit your app** using **Enterprise Applications, Audit**, or access the same information from the [Azure AD Reporting API](../reports-monitoring/concept-reporting-api.md) to integrate into your favorite tools.
+- **Audit your app** using **Enterprise Applications, Audit**, or access the same information from the [Azure AD Reporting API](../reports-monitoring/howto-configure-prerequisites-for-reporting-api.md) to integrate into your favorite tools.
 - **View the permissions for an app** using **Enterprise Applications, Permissions** for apps using OAuth/OpenID Connect.
-- **Get sign-in insights** using **Enterprise Applications, Sign-Ins**. Access the same information from the [Azure AD Reporting API.](../reports-monitoring/concept-reporting-api.md)
+- **Get sign-in insights** using **Enterprise Applications, Sign-Ins**. Access the same information from the [Azure AD Reporting API.](../reports-monitoring/howto-configure-prerequisites-for-reporting-api.md)
 - **Visualize your app’s usage** from the [Azure AD Power BI content pack](../reports-monitoring/howto-use-azure-monitor-workbooks.md)
 
 ## Exit criteria
@@ -71,7 +71,7 @@ You're successful in this phase when you:
 
 Deployment plans walk you through the business value, planning, implementation steps, and management of Azure AD solutions, including app migration scenarios. They bring together everything that you need to start deploying and getting value out of Azure AD capabilities. The deployment guides include content such as Microsoft recommended best practices, end-user communications, planning guides, implementation steps, test cases, and more.
 
-Many [deployment plans](../fundamentals/deployment-plans.md) are available for your use, and we’re always making more!
+Many [deployment plans](../architecture/deployment-plans.md) are available for your use, and we’re always making more!
 
 ## Contact support
 
@@ -83,4 +83,4 @@ Visit the following support links to create or track support ticket and monitor 
 
 ## Next steps
 
-- [Migration process](migrate-adfs-apps-to-azure.md)
+- [Migration process](./migrate-adfs-apps-stages.md)

@@ -76,7 +76,7 @@ You can verify the deployment by exploring the resource group from the Azure por
 1. Select the resource group you deployed to.
 1. Select one of the resources, such as the storage account resource. You see that it now has tags.
 
-   ![Show tags](./media/template-tutorial-add-tags/show-tags.png)
+   :::image type="content" source="./media/template-tutorial-add-tags/show-tags.png" alt-text="Screenshot of Azure portal showing tags on a storage account resource.":::
 
 ## Clean up resources
 

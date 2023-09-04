@@ -60,12 +60,14 @@ items:
     items:
     - name: Cloud monitoring with Azure Monitor platform metrics
       href: monitor-private-5g-core-with-platform-metrics.md
-    - name: Local monitoring with distributed tracing
-      href: distributed-tracing.md
+    - name: Cloud monitoring with Azure Monitor Workbooks
+      href: monitor-private-5g-core-workbooks.md
+    - name: Cloud monitoring of UE usage with Event Hubs (preview)
+      href: ue-usage-event-hub.md  
     - name: Local monitoring with packet core dashboards
       href: packet-core-dashboards.md
-    - name: Monitoring UE usage with Event Hubs (preview)
-      href: ue-usage-event-hub.md  
+    - name: Local monitoring with distributed tracing
+      href: distributed-tracing.md
   - name: Reliability
     href: reliability-private-5g-core.md
   - name: Security

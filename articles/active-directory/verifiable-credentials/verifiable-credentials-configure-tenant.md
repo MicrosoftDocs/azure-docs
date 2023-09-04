@@ -125,7 +125,7 @@ Your application needs to get access tokens when it wants to call into Microsoft
 
 1. Under **Manage**, select **App registrations** > **New registration**.  
 
-    :::image type="content" source="media/verifiable-credentials-configure-tenant/register-azure-ad-app.png" alt-text="Screenshot that shows how to select a new application registration.":::
+    :::image type="content" source="media/verifiable-credentials-configure-tenant/register-app.png" alt-text="Screenshot that shows how to select a new application registration.":::
 
 1. Enter a display name for your application. For example: *verifiable-credentials-app*.
 
@@ -133,7 +133,7 @@ Your application needs to get access tokens when it wants to call into Microsoft
 
 1. Select **Register** to create the application.
 
-    :::image type="content" source="media/verifiable-credentials-configure-tenant/register-azure-ad-app-properties.png" alt-text="Screenshot that shows how to register the verifiable credentials app.":::
+    :::image type="content" source="media/verifiable-credentials-configure-tenant/register-app-properties.png" alt-text="Screenshot that shows how to register the verifiable credentials app.":::
 
 ### Grant permissions to get access tokens
 
