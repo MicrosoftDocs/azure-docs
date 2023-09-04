@@ -22,7 +22,7 @@ This article demonstrates Resource Guard creation in a different tenant that off
 
 >[!NOTE]
 >- Multi-user authorization for Azure Backup is available in all public Azure regions.
->- Multi-user authorization using Resource Guard for Backup vault is now generally available. [Learn more](multi-user-authorization?pivots=vaults-backup-vault).
+>- Multi-user authorization using Resource Guard for Backup vault is now generally available. [Learn more](multi-user-authorization.md?pivots=vaults-backup-vault).
 
 ## Before you start
 
