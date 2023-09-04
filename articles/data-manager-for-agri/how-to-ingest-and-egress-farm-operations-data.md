@@ -21,7 +21,7 @@ Users can create a farm operation data ingestion job to **pull associated Farm A
 
 Create a farm-operations job to ingest Farm Activity data with an ID of your choice. This job ID is used to monitor the status of the job using GET Farm Operations job.
 
-API documentation:[FarmOperations_CreateDataIngestionJob](/rest/api/data-manager-for-agri/farm-operations/create-data-ingestion-job)
+API documentation:[FarmOperations_CreateDataIngestionJob](/rest/api/data-manager-for-agri/farm-operations)
 
 > [!NOTE] 
 >`shapeType` and `shapeResolution` are provider specific attributes. If they aren't applicable to your provider, set the value to "None". 
@@ -30,7 +30,7 @@ Based on the `startYear` and `operations` list provided, Azure Data Manager for 
 
 Along with specific data (geometry), Farm Activities data provider also gives us the DAT file for the activity performed on your farm or field. The DAT file, Shape File etc. contain a geometry that reflects where the activity was performed.
 
-Job status and details can be retrieved with: [FarmOperations_GetDataIngestionJobDetails](/rest/api/data-manager-for-agri/farm-operations/get-data-ingestion-job-details)
+Job status and details can be retrieved with: [FarmOperations_GetDataIngestionJobDetails](/rest/api/data-manager-for-agri/farm-operations)
 
 
 ## Finding and retrieving Farm Activities data
