@@ -11,10 +11,15 @@ ms.topic: overview
 # About Azure Update Manager
 
 > [!Important]
-> - [Automation Update management](../automation/update-management/overview.md) relies on [Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md) (aka MMA agent), which is on a deprecation path and won’t be supported after **August 31, 2024**. Update manager is the v2 version of Automation Update management and the future of Update management in Azure. Azure Update Manager is a native service in Azure and does not rely on [Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md) or [Azure Monitor agent](../azure-monitor/agents/agents-overview.md).
-> - Guidance for migrating from Automation Update management to Update manager will be provided to customers once the latter is Generally Available. For customers using Automation Update management, we recommend continuing to use the Log Analytics agent and **NOT** migrate to Azure Monitoring agent until migration guidance is provided for Update management or else Automation Update management will not work. Also, the Log Analytics agent would not be deprecated before moving all Automation Update management customers to Update Manager.
+> - Azure Update Manager is the v2 version of Automation Update management and the future of update management in Azure.
+> - [Automation Update management](../automation/update-management/overview.md) relies on [Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md) (aka MMA agent), which is on a deprecation path and won’t be supported after **August 31, 2024**.  
+> - Azure Update Manager is a native service in Azure and does not rely on [Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md) or [Azure Monitor agent](../azure-monitor/agents/agents-overview.md).
+> - Guidance for migrating from Automation Update management to Update manager will be provided to customers once the latter is Generally Available. 
+> - For customers using Automation Update management, we recommend continuing to use the Log Analytics agent and **NOT** migrate to Azure Monitoring agent until migration guidance is provided for Update management or else Automation Update management will not work.
+> - The Log Analytics agent would not be deprecated before moving all Automation Update management customers to Update Manager.
+> - Azure Update Manager doesn’t store any customer data.
 
-Update Manager is a unified service to help manage and govern updates for all your machines. You can monitor Windows and Linux update compliance across your deployments in Azure, on-premises, and on the other cloud platforms from a single dashboard. In addition, you can use the Update Manager  to make real-time updates or schedule them within a defined maintenance window.
+Azure Update Manager is a unified service to help manage and govern updates for all your machines. You can monitor Windows and Linux update compliance across your deployments in Azure, on-premises, and on the other cloud platforms from a single dashboard. In addition, you can use the Update Manager  to make real-time updates or schedule them within a defined maintenance window.
 
 You can use the Update Manager in Azure to:
 
@@ -26,10 +31,6 @@ We also offer other capabilities to help you manage updates for your Azure Virtu
 
 Before you enable your machines for Update Manager, make sure that you understand the information in the following sections.
 
-> [!IMPORTANT]
-> - Update Manager doesn’t store any customer data.
-> - Update Manager can manage machines that are currently managed by Azure Automation [Update management](../automation/update-management/overview.md) feature without interrupting your update management process. However, we don't recommend migrating from Automation Update Management since this preview gives you a chance to evaluate and provide feedback on features before it's generally available (GA). 
-> - While update manager is in **preview**, the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Key benefits
 
@@ -42,7 +43,7 @@ Update Manager has been redesigned and doesn't depend on Azure Automation or Azu
     - Global availability in all Azure Compute and Azure Arc regions.
 - Works with Azure roles and identity.
     - Granular access control at per resource level instead of access control at Automation account and Log Analytics workspace level.
-    - Azure Update Manager now as Azure Resource Manager based operations. It allows RBAC and roles based of ARM in Azure.
+    - Azure Update Manager now has Azure Resource Manager based operations. It allows RBAC and roles based of ARM in Azure.
 - Enhanced flexibility
     - Ability to take immediate action either by installing updates immediately or schedule them for a later date.
     - Check updates automatically or on demand.

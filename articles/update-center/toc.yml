@@ -26,8 +26,6 @@
     href: updates-maintenance-schedules.md
   - name: Schedule patching configuration on Azure VMs for business continuity
     href: prerequsite-for-schedule-patching.md
-  - name: About dynamic scoping (preview)
-    href: dynamic-scope-overview.md
   - name: Assessment options
     href: assessment-options.md
   - name: Dynamic scope (preview)
