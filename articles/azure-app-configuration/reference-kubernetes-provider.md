@@ -46,7 +46,7 @@ The `spec.keyValues` has the following child properties. The `spec.keyValues.key
 |selectors|The list of selectors for key-value filtering|false|object array|
 |trimKeyPrefixes|The list of key prefixes to be trimmed|false|string array|
 |keyVaults|The settings for Key Vault references|conditional|object|
-|refresh|The settings for refreshing the key-values in ConfigMap|false|object|
+|refresh|The settings for refreshing the key-values in ConfigMap or Secret|false|object|
 
 If the `spec.keyValues.selectors` property isn't set, all key-values with no label will be downloaded. It contains an array of *selector* objects, which have the following child properties.
 
@@ -61,7 +61,7 @@ The `spec.keyValues.keyVaults` property has the following child properties.
 |---|---|---|---|
 |target|The destination of resolved Key Vault references in Kubernetes|true|object|
 |auth|The authentication method to access Key Vaults|false|object|
-|refresh|The settings for refreshing the data in Secret|false|object|
+|refresh|The settings for dynamically resolving Key Vault references|false|object|
 
 The `spec.keyValues.keyVaults.target` property has the following child property.
 
@@ -96,7 +96,7 @@ The `spec.keyValues.refresh` property has the following child properties.
 |Name|Description|Required|Type|
 |---|---|---|---|
 |monitoring|The key-values that are monitored by the provider, provider automatically refreshes the ConfigMap or Secret if value change in any designated key-value|true|object|
-|interval|The interval for ConfigMap's refresh, default value is 30 seconds, must be greater than 1 second|false|duration string|
+|interval|The interval for refreshing, default value is 30 seconds, must be greater than 1 second|false|duration string|
 
 The `spec.keyValues.refresh.monitoring.keyValues` is an array of objects, which have the following child properties.
 
@@ -261,12 +261,11 @@ spec:
             servicePrincipalReference: <name-of-secret-containing-service-principal-credentials>
 ```
 
-### Dynamic configuration
-#### Refresh ConfigMap
+### App Configuration Sentinel-based Refresh
 
-Setting the `spec.keyValues.refresh` property enables dynamic configuration data refresh in ConfigMap by monitoring designated key-values. The provider periodically polls the key-values, if there is any value change, provider triggers ConfigMap refresh in accordance with the present data in Azure App Configuration.
+Setting the `spec.keyValues.refresh` property enables dynamic configuration data refresh in ConfigMap and Secret by monitoring designated key-values. The provider periodically polls the key-values, if there is any value change, provider triggers ConfigMap and Secret refresh in accordance with the present data in Azure App Configuration.
 
-The following sample instructs monitoring two key-values with 1 minute refresh interval.
+The following sample instructs monitoring two key-values with 1 minute polling interval.
 
 ``` yaml
 apiVersion: azconfig.io/v1beta1
@@ -293,10 +292,10 @@ spec:
             label: development
 ```
 
-#### Refresh Secret
-Setting `spec.keyValues.keyVaults.refresh` property enables dynamic data refresh in Secret. Any refresh operation triggered by refresh interval will only update the value for a Key Vault secret with latest version. And refresh operation triggered by monitored key-values will make provider poll the key-values, ensuring consistency between Secret's data and Azure App Configuration. 
+### Dynamically resolve KeyVault References
+Setting `spec.keyValues.keyVaults.refresh` property enables provider periodically resolve Key Vault references with latest secret version in Azure App Configuration and update the values for associated Key Vault secrets in Secret.
 
-The following sample instructs monitoring one key-value with different refresh interval for ConfigMap and Secret.
+The following sample instructs secret refresh with 10 mintues resolving interval. 
 
 ``` yaml
 apiVersion: azconfig.io/v1beta1
@@ -311,12 +310,6 @@ spec:
     selectors:
       - keyFilter: app1*
         labelFilter: common
-    refresh:
-      interval: 1m
-      monitoring:
-        keyValues:
-          - key: sentinelKey
-            label: common
     keyVaults:
       target:
         secretName: secret-created-by-appconfig-provider
