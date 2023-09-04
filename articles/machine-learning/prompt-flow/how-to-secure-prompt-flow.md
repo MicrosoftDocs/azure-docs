@@ -47,7 +47,7 @@ Workspace managed VNet is recommand way to support network isolation in prompt f
 
 ## Secure prompt flow use your own VNet
 
-- You can follow [Secure workspace resources](../how-to-secure-workspace-vnet.md) to setup Azure machine learning related resources as private. 
+- To setup Azure Machine Learning related resources as private, see [Secure workspace resources](../how-to-secure-workspace-vnet.md). 
 - Meanwhile, you can follow [private Azure cognitive services](../../ai-services/cognitive-services-virtual-networks.md) to make them as private.
 - You can either create private endpoint to the same VNet or levergage VNet peering to make them communicate with each other.
 
