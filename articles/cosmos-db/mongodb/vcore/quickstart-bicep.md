@@ -10,11 +10,6 @@ ms.service: cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: quickstart
 ms.date: 08/28/2023
-
-ms.custom: devx-track-bicep
-
-ms.custom: devx-track-bicep
-
 ms.custom: devx-track-bicep
 ---
 
