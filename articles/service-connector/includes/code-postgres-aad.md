@@ -103,7 +103,8 @@ For more code samples, see [Connect to Azure databases from App Service without 
 
 ---
 
-Next, if you have created tables and sequences in postgresql flexible server, you need to login as table owner and grant permission to `aad username` that's created by Service Connector. Get the user name from connection string or configuration set by service connector, it should be look like `aad_<connection name>`. If you use Portal, click the expand button and get the value. If you use Azure CLI, check `configurations` in output of CLI command.
+Next, if you have created tables and sequences in PostgreSQL flexible server, you need to login as database owner and grant permission to `aad username` that's created by Service Connector. Get the user name from connection string or configuration set by service connector, it should be look like `aad_<connection name>`. If you use Portal, click the expand button and get the value. If you use Azure CLI, check `configurations` in output of CLI command.
+
 Then, execute the query to grant permission
 
 ```azure-cli
