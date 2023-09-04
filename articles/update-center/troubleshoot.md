@@ -2,7 +2,7 @@
 title: Troubleshoot known issues with Azure Update Manager
 description: The article provides details on the known issues and troubleshooting any problems with Azure Update Manager.
 ms.service: azure-update-manager
-ms.date: 05/30/2023
+ms.date: 09/15/2023
 ms.topic: conceptual
 ms.author: sudhirsneha
 author: SnehaSudhirG
@@ -107,7 +107,7 @@ To review the logs related to all actions performed by the extension, on Windows
 
 - For concurrent/conflicting schedule, only one schedule will be triggered. The other schedule will be triggered once a schedule is finished.
 - If a machine is newly created, the schedule might have 15 minutes of schedule trigger delay in case of Azure VMs.
-- Policy definition *[Preview]: Schedule recurring updates using Update Manager* with version 1.0.0-preview successfully remediates resources however, it will always show them as non-compliant. The current value of the existence condition is a placeholder that will always evaluate to false.
+- Policy definition *Schedule recurring updates using Azure Update Manager* with version 1.0.0-preview successfully remediates resources however, it will always show them as non-compliant. The current value of the existence condition is a placeholder that will always evaluate to false.
 
 ### Scenario: Unable to apply patches for the shutdown machines 
 

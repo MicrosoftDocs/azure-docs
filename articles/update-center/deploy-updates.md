@@ -2,7 +2,7 @@
 title: Deploy updates and track results in Azure Update Manager.
 description: The article details how to use Azure Update Manager in the Azure portal to deploy updates and view results for supported machines.
 ms.service: azure-update-manager
-ms.date: 08/08/2023
+ms.date: 09/15/2023
 ms.topic: conceptual
 author: SnehaSudhirG
 ms.author: sudhirsneha
@@ -39,7 +39,7 @@ To install one time updates on a single VM, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In **Update Manager**, **Overview**, choose your **Subscription** and select **One-time update** to install updates.
+1. In **Azure Update Manager**, **Overview**, choose your **Subscription** and select **One-time update** to install updates.
 
    :::image type="content" source="./media/deploy-updates/install-updates-now-inline.png" alt-text="Example of installing one-time updates." lightbox="./media/deploy-updates/install-updates-now-expanded.png":::
 
@@ -87,7 +87,7 @@ To install one time updates on a single VM, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In **Update Manager**, **Machine**, choose your **Subscription**, choose your machine and select **One-time update** to install updates.
+1. In **Azure Update Manager**, **Machine**, choose your **Subscription**, choose your machine and select **One-time update** to install updates.
 
 1. Select to **Install now** to proceed with installing updates.
 
@@ -119,7 +119,7 @@ You can schedule updates
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In **Update Manager**, **Overview**, choose your **Subscription**, select **One-time update**, and **Install now** to install updates.
+1. In **Azure Update Manager**, **Overview**, choose your **Subscription**, select **One-time update**, and **Install now** to install updates.
 
    :::image type="content" source="./media/deploy-updates/install-updates-now-inline.png" alt-text="Example of installing one-time updates." lightbox="./media/deploy-updates/install-updates-now-expanded.png":::
    
@@ -132,7 +132,7 @@ The **Machines** displays a list of machines for which you can deploy one-time u
 
 # [From Machines blade](#tab/install-scale-machines) 
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Azure Update Manager**.
 
 1. Go to **Machines**, select your subscription and choose your machines. You can choose **Select all** to select  all the machines. 
 

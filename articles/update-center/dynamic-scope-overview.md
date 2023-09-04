@@ -2,7 +2,7 @@
 title: An overview of dynamic scoping (preview) 
 description: This article provides information about dynamic scoping (preview), its purpose and advantages.
 ms.service: azure-update-manager
-ms.date: 07/05/2023
+ms.date: 09/15/2023
 ms.topic: conceptual
 author: SnehaSudhir 
 ms.author: sudhirsneha
