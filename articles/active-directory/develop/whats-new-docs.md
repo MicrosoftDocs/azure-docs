@@ -18,6 +18,19 @@ ms.custom: has-adal-ref
 
 Welcome to what's new in the Microsoft identity platform documentation. This article lists new docs that have been added and those that have had significant updates in the last three months.
 
+## August 2023
+
+### Updated articles
+
+- [Call an ASP.NET Core web API with cURL](howto-call-a-web-api-with-curl.md) - updated sign-in steps for admin center
+- [Troubleshoot publisher verification](troubleshoot-publisher-verification.md)
+  - removed references to aad.portal.azure.com and terminology updates for partner program updates
+- [Configure a custom claim provider token issuance event (preview)](custom-extension-get-started.md)
+  - Update MS Graph sections - custom claim provider token issuance event tutorial
+  - Update custom authentication extensions references
+- [Customize claims issued in the JSON web token (JWT) for enterprise applications](jwt-claims-customization.md) - Update jwt-claims-customization.md
+- [Access tokens in the Microsoft identity platform](access-tokens.md) - Update access-tokens.md to include more details about issuer validation
+
 ## July 2023
 
 ### New articles
