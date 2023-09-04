@@ -293,7 +293,7 @@ Follow these steps to create a service principal, if not using managed identity.
 6. Select Application Type "Web", enter a sign-on URL (for example http:\//localhost) and click Add.
    The sign-on URL isn't used and can be any valid URL.
 7. Select Certificates and Secrets, then click New client secret.
-8. Enter a description for a new key, select "Never expires" and click Add.
+8. Enter a description for a new key, select "Two years" and click Add.
 9. Make a node the Value. It is used as the **password** for the service principal.
 10. Select Overview. Make a note the Application ID. It's used as the username (**login ID** in the steps below) of the service principal.
 
