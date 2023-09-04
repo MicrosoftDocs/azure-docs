@@ -601,7 +601,7 @@ By default, the above setup may not have an approver (and an approval flow requi
 
    :::image type="content" source="./media/multi-user-authorization/edit-role-settings.png" alt-text="Screenshot showing how to edit the role setting.":::
 
-1. Select **Update** to complete the set up of approvers to activate the *Contributor* role.
+1. Select **Update** to complete the setup of approvers to activate the *Contributor* role.
 
 ### Request activation of an eligible assignment to perform critical operations
 
