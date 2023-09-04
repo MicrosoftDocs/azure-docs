@@ -45,7 +45,7 @@ The tool searches data from a third-party vector database. To use it, you should
     - Add "Weaviate" connection. Fill "API base" with your self-maintained instance address and fill "API key" field.
 
 > [!NOTE]
-> When legacy tools switching to code first mode, if you encounter "'embeddingstore.tool.vector_db_lookup.search' is not found" error, please refer to the [Tool FAQ](./faq.md).
+> When legacy tools switching to code first mode, if you encounter "'embeddingstore.tool.vector_db_lookup.search' is not found" error, please refer to the [Troubleshooting Guidance](./troubleshooting-guidance.md).
 
 ## Inputs
 
