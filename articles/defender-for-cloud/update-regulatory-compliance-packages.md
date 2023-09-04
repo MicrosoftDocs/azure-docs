@@ -122,7 +122,7 @@ To assign regulatory compliance standards on GCP projects:
 1. Navigate to **Environment settings**.
 1. Select the relevant GCP project.
 1. Select **Standards**.
-1. Select the three dots alongside the standard and select  **Assign Standard**.
+1. Select the three dots alongside the standard and select **Assign Standard**.
 1. Enter all the necessary details and select **Create**.
 
     :::image type="content" source="media/update-regulatory-compliance-packages/assign-standard-gcp.png" alt-text="Screenshot of adding regulatory compliance standard to GCP project." lightbox="media/update-regulatory-compliance-packages/assign-standard-gcp.png":::
