@@ -38,6 +38,7 @@ Please follow the tutorial to [create a user-assigned managed identity](../activ
 1. Please follow the tutorial to [configure a federated identity credential on a user-assigned managed identity](../active-directory/workload-identities/workload-identity-federation-create-trust-user-assigned-managed-identity.md#configure-a-federated-identity-credential-on-a-user-assigned-managed-identity). 
 
     Here is an example of a federated identity configuration:
+   
     :::image type="content" source="media/continuous-integration-delivery-github-actions/add-federated-credential.png" alt-text="Adding Federated Credential":::
 
 2. After creating the credential, navigate to Azure Active Directory Overview page and take a note of the tenant ID. We will need this value later. 
@@ -51,9 +52,11 @@ Please follow the tutorial to [create a user-assigned managed identity](../activ
 
 You need to provide your application's Client ID, Tenant ID and Subscription ID to the login action. These values can be stored in GitHub secrets and referenced in your workflow. 
 1. Open your GitHub repository and go to Settings.
+   
    :::image type="content" source="media/continuous-integration-delivery-github-actions/github-settings.png" alt-text="Navigating to GitHub Settings":::
 
-2. Select Security -> Secrets and variables -> Actions. 
+2. Select Security -> Secrets and variables -> Actions.
+   
    :::image type="content" source="media/continuous-integration-delivery-github-actions/github-secrets.png" alt-text="Navigating to GitHub Secrets":::
 
 3. Create secrets for AZURE_CLIENT_ID, AZURE_TENANT_ID, and AZURE_SUBSCRIPTION_ID. Use these values from your Azure Active Directory application for your GitHub secrets:
@@ -87,10 +90,13 @@ The workflow is composed of two jobs:
         }
     }
     ```
+    
     This should look like below:
+   
     :::image type="content" source="media/continuous-integration-delivery-github-actions/saving-package-json-file.png" alt-text="Saving the package.json file":::
 
 2. Navigate to the Actions tab -> New workflow
+   
    :::image type="content" source="media/continuous-integration-delivery-github-actions/new-workflow.png" alt-text="Creating a new workflow":::
 
 3. Paste the workflow YAML provided below. 
@@ -167,6 +173,7 @@ jobs:
           armTemplateParametersFile: # (9) ARM template parameters file name ARMTemplateParametersForFactory.json
           additionalParameters: # (10) Parameters which will be replaced in the ARM template. Expected format 'key1=value key2=value keyN=value'. At the minimum here you should provide the target ADF name parameter. Check the ARMTemplateParametersForFactory.json file for all the parameters that are expected in your scenario       
 ```
+
 Let’s walk together through the workflow. It contains parameters that are numbered for your convenience and comments describe what each expects. 
 
 For the build job, there are four parameters you will need to provide. For more detailed information about these, check the npm package [Azure Data Factory utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities) documentation.
@@ -180,13 +187,16 @@ In the Release job, there are the next six  parameters you'll need to supply. Fo
 
 Let’s test the setup by making some changes in the development Data Factory instance. Create a feature branch where you make the changes, and then make a pull request to main. This should trigger the workflow to execute. 
 
-1. To check it, browse to the repository -> Actions -> and identify your workflow 
+1. To check it, browse to the repository -> Actions -> and identify your workflow
+   
    :::image type="content" source="media/continuous-integration-delivery-github-actions/monitoring-workflow.png" alt-text="Monitoring a workflow":::
 
-2. You can further drill down into each run, see the jobs composing it and their statuses and duration, as well as the Artifact created by the run. In our scenario, this is the ARM template created in the build job.  
+2. You can further drill down into each run, see the jobs composing it and their statuses and duration, as well as the Artifact created by the run. In our scenario, this is the ARM template created in the build job.
+    
    :::image type="content" source="media/continuous-integration-delivery-github-actions/monitoring-jobs.png" alt-text="Monitoring jobs":::
 
-3. You can further drill down by navigating to a job and its steps. 
+3. You can further drill down by navigating to a job and its steps.
+   
    :::image type="content" source="media/continuous-integration-delivery-github-actions/monitoring-release-job.png" alt-text="Monitoring the release job":::
 
 4. You can also navigate to the target Data Factory instance to which you deployed changes to and make sure it reflects the latest changes.
