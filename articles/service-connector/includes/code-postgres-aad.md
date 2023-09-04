@@ -100,3 +100,20 @@ For other languages, you can use the connection string and username that Service
 
 For more code samples, see [Connect to Azure databases from App Service without secrets using a managed identity](/azure/app-service/tutorial-connect-msi-azure-database?tabs=postgresql#3-modify-your-code).
 
+
+---
+
+Next, if you have created tables and sequences in postgresql flexible server, you need to login as table owner and grant permission to `aad username` that's created by Service Connector. Get the user name from connection string or configuration set by service connector, it should be look like `aad_<connection name>`. If you use Portal, click the expand button and get the value. If you use Azure CLI, check `configurations` in output of CLI command.
+Then, execute the query to grant permission
+
+```azure-cli
+az extension add --name rdbms-connect
+
+az postgres flexible-server execute -n <postgres server name> -u <owner username> -p "<owner password>" -d <database> --querytext "GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO \"<aad username>\";GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO \"<aad username>\";"
+```
+The `<owner username>` and `<owner password>` is the owner of existing table that can grant permission to others. `<aad username>` is the user created by Service Connector. Replace them with the actual value.
+
+You can validate the result with the command:
+```azure-cli
+az postgres flexible-server execute -n <postgres server name> -u <owner username> -p "<owner password>" -d <database> --querytext "SELECT distinct(table_name) FROM information_schema.table_privileges WHERE grantee='<aad username>' AND table_schema='public';" --output table
+```
