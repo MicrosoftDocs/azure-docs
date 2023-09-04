@@ -111,6 +111,9 @@ To assign regulatory compliance standards on AWS accounts:
 1. Select the relevant AWS account.
 1. Select **Standards**.
 1. Select the three dots alongside an unassigned standard and select **Assign standard**.
+
+    :::image type="content" source="media/update-regulatory-compliance-packages/assign-standard-aws-from-list.png" alt-text="Screenshot that shows where to select a standard to assign." lightbox="media/update-regulatory-compliance-packages/assign-standard-aws-from-list.png":::
+
 1. At the prompt, select **Yes**. The standard is assigned to your AWS account.
 
     :::image type="content" source="media/update-regulatory-compliance-packages/assign-standard-aws.png" alt-text="Screenshot of the prompt to assign a regulatory compliance standard to the AWS account." lightbox="media/update-regulatory-compliance-packages/assign-standard-aws.png":::
@@ -125,6 +128,9 @@ To assign regulatory compliance standards on GCP projects:
 1. Select the relevant GCP project.
 1. Select **Standards**.
 1. Select the three dots alongside an unassigned standard and select **Assign standard**.
+
+    :::image type="content" source="media/update-regulatory-compliance-packages/assign-standard-gcp-from-list.png" alt-text="Screenshot that shows where to select a GCP standard to assign." lightbox="media/update-regulatory-compliance-packages/assign-standard-gcp-from-list.png":::
+ 
 1. At the prompt, select **Yes**. The standard is assigned to your GCP project.
 
     :::image type="content" source="media/update-regulatory-compliance-packages/assign-standard-gcp.png" alt-text="Screenshot of the prompt to assign a regulatory compliance standard to the GCP project." lightbox="media/update-regulatory-compliance-packages/assign-standard-gcp.png":::
