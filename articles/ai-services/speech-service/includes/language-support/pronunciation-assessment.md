@@ -19,7 +19,7 @@ ms.author: eur
 |French (Canada)|`fr-CA`| 
 |French (France)|`fr-FR`|  
 |German (Germany)|`de-DE`|
-|Hindi (India)|`hi-IN`|
+|Hindi (India)|`hi-IN`<sup>1</sup>|
 |Italian (Italy)|`it-IT`<sup>1</sup>|
 |Japanese (Japan)|`ja-JP`|
 |Korean (Korea)|`ko-KR`<sup>1</sup>|
