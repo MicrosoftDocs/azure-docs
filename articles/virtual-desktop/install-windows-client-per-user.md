@@ -17,9 +17,9 @@ When you install the client using `msiexec.exe`, per-system is the default metho
 
 In order to install the Remote Desktop client for Windows on a per-user basis with Intune or Configuration Manager, you need the following things:
 
-- Windows devices managed by Microsoft Intune or Configuration Manager with permission to add applications.
-
 - Download the latest version of [the Remote Desktop client for Windows](./users/connect-windows.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json).
+
+- Supported Windows devices managed by Microsoft Intune or Configuration Manager with permission to add applications.
 
 - For Intune, you need a local Windows device to use the [Microsoft Win32 Content Prep Tool](https://github.com/Microsoft/Microsoft-Win32-Content-Prep-Tool).
 
