@@ -398,6 +398,8 @@ Copy the URL, change the domain name manually, and then paste it back to your br
 ### Which IP address is presented to Azure AD B2C? The user's IP address, or the Azure Front Door IP address?
 
 Azure Front Door passes the user's original IP address. It's the IP address that you'll see in the audit reporting or your custom policy.
+> [!IMPORTANT]
+> If the client sends an `x-forwarded-for` header to Azure Front Door, Azure AD B2C will use the originator's `x-forwarded-for` as the user's IP address for [Conditional Access Evaluation](./conditional-access-identity-protection-overview.md) and the `{Context:IPAddress}` [claims resolver](./claim-resolver-overview.md).
 
 ### Can I use a third-party Web Application Firewall (WAF) with B2C?
 
