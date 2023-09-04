@@ -75,7 +75,7 @@ Welcome to what's new in the Microsoft identity platform documentation. This art
 - [Customize claims issued in the SAML token for enterprise applications](saml-claims-customization.md)
 - [Desktop app that calls web APIs: Acquire a token by using WAM](scenario-desktop-acquire-token-wam.md)
 - [Desktop app that calls web APIs: Acquire a token interactively](scenario-desktop-acquire-token-interactive.md)
-- [Handle errors and exceptions in MSAL for Python](msal-error-handling-python.md)
+- [Handle errors and exceptions in MSAL for Python](/entra/msal/python/advanced/msal-error-handling-python.md)
 - [Protected web API: Code configuration](scenario-protected-web-api-app-configuration.md)
 - [Shared device mode for iOS devices](msal-ios-shared-devices.md)
 - [Tutorial: Sign in users and call the Microsoft Graph API from an Android application](tutorial-v2-android.md)
