@@ -62,6 +62,8 @@ Keep tabs on the [SAP playbooks folder](https://github.com/Azure/Azure-Sentinel/
 
 In this article, you learned about the playbooks available in the Microsoft Sentinel solution for SAP® applications.
 
+See [this video (external)](https://www.youtube.com/watch?v=b-AZnR-nQpg) for a demonstration of how to use these playbooks.
+
 - Learn more about the [Microsoft Sentinel solution for SAP® applications](solution-overview.md).
 - Learn how to [deploy the Microsoft Sentinel solution for SAP® applications](deployment-overview.md).
 - Learn about the [security content available in the Microsoft Sentinel solution for SAP® applications](sap-solution-security-content.md).
