@@ -99,7 +99,7 @@ To add standards to your dashboard:
 
 1. From Defender for Cloud's menu, select **Regulatory compliance** again to go back to the regulatory compliance dashboard.
 
-    Your new standard appears in your list of Industry & regulatory standards.
+    Your new standard appears in your list of **Industry & regulatory** standards.
 
     :::image type="content" source="media/concept-regulatory-compliance/compliance-dashboard.png" alt-text="Screenshot showing regulatory compliance dashboard."  lightbox="media/concept-regulatory-compliance/compliance-dashboard.png":::
 
@@ -110,10 +110,12 @@ To assign regulatory compliance standards on AWS accounts:
 1. Navigate to **Environment settings**.
 1. Select the relevant AWS account.
 1. Select **Standards**.
-1. Select the three dots alongside the standard and select **Assign standard**.
+1. Select the three dots alongside an unassigned standard and select **Assign standard**.
 1. At the prompt, select **Yes**. The standard is assigned to your AWS account.
 
-    :::image type="content" source="media/update-regulatory-compliance-packages/assign-standard-aws.png" alt-text="Screenshot of the prompt to add a regulatory compliance standard to the AWS account." lightbox="media/update-regulatory-compliance-packages/assign-standard-aws.png":::
+    :::image type="content" source="media/update-regulatory-compliance-packages/assign-standard-aws.png" alt-text="Screenshot of the prompt to assign a regulatory compliance standard to the AWS account." lightbox="media/update-regulatory-compliance-packages/assign-standard-aws.png":::
+
+1. The newly assigned standard appears in your list of **Industry & regulatory** standards.
 
 ### Assign a standard to your GCP projects
 
@@ -122,12 +124,12 @@ To assign regulatory compliance standards on GCP projects:
 1. Navigate to **Environment settings**.
 1. Select the relevant GCP project.
 1. Select **Standards**.
-1. Select the three dots alongside the standard and select **Assign Standard**.
-1. Enter all the necessary details and select **Create**.
+1. Select the three dots alongside an unassigned standard and select **Assign standard**.
+1. At the prompt, select **Yes**. The standard is assigned to your GCP project.
 
-    :::image type="content" source="media/update-regulatory-compliance-packages/assign-standard-gcp.png" alt-text="Screenshot of adding regulatory compliance standard to GCP project." lightbox="media/update-regulatory-compliance-packages/assign-standard-gcp.png":::
+    :::image type="content" source="media/update-regulatory-compliance-packages/assign-standard-gcp.png" alt-text="Screenshot of the prompt to assign a regulatory compliance standard to the GCP project." lightbox="media/update-regulatory-compliance-packages/assign-standard-gcp.png":::
 
-1. Your new standard appears in your list of Industry & regulatory standards.
+1. The newly assigned standard appears in your list of Industry & regulatory standards.
 
 ## Remove a standard from your dashboard
 
