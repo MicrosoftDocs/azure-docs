@@ -226,64 +226,57 @@ create_monitor:
     instance_type: standard_e4s_v3
     runtime_version: 3.2
   monitoring_target:
+    ml_task: classfiication
     endpoint_deployment_id: azureml:fraud-detection-endpoint:fraud-detection-deployment
   
   monitoring_signals:
     advanced_data_drift: # monitoring signal name, any user defined name works
       type: data_drift
       # target_dataset is optional. By default target dataset is the production inference data associated with Azure Machine Learning online endpoint
-      baseline_dataset:
-        input_dataset:
+      reference_data:
+        input_data:
           path: azureml:my_model_training_data:1 # use training data as comparison baseline
           type: mltable
-        dataset_context: training
+        data_context: training
         target_column_name: fraud_detected
       features: 
         top_n_feature_importance: 20 # monitor drift for top 20 features
       metric_thresholds:
-        - applicable_feature_type: numerical
-          metric_name: jensen_shannon_distance
-          threshold: 0.01
-        - applicable_feature_type: categorical
-          metric_name: pearsons_chi_squared_test
-          threshold: 0.02
+        nemerical:
+          jensen_shannon_distance: 0.01
+        categorical:
+          pearsons_chi_squared_test: 0.02
     advanced_data_quality:
       type: data_quality
       # target_dataset is optional. By default target dataset is the production inference data associated with Azure Machine Learning online depoint
-      baseline_dataset:
-        input_dataset:
+      reference_data:
+        input_data:
           path: azureml:my_model_training_data:1
           type: mltable
-        dataset_context: training
+        data_context: training
       features: # monitor data quality for 3 individual features only
         - feature_A
         - feature_B
         - feature_C
       metric_thresholds:
-        - applicable_feature_type: numerical
-          metric_name: null_value_rate
-          # use default threshold from training data baseline
-        - applicable_feature_type: categorical
-          metric_name: out_of_bounds_rate
-          # use default threshold from training data baseline
+        numerical:
+          null_value_rate: 0.05
+        categorical:
+          out_of_bounds_rate: 0.03
+
     feature_attribution_drift_signal:
       type: feature_attribution_drift
-      target_dataset:
-         dataset:
-            input_dataset:
-               path: azureml:my_model_production_data:1
-               type: uri_folder
-            dataset_context: model_inputs_outputs
-      baseline_dataset:
-        input_dataset:
+      # production_data: is not required input here
+      # Please ensure AzureML online endpoint is enabled to collected both model_inputs and model_outputs data
+      # AzureML model monitoring will automatically join both model_inputs and model_outputs data and used it for computation
+      reference_data:
+        input_data:
           path: azureml:my_model_training_data:1
           type: mltable
-        dataset_context: training
-        target_column_name: fraud_detected
-      model_type: classification
-      # if no metric_thresholds defined, use the default metric_thresholds
+        data_context: training
+        target_column_name: is_fraud
       metric_thresholds:
-         threshold: 0.9
+        normalized_discounted_cumulative_gain: 0.9
   
   alert_notification:
     emails:
@@ -546,73 +539,95 @@ create_monitor:
   compute: 
     instance_type: standard_e4s_v3
     runtime_version: 3.2
+  monitoring_target:
+    ml_task: classification
   
   monitoring_signals:
     advanced_data_drift: # monitoring signal name, any user defined name works
       type: data_drift
       # define target dataset with your collected data
-      target_dataset:
-        dataset:
-          input_dataset:
-            path: azureml:my_production_inference_data_model_inputs:1  # your collected data is registered as Azure Machine Learning asset
-            type: uri_folder
-          dataset_context: model_inputs
-          pre_processing_component: azureml:production_data_preprocessing:1
-      baseline_dataset:
-        input_dataset:
+      production_data:
+        input_data:
+          path: azureml:my_production_inference_data_model_inputs:1  # your collected data is registered as Azure Machine Learning asset
+          type: uri_folder
+        data_context: model_inputs
+        pre_processing_component: azureml:production_data_preprocessing:1
+      reference_data:
+        input_data:
           path: azureml:my_model_training_data:1 # use training data as comparison baseline
           type: mltable
         dataset_context: training
-        target_column_name: fraud_detected
+        target_column_name: is_fraud
       features: 
         top_n_feature_importance: 20 # monitor drift for top 20 features
       metric_thresholds:
-        - applicable_feature_type: numerical
-          metric_name: jensen_shannon_distance
-          threshold: 0.01
-        - applicable_feature_type: categorical
-          metric_name: pearsons_chi_squared_test
-          threshold: 0.02
+        numberical:
+          jensen_shannon_distance: 0.01
+        categorical:
+          pearsons_chi_squared_test: 0.02
     advanced_prediction_drift: # monitoring signal name, any user defined name works
       type: prediction_drift
       # define target dataset with your collected data
-      target_dataset:
-        dataset:
-          input_dataset:
-            path: azureml:my_production_inference_data_model_outputs:1  # your collected data is registered as Azure Machine Learning asset
-            type: uri_folder
-          dataset_context: model_outputs
-          pre_processing_component: azureml:production_data_preprocessing:1
-      baseline_dataset:
-        input_dataset:
+      production_data:
+        input_data:
+          path: azureml:my_production_inference_data_model_outputs:1  # your collected data is registered as Azure Machine Learning asset
+          type: uri_folder
+        data_context: model_outputs
+        pre_processing_component: azureml:production_data_preprocessing:1
+      reference_data:
+        input_data:
           path: azureml:my_model_validation_data:1 # use training data as comparison baseline
           type: mltable
-        dataset_context: validation
+        data_context: validation
       metric_thresholds:
-        - applicable_feature_type: categorical
-          metric_name: pearsons_chi_squared_test
-          threshold: 0.02
+        categorical:
+          pearsons_chi_squared_test: 0.02
     advanced_data_quality:
       type: data_quality
-      target_dataset:
-        dataset:
-          input_dataset:
-            path: azureml:my_production_inference_data_model_inputs:1  # your collected data is registered as Azure Machine Learning asset
-            type: uri_folder
-          dataset_context: model_inputs
-          pre_processing_component: azureml:production_data_preprocessing:1
-      baseline_dataset:
-        input_dataset:
+      production_data:
+        input_data:
+          path: azureml:my_production_inference_data_model_inputs:1  # your collected data is registered as Azure Machine Learning asset
+          type: uri_folder
+        data_context: model_inputs
+        pre_processing_component: azureml:production_data_preprocessing:1
+      reference_data:
+        input_data:
           path: azureml:my_model_training_data:1
           type: mltable
-        dataset_context: training
+        data_context: training
       metric_thresholds:
-        - applicable_feature_type: numerical
-          metric_name: null_value_rate
-          # use default threshold from training data baseline
-        - applicable_feature_type: categorical
-          metric_name: out_of_bounds_rate
-          # use default threshold from training data baseline
+        numerical:
+          null_value_rate: 0.03
+        categorical:
+          out_of_bounds_rate: 0.03
+    feature_attribution_drift_signal:
+      type: feature_attribution_drift
+      production_data:
+      # using production_data collected outside of AzureML
+        - input_data:
+            path: azureml:my_model_inputs:1
+            type: uri_folder
+          data_context: model_inputs
+          data_column_names:
+            correlation_id: correlation_id
+          pre_processing_component: azureml:model_inputs_preprocessing
+        - input_data:
+            path: azureml:my_model_outputs:1
+            type: uri_folder
+          data_context: model_outputs
+          data_column_names:
+            correlation_id: correlation_id
+            prediction: is_fraund
+            prediction_probability: is_fraund_probability
+          pre_processing_component: azureml:model_outputs_preprocessing
+      reference_data:
+        input_data:
+          path: azureml:my_model_training_data:1
+          type: mltable
+        data_context: training
+        target_column_name: is_fraud
+      metric_thresholds:
+        normalized_discounted_cumulative_gain: 0.9
   
   alert_notification:
     emails:

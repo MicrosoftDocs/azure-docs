@@ -83,7 +83,7 @@ Recurrence schedule defines the recurrence pattern, containing `hours`, `minutes
 | `monitoring_target.endpoint_deployment_id` | String | **Optional**. The associated Azure Machine Learning endpoint/deployment ID in format of `azureml:myEnpointName:myDeploymentName`. This field is required if your endpoint/deployment has enabled model data collection to be used for model monitoring. | | |
 | `monitoring_target.model_id` | String | **Optional**. The associated model ID for model monitoring. | | |
 | `monitoring_signals` | Object | Dictionary of monitoring signals to be included. The key is a name for monitoring signal within the context of monitor and the value is an object containing a [monitoring signal specification](#monitoring-signals). **Optional** for basic model monitoring that uses recent past production data as comparison baseline and has 3 monitoring signals: data drift, prediction drift, and data quality. | | |
-| `alert_notification` | Object | Description of alert notification recipients. |  |  |
+| `alert_notification` | String or Object | Description of alert notification recipients. | One of two alert desitnation is allowed: String `azmonitoring` or Object `emails` containing an array of email recipients |  |
 | `alert_notification.emails` | Object | List of email addresses to receive alert notification. | | |
 
 ### Monitoring signals
@@ -174,14 +174,15 @@ The feature attribution of a model may change over time due to changes in the di
 | `production_data.data_context` | String | The context of data. It refers to production model inputs data. | `model_inputs`, `model_outputs`, `model_inputs_outputs` |  |
 | `production_data.data_column_names` | Object | Correlation column name and prediction colum names in `key:value` format, needed for data joining. | Allowed keys are: `correlation_id`, `prediction`, `prediction_probability`  |
 | `production_data.pre_processing_component` | String | Component ID in the format of `azureml:myPreprocessing@latest` for a registered component. This is required if `production_data.input_data.type` is `uri_folder`, see [preprocessing component specification](./how-to-monitor-model-performance.md#set-up-model-monitoring-by-bringing-your-own-production-data-to-azure-machine-learning). | | |
-| `production_data.data_window_size` | ISO8601 format |**Optional**. Data window size in days with ISO8601 format, for example `P7D`. This is the production data window to be computed for data quality issues. | By default the data window size is the last monitoring period.| |
+| `production_data.data_window_size` | String |**Optional**. Data window size in days with ISO8601 format, for example `P7D`. This is the production data window to be computed for data quality issues. | By default the data window size is the last monitoring period.| |
 | `reference_data` | Object | **Optional**. Recent past production data is used as comparison baseline data if this isn't specified. Recommendation is to use training data as comparison baseline. | | |
 | `reference_data.input_data` | Object | Description of input data source, see [job input data](./reference-yaml-job-command.md#job-inputs) specification. | | |
-| `reference_data.data_context` | String | The context of data, it refers to the context that dataset was used before | `model_inputs`, `model_outputs`, `training`, `test`, `validation` |  |
+| `reference_data.data_context` | String | The context of data, it refers to the context that dataset was used before. Fro feature attribution drift, only `training` data allowed. | `training` |  |
 | `reference_data.target_column_name` | String | **Required**. | | |
 | `reference_data.pre_processing_component` | String | Component ID in the format of `azureml:myPreprocessing@latest` for a registered component. This is required if `reference_data.input_data.type` is `uri_folder`, see [preprocessing component specification](./how-to-monitor-model-performance.md#set-up-model-monitoring-by-bringing-your-own-production-data-to-azure-machine-learning). | | |
 | `alert_enabled` | Boolean | Turn on/off alert notification for the monitoring signal. `True` or `False` | | |
 | `metric_thresholds` | Object | Metric name and threshold for feature attribution drift in `key:value` format. When threshold is exceeded and `alert_enabled` is on, user will receive alert notification. | Allowed metric name: `normalized_discounted_cumulative_gain` | Defaut threshold of `0.02`|
+
 
 ## Remarks
 
