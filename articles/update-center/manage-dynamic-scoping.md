@@ -4,7 +4,7 @@ description: This article describes how to manage dynamic scoping (preview) oper
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 07/05/2023
+ms.date: 09/15/2023
 ms.topic: how-to
 ---
 

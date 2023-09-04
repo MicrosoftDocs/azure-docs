@@ -4,7 +4,7 @@ description: This article describes how to manage the update settings for your W
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 06/27/2022
+ms.date: 09/15/2023
 ms.topic: conceptual
 ---
 

@@ -2,7 +2,7 @@
 title: Quickstart - configure update settings for groups using dynamic scoping (preview) in the Azure portal.
 description: This quickstart helps you to configure update settings using dynamic scoping (preview) in Azure portal.
 ms.service: update-management-center
-ms.date: 06/27/2023
+ms.date: 09/15/2023
 author: SnehaSudhirG
 ms.author: sudhirsneha
 ms.topic: quickstart
