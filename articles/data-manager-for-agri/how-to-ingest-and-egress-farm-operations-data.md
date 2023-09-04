@@ -37,39 +37,18 @@ Job status and details can be retrieved with: [FarmOperations_GetDataIngestionJo
 
 Now that the data is ingested into Azure Data Manager for Agriculture, it can be queried or listed with the following methods:
 
-### Method 1: List data by type
+### Method 1: search Farm Activities data using geometry intersect
+To account for the high degree of change found in field definitions, Azure Data Manager for Agriculture supports a search by intersect feature that allows you to organize data by space and time across parties, without needing to first know the farm/field hierarchy or association. If you have the partyId, you can use it in the input, and it gives you the list of farm activity data items for the specified party. 
 
-Retrieved data is sorted by type under the party. These can be listed, with standard filters applied
+[API Documentation](https://learn.microsoft.com/en-us/rest/api/data-manager-for-agri/#farm-operations)
 
-[PlantingData_Search](/rest/api/data-manager-for-agri/dataplane-version2023-07-01-preview/planting-data/search)
+You can also use the ID like `plantingId` to fetch the above data in the same API. If you remove the ID, you're able to see any other data that intersects with the same geometry across party. So it shows data for the same geometry across different parties.
 
-[HarvestData_Search](/rest/api/data-manager-for-agri/dataplane-version2023-07-01-preview/harvest-data/search)
+### Method 2: List data by type
 
-[ApplicationData_Search](/rest/api/data-manager-for-agri/dataplane-version2023-07-01-preview/application-data/search)
+Retrieved data is sorted by activity type under the party. These can be listed, with standard filters applied. Individual data items may be retrieved to view the properties and metadata, including the `sourceActivityId`, `providerFieldId` and `Geometry`.
 
-Individual data items may be retrieved to view the properties and metadata, including the `sourceActivityId`, `providerFieldId` and `Geometry`.
-
-
-[PlantingData_Get](/rest/api/data-manager-for-agri/dataplane-version2023-07-01-preview/planting-data/get)
-
-[HarvestData_Get](/rest/api/data-manager-for-agri/dataplane-version2023-07-01-preview/harvest-data/get)
-
-[ApplicationData_Get](/rest/api/data-manager-for-agri/dataplane-version2023-07-01-preview/application-data/get)
-  
-
-### Method 2: search Farm Activities data using geometry intersect
-To account for the high degree of change found in field definitions, Azure Data Manager for Agriculture supports a search by intersect feature that allows you to organize data by space and time, without needing to first know the farm/field hierarchy or association.
-
-
-
-[PlantingData_Search](/rest/api/data-manager-for-agri/dataplane-version2023-07-01-preview/planting-data/search)
-
-
-[HarvestData_Search](/rest/api/data-manager-for-agri/dataplane-version2023-07-01-preview/harvest-data/search)
-
-[ApplicationData_Search](/rest/api/data-manager-for-agri/dataplane-version2023-07-01-preview/application-data/search)
-
-You can also use the ID like `plantingId` to fetch the above data in the same API. if you remove the ID, you're able to see any other data that intersects with the same geometry across party. So it shows data for the same geometry across different parties.
+[API Documentation](https://learn.microsoft.com/en-us/rest/api/data-manager-for-agri/#farm-operations)
 
 ## List and Download Attachments
 
