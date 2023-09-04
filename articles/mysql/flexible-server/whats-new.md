@@ -25,6 +25,13 @@ This article summarizes new releases and features in Azure Database for MySQL - 
 > [!NOTE]  
 > This article references the term slave, which Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
+
+## September 2023
+
+- **Universal Cross Region Read Replica on Azure Database for MySQL- Flexible Server (General Availability)**
+  Azure Database for MySQL - Flexible server now supports Universal Read Replicas. The feature allows you to replicate your data from an instance of Azure Database for MySQL Flexible Server to a read-only server in Universal region which could be any region from the list of Azure supported region where flexible server is available. [Learn more](concepts-read-replicas.md)
+
+
 ## August 2023
   
 - **Universal Geo Restore in Azure Database for MySQL - Flexible Server (Public Preview)**
@@ -34,6 +41,7 @@ Universal Geo Restore feature will allow you to restore a source server instance
 Azure Database for MySQL Flexible Server now supports [generated invisible primary key (GIPK)](https://dev.mysql.com/doc/refman/8.0/en/create-table-gipks.html) for MySQL version 8.0. With this change, by default, the value of the server system variable "[sql_generate_invisible_primary_key](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_sql_generate_invisible_primary_key) " is ON for all MySQL - Flexible Server on MySQL 8.0. With GIPK mode ON, MySQL generates an invisible primary key to any InnoDB table which is new created without an explicit primary key. Learn more about the GIPK mode:
 [Generated Invisible Primary Keys](./concepts-limitations.md#generated-invisible-primary-keys)
 [Invisible Column Metadata](https://dev.mysql.com/doc/refman/8.0/en/invisible-columns.html#invisible-column-metadata)
+
 
 ## July 2023
 
