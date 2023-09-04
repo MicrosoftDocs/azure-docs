@@ -639,7 +639,10 @@ By default when you create a function for an HTTP trigger, the function is addre
 http://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>
 ```
 
-You can customize this route using the optional `route` property on the HTTP trigger's input binding. You can use any [Web API Route Constraint](https://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2#constraints) with your parameters. 
+You can customize this route using the optional `route` property on the HTTP trigger's input binding. You can use any [Web API Route Constraint](https://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2#constraints) with your parameters.
+
+Note, routes starting with "admin" are currently reserved for internal use (See [#1781](https://github.com/Azure/azure-functions-host/issues/1781)). As a workaround you may use "v1/admin*".
+Keep in mind, if the route isn't explicitly set, the name of the function will be used, so this also affects functions with names starting with "admin".
 
 ::: zone pivot="programming-language-csharp"
 
