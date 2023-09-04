@@ -28,7 +28,7 @@ When you developing your LLM application using prompt flow, you may want a secur
 - Compute resource: you can also limit inboud and outbount rule of compute resource in the worksapce.
 - Storage account: you can limit the accessibilty of the storage account to specific VNet.
 - Container registry: you may also want to secure your container registry with VNet.
-- Endpoint: you may want to limit Azure services or ip address to access your endpoint.
+- Endpoint: you may want to limit Azure services or IP address to access your endpoint.
 - Related Azure cognitive services as such Azure OpenAI, Azure content safety and Azure cognitive search, you can use network config to make them as private then using private endpoint to let Azure machine learning services communicate with them.
 
 ## Secure prompt flow with workspace managed VNet
