@@ -31,7 +31,7 @@ To help in debugging and authentication failure troubleshooting scenarios, the M
     :::column:::
         - [Logging in MSAL for iOS/macOS](../../msal-logging-ios.md)
         - [Logging in MSAL for Java](/entra/msal/java/advanced/msal-logging-java)
-        - [Logging in MSAL for Python](/entra/msal/java/advanced/msal-logging-python)
+        - [Logging in MSAL for Python](/entra/msal/python/advanced/msal-logging-python)
     :::column-end:::
 :::row-end:::
 
