@@ -5,7 +5,7 @@ ms.service: data-factory
 ms.subservice: ci-cd
 author: olmoloce
 ms.author: olmoloce
-ms.reviewer: kromerm, chez-charlie
+ms.reviewer: kromerm
 ms.topic: conceptual
 ms.date: 08/29/2023 
 ms.custom:
@@ -15,34 +15,34 @@ ms.custom:
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-In this guide we will show how to do continuos integration and delivery in Azure Data Factory with GitHub Actions. This will be done using workflows. A workflow is defined by a YAML (.yml) file that contains the various steps and parameters that make up the workflow. 
+In this guide we will show how to do continuos integration and delivery in Azure Data Factory with GitHub Actions. This will be done using workflows. A workflow is defined by a YAML file that contains the various steps and parameters that make up the workflow. 
 
 The workflow will leverage the [automated publishing capability](continuous-integration-delivery-improvements.md) of Azure Data Factory. As well as the [Azure Data Factory Deploy Action](https://github.com/marketplace/actions/data-factory-deploy) from the GitHub Marketplace which uses the [pre- and post-deployment script](continuous-integration-delivery-sample-script.md).  
 
 ## Requirements
 
-- Azure Subscription - if you don't have one, create a [free Azure account](https://azure.microsoft.com/en-us/free/) before you begin. 
+- Azure Subscription - if you don't have one, create a [free Azure account](https://azure.microsoft.com/free/) before you begin. 
 
-- Azure Data Factory - you will need two instances, once development instance that will be the source of changes. And a second one where changes will be propagated with the workflow. If you don't have an existing Data Factory instance, follow this [tutorial](quickstart-create-data-factory.md) to create one. 
+- Azure Data Factory - you will need two instances, one development instance that will be the source of changes. And a second one where changes will be propagated with the workflow. If you don't have an existing Data Factory instance, follow this [tutorial](quickstart-create-data-factory.md) to create one. 
 
 - GitHub repository integration set up - if you don't have a GitHub repository connected to your development Data Factory, follow the [tutorial](source-control.md#github-settings) to connect it.  
 
 ## Create a user-assigned managed identity
 
-You will need credentials that will authenticate and authorize GitHub Actions to deploy your ARM template to the target Data Factory. We will leverage a user-assigned managed identity (UAMI) with [workload identity federation](https://learn.microsoft.com/en-us/azure/active-directory/workload-identities/workload-identity-federation). Using workload identity federation allows you to access Azure Active Directory (Azure AD) protected resources without needing to manage secrets. In this scenario, GitHub Actions will be able to access the Azure resource group and deploy the target Data Factory instance. 
+You will need credentials that will authenticate and authorize GitHub Actions to deploy your ARM template to the target Data Factory. We will leverage a user-assigned managed identity (UAMI) with [workload identity federation](../active-directory/workload-identities/workload-identity-federation.md). Using workload identity federation allows you to access Azure Active Directory (Azure AD) protected resources without needing to manage secrets. In this scenario, GitHub Actions will be able to access the Azure resource group and deploy the target Data Factory instance. 
 
-Please follow the tutorial to [create a user-assigned managed identity](https://learn.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity). Once the UAMI is created, browse to the Overview page and take a note of the Subscription ID and Client ID. We will use it later.
+Please follow the tutorial to [create a user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md#create-a-user-assigned-managed-identity). Once the UAMI is created, browse to the Overview page and take a note of the Subscription ID and Client ID. We will use it later.
 
 ## Configure the workload identity federation 
 
-1. Please follow the tutorial to [configure a federated identity credential on a user-assigned managed identity](https://learn.microsoft.com/en-us/azure/active-directory/workload-identities/workload-identity-federation-create-trust-user-assigned-managed-identity?pivots=identity-wif-mi-methods-azp#configure-a-federated-identity-credential-on-a-user-assigned-managed-identity). 
+1. Please follow the tutorial to [configure a federated identity credential on a user-assigned managed identity](../active-directory/workload-identities/workload-identity-federation-create-trust-user-assigned-managed-identity.md#configure-a-federated-identity-credential-on-a-user-assigned-managed-identity). 
 
     Here is an example of a federated identity configuration:
     :::image type="content" source="media/continuous-integration-delivery-github-actions/add-federated-credential.png" alt-text="Adding Federated Credential":::
 
 2. After creating the credential, navigate to Azure Active Directory Overview page and take a note of the tenant ID. We will need this value later. 
 
-3. Browse to the Resource Group containing the target Data Factory instance and assign the UAMI the [Data Factory Contributor role](concepts-roles-permissions#roles-and-requirements). 
+3. Browse to the Resource Group containing the target Data Factory instance and assign the UAMI the [Data Factory Contributor role](concepts-roles-permissions.md#roles-and-requirements). 
 
 > [!IMPORTANT]
 > In order to avoid authorization errors during deployment, be sure to assign the Data Factory Contributor role at the Resource Group level containing the target Data Factory instance.
@@ -56,7 +56,8 @@ You need to provide your application's Client ID, Tenant ID and Subscription ID 
 2. Select Security -> Secrets and variables -> Actions. 
    :::image type="content" source="media/continuous-integration-delivery-github-actions/github-secrets.png" alt-text="Navigating to GitHub Secrets":::
 
-3. Create secrets for AZURE_CLIENT_ID, AZURE_TENANT_ID, and AZURE_SUBSCRIPTION_ID. Use these values from your Azure Active Directory application for your GitHub secrets: 
+3. Create secrets for AZURE_CLIENT_ID, AZURE_TENANT_ID, and AZURE_SUBSCRIPTION_ID. Use these values from your Azure Active Directory application for your GitHub secrets:
+   
    | GitHub Secret | Azure Active Directory Application |
    |---------------|----------------------------|
    | AZURE_CLIENT_ID | Application (client) ID |
