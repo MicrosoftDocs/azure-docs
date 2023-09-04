@@ -136,7 +136,7 @@ ms.author: lajanuar
 | Upper Sorbian | `hsb` |✔|✔||||
 | Urdu | `ur` |✔|✔|✔|✔|✔|
 | Uyghur (Arabic) | `ug` |✔|✔|||
-| Uzbek (Latin | `uz` |✔|✔||✔||
+| Uzbek (Latin) | `uz` |✔|✔||✔||
 | Vietnamese  | `vi` |✔|✔|✔|✔|✔|
 | Welsh | `cy` |✔|✔|✔|✔|✔|
 | Yucatec Maya | `yua` |✔|✔||✔||

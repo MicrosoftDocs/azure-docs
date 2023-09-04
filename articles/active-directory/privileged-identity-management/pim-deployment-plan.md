@@ -138,7 +138,7 @@ For both Azure AD and Azure resource role, make sure that you’ve users represe
 
 ### Plan rollback
 
-If PIM fails to work as desired in the production environment, you can change the role assignment from eligible to active once again. For each role that you’ve configured, select the ellipsis (…) for all users with assignment type as **eligible**. You can then select the **Make active** option to go back and make the role assignment **active**.
+If PIM fails to work as desired in the production environment, you can change the role assignment from eligible to active once again. For each role that you’ve configured, select the ellipsis **(…)** for all users with assignment type as **eligible**. You can then select the **Make active** option to go back and make the role assignment **active**.
 
 ## Plan and implement PIM for Azure AD roles
 

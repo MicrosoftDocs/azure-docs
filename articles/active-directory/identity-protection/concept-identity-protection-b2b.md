@@ -44,7 +44,7 @@ From the [Risky users report](https://portal.azure.com/#blade/Microsoft_AAD_IAM/
 
 ### Manually dismiss user's risk
 
-If password reset isn't an option for you from the Azure portal, you can choose to manually dismiss user risk. Dismissing user risk doesn't have any impact on the user's existing password, but this process will change the user's Risk State from At Risk to Dismissed. It's important that you change the user's password using whatever means are available to you in order to bring the identity back to a safe state. 
+If password reset isn't an option for you, you can choose to manually dismiss user risk. Dismissing user risk doesn't have any impact on the user's existing password, but this process will change the user's Risk State from At Risk to Dismissed. It's important that you change the user's password using whatever means are available to you in order to bring the identity back to a safe state. 
 
 To dismiss user risk, go to the [Risky users report](https://portal.azure.com/#blade/Microsoft_AAD_IAM/SecurityMenuBlade/RiskyUsers) in the Azure AD Security menu. Search for the impacted user using the 'User' filter and select the user. Select the "dismiss user risk" option from the top toolbar. This action may take a few minutes to complete and update the user risk state in the report.
 

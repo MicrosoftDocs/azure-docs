@@ -54,8 +54,8 @@ More information can be found about the problem by clicking **More Details** in 
 
 To find out which Conditional Access policy or policies applied and why do the following.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
-1. Browse to **Azure Active Directory** > **Sign-ins**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Browse to **Identity** > **Monitoring & health** > **Sign-in logs**.
 1. Find the event for the sign-in to review. Add or remove filters and columns to filter out unnecessary information.
    1. Add filters to narrow the scope:
       1. **Correlation ID** when you have a specific event to investigate.
