@@ -2,7 +2,7 @@
 title: The regulatory compliance dashboard
 description: Learn how to add and remove regulatory standards from the regulatory compliance dashboard in Defender for Cloud
 ms.topic: how-to
-ms.date: 07/26/2023
+ms.date: 09/04/2023
 ms.custom: ignite-2022
 ---
 
@@ -110,10 +110,9 @@ To add regulatory compliance standards on AWS accounts:
 1. Select the relevant AWS account.
 1. Select **Standards**.
 1. Select the three dots alongside the standard and select **Assign standard**.
-1. Enter all the necessary details for the specific initiative such as scope, parameters, and remediationChoose a standard from the drop-down menu.
-1. Select **Create**.
+1. At the prompt, select **Yes**. The standard is added to your AWS account. 
 
-    :::image type="content" source="media/update-regulatory-compliance-packages/assign-standard-aws.png" alt-text="Screenshot of adding regulatory compliance standard to AWS account." lightbox="media/update-regulatory-compliance-packages/assign-standard-aws.png":::
+    :::image type="content" source="media/update-regulatory-compliance-packages/assign-standard-aws.png" alt-text="Screenshot of the prompt to add a regulatory compliance standard to the AWS account." lightbox="media/update-regulatory-compliance-packages/assign-standard-aws.png":::
 
 
 ### Add a standard to your GCP projects
