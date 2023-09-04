@@ -56,13 +56,11 @@ The process for deploying Standard logic apps generally is more complex than it 
 Currently available Standard playbooks in GitHub:
 - [**Lock SAP User from Teams - Basic** Standard playbook](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Playbooks/Basic-SAPLockUser-STD)
 
-Keep tabs on the [SAP playbooks folder](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Playbooks) in the GitHub repository for more playbooks as they become available. There's also a short introductory video there to help you get started.
+Keep tabs on the [SAP playbooks folder](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Playbooks) in the GitHub repository for more playbooks as they become available. There's also a [short introductory video (external link)](https://www.youtube.com/watch?v=b-AZnR-nQpg) there to help you get started.
 
 ## Next steps
 
 In this article, you learned about the playbooks available in the Microsoft Sentinel solution for SAP® applications.
-
-See [this video (external)](https://www.youtube.com/watch?v=b-AZnR-nQpg) for a demonstration of how to use these playbooks.
 
 - Learn more about the [Microsoft Sentinel solution for SAP® applications](solution-overview.md).
 - Learn how to [deploy the Microsoft Sentinel solution for SAP® applications](deployment-overview.md).
