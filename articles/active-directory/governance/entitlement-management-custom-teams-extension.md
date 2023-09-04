@@ -35,6 +35,8 @@ In this tutorial, you learn how to:
 
 ## Create a Logic App and custom extension in a catalog
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Prerequisite roles: Global administrator, Identity Governance administrator, or Catalog owner and Resource Group Owner.
 
 To create a Logic App and custom extension in a catalog, you'd follow these steps:
