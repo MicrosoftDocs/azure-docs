@@ -31,7 +31,7 @@ By default:
 - AWS accounts get the **AWS Foundational Security Best Practices** standard assigned. This is the AWS-specific guideline for security and compliance best practices based on common compliance frameworks.
 - GCP projects get the **GCP Default** standard assigned.
 
-If a subscription, account, or project has *any* Defender plan enabled, additional standards can be applied.
+If a subscription, account, or project has *any* Defender plan enabled, more standards can be applied.
 
 **Available regulatory standards**:
 
