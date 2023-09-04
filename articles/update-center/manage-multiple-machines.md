@@ -31,7 +31,7 @@ Instead of performing these actions from a selected Azure VM or Arc-enabled serv
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. To view update assessment across all machines, including Azure Arc-enabled servers  navigate to **Update Manager**.
+1. To view update assessment across all machines, including Azure Arc-enabled servers  navigate to **Azure Update Manager**.
 
    :::image type="content" source="./media/manage-multiple-machines/overview-page-inline.png" alt-text="Screenshot of update manager overview page in the Azure portal." lightbox="./media/manage-multiple-machines/overview-page-expanded.png":::
    
@@ -83,7 +83,7 @@ Instead of performing these actions from a selected Azure VM or Arc-enabled serv
 
 Update Manager in Azure enables you to browse information about your Azure VMs and Arc-enabled servers across your Azure subscriptions relevant to Update Manager. The section shows how you can filter information to understand the update status of your machine resources, and for multiple machines, initiate an update assessment, update deployment, and manage their update settings. 
 
- In the Update Manager page, select **Machines** from the left menu.
+ In the Azure Update Manager page, select **Machines** from the left menu.
 
    :::image type="content" source="./media/manage-multiple-machines/update-center-machines-page-inline.png" alt-text="Screenshot of Update Manager Machines page in the Azure portal." lightbox="./media/manage-multiple-machines/update-center-machines-page-expanded.png":::
 

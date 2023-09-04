@@ -16,7 +16,7 @@ This article describes how to create a workbook and how to edit a workbook to cr
 
 ## Create a workbook
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to **Update Manager**.
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to **Azure Update Manager**.
 1. Under **Monitoring**, select **Update reports** to view the Update Manager| Update reports | Gallery.
 1. Select **Quick start** tile > **Empty** or alternatively, you can select **+New** to create a workbook.
 1. Select **+Add** to select any [elements](../azure-monitor/visualize/workbooks-create-workbook.md#create-a-new-azure-workbook) to add to the workbook.
@@ -26,9 +26,9 @@ This article describes how to create a workbook and how to edit a workbook to cr
 1. Select **Done Editing**.
 
 ## Edit a workbook
-1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Update Manager**.
+1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Azure Update Manager**.
 1. Under **Monitoring**, select **Update reports** to view the Azure Update Manager | Update reports | Gallery.
-1. Select **Update Manager** tile > **Overview** to view the Azure Update Manager |Update reports | Overview page.
+1. Select **Azure Update Manager** tile > **Overview** to view the Azure Update Manager |Update reports | Overview page.
 1. Select your subscription, and select **Edit** to enable the edit mode for all the four options.
 
     - Machines overall status & configuration

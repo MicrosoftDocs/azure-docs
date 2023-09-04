@@ -41,7 +41,7 @@ The gallery lists all the saved workbooks and templates for your workspace. You 
 
 - In the **Recently modified** tile, you can view and edit the workbooks.
 
-- In the **Update Manager** tile, you can view the following summary:
+- In the **Azure Update Manager** tile, you can view the following summary:
   :::image type="content" source="./media/workbooks/workbooks-summary-inline.png" alt-text="Screenshot of workbook summary." lightbox="./media/workbooks/workbooks-summary-expanded.png":::
  
 

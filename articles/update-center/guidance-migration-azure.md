@@ -27,7 +27,7 @@ The MCM in Azure and Azure Update Manager can fulfill your patching requirements
 
 ## Manage software updates using Azure Update Manager
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and search for Azure Update Manager.
+1. Sign in to the [Azure portal](https://portal.azure.com) and search for **Azure Update Manager**.
 
    :::image type="content" source="./media/guidance-migration-azure/update-manager-service-selection-inline.png" alt-text="Screenshot of selecting the Azure Update Manager from Azure portal." lightbox="./media/guidance-migration-azure/update-manager-service-selection-expanded.png":::
 
