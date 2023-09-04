@@ -39,7 +39,7 @@ Workspace managed VNet is the recommend way to support network isolation in prom
 
 2. If you to want communicate with [private Azure cognitive services](../../ai-services/cognitive-services-virtual-networks.md), you need to add related user defined outbound rules to related resource. The Azure Machine Learning workspace will create private endpoint in the related resource with auto approve. If the status is stuck in pending, go to related resource to approve the private endpoint manually.
 
-    :::image type="content" source="./media/how-to-secure-prompt-flow/outbound-rule-cognitive-services.png" alt-text="Screenshot of user defined outbound rule for Azure cognitive services" lightbox = "./media/how-to-secure-prompt-flow/outbound-rule-cognitive-services.png":::
+    :::image type="content" source="./media/how-to-secure-prompt-flow/outbound-rule-cognitive-services.png" alt-text="Screenshot of user defined outbound rule for Azure cognitive services." lightbox = "./media/how-to-secure-prompt-flow/outbound-rule-cognitive-services.png":::
 
 3. If you are restricting outbound traffic to only allow specific destinations, you must add a corresponding user-defined outbound rule to allow the relevant FQDN.
 
