@@ -112,7 +112,7 @@ In your user flow, you can disable sign-up so that customer users only sign in b
     }
     ```
 
-    Replace `{user-flow-id}` with the user flow ID you obtained in the previous step. Notice the `isSignUpAllowed` parameter is set to *false*.
+    Replace `{user-flow-id}` with the user flow ID you obtained in the previous step. Notice the `isSignUpAllowed` parameter is set to *false*. To re-enable sign-up, make a call to the Microsoft Graph API endpoint, but set the `isSignUpAllowed` parameter to *true*.   
 
 ## Next steps
 
