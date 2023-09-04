@@ -21,7 +21,7 @@ This article describes how to use simple query mode in Log Analytics.
 To switch to simple mode, select **Simple mode** from the dropdown in the top right corner of the query editor. To switch back to advanced mode, select **Advanced mode** from the same dropdown.
 
 
-
+When you switch from simple to advanced mode, the query editor populates the query for the work you did in simple mode. You can then edit the query as needed.
  
 ## Next steps
 - Walk through a [tutorial on writing queries](/azure/data-explorer/kusto/query/tutorial?pivots=azuremonitor).
