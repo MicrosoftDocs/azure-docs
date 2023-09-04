@@ -134,7 +134,7 @@ For illustration purposes, in this document we're using a two-node cluster with 
 
 :::image type="content" source="media/sql-server-hybrid-benefit/sql-failover-5.png" alt-text="Diagram showing a verification of SQL Server Management Studio connection  to the migrated cluster instance database." border="false" lightbox="media/sql-server-hybrid-benefit/sql-failover-5.png":::
 
-Finally, check the connectivity to SQL Server from other systems and applications in your infrastructure and verify that all applications using the database(s) can still access them. 
+Finally, check the connectivity to SQL Server from other systems and applications in your infrastructure and verify that all applications using the database or databases can still access them. 
 
 ## More information
 
