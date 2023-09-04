@@ -559,7 +559,7 @@ To create a service principal, do the following:
 5. For **Application type**, select **Web**, enter a sign-on URL (for example, *http://localhost*), and then select **Add**.  
    The sign-on URL isn't used and can be any valid URL.
 6. Select **Certificates and secrets**, and then select **New client secret**.
-7. Enter a description for a new key, select **Never expires**, and then select **Add**.
+7. Enter a description for a new key, select **Two years**, and then select **Add**.
 8. Write down the value, which you'll use as the password for the service principal.
 9. Select **Overview**, and then write down the application ID, which you'll use as the username of the service principal.
 
