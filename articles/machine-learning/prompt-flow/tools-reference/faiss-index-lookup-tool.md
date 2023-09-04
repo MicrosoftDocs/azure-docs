@@ -40,7 +40,7 @@ The tool accepts the following inputs:
 
 ## Outputs
 
-The following is an example for JSON format response returned by the tool, which includes the top-k scored entities. The entity follows a generic schema of vector search result provided by our EmbeddingStore SDK. For the Faiss Index Search, the following fields are populated:
+The following is an example for JSON format response returned by the tool, which includes the top-k scored entities. The entity follows a generic schema of vector search result provided by promptflow-vectordb SDK. For the Faiss Index Search, the following fields are populated:
 
 | Field Name | Type | Description |
 | ---- | ---- | ----------- |
