@@ -25,7 +25,7 @@ Your function code runs in the same process as the Functions host process. Suppo
 
 | Supported version | Support level | Expected community EOL date |
 | ---- | ---- |--- |
-| .NET 6 (LTS) | GA | `<<TBD>>` |
+| [.NET 6 (LTS)](https://dotnet.microsoft.com/platform/support/policy/dotnet-core#lifecycle) | GA | November 12, 2024 |
 
 For more information, see [Develop C# class library functions using Azure Functions](../articles/azure-functions/functions-dotnet-class-library.md). Also supports [C# script functions](../articles/azure-functions/functions-reference-csharp.md).
 
@@ -41,9 +41,9 @@ For more information, see [Develop C# class library functions using Azure Functi
 
 | Supported version | Support level | Expected community EOL date |
 | ---- | ---- |--- |
-| .NET 8 | Preview<sup>*</sup> | `<<TBD>>` |
-| .NET 7 | GA | `<<TBD>>` |
-| .NET 6 (LTS) | GA | `<<TBD>>` |
+| .NET 8 | Preview<sup>*</sup> | N/A |
+| [.NET 7](https://dotnet.microsoft.com/platform/support/policy/dotnet-core#lifecycle) | GA | May 14, 2024 |
+| [.NET 6 (LTS)](https://dotnet.microsoft.com/platform/support/policy/dotnet-core#lifecycle) | GA | November 12, 2024 |
 | .NET Framework 4.8 | GA | `<<TBD>>` |
 
 <sup>*</sup> Preview support for .NET 8 function apps is currently limited to Linux applications. To develop using .NET 8 Preview SDKs in Visual Studio, you must use [Visual Studio 2022 Preview](https://visualstudio.microsoft.com/vs/preview/).
@@ -62,9 +62,9 @@ The following table shows the language versions supported for Java functions. Se
 
 | Supported version | Support level | Expected community EOL date |
 | ---- | ---- |--- |
-| Java 17 | GA | `<<TBD>>` |
-| Java 11 | GA | `<<TBD>>` |
-| Java 8 | GA | `<<TBD>>` |
+| Java 17 | GA | September 2029 |
+| Java 11 | GA | September 2026 |
+| Java 8 | GA | December 2030 |
 
 For more information, see [Azure Functions Java developer guide](../articles/azure-functions/functions-reference-java.md).
 
@@ -76,8 +76,8 @@ The following table shows the runtime and language versions supported for Node.j
 
 | Supported version | Support level | Expected community EOL date |
 | ---- | ---- |--- |
-| Node.js 18 | GA | `<<TBD>>` |
-| Node.js 16 | GA | `<<TBD>>` |
+| Node.js 18 | GA | April, 2025|
+| Node.js 16 | GA | September, 2023 |
 | Node.js 14 | GA | `<<TBD>>` |
 
 ### [v1.x](#tab/v1)
@@ -95,7 +95,7 @@ The following table shows the language version supported for PowerShell function
 
 | Supported version | Support level | Expected community EOL date |
 | ---- | ---- |--- |
-| PowerShell 7.2 | GA | `<<TBD>>` |
+| PowerShell 7.2 | GA | November, 2024 |
 
 For more information, see [Azure Functions PowerShell developer guide](../articles/azure-functions/functions-reference-powershell.md).
 ::: zone-end
@@ -105,9 +105,9 @@ The following table shows the language versions supported for Python functions. 
 | Supported version | Support level | Expected community EOL date |
 | ---- | ---- |--- |
 | Python 3.11 | Preview | N/A |
-| Python 3.10 | GA |`<<TBD>>` |
-| Python 3.9 | GA | `<<TBD>>` |
-| Python 3.8 | GA | `<<TBD>>` |
+| Python 3.10 | GA | October, 2026 |
+| Python 3.9 | GA | October, 2025 |
+| Python 3.8 | GA | October, 2024 |
 | Python 3.7 | GA | `<<TBD>>` |
 
 For more information, see [Azure Functions Python developer guide](../articles/azure-functions/functions-reference-python.md#python-version).
