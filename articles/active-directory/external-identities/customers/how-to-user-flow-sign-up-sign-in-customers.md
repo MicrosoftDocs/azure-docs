@@ -91,7 +91,7 @@ You can choose the order in which the attributes are displayed on the sign-up pa
 
 ##  Disable sign-up in a sign-up and sign-in user flow
 
-In your user flow, you can use [Microsoft Graph API](microsoft-graph-operations.md) to disable sign-up so that customer users only sign in. You need to know the ID of the user flow that you want whose sign-up you want to disable. You can't read the user flow ID from the Microsoft Entra Admin center, but you can retrieve it via Microsoft Graph API if you know the app associated with it.
+In your user flow, you can disable sign-up so that customer users only sign in by using [Microsoft Graph API](microsoft-graph-operations.md). You need to know the ID of the user flow that you want whose sign-up you want to disable. You can't read the user flow ID from the Microsoft Entra Admin center, but you can retrieve it via Microsoft Graph API if you know the app associated with it.
 
 1. Read the application ID associated with the user flow.
 
