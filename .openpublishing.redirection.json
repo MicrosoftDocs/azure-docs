@@ -23338,6 +23338,46 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/active-directory/develop/migrate-adal-msal-java.md",
+            "redirect_url": "/entra/msal/java/advanced/migrate-adal-msal-java",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/msal-logging-java.md",
+            "redirect_url": "/entra/msal/java/advanced/msal-logging-java",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/msal-error-handling-java.md",
+            "redirect_url": "/entra/msal/java/advanced/msal-error-handling-java",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/msal-java-token-cache-serialization.md",
+            "redirect_url": "/entra/msal/java/advanced/msal-java-token-cache-serialization.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/migrate-python-adal-msal.md",
+            "redirect_url": "/entra/msal/python/advanced/migrate-python-adal-msal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/msal-logging-python.md",
+            "redirect_url": "/entra/msal/python/advanced/msal-logging-python",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/msal-error-handling-python.md",
+            "redirect_url": "/entra/msal/python/advanced/msal-error-handling-python",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/msal-python-token-cache-serialization.md",
+            "redirect_url": "/entra/msal/python/advanced/msal-python-token-cache-serialization",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/networking/azure-orbital-overview.md",
             "redirect_url": "/azure/orbital/overview",
             "redirect_document_id": false
