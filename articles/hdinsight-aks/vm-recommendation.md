@@ -1,9 +1,9 @@
 ---
-title: What's new in HDInsight on AKS?
-description: An introduction to new concepts in HDInsight on AKS that aren't in HDInsight.
+title: VM Recommendations
+description: Default and Minimum VM Size Recommendations HDInsight on AKS.
 ms.service: hdinsight-aks
 ms.topic: concept
-ms.date: 08/06/2023
+ms.date: 09/04/2023
 ---
 
 # Default and Minimum VM Size Recommendations for HDInsight on AKS
