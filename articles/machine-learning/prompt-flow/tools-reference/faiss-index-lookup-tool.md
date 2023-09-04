@@ -25,6 +25,8 @@ Faiss Index Lookup is a tool tailored for querying within a user-provided Faiss-
     | ---- | ---- |
     | workspace datastores or workspace default blob | AzureML Data Scientist |
     | other blobs | Storage Blob Data Reader |
+> [!NOTE]
+> When legacy tools switching to code first mode, if you encounter "embeddingstore.tool.faiss_index_lookup.search" error, please refer to the [Tool FAQ](./faq.md).
 
 ## Inputs
 
