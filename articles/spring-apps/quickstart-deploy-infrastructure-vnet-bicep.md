@@ -47,13 +47,13 @@ To deploy the cluster, use the following steps.
 
 First, create an *azuredeploy.bicep* file with the following contents:
 
-### [Standard plan](#tab/azure-spring-apps-standard)
-
-:::code language="bicep" source="~/azure-spring-apps-reference-architecture/Bicep/brownfield-deployment/azuredeploySpringStandard.bicep":::
-
 ### [Enterprise plan](#tab/azure-spring-apps-enterprise)
 
 :::code language="bicep" source="~/azure-spring-apps-reference-architecture/Bicep/brownfield-deployment/azuredeploySpringEnterprise.bicep":::
+
+### [Standard plan](#tab/azure-spring-apps-standard)
+
+:::code language="bicep" source="~/azure-spring-apps-reference-architecture/Bicep/brownfield-deployment/azuredeploySpringStandard.bicep":::
 
 ---
 
