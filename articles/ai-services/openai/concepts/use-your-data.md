@@ -109,7 +109,7 @@ For example, if you're creating a chatbot where the data consists of transcripti
 This system message can help improve the quality of the response by specifying the domain (in this case finance) and mentioning that the data consists of call transcriptions. It helps set the necessary context for the model to respond appropriately. 
 
 > [!NOTE]
-> The system message is used to modify how gpt assistant responds to user question based on retrieved documentation. It does not affect the retrieval process. If you would love to provide instruction for the retrieval process, it is better to include in the questions.
+> The system message is used to modify how GPT assistant responds to a user question based on retrieved documentation. It does not affect the retrieval process. If you'd like to provide instructions for the retrieval process, it is better to include them in the questions.
 > The system message is only guidance. The model might not adhere to every instruction specified because it has been primed with certain behaviors such as objectivity, and avoiding controversial statements. Unexpected behavior may occur if the system message contradicts with these behaviors. 
 
 ### Maximum response 
