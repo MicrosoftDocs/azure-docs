@@ -18,7 +18,9 @@ This guide helps customers who buy Microsoft software and services through a Mic
 The onboarding processes and important considerations vary, depending on whether you are:
 
 - New to MCA and have never signed an MCA contract but may buy Azure and per-seat products using another method, such as licensing vehicle or contracting type.
+
 -Or-
+
 - Migrating from an existing Enterprise Agreement (EA) to an MCA.
 
 This guide follows each path and provides information for each step of the process. Several of the following steps are similar for each path. However, there are important notes called out to make each step of the process easier.
