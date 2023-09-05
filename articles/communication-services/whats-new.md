@@ -20,7 +20,7 @@ We've created this page to keep you updated on new features, blog posts, and oth
 ## New features
 Get detailed information on the latest Azure Communication Services feature launches.
 ### Trial phone numbers
-:::image type="content" source="./media/whats-new-images/09-23/trial-phone-numbers.png" alt-text="A developer sits in front of multiple computer monitors.":::
+:::image type="content" source="./media/whats-new-images/09-23/trial-phone-numbers.png" alt-text="A photograph of a developer sitting in front of multiple computer monitors.":::
 
 Explore the benefits of Trial Phone Numbers for Azure Communication Services. Enjoy a 30-day free trial period to assess features and make calls for up to 60 minutes, perfect for thorough testing and experimentation. Additionally, Trial Phone Numbers include recipient phone number verification, ensuring that calls are made only to verified numbers, safeguarding against any potential misuse.
 
@@ -34,7 +34,7 @@ Explore the benefits of Trial Phone Numbers for Azure Communication Services. En
 
  
 ### Job router
-:::image type="content" source="./media/whats-new-images/05-23/call-automation.png" alt-text="A worker sitting in a large office talking on the phone.":::
+:::image type="content" source="./media/whats-new-images/05-23/call-automation.png" alt-text="A photograph of a worker sitting in a large office talking on the phone.":::
 
  Job Router is a robust tool that makes it easy for developers to add advanced routing rules to their business application. As part of Azure Communication Services, Job Router simplifies the routing of customer engagement interactions to the best agent or automated services, ensuring that every interaction is directed to the most appropriate resource.
 
@@ -45,8 +45,8 @@ Explore the benefits of Trial Phone Numbers for Azure Communication Services. En
 <br>
 
 
-### New geographies available for Email
-:::image type="content" source="./media/whats-new-images/09-23/geo-expansion.png" alt-text="A map of the world showing multiple countries.":::
+### New geographies available for email
+:::image type="content" source="./media/whats-new-images/09-23/geo-expansion.png" alt-text="A photograph of a map of the world showing multiple countries.":::
 
 With Email Geo Expansion, you can choose the location where your email communication service is created. This update means all email domain config information and data stored by Azure Communication Services Email at rest is retained in that geography. Secure your data and improve your email communication with Email Geo Expansion.
 <br>
