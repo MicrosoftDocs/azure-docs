@@ -17,6 +17,8 @@ Before you add any resources for Microsoft Sentinel, use the [Azure pricing calc
 
 Costs for Microsoft Sentinel are only a portion of the monthly costs in your Azure bill. Although this article explains how to plan costs and understand the billing for Microsoft Sentinel, you're billed for all Azure services and resources your Azure subscription uses, including Partner services.
 
+This article is part of the [Deployment guide for Microsoft Sentinel](deploy-overview.md).
+
 ## Free trial
 
 Enable Microsoft Sentinel on an Azure Monitor Log Analytics workspace and the first 10 GB/day is free for 31 days. The cost for both Log Analytics data ingestion and Microsoft Sentinel analysis charges up to the 10 GB/day limit are waived during the 31-day trial period. This free trial is subject to a 20 workspace limit per Azure tenant.
@@ -190,7 +192,7 @@ Any other services you use could have associated costs.
 After you enable Microsoft Sentinel on a Log Analytics workspace consider these configuration options: 
 
 - Retain all data ingested into the workspace at no charge for the first 90 days. Retention beyond 90 days is charged per the standard [Log Analytics retention prices](https://azure.microsoft.com/pricing/details/monitor/).
-- Specify different retention settings for individual data types. Learn about [retention by data type](../azure-monitor/logs/data-retention-archive.md#configure-retention-and-archive-at-the-table-level). 
+- Specify different retention settings for individual data types. Learn about [retention by data type](../azure-monitor/logs/data-retention-archive.md#configure-retention-and-archive-at-the-table-level. 
 - Enable long-term retention for your data and have access to historical logs by enabling archived logs. Data archive is a low-cost retention layer for archival storage. It's charged based on the volume of data stored and scanned. Learn how to [configure data retention and archive policies in Azure Monitor Logs](../azure-monitor/logs/data-retention-archive.md). Archived logs are in public preview.
 
 The 90 day retention doesn't apply to basic logs. If you want to extend data retention for basic logs beyond eight days, store that data in archived logs for up to seven years.

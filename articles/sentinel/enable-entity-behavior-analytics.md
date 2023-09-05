@@ -9,7 +9,7 @@ ms.author: yelevin
 
 # Enable User and Entity Behavior Analytics (UEBA) in Microsoft Sentinel 
 
-In the previous deployment step, you enabled the Microsoft Sentinel security content you need to protect your systems. In this article, you learn how to enable and use the UEBA feature to streamline the analysis process. 
+In the previous deployment step, you enabled the Microsoft Sentinel security content you need to protect your systems. In this article, you learn how to enable and use the UEBA feature to streamline the analysis process. This article is part of the [Deployment guide for Microsoft Sentinel](deploy-overview.md).
 
 As Microsoft Sentinel collects logs and alerts from all of its connected data sources, it analyzes them and builds baseline behavioral profiles of your organization’s entities (such as users, hosts, IP addresses, and applications) across time and peer group horizon. Using a variety of techniques and machine learning capabilities, Microsoft Sentinel can then identify anomalous activity and help you determine if an asset has been compromised. Learn more about [UEBA](identify-threats-with-entity-behavior-analytics.md).
 

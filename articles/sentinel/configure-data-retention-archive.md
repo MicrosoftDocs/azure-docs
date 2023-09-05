@@ -10,7 +10,7 @@ ms.author: lwainstein
 
 # Configure data retention and archive in Microsoft Sentinel
 
-In the previous deployment step, you enabled the User and Entity Behavior Analytics (UEBA) feature to streamline your analysis process. In this article, you learn how to set up data retention and archive, to make sure your organization retains the data that's important in the long term. 
+In the previous deployment step, you enabled the User and Entity Behavior Analytics (UEBA) feature to streamline your analysis process. In this article, you learn how to set up data retention and archive, to make sure your organization retains the data that's important in the long term. This article is part of the [Deployment guide for Microsoft Sentinel](deploy-overview.md).
 
 ## Configure data retention and archive
 

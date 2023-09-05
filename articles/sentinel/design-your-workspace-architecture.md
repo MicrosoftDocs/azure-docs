@@ -9,7 +9,7 @@ ms.date: 06/28/2023
 
 # Design your Microsoft Sentinel workspace architecture
 
-This article provides a decision tree to help you make key decisions about how to design your Microsoft Sentinel workspace architecture. For more information, see [Microsoft Sentinel sample workspace designs](sample-workspace-designs.md) and [Microsoft Sentinel workspace architecture best practices](best-practices-workspace-architecture.md).
+This article provides a decision tree to help you make key decisions about how to design your Microsoft Sentinel workspace architecture. For more information, see [Microsoft Sentinel sample workspace designs](sample-workspace-designs.md) and [Microsoft Sentinel workspace architecture best practices](best-practices-workspace-architecture.md). This article is part of the [Deployment guide for Microsoft Sentinel](deploy-overview.md).
 
 ## Prerequisites
 

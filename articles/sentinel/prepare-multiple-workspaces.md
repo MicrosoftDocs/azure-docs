@@ -11,9 +11,9 @@ ms.service: microsoft-sentinel
 
 # Prepare for multiple workspaces and tenants in Microsoft Sentinel
 
-To prepare for your deployment, you need to determine whether a multiple workspace architecture is relevant for your environment. In this article, you learn how Microsoft Sentinel can extend across multiple workspaces and tenants so you can determine whether this capability suits your organization's needs.
+To prepare for your deployment, you need to determine whether a multiple workspace architecture is relevant for your environment. In this article, you learn how Microsoft Sentinel can extend across multiple workspaces and tenants so you can determine whether this capability suits your organization's needs. This article is part of the [Deployment guide for Microsoft Sentinel](deploy-overview.md).
 
-If you've determined and set up your environment to extend across workspaces, you can [manage and monitor cross-workspace architecture](extend-sentinel-across-workspaces-tenants.md) or [manage multiple workspaces with workspace manager](workspace-manager.md). 
+If you've decided to set up your environment to extend across workspaces, see [Extend Microsoft Sentinel across workspaces and tenants](extend-sentinel-across-workspaces-tenants.md) and [Centrally manage multiple Microsoft Sentinel workspaces with workspace manager](workspace-manager.md). 
 
 ## The need to use multiple Microsoft Sentinel workspaces
 

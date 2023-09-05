@@ -18,7 +18,9 @@ When planning your Microsoft Sentinel workspace deployment, you must also design
 
 For more information, see [Design your Microsoft Sentinel workspace architecture](design-your-workspace-architecture.md) and [Sample workspace designs](sample-workspace-designs.md) for common scenarios, and [Pre-deployment activities and prerequisites for deploying Microsoft Sentinel](prerequisites.md).
 
-See our video: [Architecting SecOps for Success: Best Practices for Deploying Microsoft Sentinel](https://youtu.be/DyL9MEMhqmI)
+See our video: [Architecting SecOps for Success: Best Practices for Deploying Microsoft Sentinel](https://youtu.be/DyL9MEMhqmI).
+
+This article is part of the [Deployment guide for Microsoft Sentinel](deploy-overview.md).
 
 ## Tenancy considerations
 
