@@ -5,6 +5,7 @@ description: Migrate managed online endpoint/deployment runtime to compute insta
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
+ms.topic: how-to
 author: cloga
 ms.author: lochen
 ms.reviewer: lagayhar

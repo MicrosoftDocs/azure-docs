@@ -150,10 +150,7 @@ az login(optional)
 az ml environment create -f environment.yaml --subscription <sub-id> -g <resource-group> -w <workspace>
 ```
 
-Go to your workspace UI page, go to the `environment` page,  and locate the custom environment you created. You can now use it to create a runtime in your Prompt flow. To learn more, see:
-
-- [Create compute instance runtime in UI](how-to-create-manage-runtime.md#create-compute-instance-runtime-in-ui)
-- [Create managed online endpoint runtime in UI](how-to-create-manage-runtime.md#create-managed-online-endpoint-runtime-in-ui)
+Go to your workspace UI page, go to the `environment` page,  and locate the custom environment you created. You can now use it to create a runtime in your Prompt flow. To learn more, see [Create compute instance runtime in UI](how-to-create-manage-runtime.md#create-compute-instance-runtime-in-ui)
 
 To Learn more about environment CLI, see [Manage environments](../how-to-manage-environments-v2.md#manage-environments).
 
@@ -301,8 +298,6 @@ environment:
 ```
 
 Use following CLI command `az ml online-deployment create -f <yaml_file> -g <resource_group> -w <workspace_name>` to create managed online deployment that can be used as a Prompt flow runtime.
-
-Follow [Create managed online endpoint runtime in UI](how-to-create-manage-runtime.md#create-managed-online-endpoint-runtime-in-ui) to select this deployment as Prompt flow runtime.
 
 ## Next steps
 

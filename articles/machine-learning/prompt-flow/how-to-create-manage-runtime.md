@@ -22,7 +22,7 @@ Prompt flow's runtime provides the computing resources required for the applicat
 
 ## Runtime type
 
-You can choose between two types of runtimes for Prompt flow: [compute instance (CI)](../concept-compute-instance.md), [automatic](../how-to-use-serverless-compute) and [managed online endpoint/deployment](../concept-endpoints-online.md). Here are some differences between them to help you decide which one suits your needs.
+You can choose between two types of runtimes for Prompt flow: [compute instance (CI)](../concept-compute-instance.md), [automatic](../how-to-use-serverless-compute.md) and [managed online endpoint/deployment](../concept-endpoints-online.md). Here are some differences between them to help you decide which one suits your needs.
 
 | Runtime type                                 |Compute instance runtime| Automatic runtime |Managed online deployment runtime (depracated)|
 |----------------------------------------------|------------------------|--------------------|----------------------------------------------|
@@ -46,7 +46,6 @@ To create and use runtime to authoring prompt flow, you need to have `AzureML Da
 
 ### Prerequisites
 
-- Make sure your workspace linked with ACR, you can link an existing ACR when you're creating a new workspace, or you can trigger environment build, which may auto link ACR to Azure Machine Learning workspace. To learn more, see [How to trigger environment build in workspace](#potential-root-cause-and-solution).
 - You need `AzureML Data Scientist` role of the workspace to create a runtime.
 
 > [!IMPORTANT]
