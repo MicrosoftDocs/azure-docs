@@ -67,7 +67,7 @@ In this sample, you use the .NET Core CLI to build your application but you can 
 
 ## Add a reference to the ONNX model
 
-A way for the console application to access the ONNX model is to add it to the build output directory.  To learn more about MSBuild common items, see the [MSBuild guide](/visualstudio/msbuild/common-msbuild-project-items).
+A way for the console application to access the ONNX model is to add it to the build output directory.  To learn more about MSBuild common items, see the [MSBuild guide](/visualstudio/msbuild/common-msbuild-project-items). If you do not already have a model, follow [this notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/automl-standalone-jobs/automl-classification-task-bankmarketing/automl-classification-task-bankmarketing-serverless.ipynb) to create an example model.
 
 Add a reference to your ONNX model file in your application
 
