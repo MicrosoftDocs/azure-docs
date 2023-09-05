@@ -147,9 +147,11 @@ catch
 }
 ```
 
-## Configure simultaneous backups to save recovery points in local storage and Recovery Services vault 
+## Configure simultaneous backups
 
-To configure backups to save recovery points in  local storage and Recovery Services vault, follow these steps:
+You can now configure backups to save the SQL server recovery points in a local storage and Recovery Services vault simultaneously.
+
+To configure simultaneous backups, follow these steps:
 
 1. Go to the `C:\Program Files\Azure Workload Backup\bin\plugins` location, and then create the file **PluginConfigSettings.json**, if it's not present.
 2. Add the comma separated key value entities, with keys `EnableLocalDiskBackupForBackupTypes` and `LocalDiskBackupFolderPath` to the JSON file.
@@ -185,7 +187,7 @@ To configure backups to save recovery points in  local storage and Recovery Serv
 
    The name of the file is the `VDI device set guid`, which is used for the backup operation.
 
-5. Check if the target location under `LocalDiskBackupFolderPath` has *read* and *write* permissions for `NT Service\AzureWLBackupPluginSvc`.
+4. Check if the target location under `LocalDiskBackupFolderPath` has *read* and *write* permissions for `NT Service\AzureWLBackupPluginSvc`.
 
    >[!Note]
    >For a folder on the local VM disks, right-click the folder and configure the required permissions for `NT Service\AzureWLBackupPluginSvc` on the **Security** tab.
