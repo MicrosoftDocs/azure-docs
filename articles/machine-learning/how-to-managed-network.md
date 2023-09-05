@@ -48,6 +48,17 @@ The following diagram shows a managed virtual network configured to __allow only
 
 :::image type="content" source="./media/how-to-managed-network/only-approved-outbound.svg" alt-text="Diagram of managed network isolation configured for allow only approved outbound." lightbox="./media/how-to-managed-network/only-approved-outbound.svg":::
 
+### Azure Machine Learning studio
+
+If you have inbound communication with your workspace from clients in an Azure Virtual Network, and those clients will be using Azure Machine Learning studio, create a _private endpoint_ or _service endpoint_ for the default storage account in the virtual network.
+
+Part of Azure Machine Learning studio runs locally in the client's web browser, and communicates directly with the default storage for the workspace. Creating a private endpoint or service endpoint for the default storage account in the virtual network ensures that the client can communicate with the storage account.
+
+> [!TIP]
+> A using a service endpoint in this configuration can reduce costs.
+
+For more information on creating a private endpoint or service endpoint, see the [Connect privately to a storage account](/azure/storage/common/storage-private-endpoints) and [Service Endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview) articles.
+
 ## Supported scenarios
 
 |Scenarios|Supported|
@@ -787,74 +798,7 @@ To enable the [serverless spark jobs](how-to-submit-spark-jobs.md) for the manag
 
     Use the __Azure CLI__ or __Python SDK__ tabs to learn how to manually provision the managed VNet with serverless spark support.
 
-    ---
-
-## Configure compute resources
-
-When using a managed network, compute resources managed by Azure Machine Learning can participate in the virtual network. Azure Machine Learning _compute clusters_, _compute instances_, and _managed online endpoints_ are created in the managed network. Use the tabs below to learn more information about creating compute cluster and compute instances in a managed network. For information on managed online endpoints, see [secure online endpoints with network isolation](how-to-secure-online-endpoint.md).
-
-# [Azure CLI](#tab/azure-cli)
-
-To create a __compute cluster__ with no public IP, use the following command:
-
-```azurecli
-az ml compute create --name cpu-cluster --resource-group rg --workspace-name ws --type AmlCompute --set enable_node_public_ip=False
-```
-
-To create a __compute instance__ with no public IP, use the following command:
-
-```azurecli
-az ml compute create --name myci --resource-group rg --workspace-name ws --type ComputeInstance --set enable_node_public_ip=False
-```
-
-# [Python SDK](#tab/python)
-
-The following Python SDK example shows how to create a compute cluster and compute instance with no public IP:
-
-```python
-from azure.ai.ml.entities import AmlCompute
-
-# Create a compute cluster
-compute_cluster = AmlCompute(
-    name="mycomputecluster,
-    size="STANDARD_D2_V2",
-    min_instances=0,
-    max_instances=4,
-    enable_node_public_ip=False
-)
-ml_client.begin_create_or_update(entity=compute_cluster)
-
-# Create a compute instance
-from azure.ai.ml.entities import ComputeInstance
-
-compute_instance = ComputeInstance(
-    name="mycomputeinstance",
-    size="STANDARD_DS3_V2",
-    enable_node_public_ip=False
-)
-ml_client.begin_create_or_update(compute_instance)
-```
-
-# [Studio](#tab/portal)
-
-You can't create a compute cluster or compute instance from the Azure portal. Instead, use the following steps to create these computes from Azure Machine Learning [studio](https://ml.azure.com):
-
-1. From [studio](https://ml.azure.com), select your workspace.
-1. Select the __Compute__ page from the left navigation bar.
-1. Select the __+ New__ from the navigation bar of _compute instance_ or _compute cluster_.
-1. Configure the VM size and configuration you need, then select __Next__ until you arrive at the following pages:
-
-    * For a __compute cluster__, use the __Advanced Settings__ page and select the __No Public IP__ option to remove the public IP address.
-
-        :::image type="content" source="./media/how-to-managed-network/compute-cluster-no-public-ip.png" alt-text="A screenshot of how to configure no public IP for compute cluster." lightbox="./media/how-to-managed-network/compute-cluster-no-public-ip.png":::
-
-    * For a __compute instance__, use the __Security__ page and select the __No Public IP__ option to remove the public IP address.
-
-        :::image type="content" source="./media/how-to-managed-network/compute-instance-no-public-ip.png" alt-text="A screenshot of how to configure no public IP for compute instance." lightbox="./media/how-to-managed-network/compute-instance-no-public-ip.png":::
-
-1. Continue with the creation of the compute resource.
-
---- 
+    --- 
 
 ## Manage outbound rules
 
@@ -938,7 +882,24 @@ __Inbound__ service tag rules:
 
 ## List of recommended outbound rules
 
+To allow installation of __Python packages for training and deployment__, add an outbound FQDN rule to allow traffic to the following host names:
+
 [!INCLUDE [recommended outbound](includes/recommended-network-outbound.md)]
+
+If you plan to use __Visual Studio Code__ with Azure Machine Learning, allow outbound communication with the following hosts:
+
+* `*.vscode.dev`
+* `vscode.blob.core.windows.net`
+* `*.gallerycdn.vsassets.io`
+* `raw.githubusercontent.com`
+* `*.vscode-unpkg.net`
+* `*.vscode-cdn.net`
+* `*.vscodeexperiments.azureedge.net`
+* `default.exp-tas.com`
+* `code.visualstudio.com`
+* `update.code.visualstudio.com`
+* `*.vo.msecnd.net`
+* `marketplace.visualstudio.com`
 
 ## Private endpoints
 
@@ -950,6 +911,7 @@ Private endpoints are currently supported for the following Azure services:
 * Azure Container Registry
 * Azure Key Vault
 * Azure AI services
+* Azure Cognitive Search
 * Azure SQL Server
 * Azure Data Factory
 * Azure Cosmos DB (all sub resource types)
@@ -994,3 +956,4 @@ If you have an existing workspace and want to enable managed virtual network for
 ## Next steps
 
 * [Troubleshoot managed virtual network](how-to-troubleshoot-managed-network.md)
+* [Configure managed computes in a managed virtual network](how-to-managed-network-compute.md)

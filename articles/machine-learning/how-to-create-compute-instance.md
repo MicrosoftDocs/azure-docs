@@ -127,7 +127,7 @@ Where the file *create-instance.yml* is:
 
         * If you are using an __Azure Virtual Network__, specify the **Resource group**, **Virtual network**, and **Subnet** to create the compute instance inside an Azure Virtual Network (vnet). You can also select __No public IP__ to prevent the creation of a public IP address, which requires a private link workspace. You must also satisfy these [network requirements](./how-to-secure-training-vnet.md) for virtual network setup.
 
-        * If you are using an Azure Machine Learning __managed virtual network__, the compute instance will be created inside the managed virtual network. You can also select __No public IP__ to prevent the creation of a public IP address. For more information, see [Workspace managed network isolation](./how-to-managed-network.md#configure-compute-resources). 
+        * If you are using an Azure Machine Learning __managed virtual network__, the compute instance will be created inside the managed virtual network. You can also select __No public IP__ to prevent the creation of a public IP address. For more information, see [managed compute with a managed network](./how-to-managed-network-compute.md). 
 
     * Assign the computer to another user. For more about assigning to other users, see [Create on behalf of](#create-on-behalf-of).
     * Provision with a setup script - for more information about how to create and use a setup script, see [Customize the compute instance with a script](how-to-customize-compute-instance.md).
@@ -166,7 +166,7 @@ Where the file *create-instance.yml* is:
 
         * If you are using an __Azure Virtual Network__, specify the **Resource group**, **Virtual network**, and **Subnet** to create the compute instance inside an Azure Virtual Network (vnet). You can also select __No public IP__ to prevent the creation of a public IP address, which requires a private link workspace. You must also satisfy these [network requirements](./how-to-secure-training-vnet.md) for virtual network setup.
 
-        * If you are using an Azure Machine Learning __managed virtual network__, the compute instance will be created inside the managed virtual network. You can also select __No public IP__ to prevent the creation of a public IP address. For more information, see [Workspace managed network isolation](./how-to-managed-network.md#configure-compute-resources). 
+        * If you are using an Azure Machine Learning __managed virtual network__, the compute instance will be created inside the managed virtual network. You can also select __No public IP__ to prevent the creation of a public IP address. For more information, see [managed compute with a managed network](./how-to-managed-network-compute.md). 
     * Allow root access. (preview)
 
 1. Select **Applications** if you want to add custom applications to use on your compute instance, such as RStudio or Posit Workbench.  See [Add custom applications such as RStudio or Posit Workbench](#add-custom-applications-such-as-rstudio-or-posit-workbench).
