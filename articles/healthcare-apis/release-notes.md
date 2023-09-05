@@ -19,6 +19,14 @@ ms.custom: references_regions
 
 Azure Health Data Services is a set of managed API services based on open standards and frameworks for the healthcare industry. They enable you to build scalable and secure healthcare solutions by bringing protected health information (PHI) datasets together and connecting them end-to-end with tools for machine learning, analytics, and AI. This document provides details about the features and enhancements made to Azure Health Data Services including the different service types (FHIR service, DICOM service, and MedTech service) that seamlessly work with one another.
 
+
+## August 2023
+#### Azure Health Data Services
+
+#### FHIR Service
+**Incremental import mode is available in GA**
+For details on Incremental Import, visit [Import Documentation](./../healthcare-apis/fhir/configure-import-data.md).
+
 ## July 2023
 #### Azure Health Data Services
 
@@ -50,13 +58,6 @@ With Incremental Load mode, customers can:
 1.	Perform concurrent ingestion of data while simultaneously executing API CRUD operations on the FHIR server.
 1.	Ingest versioned FHIR resources.
 1.	Maintain the lastUpdated field value in FHIR resources during ingestion.
-
-> [!IMPORTANT]
-> Incremental import mode is currently in public preview
-> Preview APIs and SDKs are provided without a service-level agreement. We recommend that you don't use them for production workloads. Some features might not be supported, or they might have constrained capabilities.
-> For more information, review [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-For details on Incremental Import, visit [Import Documentation](./../healthcare-apis/fhir/configure-import-data.md).
 
 **Reindex operation provides job status at resource level**
 
