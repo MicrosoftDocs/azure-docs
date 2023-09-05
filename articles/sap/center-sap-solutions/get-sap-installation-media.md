@@ -5,8 +5,8 @@ ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
 ms.topic: how-to
 ms.date: 04/06/2023
-author: lauradolan
-ms.author: ladolan
+author: sagarkeswani
+ms.author: sagarkeswani
 #Customer intent: As a developer, I want to download the necessary SAP media for installing the SAP software and upload it for us with Azure Center for SAP solutions.
 ---
 
