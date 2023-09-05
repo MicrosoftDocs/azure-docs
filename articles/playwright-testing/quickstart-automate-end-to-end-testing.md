@@ -164,7 +164,7 @@ Update the CI workflow definition to run your Playwright tests with the Playwrig
 
     The following steps describe the workflow changes for GitHub Actions or Azure Pipelines. Similarly, you can run your Playwright tests by using the Playwright CLI in other CI platforms.
 
-# [GitHub Actions](#tab/github)
+    # [GitHub Actions](#tab/github)
 
     ```yml
     - name: Install dependencies
@@ -179,7 +179,7 @@ Update the CI workflow definition to run your Playwright tests with the Playwrig
       run: npx playwright test -c playwright.service.config.ts --workers=20
     ```
 
-# [Azure Pipelines](#tab/pipelines)
+    # [Azure Pipelines](#tab/pipelines)
 
     ```yml
     - task: PowerShell@2
@@ -202,7 +202,7 @@ Update the CI workflow definition to run your Playwright tests with the Playwrig
         workingDirectory: path/to/playwright/folder # update accordingly
     ```
 
----
+    ---
 
 1. Save and commit your changes.
 
