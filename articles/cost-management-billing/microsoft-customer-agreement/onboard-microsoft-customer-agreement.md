@@ -25,7 +25,7 @@ This guide follows each path and provides information for each step of the proce
 
 >[!IMPORTANT]
 > - Migrating from an existing EA to an MCA is a billing change. It isn't an Azure resource or access permission change.
-> - MCA may not be available for all customers. Work with your Microsoft account manager to see if you're eligible or review the [Microsoft Customer Agreement FAQ](microsoft-customer-agreement-faq.md).
+> - MCA may not be available for all customers. Work with your Microsoft account manager to see if you're eligible or review the [Microsoft Customer Agreement FAQ](microsoft-customer-agreement-faq.yml).
 
 ## Important terms
 
@@ -72,7 +72,7 @@ Start your journey to MCA by using the steps in the following diagram. More deta
 
 :::image type="content" source="./media/onboard-microsoft-customer-agreement/new-customer-steps.png" alt-text="Diagram showing the steps for new customers to onboard to an MCA." lightbox="./media/onboard-microsoft-customer-agreement/new-customer-steps.png" :::
 
-## Contract setup
+## New customer contract setup
 
 The following sections help you set up your MCA contract.
 
@@ -125,7 +125,7 @@ For both electronic and physical signature signing steps, after you accept the p
 > [!IMPORTANT]
 > Until you complete the purchase checkout process, your MCA isn't available for use.
 
-## Become operational
+## Become operational with new MCA
 
 To become operational includes steps to manage billing accounts, fully understand your invoices and get to know the tools that help you budget and forecast expenditures. Complete the following key steps. For more information, see [Top customer actions with MCA](https://www.microsoft.com/licensing/news/top_customer_actions_after_accepting_microsoft_customer_agreement).
 
@@ -143,10 +143,10 @@ Learn more about features that you can use to optimize your experience and accel
 
 For more information, see the following resources:
 
-- [Cost Management - Azure Blog](https://azure.microsoft.com/en-us/blog/tag/cost-management/)
+- [Cost Management - Azure Blog](https://azure.microsoft.com/blog/tag/cost-management/)
 - [Microsoft Cost Management – YouTube](https://www.youtube.com/@AzureCostManagement)
 
-## Establish governance for your MCA
+## Establish governance for your new MCA
 
 The following sections help you establish governance for your MCA.
 
@@ -162,7 +162,7 @@ The MCA provides you with flexibility to organize your costs based on your needs
 
 The MCA allows you to create multi-tenant billing relationships. They let you securely share your billing account with other tenants, while maintaining control over your billing data. If your organization needs multiple tenants, see [Manage billing across multiple tenants](../manage/manage-billing-across-tenants.md).
 
-## Manage your MCA
+## Manage your new MCA
 
 Use the following sections to manage your MCA.
 
@@ -174,7 +174,7 @@ It's important to ensure that your billing account information is accurate and u
 
 Follow the instructions at the bottom of your invoice on how to pay your bill.
 
-There are two ways to pay your bill for Azure. You can pay with the default payment method of your billing profile or you can make a one-time payment with **[Pay now](https://learn.microsoft.com/azure/cost-management-billing/understand/pay-bill#pay-now-in-the-azure-portal)**.
+There are two ways to pay your bill for Azure. You can pay with the default payment method of your billing profile or you can make a one-time payment with **[Pay now](../understand/pay-bill.md#pay-now-in-the-azure-portal)**.
 
 If you signed up for Azure through a Microsoft account manager, then your default payment method was set to wire transfer. Automatic credit card payment isn't an option if you sign up for Azure through a Microsoft account manager. Instead, you can pay up to $50,000 USD with a credit card for individual MCA invoices (subject to credit card approval).
 
@@ -206,7 +206,7 @@ Start your transition from your EA to MCA by using the steps in the following di
 
 :::image type="content" source="./media/onboard-microsoft-customer-agreement/migration-steps.png" alt-text="Diagram showing the steps to migrate from EA to an MCA." lightbox="./media/onboard-microsoft-customer-agreement/migration-steps.png" :::
 
-## Contract setup
+## MCA contract setup
 
 Use the following sections to set up your MCA contract.
 
@@ -259,7 +259,7 @@ For both electronic and physical signature signing steps, after you accept the p
 >[!IMPORTANT]
 > Until you complete the purchase checkout process, your MCA isn't available for use.
 
-## Become operational
+## Become operational after migration to MCA
 
 Becoming operational includes steps to manage billing accounts, fully understand your invoices and get to know the tools that help you budget and forecast expenditures. Complete the following key steps. For more information, see the detailed checklist at [Top customer actions with MCA](https://www.microsoft.com/licensing/news/top_customer_actions_after_accepting_microsoft_customer_agreement).
 
@@ -283,7 +283,7 @@ For more information, see the following resources:
 - [Cost Management - Azure Blog](https://azure.microsoft.com/blog/tag/cost-management/)
 - [Microsoft Cost Management - YouTube](https://www.youtube.com/@AzureCostManagement)
 
-## Establish governance for your MCA
+## Establish governance after migration to MCA
 
 Use the following steps to establish governance for your MCA.
 
@@ -299,7 +299,7 @@ The MCA provides you with flexibility to organize your costs based on your needs
 
 The MCA allows you to create multi-tenant billing relationships. They let you securely share your billing account with other tenants, while maintaining control over your billing data. If your organization needs multiple tenants, see [Manage billing across multiple tenants](../manage/manage-billing-across-tenants.md).
 
-## Manage your MCA
+## Manage your MCA after migration
 
 Use the following steps to manage your MCA.
 
@@ -328,7 +328,7 @@ Transition the billing ownership from your old agreement to your new one.
 > - To sign the MCA, you need billing account owner access. If you don't have access, you can either contact an existing billing account owner or, if you are a global admin in the tenant, you can elevate your access and give yourself billing account ownership. For more information, see [Elevate access to manage billing accounts]../manage/elevate-access-global-admin.md).
 > - If you're currently a PAYG user and you have overdue invoices for the subscriptions that you're migrating, you must pay the invoice or create a support ticket through the Azure portal.
 
-For more information, see [Cost Management + Billing frequently asked questions](../cost-management-billing-faq.md).
+For more information, see [Cost Management + Billing frequently asked questions](../cost-management-billing-faq.yml).
 
 ## Other actions to manage your MCA
 
@@ -361,4 +361,4 @@ If you need more support, use your standard support contacts, such as:
 - [View and download your Azure invoice](../understand/download-azure-invoice.md)
 - [Why you might not see an invoice](../understand/download-azure-invoice.md#why-you-might-not-see-an-invoice)
 - [Azure pricing calculator](../costs/pricing-calculator.md)
-- [Microsoft Customer Agreement FAQ](microsoft-customer-agreement-faq.md)
+- [Microsoft Customer Agreement FAQ](microsoft-customer-agreement-faq.yml)
