@@ -9,7 +9,7 @@ ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.reviewer: lagayhar
-ms.date: 09/08/2023
+ms.date: 09/12/2023
 ---
 
 # Deploy a flow to online endpoint for real-time inference with CLI (preview)

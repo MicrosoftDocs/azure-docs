@@ -9,7 +9,7 @@ ms.topic: how-to
 author: abeomor
 ms.author: osomorog
 ms.reviewer: lagayhar
-ms.date: 09/08/2023
+ms.date: 09/12/2023
 ---
 # Set up end-to-end LLMOps with Prompt flow and GitHub (preview)
 

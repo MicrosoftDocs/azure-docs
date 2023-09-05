@@ -9,7 +9,7 @@ ms.topic: how-to
 author: ChenJieting
 ms.author: chenjieting
 ms.reviewer: lagayhar
-ms.date: 09/08/2023
+ms.date: 09/12/2023
 ---
 
 # Custom tool package creation and usage (preview)

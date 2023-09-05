@@ -9,7 +9,7 @@ ms.topic: how-to
 author: jiaochenlu
 ms.author: chenlujiao
 ms.reviewer: lagayhar
-ms.date: 09/08/2023
+ms.date: 09/12/2023
 ---
 
 # Integrate Prompt Flow with LLM-based application DevOps (preview)
