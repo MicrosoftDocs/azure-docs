@@ -111,7 +111,7 @@
   - name: Azure AD CLI    
     href: /cli/azure/ad
   - name:  Azure AD PowerShell for Graph
-    href: /powershell/module/microsoft.graph.devicemanagement.enrolment/new-mgrolemanagementdirectoryroleeligibilityschedulerequest
+    href: /powershell/azure/active-directory/install-adv2
   - name: PowerShell examples for Azure AD roles
     href: /powershell/microsoftgraph/tutorial-pim
   - name: Azure AD service limits
