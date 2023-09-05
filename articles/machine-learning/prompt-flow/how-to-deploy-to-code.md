@@ -43,7 +43,7 @@ This article will use the [sample flow "basic-chat"](https://github.com/Azure/az
 
 > [!IMPORTANT]
 >
-> Currently, deploy a flow with variants is not supported. Hence, make sure you have removed variants in your `flow.dag.yaml`.
+> If you have used `additional_includes` in your flow, then you need to use `pf flow build --source <path-to-flow> --output <output-path> --format docker` first to get a resolved version of flow folder.
 
 ## Set default workspace
 
