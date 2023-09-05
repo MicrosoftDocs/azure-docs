@@ -11,15 +11,15 @@ ms.author: daknappe
 
 You can install the [Remote Desktop client for Windows](./users/connect-windows.md) on either a per-system or per-user basis. Installing it on a per-system basis installs the client on the machines for all users by default, and administrators control updates. Per-user installation installs the application to a subfolder within the local AppData folder of each user's profile, enabling users to install updates with needing administrative rights.
 
-When you install the client using `msiexec.exe`, per-system is the default method of client installation. You can use the parameters `ALLUSERS=2 MSIINSTALLPERUSER=1` with msiexec to install the client per-user, however, if you're deploying the client with Intune or Configuration Manager, using msiexec directly to install causes the client to be installed per-system, regardless of the parameters used. Wrapping the msiexec command in a PowerShell script enables the client to be successfully installed per-user.
+When you install the client using `msiexec.exe`, per-system is the default method of client installation. You can use the parameters `ALLUSERS=2 MSIINSTALLPERUSER=1` with msiexec to install the client per-user, however if you're deploying the client with Intune or Configuration Manager, using msiexec directly to install the client causes it to be installed per-system, regardless of the parameters used. Wrapping the msiexec command in a PowerShell script enables the client to be successfully installed per-user.
 
 ## Prerequisites
 
 In order to install the Remote Desktop client for Windows on a per-user basis with Intune or Configuration Manager, you need the following things:
 
-- Devices managed by Microsoft Intune or Configuration Manager with permission to add applications.
-
 - Download the latest version of [the Remote Desktop client for Windows](./users/connect-windows.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json).
+
+- Supported Windows devices managed by Microsoft Intune or Configuration Manager with permission to add applications.
 
 - For Intune, you need a local Windows device to use the [Microsoft Win32 Content Prep Tool](https://github.com/Microsoft/Microsoft-Win32-Content-Prep-Tool).
 
