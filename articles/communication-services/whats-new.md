@@ -39,7 +39,7 @@ Explore the benefits of Trial Phone Numbers for Azure Communication Services. En
  Job Router is a robust tool that makes it easy for developers to add advanced routing rules to their business application. As part of Azure Communication Services, Job Router simplifies the routing of customer engagement interactions to the best agent or automated services, ensuring that every interaction is directed to the most appropriate resource.
 
 [Try Job Router](./concepts/router/concepts.md)
-[Try the Job Router Quickstart](./quickstarts/router/get-started-router?pivots=programming-language-csharp)
+[Try the Job Router Quickstart](./quickstarts/router/get-started-router.md?pivots=programming-language-csharp)
 
 <br>
 <br>
