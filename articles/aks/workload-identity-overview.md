@@ -21,12 +21,6 @@ This article helps you understand this new authentication feature, and reviews t
 - AKS supports Azure AD workload identities on version 1.22 and higher.
 - The Azure CLI version 2.47.0 or later. Run `az --version` to find the version, and run `az upgrade` to upgrade the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
-## Limitations
-
-The following limitations apply when you deploy Azure AD workload identity on AKS:
-* Creation of federated identity credentials is not supported on user-assigned managed identities in these [regions.][unsupported-regions-user-assigned-managed-identities]
-* A maximum of [20 federated identity credentials][general-federated-identity-credential-considerations] can be added to an application or user-assigned managed identity
-
 ## Azure Identity client libraries
 
 In the Azure Identity client libraries, choose one of the following approaches:
@@ -215,9 +209,10 @@ The following client libraries are the **minimum** version required.
 
 ## Limitations
 
-- You can only have 20 federated identity credentials per managed identity.
+- You can only have [20 federated identity credentials][general-federated-identity-credential-considerations] per managed identity.
 - It takes a few seconds for the federated identity credential to be propagated after being initially added.
 - [Virtual nodes][aks-virtual-nodes] add on, based on the open source project [Virtual Kubelet][virtual-kubelet], isn't supported.
+- Creation of federated identity credentials is not supported on user-assigned managed identities in these [regions.][unsupported-regions-user-assigned-managed-identities]
 
 ## How it works
 
