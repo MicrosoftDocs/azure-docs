@@ -7,6 +7,7 @@ ms.topic: tutorial
 ms.date: 01/31/2023
 ms.custom: "UpdateFrequency3, devx-track-csharp, mvc, devcenter, devx-track-azurecli"
 ms.author: msangapu
+author: msangapu-msft
 ---
 
 # Tutorial: Host a RESTful API with CORS in Azure App Service
