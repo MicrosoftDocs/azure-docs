@@ -2,7 +2,7 @@
 author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 06/10/2022
+ms.date: 09/05/2023
 ms.author: eur
 ---
 
@@ -25,4 +25,3 @@ The Speech SDK for C# only supports **Ubuntu 18.04/20.04/22.04**, **Debian 10/11
 A macOS version 10.14 or later is required.
 
 ---
-

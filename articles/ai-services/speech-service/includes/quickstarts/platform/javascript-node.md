@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 10/15/2020
+ms.date: 09/05/2023
 ms.author: eur
 ms.custom: devx-track-js
 ---
@@ -27,4 +27,3 @@ Create a new directory, run `npm init`, and walk through the prompts.
 ## Add the Speech SDK package
 
 Run `npm install microsoft-cognitiveservices-speech-sdk`.
-

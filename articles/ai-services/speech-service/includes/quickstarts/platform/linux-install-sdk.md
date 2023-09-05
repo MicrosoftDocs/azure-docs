@@ -2,13 +2,13 @@
 author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 02/14/2022
+ms.date: 09/05/2023
 ms.author: eur
 ---
 
-Use the following procedure to download and install the SDK. The steps include downloading the required libraries and header files as a .tar file from https://aka.ms/csspeech/linuxbinary.
+Use the following procedure to download and install the SDK. The steps include downloading the required libraries and header files as a *.tar* file from https://aka.ms/csspeech/linuxbinary.
 
-1. Choose a directory to which the Speech SDK files should be extracted, and set the `SPEECHSDK_ROOT` environment variable to point to that directory. This variable makes it easy to refer to the directory in future commands. 
+1. Choose a directory to which the Speech SDK files should be extracted. Set the `SPEECHSDK_ROOT` environment variable to point to that directory. This variable makes it easy to refer to the directory in future commands.
 
    If you want to use the directory `speechsdk` in your home directory, use a command like the following example:
 
@@ -22,7 +22,7 @@ Use the following procedure to download and install the SDK. The steps include d
    mkdir -p "$SPEECHSDK_ROOT"
    ```
 
-1. Download and extract the `.tar.gz` archive that contains the Speech SDK binaries:
+1. Download and extract the *.tar.gz* archive that contains the Speech SDK binaries:
 
    ```sh
    wget -O SpeechSDK-Linux.tar.gz https://aka.ms/csspeech/linuxbinary
@@ -47,4 +47,3 @@ Use the following procedure to download and install the SDK. The steps include d
     | `lib/arm64` | Native library for ARM64 required to link your application
     | `lib/x64` | Native library for x64 required to link your application
     | `lib/x86` | Native library for x86 required to link your application
-    
