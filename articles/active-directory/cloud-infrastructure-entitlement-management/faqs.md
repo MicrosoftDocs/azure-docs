@@ -139,7 +139,7 @@ Customers can also remove, export or modify specific data if a Global Administra
 
 If you're an enterprise customer, you can contact your Microsoft representative, account team, or tenant admin to file a high-priority IcM support ticket requesting a Data Subject Request. Do not include details or any personally identifiable information in the IcM request. We'll reach out to you for these details only after an IcM is filed.
 
-If you're a self-service customer (you set up a trial or paid license in the Microsoft 365 admin center) you can contact the Permissions Management privacy team by selecting your profile drop-down menu, then **Account Settings** in Permissions Management. Follow the instructions to make a Data Subject Access Request.
+If you're a self-service customer (you set up a trial or paid license in the Microsoft 365 admin center) you can contact the Permissions Management privacy team by selecting your profile drop-down menu, then **Account Settings** in Permissions Management. Follow the instructions to make a Data Subject Request.
 
 Learn more about [Azure Data Subject Requests](https://go.microsoft.com/fwlink/?linkid=2245178).
 
