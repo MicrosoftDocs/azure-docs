@@ -49,7 +49,7 @@ If you don't have a deployed Azure Spring Apps instance, follow the steps in the
 
 All the connection strings and credentials will be injected as the environment variables, which can be referenced in your application codes.
 
-You can find the default environment variable names in this doc: [Integrate Azure Cache for Redis with Service Connector](../service-connector/how-to-integrate-redis-cache#default-environment-variable-names-or-application-properties)
+You can find the default environment variable names in this doc: [Integrate Azure Cache for Redis with Service Connector](../service-connector/how-to-integrate-redis-cache.md#default-environment-variable-names-or-application-properties)
 
 ---
 

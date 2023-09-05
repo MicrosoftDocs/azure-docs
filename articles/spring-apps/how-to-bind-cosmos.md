@@ -66,11 +66,11 @@ Instead of manually configuring your Spring Boot applications, you can automatic
 All the connection strings and credentials will be injected as the environment variables, which can be referenced in your application codes.
 
 You can find the default environment variable names in following docs:
-- [Azure Cosmos DB for Table](../service-connector/how-to-integrate-cosmos-table?tabs=spring-apps#default-environment-variable-names-or-application-properties)
-- [Azure Cosmos DB for NoSQL](../service-connector/how-to-integrate-cosmos-sql?tabs=spring-apps#default-environment-variable-names-or-application-properties)
-- [Azure Cosmos DB for MongoDB](../service-connector/how-to-integrate-cosmos-db?tabs=spring-apps#default-environment-variable-names-or-application-properties)
-- [Azure Cosmos DB for Gremlin](../service-connector/how-to-integrate-cosmos-gremlin?tabs=spring-apps#default-environment-variable-names-or-application-properties)
-- [Azure Cosmos DB for Cassandra](../service-connector/how-to-integrate-cosmos-cassandra?tabs=spring-apps#default-environment-variable-names-or-application-properties)
+- [Azure Cosmos DB for Table](../service-connector/how-to-integrate-cosmos-table.md?tabs=spring-apps#default-environment-variable-names-or-application-properties)
+- [Azure Cosmos DB for NoSQL](../service-connector/how-to-integrate-cosmos-sql.md?tabs=spring-apps#default-environment-variable-names-or-application-properties)
+- [Azure Cosmos DB for MongoDB](../service-connector/how-to-integrate-cosmos-db.md?tabs=spring-apps#default-environment-variable-names-or-application-properties)
+- [Azure Cosmos DB for Gremlin](../service-connector/how-to-integrate-cosmos-gremlin.md?tabs=spring-apps#default-environment-variable-names-or-application-properties)
+- [Azure Cosmos DB for Cassandra](../service-connector/how-to-integrate-cosmos-cassandra.md?tabs=spring-apps#default-environment-variable-names-or-application-properties)
 
 ---
 
