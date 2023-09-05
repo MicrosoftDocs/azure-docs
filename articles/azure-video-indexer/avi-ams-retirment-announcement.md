@@ -65,19 +65,19 @@ Updated AVI account owners will only use the updated APIs that will exclude all 
 
 ### Breaking API changes
 
-There will be breaking API changes. The following table gives you some of the details, so you can be aware of what is coming, but actionable guidance will be provided in January. 
+There will be breaking API changes. The following table describes the changes for your awareness, but actionable guidance will be provided when the changes have been released.
 
 | **Type** | **API Name** |  **Change** |
 |---|---|---|
 | **ARM** | Create \ Update \ Patch \ ListAccount | 1. The `mediaServices` Account property will be replaced with the `storageServices` account property.<br/> 2. The `Identity` property will change from the `Owner` managed identity to `Storage Blob Data Contributor` permissions on the storage resource |
-| **ARM** | Get \ MoveAccount | ? |  |  |
+| **ARM** | Get \ MoveAccount | ? |  |
 | **ARM** | GetClassicAccount \ ListClassicAccounts |  API no longer be supported. |
 | **Classic** | CreatePaidAccountManually | API no longer be supported. |
 | **Classic** | UpdateAccountMediaServicesAsync |  API no longer be supported. |
 | **Data plane** | Upload | Upload will longer accept the `assetId` parameter. |
 | **Data plane** | Upload / ReIndex / Redact | `AdaptiveBitrate` will no longer be supported for new uploads. |
-| **Data plane** | GetVideoIndex | `PublishedUrl` property will always null. |
-| **Data plane** | GetVideoStreamingURL | The streaming url will returns references to AVI rather than AMS. |
+| **Data plane** | GetVideoIndex | `PublishedUrl` property will always be null. |
+| **Data plane** | GetVideoStreamingURL | The streaming URL will return references to AVI account endpoints rather than AMS account endpoints. |
 
 Full details of the API changes and alternatives will be provided in January when the updated APIs are released.
 
@@ -90,12 +90,5 @@ As of July 1, 2024, AVI won’t use AMS for encoding or streaming. As a result, 
 - Media files created by AVI Updated accounts won’t be playable by the [Azure Media Player](https://azure.microsoft.com/products/media-services/media-player).
 - Using a Cognitive Insights widget and playing the content with the Azure Media Player outlined [here](video-indexer-embed-widgets.md) will no longer be supported.
 
-<!--
-![](media/2fddb69db60e0fdc2baefec916484757.png)
 
-| Timeline                | Change                                                                                                                                                         |
-|-------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Sep 11th-Jan 15th       | Announcement with no change                                                                                                                                    |
-| 15 Jan 2024 – June 30th | Release of Updated AVI accounts and updated API’s without AMS parameters. All new VI accounts will be Azure Storage-based                                      |
-| 30 June 2024 +          | AMS-based accounts will no longer be supported Can only use updated AVI APIs without AMS related parameters Product changes take effect (only single bitrate)  |
--->
+:::image type="content" source="media/avi-ams-retirement-announcement/avi-changes-timeline.svg" lightbox="media/avi-ams-retirement-announcement/avi-changes-timeline.svg" alt-text="AVI changes timeline":::
