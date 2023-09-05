@@ -145,11 +145,11 @@ You can't create a compute cluster or compute instance from the Azure portal. In
 
     * For a __compute cluster__, use the __Advanced Settings__ page and select the __No Public IP__ option to remove the public IP address.
 
-        :::image type="content" source="./media/how-to-managed-network-compute/compute-cluster-no-public-ip.png" alt-text="A screenshot of how to configure no public IP for compute cluster." lightbox="./media/how-to-managed-network/compute-cluster-no-public-ip.png":::
+        :::image type="content" source="./media/how-to-managed-network-compute/compute-cluster-no-public-ip.png" alt-text="A screenshot of how to configure no public IP for compute cluster." lightbox="./media/how-to-managed-network-compute/compute-cluster-no-public-ip.png":::
 
     * For a __compute instance__, use the __Security__ page and select the __No Public IP__ option to remove the public IP address.
 
-        :::image type="content" source="./media/how-to-managed-network-compute/compute-instance-no-public-ip.png" alt-text="A screenshot of how to configure no public IP for compute instance." lightbox="./media/how-to-managed-network/compute-instance-no-public-ip.png":::
+        :::image type="content" source="./media/how-to-managed-network-compute/compute-instance-no-public-ip.png" alt-text="A screenshot of how to configure no public IP for compute instance." lightbox="./media/how-to-managed-network-compute/compute-instance-no-public-ip.png":::
 
 1. Continue with the creation of the compute resource.
 
