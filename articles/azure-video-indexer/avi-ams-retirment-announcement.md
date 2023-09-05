@@ -49,8 +49,9 @@ See [Azure AI Video Indexer account types](/azure/azure-video-indexer/accounts-o
 - **Existing accounts:** Existing classic accounts will continue to work through June 30, 2024. AVI will release an updated API version for the Updated accounts that doesn’t contain any AMS related parameters.
 
 To continue using the account beyond June 30, 2024, classic accounts will have to go through two steps:
-    1. Connect the account as an ARM-based account. You can connect the accounts already. See [Azure AI Video Indexer accounts](accounts-overview.md) for instructions.
-    1.  Convert the account to an Updated AVI account. If you don’t convert your account to an Updated AVI account, you won’t be able to access the account or use it beyond June 30.
+
+1. Connect the account as an ARM-based account. You can connect the accounts already. See [Azure AI Video Indexer accounts](accounts-overview.md) for instructions.
+1. Convert the account to an Updated AVI account. If you don’t convert your account to an Updated AVI account, you won’t be able to access the account or use it beyond June 30.
 
 ### Existing trial accounts
 
