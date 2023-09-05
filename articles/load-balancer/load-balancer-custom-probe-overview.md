@@ -69,9 +69,9 @@ The interval value determines how frequently the health probe checks for a respo
 
 In order to ensure a timely response is received, health probes have built-in timeout intervals.
 
-TCP probes will timeout at 60 seconds or the configured probe interval, when shorter. HTTP/S probes will timeout at 30s or the configured probe interval, when shorter. HTTP/S probes can also timeout if a connection is not established within 60s (or the probe interval, whichever comes first) - the 30s timeout applies after a connection is established.
+TCP probes will timeout at 60 seconds or the configured probe interval if shorter. HTTP/S probes will timeout at 30s or the configured probe interval if shorter. HTTP/S probes can also timeout if a connection is not established within 60s (or the probe interval, whichever comes first) - the 30s timeout applies after a connection is established.
 
-As an example, if the probe interval is configured to 120 seconds (every 2 minutes) and the protocol selected is TCP, and no probe response is received within the first 60s, the probe will timeout and fail. If the probe interval is configured to 30 seconds and the protocol selected is TCP, and no probe response is received within 30 seconds, the probe will also timeout and fail.
+As an example, if a TCP health probe is configured with a probe interval of 120 seconds (every 2 minutes), and no probe response is received within the first 60s, the probe will timeout and fail. If a TCP health probe is configured with a probe interval of 30 seconds, and no probe response is received within 30 seconds, the probe will also timeout and fail.
 
 ## Design guidance
 
