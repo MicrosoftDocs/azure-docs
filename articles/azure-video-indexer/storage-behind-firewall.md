@@ -3,7 +3,8 @@ title: Use Video Indexer with storage behind firewall
 description: This article gives an overview how to configure Azure AI Video Indexer to use storage behind firewall.
 ms.topic: article
 ms.date: 03/21/2023
-ms.author: juliako
+ms.author: inhenkel
+author: IngridAtMicrosoft
 ---
 
 # Configure Video Indexer to work with storage accounts behind firewall

@@ -3,7 +3,7 @@ title: "Citrix ADC (former NetScaler) connector for Microsoft Sentinel"
 description: "Learn how to install the connector Citrix ADC (former NetScaler) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 07/26/2023
+ms.date: 08/28/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -39,12 +39,16 @@ CitrixADCEvent
 
 
 > [!NOTE]
-   >  1. This data connector depends on a parser based on a Kusto Function to work as expected which is deployed as part of the solution. To view the function code in Log Analytics, open Log Analytics/Microsoft Sentinel Logs blade, click Functions and search for the alias CitrixADCEvent and load the function code or click [here](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Citrix%20ADC/Parsers/CitrixADCEvent.txt), this function maps Citrix ADC (former NetScaler) events to Advanced Security Information Model [ASIM](/azure/sentinel/normalization). The function usually takes 10-15 minutes to activate after solution installation/update. 
+>  1. This data connector depends on a parser based on a Kusto Function to work as expected which is deployed as part of the solution. To view the function code in Log Analytics, open Log Analytics/Microsoft Sentinel Logs blade, click Functions and search for the alias CitrixADCEvent and load the function code or click [here](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Citrix%20ADC/Parsers/CitrixADCEvent.txt), this function maps Citrix ADC (former NetScaler) events to Advanced Security Information Model [ASIM](/azure/sentinel/normalization). The function usually takes 10-15 minutes to activate after solution installation/update. 
+>  2. This parser requires a watchlist named **`Sources_by_SourceType`** 
 
-> [!NOTE]
-   >  2. This parser requires a watchlist named **`Sources_by_SourceType`** with fields **`SourceType`** and **`Source`**. To create this watchlist and populate it with SourceType and Source data, follow the instructions [here](/azure/sentinel/normalization-manage-parsers#configure-the-sources-relevant-to-a-source-specific-parser). 
+> i. If you don't have watchlist already created, please click [here](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Sentinel%2Fmaster%2FASIM%2Fdeploy%2FWatchlists%2FASimSourceType.json) to create. 
 
-> The SourceType value for CitrixADC is **`CitrixADC`**.
+> ii. Open watchlist **`Sources_by_SourceType`** and add entries for this data source.
+
+> iii. The SourceType value for CitrixADC is **`CitrixADC`**. 
+
+> You can refer [this](/azure/sentinel/normalization-manage-parsers?WT.mc_id=Portal-fx#configure-the-sources-relevant-to-a-source-specific-parser) documentation for more details
 
 1. Install and onboard the agent for Linux
 

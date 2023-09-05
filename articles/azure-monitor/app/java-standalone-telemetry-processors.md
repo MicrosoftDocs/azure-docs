@@ -15,7 +15,7 @@ ms.reviewer: mmcc
 
 Application Insights Java 3.x can process telemetry data before the data is exported.
 
-Here are some use cases for telemetry processors:
+Some use cases:
  * Mask sensitive data.
  * Conditionally add custom dimensions.
  * Update the span name, which is used to aggregate similar telemetry in the Azure portal.
@@ -52,7 +52,11 @@ The trace message or body is the primary display for logs in the Azure portal. L
 
 ## Telemetry processor types
 
-Currently, the four types of telemetry processors are attribute processors, span processors, log processors, and metric filters.
+Currently, the four types of telemetry processors are
+* Attribute processors
+* Span processors
+* Log processors
+* Metric filters
 
 An attribute processor can insert, update, delete, or hash attributes of a telemetry item (`span` or `log`).
 It can also use a regular expression to extract one or more new attributes from an existing attribute.
@@ -111,6 +115,7 @@ The attribute processor modifies attributes of a `span` or a `log`. It can suppo
 - `delete`
 - `hash`
 - `extract`
+- `mask`
 
 ### `insert`
 
@@ -226,6 +231,38 @@ The `extract` action requires the following settings:
 * `key`
 * `pattern`
 * `action`: `extract`
+
+### `mask`
+
+> [!NOTE]
+> The `mask` feature is available only in version 3.2.5 and later.
+
+The `mask` action masks attribute values by using a regular expression rule specified in the `pattern` and `replace`.
+
+```json
+"processors": [
+  {
+    "type": "attribute",
+    "actions": [
+      {
+        "key": "attributeName",
+        "pattern": "<regular expression pattern>",
+        "replace": "<replacement value>",
+        "action": "mask"
+      }
+    ]
+  }
+]
+```
+The `mask` action requires the following settings:
+* `key`
+* `pattern`
+* `replace`
+* `action`: `mask`
+
+`pattern` can contain a named group placed betwen `?<` and `>:`. Example: `(?<userGroupName>[a-zA-Z.:\/]+)\d+`? The gorup is `(?<userGroupName>[a-zA-Z.:\/]+)` and `userGroupName` is the name of the group. `pattern` can then contain the same named group placed between `${` and `}` followed by the masK. Example where the mask is **: `${userGroupName}**`.
+
+See  [Telemetry processor examples](./java-standalone-telemetry-processors-examples.md) for masking examples.
 
 ### Include criteria and exclude criteria
 

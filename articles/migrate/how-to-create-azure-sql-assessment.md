@@ -5,8 +5,8 @@ author: rashi-ms
 ms.author: rajosh
 ms.topic: tutorial
 ms.service: azure-migrate
-ms.date: 03/15/2023
-ms.custom: engagement-fy23
+ms.date: 08/24/2023
+ms.custom: engagement-fy24
 ---
 
 # Create an Azure SQL assessment

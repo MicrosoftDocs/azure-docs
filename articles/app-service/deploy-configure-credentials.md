@@ -6,6 +6,8 @@ ms.topic: article
 ms.date: 02/11/2021
 ms.reviewer: byvinyal
 ms.custom: seodec18, devx-track-azurecli
+author: cephalin
+ms.author: cephalin
 ---
 
 # Configure deployment credentials for Azure App Service

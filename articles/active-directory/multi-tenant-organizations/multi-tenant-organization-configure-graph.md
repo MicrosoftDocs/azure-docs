@@ -23,7 +23,7 @@ ms.custom: it-pro
 
 This article describes the key steps to configure a multi-tenant organization using the Microsoft Graph API. This article uses an example owner tenant named *Cairo* and two member tenants named *Berlin* and *Athens*.
 
-If you instead want to use the Microsoft 365 admin center to configure a multi-tenant organization, see [Set up a multi-tenant org in Microsoft 365 (Preview)](/microsoft-365/enterprise/set-up-multi-tenant-org) and [Join or leave a multi-tenant organization in Microsoft 365 (Preview)](/microsoft-365/enterprise/join-leave-multi-tenant-org).
+If you instead want to use the Microsoft 365 admin center to configure a multi-tenant organization, see [Set up a multi-tenant org in Microsoft 365 (Preview)](/microsoft-365/enterprise/set-up-multi-tenant-org) and [Join or leave a multi-tenant organization in Microsoft 365 (Preview)](/microsoft-365/enterprise/join-leave-multi-tenant-org). To learn how to configure Microsoft Teams for your multi-tenant organization, see [The new Microsoft Teams desktop client](/microsoftteams/new-teams-desktop-admin).
 
 ## Prerequisites
 
@@ -464,4 +464,5 @@ You delete a multi-tenant organization by removing all tenants. The process for 
 
 - [Set up a multi-tenant org in Microsoft 365 (Preview)](/microsoft-365/enterprise/set-up-multi-tenant-org)
 - [Synchronize users in multi-tenant organizations in Microsoft 365 (Preview)](/microsoft-365/enterprise/sync-users-multi-tenant-orgs)
+- [The new Microsoft Teams desktop client](/microsoftteams/new-teams-desktop-admin)
 - [Configure multi-tenant organization templates using the Microsoft Graph API (Preview)](./multi-tenant-organization-configure-templates.md)

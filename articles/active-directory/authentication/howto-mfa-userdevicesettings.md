@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 07/05/2023
+ms.date: 08/29/2023
 
 ms.author: justinha
 author: justinha
@@ -58,7 +58,7 @@ Install the Microsoft.Graph.Identity.Signins PowerShell module using the followi
 
 ```powershell
 Install-module Microsoft.Graph.Identity.Signins
-Connect-MgGraph -Scopes UserAuthenticationMethod.ReadWrite.All
+Connect-MgGraph -Scopes "User.Read.all","UserAuthenticationMethod.Read.All","UserAuthenticationMethod.ReadWrite.All"
 Select-MgProfile -Name beta
 ```
 

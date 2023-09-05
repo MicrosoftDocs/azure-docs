@@ -160,12 +160,6 @@ Use the following steps to connect your service instances:
    azd auth login
    ```
 
-1. Use the following command to enable Azure Spring Apps feature:
-
-   ```bash
-   azd config set alpha.springapp on
-   ```
-
 1. Use the following command to provision the template's infrastructure to Azure:
 
    ```bash
