@@ -55,7 +55,7 @@ Run an assessment as follows:
     - In **Savings options (compute)**, specify the savings option that you want the assessment to consider, helping to optimize your Azure compute cost. 
         - [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) (1 year or 3 year reserved) are a good option for the most consistently running resources.
         - [Azure Savings Plan](../cost-management-billing/savings-plan/savings-plan-compute-overview.md) (1 year or 3 year savings plan) provide additional flexibility and automated cost optimization. Ideally post migration, you could use Azure reservation and savings plan at the same time (reservation will be consumed first), but in the Azure Migrate assessments, you can only see cost estimates of 1 savings option at a time. 
-        - When you select 'None', the Azure compute cost is based on the Pay as you go rate or based on actual ]usage.
+        - When you select *None*, the Azure compute cost is based on the Pay as you go rate or based on actual ]usage.
         - You need to select pay-as-you-go in offer/licensing program to be able to use Reserved Instances or Azure Savings Plan. When you select any savings option other than 'None', the 'Discount (%)' setting is not applicable.
 
 1. Select **Save** if you made any changes.
@@ -75,7 +75,7 @@ Run an assessment as follows:
 1. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select the number next to the Web apps on Azure assessment. 
 2. Select the assessment name, which you wish to view. 
 
-   The Overview screen contains 3 sections: Essentials, Assessed entities, and Migration scenario. 
+   The **Overview** screen contains 3 sections: Essentials, Assessed entities, and Migration scenario. 
 
      **Essentials**
 
@@ -120,7 +120,7 @@ Review the Readiness for the web apps by following these steps:
 
 ### Review cost estimates
 
-The assessment summary shows the estimated monthly costs for hosting your web apps. 
+The assessment summary shows the estimated monthly costs for hosting your web apps.  
 Select the **Cost details** tab to view a monthly cost estimate depending on the SKUs. 
 
 ## Next steps
