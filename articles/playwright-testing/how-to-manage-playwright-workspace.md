@@ -117,19 +117,19 @@ To get the list of Playwright workspaces that you have access to:
 
 You can view the list of test runs for the workspace in the Playwright portal. Microsoft Playwright Testing only stores test run metadata, and doesn't store the test code, test results, trace files, or other artifacts.
 
+The workspace activity log lists for each test run the following details: 
+
+- Total test duration of the test suite
+- Maximum number of parallel browsers
+- Total time across all parallel browsers. This is the time  that you're billed for the test run.
+
 To view the list of test runs in the Playwright portal:
 
 1. Sign in to the [Playwright portal](https://aka.ms/mpt/portal) with your Azure account.
 
-1. Optionally, switch to another workspace
+1. Optionally, switch to another workspace by selecting your current workspace in the top of the screen, and then select **Manage all workspaces**.
 
-1. On the workspace page, you can view the workspace activity log.
-
-    The activity log lists for each test run the following details: 
-
-    - Total test duration of the test suite
-    - Maximum number of parallel browsers
-    - Total time across all parallel browsers. This is the time  that you're billed for the test run.
+1. On the workspace home page, you can view the workspace activity log.
 
     :::image type="content" source="./media/how-to-manage-playwright-workspace/playwright-testing-activity-log.png" alt-text="Screenshot that shows the activity log for a workspace in the Playwright Testing portal.":::
 
