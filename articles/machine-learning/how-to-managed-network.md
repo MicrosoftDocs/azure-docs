@@ -791,7 +791,7 @@ To enable the [serverless spark jobs](how-to-submit-spark-jobs.md) for the manag
 
 ## Configure compute resources
 
-When using a managed network, compute resources managed by Azure Machine Learning can participate in the virtual network. Azure Machine Learning _compute clusters_, _compute instances_, and _managed online endpoints_ are created in the managed network. Use the tabs below to learn more information about creating compute cluster and compute instances in a managed network. For information on managed online endpoints, see [secure online endpoints with network isolation](how-to-secure-online-endpoints.md).
+When using a managed network, compute resources managed by Azure Machine Learning can participate in the virtual network. Azure Machine Learning _compute clusters_, _compute instances_, and _managed online endpoints_ are created in the managed network. Use the tabs below to learn more information about creating compute cluster and compute instances in a managed network. For information on managed online endpoints, see [secure online endpoints with network isolation](how-to-secure-online-endpoint.md).
 
 # [Azure CLI](#tab/azure-cli)
 
