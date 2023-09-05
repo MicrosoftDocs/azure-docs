@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot the sensor
 description: Troubleshoot your sensor to eliminate any problems you might be having.
-ms.date: 09/03/2023
+ms.date: 09/05/2023
 ms.topic: troubleshooting
 ---
 # Troubleshoot the sensor
@@ -22,11 +22,15 @@ To perform the procedures in this article, make sure that you have:
 
 ## Check sensor - cloud connectivity issues
 
-OT sensors automatically helps you troubleshoot any connectivity issues with the Azure portal. If a sensor isn't connected, an error is indicated in the Azure portal, on the **Sites and sensors** page, and on the sensor's **Overview** page. For example:
+OT sensors automatically run connectivity checks to ensure that your sensor has access to all required endpoints. If a sensor isn't connected, an error is indicated in the Azure portal, on the **Sites and sensors** page, and on the sensor's **Overview** page. For example:
 
 :::image type="content" source="media/release-notes/connectivity-error.png" alt-text="Screenshot of a connectivity error on the Overview page.":::
 
-To investigate, sign into your OT sensor and use one of the following methods:
+Use the **Cloud connectivity troubleshooting** page in your OT sensor to learn more about the error that occurred and recommended mitigation actions you can take.
+
+**To troubleshoot connectivity errors**:
+
+1. Sign into your OT sensor and do one of the following:
 
 - From the sensor's **Overview** page, select the **Learn more** link in the error at the top of the page
 - Select **System settings > System settings > Network monitoring > Customization > Cloud connectivity troubleshooting**
@@ -37,10 +41,9 @@ The **Cloud connectivity troubleshooting** pane opens on the right. If the senso
 
 The **Cloud connectivity troubleshooting** pane covers the following types of issues:
 
-- **SSL errors when accessing an endpoint**
-- **General errors when accessing an endpoint**
-- **DNS server unreachable**
-- **Proxy authentication error**
+- Errors encountered while establishing connections or secure connections
+- Name resolution failures
+- Unreachable proxy or DNS servers
 
 ## Check system health
 
