@@ -145,14 +145,9 @@ The following table provides unique requirements for each destination including 
 
 ## Controlling costs
 
-There is a cost for collecting data in a Log Analytics workspace, so you should only collect the categories you require for each service. The data volume for resource logs varies significantly between services, 
+There is a cost for collecting data in a Log Analytics workspace, so you should only collect the categories you require for each service. The data volume for resource logs varies significantly between services. 
 
-You might also not want to collect platform metrics from Azure resources because this data is already being collected in Metrics. Only configure your diagnostic data to collect metrics if you need metric data in the workspace for more complex analysis with log queries.
-
-Diagnostic settings don't allow granular filtering of resource logs. You might require certain logs in a particular category but not others. Or you may want to remove unneeded columns from the data. In these cases, use [transformations](data-collection-transformations.md) on the workspace to filter logs that you don't require. 
-
-
-You can also use transformations to lower the storage requirements for records you want by removing columns without useful information. For example, you might have error events in a resource log that you want for alerting. But you might not require certain columns in those records that contain a large amount of data. You can create a transformation for the table that removes those columns.
+You might also not want to collect platform metrics from Azure resources because this data is already being collected in Metrics. Only configure your diagnostic data to collect metrics if you need metric data in the workspace for more complex analysis with log queries. Diagnostic settings don't allow granular filtering of resource logs.
 
 [!INCLUDE [azure-monitor-cost-optimization](../../../includes/azure-monitor-cost-optimization.md)]
 
