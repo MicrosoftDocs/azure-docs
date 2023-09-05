@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 07/27/2023
+ms.date: 09/05/2023
 ms.author: henrymbugua
 ms.reviewer: j-mantu
 ms.custom: aaddev, "scenarios:getting-started", "languages:JavaScript", devx-track-js
@@ -18,31 +18,29 @@ ms.custom: aaddev, "scenarios:getting-started", "languages:JavaScript", devx-tra
 
 # Quickstart: Sign in users in a single-page app (SPA) and call the Microsoft Graph API using React
 
+This guide uses a sample React single-page app (SPA) to show you how to sign in users by using the [authorization code flow](/azure/active-directory/develop/v2-oauth2-auth-code-flow) and call the Microsoft Graph API. The sample uses the [Microsoft Authentication Library for JavaScript](/javascript/api/@azure/msal-react) to handle authentication.
 
-In this quickstart, you download and run a code sample that demonstrates how a JavaScript React single-page application (SPA) can sign in users and call Microsoft Graph using the authorization code flow. The code sample demonstrates how to get an access token to call the Microsoft Graph API or any web API.
-
-See [How the sample works](#how-the-sample-works) for an illustration.
+In this article you'll register a SPA in the Microsoft Entra admin center, and download a sample React SPA. Next, you'll run the sample application, sign in with your personal Microsoft account or a work or school account, and sign out.
 
 ## Prerequisites
 
-* Azure subscription - [Create an Azure subscription for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* An Azure account with an active subscription. Use the link to [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Node.js](https://nodejs.org/en/download/)
-* [Visual Studio Code](https://code.visualstudio.com/download) or another code editor
+* [Visual Studio 2022](https://visualstudio.microsoft.com/vs/) or [Visual Studio Code](https://code.visualstudio.com/)
 
+## Register the application in the Microsoft Entra admin center
 
-## Register and download your quickstart application
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
+    1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which to register the application.
+1. On the left blade, search for and select **Identity**.
+1. Select **Applications** > **App registrations**.
+1. On the page that appears, select **+ New registration**.
+1. For **Name**, enter a name for the application. For example, enter *identity-client-app*. App users can see this name, and it can be changed later in **Manage** > **Branding & properties**.
+1. Under **Supported account types**, select *Accounts in this organizational directory only*.
+1. Select **Register**. A new page appears, listing the app's details. Copy the **Application (client) ID** and **Directory (tenant) ID** values, as they're needed to configure the app in a later step.
 
-[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+## Define the platform and add redirect URI
 
-### Step 1: Register your application
-
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Application Developer](../roles/permissions-reference.md#application-developer).
-1. If access to multiple tenants is available, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
-1. Browse to **Identity** > **Applications** > **App registrations**.
-1. Select **New registration**.
-1. When the **Register an application** page appears, enter a name for your application.
-1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
-1. Select **Register**. On the app **Overview** page, note the **Application (client) ID** value for later use.
 1. Under **Manage**, select **Authentication**.
 1. Under **Platform configurations**, select **Add a platform**. In the pane that opens select **Single-page application**.
 1. Set the **Redirect URIs** value to `http://localhost:3000/`. This is the default port NodeJS will listen on your local machine. We’ll return the authentication response to this URI after successfully authenticating the user.
@@ -50,100 +48,119 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 1. Under **Platform Configurations** expand **Single-page application**.
 1. Confirm that under **Grant types** ![Already configured](media/quickstart-v2-javascript/green-check.png) Your Redirect URI is eligible for the Authorization Code Flow with PKCE.
 
-### Step 2: Download the project
+## Clone or download the sample application
 
-To run the project with a web server by using Node.js, [download the core project files](https://github.com/Azure-Samples/ms-identity-javascript-react-spa/archive/main.zip).
+To obtain the sample application, you can either clone it from GitHub or download it as a .zip file.
 
-### Step 3: Configure your JavaScript app
+- To clone the sample, open a command prompt and navigate to where you wish to create the project, and enter the following command:
 
-In the *src* folder, open the *authConfig.js* file and update the `clientID`, `authority`, and `redirectUri` values in the `msalConfig` object.
+    ```console
+    git clone https://github.com/Azure-Samples/ms-identity-docs-code-javascript.git
+    ```
+- [Download the .zip file](https://github.com/Azure-Samples/ms-identity-docs-code-javascript/tree/main)
 
-```javascript
-/**
-* Configuration object to be passed to MSAL instance on creation.
-* For a full list of MSAL.js configuration parameters, visit:
-* https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/configuration.md
-*/
-export const msalConfig = {
-   auth: {
-       clientId: "Enter_the_Application_Id_Here",
-       authority: "Enter_the_Cloud_Instance_Id_Here/Enter_the_Tenant_Info_Here",
-       redirectUri: "Enter_the_Redirect_Uri_Here"
-   },
-   cache: {
-       cacheLocation: "sessionStorage", // This configures where your cache will be stored
-       storeAuthStateInCookie: false, // Set this to "true" if you are having issues on IE11 or Edge
-   },
-```
+If you choose to download the `.zip` file, extract the sample app file to a folder where the total length of the path is 260 or fewer characters.
 
-Modify the values in the `msalConfig` section as described here:
+## Configure the project
 
-- `Enter_the_Application_Id_Here` is the **Application (client) ID** for the application you registered.
+1. In your IDE, open the project folder, *ms-identity-docs-code-javascript/react-spa*, containing the sample.
+1. Open *authConfig.js* and replace the file contents with the following snippet:
 
-   To find the value of **Application (client) ID**, go to the app registration's **Overview** page.
-- `Enter_the_Cloud_Instance_Id_Here` is the instance of the Azure cloud. For the main or global Azure cloud, enter `https://login.microsoftonline.com`. For **national** clouds (for example, China), see [National clouds](authentication-national-cloud.md).
-- `Enter_the_Tenant_info_here` is set to one of the following:
-  - If your application supports *accounts in this organizational directory*, replace this value with the **Tenant ID** or **Tenant name**. For example, `contoso.microsoft.com`.
+    ```javascript
+    import { LogLevel } from "@azure/msal-browser";
+    
+    /**
+     * Configuration object to be passed to MSAL instance on creation. 
+     * For a full list of MSAL.js configuration parameters, visit:
+     * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/configuration.md 
+     */
+    
+    export const msalConfig = {
+        auth: {
+            clientId: "Enter_the_Application_Id_Here",
+            authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here",
+            redirectUri: "http://localhost:{port}",
+        },
+        cache: {
+            cacheLocation: "sessionStorage", // This configures where your cache will be stored
+            storeAuthStateInCookie: false, // Set this to "true" if you are having issues on IE11 or Edge
+        },
+        system: {	
+            loggerOptions: {	
+                loggerCallback: (level, message, containsPii) => {	
+                    if (containsPii) {		
+                        return;		
+                    }		
+                    switch (level) {
+                        case LogLevel.Error:
+                            console.error(message);
+                            return;
+                        case LogLevel.Info:
+                            console.info(message);
+                            return;
+                        case LogLevel.Verbose:
+                            console.debug(message);
+                            return;
+                        case LogLevel.Warning:
+                            console.warn(message);
+                            return;
+                        default:
+                            return;
+                    }	
+                }	
+            }	
+        }
+    };
+    
+    /**
+     * Scopes you add here will be prompted for user consent during sign-in.
+     * By default, MSAL.js will add OIDC scopes (openid, profile, email) to any login request.
+     * For more information about OIDC scopes, visit: 
+     * https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent#openid-connect-scopes
+     */
+    export const loginRequest = {
+        scopes: ["user.read"]
+    };
 
-   To find the value of the **Directory (tenant) ID**, go to the app registration's **Overview** page.
-  - If your application supports *accounts in any organizational directory*, replace this value with `organizations`.
-  - If your application supports *accounts in any organizational directory and personal Microsoft accounts*, replace this value with `common`. **For this quickstart**, use `common`.
-  - To restrict support to *personal Microsoft accounts only*, replace this value with `consumers`.
+    /**
+     * Add here the scopes to request when obtaining an access token for MS Graph API. For more information, see:
+     * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/resources-and-scopes.md
+     */
+    export const graphConfig = {
+        graphMeEndpoint: "https://graph.microsoft.com/v1.0/me",
+    };
+    ```
 
-   To find the value of **Supported account types**, go to the app registration's **Overview** page.
-- `Enter_the_Redirect_Uri_Here` is `http://localhost:3000/`.
+    * `TenantId` - The identifier of the tenant where the application is registered. Replace the text in quotes with the **Directory (tenant) ID** that was recorded earlier from the overview page of the registered application.
+    * `ClientId` - The identifier of the application, also referred to as the client. Replace the text in quotes with the **Directory (tenant) ID** value that was recorded earlier from the overview page of the registered application.
+    * `RedirectUri` - The **Redirect URI** of the application. Replace the text in quotes with the redirect URI that was recorded earlier from the overview page of the registered application.
 
-The `authority` value in your *authConfig.js* should be similar to the following if you're using the main (global) Azure cloud:
-
-```javascript
-authority: "https://login.microsoftonline.com/common",
-```
-
-Scroll down in the same file and update the `graphMeEndpoint`.
-- Replace the string `Enter_the_Graph_Endpoint_Herev1.0/me` with `https://graph.microsoft.com/v1.0/me`
-- `Enter_the_Graph_Endpoint_Herev1.0/me` is the endpoint that API calls will be made against. For the main (global) Microsoft Graph API service, enter `https://graph.microsoft.com/` (include the trailing forward-slash). For more information, see the [documentation](/graph/deployments).
-
-```javascript
-  // Add here the endpoints for MS Graph API services you would like to use.
-   export const graphConfig = {
-       graphMeEndpoint: "Enter_the_Graph_Endpoint_Herev1.0/me"
-   };
-```
-
-### Step 4: Run the project
+## Run the application and sign in
 
 Run the project with a web server by using Node.js:
 
 1. To start the server, run the following commands from within the project directory:
+
     ```console
     npm install
     npm start
     ```
-1. Browse to `http://localhost:3000/`.
+1. Copy the https URL that appears in the terminal, for example, `https://localhost:3000`, and paste it into a browser. We recommend using a private or incognito browser session.
+1. Follow the steps and enter the necessary details to sign in with your Microsoft account. You'll be requested an email address so a one time passcode can be sent to you. Enter the code when prompted.
+1. The application will request permission to maintain access to data you have given it access to, and to sign you in and read your profile. Select **Accept**.
+1. The following screenshot appears, indicating that you have signed in to the application and have accessed your profile details from the Microsoft Graph API.
 
-1. Select **Sign In** to start the sign-in process and then call the Microsoft Graph API.
+    ![Screenshot of the application showing the user's profile details.](media/quickstarts/react-spa/quickstart-react-spa-sign-in.png)
 
-    The first time you sign in, you're prompted to provide your consent to allow the application to access your profile and sign you in. After you're signed in successfully, click on the **Request Profile Information** to display your profile information on the page.
+## Sign-out from the application
 
-## More information
+1. Find the **Sign out** link in the top right corner of the page, and select it.
+1. You'll be prompted to pick an account to sign out from. Select the account you used to sign in.
+1. A message appears indicating that you have signed out.
+1. Although you have signed out, the application is still running from your terminal. To stop the application in your terminal, press **Ctrl+C**. 
 
-### How the sample works
+## Related content
 
-![Diagram showing the authorization code flow for a single-page application.](media/quickstart-v2-javascript-auth-code/diagram-01-auth-code-flow.png)
+- [Quickstart: Protect an ASP.NET Core web API with the Microsoft identity platform](./quickstart-web-api-aspnet-core-protect-api.md)
 
-### msal.js
-
-The MSAL.js library signs in users and requests the tokens that are used to access an API that's protected by the Microsoft identity platform.
-
-If you have Node.js installed, you can download the latest version by using the Node.js Package Manager (npm):
-
-```console
-npm install @azure/msal-browser @azure/msal-react
-```
-
-## Next steps
-
-Next, try a step-by-step tutorial to learn how to build a React SPA from scratch that signs in users and calls the Microsoft Graph API to get user profile data:
-
-> [!div class="nextstepaction"]
-> [Tutorial: Sign in users and call Microsoft Graph](./single-page-app-tutorial-01-register-app.md)
+- Learn more by building this React SPA from scratch with the following series - [Tutorial: Sign in users and call Microsoft Graph](./single-page-app-tutorial-01-register-app.md)
