@@ -94,7 +94,7 @@ To make a partial payment, use the following steps.
 4. If any of your eligible invoices are due or past due, a blue **Pay now** link for the invoice is available. Select **Pay now**.
 5. In the Pay now window, select or tap **Select a payment method** to choose an existing credit card or add a new one.
 6. After you select a payment method, select **Pay now**.
-7. If the payment fails, the partial payment feature appears in the Pay now experience. The minimum partial payment amount is 1500. Enter an amount greater than 1500.
+7. If the payment fails, the partial payment feature appears in the Pay now experience. The minimum partial payment amount is 10,000 CNY. Enter an amount greater than 10,000 CNY.
 8. After you enter the amount, select the **Select a payment method** option to choose an existing credit card or add a new one. It's the card the first partial payment is applied to.
 9. After you select a payment method, select **Pay now**.
 10. Repeat steps 8 – 9 until you fully pay the invoice amount.

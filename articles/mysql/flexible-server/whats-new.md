@@ -31,6 +31,9 @@ This article summarizes new releases and features in Azure Database for MySQL - 
 - **Universal Cross Region Read Replica on Azure Database for MySQL- Flexible Server (General Availability)**
 Azure Database for MySQL - Flexible server now supports Universal Read Replicas in Public regions. The feature allows you to replicate your data from an instance of Azure Database for MySQL Flexible Server to a read-only server in Universal region which could be any region from the list of Azure supported region where flexible server is available. [Learn more](concepts-read-replicas.md)
 
+- **Private Link for Azure Database for MySQL - Flexible Server (General Availability)**
+- You can now enable private endpoints to provide a secure means to access Azure Database for MySQL Flexible Server via a Private Link, allowing both public and private access simultaneously. If necessary, you have the choice to restrict public access, ensuring that connections are exclusively routed through private endpoints for heightened network security. It's also possible to configure or update Private Link settings either during or after the creation of the server. [Learn more](./concepts-networking-private-link.md).
+
 ## August 2023
   
 - **Universal Geo Restore in Azure Database for MySQL - Flexible Server (Public Preview)**
@@ -617,6 +620,7 @@ If you have questions about or suggestions for working with Azure Database for M
 - Learn more about [Azure Database for MySQL pricing](https://azure.microsoft.com/pricing/details/mysql/server/).
 - Browse the [public documentation](index.yml) for Azure Database for MySQL – Flexible Server.
 - Review details on [troubleshooting common migration errors](../howto-troubleshoot-common-errors.md).
+
 
 
 
