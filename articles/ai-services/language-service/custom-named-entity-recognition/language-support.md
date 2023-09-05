@@ -58,7 +58,7 @@ Custom NER supports `.txt` files in the following languages:
 | Spanish | `es` |
 | Estonian | `et` |
 | Basque | `eu` |
-| Persian (Farsi) | `fa` |
+| Persian | `fa` |
 | Finnish | `fi` |
 | French | `fr` |
 | Western Frisian | `fy` |
@@ -97,7 +97,7 @@ Custom NER supports `.txt` files in the following languages:
 | Nepali | `ne` |
 | Dutch | `nl` |
 | Norwegian (Bokmal) | `nb` |
-| Oriya | `or` |
+| Odia | `or` |
 | Punjabi | `pa` |
 | Polish | `pl` |
 | Pashto | `ps` |

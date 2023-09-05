@@ -1776,6 +1776,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/site-recovery/vmware-physical-secondary-support-matrix.md",
+            "redirect_url": "/azure/site-recovery/vmware-physical-secondary-architecture",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/site-recovery/switch-replication-appliance-preview.md",
             "redirect_url": "/azure/site-recovery/switch-replication-appliance-modernized",
             "redirect_document_id": false
@@ -2516,6 +2521,11 @@
         {
             "source_path_from_root": "/articles/frontdoor/standard-premium/concept-endpoint-manager.md",
             "redirect_url": "/azure/frontdoor/manager",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/frontdoor/standard-premium/faq.md",
+            "redirect_url": "/azure/frontdoor/front-door-faq",
             "redirect_document_id": false
         },
         {
@@ -23388,6 +23398,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/devtest-labs/how-to-move-schedule-to-new-region.md",
+            "redirect_url": "/azure/devtest-labs/how-to-move-labs",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure/virtual-desktop/azure-advisor.md",
             "redirect_url": "/azure/advisor/advisor-overview",
             "redirect_document_id": false
@@ -23785,11 +23800,6 @@
         {
             "source_path_from_root": "/articles/private-5g-core/create-overview-dashboard.md",
             "redirect_url": "/azure/private-5g-core/monitor-private-5g-core-with-platform-metrics",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/communications-gateway/rotate-secrets.md",
-            "redirect_URL": "/azure/communications-gateway/whats-new",
             "redirect_document_id": false
         },
         {
@@ -24260,6 +24270,11 @@
         {
             "source_path_from_root": "/articles/reliability/reliability-postgre-flexible.md",
             "redirect_url": "/azure/reliability/reliability-postgresql-flexible-server",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/private-link/tutorial-private-endpoint-cosmosdb-portal.md",
+            "redirect_url": "/azure/cosmos-db/how-to-configure-private-endpoints",
             "redirect_document_id": false
         }
     ]

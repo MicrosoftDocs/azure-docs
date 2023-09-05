@@ -877,7 +877,11 @@
     - name: Understanding the DevOps Threat Matrix
       href: episode-thirty-four.md
     - name: Security alert correlation
-      href: episode-thirty-five.md                 
+      href: episode-thirty-five.md
+    - name: Defender CSPM support for GCP and more updates
+      href: episode-thirty-six.md
+    - name: Capabilities to counter identity-based supply chain attacks
+      href: episode-thirty-seven.md               
   - name: Manage user data
     href: privacy.md
   - name: Microsoft Defender for IoT documentation

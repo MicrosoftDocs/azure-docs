@@ -52,7 +52,7 @@ If you deploy a virtual machine in Azure and it doesn't have explicit outbound c
 
     * Customers don't own the default outbound access IP. This IP may change, and any dependency on it could cause issues in the future.
 
-## How can I disable default outbound access?
+## How can I transition to an explicit method of public connectivity (and disable default outbound access)?
 
 There are multiple ways to turn off default outbound access:
 
@@ -68,10 +68,10 @@ There are multiple ways to turn off default outbound access:
 
 *  Use Flexible orchestration mode for Virtual Machine Scale Sets.
 
-    * Flexible scale sets are secure by default. Any instances created via Flexible scale sets don't have the default outbound access IP associated with them. For more information, see [Flexible orchestration mode for Virtual Machine Scale Sets](../../virtual-machines/flexible-virtual-machine-scale-sets.md)
+    * Flexible scale sets are secure by default. Any instances created via Flexible scale sets don't have the default outbound access IP associated with them, so an explicit outbound method is required. For more information, see [Flexible orchestration mode for Virtual Machine Scale Sets](../../virtual-machines/flexible-virtual-machine-scale-sets.md)
 
 >[!Important]
-> When a backend pool is configured by IP address, it will use default outbound access due to an ongoing known issue. For secure by default configuration and applications with demanding outbound needs, associate a NAT gateway to the VMs in your load balancer's backend pool to secure traffic. See more on existing [known issues](../../load-balancer/whats-new.md#known-issues).
+> When a load balancer backend pool is configured by IP address, it will use default outbound access due to an ongoing known issue. For secure by default configuration and applications with demanding outbound needs, associate a NAT gateway to the VMs in your load balancer's backend pool to secure traffic. See more on existing [known issues](../../load-balancer/whats-new.md#known-issues).
 
 ## If I need outbound access, what is the recommended way?
 
@@ -79,7 +79,7 @@ NAT gateway is the recommended approach to have explicit outbound connectivity. 
 
 ## Constraints
 
-* Connectivity maybe needed for Windows Updates.
+* Public connectivity is required for Windows Activation and Windows Updates.  It is recommended to set up an explicit form of public outbound connectivity.
 
 * Default outbound access IP doesn't support fragmented packets. 
 

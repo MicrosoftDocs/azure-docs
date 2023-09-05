@@ -40,7 +40,7 @@ Use one of the following options to perform the settings change at scale:
     $ServiceID = "7971f918-a847-4430-9279-4a52d1efe18d"
     $ServiceManager.AddService2($ServiceId,7,"")
     ```
-- For servers running Server 2016 or later which are not using Update Manager scheduled patching (that has the VM PatchSettings set to AutomaticByOS = Azure-Orchestrated) you can use Group Policy to control this by downloading and using the latest Group Policy [Administrative template files](https://learn.microsoft.com/troubleshoot/windows-client/group-policy/create-and-manage-central-store).
+- For servers running Server 2016 or later which aren't using Update Manager scheduled patching (that has the VM PatchSettings set to AutomaticByOS = Azure-Orchestrated) you can use Group Policy to control this by downloading and using the latest Group Policy [Administrative template files](https://learn.microsoft.com/troubleshoot/windows-client/group-policy/create-and-manage-central-store).
 
 > [!NOTE]
 > Run the following PowerShell script on the server to disable first party updates.
@@ -55,7 +55,7 @@ Use one of the following options to perform the settings change at scale:
 
 **Windows**: Update Manager relies on the locally configured update repository to update supported Windows systems, either WSUS or Windows Update. Tools such as [System Center Updates Publisher](/mem/configmgr/sum/tools/updates-publisher) allow you to import and publish custom updates with WSUS. This scenario allows Update Manager to update machines that use Configuration Manager as their update repository with third-party software. To learn how to configure Updates Publisher, see [Install Updates Publisher](/mem/configmgr/sum/tools/install-updates-publisher).
 
-**Linux**: If you include a specific third party software repository in the Linux package manager repository location, it is scanned when it performs software update operations. The package won't be available for assessment and installation if you remove it.
+**Linux**: If you include a specific third party software repository in the Linux package manager repository location, it's scanned when it performs software update operations. The package won't be available for assessment and installation if you remove it.
 
 > [!NOTE]
 > Update Manager does not support managing the Microsoft Configuration Manager client.
@@ -100,17 +100,68 @@ United States | Central US </br> East US </br> East US 2</br> North Central US <
 # [Azure VMs](#tab/azurevm-os)
 
 > [!NOTE]
-> Currently, Update Manager has the following limitations regarding the operating system support: 
-> - Marketplace images other than the [list of supported marketplace OS images](../virtual-machines/automatic-vm-guest-patching.md#supported-os-images) are currently not supported.
+> Currently, Update Manager has the following limitation regarding the operating system support: 
 > - [Specialized images](../virtual-machines/linux/imaging.md#specialized-images) and **VMs created by Azure Migrate, Azure Backup, Azure Site Recovery** aren't fully supported for now. However, you can **use on-demand operations such as one-time update and check for updates** in Update Manager (preview). 
 >
-> For the above limitations, we recommend that you use [Automation Update management](../automation/update-management/overview.md) till the support is available in Update Manager (preview).
+> For the above limitation, we recommend that you use [Automation Update management](../automation/update-management/overview.md) till the support is available in Update Manager (preview).
 
-**Marketplace/PIR images**
 
-Currently, we support a combination of Offer, Publisher, and Sku of the image. Ensure that you match all the three to confirm support. For more information, see [list of supported marketplace OS images](../virtual-machines/automatic-vm-guest-patching.md#supported-os-images). 
+### Marketplace/PIR images
 
-**Custom images** 
+The Marketplace image in Azure has the following attributes:
+- **Publisher** - The organization that creates the image. Examples: Canonical, MicrosoftWindowsServer
+- **Offer**- The name of the group of related images created  by the publisher. Examples: UbuntuServer, WindowsServer
+- **SKU**- An instance of an offer, such as a major release of a distribution. Examples: 18.04LTS, 2019-Datacenter
+- **Version** - The version number of an image SKU.
+
+Azure Update Manager supports the following operating system versions. However, you could experience failures if there are any configuration changes on the VMs such as package or repository.
+
+#### Windows operating systems
+
+| **Publisher**| **Versions(s)** 
+|----------|-------------|
+|Microsoft Windows Server | 1709, 1803, 1809, 2012, 2016, 2019, 2022|
+|Microsoft Windows Server HPC Pack | 2012, 2016, 2019 |
+|Microsoft SQL Server | 2008, 2012, 2014, 2016, 2017, 2019, 2022 |
+|Microsoft Visual Studio | ws2012r2, ws2016, ws2019, ws2022 |
+|Microsoft Azure Site Recovery | Windows 2012
+|Microsoft Biz Talk Server | 2016, 2020 |
+|Microsoft DynamicsAx | ax7 |
+|Microsoft Power BI | 2016, 2017, 2019, 2022 |
+|Microsoft Sharepoint | sp* |
+
+#### Linux operating systems
+
+| **Publisher**| **Versions(s)** 
+|----------|-------------|
+|Canonical | Ubuntu 16.04, 18.04, 20.04, 22.04 |
+|RedHat | RHEL 7,8,9|
+|Openlogic | CentOS 7|
+|SUSE 12 |sles, sles-byos, sap, sap-byos, sapcal, sles-standard |
+|SUSE 15 | basic, hpc, opensuse, sles, sap, sapcal|
+|Oracle Linux | 7*, ol7*, ol8*, ol9* |
+|Oracle Database | 21, 19-0904, 18.*|
+
+#### Unsupported Operating systems
+
+The following table lists the operating systems for marketplace images that aren't supported:
+
+| **Publisher**| **OS Offer** | **SKU**|
+|----------|-------------|-----|
+|OpenLogic | CentOS | 8* |
+|OpenLogic | centos-hpc| * |
+|Oracle | Oracle-Linux | 8, 8-ci, 81, 81-ci , 81-gen2, ol82, ol8_2-gen2,ol82-gen2, ol83-lvm, ol83-lvm-gen2, ol84-lvm,ol84-lvm-gen2 |
+|Red Hat | RHEL | 74-gen2 |
+|Red Hat | RHEL-HANA | 7.4, 7.5, 7.6, 8.1, 81_gen2 |
+|Red Hat | 	RHEL-SAP | 7.4, 7.5, 7.7 |
+|Red Hat | 	RHEL-SAP-HANA | 7.5 |
+|Microsoft SQL Server | SQL 2019-SLES* | * |
+|Microsoft SQL Server | SQL 2019-RHEL7 | * |
+|Microsoft SQL Server | SQL 2017-RHEL7 | * |
+|Microsoft | microsoft-ads |*.* |
+|SUSE| sles-sap-15-*-byos | gen *|
+
+### Custom images
 
 We support [generalized](../virtual-machines/linux/imaging.md#generalized-images) custom images. Table below lists the operating systems that we support for generalized images. Refer to [custom images (preview)](manage-updates-customized-images.md) for instructions on how to start using Update Manager (preview) to manage updates on custom images.
 
