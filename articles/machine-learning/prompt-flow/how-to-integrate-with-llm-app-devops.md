@@ -412,7 +412,7 @@ For a comprehensive guide on an end-to-end MLOps pipeline that executes a web cl
 
 The last step to go to production is to deploy your flow as an online endpoint in Azure Machine Learning. This allows you to integrate your flow into your application and make it available for use.
 
-For more information on how to deploy your flow, see [Deploy flows to Azure Machine Learning managed online endpoint for real-time inference with CLI and SDK](../deploy-to-code.md).
+For more information on how to deploy your flow, see [Deploy flows to Azure Machine Learning managed online endpoint for real-time inference with CLI and SDK](how-to-deploy-to-code.md).
 
 ## Next steps
 

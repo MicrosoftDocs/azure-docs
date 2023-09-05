@@ -222,22 +222,23 @@ environment_variables:
 
 ---
 
-| Attribute      | Description                                                                                                                                                                                                                                                                                                                                                                                    |
-|-----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Name           | The name of the deployment.                                                                                                                                                                                                                                                                                                                                                                    |
-| Endpoint name  | The name of the endpoint to create the deployment under.   |
-| Model          | The model to use for the deployment. This value can be either a reference to an existing versioned model in the workspace or an inline model specification.  |
-| Environment    | The environment to host the model and code. It contains: <br>    - `image`<br>      - `inference_config`: is used to build a serving container for online deployments, including `liveness route`, `readiness_route`, and `scoring_route` .                                                             |
-| Instance type  | The VM size to use for the deployment. For the list of supported sizes, see [Managed online endpoints SKU list](../reference-managed-online-endpoints-vm-sku-list.md).  |
-| Instance count | The number of instances to use for the deployment. Base the value on the workload you expect. For high availability, we recommend that you set the value to at least `3`. We reserve an extra 20% for performing upgrades. For more information, see [managed online endpoint quotas](../how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints).    |
-|Environment variables| Following environment variables need to be set for endpoints deployed from a flow: <br> - (required) `PROMPTFLOW_RUN_MODE: serving`: specify the mode to serving <br> - (required) `PRT_CONFIG_OVERRIDE`: for pulling connections from workspace <br> - (optional) `PROMPTFLOW_RESPONSE_INCLUDED_FIELDS:`: When there are multiple fields in the response, using this env variable will filter the fields to expose in the response. <br> For example, if there are two flow outputs: "answer", "context", and if you only want to have "answer" in the endpoint response, you can set this env variable to '["answer"]'. <br> - <br>|
+| Attribute | Description |
+|--|--|
+| Name | The name of the deployment. |
+| Endpoint name | The name of the endpoint to create the deployment under. |
+| Model | The model to use for the deployment. This value can be either a reference to an existing versioned model in the workspace or an inline model specification. |
+| Environment | The environment to host the model and code. It contains: <br>    - `image`<br>      - `inference_config`: is used to build a serving container for online deployments, including `liveness route`, `readiness_route`, and `scoring_route` . |
+| Instance type | The VM size to use for the deployment. For the list of supported sizes, see [Managed online endpoints SKU list](../reference-managed-online-endpoints-vm-sku-list.md). |
+| Instance count | The number of instances to use for the deployment. Base the value on the workload you expect. For high availability, we recommend that you set the value to at least `3`. We reserve an extra 20% for performing upgrades. For more information, see [managed online endpoint quotas](../how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints). |
+| Environment variables | Following environment variables need to be set for endpoints deployed from a flow: <br> - (required) `PROMPTFLOW_RUN_MODE: serving`: specify the mode to serving <br> - (required) `PRT_CONFIG_OVERRIDE`: for pulling connections from workspace <br> - (optional) `PROMPTFLOW_RESPONSE_INCLUDED_FIELDS:`: When there are multiple fields in the response, using this env variable will filter the fields to expose in the response. <br> For example, if there are two flow outputs: "answer", "context", and if you only want to have "answer" in the endpoint response, you can set this env variable to '["answer"]'. <br> - <br> |
 
 If you create a Kubernetes online deployment, you need to specify the following additional attributes:
 
-| Attribute      | Description                                                                                                                                                                                                                                                                                                                                                                              |
-|-----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Type      | The type of the deployment. Set the value to `kubernetes`. |
-| Instance type  | The instance type you have created in your kubernetes cluster to use for the deployment, represent the request/limit compute resource of the  deployment. For more detail, see [Create and manage instance type](../how-to-manage-kubernetes-instance-types.md).  |                                                                                                                                                                                                                                                                                                                                |
+| Attribute | Description |
+|--|--|
+| Type | The type of the deployment. Set the value to `kubernetes`. |
+| Instance type | The instance type you have created in your kubernetes cluster to use for the deployment, represent the request/limit compute resource of the  deployment. For more detail, see [Create and manage instance type](../how-to-manage-kubernetes-instance-types.md). |
+
 ### Deploy your online endpoint to Azure
 
 To create the endpoint in the cloud, run the following code:
