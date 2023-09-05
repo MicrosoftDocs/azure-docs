@@ -183,6 +183,8 @@ az role assignment create \
 
 ---
 
+--assignee argument represents the service principal Azure Spring Apps uses to interact with customer's virtual network.
+
 ## Deploy an Azure Spring Apps instance
 
 ### [Azure portal](#tab/azure-portal)
