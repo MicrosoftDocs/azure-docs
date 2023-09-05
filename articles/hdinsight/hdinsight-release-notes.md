@@ -68,7 +68,7 @@ For workload specific versions, see
 
 If you have any more questions, contact [Azure Support](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview).
 
-You can always ask us about HDInsight on [Azure HDInsight - Microsoft Q&A](https://learn.microsoft.com/answers/tags/168/azure-hdinsight)
+You can always ask us about HDInsight on [Azure HDInsight - Microsoft Q&A](/answers/tags/168/azure-hdinsight)
 
 You’re welcome to add more proposals and ideas and other topics here and vote for them - [HDInsight Community (azure.com)](https://feedback.azure.com/d365community/search/?q=HDInsight) and follow us for more  updates on [twitter](https://twitter.com/AzureHDInsight)
 

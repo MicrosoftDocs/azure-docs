@@ -1,8 +1,8 @@
 ---
 title: 'Tutorial: Linux Java app with MongoDB'
 description: Learn how to get a data-driven Linux Java app working in Azure App Service, with connection to a MongoDB running in Azure Cosmos DB.
-author: rloutlaw
-ms.author: routlaw
+author: cephalin
+ms.author: cephalin
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/10/2018
