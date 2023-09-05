@@ -40,7 +40,7 @@ The table summarizes support for data-aware posture management.
 |Do I need to install an agent? | No, discovery requires no agent installation. |
 |What's the cost? | The feature is included with the Defender CSPM and Defender for Storage plans, and doesn’t incur additional costs except for the respective plan costs. |
 |What permissions do I need to view/edit data sensitivity settings? | You need one of these Azure Active directory roles: Global Administrator,  Compliance Administrator, Compliance Data Administrator, Security Administrator, Security Operator.|
-| What permissions do I need to perform onboarding? | You need one of these Azure Active directory roles: Security Admin, Contributor, Owner on the subscription level (where the GCP project/s reside in). For consuming the security findings: Security Reader, Security Admin,Reader, Contributor, Owner on the subscription level (where the GCP project/s reside). |
+| What permissions do I need to perform onboarding? | You need one of these Azure Active directory roles: Security Admin, Contributor, Owner on the subscription level (where the GCP project/s reside in). For consuming the security findings: Security Reader, Security Admin, Reader, Contributor, Owner on the subscription level (where the GCP project/s reside). |
 
 ## Configuring data sensitivity settings
 
