@@ -475,7 +475,7 @@ const deviceManager2 = await callClient2.getDeviceManager();
 const camera1 = await deviceManager1.getCameras()[0];
 const callObj1 = callAgent1.join({ groupId: ‘123’}, { videoOptions: { localVideoStreams: [new LocalVideoStream(camera1)] } });
 
-// Join the same call with your second CallAgent
+// Join the same call with your second CallAgent and make it use a different camera
 const camera2 = (await deviceManager2.getCameras()).filter((camera) => { return camera !== camera1 })[0];
 const callObj2 = callAgent2.join({ groupId: '123' }, { videoOptions: { localVideoStreams: [new LocalVideoStream(camera2)] } });
 
@@ -485,5 +485,6 @@ await callObj2.mute();
 ```
 Limitations:
 - This must be done with two different call agents with different identities, hence the code snippet shows two call agents being used.
-- Sending two cameras with one CallAgent is currently not supported.
-- OnMac Safari, background blur video effects (from @azure/communication-effects), can only be applied to one camera, and not both at the same time.
+- Sending the same camera in both CallAgent, is not supported. They must be two different cameras.
+- Sending two different cameras with one CallAgent is currently not supported.
+- On MacOS Safari, background blur video effects (from @azure/communication-effects), can only be applied to one camera, and not both at the same time.
