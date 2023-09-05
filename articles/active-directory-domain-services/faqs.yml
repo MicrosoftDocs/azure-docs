@@ -109,7 +109,7 @@ sections:
       - question: |
           Is there any quota for the number of machines that I can join to the domain?
         answer: |
-          Azure AD DS instances have no quota for machines that join the domain.
+          There's no quota in Azure AD DS for domain-joined machines.
 
       - question: |
           Do I have domain administrator privileges for the managed domain provided by Azure AD Domain Services?
