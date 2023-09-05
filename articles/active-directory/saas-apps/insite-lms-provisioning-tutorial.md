@@ -41,14 +41,18 @@ The scenario outlined in this tutorial assumes that you already have the followi
 1. Determine what data to [map between Azure AD and Insite LMS](../app-provisioning/customize-application-attributes.md).
 
 ## Step 2. Configure Insite LMS to support provisioning with Azure AD
+To generate the Secret Token
 
-1. Navigate to `https://portal.insitelms.net/<OrganizationName>`.
-1. Download and install the Desktop Client.
-1. Log in with your Admin Account and Navigate to **Users** Module.
-1. Select the User `scim@insitelms.net` and press the button **Generate Access Token**. If you can't find the scim-User, contact the Support-Team
-	1.	Choose **AzureAdScimProvisioning** and press **generate** 
-	1.	Copy the **AccessToken**
-1. The **Tenant Url** is `https://web.insitelms.net/<OrganizationName>/api/scim`.
+1. Login to [Insite LMS Admin Console](https://portal.insitelms.net/organization/applications).
+1. Navigate to **Self Hosted Jobs**. You will find a job named “SCIM”.
+
+	![Screenshot of generate API Key.](media/insite-lms-provisioning-tutorial/generate-api-key.png)
+
+1. Click on **Generate Api Key**.
+Copy and save the **Api Key**. This value will be entered in the **Secret Token** field in the Provisioning tab of your Insite LMS application in the Azure portal.
+
+>![NOTE]
+>The Access Token is only valid for 1 year.
 
 ## Step 3. Add Insite LMS from the Azure AD application gallery
 
@@ -63,7 +67,7 @@ The Azure AD provisioning service allows you to scope who will be provisioned ba
 * If you need additional roles, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add new roles.
 
 
-## Step 5. Configure automatic user provisioning to Insite LMS 
+## Step 5. Configure automatic user provisioning to Insite LMS
 
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in Insite LMS app based on user and group assignments in Azure AD.
 
@@ -71,27 +75,28 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
 
-	![Enterprise applications blade](common/enterprise-applications.png)
+	![Screenshot of Enterprise applications blade.](common/enterprise-applications.png)
 
 1. In the applications list, select **Insite LMS**.
 
-	![The Insite LMS link in the Applications list](common/all-applications.png)
+	![Screenshot of The Insite LMS link in the Applications list.](common/all-applications.png)
 
 1. Select the **Provisioning** tab.
 
-	![Provisioning tab](common/provisioning.png)
+	![Screenshot of Provisioning tab.](common/provisioning.png)
 
 1.  Set the **Provisioning Mode** to **Automatic**.
 
-	![Provisioning tab automatic](common/provisioning-automatic.png)
+	![Screenshot of Provisioning tab automatic.](common/provisioning-automatic.png)
 
-1. In the **Admin Credentials** section, enter your Insite LMS **Tenant URL** and **Secret token** information. Select **Test Connection** to ensure that Azure AD can connect to Insite LMS. If the connection fails, ensure that your Insite LMS account has admin permissions and try again.
+1. In the **Admin Credentials** section 
+enter your Insite LMS **Tenant URL** as `https://api.insitelms.net/scim` and enter the **Secret token** generated in Step 2 above. Select **Test Connection** to ensure that Azure AD can connect to Insite LMS. If the connection fails, ensure that your Insite LMS account has admin permissions and try again.
 
- 	![Token](common/provisioning-testconnection-tenanturltoken.png)
+ 	![Screenshot of Token.](common/provisioning-testconnection-tenanturltoken.png)
 
 1. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications. Select the **Send an email notification when a failure occurs** check box.
 
-	![Notification Email](common/provisioning-notification-email.png)
+	![Screenshot of Notification Email.](common/provisioning-notification-email.png)
 
 1. Select **Save**.
 
@@ -99,28 +104,28 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 1. Review the user attributes that are synchronized from Azure AD to Insite LMS in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Insite LMS for update operations. If you change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you'll need to ensure that the Insite LMS API supports filtering users based on that attribute. Select **Save** to commit any changes.
 
-   |Attribute|Type|Supported for filtering|
-   |---|---|---|
-   |userName|String|&check;|
-   |emails[type eq "work"].value|String|&check;|
-   |active|Boolean|
-   |name.givenName|String|
-   |name.familyName|String|
-   |phoneNumbers[type eq "work"].value|String|
+   |Attribute|Type|Supported for filtering|Required by Insite LMS|
+   |---|---|---|---|
+   |userName|String|&check;|&check;|
+   |emails[type eq "work"].value|String|&check;|&check;|
+   |active|Boolean||
+   |name.givenName|String||
+   |name.familyName|String||
+   |phoneNumbers[type eq "work"].value|String||
 
 1. To configure scoping filters, see the instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 1. To enable the Azure AD provisioning service for Insite LMS, change **Provisioning Status** to **On** in the **Settings** section.
 
-	![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
+	![Screenshot of Provisioning Status Toggled On.](common/provisioning-toggle-on.png)
 
 1. Define the users or groups that you want to provision to Insite LMS by selecting the desired values in **Scope** in the **Settings** section.
 
-	![Provisioning Scope](common/provisioning-scope.png)
+	![Screenshot of Provisioning Scope.](common/provisioning-scope.png)
 
 1. When you're ready to provision, select **Save**.
 
-	![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
+	![Screenshot of Saving Provisioning Configuration.](common/provisioning-configuration-save.png)
 
 This operation starts the initial synchronization cycle of all users and groups defined in **Scope** in the **Settings** section. The initial cycle takes longer to do than next cycles, which occur about every 40 minutes as long as the Azure AD provisioning service is running.
 
