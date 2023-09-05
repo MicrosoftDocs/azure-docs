@@ -205,7 +205,7 @@ In this step, you fork a demo project to deploy.
 
 :::zone target="docs" pivot="development-environment-azd"
 
-The [Azure Developer CLI](/azure/developer/azure-developer-cli/overview) (`azd`) is an open-source tool designed to streamline and automate the process of moving your application from a local development environment to Azure. (`azd`) uses extensible [templates](/azure/developer/azure-developer-cli/get-started) that include reusable infrastructure as code (Bicep or Terraform) assets and the app source code. These templates are used to provision resources in Azure and deploy the app code and generally live on GitHub.
+This quickstart uses the [Azure Developer CLI](/azure/developer/azure-developer-cli/overview) (`azd`) both to create Azure resources and deploy code to it. For more information about Azure Azure Developer CLI, visit the [documentation](/azure/developer/azure-developer-cli/install-azd?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows) or [training path](/training/paths/azure-developer-cli/).
 
 Retrieve and initialize [the ASP.NET web app template](tbd) for this quickstart using the following steps:
 
@@ -230,12 +230,11 @@ Retrieve and initialize [the ASP.NET web app template](tbd) for this quickstart 
 
 ## 2. Publish your web app
 
-To publish your web app, you must first create and configure a new App Service that you can publish your app to.
-
-As part of setting up the App Service, you create:
+The AZD template contains files that will generate the following required resources for your application to run in App service:
 
 - A new [resource group](../azure-resource-manager/management/overview.md#terminology) to contain all of the Azure resources for the service.
-- A new [Hosting Plan](overview-hosting-plans.md) that specifies the location, size, and features of the web server farm that hosts your app.
+- A new [App Service plan](overview-hosting-plans.md) that specifies the location, size, and features of the web server farm that hosts your app.
+- A new [App Service app](overview-hosting-plans.md) instance to run the deployed application.
 
 Follow these steps to create your App Service resources and publish your project:
 
