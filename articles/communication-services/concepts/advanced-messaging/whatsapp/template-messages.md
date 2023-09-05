@@ -26,12 +26,12 @@ Conversations between a WhatsApp Business Account and a WhatsApp user can be ini
 
 A business can send only template messages until the user sends a message to the business. Only then can the business send text or media messages to the user. Once the 24 hour conversation window has expired, the conversation must be reinitiated. To learn more about conversations, see the definition at [WhatsApp Business Platform](https://developers.facebook.com/docs/whatsapp/pricing#conversations)
 
-Refer to the guidelines in the [WhatsApp Business Platform API reference](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates) for further requirements on templates.
+For further requirements on templates, refer to the guidelines in the WhatsApp Business Platform API references [Create and Manage Templates](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates/), [Template Components](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates/components), and [Sending Template Messages](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-message-templates).   
 Businesses must also adhere to [opt-in requirements](https://developers.facebook.com/docs/whatsapp/overview/getting-opt-in) before sending messages to WhatsApp users.
 
 ## Choosing a template
 
-When a WhatsApp Business Account is created through the Azure portal during embedded signup, a set of sample templates may be automatically available for you to try out. See the usage for a few of these sample templates at [Examples](#examples).   
+When a WhatsApp Business Account is [created through the Azure portal during embedded signup](../../../quickstarts/advanced-messaging/whatsapp/connect-whatsapp-business-account.md#whatsapp-business-account-sign-up), a set of sample templates may be automatically available for you to try out. See the usage for a few of these sample templates at [Examples](#examples).   
 
 ### Create template
 

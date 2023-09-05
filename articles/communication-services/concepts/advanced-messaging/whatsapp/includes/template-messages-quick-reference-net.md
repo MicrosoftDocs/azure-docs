@@ -70,8 +70,10 @@ Message template assembly for image media:
 var url = new Uri("< Your media URL >");
 
 var media = new MessageTemplateImage("image", url);
-IEnumerable<MessageTemplateValue> values = 
-    new List<MessageTemplateValue> { media };
+IEnumerable<MessageTemplateValue> values =  new List<MessageTemplateValue>
+{
+    media
+};
 var bindings = new MessageTemplateWhatsAppBindings(
     header: new[] { media.Name });
 
@@ -91,7 +93,7 @@ Use `MessageTemplateQuickActionValue` to define the payload for quick reply butt
 `MessageTemplateQuickActionValue` objects and have the following three attributes.   
  **Specifically for quick reply buttons**, follow these guidelines to create your `MessageTemplateQuickActionValue` object.
 - `name`   
-Match the button's `text` parameter in the template definition.   
+The `name` is a name used to look up the value in `MessageTemplateWhatsAppBindings`.
 - `text`   
 The `text` attribute isn't used.
 - `payload`   
@@ -134,6 +136,8 @@ var bindings = new MessageTemplateWhatsAppBindings(
 var messageTemplate = new MessageTemplate(templateName, templateLanguage, values, bindings);
 ``````
 
+For more information on the payload in Quick Reply responses from the user, see WhatsApp's documentation for [Received Callback from a Quick Reply Button](https://developers.facebook.com/docs/whatsapp/cloud-api/webhooks/payload-examples#received-callback-from-a-quick-reply-button).
+
 #### Example
 - [Use sample template sample_issue_resolution](#use-sample-template-sample_issue_resolution)
 
@@ -144,7 +148,7 @@ Use `MessageTemplateQuickActionValue` to define the url suffix for call to actio
 `MessageTemplateQuickActionValue` objects and have the following three attributes.   
  **Specifically for call to action buttons**, follow these guidelines to create your `MessageTemplateQuickActionValue` object.
 - `name`   
-The `name` is `text`.
+The `name` is a name used to look up the value in `MessageTemplateWhatsAppBindings`.
 - `text`   
 The `text` attribute defines the text that is appended to the URL.   
 - `payload`   
