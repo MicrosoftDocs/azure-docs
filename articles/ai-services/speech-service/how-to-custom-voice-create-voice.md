@@ -276,7 +276,7 @@ To copy your custom neural voice model to another project:
     :::image type="content" source="media/custom-voice/cnv-model-copy-dialog.png" alt-text="Screenshot of the copy voice model dialog.":::
 
 1. Select **Submit** to copy the model.
-1. Select **View model** under the notification message for the successful coping.
+1. Select **View model** under the notification message for the successful copying.
 
 Navigate to the project where you copied the model to [deploy the model copy](how-to-deploy-and-use-endpoint.md).
 
