@@ -498,7 +498,7 @@
         - name: Ingress
           items:
             - name: Create a controller in AKS using Terraform
-              href: create-k8s-cluster-with-aks-applicationgateway-ingress.md
+              href: create-k8s-cluster-with-aks-application-gateway-ingress.md
             - name: Use ingress-nginx
               items:
                 - name: Create an ingress controller
