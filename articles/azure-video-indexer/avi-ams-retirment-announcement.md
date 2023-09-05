@@ -71,7 +71,7 @@ There will be breaking API changes. The following table describes the changes fo
 
 | **Type** | **API Name** |  **Change** |
 |---|---|---|
-| **ARM** | Create<br/>Update<br/>Patch<br/>ListAccount | - The `mediaServices` Account property will be replaced with a `storageServices` Account property.<br/> - The `Identity` property will change from an `Owner` managed identity to `Storage Blob Data Contributor` permissions on the storage resource. |
+| **ARM** | Create<br/>Update<br/>Patch<br/>ListAccount | - The `mediaServices` Account property will be replaced with a `storageServices` Account property.<br/><br/> - The `Identity` property will change from an `Owner` managed identity to `Storage Blob Data Contributor` permissions on the storage resource. |
 | **ARM** | Get<br/>MoveAccount | ? |
 | **ARM** | GetClassicAccount<br/>ListClassicAccounts |  API will no longer be supported. |
 | **Classic** | CreatePaidAccountManually | API will no longer be supported. |
