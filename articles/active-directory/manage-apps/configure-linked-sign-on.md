@@ -31,18 +31,18 @@ Some common scenarios where linked-based SSO is valuable include:
 ## Prerequisites
 
 To configure linked-based SSO in your Azure AD tenant, you need:
--	An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
--	One of the following roles: Global Administrator, Application Administrator, or owner of the service principal.
--	An application that supports linked-based SSO.
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+- One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
+- An application that supports linked-based SSO.
 
 ## Configure linked-based single sign-on
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with the appropriate role.
-2. Select **Azure Active Directory** in Azure Services, and then select **Enterprise applications**.
-3. Search for and select the application that you want to add linked SSO.
-4. Select **Single sign-on** and then select **Linked**.
-5. Enter the URL for the sign-in page of the application.
-6. Select **Save**. 
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**.
+1. Search for and select the application that you want to add linked SSO.
+1. Select **Single sign-on** and then select **Linked**.
+1. Enter the URL for the sign-in page of the application.
+1. Select **Save**. 
 
 ## Next steps
 

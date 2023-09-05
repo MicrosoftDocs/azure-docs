@@ -1791,9 +1791,11 @@ groups:
   prompt: Choose your preferred usage method
   pivots:
   - id: programming-language-studio
-    title: Azure OpenAI Studio
+    title: Studio
+  - id: programming-language-csharp
+    title: C#
   - id: rest-api
-    title: REST API
+    title: REST
 # Owner: pafarley
 - id: openai-quickstart-dall-e
   title: Programming languages
