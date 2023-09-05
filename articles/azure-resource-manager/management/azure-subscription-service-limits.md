@@ -63,6 +63,9 @@ The following limits apply when you use Azure Resource Manager and Azure resourc
 
 [!INCLUDE [api-center-service-limits](../../api-center/includes/api-center-service-limits.md)]
 
+## Azure Container Apps limits
+
+[!INCLUDE [container-apps-limits](../../includes/container-apps/container-apps-limits.md)]
 
 ## API Management limits
 
