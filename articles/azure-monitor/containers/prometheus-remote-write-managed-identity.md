@@ -177,5 +177,9 @@ See [Azure Monitor managed service for Prometheus remote write](prometheus-remot
 
 ## Next steps
 
-- [Setup Grafana to use Managed Prometheus as a data source](../essentials/prometheus-grafana.md).
-- [Learn more about Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md).
+- [Collect Prometheus metrics from an AKS cluster](../containers/prometheus-metrics-enable.md)
+- [Learn more about Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md)
+- [Remote-write in Azure Monitor Managed Service for Prometheus](prometheus-remote-write.md)
+- [Remote-write in Azure Monitor Managed Service for Prometheus using Azure Active Directory](./prometheus-remote-write-active-directory.md)
+- [Configure remote write for Azure Monitor managed service for Prometheus using managed identity authentication](./prometheus-remote-write-managed-identity.md)
+- [Configure remote write for Azure Monitor managed service for Prometheus using Azure AD pod identity (preview)](./prometheus-remote-write-azure-ad-pod-identity.md)
