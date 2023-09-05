@@ -30,7 +30,7 @@ Vector index lookup is a tool tailored for querying within an Azure Machine Lear
     | workspace datastores or workspace default blob | AzureML Data Scientist |
     | other blobs | Storage Blob Data Reader |
 > [!NOTE]
-> When legacy tools switching to code first mode, if you encounter "'embeddingstore.tool.vector_index_lookup.search' is not found" error, please refer to the [Troubleshooting Guidance](./troubleshooting-guidance.md).
+> When legacy tools switching to code first mode, if you encounter "'embeddingstore.tool.vector_index_lookup.search' is not found" error, please refer to the [Troubleshoot Guidance](./troubleshoot-guidance.md).
 
 ## Inputs
 

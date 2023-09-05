@@ -45,7 +45,7 @@ The tool searches data from a third-party vector database. To use it, you should
     - Add "Weaviate" connection. Fill "API base" with your self-maintained instance address and fill "API key" field.
 
 > [!NOTE]
-> When legacy tools switching to code first mode, if you encounter "'embeddingstore.tool.vector_db_lookup.search' is not found" error, please refer to the [Troubleshooting Guidance](./troubleshooting-guidance.md).
+> When legacy tools switching to code first mode, if you encounter "'embeddingstore.tool.vector_db_lookup.search' is not found" error, please refer to the [Troubleshoot Guidance](./troubleshoot-guidance.md).
 
 ## Inputs
 
@@ -91,12 +91,14 @@ The following is an example JSON format response returned by the tool, which inc
 - **Azure Cognitive Search:**
 
   For Azure Cognitive Search, the following fields are populated:
+
   | Field Name | Type | Description |
   | ---- | ---- | ----------- |
   | original_entity | dict | the original response json from search REST API|
   | score | float |  @search.score from the original entity, which evaluates the similarity between the entity and the query vector |
   | text | string | text of the entity|
   | vector | list | vector of the entity|
+
   <details>
     <summary>Output</summary>
     
@@ -122,6 +124,7 @@ The following is an example JSON format response returned by the tool, which inc
 - **Qdrant:**
 
   For Qdrant, the following fields are populated:
+
   | Field Name | Type | Description |
   | ---- | ---- | ----------- |
   | original_entity | dict | the original response json from search REST API|
@@ -159,6 +162,7 @@ The following is an example JSON format response returned by the tool, which inc
 - **Weaviate:**
 
   For Weaviate, the following fields are populated:
+  
   | Field Name | Type | Description |
   | ---- | ---- | ----------- |
   | original_entity | dict | the original response json from search REST API|
