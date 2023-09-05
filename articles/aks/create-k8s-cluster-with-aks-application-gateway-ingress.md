@@ -2,7 +2,7 @@
 title: Create an Application Gateway Ingress Controller in Azure Kubernetes Service using Terraform
 description: Learn how to create an Application Gateway Ingress Controller in Azure Kubernetes Service using Terraform
 ms.topic: how-to
-ms.date: 8/11/2023
+ms.date: 9/5/2023
 ms.custom: devx-track-terraform, devx-track-azurecli
 content_well_notification: 
   - AI-contribution
@@ -234,7 +234,7 @@ Once you have the App Gateway, AKS, and AGIC installed, install a sample app.
     
 2. Using a browser, go to the IP address indicated in the previous step.
 
-    :::image type="content" source="media/create-k8s-cluster-with-aks-applicationgateway-ingress/sample-app.png" alt-text="Screenshot of sample app.":::
+    :::image type="content" source="media/create-k8s-cluster-with-aks-application-gateway-ingress/sample-app.png" alt-text="Screenshot of sample app.":::
 
 ## Clean up resources
 
