@@ -187,7 +187,7 @@ The following metrics are available for Azure Firewall:
 
    Unit: ms
 
-   This metric measures the overall or average latency of Azure Firewall. Administrators can use this metric for the following purposes: 
+   This metric measures the overall or average latency of Azure Firewall in milliseconds. Administrators can use this metric for the following purposes: 
 
    - Diagnose if Azure Firewall is the cause of latency in the network 
 
