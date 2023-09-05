@@ -11,9 +11,9 @@ ms.date: 6/9/2023
 
 # Sign container images with Notation and Azure Key Vault using a CA-issued certificate (Preview)
 
-Signing and verifying the container images with a certificate issued by a trusted Certificate Authority (CA) ensures authorizing and validating the identity responsibly with approved CA without any compromise. The trusted CA entities (for example, GoDaddy or DigiCert) ensure to validate the user's and organization's identity and also have the authority to revoke the certificate immediately upon any risk or misuse.
+Signing and verifying the container images with a certificate issued by a trusted Certificate Authority (CA) ensure authorizing and validating the identity responsibly with approved CA without any compromise. The trusted CA entities (for example, GlobalSign or DigiCert) ensure to validate the user's and organization's identity and also have the authority to revoke the certificate immediately upon any risk or misuse.
 
-[Notation](https://github.com/notaryproject/notation) is an open source supply chain tool developed by [Notary Project](https://notaryproject.dev/), which supports signing and verifying container images and other artifacts. The Azure Key Vault (AKV) is used to store a signing certificate that can be utilized by Notation with the [Notation AKV plugin (azure-kv)](https://github.com/Azure/notation-azure-kv) to sign and verify container images and other artifacts. The Azure Container Registry (ACR) allows you to attach these signatures to the signed image.
+[Notation](https://github.com/notaryproject/notation) is an open source supply chain tool developed by [Notary Project](https://notaryproject.dev/), which supports signing and verifying container images and other artifacts. The Azure Key Vault (AKV) is used to store a certificate with a signing key that can be utilized by Notation with the [Notation AKV plugin (azure-kv)](https://github.com/Azure/notation-azure-kv) to sign and verify container images and other artifacts. The Azure Container Registry (ACR) allows you to attach these signatures to the signed image.
 
 > [!IMPORTANT]
 > This feature is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
@@ -21,7 +21,6 @@ Signing and verifying the container images with a certificate issued by a truste
 In this article:
 
 > [!div class="checklist"]
-
 > * Install the notation CLI and AKV plugin
 > * Create or import a certificate issued by a CA in AKV
 > * Build and push a container image with ACR task
@@ -56,7 +55,7 @@ In this article:
     mkdir -p ~/.config/notation/plugins/azure-kv
                     
     # Download the plugin
-    curl -Lo notation-azure-kv.tar.gz https://github.com/Azure/notation-azure-kv/releases/download/v1.0.0/notation-azure-kv_1.0.0_linux_amd64.tar.gz 
+    curl -Lo notation-azure-kv.tar.gz https://github.com/Azure/notation-azure-kv/releases/download/v1.0.1/notation-azure-kv_1.0.1_linux_amd64.tar.gz 
                     
     # Extract to the plugin directory
     tar xvzf notation-azure-kv.tar.gz -C ~/.config/notation/plugins/azure-kv
@@ -119,12 +118,12 @@ To learn more about Azure CLI and how to sign in with it, see [Sign in with Azur
 When creating certificates for signing and verification, it is important to ensure that they meet the [Notary Project certificate requirement](https://github.com/notaryproject/specifications/blob/v1.0.0/specs/signature-specification.md#certificate-requirements). 
 
 The requirements for root and intermediate certificates are as follows:
-- The basicConstraints extension MUST be present and MUST be marked as critical. The cA field MUST be set true.
-- The keyUsage extension MUST be present and MUST be marked critical. Bit positions for keyCertSign MUST be set. 
+- The `basicConstraints` extension MUST be present and MUST be marked as critical. The `cA` field MUST be set `true`.
+- The `keyUsage` extension MUST be present and MUST be marked `critical`. Bit positions for `keyCertSign` MUST be set. 
 
 The requirements for signing certificates are as follows:
 - X.509 certificate properties:
-  - Subject MUST contain `common name (CN)`, `country (C)`, `state or province (ST)`, and `organization (O)`. In this tutorial, `$CERT_SUBJECT` is used as the subject.
+  - Subject MUST contain common name (`CN`), country (`C`), state or province (`ST`), and organization (`O`). In this tutorial, `$CERT_SUBJECT` is used as the subject.
   - X.509 key usage flags must be `DigitalSignature`.
   - Extended Key Usages (EKUs) must be empty or `1.3.6.1.5.5.7.3.3` (for Codesigning).
 - Key properties:
@@ -279,15 +278,15 @@ To import a certificate, follow these steps:
 
 - What should I do if the certificate is expired? 
   
-  If the certificate has expired, it invalidates the signature. To resolve this issue, you should renew the certificate and re-sign container images. Learn more about [Renew your Azure Key Vault certificates](../key-vault/certificates/overview-renew-certificate.md).
+  If the certificate has expired, it invalidates the signature. To resolve this issue, you should renew the certificate and sign container images again. Learn more about [Renew your Azure Key Vault certificates](../key-vault/certificates/overview-renew-certificate.md).
 
 - What should I do if the root certificate is expired? 
 
-  If the root certificate has expired, it invalidates the signature. To resolve this issue, you should obtain a new certificate from a trusted CA vendor and re-sign the container images. Replace the expired root certificate with the new one from the CA vendor.
+  If the root certificate has expired, it invalidates the signature. To resolve this issue, you should obtain a new certificate from a trusted CA vendor and sign container images again. Replace the expired root certificate with the new one from the CA vendor.
 
 - What should I do if the certificate is revoked?
 
-  If the certificate is revoked, it invalidates the signature. The most common reason for revoking a certificate is when the certificate’s private key has been compromised. To resolve this issue, you should obtain a new certificate from a trusted CA vendor and re-sign container images.
+  If the certificate is revoked, it invalidates the signature. The most common reason for revoking a certificate is when the certificate’s private key has been compromised. To resolve this issue, you should obtain a new certificate from a trusted CA vendor and sign container images again.
 
 ## Next steps
 
