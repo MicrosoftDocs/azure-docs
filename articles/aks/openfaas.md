@@ -97,7 +97,7 @@ As a good practice, OpenFaaS and OpenFaaS functions should be stored in their ow
 
 6. Test the OpenFaaS system by browsing to the external IP address on port 8080, `http://52.186.64.52:8080` in this example, where you're prompted to log in. The default user is `admin` and your password can be retrieved using `echo $PASSWORD`.
 
-    ![OpenFaaS UI](media/container-service-serverless/openfaas.png)
+    ![Screenshot of OpenFaaS UI.](media/container-service-serverless/openfaas.png)
 
 7. Set `$OPENFAAS_URL` to the URL of the external IP address on port 8080 and log in with the Azure CLI using the following commands.
 
@@ -220,7 +220,7 @@ As a good practice, OpenFaaS and OpenFaaS functions should be stored in their ow
     > [!NOTE]
     > You can also test the function within the OpenFaaS UI:
     >
-    > ![alt text](media/container-service-serverless/OpenFaaSUI.png)
+    > ![Screenshot of OpenFaas UI.](media/container-service-serverless/OpenFaaSUI.png)
 
 ## Next steps
 
