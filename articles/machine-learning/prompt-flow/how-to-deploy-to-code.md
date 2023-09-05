@@ -194,7 +194,6 @@ model: azureml:basic-chat-model:1
   # path: examples/flows/chat/basic-chat
 environment: 
   image: mcr.microsoft.com/azureml/promptflow/promptflow-runtime:20230831.v1
-  mcr.microsoft.com/azureml/promptflow/promptflow-runtime:20230801.v1
   # inference config is used to build a serving container for online deployments
   inference_config:
     liveness_route:
