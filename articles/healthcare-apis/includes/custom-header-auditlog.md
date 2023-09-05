@@ -9,8 +9,6 @@ ms.author: kesheth
 ms.custom: "include file"
 ---
 
-# Add data to audit logs by using custom HTTP headers in FHIR service 
-
 In the Azure Fast Healthcare Interoperability Resources (FHIR) API, a user might want to include additional information in the logs, which comes from the calling system.
 
 For example, when the user of the API is authenticated by an external system, that system forwards the call to the FHIR API. At the FHIR API layer, the information about the original user has been lost, because the call was forwarded. It might be necessary to log and retain this user information for auditing or management purposes. The calling system can provide user identity, caller location, or other necessary information in the HTTP headers, which will be carried along as the call is forwarded.
@@ -68,27 +66,3 @@ client.OnBeforeRequest += (object sender, BeforeRequestEventArgs e) =>
 };
 client.Get("Patient");
 ```
-## Next steps
-
-In this article, you learned how to add data to audit logs by using custom headers in the Azure API for FHIR. For information about Azure API for FHIR configuration settings, see
-
->[!div class="nextstepaction"]
->[Configure Azure RBAC](configure-azure-rbac.md)
-
->[!div class="nextstepaction"]
->[Configure local RBAC](configure-local-rbac.md)
-
->[!div class="nextstepaction"]
->[Configure database settings](configure-database.md)
-
->[!div class="nextstepaction"]
->[Configure customer-managed keys](customer-managed-key.md)
-
->[!div class="nextstepaction"]
->[Configure CORS](configure-cross-origin-resource-sharing.md)
-
->[!div class="nextstepaction"]
->[Configure Private Link](configure-private-link.md)
-
-FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
-
