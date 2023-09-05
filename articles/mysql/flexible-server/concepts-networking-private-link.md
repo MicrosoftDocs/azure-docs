@@ -10,7 +10,7 @@ ms.subservice: flexible-server
 ms.topic: conceptual
 ---
 
-# Private Link for Azure Database for MySQL - Flexible Server (Preview)
+# Private Link for Azure Database for MySQL - Flexible Server 
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
@@ -110,3 +110,4 @@ To learn more about Azure Database for MySQL security features, see the followin
 - To configure a firewall for Azure Database for MySQL, see [firewall support](../single-server/concepts-firewall-rules.md).
 
 - For an overview of Azure Database for MySQL connectivity, see [Azure Database for MySQL Connectivity Architecture](../single-server/concepts-connectivity-architecture.md)
+
