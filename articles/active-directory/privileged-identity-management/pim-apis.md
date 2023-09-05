@@ -18,16 +18,21 @@ ms.collection: M365-identity-device-management
 ---
 # Privileged Identity Management APIs
 
-Privileged Identity Management (PIM), part of Microsoft Entra, includes five providers: 
+Privileged Identity Management (PIM), part of Microsoft Entra, includes three providers: 
+
+ - PIM for Azure AD roles 
+ - PIM for Azure resources 
+ - PIM for Groups 
+
+You can manage assignments in PIM for Azure AD roles and PIM for Groups using Microsoft Graph API. You can manage assignments in PIM for Azure Resources using Azure Resource Manager (ARM) API. This article describes important concepts for using the APIs for Privileged Identity Management. 
+
+Find more details about APIs that allow to manage assignments in the documentation: 
 
 - [PIM for Azure AD roles API reference](/graph/api/resources/privilegedidentitymanagementv3-overview)
 - [PIM for Azure resource roles API reference](/rest/api/authorization/roleeligibilityschedulerequests)
 - [PIM for Groups API reference](/graph/api/resources/privilegedidentitymanagement-for-groups-api-overview)
 - [PIM Alerts for Azure AD Roles API reference](/graph/api/resources/unifiedrolemanagementalert)
 - [PIM Alerts for Azure Resources API reference](/rest/api/authorization/role-management-alert-rest-sample)
-
-You can manage assignments in PIM for Azure AD roles and PIM for Groups using Microsoft Graph API. You can manage assignments in PIM for Azure Resources using Azure Resource Manager (ARM) API. This article describes important concepts for using the APIs for Privileged Identity Management. 
-
 
 
 ## PIM API history
@@ -86,9 +91,9 @@ To manage the PIM policies, use **roleManagementPolicy** and **roleManagementPol
   - For PIM for Azure AD roles, PIM for Groups: [unifiedroleManagementPolicy](/graph/api/resources/unifiedrolemanagementpolicy), [unifiedroleManagementPolicyAssignment](/graph/api/resources/unifiedrolemanagementpolicyassignment) 
   - For PIM for Azure resources: [Role Management Policies](/rest/api/authorization/role-management-policies), [Role Management Policy Assignments](/rest/api/authorization/role-management-policy-assignments) 
 
-The **roleManagementPolicy** resource includes rules that constitute PIM policy: approval requirements, maximum activation duration, notification settings, etc. 
+The **\*roleManagementPolicy** resource includes rules that constitute PIM policy: approval requirements, maximum activation duration, notification settings, etc. 
 
-The **roleManagementPolicyAssignment** object attaches the policy to a specific role. 
+The **\*roleManagementPolicyAssignment** object attaches the policy to a specific role. 
 
 For more information about the policy settings APIs, see [role settings and PIM](/graph/api/resources/privilegedidentitymanagementv3-overview#role-settings-and-pim). 
 
@@ -111,13 +116,13 @@ For Graph API permissions required for PIM for Groups, see [PIM for Groups – P
 
 ## Relationship between PIM entities and role assignment entities
 
-The only link between the PIM entity and the role assignment entity for persistent (active) assignment for either Azure AD roles or Azure roles is the **AssignmentScheduleInstance**. There is a one-to-one mapping between the two entities. That mapping means roleAssignment and **AssignmentScheduleInstance** would both include:  
+The only link between the PIM entity and the role assignment entity for persistent (active) assignment for either Azure AD roles or Azure roles is the **\*AssignmentScheduleInstance**. There is a one-to-one mapping between the two entities. That mapping means roleAssignment and **\*AssignmentScheduleInstance** would both include:  
 
 - Persistent (active) assignments made outside of PIM
 - Persistent (active) assignments with a schedule made inside PIM
 - Activated eligible assignments
 
-PIM-specific properties (such as end time) will be available only through **AssignmentScheduleInstance** object. 
+PIM-specific properties (such as end time) will be available only through **\*AssignmentScheduleInstance** object. 
 
 ## Next steps
 
