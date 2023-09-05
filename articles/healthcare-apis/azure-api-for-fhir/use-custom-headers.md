@@ -10,6 +10,7 @@ author: expekesheth
 ms.date: 06/03/2022
 ---
  
+ # Add custom HTTP headers to audit logs in FHIR service 
 
 [!INCLUDE [Specific IP ranges for storage account](../includes/custom-header-auditlog.md)]
     
