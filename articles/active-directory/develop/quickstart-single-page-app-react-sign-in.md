@@ -42,7 +42,7 @@ In this article you'll register a SPA in the Microsoft Entra admin center, and d
 1. Set the **Redirect URIs** value to `http://localhost:3000/`. This is the default port NodeJS will listen on your local machine. We’ll return the authentication response to this URI after successfully authenticating the user.
 1. Select **Configure** to apply the changes.
 1. Under **Platform Configurations** expand **Single-page application**.
-1. Confirm that under **Grant types** ![Already configured](media/quickstart-v2-javascript/green-check.png) Your Redirect URI is eligible for the Authorization Code Flow with PKCE.
+1. Confirm that under **Grant types** ![Already configured](media/quickstart-v2-javascript/green-check.png) your Redirect URI is eligible for the Authorization Code Flow with PKCE.
 
 ## Clone or download the sample application
 
@@ -60,9 +60,9 @@ If you choose to download the `.zip` file, extract the sample app file to a fold
 ## Configure the project
 
 1. In your IDE, open the project folder, *ms-identity-docs-code-javascript/react-spa*, containing the sample.
-1. Open *authConfig.js* and replace the file contents with the following snippet:
+1. Open *src/authConfig.js* and replace the file contents with the following snippet:
 
-    :::code language="csharp" source="~/ms-identity-docs-code-javascript/react-spa/src/authConfig.js" :::
+    :::code language="csharp" source="~/ms-identity-docs-code-javascript/react-spa/src/authConfig.js":::
 
     * `TenantId` - The identifier of the tenant where the application is registered. Replace the text in quotes with the **Directory (tenant) ID** that was recorded earlier from the overview page of the registered application.
     * `ClientId` - The identifier of the application, also referred to as the client. Replace the text in quotes with the **Directory (tenant) ID** value that was recorded earlier from the overview page of the registered application.
