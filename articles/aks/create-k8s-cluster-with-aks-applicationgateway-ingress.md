@@ -50,19 +50,19 @@ In this article, you learn how to:
 
 1. Create a file named `providers.tf` and insert the following code.
 
-    :::code language="Terraform" source="~/terraform_samples_test/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/providers.tf":::
+    :::code language="Terraform" source="~/terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/providers.tf":::
 
 1. Create a file named `main.tf` and insert the following code:
 
-    :::code language="Terraform" source="~/terraform_samples_test/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/main.tf":::
+    :::code language="Terraform" source="~/terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/main.tf":::
 
 1. Create a file named `variables.tf` and insert the following code:
 
-    :::code language="Terraform" source="~/terraform_samples_test/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/variables.tf":::
+    :::code language="Terraform" source="~/terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/variables.tf":::
 
 1. Create a file named `outputs.tf` and insert the following code.
 
-    :::code language="Terraform" source="~/terraform_samples_test/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/outputs.tf":::
+    :::code language="Terraform" source="~/terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/outputs.tf":::
 
 ## Initialize Terraform
 
