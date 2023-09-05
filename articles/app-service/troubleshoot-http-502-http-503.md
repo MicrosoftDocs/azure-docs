@@ -8,6 +8,8 @@ ms.assetid: 51cd331a-a3fa-438f-90ef-385e755e50d5
 ms.topic: article
 ms.date: 07/06/2016
 ms.custom: seodec18
+ms.author: msangapu
+author: msangapu-msft
 
 ---
 # Troubleshoot HTTP errors of "502 bad gateway" and "503 service unavailable" in Azure App Service
