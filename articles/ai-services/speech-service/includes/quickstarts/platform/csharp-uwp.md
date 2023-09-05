@@ -43,7 +43,7 @@ Make sure you're set up correctly in Visual Studio for UWP development:
 
 1. From the Visual Studio menu bar, select **Tools** > **Get Tools and Features** to open Visual Studio Installer and view the **Modifying** dialog box.
 
-1. On the **Workloads** tab, under **Windows**, find the **Universal Windows Platform development** workload. If that workload is already selected, close the **Modifying** dialog box and go to step 7.
+1. On the **Workloads** tab, find the **Universal Windows Platform development** workload. If that workload is already selected, close the **Modifying** dialog box and go to step 7.
 
    :::image type="content" source="~/articles/ai-services/speech-service/media/sdk/vs-enable-uwp-workload.png" alt-text="Screenshot that shows the Workloads tab of the Modifying dialog box, with the workload for Universal Windows Platform development highlighted." lightbox="~/articles/ai-services/speech-service/media/sdk/vs-enable-uwp-workload.png":::
 

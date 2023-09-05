@@ -63,7 +63,7 @@ To install the Speech SDK for Python:
     python -m pip install azure-cognitiveservices-speech
     ```
 
-For more information about Visual Studio Code and Python, see the [Visual Studio Code documentation](https://code.visualstudio.com/docs) and the [Visual Studio Code Python tutorial](https://code.visualstudio.com/docs/python/python-tutorial).
+For more information about Visual Studio Code and Python, see [Visual Studio Code](https://code.visualstudio.com/docs) and [Getting Started with Python in VS Code](https://code.visualstudio.com/docs/python/python-tutorial).
 
 ---
 

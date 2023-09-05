@@ -45,11 +45,11 @@ Make sure you're set up correctly in Visual Studio for cross-platform mobile dev
 
 1. From the Visual Studio menu, select **Tools** > **Get Tools and Features** to open Visual Studio Installer and view the **Modifying** dialog box.
 
-1. On the **Workloads** tab, under **Windows**, find the **Mobile development with .NET** workload. If that workload is already selected, close the **Modifying** dialog box and go to step 6.
+1. On the **Workloads** tab, find the **Mobile development with .NET** workload. If that workload is already selected, close the **Modifying** dialog box and go to step 6.
 
    :::image type="content" source="~/articles/ai-services/speech-service/media/sdk/vs-enable-xamarin-workload.png" alt-text="Screenshot that shows the Workloads tab, the Modifying dialog box, and Visual Studio Installer." lightbox="~/articles/ai-services/speech-service/media/sdk/vs-enable-xamarin-workload.png":::
 
-1. Select the **Mobile development with .NET** check box, and then select **Modify**.
+1. Select **Mobile development with .NET**, and then select **Modify**.
 
 1. In the **Before we get started** dialog box, select **Continue** to install the workload for mobile development with .NET. Installation of the new feature might take a while.
 
@@ -120,7 +120,9 @@ Install the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget), and refer
 
    After installation finishes successfully, you might see the following warning for **helloworld.iOS**. This warning is a known issue and shouldn't affect your app's functionality.
 
-   `Could not resolve reference "C:\Users\Default\.nuget\packages\microsoft.cognitiveservices.speech\1.7.0\build\Xamarin.iOS\libMicrosoft.CognitiveServices.Speech.core.a". If this reference is required by your code, you may get compilation errors.`
+   ```output
+   Could not resolve reference "C:\Users\Default\.nuget\packages\microsoft.cognitiveservices.speech\1.7.0\build\Xamarin.iOS\libMicrosoft.CognitiveServices.Speech.core.a". If this reference is required by your code, you may get compilation errors.
+   ```
 
 The Speech SDK is now installed. You can now delete or reuse the **helloworld** project that you created in the previous steps.
 

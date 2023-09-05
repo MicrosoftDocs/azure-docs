@@ -14,15 +14,13 @@ The Speech SDK for JavaScript is available as an npm package. See [microsoft-cog
 
 ## Platform requirements
 
-Make sure to consider the various architectural implications between Node.js and client web browsers. For example, the [document object model (DOM)](https://en.wikipedia.org/wiki/Document_Object_Model) isn't available for server-side applications. The [Node.js file system](https://nodejs.org/api/fs.html) isn't available to client-side applications.
+Understand the architectural implications between Node.js and client web browsers. For example, the [document object model (DOM)](https://en.wikipedia.org/wiki/Document_Object_Model) isn't available for server-side applications. The [Node.js file system](https://nodejs.org/api/fs.html) isn't available to client-side applications.
 
 ## Install the Speech SDK for JavaScript
 
 Depending on the target environment, use one of the following guides:
 
 #### [Node.js](#tab/nodejs)
-
-[!INCLUDE [node](javascript-node.md)]
 
 This guide shows how to install the [Speech SDK](~/articles/ai-services/speech-service/speech-sdk.md) for JavaScript for use with Node.js.
 
@@ -78,11 +76,11 @@ For more information, see the [browser-based samples](https://github.com/Azure-S
 
 ## Use the Speech SDK
 
-Add the following import statement to use the Speech SDK in your JavaScript project:
+- Add the following import statement to use the Speech SDK in your JavaScript project:
 
-```javascript
-import * as sdk from "microsoft-cognitiveservices-speech-sdk";
-```
+  ```javascript
+  import * as sdk from "microsoft-cognitiveservices-speech-sdk";
+  ```
 
 For more information on `import`, see [Export and Import](https://javascript.info/import-export) on the JavaScript website.
 

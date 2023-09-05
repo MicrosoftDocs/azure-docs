@@ -25,7 +25,7 @@ This guide requires:
 
 ## Create a Visual Studio project and install the Speech SDK
 
-1. Start Visual Studio 2019.
+1. Start Visual Studio 2017.
 
 1. Make sure that the **.NET cross-platform development** workload is available. Select **Tools** > **Get Tools and Features** from the Visual Studio menu bar to open the Visual Studio Installer. If this workload is already enabled, close the dialog box.
 
@@ -47,6 +47,6 @@ This guide requires:
 
 1. Accept the displayed license to begin installation of the NuGet package.
 
-   :::image type="content" source="~/articles/ai-services/speech-service/media/sdk/qs-csharp-dotnetcore-windows-04-nuget-license.png" alt-text="Screenshot of License Acceptance dialog box." lightbox="~/articles/ai-services/speech-service/media/sdk/qs-csharp-dotnetcore-windows-04-nuget-license.png":::
+   :::image type="content" source="~/articles/ai-services/speech-service/media/sdk/qs-csharp-dotnetcore-windows-04-nuget-license.png" alt-text="Screenshot of License Acceptance dialog box.":::
 
 After the package is installed, a confirmation appears in the Package Manager console.

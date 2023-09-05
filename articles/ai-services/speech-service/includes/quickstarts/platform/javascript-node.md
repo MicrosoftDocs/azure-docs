@@ -22,8 +22,17 @@ This quickstart requires [Node.js](https://nodejs.org/).
 
 ## Create an npm project
 
-Create a new directory, run `npm init`, and walk through the prompts.
+1. Create a new directory.
+1. In a console, run the following command and respond to the prompts:
+
+   ```console
+   npm init
+   ```
 
 ## Add the Speech SDK package
 
-Run `npm install microsoft-cognitiveservices-speech-sdk`.
+- Run the following command:
+
+   ```console
+   npm install microsoft-cognitiveservices-speech-sdk
+   ```

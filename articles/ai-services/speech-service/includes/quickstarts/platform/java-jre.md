@@ -21,7 +21,7 @@ The Speech SDK for Java package is available for these operating systems:
 
 - Windows: 64-bit only.
 - Mac: macOS X version 10.14 or later.
-- Linux: See the list of [supported Linux distributions and target architectures](~/articles/ai-services/speech-service/speech-sdk.md).
+- Linux: See the [supported Linux distributions and target architectures](~/articles/ai-services/speech-service/speech-sdk.md).
 
 # [Maven](#tab/maven)
 
@@ -102,7 +102,7 @@ Follow these steps to install the Speech SDK for Java using Apache Maven:
 
 1. Open the *pom.xml* file and edit it:
 
-   - Add a `dependencies` element at the end of the file, before the closing tag `</project>`, with the Speech SDK as a dependency:
+   1. Add a `dependencies` element at the end of the file, before the closing tag `</project>`, with the Speech SDK as a dependency:
 
     ```xml
     <dependencies>
@@ -114,7 +114,7 @@ Follow these steps to install the Speech SDK for Java using Apache Maven:
     </dependencies>
     ```
 
-   - Save the changes.
+   1. Save the changes.
 
 # [Gradle](#tab/gradle)
 

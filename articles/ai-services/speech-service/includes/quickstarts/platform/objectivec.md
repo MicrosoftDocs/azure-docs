@@ -11,7 +11,7 @@ ms.author: eur
 This guide shows how to install the [Speech SDK](~/articles/ai-services/speech-service/speech-sdk.md) for Objective-C.
 
 > [!TIP]
-> For details about using the Speech SDK for Swift, see [Importing Objective-C into Swift](https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/importing_objective-c_into_swift).
+> For more information about using the Speech SDK for Swift, see [Importing Objective-C into Swift](https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/importing_objective-c_into_swift).
 
 ## Install the Speech SDK for Objective-C
 
@@ -27,7 +27,7 @@ The macOS CocoaPod package is available for download and use with the [Xcode 9.4
 
 1. Go to the Xcode directory where your `.xcodeproj` project file is located.
 1. Run `pod init` to create a pod file named *Podfile*.
-1. Replace the contents of *Podfile* with the following. Update the `target` name from 'AppName' to the name of your app. Update the platform or pod version as needed.
+1. Replace the contents of *Podfile* with the following. Update the `target` name from `AppName` to the name of your app. Update the platform or pod version as needed.
 
    ```objc
    platform :osx, 10.14
@@ -58,7 +58,7 @@ The macOS CocoaPod package is available for download and use with the [Xcode 9.4
 
 1. Go to the Xcode directory where your `.xcodeproj` project file is located.
 1. Run `pod init` to create a pod file named *Podfile*.
-1. Replace the contents of *Podfile* with the following. Update the `target` name from 'AppName' to the name of your app. Update the platform or pod version as needed.
+1. Replace the contents of *Podfile* with the following. Update the `target` name from `AppName` to the name of your app. Update the platform or pod version as needed.
 
     ```objc
     platform :ios, '9.3'
