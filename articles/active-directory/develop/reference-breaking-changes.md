@@ -141,7 +141,7 @@ If a request fails the validation check, the application API for create/update w
 
 **Endpoints impacted**: v2.0
 
-**Protocol impacted**: All flows using [dynamic consent](v2-permissions-and-consent.md#requesting-individual-user-consent)
+**Protocol impacted**: All flows using [dynamic consent](./permissions-consent-overview.md#requesting-individual-user-consent)
 
 Applications using dynamic consent today are given all the permissions they have consent for, even if they weren't requested by name in the `scope` parameter. An app requesting only `user.read` but with consent to `files.read` can be forced to pass the Conditional Access requirement assigned for `files.read`, for example.
 
@@ -149,7 +149,7 @@ To reduce the number of unnecessary Conditional Access prompts, Azure AD is chan
 
 Apps will now receive access tokens with a mix of permissions: requested tokens and those they have consent for that don't require Conditional Access prompts. The scope of access for the token is reflected in the token response's `scope` parameter.
 
-This change will be made for all apps except those with an observed dependency on this behavior. Developers will receive outreach if they're exempted from this change, as them may have a dependency on the additional conditional access prompts.
+This change will be made for all apps except those with an observed dependency on this behavior. Developers will receive outreach if they're exempted from this change, as them may have a dependency on the additional Conditional Access prompts.
 
 **Examples**
 
@@ -174,7 +174,7 @@ To help prevent phishing attacks, the device code flow now includes a prompt tha
 
 The prompt that appears looks like this:
 
-:::image type="content" source="media/breaking-changes/device-code-flow-prompt.png" alt-text="New prompt, reading 'Are you trying to sign into the Azure CLI?'":::
+:::image type="content" source="media/breaking-changes/device-code-flow-prompt.png" alt-text="New prompt, reading 'Are you trying to sign in to the Azure CLI?'":::
 
 ## May 2020
 

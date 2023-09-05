@@ -2,14 +2,13 @@
 title: SharePoint indexer (preview)
 titleSuffix: Azure Cognitive Search
 description: Set up a SharePoint indexer to automate indexing of document library content in Azure Cognitive Search.
-
 author: gmndrg
 ms.author: gimondra
 manager: liamca
 
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 06/13/2023
+ms.date: 08/07/2023
 ---
 
 # Index data from SharePoint document libraries
@@ -76,7 +75,7 @@ If your Azure Active Directory organization has [Conditional Access enabled](../
 
 The SharePoint indexer will use this Azure Active Directory (Azure AD) application for authentication.
 
-1. [Sign in to Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Search for or navigate to **Azure Active Directory**, then select **App registrations**. 
 
@@ -253,7 +252,7 @@ There are a few steps to creating the indexer:
     }
     ```
 
-1. When creating the indexer for the first time, the [Create Indexer](/rest/api/searchservice/preview-api/create-or-update-indexer) request will remaing waiting until your complete the next steps. You must call [Get Indexer Status](/rest/api/searchservice/get-indexer-status) to get the link and enter your new device code. 
+1. When creating the indexer for the first time, the [Create Indexer](/rest/api/searchservice/preview-api/create-or-update-indexer) request will remain waiting until your complete the next steps. You must call [Get Indexer Status](/rest/api/searchservice/get-indexer-status) to get the link and enter your new device code. 
 
     ```http
     GET https://[service name].search.windows.net/indexers/sharepoint-indexer/status?api-version=2020-06-30-Preview

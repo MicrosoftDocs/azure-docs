@@ -10,13 +10,13 @@ ms.topic: how-to
 
 # Upgrade to version 4 of the Node.js programming model for Azure Functions
 
-This article discusses the differences between version 3 and version 4 of the Node.js programming model and how to upgrade an existing v3 app. If you want to create a brand new v4 app instead of upgrading an existing v3 app, see the tutorial for either [VS Code](./create-first-function-cli-node.md) or [Azure Functions Core Tools](./create-first-function-vs-code-node.md). This article uses "TIP" sections to highlight the most important concrete actions you should take to upgrade your app.
+This article discusses the differences between version 3 and version 4 of the Node.js programming model and how to upgrade an existing v3 app. If you want to create a new v4 app instead of upgrading an existing v3 app, see the tutorial for either [Visual Studio Code (VS Code)](./create-first-function-cli-node.md) or [Azure Functions Core Tools](./create-first-function-vs-code-node.md). This article uses "tip" alerts to highlight the most important concrete actions that you should take to upgrade your app.
 
-Version 4 was designed with the following goals in mind:
+Version 4 is designed to provide Node.js developers with the following benefits:
 
-- Provide a familiar and intuitive experience to Node.js developers
-- Make the file structure flexible with support for full customization
-- Switch to a code-centric approach for defining function configuration
+- Provide a familiar and intuitive experience to Node.js developers.
+- Make the file structure flexible with support for full customization.
+- Switch to a code-centric approach for defining function configuration.
 
 [!INCLUDE [Programming Model Considerations](../../includes/functions-nodejs-model-considerations.md)]
 
@@ -30,13 +30,9 @@ Version 4 of the Node.js programming model requires the following minimum versio
 - [Azure Functions Runtime](./functions-versions.md) v4.16+
 - [Azure Functions Core Tools](./functions-run-local.md) v4.0.5095+ (if running locally)
 
-## Enable v4 programming model
+## Enable the v4 programming model
 
-The following application setting is required to run the v4 programming model while it is in preview: 
-- Name: `AzureWebJobsFeatureFlags`
-- Value: `EnableWorkerIndexing`
-
-If you're running locally using [Azure Functions Core Tools](functions-run-local.md), you should add this setting to your `local.settings.json` file. If you're running in Azure, follow these steps with the tool of your choice:
+To indicate that your function code is using the v4 model, you need to set the `EnableWorkerIndexing` flag on the `AzureWebJobsFeatureFlags` application setting. When you're running locally, add `AzureWebJobsFeatureFlags` with a value of `EnableWorkerIndexing` to your *local.settings.json* file. When you're running in Azure, you add this application setting by using the tool of your choice.
 
 # [Azure CLI](#tab/azure-cli-set-indexing-flag)
 
@@ -56,47 +52,50 @@ Update-AzFunctionAppSetting -Name <FUNCTION_APP_NAME> -ResourceGroupName <RESOUR
 
 # [VS Code](#tab/vs-code-set-indexing-flag)
 
-1. Make sure you have the [Azure Functions extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) installed
-1. Press <kbd>F1</kbd> to open the command palette. In the command palette, search for and select `Azure Functions: Add New Setting...`.
-1. Choose your subscription and function app when prompted
-1. For the name, type `AzureWebJobsFeatureFlags` and press <kbd>Enter</kbd>. 
-1. For the value, type `EnableWorkerIndexing` and press <kbd>Enter</kbd>.
+1. Make sure you have the [Azure Functions extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) installed.
+1. Select the <kbd>F1</kbd> key to open the command palette. In the command palette, search for and select **Azure Functions: Add New Setting**.
+1. Choose your subscription and function app when prompted.
+1. For the name, type **AzureWebJobsFeatureFlags** and select the <kbd>Enter</kbd> key.
+1. For the value, type **EnableWorkerIndexing** and select the <kbd>Enter</kbd> key.
 
 ---
 
 ## Include the npm package
 
-For the first time, the [`@azure/functions`](https://www.npmjs.com/package/@azure/functions) npm package contains the primary source code that backs the Node.js programming model. In previous versions, that code shipped directly in Azure and the npm package only had the TypeScript types. Moving forward, you need to include this package for both TypeScript and JavaScript apps. You _can_ include the package for existing v3 apps, but it isn't required.
+In v4, the [`@azure/functions`](https://www.npmjs.com/package/@azure/functions) npm package contains the primary source code that backs the Node.js programming model. In previous versions, that code shipped directly in Azure and the npm package had only the TypeScript types. You now need to include this package for both TypeScript and JavaScript apps. You _can_ include the package for existing v3 apps, but it isn't required.
 
 > [!TIP]
-> Make sure the `@azure/functions` package is listed in the `dependencies` section (not `devDependencies`) of your `package.json` file. You can install v4 with the command 
+> Make sure the `@azure/functions` package is listed in the `dependencies` section (not `devDependencies`) of your *package.json* file. You can install v4 by using the following command: 
 > ```
 > npm install @azure/functions@preview
 > ```
 
 ## Set your app entry point
 
-In v4 of the programming model, you can structure your code however you want. The only files you need at the root of your app are `host.json` and `package.json`. Otherwise, you define the file structure by setting the `main` field in your `package.json` file. The `main` field can be set to a single file or multiple files by using a [glob pattern](https://wikipedia.org/wiki/Glob_(programming)). Common values for the `main` field may be:
-- TypeScript
-    - `dist/src/index.js`
-    - `dist/src/functions/*.js`
-- JavaScript
-    - `src/index.js`
-    - `src/functions/*.js`
+In v4 of the programming model, you can structure your code however you want. The only files that you need at the root of your app are *host.json* and *package.json*.
+
+Otherwise, you define the file structure by setting the `main` field in your *package.json* file. You can set the `main` field to a single file or multiple files by using a [glob pattern](https://wikipedia.org/wiki/Glob_(programming)). Common values for the `main` field might be:
+
+- TypeScript:
+  - `dist/src/index.js`
+  - `dist/src/functions/*.js`
+- JavaScript:
+  - `src/index.js`
+  - `src/functions/*.js`
 
 > [!TIP]
-> Make sure you define a `main` field in your `package.json` file
+> Make sure you define a `main` field in your *package.json* file.
 
 ## Switch the order of arguments
 
-The trigger input is now the first argument to your function handler instead of the invocation context. The invocation context, now the second argument, was simplified in v4 and isn't as required as the trigger input - it can be left off if you aren't using it.
+The trigger input, instead of the invocation context, is now the first argument to your function handler. The invocation context, now the second argument, is simplified in v4 and isn't as required as the trigger input. You can leave it off if you aren't using it.
 
 > [!TIP]
-> Switch the order of your arguments. For example if you are using an http trigger, switch `(context, request)` to either `(request, context)` or just `(request)` if you aren't using the context.
+> Switch the order of your arguments. For example, if you're using an HTTP trigger, switch `(context, request)` to either `(request, context)` or just `(request)` if you aren't using the context.
 
 ## Define your function in code
 
-Say goodbye to `function.json` files! All of the configuration that was previously specified in a `function.json` file is now defined directly in your TypeScript or JavaScript files. In addition, many properties now have a default so that you don't have to specify them every time.
+You no longer have to create and maintain those separate *function.json* configuration files. You can now fully define your functions directly in your TypeScript or JavaScript files. In addition, many properties now have defaults so that you don't have to specify them every time.
 
 # [v4](#tab/v4)
 
@@ -158,20 +157,21 @@ module.exports = async function (context, req) {
 ---
 
 > [!TIP]
-> Move the config from your `function.json` file to your code. The type of the trigger will correspond to a method on the `app` object in the new model. For example, if you use an `httpTrigger` type in `function.json`, you will now call `app.http()` in your code to register the function. If you use `timerTrigger`, you will now call `app.timer()` and so on.
-
+> Move the configuration from your *function.json* file to your code. The type of the trigger corresponds to a method on the `app` object in the new model. For example, if you use an `httpTrigger` type in *function.json*, call `app.http()` in your code to register the function. If you use `timerTrigger`, call `app.timer()`.
 
 ## Review your usage of context
 
-The `context` object has been simplified to reduce duplication and make it easier to write unit tests. For example, we streamlined the primary input and output so that they're only accessed as the argument and return value of your function handler. The primary input and output can't be accessed on the `context` object anymore, but you must still access _secondary_ inputs and outputs on the `context` object. For more information about secondary inputs and outputs, see the [Node.js developer guide](./functions-reference-node.md#extra-inputs-and-outputs).
+In v4, the `context` object is simplified to reduce duplication and to make writing unit tests easier. For example, we streamlined the primary input and output so that they're accessed only as the argument and return value of your function handler.
+
+You can't access the primary input and output on the `context` object anymore, but you must still access _secondary_ inputs and outputs on the `context` object. For more information about secondary inputs and outputs, see the [Node.js developer guide](./functions-reference-node.md#extra-inputs-and-outputs).
 
 ### Get the primary input as an argument
 
-The primary input is also called the "trigger" and is the only required input or output. You must have one and only one trigger.
+The primary input is also called the *trigger* and is the only required input or output. You must have one (and only one) trigger.
 
 # [v4](#tab/v4)
 
-v4 only supports one way of getting the trigger input, as the first argument.
+Version 4 supports only one way of getting the trigger input, as the first argument:
 
 ```javascript
 async function helloWorld1(request, context) {
@@ -180,7 +180,7 @@ async function helloWorld1(request, context) {
 
 # [v3](#tab/v3)
 
-v3 supports several different ways of getting the trigger input.
+Version 3 supports several ways of getting the trigger input:
 
 ```javascript
 async function helloWorld1(context, request) {
@@ -198,7 +198,7 @@ async function helloWorld1(context, request) {
 
 # [v4](#tab/v4)
 
-v4 only supports one way of setting the primary output, through the return value.
+Version 4 supports only one way of setting the primary output, through the return value:
 
 ```javascript
 return { 
@@ -208,7 +208,7 @@ return {
 
 # [v3](#tab/v3)
 
-v3 supports several different ways of setting the primary output.
+Version 3 supports several ways of setting the primary output:
 
 ```javascript
 // Option 1
@@ -221,11 +221,11 @@ context.done(null, {
 });
 // Option 3, but you can't use this option with any async code:
 context.res.send(`Hello, ${name}!`);
-// Option 4, if "name" in "function.json" is "res":
+// Option 4, if "name" in function.json is "res":
 context.bindings.res = {
     body: `Hello, ${name}!`
 }
-// Option 5, if "name" in "function.json" is "$return":
+// Option 5, if "name" in function.json is "$return":
 return {
     body: `Hello, ${name}!`
 };
@@ -234,11 +234,11 @@ return {
 ---
 
 > [!TIP]
-> Make sure you are always returning the output in your function handler, instead of setting it with the `context` object.
+> Make sure you always return the output in your function handler, instead of setting it with the `context` object.
 
 ### Create a test context
 
-v3 doesn't support creating an invocation context outside of the Azure Functions runtime, making it difficult to author unit tests. v4 allows you to create an instance of the invocation context, although the information during tests isn't detailed unless you add it yourself.
+Version 3 doesn't support creating an invocation context outside the Azure Functions runtime, so authoring unit tests can be difficult. Version 4 allows you to create an instance of the invocation context, although the information during tests isn't detailed unless you add it yourself.
 
 # [v4](#tab/v4)
 
@@ -257,30 +257,40 @@ Not possible.
 
 ## Review your usage of HTTP types
 
-The http request and response types are now a subset of the [fetch standard](https://developer.mozilla.org/docs/Web/API/fetch) instead of being types unique to Azure Functions. The types use Node.js's [`undici`](https://undici.nodejs.org/) package, which follows the fetch standard and is [currently being integrated](https://github.com/nodejs/undici/issues/1737) into Node.js core.
+The HTTP request and response types are now a subset of the [fetch standard](https://developer.mozilla.org/docs/Web/API/fetch). They're no longer unique to Azure Functions. 
+
+The types use the [`undici`](https://undici.nodejs.org/) package in Node.js. This package follows the fetch standard and is [currently being integrated](https://github.com/nodejs/undici/issues/1737) into Node.js core.
 
 ### HttpRequest
 
 # [v4](#tab/v4)
-- _**Body**_. You can access the body using a method specific to the type you would like to receive:
-    ```javascript
+
+- *Body*. You can access the body by using a method specific to the type that you want to receive:
+
+  ```javascript
     const body = await request.text();
     const body = await request.json();
     const body = await request.formData();
     const body = await request.arrayBuffer();
     const body = await request.blob();
     ```
-- _**Header**_:
+
+- *Header*:
+
     ```javascript
     const header = request.headers.get('content-type');
     ```
-- _**Query param**_:
+
+- *Query parameter*:
+
     ```javascript
     const name = request.query.get('name');
     ```
 
 # [v3](#tab/v3)
-- _**Body**_. You can access the body in several ways, but the type returned isn't always consistent:
+
+- *Body*. You can access the body in several ways, but the type returned isn't always consistent:
+
     ```javascript
     // returns a string, object, or Buffer
     const body = request.body;
@@ -291,35 +301,47 @@ The http request and response types are now a subset of the [fetch standard](htt
     // returns an object representing a form
     const body = await request.parseFormBody();
     ```
-- _**Header**_. A header can be retrieved in several different ways:
+
+- *Header*. You can retrieve a header in several ways:
+
     ```javascript
     const header = request.get('content-type');
     const header = request.headers.get('content-type');
     const header = context.bindingData.headers['content-type'];
     ```
-- _**Query param**_:
+
+- *Query parameter*:
+
     ```javascript
     const name = request.query.name;
     ```
+
 ---
 
 ### HttpResponse
 
 # [v4](#tab/v4)
-- _**Status**_:
+
+- *Status*:
+
     ```javascript
     return { status: 200 };
     ```
-- _**Body**_:
+
+- *Body*:
+
     ```javascript
     return { body: "Hello, world!" };
     ```
-- _**Header**_. You can set the header in two ways, depending if you're using the `HttpResponse` class or `HttpResponseInit` interface:
+
+- *Header*. You can set the header in two ways, depending on whether you're using the `HttpResponse` class or the `HttpResponseInit` interface:
+
     ```javascript
     const response = new HttpResponse();
     response.headers.set('content-type', 'application/json');
     return response;
     ```
+
     ```javascript
     return {
       headers: { 'content-type': 'application/json' }
@@ -327,7 +349,9 @@ The http request and response types are now a subset of the [fetch standard](htt
     ```
 
 # [v3](#tab/v3)
-- _**Status**_. A status can be set in several different ways:
+
+- *Status*. You can set a status in several ways:
+
     ```javascript
     context.res.status(200);
     context.res = { status: 200}
@@ -335,14 +359,18 @@ The http request and response types are now a subset of the [fetch standard](htt
     return { status: 200};
     return { statusCode: 200 };
     ```
-- _**Body**_. A body can be set in several different ways:
+
+- *Body*. You can set a body in several ways:
+
     ```javascript
     context.res.send("Hello, world!");
     context.res.end("Hello, world!");
     context.res = { body: "Hello, world!" }
     return { body: "Hello, world!" };
     ```
-- _**Header**_. A header can be set in several different ways:
+
+- *Header*. You can set a header in several ways:
+
     ```javascript
     response.set('content-type', 'application/json');
     response.setHeader('content-type', 'application/json');
@@ -358,17 +386,17 @@ The http request and response types are now a subset of the [fetch standard](htt
 ---
 
 > [!TIP]
-> Update any logic using the http request or response types to match the new methods. If you are using TypeScript, you should receive build errors if you use old methods.
+> Update any logic by using the HTTP request or response types to match the new methods. If you're using TypeScript, you'll get build errors if you use old methods.
 
-## Troubleshooting
+## Troubleshoot
 
-If you see the following error, make sure you [set the `EnableWorkerIndexing` flag](#enable-v4-programming-model) and you're using the minimum version of all [requirements](#requirements):
+If you get the following error, make sure that you [set the `EnableWorkerIndexing` flag](#enable-the-v4-programming-model) and that you're using the minimum version of all [requirements](#requirements):
 
 > No job functions found. Try making your job classes and methods public. If you're using binding extensions (e.g. Azure Storage, ServiceBus, Timers, etc.) make sure you've called the registration method for the extension(s) in your startup code (e.g. builder.AddAzureStorage(), builder.AddServiceBus(), builder.AddTimers(), etc.).
 
-If you see the following error, make sure you're using Node.js version 18.x:
+If you get the following error, make sure that you're using Node.js version 18.x:
 
 > System.Private.CoreLib: Exception while executing function: Functions.httpTrigger1. System.Private.CoreLib: Result: Failure
 > Exception: undici_1.Request is not a constructor
 
-For any other issues or feedback, feel free to file an issue on our [GitHub repo](https://github.com/Azure/azure-functions-nodejs-library/issues).
+For any other problems or to give feedback, file an issue in the [Azure Functions Node.js repository](https://github.com/Azure/azure-functions-nodejs-library/issues).

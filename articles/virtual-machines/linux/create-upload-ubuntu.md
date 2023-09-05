@@ -3,12 +3,12 @@ title: Create and upload an Ubuntu Linux VHD in Azure
 description: Learn to create and upload an Azure virtual hard disk (VHD) that contains an Ubuntu Linux operating system.
 author: srijang
 ms.service: virtual-machines
+ms.custom: devx-track-linux
 ms.collection: linux
 ms.topic: how-to
 ms.date: 07/28/2021
 ms.author: srijangupta
 ms.reviewer: mattmcinnes
-
 ---
 # Prepare an Ubuntu virtual machine for Azure
 
@@ -49,7 +49,7 @@ This article assumes that you've already installed an Ubuntu Linux operating sys
      sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
     ```
 
-	Ubuntu 18.04 and Ubuntu 20.04:
+    Ubuntu 18.04 and Ubuntu 20.04:
 
     ```bash
      sudo sed -i 's/http:\/\/archive\.ubuntu\.com\/ubuntu\//http:\/\/azure\.archive\.ubuntu\.com\/ubuntu\//g' /etc/apt/sources.list
@@ -74,9 +74,9 @@ This article assumes that you've already installed an Ubuntu Linux operating sys
 
 5. Modify the kernel boot line for Grub to include additional kernel parameters for Azure. To do this open `/etc/default/grub` in a text editor, find the variable called `GRUB_CMDLINE_LINUX_DEFAULT` (or add it if needed) and edit it to include the following parameters:
 
-	```config
-	GRUB_CMDLINE_LINUX_DEFAULT="console=tty1 console=ttyS0,115200n8 earlyprintk=ttyS0,115200 rootdelay=300 quiet splash"
-	```
+    ```config
+    GRUB_CMDLINE_LINUX_DEFAULT="console=tty1 console=ttyS0,115200n8 earlyprintk=ttyS0,115200 rootdelay=300 quiet splash"
+    ```
 
     Save and close this file, and then run `sudo update-grub`. This will ensure all console messages are sent to the first serial port, which can assist Azure technical support with debugging issues.
 
@@ -103,11 +103,11 @@ This article assumes that you've already installed an Ubuntu Linux operating sys
 9. Configure cloud-init to provision the system using the Azure datasource:
 
     ```bash
-	sudo cat > /etc/cloud/cloud.cfg.d/90_dpkg.cfg << EOF
-	datasource_list: [ Azure ]
+    sudo cat > /etc/cloud/cloud.cfg.d/90_dpkg.cfg << EOF
+    datasource_list: [ Azure ]
     EOF
 
-	cat > /etc/cloud/cloud.cfg.d/90-azure.cfg << EOF
+    cat > /etc/cloud/cloud.cfg.d/90-azure.cfg << EOF
     system_info:
        package_mirrors:
          - arches: [i386, amd64]
@@ -124,7 +124,7 @@ This article assumes that you've already installed an Ubuntu Linux operating sys
              security: http://ports.ubuntu.com/ubuntu-ports
     EOF
 
-	cat > /etc/cloud/cloud.cfg.d/10-azure-kvp.cfg << EOF
+    cat > /etc/cloud/cloud.cfg.d/10-azure-kvp.cfg << EOF
     reporting:
       logging:
         type: log
@@ -165,11 +165,11 @@ This article assumes that you've already installed an Ubuntu Linux operating sys
 
 12. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
-	> [!NOTE]
-	> The `sudo waagent -force -deprovision+user` command generalizes the image by attempting to clean the system and make it suitable for re-provisioning. The `+user` option deletes the last provisioned user account and associated data.
+    > [!NOTE]
+    > The `sudo waagent -force -deprovision+user` command generalizes the image by attempting to clean the system and make it suitable for re-provisioning. The `+user` option deletes the last provisioned user account and associated data.
 
-	> [!WARNING]
-	> Deprovisioning using the command above does not guarantee that the image is cleared of all sensitive information and is suitable for redistribution.
+    > [!WARNING]
+    > Deprovisioning using the command above does not guarantee that the image is cleared of all sensitive information and is suitable for redistribution.
 
     ```bash
      sudo waagent -force -deprovision+user
@@ -187,11 +187,11 @@ This article assumes that you've already installed an Ubuntu Linux operating sys
     1. Change directory to the boot EFI directory:
     
        ```bash
-        sudo cd /boot/efi/EFI
+        cd /boot/efi/EFI
        ```
 
     2. Copy the ubuntu directory to a new directory named boot:
-	
+    
        ```bash
         sudo cp -r ubuntu/ boot
        ```
@@ -199,9 +199,9 @@ This article assumes that you've already installed an Ubuntu Linux operating sys
     3. Change directory to the newly created boot directory:
 
        ```bash
-        sudo cd boot
+       cd boot
        ```
-	
+    
     4. Rename the shimx64.efi file:
 
        ```bash

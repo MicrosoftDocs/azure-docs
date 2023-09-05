@@ -95,7 +95,7 @@ from azure.ai.ml.entities import Workspace
 ml_client.workspaces.begin_delete(name=ws.name, delete_dependent_resources=True)
 ```
 
-If you create Azure Kubernetes Service (AKS) in your workspace, or if you attach any compute resources to your workspace you must delete them separately in [Azure portal](https://portal.azure.com).
+If you create Azure Kubernetes Service (AKS) in your workspace, or if you attach any compute resources to your workspace you must delete them separately in the [Azure portal](https://portal.azure.com).
 
 ### Using Azure Prepayment credit with Azure Machine Learning
 

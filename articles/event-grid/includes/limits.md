@@ -11,8 +11,11 @@ ms.custom: include file, build-2023
 ---
 
 > [!NOTE]
-> - The following limits listed in this article are per region.
-> - See [throughput units (TUs)](../concepts-pull-delivery.md#throughput-units) for more information.
+> The following limits listed in this article are per region.
+
+## Event Grid throttle limits
+
+Event Grid offers a standard tier and basic tier. Event Grid standard tier enables pub-sub using MQTT broker functionality and pull delivery of messages through the Event Grid namespace. Event Grid basic tier enables push delivery using Event Grid custom topics, Event Grid system topics, Event domains and Event Grid partner topics. See [Choose the right Event Grid tier](../choose-right-tier.md). This article describes the quota and limits for both tiers.
 
 ## Namespace resource limits
 
@@ -24,16 +27,20 @@ The following limits apply to namespace resources in Azure Event Grid.
 | Namespaces per Azure subscription      | 10    |
 | Maximum throughput units per namespace | 20    |
 
+See [throughput units (TUs)](../concepts-pull-delivery.md#throughput-units) for more information.
+
 ## MQTT limits in namespace
 
 The following limits apply to MQTT in Azure Event Grid namespace resource.
 
 | Limit description                            | Limit                                                                             |
 |----------------------------------------------|-----------------------------------------------------------------------------------|
-| MQTT clients                                 | 10,000 per TU                                                                     |
-| MQTT inbound publish requests                | Up to 1,000 messages per second or 1 MB per second per TU (whichever comes first) |
-| MQTT outbound publish requests               | Up to 1,000 messages per second or 1 MB per second per TU                         |
-| Clients                                      | 10,000 clients per TU                                                             |
+| MQTT connections                             | 10,000 per TU                                                                     |
+| MQTT inbound publish requests per namespace  | Up to 1,000 messages per second or 1 MB per second per TU (whichever comes first) |
+| MQTT inbound publish requests per client     | 100 messages per second                                                           |
+| MQTT outbound publish requests per namespace | Up to 1,000 messages per second or 1 MB per second per TU (whichever comes first) |
+| MQTT outbound publish requests per client    | 100 messages per second                                                           |
+| Registered client resources                  | 10,000 clients per TU                                                             |
 | CA certificates                              | 2                                                                                 |
 | Client groups                                | 10                                                                                |
 | Topic spaces                                 | 10                                                                                |

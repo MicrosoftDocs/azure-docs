@@ -5,6 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, edwardhe, azla
 ms.topic: how-to
+ms.custom: devx-track-azurepowershell
 ms.date: 06/13/2023
 ---
 

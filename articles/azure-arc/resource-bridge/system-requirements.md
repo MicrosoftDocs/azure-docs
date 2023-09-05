@@ -43,11 +43,11 @@ The IP address prefix is the subnet's IP address range for the virtual network a
 
 Consult your network engineer to obtain the IP address prefix in CIDR notation. An IP Subnet CIDR calculator may be used to obtain this value.
 
-## Static configuration
+## Static IP configuration
 
-Static IP configuration is recommended for Arc resource bridge, because the resource bridge needs three static IPs in the same subnet for the control plane, appliance VM, and reserved appliance VM. 
+If deploying Arc resource bridge to a production environment, static configuration must be used when deploying Arc resource bridge. Static IP configuration is used to assign three static IPs (that are in the same subnet) to the Arc resource bridge control plane, appliance VM, and reserved appliance VM.
 
-If using DHCP, reserve those IP addresses, ensuring the IPs are outside of the assignable DHCP range of IPs (i.e. the control plane IP should be treated as a reserved/static IP that no other machine on the network will use or receive from DHCP). DHCP is generally not recommended because a change in IP address (ex: due to an outage) impacts the resource bridge availability.
+DHCP is only supported in a test environment for testing purposes only for VM management on Azure Stack HCI. DHCP should not be used in a production environment. It is not supported on any other Arc-enabled private cloud, including Arc-enabled VMware, Arc for AVS or Arc-enabled SCVMM. If using DHCP, you must reserve the IP addresses used by the control plane and appliance VM. In addition, these IPs must be outside of the assignable DHCP range of IPs. Ex: The control plane IP should be treated as a reserved/static IP that no other machine on the network will use or receive from DHCP. If the control plane IP or appliance VM IP changes (ex: due to an outage, this impacts the resource bridge availability and functionality.
 
 ## Management machine requirements
 

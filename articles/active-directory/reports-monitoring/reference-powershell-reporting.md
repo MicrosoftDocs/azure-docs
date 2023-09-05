@@ -13,7 +13,7 @@ ms.author: sarahlipsey
 ms.reviewer: dhanyahk
 
 ms.collection: M365-identity-device-management 
-ms.custom:
+ms.custom: has-azure-ad-ps-ref
 ---
 # Azure AD PowerShell cmdlets for reporting
 
@@ -79,4 +79,4 @@ The following image shows an example for this command.
 
 - [Azure AD reports overview](overview-reports.md).
 - [Audit logs report](concept-audit-logs.md). 
-- [Programmatic access to Azure AD reports](concept-reporting-api.md)
+- [Programmatic access to Azure AD reports](./howto-configure-prerequisites-for-reporting-api.md)

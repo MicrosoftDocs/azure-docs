@@ -27,7 +27,7 @@ The following steps will help create a Conditional Access policy for Azure Conta
 ## Prerequisites
 
 >* [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) version 2.40.0 or later. To find the version, run `az --version`.
->* Sign into [Azure portal.](https://portal.azure.com).
+>* Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Disable authentication-as-arm in ACR - Azure CLI
 
@@ -51,7 +51,7 @@ Disabling `authentication-as-arm` property by assigning a built-in policy will a
 
 You can disable authentication-as-arm in the ACR, by following below steps:
 
-   1. Sign in to the [Azure portal](https://portal.azure.com). 
+   1. Sign in to the [Azure portal](https://portal.azure.com).
    2. Refer to the ACR's built-in policy definitions in the [azure-container-registry-built-in-policy definition's](policy-reference.md).
    3. Assign a built-in policy to disable authentication-as-arm definition - Azure portal.
 

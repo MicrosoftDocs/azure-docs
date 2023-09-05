@@ -2,7 +2,7 @@
 title: Use Azure Schema Registry from Apache Kafka and other apps
 description: This article provides an overview of Schema Registry support by Azure Event Hubs and how it can be used from your Apache Kafka and other apps. 
 ms.topic: overview
-ms.date: 05/04/2022
+ms.date: 07/28/2023
 ms.custom: references_regions, ignite-fall-2021
 ---
 
@@ -11,16 +11,16 @@ In many event streaming and messaging scenarios, the event or message payload co
 
 An event producer uses a schema to serialize event payload and publish it to an event broker such as Event Hubs. Event consumers read event payload from the broker and deserialize it using the same schema. So, both producers and consumers can validate the integrity of the data with the same schema. 
 
-:::image type="content" source="./media/schema-registry-overview/schema-driven-ser-de.svg" alt-text="Schema driven serialization/de-serialization" border="false":::
+:::image type="content" source="./media/schema-registry-overview/schema-driven-ser-de.svg" alt-text="Image showing producers and consumers serializing and deserializing event payload using schemas from the Schema Registry. ":::
 
 ## What is Azure Schema Registry?
 **Azure Schema Registry** is a feature of Event Hubs, which provides a central repository for schemas for event-driven and messaging-centric applications. It provides the flexibility for your producer and consumer applications to **exchange data without having to manage and share the schema**. It also provides a simple governance framework for reusable schemas and defines relationship between schemas through a grouping construct (schema groups).
 
-:::image type="content" source="./media/schema-registry-overview/schema-registry.svg" alt-text="Schema Registry" border="false":::
+:::image type="content" source="./media/schema-registry-overview/schema-registry.svg" alt-text="Image showing a producer and a consumer serializing and deserializing event payload using a schema from the Schema Registry." border="false":::
 
 With schema-driven serialization frameworks like Apache Avro, moving serialization metadata into shared schemas can also help with **reducing the per-message overhead**. It's because each message doesn't need to have the metadata (type information and field names) as it's the case with tagged formats such as JSON. 
 
- > [!NOTE]
+> [!NOTE]
 > The feature isn't available in the **basic** tier.
 
 Having schemas stored alongside the events and inside the eventing infrastructure ensures that the metadata that's required for serialization or deserialization is always in reach and schemas can't be misplaced. 

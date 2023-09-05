@@ -17,11 +17,11 @@ ms.date: 05/09/2023
 
 [!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
-You no longer need to [create and manage compute](./how-to-create-attach-compute-cluster.md) to train your model in a scalable way. Your job can instead be submitted to a new compute target type, called _serverless compute_. Serverless compute is the easiest way to run training jobs on Azure Machine Learning. Serverless compute is a fully-managed, on-demand compute. It is created, scaled, and managed by Azure Machine Learning for you. Through model training with serverless compute, machine learning  professionals can focus on their expertise of building machine learning models and not have to learn about compute infrastructure or setting it up.
+You no longer need to [create and manage compute](./how-to-create-attach-compute-cluster.md) to train your model in a scalable way. Your job can instead be submitted to a new compute target type, called _serverless compute_. Serverless compute is the easiest way to run training jobs on Azure Machine Learning. Serverless compute is a fully managed, on-demand compute. It is created, scaled, and managed by Azure Machine Learning for you. Through model training with serverless compute, machine learning  professionals can focus on their expertise of building machine learning models and not have to learn about compute infrastructure or setting it up.
 
 [!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
-Machine learning professionals can specify the resources the job needs. Azure Machine Learning manages the compute infrastructure, and provides managed network isolation reducing the burden on you.
+Machine learning professionals can specify the resources the job needs. Azure Machine Learning manages the compute infrastructure, and provides managed network (preview) isolation reducing the burden on you.
 
 Enterprises can also reduce costs by specifying optimal resources for each job. IT Admins can still apply control by specifying cores quota at subscription and workspace level and apply Azure policies.
 
@@ -57,7 +57,7 @@ Serverless compute can be used to run command, sweep, AutoML, pipeline, distribu
 * When using [Azure Machine Learning designer](concept-designer.md), select **Serverless** as default compute.
 
 > [!IMPORTANT]
-> If you want to use serverless compute with a workspace that is configured for network isolation, the workspace must be using a managed network isolation (preview). For more information, see [workspace managed network isolation](how-to-managed-network.md).
+> If you want to use serverless compute with a workspace that is configured for network isolation, the workspace must be using managed network isolation. For more information, see [workspace managed network isolation](how-to-managed-network.md).
 
 
 ## Performance considerations
@@ -344,7 +344,10 @@ resources:
 ```
 
 ---
-
+View more examples of training with serverless compute at:-
+* [Quick Start](https://github.com/Azure/azureml-examples/blob/main/tutorials/get-started-notebooks/quickstart.ipynb)
+* [Train Model](https://github.com/Azure/azureml-examples/blob/main/tutorials/get-started-notebooks/train-model.ipynb)
+  
 ## AutoML job
 
 There's no need to specify compute for AutoML jobs. Resources can be optionally specified. If instance count isn't specified, then it's defaulted based on max_concurrent_trials and max_nodes parameters. If you submit an AutoML image classification or NLP task with no instance type, we will automatically select a GPU VM size. It is possible to submit AutoML job through CLIs, SDK, or Studio. To submit AutoML jobs with serverless compute in studio first enable the *Guided experience for submitting training jobs with serverless compute* feature in the preview panel and then [submit a training job in studio (preview)](how-to-train-with-ui.md).
@@ -383,4 +386,6 @@ You can also set serverless compute as the default compute in Designer.
 
 ## Next steps
 
-View more examples of training with serverless compute at [azureml-examples-main](https://github.com/Azure/azureml-examples-main)
+View more examples of training with serverless compute at:-
+* [Quick Start](https://github.com/Azure/azureml-examples/blob/main/tutorials/get-started-notebooks/quickstart.ipynb)
+* [Train Model](https://github.com/Azure/azureml-examples/blob/main/tutorials/get-started-notebooks/train-model.ipynb)

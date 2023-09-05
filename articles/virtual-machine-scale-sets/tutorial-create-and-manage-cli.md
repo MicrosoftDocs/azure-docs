@@ -7,8 +7,7 @@ ms.topic: tutorial
 ms.service: virtual-machine-scale-sets
 ms.date: 12/16/2022
 ms.reviewer: mimckitt
-ms.custom: mimckitt, devx-track-azurecli
-
+ms.custom: mimckitt, devx-track-azurecli, devx-track-linux
 ---
 # Tutorial: Create and manage a Virtual Machine Scale Set with the Azure CLI
 A Virtual Machine Scale Set allows you to deploy and manage a set of virtual machines. Throughout the lifecycle of a Virtual Machine Scale Set, you may need to run one or more management tasks. In this tutorial you learn how to:

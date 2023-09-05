@@ -23,7 +23,7 @@ The Azure App Service Environment v2 is an Azure App Service feature that provid
 * Functions
 
 > [!NOTE]
-> Linux web apps and docker containers are not supported in Azure Government and Azure China regions.
+> Linux web apps and docker containers are not supported in Azure Government and Microsoft Azure operated by 21Vianet regions.
 
 App Service environments (ASEs) are appropriate for application workloads that require:
 

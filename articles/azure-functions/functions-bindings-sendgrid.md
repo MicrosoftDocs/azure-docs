@@ -84,7 +84,7 @@ You can add the extension to your project by explicitly installing the [NuGet pa
 ## Example
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
+[!INCLUDE [functions-bindings-csharp-intro-with-csx](../../includes/functions-bindings-csharp-intro-with-csx.md)]
 
 # [In-process](#tab/in-process)    
 

@@ -4,7 +4,7 @@ description: Learn how to integrate a VNET with an external Azure Container Apps
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
-ms.custom: event-tier1-build-2022, devx-track-azurepowershell, devx-track-azurecli
+ms.custom: event-tier1-build-2022, devx-track-azurepowershell, devx-track-azurecli, devx-track-linux
 ms.topic:  how-to
 ms.date: 08/31/2022
 ms.author: cshoe
@@ -21,7 +21,7 @@ The following example shows you how to create a Container Apps environment in an
 [!INCLUDE [container-apps-create-portal-steps.md](../../includes/container-apps-create-portal-steps.md)]
 
 > [!NOTE]
-> You can use an existing virtual network, but a dedicated subnet with a CIDR range of `/23` or larger is required for use with Container Apps when using the Consumption only Architecture. When using the Workload Profiles Architecture, a `/27` or larger is required. To learn more about subnet sizing, see the [networking architecture overview](./networking.md#subnet).
+> You can use an existing virtual network, but a dedicated subnet with a CIDR range of `/23` or larger is required for use with Container Apps when using the Consumption only Architecture. When using a workload profiles environment, a `/27` or larger is required. To learn more about subnet sizing, see the [networking architecture overview](./networking.md#subnet).
 
 7. Select the **Networking** tab to create a VNET.
 8. Select **Yes** next to *Use your own virtual network*.

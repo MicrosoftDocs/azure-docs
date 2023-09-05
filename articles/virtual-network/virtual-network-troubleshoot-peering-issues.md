@@ -100,7 +100,7 @@ To learn more about global peering requirements and restraints, see [Virtual net
 
 ## Troubleshoot a connectivity issue between two peered virtual networks
 
-Sign in to the [Azure portal](https://portal.azure.com/) with an account that has the necessary [roles and permissions](virtual-network-manage-peering.md#permissions). Select the virtual network, select **Peering**, and then check the **Status** field. What is the status?
+Sign in to the [Azure portal](https://portal.azure.com) with an account that has the necessary [roles and permissions](virtual-network-manage-peering.md#permissions). Select the virtual network, select **Peering**, and then check the **Status** field. What is the status?
 
 ### The peering status is "Connected"
 

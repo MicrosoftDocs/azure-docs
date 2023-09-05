@@ -54,6 +54,8 @@ Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browser's search feature
 
 ## Azure RBAC
 
+[!INCLUDE [authorization-resources-troubleshoot-rbac-limits](../../includes/resource-graph/query/authorization-resources-troubleshoot-rbac-limits.md)]
+
 [!INCLUDE [authorization-resources-role-assignments-key-properties](../../includes/resource-graph/query/authorization-resources-role-assignments-key-properties.md)]
 
 [!INCLUDE [authorization-resources-role-definitions-key-properties](../../includes/resource-graph/query/authorization-resources-role-definitions-key-properties.md)]
@@ -62,7 +64,9 @@ Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browser's search feature
 
 [!INCLUDE [authorization-resources-role-definitions-permissions-list](../../includes/resource-graph/query/authorization-resources-role-definitions-permissions-list.md)]
 
-[!INCLUDE [authorization-resources-troubleshoot-rbac-limits](../../includes/resource-graph/query/authorization-resources-troubleshoot-rbac-limits.md)]
+[!INCLUDE [authorization-resources-classic-administrators-key-properties](../../includes/resource-graph/query/authorization-resources-classic-administrators-key-properties.md)]
+
+[!INCLUDE [authorization-resources-summarize-count](../../includes/resource-graph/query/authorization-resources-summarize-count.md)]
 
 ## Azure Service Health
 
@@ -99,6 +103,8 @@ Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browser's search feature
 ## Networking
 
 [!INCLUDE [azure-resource-graph-samples-cat-networking](../../../../includes/resource-graph/samples/bycat/networking.md)]
+
+[!INCLUDE [virtual-machine-basic-sku-public-ip](../../includes/resource-graph/query/virtual-machine-basic-sku-public-ip.md)]
 
 ## Resource health
 

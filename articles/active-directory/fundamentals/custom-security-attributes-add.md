@@ -8,6 +8,7 @@ ms.author: rolyon
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
+ms.custom: has-azure-ad-ps-ref
 ms.topic: how-to
 ms.date: 06/29/2023
 ms.collection: M365-identity-device-management
@@ -17,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 > [!IMPORTANT]
 > Custom security attributes are currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> For more information about previews, see [Universal License Terms For Online Services](https://www.microsoft.com/licensing/terms/product/ForOnlineServices/all).
 
 [Custom security attributes](custom-security-attributes-overview.md) in Azure Active Directory (Azure AD) are business-specific attributes (key-value pairs) that you can define and assign to Azure AD objects. This article describes how to add, edit, or deactivate custom security attribute definitions.
 
@@ -34,6 +35,8 @@ To add or deactivate custom security attributes definitions, you must have:
 > By default, [Global Administrator](../roles/permissions-reference.md#global-administrator) and other administrator roles do not have permissions to read, define, or assign custom security attributes.
 
 ## Add an attribute set
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 An attribute set is a collection of related attributes. All custom security attributes must be part of an attribute set. Attribute sets cannot be renamed or deleted.
 

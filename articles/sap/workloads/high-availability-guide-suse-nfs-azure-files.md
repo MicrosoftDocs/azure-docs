@@ -9,7 +9,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 12/06/2022
+ms.date: 07/17/2023
 ms.author: radeltch
 ---
 
@@ -578,15 +578,22 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    If using enqueue server 2 architecture ([ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)), define the resources as follows:
 
+   > [!NOTE]
+   > If you have a two-node cluster running ENSA2, you have the option to configure priority-fencing-delay cluster property. This property introduces additional delay in fencing a node that has higher total resoure priority when a split-brain scenario occurs. For more information, see [SUSE Linux Enteprise Server high availability extension administration guide](https://documentation.suse.com/sle-ha/15-SP3/single-html/SLE-HA-administration/#pro-ha-storage-protect-fencing).
+   >
+   > The property priority-fencing-delay is only applicable for ENSA2 running on two-node cluster.
+
     ```bash
     sudo crm configure property maintenance-mode="true"
+
+    sudo crm configure property priority-fencing-delay=30
    
     sudo crm configure primitive rsc_sap_NW1_ASCS00 SAPInstance \
      operations \$id=rsc_sap_NW1_ASCS00-operations \
      op monitor interval=11 timeout=60 on-fail=restart \
      params InstanceName=NW1_ASCS00_sapascs START_PROFILE="/sapmnt/NW1/profile/NW1_ASCS00_sapascs" \
      AUTOMATIC_RECOVER=false \
-     meta resource-stickiness=5000
+     meta resource-stickiness=5000 priority=100
    
     sudo crm configure primitive rsc_sap_NW1_ERS01 SAPInstance \
      operations \$id=rsc_sap_NW1_ERS01-operations \

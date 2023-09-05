@@ -425,7 +425,7 @@ Handle the results as follows:
 To make sure that your parser produces valid values, use the ASIM data tester by running the following query in the Microsoft Sentinel **Logs** page:
 
   ```KQL
-  <parser name> | limit <X> | invoke ASimDataTester ( ['<schema>'] )
+  <parser name> | limit <X> | invoke ASimDataTester ('<schema>')
   ```
 
 Specifying a schema is optional. If a schema is not specified, the `EventSchema` field is used to identify the schema the event should adhere to. Ig an event does not include an `EventSchema` field, only common fields will be verified. If a schema is specified as a parameter, this schema will be used to test all records. This is useful for older parsers that do not set the `EventSchema` field. 

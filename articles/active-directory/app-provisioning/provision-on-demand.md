@@ -24,6 +24,8 @@ Use on-demand provisioning to provision a user or group in seconds. Among other 
 
 ## How to use on-demand provisioning
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 ::: zone pivot="app-provisioning"

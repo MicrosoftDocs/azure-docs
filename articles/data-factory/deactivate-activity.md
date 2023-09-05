@@ -33,14 +33,16 @@ First, you may deactivate a single activity from its **General** tab.
 
 :::image type="content" source="./media/deactivate-activity/deactivate-03-setup-single.png" alt-text="Deactive one activity at a time":::
 
-Alternatively, you can deactive multiple activities with right click.
+Alternatively, you can deactivate multiple activities with right click.
 
 - Press down _Ctrl_ key to multi-select. Using your mouse, left click on all activities you want to deactivate
 - Right click to bring up the drop down menu
-- Select _Deactivate_ to deactive them all
-- To fine tune the settings fro _Mark activity as_, go to **General** tab of the activity, and make appropriate changes
+- Select _Deactivate_ to deactivate them all
+- To fine tune the settings for _Mark activity as_, go to **General** tab of the activity, and make appropriate changes
 
 :::image type="content" source="./media/deactivate-activity/deactivate-04-setup-multiple.png" alt-text="Deactive multiple activities all at once":::
+
+In both cases, you do need to deploy the changes to deactivate the parts during pipeline run.
 
 To reactivate the activities, choose _Active_ for the _Activity State_, and they revert back to their previous behaviors, as expected.
 
@@ -70,7 +72,7 @@ Deactivation is a powerful tool for pipeline developer. It allows developers to 
 
 ### Known limitations
 
-An inactive activity never actually runs. This means the activity won't have an output or an error field. Any references to these fields throw errors downstream.
+An inactive activity never actually runs. This means the activity won't have an error field, or its typical output fields. Any references to missing fields may throw errors downstream.
 
 ## Next steps
 

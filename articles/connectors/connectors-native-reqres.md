@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewers: estfan, azla
 ms.topic: how-to
-ms.date: 07/11/2023
+ms.date: 07/31/2023
 tags: connectors
 ---
 
@@ -350,6 +350,11 @@ The Request trigger creates a manually callable endpoint that handles *only* inb
    >
    > If you want to include the hash or pound symbol (**#**) in the URI
    > when making a call to the Request trigger, use this encoded version instead: `%25%23`
+   >
+   > The URL for the Request trigger is associated with your workflow's storage account. This URL 
+   > changes if the storage account changes. For example, with Standard logic apps, if you manually 
+   > change your storage account and copy your workflow to the new storage account, the URL for 
+   > the Request trigger also changes to reflect the new storage account. The same workflow has a different URL.
 
 ---
 

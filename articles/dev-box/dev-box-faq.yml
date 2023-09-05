@@ -28,7 +28,7 @@ sections:
           1. Enable the Read/Write cache on the OS disk. 
              - To verify, open the Azure portal and navigate to the image. Select **JSON view**, and make sure `properties.storageProfile.osDisk.caching` value is `ReadWrite`.
           2. Create the image using the following sysprep options:
-            `/mode:vm flag: Sysprep /generalize /oobe /mode:vm`.
+            `/generalize /oobe /mode:vm`.
              - These options prevent a lengthy search for and installation of drivers during the first boot.
           3. Enable nested virtualization in your base image.
              - In the UI, open **Turn Windows features on or off** and select **Virtual Machine Platform**. 
@@ -46,6 +46,22 @@ sections:
                 You can check your Dev Box quota using either: 
                 - REST API - [Usages - List By Location - REST API (Azure Dev Center) | Microsoft Learn](/rest/api/devcenter/administrator/usages/list-by-location?tabs=HTTP)
                 - CLI - [az devcenter admin usage | Microsoft Learn |](/cli/azure/devcenter/admin/usage?view=azure-cli-latest) 
+
+      - question: How are backup, high-availability, and disaster recovery implemented in Microsoft Dev Box? 
+        answer: |
+          Microsoft Intune provides backup functionality for dev boxes. It automatically sets regular restore points, and enables you to create a manual restore point, just as you would for a [Cloud PC](/windows-365/enterprise/create-manual-restore-point).
+          Restore functionality for dev boxes is provided by sharing Cloud PC restore points to a storage account. For more information, see: [Share Cloud PC restore points to an Azure Storage Account](/windows-365/enterprise/share-restore-points-storage) 
+
+          Dev Box doesn't provide high-availability and disaster recovery functions. If there's an Azure regional outage, customers lose access to Dev Box in that region. They must implement manual disaster recovery and re-create new Dev Boxes.
+          Customers should design and implement high-availability and disaster recovery solutions that suit their requirements. 
+
+      - question: What is the preferred monitoring solution for capturing metrics, usage, number of dev boxes assigned per developer, and so on?
+        answer: |
+           - Project admins can view dev box usage at pool level. Project admins can select a pool and see list of dev boxes that are currently in use.
+           - For Dev Box connectivity metrics, use the [Cloud PC connection quality report (preview)](/windows-365/enterprise/report-cloud-pc-connection-quality). Dev Box is built on top of Cloud PC. So, you can see the connectivity health of each dev box by using the Cloud PC dashboard in the Microsoft Intune admin center.  
+    
+      - question: Can I use a smart card, or other device that connects to my physical machine with Dev Box?
+        answer: Yes. Dev Box supports a broad range of devices that connect to the physical machine via remote desktop redirection. For more information, see [Compare the features of remote desktop clients - Redirections comparison](../virtual-desktop/compare-remote-desktop-clients.md#redirections-comparison)
 
   - name: Dev Box hibernation
     questions:

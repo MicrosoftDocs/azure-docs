@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: hangwan
 ms.service: spring-apps
 ms.topic: conceptual
-ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
+ms.custom: devx-track-java
 ms.date: 05/23/2023
 ---
 
@@ -18,9 +18,44 @@ Azure Spring Apps is improved on an ongoing basis. To help you stay up to date w
 
 This article is updated quarterly, so revisit it regularly. You can also visit [Azure updates](https://azure.microsoft.com/updates/?query=azure%20spring), where you can search for updates or browse by category.
 
+## June 2023
+
+The following update announces a new plan:
+
+- **Azure Spring Apps Consumption and Dedicated plan**: This plan offers you customizable compute options (including memory optimization), single tenancy, and high availability to help you achieve price predictability, cost savings, and performance for running Spring applications at scale. For more information, see [Unleash Spring apps in a flex environment with Azure Spring Apps Consumption and Dedicated plans](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/unleash-spring-apps-in-a-flex-environment-with-azure-spring-apps/ba-p/3828232).
+
+The following update is now available in all plans:
+
+- **Azure Migrate for Spring Apps**: Discover and assess your Spring workloads for cloud readiness and get a price estimate for Azure Spring Apps using Azure Migrate. For more information, see [Discover and Assess Spring Apps with Azure Migrate - Preview Sign-Up](https://aka.ms/discover-spring-apps).
+
+The following update is now available in the Consumption and Basic/Standard plans:
+
+- **Azure Developer CLI (azd) for Azure Spring Apps**: Azure Developer CLI (azd) is an open-source tool that accelerates the time it takes for you to get your application from local development environment to Azure. You can now initialize, package, provision, and deploy a Spring application to Azure Spring Apps with only a few commands. Try it out using [Quickstart: Deploy your first web application to Azure Spring Apps](quickstart-deploy-web-app.md).
+
+The following updates are now available in the Enterprise plan:
+
+- **Shareable build result among Azure Spring Apps Enterprise instances (preview)**: This update enables you to have full visibility for Azure Spring Apps built images through bring-your-own Azure Container Registry (ACR) to support the following scenarios:
+
+  - Build and test in a PREPROD environment and deploy to multiple PROD environments with the verified images.
+  - Orchestrate a secure CICD pipeline to plug in any steps between build and deploy actions.
+
+  For more information, see [How to deploy polyglot apps in the Azure Spring Apps Enterprise plan](how-to-enterprise-deploy-polyglot-apps.md) and [Use Azure Spring Apps CI/CD with GitHub Actions](how-to-github-actions.md?pivots=programming-language-java).
+
+- **High Availability support for App Accelerator and App Live View**: App Accelerator and App Live View now support multiple replicas to offer high availability. For more information, see [Configure Tanzu Dev Tools in the Azure Spring Apps Enterprise plan](how-to-use-dev-tool-portal.md).
+
+- **Spring Cloud Gateway auto scaling**: Spring Cloud Gateway now supports auto scaling to better serve the elastic traffic without the hassle of manual scaling. For more information, see the [Set up autoscale settings](how-to-configure-enterprise-spring-cloud-gateway.md?tabs=Azure-portal#set-up-autoscale-settings) section of [Configure VMware Spring Cloud Gateway](how-to-configure-enterprise-spring-cloud-gateway.md).
+
+- **Application Configuration Service – polyglot support**: This update enables you to use Application Configuration Service to manage external configurations for any polyglot app, such as .NET, Go, and so on. For more information, see the [Polyglot support](how-to-enterprise-application-configuration-service.md#polyglot-support) section of [Use Application Configuration Service for Tanzu](how-to-enterprise-application-configuration-service.md).
+
+- **Application Configuration Service – enhanced performance and security**: This update provides a dramatic performance enhancement in Git monitoring operations. This enhancement enables faster updates for configuration and certification verification over TLS between Application Configuration Service and Git repos. For more information, see [Use Application Configuration Service for Tanzu](how-to-enterprise-application-configuration-service.md).
+
+- **1000 app instance support (preview)**: We've increased the maximum app instance count for one Azure Spring Apps Enterprise service instance to 1000 to support large-scale microservice clusters. For more information, see [Quotas and service plans for Azure Spring Apps](quotas.md).
+
+- **App Accelerator certificate verification**: This update provides certification verification over TLS between App Accelerator and Git repos. For more information, see the [Configure accelerators with a self-signed certificate](how-to-use-accelerator.md#configure-accelerators-with-a-self-signed-certificate) section of [Use VMware Tanzu Application Accelerator with the Azure Spring Apps Enterprise plan](how-to-use-accelerator.md).
+
 ## March 2023
 
-The following updates are now available in both Basic/Standard and Enterprise plan:
+The following updates are now available in both the Basic/Standard and Enterprise plans:
 
 - **Source code assessment for migration**: Assess your existing on-premises Spring applications for their readiness to migrate to Azure Spring Apps with Cloud Suitability Analyzer. This tool provides information on what types of changes are needed for migration, and how much effort is involved. For more information, see [Assess Spring applications with Cloud Suitability Analyzer](/azure/developer/java/migration/cloud-suitability-analyzer).
 
@@ -38,7 +73,7 @@ The following updates are now available in the Enterprise plan:
 
 ## December 2022
 
-The following updates are now available in both Basic/Standard and Enterprise plan:
+The following updates are now available in both the Basic/Standard and Enterprise plans:
 
 - **Ingress Settings**: With ingress settings, you can manage Azure Spring Apps traffic on the application level. This capability includes protocol support for gRPC, WebSocket and RSocket-on-WebSocket, session affinity, and send/read timeout. For more information, see [Customize the ingress configuration in Azure Spring Apps](how-to-configure-ingress.md).
 

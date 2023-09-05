@@ -75,7 +75,7 @@ for each:
 - [Configure managed identities for Azure resources on a VM using the Azure portal][14]
 
 To use machine configuration packages that apply configurations, Azure VM guest configuration
-extension version 1.29.24 or later is required.
+extension version 1.26.24 or later is required.
 
 ### Limits set on the extension
 

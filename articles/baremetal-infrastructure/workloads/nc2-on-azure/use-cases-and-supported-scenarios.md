@@ -1,5 +1,7 @@
 ---
 title: Use cases and supported scenarios
+author: jjaygbay1
+ms.author: jacobjaygbay
 description: Learn about use cases and supported scenarios for NC2 on Azure, including cluster management, disaster recovery, on-demand elasticity, and lift-and-shift. 
 ms.topic: conceptual
 ms.subservice: baremetal-nutanix

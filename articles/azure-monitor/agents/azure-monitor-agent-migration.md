@@ -4,8 +4,8 @@ description: This article provides guidance for migrating from the existing lega
 ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
-ms.reviewer: shseth
-ms.date: 4/3/2023 
+ms.reviewer: jeffwo
+ms.date: 7/19/2023 
 ms.custom:
 # Customer intent: As an IT manager, I want to understand how I should move from using legacy agents to Azure Monitor Agent.
 ---

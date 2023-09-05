@@ -135,9 +135,9 @@ If you're updating your OT sensor version from a legacy version to 22.1.x or hig
 Make sure that you've started with the relevant updates steps for this update. For more information, see [Update OT system software](update-ot-software.md).
 
 > [!NOTE]
-> After upgrading to version 22.1.x, the new upgrade log is accessible by the *cyberx_host* user on the sensor at the following path: `/opt/sensor/logs/legacy-upgrade.log`. To access the update log, sign into the sensor via SSH with the *cyberx_host* user.
+> After upgrading to version 22.1.x, the new upgrade log is accessible by the *support* user on the sensor at the following path: `/opt/sensor/logs/legacy-upgrade.log`. To access the update log, sign into the sensor via SSH with the *support* user.
 >
-> For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
+> For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users). 
 
 ## Understand sensor health
 

@@ -63,7 +63,9 @@ You get the following error when you try to delete a customer tenant:
 
    `Unable to delete tenant`
 
-**Cause**: This error occurs when you try to delete a customer tenant but you haven't deleted the b2c-extensions-app.
+**Cause**: This error occurs when you try to delete a customer tenant but you haven't deleted the **b2c-extensions-app**. 
+
+Custom attributes are also known as directory extension attributes expand the user profile information stored in your customer directory. All extension attributes for your customer tenant are stored in the app named **b2c-extensions-app**.
 
 **Workaround**: When deleting a customer tenant, delete the **b2c-extensions-app**, found in **App registrations** under **All applications**.
 

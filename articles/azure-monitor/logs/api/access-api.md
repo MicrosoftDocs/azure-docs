@@ -152,7 +152,7 @@ Use the token in requests to the Log Analytics endpoint:
     POST /v1/workspaces/your workspace id/query?timespan=P1D
     Host: https://api.loganalytics.azure.com
     Content-Type: application/json
-    Authorization: bearer <your access token>
+    Authorization: Bearer <your access token>
 
     Body:
     {

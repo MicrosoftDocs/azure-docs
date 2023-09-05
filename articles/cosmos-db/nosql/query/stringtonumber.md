@@ -1,90 +1,58 @@
 ---
-title: StringToNumber in Azure Cosmos DB query language
-description: Learn about SQL system function StringToNumber in Azure Cosmos DB.
-author: ginamr
+title: StringToNumber
+titleSuffix: Azure Cosmos DB for NoSQL
+description: An Azure Cosmos DB for NoSQL system function that returns a string expression converted to a number.
+author: jcodella
+ms.author: jacodel
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.topic: conceptual
-ms.date: 03/03/2020
-ms.author: girobins
-ms.custom: query-reference, ignite-2022
+ms.topic: reference
+ms.date: 07/24/2023
+ms.custom: query-reference
 ---
-# StringToNumber (Azure Cosmos DB)
+
+# StringToNumber (NoSQL query)
+
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
- Returns expression translated to a Number. If expression cannot be translated, returns undefined.  
-  
+Converts a string expression to a number.
+
 ## Syntax
-  
+
 ```sql
-StringToNumber(<str_expr>)  
+StringToNumber(<string_expr>)  
 ```  
-  
+
 ## Arguments
-  
-*str_expr*  
-   Is a string expression to be parsed as a JSON Number expression. Numbers in JSON must be an integer or a floating point. For details on the JSON format, see [json.org](https://json.org/)  
-  
+
+| | Description |
+| --- | --- |
+| **`string_expr`** | A string expression. |
+
 ## Return types
-  
-  Returns a Number expression or undefined.  
-  
+
+Returns a number value.
+
 ## Examples
-  
-  The following example shows how `StringToNumber` behaves across different types. 
 
-Whitespace is allowed only before or after the Number.
+The following example illustrates how this function works with various data types.
 
-```sql
-SELECT 
-    StringToNumber("1.000000") AS num1, 
-    StringToNumber("3.14") AS num2,
-    StringToNumber("   60   ") AS num3, 
-    StringToNumber("-1.79769e+308") AS num4
-```  
-  
- Here is the result set.  
-  
-```json
-{{"num1": 1, "num2": 3.14, "num3": 60, "num4": -1.79769e+308}}
-```  
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/stringtonumber/query.sql" highlight="2-10":::
 
-In JSON a valid Number must be either be an integer or a floating point number.
-
-```sql
-SELECT   
-    StringToNumber("0xF")
-```  
-  
- Here is the result set.  
-  
-```json
-{{}}
-```  
-
-The expression passed will be parsed as a Number expression; these inputs do not evaluate to type Number and thus return undefined. 
-
-```sql
-SELECT 
-    StringToNumber("99     54"),   
-    StringToNumber(undefined),
-    StringToNumber("false"),
-    StringToNumber(false),
-    StringToNumber(" "),
-    StringToNumber(NaN)
-```  
-  
- Here is the result set.  
-  
-```json
-{{}}
-```  
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/stringtonumber/result.json":::
 
 ## Remarks
 
-This system function will not utilize the index.
+- This function doesn't use the index.
+- String expressions are parsed as a JSON number expression.
+- Numbers in JSON must be an integer or a floating point.
+- If the expression can't be converted, the function returns `undefined`.
+
+> [!NOTE]
+> For more information on the JSON format, see [https://json.org](https://json.org/).
 
 ## Next steps
 
-- [System functions Azure Cosmos DB](system-functions.yml)
-- [Introduction to Azure Cosmos DB](../../introduction.md)
+- [System functions](system-functions.yml)
+- [`StringToBoolean`](stringtoboolean.md)

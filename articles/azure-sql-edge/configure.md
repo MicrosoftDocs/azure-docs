@@ -6,6 +6,7 @@ ms.author: randolphwest
 ms.reviewer: randolphwest
 ms.date: 09/22/2020
 ms.service: sql-edge
+ms.custom: devx-track-linux
 ms.topic: conceptual
 services: sql-edge
 ---

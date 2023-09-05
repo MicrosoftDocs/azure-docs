@@ -159,12 +159,12 @@ Next, set up a virtual machine (VM) where you will download the SAP components l
 
 Next, download the SAP installation media to the VM using a script.
 
-1. Run the Ansible script **playbook_bom_download** with your own information. Enter the actual values **within** double quotes but **without** the triangular brackets. The Ansible command that you run should look like:
+1. Run the Ansible script **playbook_bom_download** with your own information. With the exception of the `s_password` variable, enter the actual values **within** double quotes but **without** the triangular brackets. For the `s_password` variable, use single quotes. The Ansible command that you run should look like:
 
     ```bash
     export bom_base_name="<Enter bom base name>"
     export s_user="<s-user>"
-    export s_password="<password>"
+    export s_password='<password>'
     export storage_account_access_key="<storageAccountAccessKey>"
     export sapbits_location_base_path="<containerBasePath>"
     export BOM_directory="<BOM_directory_path>"
@@ -286,30 +286,18 @@ Next, upload the SAP software files to the storage account:
 
         1. [HANA_2_00_059_v0004ms.yaml](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/archives/HANA_2_00_059_v0004ms/HANA_2_00_059_v0004ms.yaml)
 
-        1. [SWPM20SP13_latest.yaml](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/SWPM20SP13_latest/SWPM20SP13_latest.yaml)
-
-        1. [SUM20SP15_latest.yaml](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/SUM20SP15_latest/SUM20SP15_latest.yaml)
-
     1. For S/4HANA 2020 SPS 03:
 
         1. [S42020SPS03_v0003ms.yaml](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/S42020SPS03_v0003ms/S42020SPS03_v0003ms.yaml)
 
         1. [HANA_2_00_064_v0001ms.yaml](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/archives/HANA_2_00_064_v0001ms/HANA_2_00_064_v0001ms.yaml)
 
-        1. [SWPM20SP13_latest.yaml](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/SWPM20SP13_latest/SWPM20SP13_latest.yaml)
-
-        1. [SUM20SP15_latest.yaml](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/SUM20SP15_latest/SUM20SP15_latest.yaml)
-	
     1. For S/4HANA 2021 ISS 00:
 
         1. [S4HANA_2021_ISS_v0001ms.yaml](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/S4HANA_2021_ISS_v0001ms/S4HANA_2021_ISS_v0001ms.yaml)
 
         1. [HANA_2_00_064_v0001ms.yaml](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/archives/HANA_2_00_064_v0001ms/HANA_2_00_064_v0001ms.yaml)
 
-        1. [SWPM20SP13_latest.yaml](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/SWPM20SP13_latest/SWPM20SP13_latest.yaml)
-
-        1. [SUM20SP15_latest.yaml](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/SUM20SP15_latest/SUM20SP15_latest.yaml)
-	
 1. Depending on your SAP version, go to the folder **S41909SPS03_v0011ms** or **S42020SPS03_v0003ms** or **S4HANA_2021_ISS_v0001ms**.
 
 1. Create a subfolder named **templates**.
@@ -400,31 +388,18 @@ Next, upload the SAP software files to the storage account:
     
         1. [HANA_2_00_059_v0004ms.yaml](https://github.com/Azure/SAP-automation-samples/blob/main/SAP/archives/HANA_2_00_059_v0004ms/HANA_2_00_059_v0004ms.yaml)
     
-        1. [SWPM20SP13_latest.yaml](https://github.com/Azure/SAP-automation-samples/blob/main/SAP/SWPM20SP13_latest/SWPM20SP13_latest.yaml)
-        
-        1. [SUM20SP15_latest.yaml](https://github.com/Azure/SAP-automation-samples/blob/main/SAP/SUM20SP15_latest/SUM20SP15_latest.yaml)
-	
-    
     1. For S/4HANA 2020 SPS 03: 
 
         1. [S42020SPS03_v0003ms.yaml](https://github.com/Azure/SAP-automation-samples/blob/main/SAP/S42020SPS03_v0003ms/S42020SPS03_v0003ms.yaml)
     
         1. [HANA_2_00_064_v0001ms.yaml](https://github.com/Azure/SAP-automation-samples/blob/main/SAP/archives/HANA_2_00_064_v0001ms/HANA_2_00_064_v0001ms.yaml)
     
-        1. [SWPM20SP13_latest.yaml](https://github.com/Azure/SAP-automation-samples/blob/main/SAP/SWPM20SP13_latest/SWPM20SP13_latest.yaml)
-        
-        1. [SUM20SP15_latest.yaml](https://github.com/Azure/SAP-automation-samples/blob/main/SAP/SUM20SP15_latest/SUM20SP15_latest.yaml)
-	
     1. For S/4HANA 2021 ISS 00:
 
         1. [S4HANA_2021_ISS_v0001ms.yaml](https://github.com/Azure/SAP-automation-samples/blob/main/SAP/S4HANA_2021_ISS_v0001ms/S4HANA_2021_ISS_v0001ms.yaml)
     
         1. [HANA_2_00_064_v0001ms.yaml](https://github.com/Azure/SAP-automation-samples/blob/main/SAP/archives/HANA_2_00_064_v0001ms/HANA_2_00_064_v0001ms.yaml)
     
-        1. [SWPM20SP13_latest.yaml](https://github.com/Azure/SAP-automation-samples/blob/main/SAP/SWPM20SP13_latest/SWPM20SP13_latest.yaml)
-        
-        1. [SUM20SP15_latest.yaml](https://github.com/Azure/SAP-automation-samples/blob/main/SAP/SUM20SP15_latest/SUM20SP15_latest.yaml)
-
 1. Repeat the previous step for the main and dependent BOM files.
 
 1. Upload all the packages that you downloaded to the `archives` folder. Don't rename the files.

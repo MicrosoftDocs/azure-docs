@@ -12,13 +12,13 @@ ms.workload: identity
 ms.date: 03/03/2022
 ms.author: shermanouko
 ms.custom: aaddev, has-adal-ref
-ms.reviewer: aiwang, marsma
+ms.reviewer: aiwang, dmwendia
 # Customer intent: As an application developer / IT admin, I need to know / identify which of my apps are using ADAL.
 ---
 
 # Get a complete list of apps using ADAL in your tenant
 
-Support for Active Directory Authentication Library (ADAL) will end in December, 2022. Apps using ADAL on existing OS versions will continue to work, but technical support and security updates will end. Without continued security updates, apps using ADAL will become increasingly vulnerable to the latest security attack patterns. For more information, see [Migrate apps to MSAL](msal-migration.md). This article provides guidance on how to use Azure Monitor workbooks to obtain a list of all apps that use ADAL in your tenant.
+Azure Active Directory Authentication Library (ADAL) has been deprecated. While existing apps that use ADAL continue to work, Microsoft will no longer release security fixes on ADAL. Use the [Microsoft Authentication Library (MSAL)](/entra/msal/) to avoid putting your app's security at risk. If you have existing applications that use ADAL, be sure to [migrate them to MSAL](../develop/msal-migration.md). This article provides guidance on how to use Azure Monitor workbooks to obtain a list of all apps that use ADAL in your tenant.
 
 ## Sign-ins workbook
 
@@ -34,11 +34,13 @@ No sign-in event that occurred *before* you configure Azure AD to send the event
 
 ## Step 2: Access sign-ins workbook in Azure portal
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Once you've integrated your Azure AD sign-in and audit logs with Azure Monitor as specified in the Azure Monitor integration, access the sign-ins workbook:
 
-   1. Sign into the Azure portal
-   1. Navigate to **Azure Active Directory** > **Monitoring** > **Workbooks**
-   1. In the **Usage** section, open the **Sign-ins** workbook
+   1. Sign in to the [Azure portal](https://portal.azure.com).
+   1. Navigate to **Azure Active Directory** > **Monitoring** > **Workbooks**.
+   1. In the **Usage** section, open the **Sign-ins** workbook.
 
    :::image type="content" source="media/howto-get-list-of-all-auth-library-apps/sign-in-workbook.png" alt-text="Screenshot of the Azure portal workbooks interface highlighting the sign-ins workbook.":::
 

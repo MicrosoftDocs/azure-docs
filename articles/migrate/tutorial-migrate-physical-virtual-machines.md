@@ -6,7 +6,7 @@ ms.author: vijain
 ms.manager: kmadnani
 ms.topic: tutorial
 ms.service: azure-migrate
-ms.date: 12/12/2022
+ms.date: 07/26/2023
 ms.custom: MVC, engagement-fy23
 ---
 
@@ -182,7 +182,7 @@ On machines you want to migrate, you need to install the Mobility service agent.
     ```
 2. Run the Mobility Service Installer:
     ```
-   UnifiedAgent.exe /Role "MS" /Platform "VmWare" /Silent
+   UnifiedAgent.exe /Role "MS" /Platform "VmWare" /Silent /CSType CSLegacy
     ```
 3. Register the agent with the replication appliance:
     ```
@@ -200,11 +200,11 @@ On machines you want to migrate, you need to install the Mobility service agent.
     ```
 2. Run the installer script:
     ```
-    sudo ./install -r MS -v VmWare -q
+    sudo ./install -r MS -v VmWare -q -c CSLegacy
     ```
 3. Register the agent with the replication appliance:
     ```
-    /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <replication appliance IP address> -P <Passphrase File Path>
+    /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <replication appliance IP address> -P <Passphrase File Path> -c CSLegacy
     ```
 
 ## Replicate machines

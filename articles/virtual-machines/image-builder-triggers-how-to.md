@@ -8,7 +8,7 @@ ms.service: virtual-machines
 ms.subservice: image-builder
 ms.topic: how-to
 ms.date: 06/05/2023
-ms.custom: template-how-to-pattern
+ms.custom: template-how-to-pattern, devx-track-azurecli
 ---
 
 # How to use Azure Image Builder triggers to set up an automatic image build

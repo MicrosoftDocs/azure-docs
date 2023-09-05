@@ -6,7 +6,6 @@ documentationcenter: virtual-network
 author: asudbring
 manager: mtillman
 tags: azure-resource-manager
-# Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: how-to
@@ -14,7 +13,8 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 04/20/2022
 ms.author: allensu
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-linux
+# Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
 ---
 
 # Route network traffic with a route table using the Azure CLI

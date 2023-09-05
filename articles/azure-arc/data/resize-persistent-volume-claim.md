@@ -7,7 +7,7 @@ ms.subservice: azure-arc-data-sqlmi
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 08/29/2022
+ms.date: 07/19/2023
 ms.topic: how-to
 ---
 
@@ -18,7 +18,7 @@ This article explains how to resize an existing persistent volume to increase it
 > [!NOTE]
 > Resizing PVCs using this method only works your `StorageClass` supports `AllowVolumeExpansion=True`.
 
-When you deploy an Azure Arc enabled SQL managed instance, you can configure the size of the persistent volume (PV) for `data`, `logs`, `datalogs`, and `backups`. The deployment creates these volumes based on the values set by parameters `--volume-size-data`, `--volume-size-logs`, `--volume-size-datalogs`, and `--volume-size-backups`. When these volumes become full, you will need to resize the `PersistentVolumes`. Azure Arc enabled SQL Managed Instance is deployed as part of a `StatefulSet` for both General Purpose or Business Critical service tiers. Kubernetes supports automatic resizing for persistent volumes but not for volumes attached to `StatefulSet`. 
+When you deploy an Azure Arc-enabled SQL managed instance, you can configure the size of the persistent volume (PV) for `data`, `logs`, `datalogs`, and `backups`. The deployment creates these volumes based on the values set by parameters `--volume-size-data`, `--volume-size-logs`, `--volume-size-datalogs`, and `--volume-size-backups`. When these volumes become full, you will need to resize the `PersistentVolumes`. Azure Arc-enabled SQL Managed Instance is deployed as part of a `StatefulSet` for both General Purpose or Business Critical service tiers. Kubernetes supports automatic resizing for persistent volumes but not for volumes attached to `StatefulSet`. 
 
 Following are the steps to resize persistent volumes attached to `StatefulSet`: 
 
@@ -101,7 +101,7 @@ For example: The below command sets the `StatefulSet` replicas to 3.
 ```
 kubectl scale statefulsets sqlmi1 --namespace arc --replicas=3
 ```
-Ensure the Arc enabled SQL managed instance is back to ready status by running:
+Ensure the Arc-enabled SQL managed instance is back to ready status by running:
 
 ```console
 kubectl get sqlmi -A

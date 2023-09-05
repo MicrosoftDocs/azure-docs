@@ -19,7 +19,7 @@ To sign in to Storage Explorer, open the **Connect dialog**. You can open the **
 
 Once you have the dialog open, choose **Subscription** as the type of resource you want to connect to and click **Next**.
 
-You now need to choose what Azure environment you want to sign into. You can pick from any of the known environments, such as Azure or Azure China, or you can add your own environment. Once you have your environment selected, click **Next**.
+You now need to choose what Azure environment you want to sign into. You can pick from any of the known environments, such as Azure or Microsoft Azure operated by 21Vianet, or you can add your own environment. Once you have your environment selected, click **Next**.
 
 At this point, your OS' **default web browser** will launch and a sign-in page will be opened. For best results, leave this browser window open as long as you're using Storage Explorer or at least until you've performed all expected MFA. When you have finished signing in, you can return to Storage Explorer.
 

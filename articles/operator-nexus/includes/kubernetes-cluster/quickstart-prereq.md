@@ -4,6 +4,7 @@ ms.author: dramasamy
 ms.date: 06/26/2023
 ms.topic: include
 ms.service: azure-operator-nexus
+ms.custom: devx-track-azurecli
 ---
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]

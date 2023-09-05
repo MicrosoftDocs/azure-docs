@@ -39,7 +39,7 @@ The ECas_cc_v5-series sizes offer a combination of vCPU and memory for most prod
 [Live Migration](maintenance-and-updates.md): Not Supported <br>
 [Memory Preserving Updates](maintenance-and-updates.md): Not Supported <br>
 [VM Generation Support](generation-2.md): Generation 2 <br>
-[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported only for Marketplace Windows image <br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported <br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
 [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Supported <br>
 <br>
@@ -63,9 +63,9 @@ The ECads_cc_v5-series sizes offer a combination of vCPU, memory and temporary s
 
 [Premium Storage](premium-storage-performance.md): Supported <br>
 [Premium Storage caching](premium-storage-performance.md): Supported <br>
-[Live Migration](maintenance-and-updates.md): Supported <br>
-[Memory Preserving Updates](maintenance-and-updates.md): Supported <br>
-[VM Generation Support](generation-2.md): Generation 1 and 2 <br>
+[Live Migration](maintenance-and-updates.md): Not Supported <br>
+[Memory Preserving Updates](maintenance-and-updates.md): Not Supported <br>
+[VM Generation Support](generation-2.md): Generation 2 <br>
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported <br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
 [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Supported <br>

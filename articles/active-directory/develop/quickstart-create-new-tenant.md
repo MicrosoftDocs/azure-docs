@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 04/19/2023
+ms.date: 07/11/2023
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit, mode-other
@@ -41,6 +41,8 @@ This quickstart addresses two scenarios for the type of app you want to build:
 To build an environment for either work and school accounts or personal Microsoft accounts (MSA), you can use an existing Azure AD tenant or create a new one.
 ### Use an existing Azure AD tenant
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Many developers already have tenants through services or subscriptions that are tied to Azure AD tenants, such as Microsoft 365 or Azure subscriptions.
 
 To check the tenant:
@@ -59,7 +61,7 @@ If you don't have a tenant associated with your account, you'll see a GUID under
 
 ### Create a new Azure AD tenant
 
-If you don't already have an Azure AD tenant or if you want to create a new one for development, see [Create a new tenant in Azure AD](../fundamentals/active-directory-access-create-new-tenant.md). Or use the [directory creation experience](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory) in the Azure portal. 
+If you don't already have an Azure AD tenant or if you want to create a new one for development, see [Create a new tenant in Azure AD](../fundamentals/create-new-tenant.md) or use the [directory creation experience](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory) in the Azure portal. If you want to create a tenant for app testing, see [build a test environment](test-setup-environment.md).
 
 You'll provide the following information to create your new tenant:
 

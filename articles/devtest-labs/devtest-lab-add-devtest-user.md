@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 01/26/2022
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, UpdateFrequency2
 ---
 
 # Add lab owners, contributors, and users in Azure DevTest Labs 

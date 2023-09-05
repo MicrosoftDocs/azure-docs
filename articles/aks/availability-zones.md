@@ -1,10 +1,9 @@
 ---
 title: Use availability zones in Azure Kubernetes Service (AKS)
 description: Learn how to create a cluster that distributes nodes across availability zones in Azure Kubernetes Service (AKS)
-ms.custom: fasttrack-edit, references_regions, devx-track-azurecli
+ms.custom: fasttrack-edit, references_regions, devx-track-azurecli, devx-track-linux
 ms.topic: article
 ms.date: 02/22/2023
-
 ---
 
 # Create an Azure Kubernetes Service (AKS) cluster that uses availability zones
@@ -59,11 +58,9 @@ If a single zone becomes unavailable, your applications continue to run on clust
 
 ## Create an AKS cluster across availability zones
 
-When you create a cluster using the [az aks create][az-aks-create] command, the `--zones` parameter specifies the zones to deploy agent nodes into. The control plane components such as etcd or the API spread across the available zones in the region during cluster deployment. The specific zones that the control plane components spread across, are independent of what explicit zones you select for the initial node pool.
+When you create a cluster using the [az aks create][az-aks-create] command, the `--zones` parameter specifies the availability zones to deploy agent nodes into. The availability zones that the managed control plane components are deployed into are **not** controlled by this parameter. They are automatically spread across all availability zones (if present) in the region during cluster deployment.
 
-If you don't specify any zones for the default agent pool when you create an AKS cluster, the control plane components aren't present in availability zones. You can add more node pools using the [az aks nodepool add][az-aks-nodepool-add] command and specify `--zones` for new nodes. The command converts the AKS control plane to spread across availability zones.
-
-The following example creates an AKS cluster named *myAKSCluster* in the resource group named *myResourceGroup* with a total of three nodes. One agent in zone *1*, one in *2*, and then one in *3*.
+The following example creates an AKS cluster named *myAKSCluster* in the resource group named *myResourceGroup* with a total of three nodes. One agent node in zone *1*, one in *2*, and then one in *3*.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus2
