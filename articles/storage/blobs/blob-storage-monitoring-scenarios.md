@@ -127,6 +127,8 @@ For the "how" portion of your audit, the `OperationName` field shows which opera
 
 For the "who" portion of your audit, `AuthenticationType` shows which type of authentication was used to make a request. This field can show any of the types of authentication that Azure Storage supports including the use of an account key, a SAS token, or Azure Active Directory (Azure AD) authentication.
 
+A very common scenario is identifying any un-intentional deletes happening on the account. From the above section of splitting the API by name, it shall help identify the "when" as to when the API’s such as Delete Blob, Delete Container etc were called. For the “who” part, if the authentication type is Azure AD, you can check via field `RequesterObjectId` however if the authentication type is account key or SAS, you can then check based on fields such as `callerIpAddress` and `userAgentHeader`.
+
 #### Identifying the security principal used to authorize a request
 
 If a request was authenticated by using Azure AD, the `RequesterObjectId` field provides the most reliable way to identify the security principal. You can find the friendly name of that security principal by taking the value of the `RequesterObjectId` field, and searching for the security principal in Azure AD page of the Azure portal. The following screenshot shows a search result in Azure AD.
