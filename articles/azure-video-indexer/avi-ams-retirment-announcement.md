@@ -23,9 +23,9 @@ Currently, AVI uses AMS for encoding and streaming for the AVI player. AMS charg
 
 AVI will continue to offer the same insights, performance, and functionality. However, a few aspects of the service will change which fall under the following three categories:
 
-- AVI account changes
-- AVI API changes
-- AVI product changes
+- Account changes
+- API changes
+- Product changes
 
 ## Account changes
 
@@ -55,7 +55,7 @@ See [Azure AI Video Indexer account types](/azure/azure-video-indexer/accounts-o
 1. As of January 15, 2024 Video Indexer trial accounts will continue to work as usual. However, when using them through the APIs, customers must use the updated APIs.
 2. AVI supports [importing content](import-content-from-trial.md) from a trial AVI account to a paid AVI account. This import option will be supported only until **January 15th, 2024**. Trial account owners will be sent instructions on how to move to ARM-based accounts in the coming months.
 
-## AVI API changes
+## API changes
 
 **Between January 15 to June 30, 2024**, AVI will support both existing data and control plane APIs as well as the APIs for the updated AVI accounts that contain ARM related parameters.
 
@@ -69,19 +69,19 @@ There will be breaking API changes. The following table describes the changes fo
 
 | **Type** | **API Name** |  **Change** |
 |---|---|---|
-| **ARM** | Create \ Update \ Patch \ ListAccount | 1. The `mediaServices` Account property will be replaced with the `storageServices` account property.<br/> 2. The `Identity` property will change from the `Owner` managed identity to `Storage Blob Data Contributor` permissions on the storage resource |
-| **ARM** | Get \ MoveAccount | ? |  |
-| **ARM** | GetClassicAccount \ ListClassicAccounts |  API no longer be supported. |
-| **Classic** | CreatePaidAccountManually | API no longer be supported. |
-| **Classic** | UpdateAccountMediaServicesAsync |  API no longer be supported. |
-| **Data plane** | Upload | Upload will longer accept the `assetId` parameter. |
-| **Data plane** | Upload / ReIndex / Redact | `AdaptiveBitrate` will no longer be supported for new uploads. |
+| **ARM** | Create<br/>Update<br/>Patch<br/>ListAccount | 1. The `mediaServices` Account property will be replaced with a `storageServices` Account property.<br/> 2. The `Identity` property will change from an `Owner` managed identity to `Storage Blob Data Contributor` permissions on the storage resource. |
+| **ARM** | Get<br/>MoveAccount | ? |  |
+| **ARM** | GetClassicAccount<br/>ListClassicAccounts |  API will no longer be supported. |
+| **Classic** | CreatePaidAccountManually | API will no longer be supported. |
+| **Classic** | UpdateAccountMediaServicesAsync |  API will no longer be supported. |
+| **Data plane** | Upload | Upload will no longer accept the `assetId` parameter. |
+| **Data plane** | Upload<br/>ReIndex<br/>Redact | `AdaptiveBitrate` will no longer be supported for new uploads. |
 | **Data plane** | GetVideoIndex | `PublishedUrl` property will always be null. |
 | **Data plane** | GetVideoStreamingURL | The streaming URL will return references to AVI account endpoints rather than AMS account endpoints. |
 
-Full details of the API changes and alternatives will be provided in January when the updated APIs are released.
+Full details of the API changes and alternatives will be provided when the updated APIs are released.
 
-## AVI product changes
+## Product changes
 
 As of July 1, 2024, AVI won’t use AMS for encoding or streaming. As a result, it will no longer support the following:
 
@@ -90,5 +90,8 @@ As of July 1, 2024, AVI won’t use AMS for encoding or streaming. As a result, 
 - Media files created by AVI Updated accounts won’t be playable by the [Azure Media Player](https://azure.microsoft.com/products/media-services/media-player).
 - Using a Cognitive Insights widget and playing the content with the Azure Media Player outlined [here](video-indexer-embed-widgets.md) will no longer be supported.
 
+## Timeline
+
+This graphic shows the timeline for the changes.
 
 :::image type="content" source="media/avi-ams-retirement-announcement/avi-changes-timeline.svg" lightbox="media/avi-ams-retirement-announcement/avi-changes-timeline.svg" alt-text="AVI changes timeline":::
