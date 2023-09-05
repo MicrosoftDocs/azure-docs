@@ -3,12 +3,12 @@ title: Vertical Pod Autoscaling in Azure Kubernetes Service (AKS)
 description: Learn how to vertically autoscale your pod on an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 08/22/2023
+ms.date: 09/05/2023
 ---
 
 # Vertical Pod Autoscaling in Azure Kubernetes Service (AKS)
 
-This article provides an overview of Vertical Pod Autoscaler (VPA) in Azure Kubernetes Service (AKS), which is based on the open source [Kubernetes](https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler) version. When configured, it automatically sets resource requests and limits on containers per workload based on past usage. VPA makes certain pods are scheduled onto nodes that have the required CPU and memory resources. This frees up CPU and Memory for the other pods and helps make effective utilization of your AKS cluster.
+This article provides an overview of Vertical Pod Autoscaler (VPA) in Azure Kubernetes Service (AKS), which is based on the open source [Kubernetes](https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler) version. When configured, it automatically sets resource requests and limits on containers per workload based on past usage. This frees up CPU and Memory for the other pods and helps make effective utilization of your AKS cluster.
 
 Vertical Pod autoscaling provides recommendations for resource usage over time. To manage sudden increases in resource usage, use the [Horizontal Pod Autoscaler][horizontal-pod-autoscaling].
 
@@ -48,11 +48,11 @@ Vertical Pod Autoscaler provides the following benefits:
 
 ### API object
 
-The Vertical Pod Autoscaler is an API resource in the Kubernetes autoscaling API group. The version supported is 0.11 can be found in the [Kubernetes autoscaler repo][github-autoscaler-repo-v011].
+The Vertical Pod Autoscaler is an API resource in the Kubernetes autoscaling API group. The version supported is 0.13 can be found in the [Kubernetes autoscaler repo][github-autoscaler-repo-v011].
 
 The VPA object consists of three components:
 
-- **Recommender** - it monitors the current and past resource consumption and, based on it, provides recommended values for the containers' cpu and memory requests. The **Recommender** monitors the metric history, OOM events, and the VPA deployment spec, and suggests fair requests. By providing a proper resource request and limits configuration, the limits are raised and lowered.
+- **Recommender** - it monitors the current and past resource consumption and, based on it, provides recommended values for the containers' cpu and memory requests/limits. The **Recommender** monitors the metric history, Out of Memory (OOM) events, and the VPA deployment spec, and suggests fair requests. By providing a proper resource request and limits configuration, the limits are raised and lowered.
 
 - **Updater** - it checks which of the managed pods have correct resources set and, if not, kills them so that they can be recreated by their controllers with the updated requests.
 
@@ -60,7 +60,7 @@ The VPA object consists of three components:
 
 ### VPA admission controller
 
-VPA admission controller is a binary that registers itself as a Mutating Admission Webhook. With each pod created, it gets a request from the apiserver and it evaluates if there's a matching VPA configuration, or find a corresponding one and use the current recommendation to set resource requests in the pod. VPA admission controller uses the `gencerts.sh` script to create the `vpa-tls-certs` secret. The webhook certificates are auto-renewed.
+VPA admission controller is a binary that registers itself as a Mutating Admission Webhook. With each pod created, it gets a request from the apiserver and it evaluates if there's a matching VPA configuration, or find a corresponding one and use the current recommendation to set resource requests in the pod. VPA admission controller runs a job to create and renew the `vpa-tls-certs` secret. 
 
 For high availability, AKS supports two admission controller replicas.
 
@@ -402,27 +402,27 @@ Vertical Pod autoscaling uses the `VerticalPodAutoscaler` object to automaticall
 
 ## Customized Recommender for Vertical Pod Autoscaler
 
-In the VPA, one of the core components is the Recommender. It provides recommendations for resource usage based on real time resource consumption. AKS deploys a recommender when a cluster enables VPA. You can deploy a customized recommender and configure the VPA object to use it.
+In the VPA, one of the core components is the Recommender. It provides recommendations for resource usage based on real time resource consumption. AKS deploys a recommender when a cluster enables VPA. You can deploy a customized recommender or an extra recommender with the same image as the default one. The benefit of having a customized recommender is that you can customize your recommendation logic. With an extra recommender, you can partition VPAs to multiple recommenders if there are many VPA objects.
 
-The following example is a customized recommender that you apply to your existing AKS cluster. You then configure the VPA object to use the customized recommender.
+The following example is an extra recommender that you apply to your existing AKS cluster. You then configure the VPA object to use the extra recommender.
 
-1. Create a file named `customized_recommender.yaml` and copy in the following manifest:
+1. Create a file named `extra_recommender.yaml` and copy in the following manifest:
 
     ```json
     apiVersion: apps/v1 
     kind: Deployment 
     metadata: 
-      name: customized-recommender 
+      name: extra-recommender 
       namespace: kube-system 
     spec: 
       replicas: 1 
       selector: 
         matchLabels: 
-          app: customized-recommender 
+          app: extra-recommender 
       template: 
         metadata: 
           labels: 
-            app: customized-recommender 
+            app: extra-recommender 
         spec: 
           serviceAccountName: vpa-recommender 
           securityContext: 
@@ -433,7 +433,7 @@ The following example is a customized recommender that you apply to your existin
             image: registry.k8s.io/autoscaling/vpa-recommender:0.13.0 
             imagePullPolicy: Always 
             args: 
-              - --recommender-name=customized-recommender 
+              - --recommender-name=extra-recommender 
             resources: 
               limits: 
                 cpu: 200m 
@@ -446,15 +446,15 @@ The following example is a customized recommender that you apply to your existin
               containerPort: 8942 
     ```
 
-2. Deploy the `customized-recomender.yaml`` Vertical Pod Autoscaler example using the [kubectl apply][kubectl-apply] command and specify the name of your YAML manifest.
+2. Deploy the `extra-recomender.yaml` Vertical Pod Autoscaler example using the [kubectl apply][kubectl-apply] command and specify the name of your YAML manifest.
 
     ```bash
-    kubectl apply -f customized-recommender.yaml 
+    kubectl apply -f extra-recommender.yaml 
     ```
 
    After a few minutes, the command completes and returns JSON-formatted information about the cluster.
 
-3. Create a file named `hamnster_customized_recommender.yaml` and copy in the following manifest:
+3. Create a file named `hamnster_extra_recommender.yaml` and copy in the following manifest:
 
     ```yml
     apiVersion: "autoscaling.k8s.io/v1" 
@@ -463,7 +463,7 @@ The following example is a customized recommender that you apply to your existin
       name: hamster-vpa 
     spec: 
       recommenders:  
-        - name: 'customized-recommender' 
+        - name: 'extra-recommender' 
       targetRef: 
         apiVersion: "apps/v1" 
         kind: Deployment 
@@ -511,13 +511,13 @@ The following example is a customized recommender that you apply to your existin
                 - "while true; do timeout 0.5s yes >/dev/null; sleep 0.5s; done" 
     ```
 
-   If `memory` is not specified in `controlledResources`, the Recommender won't respond to Out of Memory (OOM) events. In this case, you are only setting CPU in `controlledValues`. `controlledValues` allows you to choose whether to update the containers's resource requests by `RequestsOnly` option, or both resource requests and limits using the `RequestsAndLimits` option. The default value is `RequestsAndLimits`. If you use the `RequestsAndLimits` option, **requests** are computed based on actual usage, and **limits** are calculated based on the current pod's request and limit ratio.
+   If `memory` is not specified in `controlledResources`, the Recommender won't respond to OOM events. In this case, you are only setting CPU in `controlledValues`. `controlledValues` allows you to choose whether to update the containers's resource requests by `RequestsOnly` option, or both resource requests and limits using the `RequestsAndLimits` option. The default value is `RequestsAndLimits`. If you use the `RequestsAndLimits` option, **requests** are computed based on actual usage, and **limits** are calculated based on the current pod's request and limit ratio.
 
    For example, if you start with a pod that requests 2 CPUs and limits to 4 CPUs, VPA always sets the limit to be twice as much as requests. The same principle applies to memory. So when using the `RequestsAndLimits` mode, this can serve as a blueprint for your initial application resource requests and limits.
 
-You can simplify VPA object by using Auto mode and computing recommendations for both CPU and Memory. 
+You can simplify VPA object by using Auto mode and computing recommendations for both CPU and Memory.
 
-4. Deploy the `hamster_customized-recomender.yaml` example using the [kubectl apply][kubectl-apply] command and specify the name of your YAML manifest.
+4. Deploy the `hamster_extra-recomender.yaml` example using the [kubectl apply][kubectl-apply] command and specify the name of your YAML manifest.
 
     ```bash
     kubectl apply -f hamster_customized_recommender.yaml
@@ -568,6 +568,30 @@ You can simplify VPA object by using Auto mode and computing recommendations for
     Spec:
       recommenders:
         Name: customized-recommender
+    ```
+
+## Troubleshooting
+
+To diagnose problems with a VPA installation, perform the following steps.
+
+1. Check if all system components are running using the following command:
+
+   ```bash
+   kubectl --namespace=kube-system get pods|grep vpa
+   ```
+
+The output should list 3 pods - recommender, updater and admission-controller all with the state showing a status of `Running`.
+
+2. Confirm if the system components log any errors. For each of the pods returned by the previous command, run the following command:
+
+    ```bash
+    kubectl --namespace=kube-system logs [pod name] | grep -e '^E[0-9]\{4\}'
+    ```
+
+3. Confirm that the custom resource definition was created by running the following command:
+
+    ```bash
+    kubectl get customresourcedefinition | grep verticalpodautoscalers
     ```
 
 ## Next steps
