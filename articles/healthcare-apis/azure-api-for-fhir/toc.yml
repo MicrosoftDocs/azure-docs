@@ -94,6 +94,8 @@ items:
     items:
     - name: Enable diagnostic logging in Azure API for FHIR
       href: enable-diagnostic-logging.md
+    - name: Use Custom HTTP headers to add data to Audit Logs
+      href: use-custom-headers.md
   - name: Search
     expanded: false
     items:
@@ -147,8 +149,6 @@ items:
     href: azure-active-directory-identity-configuration.md
   - name: Access token validation
     href: azure-api-fhir-access-token-validation.md
-  - name: Use Custom HTTP headers to add data to Audit Logs
-    href: use-custom-headers.md
   - name: FHIR REST API capabilities
     href: fhir-rest-api-capabilities.md
   - name: Security
