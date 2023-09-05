@@ -185,7 +185,7 @@ Data-in Replication isn't supported for HA servers. But Data-in Replication for 
 
 - **To reduce downtime, can I fail over to the standby server during server restarts or while scaling up or down?** </br>
 Currently, Azure MySQL Flexible Server has utlized Planned Failover to optmize the HA operations including scaling up/down, and planned maintenance to help reduce the downtime.
-When such operations started, it would operate on the original standby instance first, and followed by triggering a planned failover operation, and then operate on the original primary instance. </br>
+When such operations started, it would operate on the original standby instance first, followed by triggering a planned failover operation, and then operate on the original primary instance. </br>
 
 - **Can we change the availability mode (Zone-redundant HA/same-zone) of server** </br>
 If you create the server with Zone-redundant HA mode enabled then you can change from Zone-redundant HA to same-zone and vice versa. To change the availability mode, you can set **High Availability** to **Disabled** on the **High Availability** pane, and then set it back to **Zone Redundant or same-zone** and choose **High Availability Mode**.</br>  
