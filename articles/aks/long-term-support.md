@@ -40,7 +40,7 @@ We will be maintaining a single version of Kubernetes as LTS at any one time, an
 
 ### Creating a cluster with LTS enabled
 ```
-az aks create --resource-group myResourceGroup --name myAKSCluster --tier premium --k8s-support AKSLongTermSupport
+az aks create --resource-group myResourceGroup --name myAKSCluster --tier premium --k8s-support-plan AKSLongTermSupport
 ```
 
 > [!NOTE]
@@ -48,12 +48,12 @@ az aks create --resource-group myResourceGroup --name myAKSCluster --tier premiu
 
 ### Enable LTS on an existing cluster
 ```
-az aks update --resource-group myResourceGroup --name myAKSCluster --tier premium --k8s-support AKSLongTermSupport
+az aks update --resource-group myResourceGroup --name myAKSCluster --tier premium --k8s-support-plan AKSLongTermSupport
 ```
 
 ### Disable LTS on an existing cluster
 ```
-az aks update --resource-group myResourceGroup --name myAKSCluster --tier [free|standard] --k8s-support KubernetesCommunitySupport
+az aks update --resource-group myResourceGroup --name myAKSCluster --tier [free|standard] --k8s-support-plan KubernetesOfficial
 ```
 
 ## Long Term Support and Addons
@@ -70,7 +70,7 @@ As the list of managed add-ons is quite large, we will list the addons that are 
 
 You will not be able to move a cluster to Long Term support if any of these add-ons are enabled in your cluster.  
 
-Whilst these AKS managed add-ons will not be supported, you will be able to install the Open Source versions of these on your cluster if you wish to use it past Community Support.
+Whilst these AKS managed add-ons will not be supported by Microsoft, you will be able to install the Open Source versions of these on your cluster if you wish to use it past Community Support.
 
 
 ## Migrating from LTS 
@@ -81,8 +81,38 @@ LTS is meant to extend the support window for customers who need more time to pl
 
 The AKS release notes will inform you when we know the two points above are true to plan your migration.
 
-### Migrating from LTS to Communit support
-Using LTS as a way to extend your planning to upgrade Kubernetes, it is likely you will want to migrate to a version of Kubernetes that is within the standard support window, something we call N-2 on AKS.  N being the latest Kubernetes 
+### Migrating from LTS to Community support
+Using LTS is a way to extend your planning to upgrade Kubernetes versions. It is likely you will want to migrate to a version of Kubernetes that is within the standard support window, something we call N-2 on AKS.  N being the latest Kubernetes.  
+
+To move from an LTS enabled cluster to a versionof Kubernetes that is within N-2, you first need to disable LTS on the cluster:
+
+```
+az aks update --resource-group myResourceGroup --name myAKSCluster --tier [free|standard] --k8s-support KubernetesCommunitySupport
+```
+
+And then upgrade the cluster to a later version:
+
+```
+az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.28.3
+```
+> [!NOTE]
+> Kubernetes 1.28.3 is used as an example here, please check for available releases in the portal or using the get-version paramater in the azure CLI.
+
+### Migrating from LTS to the next LTS release
+The upstream Kubernetes community supports a 2 minor version upgrade path.  This will migrate the objects in your Kubernetes cluster as part of the upgrade process, and provides a tested, and accredited migration path.
+
+There will be approximately 2 years between one LTS version and the next, in lieu of upstream support for migrating more than 2 minor versions as well as the high likelyhood your application may be reliant on Kubernetes APIs that may have been deprecated in the new LTS version we recommend you thorougly test your application on the target LTS Kubernetes version and carry out a blue/green deployment from one version to another.
+
+With that taken into account, for customers that wish to carry out an in-place migration, the AKS service will attempt to migrate your control plane from the previous LTS version to the latest, and will then migrate your data plane.
+
+To carry out an in-place upgrade to the latest LTS version, you will need to specify an LTS enabled Kubernetes version as the upgrade target.
+
+```
+az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.30.2
+```
+
+> [!NOTE]
+> Kubernetes 1.30.2 is used as an example here, please check for available releases in the portal or using the get-version paramater in the azure CLI.
 
 
 
