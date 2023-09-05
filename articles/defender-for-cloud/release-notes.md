@@ -2,7 +2,7 @@
 title: Release notes
 description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 08/22/2023
+ms.date: 09/05/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -20,17 +20,77 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 If you're looking for items older than six months, you can find them in the [Archive for What's new in Microsoft Defender for Cloud](release-notes-archive.md).
 
+## September 2023
+
+|Date |Update  |
+|----------|----------|
+| September 1 | [General Availability (GA): malware scanning in Defender for Storage](#general-availability-ga-malware-scanning-in-defender-for-storage)|
+| September 5 | [Sensitive data discovery for PaaS databases (Preview)](#sensitive-data-discovery-for-paas-databases-preview) |
+
+### General Availability (GA): malware scanning in Defender for Storage
+
+September 1, 2023
+
+Malware scanning is now generally available (GA) as an add-on to Defender for Storage. Malware scanning in Defender for Storage helps protect your storage accounts from malicious content by performing a full malware scan on uploaded content in near real time, using Microsoft Defender Antivirus capabilities. It's designed to help fulfill security and compliance requirements for handling untrusted content. The malware scanning capability is an agentless SaaS solution that allows setup at scale, and supports automating response at scale. 
+
+Learn more about [malware scanning in Defender for Storage](defender-for-storage-malware-scan.md).
+
+Malware scanning is priced according to your data usage and budget. Billing begins on September 3, 2023. Visit the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/) for more information. 
+
+If you're using the previous plan (now renamed "Microsoft Defender for Storage (classic)"), you'll need to proactively [migrate to the new plan](defender-for-storage-classic-migrate.md) in order to enable malware scanning. 
+
+Read the [Microsoft Defender for Cloud announcement blog post](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/malware-scanning-for-cloud-storage-ga-pre-announcement-prevent/ba-p/3884470). 
+
+### Sensitive data discovery for PaaS databases (Preview)
+
+September 5, 2023
+
+Data-aware security posture capabilities for frictionless sensitive data discovery for PaaS Databases (Azure SQL Databases and Amazon RDS Instances of any type) is now in public preview. This public preview allows you to create a map of your critical data wherever it resides, and the type of data that is found in those databases.
+
+Sensitive data discovery for Azure and AWS databases, adds to the shared taxonomy and configuration which is already publicly available for cloud object storage resources (Azure Blob Storage, AWS S3 buckets and GCP storage buckets) and provides a single configuration and enablement experience.
+
+Databases are scanned on a weekly basis. If you enable `sensitive data discovery`, discovery will run within 24 hours. The results can be viewed in the [Cloud Security Explorer](how-to-manage-cloud-security-explorer.md) or by reviewing the new [attack paths](how-to-manage-attack-path.md) for managed databases with sensitive data.
+
+Data-aware security posture for databases is available through the [Defender CSPM plan](tutorial-enable-cspm-plan.md), and is automatically enabled on subscriptions where `sensitive data discovery` option is enabled.
+
+You can learn more about data aware security posture in the following articles:
+
+- [Support and prerequisites for data-aware security posture](concept-data-security-posture-prepare.md)
+- [Enable data-aware security posture](data-security-posture-enable.md)
+- [Explore risks to sensitive data](data-security-review-risks.md)
+- [Azure data attack paths](attack-path-reference.md#azure-data)
+- [AWS data attack paths](attack-path-reference.md#aws-data)
+
 ## August 2023
 
 Updates in August include:
 
 |Date |Update  |
 |----------|----------|
+| August 30 | [Defender For Containers: Agentless Discovery for Kubernetes](#defender-for-containers-agentless-discovery-for-kubernetes)|
 | August 22 | [Recommendation release: Microsoft Defender for Storage should be enabled with malware scanning and sensitive data threat detection](#recommendation-release-microsoft-defender-for-storage-should-be-enabled-with-malware-scanning-and-sensitive-data-threat-detection)
 | August 17 | [Extended properties in Defender for Cloud security alerts are masked from activity logs](#extended-properties-in-defender-for-cloud-security-alerts-are-masked-from-activity-logs)
 | August 15 | [Preview release of GCP support in Defender CSPM](#preview-release-of-gcp-support-in-defender-cspm)|
 | August 7 | [New security alerts in Defender for Servers Plan 2: Detecting potential attacks abusing Azure virtual machine extensions](#new-security-alerts-in-defender-for-servers-plan-2-detecting-potential-attacks-abusing-azure-virtual-machine-extensions)
 | August 1 | [Business model and pricing updates for Defender for Cloud plans](#business-model-and-pricing-updates-for-defender-for-cloud-plans) |
+
+### Defender For Containers: Agentless discovery for Kubernetes
+
+August 30, 2023
+
+We're excited to introduce to Defender For Containers: Agentless discovery for Kubernetes. This release marks a significant step forward in container security, empowering you with advanced insights and comprehensive inventory capabilities for Kubernetes environments. The new container offering is powered by the Defender for Cloud contextual security graph.  Here's what you can expect from this latest update:
+
+- Agentless Kubernetes discovery
+- Comprehensive inventory capabilities
+- Kubernetes-specific security insights
+- Enhanced risk hunting with Cloud Security Explorer
+
+Agentless discovery for Kubernetes is now available to all Defender For Containers customers. You can start using these advanced capabilities today. We encourage you to update your subscriptions to have the full set of extensions enabled, and benefit from the latest additions and features. Visit the **Environment and settings** pane of your Defender for Containers subscription to enable the extension. 
+
+> [!NOTE]
+> Enabling the latest additions won't incur new costs to active Defender for Containers customers.
+
+For more information, see [Agentless discovery for Kubernetes](defender-for-containers-introduction.md#agentless-discovery-for-kubernetes).
 
 ### Recommendation release: Microsoft Defender for Storage should be enabled with malware scanning and sensitive data threat detection
 
@@ -42,9 +102,9 @@ A new recommendation in Defender for Storage has been released. This recommendat
 |--|--|
 | Microsoft Defender for Storage should be enabled with malware scanning and sensitive data threat detection | Microsoft Defender for Storage detects potential threats to your storage accounts. It helps prevent the three major impacts on your data and workload: malicious file uploads, sensitive data exfiltration, and data corruption. The new Defender for Storage plan includes malware scanning and sensitive data threat detection. This plan also provides a predictable pricing structure (per storage account) for control over coverage and costs. With a simple agentless setup at scale, when enabled at the subscription level, all existing and newly created storage accounts under that subscription will be automatically protected. You can also exclude specific storage accounts from protected subscriptions.|
 
-This new recommendation will replace the current recommendation `Microsoft Defender for Storage should be enabled` (assessment key 1be22853-8ed1-4005-9907-ddad64cb1417). However, this recommendation will still be available in Azure Government clouds. 
+This new recommendation will replace the current recommendation `Microsoft Defender for Storage should be enabled` (assessment key 1be22853-8ed1-4005-9907-ddad64cb1417). However, this recommendation will still be available in Azure Government clouds.
 
-Learn more about [Microsoft Defender for Storage](defender-for-storage-introduction.md). 
+Learn more about [Microsoft Defender for Storage](defender-for-storage-introduction.md).
 
 ### Extended properties in Defender for Cloud security alerts are masked from activity logs
 
@@ -142,7 +202,7 @@ Updates in July include:
 | July 31 | [Preview release of containers Vulnerability Assessment powered by Microsoft Defender Vulnerability Management (MDVM) in Defender for Containers and Defender for Container Registries](#preview-release-of-containers-vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management-mdvm-in-defender-for-containers-and-defender-for-container-registries)
 | July 30 | [Agentless container posture in Defender CSPM is now Generally Available](#agentless-container-posture-in-defender-cspm-is-now-generally-available) |
 | July 20 | [Management of automatic updates to Defender for Endpoint for Linux](#management-of-automatic-updates-to-defender-for-endpoint-for-linux)
-| July 18 | [Agentless secret scanning for virtual machines in Defender for servers P2 & DCSPM](#agentless-secret-scanning-for-virtual-machines-in-defender-for-servers-p2--dcspm) |
+| July 18 | [Agentless secret scanning for virtual machines in Defender for servers P2 & Defender CSPM](#agentless-secret-scanning-for-virtual-machines-in-defender-for-servers-p2--defender-cspm) |
 | July 12 | [New Security alert in Defender for Servers plan 2: Detecting Potential Attacks leveraging Azure VM GPU driver extensions](#new-security-alert-in-defender-for-servers-plan-2-detecting-potential-attacks-leveraging-azure-vm-gpu-driver-extensions)
 | July 9 | [Support for disabling specific vulnerability findings](#support-for-disabling-specific-vulnerability-findings)
 | July 1 | [Data Aware Security Posture is now Generally Available](#data-aware-security-posture-is-now-generally-available) |
@@ -173,11 +233,11 @@ By default, Defender for Cloud attempts to update your Defender for Endpoint for
 
 Learn how to [manage automatic updates configuration for Linux](integration-defender-for-endpoint.md#manage-automatic-updates-configuration-for-linux).  
 
-### Agentless secret scanning for virtual machines in Defender for servers P2 & DCSPM
+### Agentless secret scanning for virtual machines in Defender for servers P2 & Defender CSPM
 
 July 18, 2023
 
-Secret scanning is now available as part of the agentless scanning in Defender for Servers P2 and DCSPM. This capability helps to detect unmanaged and insecure secrets saved on virtual machines, both in Azure or AWS resources, that can be used to move laterally in the network. If secrets are detected, Defender for Cloud can help to prioritize and take actionable remediation steps to minimize the risk of lateral movement, all without affecting your machine's performance.
+Secret scanning is now available as part of the agentless scanning in Defender for Servers P2 and Defender CSPM. This capability helps to detect unmanaged and insecure secrets saved on virtual machines, both in Azure or AWS resources, that can be used to move laterally in the network. If secrets are detected, Defender for Cloud can help to prioritize and take actionable remediation steps to minimize the risk of lateral movement, all without affecting your machine's performance.
 
 For more information about how to protect your secrets with secret scanning, see [Manage secrets with agentless secret scanning](secret-scanning.md).
 
@@ -914,6 +974,3 @@ The related [policy definition](https://portal.azure.com/#view/Microsoft_Azure_P
 ## Next steps
 
 For past changes to Defender for Cloud, see [Archive for what's new in Defender for Cloud?](release-notes-archive.md).
-
-
-

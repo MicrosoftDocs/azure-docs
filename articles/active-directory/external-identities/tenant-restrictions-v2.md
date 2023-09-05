@@ -318,7 +318,7 @@ Suppose you use tenant restrictions to block access by default, but you want to 
 
 ## Step 3: Enable tenant restrictions on Windows managed devices
 
-After you create a tenant restrictions V2 policy, you can enforce the policy on each Windows 10, Windows 11, and Windows Server 2022 device by adding your tenant ID and the policy ID to the device's **Tenant Restrictions** configuration. When tenant restrictions are enabled on a Windows device, corporate proxies aren't required for policy enforcement. Devices don't need to be Azure AD managed to enforce tenant restrictions V2; domain-joined devices that are managed with Group Policy are also supported.
+After you create a tenant restrictions V2 policy, you can enforce the policy on each Windows 10 and Windows 11 device by adding your tenant ID and the policy ID to the device's **Tenant Restrictions** configuration. When tenant restrictions are enabled on a Windows device, corporate proxies aren't required for policy enforcement. Devices don't need to be Azure AD managed to enforce tenant restrictions V2; domain-joined devices that are managed with Group Policy are also supported.
 
 ### Administrative Templates (.admx) for Windows 10 November 2021 Update (21H2) and Group policy settings
 
@@ -333,7 +333,7 @@ To test the tenant restrictions V2 policy on a device, follow these steps.
 
 > [!NOTE]
 >
-> - The device must be running Windows 10, Windows 11, or Windows Server 2022 with the latest updates.
+> - The device must be running Windows 10 or Windows 11 with the latest updates.
 
 1. On the Windows computer, press the Windows key, type **gpedit**, and then select **Edit group policy (Control panel)**.
 
@@ -352,7 +352,7 @@ To test the tenant restrictions V2 policy on a device, follow these steps.
 
 ## Step 4: Set up tenant restrictions V2 on your corporate proxy
 
-Tenant restrictions V2 policies can't be directly enforced on non-Windows 10, Windows 11, or Windows Server 2022 devices, such as Mac computers, mobile devices, unsupported Windows applications, and Chrome browsers. To ensure sign-ins are restricted on all devices and apps in your corporate network, configure your corporate proxy to enforce tenant restrictions V2. Although configuring tenant restrictions on your corporate proxy don't provide data plane protection, it does provide authentication plane protection.
+Tenant restrictions V2 policies can't be directly enforced on non-Windows 10 or Windows 11 devices, such as Mac computers, mobile devices, unsupported Windows applications, and Chrome browsers. To ensure sign-ins are restricted on all devices and apps in your corporate network, configure your corporate proxy to enforce tenant restrictions V2. Although configuring tenant restrictions on your corporate proxy don't provide data plane protection, it does provide authentication plane protection.
 
 > [!IMPORTANT]
 > If you've previously set up tenant restrictions, you'll need to stop sending `restrict-msa` to login.live.com. Otherwise, the new settings will conflict with your existing instructions to the MSA login service.

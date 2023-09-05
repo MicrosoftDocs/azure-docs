@@ -195,7 +195,7 @@ Enable the Azure AD Kerberos functionality on the client machine(s) you want to 
 
 Use one of the following three methods:
 
-- Configure this Intune [Policy CSP](/windows/client-management/mdm/policy-configuration-service-provider) and apply it to the client(s): [Kerberos/CloudKerberosTicketRetrievalEnabled](/windows/client-management/mdm/policy-csp-kerberos#kerberos-cloudkerberosticketretrievalenabled)
+- Configure this Intune [Policy CSP](/windows/client-management/mdm/policy-configuration-service-provider) and apply it to the client(s): [Kerberos/CloudKerberosTicketRetrievalEnabled](/windows/client-management/mdm/policy-csp-kerberos#kerberos-cloudkerberosticketretrievalenabled), set to 1
 - Configure this group policy on the client(s): `Administrative Templates\System\Kerberos\Allow retrieving the Azure AD Kerberos Ticket Granting Ticket during logon`
 - Create the following registry value on the client(s): `reg add HKLM\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\Parameters /v CloudKerberosTicketRetrievalEnabled /t REG_DWORD /d 1`
 
@@ -216,6 +216,29 @@ Add an entry for each storage account that uses on-premises AD DS integration. U
   - For example, `ksetup /addhosttorealmmap <your storage account name>.file.core.windows.net contoso.local`
 
 Changes aren't instant, and require a policy refresh or a reboot to take effect.
+
+## Undo the client configuration to retrieve Kerberos tickets
+
+If you no longer want to use a client machine for Azure AD Kerberos authentication, you can disable the Azure AD Kerberos functionality on that machine. Use one of the following three methods:
+
+- Configure this Intune [Policy CSP](/windows/client-management/mdm/policy-configuration-service-provider) and apply it to the client(s): [Kerberos/CloudKerberosTicketRetrievalEnabled](/windows/client-management/mdm/policy-csp-kerberos#kerberos-cloudkerberosticketretrievalenabled), set to 0
+- Configure this group policy on the client(s): `Administrative Templates\System\Kerberos\Allow retrieving the Azure AD Kerberos Ticket Granting Ticket during logon`
+- Create the following registry value on the client(s): `reg add HKLM\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\Parameters /v CloudKerberosTicketRetrievalEnabled /t REG_DWORD /d 0`
+
+Changes are not instant, and require a policy refresh or a reboot to take effect.
+
+If you followed the steps in [Configure coexistence with storage accounts using on-premises AD DS](#configure-coexistence-with-storage-accounts-using-on-premises-ad-ds), you can optionally remove all host name to Kerberos realm mappings from the client machine. Use one of the following three methods:
+
+- Configure this Intune [Policy CSP](/windows/client-management/mdm/policy-configuration-service-provider) and apply it to the client(s): [Kerberos/HostToRealm](/windows/client-management/mdm/policy-csp-admx-kerberos#hosttorealm)
+- Configure this group policy on the client(s): `Administrative Template\System\Kerberos\Define host name-to-Kerberos realm mappings`
+- Run the `ksetup` Windows command on the client(s): `ksetup /delhosttorealmmap <hostname> <realmname>`
+  - For example, `ksetup /delhosttorealmmap <your storage account name>.file.core.windows.net contoso.local`
+  - You can view the list of current host name to Kerberos realm mappings by inspecting the registry key `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\HostToRealm`.
+
+Changes aren't instant, and require a policy refresh or a reboot to take effect.
+
+> [!IMPORTANT]
+> Once this change is applied, the client(s) won't be able to connect to storage accounts that are configured for Azure AD Kerberos authentication. However, they will be able to connect to storage accounts configured to AD DS, without any additional configuration.
 
 ## Disable Azure AD authentication on your storage account
 

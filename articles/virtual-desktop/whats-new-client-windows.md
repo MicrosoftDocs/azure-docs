@@ -4,7 +4,7 @@ description: Learn about recent changes to the Remote Desktop client for Windows
 ms.topic: release-notes
 author: heidilohr
 ms.author: helohr
-ms.date: 08/29/2023
+ms.date: 08/31/2023
 ---
 
 # What's new in the Remote Desktop client for Windows
@@ -28,7 +28,6 @@ Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Wi
 
 In this release, we've made the following changes:
 
-- Teams VDI 2.0 plugin now gets loaded for RDP connections.
 - Fixed an issue when using the default display settings and a change is made to the system display settings, where the bar does not show when hovering over top of screen after it is hidden.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
 - Accessibility improvements:
@@ -52,7 +51,7 @@ In this release, we've made the following changes:
 
 *Date published: July 11, 2023*
 
-Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW17Yn9), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW17VPy), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW17VPx)
+Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW17f1J), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW17mKo), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW17sgF)
 
 In this release, we've made the following changes:
 
