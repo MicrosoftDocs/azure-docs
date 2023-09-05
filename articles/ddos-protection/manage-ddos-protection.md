@@ -79,7 +79,7 @@ In this QuickStart, you create a DDoS protection plan and link it to a virtual n
 1. Select **DDoS protection**, under **Settings**.
 1. Select **Enable**. Under **DDoS protection plan**, select an existing DDoS protection plan, or the plan you created in step 1, and then select **Save**. The plan you select can be in the same, or different subscription than the virtual network, but both subscriptions must be associated to the same Azure Active Directory tenant. 
 
-    :::image type="content" source="./media/manage-ddos-protection/ddos-update-virtual-network.gif" alt-text="Gif of creating a virtual network with Azure DDoS Protection.":::
+    :::image type="content" source="./media/manage-ddos-protection/ddos-update-virtual-network.gif" alt-text="Gif of enabling DDoS Protection for a virtual network.":::
 
 ### Add Virtual Networks to an existing DDoS protection plan
 
