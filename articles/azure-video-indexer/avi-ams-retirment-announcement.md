@@ -32,28 +32,30 @@ AVI will continue to offer the same insights, performance, and functionality. Ho
 AVI has three account types. All will be impacted by the AMS retirement. The account types are:
 
 - ARM-based accounts
-    - Classic accounts
-    - Trial accounts
+- Classic accounts
+- Trial accounts
 
 See [Azure AI Video Indexer account types](/azure/azure-video-indexer/accounts-overview) to understand more about AVI account types.
 
 ### Azure Resource Manager (ARM)-based accounts
 
-1. **New accounts:** As of January 15, all newly created AVI accounts will be Updated AVI accounts. You'll no longer be able to create AMS-dependent accounts.
-1. **Existing accounts**: Existing accounts will continue to work through June 30, 2024. To continue using the account beyond June 30, customers must go through the process to convert their account to an Updated AVI account. If you don’t convert your account to an Updated AVI account, you won't be able to access the account or use it beyond June 30.
+**New accounts:** As of January 15, all newly created AVI accounts will be Updated AVI accounts. You'll no longer be able to create AMS-dependent accounts.
+
+**Existing accounts**: Existing accounts will continue to work through June 30, 2024. To continue using the account beyond June 30, customers must go through the process to convert their account to an Updated AVI account. If you don’t convert your account to an Updated AVI account, you won't be able to access the account or use it beyond June 30.
 
 ### Classic accounts
 
-1.  **New accounts:** As of January 15, all newly created AVI accounts will be Updated AVI accounts. You'll no longer be able to create Classic accounts.
-1.  **Existing accounts:** Existing classic accounts will continue to work through June 30, 2024. AVI will release an updated API version for the Updated accounts that doesn’t contain any AMS related parameters.
-1.  To continue using the account beyond June 30, 2024, classic accounts will have to go through two steps:
-    1.  Connect the account as an ARM-based account. You can connect the accounts already. See [Azure AI Video Indexer accounts](accounts-overview.md) for instructions.
+- **New accounts:** As of January 15, all newly created AVI accounts will be Updated AVI accounts. You'll no longer be able to create Classic accounts.
+- **Existing accounts:** Existing classic accounts will continue to work through June 30, 2024. AVI will release an updated API version for the Updated accounts that doesn’t contain any AMS related parameters.
+
+To continue using the account beyond June 30, 2024, classic accounts will have to go through two steps:
+    1. Connect the account as an ARM-based account. You can connect the accounts already. See [Azure AI Video Indexer accounts](accounts-overview.md) for instructions.
     1.  Convert the account to an Updated AVI account. If you don’t convert your account to an Updated AVI account, you won’t be able to access the account or use it beyond June 30.
 
 ### Existing trial accounts
 
-1. As of January 15, 2024 Video Indexer trial accounts will continue to work as usual. However, when using them through the APIs, customers must use the updated APIs.
-2. AVI supports [importing content](import-content-from-trial.md) from a trial AVI account to a paid AVI account. This import option will be supported only until **January 15th, 2024**. Trial account owners will be sent instructions on how to move to ARM-based accounts in the coming months.
+- As of January 15, 2024 Video Indexer trial accounts will continue to work as usual. However, when using them through the APIs, customers must use the updated APIs.
+- AVI supports [importing content](import-content-from-trial.md) from a trial AVI account to a paid AVI account. This import option will be supported only until **January 15th, 2024**. Trial account owners will be sent instructions on how to move to ARM-based accounts in the coming months.
 
 ## API changes
 
@@ -69,7 +71,7 @@ There will be breaking API changes. The following table describes the changes fo
 
 | **Type** | **API Name** |  **Change** |
 |---|---|---|
-| **ARM** | Create<br/>Update<br/>Patch<br/>ListAccount | 1. The `mediaServices` Account property will be replaced with a `storageServices` Account property.<br/> 2. The `Identity` property will change from an `Owner` managed identity to `Storage Blob Data Contributor` permissions on the storage resource. |
+| **ARM** | Create<br/>Update<br/>Patch<br/>ListAccount | - The `mediaServices` Account property will be replaced with a `storageServices` Account property.<br/> - The `Identity` property will change from an `Owner` managed identity to `Storage Blob Data Contributor` permissions on the storage resource. |
 | **ARM** | Get<br/>MoveAccount | ? |
 | **ARM** | GetClassicAccount<br/>ListClassicAccounts |  API will no longer be supported. |
 | **Classic** | CreatePaidAccountManually | API will no longer be supported. |
