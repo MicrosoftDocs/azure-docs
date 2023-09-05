@@ -54,7 +54,7 @@ The v3.1 API introduces new and updated capabilities:
 * Support for [high resolution documents](concept-add-on-capabilities.md)
 * Custom neural models now require a single labeled sample to train
 * Custom neural models language expansion. Train a neural model for documents in 30 languages. See [language support](language-support.md) for the complete list of supported languages
-* 🆕 [Prebuilt health insurance card model](concept-insurance-card.md).
+* 🆕 [Prebuilt health insurance card model](concept-health-insurance-card.md).
 * [Prebuilt invoice model locale expansion](concept-invoice.md#supported-languages-and-locales).
 * [Prebuilt receipt model language and locale expansion](concept-receipt.md#supported-languages-and-locales) with more than 100 languages supported.
 * [Prebuilt ID model](concept-id-document.md#supported-document-types) now supports European IDs.
