@@ -163,7 +163,7 @@
       href: azure-vm-disaster-recovery-with-accelerated-networking.md
     - name: ExpressRoute with Azure VM disaster recovery
       href: azure-vm-disaster-recovery-with-expressroute.md
-    - name: Azure VM Disaster Recovery - High Churn Support (Public Preview)
+    - name: Azure VM Disaster Recovery - High Churn Support
       href: concepts-azure-to-azure-high-churn-support.md
   - name: About moving Azure VMs to another region
     href: azure-to-azure-move-overview.md
