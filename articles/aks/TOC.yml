@@ -24,26 +24,6 @@
 - name: Quickstarts
   expanded: true
   items:
-    - name: Deploy a Linux-based AKS Cluster
-      expanded: true
-      items:
-        - name: Use the Azure CLI
-          href: learn/quick-kubernetes-deploy-cli.md
-        - name: Use Azure PowerShell
-          href: learn/quick-kubernetes-deploy-powershell.md
-        - name: Use the Azure portal
-          href: learn/quick-kubernetes-deploy-portal.md
-        - name: Use Bicep Kubernetes provider
-          displayName: Resource Manager,arm,template
-          href: learn/quick-kubernetes-deploy-bicep-extensibility-kubernetes-provider.md
-        - name: Use Bicep
-          displayName: Resource Manager,arm,template
-          href: learn/quick-kubernetes-deploy-bicep.md
-        - name: Use ARM template
-          displayName: Resource Manager
-          href: learn/quick-kubernetes-deploy-rm-template.md
-        - name: Use Terraform
-          href: learn/quick-kubernetes-deploy-terraform.md
     - name: Deploy a Windows-based AKS Cluster
       items:
         - name: Use the Azure CLI
@@ -517,6 +497,8 @@
               href: limit-egress-traffic.md
         - name: Ingress
           items:
+            - name: Create a controller in AKS using Terraform
+              href: create-k8s-cluster-with-aks-applicationgateway-ingress.md
             - name: Use ingress-nginx
               items:
                 - name: Create an ingress controller
