@@ -28,33 +28,33 @@ To send a message to a recipient, and to specify the message subject and body,
 
 1. In the Azure Communication Service Resource overview page, click **Try Email** on the left navigation panel under Email.
 
-    :::image type="content" source="../media/tryemail-domains-select.png" alt-text="Screenshot that shows the left navigation panel for Try Email." lightbox="../media/tryemail-domains-select.png":::
+    :::image type="content" source="../media/try-email-domains-select.png" alt-text="Screenshot that shows the left navigation panel for Try Email." lightbox="../media/try-email-domains-select.png":::
 
 2. Select one of the verified domains from drop-down.
 
-   :::image type="content" source="../media/tryemail-domains-selected-domain.png" alt-text="Screenshot that shows the left navigation panel for Try Email." lightbox="../media/tryemail-domains-select.png":::
+   :::image type="content" source="../media/try-email-domains-selected-domain.png" alt-text="Screenshot that shows the left navigation panel for Try Email." lightbox="../media/try-email-domains-select.png":::
 
 3. Compose the email to send
     - Enter Recipient email address
     - Enter Subject
     - Write the Email Body
           
-    :::image type="content" source="../media/tryemail-readyto-send.png" alt-text="Screenshot that shows how to filter and select one of the verified email domains to connect." lightbox="../media/email-domains-connect-select.png":::
+    :::image type="content" source="../media/try-email-ready-send.png" alt-text="Screenshot that shows how to filter and select one of the verified email domains to connect." lightbox="../media/try-email-ready-send.png":::
 
 4. Click Send 
 
-   :::image type="content" source="../media/tryemail-sent-queued.png" alt-text="Screenshot that shows one of the verified email domains is now connected." lightbox="../media/email-domains-connected.png":::
+   :::image type="content" source="../media/try-email-sent-queued.png" alt-text="Screenshot that shows one of the verified email domains is now connected." lightbox="../media/try-email-sent-queued.png":::
    
 5. Email Sent Successfully.
  
-    :::image type="content" source="../media/tryemail-sent-success.png" alt-text="Screenshot that shows one of the verified email domains is now connected." lightbox="../media/email-domains-connected.png":::
+    :::image type="content" source="../media/try-email-sent-success.png" alt-text="Screenshot that shows one of the verified email domains is now connected." lightbox="../media/try-email-sent-success.png":::
    
 6. You can now also copy the sample *Code Snippet* to send an email to use in your sample project to send notifications.
    - Select Language of your choice
    - Click Insert my Connection
    - Click Copy
 
-     :::image type="content" source="../media/tryemail-codesnippet-connectionstring.png" alt-text="Screenshot that shows one of the verified email domains is now connected." lightbox="../media/email-domains-connected.png":::
+     :::image type="content" source="../media/try-email-codesnippet-connection-string.png" alt-text="Screenshot that shows one of the verified email domains is now connected." lightbox="../media/try-email-codesnippet-connection-string.png":::
         
 7. Email Code Snippet is now ready to use in your notification project. 
    
