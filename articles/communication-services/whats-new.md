@@ -91,7 +91,7 @@ Listen to Azure Communication Services PMs Ashwinder Bhatti and Anuj Bhatia talk
 <br>
 
 ### Microsoft 365 & Power Platform Development Community call
-:::image type="content" source="./media/whats-new-images/09-23/powerplatform.png" alt-text="A photograph showing two workers working on a tablet computer." lightbox="./media/whats-new-images/05-23/virtual-appts-large.png":::
+:::image type="content" source="./media/whats-new-images/09-23/power-platform.png" alt-text="A photograph showing two workers working on a tablet computer." lightbox="./media/whats-new-images/05-23/virtual-appts-large.png":::
 
 Microsoft 365 & Power Platform Development Community call on August 31, 2023. Recap on news and updates from Microsoft and community projects, followed by demos by the community on the art of possible.
 
