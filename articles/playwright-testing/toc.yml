@@ -34,9 +34,9 @@ items:
   items: 
     - name: Azure roadmap
       href: https://azure.microsoft.com/roadmap/
+    - name: Playwright documentation
+      href: https://playwright.dev
     - name: Pricing
       href: https://azure.microsoft.com/pricing/
     - name: Regional availability
       href: https://azure.microsoft.com/regions/services/
-    - name: Supported browsers and operating systems
-      href: resource-supported-operating-systems-browsers.md
