@@ -5,7 +5,7 @@ author: htaubenfeld
 ms.author: htaubenfeld
 ms.service: microsoft-linux
 ms.topic: overview
-ms.date: 06/01/2023
+ms.date: 09/05/2023
 ---
 
 # What is the Azure Linux Container Host for AKS?
@@ -25,9 +25,15 @@ The Azure Linux Container Host offers the following key benefits:
 - **Secure by default**: The Azure Linux Container Host has an emphasis on security and follows the secure-by-default principles, including using a hardened Linux kernel with Azure cloud optimizations and flags tuned for Azure. It also provides a reduced attack surface and eliminates patching and maintenance of unnecessary packages. For more information on Azure Linux Container Host security principles, see the [AKS security concepts](../../articles/aks/concepts-security.md).
 - **Extensively validated**: The AKS and Azure Linux teams run a suite of functional and performance regression tests with the Azure Linux Container Host before releasing to customers, which enables earlier issue detection and mitigation.​
 
+## Azure Linux Container Host supported GPU SKUs
+
+The Azure Linux Container Host supports the following GPU SKUs:
+
+- [NVIDIA V100][nvidia-v100]
+- [NVIDIA T4][nvidia-t4]
+
 > [!NOTE]
->
-> For GPU workloads, Azure Linux doesn't support NC A100 v4 series. All other VM SKUs that are available on AKS are available with Azure Linux.
+> Azure Linux doesn't support the NC A100 v4 series. All other VM SKUs that are available on AKS are available with Azure Linux.
 >
 > If there are any areas you would like to have priority, please file an issue in the [AKS GitHub repository](https://github.com/Azure/AKS/issues).
 
@@ -36,3 +42,7 @@ The Azure Linux Container Host offers the following key benefits:
 - Learn more about [Azure Linux Container Host core concepts](./concepts-core.md).
 - Follow our tutorial to [Deploy, manage, and update applications](./tutorial-azure-linux-create-cluster.md).
 - Get started by [Creating an Azure Linux Container Host for AKS cluster using Azure CLI](./quickstart-azure-cli.md).
+
+<!-- LINKS - internal -->
+[nvidia-v100]: ../virtual-machines/ncv3-series.md
+[nvidia-t4]: ../virtual-machines/nct4-v3-series.md
