@@ -35,9 +35,13 @@ Access Reviews for **Service Principals** requires an Entra Workload Identities 
 
 ## Create access reviews
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a user that is assigned to one of the prerequisite role(s).
 
-1. Browse to **Identity governance** > **Privileged Identity Management** > For **Azure AD roles**, select **Azure AD roles**. For **Azure resources**, select **Azure resources**
+1. Browse to **Identity governance** > **Privileged Identity Management**.
+
+1. For **Azure AD roles**, select **Azure AD roles**. For **Azure resources**, select **Azure resources**
 
     :::image type="content" source="./media/pim-create-azure-ad-roles-and-resource-roles-review/identity-governance.png" alt-text="Select Identity Governance in the Microsoft Entra admin center screenshot." lightbox="./media/pim-create-azure-ad-roles-and-resource-roles-review/identity-governance.png"::: 
  
