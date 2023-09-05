@@ -5,7 +5,7 @@ ms.topic: reference
 ms.date: 03/02/2023
 ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: devx-track-csharp, devx-track-python, ignite-2022, devx-track-extended-java, devx-track-js
-zone_pivot_groups: programming-languages-set-functions-lang-workers
+zone_pivot_groups: programming-languages-set-functions
 ---
 
 # Azure Cosmos DB output binding for Azure Functions 2.x and higher
@@ -14,6 +14,9 @@ The Azure Cosmos DB output binding lets you write a new document to an Azure Cos
 
 For information on setup and configuration details, see the [overview](./functions-bindings-cosmosdb-v2.md).
 
+::: zone pivot="programming-language-javascript,programming-language-typescript"
+[!INCLUDE [functions-nodejs-model-tabs-description](../../includes/functions-nodejs-model-tabs-description.md)]
+::: zone-end
 ::: zone pivot="programming-language-python"
 Azure Functions supports two programming models for Python. The way that you define your bindings depends on your chosen programming model.
 
@@ -345,7 +348,169 @@ The following example shows a Java function that writes multiple documents to Az
 In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@CosmosDBOutput` annotation on parameters that will be written to Azure Cosmos DB.  The annotation parameter type should be `OutputBinding<T>`, where `T` is either a native Java type or a POJO.
 
 ::: zone-end  
+::: zone pivot="programming-language-typescript"  
+
+# [Model v4](#tab/nodejs-v4)
+
+The following example shows a storage queue triggered [TypeScript function](functions-reference-node.md?tabs=typescript) for a queue that receives JSON in the following format:
+
+```json
+{
+    "name": "John Henry",
+    "employeeId": "123456",
+    "address": "A town nearby"
+}
+```
+
+The function creates Azure Cosmos DB documents in the following format for each record:
+
+```json
+{
+    "id": "John Henry-123456",
+    "name": "John Henry",
+    "employeeId": "123456",
+    "address": "A town nearby"
+}
+```
+
+Here's the TypeScript code:
+
+```typescript
+import { app, InvocationContext, output } from '@azure/functions';
+
+interface MyQueueItem {
+    name: string;
+    employeeId: string;
+    address: string;
+}
+
+interface MyCosmosItem {
+    id: string;
+    name: string;
+    employeeId: string;
+    address: string;
+}
+
+export async function storageQueueTrigger1(queueItem: MyQueueItem, context: InvocationContext): Promise<MyCosmosItem> {
+    return {
+        id: `${queueItem.name}-${queueItem.employeeId}`,
+        name: queueItem.name,
+        employeeId: queueItem.employeeId,
+        address: queueItem.address,
+    };
+}
+
+app.storageQueue('storageQueueTrigger1', {
+    queueName: 'inputqueue',
+    connection: 'MyStorageConnectionAppSetting',
+    return: output.cosmosDB({
+        databaseName: 'MyDatabase',
+        collectionName: 'MyCollection',
+        createIfNotExists: true,
+        connectionStringSetting: 'MyAccount_COSMOSDB',
+    }),
+    handler: storageQueueTrigger1,
+});
+```
+
+To output multiple documents, return an array instead of a single object. For example:
+
+```typescript
+return [
+    {
+        id: 'John Henry-123456',
+        name: 'John Henry',
+        employeeId: '123456',
+        address: 'A town nearby',
+    },
+    {
+        id: 'John Doe-123457',
+        name: 'John Doe',
+        employeeId: '123457',
+        address: 'A town far away',
+    },
+];
+```
+
+# [Model v3](#tab/nodejs-v3)
+
+TypeScript samples are not documented for model v3.
+
+---
+
+::: zone-end
 ::: zone pivot="programming-language-javascript"  
+
+# [Model v4](#tab/nodejs-v4)
+
+The following example shows a storage queue triggered [JavaScript function](functions-reference-node.md) for a queue that receives JSON in the following format:
+
+```json
+{
+    "name": "John Henry",
+    "employeeId": "123456",
+    "address": "A town nearby"
+}
+```
+
+The function creates Azure Cosmos DB documents in the following format for each record:
+
+```json
+{
+    "id": "John Henry-123456",
+    "name": "John Henry",
+    "employeeId": "123456",
+    "address": "A town nearby"
+}
+```
+
+Here's the JavaScript code:
+
+```javascript
+const { app, output } = require('@azure/functions');
+
+const cosmosOutput = output.cosmosDB({
+    databaseName: 'MyDatabase',
+    collectionName: 'MyCollection',
+    createIfNotExists: true,
+    connectionStringSetting: 'MyAccount_COSMOSDB',
+});
+
+app.storageQueue('storageQueueTrigger1', {
+    queueName: 'inputqueue',
+    connection: 'MyStorageConnectionAppSetting',
+    return: cosmosOutput,
+    handler: (queueItem, context) => {
+        return {
+            id: `${queueItem.name}-${queueItem.employeeId}`,
+            name: queueItem.name,
+            employeeId: queueItem.employeeId,
+            address: queueItem.address,
+        };
+    },
+});
+```
+
+To output multiple documents, return an array instead of a single object. For example:
+
+```javascript
+return [
+    {
+        id: 'John Henry-123456',
+        name: 'John Henry',
+        employeeId: '123456',
+        address: 'A town nearby',
+    },
+    {
+        id: 'John Doe-123457',
+        name: 'John Doe',
+        employeeId: '123457',
+        address: 'A town far away',
+    },
+];
+```
+
+# [Model v3](#tab/nodejs-v3)
 
 The following example shows an Azure Cosmos DB output binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function uses a queue input binding for a queue that receives JSON in the following format:
 
@@ -418,6 +583,8 @@ For bulk insert form the objects first and then run the stringify function. Here
         }]);
     };
 ```
+
+---
 
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
@@ -585,7 +752,7 @@ From the [Java functions runtime library](/java/api/overview/azure/functions/run
 + [useMultipleWriteLocations](/java/api/com.microsoft.azure.functions.annotation.cosmosdboutput.usemultiplewritelocations)
 
 ::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
 ## Configuration
 ::: zone-end
 
@@ -593,9 +760,25 @@ From the [Java functions runtime library](/java/api/overview/azure/functions/run
 _Applies only to the Python v1 programming model._
 
 ::: zone-end
-::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
+::: zone pivot="programming-language-javascript,programming-language-typescript"  
+
+# [Model v4](#tab/nodejs-v4)
+
+The following table explains the properties that you can set on the `options` object passed to the `output.cosmosDB()` method. The "type", "direction", and "name" properties can be ignored for model v4.
+
+# [Model v3](#tab/nodejs-v3)
 
 The following table explains the binding configuration properties that you set in the *function.json* file, where properties differ by extension version:  
+
+---
+
+::: zone-end
+::: zone pivot="programming-language-powershell,programming-language-python"  
+
+The following table explains the binding configuration properties that you set in the *function.json* file, where properties differ by extension version:  
+
+::: zone-end
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
 
 # [Extension 4.x+](#tab/extensionv4)
 
