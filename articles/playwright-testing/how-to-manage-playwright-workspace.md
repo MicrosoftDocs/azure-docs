@@ -16,6 +16,7 @@ The following table lists the differences in functionality, based on how you acc
 |-|-|-|-|
 | Create a workspace | Yes | Yes | [Quickstart: run Playwright test in the cloud](./quickstart-run-end-to-end-tests.md) |
 | View the list of workspaces | Yes | Yes | [View all workspaces](#display-the-list-of-workspaces) |
+| View the workspace activity log | No | Yes | [Display activity log](#display-the-workspace-activity-log) |
 | Delete a workspace | Yes | Yes | [Delete a workspace](#delete-a-workspace) |
 | Configure region affinity | Yes | No | [Configure region affinity](./how-to-configure-region-affinity.md) |
 | Grant or revoke access to a workspace | Yes | No | [Manage workspace access](./how-to-manage-workspace-access.md)|
@@ -111,6 +112,26 @@ To get the list of Playwright workspaces that you have access to:
     :::image type="content" source="./media/how-to-manage-playwright-workspace/azure-portal-workspace-details-dashboard-url.png" alt-text="Screenshot that shows the workspace Overview page in the Azure portal, highlighting the Playwright portal URL." lightbox="./media/how-to-manage-playwright-workspace/azure-portal-workspace-details-dashboard-url.png":::
 
 ---
+
+## Display the workspace activity log
+
+You can view the list of test runs for the workspace in the Playwright portal. Microsoft Playwright Testing only stores test run metadata, and doesn't store the test code, test results, trace files, or other artifacts.
+
+The workspace activity log lists for each test run the following details: 
+
+- Total test duration of the test suite
+- Maximum number of parallel browsers
+- Total time across all parallel browsers. This is the time  that you're billed for the test run.
+
+To view the list of test runs in the Playwright portal:
+
+1. Sign in to the [Playwright portal](https://aka.ms/mpt/portal) with your Azure account.
+
+1. Optionally, switch to another workspace by selecting your current workspace in the top of the screen, and then select **Manage all workspaces**.
+
+1. On the workspace home page, you can view the workspace activity log.
+
+    :::image type="content" source="./media/how-to-manage-playwright-workspace/playwright-testing-activity-log.png" alt-text="Screenshot that shows the activity log for a workspace in the Playwright Testing portal.":::
 
 ## Delete a workspace
 

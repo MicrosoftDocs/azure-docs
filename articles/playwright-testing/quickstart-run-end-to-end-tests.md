@@ -146,7 +146,7 @@ Perform the following steps to run your Playwright tests:
       npx playwright show-report
     ```
 
-1. You can view the list of test runs in the Azure portal.
+1. You can view the list of test runs in the Playwright portal.
 
     The activity log lists for each test run the following details: the total test completion time, the number of parallel workers, and the number of test minutes.
 
