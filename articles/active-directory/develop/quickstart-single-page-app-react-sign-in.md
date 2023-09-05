@@ -30,17 +30,13 @@ In this article you'll register a SPA in the Microsoft Entra admin center, and d
 
 ## Register the application in the Microsoft Entra admin center
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
-    1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which to register the application.
-1. On the left blade, search for and select **Identity**.
-1. Select **Applications** > **App registrations**.
-1. On the page that appears, select **+ New registration**.
-1. For **Name**, enter a name for the application. For example, enter *identity-client-app*. App users can see this name, and it can be changed later in **Manage** > **Branding & properties**.
-1. Under **Supported account types**, select *Accounts in this organizational directory only*.
-1. Select **Register**. A new page appears, listing the app's details. Copy the **Application (client) ID** and **Directory (tenant) ID** values, as they're needed to configure the app in a later step.
-
-## Define the platform and add redirect URI
-
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Application Developer](../roles/permissions-reference.md#application-developer).
+1. If access to multiple tenants is available, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
+1. Browse to **Identity** > **Applications** > **App registrations**.
+1. Select **New registration**.
+1. When the **Register an application** page appears, enter a name for your application, such as *identity-client-app*.
+1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
+1. Select **Register**. On the app **Overview** page, note the **Application (client) ID** value for later use.
 1. Under **Manage**, select **Authentication**.
 1. Under **Platform configurations**, select **Add a platform**. In the pane that opens select **Single-page application**.
 1. Set the **Redirect URIs** value to `http://localhost:3000/`. This is the default port NodeJS will listen on your local machine. We’ll return the authentication response to this URI after successfully authenticating the user.
