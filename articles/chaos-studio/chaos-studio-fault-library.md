@@ -48,7 +48,7 @@ The faults listed in this article are currently available for use. To understand
 | Target type | Microsoft-Agent |
 | Supported OS types | Windows, Linux. |
 | Description | Adds CPU pressure, up to the specified value, on the VM where this fault is injected during the fault action. The artificial CPU pressure is removed at the end of the duration or if the experiment is canceled. On Windows, the **% Processor Utility** performance counter is used at fault start to determine current CPU percentage, which is subtracted from the `pressureLevel` defined in the fault so that **% Processor Utility** hits approximately the `pressureLevel` defined in the fault parameters. |
-| Prerequisites | **Linux**: Running the fault on a Linux VM requires the **stress-ng** utility to be installed. To install it, use the package manager for your Linux distro:<ul><li>APT command to install stress-ng: `sudo apt-get update && sudo apt-get -y install unzip && sudo apt-get -y install stress-ng`</li><li>YUM command to install stress-ng: `sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm && sudo yum -y install stress-ng`  |
+| Prerequisites | **Linux**: The **stress-ng** utility needs to be installed. This happens automatically as part of agent installation, using the default package manager, on Debian-based systems (including Ubuntu), Red Hat Enterprise Linux, CentOS, and OpenSUSE. For other distributions, you must install **stress-ng** manually. |
 | | **Windows**: None. |
 | Urn | urn:csci:microsoft:agent:cpuPressure/1.0 |
 | Parameters (key, value)  |
@@ -93,7 +93,7 @@ Known issues on Linux:
 | Target type | Microsoft-Agent |
 | Supported OS types | Windows, Linux. |
 | Description | Adds physical memory pressure, up to the specified value, on the VM where this fault is injected during the fault action. The artificial physical memory pressure is removed at the end of the duration or if the experiment is canceled. |
-| Prerequisites | **Linux**: Running the fault on a Linux VM requires the **stress-ng** utility to be installed. To install it, use the package manager for your Linux distro:<ul><li>APT command to install stress-ng: `sudo apt-get update && sudo apt-get -y install unzip && sudo apt-get -y install stress-ng`</li><li>YUM command to install stress-ng: `sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm && sudo yum -y install stress-ng`  |
+| Prerequisites | **Linux**: The **stress-ng** utility needs to be installed. This happens automatically as part of agent installation, using the default package manager, on Debian-based systems (including Ubuntu), Red Hat Enterprise Linux, CentOS, and OpenSUSE. For other distributions, you must install **stress-ng** manually. |
 | | **Windows**: None. |
 | Urn | urn:csci:microsoft:agent:physicalMemoryPressure/1.0 |
 | Parameters (key, value) |  |
@@ -232,7 +232,7 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 | Target type | Microsoft-Agent |
 | Supported OS types | Linux |
 | Description | Uses stress-ng to apply pressure to the disk. One or more worker processes are spawned that perform I/O processes with temporary files. Pressure is added to the primary disk by default, or the disk specified with the targetTempDirectory parameter. For information on how pressure is applied, see the [stress-ng](https://wiki.ubuntu.com/Kernel/Reference/stress-ng) article. |
-| Prerequisites | Running the fault on a Linux VM requires the **stress-ng** utility to be installed. To install it, use the package manager for your Linux distro:<ul><li>APT command to install stress-ng: `sudo apt-get update && sudo apt-get -y install unzip && sudo apt-get -y install stress-ng`</li><li>YUM command to install stress-ng: `sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm && sudo yum -y install stress-ng` |
+| Prerequisites | The **stress-ng** utility needs to be installed. This happens automatically as part of agent installation, using the default package manager, on Debian-based systems (including Ubuntu), Red Hat Enterprise Linux, CentOS, and OpenSUSE. For other distributions, you must install **stress-ng** manually. |
 | Urn | urn:csci:microsoft:agent:linuxDiskIOPressure/1.1 |
 | Parameters (key, value) |  |
 | workerCount | Number of worker processes to run. Setting `workerCount` to 0 generated as many worker processes as there are number of processors. |
@@ -287,7 +287,7 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 | Target type | Microsoft-Agent |
 | Supported OS types | Linux |
 | Description | Runs any stress-ng command by passing arguments directly to stress-ng. Useful when one of the predefined faults for stress-ng doesn't meet your needs. |
-| Prerequisites | Running the fault on a Linux VM requires the **stress-ng** utility to be installed. To install it, use the package manager for your Linux distro:<ul><li>APT command to install stress-ng: `sudo apt-get update && sudo apt-get -y install unzip && sudo apt-get -y install stress-ng`</li><li>YUM command to install stress-ng: `sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm && sudo yum -y install stress-ng` |
+| Prerequisites | The **stress-ng** utility needs to be installed. This happens automatically as part of agent installation, using the default package manager, on Debian-based systems (including Ubuntu), Red Hat Enterprise Linux, CentOS, and OpenSUSE. For other distributions, you must install **stress-ng** manually. |
 | Urn | urn:csci:microsoft:agent:stressNg/1.0 |
 | Parameters (key, value) |  |
 | stressNgArguments | One or more arguments to pass to the stress-ng process. For information on possible stress-ng arguments, see the [stress-ng](https://wiki.ubuntu.com/Kernel/Reference/stress-ng) article. |
