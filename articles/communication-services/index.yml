@@ -121,7 +121,10 @@ additionalContent:
         url: ./concepts/call-automation/call-automation.md
       - title: UI Library
         summary: UI Library gives you a library of production-ready UI components to easily build modern communications user experiences using Azure Communication Services.
-        url: ./concepts/ui-library/ui-library-overview.md    
+        url: ./concepts/ui-library/ui-library-overview.md   
+      - title: Job router
+        summary: Direct each customer interaction to the correct customer service resource with a mix of pre-defined and runtime rules and policies.
+        url: ./concepts/router/concepts.md
     - title: Core Scenarios
       summary: Whether you're just starting or have lots of experience, our prebuilt communications solutions help you arrive at your business goals quickly and effectively.
       items:
@@ -134,7 +137,6 @@ additionalContent:
         - title: Build notifications into your customer journey
           summary: Send important communications to your customers using our SMS, email and push notification services.
           url: ./tutorials/add-chat-push-notifications.md
-      
     - title: Other Resources
       items:
           - title: Support & Help
