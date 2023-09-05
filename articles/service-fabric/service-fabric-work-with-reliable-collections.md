@@ -221,7 +221,7 @@ Furthermore, service code is upgraded one upgrade domain at a time. So, during a
 Alternatively, you can perform a multi-phase upgrade. 
 1. Upgrade service to a new version that
     - has both the original V1, and the new V2 version of the data contracts included in the service code package;
-    - registers custom V2 [state serializers](https://learn.microsoft.com/azure/service-fabric/service-fabric-reliable-services-reliable-collections-serialization#custom-serialization), if needed;
+    - registers custom V2 [state serializers](/azure/service-fabric/service-fabric-reliable-services-reliable-collections-serialization#custom-serialization), if needed;
     - performs all operations on the original, V1 collection using the V1 data contracts.
 2. Upgrade service to a new version that
     - creates a new, V2 collection;
@@ -229,16 +229,16 @@ Alternatively, you can perform a multi-phase upgrade.
     - performs read operations on the V1 collection only.
 3. Copy all data from the V1 collection to the V2 collection.
     - This can be done in a background process by the service version deployed in step 2.
-    - [Enumerate all keys](https://learn.microsoft.com/dotnet/api/microsoft.servicefabric.data.collections.ireliabledictionary2-2.createkeyenumerableasync)
+    - [Enumerate all keys](/dotnet/api/microsoft.servicefabric.data.collections.ireliabledictionary2-2.createkeyenumerableasync)
       in the V1 collection with the
-      [IsolationLevel.Snapshot](https://learn.microsoft.com/dotnet/api/microsoft.servicefabric.data.beta.ireliablestatemanager2.createtransaction)
+      [IsolationLevel.Snapshot](/dotnet/api/microsoft.servicefabric.data.beta.ireliablestatemanager2.createtransaction)
       to avoid locking it for the entire duration of the copy process.
     - For each key, use a separate transaction with the [IsolationLevel.ReadRepeatable](https://learn.microsoft.com/dotnet/api/microsoft.servicefabric.data.beta.isolationlevel) to 
-        - [TryGetValueAsync](https://learn.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.data.collections.ireliabledictionary-2.trygetvalueasync)
+        - [TryGetValueAsync](/dotnet/api/microsoft.servicefabric.data.collections.ireliabledictionary-2.trygetvalueasync)
           from the V1 collection.
         - If the value has already been removed from the V1 collection since the copy process started,
           the key should be skipped and not resurected in the V2 collection.
-        - [TryAddAsync](https://learn.microsoft.com/dotnet/api/microsoft.servicefabric.data.collections.ireliabledictionary.tryaddasync)
+        - [TryAddAsync](/dotnet/api/microsoft.servicefabric.data.collections.ireliabledictionary.tryaddasync)
           the value to the V2 collection.
         - If the value has already been added to the V2 collection since the copy process started,
           the key should be skipped.
