@@ -18,7 +18,7 @@ ms.custom: references_regions
 Microsoft strives to ensure that Azure services are always available. However, unplanned service outages may occur. Key components of a good disaster recovery plan include strategies for:
 
 - [Data protection](../blobs/data-protection-overview.md)
-- [Backup and restore](/../backup/index.yml)
+- [Backup and restore](../../backup/index.yml)
 - [Data redundancy](storage-redundancy.md) and [failover](storage-failover-overview.md)
 - Designing applications for high availability
 
