@@ -53,8 +53,10 @@ Removing or uninstalling the Microsoft Store app is not supported. Learn how to 
 Additional languages can be added by custom image templates, which uses the [Install-Language PowerShell cmdlet](/powershell/module/languagepackmanagement/install-language). If you have issues installing or enabling additional languages on Windows 10 Enterprise and Windows 10 Enterprise multi-session images, ensure that:
 
 - You haven't disabled installing language packs by group policy on your image. The policy setting can be found at the following locations:
-   - Computer Configuration > Administrative Templates > Control Panel > Regional and Language Options > Restrict Language Pack and Language Feature Installation
-   - User Configuration > Administrative Templates > Control Panel > Regional and Language Options > Restrict Language Pack and Language Feature Installation
+
+   - **Computer Configuration** > **Administrative Templates** > **Control Panel** > **Regional and Language Options** > **Restrict Language Pack and Language Feature Installation**
+
+   - **User Configuration** > **Administrative Templates** > **Control Panel** > **Regional and Language Options** > **Restrict Language Pack and Language Feature Installation**
 
 - Your session hosts can connect to Windows Update to download languages and latest cumulative updates. 
 
