@@ -2,7 +2,7 @@
 title: Azure AI Video Indexer (AVI) changes related to Azure Media Service (AMS) retirement  
 description: This article explains the upcoming changes to Azure AI Video Indexer (AVI) related to the retirement of Azure Media Services (AMS).
 ms.topic: conceptual
-ms.date: 11/23/2022
+ms.date: 09/05/2023
 ms.author: inhenkel
 author: IngridAtMicrosoft
 ---
@@ -19,13 +19,15 @@ To continue using AVI beyond June 30, 2024, all customers **must** make changes 
 
 Currently, AVI uses AMS for encoding and streaming for the AVI player. AMS charges you for both encoding and streaming. In the future, AVI will encode media and you'll be billed using the updated AVI accounts. Pricing details will be shared in January 2024. There will be no charge for the AVI video player.
 
-## AVI account functional changes
+## AVI changes
 
-Video Indexer will continue to offer the same insights, performance, and functionality. However, a few aspects of the service will change which fall under the following three categories:
+AVI will continue to offer the same insights, performance, and functionality. However, a few aspects of the service will change which fall under the following three categories:
 
 - AVI account changes
 - AVI API changes
 - AVI product changes
+
+## Account changes
 
 AVI has three account types. All will be impacted by the AMS retirement. The account types are:
 
