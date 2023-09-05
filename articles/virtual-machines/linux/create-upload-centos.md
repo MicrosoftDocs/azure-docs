@@ -359,7 +359,7 @@ Preparing a CentOS 7 virtual machine for Azure is similar to CentOS 6, however t
 > [!NOTE]
 > If uploading an UEFI enabled VM, the command to update grub is `grub2-mkconfig -o /boot/efi/EFI/centos/grub.cfg`.  Also, the vfat kernel module must be enabled in the kernel otherwise provisioning will fail.
 >
-> Make sure the **'udf'** module is enable. Blocklisting or removing it will cause a provisioning failure. **(_Cloud-init >= 21.2 removes the udf requirement. Read top of document for more detail)**
+> Make sure the **'udf'** module is enable. Blacklisting or removing it will cause a provisioning failure. **(_Cloud-init >= 21.2 removes the udf requirement. Read top of document for more detail)**
 
 
 10. If building the image from **VMware, VirtualBox or KVM:** Ensure the Hyper-V drivers are included in the initramfs:
