@@ -406,14 +406,14 @@ Throughout the lifecycle of your flow iterations, several operations can be auto
 - Registering of prompt flow models
 - Deployment of prompt flow models
 
-For a comprehensive guide on an end-to-end MLOps pipeline that executes a web classification flow, see [Set up end to end LLMOps with Prompt Flow and GitHub](e2e-llmops-with-promptflow.md), and the [GitHub demo project](https://github.com/Azure/llmops-gha-demo).
+For a comprehensive guide on an end-to-end MLOps pipeline that executes a web classification flow, see [Set up end to end LLMOps with Prompt Flow and GitHub](how-to-end-to-end-llmops-with-prompt-flow.md), and the [GitHub demo project](https://github.com/Azure/llmops-gha-demo).
 
 ### CD: Continuous deployment
 
 The last step to go to production is to deploy your flow as an online endpoint in Azure Machine Learning. This allows you to integrate your flow into your application and make it available for use.
 
-For more information on how to deploy your flow, see [Deploy flows to Azure Machine Learning managed online endpoint for real-time inference with CLI and SDK](deploy-to-code.md).
+For more information on how to deploy your flow, see [Deploy flows to Azure Machine Learning managed online endpoint for real-time inference with CLI and SDK](../deploy-to-code.md).
 
 ## Next steps
 
-- [Set up end-to-end LLMOps with Prompt Flow and GitHub](how-to-end-to-end-llmops-with-prompt-flows.md)
+- [Set up end-to-end LLMOps with Prompt Flow and GitHub](how-to-end-to-end-llmops-with-prompt-flow.md)

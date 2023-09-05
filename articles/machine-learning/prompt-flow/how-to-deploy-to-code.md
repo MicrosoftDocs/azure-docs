@@ -112,7 +112,7 @@ auth_mode: key
 
 ---
 
-| Key | Description |  |
+| Key | Description |
 |--|--|
 | `$schema` | (Optional) The YAML schema. To see all available options in the YAML file, you can view the schema in the preceding code snippet in a browser. |
 | `name` | The name of the endpoint. |
