@@ -7,7 +7,7 @@ author: jimmart-dev
 
 ms.service: azure-storage
 ms.topic: conceptual
-ms.date: 09/01/2023
+ms.date: 09/05/2023
 ms.author: jammart
 ms.subservice: storage-common-concepts
 ms.custom: references_regions, engagement
@@ -19,7 +19,7 @@ Azure Storage always stores multiple copies of your data so that it's protected 
 
 When deciding which redundancy option is best for your scenario, consider the tradeoffs between lower costs and higher availability. The factors that help determine which redundancy option you should choose include:
 
-- How your data is replicated in the primary region.
+- How your data is replicated within the primary region.
 - Whether your data is replicated to a second region that is geographically distant to the primary region, to protect against regional disasters (geo-replication).
 - Whether your application requires read access to the replicated data in the secondary region if the primary region becomes unavailable for any reason (geo-replication with read access).
 

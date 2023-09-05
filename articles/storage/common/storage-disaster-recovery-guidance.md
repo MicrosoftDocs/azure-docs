@@ -7,7 +7,7 @@ author: jimmart-dev
 
 ms.service: azure-storage
 ms.topic: conceptual
-ms.date: 09/01/2023
+ms.date: 09/05/2023
 ms.author: jammart
 ms.subservice: storage-common-concepts
 ms.custom: references_regions
@@ -15,34 +15,28 @@ ms.custom: references_regions
 
 # Azure storage account disaster recovery planning
 
-Microsoft strives to ensure that Azure services are always available. However, unplanned service outages may occur. If your application requires resiliency, Microsoft recommends using geo-redundant storage, so that your data is copied to a second region. Additionally, customers should have a disaster recovery plan in place for handling a regional service outage. An important part of a disaster recovery plan is preparing to fail over to the secondary endpoint in the event that the primary endpoint becomes unavailable.
+Microsoft strives to ensure that Azure services are always available. However, unplanned service outages may occur. Key components of a good disaster recovery plan include strategies for:
 
-Azure Storage supports account failover for geo-redundant storage accounts. With account failover, you can initiate the failover process for your storage account if the primary endpoint becomes unavailable. The failover updates the secondary endpoint to become the primary endpoint for your storage account. Once the failover is complete, clients can begin writing to the new primary endpoint.
+- [Data protection](../blobs/data-protection-overview.md)
+- [Backup and restore](/../backup/index.yml)
+- [Data redundancy](storage-redundancy.md) and [failover](storage-failover-overview.md)
+- Designing applications for high availability
 
-This article describes the concepts and process involved with an account failover and discusses how to prepare your storage account for recovery with the least amount of customer impact. To learn how to initiate an account failover in the Azure portal or PowerShell, see [Initiate an account failover](storage-initiate-account-failover.md).
+This article focuses on data redundancy and failover, and how to design your applications to be highly available in the event of an outage and subsequent failover.
 
 ## Choose the right redundancy option
 
-Azure Storage maintains multiple copies of your storage account to ensure durability and high availability. Which redundancy option you choose for your account depends on the degree of resiliency you need. For protection against regional outages, configure your account for geo-redundant storage, with or without the option of read access from the secondary region:
+Azure Storage maintains multiple copies of your storage account to ensure durability and high availability. Which redundancy option you choose for your account depends on the degree of resiliency you need for your applications.
 
-**Geo-redundant storage (GRS) or geo-zone-redundant storage (GZRS)** copies your data asynchronously in two geographic regions that are at least hundreds of miles apart. If the primary region suffers an outage, then the secondary region serves as a redundant source for your data. You can initiate a failover to transform the secondary endpoint into the primary endpoint.
+With locally-redundant storage (LRS), three copies of your storage account are automatically stored and replicated within a single datacenter. With zone-redundant storage (ZRS), a copy is stored and replicated in each of three separate availability zones within the same region. For more information about availability zones, see [Azure availability zones](../../availability-zones/az-overview.md).
 
-**Read-access geo-redundant storage (RA-GRS) or read-access geo-zone-redundant storage (RA-GZRS)** provides geo-redundant storage with the additional benefit of read access to the secondary endpoint. If an outage occurs in the primary endpoint, applications configured for read access to the secondary and designed for high availability can continue to read from the secondary endpoint. Microsoft recommends RA-GZRS for maximum availability and durability for your applications.
+Recovery of a single copy of a storage account occurs automatically with LRS and ZRS.
+
+With globally-redundant storage (GRS and GZRS), your data is asynchronously copied to a secondary geographic region at least hundreds of miles away to allow you to recover your data in the event of an outage in the primary region. A feature that distinguishes globally-redundant storage from LRS and ZRS is the ability to fail over to the secondary region in the event of an outage in the primary region. The process of failing over updates the secondary storage service endpoints to become the new primary endpoints for your storage account. Once the failover is complete, clients can begin writing to the new primary endpoints.
+
+For additional access to your data in the event of an outage, RA-GRS and RA-GZRS redundancy configurations provide geo-redundant storage with the additional benefit of read access to the secondary endpoint. If an outage occurs in the primary endpoint, applications configured for read access to the secondary region and designed for high availability can continue to read from the secondary endpoint. Microsoft recommends RA-GZRS for maximum availability and durability of your storage accounts.
 
 For more information about redundancy in Azure Storage, see [Azure Storage redundancy](storage-redundancy.md).
-
-> [!WARNING]
-> Geo-redundant storage carries a risk of data loss. Data is copied to the secondary region asynchronously, meaning there is a delay between when data  written to the primary region is written to the secondary region. In the event of an outage, write operations to the primary endpoint that have not yet been copied to the secondary endpoint will be lost.
-
-## Failover for globally-redundant storage accounts
-
-Azure storage accounts configured as globally-redundant support failover to the secondary region in the event of an outage in the primary region. The ability to fail over should be a key consideration of your overall disaster recovery plan.
-
-LRS and 
-
-### Copying data as an alternative to failover
-
-If your storage account is configured for read access to the secondary, then you can design your application to read from the secondary endpoint. If you prefer not to fail over in the event of an outage in the primary region, you can use tools such as [AzCopy](./storage-use-azcopy-v10.md), [Azure PowerShell](/powershell/module/az.storage/), or the [Azure Data Movement library](../common/storage-use-data-movement-library.md) to copy data from your storage account in the secondary region to another storage account in an unaffected region. You can then point your applications to that storage account for both read and write availability.
 
 ## Design for high availability
 
@@ -129,6 +123,10 @@ Unmanaged disks are stored as page blobs in Azure Storage. When a VM is running 
 8. Start the new VM.
 
 Keep in mind that any data stored in a temporary disk is lost when the VM is shut down.
+
+### Copying data as an alternative to failover
+
+If your storage account is configured for read access to the secondary, then you can design your application to read from the secondary endpoint. If you prefer not to fail over in the event of an outage in the primary region, you can use tools such as [AzCopy](./storage-use-azcopy-v10.md), [Azure PowerShell](/powershell/module/az.storage/), or the [Azure Data Movement library](../common/storage-use-data-movement-library.md) to copy data from your storage account in the secondary region to another storage account in an unaffected region. You can then point your applications to that storage account for both read and write availability.
 
 ## See also
 
