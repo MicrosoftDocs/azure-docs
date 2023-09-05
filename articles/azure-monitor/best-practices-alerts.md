@@ -8,7 +8,7 @@ ms.date: 09/04/2023
 ms.reviewer: abbyweisberg
 ---
 
-# Best practices for Azure Monitor Logs
+# Best practices for Azure Monitor alerts
 This article provides architectural best practices for Azure Monitor alerts, alert processing rules, and action groups. The guidance is based on the five pillars of architecture excellence described in [Azure Well-Architected Framework](/azure/architecture/framework/).
 
 
@@ -16,13 +16,13 @@ This article provides architectural best practices for Azure Monitor alerts, ale
 ## Reliability
 In the cloud, we acknowledge that failures happen. Instead of trying to prevent failures altogether, the goal is to minimize the effects of a single failing component. Use the following information to minimize failure of your Azure Monitor alert rule components.
 
-[!INCLUDE [waf-logs-reliability](includes/waf-alerts-reliability.md)]
+[!INCLUDE [waf-alerts-reliability](includes/waf-alerts-reliability.md)]
 
 
 ## Security
 Security is one of the most important aspects of any architecture. Azure Monitor provides features to employ both the principle of least privilege and defense-in-depth. Use the following information to maximize the security of Azure Monitor alerts.
 
-[!INCLUDE [waf-logs-security](includes/waf-alerts-security.md)]
+[!INCLUDE [waf-alerts-security](includes/waf-alerts-security.md)]
 
 
 ## Cost optimization
@@ -31,19 +31,18 @@ Cost optimization refers to ways to reduce unnecessary expenses and improve oper
 > [!NOTE]
 > See [Optimize costs in Azure Monitor](best-practices-cost.md) for cost optimization recommendations across all features of Azure Monitor.
 
-[!INCLUDE [waf-logs-cost](includes/waf-alerts-cost.md)]
+[!INCLUDE [waf-alerts-cost](includes/waf-alerts-cost.md)]
 
 
 ## Operational excellence
 Operational excellence refers to operations processes required keep a service running reliably in production. Use the following information to minimize the operational requirements for supporting Azure Monitor alerts.
 
-[!INCLUDE [waf-logs-operation](includes/waf-logs-operation.md)]
+[!INCLUDE [waf-alerts-operation](includes/waf-alerts-operation.md)]
 
 
 ## Performance efficiency
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. Use the following information to ensure that your Azure Monitor alerts are configured for maximum performance.
-
-[!INCLUDE [waf-logs-performance](includes/waf-logs-performance.md)]
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. 
+Alerts offer a high degree of performance efficiency without any design decisions.
 
 ## Next step
 
