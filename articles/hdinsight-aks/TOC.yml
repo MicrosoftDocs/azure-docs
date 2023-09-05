@@ -7,7 +7,9 @@ items:
   - name: What is HDInsight on AKS?
     href: overview.md
   - name: Whats new on HDInsight on AKS?
-    href: whats-new.md  
+    href: whats-new.md 
+  - name: HDInsight on AKS Preview
+    href: preview.md
 - name: Quickstarts
   items:
   - name: Subscription prerequisites
