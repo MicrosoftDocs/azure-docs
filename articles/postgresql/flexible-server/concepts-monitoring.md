@@ -87,22 +87,23 @@ You can choose from the following categories of enhanced metrics:
 
 #### Database
 
-|Display name|Metric ID|Unit|Description|Dimension|Default enabled|
-|---|---|---|---|---|---|
-|**Backends** |`numbackends`|Count|Number of back ends that are connected to this database.|DatabaseName|No|
-|**Deadlocks** |`deadlocks` |Count|Number of deadlocks that are detected in this database.|DatabaseName|No|
-|**Disk Blocks Hit** |`blks_hit` |Count|Number of times disk blocks were found already in the buffer cache, so that a read wasn't necessary.|DatabaseName|No|
-|**Disk Blocks Read** |`blks_read`|Count|Number of disk blocks that were read in this database.|DatabaseName|No|
-|**Temporary Files** |`temp_files` |Count|Number of temporary files that were created by queries in this database. |DatabaseName|No|
-|**Temporary Files Size** |`temp_bytes` |Bytes|Total amount of data that's written to temporary files by queries in this database. |DatabaseName|No|
-|**Total Transactions** |`xact_total` |Count|Number of total transactions that executed in this database.     |DatabaseName|No|
-|**Transactions Committed** |`xact_commit`|Count|Number of transactions in this database that have been committed.|DatabaseName|No|
-|**Transactions Rolled back** |`xact_rollback`|Count|Number of transactions in this database that have been rolled back.|DatabaseName|No|
-|**Tuples Deleted** |`tup_deleted`|Count|Number of rows that were deleted by queries in this database. |DatabaseName|No|
-|**Tuples Fetched** |`tup_fetched`|Count|Number of rows that were fetched by queries in this database. |DatabaseName|No|
-|**Tuples Inserted** |`tup_inserted` |Count|Number of rows that were inserted by queries in this database.|DatabaseName|No|
-|**Tuples Returned** |`tup_returned` |Count|Number of rows that were returned by queries in this database.|DatabaseName|No|
-|**Tuples Updated** |`tup_updated`|Count|Number of rows that were updated by queries in this database. |DatabaseName|No|
+|Display name                     |Metric ID    |Unit |Description                                                                                         |Dimension   |Default enabled|
+|---------------------------------|-------------|-----|----------------------------------------------------------------------------------------------------|------------|---------------|
+|**Backends**                         |`numbackends`  |Count|Number of back ends that are connected to this database.                                            |DatabaseName|No             |
+|**Deadlocks**                        |`deadlocks`    |Count|Number of deadlocks that are detected in this database.                                             |DatabaseName|No             |
+|**Disk Blocks Hit**                  |`blks_hit`     |Count|Number of times disk blocks were found already in the buffer cache, so that a read wasn't necessary.|DatabaseName|No             |
+|**Disk Blocks Read**                 |`blks_read`    |Count|Number of disk blocks that were read in this database.                                              |DatabaseName|No             |
+|**Temporary Files**                  |`temp_files`   |Count|Number of temporary files that were created by queries in this database.                            |DatabaseName|No             |
+|**Temporary Files Size**             |`temp_bytes`   |Bytes|Total amount of data that's written to temporary files by queries in this database.                 |DatabaseName|No             |
+|**Total Transactions**               |`xact_total`   |Count|Number of total transactions that executed in this database.                                        |DatabaseName|No             |
+|**Transactions Committed**           |`xact_commit`  |Count|Number of transactions in this database that have been committed.                                   |DatabaseName|No             |
+|**Transactions per second (Preview)**|`tps`          |Count|Number of transactions executed within a second.                                                    |DatabaseName|No             |
+|**Transactions Rolled back**         |`xact_rollback`|Count|Number of transactions in this database that have been rolled back.                                 |DatabaseName|No             |
+|**Tuples Deleted**                   |`tup_deleted`  |Count|Number of rows that were deleted by queries in this database.                                       |DatabaseName|No             |
+|**Tuples Fetched**                   |`tup_fetched`  |Count|Number of rows that were fetched by queries in this database.                                       |DatabaseName|No             |
+|**Tuples Inserted**                  |`tup_inserted` |Count|Number of rows that were inserted by queries in this database.                                      |DatabaseName|No             |
+|**Tuples Returned**                  |`tup_returned` |Count|Number of rows that were returned by queries in this database.                                      |DatabaseName|No             |
+|**Tuples Updated**                   |`tup_updated`  |Count|Number of rows that were updated by queries in this database.                                       |DatabaseName|No             |
 
 #### Logical replication
 
@@ -151,21 +152,22 @@ Autovaccum metrics can be used to monitor and tune autovaccum performance for Az
 
 ### List of autovacuum metrics
 
-|Display name|Metric ID|Unit|Description|Dimension|Default enabled|
-|---|---|---|---|---|---|
-|**Analyze Counter User Tables** |`analyze_count_user_tables`|Count|Number of times user-only tables have been manually analyzed in this database. |DatabaseName|No |
-|**AutoAnalyze Counter User Tables** |`autoanalyze_count_user_tables`|Count|Number of times user-only tables have been analyzed by the autovacuum daemon in this database. |DatabaseName|No |
-|**AutoVacuum Counter User Tables** |`autovacuum_count_user_tables` |Count|Number of times user-only tables have been vacuumed by the autovacuum daemon in this database. |DatabaseName|No |
-|**Estimated Dead Rows User Tables** |`n_dead_tup_user_tables` |Count|Estimated number of dead rows for user-only tables in this database. |DatabaseName|No |
-|**Estimated Live Rows User Tables** |`n_live_tup_user_tables` |Count|Estimated number of live rows for user-only tables in this database. |DatabaseName|No |
-|**Estimated Modifications User Tables** |`n_mod_since_analyze_user_tables`|Count|Estimated number of rows that were modified since user-only tables were last analyzed. |DatabaseName|No |
-|**User Tables Analyzed** |`tables_analyzed_user_tables`|Count|Number of user-only tables that have been analyzed in this database. |DatabaseName|No |
-|**User Tables AutoAnalyzed** |`tables_autoanalyzed_user_tables`|Count|Number of user-only tables that have been analyzed by the autovacuum daemon in this database.|DatabaseName|No |
-|**User Tables AutoVacuumed** |`tables_autovacuumed_user_tables`|Count|Number of user-only tables that have been vacuumed by the autovacuum daemon in this database.|DatabaseName|No |
-|**User Tables Counter** |`tables_counter_user_tables` |Count|Number of user-only tables in this database.|DatabaseName|No |
-|**User Tables Vacuumed** |`tables_vacuumed_user_tables`|Count|Number of user-only tables that have been vacuumed in this database. |DatabaseName|No |
-|**Vacuum Counter User Tables** |`vacuum_count_user_tables` |Count|Number of times user-only tables have been manually vacuumed in this database (not counting `VACUUM FULL`).|DatabaseName|No |
-|**Bloat Percent (Preview)**    |`bloat_percent` |Percent|Estimated bloat percentage for user only tables. |DatabaseName|No |
+|Display name                           |Metric ID                        |Unit   |Description                                                                                                |Dimension   |Default enabled|
+|---------------------------------------|---------------------------------|-------|-----------------------------------------------------------------------------------------------------------|------------|---------------|
+|**Analyze Counter User Tables**        |`analyze_count_user_tables`      |Count  |Number of times user-only tables have been manually analyzed in this database.                             |DatabaseName|No             |
+|**AutoAnalyze Counter User Tables**    |`autoanalyze_count_user_tables`  |Count  |Number of times user-only tables have been analyzed by the autovacuum daemon in this database.             |DatabaseName|No             |
+|**AutoVacuum Counter User Tables**     |`autovacuum_count_user_tables`   |Count  |Number of times user-only tables have been vacuumed by the autovacuum daemon in this database.             |DatabaseName|No             |
+|**Bloat Percent (Preview)**            |`bloat_percent`                  |Percent|Estimated bloat percentage for user only tables.                                                           |DatabaseName|No             |
+|**Estimated Dead Rows User Tables**    |`n_dead_tup_user_tables`         |Count  |Estimated number of dead rows for user-only tables in this database.                                       |DatabaseName|No             |
+|**Estimated Live Rows User Tables**    |`n_live_tup_user_tables`         |Count  |Estimated number of live rows for user-only tables in this database.                                       |DatabaseName|No             |
+|**Estimated Modifications User Tables**|`n_mod_since_analyze_user_tables`|Count  |Estimated number of rows that were modified since user-only tables were last analyzed.                     |DatabaseName|No             |
+|**Transactions per second (Preview)**  |`tps`                            |Count  |Number of transactions executed within a second.                                                           |DatabaseName|No             |
+|**User Tables Analyzed**               |`tables_analyzed_user_tables`    |Count  |Number of user-only tables that have been analyzed in this database.                                       |DatabaseName|No             |
+|**User Tables AutoAnalyzed**           |`tables_autoanalyzed_user_tables`|Count  |Number of user-only tables that have been analyzed by the autovacuum daemon in this database.              |DatabaseName|No             |
+|**User Tables AutoVacuumed**           |`tables_autovacuumed_user_tables`|Count  |Number of user-only tables that have been vacuumed by the autovacuum daemon in this database.              |DatabaseName|No             |
+|**User Tables Counter**                |`tables_counter_user_tables`     |Count  |Number of user-only tables in this database.                                                               |DatabaseName|No             |
+|**User Tables Vacuumed**               |`tables_vacuumed_user_tables`    |Count  |Number of user-only tables that have been vacuumed in this database.                                       |DatabaseName|No             |
+|**Vacuum Counter User Tables**         |`vacuum_count_user_tables`       |Count  |Number of times user-only tables have been manually vacuumed in this database (not counting `VACUUM FULL`).|DatabaseName|No             |
 
 ### Considerations for using autovacuum metrics
 

@@ -84,9 +84,6 @@ Kusto Explorer automatically signs you in to the tenant to which the user accoun
 
 Enter the `arg("")` pattern, followed by the Azure Resource Graph table name.
 
-`arg(״״).<Azure-Resource-Graph-table-name>`
-
-
 For example:
 
 ```kusto
