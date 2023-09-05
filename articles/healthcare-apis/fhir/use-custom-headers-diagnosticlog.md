@@ -10,6 +10,7 @@ author: expekesheth
 ms.date: 06/03/2022
 ---
  
+# Add data to audit logs by using custom HTTP headers in FHIR service 
 
 [!INCLUDE [Custom headers for diagnostic logging](../includes/custom-header-auditlog.md)]
     
