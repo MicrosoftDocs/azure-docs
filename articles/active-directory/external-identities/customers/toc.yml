@@ -13,10 +13,12 @@ items:
 - name: Quickstarts
   expanded: true
   items: 
-    - name: Set up a free trial
+    - name: Start a free trial without an Azure subscription
       href: quickstart-trial-setup.md 
-    - name: Set up a tenant
+    - name: Create a tenant with an Azure subscription
       href: quickstart-tenant-setup.md
+    - name: Get started guide walkthrough
+      href: quickstart-get-started-guide.md
 - name: Samples
   expanded: true
   items: 

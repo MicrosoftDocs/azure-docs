@@ -709,7 +709,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
     ```bash
     sudo pcs resource defaults update priority=1
-    sudo pcs resource update rsc_sap_NW1_ASCS00 meta priority=10
+    sudo pcs resource update rsc_sap_QAS_ASCS00 meta priority=10
 
     sudo pcs property set priority-fencing-delay=15s
     ```

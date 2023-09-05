@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: multi-tenant-organizations
 ms.topic: overview
-ms.date: 06/16/2023
+ms.date: 08/28/2023
 ms.author: rolyon
 ms.custom: it-pro
 
@@ -268,8 +268,6 @@ Does cross-tenant synchronization support deprovisioning users?
   - Unassign the user from the cross-tenant synchronization configuration
   - Remove the user from a group that is assigned to the cross-tenant synchronization configuration
   - An attribute on the user changes such that they do not meet the scoping filter conditions defined on the cross-tenant synchronization configuration anymore 
-
-- Currently only regular users, Helpdesk Admins and User Account Admins can be deleted. Users with other Azure AD roles such as directory reader currently cannot be deleted by cross-tenant synchronization. This is subject to change in the future.
 
 - If the user is blocked from sign-in in the source tenant (accountEnabled = false) they will be blocked from sign-in in the target. This is not a deletion, but an updated to the accountEnabled property.
 

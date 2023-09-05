@@ -32,8 +32,6 @@ For more information on Azure AD multifactor authentication, see [What is Azure 
 
 ## Policy configuration
 
-[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
-
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Security Administrator](../roles/permissions-reference.md#security-administrator)
 1. Browse to **Protection** > **Identity Protection** > **MFA registration policy**.
    1. Under **Assignments** > **Users**

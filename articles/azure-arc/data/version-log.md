@@ -19,8 +19,6 @@ This article identifies the component versions with each release of Azure Arc-en
 
 ## August 8, 2023
 
-Aug 2023 preview release is now available.
-
 |Component|Value|
 |-----------|-----------|
 |Container images tag |`v1.22.0_2023-08-08`|

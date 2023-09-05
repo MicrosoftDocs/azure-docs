@@ -24,8 +24,6 @@ Enterprise State Roaming provides users with a unified experience across their W
 
 ## To enable Enterprise State Roaming
 
-[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
-
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator).
 1. Browse to **Identity** > **Devices** > **Overview** > **Enterprise State Roaming**.
 1. Select **Users may sync settings and app data across devices**. For more information, see [how to configure device settings](./manage-device-identities.md).

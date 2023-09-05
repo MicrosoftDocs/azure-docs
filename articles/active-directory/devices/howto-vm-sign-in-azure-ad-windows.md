@@ -98,8 +98,6 @@ There are two ways to enable Azure AD login for your Windows VM:
 
 ### Azure portal
 
-[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
-
 You can enable Azure AD login for VM images in Windows Server 2019 Datacenter or Windows 10 1809 and later. 
 
 To create a Windows Server 2019 Datacenter VM in Azure with Azure AD login: 

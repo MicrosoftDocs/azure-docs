@@ -24,13 +24,9 @@ When a workflow is created, it's important to check its status, and run history 
 
 You're able to retrieve run information of a workflow using Lifecycle Workflows. To check the runs of a workflow using the Azure portal, you would do the following steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Lifecycle Workflows Administrator](../roles/permissions-reference.md#lifecycle-workflows-administrator).
 
-1. Select **Azure Active Directory** and then select **Identity Governance**.
-
-1. On the left menu, select **Lifecycle Workflows**.
-
-1. On the Lifecycle Workflows overview page, select **Workflows**.
+1. Browse to **Identity governance** > **Lifecycle workflows** > **workflows**.
 
 1. Select the workflow you want to run history of. 
 
