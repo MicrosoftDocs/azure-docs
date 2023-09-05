@@ -162,7 +162,7 @@ For a complete example of a zone-redundant scale set and network resources, see 
 
 ## Update scale set to add availability zones
 
-You can modify a scale to expand the set of zones over which to spread VM instances. This allows you to take advantage of higher availability SLA for instances spread across availability zones or expand your scale set to take advantage of new availability zones that were not available when the scale set was created. The operation is done without incurring downtime for your existing instances.
+You can modify a scale to expand the set of zones over which to spread VM instances. Expanding allows you to take advantage of higher zonal availability SLA (99.99%) versus regional availability SLA (99.95%). Or expand your scale set to take advantage of new availability zones that were not available when the scale set was created.
 
 > [!IMPORTANT]
 > Updating Virtual Machine Scale Sets to add availability zones is currently in preview. Previews are made available to you on the condition that you agree to the [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA).
@@ -221,9 +221,10 @@ Expanding to a zonal scale set is done in 3 steps:
 #### Prepare for zonal expansion
 
 > [!WARNING]
-> This preview allows you to add zones to the scale set. You cannot remove zones once they have been added. Updating from a zone-spanning or zonal scale set to a regional scale set is not supported.
+> This preview allows you to add zones to the scale set. You cannot go back to a regional scale set or remove zones once they have been added.
+
 In order to prepare for zonal expansion:
-* Check that you have enough quota for the VM size in the selected region to handle additional instances. Learn more about [checking and requesting additional quota if needed](../virtual-machines/quotas.md)
+* [Check that you have enough quota](../virtual-machines/quotas.md) for the VM size in the selected region to handle additional instances. 
 * Check that the VM size and disk types you are using are available in all the desired zones. You can use the [Compute Resources SKUs API](/rest/api/compute/resource-skus/list?tabs=HTTP) to determine which sizes are available in which zones
 * Validate that the scale set configuration is valid for zonal scale sets:
     * `platformFaultDomainCount` must be set to 1 or 5. Fixed spreading with 2 or 3 fault domains is not supported for zonal deployments.
@@ -243,20 +244,11 @@ Update the scale set to change the zones parameter.
 
 ### [Azure CLI](#tab/cli-2)
 
-
-
 ```azurecli
 az vmss update --set zones=["1","2","3"] -n < myScaleSet > -g < myResourceGroup >
 ```
 
 ### [Azure PowerShell](#tab/powershell-2)
-
-
-
-
-
-
-
 
 ```azurepowershell
 # Get the Virtual Machine Scale Set object

@@ -35,6 +35,7 @@ Some features are currently only available in VMs:
 
 > [!IMPORTANT]
 > Overprovisioning is supported for Uniform Orchestration mode only; it is not supported for Flexible Orchestration mode.
+
 With overprovisioning turned on, the scale set actually spins up more VMs than you asked for, then deletes the extra VMs once the requested number of VMs are successfully provisioned. Overprovisioning improves provisioning success rates and reduces deployment time. You are not billed for the extra VMs, and they do not count toward your quota limits.
 
 While overprovisioning does improve provisioning success rates, it can cause confusing behavior for an application that is not designed to handle extra VMs appearing and then disappearing. To turn overprovisioning off, ensure you have the following string in your template: `"overprovision": "false"`. More details can be found in the [Scale Set REST API documentation](/rest/api/virtualmachinescalesets/create-or-update-a-set).
