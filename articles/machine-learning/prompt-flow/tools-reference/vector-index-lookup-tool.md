@@ -20,10 +20,6 @@ Vector index lookup is a tool tailored for querying within an Azure Machine Lear
 > Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## Requirements
-
-- embeddingstore --extra-index-url https://azuremlsdktestpypi.azureedge.net/embeddingstore
-
 ## Prerequisites
 
 - Follow the instructions from sample flow `Bring your own Data QnA` to prepare a Vector Index as an input.
@@ -51,7 +47,7 @@ The following is an example for JSON format response returned by the tool, which
 | Field Name | Type | Description |
 | ---- | ---- | ----------- |
 | text | string | Text of the entity |
-| score | float | Depends on index type defined in Vector Index. Might be value of distance or similarity |
+| score | float | Depends on index type defined in Vector Index. If index type is Faiss, score is L2 distance. If index type is Azure Cognitive Search, score is cosine similarity. |
 | metadata | dict | Customized key-value pairs provided by user when creating the index |
 | original_entity | dict | Depends on index type defined in Vector Index. The original response json from search REST API|
 

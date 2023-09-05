@@ -25,8 +25,7 @@ to learn about Kubernetes.
 
 ## Nexus Kubernetes cluster
 
-Nexus Kubernetes cluster (NKS) is an Operator Nexus version of Kubernetes for on-premises use. It is optimized to automate creation of containers to
-run tenant network function workloads.
+Nexus Kubernetes cluster (NKS) is an Operator Nexus version of Kubernetes for on-premises use. It is optimized to automate creation of containers to run tenant network function workloads.
 
 Like any Kubernetes cluster, Nexus Kubernetes cluster has two
 components:
