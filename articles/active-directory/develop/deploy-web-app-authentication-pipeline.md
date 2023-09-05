@@ -196,7 +196,7 @@ Next, add a stage to the pipeline that deploys Azure resources.  The pipeline us
 The inline script runs in the context of the pipeline, assign the [Application.Administrator](/azure/active-directory/roles/permissions-reference#application-administrator) role to the app so the script can create app registrations:
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
-1. Browse to **Identity** > **Applications** > **App registrations** > **Roles & admins**.
+1. Browse to **Identity** > **Roles & admins** > **Roles & admins**.
 1. Select **Application Administrator** from the list of built-in roles and then **Add assignment**.
 1. Search for the pipeline app registration by display name.
 1. Select the app registration from the list and select **Add**.
