@@ -882,11 +882,11 @@ __Inbound__ service tag rules:
 
 ## List of recommended outbound rules
 
-To allow installation of __Python packages for training and deployment__, add an outbound FQDN rule to allow traffic to the following host names:
+To allow installation of __Python packages for training and deployment__, add outbound _FQDN_ rules to allow traffic to the following host names:
 
 [!INCLUDE [recommended outbound](includes/recommended-network-outbound.md)]
 
-If you plan to use __Visual Studio Code__ with Azure Machine Learning, allow outbound communication with the following hosts:
+If you plan to use __Visual Studio Code__ with Azure Machine Learning, add outbound _FQDN_ rules to allow traffic to the following hosts:
 
 * `*.vscode.dev`
 * `vscode.blob.core.windows.net`
@@ -900,6 +900,13 @@ If you plan to use __Visual Studio Code__ with Azure Machine Learning, allow out
 * `update.code.visualstudio.com`
 * `*.vo.msecnd.net`
 * `marketplace.visualstudio.com`
+
+If you plan to use __Azure Machine Learning batch endpoints__ for deployment, add outbound _private endpoint_ rules to allow traffic to the following sub resources for the default storage account:
+
+* `queue`
+* `table`
+
+If you plan to use __Azure AI services__, including __Azure Cognitive Search__, __Content Safety__, and __Azure Open AI__
 
 ## Private endpoints
 
