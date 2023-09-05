@@ -38,7 +38,7 @@ PostgreSQL authentication uses accounts stored in PostgreSQL. If you choose to u
 
 ## Prepare your project
 
-### [Java](#tab/Java)
+### [Java](#tab/JavaFlex)
 
 Use the following steps to prepare your project.
 
@@ -59,7 +59,7 @@ Use the following steps to prepare your project.
 
 1. Update the current app by running `az spring app deploy`, or create a new deployment for this change by running `az spring app deployment create`.
 
-### [Polyglot](#tab/Polyglot)
+### [Polyglot](#tab/PolyglotFlex)
 
 All the connection strings and credentials will be injected as the environment variables, which can be referenced in your application codes.
 
@@ -131,7 +131,9 @@ Use the following steps to bind your app using a secret.
 * An Azure Database for PostgreSQL Single Server instance.
 * [Azure CLI](/cli/azure/install-azure-cli) version 2.45.0 or higher.
 
-## Prepare your Java project
+## Prepare your project
+
+### [Java](#tab/JavaSingle)
 
 Use the following steps to prepare your project.
 
@@ -151,6 +153,14 @@ Use the following steps to prepare your project.
 1. In the *application.properties* file, remove any `spring.datasource.*` properties.
 
 1. Update the current app by running `az spring app deploy`, or create a new deployment for this change by running `az spring app deployment create`.
+
+### [Polyglot](#tab/PolyglotSingle)
+
+All the connection strings and credentials will be injected as the environment variables, which can be referenced in your application codes.
+
+You can find the default environment variable names in this doc: [Integrate Azure Database for PostgreSQL with Service Connector](../service-connector/how-to-integrate-postgres#default-environment-variable-names-or-application-properties)
+
+---
 
 ## Bind your app to the Azure Database for PostgreSQL instance
 
