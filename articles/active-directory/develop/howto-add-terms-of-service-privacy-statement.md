@@ -55,7 +55,7 @@ When the terms of service and privacy statement are ready, you can add links to 
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-Follow these steps in the to add links:
+Follow these steps to add links:
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Application Developer](../roles/permissions-reference.md#application-developer).
 1. Browse to **Identity** > **User experiences** > **Company branding**.
