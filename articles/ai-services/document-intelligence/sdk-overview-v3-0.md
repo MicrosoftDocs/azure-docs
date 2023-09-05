@@ -9,7 +9,7 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 09/05/2023
 ms.author: lajanuar
-monikerRange: '<=doc-intel-3.0.0'
+monikerRange: 'doc-intel-3.0.0'
 ---
 
 
