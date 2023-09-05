@@ -47,9 +47,9 @@ To create a dynamic scope, follow these steps:
 #### [Azure CLI](#tab/cli)
 
 ```azurecli
+
     az maintenance assignment create-or-update-subscription --maintenance-configuration-id "/subscriptions/{subscription_id}/resourcegroups/{rg}/providers/Microsoft.Maintenance/maintenanceConfigurations/clitestmrpconfinguestadvanced" --name cli_dynamicscope_recording01 --filter-locations eastus2euap centraluseuap --filter-os-types windows linux --filter-tags {{tagKey1:[tagKey1Val1,tagKey1Val2],tagKey2:[tagKey2Val1,tagKey2Val2]}} --filter-resource-group rg1, rg2 --filter-tags-operator All -l global
 ```
-
 #### [PowerShell](#tab/ps)
 
 ```powershell
