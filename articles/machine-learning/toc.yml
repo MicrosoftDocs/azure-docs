@@ -659,7 +659,7 @@
     - name: Monitor generative AI applications in production
       items:
         - name: Monitor generative AI applications in production
-          href: how-to-monitor-LLM-safety-quality.md
+          href: how-to-monitor-generative-ai-applications.md
         - name: Configure prerequisite monitoring resources
           href: how-to-configure-monitoring-connection.md
     - name: Retrieval Augmented Generation (RAG)
