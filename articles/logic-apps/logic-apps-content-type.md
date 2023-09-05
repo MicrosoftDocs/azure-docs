@@ -118,7 +118,7 @@ reference and use those properties more easily in your logic app's workflow.
      }
      ```
 
-  3. In your request, make sure you include a `Content-Type` header 
+  3. In your request (HTTP request sent from a client app to Logic Apps), make sure you include a `Content-Type` header 
   and set the header's value to `application/json`.
 
 * **Parse JSON action**
