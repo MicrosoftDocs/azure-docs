@@ -41,7 +41,7 @@ The following table defines limits for the pricing plans in Azure Spring Apps.
 
 <sup>2</sup> You can increase this limit via support request to a maximum of 10.
 
-<sup>3</sup> This limit only applies to customers without a Enterprise Agreement subscription. You can increase this limit based on your workload via support request. For customers with a Enterprise Agreement subscription, the max throuput depends on app instances you deployed.
+<sup>3</sup> This limit only applies to customers without an Enterprise Agreement subscription. You can increase this limit based on your workload size via raising a support ticket. For customers with an Enterprise Agreement subscription, the maximum throughput depends on app instances you have deployed.
 
 > [!TIP]
 > Limits listed apply for apps and deployments in any state, including apps in a stopped state. These limits include total app instances and per service instances. Be sure to delete apps and deployments that aren't being used.
