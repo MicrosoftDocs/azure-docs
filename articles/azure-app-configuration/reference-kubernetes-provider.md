@@ -61,7 +61,7 @@ The `spec.keyValues.keyVaults` property has the following child properties.
 |---|---|---|---|
 |target|The destination of resolved Key Vault references in Kubernetes|true|object|
 |auth|The authentication method to access Key Vaults|false|object|
-|refresh|The settings for dynamically resolving Key Vault references|false|object|
+|refresh|The settings for periodically resolving Key Vault references|false|object|
 
 The `spec.keyValues.keyVaults.target` property has the following child property.
 
@@ -261,7 +261,7 @@ spec:
             servicePrincipalReference: <name-of-secret-containing-service-principal-credentials>
 ```
 
-### App Configuration Sentinel-based Refresh
+### Dynamic configuration refresh
 
 Setting the `spec.keyValues.refresh` property enables dynamic configuration data refresh in ConfigMap and Secret by monitoring designated key-values. The provider periodically polls the key-values, if there is any value change, provider triggers ConfigMap and Secret refresh in accordance with the present data in Azure App Configuration.
 
@@ -292,8 +292,8 @@ spec:
             label: development
 ```
 
-### Dynamically resolve KeyVault References
-Setting `spec.keyValues.keyVaults.refresh` property enables provider periodically resolve Key Vault references with latest secret version in Azure App Configuration and update the values for associated Key Vault secrets in Secret.
+### Periodically resolve KeyVault References
+Setting `spec.keyValues.keyVaults.refresh` property enables the provider periodically resolve Key Vault references to get the latest version secrets from Azure Key Vault, and update the values for associated data items in generated Kubernetes secret accordingly. 
 
 The following sample instructs secret refresh with 10 mintues resolving interval. 
 
