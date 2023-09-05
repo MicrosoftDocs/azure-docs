@@ -116,7 +116,41 @@ If you haven't configured your Playwright tests yet for running them on cloud-ho
 
 1. Create a file `playwright.service.config.ts` and add the following content to it:
 
-    :::code language="typescript" source="samples/get-started/playwright.service.config.ts" range="7-10,22-50" highlight="20,27":::
+    ```typescript
+    import { defineConfig } from '@playwright/test';
+    import config from './playwright.config';
+    import dotenv from 'dotenv';
+    
+    dotenv.config();
+    
+    // Name the test run if it's not named yet.
+    process.env.PLAYWRIGHT_SERVICE_RUN_ID = process.env.PLAYWRIGHT_SERVICE_RUN_ID || new Date().toISOString();
+    
+    export default defineConfig(config, {
+        // Define more generous timeout for the service operation if necessary.
+        // timeout: 60000,
+        // expect: {
+        //   timeout: 10000,
+        // },
+        workers: 20,
+        use: {
+            // Specify the service endpoint.
+            connectOptions: {
+                wsEndpoint: `${process.env.PLAYWRIGHT_SERVICE_URL}?cap=${JSON.stringify({
+                    // Can be 'linux' or 'windows'.
+                    os: process.env.PLAYWRIGHT_SERVICE_OS || 'linux',
+                    runId: process.env.PLAYWRIGHT_SERVICE_RUN_ID
+                })}`,
+                timeout: 30000,
+                headers: {
+                    'x-mpt-access-key': process.env.PLAYWRIGHT_SERVICE_ACCESS_KEY!
+                },
+                // Allow service to access the localhost.
+                exposeNetwork: '<loopback>'
+            }
+        }
+    });
+    ```
 
 1. Save and commit the file to your source code repository.
 
@@ -132,41 +166,41 @@ Update the CI workflow definition to run your Playwright tests with the Playwrig
 
 # [GitHub Actions](#tab/github)
 
-  ```yml
-  - name: Install dependencies
-    working-directory: path/to/playwright/folder # update accordingly
-    run: npm ci
-  - name: Run Playwright tests
-    working-directory: path/to/playwright/folder # update accordingly
-    env:
-      # Access key and regional endpoint for Microsoft Playwright Testing
-      PLAYWRIGHT_SERVICE_ACCESS_KEY: ${{ secrets.PLAYWRIGHT_SERVICE_ACCESS_KEY }}
-      PLAYWRIGHT_SERVICE_URL: ${{ secrets.PLAYWRIGHT_SERVICE_URL }}
-    run: npx playwright test -c playwright.service.config.ts --workers=20
-  ```
+    ```yml
+    - name: Install dependencies
+      working-directory: path/to/playwright/folder # update accordingly
+      run: npm ci
+    - name: Run Playwright tests
+      working-directory: path/to/playwright/folder # update accordingly
+      env:
+        # Access key and regional endpoint for Microsoft Playwright Testing
+        PLAYWRIGHT_SERVICE_ACCESS_KEY: ${{ secrets.PLAYWRIGHT_SERVICE_ACCESS_KEY }}
+        PLAYWRIGHT_SERVICE_URL: ${{ secrets.PLAYWRIGHT_SERVICE_URL }}
+      run: npx playwright test -c playwright.service.config.ts --workers=20
+    ```
 
 # [Azure Pipelines](#tab/pipelines)
 
-  ```yml
-  - task: PowerShell@2
-    enabled: true
-    displayName: "Install dependencies"
-    inputs:
-      targetType: 'inline'
-      script: 'npm ci'
-      workingDirectory: path/to/playwright/folder # update accordingly
-  
-  - task: PowerShell@2
-    enabled: true
-    displayName: "Run Playwright tests"
-    env:
-      PLAYWRIGHT_SERVICE_ACCESS_KEY: $(PLAYWRIGHT_SERVICE_ACCESS_KEY)
-      PLAYWRIGHT_SERVICE_URL: $(PLAYWRIGHT_SERVICE_URL)
-    inputs:
-      targetType: 'inline'
-      script: 'npx playwright test -c playwright.service.config.ts --workers=20'
-      workingDirectory: path/to/playwright/folder # update accordingly
-  ```
+    ```yml
+    - task: PowerShell@2
+      enabled: true
+      displayName: "Install dependencies"
+      inputs:
+        targetType: 'inline'
+        script: 'npm ci'
+        workingDirectory: path/to/playwright/folder # update accordingly
+    
+    - task: PowerShell@2
+      enabled: true
+      displayName: "Run Playwright tests"
+      env:
+        PLAYWRIGHT_SERVICE_ACCESS_KEY: $(PLAYWRIGHT_SERVICE_ACCESS_KEY)
+        PLAYWRIGHT_SERVICE_URL: $(PLAYWRIGHT_SERVICE_URL)
+      inputs:
+        targetType: 'inline'
+        script: 'npx playwright test -c playwright.service.config.ts --workers=20'
+        workingDirectory: path/to/playwright/folder # update accordingly
+    ```
 
 ---
 

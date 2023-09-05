@@ -12,7 +12,7 @@ In this article, you'll learn how to manage workspace access keys in Microsoft P
 
 Access keys are associated with a user account and workspace. You can create multiple access keys per workspace.
 
-To run Playwright tests with Microsoft Playwright Testing, you specify the workspace access key in the service configuration file. Learn how to [set up your service configuation](./quickstart-run-end-to-end-tests.md#set-up-your-environment).
+To run Playwright tests with Microsoft Playwright Testing, you specify the workspace access key in the service configuration file. Learn how to [set up your service configuration](./quickstart-run-end-to-end-tests.md#set-up-your-environment).
 
 > [!IMPORTANT]
 > Microsoft Playwright Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
