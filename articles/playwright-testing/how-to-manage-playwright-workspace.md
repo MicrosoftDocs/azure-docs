@@ -127,9 +127,9 @@ To view the list of test runs in the Playwright portal:
 
     The activity log lists for each test run the following details: 
 
-        - Total test duration of the test suite
-        - Maximum number of parallel browsers
-        - Total time across all parallel browsers. This is the time  that you're billed for the test run.
+    - Total test duration of the test suite
+    - Maximum number of parallel browsers
+    - Total time across all parallel browsers. This is the time  that you're billed for the test run.
 
     :::image type="content" source="./media/how-to-manage-playwright-workspace/playwright-testing-activity-log.png" alt-text="Screenshot that shows the activity log for a workspace in the Playwright Testing portal.":::
 
