@@ -3,7 +3,7 @@ title: Reference list of attack paths and cloud security graph components
 description: This article lists Microsoft Defender for Cloud's list of attack paths based on resource.
 ms.topic: reference
 ms.custom: ignite-2022
-ms.date: 08/21/2023
+ms.date: 09/05/2023
 ---
 
 # Reference list of attack paths and cloud security graph components

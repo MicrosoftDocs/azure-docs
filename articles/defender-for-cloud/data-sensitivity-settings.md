@@ -4,7 +4,7 @@ description: Learn how to customize data sensitivity settings in Defender for Cl
 author: dcurwin
 ms.author: dacurwin
 ms.topic: how-to
-ms.date: 03/22/2023
+ms.date: 09/05/2023
 ---
 # Customize data sensitivity settings
 

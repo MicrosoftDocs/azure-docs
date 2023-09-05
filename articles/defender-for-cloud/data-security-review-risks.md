@@ -5,7 +5,7 @@ author: dcurwin
 ms.author: dacurwin
 ms.service: defender-for-cloud
 ms.topic: how-to
-ms.date: 07/25/2023
+ms.date: 09/05/2023
 ms.custom: template-how-to-pattern
 ---
 # Explore risks to sensitive data
