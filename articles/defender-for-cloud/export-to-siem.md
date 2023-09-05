@@ -79,7 +79,7 @@ Before you set up the Azure services for exporting alerts, make sure you have:
     - if it **has the SecurityCenterFree solution**, you'll need a minimum of read permissions for the workspace solution: `Microsoft.OperationsManagement/solutions/read`
     - if it **doesn't have the SecurityCenterFree solution**, you'll need write permissions for the workspace solution: `Microsoft.OperationsManagement/solutions/action` -->
 
-### Step 1. Set up the Azure services
+### Step 1: Set up the Azure services
 
 You can set up your Azure environment to support continuous export using either:
 
@@ -106,7 +106,7 @@ You can set up your Azure environment to support continuous export using either:
 
     For more detailed instructions, see [Prepare Azure resources for exporting to Splunk and QRadar](export-to-splunk-or-qradar.md).
 
-### Step 2. Connect the event hub to your preferred solution using the built-in connectors
+### Step 2: Connect the event hub to your preferred solution using the built-in connectors
 
 Each SIEM platform has a tool to enable it to receive alerts from Azure Event Hubs. Install the tool for your platform to start receiving alerts.
 

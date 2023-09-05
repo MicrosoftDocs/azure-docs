@@ -18,6 +18,9 @@ When you deploy a container app, the first revision is automatically created. [M
 
 A container app flows through four phases: deployment, update, deactivation, and shut down.
 
+> [!NOTE]
+> [Azure Container Apps jobs](jobs.md) don't support revisions. Jobs are deployed and updated directly.
+
 ## Deployment
 
 As a container app is deployed, the first revision is automatically created.

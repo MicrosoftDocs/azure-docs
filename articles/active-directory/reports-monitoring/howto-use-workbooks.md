@@ -1,6 +1,6 @@
 ---
 title: Azure Monitor workbooks for Azure Active Directory
-description: Learn how to use Azure Monitor workbooks for Azure Active Directory reports.
+description: Learn how to use Azure Monitor workbooks for analyzing identity logs in Azure Active Directory reports.
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -70,8 +70,8 @@ For more information on Azure AD built-in roles, see [Azure AD built-in roles](.
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using the appropriate least privilege role.
-1. Browse to **Azure Active Directory** > **Monitoring** > **Workbooks**. 
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Reports Reader](../roles/permissions-reference.md#reports-reader).
+1. Browse to **Identity** > **Monitoring & health** > **Workbooks**. 
     - **Workbooks**: All workbooks created in your tenant
     - **Public Templates**: Prebuilt workbooks for common or high priority scenarios
     - **My Templates**: Templates you've created
@@ -86,7 +86,7 @@ For more information on Azure AD built-in roles, see [Azure AD built-in roles](.
 Workbooks can be created from scratch or from a template. When creating a new workbook, you can add elements as you go or use the **Advanced Editor** option to paste in the JSON representation of a workbook, copied from the [workbooks GitHub repository](https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json).
 
 **To create a new workbook from scratch**:
-1. Browse to **Azure AD** > **Monitoring** > **Workbooks**.
+1. Browse to **Identity** > **Monitoring & health** > **Workbooks**. 
 1. Select **+ New**.
 1. Select an element from the **+ Add** menu.
 
@@ -95,7 +95,7 @@ Workbooks can be created from scratch or from a template. When creating a new wo
     ![Screenshot of the Azure Workbooks +Add menu options.](./media/howto-use-azure-monitor-workbooks/create-new-workbook-elements.png)
 
 **To create a new workbook from a template**:
-1. Browse to **Azure AD** > **Monitoring** > **Workbooks**.
+1. Browse to **Identity** > **Monitoring & health** > **Workbooks**. 
 1. Select a workbook template from the Gallery.
 1. Select **Edit** from the top of the page.
     - Each element of the workbook has its own **Edit** button. 

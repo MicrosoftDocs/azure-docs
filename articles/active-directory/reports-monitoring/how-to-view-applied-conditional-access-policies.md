@@ -1,5 +1,4 @@
 ---
-
 title: View applied Conditional Access policies in the Azure AD sign-in logs
 description: Learn how to view Conditional Access policies in Azure AD sign-in logs so that you can assess the effect of those policies.
 services: active-directory
@@ -43,19 +42,19 @@ To see applied Conditional Access policies in the sign-in logs, administrators m
 
 The following built-in roles grant permissions to *read Conditional Access policies*:
 
-- Global Administrator 
+- Security Reader 
 - Global Reader 
 - Security Administrator 
-- Security Reader 
 - Conditional Access Administrator 
+- Global Administrator 
 
 The following built-in roles grant permission to *view sign-in logs*: 
 
-- Global Administrator 
-- Security Administrator 
-- Security Reader 
-- Global Reader 
 - Reports Reader 
+- Security Reader 
+- Global Reader
+- Security Administrator 
+- Global Administrator 
 
 ## Permissions for client apps 
 
@@ -90,8 +89,8 @@ The Azure AD Graph PowerShell module doesn't support viewing applied Conditional
 
 The activity details of sign-in logs contain several tabs. The **Conditional Access** tab lists the Conditional Access policies applied to that sign-in event. 
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using the Security Reader role.
-1. Browse to **Azure Active Directory** > **Monitoring** > **Sign-in logs**. 
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Reader](../roles/permissions-reference.md#global-reader).
+1. Browse to **Identity** > **Monitoring & health** > **Sign-in logs**. 
 1. Select a sign-in item from the table to view the sign-in details pane.  
 1. Select the **Conditional Access** tab.
 

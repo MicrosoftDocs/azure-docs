@@ -8,10 +8,10 @@ ms.service: cognitive-services
 ms.subservice: openai
 ms.custom: devx-track-azurecli, build-2023, build-2023-dataai
 ms.topic: how-to
-ms.date: 08/14/2023
+ms.date: 08/25/2023
 zone_pivot_groups: openai-create-resource
-author: ChrisHMSFT
-ms.author: chrhoder
+author: mrbullwinkle
+ms.author: mbullwin
 recommendations: false
 ---
 

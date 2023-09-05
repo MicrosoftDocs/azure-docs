@@ -42,8 +42,6 @@ To view and update the membership of the [Global Administrator](/azure/active-di
 
 ## Manage the Azure AD Joined Device Local Administrator role 
 
-[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
-
 You can manage the [Azure AD Joined Device Local Administrator](/azure/active-directory/roles/permissions-reference#azure-ad-joined-device-local-administrator) role from **Device settings**. 
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Device Administrator](../roles/permissions-reference.md#cloud-device-administrator).

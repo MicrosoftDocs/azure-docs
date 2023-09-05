@@ -7,7 +7,7 @@ ms.custom: mvc
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
-ms.date: 08/09/2023
+ms.date: 08/24/2023
 ---
 
 # Product updates for Azure Cosmos DB for PostgreSQL
@@ -23,6 +23,9 @@ Updates that don’t directly affect the internals of a cluster are rolled out g
 Updates that change cluster internals, such as installing a [new minor PostgreSQL version](https://www.postgresql.org/developer/roadmap/), are delivered to existing clusters as part of the next [scheduled maintenance](concepts-maintenance.md) event. Such updates are available immediately to newly created clusters.
 
 ### August 2023
+* General availability: [The latest minor PostgreSQL version updates](reference-versions.md#postgresql-versions) (11.21, 12.16, 13.12, 14.9, and 15.4) are now available in all supported regions.
+* General availability: [PgBouncer](http://www.pgbouncer.org/) version 1.20 is now supported for all [PostgreSQL versions](reference-versions.md#postgresql-versions) in all [supported regions](./resources-regions.md) 	
+    * See [Connection pooling and managed PgBouncer in Azure Cosmos DB for PostgreSQL](./concepts-connection-pool.md).
 * General availability: Citus 12 is now available in [all supported regions](./resources-regions.md) with PostgreSQL 14 and PostgreSQL 15.
     * Check [what's new in Citus 12](https://www.citusdata.com/updates/v12-0/).
     * See [Postgres and Citus version in-place upgrade](./concepts-upgrade.md).

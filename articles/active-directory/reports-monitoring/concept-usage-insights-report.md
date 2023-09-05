@@ -1,6 +1,6 @@
 ---
 title: Usage and insights report
-description: Introduction to usage and insights report in the Azure portal 
+description: Learn about the information you can explore using the Usage and insights report in Azure Active Directory.
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/22/2023
+ms.date: 08/24/2023
 ms.author: sarahlipsey
 ms.reviewer: madansr7
 ---
@@ -36,8 +36,8 @@ You can access the Usage and insights reports from the Azure portal and using Mi
 
 ### To access Usage & insights in the portal:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using the appropriate least privileged role.
-1. Browse to **Azure Active Directory** > **Monitoring** > **Usage & insights**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Reports Reader](../roles/permissions-reference.md#reports-reader).
+1. Browse to **Identity** > **Monitoring & health** > **Usage & insights**.
 
 The **Usage & insights** reports are also available from the **Enterprise applications** area of Azure AD. All users can access their own sign-ins at the [My Sign-Ins portal](https://mysignins.microsoft.com/security-info).
 
