@@ -17,8 +17,6 @@ ms.custom: aaddev, "scenarios:getting-started", "languages:JavaScript", devx-tra
 
 # Quickstart: Sign in users in a single-page app (SPA) and call the Microsoft Graph API using Angular
 
-In this quickstart, you download and run a code sample that demonstrates how a JavaScript Angular single-page application (SPA) can sign in users and call Microsoft Graph using the authorization code flow. The code sample demonstrates how to get an access token to call the Microsoft Graph API or any web API.
-
 This guide uses a sample Angular single-page app (SPA) to show you how to sign in users by using the [authorization code flow](/azure/active-directory/develop/v2-oauth2-auth-code-flow) and call the Microsoft Graph API. The sample uses the [Microsoft Authentication Library for JavaScript](/javascript/api/@azure/msal-react) to handle authentication.
 
 In this article you'll register a SPA in the Microsoft Entra admin center, and download a sample Angular SPA. Next, you'll run the sample application, sign in with your personal Microsoft account or a work or school account, and sign out.
@@ -55,7 +53,7 @@ To obtain the sample application, you can either clone it from GitHub or downloa
     git clone https://github.com/Azure-Samples/ms-identity-docs-code-javascript.git
     ```
 
-- [Download the .zip file](https://github.com/Azure-Samples/ms-identity-docs-code-javascript/tree/main)
+- [Download the .zip file](https://github.com/Azure-Samples/ms-identity-docs-code-javascript/archive/refs/heads/main.zip)
 
 ## Configure the project
 
@@ -83,7 +81,7 @@ Run the project with a web server by using Node.js:
 1. The application will request permission to maintain access to data you have given it access to, and to sign you in and read your profile. Select **Accept**.
 1. The following screenshot appears, indicating that you have signed in to the application and have accessed your profile details from the Microsoft Graph API.
 
-    ![Screenshot of the application showing the user's profile details.](media/quickstarts/react-spa/quickstart-react-spa-sign-in.png)
+    ![Screenshot of the application showing the user's profile details.](media/quickstarts/angular-spa/quickstart-angular-spa-sign-in.png)
 
 ## Related content
 
