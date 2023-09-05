@@ -32,9 +32,11 @@ Privileged Identity Management support both built-in and custom Azure AD roles. 
 
 ## Assign a role
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Follow these steps to make a user eligible for an Azure AD admin role.
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged role administrator](../roles/permissions-reference.md#privileged-role-administrator).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator).
 
 1. Browse to **Identity governance** > **Privileged Identity Management** > **Azure AD roles**.
 
@@ -72,7 +74,7 @@ Follow these steps to make a user eligible for an Azure AD admin role.
 
 For certain roles, the scope of the granted permissions can be restricted to a single admin unit, service principal, or application. This procedure is an example if assigning a role that has the scope of an administrative unit. For a list of roles that support scope via administrative unit, see [Assign scoped roles to an administrative unit](../roles/admin-units-assign-roles.md). This feature is currently being rolled out to Azure AD organizations.
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged role administrator](../roles/permissions-reference.md#privileged-role-administrator).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator).
 
 1. Browse to **Identity** > **Roles & admins** > **Roles & admins**.
 
@@ -245,9 +247,9 @@ The following is an example of the response. The response object shown here migh
 
 Follow these steps to update or remove an existing role assignment. **Microsoft Entra Premium P2 or Microsoft Entra ID Governance licensed customers only**: Don't assign a group as Active to a role through both Azure AD and Privileged Identity Management (PIM). For a detailed explanation, see [Known issues](../roles/groups-concept.md#known-issues).
 
-1. Open **Azure AD Privileged Identity Management**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator).
 
-1. Select **Azure AD roles**.
+1. Browse to **Identity governance** > **Privileged Identity Management** > **Azure AD roles**. 
 
 1. Select **Roles** to see the list of roles for Azure AD.
 
