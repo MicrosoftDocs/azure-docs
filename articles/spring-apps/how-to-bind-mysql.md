@@ -14,7 +14,7 @@ ms.custom: devx-track-java, devx-track-extended-java, event-tier1-build-2022, pa
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Java ❌ C#
+**This article applies to:** ✔️ Java ✔️ C#
 
 **This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
@@ -26,7 +26,9 @@ With Azure Spring Apps, you can connect selected Azure services to your applicat
 * An Azure Database for MySQL Flexible Server instance.
 * [Azure CLI](/cli/azure/install-azure-cli) version 2.45.0 or higher.
 
-## Prepare your Java project
+## Prepare your project
+
+### [Java](#tab/Java)
 
 1. In your project's *pom.xml* file, add the following dependency:
 
@@ -44,6 +46,14 @@ With Azure Spring Apps, you can connect selected Azure services to your applicat
 1. In the *application.properties* file, remove any `spring.datasource.*` properties.
 
 1. Update the current app by running `az spring app deploy`, or create a new deployment for this change by running `az spring app deployment create`.
+
+### [Polyglot](#tab/Polyglot)
+
+All the connection strings and credentials will be injected as the environment variables, which can be referenced in your application codes.
+
+You can find the default environment variable names in this doc: [Integrate Azure Database for MySQL with Service Connector](../service-connector/how-to-integrate-mysql#default-environment-variable-names-or-application-properties)
+
+---
 
 ## Connect your app to the Azure Database for MySQL instance
 

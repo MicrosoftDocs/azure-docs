@@ -16,7 +16,7 @@ zone_pivot_groups: passwordless-postgresql
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Java ❌ C#
+**This article applies to:** ✔️ Java ✔️ C#
 
 **This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
@@ -36,7 +36,9 @@ PostgreSQL authentication uses accounts stored in PostgreSQL. If you choose to u
 * An Azure Database for PostgreSQL Flexible Server instance.
 * [Azure CLI](/cli/azure/install-azure-cli) version 2.45.0 or higher.
 
-## Prepare your Java project
+## Prepare your project
+
+### [Java](#tab/Java)
 
 Use the following steps to prepare your project.
 
@@ -56,6 +58,14 @@ Use the following steps to prepare your project.
 1. In the *application.properties* file, remove any `spring.datasource.*` properties.
 
 1. Update the current app by running `az spring app deploy`, or create a new deployment for this change by running `az spring app deployment create`.
+
+### [Polyglot](#tab/Polyglot)
+
+All the connection strings and credentials will be injected as the environment variables, which can be referenced in your application codes.
+
+You can find the default environment variable names in this doc: [Integrate Azure Database for PostgreSQL with Service Connector](../service-connector/how-to-integrate-postgres#default-environment-variable-names-or-application-properties)
+
+---
 
 ## Bind your app to the Azure Database for PostgreSQL instance
 
