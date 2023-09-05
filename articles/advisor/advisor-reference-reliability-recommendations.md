@@ -495,7 +495,7 @@ Learn more about [App service - AppServiceProactiveCrashMonitoring (Application 
 We identified your application is running in 32-bit and the memory is reaching the 2GB limit. 
 Consider switching to 64-bit processes so you can take advantage of the additional memory available in your Web Worker role. This action triggers a web app restart, so schedule accordingly.
 
-Learn more about [App service 32-bit limitations](/azure/app-service/web-apps-performance-faqs#i-see-the-message-worker-process-requested-recycle-due-to-percent-memory-limit-how-do-i-address-this-issue).
+Learn more about [App service 32-bit limitations](/troubleshoot/azure/app-service/web-apps-performance-faqs#i-see-the-message-worker-process-requested-recycle-due-to-percent-memory-limit-how-do-i-address-this-issue).
 
 ## Next steps
 
