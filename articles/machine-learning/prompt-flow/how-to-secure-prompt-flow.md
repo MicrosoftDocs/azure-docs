@@ -41,9 +41,12 @@ Workspace managed VNet is the recommend way to support network isolation in prom
 
     :::image type="content" source="./media/how-to-secure-prompt-flow/outbound-rule-cognitive-services.png" alt-text="Screenshot of user defined outbound rule for Azure cognitive services." lightbox = "./media/how-to-secure-prompt-flow/outbound-rule-cognitive-services.png":::
 
+    :::image type="content" source="./media/how-to-secure-prompt-flow/outbound_pe_approve.png" alt-text="Screenshot of user approve private endpoint." lightbox = "./media/how-to-secure-prompt-flow/outbound_pe_approve.png":::
+
 3. If you are restricting outbound traffic to only allow specific destinations, you must add a corresponding user-defined outbound rule to allow the relevant FQDN.
 
     :::image type="content" source="./media/how-to-secure-prompt-flow/outbound-rule-non-azure-resources.png" alt-text="Screenshot of user defined outbound rule for non Azure resource." lightbox = "./media/how-to-secure-prompt-flow/outbound-rule-non-azure-resources.png":::
+
 
 ## Secure prompt flow use your own VNet
 
