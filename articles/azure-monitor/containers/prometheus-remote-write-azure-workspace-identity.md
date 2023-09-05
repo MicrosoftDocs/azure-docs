@@ -9,12 +9,12 @@ ms.date: 09/04/2023
 ms.reviewer: rapadman
 ---
 
-# Configure remote write for Azure Monitor managed service for Prometheus using Microsoft Azure Active Directory workload identity.(preview) 
+# Configure remote write for Azure Monitor managed service for Prometheus using Microsoft Azure Active Directory workload identity (preview). 
 
 
-## Pre-requisites:
+## Prerequisites:
 1. The cluster must have OIDC-specific feature flags and an OIDC issuer URL: 
-    * For managed clusters (AKS/EKS/GKE) see [Managed Clusters - Azure AD Workload Identity](https://azure.github.io/azure-workload-identity/docs/installation/managed-clusters.html)
+    * For managed clusters (AKS/EKS/GKE), see [Managed Clusters - Azure AD Workload Identity](https://azure.github.io/azure-workload-identity/docs/installation/managed-clusters.html)
     * For self-managed clusters see [Self-Managed Clusters - Azure AD Workload Identity](https://azure.github.io/azure-workload-identity/docs/installation/self-managed-clusters.html) 
 1. Installed mutating admission webhook. For more information, see [Mutating Admission Webhook - Azure AD Workload Identity](https://azure.github.io/azure-workload-identity/docs/installation/mutating-admission-webhook.html)
 1. The cluster already has Prometheus running. This guide assumes that the Prometheus is set up using [kube-prometheus-stack](https://azure.github.io/azure-workload-identity/docs/installation/managed-clusters.html), however, you can set up Prometheus any other way.
@@ -37,23 +37,23 @@ ms.reviewer: rapadman
     export SERVICE_ACCOUNT_ISSUER="<your service account issuer url>"
     ```
     
-    For `SERVICE_ACCOUNT_NAME` , check if there a service account(apart from the "default" service account) already     associated with Prometheus pod, check for the value of `service accountName` or `service account` (deprecated)     in the `spec` of your Prometheus pod and use this value if it exists. If not, provide the name of the service     account you would like to associate with your Prometheus pod.
+    For `SERVICE_ACCOUNT_NAME`, check if there is a service account (apart from the "default" service account) already associated with Prometheus pod, check for the value of `service accountName` or `service account` (deprecated) in the `spec` of your Prometheus pod and use this value if it exists. If not, provide the name of the service account you would like to associate with your Prometheus pod.
 
-1. Create an AAD app or user assigned managed identity and grant permission to publish metrics to Azure Monitor workspace.
+1. Create an Azure Active Directory app or user assigned managed identity and grant permission to publish metrics to Azure Monitor workspace.
     ```azurecli
-    # create an AAD application
+    # create an Azure Active Directory application
     az ad sp create-for-rbac --name "${APPLICATION_NAME}"
 
     # create a user-assigned managed identity if using user-assigned managed identity for this tutorial
     az identity create --name "${USER_ASSIGNED_IDENTITY_NAME}" --resource-group "${RESOURCE_GROUP}"
     ```
 
-    Assign the **Monitoring Metrics Publisher* to the AAD app or user-assigned managed identity. For more information see [Assign Monitoring Metrics Publisher role on the data collection rule to the managed identity](prometheus-remote-write-managed-identity.md#assign-monitoring-metrics-publisher-role-on-the-data-collection-rule-to-the-managed-identity).
+    Assign the **Monitoring Metrics Publisher* to the Azure Active Directory app or user-assigned managed identity. For more information, see [Assign Monitoring Metrics Publisher role on the data collection rule to the managed identity](prometheus-remote-write-managed-identity.md#assign-monitoring-metrics-publisher-role-on-the-data-collection-rule-to-the-managed-identity).
 
 1. Create or Update your Kubernetes service account Prometheus pod
     Often there's a Kubernetes service account created and associated with the pod running the Prometheus container. If you are using kube-prometheus-stack, it automatically creates `prometheus-kube-prometheus-prometheus` service account.
 
-    If there is no Kubernetes service account associated with Prometheus besides the "default" service account, we suggest that you create a new service account specifically for Pod running Promethues. Create by running the following kubectl command:
+    If there is no Kubernetes service account associated with Prometheus besides the "default" service account, we suggest that you create a new service account specifically for Pod running Prometheus. Create by running the following kubectl command:
     ```bash
     cat <<EOF | kubectl apply -f -
     apiVersion: v1
@@ -66,13 +66,13 @@ ms.reviewer: rapadman
     EOF
     ```
 
-    If there is a Kubernetes service account other than "default" service account, already associated with your pod, add the following annotation to your service account:
+    If there is a Kubernetes service account other than "default" service account already associated with your pod, add the following annotation to your service account:
 
     ```bash
     kubectl annotate sa ${SERVICE_ACCOUNT_NAME} -n ${SERVICE_ACCOUNT_NAMESPACE} azure.workload.identity/client-id="${APPLICATION_OR_USER_ASSIGNED_IDENTITY_CLIENT_ID}" –overwrite
     ```
 
-    If your AAD app or user assigned managed identity is not in the same tenant as your cluster,add the following annotation to your service account:
+    If your Azure Active Directory app or user assigned managed identity isn't in the same tenant as your cluster,add the following annotation to your service account:
     ```bash
     kubectl annotate sa ${SERVICE_ACCOUNT_NAME} -n ${SERVICE_ACCOUNT_NAMESPACE} azure.workload.identity/tenant-id="${APPLICATION_OR_USER_ASSIGNED_IDENTITY_TENANT_ID}" –overwrite
     ```
@@ -93,7 +93,7 @@ ms.reviewer: rapadman
 
     * Azure AD
     ```CLI
-	# Get the ObjectID of the AAD app.
+	# Get the ObjectID of the Azure Active Directory app.
 
     export APPLICATION_OBJECT_ID="$(az ad app show --id ${APPLICATION_CLIENT_ID} --query id -otsv)"
 
@@ -123,7 +123,7 @@ ms.reviewer: rapadman
    >     *	`LISTENING_PORT` – `8081` (You can choose to change this port if would like).
    >     *	`IDENTITY_TYPE` – `workloadIdentity`.
 
-    Below is the example yaml if you are using kube-prometheus-stack:
+    Below is the example yaml if you're using kube-prometheus-stack:
 
 ```YAML
 prometheus:
@@ -157,7 +157,7 @@ prometheus:
     | Value | Description |
     |:---|:---|
     | `<CLUSTER-NAME>` | Name of your AKS cluster |
-    | `<CONTAINER-IMAGE-VERSION>` | `mcr.microsoft.com/azuremonitor/prometheus/promdev/prom-remotewrite:prom-remotewrite-20230505.1`<br>This is the remote write container image version. |
+    | `<CONTAINER-IMAGE-VERSION>` | `mcr.microsoft.com/azuremonitor/prometheus/promdev/prom-remotewrite:prom-remotewrite-20230505.1`<br>The remote write container image version. |
     | `<INGESTION-URL>` | **Metrics ingestion endpoint** from the **Overview** page for the Azure Monitor workspace |
     | `<APP-REGISTRATION -CLIENT-ID> ` | Client ID of your application |
     | `<TENANT-ID> ` | Tenant ID of the Azure Active Directory application |
