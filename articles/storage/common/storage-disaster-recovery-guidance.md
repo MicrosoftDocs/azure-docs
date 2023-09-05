@@ -34,7 +34,7 @@ Recovery of a single copy of a storage account occurs automatically with LRS and
 
 ### Globally-redundant storage and failover
 
-With globally-redundant storage (GRS and GZRS), your data is asynchronously copied to a secondary geographic region at least hundreds of miles away to allow you to recover your data in the event of an outage in the primary region. A feature that distinguishes globally-redundant storage from LRS and ZRS is the ability to fail over to the secondary region in the event of an outage in the primary region. The process of failing over updates the secondary storage service endpoints to become the new primary endpoints for your storage account. Once the failover is complete, clients can begin writing to the new primary endpoints.
+With globally-redundant storage (GRS and GZRS), your data is asynchronously copied to a secondary geographic region at least hundreds of miles away to allow you to recover your data in the event of an outage in the primary region. A feature that distinguishes globally-redundant storage from LRS and ZRS is the ability to fail over to the secondary region in the event of an outage in the primary region. The process of failing over updates the DNS entries for your storage account service endpoints such that the endpoints for the secondary region become the new primary endpoints for your storage account. Once the failover is complete, clients can begin writing to the new primary endpoints.
 
 For additional access to your data in the event of an outage, RA-GRS and RA-GZRS redundancy configurations provide geo-redundant storage with the additional benefit of read access to the secondary endpoint. If an outage occurs in the primary endpoint, applications configured for read access to the secondary region and designed for high availability can continue to read from the secondary endpoint. Microsoft recommends RA-GZRS for maximum availability and durability of your storage accounts.
 
@@ -78,11 +78,11 @@ All geo-redundant offerings support [Microsoft-managed failover](storage-failove
 
 Review the additional considerations described in this section to understand how your applications and services may be affected when you force a failover.
 
-### Storage accounts containing archived blobs
+#### Storage accounts containing archived blobs
 
 Storage accounts containing archived blobs support account failover. After failover is complete, all archived blobs need to be rehydrated to an online tier before the account can be configured for geo-redundancy.
 
-### Storage resource provider
+#### Storage resource provider
 
 Microsoft provides two REST APIs for working with Azure Storage resources. These APIs form the basis of all actions you can perform against Azure Storage. The Azure Storage REST API enables you to work with data in your storage account, including blob, queue, file, and table data. The Azure Storage resource provider REST API enables you to manage the storage account and related resources.
 
@@ -90,11 +90,11 @@ After a failover is complete, clients can again read and write Azure Storage dat
 
 Because the Azure Storage resource provider does not fail over, the [Location](/dotnet/api/microsoft.azure.management.storage.models.trackedresource.location) property will return the original primary location after the failover is complete.
 
-### Azure virtual machines
+#### Azure virtual machines
 
 Azure virtual machines (VMs) do not fail over as part of an account failover. If the primary region becomes unavailable, and you fail over to the secondary region, then you will need to recreate any VMs after the failover. Also, there is a potential data loss associated with the account failover. Microsoft recommends the following [high availability](../../virtual-machines/availability.md) and [disaster recovery](../../virtual-machines/backup-recovery.md) guidance specific to virtual machines in Azure.
 
-### Azure unmanaged disks
+#### Azure unmanaged disks
 
 As a best practice, Microsoft recommends converting unmanaged disks to managed disks. However, if you need to fail over an account that contains unmanaged disks attached to Azure VMs, you will need to shut down the VM before initiating the failover.
 
