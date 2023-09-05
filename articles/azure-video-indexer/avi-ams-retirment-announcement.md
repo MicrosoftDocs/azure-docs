@@ -70,7 +70,7 @@ There will be breaking API changes. The following table describes the changes fo
 | **Type** | **API Name** |  **Change** |
 |---|---|---|
 | **ARM** | Create<br/>Update<br/>Patch<br/>ListAccount | 1. The `mediaServices` Account property will be replaced with a `storageServices` Account property.<br/> 2. The `Identity` property will change from an `Owner` managed identity to `Storage Blob Data Contributor` permissions on the storage resource. |
-| **ARM** | Get<br/>MoveAccount | ? |  |
+| **ARM** | Get<br/>MoveAccount | ? |
 | **ARM** | GetClassicAccount<br/>ListClassicAccounts |  API will no longer be supported. |
 | **Classic** | CreatePaidAccountManually | API will no longer be supported. |
 | **Classic** | UpdateAccountMediaServicesAsync |  API will no longer be supported. |
@@ -94,4 +94,4 @@ As of July 1, 2024, AVI won’t use AMS for encoding or streaming. As a result, 
 
 This graphic shows the timeline for the changes.
 
-:::image type="content" source="media/avi-ams-retirement-announcement/avi-changes-timeline.svg" lightbox="media/avi-ams-retirement-announcement/avi-changes-timeline.svg" alt-text="AVI changes timeline":::
+:::image type="content" source="media/avi-ams-retirement-accouncement/avi-changes-timeline.svg" lightbox="media/avi-ams-retirement-announcement/avi-changes-timeline.svg" alt-text="AVI changes timeline":::
