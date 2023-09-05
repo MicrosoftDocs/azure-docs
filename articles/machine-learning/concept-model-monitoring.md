@@ -36,8 +36,8 @@ Azure Machine Learning provides the following capabilities for continuous model 
 * **Flexibility to define your monitoring signal**. If the built-in monitoring signals aren't suitable for your business scenario, you can define your own monitoring signal with a custom monitoring signal component.
 * **Flexibility to use production inference data from any source**. If you deploy models outside of Azure Machine Learning, or if you deploy models to Azure Machine Learning batch endpoints, you can collect production inference data and use that data in Azure Machine Learning for model monitoring.
 * **Flexibility to select data window**. You have the flexibility to select a data window for both the production data and the reference data.
-    * By default, the data window for production data is your monitoring frequency. That is, all data collected in the past monitoring period before the monitoring job is run will be used as the production data. You can use `data_window_size` to adjust the data window for the production data if needed.
-    * By default, the data window for the reference data is the full dataset. You can adjust the data window by using either the date range or the `trailing_days` parameter.
+    * By default, the data window for production data is your monitoring frequency. That is, all data collected in the past monitoring period before the monitoring job is run will be analyzed. You can use `production_data.data_window_size` property to adjust the data window for the production data if needed.
+    * By default, the data window for the reference data is the full dataset. You can adjust the reference data window with `reference_data.data_window` property, both rolling data window and fixed data window are supported. 
 
 ## Monitoring signals and metrics
 
