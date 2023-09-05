@@ -4,6 +4,8 @@ description: Lists Azure Policy built-in policy definitions for Azure App Servic
 ms.date: 08/30/2023
 ms.topic: reference
 ms.custom: subject-policy-reference
+author: cephalin
+ms.author: cephalin
 ---
 # Azure Policy built-in definitions for Azure App Service
 
