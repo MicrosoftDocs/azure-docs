@@ -37,8 +37,8 @@ Learn more:
 
 * [Token cache serialization](https://github.com/AzureAD/microsoft-identity-web/wiki/token-cache-serialization)
 * [Token cache serialization in MSAL.NET](../develop/msal-net-token-cache-serialization.md)
-* [Custom token cache serialization in MSAL for Java](../develop/msal-java-token-cache-serialization.md)
-* [Custom token cache serialization in MSAL for Python](../develop/msal-python-token-cache-serialization.md).
+* [Custom token cache serialization in MSAL for Java](/entra/msal/java/advanced/msal-java-token-cache-serialization)
+* [Custom token cache serialization in MSAL for Python](/entra/msal/python/advanced/msal-python-token-cache-serialization).
 
    ![Diagram of a device and and application using MSAL to call Microsoft Identity](media/resilience-client-app/resilience-with-microsoft-authentication-library.png)
 

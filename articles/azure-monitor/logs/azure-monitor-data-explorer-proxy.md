@@ -80,7 +80,7 @@ Kusto Explorer automatically signs you in to the tenant to which the user accoun
 
 `Data Source=https://ade.applicationinsights.io/subscriptions/SubscriptionId/resourcegroups/ResourceGroupName;Initial Catalog=NetDefaultDB;AAD Federated Security=True;Authority ID=TenantId`
 
-## Query data in Azure Resource Graph 
+## Query data in Azure Resource Graph (Preview)
 
 Enter the `arg("")` pattern, followed by the Azure Resource Graph table name.
 
