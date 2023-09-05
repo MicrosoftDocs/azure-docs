@@ -189,9 +189,7 @@ create_args = {
     "training_file": training_id,
     "validation_file": validation_id,
     "model": "curie",
-    "hyperparams": {
-    "n_epochs": 1
-    },
+    "n_epochs": 1,
     "compute_classification_metrics": True,
     "classification_n_classes": 3
 }
