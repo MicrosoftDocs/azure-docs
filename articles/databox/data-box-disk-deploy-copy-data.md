@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 09/01/2023
+ms.date: 09/04/2023
 ms.author: alkohli
 
 # Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
@@ -240,13 +240,11 @@ The Data Box Split Copy tool helps split and copy the data on a Windows computer
 
    :::image type="content" source="media/data-box-disk-deploy-copy-data/split-copy-6-sml.png" alt-text="Split copy data 6" lightbox="media/data-box-disk-deploy-copy-data/split-copy-6.png":::
 
-1. Open a Command Prompt window and run the `DataBoxDiskSplitCopy.exe` using the following command.
+1. Open a Command Prompt window with elevated privilegs and run the `DataBoxDiskSplitCopy.exe` using the following command.
 
    ```Command prompt
    DataBoxDiskSplitCopy.exe PrepImport /config:ConfigFile.json
    ```
-
-   :::image type="content" source="media/data-box-disk-deploy-copy-data/split-copy-7-sml.png" alt-text="Split copy data 7" lightbox="media/data-box-disk-deploy-copy-data/split-copy-7.png":::
 
 1. When prompted, press any key to continue running the tool.
 
