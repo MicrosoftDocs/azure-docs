@@ -7,9 +7,9 @@ ms.author: inhenkel
 author: IngridAtMicrosoft
 ---
 
-# Azure AI Video Indexer (AVI) changes related to Azure Media Service (AMS) retirement
+# Changes related to Azure Media Service (AMS) retirement
 
-This article explains the upcoming changes to Azure AI Video Indexer (AVI) that are the rault of the [retirement of Azure Media Services (AMS)](/azure/media-services/latest/azure-media-services-retirement).
+This article explains the upcoming changes to Azure AI Video Indexer (AVI) resulting from the [retirement of Azure Media Services (AMS)](/azure/media-services/latest/azure-media-services-retirement).
 
 Currently, AVI requires the creation of an AMS account. Additionally, AVI uses AMS for video encoding and streaming operations. The required changes will affect all AVI customers.
 
@@ -66,7 +66,7 @@ Updated AVI account owners will only use the updated APIs that will exclude all 
 There will be breaking API changes. The following table gives you some of the details, so you can be aware of what is coming, but actionable guidance will be provided in January. 
 
 | **Type** | **API Name** |  **Change** |
-|--|--|--|
+|---|---|---|
 | **ARM** | Create \ Update \ Patch \ ListAccount | 1. The `mediaServices` Account property will be replaced with the `storageServices` account property.<br/> 2. The `Identity` property will change from the `Owner` managed identity to `Storage Blob Data Contributor` permissions on the storage resource |
 | **ARM** | Get \ MoveAccount | ? |  |  |
 | **ARM** | GetClassicAccount \ ListClassicAccounts |  API no longer be supported. |
@@ -86,7 +86,7 @@ As of July 1, 2024, AVI won’t use AMS for encoding or streaming. As a result, 
 - Encoding with adaptive bitrate will no longer be supported. Only single bitrate will be supported for new indexing jobs. Videos already encoded with adaptive bitrate will be playable in the AVI player.
 - Video Indexer [dynamic encryption](/azure/media-services/latest/drm-content-protection-concept) of media files will no longer be supported.
 - Media files created by AVI Updated accounts won’t be playable by the [Azure Media Player](https://azure.microsoft.com/products/media-services/media-player).
-- Using a Cognitive Insights widget and playing the content with the Azure Media Player outlined [here](video-indexer-embed-widgets#embed-the-cognitive-insights-widget-and-use-azure-media-player-to-play-the-content.md) will no longer be supported.
+- Using a Cognitive Insights widget and playing the content with the Azure Media Player outlined [here](video-indexer-embed-widgets.md) will no longer be supported.
 
 <!--
 ![](media/2fddb69db60e0fdc2baefec916484757.png)
