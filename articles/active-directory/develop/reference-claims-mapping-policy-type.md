@@ -257,13 +257,10 @@ Restricted Claim type (URI):
 - `http://schemas.microsoft.com/ws/2008/06/identity/claims/groups`
 - `http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid`
 - `http://schemas.microsoft.com/ws/2008/06/identity/claims/ispersistent`
-- `http://schemas.microsoft.com/ws/2008/06/identity/claims/primarygroupsid`
-- `http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid`
 - `http://schemas.microsoft.com/ws/2008/06/identity/claims/role`
 - `http://schemas.microsoft.com/ws/2008/06/identity/claims/role`
 - `http://schemas.microsoft.com/ws/2008/06/identity/claims/samlissuername`
 - `http://schemas.microsoft.com/ws/2008/06/identity/claims/wids`
-- `http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname`
 - `http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsdeviceclaim`
 - `http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsdevicegroup`
 - `http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsfqbnversion`
@@ -272,14 +269,9 @@ Restricted Claim type (URI):
 - `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/authentication`
 - `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/authorizationdecision`
 - `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/denyonlysid`
-- `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
-- `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`
-- `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`
 - `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/privatepersonalidentifier`
-- `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/sid`
 - `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/spn`
 - `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn`
-- `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/x500distinguishedname`
 - `http://schemas.xmlsoap.org/ws/2009/09/identity/claims/actor`
 
 

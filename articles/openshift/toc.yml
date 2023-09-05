@@ -38,6 +38,8 @@
           href: howto-segregate-machinesets.md
         - name: Manually update cluster certificates
           href: howto-update-certificates.md
+        - name: Use Admin Kubeconfig
+          href: howto-kubeconfig.md
     - name: Networking 
       items:
         - name: Create a private Azure Red Hat OpenShift cluster
