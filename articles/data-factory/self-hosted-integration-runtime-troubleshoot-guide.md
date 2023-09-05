@@ -705,7 +705,7 @@ For Azure Data Factory v1 customers:
     > [!NOTE] 
     > Proxy considerations:
     > * Check to see whether the proxy server needs to be put on the Safe Recipients list. If so, make sure [these domains](./data-movement-security-considerations.md#firewall-requirements-for-on-premisesprivate-network) are on the Safe Recipients list.
-    > * Check to see whether SSL/TLS certificate "wu2.frontend.clouddatahub.net/" is trusted on the proxy server.
+    > * Check to see whether SSL/TLS certificate `wu2.frontend.clouddatahub.net/` is trusted on the proxy server.
     > * If you're using Active Directory authentication on the proxy, change the service account to the user account that can access the proxy as "Integration Runtime Service."
 
 ### Error message: Self-hosted integration runtime node/logical self-hosted IR is in Inactive/ "Running (Limited)" state
