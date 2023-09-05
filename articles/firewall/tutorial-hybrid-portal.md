@@ -6,7 +6,7 @@ author: vhorne
 ms.service: firewall
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 04/29/2021
+ms.date: 08/31/2023
 ms.author: victorh
 #Customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
 ---
@@ -24,19 +24,6 @@ For this article, you create three virtual networks:
 - **VNet-Onprem** - The on-premises virtual network represents an on-premises network. In an actual deployment, it can be connected by either a VPN or ExpressRoute connection. For simplicity, this procedure uses a VPN gateway connection, and an Azure-located virtual network is used to represent an on-premises network.
 
 ![Firewall in a hybrid network](media/tutorial-hybrid-ps/hybrid-network-firewall.png)
-
-In this article, you learn how to:
-
-> [!div class="checklist"]
-> * Create the firewall hub virtual network
-> * Create the spoke virtual network
-> * Create the on-premises virtual network
-> * Configure and deploy the firewall
-> * Create and connect the VPN gateways
-> * Peer the hub and spoke virtual networks
-> * Create the routes
-> * Create the virtual machines
-> * Test the firewall
 
 If you want to use Azure PowerShell instead to complete this procedure, see [Deploy and configure Azure Firewall in a hybrid network using Azure PowerShell](tutorial-hybrid-ps.md).
 
@@ -72,9 +59,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 First, create the resource group to contain the resources:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the Azure portal home page, select **Resource groups** > **Add**.
+2. On the Azure portal home page, select **Resource groups** > **Create**.
 3. For **Subscription**, select your subscription.
-1. For **Resource group name**, type **FW-Hybrid-Test**.
+1. For **Resource group**, type **RG-fw-hybrid-test**.
 2. For **Region**, select **(US) East US**. All resources that you create later must be in the same location.
 3. Select **Review + Create**.
 4. Select **Create**.
@@ -87,7 +74,7 @@ Now, create the VNet:
 1. From the Azure portal home page, select **Create a resource**.
 2. Under **Networking**, select **Virtual network**.
 1. Select **Create**.
-1. For **Resource group**, select **FW-Hybrid-Test**.
+1. For **Resource group**, select **RG-fw-hybrid-test**.
 1. For **Name**, type **VNet-hub**.
 1. Select **Next: IP Addresses**.
 1. For **IPv4 Address space**, delete the default address and type **10.5.0.0/16**.
@@ -102,7 +89,7 @@ Now, create the VNet:
 
 1. From the Azure portal home page, select **Create a resource**.
 2. In **Networking**, select **Virtual network**.
-7. For **Resource group**, select **FW-Hybrid-Test**.
+7. For **Resource group**, select **RG-fw-hybrid-test**.
 1. For **Name**, type **VNet-Spoke**.
 2. For **Region**, select **(US) East US**.
 3. Select **Next: IP Addresses**.
@@ -118,7 +105,7 @@ Now, create the VNet:
 
 1. From the Azure portal home page, select **Create a resource**.
 2. In **Networking**, select **Virtual network**.
-7. For **Resource group**, select **FW-Hybrid-Test**.
+7. For **Resource group**, select **RG-fw-hybrid-test**.
 1. For **Name**, type **VNet-OnPrem**.
 2. For **Region**, select **(US) East US**.
 3. Select **Next : IP Addresses**
@@ -149,7 +136,7 @@ Now deploy the firewall into the firewall hub virtual network.
    |Setting  |Value  |
    |---------|---------|
    |Subscription     |\<your subscription\>|
-   |Resource group     |**FW-Hybrid-Test** |
+   |Resource group     |**RG-fw-hybrid-test** |
    |Name     |**AzFW01**|
    |Region     |**East US**|
    |Firewall management|**Use Firewall rules (classic) to manage this firewall**|
@@ -160,7 +147,7 @@ Now deploy the firewall into the firewall hub virtual network.
 6. Review the summary, and then select **Create** to create the firewall.
 
    This takes a few minutes to deploy.
-7. After deployment completes, go to the **FW-Hybrid-Test** resource group, and select the **AzFW01** firewall.
+7. After deployment completes, go to the **RG-fw-hybrid-test** resource group, and select the **AzFW01** firewall.
 8. Note the private IP address. You'll use it later when you create the default route.
 
 ### Configure network rules
@@ -238,7 +225,7 @@ Now you can create the VPN connections between the hub and on-premises gateways.
 
 In this step, you create the connection from the hub virtual network to the on-premises virtual network. You'll see a shared key referenced in the examples. You can use your own values for the shared key. The important thing is that the shared key must match for both connections. Creating a connection can take a short while to complete.
 
-1. Open the **FW-Hybrid-Test** resource group and select the **GW-hub** gateway.
+1. Open the **RG-fw-hybrid-test** resource group and select the **GW-hub** gateway.
 2. Select **Connections** in the left column.
 3. Select **Add**.
 4. For the connection name, type **Hub-to-Onprem**.
@@ -249,7 +236,7 @@ In this step, you create the connection from the hub virtual network to the on-p
 
 Create the on-premises to hub virtual network connection. This step is similar to the previous one, except you create the connection from VNet-Onprem to VNet-hub. Make sure the shared keys match. The connection will be established after a few minutes.
 
-1. Open the **FW-Hybrid-Test** resource group and select the **GW-Onprem** gateway.
+1. Open the **RG-fw-hybrid-test** resource group and select the **GW-Onprem** gateway.
 2. Select **Connections** in the left column.
 3. Select **Add**.
 4. For the connection name, type **Onprem-to-Hub**.
@@ -269,7 +256,7 @@ After about five minutes or so, the status of both connections should be **Conne
 
 Now peer the hub and spoke virtual networks.
 
-1. Open the **FW-Hybrid-Test** resource group and select the **VNet-hub** virtual network.
+1. Open the **RG-fw-hybrid-test** resource group and select the **VNet-hub** virtual network.
 2. In the left column, select **Peerings**.
 3. Select **Add**.
 4. Under **This virtual network**:
@@ -309,7 +296,7 @@ Next, create a couple routes:
 2. In the search text box, type **route table** and press **Enter**.
 3. Select **Route table**.
 4. Select **Create**.
-6. Select the **FW-Hybrid-Test** for the resource group.
+6. Select the **RG-fw-hybrid-test** for the resource group.
 8. For **Region**, select the same location that you used previously.
 1. For the name, type **UDR-Hub-Spoke**.
 9. Select **Review + Create**.
@@ -337,7 +324,7 @@ Now create the default route from the spoke subnet.
 2. In the search text box, type **route table** and press **Enter**.
 3. Select **Route table**.
 5. Select **Create**.
-7. Select the **FW-Hybrid-Test** for the resource group.
+7. Select the **RG-fw-hybrid-test** for the resource group.
 8. For **Region**, select the same location that you used previously.
 1. For the name, type **UDR-DG**.
 4. For **Propagate gateway route**, select **No**.
@@ -371,7 +358,7 @@ Create a virtual machine in the spoke virtual network, running IIS, with no publ
 1. From the Azure portal home page, select **Create a resource**.
 2. Under **Popular**, select **Windows Server 2016 Datacenter**.
 3. Enter these values for the virtual machine:
-    - **Resource group** - Select **FW-Hybrid-Test**.
+    - **Resource group** - Select **RG-fw-hybrid-test**.
     - **Virtual machine name**: *VM-Spoke-01*.
     - **Region** - Same region that you're used previously.
     - **User name**: \<type a user name\>.
@@ -392,7 +379,7 @@ Create a virtual machine in the spoke virtual network, running IIS, with no publ
 
    ```azurepowershell-interactive
    Set-AzVMExtension `
-           -ResourceGroupName FW-Hybrid-Test `
+           -ResourceGroupName RG-fw-hybrid-test `
            -ExtensionName IIS `
            -VMName VM-Spoke-01 `
            -Publisher Microsoft.Compute `
@@ -409,7 +396,7 @@ This is a virtual machine that you use to connect using Remote Desktop to the pu
 1. From the Azure portal home page, select **Create a resource**.
 2. Under **Popular**, select **Windows Server 2016 Datacenter**.
 3. Enter these values for the virtual machine:
-    - **Resource group** - Select existing, and then select **FW-Hybrid-Test**.
+    - **Resource group** - Select existing, and then select **RG-fw-hybrid-test**.
     - **Virtual machine name** - *VM-Onprem*.
     - **Region** - Same region that you're used previously.
     - **User name**: \<type a user name\>.
@@ -459,7 +446,7 @@ Close any existing remote desktops before testing the changed rules. Now run the
 
 ## Clean up resources
 
-You can keep your firewall resources for further testing, or if no longer needed, delete the **FW-Hybrid-Test** resource group to delete all firewall-related resources.
+You can keep your firewall resources for further testing, or if no longer needed, delete the **RG-fw-hybrid-test** resource group to delete all firewall-related resources.
 
 ## Next steps
 
