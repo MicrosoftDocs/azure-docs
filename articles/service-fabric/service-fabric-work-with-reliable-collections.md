@@ -233,7 +233,7 @@ Alternatively, you can perform a multi-phase upgrade.
       in the V1 collection with the
       [IsolationLevel.Snapshot](/dotnet/api/microsoft.servicefabric.data.beta.ireliablestatemanager2.createtransaction)
       to avoid locking it for the entire duration of the copy process.
-    - For each key, use a separate transaction with the [IsolationLevel.ReadRepeatable](https://learn.microsoft.com/dotnet/api/microsoft.servicefabric.data.beta.isolationlevel) to 
+    - For each key, use a separate transaction with the [IsolationLevel.ReadRepeatable](/dotnet/api/microsoft.servicefabric.data.beta.isolationlevel) to 
         - [TryGetValueAsync](/dotnet/api/microsoft.servicefabric.data.collections.ireliabledictionary-2.trygetvalueasync)
           from the V1 collection.
         - If the value has already been removed from the V1 collection since the copy process started,
