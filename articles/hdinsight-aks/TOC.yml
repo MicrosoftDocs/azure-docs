@@ -30,6 +30,10 @@ items:
       items:
       - name: Required outbound traffic
         href: ./required-outbound-traffic.md
+  - name: VM Recommendations
+    href: ./vm-recommendation.md
+  - name: Capacity Planning
+    href : ./capacity-planning.md
   - name: Metrics and monitoring
     href: ./concept-azure-monitor-integration.md
   - name: Customize clusters
