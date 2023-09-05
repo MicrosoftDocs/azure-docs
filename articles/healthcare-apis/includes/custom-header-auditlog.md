@@ -14,7 +14,6 @@ In the Azure Fast Healthcare Interoperability Resources (FHIR) API, a user might
 For example, when the user of the API is authenticated by an external system, that system forwards the call to the FHIR API. At the FHIR API layer, the information about the original user has been lost, because the call was forwarded. It might be necessary to log and retain this user information for auditing or management purposes. The calling system can provide user identity, caller location, or other necessary information in the HTTP headers, which will be carried along as the call is forwarded.
 
 You can use custom headers to capture several types of information. For example:
-
 * Identity or authorization information
 * Origin of the caller
 * Originating organization
