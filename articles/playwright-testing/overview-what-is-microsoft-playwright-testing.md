@@ -48,6 +48,7 @@ After a test run completes, Playwright sends the test run metadata to the servic
 ## Limitations
 
 - Only hosted browsers on Linux and Windows are supported.
+- Supports all [browsers that are supported by Playwright](https://playwright.dev/docs/browsers).
 - During preview, the service supports up to a maximum of 50 parallel workers.
 - Only the Playwright runner and test code written in JavaScript or TypeScript are supported.
 
