@@ -14,9 +14,9 @@ For creating cluster pools, the currently available VM Options are F4s_v2, D4a_v
 ## Clusters
 HDInsight on AKS currently supports Virtual Machines (VMs) from the [Memory Optimized](https://learn.microsoft.com/azure/virtual-machines/sizes-memory) and [General Purpose](https://learn.microsoft.com/azure/virtual-machines/sizes-general) categories for cluster creation. Memory optimized VM sizes offer a high Memory-to-CPU ratio, which is great for relational database servers, medium to large caches, and in-memory analytics. General purpose VM sizes provide balanced Memory-to-CPU ratio and are ideal for testing and development, small to medium databases, and low to medium traffic web servers. 
 
-If your use case requires the usage of Memory Optimized VMs, the default recommendation is to use VMs from the families **Eadsv5** or **Easv5**. For use cases requiring the usage of General Purpose VMs, we recommend VMs from the families **Dadsv5** or **Ddsv5**. 
+If your use case requires the usage of Memory Optimized VMs, the default recommendation is to use VMs from the families `Eadsv5` or `Easv5`. For use cases requiring the usage of General Purpose VMs, we recommend VMs from the families `Dadsv5` or `Ddsv5`. 
 
-In case of insufficient capacity/quota on the above recommended VM Families, please look for alternatives in the below table which lists all the VM Families currently supported in HDInsight on AKS for cluster creation:
+In there is insufficient capacity/quota on the above recommended VM Families, please look for alternatives in the below table that lists all the VM Families currently supported in HDInsight on AKS for cluster creation:
 
 |	Type	|	VM Family	|	Temp Storage	|	Premium Storage Support	|
 |--|--|--|--|
@@ -33,5 +33,5 @@ In case of insufficient capacity/quota on the above recommended VM Families, ple
 |		|	[Dasv4](https://learn.microsoft.com/azure/virtual-machines/dav4-dasv4-series)	|	Yes	|	Yes	|
 |		|	[Dav4](https://learn.microsoft.com/azure/virtual-machines/dav4-dasv4-series)	|	Yes	|	No  	|
 
-The minimum VM specifications recommended (regardless of the chosen VM Family for the cluster) is 8vCPUs and 32GiB RAM. Higher vCPU and GiB variants may be chosen as per the workload being processed.
+The minimum VM specifications recommended (regardless of the chosen VM Family for the cluster) is 8vCPUs and 32 GiB RAM. Higher vCPU and GiB variants may be chosen as per the workload being processed.
 
