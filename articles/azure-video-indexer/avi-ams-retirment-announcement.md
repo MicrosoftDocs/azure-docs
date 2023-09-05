@@ -94,4 +94,4 @@ As of July 1, 2024, AVI won’t use AMS for encoding or streaming. As a result, 
 
 This graphic shows the timeline for the changes.
 
-:::image type="content" source="media/avi-ams-retirement-accouncement/avi-changes-timeline.svg" lightbox="media/avi-ams-retirement-announcement/avi-changes-timeline.svg" alt-text="AVI changes timeline":::
+:::image type="content" source="media/avi-ams-retirement-announcement/avi-changes-timeline.svg" lightbox="media/avi-ams-retirement-announcement/avi-changes-timeline.svg" alt-text="AVI changes timeline":::
