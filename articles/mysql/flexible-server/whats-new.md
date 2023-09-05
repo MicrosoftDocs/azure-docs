@@ -29,8 +29,7 @@ This article summarizes new releases and features in Azure Database for MySQL - 
 ## September 2023
 
 - **Universal Cross Region Read Replica on Azure Database for MySQL- Flexible Server (General Availability)**
-  Azure Database for MySQL - Flexible server now supports Universal Read Replicas. The feature allows you to replicate your data from an instance of Azure Database for MySQL Flexible Server to a read-only server in Universal region which could be any region from the list of Azure supported region where flexible server is available. [Learn more](concepts-read-replicas.md)
-
+Azure Database for MySQL - Flexible server now supports Universal Read Replicas in Public regions. The feature allows you to replicate your data from an instance of Azure Database for MySQL Flexible Server to a read-only server in Universal region which could be any region from the list of Azure supported region where flexible server is available. [Learn more](concepts-read-replicas.md)
 
 ## August 2023
   
@@ -618,5 +617,6 @@ If you have questions about or suggestions for working with Azure Database for M
 - Learn more about [Azure Database for MySQL pricing](https://azure.microsoft.com/pricing/details/mysql/server/).
 - Browse the [public documentation](index.yml) for Azure Database for MySQL – Flexible Server.
 - Review details on [troubleshooting common migration errors](../howto-troubleshoot-common-errors.md).
+
 
 
