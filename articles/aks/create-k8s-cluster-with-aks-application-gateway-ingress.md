@@ -111,7 +111,7 @@ The Kubernetes tools can be used to verify the newly created cluster.
 
     - The details of your worker nodes display with a status of **Ready**.
 
-    :::image type="content" source="media/create-k8s-cluster-with-aks-applicationgateway-ingress/kubectl-get-nodes.png" alt-text="Screenshot of kubectl showing the health of your Kubernetes cluster.":::
+    :::image type="content" source="media/create-k8s-cluster-with-aks-application-gateway-ingress/kubectl-get-nodes.png" alt-text="Screenshot of kubectl showing the health of your Kubernetes cluster.":::
 
 ## Install Azure AD Pod Identity
 
