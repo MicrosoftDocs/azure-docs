@@ -168,13 +168,15 @@ If you're using a system assigned managed identity for your custom domain suffix
 
 Only start this step once you've completed all premigration actions listed previously and understand the [implications of migration](migrate.md#migrate-to-app-service-environment-v3) including what happens during this time. This step takes three to six hours for v2 to v3 migrations and up to six hours for v1 to v3 migrations depending on environment size. During that time, there's about one hour of application downtime. Scaling, deployments, and modifications to your existing App Service Environment are blocked during this step.
 
-Only include the "body" parameter in the command if you're enabling zone redundancy and/or are configuring a custom domain suffix. If neither of those configurations apply to your migration, you can remove the parameter from the command.
+Be sure to include `--verbose` so that you receive output when the command runs. Only include the "body" parameter in the command if you're enabling zone redundancy and/or are configuring a custom domain suffix. If neither of those configurations apply to your migration, you can remove the parameter from the command.
 
 ```azurecli
-az rest --method post --uri "${ASE_ID}/migrate?api-version=2021-02-01&phase=fullmigration" --body @parameters.json
+az rest --method post --uri "${ASE_ID}/migrate?api-version=2021-02-01&phase=fullmigration" --verbose --body @parameters.json
 ```
 
-Note the "operationId" that's returned after running the previous command. You need this ID to check the status of your migration.
+Note the "operationId" that's returned after running the previous command. You need this ID to check the status of your migration. Including `--verbose` will result in the following output. The operation ID is highlighted in the screenshot.
+
+:::image type="content" source="./media/migration/operation-id.png" alt-text="Location of operation ID in migration command response.":::
 
 Run the following command to check the status of your migration. Replace the placeholder for operation ID with the ID you copied. For details on the statuses, see the [migration status descriptions](migrate.md#migrate-to-app-service-environment-v3).
 
