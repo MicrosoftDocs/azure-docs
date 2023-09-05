@@ -206,7 +206,7 @@ The [Azure Linux Agent](../extensions/agent-linux.md) `waagent` provisions a Lin
    The Azure Linux Agent is required for provisioning a Linux image on Azure.  Many distributions provide the agent as an RPM or .deb package (the package is typically called WALinuxAgent or walinuxagent).  The agent can also be installed manually by following the steps in the [Linux Agent Guide](../extensions/agent-linux.md).
    
    > [!NOTE]
-   > Make sure 'udf' and 'vfat' modules are enable. `Blocklisting` or removing the udf module will cause a provisioning failure.  `Blocklisting` or removing vfat module will cause both provisioning and boot failures.  **(_Cloud-init >= 21.2 removes the udf requirement. Please read top of document for more detail)**
+   > Make sure 'udf' and 'vfat' modules are enable. `Blacklisting` or removing the udf module will cause a provisioning failure.  `Blacklisting` or removing vfat module will cause both provisioning and boot failures.  **(_Cloud-init >= 21.2 removes the udf requirement. Please read top of document for more detail)**
 
    
    Install the Azure Linux Agent, cloud-init and other necessary utilities by running the following command:
