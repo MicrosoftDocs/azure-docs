@@ -374,7 +374,7 @@ If your pod doesn't start after running the `kubectl get pods --watch`  command 
 
 ## Next steps
 
-* Learn more about [Windows Server containers on AKS](/virtualization/windowscontainers/kubernetes-walkthrough-windows-server).
+* Learn more about [Windows Server containers on AKS](./windows-faq.md).
 
 <!-- LINKS - internal -->
 [aks-cni]: configure-azure-cni.md
