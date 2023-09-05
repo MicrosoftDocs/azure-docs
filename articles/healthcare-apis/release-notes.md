@@ -22,7 +22,7 @@ Azure Health Data Services is a set of managed API services based on open standa
 ## August 2023
 #### Azure Health Data Services
 
-#### MedTech service
+#### FHIR service
 **$convert-data documentation updates**
 
 Customers can now find detailed documentation on the $convert-data operation, allowing them to have an easier self-service experience. This includes an [overview](./fhir/overview-of-convert-data.md), how to [configure settings](./fhir/configure-settings-convert-data.md), a ready-made [pipeline template](./fhir/convert-data-with-azure-data-factory.md) in Azure Data Factory, [troubleshooting](./fhir/troubleshoot-convert-data.md) tips, and an [FAQ](./fhir/frequently-asked-questions-convert-data.md).
