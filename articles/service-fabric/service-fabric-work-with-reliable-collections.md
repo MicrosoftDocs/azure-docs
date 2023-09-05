@@ -224,7 +224,7 @@ Alternatively, you can perform a multi-phase upgrade.
     - registers custom V2 [state serializers](/azure/service-fabric/service-fabric-reliable-services-reliable-collections-serialization#custom-serialization), if needed;
     - performs all operations on the original, V1 collection using the V1 data contracts.
 2. Upgrade service to a new version that
-    - creates a new, V2 collection;
+    - [creates a new, V2 collection](/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.getoraddasync);
     - performs each add, update and delete operation on first V1 and then V2 collections in a single transaction;
     - performs read operations on the V1 collection only.
 3. Copy all data from the V1 collection to the V2 collection.
@@ -250,7 +250,7 @@ Alternatively, you can perform a multi-phase upgrade.
     - performs all operations on the V2 collection only;
     - going back to V1 is no longer possible with a service rollback and would require rolling forward with reversed steps 2-4.
 6. Upgrade service a new version that
-    - removes the V1 collection from the [StateManager](/dotnet/api/microsoft.servicefabric.services.runtime.statefulservice.statemanager).
+    - [removes the V1 collection](/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.removeasync).
 7. Wait for log truncation.
     - By default, this happens every 50MB of writes (adds, updates, and removes) to reliable collections.
 8. Upgrade service to a new version that
