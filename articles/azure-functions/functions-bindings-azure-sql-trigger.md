@@ -163,7 +163,7 @@ namespace AzureSQL.ToDo
 
 # [C# Script](#tab/csharp-script)
 
-More samples for the Azure SQL trigger are available in the [GitHub repository](https://github.com/Azure/azure-functions-sql-extension/tree/main/samples/samples-csharpscript).
+More samples for the Azure SQL trigger are available in the [GitHub repository](https://github.com/Azure/azure-functions-sql-extension/tree/main/samples/samples-csx).
 
 
 The example refers to a `ToDoItem` class and a corresponding database table:
