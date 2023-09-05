@@ -57,6 +57,9 @@ You can find the default environment variable names in this doc: [Integrate Azur
 
 ### [Service Connector](#tab/Service-Connector)
 
+> [!NOTE]
+> Service Connectors are created at the deployment level. So if another deployment is created, you need to create the connections again.
+
 1. Use the Azure CLI to configure your Spring app to connect to a Redis database with an access key using the `az spring connection create` command, as shown in the following example.
 
    ```azurecli

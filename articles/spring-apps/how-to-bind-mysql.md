@@ -59,6 +59,9 @@ You can find the default environment variable names in this doc: [Integrate Azur
 
 ### [Service Connector](#tab/Service-Connector)
 
+> [!NOTE]
+> Service Connectors are created at the deployment level. So if another deployment is created, you need to create the connections again.
+
 Follow these steps to configure your Spring app to connect to an Azure Database for MySQL Flexible Server with a system-assigned managed identity.
 
 1. Use the following command to install the Service Connector passwordless extension for the Azure CLI.

@@ -63,6 +63,9 @@ spring.datasource.url=jdbc:sqlserver://$AZ_DATABASE_NAME.database.windows.net:14
 
 #### [Service Connector](#tab/service-connector)
 
+> [!NOTE]
+> Service Connectors are created at the deployment level. So if another deployment is created, you need to create the connections again.
+
 Configure your app deployed to Azure Spring Apps to connect to an Azure SQL Database with a system-assigned managed identity using the `az spring connection create` command, as shown in the following example.
 
 1. Use the following command to install the Service Connector passwordless extension for the Azure CLI:

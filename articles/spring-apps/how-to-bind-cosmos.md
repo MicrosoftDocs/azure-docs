@@ -78,6 +78,9 @@ You can find the default environment variable names in following docs:
 
 ### [Service Connector](#tab/Service-Connector)
 
+> [!NOTE]
+> Service Connectors are created at the deployment level. So if another deployment is created, you need to create the connections again.
+
 #### Use the Azure CLI
 
 Use the Azure CLI to configure your Spring app to connect to a Cosmos NoSQL Database by using the `az spring connection create` command, as shown in the following example. Be sure to replace the variables in the example with actual values.
