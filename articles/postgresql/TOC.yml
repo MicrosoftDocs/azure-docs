@@ -134,8 +134,8 @@
       href: flexible-server/concepts-troubleshooting-guides.md
     - name: Reliability
       items:
-      - name: High Availability
-        href: ../reliability/reliability-postgre-flexible.md?toc=/azure/postgresql/toc.json&bc=/azure/bread/toc.json
+      - name: High Availability (Reliability)
+        href: ../reliability/reliability-postgresql-flexible-server.md?toc=/azure/postgresql/toc.json&&bc=/azure/postgresql/breadcrumb/toc.json
       - name: Business continuity overview
         href: flexible-server/concepts-business-continuity.md
       - name: Back up and restore
@@ -470,7 +470,7 @@
         href: single-server/concepts-connectivity-architecture.md
         displayName: security, architecture
       - name: Threat protection with Microsoft Defender for Cloud
-        href: ../security-center/defender-for-databases-usage.md?toc=/azure/postgresql/toc.json&bc=/azure/postgresql/breadcrumb/toc.json
+        href: ../defender-for-cloud/defender-for-databases-usage.md?toc=/azure/postgresql/toc.json&bc=/azure/postgresql/breadcrumb/toc.json
         displayName: security, advanced threat protection
       - name: Azure AD authentication
         href: single-server/concepts-azure-ad-authentication.md

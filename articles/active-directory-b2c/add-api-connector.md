@@ -248,7 +248,7 @@ See an example of a [validation-error response](#example-of-a-validation-error-r
 ## Before sending the token (preview)
 
 > [!IMPORTANT]
-> API connectors used in this step are in preview. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> API connectors used in this step are in preview. For more information about previews, see [Product Terms for Online Services](https://www.microsoft.com/licensing/terms/product/ForOnlineServices/all).
 
 An API connector at this step is invoked when a token is about to be issued during sign-ins and sign-ups. An API connector for this step can be used to enrich the token with claim values from external sources.
 

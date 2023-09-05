@@ -86,7 +86,7 @@ The `EnrichedOffice365AuditLogs` logs are associated with the enriched logs you 
 
 ### Microsoft Graph activity logs
 
-The `MicrosoftGraphActivityLogs` logs are associated with a feature that is still in preview. The logs are visible in Azure AD, but selecting these options won't add new logs to your workspace unless your organization was included in the preview.
+The `MicrosoftGraphActivityLogs` logs are associated with a feature that is still in private preview. The logs are visible in Azure AD, but selecting these options won't add new logs to your workspace unless your organization was included in the private preview.
 
 ### Network access traffic logs
 

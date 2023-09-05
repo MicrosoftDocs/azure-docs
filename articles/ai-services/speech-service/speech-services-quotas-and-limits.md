@@ -82,7 +82,7 @@ You can use real-time text to speech with the [Speech SDK](speech-sdk.md) or the
 
 #### Batch synthesis
 
-These limits aren't adjustable.
+These limits aren't adjustable. For more information on batch synthesis latency, refer to [the batch synthesis latency and best practices](batch-synthesis.md#batch-synthesis-latency-and-best-practices).
 
 | Quota | Free (F0) | Standard (S0) |
 |--|--|--|

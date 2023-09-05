@@ -73,7 +73,7 @@ To specify the Azure Storage account in JSON view, you need to use [REST API](/r
 
 Below steps walk through setting configurations for initial and incremental import mode. Choose the right import mode for your use case. 
 
-### Step 3.1: Set import configuration for Initial import mode.
+### Step 3a: Set import configuration for Initial import mode.
 Do following changes to JSON:
 1. Set enabled in importConfiguration to **true**.
 2. Update the integrationDataStore with target storage account name.
@@ -84,7 +84,7 @@ Do following changes to JSON:
 
 After you've completed this final step, you're ready to perform **Initial mode** import using $import.
 
-### Step 3.2: Set import configuration for Incremental import mode.
+### Step 3b: Set import configuration for Incremental import mode.
 
 Do following changes to JSON:
 1. Set enabled in importConfiguration to **true**.

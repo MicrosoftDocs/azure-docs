@@ -6,6 +6,8 @@ ms.topic: article
 ms.date: 02/25/2021
 ms.reviewer: dariac
 ms.custom: seodec18
+author: cephalin
+ms.author: cephalin
 
 ---
 # Sync content from a cloud folder to Azure App Service

@@ -5,13 +5,13 @@ description: Learn how to create a classic Point-to-Site VPN Gateway connection 
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 06/09/2023
+ms.date: 08/21/2023
 ms.author: cherylmc
 
 ---
 # Configure a Point-to-Site connection by using certificate authentication (classic)
 
-This article shows you how to create a VNet with a Point-to-Site connection using the classic (legacy) deployment model. This configuration uses certificates to authenticate the connecting client, either self-signed or CA issued. Unless you want to work in the classic deployment model specifically, we recommend that you use the [Resource Manager version of this article](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
+This article shows you how to create a VNet with a Point-to-Site connection using the classic (legacy) deployment model. This configuration uses certificates to authenticate the connecting client, either self-signed or CA issued. **Unless you want to work in the classic deployment model specifically, we recommend that you use the [Resource Manager version of this article](vpn-gateway-howto-point-to-site-resource-manager-portal.md)**.
 
 You use a Point-to-Site (P2S) VPN gateway to create a secure connection to your virtual network from an individual client computer. Point-to-Site VPN connections are useful when you want to connect to your VNet from a remote location. When you have only a few clients that need to connect to a VNet, a P2S VPN is a useful solution to use instead of a Site-to-Site VPN. A P2S VPN connection is established by starting it from the client computer.
 

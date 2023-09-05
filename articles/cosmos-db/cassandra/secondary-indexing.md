@@ -1,6 +1,6 @@
 ---
 title: Indexing in Azure Cosmos DB for Apache Cassandra account
-description: Learn how secondary indexing works in Azure Azure Cosmos DB for Apache Cassandra account.
+description: Learn how secondary indexing works in Azure Cosmos DB for Apache Cassandra account.
 author: TheovanKraay
 ms.service: cosmos-db
 ms.subservice: apache-cassandra

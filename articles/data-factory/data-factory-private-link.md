@@ -276,7 +276,7 @@ If you want to restrict access for Data Factory resources in your subscriptions 
 
 You're unable to access each PaaS resource when both sides are exposed to Private Link and a private endpoint. This issue is a known limitation of Private Link and private endpoints.
 
-For example, A is using a private link to access the portal of data factory A in virtual network A. When data factory A doesn't block public access, B can access the portal of data factory A in virtual network B via public. But when customer B creates a private endpoint against data factory B in virtual network B, then customer B can't access data factory A via public in virtual network B anymore.
+For example, customer A is using a private link to access the portal of data factory A in virtual network A. When data factory A doesn't block public access, customer B can access the portal of data factory A in virtual network B via public. But when customer B creates a private endpoint against data factory B in virtual network B, then customer B can't access data factory A via public in virtual network B anymore.
 
 ## Next steps
 

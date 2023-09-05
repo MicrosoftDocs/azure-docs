@@ -52,7 +52,7 @@ In this quickstart, you use the following APIs to extract structured data from f
 
 > [!div class="checklist"]
 >
-> * For this example, you'll need a **form document file at a URI**. You can use our [sample form document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf) for this quickstart.
+> * For this example, you'll need a **document file at a URI**. You can use our [sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf) for this quickstart.
 
 1. Replace `{endpoint}` with the endpoint that you obtained with your Document Intelligence subscription.
 1. Replace `{key}` with the key you copied from the previous step.

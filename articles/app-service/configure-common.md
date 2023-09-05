@@ -5,14 +5,22 @@ keywords: azure app service, web app, app settings, environment variables
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 04/21/2023
-ms.custom: devx-track-csharp, seodec18, devx-track-azurecli, devx-track-azurepowershell
+ms.custom: devx-track-csharp, seodec18, devx-track-azurecli, devx-track-azurepowershell, AppServiceConnectivity
 ms.devlang: azurecli
+author: cephalin
+ms.author: cephalin
 ---
 # Configure an App Service app
 
 This article explains how to configure common settings for web apps, mobile back end, or API app. For Azure Functions, see [App settings reference for Azure Functions](../azure-functions/functions-app-settings.md).
 
 ## Configure app settings
+
+> [!NOTE]
+> - App settings names can only contain letters, numbers (0-9), periods ("."), and underscores ("_")
+> - Special characters in the value of an App Setting must be escaped as needed by the target OS
+>
+> For example to set an environment variable in App Service Linux with the value `"pa$$w0rd\"` the string for the app setting should be: `"pa\$\$w0rd\\"`  
 
 In App Service, app settings are variables passed as environment variables to the application code. For Linux apps and custom containers, App Service passes app settings to the container using the `--env` flag to set the environment variable in the container. In either case, they're injected into your app environment at app startup. When you add, remove, or edit app settings, App Service triggers an app restart. 
 

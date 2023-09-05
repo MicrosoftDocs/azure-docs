@@ -4,7 +4,7 @@ description: An overview of Azure Container Storage Preview, a service built nat
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: overview
-ms.date: 08/02/2023
+ms.date: 08/14/2023
 ms.author: kendownie
 ms.custom: references_regions
 ---
@@ -18,11 +18,13 @@ ms.custom: references_regions
 
 Azure Container Storage is a cloud-based volume management, deployment, and orchestration service built natively for containers. It integrates with Kubernetes, allowing you to dynamically and automatically provision persistent volumes to store data for stateful applications running on Kubernetes clusters.
 
-To sign up for Azure Container Storage Preview, complete the [onboarding survey](https://aka.ms/AzureContainerStoragePreviewSignUp). To get started using Azure Container Storage, see [Install Azure Container Storage for use with AKS](container-storage-aks-quickstart.md) or watch the video.
+To get started using Azure Container Storage, see [Use Azure Container Storage Preview with Azure Kubernetes Service](container-storage-aks-quickstart.md) or watch the video.
+
+We'd like input on how you plan to use Azure Container Storage. Please complete this [short survey](https://aka.ms/AzureContainerStoragePreviewSignUp).
 
 :::row:::
     :::column:::
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/I_2nCQ1FKTU" title="Get started with Azure Container Storage" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        > [!VIDEO https://www.youtube.com/embed/I_2nCQ1FKTU]
     :::column-end:::
     :::column:::
         This video provides an introduction to Azure Container Storage, an end-to-end storage management and orchestration service for stateful applications. See how simple it is to create and manage volumes for production-scale stateful container applications. Learn how to optimize the performance of stateful workloads on Azure Kubernetes Service (AKS) to effectively scale across storage services while providing a cost-effective container-native experience.
