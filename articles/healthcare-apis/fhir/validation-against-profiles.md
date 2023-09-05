@@ -132,6 +132,7 @@ You can choose when you'd like to validate your resource, such as on resource `C
         }
 }
 ```
+To enable strict validation, use 'Prefer: handling' header with value strict. By setting this header, validation warning will be reported as an error. 
 
 ## Next steps
 
