@@ -665,9 +665,9 @@
     - name: Events
       tocHref: /azure/healthcare-apis/events/
       topicHref: /azure/healthcare-apis/events/index
-  - name: Azure API for FHIR
-    tocHref: /azure/healthcare-apis/azure-api-for-fhir/
-    topicHref: /azure/healthcare-apis/azure-api-for-fhir/index
+    - name: Azure API for FHIR
+      tocHref: /azure/healthcare-apis/azure-api-for-fhir/
+      topicHref: /azure/healthcare-apis/azure-api-for-fhir/index
   - name: Azure for Industry
     tocHref: /azure/industry
     topicHref: /azure/industry
