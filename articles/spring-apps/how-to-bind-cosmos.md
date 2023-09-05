@@ -63,14 +63,15 @@ Instead of manually configuring your Spring Boot applications, you can automatic
 
 ### [Polyglot](#tab/Polyglot)
 
-All the connection strings and credentials will be injected as the environment variables, which can be referenced in your application codes.
+All the connection strings and credentials are injected as environment variables, which you can reference in your application code.
 
-You can find the default environment variable names in following docs:
-- [Azure Cosmos DB for Table](../service-connector/how-to-integrate-cosmos-table.md?tabs=spring-apps#default-environment-variable-names-or-application-properties)
-- [Azure Cosmos DB for NoSQL](../service-connector/how-to-integrate-cosmos-sql.md?tabs=spring-apps#default-environment-variable-names-or-application-properties)
-- [Azure Cosmos DB for MongoDB](../service-connector/how-to-integrate-cosmos-db.md?tabs=spring-apps#default-environment-variable-names-or-application-properties)
-- [Azure Cosmos DB for Gremlin](../service-connector/how-to-integrate-cosmos-gremlin.md?tabs=spring-apps#default-environment-variable-names-or-application-properties)
-- [Azure Cosmos DB for Cassandra](../service-connector/how-to-integrate-cosmos-cassandra.md?tabs=spring-apps#default-environment-variable-names-or-application-properties)
+For the default environment variable names, see the following articles:
+
+* [Azure Cosmos DB for Table](../service-connector/how-to-integrate-cosmos-table.md?tabs=spring-apps#default-environment-variable-names-or-application-properties)
+* [Azure Cosmos DB for NoSQL](../service-connector/how-to-integrate-cosmos-sql.md?tabs=spring-apps#default-environment-variable-names-or-application-properties)
+* [Azure Cosmos DB for MongoDB](../service-connector/how-to-integrate-cosmos-db.md?tabs=spring-apps#default-environment-variable-names-or-application-properties)
+* [Azure Cosmos DB for Gremlin](../service-connector/how-to-integrate-cosmos-gremlin.md?tabs=spring-apps#default-environment-variable-names-or-application-properties)
+* [Azure Cosmos DB for Cassandra](../service-connector/how-to-integrate-cosmos-cassandra.md?tabs=spring-apps#default-environment-variable-names-or-application-properties)
 
 ---
 
@@ -79,7 +80,7 @@ You can find the default environment variable names in following docs:
 ### [Service Connector](#tab/Service-Connector)
 
 > [!NOTE]
-> Service Connectors are created at the deployment level. So if another deployment is created, you need to create the connections again.
+> Service Connectors are created at the deployment level. So, if another deployment is created, you need to create the connections again.
 
 #### Use the Azure CLI
 

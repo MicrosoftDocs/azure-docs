@@ -49,9 +49,9 @@ With Azure Spring Apps, you can connect selected Azure services to your applicat
 
 ### [Polyglot](#tab/Polyglot)
 
-All the connection strings and credentials will be injected as the environment variables, which can be referenced in your application codes.
+All the connection strings and credentials are injected as environment variables, which you can reference in your application code.
 
-You can find the default environment variable names in this doc: [Integrate Azure Database for MySQL with Service Connector](../service-connector/how-to-integrate-mysql.md#default-environment-variable-names-or-application-properties)
+For the default environment variable names, see [Integrate Azure Database for MySQL with Service Connector](../service-connector/how-to-integrate-mysql.md#default-environment-variable-names-or-application-properties).
 
 ---
 
@@ -60,7 +60,7 @@ You can find the default environment variable names in this doc: [Integrate Azur
 ### [Service Connector](#tab/Service-Connector)
 
 > [!NOTE]
-> Service Connectors are created at the deployment level. So if another deployment is created, you need to create the connections again.
+> Service Connectors are created at the deployment level. So, if another deployment is created, you need to create the connections again.
 
 Follow these steps to configure your Spring app to connect to an Azure Database for MySQL Flexible Server with a system-assigned managed identity.
 

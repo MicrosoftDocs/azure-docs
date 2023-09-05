@@ -47,9 +47,9 @@ If you don't have a deployed Azure Spring Apps instance, follow the steps in the
 
 ### [Polyglot](#tab/Polyglot)
 
-All the connection strings and credentials will be injected as the environment variables, which can be referenced in your application codes.
+All the connection strings and credentials are injected as environment variables, which you can reference in your application code.
 
-You can find the default environment variable names in this doc: [Integrate Azure Cache for Redis with Service Connector](../service-connector/how-to-integrate-redis-cache.md#default-environment-variable-names-or-application-properties)
+For the default environment variable names, see [Integrate Azure Cache for Redis with Service Connector](../service-connector/how-to-integrate-redis-cache.md#default-environment-variable-names-or-application-properties).
 
 ---
 
@@ -58,7 +58,7 @@ You can find the default environment variable names in this doc: [Integrate Azur
 ### [Service Connector](#tab/Service-Connector)
 
 > [!NOTE]
-> Service Connectors are created at the deployment level. So if another deployment is created, you need to create the connections again.
+> Service Connectors are created at the deployment level. So, if another deployment is created, you need to create the connections again.
 
 1. Use the Azure CLI to configure your Spring app to connect to a Redis database with an access key using the `az spring connection create` command, as shown in the following example.
 
