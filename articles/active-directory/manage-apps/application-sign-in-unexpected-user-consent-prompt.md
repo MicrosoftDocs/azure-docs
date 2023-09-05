@@ -19,7 +19,7 @@ ms.custom: enterprise-apps
 
 Many applications that integrate with Azure Active Directory require permissions to various resources in order to run. When these resources are also integrated with Azure Active Directory, the permission to access them is requested using the Azure AD consent framework. These requests result in a consent prompt being shown the first time an application is used, which is often a one-time operation.
 
-In certain scenarios, additional consent prompts can appear when a user attempts to sign-in. In this article, we'll diagnose the reason for the unexpected consent prompts showing, and how to troubleshoot.
+In certain scenarios, additional consent prompts can appear when a user attempts to sign-in. In this article, we diagnose the reason for the unexpected consent prompts showing, and how to troubleshoot.
 
 > [!VIDEO https://www.youtube.com/embed/a1AjdvNDda4]
 
@@ -31,7 +31,7 @@ Further prompts can be expected in various scenarios:
 
 - The set of permissions required by the application has changed by the developer and needs to be granted again.
 
-- The user who originally consented to the application wasn't an administrator, and now a different (non-admin) user is using the application for the first time.
+- The user who originally consented to the application wasn't an administrator, and now a different (nonadmin) user is using the application for the first time.
 
 - The user who originally consented to the application was an administrator, but they didn't consent on-behalf of the entire organization.
 
@@ -57,7 +57,7 @@ To ensure the permissions granted for the application are up-to-date, you can co
 1. Enter the name of the existing application in the search box, and then select the application from the search results.
 1. Under Security in the left-hand navigation, choose **Permissions**
 1. View the list of already granted permissions from the table on the Permissions page
-1. To view the requested permissions, select the **Grant admin consent** button. This will open a consent prompt listing all of the requested permissions. Don't select **Accept** on the consent prompt unless you're sure you want to grant tenant-wide admin consent.
+1. To view the requested permissions, select the **Grant admin consent** button. This opens a consent prompt listing all of the requested permissions. Don't select **Accept** on the consent prompt unless you're sure you want to grant tenant-wide admin consent.
 1. Within the consent prompt, expand the listed permissions and compare with the table on the permissions page. If any are present in the consent prompt but not the permissions page, that permission has yet to be consented to. Unconsented permissions may be the cause for unexpected consent prompts showing for the application.
 
 ### View user assignment settings
@@ -74,7 +74,7 @@ Determining whether an individual user can consent to an application can be conf
 
 1. Navigate to the **Enterprise applications** page of the Microsoft Entra admin center.
 1. Under **Security**, choose **Consent and permissions**.
-1. View the user consent settings. If set to **Do not allow user consent**, users will never be able to consent on behalf of themselves for an application.
+1. View the user consent settings. If set to **Do not allow user consent**, users are never able to consent on behalf of themselves for an application.
 
 ## Next steps
 
