@@ -23349,7 +23349,7 @@
         },
         {
             "source_path_from_root": "/articles/active-directory/develop/migrate-adal-msal-java.md",
-            "redirect_url": "/entra/msal/java/advanced/migrate-adal-msal-java",
+            "redirect_url": "/entra/msal/java/advanced/support-for-adfs",
             "redirect_document_id": false
         },
         {
