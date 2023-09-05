@@ -2,7 +2,7 @@
   href: compare-cosmosdb-managed-instance.md
 - name: RU-based
   items:
-  - name: Apache Cassandra documentation
+  - name: RU-based Apache Cassandra documentation
     href: index.yml
   - name: Overview
     items:
