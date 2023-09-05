@@ -497,4 +497,4 @@
           - name: Social media apps
             href: ../social-media-apps.md
 - name: Managed Instance for Apache Cassandra
-  href: ../../managed-instance-apache-cassandra/index.yaml
+  href: ../../managed-instance-apache-cassandra/index.yml
