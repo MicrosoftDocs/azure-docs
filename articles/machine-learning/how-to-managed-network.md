@@ -789,6 +789,73 @@ To enable the [serverless spark jobs](how-to-submit-spark-jobs.md) for the manag
 
     ---
 
+## Configure compute resources
+
+When using a managed network, compute resources managed by Azure Machine Learning can participate in the virtual network. Azure Machine Learning _compute clusters_, _compute instances_, and _managed online endpoints_ are created in the managed network. Use the tabs below to learn more information about creating compute cluster and compute instances in a managed network. For information on managed online endpoints, see [secure online endpoints with network isolation](how-to-secure-online-endpoints.md).
+
+# [Azure CLI](#tab/azure-cli)
+
+To create a __compute cluster__ with no public IP, use the following command:
+
+```azurecli
+az ml compute create --name cpu-cluster --resource-group rg --workspace-name ws --type AmlCompute --set enable_node_public_ip=False
+```
+
+To create a __compute instance__ with no public IP, use the following command:
+
+```azurecli
+az ml compute create --name myci --resource-group rg --workspace-name ws --type ComputeInstance --set enable_node_public_ip=False
+```
+
+# [Python SDK](#tab/python)
+
+The following Python SDK example shows how to create a compute cluster and compute instance with no public IP:
+
+```python
+from azure.ai.ml.entities import AmlCompute
+
+# Create a compute cluster
+compute_cluster = AmlCompute(
+    name="mycomputecluster,
+    size="STANDARD_D2_V2",
+    min_instances=0,
+    max_instances=4,
+    enable_node_public_ip=False
+)
+ml_client.begin_create_or_update(entity=compute_cluster)
+
+# Create a compute instance
+from azure.ai.ml.entities import ComputeInstance
+
+compute_instance = ComputeInstance(
+    name="mycomputeinstance",
+    size="STANDARD_DS3_V2",
+    enable_node_public_ip=False
+)
+ml_client.begin_create_or_update(compute_instance)
+```
+
+# [Studio](#tab/portal)
+
+You can't create a compute cluster or compute instance from the Azure portal. Instead, use the following steps to create these computes from Azure Machine Learning [studio](https://ml.azure.com):
+
+1. From [studio](https://ml.azure.com), select your workspace.
+1. Select the __Compute__ page from the left navigation bar.
+1. Select the __+ New__ from the navigation bar of _compute instance_ or _compute cluster_.
+1. Configure the VM size and configuration you need, then select __Next__ until you arrive at the following pages:
+
+    * For a __compute cluster__, use the __Advanced Settings__ page and select the __No Public IP__ option to remove the public IP address.
+
+        :::image type="content" source="./media/how-to-managed-network/compute-cluster-no-public-ip.png" alt-text="A screenshot of how to configure no public IP for compute cluster." lightbox="./media/how-to-managed-network/compute-cluster-no-public-ip.png":::
+
+    * For a __compute instance__, use the __Security__ page and select the __No Public IP__ option to remove the public IP address.
+
+        :::image type="content" source="./media/how-to-managed-network/compute-instance-no-public-ip.png" alt-text="A screenshot of how to configure no public IP for compute instance." lightbox="./media/how-to-managed-network/compute-instance-no-public-ip.png":::
+
+1. Continue with the creation of the compute resource.
+
+--- 
+
 ## Manage outbound rules
 
 # [Azure CLI](#tab/azure-cli)

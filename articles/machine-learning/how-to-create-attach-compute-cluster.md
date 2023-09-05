@@ -44,7 +44,7 @@ In this article, learn how to:
 
 Azure Machine Learning compute cluster is a managed-compute infrastructure that allows you to easily create a single or multi-node compute. The compute cluster is a resource that can be shared with other users in your workspace. The compute scales up automatically when a job is submitted, and can be put in an Azure Virtual Network. Compute cluster supports **no public IP** deployment as well in virtual network. The compute executes in a containerized environment and packages your model dependencies in a [Docker container](https://www.docker.com/why-docker).
 
-Compute clusters can run jobs securely in a [virtual network environment](how-to-secure-training-vnet.md), without requiring enterprises to open up SSH ports. The job executes in a containerized environment and packages your model dependencies in a Docker container. 
+Compute clusters can run jobs securely in either a [managed virtual network](how-to-secure-training-mvnet.md) [Azure virtual network](how-to-secure-training-vnet.md), without requiring enterprises to open up SSH ports. The job executes in a containerized environment and packages your model dependencies in a Docker container. 
 
 ## Limitations
 
@@ -143,7 +143,7 @@ Create a single- or multi- node compute cluster for your training, batch inferen
     |Maximum number of nodes | Maximum number of nodes that you want to provision. The compute will autoscale to a maximum of this node count when a job is submitted. |
     | Idle seconds before scale down | Idle time before scaling the cluster down to the minimum node count. |
     | Enable SSH access | Use the same instructions as [Enable SSH access](#enable-ssh-access) for a compute instance (above). |
-    |Advanced settings     |  Optional. Configure a virtual network. Specify the **Resource group**, **Virtual network**, and **Subnet** to create the compute instance inside an Azure Virtual Network (vnet). For more information, see these [network requirements](./how-to-secure-training-vnet.md) for vnet.   Also attach [managed identities](#set-up-managed-identity) to grant access to resources.
+    |Advanced settings     |  Optional. Configure network settings.<br><br> * If an *Azure Virtual Network*, Specify the **Resource group**, **Virtual network**, and **Subnet** to create the compute instance inside the network). For more information, see [network requirements](./how-to-secure-training-vnet.md).<br><br> * If an *Azure Machine Learning managed network*, the compute cluster is automatically in the managed network. For more information, see [managed network isolation](how-to-managed-network.md#configure-compute-resources).<br><br> * No public IP configures whether the compute cluster has a public IP address when in a network.<br><br> * Assign a [managed identitie](#set-up-managed-identity) grant access to resources.
 
 1. Select __Create__.
 
