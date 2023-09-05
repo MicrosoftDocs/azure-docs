@@ -26,6 +26,6 @@ During preview, Microsoft Azure HDInsight on AKS may have limited or restricted 
 
 ## Availability
 
-During preview, Microsoft Azure HDInsight on AKS may not be available in all geographic areas. For more information, see [Fabric region availability](../admin/region-availability.md)
+During public preview, HDInsight on AKS may not be available in all geographic areas. For more information, see [region availability](./overview.md#region-availability-public-preview)
 
 
