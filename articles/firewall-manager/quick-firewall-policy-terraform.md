@@ -2,7 +2,7 @@
 title: 'Quickstart: Create an Azure Firewall and a firewall policy - Terraform'
 description: In this quickstart, you deploy an Azure Firewall and a firewall policy using Terraform.
 services: firewall-manager
-author: chashea
+author: cshea15
 ms.author: chashea
 ms.date: 09/05/2023
 ms.topic: quickstart
@@ -55,9 +55,9 @@ Multiple Azure resources are defined in the Terraform code. The following resour
 
 1. Create a directory in which to test the sample Terraform code and make it the current directory.
 
-1. Create a file named `providers.tf` and insert the following code:
+1. Create a file named `provider.tf` and insert the following code:
 
-    :::code language="Terraform" source="~/terraform_samples/quickstart/101-azfw-with-fwpolicy/providers.tf":::
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-azfw-with-fwpolicy/provider.tf":::
 
 1. Create a file named `main.tf` and insert the following code:
 

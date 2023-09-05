@@ -2,7 +2,7 @@
 title: 'Quickstart: Secure virtual hub using Azure Firewall Manager - Terraform'
 description: In this quickstart, you learn how to secure your virtual hub using Azure Firewall Manager and Terraform.
 services: firewall-manager
-author: chashea
+author: cshea15
 ms.author: chashea
 ms.date: 09/05/2023
 ms.topic: quickstart
@@ -55,9 +55,9 @@ Multiple Azure resources are defined in the Terraform code. The following resour
 
 1. Create a directory in which to test the sample Terraform code and make it the current directory.
 
-1. Create a file named `providers.tf` and insert the following code:
+1. Create a file named `provider.tf` and insert the following code:
 
-    :::code language="Terraform" source="~/terraform_samples/quickstart/201-azfw-with-secure-hub/providers.tf":::
+    :::code language="Terraform" source="~/terraform_samples/quickstart/201-azfw-with-secure-hub/provider.tf":::
 
 1. Create a file named `main.tf` and insert the following code:
 
