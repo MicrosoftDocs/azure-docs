@@ -39,7 +39,7 @@ The following sections describe configuration in API portal.
 API portal supports authentication and authorization using single sign-on (SSO) with an OpenID identity provider (IdP) that supports the OpenID Connect Discovery protocol.
 
 > [!NOTE]
-> Only authorization servers supporting the OpenID Connect Discovery protocol are supported. Be sure to configure the external authorization server to allow redirects back to the gateway. Refer to your authorization server's documentation and add `https://<gateway-external-url>/login/oauth2/code/sso` to the list of allowed redirect URIs.
+> Only authorization servers supporting the OpenID Connect Discovery protocol are supported. Be sure to configure the external authorization server to allow redirects back to the API portal. Refer to your authorization server's documentation and add `https://<api-portal-external-url>/login/oauth2/code/sso` to the list of allowed redirect URIs.
 
 | Property | Required? | Description |
 | - | - | - |
@@ -52,9 +52,6 @@ To set up SSO with Azure AD, see [How to set up single sign-on with Azure AD for
 
 > [!NOTE]
 > If you configure the wrong SSO property, such as the wrong password, you should remove the entire SSO property and re-add the correct configuration.
-
-> [!IMPORTANT]
-> If you're using the SSO feature, only one instance count is supported.
 
 ### Configure the instance count
 
