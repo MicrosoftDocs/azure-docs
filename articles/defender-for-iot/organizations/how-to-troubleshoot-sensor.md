@@ -1,8 +1,9 @@
 ---
-title: Troubleshoot the sensor
-description: Troubleshoot your sensor to eliminate any problems you might be having.
+title: Troubleshoot the sensor | Microsoft Defender for IoT
+description: Learn how to troubleshoot your Microsoft Defender for IoT OT sensor.
 ms.date: 09/05/2023
 ms.topic: troubleshooting
+#CustomerIntent: As a Defender for IoT sensor admin, I want to know how to troubleshoot sensor issues so that I can get it back online quickly.
 ---
 # Troubleshoot the sensor
 
