@@ -356,262 +356,270 @@ The following tables provide coverage information for version 1 of the Azure Map
 The Azure Maps Routing v2 service (preview) contains different levels of geographic coverage for every country/region in the world. The following table contains details about coverage for:
 
 - Road Data / Routing (Driving and Walking)
-- Traffic
-- Truck Routing
+- Real-time traffic (Driving and Walking)
+- Truck Routing (commercial truck routes)
+- Real-time traffic - truck (commercial truck routes)
 
-| Country/Region                             | Road Data / Routing | Traffic | Truck Routing |
-|--------------------------------------------|---------------------|:-------:|:-------------:|
-| Afghanistan                                | Major Roads Only    |         |               |
-| Albania                                    | Good                |         | ✓             |
-| Algeria                                    | Good                |         |               |
-| American Samoa                             | Good                |         |               |
-| Andorra                                    | Good                | ✓       | ✓             |
-| Angola                                     | Good                |         |               |
-| Anguilla                                   | Good                |         |               |
-| Antarctica                                 | Major Roads Only    |         |               |
-| Antigua & Barbuda                          | Good                |         |               |
-| Argentina                                  | Good                | ✓       | ✓             |
-| Armenia                                    | Good                |         |               |
-| Aruba                                      | Good                |         |               |
-| Australia                                  | Good                | ✓       | ✓             |
-| Austria                                    | Good                | ✓       | ✓             |
-| Azerbaijan                                 | Good                |         |               |
-| Bahamas                                    | Good                |         |               |
-| Bahrain                                    | Good                | ✓       |               |
-| Bangladesh                                 | Major Roads Only    |         |               |
-| Barbados                                   | Good                |         |               |
-| Belarus                                    | Good                |         |               |
-| Belgium                                    | Good                | ✓       | ✓             |
-| Belize                                     | Good                |         |               |
-| Benin                                      | Fair                |         |               |
-| Bermuda                                    | Good                |         |               |
-| Bhutan                                     | Major Roads Only    |         |               |
-| Bolivia                                    | Good                |         |               |
-| Bonaire                                    | Good                |         |               |
-| Bosnia & Herzegovina                       | Good                |         | ✓             |
-| Botswana                                   | Good                |         |               |
-| Bouvet Island                              | Major Roads Only    |         |               |
-| Brazil                                     | Good                | ✓       | ✓             |
-| British Indian Ocean Territory             | Major Roads Only    |         |               |
-| British Virgin Islands                     | Good                |         |               |
-| Brunei                                     | Good                | ✓       |               |
-| Bulgaria                                   | Good                | ✓       | ✓             |
-| Burkina Faso                               | Fair                |         |               |
-| Burundi                                    | Good                |         |               |
-| Cape Verde                                 | Good                |         |               |
-| Cambodia                                   | Good                |         |               |
-| Cameroon                                   | Fair                |         |               |
-| Canada                                     | Good                | ✓       | ✓             |
-| Cayman Islands                             | Good                |         |               |
-| Central African Republic                   | Major Roads Only    |         |               |
-| Chad                                       | Major Roads Only    |         |               |
-| Chile                                      | Good                | ✓       |               |
-| China                                      | Good                | ✓       |               |
-| Christmas Island                           | Good                |         |               |
-| Cocos (Keeling) Islands                    | Major Roads Only    |         |               |
-| Colombia                                   | Good                | ✓       |               |
-| Comoros                                    | Major Roads Only    |         |               |
-| Congo                                      | Fair                |         |               |
-| Congo (DRC)                                | Fair                |         |               |
-| Cook Islands                               | Major Roads Only    |         |               |
-| Costa Rica                                 | Good                |         |               |
-| Côte d’Ivoire                              | Fair                |         |               |
-| Croatia                                    | Good                | ✓       | ✓             |
-| Cuba                                       | Good                |         |               |
-| Curaçao                                    | Good                |         |               |
-| Cyprus                                     | Good                |         | ✓             |
-| Czech Republic                             | Good                | ✓       | ✓             |
-| Denmark                                    | Good                | ✓       | ✓             |
-| Djibouti                                   | Major Roads Only    |         |               |
-| Dominica                                   | Good                |         |               |
-| Dominican Republic                         | Good                |         |               |
-| Ecuador                                    | Good                |         |               |
-| Egypt                                      | Good                | ✓       |               |
-| El Salvador                                | Good                |         |               |
-| Equatorial Guinea                          | Major Roads Only    |         |               |
-| Eritrea                                    | Major Roads Only    |         |               |
-| Estonia                                    | Good                | ✓       | ✓             |
-| Eswatini                                   | Good                |         |               |
-| Ethiopia                                   | Major Roads Only    |         |               |
-| Falkland Islands                           | Major Roads Only    |         |               |
-| Faroe Islands                              | Good                |         |               |
-| Fiji                                       | Good                |         |               |
-| Finland                                    | Good                | ✓       | ✓             |
-| France                                     | Good                | ✓       | ✓             |
-| French Guiana                              | Good                |         |               |
-| French Polynesia                           | Major Roads Only    |         |               |
-| French Southern Territories                | Major Roads Only    |         |               |
-| Gabon                                      | Fair                |         |               |
-| Gambia                                     | Fair                |         |               |
-| Georgia                                    | Good                |         |               |
-| Germany                                    | Good                | ✓       | ✓             |
-| Ghana                                      | Good                |         |               |
-| Gibraltar                                  | Good                | ✓       | ✓             |
-| Greece                                     | Good                | ✓       | ✓             |
-| Greenland                                  | Major Roads Only    |         |               |
-| Grenada                                    | Good                |         |               |
-| Guadeloupe                                 | Good                |         |               |
-| Guam                                       | Good                |         |               |
-| Guatemala                                  | Good                |         |               |
-| Guernsey                                   | Good                | ✓       |               |
-| Guinea                                     | Major Roads Only    |         |               |
-| Guinea-Bissau                              | Major Roads Only    |         |               |
-| Guyana                                     | Good                |         |               |
-| Haiti                                      | Good                |         |               |
-| Heard Island & McDonald Islands            | Major Roads Only    |         |               |
-| Honduras                                   | Good                |         |               |
-| Hong Kong SAR                              | Good                | ✓       |               |
-| Hungary                                    | Good                | ✓       | ✓             |
-| Iceland                                    | Good                | ✓       |               |
-| India                                      | Good                | ✓       |               |
-| Indonesia                                  | Good                | ✓       | ✓             |
-| Iran                                       | Major Roads Only    |         |               |
-| Iraq                                       | Good                |         |               |
-| Ireland                                    | Good                | ✓       | ✓             |
-| Isle of Man                                | Good                | ✓       |               |
-| Israel                                     | Good                | ✓       | ✓             |
-| Italy                                      | Good                | ✓       | ✓             |
-| Jamaica                                    | Good                |         |               |
-| Jan Mayen                                  | Good                |         |               |
-| Japan                                      | Good                | ✓       |               |
-| Jersey                                     | Good                | ✓       |               |
-| Jordan                                     | Good                |         |               |
-| Kazakhstan                                 | Good                |         |               |
-| Kenya                                      | Good                | ✓       |               |
-| Kiribati                                   | Major Roads Only    |         |               |
-| Korea                                      | Good                | ✓       |               |
-| Kosovo                                     | Good                |         |               |
-| Kuwait                                     | Good                | ✓       |               |
-| Kyrgyzstan                                 | Major Roads Only    |         |               |
-| Laos                                       | Good                |         |               |
-| Latvia                                     | Good                | ✓       | ✓             |
-| Lebanon                                    | Good                |         |               |
-| Lesotho                                    | Good                | ✓       |               |
-| Liberia                                    | Major Roads Only    |         |               |
-| Libya                                      | Major Roads Only    |         |               |
-| Liechtenstein                              | Good                | ✓       | ✓             |
-| Lithuania                                  | Good                | ✓       | ✓             |
-| Luxembourg                                 | Good                | ✓       | ✓             |
-| Macao SAR                                  | Good                |         |               |
-| Madagascar                                 | Major Roads Only    |         |               |
-| Malawi                                     | Good                |         |               |
-| Malaysia                                   | Good                | ✓       | ✓             |
-| Maldives                                   | Major Roads Only    |         |               |
-| Mali                                       | Fair                |         |               |
-| Malta                                      | Good                | ✓       | ✓             |
-| Marshall Islands                           | Major Roads Only    |         |               |
-| Martinique                                 | Good                |         |               |
-| Mauritania                                 | Fair                |         |               |
-| Mauritius                                  | Good                |         |               |
-| Mayotte                                    | Good                |         |               |
-| Mexico                                     | Good                | ✓       | ✓             |
-| Micronesia                                 | Major Roads Only    |         |               |
-| Moldova                                    | Good                |         |               |
-| Monaco                                     | Good                | ✓       | ✓             |
-| Mongolia                                   | Major Roads Only    |         |               |
-| Montenegro                                 | Good                |         | ✓             |
-| Montserrat                                 | Good                |         |               |
-| Morocco                                    | Good                | ✓       |               |
-| Mozambique                                 | Good                | ✓       |               |
-| Myanmar                                    | Good                |         |               |
-| Namibia                                    | Good                |         |               |
-| Nauru                                      | Major Roads Only    |         |               |
-| Nepal                                      | Major Roads Only    |         |               |
-| Netherlands                                | Good                | ✓       | ✓             |
-| New Caledonia                              | Major Roads Only    |         |               |
-| New Zealand                                | Good                | ✓       | ✓             |
-| Nicaragua                                  | Good                |         |               |
-| Niger                                      | Fair                |         |               |
-| Nigeria                                    | Good                | ✓       |               |
-| Niue                                       | Major Roads Only    |         |               |
-| Norfolk Island                             | Major Roads Only    |         |               |
-| North Korea                                | Major Roads Only    |         |               |
-| North Macedonia                            | Good                |         |               |
-| Northern Mariana Islands                   | Good                |         |               |
-| Norway                                     | Good                | ✓       | ✓             |
-| Oman                                       | Good                | ✓       |               |
-| Pakistan                                   | Major Roads Only    |         |               |
-| Palau                                      | Major Roads Only    |         |               |
-| Palestinian Authority                      | Major Roads Only    |         |               |
-| Panama                                     | Good                |         |               |
-| Papua New Guinea                           | Major Roads Only    |         |               |
-| Paraguay                                   | Good                |         |               |
-| Peru                                       | Good                | ✓       |               |
-| Philippines                                | Good                | ✓       | ✓             |
-| Pitcairn Islands                           | Major Roads Only    |         |               |
-| Poland                                     | Good                | ✓       | ✓             |
-| Portugal                                   | Good                | ✓       | ✓             |
-| Puerto Rico                                | Good                | ✓       |               |
-| Qatar                                      | Good                | ✓       |               |
-| Réunion                                    | Good                |         |               |
-| Romania                                    | Good                | ✓       | ✓             |
-| Russia                                     | Good                | ✓       | ✓             |
-| Rwanda                                     | Good                |         |               |
-| Saba                                       | Good                |         |               |
-| Saint Barthélemy                           | Good                |         |               |
-| Saint Kitts & Nevis                        | Good                |         |               |
-| Saint Lucia                                | Good                |         |               |
-| Saint Martin                               | Good                |         |               |
-| Saint Pierre & Miquelon                    | Good                |         |               |
-| Saint Vincent & the Grenadines             | Good                |         |               |
-| Samoa                                      | Major Roads Only    |         |               |
-| San Marino                                 | Good                | ✓       | ✓             |
-| São Tomé & Príncipe                        | Major Roads Only    |         |               |
-| Saudi Arabia                               | Good                | ✓       |               |
-| Senegal                                    | Good                |         |               |
-| Serbia                                     | Good                |         | ✓             |
-| Seychelles                                 | Good                |         |               |
-| Sierra Leone                               | Major Roads Only    |         |               |
-| Singapore                                  | Good                | ✓       | ✓             |
-| Sint Eustatius                             | Good                |         |               |
-| Sint Maarten                               | Good                |         |               |
-| Slovakia                                   | Good                | ✓       | ✓             |
-| Slovenia                                   | Good                | ✓       | ✓             |
-| Solomon Islands                            | Major Roads Only    |         |               |
-| Somalia                                    | Major Roads Only    |         |               |
-| South Africa                               | Good                | ✓       | ✓             |
-| South Georgia & the South Sandwich Islands | Major Roads Only    |         |               |
-| South Sudan                                | Major Roads Only    |         |               |
-| Spain                                      | Good                | ✓       | ✓             |
-| Sri Lanka                                  | Major Roads Only    |         |               |
-| St Helena, Ascension, Tristan da Cunha     | Major Roads Only    |         |               |
-| Sudan                                      | Major Roads Only    |         |               |
-| Suriname                                   | Good                |         |               |
-| Svalbard                                   | Good                |         |               |
-| Sweden                                     | Good                | ✓       | ✓             |
-| Switzerland                                | Good                | ✓       | ✓             |
-| Syria                                      | Major Roads Only    |         |               |
-| Taiwan                                     | Good                | ✓       | ✓             |
-| Tajikistan                                 | Major Roads Only    |         |               |
-| Tanzania                                   | Good                |         |               |
-| Thailand                                   | Good                | ✓       | ✓             |
-| Timor-Leste                                | Major Roads Only    |         |               |
-| Togo                                       | Fair                |         |               |
-| Tokelau                                    | Major Roads Only    |         |               |
-| Tonga                                      | Major Roads Only    |         |               |
-| Trinidad & Tobago                          | Good                |         |               |
-| Tunisia                                    | Good                |         |               |
-| Turkey                                     | Good                | ✓       | ✓             |
-| Turkmenistan                               | Major Roads Only    |         |               |
-| Turks & Caicos Islands                     | Good                |         |               |
-| Tuvalu                                     | Major Roads Only    |         |               |
-| U.S. Outlying Islands                      | Major Roads Only    |         |               |
-| U.S. Virgin Islands                        | Good                |         |               |
-| Uganda                                     | Good                |         |               |
-| Ukraine                                    | Good                | ✓       |               |
-| United Arab Emirates                       | Good                | ✓       |               |
-| United Kingdom                             | Good                | ✓       | ✓             |
-| United States                              | Good                | ✓       | ✓             |
-| Uruguay                                    | Good                | ✓       | ✓             |
-| Uzbekistan                                 | Major Roads Only    |         |               |
-| Vanuatu                                    | Major Roads Only    |         |               |
-| Vatican City                               | Good                | ✓       | ✓             |
-| Venezuela                                  | Good                |         |               |
-| Vietnam                                    | Good                | ✓       | ✓             |
-| Wallis & Futuna                            | Major Roads Only    |         |               |
-| Yemen                                      | Good                |         |               |
-| Zambia                                     | Good                |         |               |
-| Zimbabwe                                   | Good                |
+| Market                                 | Road Data / Routing | Real-time<br/>traffic | Truck<br/>routing | Real-time<br/>traffic - truck |
+|----------------------------------------|---------------------|-----------------------|-------------------|-------------------------------|
+| Afghanistan                            | Major Roads Only    |                       | ✔                 |                               |
+| Albania                                | Good                |                       | ✔                 |                               |
+| Algeria                                | Good                |                       | ✔                 |                               |
+| American Samoa                         | Good                |                       | ✔                 |                               |
+| Andorra                                | Good                | ✔                     | ✔                 | ✔                            |
+| Angola                                 | Good                |                       | ✔                 |                               |
+| Anguilla                               | Good                |                       | ✔                 |                               |
+| Antarctica                             | Major Roads Only    |                       |                   |                               |
+| Antigua & Barbuda                      | Good                |                       | ✔                 |                               |
+| Argentina                              | Good                | ✔                     | ✔                 | ✔                            |
+| Armenia                                | Good                |                       | ✔                 |                               |
+| Aruba                                  | Good                |                       | ✔                 |                               |
+| Australia                              | Good                | ✔                     | ✔                 | ✔                            |
+| Austria                                | Good                | ✔                     | ✔                 | ✔                            |
+| Azerbaijan                             | Good                |                       | ✔                 |                               |
+| Bahamas                                | Good                |                       | ✔                 |                               |
+| Bahrain                                | Good                | ✔                     | ✔                 | ✔                            |
+| Bangladesh                             | Major Roads Only    |                       | ✔                 |                               |
+| Barbados                               | Good                |                       | ✔                 |                               |
+| Belarus                                | Good                |                       | ✔                 | ✔                             |
+| Belgium                                | Good                | ✔                     | ✔                 | ✔                            |
+| Belize                                 | Good                |                       | ✔                 |                               |
+| Benin                                  | Fair                |                       | ✔                 |                               |
+| Bermuda                                | Good                |                       | ✔                 |                               |
+| Bhutan                                 | Major Roads Only    |                       | ✔                 |                               |
+| Bolivia                                | Good                |                       | ✔                 |                               |
+| Bonaire                                | Good                |                       |                   |                               |
+| Bosnia & Herzegovina                   | Good                |                       | ✔                 | ✔                            |
+| Botswana                               | Good                |                       | ✔                 |                               |
+| Bouvet Island                          | Major Roads Only    |                       | ✔                 |                               |
+| Brazil                                 | Good                | ✔                     | ✔                 | ✔                            |
+| British Indian Ocean Territory         | Major Roads Only    |                       |                   |                               |
+| British Virgin Islands                 | Good                |                       | ✔                 |                               |
+| Brunei                                 | Good                | ✔                     | ✔                 | ✔                            |
+| Bulgaria                               | Good                | ✔                     | ✔                 | ✔                            |
+| Burkina Faso                           | Fair                |                       | ✔                 |                               |
+| Burundi                                | Good                |                       | ✔                 |                               |
+| Cambodia                               | Good                |                       | ✔                 |                               |
+| Cameroon                               | Fair                |                       | ✔                 |                               |
+| Canada                                 | Good                | ✔                     | ✔                 | ✔                            |
+| Cape Verde                             | Good                |                       | ✔                 |                               |
+| Caribbean Netherlands                  |                     |                       | ✔                 |                               |
+| Cayman Islands                         | Good                |                       | ✔                 |                               |
+| Central African Republic               | Major Roads Only    |                       | ✔                 |                               |
+| Chad                                   | Major Roads Only    |                       | ✔                 |                               |
+| Chile                                  | Good                | ✔                     | ✔                 | ✔                            |
+| China                                  | Good                | ✔                     | ✔                 |                              |
+| Christmas Island                       | Good                |                       | ✔                 |                               |
+| Cocos (Keeling) Islands                | Major Roads Only    |                       | ✔                 |                               |
+| Colombia                               | Good                | ✔                     | ✔                 | ✔                            |
+| Comoros                                | Major Roads Only    |                       | ✔                 |                               |
+| Congo                                  | Fair                |                       | ✔                 |                               |
+| Congo (DRC)                            | Fair                |                       | ✔                 |                               |
+| Cook Islands                           | Major Roads Only    |                       | ✔                 |                               |
+| Costa Rica                             | Good                |                       | ✔                 |                               |
+| Côte d’Ivoire                          | Fair                |                       | ✔                 |                               |
+| Croatia                                | Good                | ✔                     | ✔                 | ✔                            |
+| Cuba                                   | Good                |                       | ✔                 |                               |
+| Curaçao                                | Good                |                       | ✔                 |                               |
+| Cyprus                                 | Good                |                       | ✔                 | ✔                             |
+| Czech Republic                         | Good                | ✔                     | ✔                 | ✔                            |
+| Denmark                                | Good                | ✔                     | ✔                 | ✔                            |
+| Djibouti                               | Major Roads Only    |                       | ✔                 |                               |
+| Dominica                               | Good                |                       | ✔                 |                               |
+| Dominican Republic                     | Good                |                       | ✔                 |                               |
+| Ecuador                                | Good                |                       | ✔                 |                               |
+| Egypt                                  | Good                | ✔                     | ✔                 | ✔                            |
+| El Salvador                            | Good                |                       | ✔                 |                               |
+| Equatorial Guinea                      | Major Roads Only    |                       | ✔                 |                               |
+| Eritrea                                | Major Roads Only    |                       | ✔                 |                               |
+| Estonia                                | Good                | ✔                     | ✔                 | ✔                            |
+| Eswatini                               | Good                |                       | ✔                 |                               |
+| Ethiopia                               | Major Roads Only    |                       | ✔                 |                               |
+| Falkland Islands                       | Major Roads Only    |                       | ✔                 |                               |
+| Faroe Islands                          | Good                |                       | ✔                 |                               |
+| Fiji                                   | Good                |                       | ✔                 |                               |
+| Finland                                | Good                | ✔                     | ✔                 | ✔                            |
+| France                                 | Good                | ✔                     | ✔                 | ✔                            |
+| French Guiana                          | Good                |                       | ✔                 |                               |
+| French Polynesia                       | Major Roads Only    |                       | ✔                 |                               |
+| French Southern Territories            | Major Roads Only    |                       | ✔                 |                               |
+| Gabon                                  | Fair                |                       | ✔                 |                               |
+| Gambia                                 | Fair                |                       | ✔                 |                               |
+| Georgia                                | Good                |                       | ✔                 |                               |
+| Germany                                | Good                | ✔                     | ✔                 | ✔                            |
+| Ghana                                  | Good                |                       | ✔                 |                               |
+| Gibraltar                              | Good                | ✔                     | ✔                 | ✔                            |
+| Greece                                 | Good                | ✔                     | ✔                 | ✔                            |
+| Greenland                              | Major Roads Only    |                       | ✔                 |                               |
+| Grenada                                | Good                |                       | ✔                 |                               |
+| Guadeloupe                             | Good                |                       | ✔                 | ✔                             |
+| Guam                                   | Good                |                       | ✔                 |                               |
+| Guatemala                              | Good                |                       | ✔                 |                               |
+| Guernsey                               | Good                | ✔                     | ✔                 |                               |
+| Guinea                                 | Major Roads Only    |                       | ✔                 |                               |
+| Guinea-Bissau                          | Major Roads Only    |                       | ✔                 |                               |
+| Guyana                                 | Good                |                       | ✔                 |                               |
+| Haiti                                  | Good                |                       | ✔                 |                               |
+| Heard Island & McDonald Islands        | Major Roads Only    |                       |                   |                               |
+| Honduras                               | Good                |                       | ✔                 |                               |
+| Hong Kong SAR                          | Good                | ✔                     | ✔                 | ✔                            |
+| Hungary                                | Good                | ✔                     | ✔                 | ✔                            |
+| Iceland                                | Good                | ✔                     | ✔                 | ✔                            |
+| India                                  | Good                | ✔                     | ✔                 | ✔                            |
+| Indonesia                              | Good                | ✔                     | ✔                 | ✔                            |
+| Iran                                   | Major Roads Only    |                       | ✔                 |                               |
+| Iraq                                   | Good                |                       | ✔                 |                               |
+| Ireland                                | Good                | ✔                     | ✔                 | ✔                            |
+| Isle of Man                            | Good                | ✔                     | ✔                 |                               |
+| Israel                                 | Good                | ✔                     | ✔                 | ✔                            |
+| Italy                                  | Good                | ✔                     | ✔                 | ✔                            |
+| Jamaica                                | Good                |                       | ✔                 |                               |
+| Jan Mayen                              | Good                |                       |                   |                               |
+| Japan                                  | Good                | ✔                     |                   |                               |
+| Jersey                                 | Good                | ✔                     | ✔                 |                              |
+| Jordan                                 | Good                |                       | ✔                 |                               |
+| Kazakhstan                             | Good                |                       | ✔                 | ✔                             |
+| Kenya                                  | Good                | ✔                     | ✔                 | ✔                            |
+| Kiribati                               | Major Roads Only    |                       | ✔                 |                               |
+| Korea                                  | Good                | ✔                     |                   |                               |
+| Kosovo                                 | Good                |                       |                   |                               |
+| Kuwait                                 | Good                | ✔                     | ✔                 | ✔                            |
+| Kyrgyzstan                             | Major Roads Only    |                       | ✔                 |                               |
+| Laos                                   | Good                |                       | ✔                 |                               |
+| Latvia                                 | Good                | ✔                     | ✔                 | ✔                            |
+| Lebanon                                | Good                |                       | ✔                 |                               |
+| Lesotho                                | Good                | ✔                     | ✔                 | ✔                            |
+| Liberia                                | Major Roads Only    |                       | ✔                 |                               |
+| Libya                                  | Major Roads Only    |                       | ✔                 |                               |
+| Liechtenstein                          | Good                | ✔                     | ✔                 | ✔                            |
+| Lithuania                              | Good                | ✔                     | ✔                 | ✔                            |
+| Luxembourg                             | Good                | ✔                     | ✔                 | ✔                            |
+| Macao SAR                              | Good                |                       | ✔                 | ✔                             |
+| Madagascar                             | Major Roads Only    |                       | ✔                 |                               |
+| Malawi                                 | Good                |                       | ✔                 |                               |
+| Malaysia                               | Good                | ✔                     | ✔                 | ✔                            |
+| Maldives                               | Major Roads Only    |                       | ✔                 |                               |
+| Mali                                   | Fair                |                       | ✔                 |                               |
+| Malta                                  | Good                | ✔                     | ✔                 | ✔                            |
+| Marshall Islands                       | Major Roads Only    |                       | ✔                 |                               |
+| Martinique                             | Good                |                       | ✔                 | ✔                             |
+| Mauritania                             | Fair                |                       | ✔                 |                               |
+| Mauritius                              | Good                |                       | ✔                 |                               |
+| Mayotte                                | Good                |                       | ✔                 |                               |
+| Mexico                                 | Good                | ✔                     | ✔                 | ✔                            |
+| Micronesia                             | Major Roads Only    |                       | ✔                 |                               |
+| Moldova                                | Good                |                       | ✔                 |                               |
+| Monaco                                 | Good                | ✔                     | ✔                 | ✔                            |
+| Mongolia                               | Major Roads Only    |                       | ✔                 |                               |
+| Montenegro                             | Good                |                       | ✔                 |                               |
+| Montserrat                             | Good                |                       | ✔                 |                               |
+| Morocco                                | Good                | ✔                     | ✔                 | ✔                            |
+| Mozambique                             | Good                | ✔                     | ✔                 | ✔                            |
+| Myanmar                                | Good                |                       | ✔                 |                               |
+| Namibia                                | Good                |                       | ✔                 |                               |
+| Nauru                                  | Major Roads Only    |                       | ✔                 |                               |
+| Nepal                                  | Major Roads Only    |                       | ✔                 |                               |
+| Netherlands                            | Good                | ✔                     | ✔                 | ✔                            |
+| New Caledonia                          | Major Roads Only    |                       | ✔                 |                               |
+| New Zealand                            | Good                | ✔                     | ✔                 | ✔                            |
+| Nicaragua                              | Good                |                       | ✔                 |                               |
+| Niger                                  | Fair                |                       | ✔                 |                               |
+| Nigeria                                | Good                | ✔                     | ✔                 | ✔                            |
+| Niue                                   | Major Roads Only    |                       | ✔                 |                               |
+| Norfolk Island                         | Major Roads Only    |                       | ✔                 |                               |
+| North Korea                            | Major Roads Only    |                       |                   |                               |
+| North Macedonia                        | Good                |                       | ✔                 |                               |
+| Northern Mariana Islands               | Good                |                       | ✔                 |                               |
+| Norway                                 | Good                | ✔                     | ✔                 | ✔                            |
+| Oman                                   | Good                | ✔                     | ✔                 | ✔                            |
+| Pakistan                               | Major Roads Only    |                       | ✔                 |                               |
+| Palau                                  | Major Roads Only    |                       | ✔                 |                               |
+| Palestinian Authority                  | Major Roads Only    |                       |                   |                               |
+| Panama                                 | Good                |                       | ✔                 |                               |
+| Papua New Guinea                       | Major Roads Only    |                       | ✔                 |                               |
+| Paraguay                               | Good                |                       | ✔                 |                               |
+| Peru                                   | Good                | ✔                     | ✔                 | ✔                            |
+| Philippines                            | Good                | ✔                     | ✔                 | ✔                            |
+| Pitcairn Islands                       | Major Roads Only    |                       | ✔                 |                               |
+| Poland                                 | Good                | ✔                     | ✔                 | ✔                             |
+| Portugal                               | Good                | ✔                     | ✔                 | ✔                             |
+| Puerto Rico                            | Good                | ✔                     | ✔                 |                               |
+| Qatar                                  | Good                | ✔                     | ✔                 | ✔                             |
+| Réunion                                | Good                |                       | ✔                 | ✔                             |
+| Romania                                | Good                | ✔                     | ✔                 | ✔                             |
+| Russia                                 | Good                | ✔                     | ✔                 | ✔                             |
+| Rwanda                                 | Good                |                       | ✔                 |                               |
+| Saba                                   | Good                |                       |                   |                               |
+| Saint Barthélemy                       | Good                |                       |                   |                               |
+| Saint Kitts & Nevis                    | Good                |                       |                   |                               |
+| Saint Lucia                            | Good                |                       |                   |                               |
+| Saint Martin                           | Good                |                       |                   |                               |
+| Saint Pierre & Miquelon                | Good                |                       |                   |                               |
+| Saint Vincent & the Grenadines         | Good                |                       |                   |                               |
+| Samoa                                  | Major Roads Only    |                       | ✔                 |                               |
+| San Marino                             | Good                | ✔                     | ✔                 | ✔                            |
+| São Tomé & Príncipe                    | Major Roads Only    |                       | ✔                 |                               |
+| Saudi Arabia                           | Good                | ✔                     | ✔                 | ✔                            |
+| Senegal                                | Good                |                       | ✔                 |                               |
+| Serbia                                 | Good                |                       | ✔                 | ✔                             |
+| Seychelles                             | Good                |                       | ✔                 |                               |
+| Sierra Leone                           | Major Roads Only    |                       | ✔                 |                               |
+| Singapore                              | Good                | ✔                     | ✔                 | ✔                             |
+| Sint Eustatius                         | Good                |                       |                   |                               |
+| Sint Maarten                           | Good                |                       | ✔                 |                               |
+| Slovakia                               | Good                | ✔                     | ✔                 | ✔                             |
+| Slovenia                               | Good                | ✔                     | ✔                 | ✔                             |
+| Solomon Islands                        | Major Roads Only    |                       | ✔                 |                               |
+| Somalia                                | Major Roads Only    |                       | ✔                 |                               |
+| South Africa                           | Good                | ✔                     | ✔                 | ✔                             |
+| South Georgia & South Sandwich Islands | Major Roads Only    |                       | ✔                 |                               |
+| South Sudan                            | Major Roads Only    |                       | ✔                 |                               |
+| Spain                                  | Good                | ✔                     | ✔                 | ✔                             |
+| Sri Lanka                              | Major Roads Only    |                       | ✔                 |                               |
+| St. Barthélemy                         |                     |                       | ✔                 |                               |
+| St Helena, Ascension, Tristan da Cunha | Major Roads Only    |                       | ✔                 |                               |
+| St. Kitts & Nevis                      |                     |                       | ✔                 |                               |
+| St. Lucia                              |                     |                       | ✔                 |                               |
+| St. Martin                             |                     |                       | ✔                 |                               |
+| St. Pierre & Miquelon                  |                     |                       | ✔                 |                               |
+| St. Vincent & Grenadines               |                     |                       | ✔                 |                               |
+| Sudan                                  | Major Roads Only    |                       | ✔                 |                               |
+| Suriname                               | Good                |                       | ✔                 |                               |
+| Svalbard                               | Good                |                       |                   |                               |
+| Sweden                                 | Good                | ✔                     | ✔                 | ✔                             |
+| Switzerland                            | Good                | ✔                     | ✔                 | ✔                             |
+| Syria                                  | Major Roads Only    |                       | ✔                 |                               |
+| Taiwan                                 | Good                | ✔                     | ✔                 | ✔                             |
+| Tajikistan                             | Major Roads Only    |                       | ✔                 |                               |
+| Tanzania                               | Good                |                       | ✔                 |                               |
+| Thailand                               | Good                | ✔                     | ✔                 | ✔                             |
+| Timor-Leste                            | Major Roads Only    |                       | ✔                 |                               |
+| Togo                                   | Fair                |                       | ✔                 |                               |
+| Tokelau                                | Major Roads Only    |                       | ✔                 |                               |
+| Tonga                                  | Major Roads Only    |                       | ✔                 |                               |
+| Trinidad & Tobago                      | Good                |                       | ✔                 |                               |
+| Tunisia                                | Good                |                       | ✔                 |                               |
+| Turkey                                 | Good                | ✔                     | ✔                 | ✔                             |
+| Turkmenistan                           | Major Roads Only    |                       | ✔                 |                               |
+| Turks & Caicos Islands                 | Good                |                       | ✔                 |                               |
+| Tuvalu                                 | Major Roads Only    |                       | ✔                 |                               |
+| U.S. Outlying Islands                  | Major Roads Only    |                       |                   |                               |
+| U.S. Virgin Islands                    | Good                |                       | ✔                 |                               |
+| Uganda                                 | Good                |                       | ✔                 |                               |
+| Ukraine                                | Good                | ✔                     | ✔                 | ✔                             |
+| United Arab Emirates                   | Good                | ✔                     | ✔                 | ✔                             |
+| United Kingdom                         | Good                | ✔                     | ✔                 | ✔                             |
+| United States                          | Good                | ✔                     | ✔                 | ✔                             |
+| Uruguay                                | Good                | ✔                     | ✔                 | ✔                             |
+| Uzbekistan                             | Major Roads Only    |                       | ✔                 |                               |
+| Vanuatu                                | Major Roads Only    |                       | ✔                 |                               |
+| Vatican City                           | Good                | ✔                     | ✔                 | ✔                             |
+| Venezuela                              | Good                |                       | ✔                 |                               |
+| Vietnam                                | Good                | ✔                     | ✔                 | ✔                             |
+| Wallis & Futuna                        | Major Roads Only    |                       | ✔                 |                               |
+| Yemen                                  | Good                |                       | ✔                 |                               |
+| Zambia                                 | Good                |                       | ✔                 |                               |
+| Zimbabwe                               | Good                |                       | ✔                 |
 
 ::: zone-end
 
