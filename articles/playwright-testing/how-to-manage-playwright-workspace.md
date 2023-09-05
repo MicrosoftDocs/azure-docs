@@ -115,7 +115,7 @@ To get the list of Playwright workspaces that you have access to:
 
 ## Display the workspace activity log
 
-You can view the list of test runs for the workspace in the Playwright portal. Microsoft Playwright Testing only stores test run metadata,and doesn't store the test code, test results, trace files, or other artifacts.
+You can view the list of test runs for the workspace in the Playwright portal. Microsoft Playwright Testing only stores test run metadata, and doesn't store the test code, test results, trace files, or other artifacts.
 
 To view the list of test runs in the Playwright portal:
 
