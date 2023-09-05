@@ -3,7 +3,7 @@ title: Windows container considerations in Kubernetes
 titleSuffix: Azure Kubernetes Service
 description: See the Windows container considerations in Kubernetes.
 ms.topic: article
-ms.date: 08/07/2023
+ms.date: 09/05/2023
 ms.author: schaffererin
 author: schaffererin
 
@@ -29,7 +29,7 @@ This article covers important considerations to keep in mind when using Windows 
 | Feature | Windows considerations |
 |-----------|:-----------|
 | [Cluster creation][cluster-configuration] | • The first system node pool *must* be Linux.<br/> • AKS Windows clusters have a maximum limit of 10 node pools.<br/> • AKS Windows clusters have a maximum limit of 100 nodes in each node pool.<br/> • The Windows Server node pool name has a limit of six characters. |
-| [Privileged containers][privileged-containers] | Not supported. The equivalent is **HPC containers**. |
+| [Privileged containers][privileged-containers] | Not supported. The equivalent is **HostProcess Containers (HPC) containers**. |
 | [HPC containers][hpc-containers] | • HostProcess containers are the Windows alternative to Linux privileged containers. For more information, see [Create a Windows HostProcess pod](https://kubernetes.io/docs/tasks/configure-pod-container/create-hostprocess-pod/). |
 | [Azure Network Policy Manager (Azure NPM)][azure-network-policy] | Azure NPM doesn't support:<br/> • Named ports<br/> • SCTP protocol<br/> • Negative match labels or namespace selectors (all labels except "debug=true")<br/> • "except" CIDR blocks (a CIDR with exceptions)<br/> • Windows Server 2019<br/> |
 | [Node upgrade][node-upgrade] | Windows Server nodes in AKS don't automatically apply Windows updates. Instead, you perform a node pool upgrade or [node image upgrade][node-image-upgrade]. These upgrade deploy new nodes with the latest Window Server 2019 and Windows Server 2022 base node image and security patches. |
@@ -38,42 +38,26 @@ This article covers important considerations to keep in mind when using Windows 
 | [Open Service Mesh][open-service-mesh] | Not supported. |
 | [GPU][gpu] | Not supported. |
 | [Multi-instance GPU][multi-instance-gpu] | Not supported. |
-| [Generation 2 VMs (preview)][gen-2-vms] | Not supported. |
-| [Custom node config][custom-node-config] | Not supported. |
-| [Custom kubelet parameters][custom-kubelet-parameters] | Not supported. |
+| [Generation 2 VMs (preview)][gen-2-vms] | Supported in preview. |
+| [Custom node config][custom-node-config] | • Custom node config has two configurations:<br/> • [kubelet][custom-kubelet-parameters]: Supported in preview.<br/> • OS config: Not supported. |
 
 ## Next steps
 
 For more information on Windows containers, see the [Windows Server containers FAQ][windows-server-containers-faq].
 
 <!-- LINKS - external -->
-[kubernetes]: https://kubernetes.io
-[upstream-windows]: https://kubernetes.io/docs/concepts/windows/intro/
 [aks-release-notes]: https://github.com/Azure/AKS/releases
 [comparison-with-linux]: https://kubernetes.io/docs/concepts/windows/intro/#compatibility-linux-similarities
-[volume-mounts]: https://kubernetes.io/docs/tasks/configure-pod-container/create-hostprocess-pod/#volume-mounts
-[choose-user-account]: https://kubernetes.io/docs/tasks/configure-pod-container/create-hostprocess-pod/#choosing-a-user-account
-[termination-grace-period]: https://kubernetes.io/docs/concepts/windows/intro/#limitations
-[huge-pages]: https://kubernetes.io/docs/tasks/manage-hugepages/scheduling-hugepages/
-[oomkill]: https://kubernetes.io/docs/concepts/configuration/windows-resource-management/#resource-management-memory
-[cpu-management]: https://kubernetes.io/docs/concepts/configuration/windows-resource-management/#resource-management-cpu
-[dns]: https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#dns-windows
 
 <!-- LINKS - internal -->
 [cluster-configuration]: ../aks/learn/quick-windows-container-deploy-cli.md#limitations
 [privileged-containers]: use-windows-hpc.md#limitations
 [hpc-containers]: use-windows-hpc.md#limitations
-[calico]: use-network-policies.md#limitations
-[kubenet]: configure-kubenet.md#limitations--considerations-for-kubenet
-[kubenet-dual-stack]: configure-kubenet-dual-stack.md#limitations
 [node-upgrade]: configure-azure-cni.md#plan-ip-addressing-for-your-cluster
-[cni-overlay]: azure-cni-overlay.md#limitations-with-azure-cni-overlay
-[cni-by-cilium]: azure-cni-powered-by-cilium.md#limitations
-[http-proxy]: http-proxy.md#limitations-and-other-details
 [aks-image-cleaner]: image-cleaner.md#limitations
 [windows-server-containers-faq]: windows-faq.md
 [azure-network-policy]: use-network-policies.md#overview-of-network-policy
-[node-image-upgrade]: architecture/operator-guides/aks/aks-upgrade-practices#node-image-upgrades
+[node-image-upgrade]: node-image-upgrade.md
 [byo-cni]: use-byo-cni.md
 [open-service-mesh]: open-service-mesh-about.md
 [gpu]: gpu-cluster.md
