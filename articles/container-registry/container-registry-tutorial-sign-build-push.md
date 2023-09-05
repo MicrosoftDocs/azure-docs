@@ -1,5 +1,5 @@
 ---
-title: Sign container images with Notation and Azure Key Vault using a self-signed certificate
+title: Sign container images with Notation and Azure Key Vault using a self-signed certificate (preview)
 description: In this tutorial you'll learn to create a signing certificate in Azure Key Vault (AKV), build and sign a container image stored in Azure Container Registry (ACR) with notation and AKV, and then verify the container image with notation.
 author: yizha1
 ms.author: yizha1
@@ -9,9 +9,9 @@ ms.topic: how-to
 ms.date: 4/23/2023
 ---
 
-# Sign container images with Notation and Azure Key Vault using a self-signed certificate
+# Sign container images with Notation and Azure Key Vault using a self-signed certificate (preview)
 
-When you sign container images, you ensure their authenticity and integrity. This is done by adding a digital signature to the container image, which can be validated against during deployment to ensure that they are from trusted image publishers and have not been tampered with. [Notation](https://github.com/notaryproject/notation) is an open source supply chain tool developed by [Notary Project](https://notaryproject.dev/), which supports signing and verifying container images and other artifacts. The Azure Key Vault (AKV) is used to store a signing certificate that can be utilized by Notation with the Notation AKV plugin (azure-kv) to sign and verify container images and other artifacts. The Azure Container Registry (ACR) allows you to attach and discover these signatures to container images.
+Signing container images is a process that ensures their authenticity and integrity. This is achieved by adding a digital signature to the container image, which can be validated during deployment. The signature helps to verify that the image is from a trusted publisher and has not been tampered with. [Notation](https://github.com/notaryproject/notation) is an open source supply chain tool developed by [Notary Project](https://notaryproject.dev/), which supports signing and verifying container images and other artifacts. The Azure Key Vault (AKV) is used to store a signing certificate that can be utilized by Notation with the Notation AKV plugin (azure-kv) to sign and verify container images and other artifacts. The Azure Container Registry (ACR) allows you to attach and discover these signatures to container images.
 
 > [!IMPORTANT]
 > This feature is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
@@ -55,7 +55,7 @@ In this tutorial:
     
     # Download the plugin
     curl -Lo notation-azure-kv.tar.gz \
-        https://github.com/Azure/notation-azure-kv/releases/download/v1.0.0/notation-azure-kv_1.0.0_linux_amd64.tar.gz 
+        https://github.com/Azure/notation-azure-kv/releases/download/v1.0.1/notation-azure-kv_1.0.1_linux_amd64.tar.gz 
     
     # Extract to the plugin directory
     tar xvzf notation-azure-kv.tar.gz -C ~/.config/notation/plugins/azure-kv
@@ -108,7 +108,7 @@ To learn more about Azure CLI and how to sign in with it, see [Sign in with Azur
 
 ## Assign access policy in AKV (Azure CLI)
 
-To create a self-signed certificate and sign a container image in AKV, you must assign proper access policy to a principal. The permissions that you grant for a principal should include at least certificate permissions `Create` and `Get` for creating and get certificates, and key permissions `Sign` for signing. A principal can be user principal, service principal or managed identity. In this tutorial, the access policy is assigned to a signed-in Azure user. To learn more about assigning policy to a principal, see [Assign Access Policy](/azure/key-vault/general/assign-access-policy).
+To create a self-signed certificate and sign a container image in AKV, you must assign proper access policy to a principal. The permissions that you grant for a principal should include at least certificate permissions `Create` and `Get` for creating and getting certificates, and key permissions `Sign` for signing. A principal can be user principal, service principal or managed identity. In this tutorial, the access policy is assigned to a signed-in Azure user. To learn more about assigning policy to a principal, see [Assign Access Policy](/azure/key-vault/general/assign-access-policy).
 
 ### Set the subscription that contains the AKV resource
 
@@ -185,7 +185,7 @@ The following steps show how to create a self-signed signing certificate for tes
     ```
 
 > [!NOTE]
-> If notation login is failing, you may need to Configure a credentials store. Alternatively in development and testing environments, you can use environment variables to authenticate to an OCI-compliant registry. See guide [Authenticate with OCI-compliant registries](https://notaryproject.dev/docs/how-to/registry-authentication/) for details.
+> If notation login is failing, you may need to configure a credentials store. Alternatively in development and testing environments, you can use environment variables to authenticate to an OCI-compliant registry. See guide [Authenticate with OCI-compliant registries](https://notaryproject.dev/docs/how-to/registry-authentication/) for details.
 
 3. Get the Key ID of the signing key. A certificate in AKV can have multiple versions, the following command get the Key Id of the latest version.
 
@@ -193,7 +193,7 @@ The following steps show how to create a self-signed signing certificate for tes
     KEY_ID=$(az keyvault certificate show -n $CERT_NAME --vault-name $AKV_NAME --query 'kid' -o tsv)
     ```
 
-4. Sign the container image with the [COSE](https://datatracker.ietf.org/doc/html/rfc8152) signature format using the signing key id. To sign with a self-signed certificate, you need to pass a plugin configuration `self_signed=true` in the command line.
+4. Sign the container image with the [COSE](https://datatracker.ietf.org/doc/html/rfc9052) signature format using the signing key id. To sign with a self-signed certificate, you need to pass a plugin configuration `self_signed=true` in the command line.
 
     ```bash
     notation sign --signature-format cose --id $KEY_ID --plugin azure-kv --plugin-config self_signed=true $IMAGE
