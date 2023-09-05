@@ -7,6 +7,8 @@ ms.topic: article
 ms.date: 04/21/2023
 ms.custom: devx-track-csharp, seodec18, devx-track-azurecli, devx-track-azurepowershell, AppServiceConnectivity
 ms.devlang: azurecli
+author: cephalin
+ms.author: cephalin
 ---
 # Configure an App Service app
 
