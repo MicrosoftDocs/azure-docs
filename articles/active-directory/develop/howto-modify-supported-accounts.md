@@ -33,7 +33,7 @@ In the following sections, you learn how to modify your app's registration to ch
 To specify a different setting for the account types supported by an existing app registration:
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Application Developer](../roles/permissions-reference.md#application-developer).
-1. If access to multiple tenants is available, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
+1. If access to multiple tenants is available, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant where the application is registered.
 1. Browse to **Identity** > **Applications** > **App registrations**.
 1. Select your application, and then select **Manifest** to use the manifest editor.
 1. Download the manifest JSON file locally.
