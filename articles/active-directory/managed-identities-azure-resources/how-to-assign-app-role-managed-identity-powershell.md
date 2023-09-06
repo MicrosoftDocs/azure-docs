@@ -12,7 +12,7 @@ ms.subservice: msi
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/06/2023
+ms.date: 09/07/2023
 ms.author: jodowns
 ms.collection: M365-identity-device-management 
 ms.custom: has-azure-ad-ps-ref
@@ -131,12 +131,12 @@ Connect-MgGraph -TenantId $tenantId -Scopes 'Application.Read.All','Application.
 
 # Look up the details about the server app's service principal and app role.
 $serverServicePrincipal = (Get-MgServicePrincipal -Filter "DisplayName eq '$serverApplicationName'")
-$serverServicePrincipalObjectId = $serverServicePrincipal.ObjectId
+$serverServicePrincipalObjectId = $serverServicePrincipal.Id
 $appRoleId = ($serverServicePrincipal.AppRoles | Where-Object {$_.Value -eq $appRoleName }).Id
 
 # Assign the managed identity access to the app role.
 New-MgServicePrincipalAppRoleAssignment `
-    -ServicePrincipalId $managedIdentityObjectId `
+    -ServicePrincipalId $serverServicePrincipalObjectId `
     -PrincipalId $managedIdentityObjectId `
     -ResourceId $serverServicePrincipalObjectId `
     -AppRoleId $appRoleId
