@@ -6,6 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
+ms.custom: devx-track-python
 ms.topic: conceptual
 ms.date: 09/05/2023
 ms.author: lajanuar
