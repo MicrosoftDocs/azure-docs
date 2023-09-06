@@ -2,7 +2,7 @@
 title: Integrate ClearPass with Microsoft Defender for IoT
 description: In this tutorial, you learn how to integrate Microsoft Defender for IoT with ClearPass using Defender for IoT's legacy, on-premises integration.
 ms.topic: how-to
-ms.date: 08/07/2023
+ms.date: 09/06/2023
 ms.custom: how-to
 ---
 
@@ -31,7 +31,7 @@ For more information, see:
 
 If you're working with an air-gapped, locally managed OT sensor, you'll need an on-premises solution to view Defender for IoT and Splunk information in the same place.
 
-In such cases, we recommend that you configure your OT sensor to send syslog files directly to Splunk, or use Defender for IoT's built-in API.
+In such cases, we recommend that you configure your OT sensor to send syslog files directly to ClearPass, or use Defender for IoT's built-in API.
 
 For more information, see:
 
@@ -44,9 +44,11 @@ For more information, see:
 This section describes how to integrate Defender for IoT and ClearPass Policy Manager (CPPM) using the legacy, on-premises integration.
 
 > [!IMPORTANT]
-> Defender for IoT plans to end support for the [legacy ClearPass integration](#on-premises-integration-legacy) in an upcoming 23.x version.
+> The legacy Aruba ClearPass integration is supported through October 2024 using sensor version 23.1.3. For customers using the legacy integration, we recommend moving to one of the following methods:
+> 
+> - If you're integrating your security solution with cloud-based systems, we recommend that you use data connectors through [Microsoft Sentinel](#cloud-integrations-recommended). 
+> - For on-premises integrations, we recommend that you either configure your OT sensor to [forward syslog events, or use Defender for IoT APIs](#on-premises-integrations-recommended).
 >
-> We recommend transitioning to newly recommended methods instead, such using a Microsoft Sentinel connector, forwarding alert rules, or using Defender for IoT's API. For more information, see [Cloud integrations (recommended)](#cloud-integrations-recommended) and [On-premises integrations (recommended)](#on-premises-integrations-recommended).
 
 ### Prerequisites
 

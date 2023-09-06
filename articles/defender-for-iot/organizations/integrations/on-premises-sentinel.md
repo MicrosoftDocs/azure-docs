@@ -1,19 +1,22 @@
 ---
-title: How to connect on-premises Defender for IoT resources to Microsoft Sentinel
+title: Connect Defender for IoT resources directly to Microsoft Sentinel (legacy)
 description: This article describes the legacy method for connecting your OT sensor or on-premises management console to Microsoft Sentinel.
 ms.topic: how-to
 ms.date: 08/17/2023
 ms.custom: template-how-to-pattern
+#CustomerIntent: As an admin user for my locally-managed OT sensor, I want to learn how to connect my sensor to Microsoft Sentinel so that I can view alerts generated together with other Microsoft Sentinel data.
 ---
 
-# Connect on-premises OT network sensors to Microsoft Sentinel (legacy)
+# Connect OT network sensors or on-premises management consoles to Microsoft Sentinel (legacy)
 
 This article describes the legacy method for connecting your OT sensor or on-premises management console to Microsoft Sentinel. Stream data into Microsoft Sentinel whenever you want to use Microsoft Sentinel's advanced threat hunting, security analytics, and automation features when responding to security incidents and threats across your network.
 
 > [!IMPORTANT]
-> Defender for IoT plans to end support for the legacy method of connecting to Microsoft Sentinel in an upcoming 23.x version.
+> If you're using a cloud connected sensor, we recommend that you connect Defender for IoT data using the Microsoft Sentinel solution instead of the legacy integration method. For more information, see:
 >
-> We recommend transitioning to newly recommended methods instead, such as [connecting via the cloud](../concept-sentinel-integration.md), [forwarding sylsog files via alert forwarding rules](../how-to-forward-alert-information-to-partners.md), or using [Defender for IoT's API](../references-work-with-defender-for-iot-apis.md). 
+> - [OT threat monitoring in enterprise SOCs](../concept-sentinel-integration.md)
+> - [Tutorial: Connect Microsoft Defender for IoT with Microsoft Sentinel](../iot-solution.md)
+> - [Tutorial: Investigate and detect threats for IoT devices](../iot-advanced-threat-monitoring.md)
 
 ## Prerequisites
 

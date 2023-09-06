@@ -1,7 +1,7 @@
 ---
 title: Integrate with partner services | Microsoft Defender for IoT
 description: Learn about supported integrations across your organization's security stack with Microsoft Defender for IoT.
-ms.date: 06/26/2023
+ms.date: 09/06/2023
 ms.topic: overview
 ms.custom: enterprise-iot
 ---
@@ -11,9 +11,11 @@ ms.custom: enterprise-iot
 Integrate Microsoft Defender for IoT with partner services to view data from across your security stack data in Defender for IoT, or to view Defender for IoT data in one of your security ecosystem integrations.
 
 > [!IMPORTANT]
-> Defender for IoT plans to end support for the legacy [Aruba ClearPass](#aruba-clearpass), [Palo Alto Panorama](#palo-alto), [Splunk](#splunk), and [Microsoft Sentinel](#microsoft-sentinel) integrations in an upcoming 23.x version. 
->
-> We recommend moving your integrations to newly recommended methods, such using a [Microsoft Sentinel connector](concept-sentinel-integration.md), [forwarding alert rules](how-to-forward-alert-information-to-partners.md), or using [Defender for IoT's API](references-work-with-defender-for-iot-apis.md).
+> Defender for IoT is refreshing its security stack integrations to improve the overall robustness, scalability, and ease of maintenance of various security solutions.
+> 
+> If you're integrating your security solution with cloud-based systems, we recommend that you use data connectors through [Microsoft Sentinel](concept-sentinel-integration.md). For on-premises integrations, we recommend that you either configure your OT sensor to [forward syslog events](how-to-forward-alert-information-to-partners.md)), or use [Defender for IoT APIs](references-work-with-defender-for-iot-apis.md).
+> 
+> The legacy [Aruba ClearPass](#aruba-clearpass), [Palo Alto Panorama](#palo-alto), and [Splunk][Splunk](#splunk) integrations are supported through October 2024 using sensor version 23.1.3. For customers using legacy integration methods, we recommend moving your integrations to newly recommended methods.
 
 ## Aruba ClearPass
 
