@@ -146,18 +146,20 @@ To create an alert for high server latency (average), follow these steps.
 4. Define the **Alert Logic** by selecting either Static or Dynamic. For Static, select **Average** Aggregation, **Greater than** Operator, and Threshold value. For Dynamic, select **Average** Aggregation, **Greater than** Operator, and Threshold Sensitivity.
 
    > [!TIP]
-   > If you're using a static threshold, the metric chart can help determine a reasonable threshold value if the file share is currently experiencing high latency. If you're using a dynamic threshold, the metric chart will display the calculated thresholds based on recent data. We recommend using the Dynamic logic with Medium threshold sensitivity and further adjust as needed. To learn more, see [Understanding Dynamic Thresholds](../../azure-monitor/alerts/alerts-dynamic-thresholds.md#understand-dynamic-thresholds-charts).
+   > If you're using a static threshold, the metric chart can help determine a reasonable threshold value if the file share is currently experiencing high latency. If you're using a dynamic threshold, the metric chart will display the calculated thresholds based on recent data. We recommend using the Dynamic logic with Medium threshold sensitivity and further adjust as needed. To learn more, see [Understanding dynamic thresholds](../../azure-monitor/alerts/alerts-dynamic-thresholds.md#understand-dynamic-thresholds-charts).
 
 5. Define the lookback period and frequency of evaluation.
 
 6. Select the **Actions** tab to add an action group (email, SMS, etc.) to the alert. You can select an existing action group or create a new action group.
 
-7. Select the **Details** tab to fill in the details of the alert such as the alert name, description, and severity. 
+7. Select the **Details** tab to fill in the details of the alert such as the alert name, description, and severity.
 
 8. Select **Review + create** to create the alert.
 
 ## Next steps
 
+- [Monitor Azure Files](storage-files-monitoring.md)
+- [Analyze Azure Files metrics using Azure Monitor](analyze-files-metrics.md)
 - [Azure Files monitoring data reference](storage-files-monitoring-reference.md)
 - [Monitor Azure resources with Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md)
 - [Azure Storage metrics migration](../common/storage-metrics-migration.md)

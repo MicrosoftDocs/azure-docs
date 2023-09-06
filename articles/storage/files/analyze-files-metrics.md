@@ -5,7 +5,7 @@ author: khdownie
 services: storage
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 09/05/2023
+ms.date: 09/06/2023
 ms.author: kendownie
 ms.custom: monitoring
 ---
@@ -392,6 +392,8 @@ For more information on how to write queries, see [Log Analytics tutorial](../..
 
 ## Next steps
 
+- [Monitor Azure Files](storage-files-monitoring.md)
+- [Create monitoring alerts for Azure Files](files-monitoring-alerts.md)
 - [Azure Files monitoring data reference](storage-files-monitoring-reference.md)
 - [Monitor Azure resources with Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md)
 - [Understand Azure Files performance](understand-performance.md)
