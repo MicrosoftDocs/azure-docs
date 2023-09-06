@@ -155,7 +155,7 @@
     items:
     - name: Troubleshoot issues
       href: troubleshoot.md
-    - name: Error codes when onboarding
+    - name: Error codes
       href: error-codes-onboarding.md
   - name: Reference
     expanded: false

@@ -32,7 +32,8 @@ The AWS environment doesn't have CloudTrail configured, or you�
 
 ### Proposed solution
 
-CloudTrail is automatically created when an AWS account is created.
+CloudTrail is automatically created when an AWS account is created. 
+
 To access:
 - Verify you're signed in using Management Account credentials.
 - Enable CloudTrail as a trusted service in your AWS organization.
@@ -40,7 +41,7 @@ To access:
 
 ## AWS_CLOUDTRAIL_S3_ACCESS_DENIED 
 
-This account doesN't have permissions to access SB3 Bucket CloudTrail logs. 
+This account doesn't have permissions to access SB3 Bucket CloudTrail logs. 
 
 ### Proposed solution
 
@@ -84,7 +85,7 @@ Insufficient Project permissions.
 
 ### Proposed solution
 
-Verify you have been granted the correct IAM roles or roles with equivalent permissions that grant access to the project: *Organization Admin*, *Security Admin*, *Project IAM Admin*.
+Verify you have been granted the correct IAM roles or roles with equivalent permissions that grant access to the project: *Organization Admin*, *Security Admin*, or *Project IAM Admin*.
 
 
 ## ERROR_NO_IDENTIFIER_URIS_IN_APP
