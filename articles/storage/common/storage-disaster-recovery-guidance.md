@@ -1,5 +1,5 @@
 ---
-title: Azure storage disaster recovery planning with failover
+title: Azure storage disaster recovery planning and failover
 titleSuffix: Azure Storage
 description: Azure Storage supports account failover for geo-redundant storage accounts. Create a disaster recovery plan for your storage accounts in the event that the endpoints in the primary region become unavailable.
 services: storage
@@ -13,7 +13,7 @@ ms.subservice: storage-common-concepts
 ms.custom: references_regions
 ---
 
-# Azure storage disaster recovery planning with failover
+# Azure storage disaster recovery planning and failover
 
 Microsoft strives to ensure that Azure services are always available. However, unplanned service outages may occur. Key components of a good disaster recovery plan include strategies for:
 
@@ -77,7 +77,7 @@ In extreme circumstances where the original primary region is deemed unrecoverab
 
 Because data is written asynchronously from the primary region to the secondary region, there is always a delay before a write to the primary region is copied to the secondary. If the primary region becomes unavailable, the most recent writes may not yet have been copied to the secondary.
 
-When you force a failover, all data in the primary region is lost as the secondary region becomes the new primary. All data already copied to the secondary is maintained when the failover happens. However, any data written to the primary that has not also been copied to the secondary region is lost permanently.
+When a failover occurs, all data in the primary region is lost as the secondary region becomes the new primary. All data already copied to the secondary is maintained when the failover happens. However, any data written to the primary that has not also been copied to the secondary region is lost permanently.
 
 The new primary region is configured to be locally redundant (LRS) after the failover.
 
@@ -185,7 +185,7 @@ As part of a failover, the Azure Storage resource provider fails over too. As a 
 
 ### Azure virtual machines
 
-Azure virtual machines (VMs) do not fail over as part of an account failover. If the primary region becomes unavailable, and you fail over to the secondary region, then you will need to recreate any VMs after the failover. Also, there is a potential data loss associated with the account failover. Microsoft recommends following [high availability](../../virtual-machines/availability.md) and [disaster recovery](../../virtual-machines/backup-recovery.md) guidance specific to virtual machines in Azure.
+Azure virtual machines (VMs) do not fail over as part of an account failover. If the primary region becomes unavailable, and you fail over to the secondary region, then you will need to recreate any VMs after the failover. Also, there is a potential data loss associated with the account failover. Microsoft recommends following the [high availability](../../virtual-machines/availability.md) and [disaster recovery](../../virtual-machines/backup-recovery.md) guidance specific to virtual machines in Azure.
 
 Keep in mind that any data stored in a temporary disk is lost when the VM is shut down.
 
