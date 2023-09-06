@@ -27,8 +27,11 @@ Virtual network encryption has the following requirements:
     | VM Series | VM SKU |
     | --- | --- |
     | D-series | **[Dv4 and Dsv4-series](/azure/virtual-machines/dv4-dsv4-series)**, **[Ddv4 and Ddsv4-series](/azure/virtual-machines/ddv4-ddsv4-series)**, **[Dav4 and Dasv4-series](/azure/virtual-machines/dav4-dasv4-series)** |
-    | E-series | **[Ev4 and Esv4-series](/azure/virtual-machines/ev4-esv4-series)**, **[Edv4 and Edsv4-series](/azure/virtual-machines/edv4-edsv4-series)**, **[Eav4 and Easv4-series](/azure/virtual-machines/eav4-easv4-series)** |
+    | D-series V5 | **[Dv5 and Dsv5-series](/azure/virtual-machines/dv5-dsv5-series)**, **[Ddv5 and Ddsv5-series](/azure/virtual-machines/ddv5-ddsv5-series)** |
+    | E-series | **[Ev5 and Esv5-series](/azure/virtual-machines/ev5-esv5-series)**, **[Edv5 and Edsv5-series](/azure/virtual-machines/edv5-edsv5-series)** |
+    | E-series V5 | **[Ev4 and Esv4-series](/azure/virtual-machines/ev4-esv4-series)**, **[Edv4 and Edsv4-series](/azure/virtual-machines/edv4-edsv4-series)**, **[Eav4 and Easv4-series](/azure/virtual-machines/eav4-easv4-series)** |
     | M-series | **[Mv2-series](/azure/virtual-machines/mv2-series)** |
+    | LSv3 | **[LSv3-series](/azure/virtual-machines/lsv3-series)**  |
 
 - Accelerated Networking must be enabled on the network interface of the virtual machine. For more information about Accelerated Networking, see  [What is Accelerated Networking?](/azure/virtual-network/accelerated-networking-overview).
 
@@ -39,9 +42,10 @@ Virtual network encryption has the following requirements:
 - Traffic to unsupported Virtual Machines is unencrypted. Use Virtual Network Flow Logs to confirm flow encryption between virtual machines. For more information about Virtual Network Flow Logs, see [Virtual Network Flow Logs](/azure/network-watcher/network-watcher-nsg-flow-logging-portal).
 
 - The start/stop of existing virtual machines may be required after enabling encryption in a virtual network.
+
 ## Availability
 
-Azure Virtual Network encryption is available in the following regions during the preview:
+Azure Virtual Network encryption is available in the following regions:
 
 - East US 2 EUAP
 
@@ -57,11 +61,15 @@ Azure Virtual Network encryption is available in the following regions during th
 
 - West US 2
 
-To sign up to obtain access to the public preview, see [Virtual Network Encryption - Public Preview Sign Up](https://aka.ms/vnet-encryption-sign-up).
+- West Europe
+
+- France Central
+
+- Japan West
 
 ## Limitations
 
-Azure Virtual Network encryption has the following limitations during the public preview:
+Azure Virtual Network encryption has the following limitations:
 
 - In scenarios where a PaaS is involved, the virtual machine where the PaaS is hosted dictates if virtual network encryption is supported. The virtual machine must meet the listed requirements. 
 
