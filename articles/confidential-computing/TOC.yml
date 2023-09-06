@@ -46,7 +46,7 @@
   - name: Multi-party and cleanroom collaboration
     href: multi-party-data.md #multi-party-collaboration # new #p1
   - name: It's the future #maybe change link to a page that references the below, and explains why it's the future
-    href: https://azure.microsoft.com/en-us/blog/key-foundations-for-protecting-your-data-with-azure-confidential-computing/ # New, house-view.. why is it the future - x-links to a lot of MarkRus material tying it back to strategic direction/vision
+    href: https://azure.microsoft.com/blog/key-foundations-for-protecting-your-data-with-azure-confidential-computing/ # New, house-view.. why is it the future - x-links to a lot of MarkRus material tying it back to strategic direction/vision
 #  - name: Privacy by-default #p3
 #    href: TODO.md # we need to say something about our approach to how we're baking it into our products, and how we're working with partners to do the same, but this is a journey - call to action - what services do YOU want/priority order  - work with your field/account team?
   - name: Confidential AI
@@ -148,15 +148,15 @@
       - name: Regions
         href: https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machine
   - name: SQL Always Encrypted with Secure Enclaves # x-link to SQL docs #done
-    href: https://learn.microsoft.com/en-us/sql/relational-databases/security/encryption/configure-always-encrypted-enclaves?view=sql-server-ver16
+    href: https://learn.microsoft.com/sql/relational-databases/security/encryption/configure-always-encrypted-enclaves?view=sql-server-ver16
   - name: SQL on Confidential Virtual Machines #done
-    href: https://learn.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/sql-vm-create-confidential-vm-how-to?view=azuresql-vm
+    href: https://learn.microsoft.com/azure/azure-sql/virtual-machines/windows/sql-vm-create-confidential-vm-how-to?view=azuresql-vm
   - name: Confidential Databricks (PREVIEW) #done
     href: https://techcommunity.microsoft.com/t5/azure-confidential-computing/confidential-vm-option-for-azure-databricks-preview/ba-p/3827982#:~:text=Azure%20Databricks%20now%20supports%20using%20Confidential%20computing%20VM,Azure%20Databricks%20workload%20securely%20%26%20confidentially%20on%20Azure
   - name: Confidential Azure Data Explorer (PREVIEW) #done
     href: https://techcommunity.microsoft.com/t5/azure-data-explorer-blog/confidential-vm-option-for-azure-data-explorer-public-preview/ba-p/3827343
   - name: Azure Virtual Desktop (AVD) Confidential Desktop #done
-    href: https://learn.microsoft.com/en-us/azure/confidential-computing/quick-create-confidential-vm-portal-amd # x-link to AVD docs
+    href: https://learn.microsoft.com/azure/confidential-computing/quick-create-confidential-vm-portal-amd # x-link to AVD docs
   - name: Azure Confidential Ledger #done
     href: ../confidential-ledger/overview.md
 #  - name: Confidential Consortium Framework (CCF) #done < seems to be missing from livesite now?
@@ -165,7 +165,7 @@
     expanded: true
     items:
   - name: Confidential Machine Learning #done
-    href: https://docs.microsoft.com/en-us/azure/machine-learning/how-to-secure-training-data
+    href: https://docs.microsoft.com/azure/machine-learning/how-to-secure-training-data
   - name: Secure Key Release (SKR) with Azure Key Vault
     items:
     - name: SKR with Azure Confidential Computing Concept
@@ -225,7 +225,7 @@
 #Foundation / underpinning services (MAA etc.)
 
 #VM / Container / Data-services quickstarts
-# follow categories from https://azure.microsoft.com/en-us/products/ - VM ; container ; data ML/AI
+# follow categories from https://azure.microsoft.com/products/ - VM ; container ; data ML/AI
 #full set
 #AI + machine learning
 #Analytics
