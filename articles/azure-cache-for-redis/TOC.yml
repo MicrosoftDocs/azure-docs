@@ -45,7 +45,7 @@
         href: cache-how-to-upgrade.md
       - name: Set Redis version
         href: cache-how-to-version.md
-      - name: Distribute your cache with clustering - resiliency
+      - name: Distribute your cache with clustering - RETIRE
         href: cache-how-to-premium-clustering.md
       - name: Managed identity for storage accounts - authentication
         href: cache-managed-identity.md
