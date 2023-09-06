@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 09/04/2023
+ms.date: 09/06/2023
 ms.author: alkohli
 
 # Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
@@ -217,9 +217,11 @@ The Data Box Split Copy tool helps split and copy the data on a Windows computer
 
 1. Identify the source data to copy. For instance, in this case:
    - The following block blob data was identified.
+
       :::image type="content" source="media/data-box-disk-deploy-copy-data/split-copy-2-sml.png" alt-text="Split copy data 2" lightbox="media/data-box-disk-deploy-copy-data/split-copy-2.png":::
 
    - The following page blob data was identified.
+
       :::image type="content" source="media/data-box-disk-deploy-copy-data/split-copy-3-sml.png" alt-text="Split copy data 3" lightbox="media/data-box-disk-deploy-copy-data/split-copy-3.png":::
 
 1. Navigate to the folder where the software is extracted and locate the `SampleConfig.json` file. This file is a read-only file that you can modify and save.
@@ -260,7 +262,7 @@ The Data Box Split Copy tool helps split and copy the data on a Windows computer
 
    :::image type="content" source="media/data-box-disk-deploy-copy-data/split-copy-11-sml.png" alt-text="Split copy data 11" lightbox="media/data-box-disk-deploy-copy-data/split-copy-11.png":::
 
-   Examine the `n:` drive contents and ensure that two subfolders are created that correspond to block blob and page blob format data.
+   Examine the `h:` drive contents and ensure that two subfolders are created that correspond to block blob and page blob format data.
 
    :::image type="content" source="media/data-box-disk-deploy-copy-data/split-copy-12-sml.png" alt-text="Split copy data 12" lightbox="media/data-box-disk-deploy-copy-data/split-copy-12.png":::
 
