@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Guidance
+title: Troubleshoot guidance
 titleSuffix: Azure Machine Learning
 description: This article addresses frequent questions about tool usage.
 services: machine-learning
@@ -12,7 +12,7 @@ ms.reviewer: lagayhar
 ms.date: 09/05/2023
 ---
 
-# Troubleshoot Guidance
+# Troubleshoot guidance
 
 This article addresses frequent questions about tool usage.
 
