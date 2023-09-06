@@ -29,4 +29,3 @@ Here are some good curated lists of links for SRE and SRE-related topics:
 * [SRE Weekly](https://sreweekly.com) - "SRE Weekly is a newsletter devoted to everything related to keeping a site or service available as consistently as possible."
 * [Devops Weekly](https://www.devopsweekly.com) - "A weekly slice of devops news brought to you by Gareth Rushgrove."
 * [This Week in DevOps](https://thisweekindevops.com) - "DevOps news without the hype."
-* [KubeWeekly](https://kubeweekly.io) - "The weekly newsletters for all things Kubernetes."
