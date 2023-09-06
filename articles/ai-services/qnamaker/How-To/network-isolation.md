@@ -41,9 +41,7 @@ Add-AzWebAppAccessRestrictionRule -ResourceGroupName "<resource group name>" -We
 
 ### Outbound access from App Service
 
-The QnA Maker App Service requires outbound access to the below endpoints. Please make sure they’re added to the allow list if there are any restrictions on the outbound traffic.
-- https://qnamakerstore.blob.core.windows.net
-- https://qnamaker-data.trafficmanager.net
+The QnA Maker App Service requires outbound access to the below endpoint. Please make sure it is added to the allow list if there are any restrictions on the outbound traffic.
 - https://qnamakerconfigprovider.trafficmanager.net
 
 
