@@ -1,16 +1,16 @@
 ---
-title: Monitoring Azure Files - Create alerts
+title: Create monitoring alerts for Azure Files
 description: Use Azure Monitor to create alerts on throttling, capacity, and egress. Learn how to create an alert on high server latency.
 author: khdownie
 services: storage
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 09/05/2023
+ms.date: 09/06/2023
 ms.author: kendownie
 ms.custom: monitoring
 ---
 
-# Monitoring Azure Files - Create alerts
+# Create monitoring alerts for Azure Files
 
 Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](../../azure-monitor/alerts/alerts-metric-overview.md), [logs](../../azure-monitor/alerts/alerts-unified-log.md), and the [activity log](../../azure-monitor/alerts/activity-log-alerts.md). 
 
@@ -69,14 +69,14 @@ To create an alert that will notify you if a file share is being throttled, foll
 5. For **premium file shares**, select the **Dimension name** drop-down and select **File Share**. For **standard file shares**, skip to step 7.
 
    > [!NOTE]
-   > If the file share is a standard file share, the **File Share** dimension won't list the file share(s) because per-share metrics aren't available for standard file shares. Throttling alerts for standard file shares will be triggered if any file share within the storage account is throttled, and the alert will not identify which file share was throttled. Since per-share metrics aren't available for standard file shares, the recommendation is to have one file share per storage account.
+   > If the file share is a standard file share, the **File Share** dimension won't list the file share(s) because per-share metrics aren't available for standard file shares. Throttling alerts for standard file shares will be triggered if any file share within the storage account is throttled, and the alert won't identify which file share was throttled. Because per-share metrics aren't available for standard file shares, the recommendation is to have one file share per storage account.
 
 6. Select the **Dimension values** drop-down and select the file share(s) that you want to alert on.
 
 7. Define the alert parameters (threshold value, operator, lookback period, and frequency of evaluation). 
 
     > [!TIP]
-    > If you are using a static threshold, the metric chart can help determine a reasonable threshold value if the file share is currently being throttled. If you're using a dynamic threshold, the metric chart will display the calculated thresholds based on recent data.
+    > If you're using a static threshold, the metric chart can help determine a reasonable threshold value if the file share is currently being throttled. If you're using a dynamic threshold, the metric chart will display the calculated thresholds based on recent data.
 
 8. Select the **Actions** tab to add an action group (email, SMS, etc.) to the alert. You can select an existing action group or create a new action group.
 
@@ -93,7 +93,7 @@ To create an alert that will notify you if a file share is being throttled, foll
 3. For **premium file shares**, select the **Dimension name** drop-down list, and then select **File Share**. For **standard file shares**, skip to step 5.
 
    > [!NOTE]
-   > If the file share is a standard file share, the **File Share** dimension will not list the file share(s) because per-share metrics are not available for standard file shares. Alerts for standard file shares are based on all file shares in the storage account. Since per-share metrics are not available for standard file shares, the recommendation is to have one file share per storage account.
+   > If the file share is a standard file share, the **File Share** dimension won't list the file share(s) because per-share metrics aren't available for standard file shares. Alerts for standard file shares are based on all file shares in the storage account. Because per-share metrics aren't available for standard file shares, the recommendation is to have one file share per storage account.
 
 4. Select the **Dimension values** drop-down and select the file share(s) that you want to alert on.
 
@@ -116,7 +116,7 @@ To create an alert that will notify you if a file share is being throttled, foll
 3. For **premium file shares**, select the **Dimension name** drop-down list and select **File Share**. For **standard file shares**, skip to step 5.
 
    > [!NOTE]
-   > If the file share is a standard file share, the **File Share** dimension will not list the file share(s) because per-share metrics aren't available for standard file shares. Alerts for standard file shares are based on all file shares in the storage account. Since per-share metrics aren't available for standard file shares, the recommendation is to have one file share per storage account.
+   > If the file share is a standard file share, the **File Share** dimension won't list the file share(s) because per-share metrics aren't available for standard file shares. Alerts for standard file shares are based on all file shares in the storage account. Because per-share metrics aren't available for standard file shares, the recommendation is to have one file share per storage account.
 
 4. Select the **Dimension values** drop-down and select the file share(s) that you want to alert on.
 
@@ -129,6 +129,32 @@ To create an alert that will notify you if a file share is being throttled, foll
 8. Select the **Details** tab to fill in the details of the alert such as the alert name, description, and severity. 
 
 9. Select **Review + create** to create the alert.
+
+## Create an alert for high server latency
+
+To create an alert for high server latency (average), follow these steps.
+
+1. Open the **Create an alert rule** dialog box. For more information, see [Create or edit an alert rule](../../azure-monitor/alerts/alerts-create-new-alert-rule.md).
+
+2. In the **Condition** tab of the **Create an alert rule** dialog box, select the **Success Server Latency** metric.
+
+3. Select the **Dimension values** drop-down and select the file share(s) that you want to alert on.
+
+   > [!NOTE]
+   > To alert on the overall latency experience, leave **Dimension values** unchecked. To alert on the latency of specific transactions, select the API Name in the drop-down list. For example, selecting the Read and Write API names with the equal operator will only display latency for data transactions. Selecting the Read and Write API name with the not equal operator will only display latency for metadata transactions.
+
+4. Define the **Alert Logic** by selecting either Static or Dynamic. For Static, select **Average** Aggregation, **Greater than** Operator, and Threshold value. For Dynamic, select **Average** Aggregation, **Greater than** Operator, and Threshold Sensitivity.
+
+   > [!TIP]
+   > If you're using a static threshold, the metric chart can help determine a reasonable threshold value if the file share is currently experiencing high latency. If you're using a dynamic threshold, the metric chart will display the calculated thresholds based on recent data. We recommend using the Dynamic logic with Medium threshold sensitivity and further adjust as needed. To learn more, see [Understanding Dynamic Thresholds](../../azure-monitor/alerts/alerts-dynamic-thresholds.md#understand-dynamic-thresholds-charts).
+
+5. Define the lookback period and frequency of evaluation.
+
+6. Select the **Actions** tab to add an action group (email, SMS, etc.) to the alert. You can select an existing action group or create a new action group.
+
+7. Select the **Details** tab to fill in the details of the alert such as the alert name, description, and severity. 
+
+8. Select **Review + create** to create the alert.
 
 ## Next steps
 
