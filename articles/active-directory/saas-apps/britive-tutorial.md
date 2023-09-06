@@ -116,37 +116,36 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Britive SSO
 
-1. In a different web browser window, sign into Britive website as an administrator.
+1. Login to the Britive application with administrator privileges in a different web browser window.
+2. Click on **Admin->Identity Management->Identity Providers** from the navigation menu.
+3. Click on **ADD IDENTITY PROVIDER**. Enter the name and description. Click on the
+**Add** button.
 
-1. Click on **Admin Settings Icon** and select **Security**.
+    ![security](https://github.com/MicrosoftDocs/azure-docs/assets/92109160/d99245cd-6892-4ef1-b215-99c4e02d8d71)
 
-    ![Screenshot shows the Britive website with Settings and Security selected.](./media/britive-tutorial/security.png)
 
-1. Select **SSO Configuration** and perform the following steps:
+4. Click on **Manage** for the Azure identity provider and click **SSO Configuration**.
+   
+    ![MicrosoftTeams-image](https://github.com/MicrosoftDocs/azure-docs/assets/92109160/db0126a2-4074-4409-aa8d-91cf9160378a)
 
-    ![Screenshot shows S S O Configuration where you enter the information in this step.](./media/britive-tutorial/configuration.png)
+    a. Change the **SSO Provider** from **Generic** to **Azure**.
 
-    a. Copy **Audience/Entity ID** value and paste it into the **Identifier (Entity ID)** text box in the **Basic SAML Configuration** section in the Azure portal.
+    b. Copy the **Audience/Entity ID** value and paste it into the Identifier (Entity ID) text box in the Basic SAML Configuration section in the Azure portal.
 
-    b. Copy **Initiate SSO URL** value and paste it into the **Sign on URL** text box in the **Basic SAML Configuration** section in the Azure portal.
+    c. Copy the **Initiate SSO URL** value and paste it into the Sign on URL text box in the
+Basic SAML Configuration section in the Azure portal.
 
-    c. Click on **UPLOAD SAML METADATA** to upload the downloaded metadata XML file from Azure portal. After uploading the metadata file the above values will be auto populated and save changes.
+    d. Click on **UPLOAD SAML METADATA** to upload the downloaded metadata XML file
+from the Azure portal. After uploading the metadata file the above values will be auto- populated and save changes.
+
 
 ### Create Britive test user
 
-1. In a different web browser window, sign into Britive website as an administrator.
-
-1. Click on **Admin Settings Icon** and select **User Administration**.
-
-    ![Screenshot shows the Britive website with Settings and User Administration selected.](./media/britive-tutorial/user.png)
-
-1. Click on **ADD USER**.
-
-    ![Screenshot shows the ADD USER button.](./media/britive-tutorial/add-user.png)
-
-1. Fill all the necessary details of the user according your organization requirement and click **ADD USER**.
-
-    ![Screenshot shows the Ad a User page where you enter user information.](./media/britive-tutorial/user-fields.png)
+1. Login to the Britive with administrator privileges in a different web browser window.
+2. Click on **Admin** Settings Icon and select **Identity Management**.
+3. Click on **ADD USER** from the **Users** tab.
+4. Fill in all the necessary details of the user according to your organization's requirements and
+click **Add**. Make sure to select Azure from the **Identity Providers** list.
 
 > [!NOTE]
 >Britive also supports automatic user provisioning, you can find more details [here](./britive-provisioning-tutorial.md) on how to configure automatic user provisioning.
