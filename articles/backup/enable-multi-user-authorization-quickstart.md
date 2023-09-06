@@ -2,7 +2,7 @@
 title: Quickstart - Multi-user authorization using Resource Guard
 description: In this quickstart, learn how to use Multi-user authorization to protect against unauthorized operation.
 ms.topic: quickstart
-ms.date: 05/05/2022
+ms.date: 09/25/2023
 ms.service: backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
