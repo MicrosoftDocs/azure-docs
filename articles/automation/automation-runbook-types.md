@@ -75,8 +75,8 @@ The following are the current limitations and known issues with PowerShell runbo
 * PowerShell runbooks can't retrieve a variable asset with `*~*` in the name.
 * A [Get-Process](/powershell/module/microsoft.powershell.management/get-process) operation in a loop in a PowerShell runbook can crash after about 80 iterations.
 * A PowerShell runbook can fail if it tries to write a large amount of data to the output stream at once. You can typically work around this issue by having the runbook output just the information needed  to work with large objects. For example, instead of using `Get-Process` with no limitations, you can have the cmdlet output just the required parameters as in `Get-Process | Select ProcessName, CPU`.
-* When you use [ExchangeOnlineManagement](https://learn.microsoft.com/powershell/exchange/exchange-online-powershell?view=exchange-ps) module version: 3.0.0 or higher, you may experience errors. To resolve the issue, ensure that you explicitly upload [PowerShellGet](https://learn.microsoft.com/powershell/module/powershellget/?view=powershell-5.1) and [PackageManagement](https://learn.microsoft.com/powershell/module/packagemanagement/?view=powershell-5.1) modules as well.
-* When you use [New-item cmdlet](https://learn.microsoft.com/powershell/module/microsoft.powershell.management/new-item?view=powershell-5.1), jobs might be suspended. To resolve the issue, follow the mitigation steps:
+* When you use [ExchangeOnlineManagement](/powershell/exchange/exchange-online-powershell?view=exchange-ps) module version: 3.0.0 or higher, you may experience errors. To resolve the issue, ensure that you explicitly upload [PowerShellGet](/powershell/module/powershellget/?view=powershell-5.1) and [PackageManagement](/powershell/module/packagemanagement/?view=powershell-5.1) modules as well.
+* When you use [New-item cmdlet](/powershell/module/microsoft.powershell.management/new-item?view=powershell-5.1), jobs might be suspended. To resolve the issue, follow the mitigation steps:
     1. Consume the output of `new-item` cmdlet in a variable and **do not** write it to the output stream using `write-output` command. 
        - You can use debug or progress stream after you enable it from **Logging and Tracing** setting of the runbook.
         ```powershell-interactive
@@ -124,7 +124,7 @@ The following are the current limitations and known issues with PowerShell runbo
 - You might encounter formatting problems with error output streams for the job running in PowerShell 7 runtime.
 - When you import a PowerShell 7.1 module that's dependent on other modules, you may find that the import button is gray even when PowerShell 7.1 version of the dependent module is installed. For example, Az PowerShell module.Compute version 4.20.0, has a dependency on Az.Accounts being >= 2.6.0. This issue occurs when an equivalent dependent module in PowerShell 5.1 doesn't meet the version requirements. For example, 5.1 version of Az.Accounts were < 2.6.0.
 - When you start PowerShell 7 runbook using the webhook, it auto-converts the webhook input parameter to an invalid JSON.
-- We recommend that you use [ExchangeOnlineManagement](https://learn.microsoft.com/powershell/exchange/exchange-online-powershell?view=exchange-ps) module version: 3.0.0 or lower because version: 3.0.0 or higher may lead to job failures.
+- We recommend that you use [ExchangeOnlineManagement](/powershell/exchange/exchange-online-powershell?view=exchange-ps) module version: 3.0.0 or lower because version: 3.0.0 or higher may lead to job failures.
 - If you import module Az.Accounts with version 2.12.3 or newer, ensure that you import the **Newtonsoft.Json** v10 module explicitly if PowerShell 7.1 runbooks have a dependency on this version of the module. The workaround for this issue is to use PowerShell 7.2 runbooks.
 
 
@@ -161,7 +161,7 @@ The following are the current limitations and known issues with PowerShell runbo
 
       $ProgressPreference = "Continue"
   ```
-- When you use [ExchangeOnlineManagement](https://learn.microsoft.com/powershell/exchange/exchange-online-powershell?view=exchange-ps) module version: 3.0.0 or higher, you can experience errors. To resolve the issue, ensure that you explicitly upload [PowerShellGet](https://learn.microsoft.com/powershell/module/powershellget/?view=powershell-7.3) and [PackageManagement](https://learn.microsoft.com/powershell/module/packagemanagement/?view=powershell-7.3) modules.
+- When you use [ExchangeOnlineManagement](/powershell/exchange/exchange-online-powershell?view=exchange-ps) module version: 3.0.0 or higher, you can experience errors. To resolve the issue, ensure that you explicitly upload [PowerShellGet](/powershell/module/powershellget/?view=powershell-7.3) and [PackageManagement](/powershell/module/packagemanagement/?view=powershell-7.3) modules.
 ---
 
 ## PowerShell Workflow runbooks
