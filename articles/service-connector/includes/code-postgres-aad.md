@@ -44,7 +44,7 @@ For more information, see the following resources:
 
 ### [Spring](#tab/spring)
 
-For a Spring application, if you create a connection with option `--client-type springboot`, Service Connector will set the properties `spring.datasource.azure.passwordless-enabled`, `spring.datasource.url`, and `spring.datasource.username` to Azure Spring Apps. 
+For a Spring application, if you create a connection with option `--client-type springboot`, Service Connector sets the properties `spring.datasource.azure.passwordless-enabled`, `spring.datasource.url`, and `spring.datasource.username` to Azure Spring Apps. 
 
 Update your application following the tutorial [Bind an Azure Database for PostgreSQL to your application in Azure Spring Apps](../../spring-apps/how-to-bind-postgres.md#prepare-your-java-project). Remember to remove the `spring.datasource.password` configuration property if it was set before and add the correct dependencies,
 
@@ -103,7 +103,7 @@ For more code samples, see [Connect to Azure databases from App Service without 
 
 ---
 
-Next, if you have created tables and sequences in PostgreSQL flexible server, you need to login as database owner and grant permission to `aad username` that's created by Service Connector. Get the user name from connection string or configuration set by Service Connector, it should look like `aad_<connection name>`. If you use Portal, click the expand button next to `Service Type` column and get the value. If you use Azure CLI, check `configurations` in output of CLI command.
+Next, if you have created tables and sequences in PostgreSQL flexible server, you need to connect as database owner and grant permission to `aad username` that's created by Service Connector. Get the user name from connection string or configuration set by Service Connector, it should look like `aad_<connection name>`. If you use Portal, click the expand button next to `Service Type` column and get the value. If you use Azure CLI, check `configurations` in output of CLI command.
 
 Then, execute the query to grant permission
 
