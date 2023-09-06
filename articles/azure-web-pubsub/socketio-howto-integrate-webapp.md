@@ -16,17 +16,11 @@ A new class of applications is reimagining what modern work could be. While [Mic
 ## Overview
 In this how-to guide, we take a cloud-native approach and use Azure services to build a real-time collaborative whiteboard and we deploy the project as a Web App to Azure App Service. The whiteboard app is accessible in the browser and allows anyone can draw on the same canvas.
 
-### Architecture
-
-|Azure service name    | Purpose           | Benefits         | 
-|----------------------|-------------------|------------------|
-|[Azure App Service](https://learn.microsoft.com/azure/app-service/)  | Provides the hosting environment for the backend application, which is built with [Express](https://expressjs.com/) | Fully managed environment for application backends, with no need to worry about infrastructure where the code runs 
-|[Web PubSub for Socket.IO](./socketio-overview.md) | Provides low-latency, bi-directional data exchange channel between the backend application and clients | Drastically reduces server load by freeing server from managing Socket.IO clients and scales to 100 K concurrent client connections with just one resource
+:::image type="content" source="./media/howto-integrate-app-service/result.gif" alt-text="Gif of finished project.":::
 
 :::image type="content" source="./media/howto-integrate-app-service/architecture.jpg" alt-text="Architecture diagram of the collaborative whiteboard app.":::
 
 ## Prerequisites
-You can find detailed explanation of the [data flow](#data-flow) at the end of this how-to guide as we're going to focus on building and deploying the whiteboard app first.
  
 In order to follow the step-by-step guide, you need
 > [!div class="checklist"]
@@ -84,3 +78,39 @@ In order to follow the step-by-step guide, you need
     ```
 ---
 
+## Get the application code
+Run the following command to get a copy of the application code. You can find detailed explanation of the [data flow](#data-flow) at the end of this how-to guide.
+```bash
+git clone https://github.com/Azure-Samples/socket.io-webapp-integration
+```
+
+## Deploy the application to App Service
+1. App Service supports many deployment workflows. For this guide, we're going to deploy a ZIP package. Run the following commands to prepare the ZIP.
+    ```bash
+    npm install
+    npm run build
+    zip -r app.zip *
+    ```
+
+2. Use the following command to deploy it to Azure App Service.
+    ```azurecli-interactive
+    az webapp deployment source config-zip \
+    --resource-group "whiteboard-group" \
+    --name "whiteboard-app" \
+    --src app.zip
+    ```
+
+3. Set Azure Web PubSub connection string in the application settings. Use the value of  `primaryConnectionString` you stored from an earlier step.
+    ```azurecli-interactive
+    az webapp config appsettings set \
+    --resource-group "whiteboard-group" \
+    --name "whiteboard-app" \
+    --setting Web_PubSub_ConnectionString="<primaryConnectionString>"
+    ```
+
+## View the whiteboard app in a browser
+Now head over to your browser and visit your deployed Web App. It's recommended to have multiple browser tabs open so that you can experience the real-time collaborative aspect of the app. Or better, share the link with a colleague or friend.
+
+## Next steps
+> [!div class="nextstepaction"]
+> [Check out more Socket.IO samples](https://github.com/Azure/azure-webpubsub/tree/main/experimental/sdk/webpubsub-socketio-extension/examples)
