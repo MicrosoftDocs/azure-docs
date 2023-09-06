@@ -39,19 +39,19 @@ See [Azure AI Video Indexer account types](/azure/azure-video-indexer/accounts-o
 
 ### Azure Resource Manager (ARM)-based accounts
 
-**New accounts:** As of January 15, all newly created AVI accounts will be Updated AVI accounts. You'll no longer be able to create AMS-dependent accounts.
+**New accounts:** As of January 15, all newly created AVI accounts will be non-AMS dependent accounts. You'll no longer be able to create AMS-dependent accounts.
 
-**Existing accounts**: Existing accounts will continue to work through June 30, 2024. To continue using the account beyond June 30, customers must go through the process to convert their account to an Updated AVI account. If you don’t convert your account to an Updated AVI account, you won't be able to access the account or use it beyond June 30.
+**Existing accounts**: Existing accounts will continue to work through June 30, 2024. To continue using the account beyond June 30, customers must go through the process to convert their account to an non-AMS dependent account. If you don’t convert your account to an non-AMS dependent account, you won't be able to access the account or use it beyond June 30.
 
 ### Classic accounts
 
-- **New accounts:** As of January 15, all newly created AVI accounts will be Updated AVI accounts. You'll no longer be able to create Classic accounts.
-- **Existing accounts:** Existing classic accounts will continue to work through June 30, 2024. AVI will release an updated API version for the Updated accounts that doesn’t contain any AMS related parameters.
+- **New accounts:** As of January 15, all newly created AVI accounts will be non-AMS dependent accounts. You'll no longer be able to create Classic accounts.
+- **Existing accounts:** Existing classic accounts will continue to work through June 30, 2024. AVI will release an updated API version for the non-AMS dependent accounts that doesn’t contain any AMS related parameters.
 
 To continue using the account beyond June 30, 2024, classic accounts will have to go through two steps:
 
 1. Connect the account as an ARM-based account. You can connect the accounts already. See [Azure AI Video Indexer accounts](accounts-overview.md) for instructions.
-1. Convert the account to an Updated AVI account. If you don’t convert your account to an Updated AVI account, you won’t be able to access the account or use it beyond June 30.
+1. Make the required changes to the AVI account to remove the AMS dependency. If this isn’t done, you won't be able to access the account or use it beyond June 30, 2024.
 
 ### Existing trial accounts
 
@@ -60,11 +60,11 @@ To continue using the account beyond June 30, 2024, classic accounts will have t
 
 ## API changes
 
-**Between January 15 to June 30, 2024**, AVI will support both existing data and control plane APIs as well as the APIs for the updated AVI accounts that contain ARM related parameters.
+**Between January 15 to June 30, 2024**, AVI will support both existing data and control plane APIs as well as the updated APIs that exclude all AMS related parameters.
 
-Updated AVI account owners will only use the updated APIs that will exclude all AMS related parameters.
+New AVI accounts as well as existing AVI accounts that have completed the steps to remove all AMS dependencies will only use the updated APIs that will exclude all AMS related parameters.
 
-**On July 1st, 2024**, code using APIs with AMS parameters will no longer be supported. This applies to both control plane and data plane operations.
+**On July 1, 2024**, code using APIs with AMS parameters will no longer be supported. This applies to both control plane and data plane operations.
 
 ### Breaking API changes
 
