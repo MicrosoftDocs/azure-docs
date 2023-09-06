@@ -107,7 +107,7 @@ When you successfully create your storage account, you then need to create a con
 
      :::image type="content" source="./media/tutorial-iot-hub-maps/container-new.png" alt-text="Screenshot of create a blob container.":::
 
-3. Go to the **Access keys** pane in your storage account, and copy the **Storage account name** and the **Key** value in the **key1** section. You need both of these values in the [Create a function and add an Event Grid subscription](#create-a-function-and-add-an-event-grid-subscription) section.
+3. Go to the **Access keys** pane in your storage account, and copy the **Storage account name** and the **Key** value in the **key1** section. You need both of these values in the [Create a function and add an Event Grid subscription] section.
 
     :::image type="content" source="./media/tutorial-iot-hub-maps/access-keys.png" alt-text="Screenshot of copy storage account name and key.":::
 
@@ -295,6 +295,7 @@ To learn more about how to send device-to-cloud telemetry, and the other way aro
 [create a storage account]: ../storage/common/storage-account-create.md?tabs=azure-portal
 [Create an Azure storage account]: #create-an-azure-storage-account
 [create an IoT hub]: ../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp#create-an-iot-hub
+[Create a function and add an Event Grid subscription]: #create-a-function-and-add-an-event-grid-subscription
 [free account]: https://azure.microsoft.com/free/
 [general-purpose v2 storage account]: ../storage/common/storage-account-overview.md
 [Get Geofence]: /rest/api/maps/spatial/getgeofence
