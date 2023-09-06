@@ -36,15 +36,15 @@ In order to follow the step-by-step guide, you need
     ```azurecli-interactive
     az group create \
       --location "westus" \  
-      --name "whiteboard-group"
+      --name "<resource-group-name>"
     ```
 
 ### 2. Create a Web App resource
 1. Create a free App Service plan.
     ```azurecli-interactive
     az appservice plan create \ 
-      --resource-group "whiteboard-group" \ 
-      --name "demo" \ 
+      --resource-group "<resource-group-name>" \ 
+      --name "<app-service-plan-name>" \ 
       --sku FREE
       --is-linux
     ```
@@ -52,9 +52,9 @@ In order to follow the step-by-step guide, you need
 1. Create a Web App resource 
     ```azurecli-interactive
     az webapp create \
-      --resource-group "whiteboard-group" \
-      --name "whiteboard-app" \ 
-      --plan "demo" \
+      --resource-group "<resource-group-name>" \
+      --name "<webapp-name>" \ 
+      --plan "<app-service-plan-name>" \
       --runtime "NODE:18-lts"
     ```
 
@@ -62,8 +62,8 @@ In order to follow the step-by-step guide, you need
 1. Create a Web PubSub resource.
     ```azurecli-interactive
     az webpubsub create \
-      --name "whiteboard-app" \
-      --resource-group "whiteboard-group" \
+      --name "<socketio-name>" \
+      --resource-group "<resource-group-name>" \
       --kind SocketIO
       --sku Premium_P1
     ```
@@ -71,8 +71,8 @@ In order to follow the step-by-step guide, you need
 1. Show and store the value of `primaryConnectionString` somewhere for later use.
     ```azurecli-interactive
     az webpubsub key show \
-      --name "whiteboard-app" \
-      --resource-group "whiteboard-group"
+      --name "<socketio-name>" \
+      --resource-group "<resource-group-name>"
     ```
 ---
 
@@ -83,31 +83,47 @@ git clone https://github.com/Azure-Samples/socket.io-webapp-integration
 ```
 
 ## Deploy the application to App Service
-1. App Service supports many deployment workflows. For this guide, we're going to deploy a ZIP package. Run the following commands to prepare the ZIP.
+1. App Service supports many deployment workflows. For this guide, we're going to deploy a ZIP package. Run the following commands to install and build the project.
     ```bash
     npm install
     npm run build
+
+    # bash
+    zip -r app.zip *
+
+    # Poweshell
+    ```
+
+1. Compess into a zip
+
+    Use Bash
+    ```bash
     zip -r app.zip *
     ```
 
-2. Use the following command to deploy it to Azure App Service.
+    Use Powershell
+    ```Powershell
+    Compress-Archive -Path * -DestinationPath app.zip
+    ```
+
+1. Use the following command to deploy it to Azure App Service.
     ```azurecli-interactive
     az webapp deployment source config-zip \
-    --resource-group "whiteboard-group" \
-    --name "whiteboard-app" \
+    --resource-group "<resource-group-name>" \
+    --name "<webapp-name>" \
     --src app.zip
     ```
 
-3. Set Azure Web PubSub connection string in the application settings. Use the value of  `primaryConnectionString` you stored from an earlier step.
+1. Set Azure Web PubSub connection string in the application settings. Use the value of  `primaryConnectionString` you stored from an earlier step.
     ```azurecli-interactive
     az webapp config appsettings set \
-    --resource-group "whiteboard-group" \
-    --name "whiteboard-app" \
+    --resource-group "<resource-group-name>" \
+    --name "<webapp-name>" \
     --setting Web_PubSub_ConnectionString="<primaryConnectionString>"
     ```
 
 ## View the whiteboard app in a browser
-Now head over to your browser and visit your deployed Web App. It's recommended to have multiple browser tabs open so that you can experience the real-time collaborative aspect of the app. Or better, share the link with a colleague or friend.
+Now head over to your browser and visit your deployed Web App . It's recommended to have multiple browser tabs open so that you can experience the real-time collaborative aspect of the app. Or better, share the link with a colleague or friend.
 
 ## Next steps
 > [!div class="nextstepaction"]
