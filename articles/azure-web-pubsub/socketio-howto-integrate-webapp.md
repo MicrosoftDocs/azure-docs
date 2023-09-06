@@ -77,10 +77,10 @@ In order to follow the step-by-step guide, you need
 ---
 
 ## Get the application code
-Run the following command to get a copy of the application code. You can find detailed explanation of the [data flow](#data-flow) at the end of this how-to guide.
-```bash
-git clone https://github.com/Azure-Samples/socket.io-webapp-integration
-```
+Run the following command to get a copy of the application code.
+  ```bash
+  git clone https://github.com/Azure-Samples/socket.io-webapp-integration
+  ```
 
 ## Deploy the application to App Service
 1. App Service supports many deployment workflows. For this guide, we're going to deploy a ZIP package. Run the following commands to install and build the project.
