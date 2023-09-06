@@ -131,7 +131,7 @@ InsightsMetrics
 ```
 
 More use cases:
--	Use a tag to determine whether VMs should be running 24x7 or should be shutdown at night.
+-	Use a tag to determine whether VMs should be running 24x7 or should be shut down at night.
 -	Show alerts on any server that contains a certain number of cores.
 
 ### Combine Azure Resource Graph tables with a Log Analytics workspace
