@@ -6,7 +6,7 @@ ms.author: karler
 ms.topic: how-to
 ms.date: 07/12/2023
 ms.service: spring-apps
-ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
+ms.custom: devx-track-java, event-tier1-build-2022
 ---
 
 # How to use VMware Spring Cloud Gateway route filters with the Azure Spring Apps Enterprise plan

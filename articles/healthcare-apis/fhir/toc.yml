@@ -65,6 +65,8 @@ items:
     items:
     - name: Enable diagnostic settings in the FHIR service
       href: fhir-service-diagnostic-logs.md
+    - name: Use Custom HTTP headers to add data to Audit Logs
+      href: use-custom-headers-diagnosticlog.md
   - name: Search
     expanded: false
     items:
