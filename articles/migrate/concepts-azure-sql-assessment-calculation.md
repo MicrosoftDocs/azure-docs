@@ -175,7 +175,7 @@ After the assessment determines the readiness and the recommended Azure SQL depl
 
 *Instance to SQL Server on Azure VM* assessment report covers the ideal approach for migrating SQL Server instances and databases to SQL Server on Azure VM, adhering to the best practices. [Learn more](/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist?preserve-view=true&view=azuresql#vm-size).
 
-If the source is a SQL Server Always On Failover Cluster Instance (FCI), the assessment report covers the approach for migrating to a two-node SQL Server Failover Cluster Instance. This preserves the high availability and disaster recovery intents while adhering to the best practices. [Learn more](/azure/azure-sql/virtual-machines/windows/hadr-cluster-best-practices?view=azuresql&tabs=windows2012). 
+If the source is a SQL Server Always On Failover Cluster Instance (FCI), the assessment report covers the approach for migrating to a two-node SQL Server Failover Cluster Instance. This preserves the high availability and disaster recovery intents while adhering to the best practices. [Learn more](/azure/azure-sql/virtual-machines/windows/hadr-cluster-best-practices?view=azuresql&preserve-view=true&tabs=windows2012). 
 
 #### Storage sizing
 For storage sizing, the assessment maps each of the instance disk to an Azure disk. Sizing works as follows:
