@@ -456,7 +456,7 @@
               href: scenario-daemon-call-api.md
             - name: Move to production
               href: scenario-daemon-production.md
-- name: How-to guides
+- name: Scenarios
   items:
     - name: Build
       items:
