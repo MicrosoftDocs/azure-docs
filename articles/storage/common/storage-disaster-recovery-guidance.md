@@ -54,8 +54,8 @@ Each type of failover has a unique set of use cases, corresponding expectations 
 
 | Type                               | Failover Scope  | Use case | Expected data loss | HNS supported |
 |------------------------------------|-----------------|----------|---------------------|---------------|
-| Customer-managed                   | Storage account | The storage service endpoints for the primary region become unavailable, but the secondary region is available. <br></br> An Azure Advisory in which Microsoft advises you to perform a failover operation of storage accounts potentially affected by an outage. | [Yes](#data-loss-and-inconsistencies) | [Yes *(In preview)*](#azure-data-lake-storage-gen2) |
-| Microsoft-managed                  | Entire region, datacenter or scale unit   | The primary region becomes completely unavailable due to a significant disaster, but the secondary region is available. | [Yes](#data-loss-and-inconsistencies) | [Yes](#azure-data-lake-storage-gen2) |
+| Customer-managed                   | Storage account | The storage service endpoints for the primary region become unavailable, but the secondary region is available. <br></br> An Azure Advisory in which Microsoft advises you to perform a failover operation of storage accounts potentially affected by an outage. | [Yes](#anticipate-data-loss-and-inconsistencies) | [Yes *(In preview)*](#azure-data-lake-storage-gen2) |
+| Microsoft-managed                  | Entire region, datacenter or scale unit   | The primary region becomes completely unavailable due to a significant disaster, but the secondary region is available. | [Yes](#anticipate-data-loss-and-inconsistencies) | [Yes](#azure-data-lake-storage-gen2) |
 
 ### Customer-managed failover
 
