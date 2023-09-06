@@ -100,7 +100,7 @@ When calling the Azure DNS REST API, you need to specify each TXT string separat
 
 The multiple strings in a DNS record shouldn't be confused with the multiple TXT records in a TXT record set.  A TXT record set can contain multiple records, *each of which* can contain multiple strings.  Azure DNS supports a total string length of up to 4096 characters`*` in each TXT record set (across all records combined).
 
-`*` 4096 characters are currently only available in the Azure Public Cloud. National clouds are limited to 1024 characters until 4k support rollout is complete.
+`*` 4096 character support is currently only available in the Azure Public Cloud. National clouds are limited to 1024 characters until 4k support rollout is complete.
 
 ## Tags and metadata
 
