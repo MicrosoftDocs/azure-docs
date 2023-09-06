@@ -63,7 +63,7 @@ For example, the following command adds an email notification and a webhook noti
 > You can add mote than one email or webhook notification by using the `--add-action` parameter multiple times. While multiple webhook notifications are supported and can be seen in the JSON, the portal only shows the first webhook.
 
 
-For more information, see [az monitor autoscale](/cli/azure/monitor/autoscale?view=azure-cli-latest).
+For more information, see [az monitor autoscale](/cli/azure/monitor/autoscale).
 
 
 
