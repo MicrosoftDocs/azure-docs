@@ -124,16 +124,16 @@ Something here about it being premium block blob account and standard general-pu
 
 :::row:::
    :::column span="":::
-      | Operation                                                                            | Premium                   | Standard                  |
-      |--------------------------------------------------------------------------------------|---------------------------|---------------------------|
-      | [List Containers](/rest/api/storageservices/list-containers2)                        | List and create container | List and create container |
-      | [Set Blob Service Properties](/rest/api/storageservices/set-blob-service-properties) | Other                     | Other                     |
+      | Operation                                                                            | Transaction category      |
+      |--------------------------------------------------------------------------------------|---------------------------|
+      | [List Containers](/rest/api/storageservices/list-containers2)                        | List and create container |
+      | [Set Blob Service Properties](/rest/api/storageservices/set-blob-service-properties) | Other                     |
    :::column-end:::
    :::column span="":::
-      | Operation                                                                            | Premium                   | Standard                  |
-      |--------------------------------------------------------------------------------------|---------------------------|---------------------------|
-      | [Set Blob Tags](/rest/api/storageservices/set-blob-tags)                             | Other                     | Other                     |
-      | [Find Blobs by Tags](/rest/api/storageservices/find-blobs-by-tags)                   | List and create container | List and create container |
+      | Operation                                                                            | Transaction category      |
+      |--------------------------------------------------------------------------------------|---------------------------|
+      | [Set Blob Tags](/rest/api/storageservices/set-blob-tags)                             | Other                     |
+      | [Find Blobs by Tags](/rest/api/storageservices/find-blobs-by-tags)                   | List and create container |
    :::column-end:::
 :::row-end:::
 
