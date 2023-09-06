@@ -131,6 +131,12 @@ conceptualContent:
           
 additionalContent:
   sections:
+    - title: Other services 
+      items:
+        # Card
+        - title: Azure API for FHIR
+          summary: Scalable, secure, standards-based service for FHIR data
+          url: ./azure-api-for-fhir/fhir-paas-portal-quickstart.md
     - title: Tools & resources 
       items:
         # Card
