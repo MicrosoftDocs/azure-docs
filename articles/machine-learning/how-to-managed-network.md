@@ -912,6 +912,10 @@ If you plan to use __Azure Machine Learning batch endpoints__ for deployment, ad
 * `queue`
 * `table`
 
+### Scenario: Use prompt flow with Azure Open AI, content safety, and cognitive search
+
+* Private endpoint to Azure AI Services
+* Private endpoint to Azure Cognitive Search
 
 ## Private endpoints
 
