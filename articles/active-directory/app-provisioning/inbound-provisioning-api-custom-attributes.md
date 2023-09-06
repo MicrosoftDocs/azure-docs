@@ -28,7 +28,7 @@ You have configured API-driven provisioning app. You're provisioning app is succ
 
 In this step, we'll add the two attributes "HireDate" and "JobCode" that are not part of the standard SCIM schema to the provisioning app and use them in the provisioning data flow.
 
-1. Log in to Microsoft Entra portal with application administrator role.
+1. Log in to Microsoft Entra admin center with application administrator role.
 1. Go to **Enterprise applications** and open your API-driven provisioning app. 
 1. Open the **Provisioning** blade. 
 1. Click on the **Edit Provisioning** button. 
@@ -44,7 +44,7 @@ In this step, we'll add the two attributes "HireDate" and "JobCode" that are not
 1.  **Save** your changes
 
 > [!NOTE]
-> If you'd like to add only a few additional attributes to the provisioning app, use Microsoft Entra Portal to extend the schema. If you'd like to add more custom attributes (let's say 20+ attributes), then we recommend using the [`UpdateSchema` mode of the CSV2SCIM PowerShell script](inbound-provisioning-api-powershell.md#extending-provisioning-job-schema) which automates the above manual process.
+> If you'd like to add only a few additional attributes to the provisioning app, use Microsoft Entra admin center to extend the schema. If you'd like to add more custom attributes (let's say 20+ attributes), then we recommend using the [`UpdateSchema` mode of the CSV2SCIM PowerShell script](inbound-provisioning-api-powershell.md#extending-provisioning-job-schema) which automates the above manual process.
 
 ## Step 2 - Map the custom attributes
 

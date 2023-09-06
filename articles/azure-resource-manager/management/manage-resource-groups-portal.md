@@ -1,11 +1,9 @@
 ---
 title: Manage resource groups - Azure portal
 description: Use Azure portal to manage your resource groups through Azure Resource Manager. Shows how to create, list, and delete resource groups.
-author: mumian
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 03/26/2019
-ms.author: jgao
+ms.date: 08/16/2023
 ---
 # Manage Azure resource groups by using the Azure portal
 
@@ -23,44 +21,44 @@ The resource group stores metadata about the resources. Therefore, when you spec
 ## Create resource groups
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Select **Resource groups**
+1. Select **Resource groups**.
+1. Select **Create**.
 
-    :::image type="content" source="./media/manage-resource-groups-portal/manage-resource-groups-add-group.png" alt-text="Screenshot of the Azure portal with 'Resource groups' and 'Add' highlighted.":::
-3. Select **Add**.
-4. Enter the following values:
+    :::image type="content" source="./media/manage-resource-groups-portal/manage-resource-groups-add-group.png" alt-text="Screenshot of the Azure portal with 'Resource groups' and 'Add' highlighted." lightbox="./media/manage-resource-groups-portal/manage-resource-groups-add-group.png":::
 
-   - **Subscription**: Select your Azure subscription. 
-   - **Resource group**: Enter a new resource group name. 
+1. Enter the following values:
+
+   - **Subscription**: Select your Azure subscription.
+   - **Resource group**: Enter a new resource group name.
    - **Region**: Select an Azure location, such as **Central US**.
 
-     :::image type="content" source="./media/manage-resource-groups-portal/manage-resource-groups-create-group.png" alt-text="Screenshot of the Create Resource Group form in the Azure portal with fields for Subscription, Resource group, and Region.":::
-5. Select **Review + Create**
-6. Select **Create**. It takes a few seconds to create a resource group.
-7. Select **Refresh** from the top menu to refresh the resource group list, and then select the newly created resource group to open it. Or select **Notification**(the bell icon) from the top, and then select **Go to resource group** to open the newly created resource group
+     :::image type="content" source="./media/manage-resource-groups-portal/manage-resource-groups-create-group.png" alt-text="Screenshot of the Create Resource Group form in the Azure portal with fields for Subscription, Resource group, and Region." lightbox="./media/manage-resource-groups-portal/manage-resource-groups-create-group.png":::
+1. Select **Review + Create**
+1. Select **Create**. It takes a few seconds to create a resource group.
+1. Select **Refresh** from the top menu to refresh the resource group list, and then select the newly created resource group to open it. Or select **Notification**(the bell icon) from the top, and then select **Go to resource group** to open the newly created resource group
 
-    :::image type="content" source="./media/manage-resource-groups-portal/manage-resource-groups-add-group-go-to-resource-group.png" alt-text="Screenshot of the Azure portal with the 'Go to resource group' button in the Notifications panel.":::
+    :::image type="content" source="./media/manage-resource-groups-portal/manage-resource-groups-add-group-go-to-resource-group.png" alt-text="Screenshot of the Azure portal with the 'Go to resource group' button in the Notifications panel." lightbox="./media/manage-resource-groups-portal/manage-resource-groups-add-group-go-to-resource-group.png":::
 
 ## List resource groups
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. To list the resource groups, select **Resource groups**
+1. To list the resource groups, select **Resource groups**
+1. To customize the information displayed for the resource groups, configure the filters. The following screenshot shows the additional columns you could add to the display:
 
-    :::image type="content" source="./media/manage-resource-groups-portal/manage-resource-groups-list-groups.png" alt-text="Screenshot of the Azure portal displaying a list of resource groups.":::
-
-3. To customize the information displayed for the resource groups, select **Edit columns**. The following screenshot shows the additional columns you could add to the display:
+    :::image type="content" source="./media/manage-resource-groups-portal/manage-resource-groups-list-groups.png" alt-text="Screenshot of the Azure portal displaying a list of resource groups." lightbox="./media/manage-resource-groups-portal/manage-resource-groups-list-groups.png":::
 
 ## Open resource groups
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Select **Resource groups**.
-3. Select the resource group you want to open.
+1. Select **Resource groups**.
+1. Select the resource group you want to open.
 
 ## Delete resource groups
 
 1. Open the resource group you want to delete.  See [Open resource groups](#open-resource-groups).
-2. Select **Delete resource group**.
+1. Select **Delete resource group**.
 
-    :::image type="content" source="./media/manage-resource-groups-portal/delete-group.png" alt-text="Screenshot of the Azure portal with the Delete resource group button highlighted in a specific resource group.":::
+    :::image type="content" source="./media/manage-resource-groups-portal/delete-group.png" alt-text="Screenshot of the Azure portal with the Delete resource group button highlighted in a specific resource group." lightbox="./media/manage-resource-groups-portal/delete-group.png":::
 
 For more information about how Azure Resource Manager orders the deletion of resources, see [Azure Resource Manager resource group deletion](delete-resource-group.md).
 
@@ -74,14 +72,14 @@ You can move the resources in the group to another resource group. For more info
 
 ## Lock resource groups
 
-Locking prevents other users in your organization from accidentally deleting or modifying critical resources, such as Azure subscription, resource group, or resource. 
+Locking prevents other users in your organization from accidentally deleting or modifying critical resources, such as Azure subscription, resource group, or resource.
 
 1. Open the resource group you want to lock.  See [Open resource groups](#open-resource-groups).
-2. In the left pane, select **Locks**.
-3. To add a lock to the resource group, select **Add**.
-4. Enter **Lock name**, **Lock type**, and **Notes**. The lock types include **Read-only**, and **Delete**.
+1. In the left pane, select **Locks**.
+1. To add a lock to the resource group, select **Add**.
+1. Enter **Lock name**, **Lock type**, and **Notes**. The lock types include **Read-only**, and **Delete**.
 
-    :::image type="content" source="./media/manage-resource-groups-portal/manage-resource-groups-add-lock.png" alt-text="Screenshot of the Add Lock form in the Azure portal with fields for Lock name, Lock type, and Notes.":::
+    :::image type="content" source="./media/manage-resource-groups-portal/manage-resource-groups-add-lock.png" alt-text="Screenshot of the Add Lock form in the Azure portal with fields for Lock name, Lock type, and Notes."  lightbox="./media/manage-resource-groups-portal/manage-resource-groups-add-lock.png":::
 
 For more information, see [Lock resources to prevent unexpected changes](lock-resources.md).
 

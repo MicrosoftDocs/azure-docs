@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 This article explains how to create a new user, invite an external guest, and delete a user in your Azure Active Directory (Azure AD) tenant. 
 
-The updated experience for creating new users covered in this article is available as an Azure AD preview feature. This feature is enabled by default, but you can opt out by going to **Azure AD** > **Preview features** and disabling the **Create user experience** feature. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+The updated experience for creating new users covered in this article is available as an Azure AD preview feature. This feature is enabled by default, but you can opt out by going to **Azure AD** > **Preview features** and disabling the **Create user experience** feature. For more information about previews, see [Universal License Terms For Online Services](https://www.microsoft.com/licensing/terms/product/ForOnlineServices/all).
 
 Instructions for the legacy create user process can be found in the [Add or delete users](./add-users.md) article.
 

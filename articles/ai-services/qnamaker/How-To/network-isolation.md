@@ -120,7 +120,7 @@ The Cognitive Search instance can be isolated via a private endpoint after the Q
 Follow the steps below to restrict public access to QnA Maker resources. Protect an Azure AI services resource from public access by [configuring the virtual network](../../cognitive-services-virtual-networks.md?tabs=portal).
 
 After restricting access to the Azure AI service resource based on VNet, To browse knowledgebases on the https://qnamaker.ai portal from your on-premises network or your local browser.
-- Grant access to [on-premises network](../../cognitive-services-virtual-networks.md?tabs=portal#configuring-access-from-on-premises-networks).
+- Grant access to [on-premises network](../../cognitive-services-virtual-networks.md?tabs=portal#configure-access-from-on-premises-networks).
 - Grant access to your [local browser/machine](../../cognitive-services-virtual-networks.md?tabs=portal#managing-ip-network-rules).
 - Add the **public IP address of the machine  under the Firewall** section of the **Networking** tab. By default `portal.azure.com` shows the current browsing machine's public IP (select this entry) and then select **Save**.
 

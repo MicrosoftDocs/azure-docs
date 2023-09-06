@@ -5,6 +5,7 @@ description: This article has information about moving your hybrid identity envi
 services: active-directory
 ms.service: active-directory
 ms.subservice: hybrid
+ms.custom: has-azure-ad-ps-ref
 ms.topic: conceptual
 ms.date: 04/04/2023
 ms.author: billmath

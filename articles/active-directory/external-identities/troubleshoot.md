@@ -9,7 +9,7 @@ ms.date: 05/23/2023
 tags: active-directory
 ms.author: cmulligan
 author: csmulligan
-ms.custom: engagement-fy23, it-pro, seo-update-azuread-jan
+ms.custom: engagement-fy23, it-pro, seo-update-azuread-jan, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 ---
 

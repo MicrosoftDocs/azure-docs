@@ -2,7 +2,11 @@
 title: What's new in Microsoft Defender for IoT
 description: This article describes new features available in Microsoft Defender for IoT, including both OT and Enterprise IoT networks, and both on-premises and in the Azure portal.
 ms.topic: whats-new
+<<<<<<< HEAD
 ms.date: 08/14/2023
+=======
+ms.date: 08/28/2023
+>>>>>>> 1f236b2ce85937b5ae1321db9f5b4e1e907f47be
 ms.custom: enterprise-iot
 ---
 
@@ -20,6 +24,7 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
+<<<<<<< HEAD
 | **OT networks** | [Updated security stack integration guidance](#updated-security-stack-integration-guidance)|
 
 ### Updated security stack integration guidance
@@ -37,6 +42,20 @@ The legacy Aruba ClearPass, Palo Alto Panorama, Splunk, and Microsoft Sentinel i
 - [Integrations with Microsoft and partner services](integrate-overview.md)
 
 
+=======
+| **OT networks** | [Defender for IoT's CVEs align to CVSS v3](#defender-for-iots-cves-align-to-cvss-v3) |
+
+### Defender for IoT's CVEs align to CVSS v3
+
+CVE scores shown in the OT sensor and on the Azure portal are aligned with the [National Vulnerability Database (NVD)](https://nvd.nist.gov/vuln-metrics/cvss), and starting with Defender for IoT's August threat intelligence update, CVSS v3 scores are shown if they're relevant. If there's no CVSS v3 score relevant, the CVSS v2 score is shown instead.
+
+View CVE data from the Azure portal, either on a Defender for IoT's device detail's **Vulnerabilities** tab, with resources available with the Microsoft Sentinel solution, or in a data mining query on your OT sensor. For more information, see:
+
+- [Maintain threat intelligence packages on OT network sensors](how-to-work-with-threat-intelligence-packages.md)
+- [View full device details](how-to-manage-device-inventory-for-organizations.md#view-full-device-details)
+- [Tutorial: Investigate and detect threats for IoT devices with Microsoft Sentinel](iot-advanced-threat-monitoring.md)
+- [Create data mining queries](how-to-create-data-mining-queries.md)
+>>>>>>> 1f236b2ce85937b5ae1321db9f5b4e1e907f47be
 
 ## July 2023
 

@@ -7,6 +7,8 @@ items:
       href: overview.md
     - name: What's new?
       href: whats-new.md
+    - name: Choose the right tier
+      href: choose-right-tier.md
   - name: MQTT messaging
     items:
     - name: Overview
@@ -52,8 +54,8 @@ items:
         href: mqtt-support.md
       - name: MQTT clients life cycle events
         href: mqtt-client-life-cycle-events.md
-      - name: RBAC roles to authorize clients with Azure AD identity
-        href: mqtt-client-authorization-use-rbac.md
+      - name: JWT authentication and RBAC authorization for clients with Azure AD identity
+        href: mqtt-client-azure-ad-token-and-rbac.md
       - name: Use cases
         items:
         - name: Automotive Messaging
@@ -134,6 +136,8 @@ items:
         href: create-view-manage-namespace-topics.md
       - name: Create, view, and manage event subscriptions
         href: create-view-manage-event-subscriptions.md
+      - name: Enable managed identity for namespace
+        href: event-grid-namespace-managed-identity.md         
     - name: Reference
       items:
       - name: SDKs

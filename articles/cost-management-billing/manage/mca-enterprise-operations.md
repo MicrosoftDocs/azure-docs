@@ -33,7 +33,7 @@ The following changes apply to enterprise administrators on an Enterprise Agreem
 
 - A billing profile is created for your enrollment. You'll use the billing profile to manage billing for your organization, like your Enterprise Agreement enrollment. To learn more about billing profiles, [understand billing profiles](../understand/mca-overview.md#billing-profiles).
 - An invoice section is created for each department in your Enterprise Agreement enrollment. You'll use the invoice sections to manage your departments. You can create new invoice sections to set up additional departments. To learn more about invoice sections, see [understand invoice sections](../understand/mca-overview.md#invoice-sections).
-- You'll use the Azure subscription creator role on invoice sections to give others permission to create Azure subscription, like the accounts that were created in Enterprise Agreement enrollment.
+- You'll use the Azure subscription creator role on invoice sections to give others permission to create Azure subscriptions, like the accounts that were created in Enterprise Agreement enrollment.
 - You'll use the [Azure portal](https://portal.azure.com) to manage billing for your organization, instead of the Azure EA portal.
 
 You are given the following roles on the new billing account:
@@ -58,15 +58,15 @@ An invoice section is created for each department you had in your Enterprise Agr
 
 The accounts that were created in your Enterprise Agreement enrollment are not supported in the new billing account. The account's subscriptions belong to the respective invoice section for their department. Account owners can create and manage subscriptions for their invoice sections.
 
-To view aggregate cost for subscriptions that belonged to an account, you must set a cost center for each subscription. Then you can use the Azure usage and charges csv file to filter the subscriptions by the cost center.
+To view the aggregate cost for subscriptions that belonged to an account, you must set a cost center for each subscription. Then you can use the Azure usage and charges .csv file to filter the subscriptions by the cost center.
 
 ### Download usage and charges csv, price sheet, and tax documents
 
-A monthly invoice is generated for each billing profile in your billing account. For each invoice, you can download Azure usage and charges csv file, price sheet, and tax document (if applicable). You can also download Azure usage and charges csv file for the current month's charges.
+A monthly invoice is generated for each billing profile in your billing account. For each invoice, you can download the Azure usage and charges .csv file, price sheet, and tax document (if applicable). You can also download Azure usage and charges .csv file for the current month's charges.
 
-To learn how to download Azure usage and charges csv file, see [download usage for your Microsoft Customer Agreement](../understand/download-azure-daily-usage.md).
+To learn how to download Azure usage and charges .csv file, see [download usage for your Microsoft Customer Agreement](../understand/download-azure-daily-usage.md).
 
-To learn how to download price sheet, see [download pricing for your Microsoft Customer Agreement](ea-pricing.md).
+To learn how to download the price sheet, see [download pricing for your Microsoft Customer Agreement](ea-pricing.md).
 
 To learn how to download tax documents, see [view the tax documents for your Microsoft Customer Agreement](../understand/mca-download-tax-document.md#view-and-download-tax-documents).
 
@@ -82,19 +82,19 @@ Create an invoice section to organize your costs based on your needs, like depar
 
 ### Create a new account
 
-Assign users the Azure subscription creator role on invoice sections to give them permission to create Azure subscription, like the accounts that are created in Enterprise Agreement enrollment. For more information on assigning roles, see [Manage billing roles in the Azure portal](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal)
+Assign users the Azure subscription creator role on invoice sections to give them permission to create Azure subscriptions, like the accounts that are created in Enterprise Agreement enrollment. For more information on assigning roles, see [Manage billing roles in the Azure portal](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal)
 
 ## Changes for department administrators
 
 The following changes apply to department administrators on an Enterprise Agreement that got renewed to a Microsoft Customer Agreement.
 
 - An invoice section is created for each department in your Enterprise Agreement enrollment. You'll use the invoice section(s) to manage your department(s). To learn more about invoice sections, see [understand invoice sections](../understand/mca-overview.md#invoice-sections).
-- You'll use the Azure subscription creator role on the invoice section to give others permission to create Azure subscription, like the accounts that are created in Enterprise Agreement enrollment.
+- You'll use the Azure subscription creator role on the invoice section to give others permission to create Azure subscriptions, like the accounts that are created in Enterprise Agreement enrollment.
 - You'll use the Azure portal to manage billing for your organization, instead of the Azure EA portal.
 
 You are given the following roles on the new billing account:
 
-**Invoice section owner** - You are assigned the invoice section owner role on the invoice section that is created for the department(s) you had in Enterprise Agreement. The role lets you view and track charges, and control who can create Azure subscriptions and buy other products for the invoice section.
+**Invoice section owner** - You are assigned the invoice section owner role on the invoice section that is created for the department(s) you had in the Enterprise Agreement. The role lets you view and track charges and control who can create Azure subscriptions and buy other products for the invoice section.
 
 ### View charges for your department
 
@@ -108,13 +108,13 @@ To learn how to provide, access to your invoice section, see [manage billing rol
 
 ### Create a new account in your department
 
-Assign users the Azure subscription creator role on invoice section that's created for your department. For more information on assigning roles, see [Manage billing roles in the Azure portal](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal)
+Assign users the Azure subscription creator role on the invoice section that's created for your department. For more information on assigning roles, see [Manage billing roles in the Azure portal](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal)
 
 ### View charges for accounts in your departments
 
 The accounts that were created in your Enterprise Agreement enrollment are not supported in the new billing account. The account's subscriptions belong to the respective invoice section for their department. Account owners can create and manage subscriptions for their invoice sections.
 
-To view aggregate cost for subscriptions that belonged to an account in your department, you must set a cost center for each subscription. Then you can use the Azure usage and charges file to filter the subscriptions by the cost center.
+To view the aggregate cost for subscriptions that belonged to an account in your department, you must set a cost center for each subscription. Then you can use the Azure usage and charges file to filter the subscriptions by the cost center.
 
 ## Changes for account owners
 
@@ -122,7 +122,7 @@ Account owners on the Enterprise Agreement get permission to create Azure subscr
 
 To create additional Azure subscriptions, you are given the following role on the new billing account.
 
-**Azure subscription creator** - You are assigned the Azure subscription creator role on the invoice section that is created for your department in Enterprise Agreement. If your account doesn't belong to a department, you get Azure subscription creator role on a section named Default invoice section. The role lets you create Azure subscriptions for the invoice section.
+**Azure subscription creator** - You are assigned the Azure subscription creator role on the invoice section that is created for your department in the Enterprise Agreement. If your account doesn't belong to a department, you get Azure subscription creator role on a section named Default invoice section. The role lets you create Azure subscriptions for the invoice section.
 
 ### Create an Azure subscription
 
@@ -130,14 +130,14 @@ You can create Azure subscriptions for your invoice section in the Azure portal.
 
 ### View charges for your account
 
-To view charges for subscriptions that belonged to an account, go to the [subscriptions page](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) in the Azure portal. The subscriptions page displays charges for all your subscription.
+To view charges for subscriptions that belonged to an account, go to the [subscriptions page](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) in the Azure portal. The subscriptions page displays charges for all your subscriptions.
 
 ### View charges for a subscription
 
 You can view charges for a subscription either on the [subscriptions page](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) or the Azure cost analysis. For more information on Azure cost analysis, see [explore and analyze costs with Cost analysis](../costs/quick-acm-cost-analysis.md).
 
 > [!NOTE]
-> To understand what could change upon migration from Enterprise Agreement to Microsoft Customer Agreement, refer [this](https://learn.microsoft.com/azure/cost-management-billing/costs/migrate-cost-management-api) document.
+> To understand what could change upon migration from Enterprise Agreement to Microsoft Customer Agreement, refer to the [Migrate Cost Management API](../costs/migrate-cost-management-api.md) article.
 
 ## Need help? Contact support
 

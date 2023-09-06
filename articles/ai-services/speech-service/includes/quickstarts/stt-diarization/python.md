@@ -75,7 +75,7 @@ Follow these steps to create a new console application.
             nonlocal transcribing_stop
             transcribing_stop = True
 
-        # Connect callbacks to the events fired by the convesation transcriber
+        # Connect callbacks to the events fired by the conversation transcriber
         conversation_transcriber.transcribed.connect(conversation_transcriber_transcribed_cb)
         conversation_transcriber.session_started.connect(conversation_transcriber_session_started_cb)
         conversation_transcriber.session_stopped.connect(conversation_transcriber_session_stopped_cb)
@@ -112,7 +112,7 @@ python conversation_transcription.py
 ```
 
 > [!IMPORTANT]
-> Make sure that you set the `SPEECH__KEY` and `SPEECH__REGION` environment variables as described [above](#set-environment-variables). If you don't set these variables, the sample will fail with an error message.
+> Make sure that you set the `SPEECH_KEY` and `SPEECH_REGION` environment variables as described [above](#set-environment-variables). If you don't set these variables, the sample will fail with an error message.
 
 The transcribed conversation should be output as text: 
 

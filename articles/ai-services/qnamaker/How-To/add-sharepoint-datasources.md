@@ -111,7 +111,8 @@ The Active Directory manager will get a pop-up window requesting permissions to 
 -->
 ### Grant access from the Azure Active Directory admin center
 
-1. The Active Directory manager signs in to the Azure portal and opens **[Enterprise applications](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps)**.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Browse to **Azure Active Directory** > **Enterprise applications**.
 
 1. Search for `QnAMakerPortalSharePoint` the select the QnA Maker app.
 

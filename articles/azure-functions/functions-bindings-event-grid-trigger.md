@@ -354,6 +354,8 @@ See the [Example section](#example) for complete examples.
 
 ## Usage
 
+The Event Grid trigger uses a webhook HTTP request, which can be configured using the same [*host.json* settings as the HTTP Trigger](functions-bindings-http-webhook.md#hostjson-settings).
+
 ::: zone pivot="programming-language-csharp"  
 The parameter type supported by the Event Grid trigger depends on the Functions runtime version, the extension package version, and the C# modality used. 
 

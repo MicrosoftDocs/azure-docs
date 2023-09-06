@@ -68,7 +68,7 @@ We also support the input type of int, bool, double, list and object.
 
 ## Develop the flow using different tools
 
-In one flow, you can consume different kinds of tools. We now support LLM, Python, Serp API, Content Safety, Vector Search and etc.
+In one flow, you can consume different kinds of tools. We now support LLM, Python, Serp API, Content Safety, Vector Search, etc.
 
 ### Add tool as your need
 

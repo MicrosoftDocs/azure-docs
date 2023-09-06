@@ -12,7 +12,7 @@ ms.topic: how-to
 ms.date: 06/24/2022
 ms.author: barclayn
 ms.reviewer: krbain
-ms.custom: it-pro
+ms.custom: it-pro, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 ---
 # Azure Active Directory cmdlets for configuring group settings

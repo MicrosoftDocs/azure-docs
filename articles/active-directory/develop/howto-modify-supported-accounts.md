@@ -20,7 +20,7 @@ ms.reviewer: aragra, sureshja
 
 When you registered your application with the Microsoft identity platform, you specified who--which account types--can access it. For example, you might've specified accounts only in your organization, which is a *single-tenant* app. Or, you might've specified accounts in any organization (including yours), which is a *multi-tenant* app.
 
-In the following sections, you learn how to modify your app's registration in the Azure portal to change who, or what types of accounts, can access the application.
+In the following sections, you learn how to modify your app's registration to change who, or what types of accounts, can access the application.
 
 ## Prerequisites
 
@@ -32,10 +32,10 @@ In the following sections, you learn how to modify your app's registration in th
 
 To specify a different setting for the account types supported by an existing app registration:
 
-1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
-1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which the app is registered.
-1. Search for and select **Azure Active Directory**.
-1. Under **Manage**, select **App registrations**, select your application, and then select **Manifest** to use the manifest editor.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Application Developer](../roles/permissions-reference.md#application-developer).
+1. If access to multiple tenants is available, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant where the application is registered.
+1. Browse to **Identity** > **Applications** > **App registrations**.
+1. Select your application, and then select **Manifest** to use the manifest editor.
 1. Download the manifest JSON file locally.
 1. Now, specify who can use the application, sometimes referred to as the *sign-in audience*.  Find the *signInAudience* property in the manifest JSON file and set it to one of the following property values:
 

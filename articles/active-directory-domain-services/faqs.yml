@@ -11,7 +11,7 @@ metadata:
   ms.subservice: domain-services
   ms.workload: identity
   ms.topic: faq
-  ms.date: 08/01/2023
+  ms.date: 09/05/2023
   ms.author: justinha
 title: Frequently asked questions (FAQs) about Azure Active Directory (AD) Domain Services
 summary: This page answers frequently asked questions about Azure Active Directory Domain Services.
@@ -105,6 +105,11 @@ sections:
           I've enabled Azure AD Domain Services. What user account do I use to domain join machines to this domain?
         answer: |
           Any user account that's part of the managed domain can join a VM. Members of the *Azure AD DC Administrators* group are granted remote desktop access to machines that have been joined to the managed domain.
+
+      - question: |
+          Is there any quota for the number of machines that I can join to the domain?
+        answer: |
+          There's no quota in Azure AD DS for domain-joined machines.
 
       - question: |
           Do I have domain administrator privileges for the managed domain provided by Azure AD Domain Services?
