@@ -39,6 +39,7 @@ You'll need an Azure account in an Azure subscription that adheres to one of the
    - Region
    - SKU
    - Number of nodes
+     
      Click **Save and continue**
 
    >[!NOTE]
@@ -79,15 +80,16 @@ Access the Azure portal using the **Admin On Behalf Of** (AOBO) procedure from P
    1. Expand customer details and select **Microsoft Azure Management Portal**.
    
    1. In the Azure portal, under **Help + Support**, create a **[New support request](https://rc.portal.azure.com/#create/Microsoft.Support)** and provide the following information:
-      -  - **Issue type:** Service and subcscription limits (quotas)
-   - **Subscription:** Select your subscription
-   - **Quota type:** Azure VMware Solution
+      - **Issue type:** Service and subcscription limits (quotas)
+      - **Subscription:** Select your subscription
+      - **Quota type:** Azure VMware Solution
 
    1. Got to **Next**. On the **Additional details** tab, under **Request details** > Enter details form:
 
-   - Region
-   - SKU
-   - Number of nodes
+      - Region
+      - SKU
+      - Number of nodes
+     
      Click **Save and continue**
 
    >[!NOTE]
