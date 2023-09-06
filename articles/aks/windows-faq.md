@@ -97,7 +97,7 @@ az aks nodepool add \
     --name $NODEPOOL_NAME \
     --max-pods 3
 ```
-For more details, see the [`--max-pods` documentation](https://learn.microsoft.com/cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-add:~:text=for%20system%20nodepool.-,%2D%2Dmax%2Dpods%20%2Dm,-The%20maximum%20number).
+For more details, see the [`--max-pods` documentation](/cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-add:~:text=for%20system%20nodepool.-,%2D%2Dmax%2Dpods%20%2Dm,-The%20maximum%20number).
 
 ## Why is there an unexpected user named "sshd" on my VM node?
 
