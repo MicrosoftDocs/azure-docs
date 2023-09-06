@@ -38,6 +38,9 @@ If you don't have an Azure subscription, create a [free account] before you begi
 * A [resource group]
 * The [rentalCarSimulation] C# project
 
+> [!TIP]
+> You can download the entire [rentalCarSimulation] C# project from GitHub as a single ZIP file by going to [the root of the sample] and selecting the green **<> Code** button, then **Download ZIP**.
+
 This tutorial uses the [Postman] application, but you can choose a different API development environment.
 
 >[!IMPORTANT]
@@ -309,6 +312,7 @@ To learn more about how to send device-to-cloud telemetry, and the other way aro
 [register a new device in the IoT hub]: ../iot-hub/iot-hub-create-through-portal.md#register-a-new-device-in-the-iot-hub
 [rentalCarSimulation]: https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/tree/master/src/rentalCarSimulation
 [resource group]: ../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups
+[the root of the sample]: https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing
 [Search Address Reverse]: /rest/api/maps/search/getsearchaddressreverse
 [Send telemetry from a device]: ../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp
 [Spatial Geofence Get API]: /rest/api/maps/spatial/getgeofence
