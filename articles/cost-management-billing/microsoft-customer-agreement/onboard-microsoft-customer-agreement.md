@@ -13,17 +13,17 @@ ms.reviewer: michm
 
 # Onboard to the Microsoft Customer Agreement (MCA)
 
-This guide helps customers who buy Microsoft software and services through a Microsoft account manager to set up an MCA contract. The guide was created to recommend best practices to onboard you to an MCA.
+This playbook (guide) helps customers who buy Microsoft software and services through a Microsoft account manager to set up an MCA contract. The guide was created to recommend best practices to onboard you to an MCA.
 
 The onboarding processes and important considerations vary, depending on whether you are:
 
-- New to MCA and have never signed an MCA contract but may buy Azure and per-seat products using another method, such as licensing vehicle or contracting type.
+- New to MCA and have never signed an MCA contract but may have bought Azure and per-seat products using another method, such as licensing vehicle or contracting type.
 
 -Or-
 
 - Migrating from an existing Enterprise Agreement (EA) to an MCA.
 
-This guide follows each path and provides information for each step of the process. Several of the following steps are similar for each path. However, there are important notes called out to make each step of the process easier.
+This guide follows each path and provides information for each step of the process. Several of the following steps are similar for each path. However, there are important notes called out in each path to make each step of the process easier.
 
 >[!IMPORTANT]
 > - Migrating from an existing EA to an MCA is a billing change. It isn't an Azure resource or access permission change.
@@ -274,7 +274,7 @@ Each billing account has at least one billing profile. Your first billing profil
 In the billing account for an MCA, an invoice is generated every month for each billing profile. The invoice includes all charges from the previous month organized by invoice sections that you can define. You can view your invoices in the Azure portal and compare the charges to the usage detail files. Learn how the [charges on your invoice](https://www.youtube.com/watch?v=e2LGZZ7GubA&feature) work and take a step-by-step [invoice tutorial](../understand/review-customer-agreement-bill.md).
 
 >[!IMPORTANT]
-> Bank remittance details for your new MCA will differ from those for your old EA. Use the remittance information at the bottom of your MCA invoice. For more information, see [Bbank details used to send wire transfers](../understand/pay-bill.md#bank-details-used-to-send-wire-transfer-payments).
+> Bank remittance details for your new MCA will differ from those for your old EA. Use the remittance information at the bottom of your MCA invoice. For more information, see [Bank details used to send wire transfers](../understand/pay-bill.md#bank-details-used-to-send-wire-transfer-payments).
 
 ### Step 7 – Get to know MCA features
 
