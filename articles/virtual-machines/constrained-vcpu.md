@@ -17,17 +17,31 @@ ms.reviewer: mimckitt
 > [!TIP]
 > Try the **[Virtual Machine selector tool](https://aka.ms/vm-selector)** to find other sizes that best fit your workload.
 
-Some database workloads like SQL Server require high memory, storage, and I/O bandwidth, but don't benefit from a high number of cores. Many database workloads aren't CPU-intensive. Azure offers pre-defined VM sizes with a lowered vCPU count to help to reduce the cost of software licensing, while maintaining the same memory, storage, and I/O bandwidth.
+Some database workloads require high memory, storage, and I/O bandwidth, but don't benefit from a high number of cores. Products designed for these workloads are often licensed on a per-CPU-core basis. This means that a VM size with otherwise ideal specifications but an excessive vCPU count can cause a substantial increase in licensing costs. To help manage your costs, Azure offers predefined VM sizes with a lowered vCPU count to help to reduce the cost of software licensing, while maintaining the same memory, storage, and I/O bandwidth.
 
-The available vCPU count can be  reduced to one half or one quarter of the original VM specification. These new VM sizes have a suffix that specifies the number of available vCPUs to make them easier for you to identify. There are no additional cores available that can be used by the VM.
+The original size's available vCPU count can be reduced to either one half or one quarter of the original size specification. These new VM sizes have a suffix that specifies the number of available vCPUs to make them easier for you to identify. Learn more about [VM size naming conventions](./vm-naming-conventions).
 
-For example, the Standard_E32s_v5 VM size comes with 32 vCPUs, 256 GiB RAM, 32 disks, and 80,000 IOPs or 2 GB/s of I/O bandwidth. The pre-defined Standard_E32-16s_v5 and Standard_E32-8s_v5 VM sizes comes with 16 and 8 active vCPUs respectively, while maintaining the memory, storage, and I/O bandwidth specifications of the Standard_E32s_v5.
+> [!NOTE]
+> Disabled vCPUs are not available for use by the VM. If your VM has multiple workloads assigned to it then it may require more vCPUs. If possible, relocate secondary tasks to another virtual machine to avoid increased licensing costs.
 
-The licensing fees charged for SQL Server are based on the avaialble vCPU count. Third party products should count the available vCPU which represents the max to be used and licensed. This results in a 50% to 75% increase in the ratio of the VM specs to available (billable) vCPUs. At this time, the VM pricing, remains the same as the original size. For more information, see [Azure VM sizes for more cost-effective database workloads](https://azure.microsoft.com/blog/announcing-new-azure-vm-sizes-for-more-cost-effective-database-workloads/).
+## Example workload
+The licensing fees charged for SQL Server are based on the available vCPU count. Third party products should count the available vCPU which represents the max to be used and licensed. This constraint results in a 50% to 75% increase in the ratio of the VM specs to available (billable) vCPUs. 
 
+## Specification comparison
+The Standard_E32s_v5 VM size comes with 32 vCPUs, 256 GiB of RAM, 32 disks, and 80,000 IOPs of I/O bandwidth. The pre-defined Standard_E32-16s_v5 and Standard_E32-8s_v5 VM sizes comes with 16 and 8 active vCPUs respectively, while maintaining the memory, storage, and I/O bandwidth specifications of the Standard_E32s_v5.
 
+|Type         | Size name              | vCPU count | Memory, Storage, I/O           |
+|-------------|------------------------|------------|--------------------------------|
+| Original    | Standard_E32s_v5       | 32         | 256 GiB, 32 Disks, 80,000 IOPs |
+| Constrained | Standard_E32-**16**s_v5| **16**     | 256 GiB, 32 Disks, 80,000 IOPs |
+| Constrained | Standard_E32-**8**s_v5 | **8**      | 256 GiB, 32 Disks, 80,000 IOPs |
 
-#### [M-family size series](#tab/family-M)
+## Pricing
+At this time, the VM pricing, remains the same as the original size. For more information, see [Azure VM sizes for more cost-effective database workloads](https://azure.microsoft.com/blog/announcing-new-azure-vm-sizes-for-more-cost-effective-database-workloads/).
+
+## List of available sizes with constrained vCPUs
+
+#### [M-family sizes](#tab/family-M)
 
 | Name                    | vCPU | Base Size  |
 |-------------------------|------|------------|
@@ -45,7 +59,7 @@ The licensing fees charged for SQL Server are based on the avaialble vCPU count.
 | Standard_M416-208ms_v2  | 208  | M416ms_v2  |
 
 
-#### [E-family size series](#tab/family-E)
+#### [E-family sizes](#tab/family-E)
 
 | Name                    | vCPU | Base Size  |
 |-------------------------|------|------------|
@@ -133,7 +147,7 @@ The licensing fees charged for SQL Server are based on the avaialble vCPU count.
 | Standard_E96-24as_v5    | 24   | E96as_v5   |
 
 
-#### [G-family size series](#tab/family-G)
+#### [G-family sizes](#tab/family-G)
 
 | Name                    | vCPU | Base Size  |
 |-------------------------|------|------------|
@@ -143,7 +157,7 @@ The licensing fees charged for SQL Server are based on the avaialble vCPU count.
 | Standard_GS5-8          | 8    | GS5        |
 
 
-#### [D-family size series](#tab/family-D)
+#### [D-family sizes](#tab/family-D)
 
 | Name                    | vCPU | Base Size  |
 |-------------------------|------|------------|
@@ -157,7 +171,7 @@ The licensing fees charged for SQL Server are based on the avaialble vCPU count.
 
 ---
 
-## Other sizes
+## Other standard sizes
 - [Compute optimized](./sizes-compute.md)
 - [Memory optimized](./sizes-memory.md)
 - [Storage optimized](./sizes-storage.md)
